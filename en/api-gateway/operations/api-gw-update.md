@@ -12,7 +12,7 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update an API gateway.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. In the API gateway row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the API gateway parameters or OpenAPI specification, if needed.
 
@@ -46,7 +46,7 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
 
      Where:
      * `--id`: ID of the API gateway you need to update.
-     * `--name`: New name for the API gateway. This is an optional setting. Follow these naming requirements:
+     * `--name`: New name for the API gateway. This is an optional setting. The naming requirements are as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
      * `--execution-timeout`: Request execution timeout. The value is specified in seconds and must not exceed the specified [limit](../concepts/limits.md#api-gw-limits). This is an optional setting. The default value is `300` seconds.
@@ -117,7 +117,7 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```text
      Success! The configuration is valid.
@@ -129,8 +129,8 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-  1. Apply the changes:
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
      ```bash
      terraform apply

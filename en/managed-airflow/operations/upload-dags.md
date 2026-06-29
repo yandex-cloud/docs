@@ -1,6 +1,6 @@
 # Uploading DAG files to a {{ maf-name }} cluster
 
-Automation, data processing, and scheduled task execution are implemented using _[DAG files](../concepts/index.md#about-the-service)_. DAG files are Python 3 scripts run inside {{ AF }}. For a DAG file example, check [this {{ AF }} tutorial](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).
+Automation, data processing, and scheduled task execution are implemented using _[DAG files](../concepts/index.md#about-the-service)_. DAG files are Python 3 scripts run inside {{ AF }}. For a DAG file example, check [this {{ AF }} guide](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).
 
 You can import DAG files from:
 

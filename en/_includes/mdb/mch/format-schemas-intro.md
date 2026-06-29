@@ -16,4 +16,4 @@ To use the format schemas you added, insert the data into {{ mch-name }} via the
 
 {% endnote %}
 
-For more information about data formats, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/interfaces/formats).
+Learn more about data formats in [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/interfaces/formats).

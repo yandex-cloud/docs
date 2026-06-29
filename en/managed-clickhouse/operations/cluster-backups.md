@@ -22,7 +22,7 @@ The system uses random replica hosts to create backups. If cluster hosts lack da
 
 - Management console {#console}
   
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
@@ -541,12 +541,12 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 - Management console {#console}
 
   To get a list of cluster backups:
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
 
   To get a list of all backups in your folder:
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
 
@@ -692,7 +692,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 - Management console {#console}
 
   To get backup details for an existing cluster:
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
 
@@ -999,7 +999,7 @@ You can only delete manual backups.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup in question and select **{{ ui-key.yacloud.mdb.cluster.backups.button_delete }}**.

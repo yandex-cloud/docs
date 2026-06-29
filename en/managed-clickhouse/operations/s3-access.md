@@ -25,7 +25,7 @@ If no service account is specified, SQL queries will be sent:
 
 {% endnote %}
 
-See also [Examples of working with objects](#examples).
+Examples of [working with objects](#examples).
 
 
 Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account. You will need this role in the following cases:
@@ -54,7 +54,7 @@ To connect {{ mch-name }} clusters to {{ objstorage-name }}, we recommend using 
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your bucket. If you have no bucket, [create](../../storage/operations/buckets/create.md) one and [upload](../../storage/operations/objects/upload.md) the data you need to it.
 
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 
   1. Set up the [bucket ACL](../../storage/operations/buckets/edit-acl.md) or [object ACL](../../storage/operations/objects/edit-acl.md):

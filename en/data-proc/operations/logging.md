@@ -2,7 +2,7 @@
 
 [{{ cloud-logging-full-name }}](../../logging) collects and displays {{ dataproc-name }} cluster logs.
 
-To monitor events on the cluster and its individual hosts, specify the relevant [log group](../../logging/concepts/log-group.md) in its settings. You can do this when [creating](cluster-create.md) or [updating](cluster-update.md) the cluster. If no log group has been selected for the cluster, a default log group in the cluster directory will send and store logs.
+To monitor events on the cluster and its individual hosts, specify the relevant [log group](../../logging/concepts/log-group.md) in its settings. You can do this when [creating](cluster-create.md) or [updating](cluster-update.md) the cluster. If no log group is selected for the cluster, the default log group in the cluster directory will be used for sending and storing logs.
 
 For more information, see [Logs](../concepts/logs.md).
 
@@ -88,7 +88,7 @@ For more information, see [Logs](../concepts/logs.md).
          --until 'YYYY-MM-DDThh:mm:ssZ'
       ```
 
-      Set the logging period in the `--since` and `--until` parameters. Time format: `YYYY-MM-DDThh:mm:ssZ`. Example: `2020-08-10T12:00:00Z`. Use the UTC time zone.
+      Set the logging period in the `--since` and `--until` parameters. Time format: `YYYY-MM-DDThh:mm:ssZ`, e.g., `2020-08-10T12:00:00Z`. Use the UTC time zone.
 
     * To get the log for metrics sent from a specific host to [{{ monitoring-full-name }}](../../monitoring/index.yaml), run this command:
 

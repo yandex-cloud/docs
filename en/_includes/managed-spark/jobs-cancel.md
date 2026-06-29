@@ -1,6 +1,6 @@
 {% note info %}
 
-You cannot cancel jobs with the `ERROR`, `DONE`, or `CANCELLED` status. To find out a job's status, retrieve a [list of jobs](#list) in the cluster.
+You cannot cancel jobs with the `ERROR`, `DONE`, or `CANCELLED` status. To find out the job status, get the [list of jobs](#list) in the cluster.
 
 {% endnote %}
 
@@ -8,8 +8,8 @@ You cannot cancel jobs with the `ERROR`, `DONE`, or `CANCELLED` status. To find 
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}).
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
     1. Click the job name.
     1. Click **{{ ui-key.yacloud.common.cancel }}** in the top-right corner of the page.
@@ -42,7 +42,7 @@ You cannot cancel jobs with the `ERROR`, `DONE`, or `CANCELLED` status. To find 
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../managed-spark/api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../../managed-spark/api-ref/authentication.md) and put it into an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -65,8 +65,8 @@ You cannot cancel jobs with the `ERROR`, `DONE`, or `CANCELLED` status. To find 
             yandex.cloud.spark.v1.JobService.Cancel
         ```
 
-        You can get the cluster ID with the [list of folder clusters](../../managed-spark/operations/cluster-list.md#list-clusters), and the job ID, with the [list of cluster jobs](#list).
+        You can get the cluster ID with the [list of clusters in the folder](../../managed-spark/operations/cluster-list.md#list-clusters), and the job ID, with the [list of cluster jobs](#list).
 
-    1. View the [server response](../../managed-spark/api-ref/grpc/Job/cancel.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../../managed-spark/api-ref/grpc/Job/cancel.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

@@ -65,6 +65,7 @@ resource "yandex_vpc_subnet" "foo" {
 - `permissions` [Block]. Set of permissions granted to the user.
   - `categories` (String). Command categories user has permissions to.
   - `commands` (String). Commands user can execute.
+  - `databases` (String). Databases user has access to. Accepts "alldbs", "resetdbs", or comma-separated list of database numbers (e.g. "0,1,5").
   - `patterns` (String). Keys patterns user has permission to.
   - `pub_sub_channels` (String). Channel patterns user has permissions to.
   - `sanitize_payload` (String). SanitizePayload parameter.

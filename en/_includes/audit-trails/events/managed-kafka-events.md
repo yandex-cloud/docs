@@ -13,9 +13,11 @@ Event name | Description
 `PauseConnector` | Pausing a connector
 `ResumeConnector` | Resuming a connector
 `RevokeUserPermission` | Revoking a cluster user's permissions
+`SetClusterAccessBindings` | Assigning access permissions for a cluster
 `StartCluster` | Starting a cluster
 `StopCluster` | Stopping a cluster
 `UpdateCluster` | Updating a cluster
+`UpdateClusterAccessBindings` | Updating access permissions for a cluster
 `UpdateConnector` | Updating a connector
 `UpdateTopic` | Updating a topic
 `UpdateUser` | Updating a cluster user

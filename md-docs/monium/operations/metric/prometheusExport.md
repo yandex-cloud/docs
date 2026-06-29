@@ -17,7 +17,7 @@
    * `iam` — Identity and Access Management.
    * `interconnect` — Cloud Interconnect.
    * `kms` — Key Management Service.
-   * `logging` — Monium Logs.
+   * `logging` — Cloud Logging.
    * `managed-clickhouse` — Managed Service for ClickHouse®.
    * `managed-gitlab` — Managed Service for GitLab.
    * `managed-greenplum` — Yandex MPP Analytics for PostgreSQL.

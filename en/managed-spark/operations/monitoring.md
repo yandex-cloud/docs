@@ -1,9 +1,9 @@
 ---
 title: '{{ SPRK }} cluster state monitoring'
-description: You can monitor the state of a {{ SPRK }} cluster using the monitoring tools in the management console. These tools display diagnostic information as charts. You can also configure {{ monitoring-full-name }} alerts for automated cluster health monitoring.
+description: You can monitor the state of a {{ SPRK }} cluster using the monitoring tools in the management console. These tools display diagnostic information as charts. You can also configure {{ monitoring-full-name }} alerts for automated cluster state monitoring.
 ---
 
-# Cluster health state monitoring {{ SPRK }}
+# {{ SPRK }} cluster state monitoring
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -13,7 +13,7 @@ Charts are updated every 15 seconds.
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Cluster health state monitoring {#monitoring-cluster}
+## Cluster state monitoring {#monitoring-cluster}
 
 To view detailed information on the health state of a {{ SPRK }} cluster:
 
@@ -127,7 +127,7 @@ To configure [cluster](#monitoring-cluster) state indicator alerts:
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-For a complete list of supported metrics, see [this {{ monitoring-name }} article](../../monitoring/metrics-ref/managed-spark-ref.md).
+For a complete list of supported metrics, see [this {{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-spark-ref.md).
 
 ## Cluster health and status {#cluster-health-and-status}
 

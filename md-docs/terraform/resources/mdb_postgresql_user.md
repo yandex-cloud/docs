@@ -54,7 +54,7 @@ resource "yandex_vpc_subnet" "foo" {
 - `auth_method` (String). Authentication method for the user. Possible values are `AUTH_METHOD_PASSWORD`, `AUTH_METHOD_IAM`. Default is `AUTH_METHOD_PASSWORD`.
 - `cluster_id` (**Required**)(String). The ID of the PostgreSQL cluster.
 - `conn_limit` (Number). The maximum number of connections per user. (Default 50).
-- `connection_manager` (*Read-Only*) (Map Of String). Connection Manager connection configuration. Filled in by the server automatically.
+- `connection_manager` (*Read-Only*) (Map Of String). Connection Manager connection configuration. Populated from `user_connection_manager`.
 - `deletion_protection` (String). The `true` value means that resource is protected from accidental deletion.
 - `generate_password` (Bool). Generate password using Connection Manager. Allowed values: true or false. It's used only during user creation and is ignored during updating.
 
@@ -124,7 +124,11 @@ The default is password_encryption setting for cluster.
   - `create` (String). 
   - `delete` (String). 
   - `read` (String). 
-  - `update` (String).
+  - `update` (String). 
+- `user_connection_manager` [Block]. Connection Manager settings for the user.
+  - `connection_folder_id` (String). ID of the folder where the connection is created. Defaults to the cluster's folder if not specified. Cannot be changed after user creation.
+  - `connection_id` (*Read-Only*) (String). ID of the connection manager connection for this user. Computed by the server.
+  - `secret_folder_id` (String). ID of the folder where the secret is created. Defaults to the cluster's folder if not specified. Cannot be changed after user creation.
 
 ## Import
 

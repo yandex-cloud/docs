@@ -13,6 +13,8 @@ The function code inside `Editor.wrapFn` is executed on the client in the user's
 
 The tabs are executed in a specific order.
 
+
+
 ## Meta {#meta}
 
 Serves to describe service information about the list of related entities.
@@ -50,6 +52,7 @@ As a key, you need to specify any alias name that will be assigned to this data 
 
 {% endlist %}
 
+
 ## Params {#params}
 
 This tab is for default chart/selector parameters. All chart/selector parameters must be described on the **Params** tab. The parameter values ​​are arrays of strings. If you only need to provide one value, you need to format it as an array consisting of one element.
@@ -67,6 +70,7 @@ This tab is for default chart/selector parameters. All chart/selector parameters
 
 - Example
 
+  
   ```js
   module.exports = {
       count: ['10'],
@@ -74,13 +78,14 @@ This tab is for default chart/selector parameters. All chart/selector parameters
   };
   ```
 
+
 {% endlist %}
 
 If you set other parameter values for such a chart on the dashboard or in the report in the widget settings, the **Params** tab values will be overridden. The values will also be overridden if you select values different from the default ones in the dashboard or report selector or apply cross-filtering by another chart. [Learn more about overriding parameters](../../dashboard/dashboard_parameters.md#params-applying)
 
 You can get the values ​​of all current parameters on subsequent tabs using the [Editor.getParams()](./methods.md#get-params) method; you can also get the current value of any parameter by its name using [Editor.getParam(name)](./methods.md#get-param).
 
-You can override the parameters using the chart's URL. For example:
+You can override the parameters using the chart's URL. Here is an example:
 
 ```text
 &period=40&metric=2012&metric=2014
@@ -100,7 +105,7 @@ When a dashboard or report is initially rendered, the parameters that link the J
 
 ### Special parameters {#special-parameters}
 
-#### Relative date {#relativedate}
+#### Relative date {#relative-date}
 
 **Formats**:
 
@@ -139,7 +144,7 @@ If the current time is `2020-03-24T23:30:39.874Z`, then
 **Note**: If no casting is specified, then for the units of one day and longer, the time is cast to the start of the day,
 i.e., `00:00:00.000`, while casting to the current time is used for the units shorter than one day.
 
-**Helper method**: [Editor.resolveRelative](./methods.md#resolve-relative)
+**Helper method**: [Editor.resolveRelative(arg)](./methods.md#resolve-relative)
 
 #### Interval {#interval}
 
@@ -159,36 +164,16 @@ If the current time is `2020-03-24T23:30:39.874Z`, then
     * cast to the start of the month: `2020-03-01T00:00:00.000Z`
   * until tomorrow: `2020-03-25T23:59:59.999Z`
 
-**Helper method**: [Editor.resolveInterval](./methods.md#resolve-interval)
+**Helper method**: [Editor.resolveInterval(arg)](./methods.md#resolve-interval)
 
 ### Limits {#params-restrictions}
 
 The following limitations apply when using parameters:
 
-* You cannot use the following reserved keys:
-
-  * `tab`
-  * `state`
-  * `mode`
-  * `focus`
-  * `grid`
-  * `scale`
-  * `tz`
-  * `timezone`
-  * `date`
-  * `datetime`
-  * `_action_params`
-  * `_autoupdate`
-  * `_opened_info`
-  * `report_page`
-  * `preview_mode`
-
-  Parameters with these keys are ignored and not saved.
-
-* Links can only use parameters that are set in the dashboard settings. Otherwise, they are ignored. For example, if a link contains `?product=Furniture`, but the dashboard settings have no `product` parameter (not even with an empty value), this parameter will be ignored.
-* Dashboard parameters are applied to widgets anyway. This may lead to errors in data requests.
+{% include [params-restrictions](../../../_includes/datalens/params-restrictions.md) %}
 
 ## Sources {#sources}
+
 
 This tab defines the structure for requesting the data to visualize.
 
@@ -234,6 +219,7 @@ To use data from a dataset:
     * `title`: Column name or ID.
     * `type`: Type of the column specified in title (select a column by its name or ID).
 
+
 - Example 1
 
   ```js
@@ -266,7 +252,6 @@ To use data from a dataset:
   };
   ```
 
-
 - Example 2
 
   For convenience, you can use the auxiliary service module to work with datasets. In which case Example 1 will look like this:
@@ -288,11 +273,13 @@ To use data from a dataset:
 
   There will be an additional parameter where you can provide an array of dataset column IDs.
 
+
 {% endlist %}
 
 Example of getting only a list of fields from a dataset:
 
 {% list tabs %}
+
 
 - Sources tab
 
@@ -304,6 +291,7 @@ Example of getting only a list of fields from a dataset:
     }
   };
   ```
+
 
 {% endlist %}
 
@@ -332,6 +320,7 @@ To get data from a connection (via an SQL query):
 
   * `qlConnectionId`: ID of the connection described on the [Meta](#meta) tab and obtained using the [Editor.getId(arg)](./methods.md#get-id) method.
   * `sql_query`: Data query.
+
   
 - Example
 
@@ -345,6 +334,7 @@ To get data from a connection (via an SQL query):
       }
   }
   ```
+
 
 {% endlist %}
 
@@ -376,6 +366,7 @@ To get data via API Connector:
   * `method`: Method supporting GET and POST.
   * `body`: Request body.
 
+
 - Example
 
   ```js
@@ -388,6 +379,7 @@ To get data via API Connector:
   }
   ```
 
+
 {% endlist %}
 
 #### See also {#see-also-api-connector}
@@ -398,7 +390,8 @@ To get data via API Connector:
 
 This tab is used to set visualization settings, e.g., cross-chart filtering settings.
 
-Available for [Chart](./widgets/chart.md) and [Table](./widgets/table.md) visualization types. Possible contents depend on the specific visualization type.
+Available for the following visualization types: [Chart (Gravity UI Charts)](./widgets/gravity-ui.md) and [Table](./widgets/table.md). Possible contents depend on the specific visualization type.
+
 
 ## Prepare {#prepare}
 
@@ -410,19 +403,22 @@ This tab is responsible for data preprocessing prior to rendering and includes t
 
 * Writing the results to `module.exports`, from where they get into rendering.
 
-Available for [Chart](./widgets/chart.md), [Advanced chart](./widgets/advanced.md), [Table](./widgets/table.md), [Markdown](./widgets/markdown.md) visualization types.
+Available for the following visualization types: [Chart (Gravity UI Charts)](./widgets/gravity-ui.md), [Advanced chart](./widgets/advanced.md), [Table](./widgets/table.md), and [Markdown](./widgets/markdown.md).
+
 
 ## Controls {#controls}
 
 The declarative style describes the possible controls, i.e., the chart's control elements. Unlike [dashboard](../../concepts/dashboard.md) selectors and [report](../../reports/index.md) selectors, these control the current chart alone and are not saved after you refresh the page.
 
-Available for all [visualization types](./widgets/index.md). The tab format details depend on the type of [controls](./widgets/controls.md).
+This tab is available for all [visualization types](./widgets/index.md).
+
+The tab format details depend on the type of [controls](./widgets/controls.md).
 
 ## Activities {#activities}
 
 The tab allows you to configure [interactive actions](#run-activities) for dashboard elements, such as sending an HTTP request when a table row is clicked.
 
-Available for the following visualization types: [selector](./widgets/controls.md), [table](./widgets/table.md), and [chart (Gravity UI Charts)](./widgets/chart.md).
+Available for the following visualization types: [Selector](./widgets/controls.md), [Table](./widgets/table.md), and [Chart (Gravity UI Charts)](./widgets/gravity-ui.md).
 
 {% list tabs %}
 
@@ -434,6 +430,7 @@ Available for the following visualization types: [selector](./widgets/controls.m
       handleResponse: ({data}) => { /* response processing */ }
   }
   ```
+
 
 - Example
 
@@ -460,11 +457,13 @@ Available for the following visualization types: [selector](./widgets/controls.m
   };
   ```
 
+
 {% endlist %}
 
 ### Available methods {#activities-methods}
 
 * `sources()`: Function returning an object for connection to a data source. It is used to send requests. The format is identical to the [Sources](#sources) tab format:
+
 
   ```js
   sources: ({params}) => ({     
@@ -485,6 +484,7 @@ Available for the following visualization types: [selector](./widgets/controls.m
   * `path`: API path after host.
   * `method`: Request method.
   * `body`: Request data.
+
 
 * `handleResponse()`: Function returning an object formatted for the specific [action](#activities-actions) type. It processes the server response and defines the interface action:
 
@@ -596,15 +596,18 @@ Available for the following visualization types: [selector](./widgets/controls.m
 To perform actions of the **Activities** tab, configure interface element events:
 
 * Selectors: On the **Controls** tab, set the button’s `onClick` event to the `runActivity` action.
-* **Gravity UI Charts** and **Tables**: Configure the `runActivity` action on the **Config** tab.
+* **Chart (Gravity UI Charts)** and **Tables**: Configure the `runActivity` action on the **Config** tab.
 
 ### Limits {#activities-restrictions}
 
 * The **Activities** tab supports limited data sources for requests: requests to datasets, standard connections, and API Connector connections.
-* This feature is currently available for the following chart types: [Selector](./widgets/controls.md), [Table](./widgets/table.md), and [Chart (Gravity UI Charts)](./widgets/chart.md).
+* This feature is currently available for the following chart types: [Selector](./widgets/controls.md), [Table](./widgets/table.md), and [Chart (Gravity UI Charts)](./widgets/gravity-ui.md).
 
 
 #### See also {#see-also-activities}
 
-* [Example of using the Activities tab in Editor](../../tutorials/create-editor-activities.md)
+* [Tutorial with an example of using the Activities tab in Editor](../../tutorials/create-editor-activities.md)
+
+* [Example of using the Activities tab in Editor](https://datalens.yandex/nvkfwnekf9xy9?tab=vZX)
+
 

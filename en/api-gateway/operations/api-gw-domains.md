@@ -27,7 +27,7 @@ To add a domain to an API gateway:
         To find out an API gateway's service domain:
 
        1. Navigate to the [management console]({{ link-console-main }}).
-       1. Select the folder where the API gateway is located and [go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+       1. Select the folder where the API gateway is located and go to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
        1. Select the API gateway.
        1. You can see the service domain in the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field.
 
@@ -37,7 +37,7 @@ To add a domain to an API gateway:
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the API gateway.
 
-    1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and do the following:
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and do the following:
 
         1. Add a [Let's Encrypt<sup>®</sup> certificate](../../certificate-manager/operations/managed/cert-create.md) or a [user certificate](../../certificate-manager/operations/import/cert-create.md) for the domain you are adding.
 
@@ -51,7 +51,7 @@ To add a domain to an API gateway:
     
     1. Go back to the folder page.
 
-    1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** and do the following:
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** and do the following:
 
         1. Select the API gateway.
         1. Navigate to the **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}** tab.

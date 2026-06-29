@@ -19,7 +19,7 @@ resource "yandex_mdb_greenplum_cluster" "my_cluster" {
   description        = "test greenplum cluster"
   environment        = "PRESTABLE"
   network_id         = yandex_vpc_network.foo.id
-  zone_id            = "ru-central1-a"
+  zone               = "ru-central1-a"
   subnet_id          = yandex_vpc_subnet.foo.id
   assign_public_ip   = true
   version            = "6.29"

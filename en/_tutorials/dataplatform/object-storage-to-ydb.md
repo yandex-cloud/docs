@@ -63,7 +63,7 @@ Set up your infrastructure:
         * `folder_id`: Cloud folder ID, same as in the provider settings.
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -151,7 +151,7 @@ Set up your infrastructure:
             * `source_endpoint_id`: Source endpoint ID.
             * `transfer_enabled`: Set to `1` to create a transfer.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -178,7 +178,7 @@ Make sure the transfer works correctly by testing copying and replication.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
     1. Select your database from the list.
     1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
     1. Check that the {{ ydb-name }} database contains the `table1` table with test data.
@@ -220,7 +220,7 @@ Make sure the transfer works correctly by testing copying and replication.
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-        1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** service.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select your database from the list.
         1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Check that `table1` now contains the new data.

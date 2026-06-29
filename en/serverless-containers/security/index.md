@@ -4,14 +4,20 @@
 
 In this section, you will learn about:
 
-* [What resources you can assign a role for](#resources).
-* [What roles this service has](#roles-list).
+* [Resources supporting role assignment](#resources).
+* [Roles this service has](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user should have the `serverless-containers.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you need the `serverless-containers.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
+
+{% note info %}
+
+The ability to invoke and managing containers from specific [cloud networks](../../vpc/concepts/network.md#network) or IP addresses or associate containers with specific cloud networks may be limited by [access policies](../../iam/concepts/access-control/access-policies.md) at the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [organization](../../organization/concepts/organization.md) level. 
+
+{% endnote %}
 
 ## Resources you can assign a role for {#resources}
 
@@ -21,7 +27,7 @@ To assign a role for a [container](../concepts/container.md), use the {{ yandex-
 
 ## Roles this service has {#roles-list}
 
-The list below shows all roles used for access control in {{ serverless-containers-name }}.
+The list below shows all the roles used for access control in {{ serverless-containers-name }}.
 
 {% include [serverless-containers](../../_mermaid/roles/serverless-containers.md) %}
 

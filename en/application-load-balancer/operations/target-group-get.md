@@ -9,7 +9,7 @@ title: How to get information about a target group in {{ alb-full-name }}
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your [target group](../concepts/target-group.md) folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Select the target group.
   1. You will see your target group details on the **{{ ui-key.yacloud.common.overview }}** page.
@@ -73,15 +73,15 @@ title: How to get information about a target group in {{ alb-full-name }}
       * `data "yandex_alb_target_group"`: Description of the target group as a data source:
         * `target_group_id`: Target group ID.
       * `output "target_group"`: Output variable with target group resource information:
-        * `value`: Returned value.
+        * `value`: Return value.
 
-      You can replace `target` with another variable to get the information you need. For more information about `yandex_alb_target_group` data source variables, see the [provider documentation]({{ tf-provider-datasources-link }}/alb_target_group).
+      You can replace `target` with another variable to get the information you need. For more information about the `yandex_alb_target_group` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/alb_target_group).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+      {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

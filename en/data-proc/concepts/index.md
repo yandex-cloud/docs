@@ -19,6 +19,7 @@ Subclusters of a single cluster must reside in the same [cloud network](../../vp
 
 Hosts in each subcluster are created with the computing capacity that is consistent with the specified _host class_. For a list of available host classes and their specs, see [Host classes](instance-types.md).
 
+
 VMs for cluster hosts can be hosted on:
 
 * _Regular {{ yandex-cloud }} hosts_:
@@ -27,11 +28,12 @@ VMs for cluster hosts can be hosted on:
 
 * _Dedicated {{ yandex-cloud }} hosts_:
 
-    These are physical servers that only host your VMs. Such VMs ensure the operation of both the cluster and your other services that support dedicated hosts. The hosts are selected from _dedicated host groups_ specified when creating a cluster.
+    These are physical servers reserved exclusively for your VMs. Such VMs ensure the operation of both the cluster and your other services that support dedicated hosts. The hosts are selected from _dedicated host groups_ specified when creating a cluster.
 
-    This placement option ensures physical isolation of the VMs. A {{ dataproc-name }} cluster using dedicated hosts includes all features of a regular cluster.
+    This placement configuration ensures physical isolation of VMs. A {{ dataproc-name }} cluster using dedicated hosts includes all features of a regular cluster.
 
-    For more information about dedicated hosts, see the [{{ compute-full-name }} documentation](../../compute/concepts/dedicated-host.md).
+    Learn more about dedicated hosts in [this {{ compute-full-name }} article](../../compute/concepts/dedicated-host.md).
+
 
 For information about network configuration and network access to clusters, see [{#T}](network.md).
 
@@ -55,6 +57,7 @@ Requirements for using lightweight clusters:
 * The cluster settings specify a bucket in {{ objstorage-full-name }}.
 
 For more information about resource allocation, see [Spark jobs](./spark-sql.md#resource-management).
+
 
 ## Security {#security}
 

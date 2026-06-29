@@ -73,7 +73,7 @@ Calculating the cost of storage and backup:
 
 
 
-  {% include [usd-managed-gitlab-storage](../_pricing_examples/managed-gitlab/usd-managed-gitlab-storage.md) %}
+{% include [usd-managed-gitlab-storage](../_pricing_examples/managed-gitlab/usd-managed-gitlab-storage.md) %}
 
 
 Total instance cost calculation:

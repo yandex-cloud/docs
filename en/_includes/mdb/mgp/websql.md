@@ -5,7 +5,7 @@ You can use [{{ websql-full-name }}](../../../websql) to run {{ mgp-name }} clus
 To connect to a {{ mgp-name }} cluster from {{ websql-name }}, create a connection:
 
 1. Open the [folder dashboard]({{ link-console-main }}).
-1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 1. Click the cluster name.
 1. [Enable](../../../managed-greenplum/operations/update.md#change-additional-settings) **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** in the cluster settings if it is not enabled yet.
 1. Select the **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}** tab.

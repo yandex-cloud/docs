@@ -16,6 +16,7 @@ This API reference is organized by resource. Actions are performed by sending HT
 || [Backup](Backup/index.md) | A set of methods for managing PostgreSQL Backup resources. ||
 || [Cluster](Cluster/index.md) | A set of methods for managing PostgreSQL Cluster resources. ||
 || [Database](Database/index.md) | A set of methods for managing PostgreSQL Database resources. ||
+|| [ManagedRepack](ManagedRepack/index.md) | A set of methods to manipulate with Repack in Postgresql cluster ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing ResourcePreset resources. ||
 || [User](User/index.md) | A set of methods for managing PostgreSQL User resources. ||

@@ -12,7 +12,7 @@
 
    * To [create](../../../kms/operations/key.md#create) a new key, click **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
 
-   * To use the key you created earlier, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
+   * To use a previously created key, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
 
    To learn more about disk encryption, see [Storage](../../../managed-kafka/concepts/storage.md#disk-encryption).
 
@@ -27,7 +27,7 @@
 
     {% include [mkf-schema-registry-alert](schema-registry-alert.md) %}
 
-* To allow sending requests to the {{ KF }} API, enable **{{ ui-key.yacloud.kafka.field_rest-api-config }}**.
+* **{{ ui-key.yacloud.kafka.field_rest-api-config }}**: Enable this setting to allow sending requests to the {{ KF }} API.
 
     It is implemented using [Karapace](https://github.com/Aiven-Open/karapace), an open-source tool. The Karapace API is compatible with the [Confluent REST Proxy API](https://docs.confluent.io/platform/current/kafka-rest/api.html) with only minor exceptions.
 
@@ -38,5 +38,5 @@
     {% endnote %}
 
 
-* To use the [{{ KF }} web interface](../../../managed-kafka/concepts/kafka-ui.md), enable **{{ ui-key.yacloud.kafka.field_kafka-ui }}**.
+* **{{ ui-key.yacloud.kafka.field_kafka-ui }}**: Enable this setting to use the [{{ KF }}](../../../managed-kafka/concepts/kafka-ui.md) web UI.
 

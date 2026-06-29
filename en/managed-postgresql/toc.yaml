@@ -599,6 +599,16 @@ items:
                 href: api-ref/grpc/Database/update.md
               - name: Delete
                 href: api-ref/grpc/Database/delete.md
+          - name: ManagedRepack
+            items:
+              - name: Overview
+                href: api-ref/grpc/ManagedRepack/index.md
+              - name: ListRunningRepacks
+                href: api-ref/grpc/ManagedRepack/listRunningRepacks.md
+              - name: LaunchRepack
+                href: api-ref/grpc/ManagedRepack/launchRepack.md
+              - name: TerminateRepack
+                href: api-ref/grpc/ManagedRepack/terminateRepack.md
           - name: Operation
             items:
               - name: Overview
@@ -735,6 +745,16 @@ items:
                 href: api-ref/Database/update.md
               - name: Delete
                 href: api-ref/Database/delete.md
+          - name: ManagedRepack
+            items:
+              - name: Overview
+                href: api-ref/ManagedRepack/index.md
+              - name: ListRunningRepacks
+                href: api-ref/ManagedRepack/listRunningRepacks.md
+              - name: LaunchRepack
+                href: api-ref/ManagedRepack/launchRepack.md
+              - name: TerminateRepack
+                href: api-ref/ManagedRepack/terminateRepack.md
           - name: Operation
             items:
               - name: Overview

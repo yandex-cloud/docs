@@ -68,7 +68,8 @@ resource "yandex_vpc_subnet" "foo" {
   - `assign_public_ip` (Bool). Whether the host should get a public IP address.
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
   - `priority` (Number). Host priority in HA group. Must be between 0 and 100.
-  - `replication_source` (String). FQDN of the host that is used as a replication source.
+  - `replication_source` (*Read-Only*) (String). FQDN of the host that is used as a replication source. Resolved from replication_source_name.
+  - `replication_source_name` (String). Label (map key) of the host to use as replication source. Use this during cluster creation when FQDNs are not yet known.
   - `subnet_id` (String). ID of the subnet where the host is located.
   - `zone` (**Required**)(String). The availability zone where the host is located.
 - `id` (*Read-Only*) (String). The resource identifier.
@@ -101,6 +102,10 @@ resource "yandex_vpc_subnet" "foo" {
   - `backup_window_start` [Block]. Time to start the daily backup, in the UTC timezone.
     - `hours` (Number). The hour at which backup will be started (UTC).
     - `minutes` (Number). The minute at which backup will be started.
+  - `connection_manager` [Block]. Connection Manager integration settings. If the block is omitted, the API enables the integration by default for newly created clusters. Disabling the integration after the cluster is created is not supported.
+    - `connections_folder_id` (String). ID of the folder where connections for the cluster are created. Defaults to the cluster's folder if not specified.
+    - `enabled` (Bool). Indicates whether Connection Manager integration is enabled. Set to `true` to enable the integration. If omitted, the API enables the integration by default for newly created clusters. Disabling the integration after the cluster is created is not supported.
+    - `secrets_folder_id` (String). ID of the folder where connection secrets are created. Defaults to the cluster's folder if not specified.
   - `disk_size_autoscaling` [Block]. Cluster disk size autoscaling settings.
     - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size that limit all autoscaling iterations. See the [documentation](https://yandex.cloud/en/docs/managed-postgresql/concepts/storage#auto-rescale) for details.
     - `emergency_usage_threshold` (Number). Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.

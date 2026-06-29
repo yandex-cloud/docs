@@ -16,6 +16,7 @@ Actions are performed by making RPC calls. For more information about API archit
 || [Backup](Backup/index.md) | A set of methods for managing PostgreSQL Backup resources. ||
 || [Cluster](Cluster/index.md) | A set of methods for managing PostgreSQL Cluster resources. ||
 || [Database](Database/index.md) | A set of methods for managing PostgreSQL Database resources. ||
+|| [ManagedRepack](ManagedRepack/index.md) | A set of methods to manipulate with Repack in Postgresql cluster ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [PerformanceDiagnostics](PerformanceDiagnostics/index.md) | A set of methods for PostgreSQL performance diagnostics. ||
 || [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing ResourcePreset resources. ||

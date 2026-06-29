@@ -210,6 +210,12 @@
 
     Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_socket.send.buffer.bytes).
 
+* **Transactional id expiration ms** {{ tag-all }} {#settings-transactional-id-expiration-ms}
+
+    Количество миллисекунд, в течение которых идентификатор транзакции должен храниться перед удалением.
+
+    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_transactional.id.expiration.ms).
+
 * **Ssl cipher suites** {{ tag-all }} {#settings-ssl-cipher-suites}
 
     Список алгоритмов шифрования кластера.

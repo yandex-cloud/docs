@@ -17,7 +17,7 @@ description: Follow this guide to disable/enable a zonal shift and test traffic 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder containing your [L7 load balancer](../../concepts/application-load-balancer.md).
-  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select your L7 load balancer.
   1. On the **{{ ui-key.yacloud.common.overview }}** page, under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, click **{{ ui-key.yacloud.alb.section_allocation-settings_button }}**.
   1. Enable a zonal shift for one or more zones.
@@ -56,7 +56,7 @@ description: Follow this guide to disable/enable a zonal shift and test traffic 
       
          After this time, the zone will automatically recover. If this parameter is not set, the zonal shift will be on until you [disable](#enable-zones) it manually.
   
-      Example:
+      Here is an example:
 
       ```bash
       yc application-load-balancer load-balancer disable-zones \
@@ -95,7 +95,7 @@ description: Follow this guide to disable/enable a zonal shift and test traffic 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) with your load balancer.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}** and select the load balancer.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}** and select the load balancer.
   1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, next to the availability zone, view its status.
 
       If the zonal shift duration has been set, you will see the end time next to the zone.
@@ -111,7 +111,7 @@ description: Follow this guide to disable/enable a zonal shift and test traffic 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder containing your [L7 load balancer](../../concepts/application-load-balancer.md).
-  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select your L7 load balancer.
   1. On the **{{ ui-key.yacloud.common.overview }}** page, under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, click **{{ ui-key.yacloud.alb.section_allocation-settings_button }}**.
   1. Disable the zonal shift.
@@ -137,7 +137,7 @@ description: Follow this guide to disable/enable a zonal shift and test traffic 
         --zones <availability_zones>
       ```
 
-      Example:
+      Here is an example:
 
       ```bash
       yc application-load-balancer load-balancer enable-zones \

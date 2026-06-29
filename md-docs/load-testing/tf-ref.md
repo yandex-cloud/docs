@@ -13,7 +13,7 @@ Terraform распространяется под лицензией [Business S
 
 | **Ресурс Terraform** | **Ресурс Yandex Cloud** |
 | --- | --- |
-| [yandex_loadtesting_agent](../terraform/resources/loadtesting_agent.md) | [Агент](concepts/agent.md) |
+| [yandex_loadtesting_agent](../terraform/resources/loadtesting_agent) | [Агент](concepts/agent.md) |
 
 ## Источники данных {#data-sources}
 
@@ -21,4 +21,4 @@ Terraform распространяется под лицензией [Business S
 
 | **Источник данных Terraform** | **Описание** |
 | --- | --- |
-| [yandex_loadtesting_agent](../terraform/data-sources/loadtesting_agent.md) | Информация об [агенте](concepts/agent.md) |
+| [yandex_loadtesting_agent](../terraform/data-sources/loadtesting_agent) | Информация об [агенте](concepts/agent.md) |

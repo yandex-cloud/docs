@@ -127,9 +127,9 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
 
   1. To set up a maintenance window, add the `maintenance_window` section to the cluster description:
   

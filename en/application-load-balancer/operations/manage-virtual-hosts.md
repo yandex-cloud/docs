@@ -16,7 +16,7 @@ To create a virtual host:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create a virtual host.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, click ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** and select the [HTTP router](../concepts/http-router.md) you are going to create a virtual host in.
   
       [Create](./http-router-create.md) a new HTTP router if needed.
@@ -128,7 +128,7 @@ To update a virtual host:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing your virtual host.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, click ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** and select the [HTTP router](../concepts/http-router.md) that contains the virtual host.
   1. On the page that opens, under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the virtual host and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
 
@@ -316,7 +316,7 @@ To delete a virtual host:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing your virtual host.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, click ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** and select the [HTTP router](../concepts/http-router.md) that contains the virtual host.
   1. On the page that opens, under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the virtual host and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, confirm the deletion.

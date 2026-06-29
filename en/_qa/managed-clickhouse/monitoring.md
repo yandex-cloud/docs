@@ -25,9 +25,9 @@ Follow the steps in [this guide](../../managed-clickhouse/operations/monitoring.
 
 #### How do I monitor space taken up by data in hybrid storage? {#hybrid}
 
-Use the `ch_s3_disk_parts_size` metric in {{ monitoring-full-name }}. It shows the amount of space used by [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) table parts in {{ objstorage-name }}. The metric is only available for {{ mch-name }} clusters with [hybrid storage](../../managed-clickhouse/concepts/storage.md#hybrid-storage-features) configured. To learn more on how to run a query with a metric, see [this tutorial](../../managed-clickhouse/tutorials/hybrid-storage.md#metrics).
+Use the `ch_s3_disk_parts_size` metric in {{ monitoring-full-name }}. It shows the amount of space used by [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) table parts in {{ objstorage-name }}. The metric is only available for {{ mch-name }} clusters with [hybrid storage](../../managed-clickhouse/concepts/storage.md#hybrid-storage-features) configured. For more on how to run a query with a metric, see [this tutorial](../../managed-clickhouse/tutorials/hybrid-storage.md#metrics).
 
-#### How do I set up an alert that triggers as soon as a certain percentage of disk space is used up? {#disk-space-percentage}
+#### How can I configure an alert for when disk usage reaches a certain percentage? {#disk-space-percentage}
 
 [Create an alert](../../managed-clickhouse/operations/monitoring.md#monitoring-integration) for the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mch-name }} cluster.
 

@@ -157,7 +157,7 @@ Set up your infrastructure:
         * `folder_id`: Cloud folder ID, same as in the provider settings.
         * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. Learn more about connecting to a {{ dataproc-name }} host over SSH [here](../../../data-proc/operations/connect-ssh.md).
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -179,7 +179,7 @@ Set up your infrastructure:
 In the `dataproc-source` cluster, create a test table named `countries`:
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Open the `dataproc-source` cluster page.
 1. Click the **Zeppelin Web UI** link under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
 1. Select **Notebook**, then select ![image](../../../_assets/console-icons/plus.svg) **Create new note**.

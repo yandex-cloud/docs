@@ -27,3 +27,4 @@
 ```bash
 yc compute instance update <идентификатор_или_имя_ВМ> \
   --metadata-options aws-v1-http-token=DISABLED
+```

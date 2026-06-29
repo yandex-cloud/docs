@@ -133,7 +133,7 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
 
       For a complete list of configurable {{ SPRK }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-msp }}).
 

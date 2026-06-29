@@ -1212,6 +1212,8 @@ items:
         href: tutorials/bms-vrf-routing.md
       - name: Организация сетевой связности в приватной подсети {{ baremetal-name }}
         href: tutorials/bms-simple-subnet.md
+      - name: Назначение публичного IP-адреса серверу {{ baremetal-name }} вручную
+        href: tutorials/bms-public-subnet.md
       - name: >-
           Организация сетевой связности между приватными подсетями {{
           baremetal-name }} и {{ vpc-name }}

@@ -28,6 +28,7 @@ Database administrator role. Grants the user the [readWrite](#readWrite) role pe
 
 These roles are required for cluster monitoring and administration. They are assigned for the privileged MongoDB `admin` database.
 
+
 ### mdbMonitor {#mdbMonitor}
 
 This role is required for collecting statistics and monitoring. It grants the following permissions to the user:
@@ -73,9 +74,10 @@ This role is required for collecting statistics and monitoring. It grants the fo
   * `listIndexes`
   * `planCacheRead`
 
+
 ### mdbShardingManager {#mdbShardingManager}
 
-This role is used for managing cluster sharding. It grants the following permissions to the user:
+This role is used for managing cluster sharding. It grants the following permissions:
 
 * Working with the `admin` database:
 
@@ -95,3 +97,4 @@ This role is used for managing cluster sharding. It grants the following permiss
 * Working with the `config` database:
 
   * `find`
+

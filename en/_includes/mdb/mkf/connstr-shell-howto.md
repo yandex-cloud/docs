@@ -1,1 +1,1 @@
-Make sure the first terminal displays `key:test message` sent in the second terminal.
+Make sure the first terminal displays `test message` sent in the second terminal.

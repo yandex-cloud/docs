@@ -41,7 +41,7 @@ You can recover multiple shards to a single cluster if their backups were create
 
 {% endnote %}
 
-Backups contain data solely for the `MergeTree` engine family. For other engines, backups only contain table schemas. Learn more about the engines in [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines).
+Backups contain data solely for the `MergeTree` engine family. For other engines, backups only contain table schemas. For more on engines, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines).
 
 The system uses random replica hosts to create backups. Thus, if cluster hosts lack data consistency, restoring such a cluster from a backup does not guarantee complete data recovery. For example, this may occur in the following cases:
 
@@ -60,7 +60,7 @@ Learn about creating manual backups in [Managing backups](../operations/cluster-
 
 * Backups of cold data from a [hybrid storage](storage.md#hybrid-storage-features) are stored in the same {{ objstorage-name }} bucket as the data itself. The cost of using {{ objstorage-name }} includes both the space used by the backups and the space used by the data itself.
 
-    For more information, see the [pricing policy](../pricing.md#rules-storage).
+    For more information, see [Pricing policy](../pricing.md#rules-storage).
 
 * Backups are stored as binary files and encrypted using [GPG](https://en.wikipedia.org/wiki/GNU_Privacy_Guard). Each cluster has its own encryption keys.
 

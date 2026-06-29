@@ -1,11 +1,11 @@
 ---
 title: Viewing trigger monitoring charts in {{ api-gw-full-name }}
-description: You can view a monitoring chart in {{ api-gw-full-name }} using the management console by selecting {{ api-gw-full-name }} and clicking the trigger of interest.
+description: You can view monitoring charts in {{ api-gw-full-name }} using the management console. To do this, select {{ api-gw-full-name }} and click the trigger whose monitoring charts you want to view.
 ---
 
 # Viewing trigger monitoring charts in {{ api-gw-full-name }}
 
- You can monitor triggers using the monitoring tools in the management console. These tools display diagnostic information as charts. Metric values are collected and charts are displayed by [{{ monitoring-name }}](../../../monitoring/).
+ You can monitor triggers using the monitoring tools in the management console. These tools display diagnostic information as charts. [{{ monitoring-name }}](../../../monitoring/) collects metric values and displays charts.
 
 The chart update period is 15 seconds.
 
@@ -17,15 +17,15 @@ The chart update period is 15 seconds.
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the trigger.
 
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
-    1. Select a trigger to view its monitoring charts.
+    1. Select a trigger for which you want to view monitoring charts.
 
     1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
 
-    1. The following charts will open on the page:
+    1. You will see the following charts:
 
-        * **Request latency**: Average time it takes a trigger to process a request.
+        * **Request latency**: Average time it takes the trigger to process a request.
         * **Read events**: Number of events that have set off a trigger.
         * **Function access errors**: Number of access errors when sending messages to WebSocket connections.
         * **Function call errors**: Number of errors when sending messages to WebSocket connections.

@@ -1,7 +1,7 @@
 # Loading data from {{ ydb-full-name }} to {{ objstorage-full-name }} using {{ data-transfer-full-name }}
 
 
-You can migrate data from {{ ydb-name }} to {{ objstorage-name }} using {{ data-transfer-name }}. Proceed as follows:
+You can migrate data from {{ ydb-name }} to {{ objstorage-name }} using {{ data-transfer-name }}. To do this:
 
 1. [Prepare your test data](#prepare-data).
 1. [Prepare and activate the transfer](#prepare-transfer).
@@ -17,7 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * In serverless mode, you pay for data operations as well as the amount of stored data and backups.
     * In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
-* {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -60,7 +60,7 @@ Set up your infrastructure:
         * `folder_id`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../../storage/concepts/bucket.md#naming).
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -119,15 +119,15 @@ Set up your infrastructure:
 
     1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/object-storage.md) of the `{{ objstorage-name }}` type with the following settings:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: `<name_of_previously_created_bucket>`
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: `<name_of_previously_created_bucket>`.
 
         
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: `<name_of_previously_created_service_account>`
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: `<name_of_previously_created_service_account>`.
 
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}**: `UNCOMPRESSED`
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}**: `from_YDB`
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}**: `UNCOMPRESSED`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}**: `from_YDB`.
 
     1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/ydb.md) of the `{{ ydb-short-name }}` type with the following database connection settings:
 
@@ -149,7 +149,7 @@ Set up your infrastructure:
         * `source_endpoint_id`: Source endpoint ID.
         * `transfer_enabled`: Set to `1` to create a transfer.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -170,7 +170,7 @@ Set up your infrastructure:
 Make sure the data has been migrated from {{ ydb-name }} to the {{ objstorage-name }} bucket:
 
 1. In the [management console]({{ link-console-main }}), select the folder containing your bucket.
-1. [Navigate to](../../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** service.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Select the bucket from the list.
 1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
 1. Make sure the {{ objstorage-name }} bucket contains the `from_YDB` directory with the `<seasons.csv>` test data object.

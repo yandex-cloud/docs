@@ -17,7 +17,7 @@ When copying widgets from a dashboard or report, consider the following:
 - From a dashboard
 
   * You can copy widgets from any dashboard tab you have access to.
-  * Copying is available for these widget types: [title](../../dashboard/widget.md#title), [text](../../dashboard/widget.md#text), [chart](../../concepts/chart/index.md), [selector](../../dashboard/selector.md), or [selector (JS)](../../charts/editor/widgets/controls.md).
+  * Widgets available for copying: [title](../../dashboard/widget.md#title), [text](../../dashboard/widget.md#text), [chart](../../concepts/chart/index.md), [selector](../../dashboard/selector.md), or [selector (JS)](../../charts/editor/widgets/controls.md).
   * To copy a widget from a dashboard:
 
     1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
@@ -27,7 +27,7 @@ When copying widgets from a dashboard or report, consider the following:
 - From a report
 
   * You can copy widgets from any report page you have access to.
-  * Copying is available for these widget types: [title](../../dashboard/widget.md#title), [text](../../dashboard/widget.md#text), [chart](../../concepts/chart/index.md), [selector](../../dashboard/selector.md), or [selector (JS)](../../charts/editor/widgets/controls.md).
+  * Widgets available for copying: [title](../../dashboard/widget.md#title), [text](../../dashboard/widget.md#text), [chart](../../concepts/chart/index.md), [selector](../../dashboard/selector.md), or [selector (JS)](../../charts/editor/widgets/controls.md).
   * You cannot copy [images](../../dashboard/markdown.md#image) from a report to a dashboard.
   * To copy a title, text, or chart from a report:
     
@@ -64,6 +64,6 @@ To paste a copied widget onto your dashboard:
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need. If you do not have a dashboard, [create one](create.md).
 1. At the top of the page, click **Edit**.
 1. Select the dashboard tab you want to paste the widget onto.
-1. In the panel at the bottom of the page, hold down ![image](../../../_assets/console-icons/copy-plus.svg) **Paste** and drag the widget where you need.
+1. In the panel at the bottom of the page, hold down ![image](../../../_assets/console-icons/copy-plus.svg) **Paste** and drag the widget to a desired area.
 1. Resize the widget and drag it where you need on the page.
 1. In the top-right corner of the dashboard, click **Save**.

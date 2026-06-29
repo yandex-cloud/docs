@@ -1,9 +1,11 @@
 ---
-title: Building a table based on a dataset in Editor
+title: Creating a table based on a dataset in Editor
 description: Follow this guide to build a table based on a dataset in Editor.
 ---
 
-# Building a table based on a dataset
+# Creating a table based on a dataset
+
+
 
 Follow this guide to build a table in Editor based on a dataset. For convenience, we will use a connection and dataset from a deployed demo workbook as the data source.
 
@@ -13,21 +15,27 @@ Follow this guide to build a table in Editor based on a dataset. For convenience
 {% include [before-you-begin](../../../../_tutorials/_tutorials_includes/before-you-begin-datalens.md) %}
 
 
+
+
 ## Deploy a demo workbook {#create-template}
 
 
 1. In the Gallery, open the dashboard titled [DataLens Demo Dashboard](https://datalens.ru/gallery/wcyljs3cf5mwi).
 1. Click **Use** → **Deploy**.
-1. Choose where to save the workbook: workbook and collection root, existing collection, or new collection. Navigate to the saving destination and click **Deploy**. The workbook name must be unique, so edit the name if you need to.
+1. Select where to save the workbook: workbook and collection root, existing collection, or new collection. Navigate to the saving destination and click **Deploy**. The workbook name must be unique, so edit the name if you need to.
 1. Click **Create**.
 
 
 
 1. Navigate to the new workbook and, on the **Datasets** tab, find a dataset named `00: Sales`.
 
-1. Copy the dataset ID by clicking ![](../../../../_assets/console-icons/ellipsis.svg) → **Copy ID** next to it. The ID will be copied to the clipboard.
+1. Copy the dataset ID by clicking ![image](../../../../_assets/console-icons/ellipsis.svg) → **Copy ID** next to it. The ID will be copied to the clipboard.
+
+
 
 ## Create a chart in Editor {#create-chart}
+
+
 
 1. In the workbook, click **Create** → **Chart in Editor** in the top-right corner. On the page that opens, select the **Table** visualization type.
 
@@ -65,6 +73,7 @@ Follow this guide to build a table in Editor based on a dataset. For convenience
 
    `salesSourceData`: Any alias name you assign to the object with requested chart data and use for access on the **Prepare** tab.
 
+
    The `columns` field value lists the fields from the dataset.
 
    {% note info %}
@@ -87,7 +96,6 @@ Follow this guide to build a table in Editor based on a dataset. For convenience
 
    ```javascript
    const Dataset = require('libs/dataset/v2');
-   const loadedData = Editor.getLoadedData();
 
    // Getting data from the dataset in a convenient format using the service module
    // datasetName: Dataset name on the Sources tab

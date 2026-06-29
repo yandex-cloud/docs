@@ -7,6 +7,7 @@ description: In this tutorial, you will learn how to manage access to objects in
 
 This section describes how access management works for objects stored inside workbooks and collections, as well as access to the workbooks and collections themselves. If an object is stored in a folder, access to it is configured differently; for details, see [{#T}](./manage-access.md).
 
+
 {% note info %}
 
 [Workbooks and collections](../workbooks-collections/index.md) are the primary navigation model in {{ datalens-name }}.
@@ -29,6 +30,7 @@ To find the location of an object (in a workbook, collection, or folder), select
 1. ![image](../../_assets/datalens/icons/square-house.svg): Object in a folder.
 
 {% endcut %}
+
 
 Access to connections, datasets, charts, and dashboards is configured at the level of the workbooks and collections that store those objects. By granting access to a workbook or collection, you give the same access to all objects inside that workbook or collection: this is the [basic setup](./workbooks-access-basic.md) of access permissions.
 

@@ -1,10 +1,10 @@
-Create a [trigger for {{ container-registry-name }}](../../functions/concepts/trigger/cr-trigger.md) that invokes [{{ sf-name }}](../../functions/concepts/function.md) when you create or delete {{ container-registry-name }} [Docker images](../../container-registry/concepts/docker-image.md) or [Docker image tags](../../container-registry/concepts/docker-image.md#version).
+Create a [trigger for {{ container-registry-name }}](../../functions/concepts/trigger/cr-trigger.md) that invokes a [function](../../functions/concepts/function.md) in {{ sf-name }} when you create or delete {{ container-registry-name }} [Docker images](../../container-registry/concepts/docker-image.md) or [Docker image tags](../../container-registry/concepts/docker-image.md#version).
 
 ## Getting started {#before-you-begin}
 
 {% include [trigger-before-you-begin](trigger-before-you-begin.md) %}
 
-* [Registry](../../container-registry/concepts/registry.md) whose Docker image [events](../../functions/concepts/trigger/cr-trigger.md#event) will fire the trigger. If you do not have a registry, [create one](../../container-registry/operations/registry/registry-create.md).
+* [Registry](../../container-registry/concepts/registry.md) whose Docker image [events](../../functions/concepts/trigger/cr-trigger.md#event) will set off the trigger. If you do not have a registry, [create one](../../container-registry/operations/registry/registry-create.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -15,7 +15,7 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. In the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
@@ -130,7 +130,7 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
           id                 = "<function_ID>"
           service_account_id = "<service_account_ID>"
           retry_attempts     = "<number_of_retry_attempts>"
-          retry_interval     = "<interval_between_retry_attempts>"
+          retry_interval     = "<time_between_retry_attempts>"
         }
         container_registry {
           registry_id      = "<registry_ID>"

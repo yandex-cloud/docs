@@ -78,6 +78,16 @@ For an example of using scripts, see [{#T}](../../managed-kafka/operations/conne
 
 On Ubuntu 24.04 and higher, use `kcat` instead of `kafkacat` (this command will not work).
 
+#### What do I do if I get an authentication error when connecting via kafkacat? {#kafkacat-authentication-error}
+
+Error message:
+
+```text
+SASL authentication error: Authentication failed during authentication due to invalid credentials with SASL mechanism SCRAM-SHA-512
+```
+
+This error occurs when you attempt to connect via `kafkacat` to a cluster with {{ KF }} version 4.0 or higher. `kafkacat` is deprecated and incompatible with new versions. If your cluster runs {{ KF }} version 4.0 or higher, use [kafkactl](../../managed-kafka/operations/connect/clients.md#kafkactl) instead.
+
 #### Will Karapace be available during maintenance? {#karapace-maintenance}
 
 {% include [karapace-maintenance](../../_includes/mdb/mkf/karapace-maintenance.md) %}

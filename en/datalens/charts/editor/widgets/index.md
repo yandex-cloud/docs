@@ -7,8 +7,9 @@ description: In this article, you will learn about visualization types available
 
 The Editor offers multiple visualization types which you can render using various libraries:
 
+
 * [Table](./table.md)
-* [Chart (Gravity UI Charts)](./chart.md)
+* [Chart (Gravity UI Charts)](./gravity-ui.md)
 * [Markdown](./markdown.md)
 * [Advanced chart](./advanced.md)
 * [Selector](./controls.md)

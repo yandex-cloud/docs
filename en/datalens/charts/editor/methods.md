@@ -222,7 +222,7 @@ Generates secure HTML markup in a chart.
 
 #### Supported chart types {#gen-html-charts}
 
-* [Chart (Gravity UI Charts)](./widgets/chart.md)
+* [Chart (Gravity UI Charts)](./widgets/gravity-ui.md)
 * [Table](./widgets/table.md)
 * [Advanced chart](./widgets/advanced.md)
 
@@ -587,7 +587,7 @@ Returns an object with normalized [filtering (action) parameters](./cross-filtra
 
 #### Supported chart types {#get-action-params-charts}
 
-* [Chart (Gravity UI Charts)](./widgets/chart.md)
+* [Chart (Gravity UI Charts)](./widgets/gravity-ui.md)
 * [Table](./widgets/table.md)
 * [Advanced chart](./widgets/advanced.md)
 
@@ -718,7 +718,10 @@ Number corresponding to page number.
 
 #### Chart examples {#get-current-page-charts-example}
 
+
 [Example of a chart with pagination and sorting](https://datalens.yandex/nvkfwnekf9xy9#Editor.getSortParams()%2C%20Editor.getCurrentPage())
+
+
 
 ## Editor.getId(arg) {#get-id}
 
@@ -787,6 +790,7 @@ String with the `id` value.
   ```
 
 {% endlist %}
+
 
 ## Editor.getLang() {#get-lang}
 
@@ -973,7 +977,9 @@ Example for the table with source based on a dataset.
 
 #### Chart examples {#get-loaded-data-charts-example}
 
+
 [Example of using Editor.getLoadedData() in a dataset-based table](https://datalens.yandex/nvkfwnekf9xy9#Editor.getLoadedData())
+
 
 ## Editor.getParam(name) {#get-param}
 
@@ -1026,9 +1032,11 @@ Example for the table with source based on a dataset.
 
 {% endlist %}
 
+
 #### Chart examples {#get-param-charts-example}
 
 [Example of a chart accessing a parameter by name](https://datalens.yandex/nvkfwnekf9xy9#Editor.getActionParams()%2C%20Editor.updateActionParams(args)%2C%20Editor.getParam(args))
+
 
 ## Editor.getParams() {#get-params}
 
@@ -1101,9 +1109,12 @@ Example for the table with source based on a dataset.
 
 {% endlist %}
 
+
 #### Chart examples {#get-params-charts-example}
 
 [Example of using the function for getting all applied parameters](https://datalens.yandex/nvkfwnekf9xy9#Editor.getParams())
+
+
 
 ## Editor.getSortParams() {#get-sort-params}
 
@@ -1166,7 +1177,9 @@ Example for the table with source based on a dataset.
 
 #### Chart examples {#get-sort-params-charts-example}
 
+
 [Example of a chart with pagination and sorting](https://datalens.yandex/nvkfwnekf9xy9#Editor.getSortParams()%2C%20Editor.getCurrentPage())
+
 
 ## Editor.getWidgetConfig() {#get-widget-config}
 
@@ -1174,7 +1187,7 @@ Returns the current widgets settings from a dashboard or report. Can be used to 
 
 #### Supported chart types {#get-widget-config-charts}
 
-* [Chart (Gravity UI Charts)](./widgets/chart.md)
+* [Chart (Gravity UI Charts)](./widgets/gravity-ui.md)
 * [Table](./widgets/table.md)
 * [Advanced chart](./widgets/advanced.md)
 
@@ -1370,9 +1383,9 @@ const interval = Editor.resolveInterval('__interval_2020.01.15___relative_-0d');
 // interval === null
 ```
 
-**Note**: Start and end of the interval specified in the [Params](./tabs.md#params) tab or in the URL will be automatically processed by the helper method for the [relative date](#resolve-relative).
-However, if the interval `start`/`end` value does not match the relative date format, the original value will be returned instead of `null`.
-For example:
+**Note**: Start and end of the interval specified in the [Params](./tabs.md#params) tab or in the URL will be automatically processed by the helper method for the [relative date](#resolve-relative). However, if the interval `start`/`end` value does not match the relative date format, the original value will be returned instead of `null`.
+
+Here is an example:
 
 **Params** tab:
 ```js
@@ -1464,9 +1477,9 @@ const date = Editor.resolveRelative('2020-01-01');
 // date === null
 ```
 
-**Note:** Relative dates specified in the [Params](./tabs.md#params) tab or in the URL will be automatically processed by the helper method.
-However, if the parameter value does not match the relative date format, the original value will be returned instead of `null`.
-For example:
+**Note**: Relative dates specified in the [Params](./tabs.md#params) tab or in the URL will be automatically processed by the helper method. However, if the parameter value does not match the relative date format, the original value will be returned instead of `null`.
+
+Here is an example:
 
 **Params** tab:
 ```js
@@ -1570,7 +1583,10 @@ Where:
 
 #### Chart examples {#set-insights-charts-example}
 
-[Example of a chart with notifications](https://datalens.yandex/nvkfwnekf9xy9#Editor.%20setChartsInsights(args)) 
+
+[Example of a chart with notifications](https://datalens.yandex/nvkfwnekf9xy9#Editor.%20setChartsInsights(args))
+
+
 
 ## Editor.setRawData(data) {#set-raw-data}
 
@@ -1629,7 +1645,7 @@ Updates an object with [filtering (action) parameters](./cross-filtration.md).
 
 #### Supported chart types {#update-action-params-charts}
 
-* [Chart (Gravity UI Charts)](./widgets/chart.md)
+* [Chart (Gravity UI Charts)](./widgets/gravity-ui.md)
 * [Table](./widgets/table.md)
 * [Advanced chart](./widgets/advanced.md)
 
@@ -1695,13 +1711,18 @@ No.
 
 #### Chart examples {#get-action-params-chart-examples}
 
+
 [Example of cross-filtering](https://datalens.yandex/nvkfwnekf9xy9#Editor.getActionParams()%2C%20Editor.updateActionParams(args)%2C%20Editor.getParam(args)): Clicking the advanced chart on the left filters Markdown on the right.
+
+
+
 
 ## Editor.updateParams(params) {#update-params}
 
 Extends the definition of the chart parameters with the `params` argument.
 
 We do not recommend updating parameters inside charts and controls as this may cause issues with components and related items. However, as an option of last resort, you can use this method instead of mutating the original `params` object. If there is a mutation, chart stability is not guaranteed.
+
 
 #### Supported chart types {#update-params-charts}
 
@@ -1787,14 +1808,17 @@ Where:
 
 Function for generating a chart handler; it runs in a sandboxed browser with limited access to the browser API. Avoid resource-intensive calculations that may cause lags in the chart display. Also, minimize the information provided in `args`.
 
+
 The `Editor.wrapFn` function is sensitive to syntax errors. So if you have issues when using the function, check your syntax first.
 
 {% include [datalens-chart-editor-wrap-limits](../../../_includes/datalens/datalens-chart-editor-wrap-limits.md) %}
 
 #### Supported chart types {#wrap-charts}
 
-* [Chart (Gravity UI Charts)](./widgets/chart.md)
-* [Advanced chart](./widgets/advanced.md)
+
+All.
+
+
 
 #### Arguments {#wrap-args}
 
@@ -1829,6 +1853,7 @@ Where:
   * In some cases, referring to a library without specifying its version may cause unpredictable results in the handler function.
 
   {% endnote %}
+
 
 #### Examples {#wrap-example}
 

@@ -1,6 +1,6 @@
 # Viewing {{ CH }} cluster logs
 
-{{ mch-name }} allows you to [get a cluster log snippet](#get-log) for a selected time period and [view logs in real time](#get-log-stream).
+{{ mch-name }} allows you to [get a cluster log snippet](#get-log) for the selected time period and [view logs in real time](#get-log-stream).
 
 {% include [log-duration](../../_includes/mdb/log-duration.md) %}
 
@@ -201,7 +201,7 @@ This method allows you to stream cluster logs in real time.
 
             {% include [tail-f-semantics](../../_includes/mdb/api/tail-f-semantics.md) %}
 
-        * `filter`: Log filter. You can filter logs so that the stream contains only the logs you need.
+        * `filter`: Log filter. You can use a filter to stream only the logs you need.
 
             For more information about filters and their syntax, see the [API reference](../api-ref/Cluster/streamLogs.md#query_params).
 

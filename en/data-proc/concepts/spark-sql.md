@@ -3,8 +3,8 @@
 {{ dataproc-name }} supports [Spark](https://spark.apache.org/docs/latest/sql-programming-guide.html) jobs run in Spark _applications_. When running Spark jobs, resource allocation is handled by [Apache Hadoop YARN](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html).
 
 ## Application management {#applications}
+A single cluster may run multiple applications concurrently. A running application is orchestrated by a special _driver_ program. For more about drivers, see [Resource allocation](#resource-management).
 
-A single cluster may run multiple applications concurrently. A running application is orchestrated by a special _driver_ program. To learn how Spark drivers work, see the [Resource allocation](#resource-management) section.
 
 An application can either be in standby mode or run _jobs_. By default, jobs within an application are run on the first in first out (_FIFO_) basis. This method does not require any additional setup.
 
@@ -98,7 +98,7 @@ The default values set in the service are optimal for running a single app. To o
 
 ### Resource allocation examples {#examples}
 
-A single app runs on a cluster with default settings and two compute hosts. In this case:
+A single app runs on a cluster with default settings and two compute hosts. In which case:
 
 {% list tabs %}
 

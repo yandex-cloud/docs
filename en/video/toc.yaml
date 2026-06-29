@@ -635,11 +635,5 @@ items:
   - name: Release notes
     href: release-notes.md
   - name: Troubleshooting
-    items:
-      - name: Overview
-        href: troubleshooting/index.md
-      - name: Video Player
-        href: troubleshooting/player.md
-      - name: Uploading and processing a video
-        href: troubleshooting/video-processing.md
+    href: troubleshooting/index.md
 path: en/video/toc.yaml

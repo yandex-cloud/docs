@@ -586,6 +586,16 @@ Managed Service for PostgreSQL помогает разворачивать и п
 
  - [Delete](api-ref/grpc/Database/delete.md)
 
+#### ManagedRepack
+
+ - [Overview](api-ref/grpc/ManagedRepack/index.md)
+
+ - [ListRunningRepacks](api-ref/grpc/ManagedRepack/listRunningRepacks.md)
+
+ - [LaunchRepack](api-ref/grpc/ManagedRepack/launchRepack.md)
+
+ - [TerminateRepack](api-ref/grpc/ManagedRepack/terminateRepack.md)
+
 #### Operation
 
  - [Overview](api-ref/grpc/Operation/index.md)
@@ -721,6 +731,16 @@ Managed Service for PostgreSQL помогает разворачивать и п
  - [Update](api-ref/Database/update.md)
 
  - [Delete](api-ref/Database/delete.md)
+
+#### ManagedRepack
+
+ - [Overview](api-ref/ManagedRepack/index.md)
+
+ - [ListRunningRepacks](api-ref/ManagedRepack/listRunningRepacks.md)
+
+ - [LaunchRepack](api-ref/ManagedRepack/launchRepack.md)
+
+ - [TerminateRepack](api-ref/ManagedRepack/terminateRepack.md)
 
 #### Operation
 

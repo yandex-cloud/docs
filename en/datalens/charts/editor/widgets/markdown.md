@@ -13,9 +13,8 @@ Charts are rendered using the [@diplodoc/transform](https://www.npmjs.com/packag
 
 ## Available markup components {#about-markdown}
 
-- [General info](#common-markdown)
-- [JavaScript](#javascript)
-- [Basic information about Markdown](#about-markdown)
+- [Structure on the Prepare tab](#prepare)
+- [Markdown markup](#about-markdown)
     - [Headers](#headers)
     - [Styles](#text-styles)
     - [Text color](#text-color)
@@ -32,6 +31,43 @@ Charts are rendered using the [@diplodoc/transform](https://www.npmjs.com/packag
     - [Emoji](#emoji)
     - [Mermaid diagrams](#mermaid)
     - [Tooltips](#term)
+
+## Structure on the Prepare tab {#prepare}
+
+Executing the **Prepare** tab should result in exporting the Markdown rendering data.
+
+### Available methods {#available-methods}
+
+* **`Editor.getParams()`**: Returns an object with normalized parameters.
+
+* **`Editor.getLoadedData()`**: Returns an object with data requested on the **Sources** tab.
+
+
+
+### Example {#example}
+
+```js
+// generating text
+
+const inline = 'To insert inline code, wrap it in backticks'
+                + '`<html class="ie no-js">`.';
+
+const text = `
+# H1 heading
+## H2 heading
+### H3 heading
+#### H4 heading
+
+${inline}
+`;
+
+// exporting the data for rendering
+module.exports = {
+    markdown: text
+};
+```
+
+## Markdown markup {#about-markdown}
 
 ### Headings {#headers}
 
@@ -166,16 +202,16 @@ You can format an ordered (step) list using corresponding numbers. Markup:
 ```
 1. Item 1
 1. Item 2
-1. Third item
+1. Item 3
 ```
 
 will be displayed as:
 
 1. Item 1
 2. Item 2
-3. Third item
+3. Item 3
 
-To make a list nested in another list, add an indent for child list items. For example:
+To make a list nested in another list, add an indent for child list items. Here is an example:
 
 ```
 1. Item 1
@@ -186,7 +222,7 @@ To make a list nested in another list, add an indent for child list items. For e
 
 ### Tables {#tables}
 
-Tables are not included in the Markdown basic specification, but they're supported by GFM. You can create tables using the pipe character (`|`) and a hyphen (`-`). With hyphens, you can create a header for each column. Vertical bars are column separators. To make sure a table is displayed properly, add an empty line before it.
+Tables are not included in the Markdown basic specification, but they are supported by GFM. You can create tables using the pipe character (`|`) and a hyphen (`-`). With hyphens, you can create a heading for each column. Pipe signs separate columns. To make sure a table is displayed properly, add an empty line before it.
 
 Markup:
 
@@ -202,7 +238,7 @@ Left-aligned column | Right-aligned column | Center-aligned column
 :--- | ---: | :---:
 Text | Text | Text
 
-To add a line break or a more complex element (such as a list or code block) to a table cell, use an alternative markup:
+To add a line break or a more complex element, e.g., a list or code block, to a table cell, use an alternative markup:
 ```
 #|
 || **Heading1** | **Heading2** ||
@@ -210,11 +246,11 @@ To add a line break or a more complex element (such as a list or code block) to 
 |#
 ```
 
-Sample markup with line breaks and a list:
+Example of a markup with line breaks and a list:
 ```
 #|
 ||Text
-in two lines
+in two rows
 |
 - Item 1
 - Item 2
@@ -222,7 +258,7 @@ in two lines
 - Item 4||
 |#
 ```
-For more information, see the [YFM documentation](https://ydocs.tech/ru/syntax/tables/multiline).
+For more information, see [this YFM guide](https://ydocs.tech/ru/syntax/tables/multiline).
 
 
 ### Cuts {#cuts}
@@ -233,7 +269,7 @@ Markup:
 
 ```markdown
 
-{% cut "`cut` title" %}
+{% cut "Cut title" %}
 
 Content displayed on click.
 
@@ -243,7 +279,7 @@ Content displayed on click.
 
 will be displayed as:
 
-{% cut "`cut` title" %}
+{% cut "Cut title" %}
 
 Content displayed on click.
 
@@ -251,7 +287,7 @@ Content displayed on click.
 
 ### Tabs {#tabs}
 
-Use tabs for mutually exclusive sections. For example, to separate instructions for different operating systems.
+Use tabs for mutually exclusive sections, e.g., to separate instructions for different operating systems.
 
 Markup:
 
@@ -291,7 +327,7 @@ will be displayed as:
 
 {% endlist %}
 
-If you want an element to be expanded by default, add the `{selected}` attribute to it:
+If you want an item to be expanded by default, add the `{selected}` attribute to it:
 
 Markup:
 
@@ -305,7 +341,7 @@ Markup:
 
 - Tab 2 name {selected}
 
-  The item will be expanded by default.
+  This item will be expanded by default.
 
 - Tab 3 name
 
@@ -325,7 +361,7 @@ will be displayed as:
 
 - Tab 2 name {selected}
 
-  The item will be expanded by default.
+  This item will be expanded by default.
 
 - Tab 3 name
 
@@ -342,17 +378,17 @@ Markup:
 ```markdown
 {% list tabs accordion %}
 
-- Name of item 1
+- Item 1 name
 
-  Content for item 1
+  Item 1 content.
 
-- Name of item 2
+- Item 2 name
 
-  Content for item 2
+  Item 2 content.
  
-- Name of item 3
+- Item 3 name
 
-  Content for item 3
+  Item 3 content.
 
 {% endlist %}
 ```
@@ -361,38 +397,38 @@ will be displayed as:
 
 {% list tabs accordion %}
 
-- Name of item 1
+- Item 1 name
 
-  Content for item 1
+  Item 1 content.
 
-- Name of item 2
+- Item 2 name
 
-  Content for item 2
+  Item 2 content.
  
-- Name of item 3
+- Item 3 name
 
-  Content for item 3
+  Item 3 content.
 
 {% endlist %}
 
-If you want an element to be expanded by default, add the {selected} attribute to it:
+If you want an item to be expanded by default, add the {selected} attribute to it:
 
 Markup:
 
 ```markdown
 {% list tabs accordion %}
 
-- Name of item 1
+- Item 1 name
 
-  Content for item 1
+  Item 1 content.
 
-- Name of item 2 {selected}
+- Item 2 name {selected}
 
-  The item will be expanded by default.
+  This item will be expanded by default.
  
-- Name of item 3
+- Item 3 name
 
-  Content for item 3
+  Item 3 content.
 
 {% endlist %}
 ```
@@ -401,19 +437,20 @@ will be displayed as:
 
 {% list tabs accordion %}
 
-- Name of item 1
+- Item 1 name
 
-  Content for item 1
+  Item 1 content.
 
-- Name of item 2 {selected}
+- Item 2 name {selected}
 
-  The item will be expanded by default.
+  This item will be expanded by default.
  
-- Name of item 3
+- Item 3 name
 
-  Content for item 3
+  Item 3 content.
 
 {% endlist %}
+
 
 ### Links {#links}
 
@@ -425,7 +462,7 @@ The Markdown syntax for an embedded link consists of the `[link text] and `(URL)
 
 ### Inserting code {#code}
 
-Using Markdown, you can both embed code snippets in a clause and place them between clauses as separate blocks.
+In Markdown, you can both embed code snippets in a clause and place them between clauses as separate blocks.
 
 ```js
 const a = 10;
@@ -483,7 +520,7 @@ Currently, you can only use tooltips in code blocks that do not specify a langua
 
 ### Emoji {#emoji}
 
-To add an emoji, enter a keyword and add a colon (:) on both sides. You can see the list of available keywords in the visual editor.
+To add an emoji, enter a keyword and wrap it in colons (:). You can see the list of available keywords in the visual editor.
 
 For example, the following markup:
 
@@ -532,14 +569,7 @@ When using Mermaid, keep the following limitations in mind:
 
 ## Examples {#examples}
 
+
 * [Markdown chart with parameterization](https://datalens.yandex/nvkfwnekf9xy9?tab=x6v#Markdown%20чарт%20с%20параметрами)
 * [Mermaid diagrams and flowcharts](https://datalens.yandex/nvkfwnekf9xy9?tab=x6v#Markdown%20чарт%20c%20Mermaid-диаграммами)
 
-```mermaid
-
-[*term_key]: Term definition which may include _basic_ markup:
-* Lists
-* Links
-* Images, etc.
-
-```

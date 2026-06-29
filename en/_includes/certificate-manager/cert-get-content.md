@@ -6,13 +6,13 @@ To get the contents of a certificate:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder with your certificate.
-    1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the certificate.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
     1. In the row with the certificate, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![arrow](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_export }}**.
 
        You can only export certificates with the `Issued` status.
     1. Select one of the export options. The `certificate.pem` file will contain the following data in Base64 encoded text format:
-       * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_full }}**: Certificate chain (root and end-user certificates) and private key with standard framing:
+       * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_full }}**: Certificate chain (end-user and intermediate certificate) and private key with standard framing:
           ```text
           -----BEGIN CERTIFICATE-----
           MIIE5zCCA8+gAwI...
@@ -25,7 +25,7 @@ To get the contents of a certificate:
           -----END PRIVATE KEY-----
           ```
 
-       * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_no_private_key }}**: Certificate chain (root and end-user certificates):
+       * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_no_private_key }}**: Certificate chain (end-user and intermediate certificate):
          ```text
           -----BEGIN CERTIFICATE-----
           MIIE5zCCA8+gAwI...
@@ -101,7 +101,7 @@ To get the contents of a certificate:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. To check the results, run these commands:
+     {{ TF }} will create all the required resources. To check the result, run these commands:
      * Get the certificate chain:
 
        ```bash

@@ -82,7 +82,7 @@ The minimum number of resource units per availability zone
 
 Maximum total number of resource units
 
-: The cost of using the load balancer depends on the number of its resource units (see the [relevant pricing policy](../pricing.md)). By default, it is unlimited. You can set a limit to control your expenses.
+: The cost of using the load balancer depends on the number and size of its resource units (see the [relevant pricing policy](../pricing.md)). By default, it is unlimited. You can set a limit to control your expenses.
 
   If the specified minimum is too low for the actual load on the load balancer, it may run incorrectly.
 

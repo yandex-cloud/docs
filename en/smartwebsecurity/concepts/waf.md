@@ -1,3 +1,8 @@
+---
+title: WAF profiles
+description: How Web Application Firewall (WAF) profiles analyze HTTP requests and use rule sets and exceptions to protect web applications.
+---
+
 # WAF profiles
 
 web application firewall (WAF) filters and blocks malicious traffic directed to your web apps and websites. It protects against common attacks such as SQL injections, XSS, web vulnerabilities, and prevents data breaches and service outages.

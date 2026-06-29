@@ -3,7 +3,7 @@ title: '{{ myt-name }} cluster state monitoring'
 description: In this tutorial, you will learn how to monitor the state of {{ myt-name }} clusters.
 ---
 
-# Cluster health state monitoring {{ myt-name }}
+# {{ myt-name }} cluster state monitoring
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -13,7 +13,7 @@ Charts are updated every 15 seconds.
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Cluster health state monitoring {#monitoring-cluster}
+## Cluster state monitoring {#monitoring-cluster}
 
 To view detailed information on the health state of a {{ myt-name }} cluster:
 

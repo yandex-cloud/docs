@@ -6,7 +6,7 @@ To transfer data:
 
 1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Prepare your test data](#prepare-data).
-1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -18,7 +18,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-* {{ mos-name }} cluster: use of computing resources, storage and backup size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
+* {{ mos-name }} cluster, which includes the use of computing resources, storage and backup size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 * {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 
@@ -74,7 +74,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
           {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -153,15 +153,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/object-storage.md) of the `{{ objstorage-name }}` type with the following settings:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: `<name_of_previously_created_bucket>`
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: `<name_of_previously_created_bucket>`.
 
     
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: `<name_of_previously_created_service_account>`.
 
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.UNCOMPRESSED.title }}`
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}**: `from_MOS`
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.UNCOMPRESSED.title }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}**: `from_MOS`.
 
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/opensearch.md#endpoint-settings) of the `{{ OS }}` type with the following settings:
 
@@ -188,7 +188,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
           * `source_endpoint_id`: Source endpoint ID.
           * `transfer_enabled`: Set to `1` to create a transfer.
 
-      1. Validate your {{ TF }} configuration files using this command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
           ```bash
           terraform validate
@@ -210,7 +210,7 @@ Make sure the data has been transferred from the {{ mos-name }} cluster to the {
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. In the [management console]({{ link-console-main }}), select the folder containing your bucket.
-1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Select the bucket from the list.
 1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
 1. Make sure the {{ objstorage-name }} bucket contains the `from_MOS` folder with the test data JSON file.

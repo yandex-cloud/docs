@@ -21,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The web application support cost includes:
 * Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
-* Fee for the number of function calls, computing resources allocated to run a function, and outgoing traffic (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
+* Fee for the number of function calls, computing resources allocated for the function, and outgoing traffic (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 
 ## Create a service account {#create-account}
 
@@ -30,7 +30,7 @@ The web application support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account: `canary-sa`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `editor`.
@@ -104,18 +104,18 @@ The web application support cost includes:
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, navigate to the directory where you created the configuration file.
+      1. In the terminal, navigate to the directory where you created your configuration file.
       1. Run a check using this command:
 
          ```bash
          terraform plan
          ```
 
-      If you described the configuration correctly, the terminal will display information about the service account. {{ TF }} will show any errors in the configuration.
+      If the configuration is correct, the terminal will display information about the service account. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
-      1. If the configuration does not contain any errors, run this command:
+      1. If the configuration is correct, run this command:
 
            ```bash
            terraform apply
@@ -181,7 +181,7 @@ Tag the first function version as `stable` and the second one as `canary`.
 
     To add a version tag:
 
-    1. In the configuration file, add the `tags` section for `yandex_function` and list the tags you want to add in the following format: `tags = ["<tag_name>"]`.
+    1. In the configuration file, add the `tags` section for the `yandex_function` resource and list the tags you want to add in the following format: `tags = ["<tag_name>"]`.
 
        Example of a function description in the {{ TF }} configuration:
       
@@ -203,13 +203,13 @@ Tag the first function version as `stable` and the second one as `canary`.
 
         For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
-    1. Check the configuration using this command:
+    1. Validate your configuration using this command:
         
        ```
        terraform validate
        ```
 
-       If the configuration is correct, you will get this message:
+       If the configuration is valid, you will get this message:
         
        ```
        Success! The configuration is valid.
@@ -221,9 +221,9 @@ Tag the first function version as `stable` and the second one as `canary`.
        terraform plan
        ```
         
-       You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration. 
+       You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration. 
          
-    1. Apply the changes:
+    1. Apply the configuration changes:
 
        ```
        terraform apply
@@ -249,7 +249,7 @@ Tag the first function version as `stable` and the second one as `canary`.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
     1. In the **{{ ui-key.yacloud.common.name }}** field, enter `canary`.
     1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add the following specification:
@@ -277,7 +277,7 @@ Tag the first function version as `stable` and the second one as `canary`.
                 tag: "${var.function.tag}"
                 service_account_id: <service_account_ID>
         ```
-    1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.label_section-variables }}**, enable **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-release }}**.
+    1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.label_section-variables }}**, enable the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-release }}** toggle.
     1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-share }}** field, specify `50`.
     1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-variables }}** field, specify `function.tag`=`canary`.
     1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
@@ -347,7 +347,7 @@ Tag the first function version as `stable` and the second one as `canary`.
 
   To create an API gateway:
 
-  1. Describe the `yandex_api_gateway` properties in the configuration file:
+  1. Specify the `yandex_api_gateway` properties in the configuration file:
 
      ```hcl
      resource "yandex_api_gateway" "canary-api-gateway" {
@@ -385,7 +385,7 @@ Tag the first function version as `stable` and the second one as `canary`.
      ```
 
      Where:
-     * `name`: API gateway name. Follow these naming requirements:
+     * `name`: API gateway name. The name format is as follows:
 
         {% include [name-format](../../_includes/name-format.md) %}
 
@@ -393,28 +393,28 @@ Tag the first function version as `stable` and the second one as `canary`.
      * `canary.0.variables`: Variables for the canary release.
      * `spec`: API gateway specification.
 
-     For more information about resource properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/api_gateway).
+     For more information about resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration. 
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
 
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` and press **Enter**.
+     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 

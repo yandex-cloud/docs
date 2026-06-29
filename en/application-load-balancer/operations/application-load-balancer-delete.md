@@ -12,7 +12,7 @@ To delete an L7 load balancer:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the load balancer is in.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the load balancer and select **{{ ui-key.yacloud.common.delete }}**.
 
      For multiple load balancers, select them in the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
@@ -92,7 +92,7 @@ To delete an L7 load balancer:
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```bash
      Success! The configuration is valid.
@@ -104,8 +104,8 @@ To delete an L7 load balancer:
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
-  1. Apply the changes:
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
      ```bash
      terraform apply

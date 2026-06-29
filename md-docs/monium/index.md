@@ -138,7 +138,7 @@ Monium платформа для сбора, хранения и анализа 
 
  - [Cloud Functions](metrics-ref/functions-ref.md)
 
- - [Monium Logs](metrics-ref/logging-ref.md)
+ - [Cloud Logging](metrics-ref/logging-ref.md)
 
  - [Cloud Notification Service](metrics-ref/cns-ref.md)
 
@@ -219,6 +219,8 @@ Monium платформа для сбора, хранения и анализа 
  - [Начало работы с логами приложений](logs/quickstart.md)
 
  - [Начало работы с логами ресурсов Yandex Cloud](logs/quickstart-resources.md)
+
+ - [Миграция с Cloud Logging](logs/logging-migration.md)
 
 ### Поставка данных
 

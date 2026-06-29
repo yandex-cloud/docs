@@ -790,7 +790,8 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
       "logAutovacuumMinDuration": "string",
       "passwordEncryption": "string",
       "autoExplainLogFormat": "string",
-      "idleSessionTimeout": "string"
+      "idleSessionTimeout": "string",
+      "checkpointWarning": "string"
     },
     "postgresqlConfig_14_1c": {
       "maxConnections": "string",
@@ -956,7 +957,8 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
       "logAutovacuumMinDuration": "string",
       "passwordEncryption": "string",
       "autoExplainLogFormat": "string",
-      "idleSessionTimeout": "string"
+      "idleSessionTimeout": "string",
+      "checkpointWarning": "string"
     },
     "postgresqlConfig_15": {
       "maxConnections": "string",
@@ -1122,7 +1124,9 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
       "logAutovacuumMinDuration": "string",
       "passwordEncryption": "string",
       "autoExplainLogFormat": "string",
-      "idleSessionTimeout": "string"
+      "idleSessionTimeout": "string",
+      "checkpointWarning": "string",
+      "pgHintPlanHintsAnywhere": "boolean"
     },
     "postgresqlConfig_15_1c": {
       "maxConnections": "string",
@@ -1290,7 +1294,9 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
       "logAutovacuumMinDuration": "string",
       "passwordEncryption": "string",
       "autoExplainLogFormat": "string",
-      "idleSessionTimeout": "string"
+      "idleSessionTimeout": "string",
+      "checkpointWarning": "string",
+      "pgHintPlanHintsAnywhere": "boolean"
     },
     "postgresqlConfig_16": {
       "maxConnections": "string",
@@ -1456,7 +1462,9 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
       "logAutovacuumMinDuration": "string",
       "passwordEncryption": "string",
       "autoExplainLogFormat": "string",
-      "idleSessionTimeout": "string"
+      "idleSessionTimeout": "string",
+      "checkpointWarning": "string",
+      "pgHintPlanHintsAnywhere": "boolean"
     },
     "postgresqlConfig_16_1c": {
       "maxConnections": "string",
@@ -1624,7 +1632,9 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
       "logAutovacuumMinDuration": "string",
       "passwordEncryption": "string",
       "autoExplainLogFormat": "string",
-      "idleSessionTimeout": "string"
+      "idleSessionTimeout": "string",
+      "checkpointWarning": "string",
+      "pgHintPlanHintsAnywhere": "boolean"
     },
     "postgresqlConfig_17": {
       "maxConnections": "string",
@@ -1793,7 +1803,8 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
       "maxLogicalReplicationWorkers": "string",
       "maxWalSenders": "string",
       "maxReplicationSlots": "string",
-      "idleSessionTimeout": "string"
+      "idleSessionTimeout": "string",
+      "checkpointWarning": "string"
     },
     "postgresqlConfig_17_1c": {
       "maxConnections": "string",
@@ -1964,7 +1975,8 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
       "maxLogicalReplicationWorkers": "string",
       "maxWalSenders": "string",
       "maxReplicationSlots": "string",
-      "idleSessionTimeout": "string"
+      "idleSessionTimeout": "string",
+      "checkpointWarning": "string"
     },
     "postgresqlConfig_18": {
       "maxConnections": "string",
@@ -2133,7 +2145,9 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
       "maxLogicalReplicationWorkers": "string",
       "maxWalSenders": "string",
       "maxReplicationSlots": "string",
-      "idleSessionTimeout": "string"
+      "idleSessionTimeout": "string",
+      "checkpointWarning": "string",
+      "vacuumTruncate": "boolean"
     },
     "postgresqlConfig_18_1c": {
       "maxConnections": "string",
@@ -2304,7 +2318,9 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
       "maxLogicalReplicationWorkers": "string",
       "maxWalSenders": "string",
       "maxReplicationSlots": "string",
-      "idleSessionTimeout": "string"
+      "idleSessionTimeout": "string",
+      "checkpointWarning": "string",
+      "vacuumTruncate": "boolean"
     },
     // end of the list of possible fields
     "poolerConfig": {
@@ -2345,6 +2361,9 @@ POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters
       "enabled": "boolean",
       "connectionsFolderId": "string",
       "secretsFolderId": "string"
+    },
+    "managedRepack": {
+      "enabled": "boolean"
     }
   },
   "databaseSpecs": [
@@ -3619,6 +3638,9 @@ Disk size autoscaling ||
 || connectionManager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager)**
 
 Cluster-wide Connection Manager integration configuration ||
+|| managedRepack | **[ManagedRepack](#yandex.cloud.mdb.postgresql.v1.ManagedRepack)**
+
+Configuration of managed pg_repack. ||
 |#
 
 ## PostgresqlConfig11 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig11}
@@ -5686,6 +5708,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
 |#
 
 ## PostgresqlConfig14_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig14_1C}
@@ -6131,6 +6158,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
 |#
 
 ## PostgresqlConfig15 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig15}
@@ -6581,6 +6613,14 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| pgHintPlanHintsAnywhere | **boolean**
+
+If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
 |#
 
 ## PostgresqlConfig15_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig15_1C}
@@ -7033,6 +7073,14 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| pgHintPlanHintsAnywhere | **boolean**
+
+If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
 |#
 
 ## PostgresqlConfig16 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig16}
@@ -7488,6 +7536,14 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| pgHintPlanHintsAnywhere | **boolean**
+
+If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
 |#
 
 ## PostgresqlConfig16_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig16_1C}
@@ -7945,6 +8001,14 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| pgHintPlanHintsAnywhere | **boolean**
+
+If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
 |#
 
 ## PostgresqlConfig17 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig17}
@@ -8409,6 +8473,11 @@ Acceptable values are 20 to 100, inclusive. ||
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
 |#
 
 ## PostgresqlConfig17_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig17_1C}
@@ -8875,6 +8944,11 @@ Acceptable values are 20 to 100, inclusive. ||
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
 |#
 
 ## PostgresqlConfig18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18}
@@ -9339,6 +9413,14 @@ Acceptable values are 20 to 100, inclusive. ||
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| vacuumTruncate | **boolean**
+
+Enables or disables vacuum to try to truncate off any empty pages at the end of the table. Default is true. ||
 |#
 
 ## PostgresqlConfig18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18_1C}
@@ -9805,6 +9887,14 @@ Acceptable values are 20 to 100, inclusive. ||
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| vacuumTruncate | **boolean**
+
+Enables or disables vacuum to try to truncate off any empty pages at the end of the table. Default is true. ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig}
@@ -9949,6 +10039,17 @@ Optional. Defaults to the cluster's folder if not specified. ||
 A Connection Manager setting for connections created by MDB integration.
 ID of the folder where connection secrets are created.
 Optional. Defaults to the cluster's folder if not specified. ||
+|#
+
+## ManagedRepack {#yandex.cloud.mdb.postgresql.v1.ManagedRepack}
+
+Cluster-wide configuration of managed pg_repack.
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enables/disables managed pg_repack for the cluster. ||
 |#
 
 ## DatabaseSpec {#yandex.cloud.mdb.postgresql.v1.DatabaseSpec}
@@ -15290,7 +15391,8 @@ Defaults to "*". ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -15455,7 +15557,8 @@ Defaults to "*". ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -15620,7 +15723,8 @@ Defaults to "*". ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         }
       },
       "postgresqlConfig_14_1c": {
@@ -15788,7 +15892,8 @@ Defaults to "*". ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -15954,7 +16059,8 @@ Defaults to "*". ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -16120,7 +16226,8 @@ Defaults to "*". ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         }
       },
       "postgresqlConfig_15": {
@@ -16288,7 +16395,9 @@ Defaults to "*". ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -16454,7 +16563,9 @@ Defaults to "*". ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -16620,7 +16731,9 @@ Defaults to "*". ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         }
       },
       "postgresqlConfig_15_1c": {
@@ -16790,7 +16903,9 @@ Defaults to "*". ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -16958,7 +17073,9 @@ Defaults to "*". ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -17126,7 +17243,9 @@ Defaults to "*". ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         }
       },
       "postgresqlConfig_16": {
@@ -17294,7 +17413,9 @@ Defaults to "*". ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -17460,7 +17581,9 @@ Defaults to "*". ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -17626,7 +17749,9 @@ Defaults to "*". ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         }
       },
       "postgresqlConfig_16_1c": {
@@ -17796,7 +17921,9 @@ Defaults to "*". ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -17964,7 +18091,9 @@ Defaults to "*". ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -18132,7 +18261,9 @@ Defaults to "*". ||
           "logAutovacuumMinDuration": "string",
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "pgHintPlanHintsAnywhere": "boolean"
         }
       },
       "postgresqlConfig_17": {
@@ -18303,7 +18434,8 @@ Defaults to "*". ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -18472,7 +18604,8 @@ Defaults to "*". ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -18641,7 +18774,8 @@ Defaults to "*". ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         }
       },
       "postgresqlConfig_17_1c": {
@@ -18814,7 +18948,8 @@ Defaults to "*". ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -18985,7 +19120,8 @@ Defaults to "*". ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -19156,7 +19292,8 @@ Defaults to "*". ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string"
         }
       },
       "postgresqlConfig_18": {
@@ -19327,7 +19464,9 @@ Defaults to "*". ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "vacuumTruncate": "boolean"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -19496,7 +19635,9 @@ Defaults to "*". ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "vacuumTruncate": "boolean"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -19665,7 +19806,9 @@ Defaults to "*". ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "vacuumTruncate": "boolean"
         }
       },
       "postgresqlConfig_18_1c": {
@@ -19838,7 +19981,9 @@ Defaults to "*". ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "vacuumTruncate": "boolean"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -20009,7 +20154,9 @@ Defaults to "*". ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "vacuumTruncate": "boolean"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -20180,7 +20327,9 @@ Defaults to "*". ||
           "maxLogicalReplicationWorkers": "string",
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
-          "idleSessionTimeout": "string"
+          "idleSessionTimeout": "string",
+          "checkpointWarning": "string",
+          "vacuumTruncate": "boolean"
         }
       },
       // end of the list of possible fields
@@ -20223,6 +20372,9 @@ Defaults to "*". ||
         "enabled": "boolean",
         "connectionsFolderId": "string",
         "secretsFolderId": "string"
+      },
+      "managedRepack": {
+        "enabled": "boolean"
       }
     },
     "networkId": "string",
@@ -20638,6 +20790,9 @@ Full version ||
 || connectionManager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager2)**
 
 Cluster-wide Connection Manager integration configuration ||
+|| managedRepack | **[ManagedRepack](#yandex.cloud.mdb.postgresql.v1.ManagedRepack2)**
+
+Configuration of managed pg_repack. ||
 |#
 
 ## PostgresqlConfigSet11 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet11}
@@ -22785,6 +22940,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
 |#
 
 ## PostgresqlConfigSet14_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet14_1C}
@@ -23246,6 +23406,11 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
 |#
 
 ## PostgresqlConfigSet15 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15}
@@ -23712,6 +23877,14 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| pgHintPlanHintsAnywhere | **boolean**
+
+If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
 |#
 
 ## PostgresqlConfigSet15_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15_1C}
@@ -24180,6 +24353,14 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| pgHintPlanHintsAnywhere | **boolean**
+
+If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
 |#
 
 ## PostgresqlConfigSet16 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16}
@@ -24651,6 +24832,14 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| pgHintPlanHintsAnywhere | **boolean**
+
+If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
 |#
 
 ## PostgresqlConfigSet16_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16_1C}
@@ -25124,6 +25313,14 @@ Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AU
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| pgHintPlanHintsAnywhere | **boolean**
+
+If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
 |#
 
 ## PostgresqlConfigSet17 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17}
@@ -25604,6 +25801,11 @@ Acceptable values are 20 to 100, inclusive. ||
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
 |#
 
 ## PostgresqlConfigSet17_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17_1C}
@@ -26086,6 +26288,11 @@ Acceptable values are 20 to 100, inclusive. ||
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
 |#
 
 ## PostgresqlConfigSet18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18}
@@ -26566,6 +26773,14 @@ Acceptable values are 20 to 100, inclusive. ||
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| vacuumTruncate | **boolean**
+
+Enables or disables vacuum to try to truncate off any empty pages at the end of the table. Default is true. ||
 |#
 
 ## PostgresqlConfigSet18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18_1C}
@@ -27048,6 +27263,14 @@ Acceptable values are 20 to 100, inclusive. ||
 in milliseconds.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| vacuumTruncate | **boolean**
+
+Enables or disables vacuum to try to truncate off any empty pages at the end of the table. Default is true. ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig2}
@@ -27192,6 +27415,17 @@ Optional. Defaults to the cluster's folder if not specified. ||
 A Connection Manager setting for connections created by MDB integration.
 ID of the folder where connection secrets are created.
 Optional. Defaults to the cluster's folder if not specified. ||
+|#
+
+## ManagedRepack {#yandex.cloud.mdb.postgresql.v1.ManagedRepack2}
+
+Cluster-wide configuration of managed pg_repack.
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enables/disables managed pg_repack for the cluster. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow2}

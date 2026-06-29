@@ -92,8 +92,7 @@ The string length in characters must be 3-200. Value must match the regular expr
   "cpuMaxPercent": "string",
   "cpuWeight": "string",
   "memoryQuota": "string",
-  "minCost": "string",
-  "ioLimit": "string"
+  "minCost": "string"
 }
 ```
 
@@ -113,7 +112,6 @@ Apache Cloudberry fields:
 * cpu_weight
 * memory_quota
 * min_cost
-* io_limit
 
 The sets partially overlap (concurrency is common to both). Passing Greenplum-specific
 fields to a CloudBerry cluster or vice versa is not rejected at the proto level -
@@ -170,9 +168,4 @@ The memory limit (Mb) specified for the resource group. ||
 
 References to MIN_COST from Apache Cloudberry resource group parameter:
 The minimum cost of a query plan to be included in the resource group. ||
-|| ioLimit | **string** (int64)
-
-References to IO_LIMIT from Apache Cloudberry resource group parameter:
-The limit for the maximum read/write disk I/O throughput, and maximum read/write I/O operations per second.
-Set the value on a per-tablespace basis. ||
 |#

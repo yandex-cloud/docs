@@ -7,9 +7,10 @@ description: This guide describes how to use an AI assistant to manage {{ yandex
 
 {% include [preview-pp](../../_includes/preview-pp.md) %}
 
-You can use an AI assistant integrated into the management console to create and delete {{ yandex-cloud }} resources as well as manage their settings. With the AI assistant, you can run operations on cloud resources by sending text messages to a chat with a generative model.
+You can use an [AI assistant]({{ link-docs-ai }}ai-studio/concepts/assistant/index) integrated into the management console to create and delete {{ yandex-cloud }} resources as well as manage their settings. With the AI assistant, you can run operations on cloud resources by sending text messages to a chat with a generative model.
 
 ## Creating and deleting resources {#create-and-delete}
+
 
 In the example below, you will use an AI assistant to create a [cloud network](../../vpc/concepts/network.md#network), a [subnet](../../vpc/concepts/network.md#subnet), and a [security group](../../vpc/concepts/security-groups.md) in it. Then you will delete the resources you created.
 
@@ -40,7 +41,7 @@ To use an AI assistant for resource management:
           Alright! You have successfully created a new cloud network named my-new-network. It is ready for use: you can now add subnets and other cloud resources.
           ```
 
-      1. Create a subnet specifying the new network name and the availability zone for the subnet:
+      1. Create a subnet by specifying the name of the new network and the [availability zone](../../overview/concepts/geo-scope.md) for the subnet:
 
           ```text
           In my-new-network, create a subnet in the {{ region-id }}-a availability zone with this address range: 192.168.1.0/24.

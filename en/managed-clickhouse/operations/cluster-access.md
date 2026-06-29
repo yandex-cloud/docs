@@ -104,7 +104,7 @@ This way, you can granularly assign different roles for specific clusters to dif
 
       Where:
 
-      * `--role`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
+      * `--role`: [Role](../security.md#roles-list), e.g., `managed-clickhouse.editor`.
       * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
 
           Here is an example:
@@ -140,7 +140,7 @@ This way, you can granularly assign different roles for specific clusters to dif
       Where:
 
       * `cluster_id`: Cluster ID.
-      * `role`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
+      * `role`: [Role](../security.md#roles-list), e.g., `managed-clickhouse.editor`.
       * `members`: List of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to in `<subject_type>:<subject_ID>` format.
     
         Here is an example:
@@ -155,7 +155,7 @@ This way, you can granularly assign different roles for specific clusters to dif
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
       
@@ -199,7 +199,7 @@ This way, you can granularly assign different roles for specific clusters to dif
 
       Where:
 
-      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
+      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list), e.g., `managed-clickhouse.editor`.
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
@@ -245,7 +245,7 @@ This way, you can granularly assign different roles for specific clusters to dif
       Where:
 
       * `resource_id`: Cluster ID.
-      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
+      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list), e.g., `managed-clickhouse.editor`.
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
@@ -293,7 +293,7 @@ This way, you can granularly assign different roles for specific clusters to dif
 
       Where `--access-binding` assigns a role to a subject. You can assign multiple roles at once by describing each of them in a separate `--access-binding` parameter.
 
-      * `role`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
+      * `role`: [Role](../security.md#roles-list), e.g., `managed-clickhouse.editor`.
       * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
 
           Here is an example:
@@ -306,7 +306,7 @@ This way, you can granularly assign different roles for specific clusters to dif
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
       For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -329,7 +329,7 @@ This way, you can granularly assign different roles for specific clusters to dif
       Where:
 
       * `cluster_id`: Cluster ID.
-      * `role`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
+      * `role`: [Role](../security.md#roles-list), e.g., `managed-clickhouse.editor`.
       * `members`: List of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to in `<subject_type>:<subject_ID>` format.
     
         Here is an example:
@@ -344,7 +344,7 @@ This way, you can granularly assign different roles for specific clusters to dif
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
       
@@ -406,7 +406,7 @@ This way, you can granularly assign different roles for specific clusters to dif
 
       Where:
 
-      * `accessBindings.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
+      * `accessBindings.roleId`: [Role](../security.md#roles-list), e.g., `managed-clickhouse.editor`.
       * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
@@ -470,7 +470,7 @@ This way, you can granularly assign different roles for specific clusters to dif
       Where:
 
       * `resource_id`: Cluster ID.
-      * `accessBindings.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
+      * `accessBindings.roleId`: [Role](../security.md#roles-list), e.g., `managed-clickhouse.editor`.
       * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
@@ -524,7 +524,7 @@ This way, you can granularly assign different roles for specific clusters to dif
  
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
       For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -542,7 +542,7 @@ This way, you can granularly assign different roles for specific clusters to dif
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
       
@@ -586,7 +586,7 @@ This way, you can granularly assign different roles for specific clusters to dif
 
       Where:
 
-      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
+      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list), e.g., `managed-clickhouse.editor`.
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
@@ -639,9 +639,9 @@ This way, you can granularly assign different roles for specific clusters to dif
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
 
   1. Check the [server response](../api-ref/grpc/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
-
+  
 {% endlist %}
-
+  
 ## Examples {#examples}
 
 ### Granting cluster management access to a service account {#sa-cluster-control}
@@ -675,7 +675,7 @@ For a service account to be able to view the info of all {{ mch-name }} clusters
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
       For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -699,7 +699,7 @@ For a service account to be able to view the info of all {{ mch-name }} clusters
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

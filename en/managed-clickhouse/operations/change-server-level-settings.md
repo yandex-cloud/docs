@@ -25,7 +25,7 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}{{ lang }}
 
    To configure {{ CH }}:
 
-   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
@@ -64,9 +64,9 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}{{ lang }}
 
    To configure {{ CH }}:
 
-   1. Open the current {{ TF }} configuration file describing your infrastructure.
+   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
    1. In the {{ mch-name }} cluster description, under `clickhouse.config`, edit the parameters as follows:
 
@@ -128,7 +128,7 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}{{ lang }}
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+   1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -171,7 +171,7 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}{{ lang }}
       Where:
 
       * `updateMask`: Comma-separated string of settings to update.
-      * `configSpec.clickhouse.config`: {{ CH }} server-level settings. For the list of possible parameters and their values, see the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterRequest).
+      * `configSpec.clickhouse.config`: {{ CH }} server-level settings. For possible parameters and their values, see [this method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterRequest).
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -223,7 +223,7 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}{{ lang }}
       Where:
 
       * `update_mask`: List of settings to update as an array of strings (`paths[]`).
-      * `config_spec.clickhouse.config`: {{ CH }} server-level settings. For the list of possible parameters and their values, see the [method description](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterRequest).
+      * `config_spec.clickhouse.config`: {{ CH }} server-level settings. For possible parameters and their values, see [this method description](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterRequest).
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -289,7 +289,7 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}{{ lang }}
             merge_with_recompression_ttl_timeout = 15000;
          ```
 
-      For more information about creating MergeTree tables, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-creating-a-table).
+      For more information on creating MergeTree tables, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-creating-a-table).
 
    {% endlist %}
 

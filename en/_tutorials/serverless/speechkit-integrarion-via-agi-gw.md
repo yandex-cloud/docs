@@ -39,7 +39,7 @@ The new infrastructure support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the service account: `speechkit-sa`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `ai.speechkit-tts.user`.
@@ -96,7 +96,7 @@ The new infrastructure support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an API gateway.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter `speechkit-api-gw`.
   1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add the following specification and provide the `speechkit-sa` service account [ID](../../iam/operations/sa/get-id.md) in the `service_account_id` parameter:
@@ -165,11 +165,11 @@ Send a request to your API gateway, providing the service domain value you previ
 ```bash
 curl --verbose \
   https://<service_domain>/synthesis \
-  --data '{"text": "Hi! S+erverless Api G+ateway now has a new feature: converting HTTP request or response body!"}' \
+  --data '{"text": "Hello! S+erverless Api G+ateway now has a new feature: converting HTTP request or response body!"}' \
   | jq -r  '.data' | while read chunk; do base64 -d <<< "$chunk" >> audio.mp3; done
 ```
 
-After you run the above command, the system will save the synthesized speech to the `audio.mp3` file in the current directory. You can listen to the output file in your browser, e.g., [Yandex Browser](https://browser.yandex.ru) or [Mozilla Firefox](http://www.mozilla.org).
+After you run the above command, {{ speechkit-full-name }} will save the synthesized speech to the `audio.mp3` file in the current directory. You can listen to the output file in your browser, e.g., [Yandex Browser](https://browser.yandex.ru) or [Mozilla Firefox](http://www.mozilla.org).
 
 To learn more about the format of the text provided in the `-d` parameter, see [this {{ speechkit-full-name }} article]({{ link-docs-ai }}speechkit/tts/request).
 

@@ -11,6 +11,12 @@ description: You can get information about {{ VLK }} users and their permissions
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Click the name of your cluster and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
+
 - CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -38,7 +44,7 @@ description: You can get information about {{ VLK }} users and their permissions
 
 - REST API {#api}
     
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -57,7 +63,7 @@ description: You can get information about {{ VLK }} users and their permissions
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -91,6 +97,14 @@ description: You can get information about {{ VLK }} users and their permissions
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Click the name of your cluster and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
+      
+      User information is available in the user list.
+  
 - CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -118,7 +132,7 @@ description: You can get information about {{ VLK }} users and their permissions
 
 - REST API {#api}
   
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -139,7 +153,7 @@ description: You can get information about {{ VLK }} users and their permissions
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

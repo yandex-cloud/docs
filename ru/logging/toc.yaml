@@ -3,6 +3,8 @@ href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
+  - name: Миграция на {{ monium-name }}
+    href: migration-to-monium.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции

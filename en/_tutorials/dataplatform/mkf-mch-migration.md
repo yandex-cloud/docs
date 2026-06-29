@@ -27,9 +27,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Manually {#manual}
 
+    
     {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-    1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) of any suitable [configuration](../../managed-kafka/concepts/instance-types.md). Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
+
+    1. [Create a {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) source cluster of any suitable [configuration](../../managed-kafka/concepts/instance-types.md). For connections to the cluster from the user's local machine, rather than the {{ yandex-cloud }} network, enable public access to the cluster when creating it.
 
     1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) in the {{ mkf-name }} cluster.
 
@@ -38,13 +40,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * With the `ACCESS_ROLE_PRODUCER` role for the producer.
         * With the `ACCESS_ROLE_CONSUMER` role for the consumer.
 
-    1. Create a [{{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md) of any suitable [configuration](../../managed-clickhouse/concepts/instance-types.md). Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
+    1. Create a [{{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md) of any suitable [configuration](../../managed-clickhouse/concepts/instance-types.md). For connections to the cluster from the user's local machine, rather than the {{ yandex-cloud }} network, enable public access to the cluster when creating it.
 
     
     1. If using security groups, configure them to allow internet access to your clusters:
 
         * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
         * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
+
 
 
 - {{ TF }} {#tf}
@@ -60,14 +63,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) and rules for internet access to the clusters.
+        * [Security group](../../vpc/concepts/security-groups.md) and rules for access to the clusters from the internet.
         * {{ mkf-name }} source cluster.
         * Topic and two {{ KF }} users for producer and consumer access.
         * {{ mch-name }} target cluster.
-        * Target endpoint.
+        * Source and target endpoints.
         * Transfer.
 
-    1. In the `data-transfer-mkf-mch.tf` file, specify the following:
+    1. In `data-transfer-mkf-mch.tf`, specify the following:
 
         * {{ mkf-name }} source cluster parameters:
 
@@ -79,8 +82,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             * `target_db_name`: {{ mch-name }} database name.
             * `target_user` and `target_password`: Database owner username and password.
+        
+        * `transfer_enabled = 0` disables the creation of endpoints and transfers. They will be created during the [preparation of the transfer](#prepare-transfer).
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -93,6 +98,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
 
 {% endlist %}
 
@@ -219,120 +225,117 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}{{ la
 
 {% include [tips for endpoint settings](../../_includes/data-transfer/queue-ch-transfer-tips.md) %}
 
-1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
+{% list tabs group=instructions %}
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
+- Manually {#manual}
+  
+  1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
+
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.connection.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the source cluster from the list.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**:
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}**: Select the source cluster from the list.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}**:
 
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.user.title }}**: Enter the consumer username.
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.password.title }}**: Enter the consumer password.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.user.title }}**: Enter the consumer username.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.password.title }}**: Enter the consumer password.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}**: Enter the name of the topic in the {{ mkf-name }} cluster.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**: `JSON`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**: `JSON`.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
 
-                Copy and paste the data schema in JSON format:
+            Copy and paste the data schema in JSON format:
 
-                {% cut "Data schema" %}
+            {% cut "Data schema" %}
 
-                ```json
-                [
-                    {
-                        "name": "device_id",
-                        "type": "string"
-                    },
-                    {
-                        "name": "datetime",
-                        "type": "datetime"
-                    },
-                    {
-                        "name": "latitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "longitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "altitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "speed",
-                        "type": "double"
-                    },
-                    {
-                        "name": "battery_voltage",
-                        "type": "any"
-                    },
-                    {
-                        "name": "cabin_temperature",
-                        "type": "double"
-                    },
-                    {
-                        "name": "fuel_level",
-                        "type": "any"
-                    }
-                ]
-                ```
-
-                {% endcut %}
-
-1. Create a target endpoint and transfer:
-
-    {% list tabs group=instructions %}
-
-    - Manually {#manual}
-
-        1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
-
-            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.title }}**:
-
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.connection.title }}**:
-
-                    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`.
-
-                        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}**: Select the source cluster from the list.
-
-                    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}**: Enter the database name.
-                    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: Enter the name and password of the user who has access to the database, e.g., the database owner.
-
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.advanced_settings.title }}** → **Upload data in JSON format**: Enable this option if you enabled **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}** in the advanced settings of the source endpoint.
-
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type that will use the endpoints you created.
-        1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
-
-    - {{ TF }} {#tf}
-
-        1. In the `data-transfer-mkf-mch.tf` file, uncomment the following:
-
-            * `source_endpoint_id` and set it to the value of the source endpoint ID from the previous step.
-            * `yandex_datatransfer_endpoint` and `yandex_datatransfer_transfer` resources.
-
-        1. Make sure the {{ TF }} configuration files are correct using this command:
-
-            ```bash
-            terraform validate
+            ```json
+            [
+              {
+                "name": "device_id",
+                "type": "string"
+              },
+              {
+                "name": "datetime",
+                "type": "datetime"
+              },
+              {
+                "name": "latitude",
+                "type": "double"
+              },
+              {
+                "name": "longitude",
+                "type": "double"
+              },
+              {
+                "name": "altitude",
+                "type": "double"
+              },
+              {
+                "name": "speed",
+                "type": "double"
+              },
+              {
+                "name": "battery_voltage",
+                "type": "any"
+              },
+              {
+                "name": "cabin_temperature",
+                "type": "double"
+              },
+              {
+                "name": "fuel_level",
+                "type": "any"
+              }
+            ]
             ```
 
-            {{ TF }} will display any configuration errors detected in your files.
+            {% endcut %}
 
-        1. Create the required infrastructure:
 
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-            The transfer will be activated automatically upon creation.
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.title }}**:
 
-    {% endlist %}
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.connection.title }}**:
+
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`.
+
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}**: Select the source cluster from the list.
+
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}**: Enter the database name.
+          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: Enter the name and password of the user who has access to the database, e.g., the database owner.
+
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.advanced_settings.title }}** → **Upload data in JSON format**: Enable this option if you enabled **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}** in the advanced settings of the source endpoint.
+
+  1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type that will use the endpoints you created.
+  1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
+
+
+- {{ TF }} {#tf}
+
+  1. Specify `transfer_enabled = 1` in the `data-transfer-mkf-mch.tf` file.
+  1. Make sure the {{ TF }} configuration files are correct using this command:
+
+      ```bash
+      terraform validate
+      ```
+
+      {{ TF }} will display any configuration errors detected in your files.
+
+  1. Create the required infrastructure:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      Endpoints and a transfer will be created. The transfer will be activated automatically as soon as it is created.
+
+
+{% endlist %}
 
 ## Test the transfer {#verify-transfer}
 
@@ -376,26 +379,27 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}{{ la
 
 {% note info %}
 
-Before deleting any resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-To minimize resource consumption, delete the resources you no longer need:
 
-1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the other resources depending on how you created them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
-   {% list tabs group=instructions %}
 
-   - Manually {#manual}
+{% list tabs group=instructions %}
 
-       1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-       1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
-       1. [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
+- Manually {#manual}
 
-   - {{ TF }} {#tf}
+  1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
+  1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
+  1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
+  1. [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 
-       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-   {% endlist %}
+- {{ TF }} {#tf}
+
+  {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
+
+
+{% endlist %}

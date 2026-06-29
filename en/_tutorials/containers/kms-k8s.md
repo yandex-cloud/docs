@@ -16,7 +16,7 @@ The cost of support for the described solution includes a {{ kms-name }} fee: nu
 
   Specify a key when creating a {{ managed-k8s-name }} cluster:
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a {{ managed-k8s-name }} cluster.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
   1. In the **{{ ui-key.yacloud.k8s.clusters.create.field_kms-key }}** field, enter the required key or [create a new one](../../kms/operations/key.md#create).
   1. Enter all the other parameters to [create your cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).

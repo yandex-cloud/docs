@@ -34,7 +34,73 @@ The examples for Windows were tested in the following environment:
 
 {% include [see-fqdn-in-console](../../../_includes/mdb/see-fqdn-in-console.md) %}
 
+### kafkactl {#kafkactl}
+
+`kafkactl` is a command line interface for {{ KF }}. It enables you to create, update, and delete resources in a {{ KF }} cluster and get information, e.g., on brokers, topics, messages, etc. The utility supports both message consumer and producer workflows.
+
+Before connecting, install `kafkactl`:
+
+{% include [kafkactl-install](../../../_includes/mdb/mkf/kafkactl_install.md) %}
+
+For other `kafkactl` installation options, see [this `kafkactl` guide](https://github.com/deviceinsight/kafkactl#installation).
+
+{% list tabs group=connection %}
+
+- Connecting without SSL {#without-ssl}
+
+  1. Create a folder named `~/.config/kafkactl` and place the `config.yml` file with your {{ KF }} cluster connection parameters in that folder:
+
+      {% include [kafkactl-folder](../../../_includes/mdb/mkf/kafkactl_folder.md) %}
+
+      {% include [kafkactl-config-no-ssl](../../../_includes/mdb/mkf/kafkactl-config-no-ssl.md) %}
+
+      {% include [fqdn](../../../_includes/mdb/mkf/fqdn-host.md) %}
+
+  1. Run the following command to receive messages from the topic:
+
+      ```bash
+      kafkactl consume <topic_name>
+      ```
+
+     This command will continuously read new messages from the topic.
+
+  1. In a separate terminal, run the following command to send a message to the topic:
+
+      ```bash
+      echo "test message" | kafkactl produce <topic_name>
+      ```
+
+- Connecting with SSL {#with-ssl}
+
+  1. Create a folder named `~/.config/kafkactl` and place the `config.yml` file with your {{ KF }} cluster connection parameters in that folder:
+
+      {% include [kafkactl-folder](../../../_includes/mdb/mkf/kafkactl_folder.md) %}
+
+      {% include [kafkactl-config-ssl](../../../_includes/mdb/mkf/kafkactl-config-ssl.md) %}
+
+      {% include [fqdn](../../../_includes/mdb/mkf/fqdn-host.md) %}
+
+  1. Run the following command to receive messages from the topic:
+
+      ```bash
+      kafkactl consume <topic_name>
+      ```
+
+     This command will continuously read new messages from the topic.
+
+  1. In a separate terminal, run the following command to send a message to the topic:
+
+      ```bash
+      echo "test message" | kafkactl produce <topic_name>
+      ```
+
+{% endlist %}
+
+{% include [shell-howto](../../../_includes/mdb/mkf/connstr-shell-howto.md) %}
+
 ### kafkacat {#bash-zsh}
+
+{% include [kafkacat-info](../../../_includes/mdb/mkf/kafkacat-info.md) %}
 
 [kafkacat](https://github.com/edenhill/kcat), or `kcat`, is an open source tool for producing and consuming data without installing Java Runtime Environment.
 
@@ -330,7 +396,63 @@ Before connecting:
 
 ## Before you connect from a Docker container {#docker}
 
-To connect to a {{ mkf-name }} cluster from a Docker container, add the following lines to your Dockerfile:
+### Connecting with kafkactl {docker-kafkactl}
+
+To connect to a {{ mkf-name }} cluster from a Docker container using `kafkactl`:
+
+{% list tabs group=connection %}
+
+
+- Connecting without SSL {#without-ssl}
+
+  1. In the folder housing your Dockerfile, create a configuration file named `config.yml`.
+
+      {% include [kafkactl-config-no-ssl](../../../_includes/mdb/mkf/kafkactl-config-no-ssl.md) %}
+
+  1. Add the following lines to the Dockerfile:
+
+      ```bash
+      COPY config.yml $HOME/.config/kafkactl/config.yml
+      RUN apt-get update && \
+          apt-get install -y wget && \
+          wget https://github.com/deviceinsight/kafkactl/releases/download/v<version_number>/<archive_name>.tar.gz && \
+          tar xzf <archive_name>.tar.gz kafkactl && \
+          mv kafkactl /usr/local/bin
+      ```
+
+      {% include [kafkactl-version](../../../_includes/mdb/mkf/kafkactl-version.md) %}
+
+
+- Connecting with SSL {#with-ssl}
+
+  1. In the folder housing your Dockerfile, create a configuration file named `config.yml`.
+
+      {% include [kafkactl-config-ssl](../../../_includes/mdb/mkf/kafkactl-config-ssl.md) %}
+
+  1. Add the following lines to the Dockerfile:
+
+      ```bash
+      COPY config.yml $HOME/.config/kafkactl/config.yml
+      RUN apt-get update && \
+          apt-get install -y wget && \
+          wget https://github.com/deviceinsight/kafkactl/releases/download/v<version_number>/<archive_name>.tar.gz && \
+          tar xzf <archive_name>.tar.gz kafkactl && \
+          mv kafkactl /usr/local/bin && \
+          mkdir --parents {{ crt-local-dir }} && \
+          wget "{{ crt-web-path }}" \
+               --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
+          chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
+      ```
+
+      {% include [kafkactl-version](../../../_includes/mdb/mkf/kafkactl-version.md) %}
+
+{% endlist %}
+
+### Connecting with kafkacat {docker-kafkacat}
+
+{% include [kafkacat-info](../../../_includes/mdb/mkf/kafkacat-info.md) %}
+
+To connect to a {{ mkf-name }} cluster from a Docker container using `kafkacat`, add the following lines to the Dockerfile:
 
 {% list tabs group=connection %}
 

@@ -192,7 +192,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), go to the folder you specified in the {{ unified-agent-full-name }} settings.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Select the `default` log group.
     1. Navigate to the **{{ ui-key.yacloud.common.logs }}** tab.
     1. The page that opens will show the records.

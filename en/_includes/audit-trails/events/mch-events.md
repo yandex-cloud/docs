@@ -21,9 +21,11 @@ Event name | Description
 `RescheduleMaintenance` | Changing scheduled maintenance date and time
 `RestartClusterHosts` | Restarting cluster hosts
 `RestoreCluster` | Creating a new cluster from a backup
+`SetClusterAccessBindings` | Assigning access permissions for a cluster
 `StartCluster` | Starting a cluster
 `StopCluster` | Stopping a cluster
 `UpdateCluster` | Updating a cluster
+`UpdateClusterAccessBindings` | Updating access permissions for a cluster
 `UpdateClusterExtension` | Updating an extension
 `UpdateClusterExternalDictionary` | Editing an external dictionary
 `UpdateClusterHosts` | Editing hosts in a cluster

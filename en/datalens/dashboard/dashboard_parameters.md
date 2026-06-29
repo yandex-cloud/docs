@@ -83,7 +83,7 @@ Prefix | Operation
 `__lenlte_` | Length less than or equal to
 `__in_` | Belongs to a set
 `__nin_` | Does not belong to a set
-`__isnull_`    | Empty
+`__isnull_` | Empty
 `__isnotnull_` | Not empty
 
 Examples of using parameters with prefixes:
@@ -176,32 +176,12 @@ Non-empty parameter values defined in QL and wizard charts will have higher prio
 
 {% endnote %}
 
-## Limitations {#params-restrictions}
+## Limits {#params-restrictions}
 
 The following limitations apply when using parameters:
 
-* You cannot use the following reserved keys:
+{% include [params-restrictions](../../_includes/datalens/params-restrictions.md) %}
 
-  * `tab`
-  * `state`
-  * `mode`
-  * `focus`
-  * `grid`
-  * `scale`
-  * `tz`
-  * `timezone`
-  * `date`
-  * `datetime`
-  * `_action_params`
-  * `_autoupdate`
-  * `_opened_info`
-  * `report_page`
-  * `preview_mode`
-
-  Parameters with these keys are ignored and not saved.
-
-* Links can only use parameters that are set in the dashboard settings. Otherwise, they are ignored. For example, if a link contains `?product=Furniture`, but the dashboard settings have no `product` parameter (not even with an empty value), this parameter will be ignored.
-* Dashboard parameters are applied to widgets anyway. This may lead to errors in data requests.
 * Parameters cannot be used when creating links. To create a link, you can add a manual selector with the appropriate parameter key, set links using this selector by the required parameters, and then delete it. For example, for the dashboard parameter named `parameter`:
 
   1. [Add](../operations/dashboard/add-selector.md) a manual selector to the dashboard with `parameter` specified in **Field or parameter name**.

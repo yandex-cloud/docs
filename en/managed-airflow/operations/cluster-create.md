@@ -244,7 +244,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        This will create all the resources you need in the specified folder. You can check the new resources and their settings in the [management console]({{ link-console-main }}).
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-maf }}).
 

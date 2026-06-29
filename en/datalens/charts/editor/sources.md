@@ -15,11 +15,12 @@ You can get data from any of the following sources:
 
 For more information, see [Sources](./tabs.md#sources).
 
+
 Editor supports multiple data sources.
 
 ![multi-dataset-chart](../../../_assets/datalens/editor/multi-dataset-chart.svg)
 
-## Limitations {#limits}
+## Limits {#limits}
 
 There are limits on the size and time of data loading:
 
@@ -30,3 +31,4 @@ There are limits on the size and time of data loading:
 * 10 seconds: Maximum execution time for the [Prepare](./tabs.md#prepare) tab.
 
 These limits ensure stable operation of the service and data sources.
+

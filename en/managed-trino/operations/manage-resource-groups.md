@@ -166,7 +166,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -435,9 +435,9 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
   
   1. If no description of resource groups and selector rules in the {{ mtr-name }} cluster has been given yet, add the `resource_groups` section to the cluster description:
 
@@ -467,7 +467,7 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -741,9 +741,9 @@ In {{ mtr-name }}, you can manage [resource group](../concepts/resource-groups.m
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
   
   1. To delete all resource groups and selector rules, delete the `resource_groups` parameter from the cluster description.
 

@@ -212,7 +212,11 @@ The maximum string length in characters is 50. ||
               "maxThreadsForUpdates": "string",
               "initialArraySize": "string",
               "maxArraySize": "string",
-              "accessToKeyFromAttributes": "boolean"
+              "accessToKeyFromAttributes": "boolean",
+              "blockSize": "string",
+              "fileSize": "string",
+              "readBufferSize": "string",
+              "writeBufferSize": "string"
             },
             // Includes only one of the fields `fixedLifetime`, `lifetimeRange`
             "fixedLifetime": "string",
@@ -1632,7 +1636,11 @@ Applicable for dictionaries with composite keys of arbitrary type.
 Applicable only for dictionaries with numeric keys of the UInt64 type.
 - `COMPLEX_KEY_DIRECT`: The dictionary is not stored in memory and directly goes to the source during the processing of a request.
 Applicable for dictionaries with composite keys of arbitrary type.
-- `IP_TRIE`: The specialized layout type for mapping network prefixes (IP addresses) to metadata such as ASN. ||
+- `IP_TRIE`: The specialized layout type for mapping network prefixes (IP addresses) to metadata such as ASN.
+- `SSD_CACHE`: Similar to cache, but stores data on SSD and index in RAM.
+Applicable only for dictionaries with numeric keys of the UInt64 type.
+- `COMPLEX_KEY_SSD_CACHE`: Similar to complex_key_cache, but stores data on SSD and index in RAM.
+Applicable for dictionaries with composite keys of arbitrary type. ||
 || sizeInCells | **string** (int64)
 
 Number of cells in the cache. Rounded up to a power of two.
@@ -1704,6 +1712,38 @@ Enabling this option increases memory usage.
 Applicable only for **IP_TRIE** layout type.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#ip_trie). ||
+|| blockSize | **string** (int64)
+
+Elementary read block size in bytes. Recommended to match SSD page size.
+Applicable only for **SSD_CACHE** and **COMPLEX_KEY_SSD_CACHE** layout types.
+
+Default value: **4096**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/statements/create/dictionary/layouts/ssd-cache#ssd_cache). ||
+|| fileSize | **string** (int64)
+
+Maximum cache file size in bytes.
+Applicable only for **SSD_CACHE** and **COMPLEX_KEY_SSD_CACHE** layout types.
+
+Default value: **4294967296**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/statements/create/dictionary/layouts/ssd-cache#ssd_cache). ||
+|| readBufferSize | **string** (int64)
+
+RAM buffer size for reading from SSD in bytes.
+Applicable only for **SSD_CACHE** and **COMPLEX_KEY_SSD_CACHE** layout types.
+
+Default value: **65536**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/statements/create/dictionary/layouts/ssd-cache#ssd_cache). ||
+|| writeBufferSize | **string** (int64)
+
+RAM buffer size for writing to SSD in bytes.
+Applicable only for **SSD_CACHE** and **COMPLEX_KEY_SSD_CACHE** layout types.
+
+Default value: **4096**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/statements/create/dictionary/layouts/ssd-cache#ssd_cache). ||
 |#
 
 ## Range {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Range}

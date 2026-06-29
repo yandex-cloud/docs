@@ -60,7 +60,7 @@ With a [directed acyclic graph (DAG)](../concepts/index.md#about-the-service), y
       }
       ```
 
-For more information on how to get the FQDN of a {{ CH }} cluster host, see [{#T}](../../managed-clickhouse/operations/connect/fqdn.md).
+For more information on how to learn the FQDN of a {{ CH }} cluster host, see [{#T}](../../managed-clickhouse/operations/connect/fqdn.md).
 
 The secret will store the data to connect to the database in the {{ mch-name }} cluster.
 

@@ -11,7 +11,7 @@ The system logs all actions with {{ alb-name }} resources as a list of operation
   You can get a list of operations for a specific resource. The steps below describe how you can do this for an [L7 load balancer](../concepts/application-load-balancer.md). The same steps apply to other resources as well.
 
   1. In the [management console]({{ link-console-main }}), select the folder with your load balancer.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/branches-down.svg) **{{ ui-key.yacloud.alb.label_load-balancers }}**.
   1. Select the load balancer you need.
   1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected load balancer.
@@ -51,7 +51,7 @@ The system logs all actions with {{ alb-name }} resources as a list of operation
   +----------------------+---------------------+----------------------+---------------------+--------+--------------------------------+
   ```
 
-  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using `--format`:
+  By default, information about operations is output as text. To get more details, use `--format` to specify the `yaml` or `json` output format:
 
   ```bash
   yc alb load-balancer list-operations ds7857cmjtuv******** --format yaml
@@ -106,9 +106,9 @@ The system logs all actions with {{ alb-name }} resources as a list of operation
 
 {% endlist %}
 
-## Getting detailed information about an operation {#get-operations-info}
+## Getting operation details {#get-operations-info}
 
-1. [Get a list of operations](#get-operations) for the resource.
+1. [Get the list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
 1. Get the operation details:
 

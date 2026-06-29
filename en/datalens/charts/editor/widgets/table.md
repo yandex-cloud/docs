@@ -199,7 +199,7 @@ module.exports = {
 };
 ```
 
-Where all fields are optional:
+Where all the fields are optional:
 
 * `title`: Object in the following format:
 
@@ -240,8 +240,9 @@ Where all fields are optional:
 
     {% endnote %}
 
-* `size`: Table size, including font size, line spacing, and indentation within cells. String value type from these possible values: `l`, `m`, or `s`.
+* `size`: Table size, including font size, line spacing, and indentation within cells. The value type is a string of the `l`, `m`, or `s` value.
 * `events`: Specifies a configuration for cross-filtering in the table. To override this configuration for a specific cell, use the `custom` field for the cell. For more information, see [{#T}](../cross-filtration.md).
+
 
 ## Examples {#examples}
 

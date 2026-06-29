@@ -1,3 +1,8 @@
+---
+title: Managing bot traffic
+description: '{{ sws-name }} identifies legitimate and suspicious bots, uses bot categories, Bot Score, and TLS connection fingerprints.'
+---
+
 # Managing bot traffic
 
 Web resources process a significant portion of bot traffic. Some of these bots are legitimate and essential for the operation of various web services. Among such bots, there are [web crawlers](https://en.wikipedia.org/wiki/Web_crawler) tasked with content indexing to ensure search engines return relevant results, web page archiving bots, SEO optimization bots, etc. However, there is also a large number of malicious bots, e.g., DDoS botnets, vulnerability scanners, or bots used for fraud and data theft. To protect a web service, one has to carefully set up traffic filtering so as not to get in the way of helpful bots while minimizing the activity of malicious ones.
@@ -8,6 +13,8 @@ Web resources process a significant portion of bot traffic. Some of these bots a
 * Up-to-date lists of legitimate bots used by various services and companies (e.g., Yandex, Googlebot, or Bing).
 * Specific attribute to distinguish a verified bot.
 * Configurable bot score thresholds from 0 to 100 for rule customization.
+
+Bot categories and the list of legitimate bots are available as [preset {{ sws-name }} lists](lists.md#yc-rules). There is no need to create or update them manually. Use them in the `Bot category` and `Bot name` conditions to allow useful robots or apply individual rules to them.
 
 You can use the above traffic conditions in [security profile](profiles.md) (basic, Smart Protection, or WAF) and [ARL profile](arl.md) rules.
 

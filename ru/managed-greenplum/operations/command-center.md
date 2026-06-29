@@ -72,12 +72,41 @@ description: Используя командный центр, вы можете
         * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-write-bytes }}** — память в байтах, которая понадобилась для записи данных в БД.
         * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-spill-total-bytes }}** — дополнительный объем дисковой памяти, который потребовался для выполнения запросов.
         * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-total-time }}** — суммарное время, затраченное на обработку запросов.
+        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-net-sent-chunks }}** — количество пакетов, отправленных в рамках процесса `interconnect`.
+        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-net-recv-chunks }}** — количество пакетов, принятых в рамках процесса `interconnect`.
+        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-interconnect-retransmit }}** — количество повторно переданных пакетов.
+        * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-running-query-slices }}** — количество слайсов запроса.
 
         После того как вы выберете показатель потребления, отобразится график с деталями и список запросов. На графике указаны значение показателя, пользователь, который выполнил запрос, и время выполнения запроса.
-
-    1. Чтобы отфильтровать результаты, нажмите кнопку ![image](../../_assets/console-icons/funnel.svg) **{{ ui-key.yacloud.common.label_filters }}** и выберите нужные параметры.
+        
+    1. Чтобы отфильтровать результаты, нажмите кнопку ![image](../../_assets/console-icons/funnel.svg) **{{ ui-key.yacloud.common.label_filters }}** и задайте нужные параметры:
+        
+        * пользователь;
+        * база данных;
+        * ресурсная группа;
+        * статус запроса;
+        * идентификатор запроса;
+        * текст запроса.
 
 {% endlist %}
+
+
+### Поиск по тексту запроса {#query-search}
+
+Чтобы найти запрос, нажмите кнопку ![image](../../_assets/console-icons/funnel.svg) **{{ ui-key.yacloud.common.label_filters }}** и заполните поле **Текст запроса**. При этом поиск выполняется по подстроке без учета регистра.
+
+> Например, чтобы найти запросы, содержащие вставку данных в таблицу `customers`, введите `INSERT INTO customers`.
+
+Текст запроса может включать специальные символы:
+
+* `%` — соответствует любой последовательности символов (включая пустую);
+* `_` — соответствует одному символу;
+* `\` — экранирует специальные символы: `%`, `_` и `\`.
+
+> Например, чтобы найти запрос `DELETE FROM orders WHERE order_id IN (SELECT order_id FROM orders WHERE order_id = 1 LIMIT 1);`, введите `DELETE FROM orders%order_id = 1`.
+
+Поиск по многострочным запросам и позиционным параметрам (например, `$1`) не поддерживается. Чтобы выполнить такой поиск, [выгрузите логи через {{ cloud-logging-full-name }}](../../logging/operations/export-logs.md) и найдите нужные запросы вручную.
+
 
 ## Прервать текущую сессию {#terminate-session}
 

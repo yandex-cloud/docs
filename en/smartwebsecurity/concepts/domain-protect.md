@@ -1,6 +1,6 @@
 ---
 title: Protecting web applications in an external infrastructure
-description: Protecting web applications deployed outside {{ yandex-cloud }} using Smart Web Security
+description: Protecting web applications deployed outside {{ yandex-cloud }} using {{ sws-name }}
 ---
 
 # Protecting web applications in an external infrastructure

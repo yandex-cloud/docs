@@ -14,7 +14,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mmy-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ mmy-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
 
@@ -66,7 +66,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         * `target_db_name`: {{ ydb-name }} database name.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -115,7 +115,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
     ```
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -151,7 +151,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `target_endpoint_id` variable. Also, set it to the ID of the target endpoint created in the previous step.
             * `yandex_datatransfer_endpoint` and `yandex_datatransfer_transfer` resources.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -178,7 +178,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-        1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** service.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select your database from the list.
         1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Check that the {{ ydb-name }} database contains the `<source_cluster_DB_name>_measurements` table with test data.
@@ -209,7 +209,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-        1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** service.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select your database from the list.
         1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Make sure the `<source_cluster_DB_name>_measurements` table now contains the new data.
@@ -243,7 +243,7 @@ To minimize resource consumption, delete the resources you no longer need:
 1. If you created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 
-1. Delete the rest of the resources depending on how you created them:
+1. Delete the other resources depending on how you created them:
 
    {% list tabs group=instructions %}
 

@@ -572,7 +572,7 @@
     * **Max entry size in rows**: Maximum number of rows to allocate in the cache for each `SELECT` query result. The default value is `30000000`.
     * **Max size in bytes**: Maximum cache size, in bytes. If set to `0`, the query cache will be disabled. The default value is `1073741824` (1 GB).
 
-    You can learn more about these settings in [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#server_configuration_parameters_query-cache).
+    Read more about the settings in [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#server_configuration_parameters_query-cache).
 
 * **Query log retention size**{#setting-query-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 

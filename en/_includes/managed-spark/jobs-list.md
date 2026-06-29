@@ -2,8 +2,8 @@
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}).
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
 
 - CLI {#cli}
@@ -31,7 +31,7 @@
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../managed-spark/api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../../managed-spark/api-ref/authentication.md) and put it into an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -55,6 +55,6 @@
 
         You can get the cluster ID with the [list of clusters in the folder](../../managed-spark/operations/cluster-list.md#list-clusters).
 
-    1. View the [server response](../../managed-spark/api-ref/grpc/Job/list.md#yandex.cloud.spark.v1.ListJobsResponse) to make sure your request was successful.
+    1. Check the [server response](../../managed-spark/api-ref/grpc/Job/list.md#yandex.cloud.spark.v1.ListJobsResponse) to make sure your request was successful.
 
 {% endlist %}

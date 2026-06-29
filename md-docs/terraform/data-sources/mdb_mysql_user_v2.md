@@ -1,0 +1,49 @@
+# yandex_mdb_mysql_user_v2 (DataSource)
+
+Get information about a Yandex Managed MySQL user. For more information, see [the official documentation](../../managed-mysql/index.md).
+
+## Example usage
+
+```terraform
+//
+// Get information about existing MDB MySQL Database User.
+//
+data "yandex_mdb_mysql_user_v2" "my_user" {
+  cluster_id = "some_cluster_id"
+  name       = "test"
+}
+
+output "permission" {
+  value = data.yandex_mdb_mysql_user_v2.my_user.permission
+}
+
+output "global_permissions" {
+  value = data.yandex_mdb_mysql_user_v2.my_user.global_permissions
+}
+
+output "connection_limits" {
+  value = data.yandex_mdb_mysql_user_v2.my_user.connection_limits
+}
+```
+
+## Arguments & Attributes Reference
+
+- `authentication_plugin` (*Read-Only*) (String). Authentication plugin. Allowed values: `MYSQL_NATIVE_PASSWORD`, `CACHING_SHA2_PASSWORD`, `SHA256_PASSWORD`, `MYSQL_NO_LOGIN`, `MDB_IAMPROXY_AUTH` (for version 5.7 `MYSQL_NATIVE_PASSWORD`, `SHA256_PASSWORD`, `MYSQL_NO_LOGIN`, `MDB_IAMPROXY_AUTH`).
+- `cluster_id` (**Required**)(String). The ID of the MySQL cluster.
+- `connection_limits` (*Read-Only*) [Block]. User's connection limits. If the attribute is not specified there will be no changes. Default value is `-1`. When these parameters are set to `-1`, backend default values will be actually used.
+    - `max_connections_per_hour` (*Read-Only*) (Number). Max connections per hour.
+    - `max_questions_per_hour` (*Read-Only*) (Number). Max questions per hour.
+    - `max_updates_per_hour` (*Read-Only*) (Number). Max updates per hour.
+    - `max_user_connections` (*Read-Only*) (Number). Max user connections.
+- `connection_manager` (*Read-Only*) (Map Of String). Connection Manager connection configuration. Filled in by the server automatically.
+- `deletion_protection_mode` (*Read-Only*) (String). Deletion Protection inhibits deletion of the user. Possible values: DELETION_PROTECTION_MODE_DISABLED (default), DELETION_PROTECTION_MODE_ENABLED, DELETION_PROTECTION_MODE_INHERITED.
+- `generate_password` (*Read-Only*) (Boolean). Generate password using Connection Manager. Used only during creation.
+- `global_permissions` (*Read-Only*) (Set Of String). List user's global permissions. Allowed permissions: `REPLICATION_CLIENT`, `REPLICATION_SLAVE`, `PROCESS`, `FLUSH_OPTIMIZER_COSTS`, `SHOW_ROUTINE`, `MDB_ADMIN` for clear list use empty list. If the attribute is not specified there will be no changes.
+- `id` (*Read-Only*) (String). The resource identifier.
+- `name` (**Required**)(String). The name of the user.
+- `password` (*Read-Only*) (String, Sensitive). The password of the user.
+- `permission` (*Read-Only*) [Block]. Set of permissions granted to the user.
+    - `database_name` (*Read-Only*) (String). The name of the database that the permission grants access to.
+    - `roles` (*Read-Only*) (List Of String). List user's roles in the database. Allowed roles: `ALL`,`ALTER`,`ALTER_ROUTINE`,`CREATE`,`CREATE_ROUTINE`,`CREATE_TEMPORARY_TABLES`, `CREATE_VIEW`,`DELETE`,`DROP`,`EVENT`,`EXECUTE`,`INDEX`,`INSERT`,`LOCK_TABLES`,`SELECT`,`SHOW_VIEW`,`TRIGGER`,`UPDATE`,`REFERENCES`.
+- `timeouts` [Block].
+    - `read` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.

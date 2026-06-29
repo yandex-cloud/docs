@@ -101,7 +101,7 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
 
         The timestamp must be in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`. When selecting the `NEXT_AVAILABLE_WINDOW` reschedule type, you do not need to specify `delayedUntil`.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

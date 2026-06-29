@@ -122,6 +122,9 @@ The maximum string length in characters is 1000. ||
           "enabled": "google.protobuf.BoolValue",
           "connections_folder_id": "string",
           "secrets_folder_id": "string"
+        },
+        "managed_repack": {
+          "enabled": "google.protobuf.BoolValue"
         }
       },
       "network_id": "string",
@@ -406,6 +409,9 @@ Full version ||
 || connection_manager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager)**
 
 Cluster-wide Connection Manager integration configuration ||
+|| managed_repack | **[ManagedRepack](#yandex.cloud.mdb.postgresql.v1.ManagedRepack)**
+
+Configuration of managed pg_repack. ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig}
@@ -526,6 +532,17 @@ Optional. Defaults to the cluster's folder if not specified. ||
 A Connection Manager setting for connections created by MDB integration.
 ID of the folder where connection secrets are created.
 Optional. Defaults to the cluster's folder if not specified. ||
+|#
+
+## ManagedRepack {#yandex.cloud.mdb.postgresql.v1.ManagedRepack}
+
+Cluster-wide configuration of managed pg_repack.
+
+#|
+||Field | Description ||
+|| enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enables/disables managed pg_repack for the cluster. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow}

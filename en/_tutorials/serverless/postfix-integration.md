@@ -29,13 +29,13 @@ The infrastructure support cost includes:
 ### Set up resources {#infrastructure}
 
 1. Create an [address](../../postbox/operations/create-address.md).
-1. [Pass](../../postbox/operations/check-domain.md) a domain ownership check.
+1. [Verify](../../postbox/operations/check-domain.md) your domain ownership.
 1. [Create](../../iam/operations/sa/create.md) a service account in the folder as the address. If you create the service account and address in different folders, you will get an error when attempting to send an email.
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `postbox.sender` [role](../../postbox/security/index.md#postbox-sender) to the service account.
 1. Create a key for the service account:
 
-    * To send an email over SMTP with API key authentication, [create](../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key. When creating an API key, set the scope for `yc.postbox.send`. Save the secret key you got in a secure location. You will not be able to view the secret key parameters again after you close the window.
-    * To send an email using the AWS CLI or via SMTP with password authentication, [create](../../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key. Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
+    * To send an email over SMTP with API key authentication, [create](../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key. When creating an API key, set the scope to `yc.postbox.send`. Save the secret key you got in a secure location. You will not be able to view the secret key properties again after you close the window.
+    * To send an email using the AWS CLI or via SMTP with password authentication, [create](../../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key. Save the ID and secret key to a secure location. You will not be able to view the secret key properties again after you close the window.
 
 ## Create a VM for Postfix {#vm-postfix}
 
@@ -44,29 +44,29 @@ The infrastructure support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-24-04-lts) image.
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-24-04-lts).
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, configure the boot [disk](../../compute/concepts/disk.md):
 
-      * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.value_disk-type-network-hdd_cw9XD }}`
-      * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+      * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.value_disk-type-network-hdd_cw9XD }}`.
+      * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and configure the recommended mail server settings as follows:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter a subnet in the new VM's availability zone or select a [cloud network](../../vpc/concepts/network.md#network) from the list.
 
-          * The cloud network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
-          * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
+          * The cloud network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If your network has no subnets, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+          * If there are no networks in the list, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
               * In the window that opens, specify the network name and select the folder where it will be created.
               * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
@@ -79,13 +79,13 @@ The infrastructure support cost includes:
 
         {% note alert %}
 
-        Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+        Do not use `root` or other OS-reserved usernames. For operations requiring root privileges, use the `sudo` command.
 
         {% endnote %}
 
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name. Follow these naming requirements:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name.  The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -122,22 +122,22 @@ The infrastructure support cost includes:
 
       Where:
 
-      * `--name`: VM name. Follow these naming requirements:
+      * `--name`: VM name. The naming requirements are as follows:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
           {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) corresponding to the selected subnet.
+      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) matching the selected subnet.
       * `--platform-id`: [Platform](../../compute/concepts/vm-platforms.md).
       * `--cores`: [Number of vCPUs](../../compute/concepts/vm.md) the VM has.
-      * `--core-fraction`: Guaranteed vCPU share in %.
+      * `--core-fraction`: Guaranteed vCPU share, in %.
       * `--memory`: VM [RAM size](../../compute/concepts/vm.md).
       * `--create-boot-disk`: Boot disk properties: `size` stands for size, and `image-id`, for the ID of the image being used.
       * `--network-interface`: VM [network interface](../../compute/concepts/network.md) settings:
 
           * `subnet-name`: Name of the selected subnet.
-          * `nat-ip-version=ipv4`: [Public IP address](../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, omit this parameter.
+          * `nat-ip-version=ipv4`: [Public IP address](../../vpc/concepts/address.md#public-addresses). To create a VM without a public IP address, do not include this setting.
 
       * `--ssh-key`: Path to the file with the public SSH key part and the file name. You need to [create](../../compute/operations/vm-connect/ssh.md) an SSH key pair on your own.
 
@@ -368,7 +368,7 @@ In this example, you will send a plain text email without attachments.
 
     {% note warning %}
 
-    Here and in subsequent steps, the sender address must match the domain you verified ownership for when [setting up your resources](#infrastructure).
+    Here and in subsequent steps, the sender address must match the domain for which you verified ownership when [setting up your resources](#infrastructure).
 
     {% endnote %}
 
@@ -487,6 +487,6 @@ In this example, you will send an email with HTML content and attached `example.
 
 To stop paying for the resources you created:
 
-1. [Delete](../../compute/operations/vm-control/vm-delete.md) `postfix-server`.
-1. [Delete](../../postbox/concepts/glossary.md#adress) the address.
+1. [Delete](../../compute/operations/vm-control/vm-delete.md) the `postfix-server` VM.
+1. [Delete the address](../../postbox/concepts/glossary.md#adress).
 1. [Delete](../../dns/operations/zone-delete.md) the DNS zone if you created a resource record in it.

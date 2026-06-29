@@ -1,5 +1,7 @@
 # Начало работы с {{ cloud-logging-name }}
 
+{% include [deprecation-warning](../_includes/logging/deprecation-warning.md) %}
+
 В этой инструкции вы добавите записи в [лог-группу](./concepts/log-group.md), а после посмотрите их.
 
 ## Перед началом работы {#before-you-begin}

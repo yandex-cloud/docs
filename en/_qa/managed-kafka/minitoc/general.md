@@ -20,6 +20,8 @@
 
 * [What should I do if the _kafkacat: command not found_ error occurs?](#kafkacat-not-found)
 
+* [What do I do if I get an authentication error when connecting via kafkacat?](#kafkacat-authentication-error)
+
 * [Will Karapace be available during maintenance?](#karapace-maintenance)
 
 * [Is Karapace's endpoint constant or does it vary depending on the broker?](#karapace-endpoint)

@@ -93,13 +93,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
     To create an {{ SPRK }} cluster:
 
-    1. Verify that your folder has subnets for cluster host placement:
+    1. Check whether the folder has any subnets for cluster hosts:
 
         ```bash
         yc vpc subnet list
         ```
 
-        If your folder contains no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+        If there are no subnets in the folder, [create the right ones](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
     1. View the description of the CLI command for creating a cluster:
 
@@ -229,7 +229,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        This will create all the resources you need in the specified folder. You can check the new resources and their settings in the [management console]({{ link-console-main }}).
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-msp }}).
 

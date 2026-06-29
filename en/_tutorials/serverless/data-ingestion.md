@@ -32,9 +32,9 @@ If you no longer need to ingest data, [delete the associated resources](#clear-o
     * [On-demand](../../data-streams/pricing.md#on-demand): You pay for the performed read/write operations, the amount of read or written data, and the actual storage used for messages that are still within their retention period.
 
 * {{ ydb-name }} database in serverless mode: Data operations, amount of stored data and backups (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)).
-* {{ mch-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ mch-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer, which includes the use of computing resources and the number of transferred data rows (see [{{ data-transfer-full-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-full-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Set up your environment {#setup}
@@ -44,7 +44,7 @@ If you no longer need to ingest data, [delete the associated resources](#clear-o
 ## Create a {{ CH }} cluster {#create-cluster}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create your database cluster.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Click **Create cluster**.
 1. Configure your {{ CH }} cluster:
     1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, specify the database name and a user name along with their password.
@@ -62,7 +62,7 @@ Wait for the cluster to start. When the cluster is ready for use, its status wil
 ## Create a data stream {#create-stream}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a data stream.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
 1. Click **{{ ui-key.yacloud.data-streams.button_create-stream }}**.
 1. Specify an existing [serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless) database in {{ ydb-short-name }} or [create](../../ydb/quickstart.md#serverless) a new one. If you chose to create a new database, click ![refresh-button](../../_assets/data-streams/refresh-button.svg) after creating it to refresh the list of databases.
 1. Name the data stream.
@@ -84,7 +84,7 @@ Wait for the API gateway to start. When the API gateway is ready for use, its st
 ## Create a transfer {#create-transfer}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a transfer.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}**.
 1. Click **{{ ui-key.yacloud.data-transfer.button_create-transfer }}**.
 1. Name the transfer.
 1. [Create](../../data-transfer/operations/endpoint/index.md#create) a source endpoint:
@@ -98,7 +98,7 @@ Wait for the API gateway to start. When the API gateway is ready for use, its st
     1. Name the endpoint.
     1. From the **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** list, select `ClickHouse`.
     1. Select the MDB cluster you created earlier.
-    1. Enter the DB name, username, and password of the cluster you created earlier.
+    1. Enter the database name, username, and password of the cluster you created earlier.
     1. Click **Create**.
 1. Click **Create**.
 1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the created transfer and select **{{ ui-key.yacloud.data-transfer.label_connector-operation-ACTIVATE }}**.
@@ -121,7 +121,7 @@ Wait until the transfer gets activated. Once the transfer is ready for use, its 
 1. On the left-hand panel, select **SQL**.
 1. Enter the username and password and click **Connect**.
 1. In the list, select the previously created database.
-1. Select a DB table.
+1. Select the database table.
 
 If everything is set up properly, the table will show a new entry containing system data and the sent message.
 

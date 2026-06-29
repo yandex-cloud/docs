@@ -237,6 +237,7 @@ default:
     docs:
       broadcom: >-
         https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum
+      cloudberry: https://cloudberry.apache.org/docs
   gpt-lite: YandexGPT Lite
   gpt-pro: YandexGPT Pro
   grafana-name: Grafana
@@ -2888,7 +2889,6 @@ default:
       marketplace:
         label_product-ids: Product IDs
         label_subscriptions: Pricing options
-        product-pricing-type_byol: BYOL
         product-pricing-type_free: Free
         product-pricing-type_license: Subscription
         product-pricing-type_payg: PAYG
@@ -6882,6 +6882,7 @@ default:
             button_action-password: Change password
             button_action-update: Configure
             button_advanced-settings: Additional settings
+            field_enable-user: Enable user
             label_go-to-password: View password
             popup-add_button_add: Create
             popup-button_add: Create
@@ -7572,11 +7573,21 @@ default:
         label_default-smartcaptcha-name: Default
         label_domain-protection: Domain security
         label_domain-protection-domains: Domains
+        label_match-list_ip_qG1ho: IP addresses
         label_search-rule-type: 'Rule type:'
         match-lists:
+          label_action-edit-description: Change description
           label_create-list: Create list
           label_create-match-list: Create list
           label_match-lists: Lists
+        MatchListActions:
+          button_download_bdcBp: Download list
+          button_edit-list-items_2JFvu: Edit list
+        MatchListForm:
+          item-type_asn_oyhKw: ASN numbers
+          item-type_ip_7TYwL: IP addresses
+          item-type_regexp_eLHPr: Regular expressions
+          item-type_string_hGRJK: String values
         MatchListTable:
           button_add-to-list_1kKXh: Add to list
         overview:
@@ -9440,6 +9451,10 @@ default:
         disk_properties_action_description_upload: Upload to disk
         disk_properties_action_properties_download_properties_view_spec_layout_title: Content type
         disk_properties_action_properties_upload_properties_content_view_spec_layout_title: File content
+        disk_properties_oauth_token_description_lockbox: Lockbox
+        disk_properties_oauth_token_description_plain: Text
+        disk_properties_oauth_token_properties_lockbox_properties_name_view_spec_layout_title: Secret
+        disk_properties_oauth_token_properties_plain_properties_token_view_spec_layout_title: Value
         disk_properties_oauth_token_view_spec_layout_title: OAuth token
         disk_properties_path_view_spec_layout_title: Path
         foundation_models_properties_action_description_classify: Fine-tuned classification

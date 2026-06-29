@@ -15,7 +15,7 @@ To visualize logs:
 1. [Create a service account](#create-account).
 1. [Create an authorized key for the service account](#create-key).
 1. [Create a log group](#create-group).
-1. [Add records to the log group](#add-records).
+1. [Add entries to the log group](#add-records).
 1. [Connect a data source in {{ grafana-name }}](#connect-plugin).
 1. [View the logs in {{ grafana-name }}](#see-logs).
 
@@ -50,7 +50,7 @@ The cost of resources includes a fee for logging operations and log storage in a
    allow_loading_unsigned_plugins = yandexcloud-logging-datasource
    ```
 
-   For more information about loading unsigned plugins, see the [{{ grafana-name }} documentation](https://grafana.com/docs/grafana/latest/administration/plugin-management/#allow-unsigned-plugins).
+   For more information about loading unsigned plugins, see [this {{ grafana-name }} guide](https://grafana.com/docs/grafana/latest/administration/plugin-management/#allow-unsigned-plugins).
 
 1. Restart the {{ grafana-name }} server:
 
@@ -83,7 +83,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the service account: `grafana-plugin`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `logging.reader`.
@@ -197,7 +197,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the `grafana-plugin` service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
@@ -324,7 +324,7 @@ The cost of resources includes a fee for logging operations and log storage in a
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder where you created the `grafana-plugin` service account.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Click **{{ ui-key.yacloud.logging.button_create-group }}**.
   1. Enter `grafana-plugin` as the log group name.
   1. Set the log group entry retention period.

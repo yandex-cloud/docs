@@ -22,7 +22,7 @@ To update a route in a [virtual host](../concepts/http-router.md#virtual-host) o
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you are going to update a virtual host route in.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, click ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** and select the [HTTP router](../concepts/http-router.md) that contains the route you need.
   1. On the page that opens, under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, locate the route in the virtual host section, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to its name, and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens, depending on the [type](../concepts/http-router.md#routes-types) of your route:
 
@@ -586,7 +586,7 @@ To delete a route from a [virtual host](../concepts/http-router.md#virtual-host)
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to delete a virtual host route from.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, click ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** and select the [HTTP router](../concepts/http-router.md) that contains the route you need.
   1. On the page that opens, under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, locate the route in the virtual host section, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to its name, and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, confirm the deletion.

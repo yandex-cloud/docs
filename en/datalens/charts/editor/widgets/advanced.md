@@ -240,4 +240,5 @@ events: {
 
 ## Examples {#examples}
 
+
 Examples on the [demo dashboard](https://datalens.yandex/2aztx9jtm06ko?tab=Az) in the Advanced tab.

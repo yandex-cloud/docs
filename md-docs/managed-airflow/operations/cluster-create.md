@@ -34,6 +34,7 @@
 
         1. Введите имя кластера. Имя должно быть уникальным в рамках каталога.
         1. (Опционально) Введите описание кластера.
+        1. Выберите [версию Apache Airflow™ и Python](../concepts/versions.md).
         1. (Опционально) Создайте [метки](../../resource-manager/concepts/labels.md):
             1. Нажмите кнопку **Добавить метку**.
             1. Введите метку в формате `ключ: значение`.
@@ -98,16 +99,12 @@
 
       * (опционально) службы Triggerer.
 
-  1. (Опционально) В блоке **Зависимости** укажите названия pip- и deb-пакетов, чтобы установить в кластер дополнительные библиотеки и приложения для запуска DAG-файлов.
-
-      Чтобы указать более одного пакета, нажмите кнопку **Добавить**.
+  1. (Опционально) В блоке **Зависимости** укажите названия pip- и deb-пакетов через пробел, чтобы установить в кластер дополнительные библиотеки и приложения для запуска DAG-файлов.
 
       При необходимости задайте ограничения на версии устанавливаемых пакетов, например:
 
       ```text
-      pandas==2.0.2
-      scikit-learn>=1.0.0
-      clickhouse-driver~=0.2.0
+      pandas==2.0.2 scikit-learn>=1.0.0 clickhouse-driver~=0.2.0
       ```
 
       Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
@@ -191,6 +188,8 @@
            --name <имя_кластера> \
            --description <описание_кластера> \
            --labels <список_меток> \
+           --airflow-version <версия_Apache_Airflow™> \
+           --python-version <версия_Python> \
            --admin-password <пароль_администратора> \
            --service-account-id <идентификатор_сервисного_аккаунта> \
            --subnet-ids <идентификаторы_подсетей> \
@@ -229,6 +228,8 @@
         
         * `--name` — имя кластера.
         * `--description` — описание кластера.
+        * `--airflow-version` — [версия Apache Airflow™](../concepts/versions.md).
+        * `--python-version` — версия Python.
         * `--labels` — список меток. Метки задаются в формате `<ключ>=<значение>`.
         * `--admin-password` — пароль пользователя-администратора. Пароль должен иметь длину не менее 8 символов и содержать как минимум:
         
@@ -369,6 +370,8 @@
         resource "yandex_airflow_cluster" "<имя_кластера>" {
           name        = "<имя_кластера>"
           description = "<описание_кластера>"
+          airflow_version = "<версия_Apache Airflow™"
+          python_version = "<версия_Python>"
         
           labels = { <список_меток> }
         
@@ -450,6 +453,8 @@
         
         * `name` — имя кластера.
         * `description` — описание кластера.
+        * `airflow_version` — [версия Apache Airflow™](../concepts/versions.md).
+        * `python_version` — версия Python.
         * `labels` — список меток. Метки задаются в формате `<ключ> = "<значение>"`.
         * `admin_password` — пароль пользователя-администратора. Пароль должен иметь длину не менее 8 символов и содержать как минимум:
         
@@ -604,7 +609,8 @@
           "description": "<описание_кластера>",
           "labels": { <список_меток> },
           "config": {
-            "versionId": "<версия_Apache Airflow™>",
+            "airflowVersion": "<версия_Apache Airflow™>",
+            "pythonVersion": "<версия_Python>",
             "airflow": {
               "config": { <список_свойств> }
             },
@@ -687,7 +693,8 @@
         * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
         * `config` — конфигурация кластера:
 
-            * `versionId` — версия Apache Airflow™.
+            * `airflowVersion` — [версия Apache Airflow™](../concepts/versions.md).
+            * `pythonVersion` — версия Python.
             * `airflow.config` — [дополнительные свойства Apache Airflow™](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Задаются в формате `"<раздел_конфигурации>.<ключ>": "<значение>"`, например:
 
                 ```json
@@ -853,7 +860,8 @@
           "description": "<описание_кластера>",
           "labels": { <список_меток> },
           "config": {
-            "version_id": "<версия_Apache Airflow™>",
+            "version_airflow": "<версия_Apache Airflow™>",
+            "python_version": "<версия_Python>",
             "airflow": {
               "config": { <список_свойств> }
             },
@@ -936,7 +944,8 @@
         * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
         * `config` — конфигурация кластера:
 
-            * `version_id` — версия Apache Airflow™.
+            * `version_airflow` — [версия Apache Airflow™](../concepts/versions.md).
+            * `python_version` — версия Python.
             * `airflow.config` — [дополнительные свойства Apache Airflow™](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Задаются в формате `"<раздел_конфигурации>.<ключ>": "<значение>"`, например:
 
                 ```json
@@ -1094,6 +1103,7 @@
 
     * Имя — `myaf`.
     * Версия Apache Airflow™ — `3.0`.
+    * Версия Python — `3.12`.
     * Пароль администратора — `Password*1`.
     * Сервисный аккаунт с идентификатором `aje8r2rp7fkl********`.
     * Подсети с идентификаторами:
@@ -1114,6 +1124,7 @@
     yc managed-airflow cluster create \
       --name myaf \
       --airflow-version 3.0 \
+      --python-version 3.12 \
       --admin-password Password*1 \
       --service-account-id aje8r2rp7fkl******** \
       --subnet-ids e9bhbia2scnk********,e2lfqbm5nt9r********,fl8beqmjckv8******** \
@@ -1132,6 +1143,7 @@
     * Каталог с идентификатором `b1g4unjqq856********`.
     * Имя — `myaf`.
     * Версия Apache Airflow™ — `3.0`.
+    * Версия Python — `3.12`.
     * Пароль администратора — `Password*1`.
     * Новый сервисный аккаунт `af-sa` со следующими ролями:
       
@@ -1163,6 +1175,7 @@
     resource "yandex_airflow_cluster" "myaf" {
       name               = "myaf"
       airflow_version    = "3.0"
+      python_version     = "3.12"
       admin_password     = "Password*1"
       service_account_id = yandex_iam_service_account.af-sa.id
       subnet_ids         = [yandex_vpc_subnet.af-subnet-a.id,yandex_vpc_subnet.af-subnet-b.id,yandex_vpc_subnet.af-subnet-d.id]

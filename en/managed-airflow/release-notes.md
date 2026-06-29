@@ -1,6 +1,6 @@
 ---
 title: '{{ maf-full-name }} release notes'
-description: This section contains {{ maf-name }} release notes.
+description: This section contains the {{ maf-name }} release notes.
 ---
 
 # {{ maf-full-name }} release notes
@@ -21,7 +21,7 @@ Added the option to select a [configuration](concepts/index.md#presets) (vCPUs a
 ## September 2024 {#sep-2024}
 
 * On September 16, 2024, {{ maf-name }} entered the [General Availability](../overview/concepts/launch-stages.md) stage. Since then its use is charged according to the [pricing policy](pricing.md).
-* Enabled operations on an {{ AF }} cluster via the [{{ yandex-cloud }} CLI](../cli/cli-ref/managed-airflow/cli-ref/index.md), [{{ TF }}](tf-ref.md), and [API](api-ref/authentication.md).
+* Added the ability to perform operations on an {{ AF }} cluster via the [{{ yandex-cloud }} CLI](../cli/cli-ref/managed-airflow/cli-ref/index.md), [{{ TF }}](tf-ref.md), and [API](api-ref/authentication.md).
 
 ## June 2024 {#jun-2024}
 

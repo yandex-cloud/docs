@@ -19,10 +19,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-* VM instance: Use of computing resources, storage, public IP address, and OS (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* {{ mmy-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* {{ mmy-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Create a VM with an online store {#create-vm-mysql}
@@ -77,7 +77,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 To replicate tables with information about online store orders, create a {{ mmy-name }} cluster:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create your database cluster. 
-1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** and click **Create cluster**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** and click **Create cluster**.
 1. Specify a name for the cluster: `ya-sample-cloud-mysql`.
 1. Select the host class: `s2.small`.
 1. Under **Storage size**:
@@ -104,7 +104,7 @@ For more information about creating clusters, see [Getting started with {{ mmy-s
 To synchronize the order information from the MySQL database of the website with the intermediate data storage hosted in the cloud, configure {{ data-transfer-name }}:
 
 1. In the management console, select the folder where you want to create a configuration for the connection. 
-1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}** and click **Create endpoint**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-transfer }}** and click **Create endpoint**.
 1. Define the parameters of the data source, that is, the VM of the online store with a MySQL instance running on it:
 
    * **Name**: `magento-source`.

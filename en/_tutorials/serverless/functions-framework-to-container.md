@@ -1,14 +1,14 @@
-# Developing functions in Functions Framework and deploying them in {{ serverless-containers-full-name }}
+# Developing functions in Functions Framework and deploying them to {{ serverless-containers-full-name }}
 
 
-The Google Cloud [Functions Framework](https://cloud.google.com/functions/docs/functions-framework) is an open contract implemented as [open-source](https://en.wikipedia.org/wiki/Open-source_software) libraries for multiple programming languages. The framework allows you to develop [functions](../../functions/concepts/function.md) under the [FaaS](https://en.wikipedia.org/wiki/Function_as_a_service) (Funciton as a service) model, capable of processing HTTP requests or [CloudEvents](https://cloudevents.io/).
+The Google Cloud [Functions Framework](https://cloud.google.com/functions/docs/functions-framework) is an open contract implemented as [open-source](https://en.wikipedia.org/wiki/Open-source_software) libraries for multiple programming languages. The framework allows you to develop [functions](../../functions/concepts/function.md) under the [FaaS](https://en.wikipedia.org/wiki/Function_as_a_service) model, capable of processing HTTP requests or [CloudEvents](https://cloudevents.io/).
 
 With the Functions Framework, you can write and run functions in {{ serverless-containers-full-name }} [containers](../../serverless-containers/concepts/container.md) without using [{{ sf-full-name }}](../../functions/index.yaml). Functions written this way can be migrated across different platforms, such as [Cloud Run](https://cloud.google.com/run), [Cloud Run functions](https://cloud.google.com/functions), [Knative](https://knative.dev/docs/), and [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml), as well as between these platforms and your local development machine.
 
-This tutorial presents a use case where you will locally create a function using the Functions Framework. You will then build a [Docker image](../../container-registry/concepts/docker-image.md) from this function and upload it to a [registry](../../container-registry/concepts/registry.md) in {{ container-registry-full-name }}. Using the Docker image stored in the registry, you will create a [container](../../serverless-containers/concepts/container.md) in {{ serverless-containers-name }} that will run your function code when invoked.
+This tutorial shows a use case where you will locally create a function using the Functions Framework. You will then build a [Docker image](../../container-registry/concepts/docker-image.md) from this function and push it to a [registry](../../container-registry/concepts/registry.md) in {{ container-registry-full-name }}. Using the Docker image stored in the registry, you will create a [container](../../serverless-containers/concepts/container.md) in {{ serverless-containers-name }} that will run your function code when invoked.
 
 This solution enables you to:
-* Build and distribute functions as [OCI-compatible](https://opencontainers.org/) Docker images and deploy them on various cloud and on-premises platforms, such as [Kubernetes](https://kubernetes.io/), Cloud Run, Knative, etc.
+* Build and distribute functions as [OCI-compatible](https://opencontainers.org/) Docker images and deploy them on various cloud and [on-premises platforms](https://en.wikipedia.org/wiki/On-premises_software), such as [Kubernetes](https://kubernetes.io/), Cloud Run, Knative, etc.
 * Develop, run locally, debug, and test functions as standard web applications using modern [IDEs](https://en.wikipedia.org/wiki/Integrated_development_environment).
 * Migrate your functions from Cloud Run functions or Knative while maintaining compatibility with these platforms.
 * Create functions in [Dart](https://dart.dev/), [C++](https://en.wikipedia.org/wiki/C%2B%2B), or [Ruby](https://www.ruby-lang.org/en/), which are currently not supported in {{ sf-name }}.
@@ -21,7 +21,7 @@ To deploy a function in {{ serverless-containers-name }}:
 1. [Create a registry in {{ container-registry-name }}](#create-registry).
 1. [Create a function](#create-function).
 1. [Create a Docker image and push it to the registry in {{ container-registry-name }}](#push-docker-image).
-1. [Create a container in {{ serverless-containers-name }} from the uploaded Docker image](#setup-container).
+1. [Create a container in {{ serverless-containers-name }} from the pushed Docker image](#setup-container).
 1. [Test the function in the container](#run-test).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -50,7 +50,7 @@ The cost of support for the new infrastructure includes:
     sudo apt install pack-cli -y
     ```
 
-    Here we provide the [Pack](https://buildpacks.io/docs/for-platform-operators/how-to/integrate-ci/pack/) installation guide for Linux Ubuntu. If you are using a different OS, see the Pack tutorials with installation instructions.
+    Here, we show how to install [Pack](https://buildpacks.io/docs/for-platform-operators/how-to/integrate-ci/pack/) for Linux Ubuntu. If you are using a different OS, see the Pack tutorials for installation.
 
 ## Create a service account {#service-account}
 
@@ -59,7 +59,7 @@ The cost of support for the new infrastructure includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**, and in the window that opens:
       1. Name the [service account](../../iam/concepts/users/service-accounts.md): `serverless-containers-sa`.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select [`container-registry.images.puller`](../../container-registry/security/index.md#container-registry-images-puller).
@@ -87,11 +87,11 @@ The cost of support for the new infrastructure includes:
       name: serverless-containers-sa
       ```
 
-      Save the service account ID (the `id` field value) and the folder ID (the `folder_id` field value), you will need them in the next step.
+      Save the service account ID (the `id` field value) and the folder ID (the `folder_id` field value), as you will need them in the next step.
 
       For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
-  1. Assign the `container-registry.images.puller` [role](../../container-registry/security/index.md#container-registry-images-puller) for the folder to the created service account by specifying the folder and service account IDs you saved in the previous step:
+  1. Assign the `container-registry.images.puller` [role](../../container-registry/security/index.md#container-registry-images-puller) for the folder to the created service account by specifying the folder and service account IDs you previously saved:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_ID> \
@@ -128,12 +128,12 @@ The cost of support for the new infrastructure includes:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you used to create the service account in.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you created the service account.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
   1. In the **{{ ui-key.yacloud.cr.overview.popup-create_field_name }}** field, enter the registry name: `functions-framework-registry`.
   1. Click **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
-  1. On the page that opens, copy the ID of the created registry, you will need it later.
+  1. On the page that opens, copy the ID of the created registry, as you will need it later.
 
 - CLI {#cli}
 
@@ -155,7 +155,7 @@ The cost of support for the new infrastructure includes:
   created_at: "2025-02-14T11:44:23.698Z"
   ```
 
-  Save the ID (the `id` field value) of the created registry, you will need it later.
+  Save the ID (the `id` field value) of the created registry, as you will need it later.
 
   For more information about the `yc container registry create` command, see the [CLI reference](../../cli/cli-ref/container/cli-ref/registry/create.md).
 
@@ -167,7 +167,7 @@ The cost of support for the new infrastructure includes:
 
 ## Create a function {#create-function}
 
-At this stage, you will locally create a function using the Functions Framework. Here we provide the package installation commands for Linux Ubuntu. If you are using a different OS, see the relevant tutorials for installation instructions.
+At this stage, you will locally create a function using the Functions Framework. Here, we provide the package installation commands for Linux Ubuntu. If you are using a different OS, see the relevant installation tutorials.
 
 {% list tabs group=programming_language %}
 
@@ -175,7 +175,7 @@ At this stage, you will locally create a function using the Functions Framework.
 
   To create a function in [Node.js](https://nodejs.org/en):
 
-  1. Install the [npm](https://nodejs.org/en/learn/getting-started/an-introduction-to-the-npm-package-manager) package manager:
+  1. Install [npm](https://nodejs.org/en/learn/getting-started/an-introduction-to-the-npm-package-manager):
 
       ```bash
       sudo apt update && \
@@ -203,7 +203,7 @@ At this stage, you will locally create a function using the Functions Framework.
         "license": "ISC"
       }
       ```
-  1. Create a new `index.js` file by opening it in the text editor:
+  1. Create a new `index.js` file by opening it in a text editor:
 
       ```bash
       nano index.js
@@ -290,7 +290,7 @@ At this stage, you will locally create a function using the Functions Framework.
       ```bash
       sudo pip install functions-framework
       ```
-  1. Create the `main.py` file with the function code by opening it in the text editor:
+  1. Create a `main.py` file with the function code by opening it in a text editor:
 
       ```bash
       nano main.py
@@ -342,7 +342,7 @@ At this stage, you will locally create a function using the Functions Framework.
       ```bash
       go mod init example.com/helloWorld
       ```
-  1. Create the `function.go` file with the function code by opening it in the text editor:
+  1. Create a `function.go` file with the function code by opening it in a text editor:
 
       ```go
       nano function.go
@@ -436,7 +436,7 @@ At this stage, you will locally create a function using the Functions Framework.
 
 The function is built using [Buildpacks](https://buildpacks.io) and [builders](https://buildpacks.io/docs/for-app-developers/concepts/builder/) provided by [GCP](https://github.com/GoogleCloudPlatform/buildpacks). You can also use builders provided by [Heroku](https://github.com/heroku/buildpacks).
 
-1. Use Pack, which you installed earlier, to build a Docker image with your app:
+1. Use Pack you installed earlier to build a Docker image with your app:
 
     ```bash
     sudo pack build \
@@ -455,9 +455,9 @@ The function is built using [Buildpacks](https://buildpacks.io) and [builders](h
     Successfully built image my-first-function
     ```
 
-    You can use the above build command for functions written in different programming languages. The builder will automatically detect the project's language and runtime environment and then build the application into an OCI-compatible Docker image. This way, developers do not need to create a Dockerfile manually.
+    You can use the above build command for functions written in different programming languages. The builder will automatically detect the project's language and runtime and then build the application into an OCI-compatible Docker image. This way, developers do not need to create a Dockerfile manually.
 
-1. Run the container locally from the Docker image to make sure everything works correctly:
+1. Run your container locally from the Docker image to make sure everything works correctly:
 
     1. Run this command:
 
@@ -466,9 +466,9 @@ The function is built using [Buildpacks](https://buildpacks.io) and [builders](h
         ```
     1. {% include [local-curl-test](../_tutorials_includes/functions-framework-to-container/local-curl-test.md) %}
 
-        The function code is running in the locally launched Docker container.
+        The function code is executed in the locally running Docker container.
     1. Close the additional terminal window. Stop the running Docker container from the main terminal window by pressing **Ctrl + C**.
-1. Assign an URL to the Docker image in the `{{ registry }}/<registry_ID>/<Docker_image_name>:<tag>` format and specify the previously saved ID of the registry from {{ container-registry-name }}.
+1. Assign a URL to the Docker image in the `{{ registry }}/<registry_ID>/<Docker_image_name>:<tag>` format, specifying the previously saved ID of the registry from {{ container-registry-name }}.
 
      ```bash
      docker tag my-first-function \
@@ -497,30 +497,30 @@ The function is built using [Buildpacks](https://buildpacks.io) and [builders](h
     some-tag: digest: sha256:1b8bac8da5e64dd4359f81d71a7803f212af385f9718a7a4f9a40bca******** size: 2830
     ```
 
-## Create a container in {{ serverless-containers-name }} from the uploaded Docker image {#setup-container}
+## Create a container in {{ serverless-containers-name }} from the pushed Docker image {#setup-container}
 
-Use the Docker image uploaded to {{ container-registry-name }} to create a {{ serverless-containers-name }} container [revision](../../serverless-containers/concepts/container.md#revision).
+Use the Docker image pushed to {{ container-registry-name }} to create a container [revision](../../serverless-containers/concepts/container.md#revision) in {{ serverless-containers-name }}.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the resources you created previously.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the resources you created.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Click **{{ ui-key.yacloud.serverless-containers.button_create-container }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the container name: `my-first-function`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
-  1. Under **{{ ui-key.yacloud.serverless-containers.section_image }}**, in the **{{ ui-key.yacloud.serverless-containers.label_image-url }}** field, select the previously uploaded Docker image, `cr.yandex/<registry_ID>/my-first-function:some-tag`.
-  1. Under **{{ ui-key.yacloud.serverless-containers.section_parameters }}**, in the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, select the previously created service account. `serverless-containers-sa`.
+  1. Under **{{ ui-key.yacloud.serverless-containers.section_image }}**, in the **{{ ui-key.yacloud.serverless-containers.label_image-url }}** field, select the previously pushed Docker image, `cr.yandex/<registry_ID>/my-first-function:some-tag`.
+  1. Under **{{ ui-key.yacloud.serverless-containers.section_parameters }}**, in the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, select `serverless-containers-sa` you created earlier.
   1. Under **{{ ui-key.yacloud.logging.label_title }}**, disable **{{ ui-key.yacloud.logging.field_logging }}** to opt out of writing logs to the [log group](../../logging/concepts/log-group.md).
 
-      You can leave this option enabled if you prefer to [write](../../serverless-containers/operations/logs-write.md) container execution logs. You will be [charged](../../logging/pricing.md) for writing and storing logs.
+      You can leave this option enabled if you prefer to have container execution logs [written](../../serverless-containers/operations/logs-write.md). You will be [charged](../../logging/pricing.md) for writing and storing logs.
   1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
-  1. In the window that opens, under **{{ ui-key.yacloud_org.common.section-base }}**, copy the **{{ ui-key.yacloud.serverless-containers.label_url }}** value; you will need this URL to test function in the container.
+  1. In the window that opens, under **{{ ui-key.yacloud_org.common.section-base }}**, copy the **{{ ui-key.yacloud.serverless-containers.label_url }}** value; you will need this URL to test your function in the container.
 
 - CLI {#cli}
 
-  1. Create a container in `my-first-function`:
+  1. Create a container named `my-first-function`:
 
       ```bash
       yc serverless container create \
@@ -539,11 +539,11 @@ Use the Docker image uploaded to {{ container-registry-name }} to create a {{ se
       status: ACTIVE
       ```
 
-      Save the container invocation `url`, you will need it to test function in the container.
+      Save the container invocation `url`, as you will need it to test your function in the container.
 
       For more information about the `yc serverless container create` command, see the [CLI reference](../../cli/cli-ref/serverless/cli-ref/container/create.md).
 
-  1. Create a revision of the container you created previously:
+  1. Create a revision of the container you created:
 
       ```bash
       yc serverless container revision deploy \
@@ -554,9 +554,9 @@ Use the Docker image uploaded to {{ container-registry-name }} to create a {{ se
       ```
 
       Where:
-      * `<registry_ID>`: ID of the {{ container-registry-name }} registry you saved in the previous step.
+      * `<registry_ID>`: ID of the registry you saved in the previous step.
       * `<service_account_ID>`: ID of the `serverless-containers-sa` service account you saved in the previous step.
-      * `--no-logging`: Disables writing logs to the [log group](../../logging/concepts/log-group.md). Remove this parameter from the command to [write](../../serverless-containers/operations/logs-write.md) container execution logs. You will be [charged](../../logging/pricing.md) for writing and storing logs.
+      * `--no-logging`: Disables writing logs to the [log group](../../logging/concepts/log-group.md). Remove this parameter to have container execution logs [written](../../serverless-containers/operations/logs-write.md). You will be [charged](../../logging/pricing.md) for writing and storing logs.
 
       Result:
 
@@ -616,6 +616,6 @@ By invoking the container, you ran the code of `my-first-function` you created e
 
 To stop paying for the resources you created:
 
-1. [Delete](../../serverless-containers/operations/delete.md) {{ serverless-containers-name }}.
+1. [Delete](../../serverless-containers/operations/delete.md) the container in {{ serverless-containers-name }}.
 1. [Delete](../../container-registry/operations/docker-image/docker-image-delete.md) the Docker image from the registry in {{ container-registry-name }} and then [delete](../../container-registry/operations/registry/registry-delete.md) the registry.
 1. If you did not disable writing container execution logs, [delete](../../logging/operations/delete-group.md) the log group.

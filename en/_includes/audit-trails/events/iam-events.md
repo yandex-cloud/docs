@@ -22,8 +22,10 @@ Event name | Description
 `oauthclient.DeleteOAuthClient` | Deleting an OAuth client
 `oauthclient.DeleteOAuthClientSecret` | Deleting a secret for an OAuth client
 `oauthclient.UpdateOAuthClient` | Updating an OAuth client
+`ReactivateServiceAccount` | Activating a service account
 `RevokeLeakedCredential` | Revoking a compromised secret
 `SetServiceAccountAccessBindings` | Assigning access permissions for a service account
+`SuspendServiceAccount` | Deactivating a service account
 `UpdateAccessKey` | Updating a static key
 `UpdateApiKey` | Updating an API key
 `UpdateCertificate` | Renewing a certificate

@@ -1,4 +1,4 @@
-# Jobs in {{ dataproc-name }}
+# {{ dataproc-name }} jobs
 
 In a {{ dataproc-name }} cluster, you can create and run jobs. This allows you to regularly upload datasets from [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md), use them in calculations, and generate analytics.
 
@@ -15,8 +15,8 @@ When creating a job, specify:
 * _Properties_: The <q>key:value</q> pairs that configure [image components](./environment.md).
 
 To create and [start jobs](../operations/running-jobs.md), you can:
+* Use the {{ yandex-cloud }} interfaces. For more details, see [basic examples](../tutorials/job-overview.md#jobs-basic-tutorials) of working with jobs.
 
-* Use the {{ yandex-cloud }} interfaces. For more information, see [basic examples](../tutorials/job-overview.md#jobs-basic-tutorials) for working with jobs.
 
 
 * Connect directly to the cluster node. For more information, see the example in the [Running jobs from remote hosts that are not part of the cluster](../tutorials/remote-run-job.md) section.

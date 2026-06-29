@@ -3,7 +3,7 @@ title: '{{ maf-full-name }} cluster state monitoring'
 description: In this tutorial, you will learn how to monitor the state of your {{ maf-name }} cluster.
 ---
 
-# Cluster health state monitoring {{ maf-name }}
+# {{ maf-name }} cluster state monitoring
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -13,7 +13,7 @@ Charts are updated once a minute.
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Cluster health state monitoring {#monitoring-cluster}
+## Cluster state monitoring {#monitoring-cluster}
 
 To view detailed information on the health state of a {{ maf-name }} cluster:
 
@@ -75,7 +75,7 @@ To configure [cluster](#monitoring-cluster) state indicator alerts:
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-For a complete list of supported metrics, see [this {{ monitoring-name }} article](../../monitoring/metrics-ref/managed-airflow-ref.md).
+For a full list of supported metrics, see [this {{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-airflow-ref.md).
 
 ## Cluster state and status
 

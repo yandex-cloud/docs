@@ -15,7 +15,7 @@ To view the statistics:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the load balancer is in.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Click your load balancer's name.
   1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
   1. Select the dashboard: **{{ ui-key.yacloud.alb.label_tab-http-stats }}** or **{{ ui-key.yacloud.alb.label_tab-capacity-stats }}**.
@@ -34,7 +34,7 @@ To view the statistics:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the load balancer is in.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Click your load balancer's name.
   1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
   1. Select the dashboard: **{{ ui-key.yacloud.alb.label_tab-http-stats }}** or **{{ ui-key.yacloud.alb.label_tab-capacity-stats }}**.

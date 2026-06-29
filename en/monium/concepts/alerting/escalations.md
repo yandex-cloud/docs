@@ -1,7 +1,5 @@
 # Escalations
 
-{% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}
-
 
 
 {% include [escalations-definition](../../../_includes/monitoring/escalation-definition.md) %}
@@ -77,6 +75,8 @@ An escalation may be stopped for the following reasons:
 ### Notification methods {#notification-methods}
 
 {% include [escalation-channels](../../../_includes/monitoring/escalation-channels.md) %}
+
+The cost of calls and SMS is calculated based on the [pricing policy](../../pricing.md).
 
 ## My escalations {#my-escalations-popup}
 

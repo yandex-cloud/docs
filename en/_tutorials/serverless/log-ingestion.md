@@ -5,7 +5,7 @@ Analyzing information about application events over any period requires secure s
 
 Applications do not usually send their logs to storage systems directly. Instead, they use aggregators such as [fluentd](https://www.fluentd.org), [fluentbit](https://fluentbit.io), or [logstash](https://www.elastic.co/logstash/). Aggregators can write data directly to storage systems; however, for greater reliability, data first goes into an intermediate buffer (data stream bus, [message broker](https://en.wikipedia.org/wiki/Message_broker)) and only from there, to storage systems.
 
-This approach lets developers focus on application features and delegate log delivery and storage to special systems.
+This approach allows developers to focus on application features and delegate log delivery and storage to special systems.
 
 In this tutorial, you will learn how to save application runtime logs to {{ objstorage-full-name }}.
 
@@ -20,7 +20,7 @@ To set up application runtime log storage:
 1. [Connect Fluentd to your data stream](#connect).
 1. [Test sending and receiving data](#test-ingestion).
 
-If you no longer need to store any logs, [delete the resources in use](#clear-out).
+If you no longer need to store any logs, [delete the resources they use](#clear-out).
 
 ## Get your cloud ready {#before-you-begin}
 
@@ -39,12 +39,12 @@ The cost of application log storage support includes:
 1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `editor` role for your folder.
 1. [Create](../../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key.
 
-You will need the ID and secret key at the next steps.
+You will need the ID and secret key in the next steps.
 
 ## Create a bucket for storing logs {#create-bucket}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Click **Create bucket**.
 1. Name the bucket.
 1. In the **Object read access**, **Object listing access**, and **Read access to settings** fields, select **Limited**.
@@ -54,7 +54,7 @@ You will need the ID and secret key at the next steps.
 ## Create a data stream {#create-stream}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a data stream.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
 1. Click **Create stream**.
 1. Specify an existing [serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless) database in {{ ydb-short-name }} or [create](../../ydb/quickstart.md#serverless) a new one. If you chose to create a new database, click ![refresh-button](../../_assets/data-streams/refresh-button.svg) **Refresh** after creating it to refresh the list of databases.
 1. Enter a name for the stream.
@@ -77,7 +77,7 @@ Wait for the stream to start. Once the stream is ready for use, its status will 
     1. Click **Create endpoint**.
     1. In the **Direction** field, select `Target`.
     1. Enter a name for the endpoint.
-    1. From the **Database type** list, select `{{ objstorage-name }}`.
+    1. In the **Database type** list, select `{{ objstorage-name }}`.
     1. Enter the name of the bucket you created earlier.
     1. Select the service account you created earlier.
     1. Click **Create**.
@@ -95,7 +95,7 @@ Wait until the transfer is activated. Once the transfer is ready for use, its st
 ## Install Fluentd {#install-fluentd}
 
 1. Download and install [Fluentd](https://www.fluentd.org/download).
-1. Install the Fluentd plugin to add AWS Kinesis Data Streams protocol support. This protocol will be responsible for streaming data.
+1. Install the Fluentd plugin to add AWS Kinesis Data Streams protocol support. This protocol will be used for data delivery.
 
   ```bash
   sudo td-agent-gem install fluent-plugin-kinesis
@@ -106,7 +106,7 @@ Wait until the transfer is activated. Once the transfer is ready for use, its st
 1. On the page of the stream you created, click **Connect** and navigate to the **Fluentd** tab.
 1. Copy the configuration file example and paste it into the `/etc/td-agent/td-agent.conf` file. Replace `<key_id>` and `<secret>` with the ID and secret key you got earlier.
 
-  {% cut "Sample configuration file" %}
+  {% cut "Configuration file example" %}
 
   ```xml
   <system>
@@ -147,13 +147,13 @@ Wait until the transfer is activated. Once the transfer is ready for use, its st
 
 ## Test sending and receiving data {#test-ingestion}
 
-To send data to your stream using Fluentd, run the command:
+To send data to your stream using Fluentd, run this command:
 
 ```bash
 curl --request POST --data 'json={"user_id":"user1", "score": 100}' http://localhost:8888/kinesis
 ```
 
-If the setup is successful, the Fluentd operation log named `/var/log/td-agent/td-agent.log` will feature messages about receiving the data and writing it to {{ yds-full-name }} over the AWS Kinesis Data Streams protocol:
+If the setup is successful, the Fluentd operation log named `/var/log/td-agent/td-agent.log` will show messages about receiving the data and writing it to {{ yds-full-name }} over the AWS Kinesis Data Streams protocol:
 
 ```text
 ...
@@ -167,7 +167,7 @@ The bucket you created will contain a file with the sent message.
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you used:
+To stop paying for the resources you used in this scenario:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../../data-transfer/operations/endpoint/index.md#delete).

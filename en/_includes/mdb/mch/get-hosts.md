@@ -4,9 +4,9 @@
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 
 - CLI {#cli}
 
@@ -34,7 +34,7 @@
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../../managed-clickhouse/api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../../../managed-clickhouse/api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../mdb/api-auth-token.md) %}
 
@@ -53,7 +53,7 @@
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../../managed-clickhouse/api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../../../managed-clickhouse/api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../mdb/api-auth-token.md) %}
 

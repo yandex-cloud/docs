@@ -20,7 +20,17 @@ description: Follow this guide to add accessing the {{ tracker-full-name }} API 
       1. Optionally, if the {{ tracker-full-name }} API uses a non-standard endpoint, edit the default value in the **{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_endpoint_view_spec_layout_title }}** field accordingly.
       1. Under **{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_oauth_token_view_spec_layout_title }}**, specify the [app OAUth token]({{ link-tracker-cloudless }}concepts/access#about_OAuth) or {{ lockbox-full-name }} [secret](../../../../lockbox/concepts/secret.md) that stores the token. Select:
 
-          {% include [oauth](../../../../_includes/serverless-integrations/workflows-constructor/oauth.md) %}
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_oauth_token_description_lockbox }}` to store the OAuth token in a secret; in the **{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_oauth_token_properties_lockbox_properties_name_view_spec_layout_title }}** section, select the secret, its [version](../../../../lockbox/concepts/secret.md#version), and the key used to store the OAuth token.
+
+              If you do not have a {{ lockbox-name }} secret, click **{{ ui-key.yacloud.common.create }}** to create it.
+            
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_oauth_token_description_plain }}` to store the OAuth token in the specification as text; enter the OAuth token in the **{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_oauth_token_properties_plain_properties_token_view_spec_layout_title }}** field.
+
+              {% note warning %}
+
+              It is not safe to store your OAuth token in the specification in plain text.
+
+              {% endnote %}
 
       1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_organization_view_spec_layout_title }}** field, select the type of the organization your {{ tracker-name }} is connected to: `{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_organization_description_cloud }}` or `{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_organization_description_yandex }}`. Alternatively, set it to `{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_organization_description_none }}` if you do not want to specify any organization.
 

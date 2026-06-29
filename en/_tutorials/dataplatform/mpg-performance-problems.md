@@ -15,7 +15,7 @@ This will allow you to [optimize the cluster performance](../../managed-postgres
 ## Check the cluster’s health using {{ monitoring-full-name }} {#monitoring}
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 1. Click the name of your cluster and select the **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}** tab.
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 1. On the **Average CPU usage** chart, identify the period where the line shows a steady increase followed by a plateau.

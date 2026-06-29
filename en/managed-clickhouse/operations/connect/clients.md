@@ -5,7 +5,7 @@ description: Follow this guide to connect to a database in a {{ CH }} cluster us
 
 # Connecting to a {{ CH }} cluster from applications
 
-This section provides settings for connecting to {{ mch-name }} cluster hosts using the [command line tools](#command-line-tools), [graphical IDEs](#ide), [browser](#browser), and [Docker container](#docker). To learn how to connect from your application code, see [Code examples](code-examples.md).
+This section provides settings for connecting to {{ mch-name }} cluster hosts using the [command line tools](#command-line-tools), [graphical IDEs](#ide), [browser](#browser), and [Docker container](#docker). See [Code examples](code-examples.md) to learn how to connect from application code.
 
 
 You can only connect to public {{ CH }} cluster hosts using [SSL certificates](index.md#get-ssl-cert). The examples below assume that the `{{ crt-local-file-root }}` and `{{ crt-local-file-int }}` certificates are:
@@ -127,7 +127,7 @@ sudo apt update && sudo apt install --yes mysql-client
 
 To learn how to get a host’s FQDN, see [this guide](fqdn.md).
 
-After runing this command, enter the user password to complete your connection.
+After running this command, enter the user password to complete your connection.
 
 Once connected to the DBMS, run the `SELECT version();` command.
 

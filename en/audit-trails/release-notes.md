@@ -329,7 +329,7 @@ description: This section contains the {{ at-name }} release notes.
 
   Event | Description
   --- | ---
-  `SetDefaultColorPalette` | Setting the default color pallete
+  `SetDefaultColorPalette` | Customizing the default color palette
 
   {% endcut %}
 
@@ -351,17 +351,17 @@ description: This section contains the {{ at-name }} release notes.
   Event | Description
   --- | ---
   `ActivateMfaEnforcement` | Activating an MFA policy
-  `BindOrganizationAccessPolicy` | Binding an authorization policy in an organization
+  `BindOrganizationAccessPolicy` | Binding an access policy in an organization
   `CreateMfaEnforcement` | Creating an MFA policy
   `DeactivateMfaEnforcement` | Deactivating an MFA policy
   `DeleteMfaEnforcement` | Deleting an MFA policy
   `idp.RemoveUserBlock` | Unblocking a user
   `idp.UpdateSubscriptionLimit` | Updating the subscription limit
   `saml.UploadSignatureCertificate` | Uploading a signature certificate
-  `UnbindOrganizationAccessPolicy` | Detaching an authorization policy in an organization
+  `UnbindOrganizationAccessPolicy` | Detaching an access policy from an organization
   `UpdateMfaEnforcement` | Updating an MFA policy
   `UpdateMfaEnforcementAudience` | Updating target users for an MFA policy
-  `UpdateOrganizationAccessPolicyBindingParameters` | Editing authorization policy parameters in an organization
+  `UpdateOrganizationAccessPolicyBindingParameters` | Editing access policy parameters in an organization
   
   {% endcut %}
 
@@ -517,12 +517,12 @@ description: This section contains the {{ at-name }} release notes.
 
   Event | Description
   --- | ---
-  `BindCloudAccessPolicy` | Binding an authorization policy in a cloud
-  `BindFolderAccessPolicy` | Binding an authorization policy in a folder
-  `UnbindCloudAccessPolicy` | Detaching an authorization policy in a cloud
-  `UnbindFolderAccessPolicy` | Detaching an authorization policy in a folder
-  `UpdateCloudAccessPolicyBindingParameters` | Editing authorization policy parameters in a cloud
-  `UpdateFolderAccessPolicyBindingParameters` | Editing authorization policy parameters in a folder
+  `BindCloudAccessPolicy` | Binding an access policy in a cloud
+  `BindFolderAccessPolicy` | Binding an access policy in a folder
+  `UnbindCloudAccessPolicy` | Detaching an access policy from a cloud
+  `UnbindFolderAccessPolicy` | Detaching an access policy from a folder
+  `UpdateCloudAccessPolicyBindingParameters` | Editing access policy parameters in a cloud
+  `UpdateFolderAccessPolicyBindingParameters` | Editing access policy parameters in a folder
 
   {% endcut %}
 
@@ -907,7 +907,7 @@ Added new events for the services:
   `saml.DeleteApplication` | Deleting a SAML app
   `saml.DeleteFederationDomain` | Deleting a domain
   `saml.DeleteSignatureCertificate` | Deleting a signature certificate
-  `saml.ReactivateApplication` | Restarting a SAML app
+  `saml.ReactivateApplication` | Activating a SAML app
   `saml.SetApplicationAccessBindings` | Assigning access permissions for a SAML app
   `saml.SuspendApplication` | Suspending a SAML app
   `saml.UpdateApplication` | Updating a SAML app

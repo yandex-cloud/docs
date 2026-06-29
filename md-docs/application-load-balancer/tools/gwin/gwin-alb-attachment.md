@@ -206,6 +206,7 @@ _Attachment_ — это механизм, при котором инфрастр
           ignore_changes = all
         }
       }
+      ```
 
     {% endlist %}
 
@@ -228,4 +229,3 @@ _Attachment_ — это механизм, при котором инфрастр
           nodePort: 30081
       type: NodePort
     ```
-```

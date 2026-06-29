@@ -215,6 +215,8 @@ items:
         href: logs/quickstart.md
       - name: Начало работы с логами ресурсов {{ yandex-cloud }}
         href: logs/quickstart-resources.md
+      - name: Миграция с {{ cloud-logging-name }}
+        href: logs/logging-migration.md
       - name: Поставка данных
         items:
           - name: Преобразование данных

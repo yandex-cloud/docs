@@ -29,7 +29,7 @@ Furthermore, {{ mch-short-name }} ensures data replication across database hosts
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
 
-#### When to use {{ mch-short-name }} and when database VMs? {#mdb-advantage}
+#### When to use {{ mch-short-name }} and when to use database VMs? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two ways to work with databases:
 
@@ -53,7 +53,7 @@ Before creating a database cluster in {{ mch-short-name }}, you need to decide o
 - Network for your cluster.
 - Number of hosts in your cluster and availability zone for each host.
 
-For more information, see [Getting started](../../managed-clickhouse/quickstart.md).
+For more details, see [Getting started](../../managed-clickhouse/quickstart.md).
 
 #### How many database hosts can a cluster contain? {#how-many-hosts}
 
@@ -97,7 +97,7 @@ Maintenance in {{ mch-short-name }} includes:
 
 - Automatic installation of DBMS updates and patches for all hosts, even disabled ones.
 - Changes in the host class and storage size.
-- Other {{ mch-short-name }} maintenance activities.
+- Other {{ mch-short-name }} maintenance tasks.
 
 For more information, see [Maintenance](../../managed-clickhouse/concepts/maintenance.md).
 
@@ -131,7 +131,7 @@ When a DBMS version becomes deprecated, {{ mch-short-name }} automatically sends
 
 For clusters with a deprecated DBMS version, there is no option to create new hosts or restore from backups. Clusters running a deprecated {{ CH }} version are updated according to the [versioning policy](../../managed-clickhouse/concepts/update-policy.md).
 
-Owners of affected database clusters get advance notice of the upcoming maintenance schedule and database availability.
+Owners of affected database clusters get advance notice of upcoming maintenance and database availability.
 
 #### How do you calculate usage cost for a database host? {#db-cost}
 
@@ -144,7 +144,7 @@ In {{ mch-short-name }}, the usage cost is calculated based on the following:
 
 #### How much does it cost to use my cluster? {#cluster-cost}
 
-In the [management console]({{ link-console-main }}), navigate to the folder dashboard, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**, and click the cluster you need. On the right side of the screen, you will see the cluster usage cost per month. For more information, see our [pricing policy](../../managed-clickhouse/pricing.md).
+In the [management console]({{ link-console-main }}), navigate to the folder dashboard, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**, and click the cluster you need. On the right side of the screen, you will see the cluster usage cost per month. For more information, see the [pricing policy](../../managed-clickhouse/pricing.md).
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 

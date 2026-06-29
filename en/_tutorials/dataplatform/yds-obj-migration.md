@@ -21,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * [Based on allocated resources](../../data-streams/pricing.md#rules): You pay a fixed hourly rate for the established throughput limit and message retention period, and additionally for the number of units of actually written data.
     * [On-demand](../../data-streams/pricing.md#on-demand): You pay for the performed read/write operations, the amount of read or written data, and the actual storage used for messages that are still within their retention period.
 
-* {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -59,7 +59,7 @@ Set up your infrastructure:
         * `source_db_name`: {{ ydb-name }} database name.
         * `bucket_name`: {{ objstorage-name }} bucket name.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -192,7 +192,7 @@ Set up your infrastructure:
 
             * `yandex_datatransfer_transfer` resource.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -215,7 +215,7 @@ Set up your infrastructure:
 1. Make sure the data from the stream in {{ yds-name }} has moved to the {{ objstorage-name }} bucket:
 
     1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket from the list.
     1. Make sure the bucket contains the `<stream_name>_0.raw` file (`.json` or `.csv`, depending on the selected output format) with the test data.
 
@@ -238,7 +238,7 @@ Set up your infrastructure:
 1. Make sure the {{ objstorage-name }} bucket contains the new data:
 
     1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket from the list.
     1. Make sure the bucket now contains the `<stream_name>_0-1_1.raw` file (`.json` or `.csv`, depending on the selected output format) with the new data.
 
@@ -255,7 +255,7 @@ To minimize resource consumption, delete the resources you no longer need:
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
 1. [Delete the objects](../../storage/operations/objects/delete.md) from the {{ objstorage-name }} bucket.
-1. Delete the rest of the resources depending on how you created them:
+1. Delete the other resources depending on how you created them:
 
    {% list tabs group=instructions %}
 
