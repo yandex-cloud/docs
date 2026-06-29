@@ -254,7 +254,7 @@
 
     Метрика `max-size` недоступна, если у бакета не задан максимальный размер. В таком случае необходимо самостоятельно контролировать исчерпание [квоты](../../storage/concepts/limits.md#storage-quotas) на объем хранилища в одном облаке.
 
-* **Monium Logs**
+* **Cloud Logging**
 
     [Добавьте на дашборд](../../logging/tutorials/log-group-record-monitoring.md) график по [метрике](../../monitoring/metrics-ref/logging-ref.md) `group.service.ingested_records_per_second` — она отображает реальную скорость записи логов в лог-группу. Сравнение этой величины с установленной [квотой](../../logging/concepts/limits.md#logging-quotas) `Максимальная скорость записи` помогает определить, не достигает ли поток логов максимально разрешенной скорости. Дополнительный график по метрике `group.service.ingest_requests_per_second` со статусом `ERROR` позволит вовремя обнаружить ошибки при записи.
 

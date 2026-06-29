@@ -33,7 +33,7 @@ To get started:
     * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
     * **{{ ui-key.yacloud.compute.instances.create.field_security-groups }}**: Leave this field empty.
 
-        The VM will be assigned [the default security group](../vpc/concepts/security-groups.md) with the `default-sg` prefix. This security group enables SSH connections to the VM and allows any outgoing traffic.
+        The VM will be assigned [the default security group](../vpc/concepts/security-groups.md#default-security-group) with the `default-sg` prefix. This security group enables SSH connections to the VM and allows any outgoing traffic.
 
     Configure the other settings as needed.
 

@@ -93,7 +93,7 @@ To configure cache validation in a dataset:
         * The formula must return a string value.
         * The result must meet these [criteria](#result-requirements).
 
-     1. Optionally, at the bottom left, click **Check result**. You can check the result later.
+     1. Optionally, at the bottom left, click **Check result** or skip this step to check the result later.
      1. Click **Save**.
      1. Optionally, next to the **Filtering** field, click ![image](../../_assets/console-icons/plus.svg) **Add** and define the filtering conditions.
 
@@ -117,7 +117,9 @@ To configure cache validation in a dataset:
 
 Invalidation query testing does not affect the main cache and ignores throttling. It is intended strictly for debugging to verify that the query runs correctly and returns the expected result.
 
+
 This feature is only available to users with [edit](../security/manage-access.md#permission-write) permissions for the dataset to prevent data leakage via RLS.
+
 
 To run an invalidation test:
 
@@ -129,7 +131,9 @@ To run an invalidation test:
 
 Viewing the last validation result does not trigger new database queries. The available data includes the most recent query output and query timestamp.
 
+
 This option is only available to users with [edit](../security/manage-access.md#permission-write) permissions for the dataset.
+
 
 The result may be either the returned string or an execution error. An error may also indicate an empty result, e.g., if the throttling interval has elapsed but the query has not run.
 
@@ -145,7 +149,7 @@ The invalidation system follows the *graceful degradation* design principle: inv
 
 If invalidation is misconfigured, charts and dashboards will continue to render normally, and the cache will refresh based on its TTL as if invalidation is disabled. Error indicators will flag the affected charts and datasets, and full error details will be available in the [Last result](#last-result) dataset field.
 
-## Limitations {#restrictions}
+## Limits {#restrictions}
 
 * Invalidation query timeout is `20` seconds.
 * The maximum result length is `100` characters.

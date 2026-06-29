@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost for this tutorial includes:
 * Fee for using the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
-* Fee for running queries against the database (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
+* Fee for querying the database (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
 
 ## Set up your environment {#prepare-environment}
 
@@ -86,7 +86,7 @@ The infrastructure support cost for this tutorial includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the service account: `sa-function`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `{{ roles-editor }}`.
@@ -146,22 +146,22 @@ The infrastructure support cost for this tutorial includes:
 
      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account).
   1. Make sure the configuration files are correct.
-     1. In the command line, navigate to the directory with your configuration file.
+     1. In the terminal, navigate to the directory with your configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration.
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
   1. Deploy the cloud resources.
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` and press **Enter**.
+     1. To confirm resource creation, type `yes` and press **Enter**.
 
 - API {#api}
 
@@ -176,7 +176,7 @@ The infrastructure support cost for this tutorial includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the `sa-function` service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
@@ -208,7 +208,7 @@ The infrastructure support cost for this tutorial includes:
 
 - {{ TF }} {#tf}
 
-  1. In the configuration file, describe the authorized key properties:
+  1. In the configuration file, specify the authorized key properties:
 
      ```hcl
      resource "yandex_iam_service_account_key" "sa-auth-key" {
@@ -219,22 +219,22 @@ The infrastructure support cost for this tutorial includes:
 
      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_key).
   1. Make sure the configuration files are correct.
-     1. In the command line, navigate to the directory with your configuration file.
+     1. In the terminal, navigate to the directory with your configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration.
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
   1. Deploy the cloud resources.
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` and press **Enter**.
+     1. To confirm resource creation, type `yes` and press **Enter**.
 
 - API {#api}
 
@@ -249,9 +249,9 @@ The infrastructure support cost for this tutorial includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-  1. Name the database. Follow these naming requirements:
+  1. Name the database. The naming requirements are as follows:
 
      {% include [name-format](../../_includes/name-format.md) %}
 
@@ -260,7 +260,7 @@ The infrastructure support cost for this tutorial includes:
 
      Wait for the database to start. While being created, the database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
   1. Click the name of the database you created.
-  1. Save the value of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field from the **{{ ui-key.yacloud.ydb.overview.section_connection }}** section. You will need it at the next step.
+  1. Save the value of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field from the **{{ ui-key.yacloud.ydb.overview.section_connection }}** section. You will need it in the next step.
 
 {% endlist %}
 
@@ -345,8 +345,8 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select `func-test-ydb`.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Select the `func-test-ydb` function.
   1. Navigate to the **{{ ui-key.yacloud.common.overview }}** tab.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field, click the link.
   1. In your browser address bar, add the `api_key` parameter to the link, e.g., `?api_key=b95`:

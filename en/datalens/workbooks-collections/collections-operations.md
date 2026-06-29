@@ -5,7 +5,7 @@ description: Follow this guide to create, edit, move, delete, and set up access 
 
 # Working with a {{ datalens-full-name }} collection
 
-In this section, you will learn how to use a workbook:
+In this section, you will learn how to use a collection:
 
 * [Creating a collection](#create-collection)
 * [Editing a collection](#edit-collections)
@@ -58,7 +58,7 @@ To assign access permissions for a collection:
    Under **Direct permissions**, you can see the users who are granted permissions to the selected object.
 
 1. Click ![image](../../_assets/console-icons/plus.svg) **Add user**.
-1. In the window that opens, select a user or user group, specify the appropriate permission, and click **Save**. The user or user group will be granted permissions to this object.
+1. In the window that opens, select a user or user group, specify the appropriate permission, and click **Save**. The user or user group will get permissions for this object.
 
 ### Revoking privileges {#wb-coll-revoke}
 

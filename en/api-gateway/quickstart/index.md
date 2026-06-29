@@ -21,7 +21,7 @@ To get started in {{ yandex-cloud }}:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter `numbers`.
   1. Optionally, in the **{{ ui-key.yacloud.common.description }}** field, provide a description.
@@ -77,7 +77,7 @@ To get started in {{ yandex-cloud }}:
 ## Access the API gateway {#api-gw-test}
 
 1. In the [management console]({{ link-console-main }}), select the folder containing the API gateway.
-1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** and click the API gateway you created.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** and click the API gateway you created.
 1. Save the value of the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field.
 1. Install [curl](https://curl.haxx.se).
 1. Access the API gateway using curl with one of the commands:
@@ -188,8 +188,8 @@ Create a [function](../../functions/concepts/function.md) to get a list of numbe
      Where:
      * `name`: Function name.
      * `description`: Text description of the function.
-     * `user_hash`: Any string to identify the function version. When the function changes, update this string, too. The function will update when this string is updated.
-     * `runtime`: Function [runtime environment](../../functions/concepts/runtime/index.md).
+     * `user_hash`: Any string to identify the function version. When you change the function, update this string as well. The function will update when this string is updated.
+     * `runtime`: Function [runtime](../../functions/concepts/runtime/index.md).
      * `entrypoint`: Function name in the source code that will serve as an entry point to applications.
      * `memory`: Amount of memory allocated for the function, in MB.
      * `execution_timeout`: Function execution timeout.
@@ -200,22 +200,22 @@ Create a [function](../../functions/concepts/function.md) to get a list of numbe
 
      For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
   1. Make sure the configuration files are correct.
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
   1. Deploy the cloud resources.
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` and press **Enter**.
+     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/) commands:
 
@@ -235,7 +235,7 @@ Add function information to the API gateway specification.
 
   To update an API gateway specification:
   1. In the [management console]({{ link-console-main }}), select the folder where you want to update an API gateway.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. In the API gateway row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add an extended version of the specification.
 
@@ -360,24 +360,24 @@ Add function information to the API gateway specification.
      }
      ```
 
-     For more information about resource properties in {{ TF }}, see the [relevant {{ TF }} documentation]({{ tf-provider-resources-link }}/api_gateway).
+     For more information about resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
   1. Make sure the configuration files are correct.
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
   1. Deploy the cloud resources.
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` and press **Enter**.
+     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these CLI commands:
 

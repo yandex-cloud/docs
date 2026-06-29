@@ -44,7 +44,7 @@ Make sure to specify the `--secure` parameter when connecting on port 9440.
 
 To learn more about connection methods, see [Connecting to a {{ CH }} cluster](../../managed-clickhouse/operations/connect/clients.md).
 
-#### Can I connect to cluster hosts over SSH or get superuser privileges on hosts? {#connect-ssh}
+#### Can I connect to cluster hosts over SSH or get superuser privileges on them? {#connect-ssh}
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 

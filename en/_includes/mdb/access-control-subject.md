@@ -12,4 +12,4 @@ The possible subject types include:
     * `group:organization:<organization_ID>:users`: All users of the specified [organization](../../organization/concepts/organization.md).
     * `group:federation:<federation_ID>:users`: All users of the specified identity federation.
 
-Learn more about subject types in [Subject a role is assigned to](../../iam/concepts/access-control/index.md#subject).
+To learn more about subject types, see [Subject getting the role](../../iam/concepts/access-control/index.md#subject).

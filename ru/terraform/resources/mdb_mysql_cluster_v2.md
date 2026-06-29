@@ -105,7 +105,8 @@ resource "yandex_vpc_security_group" "test-sgroup" {
 - `hosts` [Block]. A host configuration of the MySQL cluster.
   - `assign_public_ip` (Bool). Assign a public IP address to the host.
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
-  - `replication_source` (String). FQDN of the host that is used as a replication source.
+  - `replication_source` (*Read-Only*) (String). FQDN of the host that is used as a replication source. Resolved from replication_source_name.
+  - `replication_source_name` (String). Label (map key) of the host to use as replication source. Use this during cluster creation when FQDNs are not yet known.
   - `subnet_id` (String). ID of the subnet where the host is located.
   - `zone` (**Required**)(String). The availability zone where the host is located.
 - `id` (*Read-Only*) (String). The resource identifier.

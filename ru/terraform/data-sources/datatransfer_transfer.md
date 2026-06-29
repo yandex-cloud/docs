@@ -27,14 +27,14 @@ filename: yandex/cloud/datatransfer/v1/transfer.proto
 
 - `description` (String). Description of the transfer.
 - `folder_id` (String). ID of the folder to create the transfer in.
- 
+
  To get the folder ID, make a
  [yandex.cloud.resourcemanager.v1.FolderService.List] request.
 - `id` (String). Identifier of the transfer to be returned.
- 
+
  To get the list of all available transfers, make a [List] request.
 - `labels` (Map Of String). Transfer labels as `key:value` pairs.
- 
+
  For details about the concept, see [documentation]( api-url-prefix
  /resource-manager/concepts/labels).
 - `name` (String). The transfer name. Must be unique within the folder.
@@ -47,17 +47,17 @@ filename: yandex/cloud/datatransfer/v1/transfer.proto
   - `settings` [Block]. package: yandex.cloud.datatransfer.v1
 filename: yandex/cloud/datatransfer/v1/transfer.proto
 
-    - `cron_expression` (String). Use a cron expression to schedule transfer regular snapshots in UTC time. 
+    - `cron_expression` (String). Use a cron expression to schedule transfer regular snapshots in UTC time.
  The used cron expression format is 5 columns specifying the execution time
- (minute, hour, day, month, day of the week), 
+ (minute, hour, day, month, day of the week),
  they can contain a numeric list separated by commas, a range of numbers
  separated by a hyphen, symbols * or /.
  only one of schedule or cron_expression should be set
     - `increment_delay_seconds` (Number). Wait for transaction completion time, in seconds
  Set load delay time to insure that current transactions on source are completed
- and thus full data is visible for snapshot. 
+ and thus full data is visible for snapshot.
  This may be useful if source cannot guarantee that cursor values grows
- monotonically - 
+ monotonically -
  due to transaction race or well-known problem that serial id sequence does not
  actually guarantee the order
     - `retry_config` [Block]. Regular snapshot retries, only for cloud installation
@@ -67,7 +67,7 @@ filename: yandex/cloud/datatransfer/v1/transfer.proto
  REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_15MIN,
  REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_HOUR, etc.
  only one of schedule or cron_expression should be set
-    - `tables` [Block]. Incremental tables configuration for regular snapshot. 
+    - `tables` [Block]. Incremental tables configuration for regular snapshot.
  If not empty, each snapshot will copy only data changed since last snapshot
  based on cursor column value.
       - `cursor_column` (String). package: yandex.cloud.datatransfer.v1
@@ -110,7 +110,7 @@ filename: yandex/cloud/datatransfer/v1/transfer.proto
   - `read` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
   - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `transfer_id` (String). Identifier of the transfer to be returned.
- 
+
  To get the list of all available transfers, make a [List] request.
 - `transformation` [Block]. Transformation for the transfer.
   - `transformers` [Block]. A list of transformers. You can specify exactly 1 transformer in each element of
@@ -122,6 +122,7 @@ filename: yandex/cloud/datatransfer/v1/transfer.proto
       - `columns` [Block]. List of included and excluded columns
         - `exclude_columns` (List Of String). List of columns that will be excluded to transfer
         - `include_columns` (List Of String). List of columns that will be included to transfer
+      - `skip_utc_conversion` (Bool). When true, time values keep their original timezone, otherwise time values converts (normalizes) to UTC.
       - `tables` [Block]. List of included and excluded tables
         - `exclude_tables` (List Of String). List of tables that will be excluded to transfer
         - `include_tables` (List Of String). List of tables that will be included to transfer

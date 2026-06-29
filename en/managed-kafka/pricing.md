@@ -6,7 +6,6 @@ editable: false
 
 # {{ mkf-name }} pricing policy
 
-
 This section describes the {{ mkf-name }} pricing [policy](#rules) and [current prices](#prices) for its resources.
 
 {% note tip %}

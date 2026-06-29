@@ -23,7 +23,7 @@ keywords:
 
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
 
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** измените имя и описание кластера, удалите или добавьте новые метки.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** измените имя и описание кластера, удалите или добавьте новые метки, выберите версию {{ AF }} и Python.
 
     1. В блоке **{{ ui-key.yacloud.airflow.section_accesses }}** выберите сервисный аккаунт или [создайте новый](../../iam/operations/sa/create.md#create-sa) с ролью `{{ roles.maf.integrationProvider }}`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее в разделе [Имперсонация](../concepts/impersonation.md).
 
@@ -92,6 +92,8 @@ keywords:
            --new-name <новое_имя_кластера> \
            --description <описание_кластера> \
            --labels <список_меток> \
+           --airflow-version <версия_{{ AF }}> \
+           --python-version <версия_Python> \
            --service-account-id <идентификатор_сервисного_аккаунта> \
            --security-group-ids <идентификаторы_групп_безопасности> \
            --webserver count=<количество_экземпляров>,`
@@ -184,6 +186,8 @@ keywords:
           "description": "<описание_кластера>",
           "labels": { <список_меток> },
           "configSpec": {
+            "airflowVersion": "<версия_{{ AF }}>",
+            "pythonVersion": "<версия_Python>",
             "airflow": {
               "config": { <список_свойств> }
             },
@@ -271,6 +275,8 @@ keywords:
         * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
         * `config` — конфигурация кластера:
 
+            * `airflowVersion` — версия {{ AF }}.
+            * `pythonVersion` — версия Python.
             * `airflow.config` — [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Задаются в формате `"<раздел_конфигурации>.<ключ>": "<значение>"`, например:
 
                 ```json
@@ -391,6 +397,8 @@ keywords:
           "description": "<описание_кластера>",
           "labels": { <список_меток> },
           "config_spec": {
+            "airflow_version": "<версия_{{ AF }}>",
+            "python_version": "<версия_Python>",
             "airflow": {
               "config": { <список_свойств> }
             },
@@ -494,6 +502,8 @@ keywords:
         * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
         * `config_spec` — конфигурация кластера:
 
+            * `airflow_version` — версия {{ AF }}.
+            * `python_version` — версия Python.
             * `airflow.config` — [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Задаются в формате `"<раздел_конфигурации>.<ключ>": "<значение>"`, например:
 
                 ```json

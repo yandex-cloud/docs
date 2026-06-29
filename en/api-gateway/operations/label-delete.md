@@ -10,9 +10,9 @@ description: Follow this guide to delete an API gateway label.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the API gateway.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. In the API gateway row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-    1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, select the appropriate label and click ![cross](../../_assets/console-icons/xmark.svg) next to its name.
+    1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, select the label and click ![cross](../../_assets/console-icons/xmark.svg) next to its name.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}

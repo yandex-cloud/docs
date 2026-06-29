@@ -84,7 +84,7 @@ The diagram shows the cycle of issuing and paying invoices for businesses and in
 
    1. Otherwise, access to {{ yandex-cloud }} services may be permanently blocked. All your data, including your [billing account](../concepts/billing-account.md), may be permanently deleted.
 
-{% include [blocked-note](../_includes/blocked-note.md) %}
+   {% include [blocked-note](../_includes/blocked-note.md) %}
 
 #### See also
 

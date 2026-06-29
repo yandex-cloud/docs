@@ -18,7 +18,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
 * Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
@@ -33,7 +33,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you are going to use to work with your schema registry.
-  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ metadata-hub-full-name }}**.
+  1. Navigate to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layout-cells.svg) **{{ schema-registry-name }}** / **Namespace**.
   1. Click **Create namespace**. 
   1. Specify [namespace settings](../../../metadata-hub/operations/create-name-space.md). After saving a namespace, you can use its ID to get the {{ schema-registry-name }} URL: `{namespace_id}.{{ schema-registry-endpoint }}`.
@@ -47,7 +47,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ data-transfer-full-name }}**. 
+  1. Navigate to **{{ data-transfer-full-name }}**. 
   1. [Create an {{ KF }} source endpoint](../../../data-transfer/operations/endpoint/source/kafka.md) with the following settings:
 
       * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: **{{ KF }}**.
@@ -83,7 +83,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 - Management console {#console}
 
-  1. [{{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-delete.md)
-  1. [Transfer in {{ data-transfer-name }}](../../../data-transfer/operations/transfer.md#delete)
+  1. [{{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-delete.md).
+  1. [Transfer in {{ data-transfer-name }}](../../../data-transfer/operations/transfer.md#delete).
 
 {% endlist %}

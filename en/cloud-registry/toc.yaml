@@ -10,7 +10,15 @@ items:
       - name: Managing a registry
         items:
           - name: Creating a registry
-            href: operations/registry/create.md
+            items:
+              - name: Overview
+                href: operations/registry/create.md
+              - name: Local
+                href: operations/registry/local.md
+              - name: Remote
+                href: operations/registry/remote.md
+              - name: Virtual
+                href: operations/registry/virtual.md
           - name: Managing registry access permissions
             items:
               - name: Viewing roles assigned for a registry

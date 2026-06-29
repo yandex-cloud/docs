@@ -13,7 +13,7 @@ To learn about upgrades within the same version and host maintenance, see [Maint
 
 {% note alert %}
 
-Before the upgrade, make sure it will not affect your applications: review the [release notes](https://airflow.apache.org/docs/apache-airflow/stable/release_notes.html) for {{ AF }} and [Python](https://www.python.org/downloads/).
+Before the upgrade, make sure it will not affect your applications: review the [release notes for {{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/release_notes.html) and [Python](https://www.python.org/downloads/).
 
 Once your {{ AF }} version is upgraded, you cannot revert the cluster to the previous version.
 
@@ -71,7 +71,7 @@ Once your {{ AF }} version is upgraded, you cannot revert the cluster to the pre
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
 
     1. Add the `airflow_version` or `python_version` parameter to the cluster description or update it if it is already there:
 
@@ -87,7 +87,7 @@ Once your {{ AF }} version is upgraded, you cannot revert the cluster to the pre
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

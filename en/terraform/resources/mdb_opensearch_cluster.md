@@ -189,7 +189,7 @@ resource "yandex_vpc_subnet" "es-subnet-d" {
   - `assign_public_ip` (Bool). Sets whether the host should get a public IP address. Can be either `true` or `false`.
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
   - `node_group` (*Read-Only*) (String). Name of the node group.
-  - `roles` (*Read-Only*) (Set Of String). The roles of the deployed host. Can contain `DATA` and/or `MANAGER` roles. Will be empty for `DASHBOARDS` type.
+  - `roles` (*Read-Only*) (Set Of String). The roles of the deployed host. Can contain any combination of `DATA`, `MANAGER`, `WARM` and `INGEST` roles. Will be empty for `DASHBOARDS` type.
   - `subnet_id` (String). The ID of the subnet, to which the host belongs. The subnet must be a part of the network to which the cluster belongs.
   - `type` (*Read-Only*) (String). The type of the deployed host. Can be either `OPENSEARCH` or `DASHBOARDS`.
   - `zone` (*Read-Only*) (String). The availability zone where the OpenSearch host will be created. For more information see [the official documentation](https://yandex.cloud/docs/overview/concepts/geo-scope).
@@ -202,6 +202,23 @@ resource "yandex_vpc_subnet" "es-subnet-d" {
 - `status` (*Read-Only*) (String).  Status of the cluster. Can be either `CREATING`, `STARTING`, `RUNNING`, `UPDATING`, `STOPPING`, `STOPPED`, `ERROR` or `STATUS_UNKNOWN`. For more information see `status` field of JSON representation in [the official documentation](https://yandex.cloud/docs/managed-opensearch/api-ref/Cluster/).
 - `config` [Block]. Configuration of the OpenSearch cluster.
   - `admin_password` (**Required**)(String). Password for admin user of OpenSearch.
+  - `audit_log` [Block]. OpenSearch audit logs settings.
+    - `compliance_enabled` (Bool). Enables audit logging on changes to a security index, such as changes to roles mappings and role creation or deletion.
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/security/audit-logs/index/#audit-user-account-manipulation).
+    - `log_backup_operations` (Bool). Enables snapshots and repositories requests logging.
+For details, see None.
+    - `log_data_modifications` (Bool). Enables indices data write request logging.
+For details, see None.
+    - `log_index_maintenance` (Bool). Enables indices maintenance requests logging, such as indices refreshes, flushes and merges.
+For details, see None.
+    - `log_index_metadata_access` (Bool). Enables indices metadata requests logging.
+For details, see None.
+    - `log_monitoring_checks` (Bool). Enables monitoring data requests logging.
+For details, see None.
+    - `log_request_body` (Bool). Includes the body of the request (if available) for both REST and the transport layer.
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/security/audit-logs/index/#disable-request-body-logging).
+    - `log_search_queries` (Bool). Enables indices data read requests logging.
+For details, see None.
   - `version` (String). Version of OpenSearch.
   - `access` [Block]. Enable access to the Yandex Cloud services.
     - `data_transfer` (Bool). Enable access to the [Data Transfer](https://yandex.cloud/docs/data-transfer) service.
@@ -214,22 +231,20 @@ resource "yandex_vpc_subnet" "es-subnet-d" {
       - `subnet_ids` (List Of String). A set of the subnets, to which the hosts belongs. The subnets must be a part of the network to which the cluster belongs.
       - `zone_ids` (**Required**)(Set Of String). A set of availability zones where hosts of node group may be allocated.
       - `resources` [Block]. Resources allocated to hosts of this OpenSearch node group.
-        - `disk_size` (**Required**)(Number). Volume of the storage available to a host, in bytes.
+        - `disk_size` (Number). Volume of the storage available to a host, in bytes. Exactly one of `disk_size` or `disk_size_gb` must be set in configuration.
+        - `disk_size_gb` (Number). Same disk volume in gibibytes (GiB); converted to bytes for the API. Exactly one of `disk_size` or `disk_size_gb` must be set in configuration.
         - `disk_type_id` (**Required**)(String). Type of the storage of OpenSearch hosts.
         - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-opensearch/concepts).
   - `opensearch` [Block]. Configuration for OpenSearch node groups.
     - `config` [Block]. OpenSearch server configuration settings.
-      - `fielddata_cache_size` (String). The maximum size of the field data cache. 
-May be specified as an absolute value (for example, 8GB) or a percentage of the node heap (for example, 50%). 
-This setting is dynamic. If you don't specify this setting, the maximum size is 35%. 
+      - `fielddata_cache_size` (String). The maximum size of the field data cache.
+May be specified as an absolute value (for example, 8GB) or a percentage of the node heap (for example, 50%).
+This setting is dynamic. If you don't specify this setting, the maximum size is 35%.
 This value should be smaller than the **indices.breaker.fielddata.limit**
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
       - `http_max_initial_line_length` (String). Sets the maximum length allowed for HTTP URLs in the initial request line. URLs exceeding this limit will be rejected. Default is **4kb**.
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/network-settings/#advanced-http-settings).
-      - `max_clause_count` (Number). Defines the maximum product of fields and terms that are queryable simultaneously. 
-Before OpenSearch 2.16, a cluster restart was required in order to apply this static setting. 
-Now dynamic, existing search thread pools may use the old static value initially, causing **TooManyClauses** exceptions. 
-New thread pools use the updated value.
+      - `max_clause_count` (Number). Defines the maximum product of fields and terms that are queryable simultaneously.
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
       - `reindex_remote_whitelist` (String). Allowed remote hosts
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/api-reference/document-apis/reindex/#remote-cluster-allow-list).
@@ -239,16 +254,18 @@ For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/i
     - `node_groups` [Block]. A set of named OpenSearch node group configurations.
       - `assign_public_ip` (Bool). Sets whether the hosts should get a public IP address.
       - `disk_size_autoscaling` [Block]. Node group disk size autoscaling settings.
-        - `disk_size_limit` (**Required**)(Number). The overall maximum for disk size that limit all autoscaling iterations. See the [documentation](https://yandex.cloud/en/docs/managed-opensearch/concepts/storage#auto-rescale) for details.
+        - `disk_size_gb_limit` (Number). The overall maximum for disk size in gibibytes (GiB) that limit all autoscaling iterations. Exactly one of `disk_size_limit` or `disk_size_gb_limit` must be set in configuration.
+        - `disk_size_limit` (Number). The overall maximum for disk size that limit all autoscaling iterations. See the [documentation](https://yandex.cloud/en/docs/managed-opensearch/concepts/storage#auto-rescale) for details.
         - `emergency_usage_threshold` (Number). Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
         - `planned_usage_threshold` (Number). Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
       - `hosts_count` (**Required**)(Number). Number of hosts in this node group.
       - `name` (**Required**)(String). Name of OpenSearch node group.
-      - `roles` (**Required**)(Set Of String). A set of OpenSearch roles assigned to hosts. Available roles are: `DATA`, `MANAGER`. Default: [`DATA`, `MANAGER`].
+      - `roles` (**Required**)(Set Of String). A set of OpenSearch roles assigned to hosts. Available roles are: `DATA`, `MANAGER`, `WARM` and `INGEST`. Default: [`DATA`, `MANAGER`].
       - `subnet_ids` (List Of String). A set of the subnets, to which the hosts belongs. The subnets must be a part of the network to which the cluster belongs.
       - `zone_ids` (**Required**)(Set Of String). A set of availability zones where hosts of node group may be allocated.
       - `resources` [Block]. Resources allocated to hosts of this OpenSearch node group.
-        - `disk_size` (**Required**)(Number). Volume of the storage available to a host, in bytes.
+        - `disk_size` (Number). Volume of the storage available to a host, in bytes. Exactly one of `disk_size` or `disk_size_gb` must be set in configuration.
+        - `disk_size_gb` (Number). Same disk volume in gibibytes (GiB); converted to bytes for the API. Exactly one of `disk_size` or `disk_size_gb` must be set in configuration.
         - `disk_type_id` (**Required**)(String). Type of the storage of OpenSearch hosts.
         - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-opensearch/concepts).
 - `maintenance_window` [Block]. 

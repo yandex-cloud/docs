@@ -233,7 +233,7 @@ if __name__ == '__main__':
 
 ## Create a VM from a {{ coi }} {#create-vm}
 
-In the field, specify the following:
+Specify the following:
 * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md), e.g., `{{ region-id }}-a`.
 * `--subnet-name`: Name of the [subnet](../../vpc/concepts/network.md#subnet) in this zone.
 * `--service-account-name`: [Service account](../../iam/concepts/users/service-accounts.md) name.
@@ -259,7 +259,7 @@ yc compute instance create \
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder with the `default` log group whose ID you specified in the `spec.yaml` file.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Select the `default` log group. The page that opens will show the log group entries.
 
 - CLI {#cli}

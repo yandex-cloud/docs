@@ -348,7 +348,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
  
@@ -898,9 +898,9 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
   
   1. If you have not set any access rules yet, add the `yandex_trino_access_control` resource containing the `tables` rule list.
 
@@ -1046,7 +1046,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
  

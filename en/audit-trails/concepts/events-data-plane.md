@@ -1,5 +1,5 @@
 ---
-title: Data plane event reference {{ at-full-name }}
+title: Data event reference {{ at-full-name }}
 description: This section provides descriptions of the data events collected in {{ yandex-cloud }} services.
 ---
 
@@ -155,13 +155,13 @@ Service name: `storage`.
 
 Service name: `securitydeck`.
 
-### {{ atr-name }} module {#sd-access-transparency}
+### {{ atr-name }} {#sd-access-transparency}
 
 Module name: `securitydeck.accesstransparency`.
 
 {% include [sd-at-events-dp](../../_includes/audit-trails/events/sd-at-events-dp.md) %}
 
-### {{ alerts-name }} module {#sd-alerts}
+### {{ alerts-name }} {#sd-alerts}
 
 Module name: `securitydeck.alerts`.
 
@@ -226,9 +226,3 @@ Service name: `wiki`.
 Service name: `websql`.
 
 {% include [websql-events-dp](../../_includes/audit-trails/events/websql-events-dp.md) %}
-
-## {{ ydb-full-name }} {#ydb}
-
-Service name: `ydb`.
-
-{% include [ydb-events-dp](../../_includes/audit-trails/events/ydb-events-dp.md) %}

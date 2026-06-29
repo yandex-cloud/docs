@@ -57,7 +57,7 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 ### 1.1. Connect {{ CH }} {#ch-connection}
 
 1. Navigate to the [management console]({{ link-console-main }}).
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Click **Create cluster**.
 1. Configure your {{ CH }} cluster.
 
@@ -90,7 +90,7 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
 ### 1.2. Connect {{ ml-platform-short-name }} {#datasphere-connection}
 
 1. Navigate to the [management console]({{ link-console-main }}).
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ml-platform-name }}**.
+1. Navigate to **{{ ml-platform-name }}**.
 1. Click **Create project**.
 1. Specify `appmetrica-analysis` as the project name and click **Create**. 
 1. Open your project. To do this, in the row with the project name, click ![image](../../_assets/console-icons/ellipsis.svg) → **Open**.
@@ -350,7 +350,7 @@ Use QL charts to delve into event sequences and experiment in {{ datalens-short-
 ### 6.2. Create a Sankey chart in {{ ml-platform-short-name }} {#creating-sankey-chart}
 
 1. Navigate to the [management console]({{ link-console-main }}).
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ml-platform-name }}**.
+1. Navigate to **{{ ml-platform-name }}**.
 1. Open the **yandex_appmetrika_cloud_case** folder → **Case_2.ipynb** notebook.
 1. Complete all the steps, i.e., run the cells with code, in the **Case_2.ipynb** notebook.
 1. You will get an interactive Sankey chart that shows user behavior scenarios. You can move the chart blocks and save the result as an image.

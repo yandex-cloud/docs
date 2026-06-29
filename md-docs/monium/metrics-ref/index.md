@@ -10,7 +10,7 @@
 * [Yandex Cloud Backup](backup-ref.md)
 * [Yandex Cloud CDN](cdn-ref.md)
 * [Yandex Cloud Functions](functions-ref.md)
-* [Monium Logs](logging-ref.md)
+* [Yandex Cloud Logging](logging-ref.md)
 * [Yandex Cloud Notification Service](cns-ref.md)
 * [Yandex Cloud Postbox](postbox-ref.md)
 * [Yandex Compute Cloud](compute-ref.md)

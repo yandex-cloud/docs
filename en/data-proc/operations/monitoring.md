@@ -1,4 +1,4 @@
-# {{ dataproc-name }} cluster and host monitoring
+# {{ dataproc-name }} cluster and host state monitoring
 
 You can monitor the health of a {{ dataproc-name }} cluster and the state of its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts.
 
@@ -8,7 +8,7 @@ You can monitor the health of a {{ dataproc-name }} cluster and the state of its
 
 {% include [monitoring-units](../../_includes/mdb/note-monitoring-auto-units.md) %}
 
-## Cluster health state monitoring {#monitoring-cluster}
+## Cluster state monitoring {#monitoring-cluster}
 
 To view detailed information on the health state of a {{ dataproc-name }} cluster:
 
@@ -68,7 +68,7 @@ To view detailed information on the state of individual {{ dataproc-name }} host
   1. Navigate to ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select **{{ dataproc-name }}**.
   1. In the relevant metric chart, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
-  1. If the chart shows multiple metrics, select the data query to generate the metric and click **{{ ui-key.yacloud.common.continue }}**. For more information about the query language, see [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
+  1. If the chart shows multiple metrics, select the data query to generate the metric and click **{{ ui-key.yacloud.common.continue }}**. Learn more about the query language in [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
   1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds for notifications.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -77,6 +77,7 @@ To view detailed information on the state of individual {{ dataproc-name }} host
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
 For a complete list of supported metrics, see [this {{ monitoring-name }} guide](../../monitoring/metrics-ref/data-processing-ref.md).
+
 
 
 ## Cluster health and status {#cluster-health-and-status}

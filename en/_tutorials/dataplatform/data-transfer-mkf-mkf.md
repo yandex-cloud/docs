@@ -20,8 +20,8 @@ This tutorial describes a scenario for migrating data from one {{ mkf-name }} cl
 
 To migrate data:
 
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -30,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 * {{ mkf-name }} clusters: Computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer, which includes the use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -41,14 +41,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    - Manually {#manual}
 
-       1. Create a [source and target {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) with public access from the internet in any suitable configuration.
+       1. [Create a source and target {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-create.md) of any suitable configuration with public access from the internet.
 
+                        
             {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
 
        1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
        1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the new topic.
        1. [In the target cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for all topics.
 
+   
    - {{ TF }} {#tf}
 
        1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
@@ -62,24 +65,27 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
            * [Network](../../vpc/concepts/network.md#network).
            * [Subnet](../../vpc/concepts/network.md#subnet).
-           * [Security group](../../vpc/concepts/security-groups.md) and the rule required for connecting to the {{ mkf-name }} cluster.
+           * [Security group](../../vpc/concepts/security-groups.md) and rule required for connection to the {{ mkf-name }} cluster.
            * {{ mkf-name }} source cluster with public access from the internet.
            * {{ KF }} topic for the source cluster.
            * {{ KF }} user for the source cluster.
-           * {{ mkf-name }} target cluster.
+           * {{ mkf-name }} target cluster with public internet access.
            * {{ KF }} topic for the target cluster.
            * {{ KF }} user for the target cluster.
+           * Source and target endpoints.
            * Transfer.
 
        1. In the `data-transfer-mkf-mkf.tf` file, specify the following settings:
 
            * `source_kf_version`: {{ KF }} version in the source cluster.
            * `source_user_name`: Username for connection to the {{ KF }} topic.
-           * `source_user_password`: User password.
+           * `source_user_password`: Password.
            * `target_kf_version`: {{ KF }} version in the target cluster.
-           * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [manually create the source and target endpoints](#prepare-transfer).
+           * `target_user_name`: Username for connection to the {{ KF }} topic.
+           * `target_user_password`: Password.
+           * `transfer_enabled = 0`: Disables the creation of endpoints and transfers. They will be created during the [preparation of the transfer](#prepare-transfer).
 
-       1. Validate your {{ TF }} configuration files using this command:
+       1. Make sure the {{ TF }} configuration files are correct using this command:
 
            ```bash
            terraform validate
@@ -92,6 +98,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
            {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
 
    {% endlist %}
 
@@ -113,13 +120,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Install these tools:
 
-    - [kafkacat](https://github.com/edenhill/kcat): For data reads and writes in {{ KF }} topics.
+    - [kafkacat](https://github.com/edenhill/kcat): For reading from and writing to {{ KF }} topics.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+        Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
     - [jq](https://stedolan.github.io/jq/): For stream processing of JSON files.
 
@@ -127,64 +134,60 @@ If you no longer need the resources you created, [delete them](#clear-out).
         sudo apt update && sudo apt-get install --yes jq
         ```
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
-1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
+{% list tabs group=instructions %}
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
+- Manually {#manual}
 
-       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+  1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
-          Select your target cluster from the list and specify its connection settings.
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
 
-       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**:
-          * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: `measurements`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
-1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
+           Select your target cluster from the list and specify its connection settings.
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
-       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**:
+           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: `measurements`.
+
+  1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
+
+      * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
           Select your source cluster from the list and specify its connection settings.
 
-       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}**: `sensors`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}**: `sensors`.
 
-1. Create a transfer:
+  1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the {{ dt-type-repl }} type that will use the endpoints you created.
+  1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
-    {% list tabs group=instructions %}
 
-    - Manually {#manual}
+- {{ TF }} {#tf}
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the {{ dt-type-repl }} type that will use the endpoints you created.
-        1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
+  1. Specify `transfer_enabled = 1` in the `data-transfer-mkf-mkf.tf` file.
 
-    - {{ TF }} {#tf}
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
-        1. In the `data-transfer-mkf-mkf.tf` file, specify the following settings:
+      ```bash
+      terraform validate
+      ```
 
-            * `source_endpoint_id`: Source endpoint ID.
-            * `target_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: Set to `1` to create a transfer.
+      {{ TF }} will display any configuration errors detected in your files.
 
-        1. Validate your {{ TF }} configuration files using this command:
+  1. Create the required infrastructure:
 
-            ```bash
-            terraform validate
-            ```
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            {{ TF }} will display any configuration errors detected in your files.
+      Endpoints and a transfer will be created. The transfer will be activated automatically as soon as it is created.
 
-        1. Create the required infrastructure:
 
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+{% endlist %}
 
-            The transfer will be activated automatically upon creation.
-
-    {% endlist %}
-
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
 1. Make sure data from the {{ mkf-name }} source cluster topic can be transferred to the target cluster topic:
@@ -266,20 +269,22 @@ Before deleting the resources, [deactivate the transfer](../../data-transfer/ope
 
 {% endnote %}
 
-To reduce the consumption of resources, delete those you do not need:
 
-1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
-1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the other resources depending on how you created them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
-   {% list tabs group=instructions %}
 
-   - Manually {#manual}
+{% list tabs group=instructions %}
 
-       [Delete the {{ mkf-name }} clusters](../../managed-kafka/operations/cluster-delete.md).
+- Manually {#manual}
 
-   - {{ TF }} {#tf}
+  1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
+  1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
+  1. [Delete the {{ mkf-name }} clusters](../../managed-kafka/operations/cluster-delete.md).
 
-       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-   {% endlist %}
+- {{ TF }} {#tf}
+
+  {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
+
+
+{% endlist %}

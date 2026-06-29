@@ -68,7 +68,7 @@ The cost of the infrastructure deployment includes:
 ### 1.1. Connect {{ CH }} {#ch-connection}
 
 1. In the [management console]({{ link-console-main }}), select the folder to create a {{ CH }} cluster in.
-1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. In the window that opens, click **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
 1. Configure your {{ CH }} cluster:
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify a name for the cluster.

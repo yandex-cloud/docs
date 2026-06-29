@@ -47,7 +47,7 @@ The cost of support for the new infrastructure includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your workflows.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**, and in the window that opens:
       1. Name the [service account](../../iam/concepts/users/service-accounts.md): `workflow-sa`.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select [`serverless.workflows.executor`](../../iam/concepts/access-control/roles.md).
@@ -140,7 +140,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you created the service account earlier.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**, and in the window that opens:
 
       1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `tracker-oauth-token`.
@@ -179,7 +179,7 @@ To enable the workflow to send emails, create a {{ postbox-name }} [address](../
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder where you created the service account and secret.
-        1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
         1. Click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
         1. In the **{{ ui-key.yacloud.postbox.label_address }}** field, specify the domain you will use to send emails, e.g., `example.com`.
 
@@ -221,7 +221,7 @@ To enable the workflow to send emails, create a {{ postbox-name }} [address](../
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder that contains the address you created.
-        1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}** and select the address.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}** and select the address.
         1. Click **{{ ui-key.yacloud.postbox.button_run-verification }}**. If the TXT record is created correctly, the verification status on the address page will change to `Success`.
 
             DNS server responses are cached, so you may experience delays when updating the resource record.
@@ -516,7 +516,7 @@ To enable the workflow to send emails, create a {{ postbox-name }} [address](../
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder containing the previously created resources: service account, secret, and {{ postbox-name }} address.
-        1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
         1. In the left-hand panel, select ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
         1. In the top-right corner, click **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}** and in the window that opens:
 
@@ -537,7 +537,7 @@ Make sure the workflow is running successfully.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder with the workflow you created.
-    1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
     1. In the left-hand panel, select ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to `my-tracker-workflow` and select ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.serverless-workflows.label_run-workflow }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.common.start }}**. The workflow will run and may take a few minutes to complete.
@@ -561,7 +561,7 @@ To stop paying for the resources you created:
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder containing the created resources.
-        1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
         1. In the left-hand panel, select ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
         1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to `my-tracker-workflow` and select ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
         1. Confirm the deletion.
@@ -576,7 +576,7 @@ To stop paying for the resources you created:
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder with the {{ postbox-name }} address.
-        1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
         1. In the row with the {{ postbox-name }} address, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
         1. Confirm the deletion.
 

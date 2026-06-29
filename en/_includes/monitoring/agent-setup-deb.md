@@ -2,8 +2,10 @@
 
     ```bash
     ubuntu_name="<full_OS_version_name>" \
-    ua_version=$(curl --silent https://{{ s3-storage-host }}/yc-unified-agent/latest-version) \
-    bash -c 'curl --silent --remote-name https://{{ s3-storage-host }}/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
+    ua_version=$(curl --silent https://{{ s3-storage-host }}/yc-unified-agent/latest-version)
+
+    curl --silent --remote-name \
+    "https://{{ s3-storage-host }}/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb"
     ```
 
     Where `ubuntu_name` is the operating system version in `ubuntu-<version_number>-<code_name>` format. Specify the value exactly as it is used in the package folder name:

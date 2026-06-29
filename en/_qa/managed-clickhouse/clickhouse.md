@@ -44,7 +44,7 @@ Yes. A database cluster may consist of hosts residing in different availability 
 
 When you create a {{ CH }} cluster of two or more hosts, {{ mch-short-name }} automatically creates three hosts for the selected coordination service,{{ CK }} or {{ ZK }}, to manage replication and high availability. These hosts are counted towards both the cloud [resource quota]({{ link-console-quotas }}) and the cluster cost. By default, {{ CK }} or {{ ZK }} hosts come with the minimum [host class](../../managed-clickhouse/concepts/instance-types.md).
 
-For more information about using {{ ZK }}, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication).
+For more information on using {{ ZK }}, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication).
 
 #### How does {{ CH }} handles data deletion based on TTL? {#how-ttl-data-processing-works}
 

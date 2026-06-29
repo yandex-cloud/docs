@@ -79,7 +79,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-af }} cluster update --help
@@ -135,7 +135,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
 
     1. To change cluster settings, change the required field values in the configuration file.
 
@@ -161,7 +161,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -367,7 +367,7 @@ After creating a cluster, you can edit its basic and advanced settings.
             --data '@body.json'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

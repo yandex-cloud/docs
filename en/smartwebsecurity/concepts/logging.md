@@ -1,6 +1,6 @@
 ---
-title: Logging in {{ sws-full-name }}
-description: In this guide, you will learn how {{ sws-name }} logs and analyzes data on requests and rules they trigger.
+title: Logging in {{ sws-name }}
+description: Available request, rule, and verdict data in {{ sws-name }} logs, and how to use it for traffic analysis.
 ---
 
 # Logging
@@ -46,7 +46,8 @@ The description of SWS log fields is given in the table below.
 || `security_profile_name` | Security profile name. ||
 || `module_type` | [SWS module](index.md) that made the final decision on the request. The possible values are `RULE_CONDITION`, `SMART_PROTECTION`, `WAF`, `ARL`, or `DEFAULT` (the [default basic rule](rules.md#base-rules) in the security profile). ||
 || `action` | Action applied to the request: `ALLOW`, `DENY`, or `CAPTCHA`. ||
-|| `matched_rule_name` | Triggered rule name. ||
+|| `matched_rule_name` | Triggered rule name.
+The `sws_service_rule` name indicates the [service rule](../../smartwebsecurity/concepts/rules.md#service-rule) that can block traffic during attacks. ||
 || `dry_run_matched_rule_name` | Name of the triggered rule that is in **Dry run** mode. In this mode, the action is not applied to the request, while information about the trigger is logged. ||
 || `matched_rule_verdict` | Expected action (verdict) applied by the rule to the request. The possible values are `ALLOW`, `DENY`, or `CAPTCHA`. ||
 || `dry_run_matched_rule_verdict` | Expected action that would be applied by the rule to the request, but it is not applied in **Dry run** mode. The possible values are `ALLOW`, `DENY`, or `CAPTCHA`. ||

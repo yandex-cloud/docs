@@ -2,6 +2,20 @@
 
 {% changelog %}
 ```
+date: 2025-06
+index: 3
+```
+
+### Новые возможности поставки данных в хранилища
+
+* Встречайте обновлённый приёмник данных Object Storage. Поставки данных в него стали доступны для всех пользователей. Вы можете записывать данные в бакет в формате JSON, CSV и Parquet.
+
+* Новые возможности репликации данных из очередей Apache Kafka® и YDS в приёмник данных Apache Iceberg™. Больше информации о поддерживаемых парах источников и приёмников данных в [матрице трансферов](../transfer-matrix.md).
+
+{% endchangelog %}
+
+{% changelog %}
+```
 date: 2025-12
 index: 2
 ```
@@ -36,6 +50,14 @@ index: 1
 # История изменений Data Transfer
 
 ## 2026 год {#2026}
+
+### Июнь {#june2026}
+
+
+* Поддержаны репликации данных из очередей [Apache Kafka®](../operations/endpoint/source/kafka.md) и [YDS](../operations/endpoint/source/data-streams.md) в приемник данных [Apache Iceberg™](../operations/endpoint/target/iceberg.md).
+
+
+* Приемник данных [Object Storage](../operations/endpoint/target/object-storage.md) обновлен и доступен для всех пользователей.
 
 ### Май {#may26}
 

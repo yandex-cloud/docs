@@ -7,7 +7,6 @@ editable: false
 # {{ dataproc-name }} pricing policy
 
 
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 
@@ -32,8 +31,8 @@ The total cost of using {{ dataproc-name }} includes:
 ### Using computing resources {#rules-compute}
 
 The cost is calculated for each hour of the virtual machine’s operation within {{ compute-name }} according to the [{{ compute-full-name }} resource pricing](../compute/pricing.md#prices), with an additional markup for using {{ dataproc-name }}.
+To learn how the external IP address is priced, see [{#T}](../vpc/pricing.md) in the {{ vpc-full-name }} guide.
 
-For public IP address pricing, refer to the [{#T}](../vpc/pricing.md) section in the {{ vpc-full-name }} documentation.
 
 ### Disk space usage {#rules-storage}
 
@@ -97,4 +96,5 @@ The cost is calculated as follows:
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+
 

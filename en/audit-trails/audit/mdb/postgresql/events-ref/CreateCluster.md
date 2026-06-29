@@ -2101,7 +2101,8 @@ editable: false
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
             "autoExplainLogFormat": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -2266,7 +2267,8 @@ editable: false
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
             "autoExplainLogFormat": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -2431,7 +2433,8 @@ editable: false
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
             "autoExplainLogFormat": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string"
           }
         },
         "postgresqlConfig_14_1c": {
@@ -2599,7 +2602,8 @@ editable: false
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
             "autoExplainLogFormat": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -2765,7 +2769,8 @@ editable: false
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
             "autoExplainLogFormat": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -2931,7 +2936,8 @@ editable: false
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
             "autoExplainLogFormat": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string"
           }
         },
         "postgresqlConfig_15": {
@@ -3099,7 +3105,9 @@ editable: false
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
             "autoExplainLogFormat": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "pgHintPlanHintsAnywhere": "boolean"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -3265,7 +3273,9 @@ editable: false
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
             "autoExplainLogFormat": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "pgHintPlanHintsAnywhere": "boolean"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -3431,7 +3441,9 @@ editable: false
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
             "autoExplainLogFormat": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "pgHintPlanHintsAnywhere": "boolean"
           }
         },
         "postgresqlConfig_15_1c": {
@@ -3601,7 +3613,9 @@ editable: false
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
             "autoExplainLogFormat": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "pgHintPlanHintsAnywhere": "boolean"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -3769,7 +3783,9 @@ editable: false
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
             "autoExplainLogFormat": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "pgHintPlanHintsAnywhere": "boolean"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -3937,7 +3953,9 @@ editable: false
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
             "autoExplainLogFormat": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "pgHintPlanHintsAnywhere": "boolean"
           }
         },
         "postgresqlConfig_16": {
@@ -4105,7 +4123,9 @@ editable: false
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
             "autoExplainLogFormat": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "pgHintPlanHintsAnywhere": "boolean"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -4271,7 +4291,9 @@ editable: false
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
             "autoExplainLogFormat": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "pgHintPlanHintsAnywhere": "boolean"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -4437,7 +4459,9 @@ editable: false
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
             "autoExplainLogFormat": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "pgHintPlanHintsAnywhere": "boolean"
           }
         },
         "postgresqlConfig_16_1c": {
@@ -4607,7 +4631,9 @@ editable: false
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
             "autoExplainLogFormat": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "pgHintPlanHintsAnywhere": "boolean"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -4775,7 +4801,9 @@ editable: false
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
             "autoExplainLogFormat": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "pgHintPlanHintsAnywhere": "boolean"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -4943,7 +4971,9 @@ editable: false
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
             "autoExplainLogFormat": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "pgHintPlanHintsAnywhere": "boolean"
           }
         },
         "postgresqlConfig_17": {
@@ -5114,7 +5144,8 @@ editable: false
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
             "maxReplicationSlots": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -5283,7 +5314,8 @@ editable: false
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
             "maxReplicationSlots": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -5452,7 +5484,8 @@ editable: false
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
             "maxReplicationSlots": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string"
           }
         },
         "postgresqlConfig_17_1c": {
@@ -5625,7 +5658,8 @@ editable: false
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
             "maxReplicationSlots": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -5796,7 +5830,8 @@ editable: false
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
             "maxReplicationSlots": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -5967,7 +6002,8 @@ editable: false
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
             "maxReplicationSlots": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string"
           }
         },
         "postgresqlConfig_18": {
@@ -6138,7 +6174,9 @@ editable: false
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
             "maxReplicationSlots": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "vacuumTruncate": "boolean"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -6307,7 +6345,9 @@ editable: false
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
             "maxReplicationSlots": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "vacuumTruncate": "boolean"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -6476,7 +6516,9 @@ editable: false
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
             "maxReplicationSlots": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "vacuumTruncate": "boolean"
           }
         },
         "postgresqlConfig_18_1c": {
@@ -6649,7 +6691,9 @@ editable: false
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
             "maxReplicationSlots": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "vacuumTruncate": "boolean"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -6820,7 +6864,9 @@ editable: false
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
             "maxReplicationSlots": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "vacuumTruncate": "boolean"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -6991,7 +7037,9 @@ editable: false
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
             "maxReplicationSlots": "string",
-            "idleSessionTimeout": "string"
+            "idleSessionTimeout": "string",
+            "checkpointWarning": "string",
+            "vacuumTruncate": "boolean"
           }
         },
         // end of the list of possible fields
@@ -7034,6 +7082,9 @@ editable: false
           "enabled": "boolean",
           "connectionsFolderId": "string",
           "secretsFolderId": "string"
+        },
+        "managedRepack": {
+          "enabled": "boolean"
         }
       },
       "networkId": "string",
@@ -8412,6 +8463,7 @@ Acceptable values are 7 to 60, inclusive. ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.postgresql.v1.DiskSizeAutoscaling)** ||
 || fullVersion | **string** ||
 || connectionManager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager)** ||
+|| managedRepack | **[ManagedRepack](#yandex.cloud.mdb.postgresql.v1.ManagedRepack)** ||
 |#
 
 ## PostgresqlConfigSet11 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet11}
@@ -10063,6 +10115,9 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
 |#
 
 ## PostgresqlConfigSet14_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet14_1C}
@@ -10412,6 +10467,9 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
 |#
 
 ## PostgresqlConfigSet15 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15}
@@ -10764,6 +10822,10 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| pgHintPlanHintsAnywhere | **boolean** ||
 |#
 
 ## PostgresqlConfigSet15_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15_1C}
@@ -11118,6 +11180,10 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| pgHintPlanHintsAnywhere | **boolean** ||
 |#
 
 ## PostgresqlConfigSet16 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16}
@@ -11475,6 +11541,10 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| pgHintPlanHintsAnywhere | **boolean** ||
 |#
 
 ## PostgresqlConfigSet16_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16_1C}
@@ -11834,6 +11904,10 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| pgHintPlanHintsAnywhere | **boolean** ||
 |#
 
 ## PostgresqlConfigSet17 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17}
@@ -12200,6 +12274,9 @@ Acceptable values are 20 to 100, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
 |#
 
 ## PostgresqlConfigSet17_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17_1C}
@@ -12568,6 +12645,9 @@ Acceptable values are 20 to 100, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
 |#
 
 ## PostgresqlConfigSet18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18}
@@ -12934,6 +13014,10 @@ Acceptable values are 20 to 100, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| vacuumTruncate | **boolean** ||
 |#
 
 ## PostgresqlConfigSet18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18_1C}
@@ -13302,6 +13386,10 @@ Acceptable values are 20 to 100, inclusive. ||
 || idleSessionTimeout | **string** (int64)
 
 Acceptable values are 0 to 2147483647, inclusive. ||
+|| checkpointWarning | **string** (int64)
+
+Acceptable values are 0 to 2147483647000, inclusive. ||
+|| vacuumTruncate | **boolean** ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig}
@@ -13379,6 +13467,13 @@ Acceptable values are 0 to 100, inclusive. ||
 || enabled | **boolean** ||
 || connectionsFolderId | **string** ||
 || secretsFolderId | **string** ||
+|#
+
+## ManagedRepack {#yandex.cloud.mdb.postgresql.v1.ManagedRepack}
+
+#|
+||Field | Description ||
+|| enabled | **boolean** ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow}

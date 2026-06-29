@@ -12,14 +12,29 @@ description: In this tutorial, you will learn about performance analysis tools a
 * `mongostat`: Collects CPU and memory usage statistics for {{ SD }} processes.
 * `mongotop`: Collects read/write statistics for each collection.
 
-To run these tools, use a connection string containing credentials of a user with the `mdbMonitor` role. For example:
+When calling these utilities, use a database user account with the [mdbMonitor](../concepts/users-and-roles.md#mdbMonitor) role.
+
+For example, to output performance metrics with a five-second polling interval, run one of the following commands:
 
 ```bash
-mongostat 5 --uri="mongodb://{<name_of_user_with_mdbMonitor_role>}:{<password>}@{<host>}:27018/?authSource=admin"
-mongotop 5 --uri="mongodb://{<name_of_user_with_mdbMonitor_role>}:{<password>}@{<host>}:27018/?authSource=admin"
+mongostat 5 \
+  --ssl \
+  --host=<Yandex_StoreDoc_host_FQDN> \
+  --port=27018 \
+  --username=<username> \
+  --authenticationDatabase=admin
 ```
 
-In this example, both utilities continuously output performance metrics, polling the system every 5 seconds.
+```bash
+mongotop 5 \
+  --ssl \
+  --host=<Yandex_StoreDoc_host_FQDN> \
+  --port=27018 \
+  --username=<username> \
+  --authenticationDatabase=admin
+```
+
+{% include [see-fqdn-host](../../_includes/mdb/mmg/fqdn-host.md) %}
 
 
 ### Profiler {#explore-profiler}

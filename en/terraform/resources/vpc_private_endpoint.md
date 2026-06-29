@@ -52,11 +52,14 @@ resource "yandex_vpc_subnet" "lab-subnet-a" {
 
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `description` (String). The resource description.
+- `dns_records` (*Read-Only*) (List Of Object). Private endpoint DNS records block.
+  - `name` . 
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `id` (String). 
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
 - `name` (String). The resource name.
 - `network_id` (**Required**)(String). ID of the network which private endpoint belongs to.
+- `service_name` (String). Name of the cloud service to access through the private endpoint (e.g. `yandex.cloud.storage`).
 - `status` (*Read-Only*) (String). Status of the private endpoint.
 - `dns_options` [Block]. Private endpoint DNS options block.
   - `private_dns_records_enabled` (Bool). If enabled - additional service DNS will be created.

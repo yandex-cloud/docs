@@ -1,9 +1,11 @@
 ---
-title: Building a table based on an SQL query to the data source
+title: Creating a table based on an SQL query
 description: Follow this guide to build a table based on an SQL query to the data source in Editor.
 ---
 
-# Building a table based on an SQL query to the data source
+# Creating a table based on an SQL query
+
+
 
 Follow this guide to build a table based on an SQL query to the data source in Editor. For convenience, we will use the connection and dataset from the deployed demo workbook as the data source.
 
@@ -13,12 +15,15 @@ Follow this guide to build a table based on an SQL query to the data source in E
 {% include [before-you-begin](../../../../_tutorials/_tutorials_includes/before-you-begin-datalens.md) %}
 
 
+
+
+
 ## Deploy a demo workbook {#create-template}
 
 
 1. In the Gallery, open the dashboard titled [DataLens Demo Dashboard](https://datalens.ru/gallery/wcyljs3cf5mwi).
 1. Click **Use** → **Deploy**.
-1. Choose where to save the workbook: workbook and collection root, existing collection, or new collection. Navigate to the saving destination and click **Deploy**. The workbook name must be unique, so edit the name if you need to.
+1. Select where to save the workbook: workbook and collection root, existing collection, or new collection. Navigate to the saving destination and click **Deploy**. The workbook name must be unique, so edit the name if you need to.
 1. Click **Create**.
 
 
@@ -27,7 +32,10 @@ Follow this guide to build a table based on an SQL query to the data source in E
 
 1. Copy the connection ID by clicking ![](../../../../_assets/console-icons/ellipsis.svg) → **Copy ID** next to it. The ID will be copied to the clipboard.
 
-### Create a chart in Editor {#create-chart}
+
+## Create a chart in Editor {#create-chart}
+
+
 
 1. In the workbook, click **Create** → **Chart in Editor** in the top-right corner. On the page that opens, select the **Table** visualization type.
 
@@ -73,6 +81,7 @@ Follow this guide to build a table based on an SQL query to the data source in E
    ```
 
    `salesSourceData`: An arbitrary alias name you assign to the object with requested chart data, used for access on the **Prepare** tab.
+
 
    The `sql_query` field describes the query to the connection data source.
 

@@ -85,7 +85,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * VM public [image](../../compute/operations/images-with-pre-installed-software/get-list) ID, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
             * Username and absolute path to the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for accessing the virtual machine. By default, [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) ignores the specified username and automatically creates a user named `ubuntu`. Use it to connect to the VM.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -328,7 +328,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Make sure the dump is fully restored {#check-data}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to restore the cluster.
-1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
 1. Click the cluster name and open the [{{ ui-key.yacloud.redis.cluster.switch_monitoring }}](../../managed-valkey/operations/monitoring.md) tab.
 
 Pay attention to the **DB Keys** chart showing the number of keys stored in the cluster. If the cluster is [sharded](../../managed-valkey/concepts/sharding.md), the chart will show the number of keys in each shard. In this case, the number of keys in the cluster is equal to the total number of keys across all shards.

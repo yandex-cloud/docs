@@ -262,7 +262,7 @@ You can group nodes in {{ managed-k8s-name }} using _node labels_. There are two
 
   Cloud labels for nodes are subject to the following rules:
 
-    {% include [cloud-labels-restrictions-nodes](../../_includes/managed-kubernetes/cloud-labels-restrictions-nodes.md) %}
+  {% include [cloud-labels-restrictions-nodes](../../_includes/managed-kubernetes/cloud-labels-restrictions-nodes.md) %}
 
   Learn more about managing cloud labels in [Updating a node group](../operations/node-group/node-group-update.md#manage-label).
 

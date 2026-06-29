@@ -104,7 +104,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to host the trail.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
   1. Enter a trail name. It must be unique within the folder.
   1. (Optional) Enter a description for your trail.
@@ -167,8 +167,8 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
       1. For each such service, select one of the following filters by [events](../concepts/events-data-plane.md#dns):
 
           * `Receive all`: To collect all events within the service.
-          * `Selected`: To collect only the selected events. Proceed to select the events.
-          * `Exclude`: To collect all events except for the selected ones. Proceed to select the events.
+          * `Selected`: To collect only the selected events. Then proceed to select the events.
+          * `Exclude`: To collect all events except for the selected ones. Then proceed to select the events.
 
 - CLI {#cli}
 
@@ -301,7 +301,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
       {% include [trail-create-tf-descs_part2](../../_includes/audit-trails/trail-create-tf-descs-part2.md) %}
 
-      For more information about the `yandex_audit_trails_trail` resource parameters in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/audit_trails_trail).
+      For more information about the `yandex_audit_trails_trail` resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/audit_trails_trail).
 
   1. Create the resources:
 

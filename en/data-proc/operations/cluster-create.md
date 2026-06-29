@@ -61,7 +61,7 @@ Before creating a {{ dataproc-name }} cluster, you need to create and configure 
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**:
          * `84.201.181.26/32`: Getting the {{ dataproc-name }} cluster status, running jobs.
          * `158.160.167.170/32`: UI Proxy.
-         * `158.160.59.216/32`: Monitoring the {{ dataproc-name }} cluster health, autoscaling.
+         * `158.160.59.216/32`: {{ dataproc-name }} cluster state monitoring, autoscaling.
          * `213.180.193.243/32`: Access to {{ objstorage-name }}.
          * `84.201.181.184/32`: {{ cloud-logging-name }} address.
 
@@ -177,7 +177,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      * Storage size and type.
      * Subnet.
 
-        In the subnet, you need to set up a NAT gateway for the {{ dataproc-name }} subcluster with a master host. For more information, see [Configure your network](#setup-network).
+       In the subnet, you need to set up a NAT gateway for the {{ dataproc-name }} subcluster with a master host. For more information, see [Configure your network](#setup-network).
 
      * Access to {{ dataproc-name }} subcluster hosts from the internet. To enable access, select **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**. In this case, you can only connect to {{ dataproc-name }} subcluster hosts over SSL. For more information, see [{#T}](connect.md).
 
@@ -210,13 +210,13 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
   To create a {{ dataproc-name }} cluster:
 
   
-  1. Check whether your [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) has any subnets for the {{ dataproc-name }} cluster hosts:
+  1. Check whether the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) has any subnets for the {{ dataproc-name }} cluster hosts:
 
      ```bash
      yc vpc subnet list
      ```
 
-     If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
+     If there are no subnets in the folder, [create the right ones](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
 
 
   1. See the description of the [CLI](../../cli/) command for creating a {{ dataproc-name }} cluster:
@@ -652,7 +652,8 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      * `cpu_utilization_target`: Target CPU utilization, in %. Use this setting to enable [scaling](../concepts/autoscaling.md) based on CPU utilization. Otherwise, `yarn.cluster.containersPending` will be used for scaling based on the number of pending resources. The minimum value is `10`, and the maximum value is `100`.
      * `decommission_timeout`: [Decommissioning timeout](../concepts/decommission.md), in seconds. The minimum value is `0` and the maximum, `86400` (24 hours).
 
-     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/dataproc_cluster).
+     For more detailed information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/dataproc_cluster).
+     
   1. Make sure the {{ TF }} configuration files are correct:
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}

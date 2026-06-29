@@ -45,10 +45,10 @@ You can make [{{ AF }} API](https://airflow.apache.org/docs/apache-airflow/stabl
         --header 'X-Cloud-Authorization: Bearer <IAM_token>'
     ```
 
-    The request returns a list of DAG files. Check an example of the response in the [{{ AF }} API documentation](https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html#operation/get_dags).
+    The request returns a list of DAG files. For a response example, check this [{{ AF }} API guides](https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html#operation/get_dags).
 
 {% note warning %}
 
-To use basic authentication with the {{ AF }} API as in the example above, set the value of the `api.auth_backends` **:** `airflow.api.auth.backend.basic_auth` property in the **{{ ui-key.yacloud.airflow.section_airflow-configuration }}** section when [creating](cluster-create.md) or [updating](cluster-update.md) the cluster. Learn more about the API authentication in the [{{ AF }} documentation](https://airflow.apache.org/docs/apache-airflow/stable/security/api.html).
+To use basic authentication with the {{ AF }} API as in the example above, set the value of the `api.auth_backends` **:** `airflow.api.auth.backend.basic_auth` property in the **{{ ui-key.yacloud.airflow.section_airflow-configuration }}** section when [creating](cluster-create.md) or [updating](cluster-update.md) the cluster. Learn more about authentication in API in [this {{ AF }} guide](https://airflow.apache.org/docs/apache-airflow/stable/security/api.html).
 
 {% endnote %}

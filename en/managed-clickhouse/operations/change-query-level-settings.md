@@ -51,7 +51,7 @@ You can specify [{{ CH }} settings at the query level]({{ ch.docs }}{{ lang }}/o
 
    To configure {{ CH }}:
 
-   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the name of the cluster you need, then go the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** section.
    1. In the appropriate user row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
@@ -91,9 +91,9 @@ You can specify [{{ CH }} settings at the query level]({{ ch.docs }}{{ lang }}/o
 
    To configure {{ CH }}:
 
-   1. Open the current {{ TF }} configuration file describing your infrastructure.
+   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
    1. In the {{ mch-name }} cluster user description, under `settings`, edit the parameters as follows:
 
@@ -112,7 +112,7 @@ You can specify [{{ CH }} settings at the query level]({{ ch.docs }}{{ lang }}/o
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+   1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -225,7 +225,7 @@ You can provide {{ CH }} settings when [adding a new user](#add-user) or [changi
          SETTINGS idle_connection_timeout = 60 MIN 5 MAX 120;
       ```
 
-      For more information about creating users, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/user).
+      For more on how to create users, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/user).
 
 {% endlist %}
 
@@ -279,7 +279,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
          TO <username>;
       ```
 
-      For more information about creating settings profiles, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/settings-profile).
+      For more information about creating a settings profile, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/settings-profile).
 
 {% endlist %}
 
@@ -297,7 +297,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
          SETTINGS <list_of_{{ CH }}_settings>;
       ```
 
-      In this query, you can define the setting minimum and maximum values and assign the profile to a user. For more information about changing settings profiles, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter/settings-profile).
+      In this query, you can define the setting minimum and maximum values and assign the profile to a user. For more information about updating a settings profile, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter/settings-profile).
 
 {% endlist %}
 

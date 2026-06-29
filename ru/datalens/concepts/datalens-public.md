@@ -1,6 +1,6 @@
-# Публичный доступ
+# Публикация объектов
 
-Вы можете предоставить публичный доступ к созданным чартам и дашбордам: любой пользователь сможет пройти по ссылке и посмотреть опубликованный объект без авторизации. При этом пользователь не может посмотреть настройки чарта, подключения, датасет или выполнить произвольный SQL-запрос.
+Если предоставить публичный доступ к созданным чартам и дашбордам, любой пользователь сможет пройти по ссылке и посмотреть опубликованный объект без авторизации. При этом пользователь не сможет посмотреть настройки чарта, подключения, датасет или выполнить произвольный SQL-запрос.
 
 {% include [share-note](../../_includes/datalens/datalens-share-note.md) %}
 
@@ -32,15 +32,28 @@
 
 ## Опубликовать объект {#how-to-publish}
 
-{% list tabs group=datalens_public %}
+Как предоставить к объекту публичный доступ, зависит от его [расположения](./publishing-and-embedding.md#object-location) — в [воркбуке](../workbooks-collections/index.md#enable-workbooks) или в папке:
 
-- Публикация дашборда {#dashboard}
 
-  {% include [datalens-public-dashboard](../../_includes/datalens/operations/datalens-public-dashboard.md) %}
+{% list tabs %}
 
-- Публикация чарта {#chart}
+- В воркбуке
 
-  {% include [datalens-public-chart](../../_includes/datalens/operations/datalens-public-chart.md) %}
+  {% include [datalens-public-wb](../../_includes/datalens/operations/datalens-public-wb.md) %}
+
+- В папке
+
+  {% list tabs group=datalens_public %}
+
+  - Публикация дашборда {#dashboard}
+
+    {% include [datalens-public-dashboard](../../_includes/datalens/operations/datalens-public-dashboard.md) %}
+
+  - Публикация чарта {#chart}
+
+    {% include [datalens-public-chart](../../_includes/datalens/operations/datalens-public-chart.md) %}
+
+  {% endlist %}
 
 {% endlist %}
 

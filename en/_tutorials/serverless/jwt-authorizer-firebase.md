@@ -1,4 +1,4 @@
-# Deploying a web app with JWT authorization in {{ api-gw-full-name }} and authentication in Firebase
+# Deploying a web app with JWT authorization in {{ api-gw-full-name }} and Firebase authentication
 
 
 In this tutorial, you will learn how to implement authentication and authorization with [OAuth 2.0](https://oauth.net/2/) and [OpenID Connect](https://openid.net/connect/) in your web app. For authentication, you will use [Google OAuth](https://developers.google.com/identity/protocols/oauth2) and [Firebase](https://firebase.google.com/docs). [{{ api-gw-name }}](../../api-gateway/) will manage authorization using a JWT authorizer. Your web app will consist of:
@@ -37,14 +37,14 @@ Set up Google OAuth:
 1. Under **Scopes**, click **Add or Remove Scopes** and add the `openid`, `/auth/userinfo.email`, and `/auth/userinfo.profile` scopes. Click **Update** → **Save and continue**.
 1. Under **Test users**, specify your email address. Finish creating your app.
 1. Go to **API & Services** → **Credentials**, click **Create credential**, and select `OAuth client ID`. Specify `Web application` as the app type.
-1. Confirm the app creation and save the `Client ID` and `Client secret`.
+1. Confirm the app creation and save the `Client ID` and `Client secret` values.
 
 ## Set up authentication in Firebase {#create-firebase-project}
 
 1. Log in to the [Firebase Console](https://console.firebase.google.com) and create a new project.
 1. Go to **Authentication** → **Sign-in method** → **Custom providers** and select `OpenID Connect`.
 1. Confirm your selection.
-1. Enter the provider name as well as the `Client ID` and `Client secret` you obtained in the [previous step](#create-google-cloud-project). Fill in the **Issuer** field (for Google OAuth, specify `https://accounts.google.com`).
+1. Specify the provider name as well as the `Client ID` and `Client secret` values you got in the [previous step](#create-google-cloud-project). Fill in the **Issuer** field (for Google OAuth, specify `https://accounts.google.com`).
 1. Save the `Callback URL` and complete the OpenID setup.
 
 ## Complete setting up your Google resources {#google-oauth-setup}
@@ -65,7 +65,7 @@ Firebase:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an API gateway.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter `jwt-api-gw`.
   1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add the following specification:
@@ -301,7 +301,7 @@ Deploy a static website.
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
      1. On the bucket creation page:
         1. Enter the bucket name: `bucket-for-tutorial`.
@@ -377,7 +377,7 @@ Deploy a static website.
           * `bucket`: Bucket name.
           * `acl`: Bucket access settings.
 
-        For more information about `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
+        For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
      1. Create the resources:
 
         {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -397,9 +397,9 @@ Deploy a static website.
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to upload your objects.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Click `bucket-for-tutorial`.
-     1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the objects you [previously generated](#project-prepare) in the `build` folder.
+     1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the objects you [previously generated](#project-prepare) in the `build` directory.
      1. The management console will display all the objects you selected for uploading and prompt you to select a [storage class](../../storage/concepts/storage-class.md). The [bucket configuration](../../storage/concepts/bucket.md#bucket-settings) determines the default storage class.
      1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
      1. Refresh the page.
@@ -489,10 +489,10 @@ Deploy a static website.
 
         Where:
         * `website`: Website settings:
-          * `index_document`: Absolute path to the website home page file. This is a required parameter.
-          * `error_document`: Absolute path to the file the user will see in case of `4xx` errors. This is an optional parameter.
+          * `index_document`: Absolute path to the website home page file. This is a required setting.
+          * `error_document`: Absolute path to the file the user will see in case of `4xx` errors. This is an optional setting.
 
-        For more information about `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+        For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
      1. Create the resources:
 
         {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

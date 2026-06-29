@@ -3,7 +3,7 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 
 - CLI {#cli}
@@ -22,7 +22,7 @@
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../../managed-kafka/api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../../../managed-kafka/api-ref/authentication.md) and put it in an environment variable:
 
         {% include [api-auth-token](../../mdb/api-auth-token.md) %}
 
@@ -63,7 +63,7 @@
             yandex.cloud.mdb.kafka.v1.ClusterService.ListHosts
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](../../../managed-kafka/operations/cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](../../../managed-kafka/operations/cluster-list.md#list-clusters).
 
     1. Check the [server response](../../../managed-kafka/api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) to make sure your request was successful.
 

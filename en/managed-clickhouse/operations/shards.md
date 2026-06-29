@@ -94,7 +94,7 @@ You can create multiple shards in a cluster in one go.
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
 
   1. In the {{ mch-name }} cluster description, add a new shard to the `shards` section and a {{ CH }} host on that shard to the `hosts` section:
 
@@ -128,7 +128,7 @@ You can create multiple shards in a cluster in one go.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -403,8 +403,8 @@ You can edit the shard weight as well as the [host class](../concepts/instance-t
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Edit as needed and click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
-  1. If you have changes the disk type for a shard with {{ CH }} hosts:
-      1. In the window that opens, look up the number of non-replicated tables in the **Non-replicated MergeTree tables** chart and their size in **Size of non-replicated MergeTree tables**. The data in the non-replicated tables will be lost. If you need to keep it, [convert]({{ ch.docs }}{{ lang }}/sql-reference/statements/attach#attach-mergetree-table-as-replicatedmergetree) the non-replicated tables to replicated ones before you change the disk type.
+  1. If you changed the disk type for a shard with {{ CH }} hosts:
+      1. In the window that opens, view the number of non-replicated tables in the **Non-replicated MergeTree tables** chart and their size in **Size of non-replicated MergeTree tables**. The data in non-replicated tables will be lost. If you need to keep it, [convert]({{ ch.docs }}{{ lang }}/sql-reference/statements/attach#attach-mergetree-table-as-replicatedmergetree) your non-replicated tables to replicated ones before changing the disk type.
       1. Confirm resource changes.
 
 - CLI {#cli}
@@ -626,7 +626,7 @@ Deleting a shard will delete all tables and data stored on that shard.
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
 
   1. In the {{ mch-name }} cluster description, delete the shard from the `shards` section, and all {{ CH }} hosts on that shard, from the `hosts` section.
   1. Make sure the settings are correct.

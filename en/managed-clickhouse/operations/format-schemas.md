@@ -15,7 +15,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
 
@@ -157,7 +157,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
 {{ mch-name }} only works with format schemas uploaded to {{ objstorage-full-name }} and accessible for reading. Before adding a schema to a cluster:
 
-1. Prepare a file with your format schema (see the [Cap'n Proto](https://capnproto.org/language.html) and [Protobuf](https://developers.google.com/protocol-buffers/docs/tutorials?hl=ru) tutorials).
+1. Prepare the format schema file. For instructions, refer to [Cap'n Proto](https://capnproto.org/language.html) and [Protobuf](https://developers.google.com/protocol-buffers/docs/tutorials?hl=ru) tutorials.
 
 
 1. To attach a [service account](../../iam/concepts/users/service-accounts.md) to a cluster, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account.
@@ -174,7 +174,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
     1. Click **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.button-action_add-format-schema }}**.
@@ -211,9 +211,9 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
 
     1. Add the `format_schema` section to the {{ mch-name }} cluster description:
 
@@ -234,7 +234,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -328,7 +328,7 @@ To update the contents of a schema that is already added to the cluster:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
     1. Find the schema you need, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
@@ -352,9 +352,9 @@ To update the contents of a schema that is already added to the cluster:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
 
     1. In the {{ mch-name }} cluster description, change the `uri` parameter value under `format_schema`:
 
@@ -373,7 +373,7 @@ To update the contents of a schema that is already added to the cluster:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -475,7 +475,7 @@ After removing a format schema, the related object remains in the {{ objstorage-
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+   1. In the [management console]({{ link-console-main }}), select the folder containing the cluster.
    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
    1. Find the schema you need, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
@@ -498,9 +498,9 @@ After removing a format schema, the related object remains in the {{ objstorage-
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
 
     1. Delete the `format_schema` section in question from the {{ mch-name }} cluster description.
 
@@ -508,7 +508,7 @@ After removing a format schema, the related object remains in the {{ objstorage-
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

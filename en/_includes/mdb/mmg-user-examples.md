@@ -8,9 +8,9 @@ To add a new `user2` account with read-only access for the `db1` database to an 
 
 - Management console {#console}
 
-  1. Go to the [folder]({{ link-console-main }}) page.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-  1. Click the name of your cluster and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
+  1. Open the [folder dashboard]({{ link-console-main }}).
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Click the cluster name and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Enter `user2` for username and enter a password (from 8 to 128 characters).
   1. Select the `db1` database from the **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** drop-down list.
@@ -30,9 +30,9 @@ To add a new `user2` account with read-only access for the `db1` database to an 
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      Learn how to create this file in [Creating a cluster](../../storedoc/operations/cluster-create.md).
+      For more on how to create this file, see [Creating a cluster](../../storedoc/operations/cluster-create.md).
 
   1. Add the `yandex_mdb_mongodb_user` resource:
 
@@ -52,7 +52,7 @@ To add a new `user2` account with read-only access for the `db1` database to an 
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -68,8 +68,8 @@ To grant read-only access to the `db2` database to an existing `cluster1` user n
 
 - Management console {#console}
 
-  1. Go to the [folder]({{ link-console-main }}) page.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Open the [folder dashboard]({{ link-console-main }}).
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click `cluster1` and select the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with `user1` and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Click **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** and select `db2` as your database.
@@ -89,11 +89,11 @@ To grant read-only access to the `db2` database to an existing `cluster1` user n
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      Learn how to create this file in [Creating a cluster](../../storedoc/operations/cluster-create.md).
+      For more on how to create this file, see [Creating a cluster](../../storedoc/operations/cluster-create.md).
 
-  1. Find the `yandex_mdb_mongodb_user` resource.
+  1. Locate the `yandex_mdb_mongodb_user` resource.
   1. Add the `permission` section:
 
       ```hcl
@@ -112,7 +112,7 @@ To grant read-only access to the `db2` database to an existing `cluster1` user n
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

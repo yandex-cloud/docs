@@ -27,3 +27,4 @@ For the VMs found in the `metadata_options` section, set [aws_v1_http_token](htt
 ```bash
 yc compute instance update <VM_instance_ID_or_name> \
   --metadata-options aws-v1-http-token=DISABLED
+```

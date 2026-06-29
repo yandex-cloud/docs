@@ -45,7 +45,7 @@
 
     This is a global cluster-level setting. You can override it at the [topic level](#settings-topic-flush-messages). In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_topic-flush-messages }}**.
 
-    For more information, see the [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.flush.interval.messages).
+    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.flush.interval.messages).
 
 * **Log flush interval ms** {{ tag-all }} {#settings-log-flush-interval-ms}
 
@@ -133,7 +133,7 @@
 
     This is a global cluster-level setting. You can override it at the [topic level](#settings-topic-segment-bytes).
 
-    For more information, see [{#T}](../../../managed-kafka/concepts/storage.md#maximum-log-segment-size) and [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.segment.bytes).
+    For a full description of this setting, see [{#T}](../../../managed-kafka/concepts/storage.md#maximum-log-segment-size) and [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.segment.bytes).
 
 * **Message max bytes** {{ tag-all }} {#settings-message-max-bytes}
 
@@ -156,7 +156,7 @@
 
     See also the [Num partitions](#settings-topic-num-partitions) topic-level setting.
 
-    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_num.partitions).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_num.partitions).
 
 * **Offsets retention minutes** {{ tag-all }} {#settings-offsets-retention-minutes}
 

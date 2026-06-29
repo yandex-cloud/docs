@@ -7,7 +7,6 @@ editable: false
 
 # {{ mpg-name }} pricing policy
 
-
 ::: page-constructor
 blocks:
   - type: card-layout-block

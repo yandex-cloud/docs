@@ -44,7 +44,7 @@
 
 * **Flush, ms** {{ tag-all }} {#settings-topic-flush-ms}
 
-    Maximum time in milliseconds a message can be stored in memory before being flushed to the disk.    
+    Maximum time in milliseconds a message can be stored in memory before being flushed to disk.    
 
     For more information, see the description of the [Log flush interval ms](#settings-log-flush-interval-ms) cluster-level setting.
 
@@ -97,7 +97,7 @@
 
 * **Pre-allocation of the segment file** {{ tag-all }} {#settings-topic-preallocate}    
 
-    This setting determines whether to pre-allocate space for log segment files. By default, the space for log segment files gets allocated as logs are filling up (`false`).
+    This setting determines whether to pre-allocate space for log segment files. By default, the space for log segment files is allocated as the segments get full (`false`).
 
     For more information, see the description of the [Log preallocate](#settings-log-preallocate) cluster-level setting.
 
@@ -147,4 +147,4 @@
 
     For more information, see the description of the [Log segment bytes](#settings-log-segment-bytes) cluster-level setting.
 
-    For more information, see [{#T}](../../../managed-kafka/concepts/storage.md#maximum-log-segment-size) and [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_segment.bytes).
+    For a full description of this setting, see the [{#T}](../../../managed-kafka/concepts/storage.md#maximum-log-segment-size) section and [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_segment.bytes).

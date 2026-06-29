@@ -7,7 +7,6 @@ editable: false
 
 # {{ mmy-name }} pricing policy
 
-
 In this section, you can find the {{ mmy-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
 {% note tip %}

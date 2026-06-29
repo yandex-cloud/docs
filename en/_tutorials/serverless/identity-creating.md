@@ -9,7 +9,7 @@ To access {{ postbox-name }}, the tutorial uses an API compatible with AWS SESv2
 1. [Get your cloud ready](#before-you-begin).
 1. [Delegate your domain to {{ dns-name }}](#delegate).
 1. [Prepare keys for signing emails](#generate-keys).
-1. [Create your infrastructure](#deploy).
+1. [Create the infrastructure](#deploy).
 1. [Test the service](#test).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -64,7 +64,7 @@ To sign emails, create an [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)
    echo "- dkim_dns_value.txt (Public key formatted for DKIM DNS TXT record)"
    ```
 
-1. In the terminal, navigate to the folder with the script and run it:
+1. In the terminal, navigate to the directory with the script and run it:
 
    ```bash
    ./generate-key.sh
@@ -77,30 +77,30 @@ The script will create:
 * `dkim_dns_value.txt`: Value for creating a DKIM record.
 
 
-## Create your infrastructure {#deploy}
+## Create the infrastructure {#deploy}
 
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
-To create an infrastructure using {{ TF }}:
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing {{ yandex-cloud }} (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
-1. Set up your infrastructure description files:
+To create your infrastructure via {{ TF }}:
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
+1. Prepare your infrastructure description files:
 
-     1. Clone the repository with configuration files.
+     1. Clone the repository containing the configuration files.
 
         ```bash
         git clone https://github.com/yandex-cloud-examples/yc-postbox-tf.git
         ```
 
      1. Navigate to the repository directory. It should now contain the following files:
-        * `postbox-email-identity.tf`: New infrastructure configuration
-        * `postbox-email-identity.auto.tfvars`: User data file
+        * `postbox-email-identity.tf`: New infrastructure configuration.
+        * `postbox-email-identity.auto.tfvars`: User data file.
 
-   Learn more about the properties of {{ TF }} resources in the relevant provider guides:
-   * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
+   For more information on the properties of {{ TF }} resources, see these provider guides:
+   * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
    * [Assigning access permissions](../../iam/concepts/access-control/roles.md): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
    * [Static access key](../../iam/concepts/authorization/access-key.md): [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
-   * [DNS zone](../../dns/concepts/dns-zone.md): [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone)
-   * [DNS resource record](../../dns/concepts/resource-record.md): [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset)
+   * [DNS zone](../../dns/concepts/dns-zone.md): [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone).
+   * [DNS resource record](../../dns/concepts/resource-record.md): [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).
 
 1. In the `postbox-email-identity.auto.tfvars` file, set the following user-defined properties:
    * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
@@ -136,7 +136,7 @@ After creating the infrastructure, [test the service](#test).
 
 Make sure the address was successfully created and send a test email:
 1. In the [management console]({{ link-console-main }}), select the folder where you created the address.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
 1. Select the address you created and make sure the test status on the address page has changed to `Success`.
 1. [Send](../../postbox/operations/send-email.md) a test email.
 

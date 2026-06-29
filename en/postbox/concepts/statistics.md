@@ -20,7 +20,7 @@ In {{ postbox-full-name }}, you can view statistics for sent emails, e.g., how m
 || **{{ ui-key.yacloud.postbox.label_statistics_interaction-group-metrics }}** | > | > ||
 || `{{ ui-key.yacloud.postbox.label_statistics_opens-event }}` | Number of emails opened by recipients. | {{ postbox-name }} gets notified that the email was opened.
 
-Only emails with [open tracking](mail-opened.md#setup) on are counted. The opens is counted for the day the email was opened, not sent. If the recipient opens the same email multiple times, the metric increases by the same number of opens. ||
+Only emails with [open tracking](mail-opened.md#setup) on are counted. If the recipient opens the same email multiple times, the metric increases by the same number of opens. ||
 || `{{ ui-key.yacloud.postbox.label_statistics_clicks-event }}` | Number of email clicks. | {{ postbox-name }} gets notified about an email click.
 
 Only emails with [click tracking](click-tracking.md#setup) on are counted. If the recipient clicks the same link multiple times, the metric increases by the same number of clicks. ||
@@ -29,6 +29,11 @@ Only emails with [click tracking](click-tracking.md#setup) on are counted. If th
 || `{{ ui-key.yacloud.postbox.label_statistics_unsubscribes-event }}` | Number of unsubscribe requests. | {{ postbox-name }} receives an unsubscribe request from the recipient. ||
 |#
 
+{% note info %}
+
+When viewing detailed statistics by time, all email events are grouped into the time interval in which {{ postbox-name }} accepted the email for delivery.
+
+{% endnote %}
 
 ## Viewing statistics {#viewing}
 

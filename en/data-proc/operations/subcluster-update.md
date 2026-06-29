@@ -64,7 +64,7 @@ You can change the number of hosts in data storage and processing subclusters:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
 
     1. In the description of the {{ dataproc-name }} cluster, edit the `hosts_count` value under `subcluster_spec` for your data storage or data processing subcluster:
 
@@ -152,7 +152,7 @@ You can change the compute capacity of hosts in a specific subcluster. It depend
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
 
     1. In the description of the {{ dataproc-name }} cluster, edit the `resource_preset_id` value under `subcluster_spec.resources` for your subcluster:
 
@@ -176,7 +176,7 @@ You can change the compute capacity of hosts in a specific subcluster. It depend
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -265,7 +265,7 @@ To enable autoscaling, [assign](../../iam/operations/sa/assign-role-for-sa.md) t
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
 
     1. In the description of the {{ dataproc-name }} cluster, add a section named `subcluster_spec.autoscaling_config` with the required autoscaling settings for your subcluster:
 
@@ -304,7 +304,7 @@ To enable autoscaling, [assign](../../iam/operations/sa/assign-role-for-sa.md) t
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -377,7 +377,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
 
     1. In the description of the {{ dataproc-name }} cluster, edit the `disk_size` value under `subcluster_spec.resources` for your subcluster:
 
@@ -402,7 +402,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -428,7 +428,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
 
     1. Edit the `security_group_ids` value in the cluster description:
 
@@ -443,7 +443,7 @@ Make sure the cloud quota is sufficient to increase the VM resources. Open the [
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

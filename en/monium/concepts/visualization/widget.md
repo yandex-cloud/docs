@@ -58,8 +58,6 @@ Changing the dashboard time range does not affect the SLO widget. It always show
 
 ## Escalation {#escalation}
 
-{% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}
-
 The widget displays running escalation instances for a selected escalation policy on the dashboard. You can use the widget to stop one or multiple escalations.
 
 ## Text {#text}

@@ -51,6 +51,8 @@ data "yandex_trino_cluster" "tirno_cluster_by_id" {
   - `additional_properties` (Map Of String). Additional properties.
   - `exchange_manager` [Block]. Configuration for exchange manager.
     - `additional_properties` (Map Of String). Additional properties.
+    - `s3` [Block]. Use user Object Storage bucket as exchange manager.
+      - `bucket` (**Required**)(String). Name of the Object Storage bucket used as exchange manager storage.
     - `service_s3` [Block]. Use S3 created on service side as exchange manager.
   - `policy` (**Required**)(String). Retry policy level
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.

@@ -1,13 +1,13 @@
-  * **URI**: URI for connection to the {{ metastore-name }} cluster in `thrift://<cluster_IP_address>:9083` format.
+* **URI**: URI for connection to the {{ metastore-name }} cluster in `thrift://<cluster_IP_address>:9083` format.
 
     To find out the IP address of your {{ metastore-name }} cluster:
       1. Go to the [resource folder]({{ link-console-main }}) page.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-      1. In the left-hand panel, select ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+      1. In the left-hand panel, select ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
 
     {% include [metastore version](metastore-version-catalog-create.md) %}
 
-  * **File storage**: File storage type. The available options are [{{ objstorage-full-name }}](../../storage/quickstart/overview.md) and external storage.
+* **File storage**: File storage type. The available options are [{{ objstorage-full-name }}](../../storage/quickstart/overview.md) and external storage.
 
     For external storage, specify:
 

@@ -10,8 +10,8 @@ Providing secrets creates a new function version. You cannot provide secrets to 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the function.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the function.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select the function to provide a {{ lockbox-name }} secret to.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
@@ -111,7 +111,7 @@ Providing secrets creates a new function version. You cannot provide secrets to 
        * `key`: Key of a secret version’s key-value pair that will be stored in the environment variable. This is a required setting.
        * `environment_variable`: Name of the environment variable that will store the secret. This is a required setting.
   
-     For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+     For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
   1. Apply the changes:
 

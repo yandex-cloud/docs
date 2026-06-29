@@ -5,7 +5,7 @@ A {{ ydb-name }} cluster can ingest data from {{ KF }} topics in real time. This
 
 To start data delivery:
 
-1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -20,7 +20,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 	* In serverless mode, you pay for data operations as well as the amount of stored data and backups.
   	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
-* Per transfer: Computing resources used and the number of data rows transferred (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer: Use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -65,7 +65,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            * `target_db_name`: {{ ydb-name }} database name.
            * `transfer_enabled`: `0` to ensure that no transfer is created before you [manually create the target endpoint](#prepare-transfer).
 
-       1. Validate your {{ TF }} configuration files using this command:
+       1. Make sure the {{ TF }} configuration files are correct using this command:
 
            ```bash
            terraform validate
@@ -113,7 +113,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         sudo apt update && sudo apt-get install --yes jq
         ```
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -220,7 +220,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: Set to `1` to create the transfer.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -304,7 +304,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         - Management console {#console}
 
            1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-           1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** service.
+           1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
            1. Select your database from the list.
            1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
            1. Check that the {{ ydb-name }} database contains a table named `sensors` with the test data from the topic.
@@ -339,7 +339,7 @@ To minimize resource consumption, delete the resources you no longer need:
 1. If you created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 
-1. Delete the rest of the resources depending on how you created them:
+1. Delete the other resources depending on how you created them:
 
    {% list tabs group=instructions %}
 

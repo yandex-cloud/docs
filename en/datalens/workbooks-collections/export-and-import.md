@@ -96,7 +96,7 @@ If the workbook import fails, you will get an error [message](./export-import-no
 
 
 
-## Limitations {#restrictions}
+## Limits {#restrictions}
 
 These connection types are not available for export and import.
 

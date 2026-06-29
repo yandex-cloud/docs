@@ -1,43 +1,43 @@
 ---
-title: Tips for setting up and using Delta Lake
-description: This article will give you tips on how to set up and use Delta Lake.
+title: Tips for configuring and using Delta Lake
+description: This article gives you tips on how to configure and use Delta Lake.
 ---
 
 # Tips for setting up and using Delta Lake
 
 ## Optimizing data writes to S3-compatible storage {#s3-algorithm}
 
-If the format of some data within a job differs from that of Delta Lake tables, to optimize data writes to S3-compatible storage, [configure S3A committers](../../tutorials/copy-files-from-object-storage.md#s3a-committers).
+If part of the job data uses formats other than Delta Lake tables, [configure S3A committers](../../tutorials/copy-files-from-object-storage.md#s3a-committers) to optimize data writes to S3-compatible storage.
 
-If all data within a job is stored in Delta Lake tables, there is no need to configure S3A committers. Delta Lake uses its own algorithm to control data writes to S3-compatible storage. Its functionality is equivalent to that of S3A committers.
+If all job data resides in Delta Lake tables, you do not need to configure S3A committers. Delta Lake uses its own algorithm to manage data writes to S3-compatible storage. It is functionally equivalent to S3A committers.
 
-## Boosting OPTIMIZE operator performance {#optimize}
+## Boosting the OPTIMIZE operator efficiency {#optimize}
 
-The [OPTIMIZE operator](https://docs.delta.io/latest/optimizations-oss.html#compaction-bin-packing) in Delta Lake 2.0.2 speeds up requests to read table data by merging multiple small files into larger ones. This merge is performed within several concurrent jobs. The maximum number of such concurrent jobs is controlled by the `spark.databricks.delta.optimize.maxThreads` [property](../../concepts/settings-list.md) set to `10` by default.
+The [OPTIMIZE operator](https://docs.delta.io/latest/optimizations-oss.html#compaction-bin-packing) in Delta Lake 2.0.2 improves table data read query performance by merging multiple small files into larger ones. This merging runs as multiple concurrent jobs. You can set the maximum number of such concurrent jobs using the `spark.databricks.delta.optimize.maxThreads` [property](../../concepts/settings-list.md). By default, it is `10`.
 
-To speed up the optimization procedure when handling large tables, [increase](../../concepts/settings-list.md#change-properties) the property value. You can use much larger values, e.g., `100` or `1000`, if the cluster resources allow running this many concurrent operations.
+To speed up the optimization when handling large tables, [increase](../../concepts/settings-list.md#change-properties) the `spark.databricks.delta.optimize.maxThreads` property value. You can use much higher values, e.g., `100` or `1000`, if the cluster resources allow running that many concurrent operations.
 
 ## Syntax for converting partitioned tables {#partitioned-syntax}
 
-The `CONVERT TO DELTA` operator converts standard Spark SQL tables to Delta Lake format. To convert a partitioned table, specify partitioning columns in the request:
+The `CONVERT TO DELTA` operator converts standard Spark SQL tables to Delta Lake format. To convert a partitioned table, specify the partitioning columns in the query:
 
 ```sql
 CONVERT TO DELTA table_name PARTITIONED BY (part_col_1 INT, part_col_2 INT);
 ```
 
-## Forcing table change history cleanup {#forced-vacuum}
+## Forced cleanup of table change history {#forced-vacuum}
 
-By default, Delta Lake stores the history of table changes for 30 days. This period is set at the table level in the `delta.logRetentionDuration` parameter; you can edit it using this command:
+By default, Delta Lake stores the history of table changes for 30 days. This period is set at the table level in the `delta.logRetentionDuration` parameter. You can edit it using this command:
 
 ```sql
 ALTER TABLE <table_schema_and_name> SET TBLPROPERTIES ('delta.logRetentionDuration' = "interval <interval>")
 ```
+For more on managing table properties, see [this Delta Lake article](https://docs.delta.io/latest/delta-batch.html#table-properties).
 
-To learn more about managing the table parameters, see the [Delta Lake documentation](https://docs.delta.io/latest/delta-batch.html#table-properties).
 
-To force the table change history cleanup:
+To forcibly clean up the table change history:
 
-1. Rearrange the table data to optimize the access:
+1. Rearrange the table data to optimize access performance:
 
     ```sql
     OPTIMIZE <table_name>;

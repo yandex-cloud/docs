@@ -1,24 +1,44 @@
 # Connecting to an external file server
 
-[{{ GP }} Parallel File Server]({{ gp.docs.broadcom }}7/greenplum-database/utility_guide-ref-gpfdist.html) (`gpfdist`) is a utility used to read and write data from files located on remote servers. It is installed on each segment host of a {{ mgp-name }} cluster and ensures parallel data loading by distributing it across segments either evenly or according to the set [distribution key](../../concepts/sharding.md#distribution-key). This improves performance when handling large amounts of external data.
+[{{ GP }} Parallel File Server]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpfdist.html) (`gpfdist`) is a utility used to read and write data from files located on remote servers. It is installed on each segment host of a {{ mgp-name }} cluster and ensures parallel data loading by distributing it across segments either evenly or according to the set [distribution key](../../concepts/sharding.md#distribution-key). This improves performance when handling large amounts of external data.
+
+{{ mgp-name }} clusters running {{ CB }} use their own `gpfdist` utility. For more information, see [this {{ CB }} guide]({{ gp.docs.cloudberry }}/sys-utilities/gpfdist).
 
 `gpfdist` works with any delimited text files as well as compressed gzip and bzip2 files.
 
 To read or write files on an external server:
-1. [Install and run](#run-gpfdist) `gpfdist` as part of the {{ GP }} Loader or {{ GP }} Database package on the remote server hosting your target files.
+
+1. [Install and run](#run-gpfdist) `gpfdist` on the remote server hosting your target files.
+
+    For {{ GP }}, use the {{ GP }} Loader or {{ GP }} Database package to install `gpfdist`.
+
+    For {{ CB }}, `gpfdist` comes pre-installed.
+
 1. In the {{ mgp-name }} cluster, [create an external table](#create-gpfdist-table) to reference these files.
 
 ## Running `gpfdist` {#run-gpfdist}
 
+1. Install `gpfdist`:
 
-{% note info %}
+    {% list tabs %}
 
-Downloading and using software from the VMware website is not part of the [{{ mgp-full-name }} Terms of Use]({{ link-cloud-terms-of-use }}) and is arranged between the client and VMware separately. Yandex is not responsible for any dealings between VMware and the client arising due to the client's use of VMware products or services.
+    - For {{ GP }}
 
-{% endnote %}
+        Download and install the {{ GP }} Loader package from the [VMware website]({{ gp.docs.broadcom }}/6/greenplum-database/client_tool_guides-installing.html) or the {{ GP }} Database package from the {{ objstorage-full-name }} bucket by following [this guide](../greenplum-db.md).
+
+        
+        {% note info %}
+
+        Downloading and using software from the VMware website is not part of the [{{ mgp-full-name }} Terms of Use]({{ link-cloud-terms-of-use }}) and is arranged between the client and VMware separately. Yandex is not responsible for any dealings between VMware and the client arising due to the client's use of VMware products or services.
+
+        {% endnote %}
 
 
-1. Download and install the {{ GP }} Loader package from the [VMware website]({{ gp.docs.broadcom }}/7/greenplum-database/client_tool_guides-installing.html) or the {{ GP }} Database package from the {{ objstorage-full-name }} bucket by following [this guide](../greenplum-db.md).
+    - For {{ CB }}
+
+        Install {{ CB }} by following [this {{ CB }} guide]({{ gp.docs.cloudberry }}/deployment).
+
+    {% endlist %}
 
 1. Run `gpfdist`:
 
@@ -75,7 +95,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
            FORMAT 'CSV' (DELIMITER ',');
     ```
 
-* Creating an external table consolidating data from all `txt` files, with `|` for a separator and space for `NULL`, on the `hostname1` and `hostname2` servers:
+* Creating an external table consolidating data from all `txt` files, with `|` for a separator and a space for `NULL`, on the `hostname1` and `hostname2` servers:
 
     ```sql
     CREATE EXTERNAL TABLE tableName (...)
@@ -85,3 +105,5 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
     ```
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [cloudberry-trademark](../../../_includes/mdb/mgp/trademark-cloudberry.md) %}

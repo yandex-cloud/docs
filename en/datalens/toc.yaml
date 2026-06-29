@@ -85,8 +85,8 @@ items:
               and analyzing them using {{ datalens-full-name }}
             href: tutorials/events-from-postbox-to-yds.md
           - name: >-
-              Ingesting {{ forms-full-name }} data into {{ datalens-full-name }}
-              via {{ sf-full-name }} and {{ yq-full-name }}
+              Transferring {{ forms-full-name }} data to {{ datalens-full-name
+              }} via {{ sf-full-name }} and {{ yq-full-name }}
             items:
               - name: Overview
                 href: tutorials/forms-and-datalens-integration/index.md
@@ -96,7 +96,7 @@ items:
                 href: tutorials/forms-and-datalens-integration/terraform.md
           - name: Migrating databases from Google BigQuery to {{ mch-name }}
             href: tutorials/bigquery-to-clickhouse.md
-      - name: Functional
+      - name: Tutorials for features
         items:
           - name: Using parameters in calculated fields
             href: tutorials/data-from-ch-with-parameters.md
@@ -750,7 +750,7 @@ items:
                 href: charts/editor/quickstart/from-dataset.md
               - name: Creating a table based on an SQL query
                 href: charts/editor/quickstart/from-database.md
-              - name: Creating a table based on API Connector
+              - name: Creating a table via API
                 href: charts/editor/quickstart/from-api-connector.md
           - name: Neuroanalyst in Editor
             href: charts/editor/code-helper.md
@@ -775,7 +775,7 @@ items:
               - name: Table
                 href: charts/editor/widgets/table.md
               - name: Chart (Gravity UI Charts)
-                href: charts/editor/widgets/chart.md
+                href: charts/editor/widgets/gravity-ui.md
               - name: Markdown
                 href: charts/editor/widgets/markdown.md
               - name: Advanced chart
@@ -862,7 +862,7 @@ items:
         href: dashboard/link.md
       - name: Selectors
         href: dashboard/selector.md
-      - name: Filtering charts by other charts
+      - name: Cross-chart filtering
         href: dashboard/chart-chart-filtration.md
       - name: Dashboard settings
         href: dashboard/settings.md
@@ -1158,8 +1158,10 @@ items:
     href: at-ref.md
   - name: Release notes
     items:
-      - name: April 2026
+      - name: May 2026
         href: release-notes/index.md
+      - name: April 2026
+        href: release-notes/2604.md
       - name: March 2026
         href: release-notes/2603.md
       - name: February 2026
@@ -1168,10 +1170,10 @@ items:
         href: release-notes/2601.md
       - name: December 2025
         href: release-notes/2512.md
-      - name: November 2025
-        href: release-notes/2511.md
       - name: Archive
         items:
+          - name: November 2025
+            href: release-notes/2511.md
           - name: October 2025
             href: release-notes/2510.md
           - name: September 2025
@@ -1329,7 +1331,7 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-INVALID_QUERY_STRUCTURE-INCONSISTENT_AGGREGATION.md
-      - name: Data source modification is not allowed
+      - name: Changing the data source is not available
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-PREVIEW_SOURCE_MODIFICATION_NOT_ALLOWED.md

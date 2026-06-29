@@ -13,7 +13,7 @@ To connect to the database from {{ websql-name }}:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-  1. [Navigate to](../../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}** tab.
   1. Select the required connection.
 
@@ -23,4 +23,4 @@ To connect to the database from {{ websql-name }}:
     
 {% endlist %}
 
-For more details on working with {{ websql-name }}, see [these guides](../../../websql/operations/index.md).
+[Learn more](../../../websql/operations/index.md) about working with {{ websql-name }}.

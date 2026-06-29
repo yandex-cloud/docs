@@ -3,7 +3,7 @@
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where the broker is located.
-   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Select the broker. Detailed information about the broker will be displayed on the **{{ ui-key.yacloud.common.overview }}** page.
 
@@ -59,12 +59,12 @@
       * `output "broker_params"`: Output variable that contains information about the broker creation timestamp:
         * `value`: Return value.
 
-      You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_iot_core_broker` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/iot_core_broker).
+      You can replace `created_at` with another variable to get the information you need. For more information about the `yandex_iot_core_broker` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/iot_core_broker).
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+      {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

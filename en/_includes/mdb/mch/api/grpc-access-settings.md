@@ -5,7 +5,7 @@
 
 * `metrika`: Enable [data import from AppMetrica to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html), `true` or `false`. The default value is `false`.
 
-* `serverless`: Enable access to the cluster from [{{ sf-full-name }}](../../../../functions/concepts/index.md), `true` or `false`. The default value is `false`. For more information about setting up access, see [this {{ sf-name }} guide](../../../../functions/operations/database-connection.md).
+* `serverless`: Enable access to the cluster from [{{ sf-full-name }}](../../../../functions/concepts/index.md), `true` or `false`. The default value is `false`. Learn more about access setup in [this {{ sf-name }} guide](../../../../functions/operations/database-connection.md).
 
 * `data_transfer`: Enable access to the cluster from [{{ data-transfer-full-name }}](../../../../data-transfer/concepts/index.md) in Serverless mode, `true` or `false`. The default value is `false`.
 

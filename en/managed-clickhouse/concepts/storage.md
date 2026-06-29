@@ -45,7 +45,7 @@ To start using hybrid storage:
         MODIFY SETTING storage_policy = '<storage_policy_type>';
         ```
 
-See our example in [Using hybrid storage](../tutorials/hybrid-storage.md).
+See an example in [Using hybrid storage](../tutorials/hybrid-storage.md).
 
 To monitor the amount of space [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) table parts occupy in {{ objstorage-full-name }}, use the `ch_s3_disk_parts_size` [metric](../tutorials/hybrid-storage.md#metrics) in {{ monitoring-full-name }}. It is only available for {{ mch-name }} clusters with hybrid storage.
 
@@ -128,7 +128,7 @@ The number of hosts you can create together with a {{ CH }} cluster depends on t
     * Network SSDs (`network-ssd`)
     * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
 
-For more information about limits on the number of hosts per cluster, see [Quotas and limits](./limits.md).
+For information about limits on the number of hosts per cluster, see [Quotas and limits](./limits.md).
 
 
 

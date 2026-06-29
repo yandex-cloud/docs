@@ -323,204 +323,221 @@ The consumption type goes into the `systag` label.
 
 #### {{ OS }} native metrics {#managed-opensearch-system-metrics}
 
-| Name<br/>Type, units | 
-| ----- | 
-| `opensearch_above_critical_watermark`<br/>`DGAUGE`, 0/1 | 
-| `opensearch_above_flood_stage_watermark`<br/>`DGAUGE`, 0/1 | 
-| `opensearch_above_high_watermark`<br/>`DGAUGE`, 0/1 | 
-| `opensearch_above_low_watermark`<br/>`DGAUGE`, 0/1 | 
-| `opensearch_discovered_cluster_manager`<br/>`DGAUGE`, 0/1 | 
-| `opensearch_discovered_master`<br/>`DGAUGE`, 0/1 | 
-| `opensearch_fs_io_stats_total_io_time_in_millis`<br/>`DGAUGE`, ms | 
-| `opensearch_fs_io_stats_total_operations`<br/>`DGAUGE`, count | 
-| `opensearch_fs_io_stats_total_queue_size`<br/>`DGAUGE`, count | 
-| `opensearch_fs_io_stats_total_read_kilobytes`<br/>`DGAUGE`, kilobytes | 
-| `opensearch_fs_io_stats_total_read_operations`<br/>`DGAUGE`, count | 
-| `opensearch_fs_io_stats_total_read_time`<br/>`DGAUGE`, ms | 
-| `opensearch_fs_io_stats_total_write_kilobytes`<br/>`DGAUGE`, kilobytes | 
-| `opensearch_fs_io_stats_total_write_operations`<br/>`DGAUGE`, count | 
-| `opensearch_fs_io_stats_total_write_time`<br/>`DGAUGE`, ms | 
-| `opensearch_fs_total_available_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_fs_total_cache_reserved_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_fs_total_free_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_fs_total_total_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_fs_total_used_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_fs_total_used_percent`<br/>`DGAUGE`, count | 
-| `opensearch_http_current_open`<br/>`DGAUGE`, count |
-| `opensearch_http_total_opened`<br/>`DGAUGE`, count |
-| `opensearch_indices_completion_size_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_docs_count`<br/>`DGAUGE`, count | 
-| `opensearch_indices_docs_deleted`<br/>`DGAUGE`, count | 
-| `opensearch_indices_fielddata_evictions`<br/>`DGAUGE`, count | 
-| `opensearch_indices_fielddata_memory_size_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_flush_periodic`<br/>`DGAUGE`, count | 
-| `opensearch_indices_flush_total_time_in_millis`<br/>`DGAUGE`, ms | 
-| `opensearch_indices_flush_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_get_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_get_exists_time_in_millis`<br/>`DGAUGE`, ms | 
-| `opensearch_indices_get_exists_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_get_missing_time_in_millis`<br/>`DGAUGE`, ms | 
-| `opensearch_indices_get_missing_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_get_time_in_millis`<br/>`DGAUGE`, ms | 
-| `opensearch_indices_get_total`<br/>`DGAUGE`, count |
-| `opensearch_indices_indexing_delete_current`<br/>`DGAUGE`, count |
-| `opensearch_indices_indexing_delete_time_in_millis`<br/>`DGAUGE`, ms | 
-| `opensearch_indices_indexing_delete_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_indexing_doc_status_2xx`<br/>`DGAUGE`, count | 
-| `opensearch_indices_indexing_doc_status_4xx`<br/>`DGAUGE`, count | 
-| `opensearch_indices_indexing_index_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_indexing_index_failed`<br/>`DGAUGE`, count | 
-| `opensearch_indices_indexing_index_time_in_millis`<br/>`DGAUGE`, ms | 
-| `opensearch_indices_indexing_index_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_indexing_noop_update_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_indexing_throttle_time_in_millis`<br/>`DGAUGE`, ms | 
-| `opensearch_indices_merges_current_docs`<br/>`DGAUGE`, count | 
-| `opensearch_indices_merges_current_size_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_merges_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_merges_total_auto_throttle_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_merges_total_docs`<br/>`DGAUGE`, count | 
-| `opensearch_indices_merges_total_size_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_merges_total_stopped_time_in_millis`<br/>`DGAUGE`, ms | 
-| `opensearch_indices_merges_total_throttled_time_in_millis`<br/>`DGAUGE`, ms | 
-| `opensearch_indices_merges_total_time_in_millis`<br/>`DGAUGE`, ms | 
-| `opensearch_indices_merges_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_merges_unreferenced_file_cleanups_performed`<br/>`DGAUGE`, count | 
-| `opensearch_indices_query_cache_cache_count`<br/>`DGAUGE`, count | 
-| `opensearch_indices_query_cache_cache_size`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_query_cache_evictions`<br/>`DGAUGE`, count | 
-| `opensearch_indices_query_cache_hit_count`<br/>`DGAUGE`, count | 
-| `opensearch_indices_query_cache_memory_size_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_query_cache_miss_count`<br/>`DGAUGE`, count | 
-| `opensearch_indices_query_cache_total_count`<br/>`DGAUGE`, count | 
-| `opensearch_indices_recovery_current_as_source`<br/>`DGAUGE`, count | 
-| `opensearch_indices_recovery_current_as_target`<br/>`DGAUGE`, count | 
-| `opensearch_indices_recovery_throttle_time_in_millis`<br/>`DGAUGE`, ms | 
-| `opensearch_indices_refresh_external_total_time_in_millis`<br/>`DGAUGE`, ms |
-| `opensearch_indices_refresh_external_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_refresh_listeners`<br/>`DGAUGE`, count | 
-| `opensearch_indices_refresh_total_time_in_millis`<br/>`DGAUGE`, ms |
-| `opensearch_indices_refresh_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_request_cache_evictions`<br/>`DGAUGE`, count | 
-| `opensearch_indices_request_cache_hit_count`<br/>`DGAUGE`, count | 
-| `opensearch_indices_request_cache_memory_size_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_request_cache_miss_count`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_concurrent_avg_slice_count`<br/>`DGAUGE`, count |
-| `opensearch_indices_search_concurrent_query_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_concurrent_query_time_in_millis`<br/>`DGAUGE`, ms | 
-| `opensearch_indices_search_concurrent_query_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_fetch_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_fetch_time_in_millis`<br/>`DGAUGE`, ms |
-| `opensearch_indices_search_fetch_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_open_contexts`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_point_in_time_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_point_in_time_time_in_millis`<br/>`DGAUGE`, ms | 
-| `opensearch_indices_search_point_in_time_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_query_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_query_time_in_millis`<br/>`DGAUGE`, ms | 
-| `opensearch_indices_search_query_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_request_can_match_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_request_can_match_time_in_millis`<br/>`DGAUGE`, ms | 
-| `opensearch_indices_search_request_can_match_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_request_dfs_pre_query_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_request_dfs_pre_query_time_in_millis`<br/>`DGAUGE`, ms | 
-| `opensearch_indices_search_request_dfs_pre_query_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_request_dfs_query_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_request_dfs_query_time_in_millis`<br/>`DGAUGE`, ms | 
-| `opensearch_indices_search_request_dfs_query_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_request_expand_current`<br/>`DGAUGE`, count |
-| `opensearch_indices_search_request_expand_time_in_millis`<br/>`DGAUGE`, ms |
-| `opensearch_indices_search_request_expand_total`<br/>`DGAUGE`, count |
-| `opensearch_indices_search_request_fetch_current`<br/>`DGAUGE`, count |
-| `opensearch_indices_search_request_fetch_time_in_millis`<br/>`DGAUGE`, ms |
-| `opensearch_indices_search_request_fetch_total`<br/>`DGAUGE`, count |
-| `opensearch_indices_search_request_query_current`<br/>`DGAUGE`, count |
-| `opensearch_indices_search_request_query_time_in_millis`<br/>`DGAUGE`, ms |
-| `opensearch_indices_search_request_query_total`<br/>`DGAUGE`, count |
-| `opensearch_indices_search_scroll_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_scroll_time_in_millis`<br/>`DGAUGE`, ms |
-| `opensearch_indices_search_scroll_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_suggest_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_suggest_time_in_millis`<br/>`DGAUGE`, ms |
-| `opensearch_indices_search_suggest_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_segments_count`<br/>`DGAUGE`, count | 
-| `opensearch_indices_segments_doc_values_memory_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_segments_fixed_bit_set_memory_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_segments_index_writer_memory_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_segments_max_unsafe_auto_id_timestamp`<br/>`DGAUGE`, timestamp | 
-| `opensearch_indices_segments_memory_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_segments_norms_memory_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_segments_points_memory_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_segments_remote_store_download_total_download_size_failed_bytes`<br/>`DGAUGE`, bytes |
-| `opensearch_indices_segments_remote_store_download_total_download_size_started_bytes`<br/>`DGAUGE`, bytes |
-| `opensearch_indices_segments_remote_store_download_total_download_size_succeeded_bytes`<br/>`DGAUGE`, bytes |
-| `opensearch_indices_segments_remote_store_download_total_time_spent_in_millis`<br/>`DGAUGE`, ms |
-| `opensearch_indices_segments_remote_store_upload_max_refresh_time_lag_in_millis`<br/>`DGAUGE`, ms |
-| `opensearch_indices_segments_remote_store_upload_pressure_total_rejections`<br/>`DGAUGE`, count |
-| `opensearch_indices_segments_remote_store_upload_refresh_size_lag_max_bytes`<br/>`DGAUGE`, bytes |
-| `opensearch_indices_segments_remote_store_upload_refresh_size_lag_total_bytes`<br/>`DGAUGE`, bytes |
-| `opensearch_indices_segments_remote_store_upload_total_time_spent_in_millis`<br/>`DGAUGE`, ms |
-| `opensearch_indices_segments_remote_store_upload_total_upload_size_failed_bytes`<br/>`DGAUGE`, bytes |
-| `opensearch_indices_segments_remote_store_upload_total_upload_size_started_bytes`<br/>`DGAUGE`, bytes |
-| `opensearch_indices_segments_remote_store_upload_total_upload_size_succeeded_bytes`<br/>`DGAUGE`, bytes |
-| `opensearch_indices_segments_segment_replication_max_bytes_behind`<br/>`DGAUGE`, bytes |
-| `opensearch_indices_segments_segment_replication_max_replication_lag`<br/>`DGAUGE`, count |
-| `opensearch_indices_segments_segment_replication_total_bytes_behind`<br/>`DGAUGE`, bytes |
-| `opensearch_indices_segments_stored_fields_memory_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_segments_term_vectors_memory_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_segments_terms_memory_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_segments_version_map_memory_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_store_reserved_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_store_size_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_translog_earliest_last_modified_age`<br/>`DGAUGE`, count | 
-| `opensearch_indices_translog_operations`<br/>`DGAUGE`, count |
-| `opensearch_indices_translog_remote_store_upload_total_upload_size_failed_bytes`<br/>`DGAUGE`, bytes |
-| `opensearch_indices_translog_remote_store_upload_total_upload_size_started_bytes`<br/>`DGAUGE`, bytes |
-| `opensearch_indices_translog_remote_store_upload_total_upload_size_succeeded_bytes`<br/>`DGAUGE`, bytes |
-| `opensearch_indices_translog_remote_store_upload_total_uploads_failed`<br/>`DGAUGE`, count |
-| `opensearch_indices_translog_remote_store_upload_total_uploads_started`<br/>`DGAUGE`, count |
-| `opensearch_indices_translog_remote_store_upload_total_uploads_succeeded`<br/>`DGAUGE`, count |
-| `opensearch_indices_translog_size_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_translog_uncommitted_operations`<br/>`DGAUGE`, count |
-| `opensearch_indices_translog_uncommitted_size_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_warmer_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_warmer_total_time_in_millis`<br/>`DGAUGE`, ms |
-| `opensearch_indices_warmer_total`<br/>`DGAUGE`, count | 
-| `opensearch_is_master`<br/>`DGAUGE`, 0/1 |
-| `opensearch_jvm_gc_collectors_old_collection_count`<br/>`DGAUGE`, count | 
-| `opensearch_jvm_gc_collectors_young_collection_count`<br/>`DGAUGE`, count | 
-| `opensearch_jvm_mem_heap_committed_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_jvm_mem_heap_max_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_jvm_mem_heap_pressure`<br/>`DGAUGE` | 
-| `opensearch_jvm_mem_heap_used_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_jvm_mem_heap_used_percent`<br/>`DGAUGE`, count | 
-| `opensearch_jvm_mem_non_heap_committed_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_jvm_mem_non_heap_used_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_jvm_mem_pools_old_max_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_jvm_mem_pools_old_used_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_number_of_data_nodes`<br/>`DGAUGE`, count | 
-| `opensearch_number_of_in_flight_fetch`<br/>`DGAUGE`, count | 
-| `opensearch_number_of_nodes`<br/>`DGAUGE`, count | 
-| `opensearch_number_of_pending_tasks`<br/>`DGAUGE`, count | 
-| `opensearch_process_cpu_percent`<br/>`DGAUGE`, count | 
-| `opensearch_process_cpu_total_in_millis`<br/>`DGAUGE`, ms | 
-| `opensearch_process_max_file_descriptors`<br/>`DGAUGE`, count | 
-| `opensearch_process_mem_total_virtual_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_process_open_file_descriptors`<br/>`DGAUGE`, count | 
-| `opensearch_process_timestamp`<br/>`DGAUGE`, timestamp | 
-| `opensearch_task_max_waiting_in_queue_millis`<br/>`DGAUGE`, ms |
-| `opensearch_thread_pool_<thread_pool_name>_active`<br/>`DGAUGE`, count | 
-| `opensearch_thread_pool_<thread_pool_name>_completed`<br/>`DGAUGE`, count | 
-| `opensearch_thread_pool_<thread_pool_name>_largest`<br/>`DGAUGE`, count | 
-| `opensearch_thread_pool_<thread_pool_name>_queue`<br/>`DGAUGE`, count | 
-| `opensearch_thread_pool_<thread_pool_name>_rejected`<br/>`DGAUGE`, count | 
-| `opensearch_thread_pool_<thread_pool_name>_threads`<br/>`DGAUGE`, count | 
-| `opensearch_thread_pool_<thread_pool_name>_total_wait_time_in_nanos`<br/>`DGAUGE`, nanoseconds |
-| `opensearch_transport_rx_count`<br/>`DGAUGE`, count | 
-| `opensearch_transport_rx_size_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_transport_server_open`<br/>`DGAUGE`, count | 
-| `opensearch_transport_total_outbound_connections`<br/>`DGAUGE`, count | 
-| `opensearch_transport_tx_count`<br/>`DGAUGE`, count | 
-| `opensearch_transport_tx_size_in_bytes`<br/>`DGAUGE`, bytes |
+| Name<br/>Type, units | Description |
+| ----- | ----- |
+| `opensearch_above_critical_watermark`<br/>`DGAUGE`, 0/1 | Critical disk usage threshold exceeded |
+| `opensearch_above_flood_stage_watermark`<br/>`DGAUGE`, 0/1 | `flood_stage` threshold exceeded. Indexes enter read-only mode. |
+| `opensearch_above_high_watermark`<br/>`DGAUGE`, 0/1 | High threshold exceeded. The cluster attempts to relocate shards from the node. |
+| `opensearch_above_low_watermark`<br/>`DGAUGE`, 0/1 | Low threshold exceeded. No new shards are placed on the node. |
+| `opensearch_breakers_fielddata_estimated_size_in_bytes`<br/>`DGAUGE`, bytes | Estimated memory currently used by `fielddata` (field values for sorting and aggregation by text fields). approaching this limit precedes `breaker` triggering. |
+| `opensearch_breakers_fielddata_limit_size_in_bytes`<br/>`DGAUGE`, bytes | `fielddata circuit breaker` memory limit used to estimate remaining memory before triggering (`estimated` / `limit`). |
+| `opensearch_breakers_fielddata_overhead`<br/>`DGAUGE` | Multiplier applied to calculated `fielddata` usage to estimate actual memory utilization. |
+| `opensearch_breakers_fielddata_tripped`<br/>`DGAUGE`, count | Number of times `fielddata breaker` has triggered. If growing, indicates heavy sorting or aggregation operations exceeding the `fielddata` memory limit. |
+| `opensearch_breakers_in_flight_requests_estimated_size_in_bytes`<br/>`DGAUGE`, bytes | Estimated memory currently used by buffers of incoming network requests (HTTP and transport). |
+| `opensearch_breakers_in_flight_requests_limit_size_in_bytes`<br/>`DGAUGE`, bytes | `in-flight requests circuit breaker` memory limit |
+| `opensearch_breakers_in_flight_requests_overhead`<br/>`DGAUGE` | Multiplier applied to calculated `in-flight requests` usage to estimate actual memory utilization. |
+| `opensearch_breakers_in_flight_requests_tripped`<br/>`DGAUGE`, count | Number of times `in-flight requests breaker` has triggered. If growing, indicates that the memory limit for network buffers has been exceeded (too large or too frequent parallel requests). |
+| `opensearch_breakers_parent_estimated_size_in_bytes`<br/>`DGAUGE`, bytes | Total estimated memory tracked across all child `breakers`. Comparing this value against the limit shows remaining memory before the parent breaker triggers. |
+| `opensearch_breakers_parent_limit_size_in_bytes`<br/>`DGAUGE`, bytes | Global memory limit enforced across all `circuit breakers` to protect the node from `OutOfMemory`. |
+| `opensearch_breakers_parent_overhead`<br/>`DGAUGE` | Multiplier applied to the total estimated memory of the parent `breaker` (usually 1.0). |
+| `opensearch_breakers_parent_tripped`<br/>`DGAUGE`, count | Number of times the parent `breaker` has triggered: total memory usage has exceeded the global limit, causing the node to reject requests. This is the main indicator of node memory overload. |
+| `opensearch_breakers_request_estimated_size_in_bytes`<br/>`DGAUGE`, bytes | Estimated memory currently allocated for processing active requests (aggregations, bucket tracking, etc.). |
+| `opensearch_breakers_request_limit_size_in_bytes`<br/>`DGAUGE`, bytes | Memory limit for processing a single request (`request circuit breaker`). |
+| `opensearch_breakers_request_overhead`<br/>`DGAUGE` | Multiplier applied to calculated `request breaker` usage to estimate actual memory utilization. |
+| `opensearch_breakers_request_tripped`<br/>`DGAUGE`, count | Number of times `request breaker` has triggered. If growing, indicates that requests, these are usually heavy aggregations, require more memory than the `per-request` limit. |
+| `opensearch_discovered_cluster_manager`<br/>`DGAUGE`, 0/1 | Indicates the node has discovered the master node (`cluster_manager`). |
+| `opensearch_discovered_master`<br/>`DGAUGE`, 0/1 | Alias for `opensearch_discovered_cluster_manager`, preserved for backward compatibility. |
+| `opensearch_fs_io_stats_total_io_time_in_millis`<br/>`DGAUGE`, ms | Total disk I/O time |
+| `opensearch_fs_io_stats_total_operations`<br/>`DGAUGE`, count | Total number of disk I/O operations |
+| `opensearch_fs_io_stats_total_queue_size`<br/>`DGAUGE`, count | Total length of the disk I/O queue |
+| `opensearch_fs_io_stats_total_read_kilobytes`<br/>`DGAUGE`, kilobytes | Total amount of data read from disk |
+| `opensearch_fs_io_stats_total_read_operations`<br/>`DGAUGE`, count | Total number of disk read operations |
+| `opensearch_fs_io_stats_total_read_time`<br/>`DGAUGE`, ms | Total disk read time |
+| `opensearch_fs_io_stats_total_write_kilobytes`<br/>`DGAUGE`, kilobytes | Total amount of data written to disk |
+| `opensearch_fs_io_stats_total_write_operations`<br/>`DGAUGE`, count | Total number of disk write operations |
+| `opensearch_fs_io_stats_total_write_time`<br/>`DGAUGE`, ms | Total disk write time |
+| `opensearch_fs_total_available_in_bytes`<br/>`DGAUGE`, bytes | Disk space available to the OpenSearch process, excluding `root`-reserved space |
+| `opensearch_fs_total_cache_reserved_in_bytes`<br/>`DGAUGE`, bytes | Disk space reserved for file cache |
+| `opensearch_fs_total_free_in_bytes`<br/>`DGAUGE`, bytes | Free disk space |
+| `opensearch_fs_total_total_in_bytes`<br/>`DGAUGE`, bytes | Total disk space available to OpenSearch |
+| `opensearch_fs_total_used_in_bytes`<br/>`DGAUGE`, bytes | Used disk space |
+| `opensearch_fs_total_used_percent`<br/>`DGAUGE`, % | Percentage of used disk space |
+| `opensearch_http_current_open`<br/>`DGAUGE`, count | Number of currently open HTTP connections |
+| `opensearch_http_total_opened`<br/>`DGAUGE`, count | Total HTTP connections opened since node startup |
+| `opensearch_indices_completion_size_in_bytes`<br/>`DGAUGE`, bytes | Memory used by autocompletion structures (`completion suggester`) |
+| `opensearch_indices_docs_count`<br/>`DGAUGE`, count | Total number of documents in node indexes |
+| `opensearch_indices_docs_deleted`<br/>`DGAUGE`, count | Number of deleted documents not yet cleaned out by merges (`merge`) |
+| `opensearch_indices_fielddata_evictions`<br/>`DGAUGE`, count | Number of evictions from the `fielddata` cache |
+| `opensearch_indices_fielddata_memory_size_in_bytes`<br/>`DGAUGE`, bytes | Memory used by the `fielddata` cache |
+| `opensearch_indices_flush_periodic`<br/>`DGAUGE`, count | Number of periodic `flush` operations initiated by translog size |
+| `opensearch_indices_flush_total_time_in_millis`<br/>`DGAUGE`, ms | Total duration of `flush` operations |
+| `opensearch_indices_flush_total`<br/>`DGAUGE`, count | Total number of `flush` operations |
+| `opensearch_indices_get_current`<br/>`DGAUGE`, count | Number of `get` operations currently in progress |
+| `opensearch_indices_get_exists_time_in_millis`<br/>`DGAUGE`, ms | Total duration of `get` operations where a document was retrieved. |
+| `opensearch_indices_get_exists_total`<br/>`DGAUGE`, count | Total number of `get` operations where a document was retrieved. |
+| `opensearch_indices_get_missing_time_in_millis`<br/>`DGAUGE`, ms | Total duration of `get` operations that failed to retrieve a document. |
+| `opensearch_indices_get_missing_total`<br/>`DGAUGE`, count | Total number of `get` operations that failed to retrieve a document. |
+| `opensearch_indices_get_time_in_millis`<br/>`DGAUGE`, ms | Total duration of all `get` operations |
+| `opensearch_indices_get_total`<br/>`DGAUGE`, count | Total number of all `get` operations |
+| `opensearch_indices_indexing_delete_current`<br/>`DGAUGE`, count | Number of ongoing document deletion operations |
+| `opensearch_indices_indexing_delete_time_in_millis`<br/>`DGAUGE`, ms | Total duration of document deletion operations |
+| `opensearch_indices_indexing_delete_total`<br/>`DGAUGE`, count | Total number of document deletion operations |
+| `opensearch_indices_indexing_doc_status_2xx`<br/>`DGAUGE`, count | Number of documents indexed with 2xx HTTP status codes (success) |
+| `opensearch_indices_indexing_doc_status_4xx`<br/>`DGAUGE`, count | Number of documents with 4xx HTTP status codes (client-side indexing error) |
+| `opensearch_indices_indexing_doc_status_5xx`<br/>`DGAUGE`, count | Number of documents with 5xx HTTP status codes (server-side indexing error) |
+| `opensearch_indices_indexing_index_current`<br/>`DGAUGE`, count | Number of ongoing indexing operations |
+| `opensearch_indices_indexing_index_failed`<br/>`DGAUGE`, count | Number of failed indexing operations |
+| `opensearch_indices_indexing_index_time_in_millis`<br/>`DGAUGE`, ms | Total duration of indexing operations |
+| `opensearch_indices_indexing_index_total`<br/>`DGAUGE`, count | Total number of indexing operations |
+| `opensearch_indices_indexing_noop_update_total`<br/>`DGAUGE`, count | Number of `noop` updates where the document remained unchanged. |
+| `opensearch_indices_indexing_throttle_time_in_millis`<br/>`DGAUGE`, ms | Indexing throttle time |
+| `opensearch_indices_merges_current_docs`<br/>`DGAUGE`, count | Number of documents involved in ongoing segment `merge` operations |
+| `opensearch_indices_merges_current_size_in_bytes`<br/>`DGAUGE`, bytes | Size of segments in ongoing merges |
+| `opensearch_indices_merges_current`<br/>`DGAUGE`, count | Number of ongoing segment merges |
+| `opensearch_indices_merges_total_auto_throttle_in_bytes`<br/>`DGAUGE`, bytes | Total amount of data processed by merges with auto throttling |
+| `opensearch_indices_merges_total_docs`<br/>`DGAUGE`, count | Total number of documents processed by merges |
+| `opensearch_indices_merges_total_size_in_bytes`<br/>`DGAUGE`, bytes | Total size of segments processed by merges |
+| `opensearch_indices_merges_total_stopped_time_in_millis`<br/>`DGAUGE`, ms | Total time during which merge operations were stopped. |
+| `opensearch_indices_merges_total_throttled_time_in_millis`<br/>`DGAUGE`, ms | Total time during which merge operations were throttled. |
+| `opensearch_indices_merges_total_time_in_millis`<br/>`DGAUGE`, ms | Total duration of merge operations |
+| `opensearch_indices_merges_total`<br/>`DGAUGE`, count | Total number of completed segment merges |
+| `opensearch_indices_merges_unreferenced_file_cleanups_performed`<br/>`DGAUGE`, count | Number of post-merge unused file cleanups |
+| `opensearch_indices_query_cache_cache_count`<br/>`DGAUGE`, count | Number of records in the node-level `query cache` |
+| `opensearch_indices_query_cache_cache_size`<br/>`DGAUGE`, bytes | Size of the node-level query cache |
+| `opensearch_indices_query_cache_evictions`<br/>`DGAUGE`, count | Number of node-level query cache evictions |
+| `opensearch_indices_query_cache_hit_count`<br/>`DGAUGE`, count | Number of node-level query cache hits |
+| `opensearch_indices_query_cache_memory_size_in_bytes`<br/>`DGAUGE`, bytes | Memory used by the node-level query cache |
+| `opensearch_indices_query_cache_miss_count`<br/>`DGAUGE`, count | Number of node-level query cache misses |
+| `opensearch_indices_query_cache_total_count`<br/>`DGAUGE`, count | Total requests to the node-level query cache |
+| `opensearch_indices_recovery_current_as_source`<br/>`DGAUGE`, count | Number of shard recoveries with this node as the source |
+| `opensearch_indices_recovery_current_as_target`<br/>`DGAUGE`, count | Number of shard recoveries with this node as the target |
+| `opensearch_indices_recovery_throttle_time_in_millis`<br/>`DGAUGE`, ms | Total recovery throttle duration |
+| `opensearch_indices_refresh_external_total_time_in_millis`<br/>`DGAUGE`, ms | Total duration of external `refresh` operations after which updates become searchable. |
+| `opensearch_indices_refresh_external_total`<br/>`DGAUGE`, count | Total number of external `refresh` operations |
+| `opensearch_indices_refresh_listeners`<br/>`DGAUGE`, count | Number of listeners waiting for a next `refresh` |
+| `opensearch_indices_refresh_total_time_in_millis`<br/>`DGAUGE`, ms | Total duration of all `refresh` operations |
+| `opensearch_indices_refresh_total`<br/>`DGAUGE`, count | Total number of all `refresh` operations |
+| `opensearch_indices_request_cache_evictions`<br/>`DGAUGE`, count | Number of shard-level `request cache` evictions |
+| `opensearch_indices_request_cache_hit_count`<br/>`DGAUGE`, count | Number of shard-level request cache hits |
+| `opensearch_indices_request_cache_memory_size_in_bytes`<br/>`DGAUGE`, bytes | Memory used by the shard-level request cache |
+| `opensearch_indices_request_cache_miss_count`<br/>`DGAUGE`, count | Number of shard-level request cache misses |
+| `opensearch_indices_search_concurrent_avg_slice_count`<br/>`DGAUGE`, count | Average number of `slices` concurrent search queries are broken into. |
+| `opensearch_indices_search_concurrent_query_current`<br/>`DGAUGE`, count | Number of ongoing concurrent search queries |
+| `opensearch_indices_search_concurrent_query_time_in_millis`<br/>`DGAUGE`, ms | Total duration of concurrent search queries |
+| `opensearch_indices_search_concurrent_query_total`<br/>`DGAUGE`, count | Total number of concurrent search queries |
+| `opensearch_indices_search_fetch_current`<br/>`DGAUGE`, count | Number of ongoing `fetch` phases (getting document body). |
+| `opensearch_indices_search_fetch_time_in_millis`<br/>`DGAUGE`, ms | Total duration of `fetch` phases |
+| `opensearch_indices_search_fetch_total`<br/>`DGAUGE`, count | Total number of `fetch` phases |
+| `opensearch_indices_search_open_contexts`<br/>`DGAUGE`, count | Number of open search contexts (including `scroll` and `point-in-time`) |
+| `opensearch_indices_search_point_in_time_current`<br/>`DGAUGE`, count | Number of currently active `point-in-time` searches |
+| `opensearch_indices_search_point_in_time_time_in_millis`<br/>`DGAUGE`, ms | Total duration of `point-in-time` searches |
+| `opensearch_indices_search_point_in_time_total`<br/>`DGAUGE`, count | Total number of `point-in-time` searches |
+| `opensearch_indices_search_query_current`<br/>`DGAUGE`, count | Number of ongoing `query` phases |
+| `opensearch_indices_search_query_time_in_millis`<br/>`DGAUGE`, ms | Total duration of `query` phases |
+| `opensearch_indices_search_query_total`<br/>`DGAUGE`, count | Total number of `query` phases |
+| `opensearch_indices_search_request_can_match_current`<br/>`DGAUGE`, count | Number of ongoing `can_match` phases (shard prefiltering before a query) |
+| `opensearch_indices_search_request_can_match_time_in_millis`<br/>`DGAUGE`, ms | Total duration of `can_match` phases |
+| `opensearch_indices_search_request_can_match_total`<br/>`DGAUGE`, count | Total number of `can_match` phases |
+| `opensearch_indices_search_request_dfs_pre_query_current`<br/>`DGAUGE`, count | Number of ongoing `dfs_pre_query` phases (`Distributed Frequency Search`, global term statistics collection) |
+| `opensearch_indices_search_request_dfs_pre_query_time_in_millis`<br/>`DGAUGE`, ms | Total duration of `dfs_pre_query` phases |
+| `opensearch_indices_search_request_dfs_pre_query_total`<br/>`DGAUGE`, count | Total number of `dfs_pre_query` phases |
+| `opensearch_indices_search_request_dfs_query_current`<br/>`DGAUGE`, count | Number of ongoing `dfs_query` phases |
+| `opensearch_indices_search_request_dfs_query_time_in_millis`<br/>`DGAUGE`, ms | Total duration of `dfs_query` phases |
+| `opensearch_indices_search_request_dfs_query_total`<br/>`DGAUGE`, count | Total number of `dfs_query` phases |
+| `opensearch_indices_search_request_expand_current`<br/>`DGAUGE`, count | Number of ongoing `expand` phases (`collapse` grouping expansion) |
+| `opensearch_indices_search_request_expand_time_in_millis`<br/>`DGAUGE`, ms | Total duration of `expand` phases |
+| `opensearch_indices_search_request_expand_total`<br/>`DGAUGE`, count | Total number of `expand` phases |
+| `opensearch_indices_search_request_fetch_current`<br/>`DGAUGE`, count | Number of ongoing query-level `fetch` phases |
+| `opensearch_indices_search_request_fetch_time_in_millis`<br/>`DGAUGE`, ms | Total duration of query-level `fetch` phases |
+| `opensearch_indices_search_request_fetch_total`<br/>`DGAUGE`, count | Total number of query-level `fetch` phases |
+| `opensearch_indices_search_request_query_current`<br/>`DGAUGE`, count | Number of ongoing query-level `query` phases |
+| `opensearch_indices_search_request_query_time_in_millis`<br/>`DGAUGE`, ms | Total duration of query-level `query` phases |
+| `opensearch_indices_search_request_query_total`<br/>`DGAUGE`, count | Total number of query-level `query` phases |
+| `opensearch_indices_search_scroll_current`<br/>`DGAUGE`, count | Number of active `scroll` contexts |
+| `opensearch_indices_search_scroll_time_in_millis`<br/>`DGAUGE`, ms | Total duration of `scroll` operations |
+| `opensearch_indices_search_scroll_total`<br/>`DGAUGE`, count | Total number of `scroll` operations |
+| `opensearch_indices_search_suggest_current`<br/>`DGAUGE`, count | Number of running `suggest` queries |
+| `opensearch_indices_search_suggest_time_in_millis`<br/>`DGAUGE`, ms | Total duration of `suggest` queries |
+| `opensearch_indices_search_suggest_total`<br/>`DGAUGE`, count | Total number of `suggest` queries |
+| `opensearch_indices_segments_count`<br/>`DGAUGE`, count | Number of Lucene segments per node |
+| `opensearch_indices_segments_doc_values_memory_in_bytes`<br/>`DGAUGE`, bytes | Memory consumed by `doc_values` structures used for sorting and aggregation |
+| `opensearch_indices_segments_fixed_bit_set_memory_in_bytes`<br/>`DGAUGE`, bytes | Memory used by `FixedBitSet`, e.g., for parent-child queries |
+| `opensearch_indices_segments_index_writer_memory_in_bytes`<br/>`DGAUGE`, bytes | Memory used by `IndexWriter` buffers (document buffering prior to `flush`) |
+| `opensearch_indices_segments_max_unsafe_auto_id_timestamp`<br/>`DGAUGE`, timestamp | Maximum `unsafe` timestamp for an auto-generated document ID |
+| `opensearch_indices_segments_memory_in_bytes`<br/>`DGAUGE`, bytes | Total amount of memory used by segments |
+| `opensearch_indices_segments_norms_memory_in_bytes`<br/>`DGAUGE`, bytes | Memory used by `norms` data (normalization of the scoring field length) |
+| `opensearch_indices_segments_points_memory_in_bytes`<br/>`DGAUGE`, bytes | Memory used by `points` structures (numeric and geo fields) |
+| `opensearch_indices_segments_remote_store_download_total_download_size_failed_bytes`<br/>`DGAUGE`, bytes | Total size of failed segment downloads from `remote store` |
+| `opensearch_indices_segments_remote_store_download_total_download_size_started_bytes`<br/>`DGAUGE`, bytes | Total size of initiated segment downloads from `remote store` |
+| `opensearch_indices_segments_remote_store_download_total_download_size_succeeded_bytes`<br/>`DGAUGE`, bytes | Total size of successful segment downloads from `remote store` |
+| `opensearch_indices_segments_remote_store_download_total_time_spent_in_millis`<br/>`DGAUGE`, ms | Total duration of segment downloads from `remote store` |
+| `opensearch_indices_segments_remote_store_upload_max_refresh_time_lag_in_millis`<br/>`DGAUGE`, ms | Maximum lag between a local `refresh` and segment upload to `remote store` |
+| `opensearch_indices_segments_remote_store_upload_pressure_total_rejections`<br/>`DGAUGE`, count | Number of rejected `remote store` segment uploads due to backpressure |
+| `opensearch_indices_segments_remote_store_upload_refresh_size_lag_max_bytes`<br/>`DGAUGE`, bytes | Maximum size lag between the local state and the `remote store` state |
+| `opensearch_indices_segments_remote_store_upload_refresh_size_lag_total_bytes`<br/>`DGAUGE`, bytes | Total size lag between the local state and the `remote store` state |
+| `opensearch_indices_segments_remote_store_upload_total_time_spent_in_millis`<br/>`DGAUGE`, ms | Total duration of segment uploads to `remote store` |
+| `opensearch_indices_segments_remote_store_upload_total_upload_size_failed_bytes`<br/>`DGAUGE`, bytes | Total size of unsuccessful segment uploads to `remote store` |
+| `opensearch_indices_segments_remote_store_upload_total_upload_size_started_bytes`<br/>`DGAUGE`, bytes | Total size of initiated segment uploads to `remote store` |
+| `opensearch_indices_segments_remote_store_upload_total_upload_size_succeeded_bytes`<br/>`DGAUGE`, bytes | Total size of successful segment uploads to `remote store` |
+| `opensearch_indices_segments_segment_replication_max_bytes_behind`<br/>`DGAUGE`, bytes | Maximum lag between a replica and the primary shard during `segment replication`, in bytes |
+| `opensearch_indices_segments_segment_replication_max_replication_lag`<br/>`DGAUGE`, count | Maximum `segment replication` lag measured as the number of `refresh` operations |
+| `opensearch_indices_segments_segment_replication_total_bytes_behind`<br/>`DGAUGE`, bytes | Total lag between replicas and primary shards, in bytes |
+| `opensearch_indices_segments_stored_fields_memory_in_bytes`<br/>`DGAUGE`, bytes | Memory used by `stored fields`, e.g., `_source` |
+| `opensearch_indices_segments_term_vectors_memory_in_bytes`<br/>`DGAUGE`, bytes | Memory used by `term vectors` |
+| `opensearch_indices_segments_terms_memory_in_bytes`<br/>`DGAUGE`, bytes | Memory used by the term dictionary |
+| `opensearch_indices_segments_version_map_memory_in_bytes`<br/>`DGAUGE`, bytes | Memory used by the document `version map` |
+| `opensearch_indices_store_reserved_in_bytes`<br/>`DGAUGE`, bytes | Disk space reserved for ongoing operation, e.g., recovery |
+| `opensearch_indices_store_size_in_bytes`<br/>`DGAUGE`, bytes | Total disk space used by node indexes |
+| `opensearch_indices_translog_earliest_last_modified_age`<br/>`DGAUGE`, ms | Age of the earliest uncommited operation in the translog |
+| `opensearch_indices_translog_operations`<br/>`DGAUGE`, count | Number of operations in the translog |
+| `opensearch_indices_translog_remote_store_upload_total_upload_size_failed_bytes`<br/>`DGAUGE`, bytes | Total size of failed translog uploads to `remote store` |
+| `opensearch_indices_translog_remote_store_upload_total_upload_size_started_bytes`<br/>`DGAUGE`, bytes | Total size of initiated translog uploads to `remote store` |
+| `opensearch_indices_translog_remote_store_upload_total_upload_size_succeeded_bytes`<br/>`DGAUGE`, bytes | Total size of successful translog uploads to `remote store` |
+| `opensearch_indices_translog_remote_store_upload_total_uploads_failed`<br/>`DGAUGE`, count | Number of unsuccessful translog uploads to `remote store` |
+| `opensearch_indices_translog_remote_store_upload_total_uploads_started`<br/>`DGAUGE`, count | Number of initiated translog uploads to `remote store` |
+| `opensearch_indices_translog_remote_store_upload_total_uploads_succeeded`<br/>`DGAUGE`, count | Number of successful translog uploads to `remote store` |
+| `opensearch_indices_translog_size_in_bytes`<br/>`DGAUGE`, bytes | Translog size on disk |
+| `opensearch_indices_translog_uncommitted_operations`<br/>`DGAUGE`, count | Number of uncommited operations in the translog |
+| `opensearch_indices_translog_uncommitted_size_in_bytes`<br/>`DGAUGE`, bytes | Size of the uncommited translog part |
+| `opensearch_indices_warmer_current`<br/>`DGAUGE`, count | Number of current `warmer` operations |
+| `opensearch_indices_warmer_total_time_in_millis`<br/>`DGAUGE`, ms | Total duration of `warmer` operations |
+| `opensearch_indices_warmer_total`<br/>`DGAUGE`, count | Total number of `warmer` operations |
+| `opensearch_is_master`<br/>`DGAUGE`, 0/1 | Master node indicator (`cluster_manager`) |
+| `opensearch_jvm_gc_collectors_old_collection_count`<br/>`DGAUGE`, count | Number of garbage collections in the old generation (Old GC) |
+| `opensearch_jvm_gc_collectors_young_collection_count`<br/>`DGAUGE`, count | Number of garbage collections in the young generation (Young GC) |
+| `opensearch_jvm_mem_heap_committed_in_bytes`<br/>`DGAUGE`, bytes | JVM `heap` amount allocated by the OS |
+| `opensearch_jvm_mem_heap_max_in_bytes`<br/>`DGAUGE`, bytes | Maximum JVM `heap` size |
+| `opensearch_jvm_mem_heap_pressure`<br/>`DGAUGE` | JVM `heap` pressure indicator calculated based on `heap` usage and GC activity |
+| `opensearch_jvm_mem_heap_used_in_bytes`<br/>`DGAUGE`, bytes | Current amount of used JVM `heap` memory. |
+| `opensearch_jvm_mem_heap_used_percent`<br/>`DGAUGE`, % | Percentage of used JVM `heap` |
+| `opensearch_jvm_mem_non_heap_committed_in_bytes`<br/>`DGAUGE`, bytes | JVM `non-heap` memory allocated by the OS (Metaspace, Code Cache) |
+| `opensearch_jvm_mem_non_heap_used_in_bytes`<br/>`DGAUGE`, bytes | JVM `non-heap` memory in use |
+| `opensearch_jvm_mem_pools_old_max_in_bytes`<br/>`DGAUGE`, bytes | Maximum memory pool size for the JVM old generation |
+| `opensearch_jvm_mem_pools_old_used_in_bytes`<br/>`DGAUGE`, bytes | Size of old generation JVM memory in use |
+| `opensearch_number_of_data_nodes`<br/>`DGAUGE`, count | Number of data nodes in the cluster |
+| `opensearch_number_of_in_flight_fetch`<br/>`DGAUGE`, count | Number of running shard state fetch queries |
+| `opensearch_number_of_nodes`<br/>`DGAUGE`, count | Total number of cluster nodes |
+| `opensearch_number_of_pending_tasks`<br/>`DGAUGE`, count | Number of pending cluster state update tasks |
+| `opensearch_process_cpu_percent`<br/>`DGAUGE`, % | CPU usage percentage by the OpenSearch process |
+| `opensearch_process_cpu_total_in_millis`<br/>`DGAUGE`, ms | Total CPU time consumed by the OpenSearch process |
+| `opensearch_process_max_file_descriptors`<br/>`DGAUGE`, count | Maximum number of file descriptors allowed for the process |
+| `opensearch_process_mem_total_virtual_in_bytes`<br/>`DGAUGE`, bytes | Virtual memory used by the OpenSearch process |
+| `opensearch_process_open_file_descriptors`<br/>`DGAUGE`, count | Number of file descriptors currently opened by the process |
+| `opensearch_process_timestamp`<br/>`DGAUGE`, timestamp | Process statistics collection timestamp |
+| `opensearch_task_max_waiting_in_queue_millis`<br/>`DGAUGE`, ms | Maximum task queue waiting time |
+| `opensearch_thread_pool_<thread_pool_name>_active`<br/>`DGAUGE`, count | Number of active threads in a pool.<br/>This metric features the `thread_pool_name` special label containing the thread pool name. |
+| `opensearch_thread_pool_<thread_pool_name>_completed`<br/>`DGAUGE`, count | Number of completed pool tasks |
+| `opensearch_thread_pool_<thread_pool_name>_largest`<br/>`DGAUGE`, count | Maximum size the thread pool has reached. |
+| `opensearch_thread_pool_<thread_pool_name>_queue`<br/>`DGAUGE`, count | Number of tasks in the pool queue |
+| `opensearch_thread_pool_<thread_pool_name>_rejected`<br/>`DGAUGE`, count | Number of rejected tasks (pool queue overflow) |
+| `opensearch_thread_pool_<thread_pool_name>_threads`<br/>`DGAUGE`, count | Current number of threads in the pool |
+| `opensearch_thread_pool_<thread_pool_name>_total_wait_time_in_nanos`<br/>`DGAUGE`, nanoseconds | Total task waiting time in the pool queue |
+| `opensearch_transport_rx_count`<br/>`DGAUGE`, count | Number of received transport-level messages. |
+| `opensearch_transport_rx_size_in_bytes`<br/>`DGAUGE`, bytes | Total amount of received transport-level data |
+| `opensearch_transport_server_open`<br/>`DGAUGE`, count | Number of opened transport-level server connections |
+| `opensearch_transport_total_outbound_connections`<br/>`DGAUGE`, count | Total number of opened outgoing transport connections |
+| `opensearch_transport_tx_count`<br/>`DGAUGE`, count | Number of sent transport-level messages |
+| `opensearch_transport_tx_size_in_bytes`<br/>`DGAUGE`, bytes | Total size of sent transport-level data |
 
 #### Other metrics {#managed-opensearch-other-metrics}
 | Name<br/>Type, units | Description |

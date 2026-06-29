@@ -39,7 +39,7 @@ To ensure isolated data storage, the service limits the use of the {{ PG }} clus
 
 ## {{ AF }} cluster {#cluster}
 
-The main entity {{ maf-name }} operates is a _cluster_. Inside a cluster, [{{ AF }} components](#components) are deployed. Cluster resources may reside in different availability zones. You can learn more about {{ yandex-cloud }} availability zones in [Platform overview](../../overview/concepts/geo-scope.md).
+The main entity {{ maf-name }} operates is a _cluster_. Inside a cluster, [{{ AF }} components](#components) are deployed. Cluster resources may reside in different availability zones. You can learn more about the {{ yandex-cloud }} availability zones in the [Platform overview](../../overview/concepts/geo-scope.md) section.
 
 A workflow running in a cluster may access any {{ yandex-cloud }} resource within the cloud network where the cluster is located. For example, a workflow can send requests to {{ yandex-cloud }} VMs or managed DB clusters. You can build a workflow using multiple resources, e.g., a workflow that collects data from one DB and sends it to another DB or [{{ dataproc-full-name }}](../../data-proc/index.yaml).
 
@@ -54,7 +54,7 @@ The main {{ AF }} components are shown below:
 
 * _Web server_: Server in {{ yandex-cloud }} hosting an {{ AF }} instance. The web server receives user commands sent through the {{ AF }} web interface and checks, runs, and debugs Python scripts in DAG files.
 
-   To learn more about working with the web interface, see the [{{ AF }} documentation](https://airflow.apache.org/docs/apache-airflow/stable/ui.html).
+   For more information on working with the web interface, see [this {{ AF }} guide](https://airflow.apache.org/docs/apache-airflow/stable/ui.html).
 
 * _Scheduler_: Server in {{ yandex-cloud }} that controls the job run schedule. The scheduler gets schedule information from DAG files. It uses this schedule to notify workers that it is time to run a DAG file.
 
@@ -93,7 +93,7 @@ See how to work with Triggerer in the figure below:
 
 ![triggerer](../../_assets/managed-airflow/triggerer.svg)
 
-For more information about deferrable operators, triggers, and the Triggerer service, see the [{{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/authoring-and-scheduling/deferring.html#deferrable-operators-triggers) documentation.
+For more information about deferred operatrors, triggers, and Triggerer, see [this {{ AF }} guide](https://airflow.apache.org/docs/apache-airflow/stable/authoring-and-scheduling/deferring.html#deferrable-operators-triggers).
 
 
 ## Use cases {#examples}

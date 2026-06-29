@@ -35,7 +35,7 @@ The web application support cost includes:
     ```bash
     git clone https://github.com/yandex-cloud-examples/yc-serverless-servlet
     ```
-1. Add the contents of the `yc-serverless-servlet` local repository you cloned to the `servlet.zip` archive. You will need this archive later to create {{ sf-full-name }}.
+1. Add the contents of the `yc-serverless-servlet` local repository you cloned to the `servlet.zip` archive. You will need this archive later to create functions in {{ sf-full-name }}.
 
 
 ## Create an {{ objstorage-name }} bucket {#create-bucket}
@@ -47,7 +47,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` to i
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
      1. Enter a name for the bucket by following the [naming conventions](../../storage/concepts/bucket.md#naming).
@@ -70,7 +70,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` to i
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you created the bucket.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
      1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
      1. Specify a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for the database. The naming requirements are as follows:
 
@@ -91,10 +91,10 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` to i
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you created the database.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
      1. Select the database on the **{{ ui-key.yacloud.ydb.databases.label_title }}** page.
      1. To open the database root directory, navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
-     1. To query your database, click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** in the top-right corner. The **{{ ui-key.yacloud.ydb.sql.label_query }}** page will open.
+     1. To query your database, click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** in the top-right corner. This will open the **{{ ui-key.yacloud.ydb.sql.label_query }}** page.
      1. In the **{{ ui-key.yacloud.ydb.sql.label_query }}** field, enter:
 
         ```sql
@@ -137,11 +137,11 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you created the bucket and the database.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Enter a name, e.g., `add-task`, and description for the function.
   1. Click **{{ ui-key.yacloud.common.create }}**.
-  1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select `java21` as the runtime environment, disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+  1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select `java21` as the runtime, disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
   1. Prepare the function code. To do this, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` in the **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** field.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** field, click **Attach file** and select `servlet.zip` you created earlier.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** field, enter `yandex.cloud.examples.serverless.todo.AddTaskServlet`.
@@ -241,7 +241,7 @@ To enable interaction between services, create an API gateway:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created your bucket, database, and functions.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. Enter a name and description for the gateway.
   1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** field, add this specification:

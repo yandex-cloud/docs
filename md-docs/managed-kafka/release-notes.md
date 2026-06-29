@@ -1,5 +1,21 @@
 # История изменений в Yandex Managed Service for Apache Kafka®
 
+## Июнь 2026 {#june-2026}
+
+* Добавлена возможность [изменить тип диска](operations/storage-space.md#change-disk-size) хостов-брокеров в [высокодоступном кластере](concepts/ha-cluster.md).
+* Добавлена поддержка новых версий Apache Kafka® 4.1 и 4.2. Эти версии доступны в окружении `PRODUCTION`. Подробнее об изменениях в [документации Apache Kafka®](https://kafka.apache.org/community/downloads/#420).
+
+## Май 2026 {#may-2026}
+
+[Шифрование диска](concepts/storage.md#disk-encryption) пользовательским ключом KMS теперь поддерживается для хостов с локальными SSD-дисками.
+
+## Апрель 2026 {#april-2026}
+
+* Добавлена поддержка коннектора [Iceberg Sink](operations/cluster-connector.md#settings-iceberg).
+* Обновлена страница мониторинга кластера: добавлены группы метрик [Disk Metrics Details и Problematic partitions](operations/monitoring.md).
+* Для платформы AMD Zen 4 добавлена поддержка хранилища на локальных SSD-дисках.
+* Добавлена возможность управлять настройкой брокера `transactional.id.expiration.ms`. Подробнее в разделе [Настройки уровня кластера](concepts/settings-list.md#cluster-settings).
+
 
 ## Март 2026 {#march-2026}
 

@@ -1,6 +1,6 @@
 ---
 title: PostgreSQL cluster and host state monitoring
-description: You can monitor the state of a {{ mpg-name }} cluster and its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts. You can also configure {{ monitoring-full-name }} alerts for automated cluster health monitoring.
+description: You can monitor the state of a {{ mpg-name }} cluster and its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts. You can also configure {{ monitoring-full-name }} alerts for automated cluster state monitoring.
 ---
 
 # {{ PG }} cluster and host state monitoring
@@ -17,7 +17,7 @@ description: You can monitor the state of a {{ mpg-name }} cluster and its indiv
 To identify potential issues in a cluster, [use other cluster diagnostic tools](../tutorials/performance-problems.md) alongside monitoring.
 
 
-## Monitoring the cluster state {#monitoring-cluster}
+## Cluster state monitoring {#monitoring-cluster}
 
 To view detailed information on the health state of a {{ mpg-name }} cluster:
 
@@ -58,7 +58,7 @@ You will see the following charts:
    * **Total size of temporary files**: Total size of temporary files in bytes.
    * **Total size of WAL files**: Total size of [WAL files](../concepts/backup.md) in bytes.
    * **Free space**: Free disk space broken down by host, in bytes.
-   * **WAL rate in bytes**: WAL file write speed in bytes per second.
+   * **WAL rate in bytes per second**: WAL file write speed in bytes per second.
 
 * Under **Transactions**:
 
@@ -67,8 +67,8 @@ You will see the following charts:
    * **Age of oldest transaction/statement**: Age of the oldest transaction/request.
    * **Statement quantiles**: Statement execution time, broken down by percentile.
    * **Transaction quantiles**: Transaction processing time, broken down by percentile.
-   * **Used/Free Transaction IDs**: Used/free transaction IDs.
-   * **Transaction IDs left**: Remainder of available transaction IDs.
+   * **Used/Free Transaction IDs (%)**: Percentage of used/free transaction IDs.
+   * **Used/Free Transaction IDs**.
 
 * Under **Vacuum**:
 
@@ -92,7 +92,7 @@ You will see the following charts:
 * Under **Network**:
 
    * **Packets received/sent**: Network packet exchange rate, in packets per second.
-   * **Network received/sent bytes**: Network data exchange rate, in bytes per second.
+   * **Network received/sent bytes**: Network data exchange rate (bytes per second).
 
 
 ## Host state monitoring {#monitoring-hosts}
@@ -107,16 +107,26 @@ This page displays workload charts for an individual cluster host:
 
 * **CPU usage**: Processor core workload. With increased workload, the **Idle** value drops.
 * **Memory usage**: Use of RAM, in bytes. At high loads, the value of the **Free space** metric decreases, while the others increase.
-* **Disk usage**: Disk space usage in bytes.
-* **Disk usage by DB**: Disk space utilization, broken down by database, in bytes.
-* **Disk read/write bytes**: Speed of disk operations, in bytes per second.
+* **Disk usage**: Disk space usage (in bytes).
+* **Disk usage by DB**: Disk space utilization, broken down by database (bytes).
 * **Disk IOPS**: Number of disk operations per second.
 * **Network packets**: Network packet exchange rate, in packets per second.
-* **Network bytes**: Network data exchange rate, in bytes per second.
+* **Network bytes**: Network data transfer rate, in bytes per second.
+* **Disk Metrics Details**:
 
-The **Disk read/write bytes** and the **Disk IOPS** charts show the increase of the **Read** value during database read activity, and in **Write**, during database write activity..
+   * **Disk used quota**: Average and maximum quota used percentage for disk operations.
+   * **Disk read throttler latency (percentiles)**: Read delay introduced by exceeding disk quota, percentiles.
+   * **Disk write throttler latency (percentiles)**: Write delay introduced by exceeding disk quota, percentiles.
+   * **Disk read latency (percentiles)**: Disk read latency, percentiles.
+   * **Disk write latency (percentiles)**: Disk write latency, percentiles.
+   * **Disk read operations**: Average and maximum number of read operations per second.
+   * **Disk write operations**: Average and maximum number of write operations per second.
+   * **Disk read bytes**: Average and maximum disk read rate, bytes per second.
+   * **Disk write bytes**: Average and maximum disk write rate, bytes per second.
 
-For **Replica** hosts, the value of the **Received** metric on the **Network Bytes** and **Network Packets** charts is usually higher than the **Sent** metric.
+The **Disk IOPS** chart shows the increase in the **Read** value during database read activity, and in **Write**, during database write activity.
+
+For **Replica** hosts, the **Received** value is normally greater than **Sent** on the **Network Bytes** and **Network Packets** charts.
 
 
 ## Setting up alerts in {{ monitoring-full-name }} {#monitoring-integration}
@@ -130,7 +140,7 @@ For **Replica** hosts, the value of the **Received** metric on the **Network Byt
     1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select:
         * **{{ mpg-name }} — Cluster Overview** to set up cluster alerts.
         * **{{ mpg-name }} — Host Overview** to set up host alerts.
-    1. In the relevant chart, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+    1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
     1. If the chart shows multiple metrics, select the data query to generate a metric and click **{{ ui-key.yacloud.common.continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} guides](../../monitoring/concepts/querying.md).
     1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` thresholds to trigger the alert.
     1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
@@ -156,7 +166,7 @@ For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert-templa
 You can check the current storage size in the [cluster details](cluster-list.md#get-cluster). For a complete list of supported metrics, see [this {{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-postgresql-ref.md).
 
 
-## Cluster health and status {#cluster-health-and-status}
+## Cluster state and status {#cluster-health-and-status}
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 

@@ -49,7 +49,7 @@ description: Follow this guide to update catalog parameters in a {{ mtr-name }} 
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, refer to [Creating a cluster](cluster-create.md).
 
     1. Edit the {{ TR }} catalog settings in the `yandex_trino_catalog` section:
 

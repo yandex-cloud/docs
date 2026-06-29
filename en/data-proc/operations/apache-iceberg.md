@@ -7,17 +7,17 @@ description: How to set up and use {{ IBRG }} in a {{ dataproc-name }} cluster.
 
 {{ dataproc-name }} 2.0 or higher supports using {{ IBRG }} tables together with the {{ SPRK }} engine.
 
-For more information about {{ IBRG }}, see [{#T}](../concepts/apache-iceberg.md) and the [official documentation](https://iceberg.apache.org/docs/latest/).
+For more information about {{ IBRG }}, see [{#T}](../concepts/apache-iceberg.md) and [this official guide](https://iceberg.apache.org/docs/latest/).
 
 
 {% include [apache-iceberg-disclaimer](../../_includes/data-processing/apache-iceberg-disclaimer.md) %}
 
 
-## Set up component properties to work with {{ IBRG }} {#settings}
+## Set the component properties to work with {{ IBRG }} {#settings}
 
-1. [Set the `spark:spark.sql.extensions` property](../concepts/settings-list.md#change-properties) to `org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions`. You can do this either at the cluster or individual job level.
+1. [Set](../concepts/settings-list.md#change-properties) the `spark:spark.sql.extensions` property to `org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions`. You can do this either at the cluster or job level.
 
-1. Add the {{ IBRG }} libraries to the dependencies of your cluster or individual job. Library versions must be [compatible with the {{ dataproc-name }} version](../concepts/apache-iceberg.md#compatibility).
+1. Add the {{ IBRG }} libraries to the cluster or job dependencies. Library versions must be [compatible with the {{ dataproc-name }} version](../concepts/apache-iceberg.md#compatibility).
 
     {% list tabs %}
 
@@ -25,7 +25,7 @@ For more information about {{ IBRG }}, see [{#T}](../concepts/apache-iceberg.md)
 
         To add the required library versions, use one of the following methods:
 
-        * Set up access to the [Maven](https://maven.apache.org/index.html) repository and [set the `spark:spark.jars.packages` property](../concepts/settings-list.md#change-properties) to `{{ dp-libs.iceberg.dp20.pkg }}`.
+        * Set up access to the [Maven](https://maven.apache.org/index.html) repository and [set](../concepts/settings-list.md#change-properties) the `spark:spark.jars.packages` property to `{{ dp-libs.iceberg.dp20.pkg }}`.
 
             {% include [maven-setup](../../_includes/data-processing/maven-setup.md) %}
 
@@ -37,7 +37,7 @@ For more information about {{ IBRG }}, see [{#T}](../concepts/apache-iceberg.md)
 
         To add the required library versions, use one of the following methods:
 
-        * Set up access to the [Maven](https://maven.apache.org/index.html) repository and [set the `spark:spark.jars.packages` property](../concepts/settings-list.md#change-properties) to `{{ dp-libs.iceberg.dp21.spark32.pkg }}`.
+        * Set up access to the [Maven](https://maven.apache.org/index.html) repository and [set](../concepts/settings-list.md#change-properties) the `spark:spark.jars.packages` property to `{{ dp-libs.iceberg.dp21.spark32.pkg }}`.
 
             {% include [maven-setup](../../_includes/data-processing/maven-setup.md) %}
 
@@ -49,7 +49,7 @@ For more information about {{ IBRG }}, see [{#T}](../concepts/apache-iceberg.md)
 
         To add the required library versions, use one of the following methods:
 
-        * Set up access to the [Maven](https://maven.apache.org/index.html) repository and [set the `spark:spark.jars.packages` property](../concepts/settings-list.md#change-properties) to `{{ dp-libs.iceberg.dp21.spark33.pkg }}`.
+        * Set up access to the [Maven](https://maven.apache.org/index.html) repository and [set](../concepts/settings-list.md#change-properties) the `spark:spark.jars.packages` property to `{{ dp-libs.iceberg.dp21.spark33.pkg }}`.
 
             {% include [maven-setup](../../_includes/data-processing/maven-setup.md) %}
 
@@ -61,7 +61,7 @@ For more information about {{ IBRG }}, see [{#T}](../concepts/apache-iceberg.md)
 
         To add the required library versions, use one of the following methods:
 
-        * Set up access to the [Maven](https://maven.apache.org/index.html) repository and [set the `spark:spark.jars.packages` property](../concepts/settings-list.md#change-properties) to `{{ dp-libs.iceberg.dp22.pkg }}`.
+        * Set up access to the [Maven](https://maven.apache.org/index.html) repository and [set](../concepts/settings-list.md#change-properties) the `spark:spark.jars.packages` property to `{{ dp-libs.iceberg.dp22.pkg }}`.
 
             {% include [maven-setup](../../_includes/data-processing/maven-setup.md) %}
 
@@ -73,18 +73,18 @@ For more information about {{ IBRG }}, see [{#T}](../concepts/apache-iceberg.md)
 
 You can now use {{ IBRG }} in your {{ dataproc-name }} cluster.
 
-## {{ IBRG }} use case example {#example}
+## {{ IBRG }} use case {#example}
 
 This use case was tested on a {{ dataproc-name }} cluster version 2.0 with:
 
 * Spark and Hadoop components installed.
 * {{ objstorage-name }} bucket connected, and the cluster's service account having read and write permissions for this bucket.
 * Access to the Maven Central repository configured.
-* Component properties [configured](#settings) to enable downloading {{ IBRG }} libraries from Maven Central.
+* Component properties [configured](#settings) to enable downloading {{ IBRG }} libraries from Maven Central.
 
 To create an {{ IBRG }} table and start working with it:
 
-1. Specify the [settings for the folder](https://iceberg.apache.org/docs/latest/spark-configuration/#catalogs) to contain the table.
+1. Specify the [settings for the folder](https://iceberg.apache.org/docs/latest/spark-configuration/#catalogs) that will contain the table.
 
     {{ IBRG }} operates with tables at the individual folder level. Folder settings are specified at the individual folder level; you cannot specify settings for all folders at the same time.
 
@@ -98,9 +98,9 @@ To create an {{ IBRG }} table and start working with it:
 
     For more information about the properties affecting folder settings, this [{{ IBRG }} guide](https://iceberg.apache.org/docs/latest/spark-configuration/#catalog-configuration).
 
-1. [Use SSH to connect](connect-ssh.md) to the {{ dataproc-name }} cluster's master host.
+1. [Use SSH to connect](connect-ssh.md) to the {{ dataproc-name }} cluster master host.
 
-1. Run a Spark SQL session:
+1. Start a Spark SQL session:
 
     ```bash
     spark-sql
@@ -155,7 +155,7 @@ To create an {{ IBRG }} table and start working with it:
     INSERT INTO mytable VALUES (1, 'a'), (2, 'b'), (3, 'c');
     ```
 
-1. Run a test query to the table:
+1. Run a test query against the table:
 
     ```sql
     SELECT count(1), data FROM mytable GROUP BY data;

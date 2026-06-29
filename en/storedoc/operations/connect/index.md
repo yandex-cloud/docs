@@ -144,7 +144,7 @@ To connect to a {{ mmg-name }} cluster from either Linux (using Bash) or Windows
 
       ```bash
       echo >> /home/<username>/.bashrc && \
-      echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/<user>/.bashrc && \
+      echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/<username>/.bashrc && \
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
       ```
 

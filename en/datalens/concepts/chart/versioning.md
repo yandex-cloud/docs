@@ -14,9 +14,7 @@ To go to the list of versions, click the ![image](../../../_assets/console-icons
 To select a version from the list, click it. The version number will be displayed in the `revId` parameter in the chart address string. Clicking a link with the version number in the `revId` parameter will open the relevant version of the chart.
 
 
-
 You can view [differences between versions](#version-differences) in [Editor](../../charts/editor/index.md).
-
 
 
 When editing within the current version, you can undo/redo any change you have made. To do this, click:
@@ -148,7 +146,7 @@ To edit an outdated version, select it from the list of versions. To save edits 
 * ![image](../../../_assets/console-icons/chevron-down.svg) → **Save as copy** to create a new chart.
 * ![image](../../../_assets/console-icons/chevron-down.svg) → **Save and make current** to create a new current version and make all other versions, including the draft, outdated.
 
-## Limitations {#restrictions}
+## Limits {#restrictions}
 
 * You can only get change history for the last three months.
 * The change history only contains a list of chart versions and includes the version type, save date and time, and the author of the edits.

@@ -55,6 +55,7 @@
             * [Managed Service for OpenSearch](../../managed-opensearch/operations/connect/index.md#security-groups).
 
 
+    
     - Terraform {#tf}
 
         1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -72,6 +73,7 @@
             * топик Apache Kafka® с именем `sensors`;
             * пользователь Apache Kafka® `mkf-user` с правами доступа `ACCESS_ROLE_PRODUCER`, `ACCESS_ROLE_CONSUMER` к топику `sensors`;
             * кластер-приемник Managed Service for OpenSearch;
+            * эндпоинт Apache Kafka®;
             * трансфер.
 
         1. Укажите в файле `data-transfer-mkf-mos.tf` переменные:
@@ -80,7 +82,7 @@
             * `kf_user_password` — пароль пользователя `mkf-user`;
             * `os_version` — версия OpenSearch в кластере-приемнике;
             * `os_user_password` — пароль пользователя `admin`;
-            * `transfer_enabled` — значение `0`, чтобы не создавать трансфер до [создания эндпоинтов вручную](#prepare-transfer).
+            * `transfer_enabled` — значение `0`, чтобы не создавать трансфер до [создания эндпоинта OpenSearch вручную](#prepare-transfer).
 
         1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
@@ -111,6 +113,7 @@
                1. Дождитесь завершения операции.
 
             В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+
 
     {% endlist %}
 
@@ -190,77 +193,7 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт](../operations/endpoint/index.md#create) для [источника `Apache Kafka®`](../operations/endpoint/source/kafka.md):
-
-    **Параметры эндпоинта**:
-
-    * **Настройки подключения**:
-
-        * **Тип подключения** — `Кластер Managed Service for Apache Kafka`.
-
-            * **Кластер Managed Service for Apache Kafka** — выберите кластер-источник из списка.
-
-            * **Аутентификация** — **SASL**.
-
-                * **Имя пользователя** — `mkf-user`.
-                * **Пароль** — укажите пароль пользователя.
-
-        * **Полное имя топика** — `sensors`.
-
-    * **Расширенные настройки** → **Правила конвертации**:
-
-        * **Правила конвертации** — `json`.
-            * **Схема данных** — `JSON-спецификация`.
-
-                Вставьте схему данных в формате JSON:
-
-                {% cut "json" %}
-
-                ```json
-                [
-                    {
-                        "name": "device_id",
-                        "type": "utf8",
-                        "key": true
-                    },
-                    {
-                        "name": "datetime",
-                        "type": "utf8"
-                    },
-                    {
-                        "name": "latitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "longitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "altitude",
-                        "type": "double"
-                    },
-                    {
-                        "name": "speed",
-                        "type": "double"
-                    },
-                    {
-                        "name": "battery_voltage",
-                        "type": "double"
-                    },
-                    {
-                        "name": "cabin_temperature",
-                        "type": "uint16"
-                    },
-                    {
-                        "name": "fuel_level",
-                        "type": "uint16"
-                    }
-                ]
-                ```
-
-                {% endcut %}
-
-1. [Создайте эндпоинт](../operations/endpoint/index.md#create) для [приемника `OpenSearch`](../operations/endpoint/target/opensearch.md):
+1. [Создайте эндпоинт](../operations/endpoint/index.md#create) для [приемника OpenSearch](../operations/endpoint/target/opensearch.md):
 
     **Параметры эндпоинта** → **Настройки подключения**:
 
@@ -272,21 +205,91 @@
 
     * **Пароль** — укажите пароль пользователя.
 
-1. Создайте трансфер:
+1. Создайте эндпоинт для источника Apache Kafka® и трансфер:
 
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
 
+        1. [Создайте эндпоинт](../operations/endpoint/index.md#create) для [источника Apache Kafka®](../operations/endpoint/source/kafka.md):
+
+            **Параметры эндпоинта**:
+
+            * **Настройки подключения**:
+
+                * **Тип подключения** — `Кластер Managed Service for Apache Kafka`.
+
+                    * **Кластер Managed Service for Apache Kafka** — выберите кластер-источник из списка.
+
+                    * **Аутентификация** — **SASL**.
+
+                        * **Имя пользователя** — `mkf-user`.
+                        * **Пароль** — укажите пароль пользователя.
+
+                * **Полное имя топика** — `sensors`.
+
+            * **Расширенные настройки** → **Правила конвертации**:
+
+                * **Правила конвертации** — `json`.
+                    * **Схема данных** — `JSON-спецификация`.
+
+                        Вставьте схему данных в формате JSON:
+
+                        {% cut "json" %}
+
+                        ```json
+                        [
+                            {
+                                "name": "device_id",
+                                "type": "utf8",
+                                "key": true
+                            },
+                            {
+                                "name": "datetime",
+                                "type": "utf8"
+                            },
+                            {
+                                "name": "latitude",
+                                "type": "double"
+                            },
+                            {
+                                "name": "longitude",
+                                "type": "double"
+                            },
+                            {
+                                "name": "altitude",
+                                "type": "double"
+                            },
+                            {
+                                "name": "speed",
+                                "type": "double"
+                            },
+                            {
+                                "name": "battery_voltage",
+                                "type": "double"
+                            },
+                            {
+                                "name": "cabin_temperature",
+                                "type": "uint16"
+                            },
+                            {
+                                "name": "fuel_level",
+                                "type": "uint16"
+                            }
+                        ]
+                        ```
+
+                        {% endcut %}
+
         1. [Создайте трансфер](../operations/transfer.md#create) типа **_Репликация_**, использующий созданные эндпоинты.
         1. [Активируйте трансфер](../operations/transfer.md#activate) и дождитесь его перехода в статус **Реплицируется**.
 
+    
     - Terraform {#tf}
 
         1. Укажите в файле `data-transfer-mkf-mos.tf` переменные:
 
-            * `source_endpoint_id` — идентификатор эндпоинта для источника;
-            * `target_endpoint_id` — идентификатор эндпоинта для приемника;
+            * `target_endpoint_id` — идентификатор эндпоинта для приемника OpenSearch;
             * `transfer_enabled` — значение `1` для создания трансфера.
 
         1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
@@ -318,6 +321,7 @@
                1. Дождитесь завершения операции.
 
         1. Трансфер активируется автоматически. Дождитесь его перехода в статус **Реплицируется**.
+
 
     {% endlist %}
 
@@ -378,13 +382,15 @@
 Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Удалите трансфер](../operations/transfer.md#delete).
-1. [Удалите эндпоинты](../operations/endpoint/index.md#delete) для источника и приемника.
-1. Остальные ресурсы удалите в зависимости от способа их создания:
+
+
+1. Удалите ресурсы в зависимости от способа их создания:
 
    {% list tabs group=instructions %}
 
    - Вручную {#manual}
 
+       1. [Удалите эндпоинт](../operations/endpoint/index.md#delete) для источника.
        1. [Удалите кластер Managed Service for OpenSearch](../../managed-opensearch/operations/cluster-delete.md).
        1. [Удалите кластер Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md).
 
@@ -411,3 +417,5 @@
            Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
    {% endlist %}
+
+1. [Удалите эндпоинт](../operations/endpoint/index.md#delete) для приемника.

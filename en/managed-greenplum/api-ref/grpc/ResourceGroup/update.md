@@ -27,8 +27,7 @@ Update resource group
     "cpu_max_percent": "google.protobuf.Int64Value",
     "cpu_weight": "google.protobuf.Int64Value",
     "memory_quota": "google.protobuf.Int64Value",
-    "min_cost": "google.protobuf.Int64Value",
-    "io_limit": "google.protobuf.Int64Value"
+    "min_cost": "google.protobuf.Int64Value"
   }
 }
 ```
@@ -62,7 +61,6 @@ Apache Cloudberry fields:
 * cpu_weight
 * memory_quota
 * min_cost
-* io_limit
 
 The sets partially overlap (concurrency is common to both). Passing Greenplum-specific
 fields to a CloudBerry cluster or vice versa is not rejected at the proto level -
@@ -119,11 +117,6 @@ The memory limit (Mb) specified for the resource group. ||
 
 References to MIN_COST from Apache Cloudberry resource group parameter:
 The minimum cost of a query plan to be included in the resource group. ||
-|| io_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-References to IO_LIMIT from Apache Cloudberry resource group parameter:
-The limit for the maximum read/write disk I/O throughput, and maximum read/write I/O operations per second.
-Set the value on a per-tablespace basis. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -153,8 +146,7 @@ Set the value on a per-tablespace basis. ||
     "cpu_max_percent": "google.protobuf.Int64Value",
     "cpu_weight": "google.protobuf.Int64Value",
     "memory_quota": "google.protobuf.Int64Value",
-    "min_cost": "google.protobuf.Int64Value",
-    "io_limit": "google.protobuf.Int64Value"
+    "min_cost": "google.protobuf.Int64Value"
   }
   // end of the list of possible fields
 }
@@ -249,7 +241,6 @@ Apache Cloudberry fields:
 * cpu_weight
 * memory_quota
 * min_cost
-* io_limit
 
 The sets partially overlap (concurrency is common to both). Passing Greenplum-specific
 fields to a CloudBerry cluster or vice versa is not rejected at the proto level -
@@ -306,9 +297,4 @@ The memory limit (Mb) specified for the resource group. ||
 
 References to MIN_COST from Apache Cloudberry resource group parameter:
 The minimum cost of a query plan to be included in the resource group. ||
-|| io_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-References to IO_LIMIT from Apache Cloudberry resource group parameter:
-The limit for the maximum read/write disk I/O throughput, and maximum read/write I/O operations per second.
-Set the value on a per-tablespace basis. ||
 |#

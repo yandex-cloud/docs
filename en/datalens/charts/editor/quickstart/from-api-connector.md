@@ -1,9 +1,10 @@
 ---
-title: Building a table based on API Connector
+title: Creating a table via API
 description: Follow this guide to build a table based on API Connector in Editor.
 ---
 
-# Building a table based on API Connector
+# Creating a table via API
+
 
 Follow this guide to build a table in Editor based on an API Connector connection.
 
@@ -15,6 +16,9 @@ You will use a static JSON file located at `https://storage.yandexcloud.net/data
 {% include [before-you-begin](../../../../_tutorials/_tutorials_includes/before-you-begin-datalens.md) %}
 
 
+
+
+
 ## Create a workbook {#create-workbook}
 
 
@@ -23,7 +27,7 @@ You will use a static JSON file located at `https://storage.yandexcloud.net/data
 
 
 1. In the top-right corner, click **Create** → **Create workbook**.
-1. Enter a name for the [workbook](../../../workbooks-collections/index.md): `Tutorials`.
+1. Enter `Tutorials` for the [workbook](../../../workbooks-collections/index.md) name.
 1. Click **Create**.
 
 ## Create an API Connector connection {#create-api-connector}
@@ -76,11 +80,11 @@ You will use a static JSON file located at `https://storage.yandexcloud.net/data
    module.exports = {
        mtcars: {
 
-		   // Indicate which connection to go to for data
-		   // Use the name given to the connection on the Meta tab
+		   // Naming the connection we take data from
+		   // Using here the name we gave to the connection on the Meta tab
            apiConnectionId: Editor.getId("mtcars"),
 
-		   // Specify the path to the API method/page in the source
+		   // Specifying the path to the API method/page in the source
            path: "/mtcars.json",
 
 		   // Request method
@@ -94,10 +98,10 @@ You will use a static JSON file located at `https://storage.yandexcloud.net/data
 1. On the **Prepare** tab, create a table:
 
    ```javascript
-   // Get the downloaded data
+   // Getting the downloaded data
    const cars = Editor.getLoadedData().mtcars.data.body.cars;
 
-   // Form the table header and describe the column types
+   // Creating a table header and describing column types
    const head = [
       {
          id: 'title',
@@ -111,7 +115,7 @@ You will use a static JSON file located at `https://storage.yandexcloud.net/data
       }
    ];
 
-   // Populate the table
+   // Populating the table
    const rows = cars.map((car) => {
       return {
          cells: [
@@ -129,3 +133,5 @@ You will use a static JSON file located at `https://storage.yandexcloud.net/data
    ![image.png](../../../../_assets/datalens/editor/quick-start-3.png)
 
 1. To save a chart, click **Save** in the top-right corner and enter a name for the chart.
+
+

@@ -23,10 +23,10 @@ The link type determines how values in selectors and charts are filtered. The ty
 
 You can use the following types of links for a widget pair:
 
-* **Two-way**: Two-way influence between the widgets.
-* **Incoming**: Incoming influence.
-* **Outgoing**: Outgoing influence.
-* **Not linked**: Widgets are not linked together and have no mutual influence.
+* **Two-way**: Widgets have impact on one another.
+* **Incoming**: Incoming impact.
+* **Outgoing**: Outgoing impact.
+* **Not linked**: Widgets are not linked together and have no impact on one another.
 
 {% note warning %}
 

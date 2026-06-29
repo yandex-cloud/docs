@@ -12,7 +12,7 @@ description: Follow this guide to configure API gateway logging.
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the API gateway.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Select the API gateway for which you want to configure logging.
     1. At the top of the page, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. Under **{{ ui-key.yacloud.logging.label_title }}**:
@@ -130,7 +130,7 @@ description: Follow this guide to configure API gateway logging.
         * `folder_id`: Folder ID.
         * `min_level`: Minimum logging level. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. This is an optional setting.
 
-        For more information about `yandex_api_gateway` properties in {{ TF }}, see [this {{ TF }} article]({{ tf-provider-resources-link }}/api_gateway).
+        For more information about `yandex_api_gateway` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
     
     1. Check the configuration using this command:
 
@@ -138,7 +138,7 @@ description: Follow this guide to configure API gateway logging.
         terraform validate
         ```
 
-        If the configuration is correct, you will get this message:
+        If the configuration is valid, you will get this message:
 
         ```text
         Success! The configuration is valid.
@@ -150,9 +150,9 @@ description: Follow this guide to configure API gateway logging.
         terraform plan
         ```
 
-        You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+        You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
     
-    1. Apply the changes:
+    1. Apply the configuration changes:
 
         ```bash
         terraform apply

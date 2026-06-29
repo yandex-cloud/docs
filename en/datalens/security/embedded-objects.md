@@ -21,7 +21,7 @@ You can configure the features and appearance of the objects being embedded thro
 * `_no_scroll`: Disables vertical scrolling on dashboards. To activate the parameter, set it to `1`.
 * `_lang`: For charts, sets the language of the menu that opens when you click ![image](../../_assets/console-icons/ellipsis.svg). Possible values: `ru` and `en`. 
 * `_opened_info`: Displays dashboard [description](../dashboard/settings.md#message-settings) (if provided) when you open the dashboard. To activate the parameter, set it to `1`.
-* `_no_tabs `: Hides dashboard tabs. To activate the parameter, set it to `1`.
+* `_no_tabs `: Hides the dashboard tabs. To activate the parameter, set it to `1`.
 * `_no_table_of_content`: Hides dashboard content. To activate the parameter, set it to `1`.
 * `_no_title`: Hides dashboard title. To activate the parameter, set it to `1`.
 

@@ -9,7 +9,7 @@
    {% include [Maintenance window](../console/maintenance-window-description.md) %}
 
 
-* **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Account user programs can use to manage the cluster. For more information, see [{#T}](../../../managed-clickhouse/security.md).
+* **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: Account user programs can use to manage the cluster. For more information, see [this guide](../../../managed-clickhouse/security.md).
 
 * **{{ ui-key.yacloud.mdb.forms.label_disk-encryption }}**: This option enables disk encryption with a [custom KMS key](../../../kms/concepts/key.md). Set a key in one of the following ways:
 
@@ -17,7 +17,7 @@
 
    * To use a previously created key, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
 
-   To learn more about disk encryption, see [Storage](../../../managed-clickhouse/concepts/storage.md#disk-encryption).
+   Learn more about disk encryption in [Storage](../../../managed-clickhouse/concepts/storage.md#disk-encryption).
 
 
 * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**: This option enables you to analyze cluster data in [{{ datalens-full-name }}](../../../datalens/concepts/index.md).
@@ -30,7 +30,7 @@
 
 * **{{ ui-key.yacloud.mdb.forms.additional-field-metrika }}**: This option enables you to [import data from AppMetrica](https://appmetrica.yandex.ru/docs/en/common/cloud) to a cluster.
 
-* **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**: Enable this option to allow cluster access from [{{ sf-full-name }}](../../../functions/concepts/index.md). For more information about setting up access, see [this {{ sf-name }} guide](../../../functions/operations/database-connection.md).
+* **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**: Enable this option to allow cluster access from [{{ sf-full-name }}](../../../functions/concepts/index.md). Learn more about access setup in [this {{ sf-name }} guide](../../../functions/operations/database-connection.md).
 
 
 * **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}**: Enable this option to allow cluster access from [{{ yq-full-name }}](../../../query/concepts/index.md). This feature is at the [Preview](../../../overview/concepts/launch-stages.md) stage.

@@ -8,7 +8,6 @@ editable: false
 
 
 
-
 This section describes the {{ mmg-name }} pricing [policy](#rules) and [current prices](#prices) for its resources.
 
 {% note tip %}

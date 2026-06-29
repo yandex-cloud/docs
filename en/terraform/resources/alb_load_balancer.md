@@ -100,6 +100,9 @@ resource "yandex_alb_load_balancer" "my_alb" {
   - `tls` [Block]. TLS configuration
     - `default_handler` [Block]. TLS handler resource.
       - `certificate_ids` (**Required**)(Set Of String). Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used.
+      - `client_certificates_verification` [Block]. Client certificates verification settings.
+        - `bytes` (String). Trusted certificate authority certificates bundle (PEM text).
+        - `require_client_certificate` (Bool). If true, ALB will reject connections without a valid client certificate.
       - `http_handler` [Block]. HTTP handler.
         - `allow_http10` (Bool). If set, will enable only HTTP1 protocol with HTTP1.0 support.
         - `http_router_id` (String). HTTP router id.
@@ -115,6 +118,9 @@ resource "yandex_alb_load_balancer" "my_alb" {
       - `server_names` (**Required**)(Set Of String). Server names that are matched by the SNI handler
       - `handler` [Block]. TLS handler resource.
         - `certificate_ids` (**Required**)(Set Of String). Certificate IDs in the Certificate Manager. Multiple TLS certificates can be associated with the same context to allow both RSA and ECDSA certificates. Only the first certificate of each type will be used.
+        - `client_certificates_verification` [Block]. Client certificates verification settings.
+          - `bytes` (String). Trusted certificate authority certificates bundle (PEM text).
+          - `require_client_certificate` (Bool). If true, ALB will reject connections without a valid client certificate.
         - `http_handler` [Block]. HTTP handler.
           - `allow_http10` (Bool). If set, will enable only HTTP1 protocol with HTTP1.0 support.
           - `http_router_id` (String). HTTP router id.

@@ -20,7 +20,7 @@ The notification icon is shown in the top-right corner of the chart next to ![im
 
 The notification icon depends on the notification type: `critical`, `warning`, or `info`. If more than one notification is added to the chart, the icon of the highest priority notification will be shown in collapsed view. For example, if `critical`, `warning`, and `info` level notifications are configured, the `critical` icon will be shown; for `warning` and `info`, the `warning` icon will be shown.
 
-## Limitations {#restrictions}
+## Limits {#restrictions}
 
 * You can only add notifications in Editor. The Wizard and QL charts do not support notifications.
 * A notification is linked to a specific chart. If you need the same notification for different charts, add it to the [Prepare](./tabs.md#prepare) tab in each chart's code.
@@ -34,4 +34,6 @@ The notification icon depends on the notification type: `critical`, `warning`, o
 
 #### Example {#notification-example}
 
+
 [Example of a chart with notifications](https://datalens.yandex/nvkfwnekf9xy9#Editor.%20setChartsInsights(args))
+

@@ -66,8 +66,8 @@ To create a service account to enable interaction between the shortener componen
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the [management console]({{ link-console-main }}), select the relevant folder.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the [service account](../../iam/concepts/users/service-accounts.md): `serverless-shortener`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `editor`.
@@ -123,7 +123,7 @@ To create and set up a URL shortening function:
   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Enter the name: `for-serverless-shortener`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
-  1. From the **Python** drop-down list, select the `python312` runtime environment.
+  1. From the **Python** drop-down list, select the `python312` runtime.
   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
   1. Copy the function code and paste it into `index.py` under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**.
 

@@ -5,7 +5,7 @@ description: In this guide, you will learn about invoking a {{ sf-name }} functi
 
 # Invoking a function in {{ sf-name }}
 
-You can invoke a function: 
+You can invoke a function:
 * [Using an HTTPS request](#http).
 * [Using the CLI](#cli).
 * [Using a trigger](#trigger).
@@ -24,7 +24,7 @@ The result returned by the function should also be a JSON document. It should co
 
 {% note info %}
 
-You can run a function by specifying the `?integration=raw` request string parameter. When invoked this way, a function cannot parse or set HTTP headers: 
+You can run a function by specifying the `?integration=raw` request string parameter. When invoked this way, a function cannot parse or set HTTP headers:
 * HTTPS request body content is provided as the first argument (without converting to a JSON structure).
 * The contents of the HTTPS response body is identical to the function response (without converting or checking the structure), and the HTTP response status is 200.
 
@@ -34,7 +34,7 @@ You can run a function by specifying the `?integration=raw` request string param
 
 JSON query structure:
 
-```
+```json
 {
     "httpMethod": "<HTTP method name>",
     "headers": <dictionary with HTTP header string values>,
@@ -49,18 +49,18 @@ JSON query structure:
 
 Where:
 
-- `httpMethod`: HTTP method name, such as: DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT.
-- `headers`: Dictionary of strings with HTTP request headers and their values. If the same header is provided multiple times, the dictionary contains the last provided value.
-- `multiValueHeaders`: Dictionary with HTTP request headers and lists of their values. It contains the same keys as the `headers` dictionary; however, if any of the headers was repeated multiple times, its list will contain all the values provided for this header. If the header was provided only once, it is included into this dictionary and its list will contain a single value.
-- `queryStringParameters`: Dictionary with query parameters. If the same parameter is specified multiple times, the dictionary will contain the last specified value.
-- `multiValueQueryStringParameters`: Dictionary with the list of all specified values for each query parameter. If the same parameter is specified multiple times, the dictionary will contain all the specified values.
-- `requestContext` has the following structure: 
+* `httpMethod`: HTTP method name, such as: DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT.
+* `headers`: Dictionary of strings with HTTP request headers and their values. If the same header is provided multiple times, the dictionary contains the last provided value.
+* `multiValueHeaders`: Dictionary with HTTP request headers and lists of their values. It contains the same keys as the `headers` dictionary; however, if any of the headers was repeated multiple times, its list will contain all the values provided for this header. If the header was provided only once, it is included into this dictionary and its list will contain a single value.
+* `queryStringParameters`: Dictionary with query parameters. If the same parameter is specified multiple times, the dictionary will contain the last specified value.
+* `multiValueQueryStringParameters`: Dictionary with the list of all specified values for each query parameter. If the same parameter is specified multiple times, the dictionary will contain all the specified values.
+* `requestContext` has the following structure: 
   
-    ```
+    ```json
     {
         "identity": "<a set of key:value pairs to authenticate the user>",
         "httpMethod": "<DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT>",
-        "requestId": "<request ID generated in the router>",
+        "requestId": "<request ID, generated in the router>",
         "requestTime": "<request time in CLF format>",
         "requestTimeEpoch": "<request time in Unix format>",
         "authorizer": "<dictionary with authorization context>",
@@ -73,9 +73,10 @@ Where:
         "disconnectReason": "<text description of the reason the web socket was closed>"
     }
     ```
-               
+
     Structure of the `identity` element:
-    ```
+
+    ```json
     {
         "sourceIp": "<address the request originated from>",
         "userAgent": "<contents of the User-Agent HTTP header of the original request>"
@@ -83,14 +84,16 @@ Where:
     ```
 
     Structure of the `apiGateway` element:
-    ```
+
+    ```json
     {
         "operationContext": "<dictionary with operation context described in API gateway specification>"
     }
-    ```  
+    ```
 
     Structure of the `authorizer` element:
-    ```
+
+    ```json
     {
         "jwt": { // Field filled in by the API Gateway JWT authorizer. It contains the token data about the user and the user's permissions'
           "claims": "<dictionary of JWT body fields>",
@@ -100,7 +103,7 @@ Where:
     }
     ```
 
-- `body`: Request body in string format. Data can be Base64-encoded (in which case {{ sf-name }} will set `isBase64Encoded: true`).
+* `body`: Request body in string format. Data can be Base64-encoded (in which case {{ sf-name }} will set `isBase64Encoded: true`).
 
     {% note info %}
     
@@ -108,7 +111,7 @@ Where:
     
     {% endnote %}
     
-- `isBase64Encoded`: If `body` contains Base64-encoded data, then {{ sf-name }} sets the parameter to `true`. 
+* `isBase64Encoded`: If `body` contains Base64-encoded data, then {{ sf-name }} will set the parameter to `true`.
 
 #### Debugging functions {#example}
 
@@ -141,9 +144,9 @@ The result looks like this:
     "Content-Length": "13",
     "Content-Type": "application/x-www-form-urlencoded",
     "User-Agent": "curl/7.58.0",
-    "X-Real-Remote-Address": "[88.99.0.24]:37310",
-    "X-Request-Id": "cd0d12cd-c5f1-4348-9dff-c50a78f1eb79",
-    "X-Trace-Id": "92c5ad34-54f7-41df-a368-d4361bf376eb"
+    "X-Real-Remote-Address": "[88.99.**.**]:37310",
+    "X-Request-Id": "cd0d12cd-c5f1-4348-9dff-c50a********",
+    "X-Trace-Id": "92c5ad34-54f7-41df-a368-d436********"
   },
   "path": "",
   "multiValueHeaders": {
@@ -151,9 +154,9 @@ The result looks like this:
     "Content-Length": [ "13" ],
     "Content-Type": [ "application/x-www-form-urlencoded" ],
     "User-Agent": [ "curl/7.58.0" ],
-    "X-Real-Remote-Address": [ "[88.99.0.24]:37310" ],
-    "X-Request-Id": [ "cd0d12cd-c5f1-4348-9dff-c50a78f1eb79" ],
-    "X-Trace-Id": [ "92c5ad34-54f7-41df-a368-d4361bf376eb" ]
+    "X-Real-Remote-Address": [ "[88.99.**.**]:37310" ],
+    "X-Request-Id": [ "cd0d12cd-c5f1-4348-9dff-c50a********" ],
+    "X-Trace-Id": [ "92c5ad34-54f7-41df-a368-d436********" ]
   },
   "queryStringParameters": {
     "a": "2",
@@ -165,15 +168,15 @@ The result looks like this:
   },
   "requestContext": {
     "identity": {
-      "sourceIp": "88.99.0.24",
+      "sourceIp": "88.99.**.**",
       "userAgent": "curl/7.58.0"
     },
     "httpMethod": "POST",
-    "requestId": "cd0d12cd-c5f1-4348-9dff-c50a78f1eb79",
+    "requestId": "cd0d12cd-c5f1-4348-9dff-c50a********",
     "requestTime": "26/Dec/2019:14:22:07 +0000",
     "requestTimeEpoch": 1577370127
   },
-  "body": "aGVsbG8sIHdvcmxkIQ==",
+  "body": "aGVsbG8sIHdv********",
   "isBase64Encoded": true
 }
 ```
@@ -182,7 +185,7 @@ The result looks like this:
 
 Optionally, the function can accept the second argument with the following structure:
 
-```
+```json
 {
   "requestId": "<request ID>",
   "functionName": "<function ID>",
@@ -194,11 +197,11 @@ Optionally, the function can accept the second argument with the following struc
 
 Where:
 
-- `requestId`: ID of the function call, generated when the function is accessed and displayed in the function call log.
-- `functionName`: Function ID.
-- `functionVersion`: Function version ID.
-- `memoryLimitInMB`: Memory size specified for the function version, in MB.
-- `token`: [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account specified for the function version. The current value is generated automatically. It is used for working with the [{{ yandex-cloud }} API](../../api-design-guide/). This field is present only if the correct service account is specified for the function version.
+* `requestId`: ID of the function call, generated when the function is accessed and displayed in the function call log.
+* `functionName`: Function ID.
+* `functionVersion`: Function version ID.
+* `memoryLimitInMB`: Memory size specified for the function version, in MB.
+* `token`: [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account specified for the function version. The current value is generated automatically. It is used for working with the [{{ yandex-cloud }} API](../../api-design-guide/). This field is present only if the correct service account is specified for the function version.
 
 Example of using service data in a function:
 
@@ -216,7 +219,7 @@ module.exports.handler = async (event, context) => {
 
 {{ sf-name }} interprets the function execution result to fill in the HTTPS response contents, headers, and status code. For this to work, the function must return a response in the following structure:
 
-``` 
+```json
 {
     "statusCode": <HTTP response code>,
     "headers": <dictionary with HTTP header string values>,
@@ -224,21 +227,21 @@ module.exports.handler = async (event, context) => {
     "body": "<response contents>",
     "isBase64Encoded": <true or false>
 }
-```       
+```
 
-Where: 
+Where:
 
-- `statusCode`: HTTP status code, which the client uses to interpret the request results. 
-- `headers`: Dictionary of strings with HTTP response headers and their values.
-- `multiValueHeaders`: Dictionary where you can list one or more values for HTTP response headers. If the same header is specified in both `headers` and `multiValueHeaders`, the contents of the `headers` dictionary is ignored.
-- `body`: Response body in string format. To work with binary data, the contents can be Base64-encoded. If this is the case, set `isBase64Encoded: true`.
-- `isBase64Encoded`: If `body` is Base64-encoded, set the parameter to `true`.
+* `statusCode`: HTTP status code, which the client uses to interpret the request results. 
+* `headers`: Dictionary of strings with HTTP response headers and their values.
+* `multiValueHeaders`: Dictionary where you can list one or more values for HTTP response headers. If the same header is specified in both `headers` and `multiValueHeaders`, the contents of the `headers` dictionary is ignored.
+* `body`: Response body in string format. To work with binary data, the contents can be Base64-encoded. If this is the case, set `isBase64Encoded: true`.
+* `isBase64Encoded`: If `body` is Base64-encoded, set the parameter to `true`.
 
 ### Handling errors in user-defined function code {#error}
 
 If an unprocessed error occurs in user code, {{ sf-name }} will return a 502 error and error details in the form of this JSON structure: 
 
-```
+```json
 {
   "errorMessage": "<error message>",
   "errorType": "<error type>",
@@ -248,9 +251,9 @@ If an unprocessed error occurs in user code, {{ sf-name }} will return a 502 err
 
 Where:
 
-- `errorMessage`: Error description string.
-- `errorType`: Error or exception type that depends on the programming language.
-- `stackTrace`: Function execution stack at the time of the error.
+* `errorMessage`: Error description string.
+* `errorType`: Error or exception type that depends on the programming language.
+* `stackTrace`: Function execution stack at the time of the error.
 
 The specific contents of these fields depend on the programming language and your function's runtime environment.
 
@@ -258,7 +261,7 @@ The specific contents of these fields depend on the programming language and you
 
 If the response structure of your function does not match the description given in [Response data structure](#response), {{ sf-name }} returns the result with a 502 error code and the following response:
 
-```
+```json
 {
   "errorMessage": "Malformed serverless function response: not a valid json",
   "errorType": "ProxyIntegrationError",
@@ -272,18 +275,18 @@ If the error occurs in a user-defined function, the `X-Function-Error: true` hea
 
 {{ sf-name }} can return results with the following HTTP codes: 
 
-- `200 OK`: Function executed successfully.
-- `400 BadRequest`: Error in HTTPS request parameters.
-- `403 Forbidden`: Cannot execute the request due to restrictions on client access to the function. 
-- `404 Not Found`: Function is not found at the specified URL.
-- `413 Payload Too Large`: Request JSON structure [limit](../concepts/limits.md#limits) is exceeded by more than 3.5 MB.
-- `429 TooManyRequests`: Function call intensity is too high: 
-    - The [quota](../concepts/limits.md#functions-quotas) on the number of requests executed is exceeded.
-    - Cannot execute the request because all executors are already overloaded by existing requests to this function.
-- `500 Internal Server Error`: Internal server error.
-- `502 BadGateway`: Incorrect function code or format of returned JSON response.
-- `503 Service Unavailable`: {{ sf-name }} is unavailable. 
-- `504 Gateway Timeout`: Maximum function running time before the timeout is exceeded.
+* `200 OK`: Function executed successfully.
+* `400 BadRequest`: Error in HTTPS request parameters.
+* `403 Forbidden`: Cannot execute the request due to restrictions on client access to the function. 
+* `404 Not Found`: Function is not found at the specified URL.
+* `413 Payload Too Large`: Request JSON structure [limit](../concepts/limits.md#limits) is exceeded by more than 3.5 MB.
+* `429 TooManyRequests`: Function call intensity is too high: 
+    * The [quota](../concepts/limits.md#functions-quotas) on the number of requests executed is exceeded.
+    * Cannot execute the request because all executors are already overloaded by existing requests to this function.
+* `500 Internal Server Error`: Internal server error.
+* `502 BadGateway`: Incorrect function code or format of returned JSON response.
+* `503 Service Unavailable`: {{ sf-name }} is unavailable. 
+* `504 Gateway Timeout`: Maximum function running time before the timeout is exceeded.
 
 ### Filtering message headers {#headers}
 
@@ -292,54 +295,86 @@ Your function receives and transmits the contents of HTTP headers as JSON fields
 {% list tabs %}
 
 - Request headers
-    
+
     Removed from a request:
 
-    - "Expect"
-    - "Te"
-    - "Trailer"
-    - "Upgrade"
-    - "Proxy-Authenticate"
-    - "Authorization"
-    - "Connection"        
-    - "Content-Md5"       
-    - "Max-Forwards"
-    - "Server"
-    - "Transfer-Encoding"
-    - "Www-Authenticate"
-    - "Cookie"
+    * `"Expect"`
+    * `"Te"`
+    * `"Trailer"`
+    * `"Upgrade"`
+    * `"Proxy-Authenticate"`
+    * `"Authorization"`
+    * `"Connection"`
+    * `"Content-Md5"`
+    * `"Max-Forwards"`
+    * `"Server"`
+    * `"Transfer-Encoding"`
+    * `"Www-Authenticate"`
+    * `"Cookie"`
 
 - Response headers
-        
-    - Removed from a response:
-        - "Host"
-        - "Authorization"
-        - "User-Agent"
-        - "Connection"
-        - "Max-Forwards"
-        - "Cookie"
-        - "X-Request-Id"
-        - "X-Function-Id"
-        - "X-Function-Version-Id"
-        - "X-Content-Type-Options"
+
+    * Removed from a response:
+        * `"Host"`
+        * `"Authorization"`
+        * `"User-Agent"`
+        * `"Connection"`
+        * `"Max-Forwards"`
+        * `"Cookie"`
+        * `"X-Request-Id"`
+        * `"X-Function-Id"`
+        * `"X-Function-Version-Id"`
+        * `"X-Content-Type-Options"`
     
-    - Cause an error if present in a response:
+    * Cause an error if present in a response:
+        * `"Proxy-Authenticate"`
+        * `"Transfer-Encoding"`
+        * `"Via"`
     
-        - "Proxy-Authenticate"
-        - "Transfer-Encoding"
-        - "Via"
-    
-    - Overwritten by adding the `X-Yf-Remapped-` prefix:
-        - "Content-Md5"
-        - "Date"
-        - "Server"
-        - "Www-Authenticate"
+    * Overwritten by adding the `X-Yf-Remapped-` prefix:
+        * `"Content-Md5"`
+        * `"Date"`
+        * `"Server"`
+        * `"Www-Authenticate"`
 
 {% endlist %}
 
 ### IP address of the request source {#ip}
 
 If a request contains the [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) header, the specified IP addresses and the IP address of the client that invoked the function are provided in this header. If not, it only passes the IP address of the client that invoked the function.
+
+### Call without special headers in the response {#without-x-headers}
+
+By default, an HTTP response contains special headers that start with `X-`, for example `X-Request-Id`. To delete these headers from the response, use the `customHeaderPolicy` property.
+
+Its possible values are:
+
+* `stripAll`: Delete special headers upon any response.
+* `stripOnSuccess`: Delete special headers only upon a successful response of the function.
+
+For example, for the request:
+
+```bash
+curl -i \
+  --request POST \
+  --data "hello, world!" \
+  "https://{{ sf-url }}/<function_ID>?customHeaderPolicy=stripAll"
+```
+
+The result looks like this:
+
+```text
+HTTP/1.1 200 OK
+Date: Fri, 05 Jun 2026 11:24:35 GMT
+Content-Type: text/plain; charset=utf-8
+Content-Length: 1406
+Connection: keep-alive
+Keep-Alive: timeout=300
+Vary: Accept-Encoding
+Access-Control-Allow-Origin: *
+Content-Security-Policy: worker-src 'none'
+Server: Yandex-Cloud-Functions/1.0
+```
 
 ### Use cases {#examples-https}
 
@@ -351,7 +386,7 @@ A function call via the CLI is an HTTPS request which uses the POST method and t
 
 View the help for the function call command: 
 
-```
+```text
 yc serverless function invoke --help
 Invoke the specified function
 
@@ -369,32 +404,31 @@ Flags:
 
 Detailed description of how to transfer data using different flags and arguments:
 
-- If a flag or argument is omitted, an empty string is provided.
+* If a flag or argument is omitted, an empty string is provided.
+* `-d, --data`: Data is provided as an argument.
 
-- `-d, --data`: Data is provided as an argument.
-
+    ```bash
+    yc serverless function invoke <function_ID> -d '{"queryStringParameters": {"parameter_name": "parameter_value"}}'
     ```
-    yc serverless function invoke <function ID> -d '{"queryStringParameters": {"parameter_name": "parameter_value"}}'
-    ```
 
-- `--data-file`: Data is read from a file.
+* `--data-file`: Data is read from a file.
 
-    ```
-    yc serverless function invoke <function ID> --data-file <File path>
+    ```bash
+    yc serverless function invoke <function_ID> --data-file <file_path>
     ```
 
     Similar to command with the `-d` argument set to `@<file_name>`: `yc serverless function invoke <function_ID> -d @<file_path>`
 
-- `--data-stdin`: Data is read from the input stream. 
+* `--data-stdin`: Data is read from the input stream. 
 
-     ```
-     echo '{"queryStringParameters": {"parameter_name": "parameter_value"}}' | yc serverless function invoke <function ID> --data-stdin
+     ```bash
+     echo '{"queryStringParameters": {"parameter_name": "parameter_value"}}' | yc serverless function invoke <function_ID> --data-stdin
      ```
 
     Similar to command with the `-d` argument set to `@-`: 
     
-    ```
-    echo '{"queryStringParameters": {"parameter_name": "parameter_value"}}' | yc serverless function invoke <function ID> -d @-`.
+    ```bash
+    echo '{"queryStringParameters": {"parameter_name": "parameter_value"}}' | yc serverless function invoke <function_ID> -d @-`.
     ```
 
 ## Invoking a function using a trigger {#trigger}
@@ -413,7 +447,7 @@ When invoking a function using a trigger, the JSON description of a trigger even
 
 ## Invoking a function using a {{ api-gw-full-name }} extension {#extension}
 
-When invoking a function using the {{ api-gw-name }} extension, the function receives an HTTP request addressed to the API gateway. In which case the `Host` header specifies the host used by the user to access the API gateway, not the function's host. The request source IP is provided in the same way as when [invoking a function using HTTPS](#ip). Learn more about the extension in the [{{ api-gw-full-name }} documentation](../../api-gateway/concepts/extensions/cloud-functions.md).
+When invoking a function using the {{ api-gw-name }} extension, the function receives an HTTP request addressed to the API gateway. In which case the `Host` header specifies the host used by the user to access the API gateway, not the function's host. The request source IP is provided in the same way as when [invoking a function using HTTPS](#ip). For more on extension, see [this {{ api-gw-full-name }} guide](../../api-gateway/concepts/extensions/cloud-functions.md).
 
 ### Use cases {#examples-api-gw}
 

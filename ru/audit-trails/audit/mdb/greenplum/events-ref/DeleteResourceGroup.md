@@ -102,8 +102,7 @@ editable: false
       "cpuMaxPercent": "string",
       "cpuWeight": "string",
       "memoryQuota": "string",
-      "minCost": "string",
-      "ioLimit": "string"
+      "minCost": "string"
     }
   },
   "requestParameters": "object",
@@ -310,5 +309,4 @@ Acceptable values are 0 to 100, inclusive. ||
 Acceptable values are 1 to 500, inclusive. ||
 || memoryQuota | **string** (int64) ||
 || minCost | **string** (int64) ||
-|| ioLimit | **string** (int64) ||
 |#

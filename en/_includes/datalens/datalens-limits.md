@@ -30,7 +30,7 @@ Type of limit | Value
 Maximum number of {{ datalens-short-name }} instances per organization. | 1
 Maximum size of an imported CSV file | 200 MB
 Maximum number of tables per dataset | 32
-Maximum number of fields per dataset | 1200
+Maximum number of fields per dataset | 1,200
 Maximum data size for direct chart export | 50 MB
 Maximum data size for background chart export | 1 GB
 Maximum number of rows for background chart export | 1,000,000 rows
@@ -60,6 +60,15 @@ Point map with clusters | 40,000 points
 Choropleth map | 40,000 rows
 Heat map | 40,000 rows
 Polyline map | 40,000 rows
+
+
+
+#### Neuroanalyst limits {#datalens-ai-limits}
+
+Type of limit | Value
+----- | -----
+Maximum number of queries to Neuroanalyst per authorized user per month | 2,000
+Maximum number of queries to Neuroanalyst for unauthorized users (queries from embedded and public objects and from objects in mailing lists) per instance per month | 10,000
 
 
 #### API limits {#datalens-api-limits}

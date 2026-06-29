@@ -61,7 +61,7 @@ Create a [secret](../../lockbox/concepts/secret.md) to store the Telegram API ac
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret.
   1. Select the `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}` secret type.
@@ -130,7 +130,7 @@ Create a [bucket](../../storage/concepts/bucket.md) to store your chat history w
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. Specify a bucket name that meets [these naming conventions](../../storage/concepts/bucket.md#naming).
   1. Specify the maximum bucket size: `5 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
@@ -207,7 +207,7 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) named `
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter the service account name: `sa-workflows`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign these [roles](../../iam/roles-reference.md):
@@ -467,7 +467,7 @@ Where:
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. In the top-right corner, click **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
   1. Select the `{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}` method.
@@ -540,7 +540,7 @@ Make the workflow public so it can be executed via a link without authentication
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the [workflow](../../serverless-integrations/concepts/workflows/workflow.md).
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Select the workflow.
   1. Enable **{{ ui-key.yacloud.serverless-workflows.label_public-access }}**.
@@ -596,7 +596,7 @@ Set up a webhook for your bot for it to send workflow execution requests via a l
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the workflow.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Select a workflow. The execution link will appear in the **{{ ui-key.yacloud.serverless-workflows.label_execution-url }}** field.
 
@@ -650,7 +650,7 @@ Set up a webhook for your bot:
   * `<bot_token>`: Token you got when [creating the bot](#create-bot).
   * `<execution_url>`: Workflow execution link you got in the [previous step](#get-execution-url).
 
-  For example:
+  Here is an example:
 
   ```bash
   curl -s "https://api.telegram.org/bot1357246809:AAFhSteLniAw71g8jx6K5kTErO3********/setWebhook" \
@@ -672,7 +672,7 @@ Set up a webhook for your bot:
 1. Click **START** to start a chat.
 1. Send the bot a list of movie titles, one per line.
 
-    For example:
+    Here is an example:
 
     ```text
     Movie 1

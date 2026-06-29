@@ -36,7 +36,7 @@ You can update the component properties in the following ways:
 
 The available properties are listed in the official documentation for the components:
 
-| Prefix               | Path to the configuration file          | Documentation                                                                                                               |
+| Prefix              | Path to the configuration file               | Guides                                                                                                                |
 |:---------------------|:----------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|
 | `core`               | `/etc/hadoop/conf/core-site.xml`        | [Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml)                         |
 | `hdfs`               | `/etc/hadoop/conf/hdfs-site.xml`        | [HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml)                             |
@@ -106,12 +106,12 @@ The following settings are available for Apache Spark:
 | Configuration                         | Default value                                   | Description                                                                           |
 |:----------------------------------|:--------------------------------------------------------|:-----------------------------------------------------------------------------------|
 | `fs.s3a.access.key`               | —                                                       | [Static key](../../iam/concepts/authorization/access-key.md) ID |
-| `fs.s3a.secret.key`               | —                                                       | Secret key:                                                                     |
+| `fs.s3a.secret.key`               | —                                                       | Secret key                                                                     |
 | `fs.s3a.endpoint`                 | `{{ s3-storage-host }}`                                 | Endpoint to connect to {{ objstorage-name }}                                   |
 | `fs.s3a.signing-algorithm`        | Empty value                                         | Signature algorithm                                                                   |
 | `fs.s3a.aws.credentials.provider` | `org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider` | Credentials provider                                                           |
+For more information, see [this Apache Hadoop guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml).
 
-For more information, see the [Apache Hadoop documentation](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml).
 
 ## Installing Python packages {#python-packages-install}
 

@@ -18,11 +18,11 @@ Your changes will apply within five minutes.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder containing the trigger.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
-  1. Select the trigger whose parameters you want to update.
+  1. Select the trigger whose settings you want to update.
   1. Click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. Edit the trigger parameters and click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_update-trigger }}**.
+  1. Edit the trigger settings and click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_update-trigger }}**.
 
 - CLI {#cli}
 
@@ -32,13 +32,13 @@ Your changes will apply within five minutes.
 
   {% include [trigger-list-note](../../../_includes/serverless-containers/trigger-list-note.md) %}
 
-  1. See the description of the CLI command for updating trigger parameters:
+  1. See the description of the CLI command for updating trigger settings:
 
       ```bash
       yc serverless trigger update <trigger_type> --help
       ```
 
-  1. Update the trigger parameters, e.g., rename it:
+  1. Update the trigger settings, e.g., rename the trigger:
 
       ```bash
       yc serverless trigger update <trigger_type> <trigger_name> \ 

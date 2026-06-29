@@ -38,6 +38,7 @@ output "network_id" {
   - `web_sql` (Bool). Allow access for Web SQL.
   - `yandex_query` (Bool). Allow access for YandexQuery.
 - `admin_password` (String). A password used to authorize as user `admin` when `sql_user_management` enabled.
+- `allow_host_recreation` (Bool). Allows or denies re-creation of hosts during cluster configuration changes that require it, such as a disk type change. Note: only data of replicated tables is preserved during host re-creation; data of non-replicated tables is lost.
 - `backup_retain_period_days` (Number). The period in days during which backups are stored.
 - `backup_window_start` [Block]. Time to start the daily backup, in the UTC timezone.
   - `hours` (Number). The hour at which backup will be started (UTC).
@@ -224,6 +225,108 @@ output "network_id" {
 - `disk_encryption_key_id` (String). ID of the KMS key for cluster disk encryption.
 - `embedded_keeper` (Bool). Whether to use ClickHouse Keeper as a coordination system.
 - `environment` (**Required**)(String). Deployment environment of the ClickHouse cluster.
+- `external_dictionary` [Block]. External dictionaries configuration. The map key is the dictionary name.
+  - `layout` [Block]. Layout of the external dictionary.
+    - `access_to_key_from_attributes` (Bool). Allows to retrieve key attribute using dictGetString function.
+    - `allow_read_expired_keys` (Bool). Allow reading expired keys.
+    - `block_size` (Number). Block size for SSD_CACHE and COMPLEX_KEY_SSD_CACHE layout types.
+    - `file_size` (Number). Maximum cache file size in bytes for SSD_CACHE and COMPLEX_KEY_SSD_CACHE layout types.
+    - `initial_array_size` (Number). Initial dictionary key size for FLAT layout.
+    - `max_array_size` (Number). Maximum dictionary key size for FLAT layout.
+    - `max_threads_for_updates` (Number). Max threads for cache dictionary update.
+    - `max_update_queue_size` (Number). Max size of update queue.
+    - `query_wait_timeout_milliseconds` (Number). Max wait timeout in milliseconds for update task to complete.
+    - `read_buffer_size` (Number). RAM buffer size for reading from SSD in bytes for SSD_CACHE and COMPLEX_KEY_SSD_CACHE layout types.
+    - `size_in_cells` (Number). Number of cells in the cache or initial array size.
+    - `type` (**Required**)(String). Layout type.
+    - `update_queue_push_timeout_milliseconds` (Number). Max timeout in milliseconds for push update task into queue.
+    - `write_buffer_size` (Number). RAM buffer size for writing to SSD in bytes for SSD_CACHE and COMPLEX_KEY_SSD_CACHE layout types.
+  - `lifetime` [Block]. Lifetime of the dictionary data.
+    - `fixed_lifetime` (Number). Fixed reload interval in seconds.
+    - `range` [Block]. Random reload interval in seconds.
+      - `max` (**Required**)(Number). Maximum reload interval.
+      - `min` (**Required**)(Number). Minimum reload interval.
+  - `source` [Block]. Source of the external dictionary data.
+    - `clickhouse_source` [Block]. ClickHouse source for the external dictionary.
+      - `db` (**Required**)(String). ClickHouse database name.
+      - `host` (String). ClickHouse host. Defaults to localhost if not specified.
+      - `password` (String). ClickHouse password.
+      - `port` (Number). ClickHouse port. Defaults to 8123 if not specified.
+      - `secure` (Bool). Use TLS for the connection.
+      - `table` (**Required**)(String). ClickHouse table name.
+      - `user` (**Required**)(String). ClickHouse user.
+      - `where` (String). Selection criteria (WHERE clause).
+    - `http_source` [Block]. HTTP source for the external dictionary.
+      - `format` (**Required**)(String). Data format (CSV, TSV, etc.).
+      - `headers` [Block]. HTTP headers.
+        - `name` (**Required**)(String). Header name.
+        - `value` (**Required**)(String). Header value.
+      - `url` (**Required**)(String). URL of the HTTP source.
+    - `mongodb_source` [Block]. MongoDB source for the external dictionary.
+      - `collection` (**Required**)(String). MongoDB collection name.
+      - `db` (**Required**)(String). MongoDB database name.
+      - `host` (**Required**)(String). MongoDB host.
+      - `options` (String). MongoDB connection options (e.g. authSource=admin).
+      - `password` (String). MongoDB password.
+      - `port` (Number). MongoDB port. Defaults to 27017 if not specified.
+      - `user` (**Required**)(String). MongoDB user.
+    - `mysql_source` [Block]. MySQL source for the external dictionary.
+      - `close_connection` (Bool). Close connection after each query.
+      - `db` (**Required**)(String). MySQL database name.
+      - `invalidate_query` (String). Query to check if the dictionary data has changed.
+      - `password` (String). Default password for replicas.
+      - `port` (Number). Default port for replicas.
+      - `replicas` [Block]. MySQL replicas.
+        - `host` (**Required**)(String). Replica host.
+        - `password` (String). Replica password.
+        - `port` (Number). Replica port.
+        - `priority` (**Required**)(Number). Replica priority.
+        - `user` (String). Replica user.
+      - `share_connection` (Bool). Share connection between threads.
+      - `table` (**Required**)(String). MySQL table name.
+      - `user` (**Required**)(String). Default user for replicas.
+      - `where` (String). WHERE clause for selecting rows.
+    - `postgresql_source` [Block]. PostgreSQL source for the external dictionary.
+      - `db` (**Required**)(String). PostgreSQL database name.
+      - `hosts` (**Required**)(List Of String). PostgreSQL hosts.
+      - `invalidate_query` (String). Query to check if the dictionary data has changed.
+      - `password` (String). PostgreSQL password.
+      - `port` (Number). PostgreSQL port. Defaults to 5432 if not specified.
+      - `ssl_mode` (String). SSL mode for the PostgreSQL connection (DISABLE, ALLOW, PREFER, VERIFY_CA, VERIFY_FULL).
+      - `table` (**Required**)(String). PostgreSQL table name.
+      - `user` (**Required**)(String). PostgreSQL user.
+  - `structure` [Block]. Structure of the external dictionary.
+    - `attributes` [Block]. Dictionary attributes.
+      - `expression` (String). Expression for computing the attribute.
+      - `hierarchical` (Bool). Is the attribute hierarchical.
+      - `injective` (Bool). Is the attribute injective.
+      - `name` (**Required**)(String). Attribute name.
+      - `null_value` (String). Default value for null.
+      - `type` (**Required**)(String). Attribute type.
+    - `id` [Block]. Single numeric key column for the dictionary.
+      - `name` (**Required**)(String). Name of the numeric key column.
+    - `key` [Block]. Composite key for the dictionary.
+      - `attributes` [Block]. Key attributes.
+        - `expression` (String). Expression for computing the attribute.
+        - `hierarchical` (Bool). Is the attribute hierarchical.
+        - `injective` (Bool). Is the attribute injective.
+        - `name` (**Required**)(String). Attribute name.
+        - `null_value` (String). Default value for null.
+        - `type` (**Required**)(String). Attribute type.
+    - `range_max` [Block]. Field holding the end of the range for RANGE_HASHED layout.
+      - `expression` (String). Expression for computing the attribute.
+      - `hierarchical` (Bool). Is the attribute hierarchical.
+      - `injective` (Bool). Is the attribute injective.
+      - `name` (**Required**)(String). Attribute name.
+      - `null_value` (String). Default value for null.
+      - `type` (**Required**)(String). Attribute type.
+    - `range_min` [Block]. Field holding the beginning of the range for RANGE_HASHED layout.
+      - `expression` (String). Expression for computing the attribute.
+      - `hierarchical` (Bool). Is the attribute hierarchical.
+      - `injective` (Bool). Is the attribute injective.
+      - `name` (**Required**)(String). Attribute name.
+      - `null_value` (String). Default value for null.
+      - `type` (**Required**)(String). Attribute type.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `hosts` [Block]. A host configuration of the ClickHouse cluster.
   - `assign_public_ip` (Bool). Whether the host should get a public IP address.

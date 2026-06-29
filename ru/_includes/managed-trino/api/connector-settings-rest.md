@@ -1,6 +1,9 @@
 * `filesystem` — тип файлового хранилища. Доступные варианты:
 
     * `s3` — хранилище [{{ objstorage-full-name }}](../../../storage/quickstart/overview.md).
+
+        {% include [objstorage-sa-roles](../objstorage-sa-roles.md) %}
+
     * `externalS3` — внешнее хранилище. Для него необходимо указать дополнительные параметры:
 
         * `awsAccessKey` — идентификатор AWS-совместимого статического ключа доступа.

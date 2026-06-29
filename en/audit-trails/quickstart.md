@@ -34,7 +34,7 @@ To create a trail, you will need the following roles:
 - Bucket {#bucket}
 
   1. In the [management console]({{ link-console-main }}), select the folder to host the trail.
-  1. [Navigate](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the trail.
   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:

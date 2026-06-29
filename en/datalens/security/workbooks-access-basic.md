@@ -36,7 +36,7 @@ Next to each position in the list, you will see the assigned role as well as the
 
 #### Limited viewer {#workbooks-limitedViewer}
 
-The `Limited viewer` role for a workbook allows you to view the workbook's nested [charts](../concepts/chart/index.md) and [dashboards](../concepts/dashboard.md), as well as information about the [access permissions](../../iam/concepts/access-control/index.md) assigned to it.
+The `Limited viewer` role for a workbook allows you to view the workbook's nested [charts](../concepts/chart/index.md) and [dashboards](../concepts/dashboard.md), as well as information about the [access permissions](../../iam/concepts/access-control/index.md) assigned for it.
 
 #### Viewer {#workbooks-viewer}
 
@@ -60,11 +60,11 @@ Includes permissions granted by the `Viewer` role.
 The `Admin` role for a workbook allows you to manage it, access the workbook itself and all its nested objects.
 
 Users with this role can:
-* View info on the [access permissions](../../iam/concepts/access-control/index.md) granted for the relevant [workbook](../workbooks-collections/index.md) and modify such permissions.
+* View info on [access permissions](../../iam/concepts/access-control/index.md) granted for the organization and modify such permissions.
 * Edit, move, create copies of, and delete the relevant workbook.
 * View and edit all workbook's nested [objects](../concepts/index.md#component-interrelation).
-* [Embed](./private-embedded-objects.md) the workbook's nested private objects to websites and apps.
 * [Publish](../concepts/datalens-public.md#how-to-publish) the workbook's nested objects.
+* [Embed](./private-embedded-objects.md) the workbook's nested private objects to websites and apps.
 
 Includes permissions granted by the `Editor` role.
 
@@ -90,7 +90,7 @@ The `Limited viewer` role for a collection allows you to view information about 
 
 Users with this role can:
 * View info on the relevant collection and its nested [workbooks and collections](../workbooks-collections/index.md).
-* View info on the [access permissions](../../iam/concepts/access-control/index.md) granted for the appropriate collection, as well as for its nested collections and workbooks.
+* View info on the [access permissions](../../iam/concepts/access-control/index.md) granted for this collection, as well as for its nested collections and workbooks.
 * View [charts](../concepts/chart/index.md) and [dashboards](../concepts/dashboard.md) nested into the workbooks related to the appropriate collection and its nested collections.
 
 Includes permissions granted by the `Limited viewer` role for workbooks inside the collection.
@@ -101,7 +101,7 @@ The `Viewer` role for a collection allows you to view information about it and i
 
 Users with this role can:
 * View info on the relevant collection and its nested [workbooks and collections](../workbooks-collections/index.md).
-* View info on the [access permissions](../../iam/concepts/access-control/index.md) granted for the appropriate collection, as well as for its nested collections and workbooks.
+* View info on the [access permissions](../../iam/concepts/access-control/index.md) granted for this collection, as well as for its nested collections and workbooks.
 * View all nested [objects](../concepts/index.md#component-interrelation) of the workbooks related to the appropriate collection and its nested collections.
 
 Includes permissions granted by the `Limited viewer` role for collections and the `Viewer` role for workbooks inside the collection.
@@ -116,7 +116,7 @@ Users with this role can:
 * Create copies of the relevant collection and all its nested collections and workbooks.
 * Create new collections and workbooks within the relevant collection and all its nested ones.
 * View and edit all nested [objects](../concepts/index.md#component-interrelation) of the workbooks pertaining to the appropriate collection and its nested collections.
-* View info on the [access permissions](../../iam/concepts/access-control/index.md) granted for the appropriate collection, as well as for its nested collections and workbooks.
+* View info on the [access permissions](../../iam/concepts/access-control/index.md) granted for this collection, as well as for its nested collections and workbooks.
 
 Includes permissions granted by the `Viewer` role for collections and the `Editor` role for workbooks inside the collection.
 
@@ -131,8 +131,8 @@ Users with this role can:
 * Move and delete the relevant collection and all its nested collections and workbooks.
 * Create new collections and workbooks within the relevant collection.
 * View and edit all nested [objects](../concepts/index.md#component-interrelation) of the workbooks pertaining to the appropriate collection and its nested collections.
-* [Embed](./private-embedded-objects.md) private objects nested into workbooks related to the relevant collection and its nested ones, to websites and apps.
-* [Publish](../concepts/datalens-public.md#how-to-publish) objects nested into the workbooks related to the appropriate collection and its nested collections.
+* [Publish](../concepts/datalens-public.md#how-to-publish) objects nested into the workbooks pertaining to this collection and its nested collections.
+* [Embed](./private-embedded-objects.md) private objects nested into workbooks pertaining to this collection and its nested collections, to websites and apps.
 
 Includes permissions granted by the `Editor` role for collections and the `Admin` role for workbooks inside the collection.
 

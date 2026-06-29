@@ -55,7 +55,7 @@ After creating the connection, you can:
 * Visualize the datasets using [charts](../../datalens/concepts/chart/index.md) and [dashboards](../../datalens/concepts/dashboard.md).
 
 
-See also an [example of {{ CH }} data visualization](../../tutorials/datalens/data-from-ch-visualization.md).
+Try [visualizing data from {{ CH }}](../../tutorials/datalens/data-from-ch-visualization.md).
 
 
 ## Viewing a list of cluster connections {#connectors-list}
@@ -70,7 +70,7 @@ See also an [example of {{ CH }} data visualization](../../tutorials/datalens/da
 
      {% cut "My connection is not on the list" %}
 
-     If your connection is missing from the list, it means the cluster is connected to {{ datalens-name }} as an external source. Learn more about {{ datalens-name }} [here](../../datalens/).
+     If your connection is missing from the list, it means the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/) operation.
 
      {% endcut %}
 
@@ -89,7 +89,7 @@ See also an [example of {{ CH }} data visualization](../../tutorials/datalens/da
 
      {% cut "My connection is not on the list" %}
 
-     If your connection is missing from the list, it means the cluster is connected to {{ datalens-name }} as an external source. Learn more about {{ datalens-name }} [here](../../datalens/).
+     If your connection is missing from the list, it means the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/) operation.
 
      {% endcut %}
 
@@ -112,7 +112,7 @@ See also an [example of {{ CH }} data visualization](../../tutorials/datalens/da
 
      {% cut "My connection is not on the list" %}
 
-     If your connection is missing from the list, it means the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }} here](../../datalens/).
+     If your connection is missing from the list, it means the cluster is connected to {{ datalens-name }} as an external source. [Learn more about {{ datalens-name }}](../../datalens/) operation.
 
      {% endcut %}
 

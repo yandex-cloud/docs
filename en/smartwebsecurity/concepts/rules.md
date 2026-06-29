@@ -1,3 +1,8 @@
+---
+title: Rules {{ sws-name }}
+description: Learn about the available rule types in {{ sws-name }}, how they apply actions to HTTP requests, and how rule priority is enforced.
+---
+
 # Rules
 
 Using rules, you can define [conditions](conditions.md) for selecting HTTP request, specify [actions](#rule-action) for requests that match these conditions, and prioritize rules.
@@ -13,6 +18,8 @@ You can also log information about the traffic matching your conditions, without
 * [Smart Protection](#smart-protection-rules)
 * [Web Application Firewall](#waf-rules)
 * [Advanced Rate Limiter](#arl-rules)
+
+There is also an internal [service rule](#service-rule) which can trigger during attacks.
 
 You can learn more in [Managing rules](../operations/index.md#rules).
 
@@ -43,6 +50,33 @@ An [Advanced Rate Limiter](arl.md) rule calculates the number of requests receiv
 ARL rules allow you to set limits either for the whole traffic or some of its segments.
 
 Unlike Smart Protection and WAF rules, ARL rules are configured in an ARL profile.
+
+## Service rule {#service-rule}
+
+To maximize protection against attacks, {{ sws-name }} may block requests that are explicitly allowed by the user profile. This defense mechanism is used exclusively for malicious requests. For other requests, the user’s custom security profile will continue to apply.
+
+Service rule trigger events are registered in [logs](logging.md) with the `sws_service_rule` label.
+
+**Log examples**
+
+* In {{ sws-name }}:
+
+    ```text
+    matched_rule_name: "sws_service_rule",
+    matched_rule_type: "SMART_PROTECTION",
+    matched_rule_verdict: "DENY",
+    ```
+
+* In [{{ alb-full-name }}](../../application-load-balancer/):
+
+    ```json
+    "matched_rule": {
+      "dry_run": "false",
+      "rule_name": "sws_service_rule",
+      "rule_type": "SMART_PROTECTION",
+      "verdict": "DENY"
+    }
+    ```
 
 ## Rule actions {#rule-action}
 

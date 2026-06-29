@@ -1,3 +1,8 @@
+---
+title: Response page templates
+description: Page templates enable you to customize the text and appearance of messages shown when rules trigger.
+---
+
 # Response page templates
 
 {{ sws-name }} protects websites and web applications against cybersecurity threats by blocking or allowing external requests. By default, when a request is blocked, the client gets a standard {{ yandex-cloud }} page with the response code and general information. With response templates, you can tailor the response pages to the needs and design of your website.
@@ -137,7 +142,7 @@ Here are some HTTP header examples:
 
 ## Recommended practices {#recommendations}
 
-* For convenient page management, give them names mapped to the error codes, e.g., `401-unauthorized-web`, `403-forbidden-ru`, or `429-rate-limit-api`.
+* For convenient page management, give them names mapped to the error codes, e.g., `401-unauthorized-web`, `403-forbidden-ru`, `429-rate-limit-api`.
 * Add the `Cache-Control: no-store` HTTP header to pages with blocked requests and errors.
 * Include contact information, e.g., support email address, in the response body for pages with blocked requests. This way, users can inquire about the reason for the block or report an error.
 * Do not expose internal information about security rules and policies in the response body.
@@ -155,7 +160,7 @@ Here are some HTTP header examples:
 
 ## Adding a response page template to profiles and rules {#add-to-profiles-and-rules}
 
-The profile template is displayed when this profile is blocked by any rule. If you select another template for a particular profile, the selected template will be used. If no template is selected for a profile or rule, the default template will be used.
+The profile template is displayed when this profile is blocked by any rule. If you select another template for a particular profile, the selected template will be used. If no template is selected for a profile or rules, the default template is used.
 
 {% include [rules-for-template](../../_includes/smartwebsecurity/rules-for-template.md) %}
 

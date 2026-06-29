@@ -12,7 +12,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a load balancer.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}** and select **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
   1. Specify the load balancer name.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select:
@@ -354,7 +354,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
       * `allocation_policy`: L7 load balancer's [node location](../../application-load-balancer/concepts/application-load-balancer.md#lb-location). Specify the availability zones and subnet IDs.
       * `listener`: Description of parameters for the L7 load balancer [listener](../../application-load-balancer/concepts/application-load-balancer.md#listener). This is an optional setting. You can specify one or multiple listeners.
 
-          * `name`: Listener name. Follow these naming requirements:
+          * `name`: Listener name. The name format is as follows:
 
               {% include [name-format](../../_includes/name-format.md) %}
 
@@ -377,11 +377,11 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
                 * `stream_handler`: Stream listener settings.
 
                     * `backend_group_id`: ID of the `Stream`-type backend group.
-                    * `idle_timeout`: Idle timeout to close the connection when it expires. This is an optional setting. The possible values are, e.g., `"10s"`, `"5m"`, or `"1h"`. Set `"0"` to have no timeout. The default value is one hour.
+                    * `idle_timeout`: Idle timeout to close the connection when it expires. This is an optional setting. The possible values are, e.g., `"10s"`, `"5m"`, `"1h"`. Set `"0"` to have no timeout. The default value is one hour.
 
             * `sni_handler`: SNI listener description.
 
-                * `name`: Listener name. Follow these naming requirements:
+                * `name`: Listener name. The name format is as follows:
 
                   {% include [name-format](../../_includes/name-format.md) %}
 
@@ -392,7 +392,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
                     * `stream_handler`: Stream listener settings.
 
                         * `backend_group_id`: ID of the `Stream`-type backend group.
-                        * `idle_timeout`: Idle timeout to close the connection when it expires. This is an optional setting. The possible values are, e.g., `"10s"`, `"5m"`, or `"1h"`. Set `"0"` to have no timeout. The default value is one hour.
+                        * `idle_timeout`: Idle timeout to close the connection when it expires. This is an optional setting. The possible values are, e.g., `"10s"`, `"5m"`, `"1h"`. Set `"0"` to have no timeout. The default value is one hour.
 
       * `log_options`: Optional [logging](../logs-ref.md) settings for [{{ cloud-logging-full-name }}](../../logging/):
 
@@ -406,28 +406,28 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
 
             You can add multiple rules.
 
-      For more information about `yandex_alb_load_balancer` properties in {{ TF }}, see [this]({{ tf-provider-resources-link }}/alb_load_balancer) {{ TF }} article.
+      For more information about `yandex_alb_load_balancer` properties in {{ TF }}, see [this {{ TF }} article]({{ tf-provider-resources-link }}/alb_load_balancer).
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, navigate to the directory where you created the configuration file.
+      1. In the terminal, navigate to the directory where you created your configuration file.
       1. Run a check using this command:
 
           ```bash
           terraform plan
           ```
 
-      If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
-      1. If the configuration does not contain any errors, run this command:
+      1. If the configuration is correct, run this command:
 
           ```bash
           terraform apply
           ```
 
-      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+      1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
           This will create all the resources you need in the specified folder. You can check your new resources and their settings in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/) command:
 

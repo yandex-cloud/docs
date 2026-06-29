@@ -29,7 +29,7 @@ You can [configure {{ IBRG }} in a {{ dataproc-name }} cluster](../operations/ap
 {% include [apache-iceberg-disclaimer](../../_includes/data-processing/apache-iceberg-disclaimer.md) %}
 
 
-For more information about {{ IBRG }}, see the [official documentation](https://iceberg.apache.org/docs/latest/).
+For more information about {{ IBRG }}, see [this official guide](https://iceberg.apache.org/docs/latest/).
 
 ## Compatibility between {{ IBRG }} versions and {{ dataproc-name }} images {#compatibility}
 

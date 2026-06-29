@@ -5,9 +5,10 @@ description: In this article, you will learn about Neuroanalyst in Editor and ho
 
 # Neuroanalyst in Editor
 
-Neuroanalyst streamlines the creation and editing of visualizations in Editor. Available for three visualization types: [Table](./widgets/table.md), [Markdown](./widgets/markdown.md), and [Advanced chart](./widgets/advanced.md). Neuroanalyst only works with the **Prepare** tab.
+Neuroanalyst is an AI assistant that streamlines the creation and editing of visualizations in Editor. It is supported for three visualization types: [Table](./widgets/table.md), [Markdown](./widgets/markdown.md), and [Advanced chart](./widgets/advanced.md). Neuroanalyst only works with the **Prepare** tab.
 
 To activate Neuroanalyst, click **Help me code** at the top in Editor to open the **Neuroanalyst** tab on the right.
+
 
 {% cut "Neuroanalyst in Editor" %}
 
@@ -15,7 +16,8 @@ To activate Neuroanalyst, click **Help me code** at the top in Editor to open th
 
 {% endcut %}
 
-The AI assistant in Editor will help you create charts from scratch, optimize their structure, and correct errors. Simply give a detailed description of the chart you want to get, and the AI will help you implement it in code.
+
+Neuroanalyst in Editor will help you create charts from scratch, optimize their structure, and correct errors. Simply give a detailed description of the chart you want to get, and the AI will help you implement it in code.
 
 Use the following options:
 

@@ -124,7 +124,7 @@ The infrastructure support cost includes:
         Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the [management console]({{ link-console-main }}).
      1. Check the result.
         1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page.
-        1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
         1. Click the VM name, `coi-vm-with-sp`.
         1. Under **{{ ui-key.yacloud.compute.instance.switch_service-console }}**, select the `COM2` port. In a few minutes, the screen will display `Hello world!`.
 
@@ -186,7 +186,7 @@ Once created, the VM will appear in the VM list under **{{ ui-key.yacloud.iam.fo
 
 To check whether you correctly configured data output from the Docker container to the serial port:
 1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Click the VM name, `coi-vm-with-sp`.
 1. Under **{{ ui-key.yacloud.compute.instance.switch_service-console }}**, select the `COM2` port. In a few minutes, the screen will display `Hello world!`.
 

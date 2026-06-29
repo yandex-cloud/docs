@@ -12,6 +12,6 @@ You get your initial grant when you activate your first billing account. It cann
 
 The initial grant will be issued automatically as soon as you create your first partner billing account. You cannot get the initial grant for additional billing accounts. Use [{#T}](../../partner/qa/additional-grants.md) if required.
 
-#### How do I get the initial grant if I connect a customer under the partner program and create a subaccount? {#client connection}
+#### How do I get the initial grant if I connect a customer under the partner program and create a subaccount? {#client-connection}
 
 You get the initial grant only when creating the first and main customer billing account. No initial grants are issued for subaccounts. Use [{#T}](../../partner/qa/additional-grants.md) if required.

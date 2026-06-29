@@ -7,7 +7,7 @@ description: Follow this guide to change a {{ CH }} cluster version.
 
 You can change the {{ CH }} version used by your cluster to any of the [versions supported by {{ mch-name }}](../concepts/update-policy.md#versioning-policy).
 
-To learn about updates within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).
+To learn about upgrades within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
 ## List of available versions
 
@@ -125,9 +125,9 @@ Make sure the upgrade will not disrupt your applications:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
 
     1. Add or update the `version` field in the {{ mch-name }} cluster description:
 
@@ -144,7 +144,7 @@ Make sure the upgrade will not disrupt your applications:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

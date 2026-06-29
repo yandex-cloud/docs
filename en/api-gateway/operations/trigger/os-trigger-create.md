@@ -6,7 +6,7 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
 
 {% include [trigger-before-you-begin](../../../_includes/api-gateway/trigger-before-you-begin.md) %}
 
-* [Bucket](../../../storage/concepts/bucket.md) for whose object events the trigger will fire. If you do not have a bucket, [create one](../../../storage/operations/buckets/create.md) with restricted access.
+* [Bucket](../../../storage/concepts/bucket.md) whose object events will set off the trigger. If you do not have a bucket, [create one](../../../storage/operations/buckets/create.md) with restricted access.
 
 ## Creating a trigger {#trigger-create}
 
@@ -18,7 +18,7 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -32,8 +32,8 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_storage }}**:
 
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_bucket }}** field, select the bucket whose object events you want to create a trigger for.
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select the events for which the trigger will fire.
+        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_bucket }}** field, select the bucket for which you want to create an object event trigger.
+        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select events that will set off the trigger.
         * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_prefix }}** field, enter a prefix for filtering.
         * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_suffix }}** field, enter a suffix for filtering.
 
@@ -76,7 +76,7 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
     * `--bucket-id`: Bucket ID.
     * `--prefix`: Bucket object key [prefix](../../concepts/trigger/os-trigger.md#filter). This is an optional setting. It is used for filtering.
     * `--suffix`: Bucket object key [suffix](../../concepts/trigger/os-trigger.md#filter). This is an optional setting. It is used for filtering.
-    * `--events`: [Events](../../concepts/trigger/os-trigger.md#event) for which the trigger fires.
+    * `--events`: [Events](../../concepts/trigger/os-trigger.md#event) that set off the trigger.
 
     {% include [batch-settings-events](../../../_includes/api-gateway/batch-settings-events.md) %}
 

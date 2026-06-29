@@ -5,8 +5,9 @@ Operations where details are available have the ![image](../../../_assets/mdb/in
 {% endnote %}
 
 Operation details include a hierarchical list of the operation steps. The first-level items are actions with the cluster, and the second-level ones are actions with hosts. The list may vary for different operations:
-  * If a step is running or has completed, its start date and time are displayed. 
-  * If a step has not yet started, it has the **In queue** status.
+
+* If a step is running or has completed, its start date and time are displayed. 
+* If a step has not yet started, it has the **In queue** status.
 
 The list displays the following actions:
 

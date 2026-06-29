@@ -127,7 +127,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
 
     1. In the {{ mch-name }} cluster description, change the `resource_preset_id` value in the `clickhouse.resources` and `zookeeper.resources` sections for {{ CH }} and {{ ZK }} hosts, respectively:
 
@@ -153,7 +153,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -338,7 +338,7 @@ You can also [change the disk type and storage size for an individual shard](sha
   1. To change the disk type and increase the storage size for your {{ CK }} or {{ ZK }} hosts, select the appropriate values under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}** or **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-disk }}**, respectively.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
   1. If you have changed the disk type for {{ CH }} hosts:
-      1. In the window that opens, look up the number of non-replicated tables in the **Non-replicated MergeTree tables** chart and their size in **Size of non-replicated MergeTree tables**. The data in the non-replicated tables will be lost. If you need to keep it, [convert]({{ ch.docs }}{{ lang }}/sql-reference/statements/attach#attach-mergetree-table-as-replicatedmergetree) the non-replicated tables to replicated ones before you change the disk type.
+      1. In the window that opens, view the number of non-replicated tables in the **Non-replicated MergeTree tables** chart and their size in **Size of non-replicated MergeTree tables**. The data in non-replicated tables will be lost. If you need to keep it, [convert]({{ ch.docs }}{{ lang }}/sql-reference/statements/attach#attach-mergetree-table-as-replicatedmergetree) your non-replicated tables to replicated ones before changing the disk type.
       1. Confirm resource changes.
 
 - CLI {#cli}
@@ -387,7 +387,7 @@ You can also [change the disk type and storage size for an individual shard](sha
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
 
     1. In the {{ mch-name }} cluster description, change the `disk_size` value in the `zookeeper.resources` or `clickhouse.resources` section for {{ CH }} and {{ ZK }} hosts, respectively:
 
@@ -413,7 +413,7 @@ You can also [change the disk type and storage size for an individual shard](sha
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -473,7 +473,7 @@ You can also [change the disk type and storage size for an individual shard](sha
         * `configSpec.clickhouse.resources.diskTypeId`: [Disk type](../concepts/storage.md) of {{ CH }} hosts.
         * `configSpec.zookeeper.resources.diskSize`: {{ ZK }} host storage size, in bytes.
         * `configSpec.zookeeper.resources.diskTypeId`: Disk type of {{ ZK }} hosts.
-        * `allowHostRecreation`: Allows your cluster to recreate hosts. This setting is required when changing the disk type.
+        * `allowHostRecreation`: Allows your cluster to recreate the hosts (this parameter is required when changing the disk type).
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -546,7 +546,7 @@ You can also [change the disk type and storage size for an individual shard](sha
         * `config_spec.clickhouse.resources.disk_type_id`: [Disk type](../concepts/storage.md) of {{ CH }} hosts.
         * `config_spec.zookeeper.resources.disk_size`: {{ ZK }} host storage size, in bytes.
         * `config_spec.zookeeper.resources.disk_type_id`: Disk type of {{ ZK }} hosts.
-        * `allow_host_recreation`: Allows your cluster to recreate hosts. This setting is required when changing the disk type.
+        * `allow_host_recreation`: Allows your cluster to recreate the hosts (this parameter is required when changing the disk type).
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -703,7 +703,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
 
     1. {% include [Enable SQL user management with Terraform](../../_includes/mdb/mch/terraform/sql-management-users.md) %}
 
@@ -901,7 +901,7 @@ You cannot disable settings for user or database management via SQL once they ar
     
     * `--metrika-access`: Enables [data import from AppMetrica to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). The default value is `false`.
 
-    * `--serverless-access`: Enables access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information on setting up access, see [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
+    * `--serverless-access`: Enables access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information on configuring access, see [{{ sf-name }} guides](../../functions/operations/database-connection.md).
 
 
     * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
@@ -928,7 +928,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
 
     1. To change the backup start time, add the `backup_window_start` section to the {{ mch-name }} cluster description:
 
@@ -984,7 +984,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1392,7 +1392,7 @@ The following resources will be created for each database user:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
 
     1. Edit the `security_group_ids` value in the cluster description:
 
@@ -1407,7 +1407,7 @@ The following resources will be created for each database user:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -962,11 +962,17 @@ items:
         href: reports/versioning.md
       - name: Нейроаналитик в отчетах
         href: reports/insights.md
-  - name: Встраивание объектов
+  - name: Публикация и встраивание
     items:
+      - name: Обзор
+        href: concepts/publishing-and-embedding.md
+      - name: Публикация объектов
+        href: concepts/datalens-public.md
       - name: Публичное встраивание
         href: security/embedded-objects.md
-      - name: Непубличное встраивание
+      - name: Поделиться объектом в организации
+        href: concepts/datalens-sharing.md
+      - name: Встраивание через JWT
         href: security/private-embedded-objects.md
   - name: Управление доступом
     items:
@@ -1000,8 +1006,6 @@ items:
             href: operations/permission/request.md
       - name: Доступ к строкам данных
         href: security/row-level-security.md
-      - name: Публичный доступ
-        href: concepts/datalens-public.md
   - name: Настройки сервиса
     items:
       - name: Обзор

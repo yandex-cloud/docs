@@ -15,7 +15,7 @@ During the initial rendering of a dashboard, parameters of all charts remain sta
 
 {% endnote %}
 
-As a result of executing the [Controls](../tabs.md#controls) tab, the chart controls rendering data should be exported. This tab is available only for the following visualizations: [Chart](./chart.md), [Advanced chart](advanced.md), [Table](./table.md), Selector.
+As a result of executing the [Controls](../tabs.md#controls) tab, the chart controls rendering data should be exported. This tab is available for all [visualization types](./index.md).
 
 The controls are mainly designed for updating the parameters and re-rendering the chart. See the [Params](../tabs.md#params) tab description for details on the chart parameters.
 
@@ -85,13 +85,13 @@ Control with `type: "range-datepicker"`. You can use either `param` or `paramTo`
 
 In addition to the common control fields, the following is available:
 
-* `paramFrom`: Name of the linked interval start parameter (instead of the `param` field). Required field; ISO string or [relative date](../tabs.md#relativedate) value type.
-* `paramTo`: Name of the linked interval end parameter (instead of the `param` field). Required field; ISO string or [relative date](../tabs.md#relativedate) value type.
+* `paramFrom`: Name of the linked interval start parameter (instead of the `param` field). Required field; ISO string or [relative date](../tabs.md#relative-date) value type.
+* `paramTo`: Name of the linked interval end parameter (instead of the `param` field). Required field; ISO string or [relative date](../tabs.md#relative-date) value type.
 * `minDate`: Maximum possible value in ISO format. Optional field; string or `null` value type, e.g., `'2024-09-30'`.
 * `maxDate`: Maximum possible value in ISO format. Optional field; string or `null` value type, e.g., `'2025-09-30'`.
 
 
-## List
+## List {#select}
 
 Control with `type: "select"`.
 
@@ -139,6 +139,7 @@ In addition to the common control fields, the following is available:
   ```json
   {
       action: "<string>",
+      mode: "<string>",
       args: <object>,
   },
   ```
@@ -173,12 +174,13 @@ In addition to the common control fields, the following is available:
       }
       ```
 
+  * `mode`: Determines the parameter update strategy. The possible values are:
+    * `replace` (default): Overwrites all existing parameters with new `args`.
+    * `merge`: Merges new `args` with current existing parameters.
+
   * `args`: Static arguments. Required field, its format depends on action type.
 
 
-## Available methods {#methods}
-
-This type of chart has the same capabilities as a [table](../../../visualization-ref/table-chart.md) in the wizard. You can customize styles, set up cross-filtering, pagination, etc.
 
 ## Adding a selector to a dashboard and report {#add-to-dash-report}
 
@@ -188,7 +190,8 @@ If required, create aliases to link your selector to other widgets on the dashbo
 
 ## Special parameters {#spec-params}
 
-To specify a [relative date](../tabs.md#relativedate) in the external selector parameters settings, use the following format: `__relative_<symbol><quantity><unit>`.
+To specify a [relative date](../tabs.md#relative-date) in the external selector parameters settings, use the following format: `__relative_<symbol><quantity><unit>`.
+
 
 ## Examples {#examples}
 

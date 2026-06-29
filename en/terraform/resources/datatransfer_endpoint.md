@@ -58,21 +58,21 @@ resource "yandex_datatransfer_endpoint" "pg_target" {
 
 - `description` (String). Description of the endpoint.
 - `endpoint_id` (String). Identifier of the endpoint to return.
- 
+
  To get the endpoint ID, make an [EndpointService.List] request.
 - `folder_id` (String). ID of the folder to create the endpoint in.
- 
+
  To get the folder ID, make a
  [yandex.cloud.resourcemanager.v1.FolderService.List] request.
 - `id` (String). Identifier of the endpoint to return.
- 
+
  To get the endpoint ID, make an [EndpointService.List] request.
 - `labels` (Map Of String). Endpoint labels as `key:value` pairs.
- 
+
  For details about the concept, see [documentation]( api-url-prefix
  /resource-manager/concepts/labels).
 - `name` (String). Name of the endpoint.
- 
+
  The name must be unique within the folder.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
@@ -104,7 +104,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint/clickhouse.proto
         - `connection_manager_connection` [Block]. Get ClickHouse installation params and credentials from Connection Manager
           - `connection_id` (String). ID of connection in Connection Manager with installation params and credetials
           - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
- database. 
+ database.
  If omitted, the server has to be accessible via Internet
         - `on_premise` [Block]. Connection settings of the on-premise ClickHouse server
           - `http_port` (Number). package: yandex.cloud.datatransfer.v1.endpoint
@@ -159,7 +159,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint/clickhouse.proto
         - `connection_manager_connection` [Block]. Get ClickHouse installation params and credentials from Connection Manager
           - `connection_id` (String). ID of connection in Connection Manager with installation params and credetials
           - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
- database. 
+ database.
  If omitted, the server has to be accessible via Internet
         - `on_premise` [Block]. Connection settings of the on-premise ClickHouse server
           - `http_port` (Number). package: yandex.cloud.datatransfer.v1.endpoint
@@ -224,19 +224,19 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
         - `password` [Block]. Password for user
           - `raw` (String). Raw secret value
     - `connection` [Block]. Connection settings
-      - `cluster_id` (String). Managed Service for Kafka cluster ID. 
+      - `cluster_id` (String). Managed Service for Kafka cluster ID.
  Set only one of: cluster_id/on_premise/connection_manager_connection
       - `connection_manager_connection` [Block]. Get Kafka installation params and credentials from Connection Manager
  Set only one of: cluster_id/on_premise/connection_manager_connection
         - `connection_id` (String). ID of connection in Connection Manager with installation params and credetials
         - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
- database. 
+ database.
  If omitted, the server has to be accessible via Internet
       - `on_premise` [Block]. Connection options for on-premise Kafka
  Set only one of: cluster_id/on_premise/connection_manager_connection
         - `broker_urls` (List Of String). Kafka broker URLs
         - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
- database. 
+ database.
  If omitted, the server has to be accessible via Internet
         - `tls_mode` [Block]. TLS settings for broker connection. Disabled by default.
           - `disabled` [Block]. Empty block designating that the connection is not secured, i.e. plaintext
@@ -302,19 +302,19 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
         - `password` [Block]. Password for user
           - `raw` (String). Raw secret value
     - `connection` [Block]. Connection settings
-      - `cluster_id` (String). Managed Service for Kafka cluster ID. 
+      - `cluster_id` (String). Managed Service for Kafka cluster ID.
  Set only one of: cluster_id/on_premise/connection_manager_connection
       - `connection_manager_connection` [Block]. Get Kafka installation params and credentials from Connection Manager
  Set only one of: cluster_id/on_premise/connection_manager_connection
         - `connection_id` (String). ID of connection in Connection Manager with installation params and credetials
         - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
- database. 
+ database.
  If omitted, the server has to be accessible via Internet
       - `on_premise` [Block]. Connection options for on-premise Kafka
  Set only one of: cluster_id/on_premise/connection_manager_connection
         - `broker_urls` (List Of String). Kafka broker URLs
         - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
- database. 
+ database.
  If omitted, the server has to be accessible via Internet
         - `tls_mode` [Block]. TLS settings for broker connection. Disabled by default.
           - `disabled` [Block]. Empty block designating that the connection is not secured, i.e. plaintext
@@ -359,7 +359,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
     - `security_groups` (List Of String). List of security groups that the transfer associated with this endpoint should
  use
     - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
- database. 
+ database.
  If omitted, the server has to be accessible via Internet
     - `collections` [Block]. List of collections for replication. Empty list implies replication of all
  tables on the deployment. Allowed to use * as collection name.
@@ -417,7 +417,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
     - `security_groups` (List Of String). List of security groups that the transfer associated with this endpoint should
  use
     - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
- database. 
+ database.
  If omitted, the server has to be accessible via Internet
     - `connection` [Block]. Connection settings
       - `connection_options` [Block]. package: yandex.cloud.datatransfer.v1.endpoint
@@ -452,7 +452,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint/mongo.proto
 filename: yandex/cloud/datatransfer/v1/endpoint.proto
 
     - `database` (String). Name of the database to transfer
- 
+
  You can leave it empty, then it will be possible to transfer tables from several
  databases at the same time from this source.
     - `exclude_tables_regex` (List Of String). Opposite of `include_table_regex`. The tables matching the specified regular
@@ -466,7 +466,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
  Default: data source database. Here created technical tables (__tm_keeper,
  __tm_gtid_keeper).
     - `timezone` (String). Database timezone
- 
+
  Is used for parsing timestamps for saving source timezones. Accepts values from
  IANA timezone database. Default: local timezone.
     - `user` (String). User for database access. Required unless connection manager connection is used
@@ -475,7 +475,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
       - `connection_manager_connection` [Block]. Get Mysql installation params and credentials from Connection Manager
         - `connection_id` (String). ID of connection in Connection Manager with installation params and credetials
         - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
- database. 
+ database.
  If omitted, the server has to be accessible via Internet
       - `on_premise` [Block]. Connection options for on-premise MySQL
         - `hosts` (List Of String). List of host names of the MySQL server. Exactly one host is expected
@@ -494,30 +494,30 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
  be signed by a well-known CA
     - `object_transfer_settings` [Block]. Schema migration
  Defines which database schema objects should be transferred, e.g. views,
- routines, etc. 
+ routines, etc.
  All of the attrubutes in the block are optional and should be either
  `BEFORE_DATA`, `AFTER_DATA` or `NEVER`."
       - `routine` (String). Routines
- 
+
  CREATE PROCEDURE ... ; CREATE FUNCTION ... ;
       - `tables` (String). package: yandex.cloud.datatransfer.v1.endpoint
 filename: yandex/cloud/datatransfer/v1/endpoint/mysql.proto
 
       - `trigger` (String). Triggers
- 
+
  CREATE TRIGGER ...
       - `view` (String). Views
- 
+
  CREATE VIEW ...
     - `password` [Block]. Password for database access.
       - `raw` (String). Raw secret value
   - `mysql_target` [Block]. package: yandex.cloud.datatransfer.v1
 filename: yandex/cloud/datatransfer/v1/endpoint.proto
 
-    - `cleanup_policy` (String). Cleanup policy for activate, reactivate and reupload processes.  
+    - `cleanup_policy` (String). Cleanup policy for activate, reactivate and reupload processes.
  One of `DISABLED`, `DROP` or `TRUNCATE` Default is `DISABLED`.
     - `database` (String). Database name
- 
+
  Allowed to leave it empty, then the tables will be created in databases with the
  same names as on the source. If this field is empty, then you must fill below db
  schema for service table.
@@ -533,10 +533,10 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
  Recommend to disable for increase replication speed unless schema contains
  cascading operations
     - `sql_mode` (String). [sql_mode](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html) to use when
- interacting with the server. 
+ interacting with the server.
  Defaults to `NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION`
     - `timezone` (String). Database timezone
- 
+
  Is used for parsing timestamps for saving source timezones. Accepts values from
  IANA timezone database. Default: local timezone.
     - `user` (String). User for database access. Required unless connection manager connection is used
@@ -545,7 +545,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
       - `connection_manager_connection` [Block]. Get Mysql installation params and credentials from Connection Manager
         - `connection_id` (String). ID of connection in Connection Manager with installation params and credetials
         - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
- database. 
+ database.
  If omitted, the server has to be accessible via Internet
       - `on_premise` [Block]. Connection options for on-premise MySQL
         - `hosts` (List Of String). List of host names of the MySQL server. Exactly one host is expected
@@ -567,20 +567,21 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
   - `postgres_source` [Block]. package: yandex.cloud.datatransfer.v1
 filename: yandex/cloud/datatransfer/v1/endpoint.proto
 
+    - `collapse_inherit_table` (Bool). Will collapse pg_inherit table into one big table in replication process
     - `database` (String). Name of the database to transfer
     - `exclude_tables` (List Of String). List of tables which will not be transfered, formatted as `schemaname.tablename`
- If omitted or empty list is specified, all tables are replicated. 
+ If omitted or empty list is specified, all tables are replicated.
  Can contain schema_name.* patterns.
-    - `include_tables` (List Of String). List of tables to transfer, formatted as `schemaname.tablename`. 
+    - `include_tables` (List Of String). List of tables to transfer, formatted as `schemaname.tablename`.
  If omitted or an empty list is specified, all tables will be transferred.
  Can contain schema_name.* patterns.
     - `security_groups` (List Of String). List of security groups that the transfer associated with this endpoint should
  use
     - `service_schema` (String). Name of the database schema in which auxiliary tables needed for the transfer
- will be created (__consumer_keeper, __data_transfer_mole_finder). 
+ will be created (__consumer_keeper, __data_transfer_mole_finder).
  Empty `service_schema` implies schema `public`
     - `slot_gigabyte_lag_limit` (Number). Maximum WAL size held by the replication slot (API - in bytes, terraform - in
- gigabytes); 
+ gigabytes);
  Exceeding this limit will result in a replication failure and deletion of the
  replication slot.
  Default is 50 gigabytes
@@ -590,13 +591,13 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
       - `connection_manager_connection` [Block]. Get Postgres installation params and credentials from Connection Manager
         - `connection_id` (String). ID of connection in Connection Manager with installation params and credetials
         - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
- database. 
+ database.
  If omitted, the server has to be accessible via Internet
       - `on_premise` [Block]. Connection options for on-premise PostgreSQL
         - `hosts` (List Of String). PG installation hosts
         - `port` (Number). PG port. Will be used if the cluster ID is not specified.
         - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
- database. 
+ database.
  If omitted, the server has to be accessible via Internet
         - `tls_mode` [Block]. TLS settings for server connection. Disabled by default.
           - `disabled` [Block]. Empty block designating that the connection is not secured, i.e. plaintext
@@ -608,69 +609,69 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
  connect to the server. If CA certificate is empty, the server's certificate must
  be signed by a well-known CA
     - `object_transfer_settings` [Block]. Defines which database schema objects should be transferred, e.g. views,
- functions, etc. 
+ functions, etc.
  All of the attributes in this block are optional and should be either
  `BEFORE_DATA`, `AFTER_DATA` or `NEVER`
       - `cast` (String). Casts
- 
+
  CREATE CAST ...
       - `collation` (String). Collations
- 
+
  CREATE COLLATION ...
       - `constraint` (String). Constraints
- 
+
  ALTER TABLE ... ADD CONSTRAINT ...
       - `default_values` (String). Default values
- 
+
  ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ...
       - `fk_constraint` (String). Foreign keys
- 
+
  ALTER TABLE ... ADD FOREIGN KEY ...
       - `function` (String). Functions
- 
+
  CREATE FUNCTION ...
       - `index` (String). Indexes
- 
+
  CREATE INDEX ...
       - `materialized_view` (String). Materialized views
- 
+
  CREATE MATERIALIZED VIEW ...
       - `policy` (String). Policies
- 
+
  CREATE POLICY ...
       - `primary_key` (String). Primary keys
- 
+
  ALTER TABLE ... ADD PRIMARY KEY ...
       - `rule` (String). Rules
- 
+
  CREATE RULE ...
       - `sequence` (String). Sequences
- 
+
  CREATE SEQUENCE ...
       - `sequence_owned_by` (String). Owned sequences
- 
+
  CREATE SEQUENCE ... OWNED BY ...
       - `sequence_set` (String). package: yandex.cloud.datatransfer.v1.endpoint
 filename: yandex/cloud/datatransfer/v1/endpoint/postgres.proto
 
       - `table` (String). Tables
- 
+
  CREATE TABLE ...
       - `trigger` (String). Triggers
- 
+
  CREATE TRIGGER ...
       - `type` (String). Types
- 
+
  CREATE TYPE ...
       - `view` (String). Views
- 
+
  CREATE VIEW ...
     - `password` [Block]. Password for database access.
       - `raw` (String). Raw secret value
   - `postgres_target` [Block]. package: yandex.cloud.datatransfer.v1
 filename: yandex/cloud/datatransfer/v1/endpoint.proto
 
-    - `cleanup_policy` (String). Cleanup policy for activate, reactivate and reupload processes. 
+    - `cleanup_policy` (String). Cleanup policy for activate, reactivate and reupload processes.
  One of: DISABLED, DROP, TRUNCATE. Default is TRUNCATE
     - `database` (String). Target database name
     - `is_schema_migration_disabled` (Bool). Whether can change table schema if schema changed on source
@@ -682,13 +683,13 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
       - `connection_manager_connection` [Block]. Get Postgres installation params and credentials from Connection Manager
         - `connection_id` (String). ID of connection in Connection Manager with installation params and credetials
         - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
- database. 
+ database.
  If omitted, the server has to be accessible via Internet
       - `on_premise` [Block]. Connection options for on-premise PostgreSQL
         - `hosts` (List Of String). PG installation hosts
         - `port` (Number). PG port. Will be used if the cluster ID is not specified.
         - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
- database. 
+ database.
  If omitted, the server has to be accessible via Internet
         - `tls_mode` [Block]. TLS settings for server connection. Disabled by default.
           - `disabled` [Block]. Empty block designating that the connection is not secured, i.e. plaintext
@@ -706,7 +707,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
 
     - `changefeed_custom_consumer_name` (String). Consumer for pre-created change feed if any
     - `changefeed_custom_name` (String). Pre-created change feed if any
-    - `database` (String). Database path in YDB where tables are stored. 
+    - `database` (String). Database path in YDB where tables are stored.
  Example: `/ru/transfer_manager/prod/data-transfer-yt`
     - `instance` (String). Instance of YDB. example: ydb-ru-prestable.yandex.net:2135.
  If not specified, will be determined by database
@@ -721,9 +722,9 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
   - `ydb_target` [Block]. package: yandex.cloud.datatransfer.v1
 filename: yandex/cloud/datatransfer/v1/endpoint.proto
 
-    - `cleanup_policy` (String). Cleanup policy determine how to clean collections when activating the transfer. 
+    - `cleanup_policy` (String). Cleanup policy determine how to clean collections when activating the transfer.
  One of `YDB_CLEANUP_POLICY_DISABLED` or `YDB_CLEANUP_POLICY_DROP`
-    - `database` (String). Database path in YDB where tables are stored. 
+    - `database` (String). Database path in YDB where tables are stored.
  Example: `/ru/transfer_manager/prod/data-transfer`
     - `default_compression` (String). Compression that will be used for default columns family on YDB table creation.
  One of `YDB_DEFAULT_COMPRESSION_UNSPECIFIED`,
@@ -731,7 +732,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
     - `instance` (String). Instance of YDB. example: ydb-ru-prestable.yandex.net:2135.
  If not specified, will be determined by database
     - `is_schema_migration_disabled` (Bool). Whether can change table schema if schema changed on source
-    - `is_table_column_oriented` (Bool). Whether a column-oriented (i.e. OLAP) tables should be created. 
+    - `is_table_column_oriented` (Bool). Whether a column-oriented (i.e. OLAP) tables should be created.
  Default is `false` (create row-oriented OLTP tables)
     - `path` (String). Path extension for database, each table will be layouted into this path
     - `sa_key_content` (String). Authentication key
@@ -739,7 +740,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
  use
     - `service_account_id` (String). Service account ID for interaction with database
     - `subnet_id` (String). Identifier of the Yandex Cloud VPC subnetwork to user for accessing the
- database. 
+ database.
  If omitted, the server has to be accessible via Internet
   - `yds_source` [Block]. package: yandex.cloud.datatransfer.v1
 filename: yandex/cloud/datatransfer/v1/endpoint.proto
@@ -748,7 +749,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
  False: stop the transfer in error state, if detected lost data. True: continue
  working with losing part of data
     - `consumer` (String). Custom consumer - for important streams
-    - `database` (String). Database path in YDB for streams 
+    - `database` (String). Database path in YDB for streams
  Example: `/ru/transfer_manager/prod/data-transfer`
     - `endpoint` (String). YDS Endpoint for dedicated db
     - `security_groups` (List Of String). List of security groups that the transfer associated with this endpoint should
@@ -800,7 +801,7 @@ filename: yandex/cloud/datatransfer/v1/endpoint.proto
  be done
  Options: YDS_COMPRESSION_CODEC_RAW, YDS_COMPRESSION_CODEC_ZSTD,
  YDS_COMPRESSION_CODEC_GZIP
-    - `database` (String). Database path in YDB for streams 
+    - `database` (String). Database path in YDB for streams
  Example: `/ru/transfer_manager/prod/data-transfer`
     - `endpoint` (String). YDS Endpoint for dedicated db
     - `save_tx_order` (Bool). Save transaction order

@@ -1,6 +1,6 @@
 # Creating an external S3 data source
 
-In {{ mgp-name }}, you can use [{{ objstorage-full-name }}](../../../storage/index.yaml) or other third-party S3 services as an [external data source](../../concepts/external-tables.md#pxf-data-sources) with the S3 connection type.
+In {{ mgp-name }}, you can use [{{ objstorage-full-name }}](../../../storage/index.yaml) as an [external data source](../../concepts/external-tables.md#pxf-data-sources) with the S3 connection type, including by connecting to {{ objstorage-full-name }} via [Private Endpoint](../../../storage/operations/buckets/access-via-vpc.md). You can also use other third-party S3 services.
 
 To get started, [create a static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key). You will need to specify its data in the source properties.
 

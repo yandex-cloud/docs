@@ -1,3 +1,8 @@
+---
+title: '{{ sws-full-name }} overview'
+description: What is {{ sws-full-name }}, what types of threats it helps prevent, and what are the web app protection components.
+---
+
 # {{ sws-full-name }} overview
 
 {% include [about-sws](../../_includes/smartwebsecurity/about-sws.md) %}

@@ -827,21 +827,6 @@ items:
                     title: ''
                 title: ''
             title: ''
-          - name: Load Testing
-            items:
-              - name: Data Sources
-                items:
-                  - name: loadtesting_agent
-                    href: data-sources/loadtesting_agent.md
-                    title: ''
-                title: ''
-              - name: Resources
-                items:
-                  - name: loadtesting_agent
-                    href: resources/loadtesting_agent.md
-                    title: ''
-                title: ''
-            title: ''
           - name: Lockbox
             items:
               - name: Data Sources
@@ -1080,6 +1065,9 @@ items:
                   - name: mdb_mysql_user
                     href: data-sources/mdb_mysql_user.md
                     title: ''
+                  - name: mdb_mysql_user_v2
+                    href: data-sources/mdb_mysql_user_v2.md
+                    title: ''
                 title: ''
               - name: Resources
                 items:
@@ -1100,6 +1088,9 @@ items:
                     title: ''
                   - name: mdb_mysql_user
                     href: resources/mdb_mysql_user.md
+                    title: ''
+                  - name: mdb_mysql_user_v2
+                    href: resources/mdb_mysql_user_v2.md
                     title: ''
                 title: ''
             title: ''
