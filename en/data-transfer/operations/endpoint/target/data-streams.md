@@ -49,7 +49,7 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
 * Stream [connection settings](#general-settings) in {{ yds-full-name }} and [serialization settings](#serializer). These are required parameters.
-* [Additional settings](#additional-settings).
+* [Advanced settings](#additional-settings).
 
 ### Basic settings {#general-settings}
 

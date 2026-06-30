@@ -119,8 +119,6 @@ Access is granted for a [bucket](../concepts/bucket.md) or [object](../concepts/
 
 ## {{ vpc-short-name }} service connections {#pe-vpc}
 
-{% include [vpc-pe-preview](../../_includes/vpc/pe-preview.md) %}
-
 {% include [intro-access-via-vpc](../../_includes/storage/intro-access-via-vpc.md) %}
 
 In {{ objstorage-name }}, you can configure your bucket so that it is only accessible via {{ vpc-short-name }} service connections. The following mechanisms are provided:

@@ -16,6 +16,12 @@ You can rent a [custom-configured](./server-custom-configurations.md) server for
 
 The terms and conditions of renting an [on-request configuration](./server-individual-configurations.md) are determined on a case-by-case basis.
 
+{% note warning %}
+
+You cannot stop renting a server during the selected rent period. The server is billable for the entire paid period, whether it is on or off. You can [cancel](../operations/servers/server-lease-cancel.md) automatic rent renewal; in this case, your server will run until the end of the paid period and then be deleted.
+
+{% endnote %}
+
 ## Server access {#server-access}
 
 You can manage a server using the [KVM console](../operations/servers/server-kvm.md), which is available from the [management console]({{ link-console-main }}).

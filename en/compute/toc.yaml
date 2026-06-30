@@ -419,6 +419,8 @@ items:
             href: operations/gpu-cluster/gpu-cluster-mpirun-parallel.md
           - name: Testing InfiniBand throughput
             href: operations/gpu-cluster/test-infiniband-bandwidth.md
+      - name: Enabling a software-accelerated network
+        href: operations/enable-software-accelerated-network.md
       - name: Viewing operations on service resources
         href: operations/operation-logs.md
       - name: Viewing metrics in {{ monitoring-name }}
@@ -2563,7 +2565,7 @@ items:
                     href: instancegroup/api-ref/Operation/get.md
                   - name: Cancel
                     href: instancegroup/api-ref/Operation/cancel.md
-  - name: '{{ monitoring-name }} metrics'
+  - name: Metrics {{ monitoring-name }}
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md

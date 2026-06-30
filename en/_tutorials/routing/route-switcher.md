@@ -71,7 +71,7 @@ The infrastructure support cost includes:
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter the service account name, e.g., `sa-terraform`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -285,7 +285,7 @@ The infrastructure support cost includes:
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select your infrastructure folder.
-      1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** and open the `route-switcher-lb-...` page.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** and open the `route-switcher-lb-...` page.
       1. Expand the target group and check whether its resources are `Healthy`. 
 
    {% endlist %}
@@ -316,7 +316,7 @@ The infrastructure support cost includes:
    - Management console {#console}
   
       1. In the [management console]({{ link-console-main }}), select your infrastructure folder.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the VM list, select `test-vm`.
       1. Navigate to the ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
       1. Wait for the operating system to boot.
@@ -365,7 +365,7 @@ The infrastructure support cost includes:
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select your infrastructure folder.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Select the `nat-a` VM from the list, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.common.stop }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 
@@ -407,7 +407,7 @@ The infrastructure support cost includes:
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select your infrastructure folder.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Select the `nat-a` VM from the list, click ![image](../../_assets/options.svg), and select **{{ ui-key.yacloud.common.stop }}**.
       1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
 

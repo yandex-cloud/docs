@@ -7,7 +7,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
 
@@ -193,7 +193,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
         {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  {{ TF }} will create all the required resources. You can check the new resources and their settings in the [management console]({{ link-console-main }}).
+  {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 
   **Creating a bucket using a static key**
@@ -292,7 +292,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
       {% endcut %}
 
-  1. Create the required resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

@@ -3,6 +3,7 @@ title: How to enable origin shielding in {{ cdn-full-name }}
 description: Follow this guide to enable origin shielding.
 ---
 
+
 # Enabling origin shielding
 
 {% include [provider-location-id](../../../_includes/cdn/provider-location-id.md) %}

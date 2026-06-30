@@ -3,13 +3,13 @@
 - {{ mmg-name }} (Managed Service for MongoDB)
 
 
-    1. Estimate the total number of databases for transfer and the total {{ mmg-name }} workload. If the workload on the database exceeds 10,000 writes per second, create multiple endpoints and transfers. For more information, see [{#T}](../../../../data-transfer/operations/endpoint/source/mongodb.md).
+    1. Estimate the total number of databases for transfer and the total {{ mmg-name }} workload. If the workload on the databases exceeds 10,000 writes per second, create multiple endpoints and transfers. For more information, see [{#T}](../../../../data-transfer/operations/endpoint/source/mongodb.md).
     
     1. [Create a user](../../../../storedoc/operations/cluster-users.md#adduser) with the `readWrite` role for each source database to replicate. The `readWrite` role is required to enable the transfer to write data to the `__data_transfer.__dt_cluster_time` service collection.
 
 - {{ MG }}
     
-    1. Estimate the total number of databases for transfer and the total {{ MG }} workload. If the workload on the database exceeds 10,000 writes per second, create multiple endpoints and transfers. For more information, see [{#T}](../../../../data-transfer/operations/endpoint/source/mongodb.md).
+    1. Estimate the total number of databases for transfer and the total {{ MG }} workload. If the workload on the databases exceeds 10,000 writes per second, create multiple endpoints and transfers. For more information, see [{#T}](../../../../data-transfer/operations/endpoint/source/mongodb.md).
     
     1. {% include notitle [White IP list](../../configure-white-ip.md) %}
     

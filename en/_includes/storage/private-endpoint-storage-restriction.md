@@ -13,7 +13,7 @@ With this option on, the bucket will not be accessible from the public network. 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you configured the {{ vpc-short-name }} service connection.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ objstorage-name }}**.
+  1. Navigate to **{{ objstorage-name }}**.
   1. Select the bucket from the list.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Under **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_label-strict-mode_2ttnd }}**, enable **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_description-strict-mode_9cpMe }}**.
@@ -71,7 +71,7 @@ With this option on, the bucket will not be accessible from the public network. 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you configured the {{ vpc-short-name }} service connection.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ objstorage-name }}**.
+  1. Navigate to **{{ objstorage-name }}**.
   1. Select the bucket from the list.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Under **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_label-strict-mode_2ttnd }}**, disable **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_description-strict-mode_9cpMe }}**.

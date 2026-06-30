@@ -38,13 +38,13 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
-  1. Check the list of roles already assigned for the resource:
+  1. View the roles already assigned for the resource:
 
      ```bash
      yc compute instance list-access-bindings <VM_ID>
      ```
 
-  1. Assign the role using this command:
+  1. Assign a role using this command:
 
      * To a user:
 
@@ -166,7 +166,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        * `role`: Role ID.
        * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
-     For example, assign roles to several users and one service account:
+     For example, this command will assign roles to multiple users and a single service account:
 
      ```bash
      yc compute instance set-access-bindings test-vm \
@@ -266,7 +266,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      * `--role`: ID of the role you need to revoke.
      * `--subject`: [Subject](../../../iam/concepts/access-control/index.md#subject) to revoke the role from.
 
-     For example, to revoke the `{{ roles-viewer }}` role for a VM from a user with the `ajel6l0jcb9s********` ID:
+     For example, this command revokes the `{{ roles-viewer }}` role for the VM from a user with the `ajel6l0jcb9s********` ID:
 
      ```bash
      yc compute instance remove-access-binding test-vm \

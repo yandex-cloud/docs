@@ -143,6 +143,10 @@ items:
         href: tutorials/message-delivery-check.md
       - name: Эмуляция множества IoT-устройств
         href: tutorials/iot-emulation.md
+      - name: >-
+          Миграция с {{ iot-full-name }} на MQTT-решения с открытым исходным
+          кодом
+        href: tutorials/iot-core-migration.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

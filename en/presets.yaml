@@ -5407,6 +5407,8 @@ default:
           hosts:
             label_title: List of hosts
         host-groups_eKsBm: Dedicated host groups
+        host-groups:
+          button_create-host-group: Create host group
         images_e7RdQ: Images
         images:
           button_action-image: Create image
@@ -5480,6 +5482,9 @@ default:
             button_net_empty-create: Create a network
             button_show-all-marketplace-products: Show all Marketplace products
             field_access-advanced: Advanced
+            field_affinity-host-groups: Dedicated host groups
+            field_affinity-hosts: Hosts ID
+            field_affinity-key-type: Type of affinity
             field_coi-arguments: Command arguments
             field_coi-command: Command
             field_coi-env: Environment variables
@@ -5489,6 +5494,7 @@ default:
             field_coi-restart-policy: Restart policy
             field_coi-stdin: Allocate an stdin buffer for a running Docker container
             field_coi-tty: Attach a TTY to the Docker container
+            field_host-affinity-rules: Host affinity rules
             field_instance-group-address: Public address
             field_instance-group-network: Network
             field_key: SSH key
@@ -5516,6 +5522,8 @@ default:
             unified-agent: Agent for delivering metrics
             value_address-auto: Auto
             value_address-none: No address
+            value_affinity-key-host: Host ID
+            value_affinity-key-host-group: Dedicated host group
             value_coi-restart-always: Always
             value_coi-restart-never: Never
             value_coi-restart-on-failure: On-Failure
@@ -7070,6 +7078,9 @@ default:
         field_metastore-endpoint-ip: IP address
         label_metastore: Metastore
         label_resource-preset: Metastore
+        label_section-warehouse: Hive Metastore data warehouse
+        label_warehouse-bucket: Bucket name
+        label_warehouse-path: Path in bucket
       mongodb:
         cluster:
           shards:

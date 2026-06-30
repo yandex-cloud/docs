@@ -11,7 +11,7 @@
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder with your cluster.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
       1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the cluster and select **{{ ui-key.yacloud.common.edit }}**.
       1. Enable the workload identity federation in the **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}** field.
       1. Click **{{ ui-key.yacloud.common.save }}**.

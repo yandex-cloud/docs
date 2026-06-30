@@ -1,8 +1,3 @@
-title: Architecture solutions
-description:
-  - >-
-    Architecture solutions and recommendations for implementing custom use cases
-    in Yandex Cloud.
 meta:
   title: Architecture solutions
   description: >-
@@ -18,24 +13,18 @@ blocks:
   - type: card-layout-block
     colSizes:
       all: 12
-      lg: 4
+      sm: 6
       md: 6
-      sm: 12
-      xl: 4
-    indent:
-      bottom: xs
     title: Architecture solutions
-    description: >-
-      Architecture solutions and recommendations for implementing custom use
-      cases in Yandex Cloud.
+    description: "Architecture solutions and recommendations for implementing custom use cases in Yandex\_Cloud."
     children:
       - type: basic-card
-        title: Recommendations on fault tolerance in Yandex Cloud
+        title: "Recommendations on fault tolerance in Yandex\_Cloud"
         text: >-
           Recommended practices for creating a cloud service infrastructure able
           to continue to operate in the event of loss of one or more of its
           components.
-        urlTitle: Recommendations on fault tolerance in Yandex Cloud
+        urlTitle: "Recommendations on fault tolerance in Yandex\_Cloud"
         url: fault-tolerance
         border: shadow
         controlPosition: content
@@ -46,17 +35,17 @@ blocks:
           This is an example of how to deploy a web app in a fault-tolerant
           configuration based on scalable managed services of the Yandex Cloud
           ecosystem.
-        urlTitle: Deploying a web app in a fault-tolerant configuration in Yandex Cloud
+        urlTitle: "Deploying a web app in a fault-tolerant configuration in Yandex\_Cloud"
         url: app-in-k8s
         border: shadow
         controlPosition: content
         animated: false
       - type: basic-card
-        title: Fault tolerance testing in Yandex Cloud
+        title: "Fault tolerance testing in Yandex\_Cloud"
         text: >-
-          Recommended practices for fault tolerance testing on complete failure
-          of one of the availability zones.
-        urlTitle: Fault tolerance testing in Yandex Cloud
+          Recommended practices for fault tolerance testing on a complete
+          failure of an availability zone.
+        urlTitle: "Fault tolerance testing in Yandex\_Cloud"
         url: testing-zone-failure
         border: shadow
         controlPosition: content

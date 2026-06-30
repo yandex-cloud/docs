@@ -5,8 +5,6 @@ description: Follow this guide to create a service connection (private endpoint)
 
 # Creating a service connection
 
-{% include [vpc-pe-preview](../../_includes/vpc/pe-preview.md) %}
-
 
 {% include [private-endpoint-create-roles](../../_includes/vpc/private-endpoint-create-roles.md) %}
 

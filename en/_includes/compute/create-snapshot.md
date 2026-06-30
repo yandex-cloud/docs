@@ -3,7 +3,7 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the disk.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. In the line with the disk, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
   1. Enter a name for the snapshot. The naming requirements are as follows:
@@ -41,12 +41,12 @@
       ```
 
       Where:
-      * `--name`: Snapshot name. Follow these naming requirements:
+      * `--name`: Snapshot name. The naming requirements are as follows:
 
           {% include [name-format](../name-format.md) %}
 
       * `--description`: Description of the new snapshot. This is an optional setting.
-      * `--disk-id`: ID of the disk to create the snapshot for. Instead of the disk ID, you can provide its name in the `--disk-name` parameter.
+      * `--disk-id`: ID of the disk to create the snapshot for. Instead of the ID, you can provide its name in `--disk-name`.
       * `--hardware-generation-id`: Virtualized hardware [generation](../../compute/concepts/hardware-generations.md#configurations) assigned to the snapshot. This is an optional setting. The possible values are:
 
           {% include [generation-types-cli](generation-types-cli.md) %}
@@ -102,7 +102,7 @@
      ```
 
       Where:
-      * `name`: Snapshot name. Follow these naming requirements:
+      * `name`: Snapshot name. The naming requirements are as follows:
 
           {% include [name-format](../name-format.md) %}
 
@@ -117,22 +117,22 @@
 
           {% endnote %}
 
-     For more information about the `yandex_compute_snapshot` resource, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_snapshot).
+     For more information about `yandex_compute_snapshot`, see [this provider guide]({{ tf-provider-resources-link }}/compute_snapshot).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
 
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply

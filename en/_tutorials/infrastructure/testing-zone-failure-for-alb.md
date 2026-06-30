@@ -74,7 +74,7 @@ allocation_policy:
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with your load balancer.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}** and select the load balancer.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}** and select the load balancer.
       1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, next to the availability zone, view its status.
 
           If the zonal shift duration has been set, you will see the end time next to the zone.

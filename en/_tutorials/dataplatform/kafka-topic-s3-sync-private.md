@@ -1,14 +1,6 @@
 # Syncing data from {{ KF }} topics to a {{ objstorage-full-name }} bucket without using the internet
 
 
-
-{% note info %}
-
-The VPC Private Endpoints feature in {{ vpc-full-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access to the feature, contact your account manager.
-
-{% endnote %}
-
-
 You can synchronize data from {{ KF }} topics to a {{ objstorage-full-name }} bucket without using the internet via a service connection in the user network hosting the {{ mkf-name }} cluster. Proceed as follows:
 
 1. [Send data to the topic](#send-data).

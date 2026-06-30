@@ -31,7 +31,7 @@ You can migrate [transfers](../../concepts/index.md#transfer) from one [availabi
 
 ## Moving an endpoint based on a managed DB {#managed-service}
 
-1. Move your cluster hosts to a different availability zone. For more information, see the documentation for the following services:
+1. Move your cluster hosts to a different availability zone. For more information, refer to the relevant guides:
 
    * [{{ mch-full-name }}](../../../managed-clickhouse/operations/host-migration.md)
    * [{{ mmg-full-name }}](../../../storedoc/operations/host-migration.md)
@@ -39,7 +39,7 @@ You can migrate [transfers](../../concepts/index.md#transfer) from one [availabi
    * [{{ mos-full-name }}](../../../managed-opensearch/operations/host-migration.md)
    * [{{ mpg-full-name }}](../../../managed-postgresql/operations/host-migration.md)   * [{{ ydb-full-name }}](../../../ydb/operations/migration-to-an-availability-zone.md)
 
-1. If the [transfer type](../../concepts/transfer-lifecycle.md#transfer-types) is {{ dt-type-repl }} or {{ dt-type-copy-repl }}, restart the transfer for it to get the information about the new cluster topology. You do not need to restart {{ dt-type-copy }} transfers, as information about the new topology is provided automatically while activating them.
+1. If the [transfer type](../../concepts/transfer-lifecycle.md#transfer-types) is {{ dt-type-repl }} or {{ dt-type-copy-repl }}, restart the transfer for it to get the information about the new cluster topology. You do not need to restart {{ dt-type-copy }} transfers, as information about the new topology is provided automatically upon their activation.
 
    {% include [reactivate-a-transfer](../../../_includes/data-transfer/reactivate-a-transfer.md) %}
 

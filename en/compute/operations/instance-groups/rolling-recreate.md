@@ -121,7 +121,7 @@ To sequentially recreate instances in a group:
       
       {{ ig-name }} will start recreating the specified instances in the group one by one. The recreated instances will change their status to `Running`.
 
-  For more information about the `{{ yc-compute-ig }} rolling-recreate` command parameters, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance-group/rolling-recreate.md).
+  For more information about `{{ yc-compute-ig }} rolling-recreate` options, see [this CLI reference](../../../cli/cli-ref/compute/cli-ref/instance-group/rolling-recreate.md).
 
 - API {#api}
 

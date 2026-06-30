@@ -302,7 +302,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
 
-  1. In the configuration file, specify the properties of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      provider "yandex" {
@@ -328,12 +328,14 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
        description        = "static access key for object storage"
      }
 
+     // Creating a bucket
      resource "yandex_storage_bucket" "bucket" {
        bucket     = "<bucket_name>"
        acl        = "private"
        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
 
+       // Object lifecycle rules
        lifecycle_rule {
          id      = "log"
          enabled = true
@@ -370,11 +372,12 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
          }
 
          expiration {
-           date = "2020-12-21"
+           date = "2026-12-21"
          }
        }
      }
 
+     // Creating a bucket with versioning enabled
      resource "yandex_storage_bucket" "versioning_bucket" {
        bucket     = "<bucket_name>"
        acl        = "private"
@@ -385,6 +388,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
          enabled = true
        }
 
+       // Object lifecycle rules
        lifecycle_rule {
          enabled = true
 

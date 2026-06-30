@@ -130,7 +130,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.time_column.title }}**: Column to split (_partition_) the table based on. The column must be of the _time_ type.
 
             
-            For more information about partitioning tables, see the [{{ ydb-full-name }}]({{ ydb.docs }}/concepts/datamodel/table#partitioning) documentation.
+            For more information on table partitioning, see [this {{ ydb-full-name }} guide]({{ ydb.docs }}/concepts/datamodel/table#partitioning).
 
 
         If this setting is used, the specified number of data tables for different intervals is created in the target database. The name of each table is selected automatically by the date and time of the start of the interval. Depending on the values in the specified column of the source table, the original rows are distributed across the respective tables in the target database.

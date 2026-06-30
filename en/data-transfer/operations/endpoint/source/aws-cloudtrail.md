@@ -26,7 +26,7 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 
 ## Configuring an AWS CloudTrail source endpoint {#endpoint-settings}
 
-When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, configure access to AWS. For more information, see the [{{ AB }} documentation](https://docs.airbyte.com/integrations/sources/aws-cloudtrail).
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, configure access to AWS. For more information, see [this {{ AB }} guide](https://docs.airbyte.com/integrations/sources/aws-cloudtrail).
 
 {% list tabs group=instructions %}
 

@@ -34,7 +34,7 @@ You can attach each file storage to one or multiple VMs. A storage and all VMs i
 
 When you delete a VM, any attached storages are detached from it. In this case, the data the storages contain is saved and their connections to other VMs persist.
 
-## Requirements and restrictions {#requirements-and-limits}
+## Requirements and limitations {#requirements-and-limits}
 
 ### OS support {#os}
 

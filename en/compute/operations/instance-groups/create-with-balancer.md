@@ -33,7 +33,7 @@ To create an instance group with a network load balancer:
 
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-     * Select the [service account](../../../iam/concepts/users/service-accounts.md) from the list or create a new one. To create, update, and delete VM instances in your group, as well as integrate the group with {{ network-load-balancer-name }}, you will need to [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) and [load-balancer.editor](../../../network-load-balancer/security/index.md#load-balancer-editor) roles to a service account. By default, all operations you perform with an instance group are run under a service account.
+     * Select the [service account](../../../iam/concepts/users/service-accounts.md) from the list or create a new one. To create, update, and delete VM instances in your group, as well as integrate the group with {{ network-load-balancer-name }}, you will need to [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) and [load-balancer.editor](../../../network-load-balancer/security/index.md#load-balancer-editor) roles to a service account. By default, all operations with an instance group are performed under a service account.
 
        {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
@@ -381,7 +381,7 @@ To create an instance group with a network load balancer:
      ```
 
      Where:
-     * `yandex_iam_service_account`: [Service account](../../../iam/concepts/users/service-accounts.md) description. All operations you perform with an instance group are run under a service account.
+     * `yandex_iam_service_account`: [Service account](../../../iam/concepts/users/service-accounts.md) description. All operations with an instance group are performed under a service account.
 
        {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 

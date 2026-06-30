@@ -106,7 +106,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
     ```
 
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -163,7 +163,7 @@ For OnPremise, all fields are filled in manually.
     ```
 
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -229,7 +229,7 @@ You can configure **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.
 
     * `timezone`: Specify the [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. Defaults to UTC+0.
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
     * {% include [alter-schema-change-tf](../../../../_includes/data-transfer/fields/alter-schema-change-tf.md) %}
 

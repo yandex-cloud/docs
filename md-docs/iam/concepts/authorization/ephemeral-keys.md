@@ -1,6 +1,5 @@
 # Эфемерные ключи доступа, совместимые с AWS API
 
-
 Эфемерные ключи доступа — это временные учетные данные для аутентификации [аккаунтов на Яндексе](../users/accounts.md#passport), [федеративных аккаунтов](../users/accounts.md#saml-federation), [локальных пользователей](../users/accounts.md#local) и [сервисных аккаунтов](../users/service-accounts.md).
 
 {% note info %}

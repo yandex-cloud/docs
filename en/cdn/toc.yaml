@@ -526,7 +526,7 @@ items:
                 href: api-ref/Resource/delete.md
               - name: GetProviderCName
                 href: api-ref/Resource/getProviderCName.md
-  - name: '{{ monitoring-name }} metrics'
+  - name: Metrics {{ monitoring-name }}
     href: metrics-yc.md
   - name: Request logs
     href: logs-ref.md

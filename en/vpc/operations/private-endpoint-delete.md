@@ -5,8 +5,6 @@ description: Follow this guide to delete a service connection (private endpoint)
 
 # Deleting a service connection
 
-{% include [vpc-pe-preview](../../_includes/vpc/pe-preview.md) %}
-
 
 
 {% list tabs group=instructions %}

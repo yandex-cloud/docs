@@ -7,6 +7,46 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.15.0 (30.06.26) {#v-1-15-0}
+
+#### {{ mch-name }} {#v-1-15-0-mch-name}
+
+* Добавлена команда `yc managed-clickhouse connect` для подключения к кластерам {{ mch-name }} от имени IAM-пользователя.
+* В команду `yc managed-clickhouse user create` добавлен параметр для создания пользователей с IAM-аутентификацией.
+* Для внешних словарей добавлены типы размещения `ssd_cache` и `complex_key_ssd_cache` в команды:
+  * `yc managed-clickhouse cluster add-external-dictionary`;
+  * `yc managed-clickhouse cluster update-external-dictionary`.
+* Исправлено создание однохостового кластера без сервиса координации в команде `yc managed-clickhouse cluster create`.
+
+#### {{ mmy-name }} {#v-1-15-0-mmy-name}
+
+Добавлена группа команд `yc managed-mysql backup-retention-policy` для управления LTR-политиками:
+* `yc managed-mysql backup-retention-policy create`;
+* `yc managed-mysql backup-retention-policy list`;
+* `yc managed-mysql backup-retention-policy list-by-folder`;
+* `yc managed-mysql backup-retention-policy delete`.
+
+#### {{ cloud-registry-name }} {#v-1-15-0-cloud-registry-name}
+
+Добавлена ветка команд `yc cloud-registry v1` на новом синтаксисе CLI.
+
+#### {{ sws-name }} {#v-1-15-0-sws-name}
+
+Добавлены команды для управления списками адресов, профилями ARL, WAF-профилями и наборами правил WAF:
+* `yc smartwebsecurity match-list`;
+* `yc smartwebsecurity advanced-rate-limiter`;
+* `yc smartwebsecurity waf`.
+
+#### {{ objstorage-name }} {#v-1-15-0-objstorage-name}
+
+Исправлено определение типа содержимого в команде `yc storage s3 cp`.
+
+#### {{ load-testing-name }} {#v-1-15-0-load-testing-name}
+
+Удалена группа команд `yc loadtesting`, так как сервис {{ load-testing-name }} прекращает работу.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.14.0 (18.06.26) {#v-1-14-0}
 
 #### {{ mrd-name }} {#v-1-14-0-mrd-name}
@@ -40,8 +80,6 @@ description: На странице представлены релизы CLI, а
 #### {{ mgp-name }} {#v-1-14-0-mgp-name}
 
 Добавлена поддержка Apache Cloudberry в команду обновления конфигурации СУБД `yc managed-greenplum cluster update-config`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.13.0 (09.06.26) {#v-1-13-0}
 

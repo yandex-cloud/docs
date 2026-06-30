@@ -6,9 +6,11 @@ editable: false
 
 # {{ cdn-full-name }} pricing policy
 
-{% include [pricing-change-warning](../_includes/cdn/pricing-change-warning.md) %}
+{% note warning %}
 
+Starting July 1, 2026, a new pricing model for {{ cdn-name }} is in effect.
 
+{% endnote %}
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
@@ -19,10 +21,20 @@ editable: false
 {% include [vat](../_includes/vat.md) %}
 
 The cost of using {{ cdn-name }} is based on:
-* Amount of outbound traffic from CDN servers, including traffic requested from user resources on {{ yandex-cloud }}, e.g., {{ compute-full-name }} [virtual machines](../compute/concepts/vm.md). Inbound traffic to the CDN servers from {{ yandex-cloud }} services and resources or from the internet is free of charge.
-* Paid features enabled for your resources: [origin shielding](concepts/origins-shielding.md), [log export](concepts/logs.md), and [dedicated IP addressing](concepts/dedicated-ip-addressing.md).
+* The number of [CDN resources](./concepts/resource.md).
+* The volume of outgoing traffic exceeding the 150 GB of free traffic per month for each resource, charged per 1 GB.
+
+    When a resource is deleted, the remaining free traffic is reset to zero. Transferring traffic between resources is not possible.
+
+    Outgoing traffic from CDN servers is taken into account, including traffic requested from user resources of {{ yandex-cloud }} services, for example, from {{ compute-full-name }} [virtual machines](../compute/concepts/vm.md). Incoming traffic to CDN servers from {{ yandex-cloud }} services and resources and from the internet is not charged.
+
+* The number of requests to CDN resources exceeding the free threshold of 100,000,000 requests per month, charged per 100,000 requests.
+* Paid features enabled for resources: [origin shielding](concepts/origins-shielding.md), [log export](./concepts/logs.md), and [dedicated IP addressing](./concepts/dedicated-ip-addressing.md).
+
 
 ## Prices for the Russia region {#prices}
+
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
@@ -35,6 +47,7 @@ You can choose one of the following billing models when [activating dedicated IP
 
 
 
+
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|cdn }}']}
@@ -42,6 +55,5 @@ You can choose one of the following billing models when [activating dedicated IP
     currency="USD"
   />
 </MDX>
-
 
 

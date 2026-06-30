@@ -7,7 +7,7 @@ Using [{{ network-load-balancer-full-name }}](/services/network-load-balancer) a
 
 ### Creating a target group {#principles-creation}
 
-In {{ yandex-cloud }} load balancing services, a _target group_ is a set of resources where your network applications are running. The load balancer the target group is linked to distributes incoming requests across its resources. To learn more about target groups, see the [{{ network-load-balancer-name }}](../../../network-load-balancer/concepts/target-resources.md) and [{{ alb-name }}](../../../application-load-balancer/concepts/target-group.md) documentation.
+In {{ yandex-cloud }} load balancing services, a _target group_ is a set of resources where your network applications are running. The load balancer the target group is linked to distributes incoming requests across its resources. For more information about target groups, see the [{{ network-load-balancer-name }}](../../../network-load-balancer/concepts/target-resources.md) and [{{ alb-name }} guides](../../../application-load-balancer/concepts/target-group.md).
 
 Target groups usually include {{ compute-name }} VM instances. This allows you to set up an instance group so that a {{ network-load-balancer-name }} or {{ alb-name }} target group could be created automatically from it. The target group created this way will be associated with the instance group:
 
@@ -17,16 +17,16 @@ Target groups usually include {{ compute-name }} VM instances. This allows you t
 To make sure the target group starts receiving traffic, link it to a load balancer. {{ compute-name }} does not do this automatically. 
 
 * The {{ network-load-balancer-name }} target group should be [linked to the load balancer](../../../network-load-balancer/operations/target-group-attach.md) directly.
-* The {{ alb-name }} target group should be linked to a [backend group](../../../application-load-balancer/concepts/backend-group.md) and the backend group, to the load balancer, either directly or via an [HTTP router](../../../application-load-balancer/concepts/http-router.md), depending on the load balancing type. For more information, see our [guides for managing {{ alb-name }} resources](../../../application-load-balancer/operations/index.md).
+* The {{ alb-name }} target group should be linked to a [backend group](../../../application-load-balancer/concepts/backend-group.md) and the backend group, to the load balancer, either directly or via an [HTTP router](../../../application-load-balancer/concepts/http-router.md), depending on the load balancing type. For more information, see [these {{ alb-name }} resource management guides](../../../application-load-balancer/operations/index.md).
 
 
-### Health checks from load balancers {#principles-health-checks}
+### Load balancer health checks {#principles-health-checks}
 
-Once a target group is linked to a load balancer, it sends _health checks_ to the group instances to find out which of them are healthy and which are not when distributing traffic. To learn more about health checks, see the [{{ network-load-balancer-name }}](../../../network-load-balancer/concepts/health-check.md) and [{{ alb-name }}](../../../application-load-balancer/concepts/backend-group.md#health-checks) documentation.
+Once a target group is linked to a load balancer, it sends _health checks_ to the group instances to find out which of them are healthy and which are not when distributing traffic. For more on health checks, see the [{{ network-load-balancer-name }}](../../../network-load-balancer/concepts/health-check.md) and [{{ alb-name }} guides](../../../application-load-balancer/concepts/backend-group.md#health-checks).
 
 When you add an instance to the group or restart a stopped one, this instance is added to the target group, gets the [`OPENING_TRAFFIC` status in the instance group](statuses.md#vm-statuses), and starts receiving health checks from the load balancer. If the instance passes the required number of health checks (the healthy threshold you set when configuring health checks), the load balancer considers it healthy. The instance starts receiving traffic from the load balancer and switches to the `RUNNING_ACTUAL` status.
 
-By default, an instance may have the `OPENING_TRAFFIC` status indefinitely until it gets healthy. You can limit this time in the [integration settings](#settings) (the `max_opening_traffic_duration` field). {{ compute-name }} will then automatically recover the instance that has received no traffic for too long since it was added to the group or started. For more information about VM recovery, see [{#T}](autohealing.md#healthcheck-cases).
+By default, an instance may have the `OPENING_TRAFFIC` status indefinitely until it gets healthy. You can limit this time in the [integration settings](#settings) (the `max_opening_traffic_duration` field). {{ compute-name }} will then automatically recover the instance that has received no traffic for too long since it was added to the group or started. For more information on recovery, see [{#T}](autohealing.md#healthcheck-cases).
 
 You can disable load balancer health checks using the `ignore_health_checks` parameter. In this case, the checks will not affect the instance group in any way. Negative check results will not prompt the instances to autoheal, and the group will receive no traffic from load balancers.
 
@@ -109,7 +109,7 @@ The fields and options in the management console are located under **{{ ui-key.y
 | `description`<br/>**{{ ui-key.yacloud.compute.groups.create.field_target-group-description }}** | Description of the target group. |
 | `labels` | Target group [labels](../../../resource-manager/concepts/labels.md) in `<label_name>: <label_value>` format. |
 | `max_opening_traffic_duration`<br/>**{{ ui-key.yacloud.compute.groups.create.field_alb-pre-checks-timeout }}** | Time during which a new instance in the group must pass the health check from the load balancer. The possible values are 0 and 1+ sec. The default value is 0 (unlimited). For more information, see [Load balancer health checks](#principles-health-checks). |
-| `ignore_health_checks` | Ignore load balancer health checks. The possible values are `true` or `false`. |
+| `ignore_health_checks` | Ignore load balancer health checks. It can be either `true` or `false`. |
 
 ## Use cases {#examples}
 

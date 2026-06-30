@@ -15,7 +15,7 @@ To update the VM metadata:
   {% endnote %}
 
   1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. In the VM row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.common.metadata }}**, provide the metadata in `Key:Value` format.
@@ -41,6 +41,8 @@ To update the VM metadata:
       For example, to add several users to a VM at the same time, describe the configuration in a [YAML](https://yaml.org/) file:
 
       {% include [users-from-metadata-example](../users-from-metadata-example.md) %}
+
+      {% include [cli-metadata-variables-substitution-notice](../create/cli-metadata-variables-substitution-notice.md) %}
 
   * `--metadata`: As a comma-separated list of `key=value` pairs, e.g., `--metadata foo1=bar,foo2=baz`.
 

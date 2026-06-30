@@ -42,4 +42,4 @@
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.security_groups.title }}**: Select the cloud network to host the endpoint and security groups for network traffic.
 
-  Thus, you will be able to apply the specified security group rules to the VMs and DBs in the selected network without changing the settings of these VMs and DBs. For more information, see [{#T}](../../../../data-transfer/concepts/network.md).
+  This will allow you to apply the specified security group rules to VMs and DBs in the selected network without reconfiguring these VMs and DBs. For more information, see [{#T}](../../../../data-transfer/concepts/network.md).

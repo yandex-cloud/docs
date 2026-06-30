@@ -49,6 +49,12 @@ blocks:
 
 In {{ baremetal-name }}, you pay for renting a server of a [certain configuration](concepts/server-configurations.md). A rented server is billable for the entire rent period, whether it is on or off.
 
+{% note warning %}
+
+You cannot cancel server rental during the selected rent term. The server remains billable for the entire prepaid period, regardless of the payment method and procedure for debiting funds. You can [cancel](../baremetal/operations/servers/server-lease-cancel.md) automatic rent renewal; in this case, your server will run until the end of the paid period and then be deleted.
+
+{% endnote %}
+
 You can look up how many servers of particular configurations are available in the [calculator](https://yandex.cloud/en/prices) on the {{ yandex-cloud }} website and in the [management console]({{ link-console-main }}) when selecting a server.
 
 ## Prices for the Russia region {#prices}

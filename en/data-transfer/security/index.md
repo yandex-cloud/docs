@@ -18,7 +18,7 @@ To use the service, log in to the management console with your [Yandex account](
 
 {% include [roles-assign](../../_includes/iam/roles-assign.md) %}
 
-## Resources supporting role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -68,7 +68,7 @@ If you are creating a managed database endpoint for a cluster residing in a diff
 
 If you are creating a managed database endpoint for a third-party cluster with internet access, you will need the primitive `admin` role or the `data-transfer.admin` service role for the folder where you are creating the endpoint.
 
-You can always assign a role offering more permissions (e.g., `admin` instead of `editor`) or assign roles that allow only specific actions. For more information about the roles required to perform particular actions with {{ data-transfer-name }} resources, see this table:
+You can always assign a role offering more permissions (e.g., `admin` instead of `editor`) or roles that allow only individual actions. For more information about the roles required to perform particular actions with {{ data-transfer-name }} resources, see this table:
 
 | Action                                                                    | Required roles             |
 |-----------------------------------------------------------------------------|------------------------------|

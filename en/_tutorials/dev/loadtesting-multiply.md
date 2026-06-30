@@ -82,7 +82,7 @@ In this example, an external service named `example.myservice.ru` will be loaded
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create the agent.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
      1. In the ![image](../../_assets/load-testing/agent.svg) **{{ ui-key.yacloud.load-testing.label_agents-list }}** tab, click **{{ ui-key.yacloud.load-testing.button_create-agent }}**.
      1. Enter a name for the agent, e.g., `agent-008`.
      1. Select an [availability zone](../../overview/concepts/geo-scope.md) to host the agent.
@@ -126,7 +126,7 @@ If you need to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) 
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
   1. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
   1. Under **Configuration 1**, specify the test parameters for the first agent:
@@ -161,7 +161,7 @@ If you need to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) 
             * **Duration**: `300s`
 
           This instructs the load generator to increase the load from 1 to 100 requests per second for the first 60 seconds, and then maintain a load of 100 requests per second for 5 minutes. [Learn more about the load profile](../../load-testing/concepts/load-profile.md).
-        * **Request type**: Specify `URI` as the [type](../../load-testing/concepts/payloads/uri.md).
+        * **Request type**: `URI`.
         * In the **{{ ui-key.yacloud.load-testing.test-data-section }}** field, select **{{ ui-key.yacloud.load-testing.label_settings-type-form }}**. In the menu that opens:
           * In the **Requests** menu, add the following requests:
             * `/ index`
@@ -199,7 +199,7 @@ If you need to [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) 
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. In the left-hand panel, go to the ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab.
   1. Select the test that you created earlier. Tests using multiple agents have the `Multi` label.
   1. To view cumulative results, go to the ![image](../../_assets/load-testing/results.svg) **{{ ui-key.yacloud.load-testing.label_test-report }}** tab.

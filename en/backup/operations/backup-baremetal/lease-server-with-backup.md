@@ -10,7 +10,17 @@ You can back up your {{ baremetal-name }} [servers](../../../baremetal/concepts/
 
 {% include [baremetal-os-list](../../../_includes/backup/baremetal-os-list.md) %}
 
-## Leasing a {#server-rent} server
+To connect a server to {{ backup-full-name }}, you need the `backup.user` [role](../../security/index.md#backup-user) or higher.
+
+{% note warning %}
+
+Starting August 1, 2026, the [`baremetal.editor`](../../../baremetal/security/index.md#baremetal-editor) and [`baremetal.admin`](../../../baremetal/security/index.md#baremetal-admin) roles get new permissions allowing them to connect {{ baremetal-name }} servers to {{ backup-full-name }}, link and unlink them from [backup policies](../../concepts/policy.md).
+
+{% include [denyActivation-iam-policy-pre-notice](../../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
+
+{% endnote %}
+
+## Leasing a server {#server-rent}
 
 {% list tabs group=instructions %}
 

@@ -29,7 +29,7 @@ To create a network and subnets:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Click **Create network**.
   1. Enter `web-network` for the network **Name**.
   1. In the **Advanced** field, select **Create subnets**.
@@ -48,7 +48,7 @@ To create a security group:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Open the **Security groups** tab.
   1. Create a security group for your VM:
       1. Click **Create group**.
@@ -145,7 +145,7 @@ Below we describe how to configure the DNS for the `example.com` domain name. Th
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Copy the IP address of the VM you created.
   1. On the website of your DNS hosting provider, navigate to the DNS settings.
   1. Create or edit the [A record](../../dns/concepts/resource-record.md#a) for `example.com` so that it points to the copied IP address:
@@ -161,7 +161,7 @@ Below we describe how to configure the DNS for the `example.com` domain name. Th
       {% cut "Configuring DNS records for {{ dns-name }}" %}
 
       1. In the [management console]({{ link-console-main }}), select a folder.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. If you do not have a public [DNS zone](../../dns/concepts/dns-zone.md), create one:
           1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
           1. Specify the zone **{{ ui-key.yacloud.common.name }}**: `example-zone-1`.

@@ -61,7 +61,7 @@ In {{ metadata-hub-name }}, you can [create {{ metastore-full-name }} clusters](
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-1. [Create a service account](../../iam/operations/sa/create.md#create-sa) with the `dataproc.agent`, `dataproc.provisioner`, and `{{ roles.metastore.integrationProvider }}` roles.
+1. [Create a service account](../../iam/operations/sa/create.md#create-sa) with the `dataproc.agent`, `dataproc.provisioner`, `{{ roles.metastore.integrationProvider }}`, and `storage.editor` roles.
 
 1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) to interact with a {{ dataproc-name }} cluster.
 
@@ -80,12 +80,17 @@ In {{ metadata-hub-name }}, you can [create {{ metastore-full-name }} clusters](
 - Management console {#console}
 
     1. In the management console, go to the folder you created earlier.
-    1. [Go](../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+    1. [Navigate](../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Enter a name for the cluster. It must be unique within the folder.
     1. Select a [service account](../../iam/concepts/users/service-accounts.md) under which the {{ metastore-name }} cluster will interact with other {{ yandex-cloud }} services, or [create](../../iam/operations/sa/create.md) a new one.
-    1. Select {{ metastore-name }} version 3.1.
+    1. Select the {{ metastore-name }} version you need.
+    1. Under **{{ ui-key.yacloud.metastore.label_section-warehouse }}**, specify the bucket parameters for table data storage:
+
+        * **{{ ui-key.yacloud.metastore.label_warehouse-bucket }}**: Name of the {{ objstorage-name }} bucket to store the {{ metastore-name }} (warehouse) data.
+        * **{{ ui-key.yacloud.metastore.label_warehouse-path }}**: Path within the bucket that will be used to prefix the {{ metastore-name }} data. This is an optional setting.
+
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the network and subnet you created earlier. Specify the security group you configured previously.
     1. Under **{{ ui-key.yacloud.metastore.label_resource-preset }}**, select the [cluster configuration](../concepts/metastore.md#presets).
     1. Optionally, under **{{ ui-key.yacloud.logging.label_title }}**, enable logging, select the minimum logging level, and specify the folder or [log group](../../logging/concepts/log-group.md).

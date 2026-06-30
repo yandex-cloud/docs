@@ -9,7 +9,7 @@ In this scenario, you will learn to emulate multiple [devices](../../iot-core/co
 * Pressure
 * CO<sub>2</sub> level
 
-Each sensor sends its readings in JSON format. For example:
+Each sensor sends its readings in JSON format. Here is an example:
 
 ```json
 {
@@ -150,7 +150,7 @@ Using {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type
    trigger = "a1sva8sse.......7kf6"
    ```
 
-   {{ TF }} will create all the required resources, and the terminal will display the IDs of the resources created. You can check the new resources and their settings in the [management console]({{ link-console-main }}).
+   {{ TF }} will create all the required resources, and the terminal will display the IDs of the resources created. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 ## Delete the resources you created {#clear-out}
 
@@ -160,30 +160,30 @@ Using {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type
 
   1. Delete the registry:
      1. Go to your working [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
      1. To the right of the registry you created, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
      1. Click **{{ ui-key.yacloud.common.delete }}**.
   1. Delete the devices:
      1. Navigate to your working folder.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
      1. Select the registry.
      1. Navigate to the **{{ ui-key.yacloud.iot.label_devices }}** tab.
      1. To the right of the device you created, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
      1. Click **{{ ui-key.yacloud.common.delete }}**.
   1. Delete the function:
      1. Navigate to your working folder.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
      1. To the right of the function you created, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.serverless-functions.list.button_action-delete }}**.
      1. Click **{{ ui-key.yacloud.serverless-functions.list.popup-confirm_button_delete }}**.
   1. Delete the trigger:
      1. Navigate to your working folder.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
      1. Navigate to the **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** tab.
      1. To the right of the trigger you created, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
      1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.popup-confirm_button_delete }}**.
   1. Delete the service account:
      1. Navigate to your working folder.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
      1. In the row with the name of the service account you created, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.iam.folder.service-accounts.button_action-delete }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.popup-confirm_button_delete }}**.

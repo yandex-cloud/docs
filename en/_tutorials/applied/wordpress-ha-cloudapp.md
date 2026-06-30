@@ -54,7 +54,7 @@ The cost of support for the new infrastructure includes:
 
   To create a secret that will store the {{ mmy-full-name }} database password:
 
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `db-password-secret`.
   1. In the **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
@@ -118,7 +118,7 @@ Install [WordPress High Availability](/marketplace/products/yc/wordpress-ha-app)
 
 - Management console {#console}
 
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
   1. Click **{{ ui-key.yacloud.cloud-apps.button_empty-install-application }}**.
   1. Select **WordPress High Availability** and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
   1. Configure the application:
@@ -181,7 +181,7 @@ To shut down the resources you created and stop paying for them:
 1. Delete WordPress High Availability:
 
    1. In the [management console]({{ link-console-main }}), select the folder the application is installed in.
-   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
    1. Find WordPress High Availability in the list.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the app and select **{{ ui-key.yacloud.common.delete }}**.
    1. Confirm the app deletion.

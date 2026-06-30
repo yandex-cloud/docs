@@ -70,6 +70,84 @@
       
       Сохраните идентификатор канала (`id`), в хранилище которого вы хотите загрузить обложку.
 
+  1. Получите список трансляций на канале:
+
+      ```bash
+      curl \
+        --request GET \
+        --url 'https://video.api.cloud.yandex.net/video/v1/streams?channelId=<идентификатор_канала>' \
+        --header 'Authorization: Bearer <IAM-токен>'
+      ```
+
+      Где:
+      * `<идентификатор_канала>` — идентификатор канала с трансляцией, для которой вы хотите добавить обложку.
+      * `<IAM-токен>` — полученный перед началом работы IAM-токен.
+
+      Результат:
+
+      ```text
+      {
+       "streams": [
+        {
+         "onDemand": {},
+         "id": "vplsfj23t7tf********",
+         "channelId": "vplcdyphvqik********",
+         "lineId": "vplldrpqy42y********",
+         "title": "my-first-stream",
+         "status": "OFFLINE",
+         "createdAt": "2024-11-03T16:55:32.976950Z",
+         "updatedAt": "2024-11-03T16:55:33.091744Z"
+        },
+        {
+         "onDemand": {},
+         "id": "vplsgchsr5gi********",
+         "channelId": "vplcdyphvqik********",
+         "lineId": "vpllxc2mfleb********",
+         "title": "my-new-stream",
+         "thumbnailId": "vpltznjxpnyj********",
+         "status": "OFFLINE",
+         "createdAt": "2024-11-03T16:34:10.617101Z",
+         "updatedAt": "2024-11-03T16:35:06.601920Z"
+        }
+       ]
+      }
+      ```
+
+      Сохраните идентификатор трансляции (`id`), для которой вы хотите добавить обложку.
+
+  1. Получите список эпизодов трансляции:
+
+      ```bash
+      curl \
+        --request GET \
+        --url 'https://video.api.cloud.yandex.net/video/v1/episodes?streamId=<идентификатор_трансляции>' \
+        --header 'Authorization: Bearer <IAM-токен>'
+      ```
+
+      Где:
+      * `<идентификатор_трансляции>` — сохраненный ранее идентификатор трансляции.
+      * `<IAM-токен>` — полученный перед началом работы IAM-токен.
+
+      Результат:
+
+      ```text
+      {
+       "episodes": [
+        {
+         "id": "vpleof6lm40k********",
+         "streamId": "vplsfj23t7tf********",
+         "lineId": "vplldrpqy42y********",
+         "title": "my-first-episode",
+         "visibilityStatus": "PUBLISHED",
+         "createdAt": "2024-11-03T16:55:32.976950Z",
+         "updatedAt": "2024-11-03T16:55:33.091744Z"
+        }
+       ]
+      }
+      ```
+
+      Сохраните идентификатор эпизода (`id`), для которого вы хотите добавить обложку.
+
   1. Зарегистрируйте обложку в Cloud Video:
 
       ```bash
@@ -79,16 +157,16 @@
         --header 'Authorization: Bearer <IAM-токен>' \
         --header 'Content-Type: application/json' \
         --data '{
-          "channelId": "<идентификатор_канала>"
+          "episodeId": "<идентификатор_эпизода>"
         }'
       ```
-      
+
       Где:
       * `<IAM-токен>` — полученный перед началом работы IAM-токен.
-      * `<идентификатор_канала>` — сохраненный ранее идентификатор канала.
-      
+      * `episodeId` — сохраненный ранее идентификатор эпизода.
+
       Результат:
-      
+
       ```text
       {
        "done": true,
@@ -100,6 +178,7 @@
         "@type": "type.googleapis.com/yandex.cloud.video.v1.Thumbnail",
         "id": "vpltaurfr4pr********",
         "channelId": "vplcdyphvqik********",
+        "episodeId": "vpleof6lm40k********",
         "createdAt": "2024-11-02T16:56:19.296797Z"
        },
        "id": "vplpgbyqopdr********",
@@ -150,57 +229,12 @@
       * `<формат_изображения>` — в зависимости от формата загружаемого изображения, укажите `png`, `jpeg` или `gif`. 
       * `<путь_к_файлу_с_обложкой>` — абсолютный путь к файлу с загружаемым изображением. Не используйте сокращения, в т.ч. тильду `~`.
 
-  1. Получите список трансляций на канале:
-
-      ```bash
-      curl \
-        --request GET \
-        --url 'https://video.api.cloud.yandex.net/video/v1/streams?channelId=<идентификатор_канала>' \
-        --header 'Authorization: Bearer <IAM-токен>'
-      ```
-
-      Где:
-      * `<идентификатор_канала>` — идентификатор канала с трансляцией, для которой вы хотите добавить обложку.
-      * `<IAM-токен>` — полученный перед началом работы IAM-токен.
-
-      Результат:
-
-      ```text
-      {
-       "streams": [
-        {
-         "onDemand": {},
-         "id": "vplsfj23t7tf********",
-         "channelId": "vplcdyphvqik********",
-         "lineId": "vplldrpqy42y********",
-         "title": "my-first-stream",
-         "status": "OFFLINE",
-         "createdAt": "2024-11-03T16:55:32.976950Z",
-         "updatedAt": "2024-11-03T16:55:33.091744Z"
-        },
-        {
-         "onDemand": {},
-         "id": "vplsgchsr5gi********",
-         "channelId": "vplcdyphvqik********",
-         "lineId": "vpllxc2mfleb********",
-         "title": "my-new-stream",
-         "thumbnailId": "vpltznjxpnyj********",
-         "status": "OFFLINE",
-         "createdAt": "2024-11-03T16:34:10.617101Z",
-         "updatedAt": "2024-11-03T16:35:06.601920Z"
-        }
-       ]
-      }
-      ```
-
-      Сохраните идентификатор трансляции (`id`), для которой вы хотите добавить обложку.
-
-  1. Добавьте созданную обложку к выбранной трансляции:
+  1. Добавьте созданную обложку к выбранному эпизоду:
 
       ```bash
       curl \
         --request PATCH \
-        --url 'https://video.api.cloud.yandex.net/video/v1/streams/<идентификатор_трансляции>' \
+        --url 'https://video.api.cloud.yandex.net/video/v1/episodes/<идентификатор_эпизода>' \
         --header 'Authorization: Bearer <IAM-токен>' \
         --header 'Content-Type: application/json' \
         --data '{
@@ -210,7 +244,7 @@
       ```
 
       Где:
-      * `<идентификатор_трансляции>` — сохраненный ранее идентификатор трансляции, для которой вы хотите добавить обложку.
+      * `<идентификатор_эпизода>` — сохраненный ранее идентификатор эпизода, для которого вы хотите добавить обложку.
       * `<IAM-токен>` — полученный перед началом работы IAM-токен.
       * `<идентификатор_обложки>` — сохраненный ранее идентификатор обложки.
 
@@ -220,23 +254,22 @@
       {
        "done": true,
        "metadata": {
-        "@type": "type.googleapis.com/yandex.cloud.video.v1.UpdateStreamMetadata",
-        "streamId": "vplsfj23t7tf********"
+        "@type": "type.googleapis.com/yandex.cloud.video.v1.UpdateEpisodeMetadata",
+        "episodeId": "vpleof6lm40k********"
        },
        "response": {
-        "@type": "type.googleapis.com/yandex.cloud.video.v1.Stream",
-        "onDemand": {},
-        "id": "vplsfj23t7tf********",
-        "channelId": "vplcdyphvqik********",
+        "@type": "type.googleapis.com/yandex.cloud.video.v1.Episode",
+        "id": "vpleof6lm40k********",
+        "streamId": "vplsfj23t7tf********",
         "lineId": "vplldrpqy42y********",
-        "title": "my-new-stream",
+        "title": "my-first-episode",
         "thumbnailId": "vpltxnjvjyzy********",
-        "status": "OFFLINE",
+        "visibilityStatus": "PUBLISHED",
         "createdAt": "2024-11-03T16:55:32.976950Z",
         "updatedAt": "2024-11-03T17:21:31.672357Z"
        },
        "id": "vplpgadtyvhm********",
-       "description": "Stream update",
+       "description": "Episode update",
        "createdAt": "2024-11-03T17:21:31.680037Z",
        "createdBy": "ajeol2afu1js********",
        "modifiedAt": "2024-11-03T17:21:31.680037Z"
@@ -298,87 +331,6 @@
       
       Сохраните идентификатор канала (`id`), в хранилище которого вы хотите загрузить обложку.
 
-  1. Зарегистрируйте обложку в Cloud Video:
-
-      ```bash
-      grpcurl \
-        -rpc-header "Authorization: Bearer <IAM-токен>" \
-        -rpc-header 'Content-Type: application/json' \
-        -d '{
-          "channel_id": "<идентификатор_канала>"
-        }' \
-        video.api.cloud.yandex.net:443 yandex.cloud.video.v1.ThumbnailService/Create
-      ```
-      
-      Где:
-      * `<IAM-токен>` — полученный перед началом работы IAM-токен.
-      * `<идентификатор_канала>` — сохраненный ранее идентификатор канала.
-      
-      Результат:
-      
-      ```text
-      {
-        "id": "vplpoqhxep6q********",
-        "description": "Thumbnail create",
-        "createdAt": "2024-11-02T19:04:28.412672Z",
-        "createdBy": "ajeol2afu1js********",
-        "modifiedAt": "2024-11-02T19:04:28.412672Z",
-        "done": true,
-        "metadata": {
-          "@type": "type.googleapis.com/yandex.cloud.video.v1.CreateThumbnailMetadata",
-          "thumbnailId": "vpltleyrfnjh********"
-        },
-        "response": {
-          "@type": "type.googleapis.com/yandex.cloud.video.v1.Thumbnail",
-          "channelId": "vplcdyphvqik********",
-          "createdAt": "2024-11-02T19:04:28.402787Z",
-          "id": "vpltleyrfnjh********"
-        }
-      }
-      ```
-
-      Сохраните значение идентификатора обложки (`thumbnailId`), оно понадобится позднее.
-
-  1. Получите ссылку на загрузку изображения в обложку:
-
-      ```bash
-      grpcurl \
-        -rpc-header "Authorization: Bearer <IAM-токен>" \
-        -d '{
-          "thumbnailId": "<идентификатор_обложки>"
-        }' \
-        video.api.cloud.yandex.net:443 yandex.cloud.video.v1.ThumbnailService/GenerateUploadURL | jq
-      ```
-
-      Где:
-      * `<IAM-токен>` — полученный перед началом работы IAM-токен.
-      * `<идентификатор_обложки>` — сохраненное ранее значение идентификатора обложки.
-      
-      Результат:
-      
-      ```text
-      {
-        "uploadUrl": "https://storage.yandexcloud.net/videoplatform-thumbnail/vpltleyrfnjh********?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=********3aBOmv27nzbJZaEHZ%2F20241102%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20241102T190000Z&X-Amz-Expires=43200&X-Amz-Signature=057fe4c0da26c7758474f5eaa85ff41d7212632572fb636ed6d8f65d039c309b&X-Amz-SignedHeaders=host"
-      }
-      ```
-      
-      Поле `uploadUrl` содержит подписанную ссылку, с помощью которой вы сможете загрузить файл обложки.
-
-  1. Загрузите в обложку файл с изображением:
-
-      ```
-      curl \
-        --request PUT \
-        --url '<подписанная_ссылка>' \
-        --header 'Content-Type: image/<формат_изображения>' \
-        --upload-file '<путь_к_файлу_с_обложкой>'
-      ```
-      
-      Где:
-      * `<подписанная_ссылка>` — полученная на предыдущем шаге подписанная ссылка на загрузку файла обложки.
-      * `<формат_изображения>` — в зависимости от формата загружаемого изображения, укажите `png`, `jpeg` или `gif`. 
-      * `<путь_к_файлу_с_обложкой>` — абсолютный путь к файлу с загружаемым изображением. Не используйте сокращения, в т.ч. тильду `~`.
-
   1. Получите список трансляций на канале:
 
       ```bash
@@ -426,23 +378,140 @@
 
       Сохраните идентификатор трансляции (`id`), для которой вы хотите добавить обложку.
 
-  1. Добавьте созданную обложку к выбранной трансляции:
+  1. Получите список эпизодов трансляции:
+
+      ```bash
+      grpcurl \
+        -rpc-header "Authorization: Bearer <IAM-токен>" \
+        -d '{
+          "stream_id": "<идентификатор_трансляции>"
+        }' \
+        video.api.cloud.yandex.net:443 yandex.cloud.video.v1.EpisodeService/List
+      ```
+
+      Где:
+      * `<IAM-токен>` — полученный перед началом работы IAM-токен.
+      * `<идентификатор_трансляции>` — сохраненный ранее идентификатор трансляции.
+
+      Результат:
+
+      ```text
+      {
+        "episodes": [
+          {
+            "id": "vpleof6lm40k********",
+            "streamId": "vplsfj23t7tf********",
+            "lineId": "vplldrpqy42y********",
+            "title": "my-first-episode",
+            "visibilityStatus": "PUBLISHED",
+            "createdAt": "2024-11-03T16:55:32.976950Z",
+            "updatedAt": "2024-11-03T16:55:33.091744Z"
+          }
+        ]
+      }
+      ```
+
+      Сохраните идентификатор эпизода (`id`), для которого вы хотите добавить обложку.
+
+  1. Зарегистрируйте обложку в Cloud Video:
+
+      ```bash
+      grpcurl \
+        -rpc-header "Authorization: Bearer <IAM-токен>" \
+        -rpc-header 'Content-Type: application/json' \
+        -d '{
+          "episode_id": "<идентификатор_эпизода>"
+        }' \
+        video.api.cloud.yandex.net:443 yandex.cloud.video.v1.ThumbnailService/Create
+      ```
+
+      Где:
+      * `<IAM-токен>` — полученный перед началом работы IAM-токен.
+      * `episode_id` — сохраненный ранее идентификатор эпизода.
+
+      Результат:
+
+      ```text
+      {
+        "id": "vplpoqhxep6q********",
+        "description": "Thumbnail create",
+        "createdAt": "2024-11-02T19:04:28.412672Z",
+        "createdBy": "ajeol2afu1js********",
+        "modifiedAt": "2024-11-02T19:04:28.412672Z",
+        "done": true,
+        "metadata": {
+          "@type": "type.googleapis.com/yandex.cloud.video.v1.CreateThumbnailMetadata",
+          "thumbnailId": "vpltleyrfnjh********"
+        },
+        "response": {
+          "@type": "type.googleapis.com/yandex.cloud.video.v1.Thumbnail",
+          "channelId": "vplcdyphvqik********",
+          "createdAt": "2024-11-02T19:04:28.402787Z",
+          "episodeId": "vpleof6lm40k********",
+          "id": "vpltleyrfnjh********"
+        }
+      }
+      ```
+
+      Сохраните значение идентификатора обложки (`thumbnailId`), оно понадобится позднее.
+
+  1. Получите ссылку на загрузку изображения в обложку:
+
+      ```bash
+      grpcurl \
+        -rpc-header "Authorization: Bearer <IAM-токен>" \
+        -d '{
+          "thumbnailId": "<идентификатор_обложки>"
+        }' \
+        video.api.cloud.yandex.net:443 yandex.cloud.video.v1.ThumbnailService/GenerateUploadURL | jq
+      ```
+
+      Где:
+      * `<IAM-токен>` — полученный перед началом работы IAM-токен.
+      * `<идентификатор_обложки>` — сохраненное ранее значение идентификатора обложки.
+      
+      Результат:
+      
+      ```text
+      {
+        "uploadUrl": "https://storage.yandexcloud.net/videoplatform-thumbnail/vpltleyrfnjh********?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=********3aBOmv27nzbJZaEHZ%2F20241102%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20241102T190000Z&X-Amz-Expires=43200&X-Amz-Signature=057fe4c0da26c7758474f5eaa85ff41d7212632572fb636ed6d8f65d039c309b&X-Amz-SignedHeaders=host"
+      }
+      ```
+      
+      Поле `uploadUrl` содержит подписанную ссылку, с помощью которой вы сможете загрузить файл обложки.
+
+  1. Загрузите в обложку файл с изображением:
+
+      ```
+      curl \
+        --request PUT \
+        --url '<подписанная_ссылка>' \
+        --header 'Content-Type: image/<формат_изображения>' \
+        --upload-file '<путь_к_файлу_с_обложкой>'
+      ```
+      
+      Где:
+      * `<подписанная_ссылка>` — полученная на предыдущем шаге подписанная ссылка на загрузку файла обложки.
+      * `<формат_изображения>` — в зависимости от формата загружаемого изображения, укажите `png`, `jpeg` или `gif`. 
+      * `<путь_к_файлу_с_обложкой>` — абсолютный путь к файлу с загружаемым изображением. Не используйте сокращения, в т.ч. тильду `~`.
+
+  1. Добавьте созданную обложку к выбранному эпизоду:
 
       ```bash
       grpcurl \
         -rpc-header "Authorization: Bearer <IAM-токен>" \
         -rpc-header "Content-Type: application/json" \
         -d '{
-          "streamId": "<идентификатор_трансляции>",
-          "fieldMask": {"paths": ["thumbnail_id"]},
-          "thumbnailId": "<идентификатор_обложки>"
+          "episode_id": "<идентификатор_эпизода>",
+          "field_mask": {"paths": ["thumbnail_id"]},
+          "thumbnail_id": "<идентификатор_обложки>"
         }' \
-        video.api.cloud.yandex.net:443 yandex.cloud.video.v1.StreamService/Update
+        video.api.cloud.yandex.net:443 yandex.cloud.video.v1.EpisodeService/Update
       ```
 
       Где:
       * `<IAM-токен>` — полученный перед началом работы IAM-токен.
-      * `<идентификатор_трансляции>` — сохраненный ранее идентификатор трансляции, для которой вы хотите добавить обложку.
+      * `<идентификатор_эпизода>` — сохраненный ранее идентификатор эпизода, для которого вы хотите добавить обложку.
       * `<идентификатор_обложки>` — сохраненный ранее идентификатор обложки.
 
       Результат:
@@ -450,26 +519,25 @@
       ```text
       {
         "id": "vplpl2wqhe62********",
-        "description": "Stream update",
+        "description": "Episode update",
         "createdAt": "2024-11-03T17:29:26.987297Z",
         "createdBy": "ajeol2afu1js********",
         "modifiedAt": "2024-11-03T17:29:26.987297Z",
         "done": true,
         "metadata": {
-          "@type": "type.googleapis.com/yandex.cloud.video.v1.UpdateStreamMetadata",
-          "streamId": "vplsfj23t7tf********"
+          "@type": "type.googleapis.com/yandex.cloud.video.v1.UpdateEpisodeMetadata",
+          "episodeId": "vpleof6lm40k********"
         },
         "response": {
-          "@type": "type.googleapis.com/yandex.cloud.video.v1.Stream",
-          "channelId": "vplcdyphvqik********",
+          "@type": "type.googleapis.com/yandex.cloud.video.v1.Episode",
           "createdAt": "2024-11-03T16:55:32.976950Z",
-          "id": "vplsfj23t7tf********",
+          "id": "vpleof6lm40k********",
           "lineId": "vplldrpqy42y********",
-          "onDemand": {},
-          "status": "OFFLINE",
+          "streamId": "vplsfj23t7tf********",
           "thumbnailId": "vpltxnjvjyzy********",
-          "title": "my-new-stream",
-          "updatedAt": "2024-11-03T17:29:26.986096Z"
+          "title": "my-first-episode",
+          "updatedAt": "2024-11-03T17:29:26.986096Z",
+          "visibilityStatus": "PUBLISHED"
         }
       }
       ```

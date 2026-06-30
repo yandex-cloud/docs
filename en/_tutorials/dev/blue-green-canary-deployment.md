@@ -76,7 +76,7 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select `example-folder`.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
     1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `canary-network`.
     1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -246,7 +246,7 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Create a blue bucket for the backend stable version:
 
      1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
@@ -382,7 +382,7 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Select the blue bucket.
      1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select `index.html` version 1 for uploading.
      1. Similarly, upload `index.html` version 2 to the green bucket.
@@ -638,7 +638,7 @@ To create security groups:
   1. Create a backend group named `canary-bg-production` with `canary-backend-blue` and `canary-backend-green`:
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
      1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
      1. At the top right, click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
      1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-bg-production`.
@@ -673,7 +673,7 @@ To create security groups:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. At the top right, click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-router`.
@@ -889,7 +889,7 @@ To create security groups:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. At the top right, click **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `canary-balancer`.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
@@ -1111,7 +1111,7 @@ To create security groups:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
   1. Configure the basic CDN resource settings:
       * Under **{{ ui-key.yacloud.cdn.label_section-content }}**:
@@ -1258,7 +1258,7 @@ To create security groups:
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` and press **Enter**.
+     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
      This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
@@ -1308,7 +1308,7 @@ To configure DNS:
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. From the list of CDN resources, select the one with `cdn.yandexcloud.example` as its primary domain name.
      1. From **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** at the bottom of the page, copy the domain name in `{{ cname-example-yc }}` format.
 
@@ -1333,7 +1333,7 @@ To configure DNS:
    - Management console {#console}
 
      1. Open the [management console]({{ link-console-main }}).
-     1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
      1. If you do not have a public DNS zone, create one:
 
         1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
@@ -1464,7 +1464,7 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Select the CDN resource you created (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
      1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
      1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
@@ -1534,7 +1534,7 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Select the CDN resource you created (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
      1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
      1. Click **{{ ui-key.yacloud.common.edit }}**.
@@ -1555,7 +1555,7 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Select the CDN resource you created (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
      1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
      1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
@@ -1617,7 +1617,7 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
      1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
      1. Select `canary-bg-production`.
      1. Set the `canary-backend-blue` weight to 80 instead of 100:
@@ -1703,7 +1703,7 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Select the CDN resource you created (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
      1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
      1. Click **{{ ui-key.yacloud.common.edit }}**.
@@ -1726,7 +1726,7 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Select the CDN resource you created (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
      1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
      1. Click **{{ ui-key.yacloud.common.edit }}**.
@@ -1747,7 +1747,7 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Select the CDN resource you created (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
      1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
      1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
@@ -1809,7 +1809,7 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
      1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
      1. Select `canary-bg-production`.
      1. Set the `canary-backend-blue` weight to 100 instead of 0:
@@ -1888,7 +1888,7 @@ Check that `cdn.yandexcloud.example` is mapped to version 1 and `cdn-staging.yan
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Select the CDN resource you created (the list of resources will contain its primary domain name: `cdn.yandexcloud.example`).
      1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
      1. Click **{{ ui-key.yacloud.common.edit }}**.

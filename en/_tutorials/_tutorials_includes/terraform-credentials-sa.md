@@ -9,7 +9,7 @@ You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/a
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Enter a name for the service account.
 
@@ -23,7 +23,7 @@ You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/a
 
      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-     Run the following command to create a service account:
+     To create a service account, run the following command:
 
      ```bash
      yc iam service-account create --name <service_account_name>
@@ -92,8 +92,8 @@ You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/a
         * `<resource>`: Resource category, e.g., `cloud` to assign a role for the entire [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or `folder` to assign a role for a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
         * `<resource-name>`: Resource name. You can specify a resource by its name or ID (cloud or folder name).
         * `<resource-id>`: Resource ID (cloud or folder ID).
-        * `<role-id>`: Role being assigned, e.g., `{{ roles-cloud-owner }}`.
-        * `<service-account-id>`: ID of the service account the role is assigned to.
+        * `<role-id>`: Role, e.g., `{{ roles-cloud-owner }}`.
+        * `<service-account-id>`: ID of the service account you are assigning the role to.
 
         >Here is an example:
         > 
@@ -113,7 +113,7 @@ You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/a
 
    {% endlist %}
 
-1. Add your credentials to the environment variables. When creating an [IAM token](../../iam/concepts/authorization/iam-token.md), use the [impersonation](../../iam/concepts/access-control/impersonation.md) of the service account you created earlier, specifying its ID in the `--impersonate-service-account-id` parameter:
+1. Add credentials into environment variables. When creating an [IAM token](../../iam/concepts/authorization/iam-token.md), use the [impersonation](../../iam/concepts/access-control/impersonation.md) of the service account you created earlier, specifying its ID in the `--impersonate-service-account-id` parameter:
 
     {% include [impersonation-role-notice](../../_includes/cli/impersonation-role-notice.md) %}
 

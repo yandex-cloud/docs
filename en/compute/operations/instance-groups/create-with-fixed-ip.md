@@ -342,7 +342,7 @@ To create a group of instances with fixed IP addresses:
 
             To be able to create, update, and delete VMs in the group, [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) role to the service account.
 
-          * `deletion_protection`: Instance group protection against deletion, `true` or `false`. You cannot delete an instance group with this option enabled. The default value is `false`.
+          * `deletion_protection`: Instance group protection against deletion, `true` or `false`. You cannot delete a group while the value is `true`. The default value is `false`.
         * `instance_template`: [Instance template](../../concepts/instance-groups/instance-template.md):
           * `name`: Instance name with the [tag](../../concepts/instance-groups/policies/allocation-policy.md#tags) template, e.g., `sample-vm-{instance.tag}`. After inserting tag values into this template, the instance names will look like this: `sample-vm-ru1-a1`, `sample-vm-ru1-b2`, etc.
           * `platform_id`: [Platform](../../concepts/vm-platforms.md).
@@ -351,11 +351,11 @@ To create a group of instances with fixed IP addresses:
             * `mode`: Disk access mode, `READ_ONLY` or `READ_WRITE`.
             * `image_id`: ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
           * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings:
-            * `subnet_ids`: List of IDs for the [subnets](../../../vpc/concepts/network.md#subnet) to host the instances. You must specify one subnet in each availability zone where group instances will be created.
+            * `subnet_ids`: List of IDs for the [subnets](../../../vpc/concepts/network.md#subnet) to host the VMs. You must specify one subnet in each availability zone where group instances will be created.
             * `nat`: Specifies if an instance will have an assigned public IP address. The possible values are `true` and `false`.
             * `ip_address`: Instance internal IP address. This is a template that will use the value from a variable specified for this VM instance in the `variables` section.
             * `nat_ip_address`: Instance public IP address. This is a template that will use the value from a variable specified for this VM instance in the `variables` field.
-          * `metadata`: In [metadata](../../concepts/vm-metadata.md), provide the instance username and public key to enable this user to access the instance via SSH.
+          * `metadata`: In [metadata](../../concepts/vm-metadata.md), provide the instance username and public key to enable this user to access the instance over SSH.
 
             For more information, see [{#T}](../../concepts/vm-metadata.md).
 
@@ -387,7 +387,7 @@ To create a group of instances with fixed IP addresses:
 
         {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-      * `yandex_resourcemanager_folder_iam_member`: Description of access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete VM instances in the instance group, assign the `compute.editor` [role](../../security/index.md#compute-editor) to the service account.
+      * `yandex_resourcemanager_folder_iam_member`: Description of access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To create, update, and delete VMs in the group, assign the [compute.editor](../../security/index.md#compute-editor) role to the service account.
       * `yandex_vpc_network`: [Cloud network](../../../vpc/concepts/network.md#network) description.
       * `yandex_vpc_subnet`: Description of the [subnets](../../../vpc/concepts/network.md#subnet) to connect the group instances to.
       * `yandex_vpc_address`: Description of the reserved static [public IP address](../../../vpc/concepts/address.md#public-addresses).
@@ -398,13 +398,13 @@ To create a group of instances with fixed IP addresses:
 
         {% endnote %}
 
-      For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
+      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+      This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

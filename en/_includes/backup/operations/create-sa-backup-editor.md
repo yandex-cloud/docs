@@ -3,7 +3,7 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to connect a VM.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the [service account](../../../iam/concepts/users/service-accounts.md). The naming requirements are as follows:
 
@@ -97,7 +97,7 @@
       * `yandex_iam_service_account`: [Service account](../../../iam/concepts/users/service-accounts.md) description.
       * `yandex_resourcemanager_folder_iam_member`: Description of the service account's access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), where:
 
-          * `role`: [Role](../../../backup/security/index.md#backup-user) being assigned.
+          * `role`: [Role](../../../backup/security/index.md#backup-user) to assign.
           * `member`: Subject the role is assigned to.
 
   1. Create the resources:

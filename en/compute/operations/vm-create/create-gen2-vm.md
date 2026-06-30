@@ -28,7 +28,7 @@ You can upload your own UEFI and GPT-enabled VM image to {{ compute-name }} to c
 
 {% include [available-image-format](../../../_includes/compute/available-image-format.md) %}
 
-For configuration steps, see [{#T}](../image-create/custom-image.md).
+For setup instructions, see [{#T}](../image-create/custom-image.md).
 
 #### Upload the image file to {{ objstorage-name }} {#upload-file}
 
@@ -139,7 +139,7 @@ To create a new image using the link you got in [{{ objstorage-name }}](../../..
           * `true`: Optimization enabled.
           * `false`: Optimization disabled.
           
-          This is an optional setting. By default, the optimization is disabled.
+          This is an optional setting. By default, optimization is disabled.
 
       For more information about `yandex_compute_image` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_image).
   1. Create the resources:
@@ -381,7 +381,7 @@ To create an image from an existing [image](../../concepts/image.md), [snapshot]
           * `true`: Optimization enabled.
           * `false`: Optimization disabled.
           
-          This is an optional setting. By default, the optimization is disabled.
+          This is an optional setting. By default, optimization is disabled.
 
           For more information about `yandex_compute_image` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_image).
           
@@ -456,7 +456,7 @@ To create an image from an existing [image](../../concepts/image.md), [snapshot]
           * `true`: Optimization enabled.
           * `false`: Optimization disabled.
 
-          This is an optional parameter. By default, the optimization is disabled.
+          This is an optional setting. By default, optimization is disabled.
 
   1. Run this http request:
 

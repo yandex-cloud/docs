@@ -32,6 +32,6 @@
 
 Результат:
 
-```text
+```json
 {"ok":true,"result":true,"description":"Webhook was set"}
 ```

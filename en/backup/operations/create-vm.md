@@ -13,9 +13,13 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
 
 1. [Create](../../iam/operations/sa/create.md) a service account with the `backup.user` [role](../security/index.md#backup-user) or higher.
 
-    {% note info %}
-
     {% include [user-console-vm-creation-notice](../../_includes/backup/user-console-vm-creation-notice.md) %}
+
+    {% note warning %}
+
+    Starting August 1, 2026, the [`compute.editor`](../../compute/security/index.md#compute-editor) and [`compute.admin`](../../compute/security/index.md#compute-admin) roles get new permissions allowing them to connect VMs to {{ backup-full-name }}, link and unlink them from [backup policies](../concepts/policy.md).
+
+    {% include [denyActivation-iam-policy-pre-notice](../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 
     {% endnote %}
 

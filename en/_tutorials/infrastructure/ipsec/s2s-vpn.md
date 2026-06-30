@@ -49,9 +49,9 @@ Create an `s2s-vpn-sa` [service account](../../../iam/concepts/users/service-acc
 
 - Management console {#console}
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the service account: `s2s-vpn-sa`.
+  1. Name the service account: `s2s-vpn-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select these roles:
       * `resource-manager.admin`
       * `iam.admin`
@@ -66,7 +66,7 @@ Create an `s2s-vpn-sa` [service account](../../../iam/concepts/users/service-acc
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Create a `s2s-vpn-sa` service account:
+  1. Create a service account named `s2s-vpn-sa`:
 
       ```bash
       yc iam service-account create --name s2s-vpn-sa
@@ -125,7 +125,7 @@ Create a [cloud network](../../../vpc/concepts/network.md) to host the VM.
 
 - Management console {#console}
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `s2s-vpn-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -164,7 +164,7 @@ Reserve a static [public IP address](../../../vpc/concepts/address.md#public-add
 
 - Management console {#console}
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}** and click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
   1. In the window that opens, select `{{ region-id }}-b` in the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** field and click **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
@@ -232,7 +232,7 @@ If any quota has been used up, create a quota increase request and wait for it t
 
 - Management console {#console}
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.cloud-apps.label_marketplace }}**.
   1. In the **Search products** field, type `strongswan`, select **strongSwan S2S VPN**, and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
   1. In the window that opens, specify the following:
@@ -262,7 +262,7 @@ To route traffic between a cloud and remote networks through the VPN tunnel, bin
 
 - Management console {#console}
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. In the line of the automatically created `ipsec-sgw-...` subnet, click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}** and select the automatically created `ipsec-sgw-...` table.
   1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
@@ -322,7 +322,7 @@ After you install the application, perform the final configuration of the IPsec 
 
     {% note tip %}
 
-    If the IP ranges of {{ yandex-cloud }} and the remote network match, you may need to use Source NAT. To do this, run this command:
+    If the IP ranges of {{ yandex-cloud }} and the remote network match, you may need to use Source NAT. Do it by running this command:
 
     ```bash
     iptables \
@@ -343,7 +343,7 @@ To stop paying for the resources you created:
 
 * Uninstall strongSwan S2S VPN:
 
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
     1. In the line with the application, click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.delete }}** and confirm the deletion.
 
         Deleting the application will delete all resources associated with it.

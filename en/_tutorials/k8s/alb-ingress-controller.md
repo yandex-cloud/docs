@@ -496,7 +496,7 @@ Create test applications and Ingress resource:
      To follow the process and make sure it is error-free, open the logs of the pod it is run in:
 
      1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-     1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Click the cluster name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
      1. Select one of the `alb-demo-***` pods the load balancer's creation was run in.
      1. Go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab on the pod page.
@@ -751,7 +751,7 @@ Create test applications and Ingress resource:
      To follow the process and make sure it is error-free, open the logs of the pod it is run in:
 
      1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-     1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Click the cluster name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
      1. Select one of the `alb-demo-***` pods the load balancer's creation was run in.
      1. Go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab on the pod page.

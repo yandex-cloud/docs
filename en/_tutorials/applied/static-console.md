@@ -61,7 +61,7 @@ To create a bucket for static website files:
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the bucket is located.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** and select the previously created bucket in the window that opens.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** and select the previously created bucket in the window that opens.
       1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
       1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}**. In the window that opens, select the files you created and confirm the upload.
       1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
@@ -108,7 +108,7 @@ To create a public DNS zone:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a public zone.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**. In the window that opens, specify the DNS zone settings:
 
       * **{{ ui-key.yacloud.dns.label_zone }}**: Specify your registered domain name, e.g., `example.com.`. The field value must end with a trailing dot.
@@ -128,7 +128,7 @@ Create an [ANAME](../../dns/concepts/resource-record.md#aname) resource record i
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder that houses the public DNS zone.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** and select the DNS zone you created earlier. 
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** and select the DNS zone you created earlier. 
   1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**. In the window that opens, set the record properties:
 
       * In the **{{ ui-key.yacloud.common.name }}** field, select `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.

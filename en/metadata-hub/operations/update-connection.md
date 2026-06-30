@@ -13,7 +13,7 @@ To change connection settings:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
+  1. [Navigate](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. In the list of connections, click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the connection you want to edit.
   1. Select **{{ ui-key.yacloud.common.edit }}**.
@@ -161,7 +161,7 @@ To change connection settings:
 
   1. To update settings of a connection to a cluster with a managed database:
 
-     1. Open the current {{ TF }} configuration file describing your infrastructure.
+     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
       1. To update the description and labels for a connection, update the values of the relevant fields in the resource description:
 
@@ -286,13 +286,13 @@ To change connection settings:
   
           {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-      1. Confirm updating the resources.
+      1. Confirm resource changes.
   
           {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
   1. To update settings of a connection to a custom database installation:
 
-      1. Open the current {{ TF }} configuration file describing your infrastructure.
+      1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
       1. To update the description and labels for a connection, update the values of the relevant fields in the resource description:
 
@@ -483,7 +483,7 @@ To change connection settings:
   
           {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-      1. Confirm updating the resources.
+      1. Confirm resource changes.
   
           {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   

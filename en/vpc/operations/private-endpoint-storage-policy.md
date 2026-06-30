@@ -5,8 +5,6 @@ description: Follow this guide to assign an access policy in {{ objstorage-short
 
 # Assigning an access policy in {{ objstorage-short-name }} for a service connection
 
-{% include [vpc-pe-preview](../../_includes/vpc/pe-preview.md) %}
-
 
 [Bucket policies](../../storage/concepts/policy.md) set permissions for operations with [buckets](../../storage/concepts/bucket.md), [objects](../../storage/concepts/object.md), and object groups.
 

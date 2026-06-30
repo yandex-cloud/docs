@@ -30,7 +30,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
   1. In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` and select your snapshot from the list that opens. Optionally, use the filter.
   1. Set the disk parameters: [disk type](../../concepts/disk.md#disks_types), [disk size](../../concepts/disk.md#maximum-disk-size), and [block size](../../concepts/disk.md#maximum-disk-size).
   1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
-  1. Optionally, select or create a [schedule](../../concepts/snapshot-schedule.md) for automatic disk snapshots. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
+  1. Optionally, select or create a [schedule](../../concepts/snapshot-schedule.md) for automatic disk snapshots. For more information on schedule settings, see [this guide](../snapshot-control/create-schedule.md).
 
       {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
@@ -220,7 +220,7 @@ To create a disk from a [snapshot](../../concepts/snapshot.md):
 
           {% endnote %}
 
-      For more information about the `yandex_compute_disk` resource, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_disk).
+      For more information about `yandex_compute_disk`, see [this provider guide]({{ tf-provider-resources-link }}/compute_disk).
 
   1. Make sure the configuration files are correct.
 

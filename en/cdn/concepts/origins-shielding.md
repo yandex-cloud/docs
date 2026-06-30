@@ -1,3 +1,5 @@
+
+
 # Origin shielding
 
 _Origin shielding_ is a {{ cdn-name }} feature that helps reduce the load on [content origins](origins.md) from CDN servers.

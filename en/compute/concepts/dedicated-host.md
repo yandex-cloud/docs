@@ -40,9 +40,9 @@ Current types: based on Intel<sup>®</sup> Ice Lake
 Type and processor | Processors | Cores | vCPU^1^ | RAM, GB | Disks | Disk size
 --- | --- | --- | --- | --- | --- | ---
 **Ice Lake**<br>`intel-6338-c108-m704-n3200x6`<br>[Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6338](https://ark.intel.com/content/www/us/en/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html) | 2 | 64 | 108 | 704 | 6 | 3198924357632 B <br>(~ 2.91 TB)
-**Ice Lake**<br>`intel-6338-c108-m958-n6400x6`<br>[Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6338](https://ark.intel.com/content/www/us/en/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html) | 2 | 64 | 108 | 958 | 6 | 6397848715264 B <br>(~ 5.82 TB)
+**Ice Lake**<br>`intel-6338-c108-m958-n6400x6`<br>[Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6338](https://ark.intel.com/content/www/us/en/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html) | 2 | 64 | 108 | 958 | 6 | 6398924554240 B <br>(~ 5.82 TB)
 **Ice Lake Compute-Optimized**<br>`intel-6354-c56-m454-n3200x6`<br>[Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6354](https://ark.intel.com/content/www/us/en/ark/products/212460/intel-xeon-gold-6354-processor-39m-cache-3-00-ghz.html) | 2 | 32 | 56 | 454 | 6 | 3198924357632 B <br>(~ 2.91 TB)
-**Ice Lake Compute-Optimized**<br>`intel-6354-c56-m938-n6400x6`<br>[Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6354](https://ark.intel.com/content/www/us/en/ark/products/212460/intel-xeon-gold-6354-processor-39m-cache-3-00-ghz.html) | 2 | 32 | 56 | 938 | 6 | 6397848715264 B <br>(~ 5.82 TB)
+**Ice Lake Compute-Optimized**<br>`intel-6354-c56-m938-n6400x6`<br>[Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6354](https://ark.intel.com/content/www/us/en/ark/products/212460/intel-xeon-gold-6354-processor-39m-cache-3-00-ghz.html) | 2 | 32 | 56 | 938 | 6 | 6398924554240 B <br>(~ 5.82 TB)
 
 {% cut "Archived types: based on Intel Cascade Lake" %}
 
@@ -54,7 +54,7 @@ Do not use archived types to create dedicated hosts. Select a current type inste
 
 Type and processor<br>(Cascade Lake) | Processors | Cores | vCPU^1^ | RAM, GB | Disks | Disk size
 --- | --- | --- | --- | --- | --- | ---
-`intel-6230-c66-m454`<br>[Intel® Xeon® Gold 6230](https://ark.intel.com/content/www/us/en/ark/products/192437/intel-xeon-gold-6230-processor-27-5m-cache-2-10-ghz.html) | 2 | 40 | 66 | 454 | 4 | 3198924357632 bytes <br>(~ 2.91 TB)
+`intel-6230-c66-m454`<br>[Intel® Xeon® Gold 6230](https://ark.intel.com/content/www/us/en/ark/products/192437/intel-xeon-gold-6230-processor-27-5m-cache-2-10-ghz.html) | 2 | 40 | 66 | 454 | 4 | 1599246172160 B <br>(~ 1.45 TB)
 `intel-6230r-c84-m328-n3200x4`<br>[Intel® Xeon® Gold 6230R](https://ark.intel.com/content/www/us/en/ark/products/199346/intel-xeon-gold-6230r-processor-35-75m-cache-2-10-ghz.html) | 2 | 52 | 84 | 328 | 4 | 3198924357632 bytes <br>(~ 2.91 TB)
 
 {% endcut %}

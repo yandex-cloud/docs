@@ -5,6 +5,11 @@ description: Follow this guide to use {{ cdn-full-name }} to create and set up a
 
 # Creating a CDN resource with an {{ objstorage-full-name }} origin bucket
 
+
+
+{% include [pricing-change-short-warning](../../_includes/cdn/pricing-change-short-warning.md) %}
+
+
 {% include [create-other-resources](../../_includes/cdn/create-other-resources-note.md) %}
 
 Set up content distribution over a CDN with an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) as the origin:

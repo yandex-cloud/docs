@@ -1,5 +1,15 @@
 # История изменений в Yandex Managed Service for Trino
 
+
+## Май 2026 {#may-2026}
+
+* [Доступен новый коннектор](concepts/greenplum-connector.md): Greenplum®/Cloudberry.
+
+## Апрель 2026 {#april-2026}
+
+* Добавлена поддержка приватного доступа к кластеру через [сервисное подключение](concepts/network.md#private-endpoint).
+* Добавлена возможность [настраивать группы безопасности](operations/connect.md#configuring-security-groups) для подключения к кластеру, в том числе при работе с коннектором Greenplum®.
+
 ## Март 2026 {#march-2026}
 
 * Добавлены отдельные роли для просмотра и редактирования задач на техническое обслуживание: [managed-trino.maintenanceTask.viewer](security.md#managed-trino-maintenanceTask-viewer), [managed-trino.maintenanceTask.editor](security.md#managed-trino-maintenanceTask-editor).

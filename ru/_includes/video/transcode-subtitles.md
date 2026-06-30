@@ -1,0 +1,4 @@
+Чтобы субтитры появились в интерфейсе [{{ video-name }}]({{ link-video-main }}) и в [плеере](../../video/concepts/player.md), после загрузки файла субтитров запустите перекодировку видео. Воспользуйтесь методом REST API [Transcode](../../video/api-ref/Video/transcode.md) для ресурса [Video](../../video/api-ref/Video/) или вызовом gRPC API [VideoService.Transcode](../../video/api-ref/grpc/Video/transcode.md) и передайте в запросе:
+ 
+  * Идентификаторы субтитров в параметре `subtitleIds` для REST API или `subtitle_ids` для gRPC API.
+  * Имя обновляемого поля `subtitleIds` в параметре `fieldMask` для REST API или `subtitle_ids` в параметре `field_mask` для gRPC API.  

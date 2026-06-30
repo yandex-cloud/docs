@@ -15,19 +15,39 @@ One may compare this to cataloging books in a library. In a large library with t
 
 In relational databases (Oracle, {{ PG }}), the data dictionary is built into the DBMS itself. When you create a table in {{ PG }}, information about its structure is stored in system tables within the same database. However, in big data ecosystems where files may be stored independently from processing tools, you need a dedicated service to store such information, {{ metastore-name }}.
 
+## {{ metastore-name }} versions {#versions}
+
+{{ yandex-cloud }} provides the following {{ metastore-name }} versions:
+
+#|
+|| **{{ metastore-name }} version** | **Features** ||
+|| 3.1 | Connection over Thrift on port 9083 ||
+|| 4.0 | Connection over Thrift on port 9083 ||
+|| 4.2 | Supports two connection protocols: Thrift and REST. ||
+|#
+
+{% include [metastore-version](../../_includes/metadata-hub/metastore-version-cluster-create.md) %}
+
+## Connection protocols {#connection-protocols}
+
+Starting with version 4.2.0, {{ metastore-name }} supports two connection protocols:
+
+* **Thrift**: Operates on port 9083. Available in all {{ metastore-name }} versions.
+* **REST**: Operates on port 9001. Available in versions 4.2.0 and higher. This is an HTTP API optimized for Iceberg tables.
+
 ## {{ metastore-name }} cluster configuration {#presets}
 
-A configuration decides the computing power allocated for the cluster. There are two available configuration types:
+The configuration determines the computing power allocated for the cluster. There are two available configuration types:
 
 * **standard**: 2 vCPUs and 8 GB RAM
 
-    For this configuration, the RAM GB to vCPU ratio is 4:1.
+    For this configuration, the ratio of RAM in GB to vCPU is 4:1.
 
 * **cpu-optimized**: 2 vCPUs and 4 GB RAM
 
-    For this configuration, the RAM GB to vCPU ratio is decreased to 2:1.
+    For this configuration, the ratio of RAM in GB to vCPU is reduced to 2:1.
 
-You can select a configuration when [creating a cluster](../operations/metastore/cluster-create.md) or change them while [editing it](../operations/metastore/cluster-update.md).
+You can select a configuration when [creating a cluster](../operations/metastore/cluster-create.md) or change it during a cluster [update](../operations/metastore/cluster-update.md).
 
 ## Use cases {#scenarios}
 
@@ -78,12 +98,6 @@ In {{ yandex-cloud }}, {{ metastore-name }} is particularly useful for creating 
 
 In {{ yandex-cloud }}, {{ metastore-name }} integrates with other services, enhancing their data capabilities and simplifying the creation of comprehensive solutions.
 
-{% note info %}
-
-For integration with other {{ yandex-cloud }} services, use {{ metastore-name }} 3.1 clusters.
-
-{% endnote %}
-
 ### {{ dataproc-name }} and {{ metastore-name }} {#data-processing}
 
 [{{ dataproc-name }}](../../data-proc/concepts/index.md) is a service for running distributed computations using [{{ SPRK }}](https://spark.apache.org/), [Apache Hive](https://hive.apache.org/), and other Apache Hadoop® ecosystem tools. {{ SPRK }} actively uses {{ metastore-name }} to store table schemas and access data through an SQL interface.
@@ -118,7 +132,7 @@ Additionally, {{ metastore-name }} is only accessible via an internal VPC IP add
 
 One more aspect to consider is network security. For {{ metastore-name }} to work properly, you need to configure security groups correctly to allow the required network traffic. Othewise clusters may indicate a `DEAD` state, which makes it difficult to diagnose issues (see [Security group setup guide](../../metadata-hub/operations/metastore/configure-security-group.md)).
 
-For more information about {{ metastore-name }}, see the [Apache® documentation](https://cwiki.apache.org/confluence/display/hive/design#Design-Metastore).
+Learn more about {{ metastore-name }} in [this Apache® guide](https://cwiki.apache.org/confluence/display/hive/design#Design-Metastore).
 
 ## Use cases {#examples}
 

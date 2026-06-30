@@ -105,7 +105,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Name your service account, e.g., `sa-terraform`.
 
@@ -258,7 +258,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
    cd yc-dmz-with-high-available-ting-ngfw
    ```
 
-1. Set up a CLI profile to run operations under the service account:
+1. Set up your CLI profile to use the service account to run operations:
 
    {% list tabs group=instructions %}
 
@@ -318,7 +318,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
          * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
          * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
-      1. Add your credentials to the environment variables:
+      1. Add the credentials to the environment variables:
          
          ```bash
          export YC_TOKEN=$(yc iam create-token)
@@ -528,7 +528,7 @@ Connect to the FW-A management web interface at `https://192.168.1.10`. Admin cr
 
 1. In the left-hand menu, in the **Firewall** section, select **NAT** → **Port redirection**. Add a rule to route user requests to the network load balancer in the `dmz` segment downstream of which the application's web server group is located. Click `+` to add a rule. In the **Interface** field, select only the `public` interface. In the **Sender** field, select **Additional**, then select `public` as alias. In the **Recipient** field, select `public address`. In the **Destination port range** field, select `TCP_8080` for the **from:** and **to:** fields. In the **Redirect target IP address** field, select `dmz_web_server` as alias. In the **Redirect target port** field, select `TCP_8080`. Optionally, in the **Logging** field, tick the packet logging checkbox. In the **Description** field, specify `DNAT public to dmz-web-server`. In the **Filter rule association** field, select `Add associated rule`. Click **Save**.
 
-1. In the left-hand menu, in the **Firewall** section, select **NAT** → **Outbound**. In the **Mode** section, enable `Manual creation of outbound NAT rules (rules will not be created automatically)`. Click **Save**.
+1. In the left-hand menu, in the **Firewall** section, select **NAT** → **Outgoing**. In the **Mode** section, enable `Manual creation of outbound NAT rules (rules will not be created automatically)`. Click **Save**.
 
 1. On the **Firewall: NAT: Outbound** page, add a rule requiring that the application responds through the same firewall the user's request had come through:
    * Click `+` to add a rule.
@@ -615,7 +615,7 @@ Connect to the FW-B management web interface at `https://192.168.2.10`. Admin cr
 
 ## Enable the route switcher {#enable-route-switcher}
 
-After you complete the NGFW setup, make sure FW-A and FW-B health checks return `Healthy`. To do this, in the {{ yandex-cloud }} [management console]({{ link-console-main }}), [navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** in the `mgmt` folder and then to the `route-switcher-lb-...` page. Expand the target group and make sure the targets are `Healthy`. If they are `Unhealthy`, check that FW-A and FW-B are up and running and properly [configured](#configure-gateways).
+After you complete the NGFW setup, make sure FW-A and FW-B health checks return `Healthy`. To do this, in the {{ yandex-cloud }} [management console]({{ link-console-main }}), navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** in the `mgmt` folder and then to the `route-switcher-lb-...` page. Expand the target group and make sure the targets are `Healthy`. If they are `Unhealthy`, check that FW-A and FW-B are up and running and properly [configured](#configure-gateways).
 
 Once FW-A and FW-B get the `Healthy` status, change the `route-switcher` module's `start_module` value to `true` in the `route-switcher.tf` file. To enable the module, run these commands:
 
@@ -705,7 +705,7 @@ Within five minutes, the `route-switcher` module will start working, providing o
 
 1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), change the settings of this VM:
 
-   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.group.switch_instances }}**.
    1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the VM you need and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
    1. In the window that opens, under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable **{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}**.

@@ -183,8 +183,8 @@
       const { Telegraf } = require('telegraf');
 
       const bot = new Telegraf(process.env.BOT_TOKEN);
-      bot.start((ctx) => ctx.reply(`Hello. \nMy name Serverless Hello Telegram Bot \nI'm working on Cloud Function in the Yandex Cloud.`))
-      bot.help((ctx) => ctx.reply(`Hello, ${ctx.message.from.username}.\nI can say Hello and nothing more`))
+      bot.start((ctx) => ctx.reply(`Hello. \nMy name Serverless Hello Telegram Bot \nI'm working on Cloud Functions in the Yandex Cloud.`));
+      bot.help((ctx) => ctx.reply(`Hello, ${ctx.message.from.username}.\nI can say Hello and nothing more`));
       bot.on('text', (ctx) => {
           ctx.replyWithPhoto({url: '<домен_API-шлюза>/sayhello.png'});
           ctx.reply(`Hello, ${ctx.message.from.username}`);
@@ -296,20 +296,9 @@
    
    Результат:
    
-   ```text
+   ```json
    {"ok":true,"result":true,"description":"Webhook was set"}
    ```
-
-    Где:
-
-    * `<токен_бота>` — токен Telegram-бота.
-    * `<домен_API-шлюза>` — служебный домен API-шлюза.
-
-    Результат:
-
-    ```bash
-    {"ok":true,"result":true,"description":"Webhook was set"}
-    ```
 
 
 ## Проверьте работу Telegram-бота {#test-bot}
@@ -324,7 +313,7 @@
     ```text
     Hello.
     My name Serverless Hello Telegram Bot
-    I'm working on Cloud Function in the Yandex Cloud.
+    I'm working on Cloud Functions in the Yandex Cloud.
     ```
 
 1. Отправьте в чат сообщение `/help`.

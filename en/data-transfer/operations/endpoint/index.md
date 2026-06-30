@@ -118,7 +118,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
        <endpoint_parameters>
      ```
 
-     You can view the endpoint type and parameters in the settings section for the appropriate data source or target.
+     You can view the endpoint type and parameters in the settings section for relevant data source or target.
 
 - {{ TF }} {#tf}
 
@@ -152,7 +152,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
      ```
 
   You can retrieve a complete resource schema by running `terraform providers schema`.
-  1. You can view the endpoint type and parameters in the settings section for the appropriate data source or target.
+  1. You can view the endpoint type and parameters in the settings section for relevant data source or target.
   1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
@@ -179,7 +179,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
   * Endpoint description in the `description` parameter.
   * Endpoint parameters in the `settings` parameter.
 
-   You can view the endpoint parameters in the settings section for the appropriate data source or target.
+   You can view the endpoint parameters in the settings section for relevant data source or target.
 
 {% endlist %}
 
@@ -237,13 +237,13 @@ You cannot change the endpoint type and the database type. For some endpoints, y
        <endpoint_parameters>
      ```
 
-     You can view the endpoint type and parameters in the settings section for the appropriate data source or target. You can get the endpoint ID with a [list of endpoints in the folder](#list).
+     You can view the endpoint type and parameters in the settings section for relevant data source or target. You can get the endpoint ID with a [list of endpoints in the folder](#list).
 
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file with the endpoint description.
 
-     To learn how to create such a file, see [Create endpoint](#create).
+     For more info on how to create such a file, see the [Creating an endpoint](#create) subsection.
   1. Edit the value in the `name` field (endpoint name) and the endpoint parameters under `settings`.
   1. Make sure the settings are correct.
 

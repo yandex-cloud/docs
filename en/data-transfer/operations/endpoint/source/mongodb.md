@@ -96,7 +96,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
     ```
 
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -162,7 +162,7 @@ The settings are given for the OnPremise use case when all fields are filled in 
     ```
 
 
-    For more information, see this [{{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 

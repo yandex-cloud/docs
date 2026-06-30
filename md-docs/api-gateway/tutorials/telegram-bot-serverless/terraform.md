@@ -444,7 +444,7 @@ Terraform распространяется под лицензией [Business S
        
        Результат:
        
-       ```text
+       ```json
        {"ok":true,"result":true,"description":"Webhook was set"}
        ```
 
@@ -461,7 +461,7 @@ Terraform распространяется под лицензией [Business S
     ```text
     Hello.
     My name Serverless Hello Telegram Bot
-    I'm working on Cloud Function in the Yandex Cloud.
+    I'm working on Cloud Functions in the Yandex Cloud.
     ```
 
 1. Отправьте в чат сообщение `/help`.

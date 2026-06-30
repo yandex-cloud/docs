@@ -14,7 +14,7 @@ You can create or edit an instance group based on the specification in [YAML](ht
 
 {% note info %}
 
-You can also create an instance group using [Terraform](https://terraform.io) based on the description similar to a YAML specification. For more information, see [Getting started with Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md), [Create an instance group](../../operations/instance-groups/create-fixed-group.md), and the [`yandex_compute_instance_group`]({{ tf-provider-resources-link }}/compute_instance_group) resource guide.
+You can also create an instance group using [Terraform](https://terraform.io) based on the description similar to a YAML specification. For more information, see the guides on [getting started with Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md), [creating an instance group](../../operations/instance-groups/create-fixed-group.md), and the [`yandex_compute_instance_group` reference]({{ tf-provider-resources-link }}/compute_instance_group).
 
 {% endnote %}
 

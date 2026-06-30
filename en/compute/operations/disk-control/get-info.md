@@ -75,7 +75,7 @@ description: Follow this guide to get information about a disk.
       * `output "my_disk_size"`: Output variable that contains information about the disk size:
          * `value`: Return value.
 
-     You can replace `size` with any other parameter to get the information you need. For more information about the `yandex_compute_disk` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_disk).
+     You can replace `size` with another variable to get the information you need. For more information about the `yandex_compute_disk` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_disk).
 
   1. Create the resources:
 

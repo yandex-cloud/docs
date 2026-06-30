@@ -150,6 +150,8 @@
 
  - [Эмуляция множества IoT-устройств](tutorials/iot-emulation.md)
 
+ - [Миграция с Yandex IoT Core на MQTT-решения с открытым исходным кодом](tutorials/iot-core-migration.md)
+
  - [Управление доступом](security/index.md)
 
  - [Правила тарификации](pricing.md)

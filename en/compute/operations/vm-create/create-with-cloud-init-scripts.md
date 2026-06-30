@@ -33,7 +33,7 @@ To create a VM with a custom configuration script:
   1. Expand the **{{ ui-key.yacloud.common.metadata }}** section and specify:
 
       * **{{ ui-key.yacloud_billing.component.key-values-input.label_key }}**: `user-data`.
-      * **{{ ui-key.yacloud_billing.component.key-values-input.label_value }}**: `cloud-config` configuration in YAML format. See configuration examples for `user-data` under [Examples](#examples).
+      * **{{ ui-key.yacloud_billing.component.key-values-input.label_value }}**: `cloud-config` configuration in YAML format. For `user-data` configuration examples, see [Examples](#examples).
 
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
@@ -81,7 +81,7 @@ To create a VM with a custom configuration script:
 
   * `--metadata-from-file`: `user-data` key and its value, i.e., path to the `cloud-config` configuration file in YAML format, e.g., `--metadata-from-file user-data="/home/user/metadata.yaml"`.
 
-      See configuration examples for `user-data` under [Examples](#examples).
+      For `user-data` configuration examples, see [Examples](#examples).
 
   {% include [cli-metadata-variables-substitution-notice](../../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
@@ -105,7 +105,7 @@ To create a VM with a custom configuration script:
   Where:
   * `user-data`: Path to the `cloud-config` configuration file in YAML format, e.g., `user-data = "${file("/home/user/metadata.yaml")}"`.
   
-      See configuration examples for `user-data` under [Examples](#examples).
+      For `user-data` configuration examples, see [Examples](#examples).
 
 - API {#api}
 
@@ -125,11 +125,11 @@ To create a VM with a custom configuration script:
   }
   ```
 
-  See configuration examples for `user-data` under [Examples](#examples).
+  For `user-data` configuration examples, see [Examples](#examples).
 
 {% endlist %}
 
-For more information on how to create a VM, see [{#T}](./create-linux-vm.md).
+For more information about creating a VM, see [{#T}](./create-linux-vm.md).
 
 To make sure the configuration scripts ran successfully, [get the serial port output](../vm-info/get-serial-port-output.md) of your VM.
 

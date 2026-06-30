@@ -110,9 +110,9 @@ To move an [instance group](../../concepts/instance-groups/index.md) with a [{{ 
 
          Where:
          * `zone_id`: Availability zones where the L7 load balancer will accept traffic.
-         * `subnet_id`: IDs of the subnets in the availability zones.
+         * `subnet_id`: IDs of the subnets in these availability zones.
 
-         For more information about resource properties in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
+         For more information about resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/alb_load_balancer).
 
       1. Apply the changes:
 

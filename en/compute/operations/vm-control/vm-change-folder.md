@@ -355,7 +355,7 @@ After moving a VM, its network interfaces remain connected to the [subnets](../.
       Where:
 
       * `subnet_id`: [Subnet](../../../vpc/concepts/network.md#subnet) ID.
-      * `allow_stopping_for_update`: Parameter to allow your VM to stop for updates.
+      * `allow_stopping_for_update`: Parameter to allow the VM to stop for updates.
 
       For more information about `yandex_compute_instance` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_instance).
 

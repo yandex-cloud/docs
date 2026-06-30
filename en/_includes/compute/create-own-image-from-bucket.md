@@ -5,7 +5,7 @@ Create a new image using the link you got in {{ objstorage-name }}:
 - Management console {#console}
 
   1. In the management console, select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an image.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}**.
   1. Click **{{ ui-key.yacloud.compute.images.button_upload }}**, and in the window that opens:
 
@@ -148,8 +148,8 @@ Create a new image using the link you got in {{ objstorage-name }}:
                   * `PCI_TOPOLOGY_V1`: Matches the `Gen 1.1` hardware generation.
                   * `PCI_TOPOLOGY_V2`: Matches the `Gen 1.2` hardware generation.
           The `hardware_generation` configuration section is optional. If it is not specified, `Gen 1.1` will be assigned to the new image.
-      For more information about the `yandex_compute_image` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_image).
-  1. Create the required resources:
+      For more information about `yandex_compute_image` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_image).
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

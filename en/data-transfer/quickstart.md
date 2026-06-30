@@ -20,7 +20,7 @@ When creating an endpoint, you can select a cluster from a different folder only
 
 {% endnote %}
 
-For more information about the roles required to use {{ data-transfer-name }}, see [Required roles](security/index.md#required-roles).
+For more information about the roles you need to use {{ data-transfer-name }}, see [Required roles](security/index.md#required-roles).
 
 
 To use the service from the management console:
@@ -134,7 +134,7 @@ For more information, see [{#T}](./operations/endpoint/index.md).
 
 {% endlist %}
 
-For more information, see [Types of transfers](./concepts/transfer-lifecycle.md#transfer-types).
+For more information, see [Transfer types](./concepts/transfer-lifecycle.md#transfer-types).
 
 ## Activate the transfer {#activate}
 
