@@ -40,3 +40,4 @@
 
 * [Тестирование доставки сообщения](message-delivery-check.md)
 * [Эмуляция множества IoT-устройств](iot-emulation.md)
+* [Миграция с Yandex IoT Core на MQTT-решения с открытым исходным кодом](iot-core-migration.md)

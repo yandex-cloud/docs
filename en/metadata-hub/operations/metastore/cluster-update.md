@@ -3,14 +3,14 @@ title: How to update a {{ metastore-full-name }} cluster
 description: Follow this guide to update a {{ metastore-full-name }} cluster.
 ---
 
-# Updating a cluster {{ metastore-full-name }}
+# Updating a {{ metastore-full-name }} cluster
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to update a cluster.
-  1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Navigate](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
   1. In the cluster row, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
@@ -21,6 +21,11 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
         1. Switch your {{ metastore-name }} version.
 
             {% include [metastore-version](../../../_includes/metadata-hub/metastore-version-cluster-create.md) %}
+
+  1. Under **{{ ui-key.yacloud.metastore.label_section-warehouse }}**, update the following bucket settings:
+
+        * **{{ ui-key.yacloud.metastore.label_warehouse-bucket }}**: Name of the {{ objstorage-name }} bucket to store the {{ metastore-name }} (warehouse) data.
+        * **{{ ui-key.yacloud.metastore.label_warehouse-path }}**: Path within the bucket that will be used to prefix the {{ metastore-name }} data. This is an optional setting.
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select another [security group](configure-security-group.md) or create a new one.
   1. Under **{{ ui-key.yacloud.metastore.label_resource-preset }}**, update the [cluster configuration](../../concepts/metastore.md#presets).
@@ -55,6 +60,8 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
          --labels <label_list> \
          --service-account-id <service_account_ID> \
          --version <Apache_Hive™_Metastore_version> \
+         --warehouse-bucket <bucket_name> \
+         --warehouse-path <path_within_bucket> \
          --security-group-ids <security_group_IDs> \
          --resource-preset-id <ID_of_computing_resources> \
          --maintenance-window type=<maintenance_type>,`
@@ -94,6 +101,12 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
           "configSpec": {
             "resources": {
             "resourcePresetId": "<resource_configuration_ID>"
+            },
+            "warehouse": {
+              "s3": {
+                "bucket": "<bucket_name>",
+                "path": "<path_within_bucket>"
+              }
             }
           },
           "serviceAccountId": "<service_account_ID>",
@@ -120,7 +133,7 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
 
           {% note warning %}
 
-          When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
+          When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
           {% endnote %}
 
@@ -147,7 +160,7 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -167,6 +180,12 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
           "config_spec": {
             "resources": {
               "resource_preset_id": "<resource_configuration_ID>"
+            },
+            "warehouse": {
+              "s3": {
+                "bucket": "<bucket_name>",
+                "path": "<path_within_bucket>"
+              }
             }
           },
           "service_account_id": "<service_account_ID>",
@@ -189,8 +208,8 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
 
         Where:
 
-          * `cluster_id`: Cluster ID. You can get it with the [list of clusters in a folder](cluster-list.md#list-clusters).
-          * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+          * `cluster_id`: Cluster ID. You can get it with the [list of clusters in the folder](cluster-list.md#list-clusters).
+          * `update_mask`: List of parameters you want to update as an array of strings (`paths[]`).
 
               {% cut "Format for listing settings" %}
 
@@ -209,7 +228,7 @@ description: Follow this guide to update a {{ metastore-full-name }} cluster.
 
               {% note warning %}
 
-              When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
+              When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
               {% endnote %}
 

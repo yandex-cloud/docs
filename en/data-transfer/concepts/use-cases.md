@@ -29,7 +29,7 @@ At the same time, the main database will not be overloaded.
 
 ## Splitting and merging databases {#separation}
 
-Using {{ data-transfer-name }}, you can:
+With {{ data-transfer-name }}, you can:
 
 * Split a database into several separate ones.
 * Combine multiple databases into one, including by combining different sets of tables.

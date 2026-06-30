@@ -11,7 +11,7 @@ A _virtual machine_ is similar to a server in cloud infrastructures.
 
 A VM is created in one of the [folders](../../resource-manager/concepts/resources-hierarchy.md#folder) within your [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and inherits its access permissions. You can read more about the {{ yandex-cloud }} resource hierarchy [here](../../resource-manager/concepts/resources-hierarchy.md).
 
-Each VM has a unique ID and name. The name is unique within the folder. Follow these naming requirements:
+Each VM has a unique ID and name. The name is unique within the folder. The naming requirements are as follows:
 
 {% include [name-format](../../_includes/name-format.md) %}
 
@@ -26,9 +26,23 @@ You can move a VM to another folder within a single cloud.
 
 {% include [instance-az](../_includes_service/instance-az.md) %}
 
+## Service account {#sa}
+
+To make it easier to [authenticate in {{ yandex-cloud }} from within a VM](../operations/vm-connect/auth-inside-vm.md), associate a [service account](../../iam/concepts/users/service-accounts.md) with that VM.
+
+All cloud resource operations performed from within the VM, whether via the [CLI](../../cli/quickstart.md), [{{ TF }}](../../terraform/quickstart.md), or [API](../../api-design-guide/concepts/general.md), will use the service account.
+
+Authentication uses a secure, short-lived [IAM token](../../iam/concepts/authorization/iam-token.md). You do not need to keep sensitive authentication data on the VM.
+
+The service account can access cloud resources only within the scope of its [roles](../../iam/concepts/access-control/roles.md). [Assign](../../iam/operations/sa/assign-role-for-sa.md) your service account a specific role for the resource you want to access. You can [revoke](../../iam/operations/roles/revoke.md) the role at any time.
+
+The VM also uses the service account to send custom metrics to [{{ monitoring-full-name }}](../../monitoring/quickstart.md), deliver logs to [{{ cloud-logging-full-name }}](../../logging/quickstart.md), and connect to [{{ backup-full-name }}](../../backup/quickstart/existing-vm.md).
+
+You can only associate a single service account with the VM. To remove or replace the associated service account, [update](../operations/vm-control/vm-update.md) the VM settings accordingly.
+
 ## Computing resources {#types}
 
-When creating a VM, you need to specify the amount of computing resources to allocate to it; this includes the number and performance of processor cores (vCPUs) and the amount of RAM. You can choose the computing resources that are appropriate for the expected load. For more information, see [{#T}](performance-levels.md).
+When creating a VM, you need to specify the amount of computing resources to allocate to it, including the number and performance of vCPUs and the amount of RAM. You can choose the computing resources that are appropriate for the expected load. For more information, see [{#T}](performance-levels.md).
 
 You can create a [reserved instance pool](./reserved-pools.md) to reserve computing resources for as many VMs as you need in a particular availability zone.
 
@@ -56,7 +70,7 @@ Read more about disks in [{#T}](disk.md).
 
 The status of a VM determines which operations you can currently perform on it.
 
-> For example, the `STOPPED` status means the VM is stopped and you cannot connect to it. To connect to such a VM, you must [start](../operations/vm-control/vm-stop-and-start.md#start) it first. After the status changes to `RUNNING` and the OS boots, you will be able to connect to the VM.
+> For example, the `STOPPED` status means the VM is stopped and you cannot connect to it. To connect to such a VM, you must [start](../operations/vm-control/vm-stop-and-start.md#start) it first. After the status switches to `RUNNING` and the OS boots, you will be able to connect to the VM.
 
 For more information about statuses, see [{#T}](vm-statuses.md).
 

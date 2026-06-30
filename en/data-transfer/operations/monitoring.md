@@ -1,4 +1,4 @@
-# Monitoring transfer status
+# Transfer state monitoring
 
 Transfer status details are available in the management console:
 
@@ -20,7 +20,7 @@ Some errors you may see on the selected transfer timeline:
 
 [Learn more about errors displayed on the timeline](../troubleshooting/index.md#timeline).
 
-## Monitoring transfer status {#monitoring}
+## Transfer state monitoring {#monitoring}
 
 {% list tabs group=instructions %}
 
@@ -59,7 +59,7 @@ The amount of data read from the source (in bytes).
 ### Data transfer delay {#sinker.pusher.time.row_lag_sec}
 `sinker.pusher.time.row_lag_sec`
 
-Time difference between when the records appear in the target and when they appear in the source (in seconds). The histogram is divided into `bins`. Let us assume, the histogram is showing two `bins` for 45 and 60 at a given point in time, with each containing a value equal to 50%. This means that half the records being transferred at the time had a delay of between 30 and 45 seconds, and the other half of between 45 and 60 seconds.
+Time difference between when the records appear in the target and when they appear in the source (in seconds). The histogram is divided into `bin`s. Let us assume, the histogram is showing two `bin`s for 45 and 60 at a given point in time, with each containing a value equal to 50%. This means that half the records being transferred at the time had a delay of between 30 and 45 seconds, and the other half of between 45 and 60 seconds.
 
 ### Source buffer size {#publisher.consumer.log_usage_bytes}
 `publisher.consumer.log_usage_bytes`
@@ -97,7 +97,7 @@ Type of the operation in progress: `1`, meaning the task is active.
   1. Go to ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select **{{ ui-key.yacloud.iam.folder.dashboard.value_data-transfer }}**.
   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.dashboard.dash.create-alert }}**.
-  1. If the chart displays multiple metrics, select the data query for the relevant metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
+  1. If the chart displays multiple metrics, select the data query for the relevant metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Learn more about the query language in [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
   1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` alert thresholds.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 

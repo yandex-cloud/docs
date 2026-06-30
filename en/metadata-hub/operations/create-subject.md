@@ -18,7 +18,7 @@ You can create a subject:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a subject.
-  1. [Go](../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Navigate](../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layout-cells.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_schema-registry }}**.
   1. Select the namespace you want to create a subject in.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.schema-registry.label_subjects }}**.
@@ -33,7 +33,7 @@ You can create a subject:
           * `FULL`: New schema is forward and backward compatible with the latest registered schema.
           * `FULL_TRANSITIVE`: New schema is forward and backward compatible with all previously registered schemas.
           * `NONE`: Schema compatibility checks are disabled.
-          For more information about schema compatibility types, see the [Confluent documentation](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types).
+          For more information about schema compatibility types, see [this Confluent guide](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types).
       * Under **Schema**:
           * Set the schema format to [Protobuf](https://protobuf.dev/), [Avro](https://avro.apache.org/), or [JSON Schema](https://json-schema.org/) and attach the file.
           * If a schema references another schema, in the **References** section, click ![add](../../_assets/console-icons/plus.svg) and enter the [reference](../../metadata-hub/concepts/schema-registry.md#reference) name, the subject name the schema for is registered under for linking, and the registered subject's schema version.
@@ -45,5 +45,5 @@ You can create a subject:
 
 ## Creating a subject when uploading a schema {#create-subject-during-schema-upload}
 
-To create a subject when uploading a schema, select **New** in the **Subject** field and specify the subject parameters: name, description, and compatibility check level. For more information on how to creatie a subject when uploading a schema, see [this guide](upload-schema-to-subject.md).
+To create a subject when uploading a schema, select **New** in the **Subject** field and specify the subject parameters: name, description, and compatibility check level. For more information on how to create a subject when uploading a schema, see [this guide](upload-schema-to-subject.md).
 

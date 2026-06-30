@@ -23,7 +23,7 @@ You can configure [snapshot](../../concepts/snapshot.md) [schedules](../../conce
   1. Navigate to **{{ compute-name }}**.
   1. Open the ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}** tab and select the disk.
   1. Under **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_edit-disk-schedules }}**.
-  1. Select a schedule or create a new one. For more information about setting up schedules, see [Creating a disk snapshot schedule](../snapshot-control/create-schedule.md).
+  1. Select a schedule or create a new one. For more information on schedule settings, see [this guide](../snapshot-control/create-schedule.md).
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}

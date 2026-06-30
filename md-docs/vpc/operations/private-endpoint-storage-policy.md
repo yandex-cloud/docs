@@ -1,11 +1,5 @@
 # Назначить политику доступа в Object Storage для сервисного подключения
 
-{% note warning %}
-
-Функциональность **Сервисные подключения** (VPC Private Endpoints) находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 
 [Политики доступа (bucket policy)](../../storage/concepts/policy.md) устанавливают права на действия с [бакетами](../../storage/concepts/bucket.md), [объектами](../../storage/concepts/object.md) и группами объектов.
 

@@ -83,7 +83,7 @@ The support cost for this solution includes:
       * `folder_id`: Cloud folder ID as specified in the provider settings.
       * `k8s_version`: {{ k8s }} version. Available versions are listed in [{#T}](../../managed-kubernetes/concepts/release-channels-and-updates.md).
 
-   1. Validate your {{ TF }} configuration files using this command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -281,7 +281,7 @@ To set up an address for the load balancer:
       * [Type A record](../../dns/concepts/resource-record.md#a) for this zone to map the reserved IP address to the delegated domain.
 
 
-   1. Validate your {{ TF }} configuration files using this command:
+   1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
@@ -338,7 +338,7 @@ To create resources:
    To follow the process and make sure it is error-free, open the logs of the pod it is run in:
 
    1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
    1. Click the cluster name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
    1. Select the `yc-alb-ingress-controller-*` pod (not `yc-alb-ingress-controller-hc-*`) that is running the resource creation.
    1. Go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab on the pod page.
@@ -389,7 +389,7 @@ To create resources:
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-      1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
       1. Click the load balancer name and select **{{ ui-key.yacloud.alb.label_healthchecks }}** in the left-hand panel.
       1. Check the target health. The `HEALTHY` status indicates the application is up and running.
 

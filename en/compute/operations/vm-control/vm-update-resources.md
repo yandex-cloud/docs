@@ -6,13 +6,22 @@ description: Follow this guide to change the computing resources of a VM.
 # Changing VM computing resources
 
 
-After you create a VM, you can change its computing resources. For more information on how to change a VM name, description, and tags, see [{#T}](vm-update.md).
+After you create a VM, you can change its computing resources. For more information on how to change a VM name, description, and labels, see [{#T}](vm-update.md).
+
+{% note warning %}
+
+When you change a VM's computing resources, they can be redistributed evenly across two [NUMA](https://en.wikipedia.org/wiki/Non-uniform_memory_access) nodes on the physical server. This alters the PCI topology and can change the network adapter address on the PCI bus.
+
+Keep this in mind if using an OS sensitive to such changes. For example, in Windows, network adapter settings may be reset to their defaults, i.e., to obtaining network settings via [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol). As a result, you may lose access to your VM.
+
+{% endnote %}
 
 ## Changing the vCPU and RAM configuration {#update-vcpu-ram}
 
 This section explains you how to change the number and performance of vCPUs and the amount of RAM.
 
 {% note warning %}
+
 
 {% include [vcpu-note](../../../_includes/compute/vcpu-note.md) %}
 
@@ -96,13 +105,15 @@ This section explains you how to change the number and performance of vCPUs and 
 
 {% endlist %}
 
+## Adding a GPU to an existing VM {#add-gpu}
+
 {% note warning %}
 
-When you edit VM resources, the PCI topology might change. Keep this in mind when working with operating systems sensitive to such changes. For example, if you make substantial changes to network settings in Windows Server, you may lose network connectivity and access to the VM.
+{% include [gpu-add-to-vm-notice](../../../_includes/compute/gpu-add-to-vm-notice.md) %}
+
+{% include [gpu-driver-versions](../../../_includes/compute/gpu-driver-versions.md) %}
 
 {% endnote %}
-
-## Adding a GPU to an existing VM {#add-gpu}
 
 To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform and specify the number of GPUs.
 
@@ -194,6 +205,14 @@ To add a [GPU](../../concepts/gpus.md) to an existing VM, change the platform an
 {% endlist %}
 
 ## Changing the number of GPUs {#update-gpu}
+
+{% note warning %}
+
+{% include [gpu-add-to-vm-notice](../../../_includes/compute/gpu-add-to-vm-notice.md) %}
+
+{% include [gpu-driver-versions](../../../_includes/compute/gpu-driver-versions.md) %}
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 

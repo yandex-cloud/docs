@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Назначить политику доступа в {{ objstorage-short-name }} для сервисного подключения
 
-{% include [vpc-pe-preview](../../_includes/vpc/pe-preview.md) %}
-
 
 [Политики доступа (bucket policy)](../../storage/concepts/policy.md) устанавливают права на действия с [бакетами](../../storage/concepts/bucket.md), [объектами](../../storage/concepts/object.md) и группами объектов.
 

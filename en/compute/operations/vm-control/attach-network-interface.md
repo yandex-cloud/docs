@@ -189,7 +189,7 @@ To add another network interface to your VM:
 
       * `index`: Network interface number. Specify any number between `0` and `15` except the ones already used. By default, the first network interface gets `0`.
       * `subnet_id`: [Subnet](../../../vpc/concepts/network.md#subnet) ID.
-      * `allow_stopping_for_update`: Parameter to allow your VM to stop for updates.
+      * `allow_stopping_for_update`: Parameter to allow the VM to stop for updates.
 
       For more information about `yandex_compute_instance` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_instance).
 

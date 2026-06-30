@@ -6,7 +6,6 @@ editable: false
 
 # {{ network-load-balancer-name }} pricing policy
 
-
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}

@@ -3,7 +3,7 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to connect a VM.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Enter a name for the [security group](../../../vpc/concepts/security-groups.md), e.g., `backup-sg`.
@@ -97,7 +97,7 @@
 
   {% include [terraform-install](../../terraform-install.md) %}
 
-  1. In the configuration file, describe the properties of resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_vpc_security_group" "test_sg_outgoing" {
@@ -185,7 +185,7 @@
 
       {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}).
 
-    For more information about `yandex_vpc_security_group` properties, see [this {{ TF }} article]({{ tf-provider-datasources-link }}/vpc_security_group).
+    For more information about `yandex_vpc_security_group` properties, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_security_group).
 
 - API {#api}
 

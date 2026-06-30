@@ -40,7 +40,7 @@ The infrastructure support cost includes a fee for VM computing resources and di
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your cluster in.
-   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
    1. Click **{{ ui-key.yacloud.gpu-cluster.action_create-cluster }}**.
    1. In the **{{ ui-key.yacloud.gpu-cluster.field_name }}** field, specify `test-gpu-cluster`.

@@ -1,3 +1,3 @@
-If you are using a private bucket as a source, grant the `read` and `list` permissions to the account you will use for connection.
+If using a private bucket as a source, grant the `read` and `list` permissions to the account you are going to use for connection.
 
-For more information, see the [{{ AB }} documentation](https://docs.airbyte.com/integrations/sources/s3/).
+For more information, see [this {{ AB }} guide](https://docs.airbyte.com/integrations/sources/s3/).

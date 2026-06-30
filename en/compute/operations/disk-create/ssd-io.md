@@ -124,7 +124,7 @@ The disk size must be a multiple of 93 GB.
 
          {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
-     For more information about the `yandex_compute_disk` resource, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_disk).
+     For more information about `yandex_compute_disk`, see [this provider guide]({{ tf-provider-resources-link }}/compute_disk).
 
   1. Create the resources:
 

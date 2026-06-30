@@ -100,7 +100,7 @@ Connection with the cluster specified in {{ yandex-cloud }}.
     ```
 
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -150,7 +150,7 @@ Connection to the {{ KF }} cluster with explicitly specified network addresses a
     ```
 
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -196,7 +196,7 @@ Connection to the {{ KF }} cluster with explicitly specified network addresses a
 
 {% endlist %}
 
-{{ data-transfer-full-name }} supports CDC for transfers from {{ PG }}, {{ MY }}, and {{ ydb-short-name }} databases to {{ KF }} and {{ yds-full-name }}. Data is sent to the target in Debezium format. For more information about CDC mode, see [Change data capture](../../../concepts/cdc.md).
+{{ data-transfer-full-name }} supports CDC for transfers from {{ PG }}, {{ MY }}, and {{ ydb-short-name }} databases to {{ KF }} and {{ yds-full-name }}. Data is sent to the target in Debezium format. For more information about the CDC mode, see [Change data capture](../../../concepts/cdc.md).
 
 {% include [CDC-YDB](../../../../_includes/data-transfer/note-ydb-cdc.md) %}
 

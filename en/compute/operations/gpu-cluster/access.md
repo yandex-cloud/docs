@@ -42,13 +42,13 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
      yc compute gpu-cluster list
      ```
 
-  1. Check the list of roles already assigned for the resource:
+  1. View the roles already assigned for the resource:
 
      ```bash
      yc compute gpu-cluster list-access-bindings <GPU_cluster_ID>
      ```
 
-  1. Assign the role using this command:
+  1. Assign a role using this command:
 
      * To a user:
 
@@ -60,7 +60,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
        Where:
 
-       * `--user-account-id`: [User ID](../../../organization/operations/users-get.md). To assign the role to all authenticated users, use the `--all-authenticated-users` flag.
+       * `--user-account-id`: [User ID](../../../organization/operations/users-get.md). Use the `--all-authenticated-users` flag to assign a role to all authenticated users.
        * `--role`: [Role](../../security/index.md#roles-list).
 
      * To a service account:
@@ -82,7 +82,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  To assign a role to access a GPU cluster using {{ TF }}:
+  To assign a role for access to a GPU cluster using {{ TF }}:
 
   1. In the {{ TF }} configuration file, describe the resources you want to create:
 
@@ -173,7 +173,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        * `role`: [Role](../../security/index.md#roles-list).
        * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
-     For example, assign roles to several users and one service account:
+     For example, this command will assign roles to multiple users and a single service account:
 
      ```bash
      yc compute gpu-cluster set-access-bindings my-gpu-cluster \

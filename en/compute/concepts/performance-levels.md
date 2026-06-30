@@ -85,7 +85,7 @@ The option with simultaneous maximum configuration of all computing resources is
     Limit | Performance<br>level | vCPU | RAM, GB<br>total | RAM, GB<br>per core
     ----- | ----------------------------- | ---- | ---------------- | -----------------
     Min  | 20%                           | 2    | 1                | 0.5
-    Max | 100%                          | 288  | 2304             | 8
+    Max | 100%                          | 288  | 1792             | 8
 
 * AMD Zen 4 Compute-Optimized (`highfreq-v4a`):
 
@@ -156,7 +156,8 @@ The option with simultaneous maximum configuration of all computing resources is
     --- | --- | ---
     20% | 2, 4 | 0.5, 1, 1.5, 2
     50% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4
-    100% | 2, 4, 8, 16, 32, 48, 64, 96, 128, 224, 256, 288 | 1, 2, 4, 8
+    100% | 2, 4, 8, 16, 32, 48, 64, 96, 128, 224 | 1, 2, 4, 8
+    100% | 256, 288 | 1, 2, 4
 
 * AMD Zen 4 Compute-Optimized (`highfreq-v4a`):
 

@@ -1,6 +1,6 @@
 ---
 title: What objects can be transferred
-description: With {{ data-transfer-full-name }}, you can easily transfer table data, empty objects, and views.
+description: '{{ data-transfer-full-name }} makes it easy to migrate table data, empty objects, and views.'
 ---
 # What objects can be transferred
 
@@ -29,18 +29,18 @@ Auto incremental fields are also transferred, but `AUTO_INCREMENT` is not.
 
 Transfers _between same-type endpoints_ (such as from {{ PG }} to {{ PG }}) transfer empty objects as part of a schema.
 
-## Processing VIEW objects {#features-common-processing-of-views}
+## Processing a `VIEW` {#features-common-processing-of-views}
 
-In general, {{ data-transfer-full-name }} transfers `VIEW` objects (from databases where they may exist) with some restrictions:
+In general, {{ data-transfer-full-name }} transfers `VIEW` (from databases where such objects can exist) with some limitations:
 
-* {{ dt-type-repl }} transfers do not replicate `VIEW` data changes.
-* {{ dt-type-copy }} and {{ dt-type-copy-repl }} transfers (in the copy step) _between same-type endpoints_, such as from {{ PG }} to {{ PG }}, only transfer a `VIEW` as part of a schema. `VIEW` data (rows) are not transferred. Schema transfers are configured by the _Schema transfer_ setting and related settings available in some source endpoints.
-* {{ dt-type-copy }} and {{ dt-type-copy-repl }} transfers (in the copy step) _between endpoints of different types_, such as from {{ PG }} to {{ CH }}, transfer `VIEW` objects as regular tables and not as regular views. This feature allows converting and exporting data to external databases and can be helpful when making regular transfers of the {{ dt-type-copy }} type.
+* The {{ dt-type-repl }} transfers do not replicate changes made to `VIEW` data.
+* The {{ dt-type-copy }} and {{ dt-type-copy-repl }} transfers (at the copy stage) _between same-type endpoints_, e.g., from {{ PG }} to {{ PG }}, transfer `VIEW` only a as part of a schema. The data (rows) in `VIEW` is not transferred. Schema transfers are governed by the _Schema transfer_ setting and related settings available in some source endpoints.
+* The {{ dt-type-copy }} and {{ dt-type-copy-repl }} transfers (at the copy stage) _between endpoints of different types_, e.g., from {{ PG }} to {{ CH }}, transfer `VIEW` as regular tables (not as views). This feature allows converting and exporting data to external databases and can be helpful when making regular transfers of the {{ dt-type-copy }} type.
 
-Some sources may impose additional restrictions on transfers of `VIEW` and similar objects. For more information about how to work with views from particular sources, see [{{ data-transfer-full-name }} specifics for sources and targets](work-with-endpoints.md).
+Some sources may impose additional restrictions on transfers of `VIEW` and similar objects. For more information on how to work with views from particular sources, see [{{ data-transfer-full-name }} workflow for sources and targets](work-with-endpoints.md).
 
 ## Processing complex data types {#features-common-processing-complex-data-types}
 
-In transfers _between endpoints of different types_ (e.g., from {{ PG }} to {{ CH }}), it is not recommended to transfer data of complex types (e.g., arrays of numbers). {{ data-transfer-name }} does not support conversion of such data, because each DBMS has its own limitations and rules for data types. When using complex types, the transfer may not work correctly.
+In transfers _between endpoints of different types_ (e.g., from {{ PG }} to {{ CH }}), it is not recommended to transfer data of complex types (e.g., arrays of numbers). {{ data-transfer-name }} does not support the conversion of such data, because each DBMS has limitations and rules of its own for data types. When using complex types, the transfer may not work correctly.
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

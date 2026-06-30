@@ -1,6 +1,5 @@
 {% note warning %}
 
-Effective July 1, 2026, the {{ cdn-name }} pricing model will be updated.
-For more information, see [{#T}](../../cdn/pricing.md).
+Starting July 1, 2026, a new pricing model for {{ cdn-name }} is in effect. For more information, see [{#T}](../../cdn/pricing.md).
 
 {% endnote %}

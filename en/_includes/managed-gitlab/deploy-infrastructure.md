@@ -57,7 +57,7 @@
 
         {% include [sg-common-warning](../managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-     * [Default security group](../../vpc/concepts/security-groups.md) and rules required for the [{{ mgl-name }} instance](../../managed-gitlab/concepts/index.md#instance).
+     * [Default security group](../../vpc/concepts/security-groups.md#default-security-group) and rules required for the [{{ mgl-name }} instance](../../managed-gitlab/concepts/index.md#instance).
      * [Registry](../../container-registry/concepts/registry.md) in [{{ container-registry-full-name }}](../../container-registry/).
      * [Authorized key](../../iam/concepts/authorization/key.md) for the service account. You need this key to access the registry from {{ GL }}.
      * Local `key.json` file with authorized key data.
@@ -66,7 +66,7 @@
      * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
      * Name of the {{ managed-k8s-name }} cluster service account.
      * Name of the {{ container-registry-name }}.
-  1. Validate your {{ TF }} configuration files using this command:
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
      ```bash
      terraform validate

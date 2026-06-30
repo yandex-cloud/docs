@@ -117,7 +117,7 @@ Learn how to change a cluster [availability zone](../../../overview/concepts/geo
   To update a {{ managed-k8s-name }} cluster:
   1. Open the current configuration file with the {{ managed-k8s-name }} cluster description.
 
-     For more on how to create this file, see [{#T}](kubernetes-cluster-create.md).
+     For more info on how to create such a file, see [{#T}](kubernetes-cluster-create.md).
   1. Edit the required parameters in the {{ managed-k8s-name }} cluster description.
 
      To edit the settings for sending logs to [{{ cloud-logging-full-name }}](../../../logging/), update the `master_logging` section parameters. If there is no such section, create one.
@@ -132,7 +132,7 @@ Learn how to change a cluster [availability zone](../../../overview/concepts/geo
 
        {% include [note-master-logging-log-group](../../../_includes/managed-kubernetes/note-master-logging-log-group.md) %}
 
-  1. Validate your configuration files.
+  1. Make sure the configuration files are correct.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -326,7 +326,7 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 
   1. Open the current configuration file with the {{ managed-k8s-name }} cluster description.
 
-     For more on how to create this file, see [{#T}](kubernetes-cluster-create.md).
+     For more info on how to create such a file, see [{#T}](kubernetes-cluster-create.md).
 
   1. Add or update [the master computing resource](../../concepts/index.md#master-resources) configuration in the {{ managed-k8s-name }} cluster description in the `scale_policy` section:
 

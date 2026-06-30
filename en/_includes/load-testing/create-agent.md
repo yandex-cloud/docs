@@ -9,7 +9,7 @@
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create the [agent](../../load-testing/concepts/agent.md).
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
      1. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** tab, click **{{ ui-key.yacloud.load-testing.button_create-agent }}**.
      1. Enter a name for the agent, e.g., `agent-008`.
      1. Specify the same [availability zone](../../overview/concepts/geo-scope.md) as the one hosting your test target.
@@ -148,7 +148,7 @@
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder with the agent.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
      1. Select the `agent-008` VM.
      1. Under **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}**, in the top-right corner, click ![image](../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**.
      1. In the window that opens:

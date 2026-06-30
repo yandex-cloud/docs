@@ -3,7 +3,7 @@
 - {{ yq-name }} UI {#yquery}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
   1. In the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab, click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Create a connection with the following parameters:
       * **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}**: `forms-connection`.

@@ -7,7 +7,11 @@ description: Follow this guide to configure HTTP methods.
 
 To configure the allowed HTTP client requests methods for a resource:
 
+{% note info %}
+
 {% include [post-method](../../../_includes/cdn/http-post-method.md) %}
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 

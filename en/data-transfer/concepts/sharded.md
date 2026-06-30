@@ -40,7 +40,7 @@ The service connects to {{ GP }} cluster segments directly and transfers data fr
 
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.ParallelSnapshotSettings.threads_count.title }}**: Number of threads per worker. Each thread is run in a separate container on a worker's VM and copies a single table or its part (depending on the source type).
 
-  For more information on setting up workers and threads, see the [relevant recommendations](#recommendations).
+  For more information on setting up workers and threads, see [these recommendations](#recommendations).
 
 
 {% endlist %}

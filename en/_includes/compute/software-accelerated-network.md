@@ -1,3 +1,7 @@
+If your application generates an extreme load to the VM cores and, at the same time, requires large amounts of network traffic, the user and network processes may start competing for hardware resources. To avoid this, we recommend using a software-accelerated network.
+
+{% include [functional-agreement-required](../../_includes/functional-agreement-required.md) %}
+
 ## Regular VM network {#reg-vm}
 
 In the {{ yandex-cloud }} infrastructure, all VMs run in the [QEMU-KVM](https://en.wikipedia.org/wiki/QEMU) virtualization environment. The *hypervisor* proportionally distributes compute load across all CPU cores allocated to the VM.
@@ -49,6 +53,8 @@ To enable a software-accelerated network, do the following:
 
 * Enable the **{{ ui-key.yacloud.component.compute.resources.field_sw-accelerated-net }}** option in the basic VM configuration when [creating an instance group](../../compute/operations/instance-groups/create-fixed-group.md) or set the `network_settings.type` key to `SOFTWARE_ACCELERATED` in the [YAML specification](../../compute/concepts/instance-groups/specification.md).
 
+For more information, see [{#T}](../../vpc/operations/enable-software-accelerated-network.md).
+
 ## Recommendations for using a software-accelerated network {#use-cases}
 
 We recommend enabling a software-accelerated network to shorten request processing time:
@@ -62,3 +68,12 @@ We recommend enabling a software-accelerated network to shorten request processi
 Enabling SAN will not accelerate your [network disks](../../compute/concepts/disk.md).
 
 {% endnote %}
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/routing/storage-vpc-access.md)
+* [{#T}](../../tutorials/routing/vpc-cr-access.md)
+
+#### See also {#see-also}
+
+* [{#T}](../../vpc/operations/enable-software-accelerated-network.md)

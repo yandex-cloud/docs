@@ -90,12 +90,12 @@ After you create a [VM](../../concepts/vm.md), you can update [internal IP addre
      }
      ```
 
-     For more information about the `yandex_compute_instance` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_instance).
+     For more information about `yandex_compute_instance` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_instance).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}).
+     {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}).
 
 - API {#api}
 

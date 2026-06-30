@@ -27,7 +27,7 @@ You can create an empty disk of the specified size.
   1. Select the required block size (minimum storage unit on the disk). By default, the block size is 4 KB for all new disks; however, this is insufficient for disks larger than 8 TB.
   1. Specify the disk size. The maximum disk size depends on the specified block size.
   1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
-  1. Optionally, select or create a [schedule](../../concepts/snapshot-schedule.md) for automatic disk [snapshots](../../concepts/snapshot.md). For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
+  1. Optionally, select or create a [schedule](../../concepts/snapshot-schedule.md) for automatic disk [snapshots](../../concepts/snapshot.md). For more information on schedule settings, see [this guide](../snapshot-control/create-schedule.md).
 
      {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 

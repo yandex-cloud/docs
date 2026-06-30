@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Получить информацию о сервисном подключении
 
-{% include [vpc-pe-preview](../../_includes/vpc/pe-preview.md) %}
-
 
 
 {% list tabs group=instructions %}

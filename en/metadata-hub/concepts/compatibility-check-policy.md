@@ -8,9 +8,9 @@ You can select a compatibility policy when [creating](../operations/create-name-
 
 The following policies are available for Protobuf schemas:
 
-* `Confluent`: Based on the best practices for the evolution of Protobuf schemas. For more info on schema evolution, see [this Protobuf guide](https://protobuf.dev/programming-guides/proto3/#updating).
+* `Confluent`: Based on the best practices for the evolution of Protobuf schemas. For more on schema evolution, see [this Protobuf guide](https://protobuf.dev/programming-guides/proto3/#updating).
 
-* `buf`: Based on the Buf v1 standards. For more info on the applicable checks, see [this specification](https://github.com/bufbuild/buf/blob/main/private/bufpkg/bufcheck/bufcheckserver/bufcheckserver.go#L156).
+* `buf`: Based on the Buf v1 standards. For more information about the checks, see [this specification](https://github.com/bufbuild/buf/blob/main/private/bufpkg/bufcheck/bufcheckserver/bufcheckserver.go#L156).
 
 ## JSON schema compatibility policies {#json-compatibility-policy}
 

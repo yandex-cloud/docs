@@ -33,7 +33,7 @@ To create an instance group with an L7 load balancer:
 
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-     * Select the [service account](../../../iam/concepts/users/service-accounts.md) from the list or create a new one. To create, update, and delete VM instances in the group, as well as integrate the group with an {{ alb-name }} L7 load balancer, you will need to [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) and [alb.editor](../../../application-load-balancer/security/index.md#alb-editor) roles to a service account. By default, all operations you perform with an instance group are run under a service account.
+     * Select the [service account](../../../iam/concepts/users/service-accounts.md) from the list or create a new one. To create, update, and delete VM instances in the group, as well as integrate the group with an {{ alb-name }} L7 load balancer, you will need to [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) and [alb.editor](../../../application-load-balancer/security/index.md#alb-editor) roles to a service account. By default, all operations with an instance group are performed under a service account.
 
        {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
@@ -124,7 +124,7 @@ To create an instance group with an L7 load balancer:
        * `name`: Instance group name. The name must be unique within the folder. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
        * `service_account_id`: [Service account](../../../iam/concepts/users/service-accounts.md) ID.
 
-         To create, update, and delete VM instances in the group, as well as integrate the group with an {{ alb-name }} L7 load balancer, you will need to [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) and [alb.editor](../../../application-load-balancer/security/index.md#alb-editor) roles to a service account. By default, all operations you perform with an instance group are run under a service account.
+         To create, update, and delete VM instances in the group, as well as integrate the group with an {{ alb-name }} L7 load balancer, you will need to [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) and [alb.editor](../../../application-load-balancer/security/index.md#alb-editor) roles to a service account. By default, all operations with an instance group are performed under a service account.
 
          {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 

@@ -37,7 +37,7 @@
     
     1. Оцените общее количество баз данных для трансфера и общую нагрузку на MongoDB. Если нагрузка на базы выше 10 000 операций записи в секунду, создайте несколько эндпоинтов и трансферов. Подробнее читайте в разделе [Передача данных из эндпоинта-источника MongoDB/Yandex StoreDoc (Managed Service for MongoDB)](mongodb.md).
     
-    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../../../interconnect/concepts/index.md) или [VPN](../../../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../../../overview/concepts/public-ips.md#virtual-private-cloud}).
+    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../../../interconnect/concepts/index.md) или [VPN](../../../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../../../overview/concepts/public-ips.md#virtual-private-cloud).
        
        Подробнее о настройке сети для работы с внешними ресурсами читайте в [концепции](../../../concepts/network.md#source-external).
     

@@ -39,14 +39,6 @@ Nodes are charged based on the [{{ compute-full-name }} pricing policy](../compu
 
 ### Master {#master}
 
-{% note warning %}
-
-{% include [base-zonal-pricing](../_includes/managed-kubernetes/base-zonal-pricing.md) %}
-
-{% include [ha-regional-pricing](../_includes/managed-kubernetes/ha-regional-pricing.md) %}
-
-{% endnote %}
-
 
 
 
@@ -57,7 +49,6 @@ Nodes are charged based on the [{{ compute-full-name }} pricing policy](../compu
     currency="USD"
   />
 </MDX>
-
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

@@ -7,7 +7,10 @@ description: A {{ cdn-name }} point of presence is the physical location of CDN 
 
 _Points of presence_, or PoPs, are geographically distributed physical CDN servers that cache and deliver content to end users. They reside in strategic geographic locations with efficient access to communication links, enabling content delivery via the shortest route with minimal latency.
 
+
 {{ cdn-full-name }} provides access to 59 points of presence with a total throughput exceeding 3 Tbps.
+
+
 
 {% note info %}
 
@@ -31,6 +34,7 @@ Learn more about traffic balancing algorithms:
 PoP server performance also shapes the overall content delivery speed. Stable delivery requires servers that stay within healthy load levels and run on modern hardware, including processors and cache storage disks.
 
 {{ cdn-full-name }} uses state-of-the-art hardware to provide reliable and highly efficient performance for each PoP.
+
 
 ## List of cities with PoPs {#yc-pop-list}
 
@@ -65,6 +69,7 @@ Cities with at least one PoP:
 | Chita | | | |
 | Yaroslavl | | | |
 
+
 ## FAQ {#qa}
 
 {% cut "What if my city does not host a PoP?" %}
@@ -73,7 +78,10 @@ If your city does not host a {{ cdn-full-name }} PoP, traffic will be automatica
 
 {% endcut %}
 
+
 {% cut "Are these resources available outside Russia, Kazakhstan, and Uzbekistan?" %}
+
+
 
 Yes, {{ cdn-full-name }} resources are available worldwide, even though its PoPs can only be found in Russia, Kazakhstan, and Uzbekistan. Users in other countries will be receiving content from PoPs in Russia, Kazakhstan, and Uzbekistan. With high throughput and modern hardware, content delivery stays efficient even for users in other countries.
 
@@ -85,11 +93,13 @@ For the current list of {{ cdn-full-name }} PoP IP addresses, see [{{ cdn-name }
 
 To reduce the number of networks sending requests to the origin, [enable](../operations/resources/enable-shielding.md) origin shielding. With this option on, the origin will be getting requests only from intermediate caching servers. To get the list of the shielding servers' networks, contact [support]({{ link-console-support }}).
 
+
 {% endcut %}
 
 {% cut "Where are your shielding servers located?" %}
 
 [{{ cdn-full-name }} shielding servers](origins-shielding.md) are located in Moscow. They provide an additional caching layer between PoPs and content origins, reducing load on the origins and increasing the content delivery speed for users.
+
 
 {% endcut %}
 

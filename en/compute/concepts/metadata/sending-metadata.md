@@ -25,7 +25,7 @@ With the [{{ yandex-cloud }} CLI](../../../cli/index.yaml), you can provide both
 
   To provide the values of local variables to the VM metadata, specify them in the `user-data` key in `$<variable_name>` format. When executing a CLI command, the values of these variables will be substituted into the `cloud-init` configuration from the environment the command is executed in.
 
-  For example:
+  Here is an example:
 
   ```yaml
   ...
@@ -46,7 +46,7 @@ With the [{{ yandex-cloud }} CLI](../../../cli/index.yaml), you can provide both
 
   To provide the names of variables instead of values to the metadata in `$<variable_name>` format, use the two-dollar syntax.
 
-  For example:
+  Here is an example:
 
   ```bash
   ...
@@ -59,6 +59,8 @@ With the [{{ yandex-cloud }} CLI](../../../cli/index.yaml), you can provide both
   In which case the `HOME` variable value will not be substituted from the environment the CLI command is executed in. Instead, the `cat << EOF >> $HOME/.bashrc` string will be written to the VM metadata.
 
 {% endlist %}
+
+{% include [cli-metadata-variables-substitution-notice](../../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
 For an example of using variables when supplying metadata to a VM via the {{ yandex-cloud }} CLI, see [{#T}](../../operations/vm-create/create-with-env-variables.md).
 

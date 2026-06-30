@@ -5,8 +5,6 @@ description: Follow this guide to get information about a service connection (pr
 
 # Getting information about a service connection
 
-{% include [vpc-pe-preview](../../_includes/vpc/pe-preview.md) %}
-
 
 
 {% list tabs group=instructions %}

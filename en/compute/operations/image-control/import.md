@@ -12,7 +12,7 @@ To import an image from a different cloud or folder:
      * Role for the cloud: `resource-manager.clouds.member`.
      * Role for the folder: `viewer` or `compute.images.user`.
 
-     For more information about assigning roles, see [{#T}](../../../iam/operations/roles/grant.md).
+     For more information on role assignment, see [{#T}](../../../iam/operations/roles/grant.md).
 
   1. Import a copy of this image to your folder using the [CLI](../../../cli/quickstart.md):
 

@@ -74,7 +74,7 @@ description: Follow this guide to get information about a disk placement group.
       * `output "placement_group"`: Output variable that contains information about the disk placement group:
         * `value`: Return value.
 
-      You can replace `name` with any other parameter to get the information you need. For more information about the `yandex_compute_disk_placement_group` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_disk_placement_group).
+      You can replace `name` with another variable to get the information you need. For more information about the `yandex_compute_disk_placement_group` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_disk_placement_group).
 
   1. Create the resources:
 

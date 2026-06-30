@@ -37,7 +37,7 @@ You can create connections of the following types:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
+  1. [Navigate](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Specify the connection name.
@@ -200,7 +200,7 @@ You can create connections of the following types:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-    1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
+    1. [Navigate](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection name.
@@ -363,7 +363,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
+   1. [Navigate](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -525,7 +525,7 @@ You can create connections of the following types:
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-    1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
+    1. [Navigate](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection name.
@@ -685,7 +685,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
+   1. [Navigate](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -835,7 +835,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
+   1. [Navigate](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -997,7 +997,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
+   1. [Navigate](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -1178,7 +1178,7 @@ You can create connections of the following types:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
+  1. [Navigate](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Specify the connection name.
@@ -1343,7 +1343,7 @@ You can create connections of the following types:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
+  1. [Navigate](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Specify the connection name.
@@ -1525,7 +1525,7 @@ You can create connections of the following types:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-    1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
+    1. [Navigate](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection name.
@@ -1730,7 +1730,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
+   1. [Navigate](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -1912,7 +1912,7 @@ You can create connections of the following types:
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-    1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
+    1. [Navigate](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection name.
@@ -2108,7 +2108,7 @@ You can create connections of the following types:
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-    1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
+    1. [Navigate](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection name.
@@ -2286,7 +2286,7 @@ You can create connections of the following types:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
+  1. [Navigate](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Specify the connection name.
@@ -2455,7 +2455,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
+   1. [Navigate](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -2637,7 +2637,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
+   1. [Navigate](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -2815,7 +2815,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
+   1. [Navigate](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -3031,7 +3031,7 @@ You can create connections of the following types:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
+  1. [Navigate](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Specify the connection name.

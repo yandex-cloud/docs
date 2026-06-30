@@ -168,7 +168,7 @@ To move an [instance group](../../concepts/instance-groups/index.md) with a [net
              * `target_port`: Target port the load balancer will route traffic to. 
              * `subnet_id`: ID of the subnet in the availability zone you want to move your instance group to.
 
-             For more information about resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+             For more information about resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lb_network_load_balancer).
           1. Apply the changes:
 
              {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

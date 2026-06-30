@@ -30,7 +30,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
   1. Select the required block size.
   1. Specify the required disk size.
   1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
-  1. Optionally, select or create a [schedule](../../concepts/snapshot-schedule.md) for automatic disk [snapshots](../../concepts/snapshot.md). For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
+  1. Optionally, select or create a [schedule](../../concepts/snapshot-schedule.md) for automatic disk [snapshots](../../concepts/snapshot.md). For more information on schedule settings, see [this guide](../snapshot-control/create-schedule.md).
 
      When creating a disk, you can only select a single snapshot schedule. After the disk is created, you can add a few more schedules, if required, by following [this guide](../disk-control/configure-schedule.md#add-schedule).
   1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
@@ -121,7 +121,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
 
         {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
-     For more information about `yandex_compute_disk` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
+     For more information about the `yandex_compute_disk` resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
   1. Make sure the configuration files are correct.
      1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
@@ -177,7 +177,7 @@ You can only create a disk in an existing disk placement group.
 
       If you select a [partition placement](../../concepts/disk-placement-group.md#partition) group, specify the number of the partition you want to add the disk to.
   1. Specify the required disk size.
-  1. Optionally, select or create a [schedule](../../concepts/snapshot-schedule.md) for automatic disk snapshots. For more information about setting up schedules, see [this guide](../snapshot-control/create-schedule.md).
+  1. Optionally, select or create a [schedule](../../concepts/snapshot-schedule.md) for automatic disk snapshots. For more information on schedule settings, see [this guide](../snapshot-control/create-schedule.md).
 
      If you want to set another schedule, you can [add](../disk-control/configure-schedule.md#add-schedule) it after the disk is created.
   1. Click **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.

@@ -183,7 +183,7 @@ In this scenario, only the producer data schema is registered. The consumer sche
 
 {{ schema-registry-name }} supports schema compatibility checks by converting an open consumer schema to a closed one. To enable this, in the JSON schema [namespace](schema-registry.md#namespace), set the `Optional-friendly` [compatibility check policy](compatibility-check-policy.md). You can [set a policy](../operations/create-name-space.md) for a new namespace or [modify it](../operations/update-name-space.md) for an existing one. For the `Optional-friendly` policy to work correctly, the namespace schemas must use the [closed content model](#closed-model).
 
-You can also use this solution to maintain JSON schema compatibility when delivering data to [{{ mkf-full-name }}](../../managed-kafka) via [{{ yds-full-name }}](../../data-streams/) [{{ data-transfer-full-name }}](../../data-transfer/). For more information about the required {{ data-transfer-name }} endpoint settings, see [this guide](../../data-transfer/operations/endpoint/target/kafka.md#serializer).
+You can also use this solution to maintain JSON schema compatibility when delivering data to [{{ mkf-full-name }}](../../managed-kafka) via [{{ yds-full-name }}](../../data-streams/) [{{ data-transfer-full-name }}](../../data-transfer/). For more information about required {{ data-transfer-name }} endpoint settings, see [this guide](../../data-transfer/operations/endpoint/target/kafka.md#serializer).
 
 ## See also {#see-also}
 

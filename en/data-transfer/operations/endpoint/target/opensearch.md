@@ -115,8 +115,8 @@ After configuring the data source and target, [create and start the transfer](..
 * [Transfer interrupted with an error message](#ambiguous-resolution-es)
 * [Document duplication on the target](#duplication)
 * [Exceeding the limit on the maximum number of fields](#exceeding-fields-limit)
-* [Transfer failure with the mapper_parsing_exception error](#data-types)
-* [SSL is required error](#ssl-required)
+* [Transfer failure with the `mapper_parsing_exception` error](#data-types)
+* [`SSL is required` error](#ssl-required)
 * [No tables found](#no-tables).
 
 For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).

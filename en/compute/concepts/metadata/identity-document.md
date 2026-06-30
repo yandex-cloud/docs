@@ -15,7 +15,7 @@ If intending to use the contents of an identity document for critical tasks, you
 
 Apart from identity documents, the VM [metadata service](../vm-metadata.md) provides their cryptographic signatures. You can use these signatures to verify the document's origin, authenticity, and integrity.
 
-For more information on how to check the contents of the identity document and validate it, see [{#T}](../../operations/vm-metadata/get-identity-document.md#check-id-signature).
+For more information on how to check an identity document for integrity and authenticity, see [{#T}](../../operations/vm-metadata/get-identity-document.md#check-id-signature).
 
 #### See also {#see-also}
 

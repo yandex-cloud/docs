@@ -2,7 +2,7 @@
 
 - Management console {#console}
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
   1. Specify the DNS zone settings:
      * **{{ ui-key.yacloud.dns.label_zone }}**: Specify your registered domain with a trailing dot, e.g., `example.com.`.
@@ -36,7 +36,7 @@
        --public-visibility
      ```
 
-     Where `--zone` is your domain name, e.g., `example.com.`. The `--zone` parameter value must end with a trailing dot.
+     Where `--zone` is your domain's name, e.g., `example.com.`. The `--zone` parameter value must end with a trailing dot.
 
      Result:
 

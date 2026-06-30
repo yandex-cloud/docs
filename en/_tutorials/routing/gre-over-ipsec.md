@@ -96,7 +96,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
 
    1. Make sure the configuration files are correct.
 
-      1. In the command line, navigate to the directory you created the configuration file in.
+      1. In the command line, navigate to the directory where you created the configuration file.
 
       1. Check the configuration using this command:
 
@@ -104,7 +104,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
          terraform validate
          ```
      
-         If the configuration is correct, you will get this message:
+         If the configuration is valid, you will get this message:
      
          ```
          Success! The configuration is valid.
@@ -116,11 +116,11 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
          terraform plan
          ```
 
-         If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration. 
+         If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
    1. Deploy the cloud resources.
 
-      1. If the configuration does not contain any errors, run this command:
+      1. If the configuration is correct, run this command:
 
          ```
          terraform apply
@@ -150,7 +150,7 @@ Repeat these steps to create a second folder named `site-b`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Cisco CSR` and select a [Cisco CSR](/marketplace/products/yc/cisco-csr) public image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, switch to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
@@ -164,7 +164,7 @@ Repeat these steps to create a second folder named `site-b`.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other OS-reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `cisco-router-d`.
@@ -182,7 +182,7 @@ Repeat these steps to create a second folder named `site-b`.
 - Management console {#console}
   
    1. In the [management console]({{ link-console-main }}), select the folder containing your VM.
-   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the VM list, select `cisco-router-d`.
    1. Go to the ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** tab and click **{{ ui-key.yacloud.compute.instance.console.connect }}**.
    1. Wait for the operating system to boot.

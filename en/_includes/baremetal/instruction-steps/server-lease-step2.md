@@ -1,1 +1,1 @@
-[Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.

@@ -7,7 +7,7 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) the VM belongs to.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. Click the VM name.
   1. In the top-right corner of the page, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, select an existing service account or create a new one.
@@ -48,7 +48,7 @@
 
      {{ TF }} will change all required resources. You can check the new resources in the [management console]({{ link-console-main }}).
 
-  For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-datasources-link }}/compute_instance).
+  For more information about the `yandex_compute_instance` resource properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_instance).
 
 - API {#api}
 
@@ -101,7 +101,7 @@
 
      {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}).
 
-  For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-datasources-link }}/compute_instance).
+  For more information about the `yandex_compute_instance` resource properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_instance).
 
 - API {#api}
 

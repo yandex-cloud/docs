@@ -52,7 +52,7 @@ If you lost your private SSH key for Linux or your Windows user password:
       }
       ```
 
-      For more information about the `yandex_compute_disk` resource, see [this provider guide]({{ tf-provider-resources-link }}/compute_instance).
+      For more on `yandex_compute_disk`, see [this provider guide]({{ tf-provider-resources-link }}/compute_instance).
 
     {% endlist %}
 

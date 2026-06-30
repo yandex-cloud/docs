@@ -114,7 +114,7 @@ Create a [VM](../../concepts/vm.md) in a [placement group](../../concepts/placem
 
      Where `placement_group_id` is the placement group ID.
 
-     For more information about the `yandex_compute_instance` and `yandex_compute_placement_group` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_instance).
+     For more information about `yandex_compute_instance` and `yandex_compute_placement_group` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/compute_instance).
   1. In the command line, go to the directory with the {{ TF }} configuration file.
   1. Check the configuration using this command:
 
@@ -122,7 +122,7 @@ Create a [VM](../../concepts/vm.md) in a [placement group](../../concepts/placem
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```text
      Success! The configuration is valid.
@@ -134,8 +134,8 @@ Create a [VM](../../concepts/vm.md) in a [placement group](../../concepts/placem
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the changes:
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+  1. Apply the configuration changes:
 
      ```bash
      terraform apply

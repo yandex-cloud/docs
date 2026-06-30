@@ -908,6 +908,6 @@ description: Следуя данной инструкции, вы сможете
 
 #### Что дальше {#what-is-next}
 
-* [{#T}](../sa/set-access-bindings.md).
-* [{#T}](../sa/assign-role-for-sa.md).
-* [{#T}](./revoke-iam-token.md).
+* [{#T}](../sa/set-access-bindings.md)
+* [{#T}](../sa/assign-role-for-sa.md)
+* [{#T}](./revoke-iam-token.md)

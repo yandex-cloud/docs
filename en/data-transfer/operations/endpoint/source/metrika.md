@@ -26,7 +26,7 @@ noIndex: true
 
 See [this tutorial](../../../tutorials/metrika-to-clickhouse.md) on how to transfer {{ metrika }} tag data to a {{ CH }} cluster.
 
-For a detailed description of other possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+For a detailed description of other possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
 ## Configuring the {{ metrika-endpoint }} source endpoint {#endpoint-settings}
 
@@ -86,7 +86,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% endlist %}
 
-For more information about the settings, see the [service documentation]({{ link-yandex }}/support/metrica/index.html).
+For more about the settings, see [this guide]({{ link-yandex }}/support/metrica/index.html).
 
 ## Configuring the data target {#supported-targets}
 
@@ -94,7 +94,7 @@ Configure the supported data target:
 
 * [{{ CH }}](../target/clickhouse.md).
 
-For a complete list of supported {{ data-transfer-full-name }} sources and targets, see [Available Transfers](../../../transfer-matrix.md).
+For a full list of sources and targets supported in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
 After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
 

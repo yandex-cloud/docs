@@ -158,7 +158,7 @@ Create a {{ lockbox-name }} secret to save usernames and passwords of Windows us
 
       Where:
 
-      * `--name`: Secret name (required).
+      * `--name`: Secret name. This is a required setting.
       * `--kms-key-id`: {{ kms-short-name }} key ID.
       * `--description`: Secret description This is an optional setting.
       * `--payload`: Secret content in YAML or JSON format.

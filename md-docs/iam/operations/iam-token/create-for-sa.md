@@ -1015,6 +1015,6 @@ Authorization: Bearer ${IAM_TOKEN}
 
 #### Что дальше {#what-is-next}
 
-* [Настройка прав доступа к сервисному аккаунту](../sa/set-access-bindings.md).
-* [Назначение роли сервисному аккаунту](../sa/assign-role-for-sa.md).
-* [Отзыв IAM-токена](revoke-iam-token.md).
+* [Настройка прав доступа к сервисному аккаунту](../sa/set-access-bindings.md)
+* [Назначение роли сервисному аккаунту](../sa/assign-role-for-sa.md)
+* [Отзыв IAM-токена](revoke-iam-token.md)

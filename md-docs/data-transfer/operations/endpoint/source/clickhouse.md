@@ -46,7 +46,7 @@ Yandex Data Transfer не может переносить базы данных 
 
        В случае многохостового кластера будут перенесены таблицы и материализованные представления только с движками на базе `ReplicatedMergeTree` либо `Distributed`. Проверьте, что данные таблицы и представления присутствуют на всех хостах кластера.
 
-    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../../../interconnect/concepts/index.md) или [VPN](../../../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../../../overview/concepts/public-ips.md#virtual-private-cloud}).
+    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../../../interconnect/concepts/index.md) или [VPN](../../../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../../../overview/concepts/public-ips.md#virtual-private-cloud).
        
        Подробнее о настройке сети для работы с внешними ресурсами читайте в [концепции](../../../concepts/network.md#source-external).
 

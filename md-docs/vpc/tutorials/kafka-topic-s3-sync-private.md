@@ -3,14 +3,6 @@
 # Синхронизация данных из топиков Apache Kafka® в бакет Yandex Object Storage без использования интернета
 
 
-
-{% note info %}
-
-Функциональность сервисных подключений (VPC Private Endpoints) в Yandex Virtual Private Cloud находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь к вашему аккаунт-менеджеру.
-
-{% endnote %}
-
-
 Вы можете синхронизировать данные из топиков Apache Kafka® в бакет Yandex Object Storage без использования интернета с помощью сервисного подключения в пользовательской сети, где располагается кластер Managed Service for Apache Kafka®. Для этого:
 
 1. [Отправьте данные в топик](#send-data).

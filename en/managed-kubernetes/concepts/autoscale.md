@@ -5,11 +5,11 @@ description: Autoscaling in {{ managed-k8s-name }} allows you to resize a node g
 
 # Autoscaling
 
-Autoscaling is a way of changing the size of a [node group](./index.md#node-group), number of pods, or the amount of resources allocated to each pod based on resource requests for [pods](./index.md#pod) running on this group's nodes.
+Autoscaling is when you resize a [node group](./index.md#node-group), change the number of pods or the amount of resources allocated to each pod based on resource requests for [pods](./index.md#pod) running on this group's nodes.
 
-In a {{ managed-k8s-name }} cluster, the following autoscaling types are available:
+In a {{ managed-k8s-name }} cluster, you can leverage the following auto-scaling options:
 * _Cluster autoscaling_ ({{ k8s-ca }}). {{ managed-k8s-name }} monitors workloads on the nodes and updates the number of nodes within specified limits as required.
-* _Master autoscaling_ ({{ k8s-ma }}). {{ managed-k8s-name }} monitors workloads on the master and updates its configuration as required.
+* _Master autoscaling_ ({{ k8s-ma }}). {{ managed-k8s-name }} monitors workload on the master node and updates its configuration as required.
 * _Horizontal pod scaling_ ({{ k8s-hpa }}). {{ k8s }} dynamically changes the number of pods running on each node in the group.
 * _Vertical pod scaling_ ({{ k8s-vpa }}). When workloads increase, {{ k8s }} allocates additional resources to each pod within the set limits.
 
@@ -40,7 +40,7 @@ For more information, see these {{ k8s }} guides:
 * [{{ k8s-ca }} description](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler)
 * [Default parameters](https://github.com/kubernetes/autoscaler/blob/c6b754c359a8563050933a590f9a5dece823c836/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca)
 
-See also [{#T}](../qa/cluster-autoscaler.md).
+For more information, see [{#T}](../qa/cluster-autoscaler.md).
 
 ## Master autoscaling {#master-autoscaler}
 
@@ -48,23 +48,23 @@ See also [{#T}](../qa/cluster-autoscaler.md).
 
 {% include [master-pricing-note](../../_includes/managed-kubernetes/master-pricing-note.md) %}
 
-{{ k8s-ma }} automatically adjusts the master configuration to match the current workload. This approach keeps the cluster stable without manual configuration tuning.
+{{ k8s-ma }} automatically adjusts master configuration according to the current workload. This enables stable cluster operation without manual configuration selection.
 
-To scale, {{ k8s-ma }} periodically collects master utilization metrics: vCPU count and RAM volume. Based on the metrics, one of the following decisions can be made:
+For scaling, {{ k8s-ma }} regularly collects master utilization metrics, such as th number of vCPUs and the amount of RAM. It can then take the following decisions based on these metrics:
 
-* Increase resources if the master is close to overload.
-* Decrease resources if the master is consistently underutilized.
-* Keep resources unchanged if utilization is within normal range.
+* Scale up resources if the master node is near overload.
+* Scale down resources if the master node is consistently underutilized.
+* Keep resources unchanged if utilization is within normal ranges.
 
-To avoid reacting to short-term load spikes, decisions are based on aggregated metrics collected over several minutes. Scaling is triggered only when a critical value persists for a certain period of time.
+To prevent reactions to brief load spikes, {{ k8s-ma }} takes decisions based on aggregated metrics over a few minutes. Scaling is only triggered when a critical threshold persists for a sustained period.
 
-{{ k8s-ma }} does not reduce resources below the master configuration selected when [creating](../operations/kubernetes-cluster/kubernetes-cluster-create.md) or [updating](../operations/kubernetes-cluster/kubernetes-cluster-update.md#manage-resources) the cluster. That configuration is used as the lower scaling boundary.
+Apart from that, {{ k8s-ma }} does not scale down below the master configuration you selected when [creating](../operations/kubernetes-cluster/kubernetes-cluster-create.md) or [modifying](../operations/kubernetes-cluster/kubernetes-cluster-update.md#manage-resources) your cluster; such configuration acts as a lower scaling limit.
 
-After a decision is made, the autoscaler selects the nearest [suitable configuration](./master-configuration.md) so that utilization remains within normal range after the change.
+After taking a decision, the scaler selects the closest [matching master configuration](./master-configuration.md) to ensure that post-scaling utilization remains within normal limits.
 
-Even when using {{ k8s-ma }}, select a master configuration that matches the actual cluster workload. Use the [recommended configurations](./master-configuration.md) as a reference: they depend on the number of nodes, the maximum number of pods, and the CNI in use. Too much vCPU and RAM prevents releasing unused resources. Too little may cause frequent scaling.
+Even when using {{ k8s-ma }}, choose the master configuration that matches the real cluster load. You may want to check out our [recommended configuration](./master-configuration.md) options that depend on the number of nodes, maximum number of pods, and CNI in use. An over-provisioned vCPU and RAM configuration will prevent the release of excess resources, while an under-provisioned one may cause over-frequent scaling.
 
-Master autoscaling operations are displayed in the [cluster operations](../operations/kubernetes-cluster/kubernetes-cluster-operation-logs.md) section. While scaling is in progress, other cluster operations cannot be started. You must wait for it to complete.
+You can view the master node auto-scaling operations under [cluster operations](../operations/kubernetes-cluster/kubernetes-cluster-operation-logs.md). While scaling is in progress, you cannot initiate other cluster operations; you will have to wait for the process to complete.
 
 ## Horizontal pod autoscaling {#hpa}
 

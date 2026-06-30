@@ -35,8 +35,8 @@ To set up automatic recognition of audio files using {{ speechkit-short-name }}:
 
 ## Create a cloud function {#create-function}
 
-1. In the [management console]({{ link-console-main }}), go to the folder the service account was created in.
-1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+1. In the [management console]({{ link-console-main }}), navigate to the folder with the new service account.
+1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}** and specify `asr-batch-function` as the function name.
 1. Click **{{ ui-key.yacloud.common.create }}**.
 1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select the `Python` `3.8` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.

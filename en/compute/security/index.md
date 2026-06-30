@@ -75,9 +75,25 @@ You can also assign roles for individual resources within the service:
 
 {% include [compute.editor](../../_roles/compute/editor.md) %}
 
+{% note warning %}
+
+Starting August 1, 2026, the `compute.editor` role gets new permissions allowing it to connect VM instances to [{{ backup-full-name }}](../../backup/index.yaml), link and unlink them from [backup policies](../../backup/concepts/policy.md).
+
+{% include [denyActivation-iam-policy-pre-notice](../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
+
+{% endnote %}
+
 #### compute.admin {#compute-admin}
 
 {% include [compute.admin](../../_roles/compute/admin.md) %}
+
+{% note warning %}
+
+Starting August 1, 2026, the `compute.admin` role gets new permissions allowing it to connect VM instances to [{{ backup-full-name }}](../../backup/index.yaml), link and unlink them from [backup policies](../../backup/concepts/policy.md).
+
+{% include [denyActivation-iam-policy-pre-notice](../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
+
+{% endnote %}
 
 #### compute.osLogin {#compute-oslogin}
 
@@ -125,7 +141,7 @@ For more information about service roles, see [{#T}](../../iam/concepts/access-c
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## What roles do I need {#choosing-roles}
+## Required roles {#choosing-roles}
 
 The table below lists the roles required for specific actions. You can always assign a role offering more permissions than the specified one. For example, you can assign the `editor` role instead of `compute.editor`, or the `compute.viewer` role for a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) instead of a separate VM or disk.
 
@@ -142,7 +158,7 @@ Viewing a list of virtual machines in a [placement group](../concepts/placement-
 Getting info about the the most relevant [image](../concepts/image.md) in an [image family](../concepts/image.md#family) | `compute.viewer` or `compute.images.user` for the image
 Viewing information about disk [snapshot](../concepts/snapshot.md) [schedules](../concepts/snapshot-schedule.md), viewing the list of disks attached to a specific disk snapshot schedule and the list of disk snapshots created based this schedule | `compute.snapshotSchedules.viewer` or `compute.viewer` for the schedule
 **Use of resources** |
-Using any resource | `compute.editor` for the resource
+Using any resource | `compute.editor` for this resource
 Use of [disks](../concepts/disk.md) | `compute.disks.user`, `compute.snapshotSchedules.editor`, or `compute.editor` for the disk
 Use of [images](../concepts/image.md) | `compute.images.user` or `compute.editor` for the image
 **Managing resources** |
@@ -186,7 +202,7 @@ Updating and [deleting](../operations/image-control/delete.md) an image | `compu
 [Creating](../operations/snapshot-control/create-schedule.md) a disk snapshot schedule | `compute.snapshotSchedules.editor` or `compute.editor` for the folder
 [Starting](../operations/snapshot-control/stop-and-start-schedule.md#start-schedule), [stopping](../operations/snapshot-control/stop-and-start-schedule.md#stop-schedule), [updating](../operations/snapshot-control/update-schedule.md) and [deleting](../operations/snapshot-control/delete-schedule.md) a disk snapshot schedule | `compute.snapshotSchedules.editor` or `compute.editor` for the schedule
 **Managing resource access** |
-[Assigning](../../iam/operations/roles/grant.md) and [revoking](../../iam/operations/roles/revoke.md) access permissions for any resource | `compute.admin` for the resource
+[Assigning](../../iam/operations/roles/grant.md) and [revoking](../../iam/operations/roles/revoke.md) access permissions for any resource | `compute.admin` for this resource
 
 #### What's next {#what-is-next}
 

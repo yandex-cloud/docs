@@ -39,7 +39,7 @@ Currently, GPU clusters are only available in the `{{ region-id }}-a` and `{{ re
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the {{ TF }} configuration file, define the parameters of the resource you want to create:
+  1. In the {{ TF }} configuration file, describe the resource you want to create:
 
      ```hcl
      provider "yandex" {
@@ -94,7 +94,7 @@ Currently, GPU clusters are only available in the `{{ region-id }}-a` and `{{ re
 
      Where:
      * `yandex_compute_disk`: Boot disk description, where `image_id` is the ID of the image with the drivers.
-     * `gpu_cluster_id`: GPU cluster ID. This is a required parameter.
+     * `gpu_cluster_id`: GPU cluster ID. This is a required setting.
      * `yandex_vpc_network`: [Cloud network](../../../vpc/concepts/network.md#network) description.
      * `yandex_vpc_subnet`: Description of the [subnet](../../../vpc/concepts/network.md#subnet) to create your VM in.
 
@@ -104,7 +104,7 @@ Currently, GPU clusters are only available in the `{{ region-id }}-a` and `{{ re
 
        {% endnote %}
 
-       For more information about the `yandex_compute_instance` resource properties, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/compute_instance).
+       For more information about `yandex_compute_instance` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_instance).
   1. Under `metadata`, specify your username and path to the public SSH key. For more information, see [{#T}](../../../compute/concepts/vm-metadata.md).
   1. Create the resources:
 

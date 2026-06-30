@@ -87,20 +87,20 @@ To get answers to other questions about autoscaling, see [{{ k8s }} FAQ](https:/
 
 Yes, {{ managed-k8s-name }} supports [Horizontal Pod Autoscaler](../../managed-kubernetes/concepts/autoscale.md#hpa).
 
-#### How do I select the minimum master preset to reduce costs? {#master-preset-cost}
+#### How do I choose the minimum master preset to reduce costs? {#master-preset-cost}
 
-Select a master configuration that matches the actual cluster workload. Use the [recommended configurations](../../managed-kubernetes/concepts/master-configuration.md) as a reference: they depend on the number of nodes, the maximum number of pods, and the CNI in use.
+Choose the master configuration that matches the real cluster load. You may want to check out our [recommended configuration](../../managed-kubernetes/concepts/master-configuration.md) options that depend on the number of nodes, maximum number of pods, and CNI in use.
 
-#### Can I change the master autoscaling thresholds on my side? {#master-autoscaler-thresholds}
+#### Can I change the master’s autoscaling thresholds on the user side? {#master-autoscaler-thresholds}
 
-No. Scaling thresholds are managed by the {{ managed-k8s-name }} service. If you want to share feedback about the autoscaler behavior, contact [technical support]({{ link-console-support }}).
+No, you cannot. The thresholds con only be managed on the {{ managed-k8s-name }} side. If you have any feedback on how autoscaler works, please contact our [support]({{ link-console-support }}).
 
-You can indirectly influence the autoscaler behavior by selecting a master configuration. {{ k8s-ma }} does not reduce resources below the selected configuration.
+You can indirectly impact the autoscaler’s behavior by selecting the master configuration, since {{ k8s-ma }} will not scale the resources down below the specified configuration.
 
-#### Can I set an upper limit for master autoscaling? {#master-autoscaler-max}
+#### Can I set an upper limit on the master node's auto-scaling? {#master-autoscaler-max}
 
-No, you cannot set maximum scaling values.
+No, you cannot specify maximum values for auto-scaling.
 
-#### How do I prevent master resources from being reduced during autoscaling? {#master-autoscaler-no-scaledown}
+#### How can I prevent the master node from scaling down during auto-scaling? {#master-autoscaler-no-scaledown}
 
-Select a master configuration that [matches the current workload](../../managed-kubernetes/concepts/master-configuration.md). {{ k8s-ma }} does not reduce resources below the selected configuration.
+Choose the master configuration that [best suits your load](../../managed-kubernetes/concepts/master-configuration.md). {{ k8s-ma }} does not scale the resources down below the specified configuration.

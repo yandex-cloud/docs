@@ -90,7 +90,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
       1. Enter a name for the bucket by following the [naming conventions](../../storage/concepts/bucket.md#naming).
@@ -99,9 +99,9 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
 
       1. Select the [access](../../storage/concepts/bucket.md#bucket-access) type:
-          * **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`
-          * **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`
-          * **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`
+          * **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
+          * **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
+          * **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}**: `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
       1. Select the [storage class](../../storage/concepts/storage-class.md): `{{ ui-key.yacloud.storage.value_standard }}`.
       1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}** to complete the operation.
   1. Save the bucket name. You will need it later.
@@ -121,7 +121,7 @@ To create a VM with a recommended configuration and a boot disk from the Hystax 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
@@ -130,7 +130,7 @@ To create a VM with a recommended configuration and a boot disk from the Hystax 
       * Click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
       * In the list of public images, select [Hystax Acura Backup in {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-backup) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
 
       Save the availability zone ID. You will need it later.
 
@@ -141,7 +141,7 @@ To create a VM with a recommended configuration and a boot disk from the Hystax 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, select a [cloud network](../../vpc/concepts/network.md#network) from the list.
 
           * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
-          * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
+          * If there are no networks in the list, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
               * In the window that opens, specify the network name and select the folder where it will be created.
               * Optionally, enable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** setting to automatically create subnets in all availability zones.
@@ -209,7 +209,7 @@ VMs get a public dynamic IP address when created. Since a VM with Hystax Acura B
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), open the dashboard of the folder you are using.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Navigate to the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the address of your Hystax Acura Backup VM.
   1. In the menu that opens, select **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.

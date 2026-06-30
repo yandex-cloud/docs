@@ -149,7 +149,7 @@ We use the Linux terminal to perform the following steps.
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Name your service account, e.g., `sa-terraform`.
 
@@ -636,7 +636,7 @@ In the same way, set up the `FW-B` gateway static NAT table based on the table b
 
 ## Enable the route switcher {#enable-route-switcher}
 
-After you complete the NGFW setup, make sure `FW-A` and `FW-B` health checks return `Healthy`. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), [navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** in the `mgmt` folder and then go to the `route-switcher-lb-...` page. Expand the target group and make sure the targets are `Healthy`. If they are `Unhealthy`, make sure `FW-A` and `FW-B` are [configured](#configure-gateways) correctly and running.
+After you complete the NGFW setup, make sure `FW-A` and `FW-B` health checks return `Healthy`. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}** in the `mgmt` folder and then go to the `route-switcher-lb-...` page. Expand the target group and make sure the targets are `Healthy`. If they are `Unhealthy`, make sure `FW-A` and `FW-B` are [configured](#configure-gateways) correctly and running.
 
 Once the `FW-A` and `FW-B` status changes to `Healthy`, open the `route-switcher.tf` file and change the `route-switcher` `start_module` value to `true`. To enable the module, run these commands:
 
@@ -723,7 +723,7 @@ Within five minutes, the `route-switcher` module will start working, providing o
 
 1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), change the settings of this VM:
 
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the VM you need and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. In the window that opens, under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable **{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}**.

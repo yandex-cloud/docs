@@ -30,22 +30,6 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [list-channels-rest-api](../../../_includes/video/list-channels-rest-api.md) %}
 
-  1. Зарегистрируйте обложку в {{ video-name }}:
-
-      {% include [register-thumbnail-rest-api](../../../_includes/video/register-thumbnail-rest-api.md) %}
-
-      Сохраните значение идентификатора обложки (`thumbnailId`), оно понадобится позднее.
-
-  1. Получите ссылку на загрузку изображения в обложку:
-
-      {% include [get-thumbnail-uplink-rest-command](../../../_includes/video/get-thumbnail-uplink-rest-command.md) %}
-
-      {% include [get-thumbnail-uplink-api-output](../../../_includes/video/get-thumbnail-uplink-api-output.md) %}
-
-  1. Загрузите в обложку файл с изображением:
-
-      {% include [upload-thumbnail-curl](../../../_includes/video/upload-thumbnail-curl.md) %}
-
   1. Получите список видео на канале:
 
       ```bash
@@ -96,6 +80,22 @@ description: Следуя данной инструкции, вы сможете
 
       Сохраните идентификатор видео (`id`), для которого вы хотите добавить обложку.
 
+  1. Зарегистрируйте обложку в {{ video-name }}:
+
+      {% include [register-thumbnail-rest-api](../../../_includes/video/register-thumbnail-rest-api.md) %}
+
+      Сохраните значение идентификатора обложки (`thumbnailId`), оно понадобится позднее.
+
+  1. Получите ссылку на загрузку изображения в обложку:
+
+      {% include [get-thumbnail-uplink-rest-command](../../../_includes/video/get-thumbnail-uplink-rest-command.md) %}
+
+      {% include [get-thumbnail-uplink-api-output](../../../_includes/video/get-thumbnail-uplink-api-output.md) %}
+
+  1. Загрузите в обложку файл с изображением:
+
+      {% include [upload-thumbnail-curl](../../../_includes/video/upload-thumbnail-curl.md) %}
+
   1. Добавьте созданную обложку к выбранному видео:
 
       {% include [assign-thumbnail-to-video-rest](../../../_includes/video/assign-thumbnail-to-video-rest.md) %}
@@ -111,22 +111,6 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [list-channels-grpc-api](../../../_includes/video/list-channels-grpc-api.md) %}
 
-  1. Зарегистрируйте обложку в {{ video-name }}:
-
-      {% include [register-thumbnail-grpc-api](../../../_includes/video/register-thumbnail-grpc-api.md) %}
-
-      Сохраните значение идентификатора обложки (`thumbnailId`), оно понадобится позднее.
-
-  1. Получите ссылку на загрузку изображения в обложку:
-
-      {% include [get-thumbnail-uplink-grpc-command](../../../_includes/video/get-thumbnail-uplink-grpc-command.md) %}
-
-      {% include [get-thumbnail-uplink-api-output](../../../_includes/video/get-thumbnail-uplink-api-output.md) %}
-
-  1. Загрузите в обложку файл с изображением:
-
-      {% include [upload-thumbnail-curl](../../../_includes/video/upload-thumbnail-curl.md) %}
-
   1. Получите список видео на канале:
 
       ```bash
@@ -140,7 +124,7 @@ description: Следуя данной инструкции, вы сможете
 
       Где:
       * `<IAM-токен>` — полученный перед началом работы IAM-токен.
-      * `<идентификатор_канала>` — идентификатор канала с видео, для которого вы хотите добавить обложку.
+      * `channelId` — идентификатор канала с видео, для которого вы хотите добавить обложку.
 
       Результат:
 
@@ -178,6 +162,22 @@ description: Следуя данной инструкции, вы сможете
       ```
 
       Сохраните идентификатор видео (`id`), для которого вы хотите добавить обложку.
+
+  1. Зарегистрируйте обложку в {{ video-name }}:
+
+      {% include [register-thumbnail-grpc-api](../../../_includes/video/register-thumbnail-grpc-api.md) %}
+
+      Сохраните значение идентификатора обложки (`thumbnailId`), оно понадобится позднее.
+
+  1. Получите ссылку на загрузку изображения в обложку:
+
+      {% include [get-thumbnail-uplink-grpc-command](../../../_includes/video/get-thumbnail-uplink-grpc-command.md) %}
+
+      {% include [get-thumbnail-uplink-api-output](../../../_includes/video/get-thumbnail-uplink-api-output.md) %}
+
+  1. Загрузите в обложку файл с изображением:
+
+      {% include [upload-thumbnail-curl](../../../_includes/video/upload-thumbnail-curl.md) %}
 
   1. Добавьте созданную обложку к выбранному видео:
 

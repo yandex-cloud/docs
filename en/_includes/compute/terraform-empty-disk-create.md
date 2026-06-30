@@ -16,13 +16,13 @@ To create an empty disk:
    ```
 
    Where:
-   * `name`: Disk name. Follow these naming requirements:
+   * `name`: Disk name. The name format is as follows:
 
         {% include [name-format](../../_includes/name-format.md) %}
 
    * `type`: Disk type.
    * `zone`: [Availability zone](../../overview/concepts/geo-scope.md). The availability zone for your disk must match the zone of the placement group where you want to create it.
-   * `size`: Disk size in GB. The maximum disk size depends on the specified block size.
+   * `size`: Disk size, in GB. The maximum disk size depends on the specified block size.
    * `block_size`: Block size in bytes (minimum storage unit on the disk). By default, the block size is 4 KB for all new disks; however, this is insufficient for disks larger than 8 TB. For more information, see [{#T}](../../compute/operations/disk-create/empty-disk-blocksize.md).
    * `kms_key_id`: ID of the [{{ kms-short-name }} symmetric key](../../kms/concepts/key.md) to create an [encrypted](../../compute/concepts/encryption.md) disk. This is an optional setting.
 
@@ -32,22 +32,22 @@ To create an empty disk:
 
         {% include [encryption-keys-note](encryption-keys-note.md) %}
 
-   For more information about the `yandex_compute_disk` resource, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_disk).
+   For more information about `yandex_compute_disk`, see [this provider guide]({{ tf-provider-resources-link }}/compute_disk).
 
 1. Make sure the configuration files are correct.
 
-   1. In the command line, navigate to the directory where you created the configuration file.
+   1. In the terminal, navigate to the directory where you created your configuration file.
    1. Run a check using this command:
 
       ```bash
       terraform plan
       ```
 
-   If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+   If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
 1. Deploy the cloud resources.
 
-   1. If the configuration does not contain any errors, run this command:
+   1. If the configuration is correct, run this command:
 
       ```bash
       terraform apply

@@ -1,5 +1,5 @@
 1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to set up a service connection.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.vpc.switch_private-endpoints }}**.
 1. Click **{{ ui-key.yacloud.vpc.private-endpoint.label_create-private-endpoint }}**.
 1. In the **{{ ui-key.yacloud.vpc.private-endpoint.field_name }}** field, enter a name for the service connection. Make sure to follow these naming requirements:
@@ -10,7 +10,7 @@
 1. Optionally, add [labels](../../storage/concepts/tags.md):
 
    1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-   1. Enter a label in `key: value` format.
+   1. Add a label in `key: value` format.
    1. Press **Enter**.
 
 1. Under **{{ ui-key.yacloud.vpc.private-endpoint.label_network-section }}**:

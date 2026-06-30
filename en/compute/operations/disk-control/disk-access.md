@@ -39,13 +39,13 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
      {% include [compute-disk-list](../../_includes_service/compute-disk-list.md) %}
 
-  1. Check the list of roles already assigned for the resource:
+  1. View the roles already assigned for the resource:
 
      ```bash
      yc compute disk list-access-bindings <disk_ID>
      ```
 
-  1. Assign the role using this command:
+  1. Assign a role using this command:
 
      * To a user:
 
@@ -168,7 +168,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        * `role`: Role ID.
        * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
-     For example, assign roles to several users and one service account:
+     For example, this command will assign roles to multiple users and a single service account:
 
      ```bash
      yc compute disk set-access-bindings my-disk \

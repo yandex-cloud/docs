@@ -1,13 +1,3 @@
-title: Yandex MetaData Hub
-description:
-  - >-
-    Yandex MetaData Hub is a Yandex Cloud service that allows customers to
-    manage database connections, store data exchange schemas, and describe
-    datasets, while also providing a metadata management system.
-  - >-
-    <em>Apache® and <a href="https://hive.apache.org/">Apache Hive™</a> are
-    either registered trademarks or trademarks of the Apache Software Foundation
-    in the United States and/or other countries.</em>
 meta:
   title: Yandex MetaData Hub
   description: >-
@@ -24,15 +14,9 @@ meta:
     - keyword: managing database connections
     - keyword: metadata catalog in {{ yandex-cloud }}
 blocks:
-  - type: content-layout-block
-    textContent:
-      title: Yandex MetaData Hub
-      text: >-
-        Yandex Cloud service for database connection management, storage of data
-        exchange schemas and dataset descriptions, plus a metadata management
-        system.
-    size: l
   - type: card-layout-block
+    title: Yandex MetaData Hub
+    description: "Yandex\_Cloud service for database connection management, storage of data exchange schemas and dataset descriptions, plus a metadata management system."
     colSizes:
       all: 12
       sm: 6
@@ -45,15 +29,15 @@ blocks:
         text: Technical and organizational limitations
         icon: _assets/icons/sliders.svg
         urlTitle: Quotas in Yandex MetaData Hub
-        url: concepts/limits
+        url: ./concepts/limits
         centered: true
         size: s
       - type: basic-card
-        title: Access management
+        title: Manage access
         text: How to configure access permissions to use the service
         icon: _assets/icons/lock.svg
         urlTitle: Access management in Yandex MetaData Hub
-        url: security/index
+        url: ./security/index
         centered: true
         size: s
       - type: basic-card
@@ -84,7 +68,7 @@ blocks:
         title: Connection Manager
         text: Automatically creating and managing database connection settings.
         urlTitle: Connection
-        url: concepts/connection-manager
+        url: ./concepts/connection-manager
         size: s
         icon: _assets/icons/plug-connection.svg
       - type: basic-card
@@ -100,7 +84,7 @@ blocks:
           Centralized repository for managing and validating data schemas. The
           service is at the Preview stage.
         urlTitle: Data schema registry
-        url: concepts/schema-registry
+        url: ./concepts/schema-registry
         size: s
         icon: _assets/icons/layout-cells.svg
       - type: basic-card
@@ -108,7 +92,7 @@ blocks:
         text: >-
           Tool for collecting, analyzing, and marking up metadata from various
           sources. The service is at the Preview stage.
-        urlTitle: Metadata catalog
+        urlTitle: Metadata folder
         url: concepts/data-catalog
         size: s
         icon: _assets/icons/folder-magnifier.svg
@@ -116,7 +100,6 @@ blocks:
     textContent:
       title: ''
       text: >-
-        Apache® and Apache Hive™ are either registered trademarks or trademarks
-        of the Apache Software Foundation in the United States and/or other
-        countries.
+        Apache® and Apache Hive™ are registered trademarks or trademarks of the
+        Apache Software Foundation in the United States and/or other countries.
 links: []

@@ -15,13 +15,6 @@ Currently, you can only use IPv4 in {{ yandex-cloud }} networks. IPv6 is not sup
 
 A *security group* (SG) is a resource created at the [cloud network](./network.md#network) level. Once created, a security group can be used in {{ yandex-cloud }} services to control network access to an object it applies to.
 
-A *default security group* (DSG) is created automatically while creating a [new cloud network](./network.md#network). The default security group has the following properties:
-
-* It will allow any network traffic, both egress and ingress, in the new cloud network.
-* It applies to traffic passing through all subnets in the network where the DSG is created.
-* It is only used if no security group is explicitly assigned to the object yet.
-* You cannot delete the DSG: it is deleted automatically when deleting the network.
-
 You can combine security groups by assigning up to five groups per object.
 
 {% note alert %}
@@ -32,28 +25,44 @@ To filter out large volumes of unsolicited network traffic, use [{{ ddos-protect
 
 {% endnote %}
 
+## Default security group {#default-security-group}
+
+The *default security group* (DSG) is created automatically when you create a [new cloud network](./network.md#network), and its rules apply to network traffic of objects that have no explicitly assigned custom security group.
+
+The default security group allows:
+
+* All outgoing (`egress`) network traffic.
+* All incoming (`ingress`) network traffic from objects within the same security group ([self](#self-rule) rule).
+* All incoming network traffic over `ICMP`.
+* Incoming network traffic over `TCP` and `UDP` on port `22` (`SSH`).
+* Incoming network traffic over `TCP` and `UDP` on port `3389` (`RDP`).
+
+All other traffic in the security group is denied by default.
+
+You cannot manually delete a default security group. It is deleted automatically when you delete the respective network.
+
 ## Scope of use for security groups {#security-groups-apply}
 
 Security groups can be used in the following {{ yandex-cloud }} service objects:
 
-| Service name | Service objects |
-| --- | --- |
-| [{{ compute-short-name }}](../../compute/) | [VM interface](../../compute/concepts/network.md), [instance group template](../../compute/concepts/instance-groups/instance-template.md#network) |
+| Service name                                    | Service objects                                                                                                                                 |
+|-----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| [{{ compute-short-name }}](../../compute/)          | [VM interface](../../compute/concepts/network.md), [instance group template](../../compute/concepts/instance-groups/instance-template.md#network)       |
 | [{{ managed-k8s-name }}](../../managed-kubernetes/) | [Cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), [node group](../../managed-kubernetes/concepts/index.md#node-group) |
-| [{{ alb-name }}](../../application-load-balancer/) | [Load balancer](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) |
-| [{{ mpg-name }}](../../managed-postgresql/) | [Cluster](../../managed-postgresql/concepts/network.md#security-groups) |
-| [{{ mch-name }}](../../managed-clickhouse/) | [Cluster](../../managed-clickhouse/concepts/network.md#security-groups) |
-| [{{ mgp-name }}](../../managed-greenplum/) | [Cluster](../../managed-greenplum/concepts/network.md#security-groups) |
-| [{{ mmy-name }}](../../managed-mysql/) | [Cluster](../../managed-mysql/concepts/network.md#security-groups) |
-| [{{ mrd-name }}](../../managed-valkey/) | [Cluster](../../managed-valkey/concepts/network.md#security-groups) |
-| [{{ mmg-name }}](../../storedoc) | [Cluster](../../storedoc/concepts/network.md#security-groups) |
-| [{{ mkf-name }}](../../managed-kafka/) | [Cluster](../../managed-kafka/concepts/network.md#security-groups) |
-| [{{ mos-name }}](../../managed-opensearch/) | [Cluster](../../managed-opensearch/concepts/network.md#security-groups) |
-| [{{ mtr-name }}](../../managed-trino/) | [Cluster](../../managed-trino/concepts/network.md#security-groups) |
-| [{{ dataproc-name }}](../../data-proc/) | [Cluster](../../data-proc/concepts/network.md#security-groups) |
-| [{{ data-transfer-name }}](../../data-transfer/) | [Endpoint](../../data-transfer/concepts/network.md#security-groups) |
-| [{{ load-testing-name }}](../../load-testing/) | [Test agent](../../load-testing/concepts/agent.md) |
-| [{{ mgl-name }}](../../managed-gitlab/) | [Instance](../../managed-gitlab/operations/configure-security-group.md) |
+| [{{ alb-name }}](../../application-load-balancer/)  | [Load balancer](../../application-load-balancer/concepts/application-load-balancer.md#security-groups)                                          |
+| [{{ mpg-name }}](../../managed-postgresql/)         | [Cluster](../../managed-postgresql/concepts/network.md#security-groups)                                                                         |
+| [{{ mch-name }}](../../managed-clickhouse/)         | [Cluster](../../managed-clickhouse/concepts/network.md#security-groups)                                                                         |
+| [{{ mgp-name }}](../../managed-greenplum/)          | [Cluster](../../managed-greenplum/concepts/network.md#security-groups)                                                                          |
+| [{{ mmy-name }}](../../managed-mysql/)              | [Cluster](../../managed-mysql/concepts/network.md#security-groups)                                                                              |
+| [{{ mrd-name }}](../../managed-valkey/)             | [Cluster](../../managed-valkey/concepts/network.md#security-groups)                                                                             |
+| [{{ mmg-name }}](../../storedoc)                    | [Cluster](../../storedoc/concepts/network.md#security-groups)                                                                                   |
+| [{{ mkf-name }}](../../managed-kafka/)              | [Cluster](../../managed-kafka/concepts/network.md#security-groups)                                                                              |
+| [{{ mos-name }}](../../managed-opensearch/)         | [Cluster](../../managed-opensearch/concepts/network.md#security-groups)                                                                         |
+| [{{ mtr-name }}](../../managed-trino/)              | [Cluster](../../managed-trino/concepts/network.md#security-groups)                                                                              |
+| [{{ dataproc-name }}](../../data-proc/)             | [Cluster](../../data-proc/concepts/network.md#security-groups)                                                                                  |
+| [{{ data-transfer-name }}](../../data-transfer/)    | [Endpoint](../../data-transfer/concepts/network.md#security-groups)                                                                             |
+| [{{ load-testing-name }}](../../load-testing/)      | [Test agent](../../load-testing/concepts/agent.md)                                                                                      |
+| [{{ mgl-name }}](../../managed-gitlab/)             | [Instance](../../managed-gitlab/operations/configure-security-group.md)                                                                          |
 
 {% note info %}
 
@@ -73,7 +82,7 @@ A new rule is always added at the end of the list. You cannot add a new rule to 
 
 Each rule in a security group has a fixed set of fields:
 
-| Parameter | Description |
+| Argument | Description |
 | --- | --- |
 | **Description** | Brief description of the rule. You can also describe metadata in this field.
 | **Protocol** | Specifies the [network protocol](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml#protocol-numbers-1) to be used for this rule.<br> You can use the following protocols for security group rules:<ul><li>`TCP`</li><li>`UDP`</li><li>`ICMP`</li><li>`AH` (for IPsec connections)</li><li>`ESP` (for IPsec connections)</li><li>`GRE` (for tunnel connections)</li><li>`Any`: [Any network protocol](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml#protocol-numbers-1)</li></ul>
