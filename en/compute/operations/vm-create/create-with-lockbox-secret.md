@@ -162,7 +162,7 @@ To provide a {{ lockbox-name }} secret to a VM via metadata:
 
       {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-      1. In the configuration file, specify the properties of the resources you want to create:
+      1. In the configuration file, describe the resources you want to create:
 
           ```hcl
           # Creating a boot disk for the VM
@@ -211,7 +211,7 @@ To provide a {{ lockbox-name }} secret to a VM via metadata:
           * `security_group_ids`: [Security group](../../../vpc/concepts/security-groups.md) ID.
           * `user-data`: Path to the `metadata.yaml` configuration file you created earlier.
 
-          For more information about the resources being created, see the [relevant TF provider articles]({{ tf-provider-link }}).
+          For more information about new resources, see [this provider guide]({{ tf-provider-link }}).
 
       1. Create the resources:
 
@@ -251,7 +251,7 @@ To provide a {{ lockbox-name }} secret to a VM via metadata:
         my value
         ```
 
-For more `user-data` key configuration examples, see [Examples](./create-with-cloud-init-scripts.md#examples).
+For more `user-data` key configuration examples, see the [Examples](./create-with-cloud-init-scripts.md#examples) section.
 
 #### See also {#see-also}
 

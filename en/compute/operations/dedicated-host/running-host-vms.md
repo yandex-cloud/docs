@@ -14,6 +14,24 @@ To create a VM:
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the folder to create your VM in.
+  1. Navigate to **{{ compute-name }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. [Set](../vm-create/create-linux-vm.md) the required VM parameters.
+  1. Expand **{{ ui-key.yacloud.compute.instances.create.section_additional }}**.
+  1. Next to **{{ ui-key.yacloud.compute.instances.create.field_host-affinity-rules }}**, click **{{ ui-key.yacloud.common.add }}**.
+  1. In the **{{ ui-key.yacloud.compute.instances.create.field_affinity-key-type }}** field, select **{{ ui-key.yacloud.compute.instances.create.value_affinity-key-host }}**.
+  1. In the **{{ ui-key.yacloud.compute.instances.create.field_affinity-hosts }}** field, specify the IDs of the dedicated hosts the VM will be launched on.
+
+      You can find the IDs of dedicated hosts in the [management console]({{ link-console-main }}) or using the [CLI](../../cli-ref/host-group/list-hosts.md) or [API](../../api-ref/HostGroup/listHosts.md).
+
+      {% include [affinity-host-tip](../../../_includes/compute/affinity-host-tip.md) %}
+
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -121,9 +139,9 @@ To create a VM:
 
 Before creating a VM:
 
-1. [Create a dedicated host group](create-host-group.md) and get its ID using the `yc compute host-group list` [CLI command](../../../cli/cli-ref/compute/cli-ref/host-group/list.md).
+1. [Create a group of dedicated hosts](create-host-group.md) and get its ID using the `yc compute host-group list` [CLI command](../../../cli/cli-ref/compute/cli-ref/host-group/list.md).
 1. Get a list of IDs of dedicated hosts in the group using the `yc compute host-group list-hosts` [CLI command](../../../cli/cli-ref/compute/cli-ref/host-group/list-hosts.md).
-1. [Generate a key pair](../vm-connect/ssh.md#creating-ssh-keys) to connect to your VM via SSH.
+1. [Generate a key pair](../vm-connect/ssh.md#creating-ssh-keys) to connect to your VM over SSH.
 
 Create a VM with the following parameters:
 * Location: Dedicated host.

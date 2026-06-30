@@ -28,7 +28,7 @@ The source treats `FOREIGN TABLE` and `EXTERNAL TABLE` as regular views and hand
 
 ## {{ MG }} {#mongodb}
 
-By default, the service does not shard collections transferred to a sharded cluster. For more information, see [Preparing for the transfer](../operations/prepare.md#target-mg).
+By default, the service does not shard collections transferred to a sharded cluster. For more information, see the [Preparing for Data Transfer](../operations/prepare.md#target-mg) section.
 
 Transfers to {{ MG }} do not migrate indexes. When a transfer changes its status to {{ dt-status-repl }}, manually create an index for each sharded collection:
 

@@ -58,6 +58,11 @@ Configure an MCP server for {{ data-catalog-name }} and connect AI agents to acc
 ## 2026 {#2026}
 
 
+### May {#may26}
+
+* A new {{ metastore-name }} version is out: [4.2.0](../concepts/metastore.md#versions).
+* Added parameters for storing {{ metastore-name }} metadata. You can now specify the bucket name and data path when [creating](../operations/metastore/cluster-create.md) or [updating a cluster](../operations/metastore/cluster-update.md).
+
 ### April {#apr26}
 
 * Implemented [lineage](../operations/data-catalog/analysis-metadata.md) tools for tracing data from a database to a dashboard.

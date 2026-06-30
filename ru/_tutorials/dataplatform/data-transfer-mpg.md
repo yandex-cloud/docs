@@ -4,6 +4,7 @@
 
 Чтобы настроить CDC с использованием сервиса {{ data-transfer-name }}:
 
+1. [Подготовьте инфраструктуру](#infra).
 1. [Подготовьте кластер-источник](#prepare-source).
 1. [Подготовьте кластер-приемник](#prepare-target).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
@@ -12,44 +13,110 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
+## Перед началом работы {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
 * Кластер {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
-* Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 * Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
+## Подготовьте инфраструктуру {#infra}
+
 
 {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-1. [Создайте кластер-источник {{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
 
-    * с базой данных `db1`;
-    * с пользователем `pg-user`;
-    * с хостами в публичном доступе.
+{% list tabs group=instructions %}
 
-1. [Создайте кластер-приемник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
+- Вручную {#manual}
+
+  1. [Создайте кластер-источник {{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
+
+      * с базой данных `db1`;
+    
+      
+      * с пользователем `pg-user`;
+      * с хостами в публичном доступе.
 
 
-1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета:
+  
+  1. [Создайте кластер-приемник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
-    * [Инструкция для {{ mpg-name }}](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
-    * [Инструкция для {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
+  1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета:
+
+      * [Инструкция для {{ mpg-name }}](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
+      * [Инструкция для {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
 
 
-1. Установите на локальный компьютер [утилиту](https://github.com/edenhill/kcat) `kcat` (`kafkacat`) и [клиент командной строки PostgreSQL](https://www.postgresql.org/download/). Например, в Ubuntu 20.04 выполните команду:
 
-    ```bash
-    sudo apt update && sudo apt install kafkacat postgresql-client --yes
-    ```
+- {{ TF }} {#tf}
 
-    Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+  1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+  1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+  1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+  1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
+  1. Скачайте в ту же рабочую директорию файл конфигурации [cdc-mpg-mkf.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-postgresql-to-kafka/blob/main/cdc-mpg-mkf.tf).
+
+      В этом файле описаны:
+
+      * [сеть](../../vpc/concepts/network.md#network);
+      * [подсеть](../../vpc/concepts/network.md#subnet) в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`;
+      * [группа безопасности](../../vpc/concepts/security-groups.md) для кластера {{ mpg-name }} и правила, необходимые для подключения к кластеру из интернета;
+      * группа безопасности для кластера {{ mkf-name }} и правила, необходимые для подключения к кластеру из интернета;
+      * кластер {{ mpg-name }} с публичным доступом из интернета;
+      * база данных и пользователь с ролью [mdb_replication](../../managed-postgresql/concepts/roles.md#mdb-replication) в кластере {{ mpg-name }};
+      * кластер {{ mkf-name }} с публичным доступом из интернета;
+      * топик и пользователь с ролями [ACCESS_ROLE_CONSUMER](../../managed-kafka/concepts/account-roles.md#access-role-consumer) и [ACCESS_ROLE_PRODUCER](../../managed-kafka/concepts/account-roles.md#access-role-producer) на этот топик в кластере {{ mkf-name }};
+      * эндпоинты для источника и приемника;
+      * трансфер.
+
+  1. Укажите в конфигурационном файле следующие параметры:
+        
+      * `network_name` — имя сети.
+      * `subnet_name` — имя подсети.
+      * `pg_sg_name` — имя группы безопасности для кластера {{ mpg-name }}.
+      * `kf_sg_name` — имя группы безопасности для кластера {{ mkf-name }}.
+      * `pg_cluster_version` — версия кластера {{ mpg-name }}.
+      * `pg_cluster_name` — имя кластера {{ mpg-name }}.
+      * `pg_password` — пароль пользователя в кластере {{ mpg-name }}.
+      * `kf_cluster_version` — версия кластера {{ mkf-name }}.
+      * `kf_cluster_name` — имя кластера {{ mkf-name }}.
+      * `kf_password` — пароль пользователя в кластере {{ mkf-name }}.
+      * `source_endpoint_name` — имя эндпоинта для источника.
+      * `target_endpoint_name` — имя эндпоинта для приемника.
+      * `transfer_name` — имя трансфера.
+      * `transfer_enabled = 0` — отключает создание эндпоинтов и трансфера. Они будут созданы при [подготовке трансфера](#prepare-transfer).
+
+  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+      ```bash
+      terraform validate
+      ```
+
+      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+  1. Создайте необходимую инфраструктуру:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+
+{% endlist %}
+
 
 ## Подготовьте кластер-источник {#prepare-source}
 
-1. Чтобы сервис {{ data-transfer-name }} мог получать от кластера {{ mpg-name }} уведомления об изменениях в данных, в кластере-источнике необходимо создать публикацию (publication). Чтобы пользователь `pg-user` мог создать публикацию, [назначьте](../../managed-postgresql/operations/grant.md) ему роль `mdb_replication`.
+
+1. Если вы создавали инфраструктуру вручную, [назначьте](../../managed-postgresql/operations/grant.md#grant-role) роль [mdb_replication](../../managed-postgresql/concepts/roles.md#mdb-replication) пользователю `pg-user`. Это необходимо, чтобы пользователь мог создать публикацию, через которую {{ data-transfer-name }} получает информацию об изменениях в данных в кластере-источнике.
+
 
 1. [Подключитесь к базе данных](../../managed-postgresql/operations/connect/index.md) `db1` от имени пользователя `pg-user`.
 
@@ -82,19 +149,23 @@
 
 ## Подготовьте кластер-приемник {#prepare-target}
 
-Настройки различаются в зависимости от используемого [способа управления топиками](../../managed-kafka/concepts/topics.md#management). При этом имена топиков для данных конструируются по тому же принципу, что и в [Debezium](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-topic-names) — `<префикс_топика>.<имя_схемы>.<имя_таблицы>`. В этом руководстве в качестве примера будет использоваться префикс `cdc`.
+
+Если вы создавали инфраструктуру с помощью {{ TF }}, пропустите этот шаг и перейдите к [подготовке и активации трансфера](#prepare-transfer).
+
+
+Настройка кластера-приемника различается в зависимости от используемого [способа управления топиками](../../managed-kafka/concepts/topics.md#management). При этом имена топиков для данных конструируются по тому же принципу, что и в [Debezium](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-topic-names) — `<префикс_топика>.<имя_схемы>.<имя_таблицы>`. В этом руководстве в качестве примера будет использоваться префикс `cdc`.
 
 {% list tabs group=topic_management %}
 
 - Интерфейсы {{ yandex-cloud }} {#yc}
 
-    Если управление топиками осуществляется с помощью стандартных интерфейсов {{ yandex-cloud }} (Консоль управления, CLI, {{ TF }}, API):
+    Если для управления топиками используются интерфейсы {{ yandex-cloud }} (консоль управления, CLI, API):
 
     1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `cdc.public.measurements`.
 
         Если необходимо отслеживать изменения в нескольких таблицах, создайте для каждой из них отдельный топик.
 
-    1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `kafka-user` и ролями `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER`, действующими на созданные топики.
+    1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `kafka-user` и ролями `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER`, действующими на созданный топик.
 
 - Admin API {#api}
 
@@ -111,9 +182,13 @@
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинты](../../data-transfer/operations/endpoint/index.md#create).
+{% list tabs group=instructions %}
 
-    * Эндпоинт для источника:
+- Вручную {#manual}
+
+  1. [Создайте эндпоинты](../../data-transfer/operations/endpoint/index.md#create).
+
+      * Эндпоинт для источника:
 
         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `PostgreSQL`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.title }}**:
@@ -124,7 +199,7 @@
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}** — укажите пароль пользователя `pg-user`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}** — `public.measurements`.
 
-    * Эндпоинт для приемника:
+      * Эндпоинт для приемника:
 
         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
@@ -140,16 +215,51 @@
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}** — укажите префикс `cdc`, использованный при формировании имен топиков.
 
-1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) со следующими настройками:
+  1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) со следующими настройками:
 
-    * **{{ ui-key.yacloud.data-transfer.label_endpoints }}**:
+      * **{{ ui-key.yacloud.data-transfer.label_endpoints }}**:
         * **{{ ui-key.yacloud.data-transfer.forms.label_source-type }}** — созданный ранее эндпоинт для источника.
         * **{{ ui-key.yacloud.data-transfer.forms.label_target-type }}** — созданный ранее эндпоинт для приемника.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.type.title }}** — **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**.
+      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.type.title }}** — **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**.
 
-1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+  1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+
+
+- {{ TF }} {#tf}
+
+  1. Укажите в файле `cdc-mpg-mkf.tf` значение параметра `transfer_enabled = 1`.
+
+  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+      ```bash
+      terraform validate
+      ```
+
+      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+  1. Создайте необходимую инфраструктуру:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      Будут созданы эндпоинты и трансфер. Трансфер активируется автоматически после создания.
+  
+  1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+      
+      Проверить состояние трансфера можно в [консоли управления]({{ link-console-main }}).
+
+
+{% endlist %}
+
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
+
+1. Установите на локальный компьютер [утилиту](https://github.com/edenhill/kcat) `kcat` (`kafkacat`) и [клиент командной строки PostgreSQL](https://www.postgresql.org/download/). Например, в Ubuntu 20.04 выполните команду:
+
+    ```bash
+    sudo apt update && sudo apt install kafkacat postgresql-client --yes
+    ```
+
+    Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
 1. В отдельном терминале запустите утилиту `kafkacat` в режиме потребителя:
 
@@ -227,18 +337,33 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) и [удалите](../../data-transfer/operations/transfer.md#delete) трансфер.
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete).
 
-1. Удалите кластеры:
+{% list tabs group=instructions %}
 
-    * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
-    * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
+- Вручную {#manual}
 
-1. Если для доступа к хостам кластеров использовались статические публичные IP-адреса, освободите и [удалите](../../vpc/operations/address-delete.md) их.
+  1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) и [удалите](../../data-transfer/operations/transfer.md#delete) трансфер.
+  1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete).
+  1. Удалите кластеры:
+
+      * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+      * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
+
+  
+  1. Если для доступа к хостам кластеров использовались статические публичные IP-адреса, освободите и [удалите](../../vpc/operations/address-delete.md) их.
+
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
+
+
+{% endlist %}
+
 
 
 ## Дополнительные материалы {#video}

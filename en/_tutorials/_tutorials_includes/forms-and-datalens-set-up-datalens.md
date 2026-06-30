@@ -2,12 +2,12 @@
 
 - {{ datalens-name }} UI {#datalens}
 
-  1. Go to [{{ datalens-name }}]({{ link-datalens-main-promo }}).
+  1. Navigate to [{{ datalens-name }}]({{ link-datalens-main-promo }}).
   1. Click **Start in cloud**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/thunderbolt.svg) **Connections** and click **Create connection**.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}** and set the following in the window that opens:
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}** and set the following in the window that opens:
       * **Cloud and folder**: Select the cloud and folder where you created the rest of the resources.
-      * **Service account**: `forms-integration-sa`
+      * **Service account**: `forms-integration-sa`.
   1. Click **Save changes**. In the window that opens, specify `forms-datalens-connection` as the connection name, then click **Create**.
   1. Go back to the [{{ datalens-name }}]({{ link-datalens-main-skip-promo }}) main page and click **Create dataset**.
   1. In the connection panel, click ![icon](../../_assets/console-icons/plus.svg) **Add** and select the `forms-datalens-connection` connection.

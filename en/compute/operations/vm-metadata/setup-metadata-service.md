@@ -74,7 +74,7 @@ To configure metadata service parameters for a VM:
 
        For more information, see [{#T}](../../concepts/vm-metadata.md#metadata-formats).
 
-     For more information about the `yandex_compute_instance` resource parameters in {{ TF }}, see [this TF provider article]({{ tf-provider-resources-link }}/compute_instance).
+     For more information about `yandex_compute_instance` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/compute_instance).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

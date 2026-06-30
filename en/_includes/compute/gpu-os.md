@@ -25,3 +25,13 @@ Gen2
 : * [Ubuntu 20.04 LTS Secure Boot CUDA 12.2](/marketplace/products/yc/ubuntu-2004-lts-secureboot-cuda-12-2) (`ubuntu-2004-lts-secureboot-cuda-12-2`)
 
 We recommend using a standard {{ yandex-cloud }} image. You can also manually [install the drivers](../../compute/operations/vm-operate/install-nvidia-drivers.md) on another standard image or [create a custom image](../../compute/operations/image-create/custom-image.md) with pre-installed drivers.
+
+{% note info %}
+
+{% include [gpu-driver-versions](./gpu-driver-versions.md) %}
+
+When installing drivers for `gpu-standard-v3` ({{ a100-epyc }}), specify the compatible driver version, `535`.
+
+We recommend using this specific driver version; updates to other versions are not supported and may lead to unstable GPU performance.
+
+{% endnote %}

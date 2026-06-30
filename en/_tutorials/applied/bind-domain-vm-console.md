@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `webserver-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
@@ -103,7 +103,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) that allows inb
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, enter this name: `webserver-sg`.
@@ -206,7 +206,7 @@ Before you start, prepare a [key pair](../../compute/operations/vm-connect/ssh.m
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
@@ -306,7 +306,7 @@ This will create the `mywebserver` VM in your folder. To [connect](../../compute
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
   1. Specify your domain’s [DNS zone](../../dns/concepts/dns-zone.md) settings:
 
@@ -365,7 +365,7 @@ In your DNS zone, create a [type A resource record](../../dns/concepts/resource-
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Select the DNS zone you created earlier.
   1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
   1. Specify the record settings:

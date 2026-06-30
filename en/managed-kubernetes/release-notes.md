@@ -66,15 +66,15 @@ Use the [{{ yandex-cloud }} CLI]({{ link-docs }}/cli/) and [{{ TF }}]({{ link-do
 
 ### New features {#q1-2026-new-features}
 
-* Added support for [virtual machine reserve pools](./concepts/node-group/reserved-pools.md). Reserved resources' availability will be guaranteed for creating fixed-size cluster node groups. You can use reserve pools via the [{{ yandex-cloud }} CLI](../cli/), [{{ TF }}](../terraform/), and the [API](./managed-kubernetes/api-ref/NodeGroup/create.md), and provide them using [variables in the virtual machine template](./concepts/node-group/variables-in-the-template.md).
+* Added support for [virtual machine reserve pools](./concepts/node-group/reserved-pools.md). Reserved resources will be guaranteed to be available for creating fixed-size cluster node groups. You can use reserve pools via the [{{ yandex-cloud }} CLI](../cli/), [{{ TF }}](../terraform/), and [API](./managed-kubernetes/api-ref/NodeGroup/create.md), and provide them using [variables in the virtual machine template](./concepts/node-group/variables-in-the-template.md).
 * Improved [integration](../iam/concepts/workload-identity.md) with the {{ iam-name }} workload identity federation:
   * Added integration with a workload identity federation via the `yc-metadata-server` DaemonSet controller on nodes for automatic exchange of {{ k8s }} service account tokens for an IAM token.
-  * Integration management for masters and node groups is available through the management console, CLI, {{ TF }}, and the API.
+  * Integration management for masters and node groups is available through the management console, CLI, {{ TF }}, and API.
 * Added the [`k8s.cluster-api.admin`](./security/index.md#k8s-cluster-api-admin) role. Users with this role get the `yc:k8s-core-admin` group and the `admin` role in [Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 * Added support for {{ org-full-name }} [user groups](../organization/concepts/groups.md) as subjects in [Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). Now you can specify a user group in `RoleBinding` and `ClusterRoleBinding`: all members of the group will automatically receive the permissions assigned to it in the cluster.
 * Virtual machine groups and disks created while running in {{ managed-k8s-name }} are now tagged with [cloud labels](../resource-manager/concepts/labels.md) indicating their cluster membership and additional information that allows them to be associated with {{ k8s }} objects.
-  * VM groups created along with a node group require specifying the `managed-kubernetes-node-group-id`, `managed-kubernetes-cluster-id`, and custom `labels` set at node group creation.
-  * Disks for Persistent Volume require specifying the `managed-kubernetes-cluster-id`, `managed-kubernetes-cluster-name`, and the appropriate `managed-kubernetes-volume-name`.
+  * VM groups created with a node group include: `managed-kubernetes-node-group-id`, `managed-kubernetes-cluster-id`, and custom `labels` set at node group creation.
+  * Disks for Persistent Volume include: `managed-kubernetes-cluster-id`, `managed-kubernetes-cluster-name`, and the appropriate Persistent Volume `managed-kubernetes-volume-name`.
 * Added the ability to create volumes larger than 8 TB using the `blockSize` field in the [storage class specification](./operations/volumes/manage-storage-class.md#sc-spec).
 
 ### Improvements {#q1-2026-improvements}
@@ -88,11 +88,17 @@ Use the [{{ yandex-cloud }} CLI]({{ link-docs }}/cli/) and [{{ TF }}]({{ link-do
 
 ### Fixes {#q1-2026-problems-solved}
 
-* Fixed the [containerd configuration](https://containerd.io/docs/1.7/man/containerd-config.toml.5) format. Converted configuration to a format compatible with versions 1.7 and 2.0 and higher. Previously, the format could lead to errors when connecting external nodes and updating GPU Operator above version 24.9.2.
+* Fixed [containerd configuration](https://containerd.io/docs/1.7/man/containerd-config.toml.5) format. Configuration converted to a format compatible with versions 1.7 and 2.0 and higher. Previously, the format could lead to errors when connecting external nodes and updating GPU Operator above version 24.9.2.
+
+  {% note info %}
+
+  If modifying the containerd configuration on cluster nodes, before upgrading the cluster, make sure your configuration management tools are compatible with containerd format used in versions 1.7, 2.0, and higher. For more on configuration format, see [this containerd guide](https://containerd.io/docs/1.7/man/containerd-config.toml.5).
+
+  {% endnote %}
 
 ### Other updates {#q1-2026-other-changes}
 
-* Deleted the [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) component from cluster masters with all current versions of {{ k8s }} in all release channels.
+* [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) component deleted from cluster masters with all current versions of {{ k8s }} in all release channels.
 
 ## Q4 2025 {#q4-2025}
 

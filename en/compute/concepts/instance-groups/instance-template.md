@@ -33,7 +33,7 @@ When you delete a VM, its disks are also deleted from the group. You can delete 
 
 In addition to disks, you can also attach [file storages](../filesystem.md) to instances within a group. File storages allow configuring an instance to handle [stateful workloads](./stateful-workload.md) by saving the states of applications running on the instance to the storage independent of the instance group.
 
-After attaching a file storage to a VM in the group, [mount](../../operations/filesystem/attach-to-vm.md) it on the VM's operating system. You can attach file storages using the [CLI](../../../cli/quickstart.md), [{{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md), or [API](../../api-ref/). For more information, see [{#T}](../../operations/instance-groups/create-with-filesystem.md).
+After you attach a file storage to a VM within the group, [mount](../../operations/filesystem/attach-to-vm.md) it in the VM's operating system. You can attach file storages using the [CLI](../../../cli/quickstart.md), [{{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md), or [API](../../api-ref/). For more information, see [{#T}](../../operations/instance-groups/create-with-filesystem.md).
 
 ## Network {#network}
 

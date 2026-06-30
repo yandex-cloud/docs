@@ -124,7 +124,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
          {% include [vm-computing-resources](../../_includes/data-transfer/vm-computing-resources.md) %}
 
-         The VM resource configuration determines the performance of the data transfer [workers](../concepts/index.md#worker). A separate VM is allocated for each worker. For vCPU and RAM pricing policy, calculation examples, and cost optimization recommendations, see [Pricing policy](../pricing.md).
+         The VM resource configuration determines the performance of the data transfer [workers](../concepts/index.md#worker). A separate VM is allocated for each worker. For vCPU and RAM pricing policy, calculation examples, and cost optimization recommendations, see the [Pricing policy](../pricing.md) section.
 
 
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}** (optional): Specify the full path to each object to transfer. Only objects from this list will be transferred. If you have listed included tables or collections in the source endpoint settings, only objects that are on both these lists will be transfered. If you specify objects not listed among included tables or collections in the source endpoint settings, transfer activation will end with the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.
@@ -407,7 +407,7 @@ To move a transfer and [endpoints](../concepts/index.md#endpoint) to a different
 
             {% include [vm-computing-resources](../../_includes/data-transfer/vm-computing-resources.md) %}
 
-            The VM resource configuration determines the performance of the data transfer [workers](../concepts/index.md#worker). A separate VM is allocated for each worker. For vCPU and RAM pricing policy, calculation examples, and cost optimization recommendations, see [Pricing policy](../pricing.md).
+            The VM resource configuration determines the performance of the data transfer [workers](../concepts/index.md#worker). A separate VM is allocated for each worker. For vCPU and RAM pricing policy, calculation examples, and cost optimization recommendations, see the [Pricing policy](../pricing.md) section.
 
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.data_objects.title }}**: Specify the full path to each object to transfer. Only objects from this list will be transferred. If you have listed included tables or collections in the source endpoint settings, only objects that are on both these lists will be transfered. If you specify objects not listed among included tables or collections in the source endpoint settings, transfer activation will end with the `$table not found in source` error. This setting is not available for such sources as {{ KF }}, and {{ DS }}.

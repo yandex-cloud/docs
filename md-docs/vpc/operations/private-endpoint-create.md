@@ -1,11 +1,5 @@
 # Создать сервисное подключение
 
-{% note warning %}
-
-Функциональность **Сервисные подключения** (VPC Private Endpoints) находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 
 Для создания сервисного подключения необходима одна из следующих [ролей](../security/index.md#roles-list): 
 

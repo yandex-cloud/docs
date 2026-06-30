@@ -18,9 +18,9 @@
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.user.title }}**: Specify the username {{ data-transfer-name }} will use to connect to the database.
       * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnection.password.title }}**: Enter the user password for access to the database.
 
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_connman.title }}**: Allows connecting to the database using [{{ connection-manager-full-name }}](../../../../metadata-hub/quickstart/connection-manager.md):
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_connman.title }}**: Allows connecting to a database using [{{ connection-manager-full-name }}](../../../../metadata-hub/quickstart/connection-manager.md):
 
-      * Select the folder the {{ connection-manager-name }} connection was created in.
+      * Select the folder where the {{ connection-manager-name }} connection was created.
       * Select **Custom installation** as the installation type and configure these settings:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConnmanConnection.connection_id.title }}**: Select or create a connection in {{ connection-manager-name }}.

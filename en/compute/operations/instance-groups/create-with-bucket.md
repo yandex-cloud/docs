@@ -11,9 +11,9 @@ One of the ways to handle [stateful workloads](../../concepts/instance-groups/st
 To create an instance group that will automatically connect a common {{ objstorage-name }} bucket to each of its instances:
 
 1. {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
-1. To be able to create, update, and delete VMs in the group, [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) role to the service account.
+1. To be able to create, update, and delete VM instances in the instance group, [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) role to the service account.
 1. If you do not have an {{ objstorage-name }} bucket, [create one](../../../storage/operations/buckets/create.md).
-1. Bucket operations are performed under the service account created within the same [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) as the bucket. If there is no such service account, create one. To work with the bucket, assign the `storage.editor` [role](../../../storage/security/index.md#storage-editor) to the service account.
+1. Bucket operations are performed under the service account created in the same [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) with the bucket. If there is no such service account, create one. To work with the bucket, assign the `storage.editor` [role](../../../storage/security/index.md#storage-editor) to the service account.
 
     You can use either a single service account or two separate service accounts for working with the instance group and the bucket.
 
@@ -169,7 +169,7 @@ To create an instance group that will automatically connect a common {{ objstora
 
       {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-      1. In the configuration file, define the parameters of the resources you want to create:
+      1. In the configuration file, describe the resources you want to create:
 
           ```hcl
           resource "yandex_iam_service_account" "ig-sa" {
@@ -267,13 +267,13 @@ To create an instance group that will automatically connect a common {{ objstora
 
             {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-          * `yandex_resourcemanager_folder_iam_member`: Description of access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete VM instances in the instance group, assign the `compute.editor` [role](../../security/index.md#compute-editor) to the service account.
+          * `yandex_resourcemanager_folder_iam_member`: Description of access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete VM instances in the instance group, assign the [compute.editor](../../security/index.md#compute-editor) role to the service account.
           * `yandex_compute_instance_group`: Instance group description:
             * General information about the instance group:
               * `name`: Instance group name.
               * `folder_id`: Folder ID.
               * `service_account_id`: ID of the service account for the instance group. This service account must have the `compute.editor` role.
-              * `deletion_protection`: Instance group protection against deletion, `true` or `false`. You cannot delete an instance group with this option enabled. The default value is `false`.
+              * `deletion_protection`: Instance group protection against deletion, `true` or `false`. You cannot delete a group while the value is `true`. The default value is `false`.
             * [Instance template](../../concepts/instance-groups/instance-template.md):
               * `platform_id`: [Platform](../../concepts/vm-platforms.md).
               * `resources`: Number of vCPUs and amount of RAM available to the VM instance. The values must match the selected [platform](../../concepts/vm-platforms.md).
@@ -283,7 +283,7 @@ To create an instance group that will automatically connect a common {{ objstora
               * `service_account_id`: ID of the service account for the bucket. This service account must have the `storage.editor` role.
               * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the IDs of your network, [subnet](../../../vpc/concepts/network.md#subnet), and [security groups](../../../vpc/concepts/security-groups.md).
               * `metadata`: In [metadata](../../concepts/vm-metadata.md), provide the following:
-                * Instance username and public key to enable this user to access the instance via SSH. 
+                * Instance username and public key to enable this user to access the instance over SSH. 
                 * `- apt-get install fuse`: Command for installing [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace). This command can run on Ubuntu and Debian. For operating systems based on Red Hat (such as CentOS and Fedora), use the `- yum install fuse` command, for OpenSUSE, `- zypper install fuse`, etc.
                 * `<instance_mount_point>`: Instance directory to mount the connected bucket to, e.g., `/mnt/gfs0`.
                 * `<bucket_name>`: [Name of the bucket](../../../storage/concepts/bucket.md#naming) to connect to the instance.
@@ -294,7 +294,7 @@ To create an instance group that will automatically connect a common {{ objstora
               * `scale_policy`: Instance [scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for the group.
               * `allocation_policy`: [Policy for allocating](../../concepts/instance-groups/policies/allocation-policy.md) instances across [availability zones](../../../overview/concepts/geo-scope.md) and regions.
           * `yandex_vpc_network`: Cloud network description.
-          * `yandex_vpc_subnet`: Description of the subnet to connect the instance group to.
+          * `yandex_vpc_subnet`: Description of the subnet to which you connect the instance group.
 
             {% note info %}
 
@@ -302,13 +302,13 @@ To create an instance group that will automatically connect a common {{ objstora
 
             {% endnote %}
 
-          For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
+          For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 
       1. Create the resources:
 
           {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-          All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+          This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
           {% include [ssh-connection-internal-ip](../../../_includes/instance-groups/ssh-connection-internal-ip.md) %}
 
@@ -318,4 +318,4 @@ To create an instance group that will automatically connect a common {{ objstora
 
     {% endlist %}
 
-Make sure the bucket is connected to the group instances. For this, [connect](../vm-connect/ssh.md#vm-connect) to the instances via SSH and navigate to the directory you specified as the mount point.
+Make sure the bucket is connected to the group instances. For this, [connect](../vm-connect/ssh.md#vm-connect) to the instances over SSH and navigate to the directory you specified as the mount point.

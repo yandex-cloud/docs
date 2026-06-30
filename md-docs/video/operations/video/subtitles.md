@@ -34,9 +34,14 @@
 
 - API {#api}
 
-  Создайте запись о субтитрах методом REST API [Create](../../api-ref/Subtitle/create.md) для ресурса [Subtitle](../../api-ref/Subtitle/index.md) или вызовом gRPC API [SubtitleService.Create](../../api-ref/grpc/Subtitle/create.md).
+  1. Создайте запись о субтитрах методом REST API [Create](../../api-ref/Subtitle/create.md) для ресурса [Subtitle](../../api-ref/Subtitle/index.md) или вызовом gRPC API [SubtitleService.Create](../../api-ref/grpc/Subtitle/create.md).
 
-  Загрузите файл субтитров по URL, полученному методом REST API [GenerateUploadURL](../../api-ref/Subtitle/generateUploadURL.md) для ресурса [Subtitle](../../api-ref/Subtitle/index.md) или вызовом gRPC API [SubtitleService.GenerateUploadURL](../../api-ref/grpc/Subtitle/generateUploadURL.md).
+  1. Загрузите файл субтитров по URL, полученному методом REST API [GenerateUploadURL](../../api-ref/Subtitle/generateUploadURL.md) для ресурса [Subtitle](../../api-ref/Subtitle/index.md) или вызовом gRPC API [SubtitleService.GenerateUploadURL](../../api-ref/grpc/Subtitle/generateUploadURL.md).
+
+  1. Чтобы субтитры появились в интерфейсе [Cloud Video](https://video.yandex.cloud/) и в [плеере](../../concepts/player.md), после загрузки файла субтитров запустите перекодировку видео. Воспользуйтесь методом REST API [Transcode](../../api-ref/Video/transcode.md) для ресурса [Video](../../api-ref/Video/index.md) или вызовом gRPC API [VideoService.Transcode](../../api-ref/grpc/Video/transcode.md) и передайте в запросе:
+      
+       * Идентификаторы субтитров в параметре `subtitleIds` для REST API или `subtitle_ids` для gRPC API.
+       * Имя обновляемого поля `subtitleIds` в параметре `fieldMask` для REST API или `subtitle_ids` в параметре `field_mask` для gRPC API.
 
 {% endlist %}
 
@@ -66,7 +71,12 @@
 
 - API {#api}
 
-  Сгенерируйте новый URL и загрузите файл субтитров методом REST API [GenerateUploadURL](../../api-ref/Subtitle/generateUploadURL.md) для ресурса [Subtitle](../../api-ref/Subtitle/index.md) или вызовом gRPC API [SubtitleService.GenerateUploadURL](../../api-ref/grpc/Subtitle/generateUploadURL.md).
+  1. Сгенерируйте новый URL и загрузите файл субтитров методом REST API [GenerateUploadURL](../../api-ref/Subtitle/generateUploadURL.md) для ресурса [Subtitle](../../api-ref/Subtitle/index.md) или вызовом gRPC API [SubtitleService.GenerateUploadURL](../../api-ref/grpc/Subtitle/generateUploadURL.md).
+
+  1. Чтобы субтитры появились в интерфейсе [Cloud Video](https://video.yandex.cloud/) и в [плеере](../../concepts/player.md), после загрузки файла субтитров запустите перекодировку видео. Воспользуйтесь методом REST API [Transcode](../../api-ref/Video/transcode.md) для ресурса [Video](../../api-ref/Video/index.md) или вызовом gRPC API [VideoService.Transcode](../../api-ref/grpc/Video/transcode.md) и передайте в запросе:
+      
+       * Идентификаторы субтитров в параметре `subtitleIds` для REST API или `subtitle_ids` для gRPC API.
+       * Имя обновляемого поля `subtitleIds` в параметре `fieldMask` для REST API или `subtitle_ids` в параметре `field_mask` для gRPC API.
 
 {% endlist %}
 
@@ -99,6 +109,10 @@
 
 - API {#api}
 
-  Для удаления субтитров воспользуйтесь методом REST API [Delete](../../api-ref/Subtitle/delete.md) для ресурса [Subtitle](../../api-ref/Subtitle/index.md) или вызовом gRPC API [SubtitleService.Delete](../../api-ref/grpc/Subtitle/delete.md).
+  1. Для удаления субтитров воспользуйтесь методом REST API [Delete](../../api-ref/Subtitle/delete.md) для ресурса [Subtitle](../../api-ref/Subtitle/index.md) или вызовом gRPC API [SubtitleService.Delete](../../api-ref/grpc/Subtitle/delete.md).
+  1. После удаления субтитров запустите перекодировку видео. Воспользуйтесь методом REST API [Transcode](../../api-ref/Video/transcode.md) для ресурса [Video](../../api-ref/Video/index.md) или вызовом gRPC API [VideoService.Transcode](../../api-ref/grpc/Video/transcode.md) и передайте в запросе:
+
+     * Идентификаторы субтитров, которые должны остаться в видео, в параметре `subtitleIds` для REST API или `subtitle_ids` для gRPC API. Чтобы удалить все субтитры, передайте пустой массив.
+     * Имя обновляемого поля `subtitleIds` в параметре `fieldMask` для REST API или `subtitle_ids` в параметре `field_mask` для gRPC API.
 
 {% endlist %}

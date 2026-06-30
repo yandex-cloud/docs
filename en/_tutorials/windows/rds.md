@@ -53,7 +53,7 @@ Create a cloud network named `my-network` with subnets in all availability zones
 
      To create a [cloud network](../../vpc/concepts/network.md):
      1. In the [management console]({{ link-console-main }}), select a folder where you want to create your cloud network.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. Specify `my-network` as the network name.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -139,12 +139,12 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, type `RDS` in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field and select the appropriate [RDS](/marketplace?tab=software&search=windows+rds) image: 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify your boot [disk](../../compute/concepts/disk.md) size: `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, switch to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify:
 
       * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: `my-network` and `my-subnet-d`.
@@ -185,7 +185,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create your preemptible VM.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud_billing.iam.folder.dashboard.label_compute }}**.
+     1. Navigate to **{{ ui-key.yacloud_billing.iam.folder.dashboard.label_compute }}**.
      1. Select the `my-rds-vm` VM.
      1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.instances.button_action-restart }}**.
    
@@ -201,7 +201,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
    
    {% endlist %}
 
-1. Connect to `my-rds-vm` via [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and your password.
+1. Connect to `my-rds-vm` via [RDP](../../compute/operations/vm-connect/rdp.md). Use the `Administrator` username and your password.
 1. Assign Active Directory roles:
 
     {% list tabs group=programming_language %}
@@ -227,7 +227,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
       
     {% endlist %}
 
-   Windows will restart automatically. Reconnect to `my-rds-vm`. Use `yantoso\Administrator` as your username and your password. Restart PowerShell.
+   Windows will restart automatically. Reconnect to `my-rds-vm`. Use the `yantoso\Administrator` username and your password. Restart PowerShell.
 
 ## Set up firewall rules {#firewall}
 

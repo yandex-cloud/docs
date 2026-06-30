@@ -2,7 +2,7 @@
 
 {% include [operate-via-roles-paragraph](../../_includes/iam/operate-via-roles-paragraph.md) %}
 
-To allow access to {{ baremetal-name }} resources, assign the relevant roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can only be assigned for a parent resource, such as a folder or cloud. Roles are inherited by nested resources.
+To grant access to {{ baremetal-name }} resources, assign the relevant roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can only be assigned for a parent resource, i.e., folder or cloud, whose roles are inherited by nested resources.
 
 For more information about role inheritance, see [Inheritance of access permissions](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-name }} documentation.
 
@@ -30,9 +30,25 @@ In {{ baremetal-name }}, you can manage access using both service and primitive 
 
 {% include [baremetal-editor](../../_roles/baremetal/editor.md) %}
 
+{% note warning %}
+
+Starting August 1, 2026, the `baremetal.editor` role gets new permissions allowing it to connect servers to [{{ backup-full-name }}](../../backup/index.yaml), link and unlink them from [backup policies](../../backup/concepts/policy.md).
+
+{% include [denyActivation-iam-policy-pre-notice](../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
+
+{% endnote %}
+
 #### baremetal.admin {#baremetal-admin}
 
 {% include [baremetal-admin](../../_roles/baremetal/admin.md) %}
+
+{% note warning %}
+
+Starting August 1, 2026, the `baremetal.admin` role gets new permissions allowing it to connect servers to [{{ backup-full-name }}](../../backup/index.yaml), link and unlink them from [backup policies](../../backup/concepts/policy.md).
+
+{% include [denyActivation-iam-policy-pre-notice](../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
+
+{% endnote %}
 
 ### Primitive roles {#primitive-roles}
 

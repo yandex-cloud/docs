@@ -133,7 +133,7 @@ To create an image from a disk [snapshot](../../concepts/snapshot.md):
 
           {% endnote %}
 
-     For more information about the `yandex_compute_image` resource, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_image).
+     For more information about `yandex_compute_image`, see [this provider guide]({{ tf-provider-resources-link }}/compute_image).
 
   1. Make sure the configuration files are correct.
 

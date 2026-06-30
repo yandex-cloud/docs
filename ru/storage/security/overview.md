@@ -119,8 +119,6 @@ description: Управление доступом в сервисе {{ objstora
 
 ## Сервисные подключения {{ vpc-short-name }} (Private Endpoints) {#pe-vpc}
 
-{% include [vpc-pe-preview](../../_includes/vpc/pe-preview.md) %}
-
 {% include [intro-access-via-vpc](../../_includes/storage/intro-access-via-vpc.md) %}
 
 В {{ objstorage-name }} есть возможность настроить бакет так, чтобы доступ в него был возможен только через сервисные подключения {{ vpc-short-name }}. Предусмотрены следующие механизмы:

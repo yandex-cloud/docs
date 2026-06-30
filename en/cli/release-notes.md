@@ -7,6 +7,32 @@ description: This page presents CLI releases and their updates.
 
 ## Current version {#latest-release}
 
+### Version 1.13.0 (09/06/26) {#v-1-13-0}
+
+#### Changes to the CLI system commands {#v-1-13-0-yc}
+
+* Implemented deletion of old profiles during `yc init` reinitialization.
+
+#### {{ mrd-name }} {#v-1-13-0-mrd-name}
+
+Added the `--databases` parameter to commands for creating and updating the users in Valkey ACLs:
+* `yc managed-redis user create`
+* `yc managed-redis user update`
+
+#### {{ mos-name }} {#v-1-13-0-mos-name}
+
+Added new flags for granular management of events displayed in audit logs:
+* `--compliance-enabled`
+* `--log-request-body`
+* `--log-search-queries`
+* `--log-data-modifications`
+* `--log-index-metadata-access`
+* `--log-monitoring-checks`
+* `--log-index-maintenance`
+* `--log-backup-operations`
+
+## Previous releases {#previous-release}
+
 ### Version 1.12.0 (04/06/26) {#v-1-12-0}
 
 #### Changes to the CLI system commands {#v-1-12-0-yc}

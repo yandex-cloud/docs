@@ -147,7 +147,7 @@ items:
               cluster
             href: >-
               operations/kubernetes-cluster/kubernetes-cluster-configuration-list.md
-          - name: Cluster health state monitoring {{ k8s }}
+          - name: '{{ k8s }} cluster state monitoring'
             href: operations/kubernetes-cluster/kubernetes-cluster-get-stats.md
           - name: Deleting a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md

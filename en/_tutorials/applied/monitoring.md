@@ -42,7 +42,7 @@ The support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you are using to complete this tutorial.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. Click **{{ ui-key.yacloud.iot.button_create-registry }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the registry, e.g., `my-registry`.
   1. In the **{{ ui-key.yacloud.common.password }}** field, set a password for registry access. To create a password, you can use [this password generator](https://passwordsgenerator.net/).
@@ -60,7 +60,7 @@ The support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. Select the registry you created in the previous step.
   1. Select **{{ ui-key.yacloud.iot.label_devices }}** in the left-hand menu.
   1. Click **{{ ui-key.yacloud.iot.button_add-device }}**.
@@ -91,7 +91,7 @@ The emulator sends data from device sensors and processes data for monitoring an
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Create a function:
       1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
       1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the function, e.g., `my-device-emulator-function`.
@@ -171,8 +171,8 @@ Optionally, to get detailed information from the sensors, [subscribe](../../iot-
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select `my-device-emulator-function`.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Select the `my-device-emulator-function` function.
   1. In the left-hand menu, select **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** list, select `$latest`, which is the most recently created function.
   1. Click **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
@@ -211,7 +211,7 @@ Optionally, to get detailed information from the sensors, [subscribe](../../iot-
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** field, enter a name for the trigger, e.g., `my-emulator-function-trigger`.
@@ -237,7 +237,7 @@ Optionally, to get detailed information from the sensors, [subscribe](../../iot-
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
   1. Create a function:
       1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
@@ -277,8 +277,8 @@ Optionally, to get detailed information from the sensors, [subscribe](../../iot-
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select `my-monitoring-func`.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Select the `my-monitoring-func` function.
   1. In the left-hand menu, select **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** list, select `$latest`, which is the most recently created function.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** field, paste the following data:
@@ -328,7 +328,7 @@ The trigger will invoke the function when a message appears in the [device topic
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** field, enter a name for the trigger, e.g., `my-monitoring-func-trigger`.
@@ -406,7 +406,7 @@ Set up sensor reading monitoring: create [charts](../../monitoring/concepts/visu
 - {{ monitoring-short-name }} UI {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Navigate to the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** tab.
   1. Click **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
   1. At the top right, click **{{ ui-key.yacloud_monitoring.actions.common.save }}**.
@@ -423,7 +423,7 @@ Create a temperature variation chart:
 - {{ monitoring-short-name }} UI {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Navigate to the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** tab.
   1. Next to the dashboard name, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.actions.common.edit }}**.
   1. In the bottom section, click **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
@@ -457,8 +457,8 @@ If you change the baselines in the environment variables of the emulation functi
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select `my-device-emulator-function`.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Select the `my-device-emulator-function` function.
   1. Click the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** tab.
   1. Change some original variable values as you like under **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}** in the **{{ ui-key.yacloud_components.forms.label_value }}** field at the bottom of the window.
 
@@ -480,7 +480,7 @@ If you change the baselines in the environment variables of the emulation functi
 - {{ monitoring-short-name }} UI {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}** and see how the chart indicators have changed.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}** and see how the chart indicators have changed.
 
 {% endlist %}
 
@@ -493,7 +493,7 @@ Customize a list of recipients and select a notification method.
 - {{ monitoring-short-name }} UI {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Navigate to the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}** tab.
   1. Click **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
   1. In the **{{ ui-key.yacloud_monitoring.channel.field_name }}** field, specify a name for the channel, e.g., `my-message-channel`.
@@ -521,7 +521,7 @@ Create an alert based on the room temperature sensor readings and connect the cr
 - {{ monitoring-short-name }} UI {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are using to complete this tutorial.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the alert.
   1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.alert-config }}**, click ![image](../../_assets/console-icons/plus.svg) and fill out the fields:

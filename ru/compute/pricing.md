@@ -319,5 +319,4 @@ _{{ price-per-hour-count-per-second }}_
 
 
 
-
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

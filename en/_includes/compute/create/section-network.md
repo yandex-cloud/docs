@@ -3,19 +3,25 @@ Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, select a [cloud network](../../../vpc/concepts/network.md#network) from the list.
 
     * Each network must have at least one [subnet](../../../vpc/concepts/network.md#subnet). If your network has no subnets, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
-    * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
+    * If there are no networks in the list, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
-        * In the window that opens, specify the network name and select the folder to host the network.
+        * In the window that opens, specify the network name and select the folder where it will be created.
         * Optionally, enable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** setting to automatically create subnets in all availability zones.
         * Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-* In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select an IP address assignment method:
+* In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select the IP address assignment method:
 
     * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: To assign a random IP address from the {{ yandex-cloud }} IP address pool. In this case, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md) using the option below.
     * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`: To select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
-    * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`: Not to assign a public IP address.
+    * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`: Do not assign a public IP address.
 
-* Select the [relevant security groups](../../../vpc/concepts/security-groups.md). If you leave this field empty, the default security group will be assigned to the VM.
+* Select [relevant security groups](../../../vpc/concepts/security-groups.md):
+
+    * To connect to a virtual machine over `SSH`, the security group must allow incoming network traffic over `TCP` and `UDP` on port `22`.
+
+    * To connect to a virtual machine over `RDP`, the security group must allow incoming network traffic over `TCP` and `UDP` on port `3389`.
+    
+    If you leave the field empty, the virtual machine will be automatically assigned the [default security group](../../../vpc/concepts/security-groups.md#default-security-group) allowing connections to the VM over `SSH` and `RDP`.
 
 * Expand **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** and select a method for assigning internal addresses in the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field:
 

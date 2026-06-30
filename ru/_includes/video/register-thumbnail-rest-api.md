@@ -5,13 +5,13 @@ curl \
   --header 'Authorization: Bearer <IAM-токен>' \
   --header 'Content-Type: application/json' \
   --data '{
-    "channelId": "<идентификатор_канала>"
+    "videoId": "<идентификатор_видео>"
   }'
 ```
 
 Где:
 * `<IAM-токен>` — полученный перед началом работы IAM-токен.
-* `<идентификатор_канала>` — сохраненный ранее идентификатор канала.
+* `videoId` — идентификатор видео, для которого вы хотите добавить обложку.
 
 Результат:
 
@@ -26,6 +26,7 @@ curl \
   "@type": "type.googleapis.com/yandex.cloud.video.v1.Thumbnail",
   "id": "vpltaurfr4pr********",
   "channelId": "vplcdyphvqik********",
+  "videoId": "vplvh4wvqimx********",
   "createdAt": "2024-11-02T16:56:19.296797Z"
  },
  "id": "vplpgbyqopdr********",

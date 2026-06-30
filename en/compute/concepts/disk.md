@@ -114,7 +114,7 @@ A VM must have a boot disk attached. You can also attach extra disks to your VM.
 
     Auto-deletion of secondary disks is _disabled_ by default.
 
-  You can set the auto-deletion configuration both when creating or updating a VM using the `auto-delete` parameter, which can either be `true` or `false`. You can use this parameter in the following flags:
+  You can set up the auto-deletion configuration either when creating or updating a VM using the `auto-delete` parameter, which can either be `true` or `false`. You can use this parameter in the following flags:
   * `--create-disk`: To create a secondary disk.
   * `--attach-disk`: To attach an existing disk as a secondary disk.
   * `--create-boot-disk`: To create a boot disk.
@@ -137,7 +137,7 @@ A VM must have a boot disk attached. You can also attach extra disks to your VM.
 
     Auto-deletion of secondary disks is _disabled_ by default.
 
-  You can set the auto-deletion configuration both when creating or updating a VM by adding the `auto_delete` parameter, which can be either `true` or `false`, to the `boot_disk` or `secondary_disk` resource description.
+  You can set up the auto-deletion configuration either when creating or updating a VM using the `auto_delete` parameter (either `true` or `false`) inside the boot disk (`boot_disk`) or or secondary disk (`secondary_disk`) resource description.
 
 - API {#api}
 
@@ -149,11 +149,11 @@ A VM must have a boot disk attached. You can also attach extra disks to your VM.
 
     Auto-deletion of secondary disks is _disabled_ by default.
   
-  You can set the auto-deletion configuration both when creating or updating a VM by adding the `autoDelete` parameter, which can be either `true` or `false`, to the request body in the boot disk (`bootDiskSpec`) or secondary disk (`secondaryDiskSpecs`) description.
+  You can set up the auto-deletion configuration either when creating or updating a VM using the `autoDelete` parameter (either `true` or `false`) in the request body inside the boot disk (`bootDiskSpec`) or secondary disk (`secondaryDiskSpecs`) description.
 
 {% endlist %}
 
-For interface-specific examples of auto-delete configuration, see [{#T}](../operations/vm-create/create-linux-vm.md).
+For interface-specific examples of auto-delete configuration update, see [{#T}](../operations/vm-create/create-linux-vm.md).
 
 ## Backups {#backup}
 

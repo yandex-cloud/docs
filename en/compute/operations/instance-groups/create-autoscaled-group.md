@@ -56,7 +56,7 @@ To create an autoscaling instance group:
        ```
 
        Where:
-       * `name`: Instance group name. The name must be unique within the folder. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name can be up to 63 characters long.
+       * `name`: Instance group name. The name must be unique within the folder. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name may be up to 63 characters long.
        * `service_account_id`: [Service account](../../../iam/concepts/users/service-accounts.md) ID.
 
           To be able to create, update, and delete VMs in the group, [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) role to the service account.
@@ -91,8 +91,8 @@ To create an autoscaling instance group:
 
        Where:
        * `platform_id`: [Platform](../../concepts/vm-platforms.md) ID.
-       * `memory`: Amount of memory (RAM).
-       * `cores`: Number of processor cores (vCPUs).
+       * `memory`: Amount of RAM.
+       * `cores`: Number of vCPUs.
        * `mode`: [Disk](../../concepts/disk.md) access mode.
          * `READ_ONLY`: Read-only access.
          * `READ_WRITE`: Read/write access.
@@ -191,7 +191,7 @@ To create an autoscaling instance group:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      resource "yandex_iam_service_account" "ig-sa" {
@@ -270,14 +270,14 @@ To create an autoscaling instance group:
      ```
 
      Where:
-     * `yandex_iam_service_account`: [Service account](../../../iam/concepts/users/service-accounts.md) description. All instance group operations are performed on behalf of the service account.
-     * `yandex_resourcemanager_folder_iam_member`: Description of access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete VM instances in the instance group, assign the `compute.editor` [role](../../security/index.md#compute-editor) to the service account.
+     * `yandex_iam_service_account`: [Service account](../../../iam/concepts/users/service-accounts.md) description. All operations with an instance group are performed under a service account.
+     * `yandex_resourcemanager_folder_iam_member`: Description of access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the service account belongs to. To be able to create, update, and delete VMs in the group, assign the [compute.editor](../../security/index.md#compute-editor) role to the service account.
      * `yandex_compute_instance_group`: Instance group description.
        * General information about the instance group:
          * `name`: Instance group name.
          * `folder_id`: Folder ID.
-         * `service_account_id`: [Service account](../../../iam/concepts/users/service-accounts.md) ID.
-         * `deletion_protection`: Instance group protection against deletion, `true` or `false`. You cannot delete an instance group with this option enabled. The default value is `false`.
+         * `service_account_id`: [Service account](../../../iam/concepts/users/service-accounts.md) ID
+         * `deletion_protection`: Instance group protection against deletion, `true` or `false`. You cannot delete a group while the value is `true`. The default value is `false`.
        * [Instance template](../../concepts/instance-groups/instance-template.md):
          * `platform_id`: [Platform](../../concepts/vm-platforms.md).
          * `resources`: Number of vCPUs and amount of RAM available to the VM instance. The values must match the selected platform.
@@ -285,13 +285,13 @@ To create an autoscaling instance group:
            * ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
            * Disk access mode: `READ_ONLY` or `READ_WRITE`.
          * `network_interface`: [Network](../../../vpc/concepts/network.md#network) settings. Specify the IDs of your network, [subnet](../../../vpc/concepts/network.md#subnet), and [security groups](../../../vpc/concepts/security-groups.md).
-         * `metadata`: In [metadata](../../concepts/vm-metadata.md), provide the public key for SSH access to the VM. For more information, see [{#T}](../../concepts/vm-metadata.md).
+         * `metadata`: In [metadata](../../concepts/vm-metadata.md), provide the public key for SSH access to the instance. For more information, see [{#T}](../../concepts/vm-metadata.md).
        * [Policies](../../concepts/instance-groups/policies/index.md):
          * `deploy_policy`: Instance [deployment policy](../../concepts/instance-groups/policies/deploy-policy.md) for the group.
          * `scale_policy`: Instance [scaling policy](../../concepts/instance-groups/policies/scale-policy.md) for the group.
          * `allocation_policy`: [Policy for allocating](../../concepts/instance-groups/policies/allocation-policy.md) instances across [availability zones](../../../overview/concepts/geo-scope.md).
      * `yandex_vpc_network`: Cloud network description.
-     * `yandex_vpc_subnet`: Description of the subnet to connect the instance group to.
+     * `yandex_vpc_subnet`: Description of the subnet to which you connect the instance group.
 
        {% note info %}
 
@@ -299,12 +299,12 @@ To create an autoscaling instance group:
 
        {% endnote %}
 
-     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     All the resources you need will then be created in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

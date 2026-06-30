@@ -6,4 +6,4 @@
     * Cloud network for hosting the endpoint.
     * [Security groups](../../../../../vpc/concepts/security-groups.md) for network traffic.
 
-    Security group rules apply to a transfer. They allow opening up network access from the transfer VM to the cluster. Learn more in [{#T}](../../../../../data-transfer/concepts/network.md).
+    Security group rules apply to a transfer. They allow opening network access from the transfer VM to the cluster. For more information, see [{#T}](../../../../../data-transfer/concepts/network.md).

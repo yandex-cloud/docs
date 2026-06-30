@@ -1,4 +1,4 @@
-# {{ objstorage-full-name }} backup with Veritas Backup Exec
+# Backing up to {{ objstorage-full-name }} with Veritas Backup Exec
 
 You can use {{ objstorage-full-name }} for backup and recovery using Veritas Backup Exec.
 
@@ -131,7 +131,7 @@ To create a service account:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder with backups.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ objstorage-short-name }}**.
+  1. Navigate to **{{ objstorage-short-name }}**.
   1. Open the bucket with backups and check whether all relevant files were copied.
 
 {% endlist %}

@@ -89,8 +89,6 @@ _Бакет_ — это выделенная часть хранилища {{ ob
 
 ## Доступ к бакетам из облачных сетей {{ vpc-full-name }} {#access-via-vpc}
 
-{% include [vpc-pe-preview](../../_includes/vpc/pe-preview.md) %}
-
 {% include [intro-access-via-vpc](../../_includes/storage/intro-access-via-vpc.md) %}
 
 Подробнее о настройке доступа смотрите на странице [{#T}](../operations/buckets/access-via-vpc.md).
@@ -141,3 +139,4 @@ _Бакет_ — это выделенная часть хранилища {{ ob
 ### Полезные ссылки {#see-also}
 
 * [{#T}](../security/overview.md)
+

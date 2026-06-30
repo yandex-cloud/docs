@@ -56,7 +56,7 @@ If you deploy resources from other {{ yandex-cloud }} services, the cost will ch
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the database is located.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. From the DB list, select `state-lock-db`.
   1. Go the **Navigation** tab.
   1. In the top-right corner, click **Create** and select **Table**.

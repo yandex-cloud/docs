@@ -12,12 +12,12 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-{% include [before-you-begin](../../../_tutorials/_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-{% include [paid-resources](../../../_tutorials/_tutorials_includes/telegram-bot-serverless/paid-resources.md) %}
+{% include [paid-resources](../../_tutorials_includes/telegram-bot-serverless/paid-resources.md) %}
 
 
 ## Подготовьте ресурсы {#create-resources}
@@ -28,7 +28,7 @@
 
 ## Зарегистрируйте Telegram-бота {#create-bot}
 
-{% include [create-bot](../../../_tutorials/_tutorials_includes/telegram-bot-serverless/create-bot.md) %}
+{% include [create-bot](../../_tutorials_includes/telegram-bot-serverless/create-bot.md) %}
 
 
 ## Опубликуйте изображение для бота {#image-publish}
@@ -152,8 +152,8 @@
       const { Telegraf } = require('telegraf');
 
       const bot = new Telegraf(process.env.BOT_TOKEN);
-      bot.start((ctx) => ctx.reply(`Hello. \nMy name Serverless Hello Telegram Bot \nI'm working on Cloud Function in the Yandex Cloud.`))
-      bot.help((ctx) => ctx.reply(`Hello, ${ctx.message.from.username}.\nI can say Hello and nothing more`))
+      bot.start((ctx) => ctx.reply(`Hello. \nMy name Serverless Hello Telegram Bot \nI'm working on Cloud Functions in the Yandex Cloud.`));
+      bot.help((ctx) => ctx.reply(`Hello, ${ctx.message.from.username}.\nI can say Hello and nothing more`));
       bot.on('text', (ctx) => {
           ctx.replyWithPhoto({url: '<домен_API-шлюза>/sayhello.png'});
           ctx.reply(`Hello, ${ctx.message.from.username}`);
@@ -172,7 +172,7 @@
 
   1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}** создайте файл `package.json` и вставьте в него следующий код:
 
-      {% include [telegram-bot-package-json](../../../_tutorials/_tutorials_includes/telegram-bot-serverless/telegram-bot-package-json.md) %}
+      {% include [telegram-bot-package-json](../../_tutorials_includes/telegram-bot-serverless/telegram-bot-package-json.md) %}
 
   1. Укажите следующие параметры:
 
@@ -201,29 +201,18 @@
       1. Выберите API-шлюз `for-serverless-hello-telegram-bot`.
       1. Измените спецификацию API-шлюза — после имеющихся строчек кода добавьте секцию `fshtb-function`:
 
-         {% include [telegram-bot-function-bind](../../../_tutorials/_tutorials_includes/telegram-bot-serverless/telegram-bot-function-bind.md) %}
+         {% include [telegram-bot-function-bind](../../_tutorials_includes/telegram-bot-serverless/telegram-bot-function-bind.md) %}
 
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
 
     {% endlist %}
 
-1. {% include [telegram-bot-setwebhook](../../../_tutorials/_tutorials_includes/telegram-bot-serverless/telegram-bot-setwebhook.md) %}
-
-    Где:
-
-    * `<токен_бота>` — токен Telegram-бота.
-    * `<домен_API-шлюза>` — служебный домен API-шлюза.
-
-    Результат:
-
-    ```bash
-    {"ok":true,"result":true,"description":"Webhook was set"}
-    ```
+1. {% include [telegram-bot-setwebhook](../../_tutorials_includes/telegram-bot-serverless/telegram-bot-setwebhook.md) %}
 
 
 ## Проверьте работу Telegram-бота {#test-bot}
 
-{% include [test-bot](../../../_tutorials/_tutorials_includes/telegram-bot-serverless/test-bot.md) %}
+{% include [test-bot](../../_tutorials_includes/telegram-bot-serverless/test-bot.md) %}
 
 
 ## Как удалить созданные ресурсы {#clear-out}

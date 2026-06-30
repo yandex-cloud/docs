@@ -47,7 +47,7 @@ Create the `rdgw-network` cloud network with a subnet in the availability zone w
    - Management console {#console}
     
       1. In the [management console]({{ link-console-main }}), select a folder where you want to create your cloud network.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
       1. Specify the network name: `rdgw-network`.
       1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -82,7 +82,7 @@ Create the `rdgw-network` cloud network with a subnet in the availability zone w
    
     - Management console {#console}
     
-      1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you need to create a subnet.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you need to create a subnet.
       1. Click the name of your cloud network.
       1. Under **{{ ui-key.yacloud.vpc.network.overview.section_subnetworks }}**, click **{{ ui-key.yacloud.common.create }}**.
       1. Specify `rdgw-subnet` as the subnet name and select the availability zone from the drop-down list (e.g., `{{ region-id }}-d`).
@@ -128,14 +128,14 @@ Create and configure a [security group](../../vpc/concepts/security-groups.md).
 
 - Management console {#console}
 
-   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you need to create a security group.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you need to create a security group.
    1. Open the **{{ ui-key.yacloud.vpc.network.security-groups.label_title }}** tab.
    1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
    1. Specify the security group name: `my-rdgw-sg`.
    1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the network to assign the security group to: `rdgw-network`.
    1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following network traffic rules using the instructions below the table:
       
-        | Traffic</br>direction | Description | Port</br>range | Protocol | Source</br>type | Source/Destination | 
+        | Traffic</br>direction | Description | Port</br>range | Protocol | Type</br>of source | Source/Destination | 
         |---|---|---|---|---|---|
         | Inbound | icmp | — | ICMP | CIDR | 0.0.0.0/0 |
         | Inbound | self-security | Any | Any | Security group | Current |
@@ -210,7 +210,7 @@ Create a VM and give it a public IP address:
          * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify your boot [disk](../../compute/concepts/disk.md) size: `60 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-     1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, switch to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
          * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
@@ -413,7 +413,7 @@ The RDGW VM allows members of the `BUILTIN\Administrators` group to connect to i
             * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
         1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
         1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, set `60 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot disk size.
-        1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+        1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, switch to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
             * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
             * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.

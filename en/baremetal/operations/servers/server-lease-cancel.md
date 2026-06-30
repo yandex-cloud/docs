@@ -3,9 +3,13 @@ title: How to cancel a server lease in {{ baremetal-full-name }}
 description: In this tutorial, you will learn how to cancel a server lease in {{ baremetal-full-name }}.
 ---
 
-# Canceling a server lease
+# Canceling a server rent
 
-After canceling the lease, the server will remain active until the paid period ends, after which it will be automatically deleted.
+{% note warning %}
+
+Canceling the rent cancels only further automatic renewal. It is not possible to terminate the rent during the current paid period: the server will operate until the end of this period and then will be deleted.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 

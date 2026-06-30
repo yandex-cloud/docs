@@ -69,7 +69,7 @@ To host a static website in the cloud, [create](../../storage/operations/buckets
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, specify the domain name you registered, e.g., `gatsbytest.ru`.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** field, specify `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
@@ -284,7 +284,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
   1. Add a Let's Encrypt® [certificate](../../certificate-manager/concepts/managed-certificate.md) to {{ certificate-manager-name }} for your domain the website will be using.
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your certificate in.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** and select **{{ ui-key.yacloud.certificate-manager.action_request }}**.
       1. In the window that opens, specify a name for the certificate being created in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field, e.g., `gatsbytestcert`.
       1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, specify your domain name, e.g., `gatsbytest.ru`.
@@ -406,7 +406,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
 
           For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
-          The domain rights check may take from a few minutes to a few days. Wait until it is complete. As a result, the certificate will be issued and get the `Issued` status.
+          Domain ownership verification may take from a few minutes to a few days. Wait until it successfully completes. As a result, the certificate will be issued and get the `Issued` status.
 
       1. Make sure that the certificate status has switched to `Issued`:
 
@@ -460,7 +460,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ objstorage-name }}**.
+  1. Navigate to **{{ objstorage-name }}**.
   1. Click the bucket name, `gatsbytest.ru` in our example.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_https }}** tab.

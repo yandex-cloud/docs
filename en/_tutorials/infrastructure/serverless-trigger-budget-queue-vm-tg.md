@@ -39,7 +39,7 @@ The cost of resources includes:
 * Fee for logging operations and data storage in a [log group](../../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)) if you use [{{ cloud-logging-name }}](../../logging/).
 
 
-### Download a project {#download}
+### Download the project {#download}
 
 Clone the repository containing the project:
 
@@ -57,7 +57,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select your folder.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify the name: `service-account-for-budget`.
       1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_roles }}** field, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
@@ -133,7 +133,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select your folder.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
       1. In the list that opens, select `service-account-for-budget`.
       1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
@@ -166,7 +166,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       secret: YCPQhHFMx6rnWXQC9ID425gk3V9YnUc********
       ```
 
-      Save the `key_id` and `secret` values. This is the only time you can copy this key as it will not be shown again.
+      Save the ID (`key_id`) and secret key (`secret`). This is the only time you can copy this key as it will not be shown again.
 
       For more information about the `yc iam access-key create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
 
@@ -184,7 +184,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 - Management console {#console} 
 
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `my-sample-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
@@ -262,7 +262,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 - Management console {#console}
   
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
   1. Click **{{ ui-key.yacloud.ymq.queues.button_create }}**.
   1. Under **{{ ui-key.yacloud.ymq.queue.form.section_base }}**, specify:
       * **{{ ui-key.yacloud.common.name }}**: `budget-queue`  
@@ -340,7 +340,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select your folder.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
       1. Create a function:
           1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
           1. Specify the function name: `budget-trigger-handler`.
@@ -459,7 +459,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
@@ -603,7 +603,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select your folder.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
       1. Create a function:
           1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
           1. Specify the function name: `budget-queue-handler`.
@@ -708,7 +708,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
@@ -782,7 +782,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).

@@ -89,7 +89,7 @@ You can test the performance of your network disks with [fio](https://fio.readth
 
     * `--filesize`: Size of the file the utility creates and uses to test input and output.
     * `--direct`: Flag that toggles buffering; `0` means buffering is used, `1` means buffering is not used.
-    * `--rw`: Load template. The possible values are as follows: 
+    * `--rw`: Load template. The possible values are: 
       * `read`: Sequential reads.
       * `write`: Sequential writes.
       * `rw`: Sequential reads and writes.

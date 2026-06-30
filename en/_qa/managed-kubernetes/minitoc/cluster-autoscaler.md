@@ -10,10 +10,10 @@
 
 * [Is Horizontal Pod Autoscaler supported?](#horizontal-pod-autoscaler)
 
-* [How do I select the minimum master preset to reduce costs?](#master-preset-cost)
+* [How do I choose the minimum master preset to reduce costs?](#master-preset-cost)
 
-* [Can I change the master autoscaling thresholds on my side?](#master-autoscaler-thresholds)
+* [Can I change the master’s autoscaling thresholds on the user side?](#master-autoscaler-thresholds)
 
-* [Can I set an upper limit for master autoscaling?](#master-autoscaler-max)
+* [Can I set an upper limit on the master node's auto-scaling?](#master-autoscaler-max)
 
-* [How do I prevent master resources from being reduced during autoscaling?](#master-autoscaler-no-scaledown)
+* [How can I prevent the master resources from scaling down during auto-scaling?](#master-autoscaler-no-scaledown)

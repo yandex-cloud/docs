@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Удалить сервисное подключение
 
-{% include [vpc-pe-preview](../../_includes/vpc/pe-preview.md) %}
-
 
 
 {% list tabs group=instructions %}

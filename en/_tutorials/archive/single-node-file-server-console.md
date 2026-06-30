@@ -28,7 +28,7 @@ To create a [security group](../../vpc/concepts/security-groups.md) for your fil
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to create your security group in.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Open the **{{ ui-key.yacloud.vpc.label_security-groups }}** tab.
   1. Create a security group:
 
@@ -65,7 +65,7 @@ To create a VM:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) public image.
@@ -76,25 +76,25 @@ To create a VM:
       * In the window that opens, select **{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}**.
       * Select `Create new disk` and specify the parameters:
 
-          * **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}**: `{{ ui-key.yacloud.compute.instances.create-disk.value_source-none }}`
-          * **{{ ui-key.yacloud.compute.instances.create-disk.field_name }}**: `fileserver-tutorial-disk`
-          * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}`
-          * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `100 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+          * **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}**: `{{ ui-key.yacloud.compute.instances.create-disk.value_source-none }}`.
+          * **{{ ui-key.yacloud.compute.instances.create-disk.field_name }}**: `fileserver-tutorial-disk`.
+          * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}`.
+          * **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `100 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
       * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab, select the [platform](../../compute/concepts/vm-platforms.md) and specify the file server parameters:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `8` or more
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `56 {{ ui-key.yacloud.common.units.label_gigabyte }}` or more
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `8` or more.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `56 {{ ui-key.yacloud.common.units.label_gigabyte }}` or more.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, enter the ID of a subnet in the new VM’s availability zone. Alternatively, select a [cloud network](../../vpc/concepts/network.md#network) from the list.
 
           * Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
-          * If you do not have a network, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
+          * If there are no networks in the list, click **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** to create one:
 
               * In the window that opens, specify the network name and select the folder where it will be created.
               * Optionally, enable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** setting to automatically create subnets in all availability zones.
@@ -109,7 +109,7 @@ To create a VM:
 
         {% note alert %}
 
-        Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+        Do not use `root` or other OS-reserved usernames. For operations requiring root privileges, use the `sudo` command.
 
         {% endnote %}
 

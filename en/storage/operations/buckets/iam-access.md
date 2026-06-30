@@ -24,6 +24,107 @@ To configure access to a [bucket](../../concepts/bucket.md) using [{{ iam-name }
   1. Select a role for the user.
   1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for updating bucket settings:
+
+      ```bash
+      yc storage bucket update --help
+      ```
+
+  1. Assign a role for the bucket:
+
+      ```bash
+      yc storage bucket update \
+        --name <bucket_name> \
+        --grants grantee-id=<account_ID>,grant-type=<subject_type>,permission=<permission>
+      ```
+
+      Where: 
+      * `--name`: Bucket name.
+      * `--grants`: [ACL](../../concepts/acl.md) access permission settings:
+        * `grantee-id`: ID of the account the permissions are granted to. Used when the value is `grant-type=grant-type-account`.
+        * `grant-type`: Type of entity the permissions are granted to. The possible values are:
+          * `grant-type-account`: User or service account.
+          * `grant-type-all-authenticated-users`: All authenticated users.
+          * `grant-type-all-users`: All users.
+        * `permission`: Permission. The possible values are:
+          * `permission-full-control`: Full access to the bucket and objects in it.
+          * `permission-write`: Writing objects to the bucket.
+          * `permission-write-acp`: Editing bucket ACL.
+          * `permission-read`: Reading objects in the bucket.
+          * `permission-read-acp`: Reading bucket ACL.
+  
+  If the `yc storage bucket update` command is called, the bucket's assigned ACL roles are overwritten, not appended. To preserve existing permissions settings, they must be re-listed in the `--grants` parameter.
+
+  Learn more about the `yc storage bucket update` command in the [YC CLI reference](../../cli-ref/bucket/update.md).
+  
+  ## Example {#example}
+
+  To assign a service account full access to a bucket using the CLI:
+
+  1. Get a list of buckets in the default folder:
+
+      ```bash
+      yc storage bucket list
+      ```
+ 
+      Result:
+ 
+      ```text
+      +------------------+----------------------+----------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       | MAX SIZE | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+----------+-----------------------+---------------------+
+      | my-bucket        | b1gmit33ngp3******** | 10       | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+----------+-----------------------+---------------------+
+      ```
+
+  1. Get a list of service accounts in the default folder:
+
+      ```bash
+      yc iam service-account list
+      ```
+ 
+      Result:
+ 
+      ```text
+      +----------------------+--------------+--------+---------------------+-----------------------+
+      |          ID          |     NAME     | LABELS |     CREATED AT      | LAST AUTHENTICATED AT |
+      +----------------------+--------------+--------+---------------------+-----------------------+
+      | ajeg2b2et02f******** | my-robot     |        | 2024-09-08 18:59:45 | 2025-02-18 10:10:00   |
+      | ajegtlf2q28a******** | account-name |        | 2023-06-27 16:18:18 | 2025-02-18 10:20:00   |
+      +----------------------+--------------+--------+---------------------+-----------------------+
+      ```
+
+  1. Assign a role for the bucket:
+
+      ```bash
+      yc storage bucket update \
+        --name my-bucket \
+        --grants grantee-id=ajeg2b2et02f********,grant-type=grant-type-account,permission=permission-full-control
+      ```
+
+  Result:
+      
+  ```text
+  name: my-bucket
+  folder_id: b1g0ijbfaqsn********
+  default_storage_class: STANDARD
+  versioning: VERSIONING_DISABLED
+  max_size: "53687091200"
+  acl:
+    grants:
+      - permission: PERMISSION_FULL_CONTROL
+        grant_type: GRANT_TYPE_ACCOUNT
+        grantee_id: ajeg2b2et02f********
+  created_at: "2026-04-30T09:48:38.836171Z"
+  resource_id: e3ev6mif5rb1********
+  ```
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}

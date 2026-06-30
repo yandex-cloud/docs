@@ -21,7 +21,7 @@
     
        {% endnote %}
     
-    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ MY }}](../../../../data-transfer/operations/endpoint/source/mysql.md#additional-settings) source.
+    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of the additional endpoint settings for the {{ MY }} source](../../../../data-transfer/operations/endpoint/source/mysql.md#additional-settings).
 
 - {{ MY }}
     
@@ -69,6 +69,6 @@
     
        {% endnote %}
     
-    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of additional endpoint settings for the {{ MY }} source](../../../../data-transfer/operations/endpoint/source/mysql.md#additional-settings).
+    1. Deactivate trigger transfer at the transfer initiation stage and reactivate it at the completion stage (for the _{{ dt-type-repl }}_ and the _{{ dt-type-copy-repl }}_ transfer types). For more information, see the [description of the additional endpoint settings for the {{ MY }} source](../../../../data-transfer/operations/endpoint/source/mysql.md#additional-settings).
 
 {% endlist %}

@@ -105,7 +105,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
     {% include [Managed ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse-target.md) %}
 
-    Here is the configuration file example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl
@@ -163,7 +163,7 @@ Connection to the database with explicitly specified network addresses and ports
 
     {% include [On premise ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse-target.md) %}
 
-    Here is the configuration file example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl

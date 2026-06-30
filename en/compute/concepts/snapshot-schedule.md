@@ -11,7 +11,7 @@ You can configure automatic [disk snapshot](snapshot.md) creation based on a _sc
 In the schedule, you specify:
 
 * Disks for which the snapshots will be created. One schedule can include multiple disks, and one disk can be added to multiple schedules.
-* Frequency of snapshot creation by hour, day, week, or [cron expression](#cron). All times are now [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
+* Frequency of snapshot creation by hour, day, week, or [cron expression](#cron). All times are [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
 * [Snapshot retention](#retention) settings.
 * Scheduled snapshot description and [labels](../../resource-manager/concepts/labels.md) (you can only use the API to add them to the schedule settings).
 
@@ -39,7 +39,7 @@ You can specify a snapshot schedule using a [cron expression](https://{{ lang }}
 
 ### Possible field values {#cron-fields}
 
-| Field <br>name | Acceptable <br>values | Supported <br>[special <br>characters](#cron-special-characters) |
+| Name <br>name | Acceptable <br>values | Supported <br>[special <br>characters](#cron-special-characters) |
 |----|----|----|
 |`Minutes` | `0`–`59` | `,`, `-`, `*`, `/` |
 |`Hours` | `0`–`23` (UTC+0)| `,`, `-`, `*`, `/` |
@@ -104,7 +104,7 @@ You can use the following special characters in cron expressions:
 With schedules, you can set and configure a _snapshot retention policy_. For each disk included in a schedule, you can store:
 
 * All created scheduled snapshots.
-* Only the last few snapshots. The oldest snapshots created on schedule are automatically deleted once the specified number is exceeded. For example, if you want to keep only the last five snapshots, the first snapshot is deleted after the sixth one is created, the second is deleted after the seventh one is created, etc.
+* Only the last few snapshots. The oldest snapshots created on schedule are automatically deleted once the specified number is exceeded. For example, if you want to keep only the most recent five snapshots, the first snapshot will only be deleted after the sixth one is created, the second snapshot will be deleted after the seventh one is created, and so on.
 * Only the snapshots younger than a certain age, e.g., those created during the last few days. The oldest snapshots created on schedule are automatically deleted once the specified age is reached.
 
 The retention policy applies to all disks in a schedule.
@@ -117,11 +117,11 @@ Snapshots are deleted only while the schedule is active (its [status](#statuses)
 For a scheduled snapshot, a name up to 63 characters long is generated. The name consists of the following items separated with underscores:
 
 * Name of a virtual machine the disk is attached to (up to 24 characters) or the `unattached` line if the disk is not attached to any VM.
-* Disk name (up 20 characters).
+* Disk name (up to 20 characters).
 * Snapshot creation date and time (UTC) in `YYYYMMDDhhmm` format (year, month, day, hour, and minute).
 * Line consisting of four random alphanumeric characters.
 
-> For example, if `test-disk-with-a-long-name` is attached to `test-vm`, its scheduled snapshot created on September 1, 2022 at 03:30 p.m. UTC will have the following name:
+> For example, if `test-disk-with-a-long-name` is attached to `test-vm`, its scheduled snapshot created on September 1, 2022 at 03:30 p.m. UTC will have the following name: 
 > 
 > ```
 > test-vm_test-disk-with-a-lon_202209011530_pd2k
@@ -135,7 +135,7 @@ For a scheduled snapshot, a name up to 63 characters long is generated. The name
 * `INACTIVE`: Schedule has been paused, snapshots are not created or deleted.
 * `DELETING`: Schedule is being deleted.
 
-All snapshot creation or deletion operations that started prior to changing, interrupting or deleting the schedule will be completed.
+All running snapshot creation or deletion operations initiated prior to changing, disabling, or deleting the schedule will be completed.
 
 #### See also {#see-also}
 

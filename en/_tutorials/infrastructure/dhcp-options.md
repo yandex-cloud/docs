@@ -109,16 +109,16 @@ To check the configuration, create a VM and connect to it via RDP:
     
     - Management console {#console}
 
-      1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+      1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**, and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the `{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}` tab and select the **Windows Server** image. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
       1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md) to create your VM in.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify your boot [disk](../../compute/concepts/disk.md) size: `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, switch to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
-          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`
-          * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
-          * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
-          * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`.
+          * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
+          * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`.
+          * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
           * Make your VM [preemptible](../../compute/concepts/preemptible-vm.md), if required.
 
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select `ad-network` and `test-subnet-1`.
@@ -226,7 +226,7 @@ To check the configuration, create a VM and connect to it via RDP:
 
 1. Check if there is a connection to the `yantoso.net` domain controller. 
 
-    To do this, run this command:
+    Do it by running this command:
 
     ```
     ping ad-vm-a
@@ -260,7 +260,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder this VM belongs to. 
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Select the VM → click ![image](../../_assets/console-icons/ellipsis.svg) → select **Delete**.
       1. Confirm the deletion.
 

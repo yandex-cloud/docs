@@ -12,7 +12,7 @@ description: Follow this guide to export and import Hive metadata in a {{ metast
 1. [Create a bucket](../../../storage/operations/buckets/create.md) in {{ objstorage-full-name }}. It will store the metadata file for import and export.
 1. [Grant](../../../storage/operations/buckets/edit-acl.md) the `READ and WRITE` permission to `my-account` for the bucket you created earlier.
 
-For more information about connecting to the bucket with configured bucket policies, see [this guide](s3-policy-connect.md).
+For more on connecting to a bucket with configured bucket policies, see [this guide](s3-policy-connect.md).
 
 ## Exporting data {#export}
 
@@ -20,8 +20,8 @@ For more information about connecting to the bucket with configured bucket polic
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder.
-   1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+   1. In the [management console]({{ link-console-main }}), select the relevant folder.
+   1. [Navigate](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
    1. Click ![image](../../../_assets/console-icons/ellipsis.svg) for the cluster you need and select ![image](../../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud.metastore.action_export }}**.
    1. In the window that opens, specify the following:
@@ -127,8 +127,8 @@ Before importing, [upload](../../../storage/operations/objects/upload.md#simple)
 
    To import data to a {{ metastore-name }} cluster:
 
-   1. In the [management console]({{ link-console-main }}), select the folder.
-   1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+   1. In the [management console]({{ link-console-main }}), select the relevant folder.
+   1. [Navigate](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
    1. Click ![image](../../../_assets/console-icons/ellipsis.svg) for the cluster you need and select ![image](../../../_assets/console-icons/arrow-down-to-square.svg) **{{ ui-key.yacloud.metastore.action_import }}**.
    1. In the window that opens, select the bucket you [created earlier](#before-you-begin) and the file to import the cluster data from.

@@ -66,7 +66,7 @@ Key | Value
 `max_size` | Maximum number of VM instances in the group.<br>Acceptable values: 0 to 100.
 `min_zone_size` | Minimum number of VM instances per availability zone.<br>Acceptable values: 0 to 100.
 `measurement_duration` | Utilization measurement period: The value of each metric is computed as the average of all measurements taken during the period in question. If this value exceeds the target [scaling metric](../scale.md#metrics) value, {{ ig-name }} will increase the number of VM instances in the group.<br>The acceptable values range from 60 to 600 seconds. The default value is 60 seconds.
-`warmup_duration` | Instance warmup period. This is a period of time following startup during which the traffic is routed to the VM, while the values of metrics from this VM are not used to scale the group. The average values of the group metrics are used instead.<br>The acceptable values range from 0 to 600 seconds. The default value is zero seconds.
+`warmup_duration` | Instance warmup period. This is a period of time following startup during which the traffic is routed to the VM, while the values of metrics from this VM are not used to scale the group. The average values of the group metrics are used instead.<br>The acceptable values range from 0 to 600 seconds. The default value is 0 seconds.
 `stabilization_duration` | Stabilization period. After the number of VM instances increases, the group size does not decrease until the stabilization period ends, even if the [average scaling metric value](../scale.md#average-metric) drops below the target level.<br>The acceptable values range from 60 to 1,800 seconds.
 `cpu_utilization_rule` | Sets the target CPU utilization to run scaling based on the average CPU utilization in the instance group.
 `utilization_target` | Target CPU utilization to be supported by {{ ig-name }}.<br>If the average CPU utilization is below the target value, {{ ig-name }} will reduce the number of instances until it reaches `min_zone_size` in each availability zone.<br>If the average CPU utilization is higher than the target value, {{ ig-name }} will be creating instances until it reaches `max_size`.<br>The values range from 10 to 100.
@@ -75,7 +75,7 @@ Key | Value
 `metric_type` | Type of metric:<ul><li>`GAUGE`: Metric reflects the value at particular time point.</li><li>`COUNTER`: Metric exhibits a monotonous growth over time.</li></ul>For more information, see [{#T}](../scale.md#monitoring-metrics).
 `metric_name` | Name of the metric in {{ monitoring-name }}.
 `labels` | Metrics [labels](../../../../monitoring/concepts/data-model.md#label) from {{ monitoring-name }}.
-`target` | Target metric value by which {{ ig-name }} calculates the number of required VM instances. For more information, see [{#T}](../scale.md#monitoring-metrics). 
+`target` | Target metric value by which {{ ig-name }} calculates the number of required VM instances. For more information, see [{#T}](../scale.md#monitoring-metrics).
 
 \* This is a required field.
 

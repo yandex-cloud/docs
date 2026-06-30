@@ -3,14 +3,14 @@ grpcurl \
   -rpc-header "Authorization: Bearer <IAM-токен>" \
   -rpc-header 'Content-Type: application/json' \
   -d '{
-    "channel_id": "<идентификатор_канала>"
+    "video_id": "<идентификатор_видео>"
   }' \
   video.{{ api-host }}:443 yandex.cloud.video.v1.ThumbnailService/Create
 ```
 
 Где:
 * `<IAM-токен>` — полученный перед началом работы IAM-токен.
-* `<идентификатор_канала>` — сохраненный ранее идентификатор канала.
+* `video_id` — идентификатор видео, для которого вы хотите добавить обложку.
 
 Результат:
 
@@ -30,7 +30,8 @@ grpcurl \
     "@type": "type.googleapis.com/yandex.cloud.video.v1.Thumbnail",
     "channelId": "vplcdyphvqik********",
     "createdAt": "2024-11-02T19:04:28.402787Z",
-    "id": "vpltleyrfnjh********"
+    "id": "vpltleyrfnjh********",
+    "videoId": "vplvh4wvqimx********"
   }
 }
 ```

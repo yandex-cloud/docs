@@ -27,7 +27,7 @@ To deploy a secure Check Point NGFW-based network infrastructure:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-### Next-generation firewall {#next-generation-firewall}
+### Next-Generation Firewall {#next-generation-firewall}
 
 [{{ marketplace-full-name }}](/marketplace?categories=security) offers multiple NGFW solutions. This scenario uses [Check Point CloudGuard IaaS](/marketplace?publishers=f2evobrhpbdrcue7s9l5&tab=software). Its features include:
 * Firewall, NAT, IPS, antivirus, and anti-bot protection.
@@ -134,7 +134,7 @@ We use the Linux terminal to perform the following steps.
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Name your service account, e.g., `sa-terraform`.
 

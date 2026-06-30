@@ -42,7 +42,6 @@ blocks:
 :::
 
 
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 {% include [vat](../_includes/vat.md) %}

@@ -34,3 +34,4 @@
 
 * [{#T}](message-delivery-check.md)
 * [{#T}](iot-emulation.md)
+* [{#T}](iot-core-migration.md)

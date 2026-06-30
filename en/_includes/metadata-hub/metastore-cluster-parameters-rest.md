@@ -7,6 +7,11 @@
   {% include [metastore-version](metastore-version-cluster-create.md) %}
 
 * `configSpec.resources.resourcePresetId`: [Computing resource configuration](../../metadata-hub/concepts/metastore.md#presets).
+* `configSpec.warehouse.s3`: {{ metastore-name }} data warehouse parameters:
+
+  * `bucket`: Name of the {{ objstorage-name }} bucket to store the {{ metastore-name }} data (warehouse).
+  * `path`: Path within the bucket that will be used to prefix the {{ metastore-name }} data. This is an optional setting.
+
 * `serviceAccountId`: [Service account](../../iam/concepts/users/service-accounts.md) ID.
 * `logging`: Logging parameters:
 

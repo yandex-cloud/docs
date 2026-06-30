@@ -3,7 +3,7 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), open the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [instance group](../../compute/concepts/instance-groups/index.md) you need.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Navigate to **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select the instance group to update.
   1. In the top-right corner, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
@@ -131,7 +131,7 @@
 
      You will be able to reset the shutdown strategy back to `OPPORTUNISTIC` after all the instances in the group are moved to the new availability zone and deleted from the previous one.
 
-     For more information about resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_instance_group).
+     For more information about resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/compute_instance_group).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

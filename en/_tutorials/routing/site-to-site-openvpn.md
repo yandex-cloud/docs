@@ -50,7 +50,7 @@ To connect cloud resources to the internet, make sure you have a [network](../..
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cloud network.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
   1. Specify the network name, e.g., `ovpn-network`.
   1. Disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -144,7 +144,7 @@ Create a VM to run the VPN server:
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, specify `OpenVPN Access Server` in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field and select the [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) for the `ovpn-left` subnet.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify the boot [disk](../../compute/concepts/disk.md) size: `10 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, switch to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`

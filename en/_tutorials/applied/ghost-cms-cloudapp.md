@@ -54,7 +54,7 @@ Create a [{{ lockbox-name }}](../../lockbox/) secret to store the [{{ mmy-name }
 
 - Management console {#console}
 
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `db-password-secret`.
   1. In the **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
@@ -121,7 +121,7 @@ Install [Ghost CMS High Availability](/marketplace/products/yc/ghost-cms-ha) usi
 
 - Management console {#console}
 
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
   1. Click **{{ ui-key.yacloud.cloud-apps.button_empty-install-application }}**.
   1. Select **Ghost CMS High Availability** and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
   1. Configure your application:
@@ -220,7 +220,7 @@ To shut down the resources you created and stop paying for them:
 1. [Delete](../../storage/operations/objects/delete-all.md) all objects from the {{ objstorage-name }} bucket you created when installing the app.
 1. Delete the installed Ghost CMS High Availability app:
 
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
     1. Locate the installed Ghost CMS High Availability app in the list.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the app and select **{{ ui-key.yacloud.common.delete }}**.
     1. Confirm the app deletion.

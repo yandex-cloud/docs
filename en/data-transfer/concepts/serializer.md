@@ -42,8 +42,8 @@ Output data:
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}
 
     ```text
-    {"data":"Text string","partition":<segment_key>,"seq_no":<message_sequence_number>,"topic":"<stream_name>","write_time":"<data_recording_date_and_time>"}
-    {"data":"{\"device_id\":\"iv9\",\"speed\":5}","partition":<segment_key>,"seq_no":<message_sequence_number>,"topic":"<stream_name>","write_time":"<data_recording_date_and_time>"}
+    {"data":"Text string","partition":<shard_key>,"seq_no":<message_sequence_number>,"topic":"<stream_name>","write_time":"<data_recording_date_and_time>"}
+    {"data":"{\"device_id\":\"iv9\",\"speed\":5}","partition":<shard_key>,"seq_no":<message_sequence_number>,"topic":"<stream_name>","write_time":"<data_recording_date_and_time>"}
     ```
 
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}
@@ -217,7 +217,7 @@ Automatic selection of serialization settings depending on the source type.
 
     The default value is `true`.
 
-    For more information about configurations, see [this Debezium article](https://debezium.io/documentation/reference/stable/transformations/applying-transformations-selectively.html#ignoring-tombstone-events).
+    Learn more about this setting in [this Debezium article](https://debezium.io/documentation/reference/stable/transformations/applying-transformations-selectively.html#ignoring-tombstone-events).
 
 * **unavailable.value.placeholder**: Value that replaces data if its type is not supported.
 

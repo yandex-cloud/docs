@@ -136,7 +136,11 @@ To create a [resource](../../concepts/resource.md):
 
       * Under **{{ ui-key.yacloud.cdn.label_resource-http-headers-http-methods }}**, select **{{ ui-key.yacloud.cdn.label_resource-http-headers-allowed-methods }}** from the drop-down list.
 
+        {% note info %}
+
         {% include [post-method](../../../_includes/cdn/http-post-method.md) %}
+
+        {% endnote %}
 
         [Learn more about configuring HTTP methods](configure-http.md).
 

@@ -1,7 +1,7 @@
 To make sure the setup created user accounts from your secret, log in to Windows on your VM:
 
 1. In the [management console]({{ link-console-main }}), select your VM folder.
-1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Select the `win-test` VM.
 1. Navigate to the **{{ ui-key.yacloud.compute.instance.switch_console }}** tab.
 1. Under **{{ ui-key.yacloud.compute.instance.switch_console }}**, select `COM2` and click **{{ ui-key.yacloud.compute.instance.console.connect }}**. You will see the command line prompt:

@@ -1,6 +1,6 @@
 ---
 title: How to create a {{ metastore-full-name }} cluster
-description: In this tutorial, you will learn how to create a {{ metastore-full-name }} cluster.
+description: Follow this guide to create a {{ metastore-full-name }} cluster.
 ---
 
 # Creating a {{ metastore-full-name }} cluster
@@ -14,6 +14,8 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 1. [Configure the security group](configure-security-group.md).
 1. [Create a service account](../../../iam/operations/sa/create.md).
 1. [Assign the `{{ roles.metastore.integrationProvider }}` role](../../../iam/operations/sa/assign-role-for-sa.md) to the service account. This role enables the cluster [to work with {{ yandex-cloud }} services](../../concepts/metastore-impersonation.md), e.g., {{ cloud-logging-full-name }} and {{ monitoring-full-name }}, under a service account.
+   
+    To use {{ objstorage-name }}, assign the additional `storage.editor` [role](../../../storage/security/index.md#storage-editor) to the cluster service account.
 
     You can also add more roles. Their combination depends on your specific use case. To view the service roles, see the [{{ metastore-name }} section](../../security/metastore-roles.md), and for all available roles, see this [reference](../../../iam/roles-reference.md).
 
@@ -28,7 +30,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a server.
-    1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+    1. [Navigate](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Enter a name for the cluster. It must be unique within the folder.
@@ -38,6 +40,11 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
     1. Select the {{ metastore-name }} version.
 
         {% include [metastore-version](../../../_includes/metadata-hub/metastore-version-cluster-create.md) %}
+
+    1. Under **{{ ui-key.yacloud.metastore.label_section-warehouse }}**, specify the bucket parameters for table data storage:
+
+        * **{{ ui-key.yacloud.metastore.label_warehouse-bucket }}**: Name of the {{ objstorage-name }} bucket to store the {{ metastore-name }} (warehouse) data.
+        * **{{ ui-key.yacloud.metastore.label_warehouse-path }}**: Path within the bucket that will be used to prefix the {{ metastore-name }} data. This is an optional setting.
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the network and subnet to host the {{ metastore-name }} cluster. Specify the security group you configured previously.
     1. Under **{{ ui-key.yacloud.metastore.label_resource-preset }}**, select the [cluster configuration](../../concepts/metastore.md#presets).
@@ -81,6 +88,8 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
          --labels <label_list> \
          --service-account-id <service_account_ID> \
          --version <Apache_Hive™_Metastore_version> \
+         --warehouse-bucket <bucket_name> \
+         --warehouse-path <path_within_bucket> \
          --subnet-ids <subnet_IDs> \
          --security-group-ids <security_group_IDs> \
          --resource-preset-id <ID_of_computing_resources> \
@@ -134,6 +143,12 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 
           cluster_config = {
             resource_preset_id = "<class_of_computing_resources>"
+            warehouse_config = {
+              s3 = {
+                bucket = "<bucket_name>"
+                path   = "<path_within_bucket>"
+              }
+            }
           }
 
           maintenance_window = {
@@ -171,6 +186,9 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
             {% include [metastore-version](../../../_includes/metadata-hub/metastore-version-cluster-create.md) %}
 
         * `cluster_config.resource_preset_id`: [Computing resource configuration](../../../metadata-hub/concepts/metastore.md#presets).
+        * `cluster_config.warehouse_config.s3`: {{ metastore-name }} data warehouse parameters:
+           * `bucket`: {{ objstorage-name }} bucket name.
+           * `path`: Path within the bucket that will be used to prefix the {{ metastore-name }} data.
         * {% include [metastore-maintenance-window-terraform](../../../_includes/metadata-hub/metastore-maintenance-window-terraform.md) %}
         * `logging`: Logging parameters:
 
@@ -186,11 +204,11 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-    For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-metastore }}).
+    For detailed information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-metastore }}).
 
 
 - REST API {#api}
@@ -212,6 +230,12 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
           "configSpec": {
             "resources": {
             "resourcePresetId": "<resource_configuration_ID>"
+            },
+            "warehouse": {
+              "s3": {
+                "bucket": "<bucket_name>",
+                "path": "<path_within_bucket>"
+              }
             }
           },
           "serviceAccountId": "<service_account_ID>",
@@ -258,7 +282,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -277,6 +301,12 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
           "config_spec": {
             "resources": {
               "resource_preset_id": "<resource_configuration_ID>"
+            },
+            "warehouse": {
+              "s3": {
+                "bucket": "<bucket_name>",
+                "path": "<path_within_bucket>"
+              }
             }
           },
           "service_account_id": "<service_account_ID>",

@@ -10,7 +10,7 @@
         * `FULL`: New schema is forward and backward compatible with the latest registered schema.
         * `FULL_TRANSITIVE`: New schema is forward and backward compatible with all previously registered schemas.
         * `NONE`: Schema compatibility checks are disabled.
-          For more information about schema compatibility types, see the [Confluent documentation](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types).
+          For more information about schema compatibility types, see [this Confluent guide](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types).
 1. Set the data format to [Protobuf](https://protobuf.dev/), [Avro](https://avro.apache.org/), or [JSON Schema](https://json-schema.org/) and attach the file.
 1. If a schema references another schema, in the **References** section, click ![add](../../_assets/console-icons/plus.svg) and enter the [reference](../../metadata-hub/concepts/schema-registry.md#reference) name, the subject name the schema for is registered under for linking, and the registered subject's schema version.
 1. To apply [data schema normalization](https://docs.confluent.io/platform/current/schema-registry/fundamentals/serdes-develop/index.html#schema-normalization), enable the **Normalization** setting.

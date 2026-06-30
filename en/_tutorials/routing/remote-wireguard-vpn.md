@@ -53,7 +53,7 @@ The infrastructure support costs include:
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Enter the service account name, e.g., `sa-firezone`.
      1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.

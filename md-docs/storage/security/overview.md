@@ -118,12 +118,6 @@
 
 ## Сервисные подключения VPC (Private Endpoints) {#pe-vpc}
 
-{% note warning %}
-
-Функциональность **Сервисные подключения** (VPC Private Endpoints) находится на стадии [Preview](../../overview/concepts/launch-stages.md).
-
-{% endnote %}
-
 Вы можете организовать прямой доступ к бакетам Object Storage из облачных сетей VPC с помощью [сервисного подключения VPC](../../vpc/concepts/private-endpoint.md). При таком подключении сервис Object Storage будет доступен по [внутренним IP-адресам](../../vpc/concepts/address.md#internal-addresses) VPC без использования доступа в интернет.
 
 В Object Storage есть возможность настроить бакет так, чтобы доступ в него был возможен только через сервисные подключения VPC. Предусмотрены следующие механизмы:

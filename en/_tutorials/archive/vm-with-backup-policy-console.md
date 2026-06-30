@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you activated {{ backup-name }}.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter `backup-sa` as the [service account name](../../iam/concepts/users/service-accounts.md).
   1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select [`backup.user`](../../backup/security/index.md#backup-user).
@@ -100,7 +100,7 @@ Create a [cloud network](../../vpc/concepts/network.md#network) with a [subnet](
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cloud network.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `cloud-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -168,7 +168,7 @@ The security group will also include a rule for VM access over SSH.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a VM connected to {{ backup-name }}.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify `backup-sg`.
@@ -266,18 +266,18 @@ You can create a new policy or use one of those automatically created upon servi
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a backup policy.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Navigate to the ![policies](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
   1. Click **{{ ui-key.yacloud.backup.button_create-policy }}**.
   1. Specify the following policy properties:
 
-      * **{{ ui-key.yacloud.common.name }}**: `weekly-backup`
-      * **{{ ui-key.yacloud.backup.policy-form.field_backup-type }}**: `{{ ui-key.yacloud.backup.policy-form.title_incremental-backup-card }}`
-      * **{{ ui-key.yacloud.backup.policy-form.field_schedule-type }}**: `{{ ui-key.yacloud.backup.policy-form.value_schedule-type-fixed }}`
-      * **{{ ui-key.yacloud.backup.policy-form.field_backup-periodicity }}**: `{{ ui-key.yacloud.backup.policy-form.value_periodicity-weekly }}`
-      * **{{ ui-key.yacloud.backup.policy-form.field_week-days }}**: `{{ ui-key.yacloud.common.units.label_day-Fr }}`
-      * **{{ ui-key.yacloud.backup.policy-form.field_start-time }}**: `03:00`
-      * **{{ ui-key.yacloud.backup.policy-form.field_retention }}**: `{{ ui-key.yacloud.backup.policy-form.value_retention-variant-save-all }}`
+      * **{{ ui-key.yacloud.common.name }}**: `weekly-backup`.
+      * **{{ ui-key.yacloud.backup.policy-form.field_backup-type }}**: `{{ ui-key.yacloud.backup.policy-form.title_incremental-backup-card }}`.
+      * **{{ ui-key.yacloud.backup.policy-form.field_schedule-type }}**: `{{ ui-key.yacloud.backup.policy-form.value_schedule-type-fixed }}`.
+      * **{{ ui-key.yacloud.backup.policy-form.field_backup-periodicity }}**: `{{ ui-key.yacloud.backup.policy-form.value_periodicity-weekly }}`.
+      * **{{ ui-key.yacloud.backup.policy-form.field_week-days }}**: `{{ ui-key.yacloud.common.units.label_day-Fr }}`.
+      * **{{ ui-key.yacloud.backup.policy-form.field_start-time }}**: `03:00`.
+      * **{{ ui-key.yacloud.backup.policy-form.field_retention }}**: `{{ ui-key.yacloud.backup.policy-form.value_retention-variant-save-all }}`.
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -435,7 +435,7 @@ You can create a new policy or use one of those automatically created upon servi
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Ubuntu 22.04 LTS` and select a public [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image.

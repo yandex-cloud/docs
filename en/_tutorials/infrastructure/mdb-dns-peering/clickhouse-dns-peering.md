@@ -17,8 +17,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* {{ mch-name }} cluster fee: Covers the use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../../managed-clickhouse/pricing.md)).
-* VM fee: Covers the use of computational resources, storage, and, optionally, a public IP address (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
+* {{ mch-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../../managed-clickhouse/pricing.md)).
+* VM fee: use of computational resources, storage, and, optionally, a public IP address (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
 * DNS zone and queries fee (see [{{ dns-name }} pricing](../../../dns/pricing.md)).
 
 
@@ -67,7 +67,7 @@ The support cost for this solution includes:
             * `create_optional_vm`: Parameter that enables VM creation in the cluster’s network. Optionally, set it to `1` to test cluster accessibility from the same network later.
 
         1. Run the `terraform init` command in the directory with your configuration files. This command initializes the provider specified in the configuration file, making its resources and data sources available for use.
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -100,7 +100,7 @@ The support cost for this solution includes:
 
         1. In the `nets-vm-mch.tf` file, set `create_zone` to `1`.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -117,7 +117,7 @@ The support cost for this solution includes:
 1. Verify that the cluster record has been automatically created in the DNS zone.
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your DNS zone.
-    1. [Navigate to](../../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}** service.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
     1. Select the zone from the list.
     1. Make sure the list contains a record in the following format: `c-<cluster_ID>.rw.{{ dns-zone }}.`.
 

@@ -19,7 +19,7 @@ To reset a password:
   1. Run PowerShell as an administrator.
   1. Install the password reset module (once):
 
-      1. [Install the CLI and configure it](../../cli/quickstart.md) so that you can run commands as a user or [service account](../../iam/concepts/users/service-accounts.md) with the required role (see above).
+      1. [Install the CLI and configure it](../../cli/quickstart.md) so that you can run commands as a user or [service account](../../iam/concepts/users/service-accounts.md) with one of the required roles (see above).
       1. Run this command:
 
           ```powershell

@@ -26,7 +26,7 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the [service account](../../iam/concepts/users/service-accounts.md): `vm-scale-scheduled-sa`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select these [roles](../../iam/concepts/access-control/roles.md):
@@ -105,7 +105,7 @@ The instance group will reside in the [{{ vpc-full-name }}](../../vpc/) [network
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `vm-scale-scheduled-network`.
   1. Select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -191,7 +191,7 @@ We will create an instance group with manual scaling so that the {{ sf-name }} f
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. At the top right, click **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
@@ -344,7 +344,7 @@ The function will contain the code with the {{ yandex-cloud }} CLI commands used
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. At the top right, click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `vm-scale-scheduled-function`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -436,7 +436,7 @@ A [trigger](../../functions/concepts/trigger/index.md) sets conditions for runni
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. At the top right, click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:

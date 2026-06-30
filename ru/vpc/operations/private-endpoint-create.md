@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать сервисное подключение
 
-{% include [vpc-pe-preview](../../_includes/vpc/pe-preview.md) %}
-
 
 {% include [private-endpoint-create-roles](../../_includes/vpc/private-endpoint-create-roles.md) %}
 

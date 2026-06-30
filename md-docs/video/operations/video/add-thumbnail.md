@@ -67,86 +67,6 @@
       
       Сохраните идентификатор канала (`id`), в хранилище которого вы хотите загрузить обложку.
 
-  1. Зарегистрируйте обложку в Cloud Video:
-
-      ```bash
-      curl \
-        --request POST \
-        --url 'https://video.api.cloud.yandex.net/video/v1/thumbnails' \
-        --header 'Authorization: Bearer <IAM-токен>' \
-        --header 'Content-Type: application/json' \
-        --data '{
-          "channelId": "<идентификатор_канала>"
-        }'
-      ```
-      
-      Где:
-      * `<IAM-токен>` — полученный перед началом работы IAM-токен.
-      * `<идентификатор_канала>` — сохраненный ранее идентификатор канала.
-      
-      Результат:
-      
-      ```text
-      {
-       "done": true,
-       "metadata": {
-        "@type": "type.googleapis.com/yandex.cloud.video.v1.CreateThumbnailMetadata",
-        "thumbnailId": "vpltaurfr4pr********"
-       },
-       "response": {
-        "@type": "type.googleapis.com/yandex.cloud.video.v1.Thumbnail",
-        "id": "vpltaurfr4pr********",
-        "channelId": "vplcdyphvqik********",
-        "createdAt": "2024-11-02T16:56:19.296797Z"
-       },
-       "id": "vplpgbyqopdr********",
-       "description": "Thumbnail create",
-       "createdAt": "2024-11-02T16:56:19.301776Z",
-       "createdBy": "ajeol2afu1js********",
-       "modifiedAt": "2024-11-02T16:56:19.301776Z"
-      }
-      ```
-
-      Сохраните значение идентификатора обложки (`thumbnailId`), оно понадобится позднее.
-
-  1. Получите ссылку на загрузку изображения в обложку:
-
-      ```bash
-      curl \
-        --request POST \
-        --url 'https://video.api.cloud.yandex.net/video/v1/thumbnails/<идентификатор_обложки>:generateUploadURL' \
-        --header 'Authorization: Bearer <IAM-токен>'
-      ```
-
-      Где:
-      * `<IAM-токен>` — полученный перед началом работы IAM-токен.
-      * `<идентификатор_обложки>` — сохраненное ранее значение идентификатора обложки.
-      
-      Результат:
-      
-      ```text
-      {
-        "uploadUrl": "https://storage.yandexcloud.net/videoplatform-thumbnail/vpltleyrfnjh********?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=********3aBOmv27nzbJZaEHZ%2F20241102%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20241102T190000Z&X-Amz-Expires=43200&X-Amz-Signature=057fe4c0da26c7758474f5eaa85ff41d7212632572fb636ed6d8f65d039c309b&X-Amz-SignedHeaders=host"
-      }
-      ```
-      
-      Поле `uploadUrl` содержит подписанную ссылку, с помощью которой вы сможете загрузить файл обложки.
-
-  1. Загрузите в обложку файл с изображением:
-
-      ```
-      curl \
-        --request PUT \
-        --url '<подписанная_ссылка>' \
-        --header 'Content-Type: image/<формат_изображения>' \
-        --upload-file '<путь_к_файлу_с_обложкой>'
-      ```
-      
-      Где:
-      * `<подписанная_ссылка>` — полученная на предыдущем шаге подписанная ссылка на загрузку файла обложки.
-      * `<формат_изображения>` — в зависимости от формата загружаемого изображения, укажите `png`, `jpeg` или `gif`. 
-      * `<путь_к_файлу_с_обложкой>` — абсолютный путь к файлу с загружаемым изображением. Не используйте сокращения, в т.ч. тильду `~`.
-
   1. Получите список видео на канале:
 
       ```bash
@@ -196,6 +116,87 @@
       ```
 
       Сохраните идентификатор видео (`id`), для которого вы хотите добавить обложку.
+
+  1. Зарегистрируйте обложку в Cloud Video:
+
+      ```bash
+      curl \
+        --request POST \
+        --url 'https://video.api.cloud.yandex.net/video/v1/thumbnails' \
+        --header 'Authorization: Bearer <IAM-токен>' \
+        --header 'Content-Type: application/json' \
+        --data '{
+          "videoId": "<идентификатор_видео>"
+        }'
+      ```
+      
+      Где:
+      * `<IAM-токен>` — полученный перед началом работы IAM-токен.
+      * `videoId` — идентификатор видео, для которого вы хотите добавить обложку.
+      
+      Результат:
+      
+      ```text
+      {
+       "done": true,
+       "metadata": {
+        "@type": "type.googleapis.com/yandex.cloud.video.v1.CreateThumbnailMetadata",
+        "thumbnailId": "vpltaurfr4pr********"
+       },
+       "response": {
+        "@type": "type.googleapis.com/yandex.cloud.video.v1.Thumbnail",
+        "id": "vpltaurfr4pr********",
+        "channelId": "vplcdyphvqik********",
+        "videoId": "vplvh4wvqimx********",
+        "createdAt": "2024-11-02T16:56:19.296797Z"
+       },
+       "id": "vplpgbyqopdr********",
+       "description": "Thumbnail create",
+       "createdAt": "2024-11-02T16:56:19.301776Z",
+       "createdBy": "ajeol2afu1js********",
+       "modifiedAt": "2024-11-02T16:56:19.301776Z"
+      }
+      ```
+
+      Сохраните значение идентификатора обложки (`thumbnailId`), оно понадобится позднее.
+
+  1. Получите ссылку на загрузку изображения в обложку:
+
+      ```bash
+      curl \
+        --request POST \
+        --url 'https://video.api.cloud.yandex.net/video/v1/thumbnails/<идентификатор_обложки>:generateUploadURL' \
+        --header 'Authorization: Bearer <IAM-токен>'
+      ```
+
+      Где:
+      * `<IAM-токен>` — полученный перед началом работы IAM-токен.
+      * `<идентификатор_обложки>` — сохраненное ранее значение идентификатора обложки.
+      
+      Результат:
+      
+      ```text
+      {
+        "uploadUrl": "https://storage.yandexcloud.net/videoplatform-thumbnail/vpltleyrfnjh********?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=********3aBOmv27nzbJZaEHZ%2F20241102%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20241102T190000Z&X-Amz-Expires=43200&X-Amz-Signature=057fe4c0da26c7758474f5eaa85ff41d7212632572fb636ed6d8f65d039c309b&X-Amz-SignedHeaders=host"
+      }
+      ```
+      
+      Поле `uploadUrl` содержит подписанную ссылку, с помощью которой вы сможете загрузить файл обложки.
+
+  1. Загрузите в обложку файл с изображением:
+
+      ```
+      curl \
+        --request PUT \
+        --url '<подписанная_ссылка>' \
+        --header 'Content-Type: image/<формат_изображения>' \
+        --upload-file '<путь_к_файлу_с_обложкой>'
+      ```
+      
+      Где:
+      * `<подписанная_ссылка>` — полученная на предыдущем шаге подписанная ссылка на загрузку файла обложки.
+      * `<формат_изображения>` — в зависимости от формата загружаемого изображения, укажите `png`, `jpeg` или `gif`. 
+      * `<путь_к_файлу_с_обложкой>` — абсолютный путь к файлу с загружаемым изображением. Не используйте сокращения, в т.ч. тильду `~`.
 
   1. Добавьте созданную обложку к выбранному видео:
 
@@ -304,6 +305,58 @@
       
       Сохраните идентификатор канала (`id`), в хранилище которого вы хотите загрузить обложку.
 
+  1. Получите список видео на канале:
+
+      ```bash
+      grpcurl \
+        -rpc-header "Authorization: Bearer <IAM-токен>" \
+        -d '{
+          "channelId": "<идентификатор_канала>"
+        }' \
+        video.api.cloud.yandex.net:443 yandex.cloud.video.v1.VideoService/List
+      ```
+
+      Где:
+      * `<IAM-токен>` — полученный перед началом работы IAM-токен.
+      * `channelId` — идентификатор канала с видео, для которого вы хотите добавить обложку.
+
+      Результат:
+
+      ```text
+      {
+        "videos": [
+          {
+            "id": "vplvh4wvqimx********",
+            "channelId": "vplcdyphvqik********",
+            "title": "my-very-first-video",
+            "status": "READY",
+            "duration": "39.981s",
+            "visibilityStatus": "PUBLISHED",
+            "createdAt": "2024-09-16T19:18:08.384540Z",
+            "updatedAt": "2024-11-03T12:53:07.769557Z",
+            "tusd": {
+              "url": "https://tusd.video.cloud.yandex.net/files/75925d89ddc05c0d5ca3282781f13c6f+00062241********"
+            },
+            "publicAccess": {}
+          },
+          {
+            "id": "vplvm7wbmkon********",
+            "channelId": "vplcdyphvqik********",
+            "title": "my-second-video",
+            "status": "PROCESSING",
+            "visibilityStatus": "PUBLISHED",
+            "createdAt": "2024-11-03T13:54:54.248715Z",
+            "updatedAt": "2024-11-03T14:05:52.004442Z",
+            "tusd": {
+              "url": "https://tusd.video.cloud.yandex.net/files/a95b9affc003bfb23708ca989e88f6b0+00062602********"
+            }
+          }
+        ]
+      }
+      ```
+
+      Сохраните идентификатор видео (`id`), для которого вы хотите добавить обложку.
+
   1. Зарегистрируйте обложку в Cloud Video:
 
       ```bash
@@ -311,14 +364,14 @@
         -rpc-header "Authorization: Bearer <IAM-токен>" \
         -rpc-header 'Content-Type: application/json' \
         -d '{
-          "channel_id": "<идентификатор_канала>"
+          "video_id": "<идентификатор_видео>"
         }' \
         video.api.cloud.yandex.net:443 yandex.cloud.video.v1.ThumbnailService/Create
       ```
       
       Где:
       * `<IAM-токен>` — полученный перед началом работы IAM-токен.
-      * `<идентификатор_канала>` — сохраненный ранее идентификатор канала.
+      * `video_id` — идентификатор видео, для которого вы хотите добавить обложку.
       
       Результат:
       
@@ -338,7 +391,8 @@
           "@type": "type.googleapis.com/yandex.cloud.video.v1.Thumbnail",
           "channelId": "vplcdyphvqik********",
           "createdAt": "2024-11-02T19:04:28.402787Z",
-          "id": "vpltleyrfnjh********"
+          "id": "vpltleyrfnjh********",
+          "videoId": "vplvh4wvqimx********"
         }
       }
       ```
@@ -384,58 +438,6 @@
       * `<подписанная_ссылка>` — полученная на предыдущем шаге подписанная ссылка на загрузку файла обложки.
       * `<формат_изображения>` — в зависимости от формата загружаемого изображения, укажите `png`, `jpeg` или `gif`. 
       * `<путь_к_файлу_с_обложкой>` — абсолютный путь к файлу с загружаемым изображением. Не используйте сокращения, в т.ч. тильду `~`.
-
-  1. Получите список видео на канале:
-
-      ```bash
-      grpcurl \
-        -rpc-header "Authorization: Bearer <IAM-токен>" \
-        -d '{
-          "channelId": "<идентификатор_канала>"
-        }' \
-        video.api.cloud.yandex.net:443 yandex.cloud.video.v1.VideoService/List
-      ```
-
-      Где:
-      * `<IAM-токен>` — полученный перед началом работы IAM-токен.
-      * `<идентификатор_канала>` — идентификатор канала с видео, для которого вы хотите добавить обложку.
-
-      Результат:
-
-      ```text
-      {
-        "videos": [
-          {
-            "id": "vplvh4wvqimx********",
-            "channelId": "vplcdyphvqik********",
-            "title": "my-very-first-video",
-            "status": "READY",
-            "duration": "39.981s",
-            "visibilityStatus": "PUBLISHED",
-            "createdAt": "2024-09-16T19:18:08.384540Z",
-            "updatedAt": "2024-11-03T12:53:07.769557Z",
-            "tusd": {
-              "url": "https://tusd.video.cloud.yandex.net/files/75925d89ddc05c0d5ca3282781f13c6f+00062241********"
-            },
-            "publicAccess": {}
-          },
-          {
-            "id": "vplvm7wbmkon********",
-            "channelId": "vplcdyphvqik********",
-            "title": "my-second-video",
-            "status": "PROCESSING",
-            "visibilityStatus": "PUBLISHED",
-            "createdAt": "2024-11-03T13:54:54.248715Z",
-            "updatedAt": "2024-11-03T14:05:52.004442Z",
-            "tusd": {
-              "url": "https://tusd.video.cloud.yandex.net/files/a95b9affc003bfb23708ca989e88f6b0+00062602********"
-            }
-          }
-        ]
-      }
-      ```
-
-      Сохраните идентификатор видео (`id`), для которого вы хотите добавить обложку.
 
   1. Добавьте созданную обложку к выбранному видео:
 

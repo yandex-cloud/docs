@@ -60,13 +60,13 @@ To sequentially restart instances in a group:
 
       ```bash
       {{ yc-compute-ig }} rolling-restart --all \
-        --name <instance_group_name> \
+        --name <VM_group_name> \
         --folder-name <folder_name>
       ```
 
       Where:
       * `--name`: Instance group name.
-      * `--folder-name`: Name of the folder the instance group belongs to.
+      * `--folder-name`: Name of the folder the VM group belongs to.
 
       {{ ig-name }} will begin restarting all instances in the group one by one. The restarted instances will change their status to `Running`.
 
@@ -109,7 +109,7 @@ To sequentially restart instances in a group:
 
       ```bash
       {{ yc-compute-ig }} rolling-restart \
-        --instance-ids <VM_instance_IDs> \
+        --instance-ids <VM_IDs> \
         --name <instance_group_name> \
         --folder-name <folder_name>
       ```
@@ -121,7 +121,7 @@ To sequentially restart instances in a group:
       
       {{ ig-name }} will begin restarting the specified instances in the group one by one. The restarted instances will change their status to `Running`.
 
-  For more information about the `{{ yc-compute-ig }} rolling-restart` command parameters, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance-group/rolling-restart.md).
+  For more information about `{{ yc-compute-ig }} rolling-restart` options, see this [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance-group/rolling-restart.md).
 
 - API {#api}
 

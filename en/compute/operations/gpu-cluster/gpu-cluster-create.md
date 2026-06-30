@@ -41,7 +41,7 @@ After creating a cluster, you can [add](gpu-add-to-cluster.md) [VMs](../../conce
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the {{ TF }} configuration file, define the parameters of the resource you want to create:
+  1. In the {{ TF }} configuration file, describe the resource you want to create:
 
      ```hcl
      provider "yandex" {
@@ -60,11 +60,11 @@ After creating a cluster, you can [add](gpu-add-to-cluster.md) [VMs](../../conce
      ```
 
      Where:
-     * `name`: GPU cluster name. This is a required parameter.
-     * `interconnect_type`: Interconnect type. Currently, you can only create GPU clusters with the `infiniband` interconnect type. This is a required parameter.
-     * `labels`: Resource [label](../../../resource-manager/concepts/labels.md) in `<key> = "<value>"` format. This is an optional parameter.
+     * `name`: GPU cluster name. This is a required setting.
+     * `interconnect_type`: Interconnect type. Currently, you can only create GPU clusters with the `infiniband` interconnect type. This is a required setting.
+     * `labels`: Resource [label](../../../resource-manager/concepts/labels.md) in `<key> = "<value>"` format. This is an optional setting.
 
-     For more information about the `yandex_compute_gpu_cluster` resource properties, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/compute_gpu_cluster).
+     For more information about the `yandex_compute_gpu_cluster` resource properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_gpu_cluster).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

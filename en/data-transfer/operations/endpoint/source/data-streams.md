@@ -40,7 +40,7 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
 * Stream [connection settings](#managed-service) in [{{ yds-full-name }}](#managed-service). These are required parameters.
-* [Additional settings](#additional-settings).
+* [Advanced settings](#additional-settings).
 
 ### Basic settings {#managed-service}
 

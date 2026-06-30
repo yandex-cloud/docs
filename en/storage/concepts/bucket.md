@@ -88,8 +88,6 @@ You can:
 
 ## Accessing buckets from {{ vpc-full-name }} cloud networks {#access-via-vpc}
 
-{% include [vpc-pe-preview](../../_includes/vpc/pe-preview.md) %}
-
 {% include [intro-access-via-vpc](../../_includes/storage/intro-access-via-vpc.md) %}
 
 For more information on configuring access, see [{#T}](../operations/buckets/access-via-vpc.md).
@@ -140,3 +138,4 @@ You can also access aggregate bucket statistics [through the {{ yandex-cloud }} 
 ### See also {#see-also}
 
 * [{#T}](../security/overview.md)
+

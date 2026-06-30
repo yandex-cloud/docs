@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-Сервис Cloud Logging будет закрыт 1 марта 2027 года и заменен платформой [Monium](../monium/index.md).
+Сервис Cloud Logging будет закрыт во II квартале 2027 года, используйте вместо него Observability-платформу [Monium](../monium/index.md).
 
 {% endnote %}
 

@@ -6,24 +6,39 @@ editable: false
 
 # Правила тарификации для {{ cdn-full-name }}
 
-
-{% include [pricing-change-warning](../_includes/cdn/pricing-change-warning.md) %}
-
+{% note warning %}
 
 
-{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+С 1 июля 2026 года действует новая модель тарификации {{ cdn-name }}.
+
+
+
+{% endnote %}
+
+
+{% note tip %}
+
+Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=a1555aa1718c#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+
+{% endnote %}
+
+
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
 {% include [vat](../_includes/vat.md) %}
 
-
 При расчете стоимости использования {{ cdn-name }} учитываются:
-* Объем исходящего трафика с CDN-серверов, в том числе запрошенного с пользовательских ресурсов сервисов {{ yandex-cloud }}, например с [виртуальных машин](../compute/concepts/vm.md) {{ compute-full-name }}. Входящий трафик, поступающий на CDN-серверы от сервисов и ресурсов {{ yandex-cloud }} и из интернета, не тарифицируется.
-* Платные функции, включенные для ресурсов: [экранирование источников](concepts/origins-shielding.md), [выгрузка логов](concepts/logs.md) и [выделенная IP-адресация](concepts/dedicated-ip-addressing.md).
+* Количество [CDN-ресурсов](./concepts/resource.md).
+* Объем исходящего трафика, превышающего 150 ГБ бесплатного объема в месяц для каждого ресурса, за каждый 1 ГБ. 
 
+    При удалении ресурса, оставшийся бесплатный трафик обнуляется. Передача трафика между ресурсами невозможна.
 
+    Учитывается исходящий трафик с CDN-серверов, в том числе запрошенный с пользовательских ресурсов сервисов {{ yandex-cloud }}, например с [виртуальных машин](../compute/concepts/vm.md) {{ compute-full-name }}. Входящий трафик, поступающий на CDN-серверы от сервисов и ресурсов {{ yandex-cloud }} и из интернета, не тарифицируется.
+
+* Количество запросов к CDN-ресурсам, превышающее бесплатный порог в 100 000 000 запросов в месяц, за каждые 100 000 запросов.
+* Платные функции, включенные для ресурсов: [экранирование источников](concepts/origins-shielding.md), [выгрузка логов](./concepts/logs.md) и [выделенная IP-адресация](./concepts/dedicated-ip-addressing.md).
 
 
 ## Цены для региона Россия {#prices}

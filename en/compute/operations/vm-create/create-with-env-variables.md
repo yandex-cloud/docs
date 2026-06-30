@@ -78,7 +78,7 @@ To create a VM with metadata from environment variables:
 
       Where:
       * `--name`: Name of the new VM, e.g., `my-vm`.
-      * `--hostname`: Host name for the new VM. This is an optional parameter. If omitted, the VM ID will be used as the host name.
+      * `--hostname`: Host name for the new VM. This is an optional setting. If omitted, the VM ID will be used as the host name.
       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the new VM will reside in.
       * `--network-interface`: [Network interface](../../concepts/network.md) settings for the new VM:
 
@@ -173,7 +173,7 @@ To create a VM with metadata from environment variables:
     value1 value2
     ```
 
-For other configuration examples for `user-data`, see [Examples](./create-with-cloud-init-scripts.md#examples).
+For more `user-data` configuration examples, see [Examples](./create-with-cloud-init-scripts.md#examples).
 
 #### See also {#see-also}
 

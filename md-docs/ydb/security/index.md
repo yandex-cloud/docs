@@ -66,6 +66,7 @@
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе Managed Service for YDB.
 
 ```mermaid
+%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
 flowchart BT
     ydb.editor --> ydb.admin
     ydb.viewer --> ydb.editor
