@@ -58,7 +58,7 @@
 В стоимость поддержки инфраструктуры входит:
 
 * плата за постоянно работающие ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../pricing.md)).
+* плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ### Необходимые квоты {#required-quotes}
 

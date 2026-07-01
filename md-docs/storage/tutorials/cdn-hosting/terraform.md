@@ -27,7 +27,7 @@
 
 В стоимость поддержки инфраструктуры для сайта в бакете с доступом через CDN входят:
 * плата за исходящий трафик с CDN-серверов ([тарифы Cloud CDN](../../../cdn/pricing.md));
-* плата за хранение данных в Object Storage, операции с ними и исходящий трафик ([тарифы Object Storage](../../pricing.md));
+* плата за хранение данных в Object Storage, операции с ними и исходящий трафик ([тарифы Object Storage](../../../storage/pricing.md));
 * плата за публичные DNS-запросы и [DNS-зоны](../../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../../dns/index.md) ([тарифы Cloud DNS](../../../dns/pricing.md)).
 
 

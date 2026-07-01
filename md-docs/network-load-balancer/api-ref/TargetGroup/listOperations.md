@@ -15,7 +15,9 @@ GET https://load-balancer.api.cloud.yandex.net/load-balancer/v1/targetGroups/{ta
 || targetGroupId | **string**
 
 Required field. ID of the TargetGroup resource to update.
-To get the target group ID, use a [TargetGroupService.List](list.md#List) request. ||
+To get the target group ID, use a [TargetGroupService.List](list.md#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.loadbalancer.v1.ListTargetGroupOperationsRequest}
@@ -27,11 +29,13 @@ To get the target group ID, use a [TargetGroupService.List](list.md#List) reques
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `pageSize`, the service returns a [ListTargetGroupOperationsResponse.nextPageToken](#yandex.cloud.loadbalancer.v1.ListTargetGroupOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListTargetGroupOperationsResponse.nextPageToken](#yandex.cloud.loadbalancer.v1.ListTargetGroupOperationsResponse) returned by a previous list request. ||
+[ListTargetGroupOperationsResponse.nextPageToken](#yandex.cloud.loadbalancer.v1.ListTargetGroupOperationsResponse) returned by a previous list request.
+The length must be less than or equal to 100. ||
 |#
 
 ## Response {#yandex.cloud.loadbalancer.v1.ListTargetGroupOperationsResponse}

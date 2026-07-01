@@ -15,7 +15,7 @@ PATCH https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/use
 || clusterId | **string**
 
 Required field. ID of the Redis cluster the user belongs to.
-To get the cluster ID, use a [ClusterService.List](../../../managed-redis/api-ref/Cluster/list#List) request.
+To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || userName | **string**

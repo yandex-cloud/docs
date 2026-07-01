@@ -2,7 +2,7 @@
 
 ## I квартал 2026 {#q1-2026}
 
-* Функциональность [выгрузки метаданных объектов (S3 Inventory)](concepts/s3-inventory.md) перешла на стадию [General Availability](../overview/concepts/launch-stages.md) в [регионе Россия](../overview/concepts/region.md), и за ее использование теперь взимается плата в соответствии с [правилами тарификации](pricing.md). [Управлять конфигурациями выгрузки](operations/buckets/manage-s3-inventory.md) можно с помощью [Yandex Cloud CLI](cli-ref/bucket/create-inventory-configuration.md) и [API](api-ref/Bucket/createInventoryConfiguration.md).
+* Функциональность [выгрузки метаданных объектов (S3 Inventory)](concepts/s3-inventory.md) перешла на стадию [General Availability](../overview/concepts/launch-stages.md) в [регионе Россия](../overview/concepts/region.md), и за ее использование теперь взимается плата в соответствии с [правилами тарификации](./pricing.md). [Управлять конфигурациями выгрузки](operations/buckets/manage-s3-inventory.md) можно с помощью [Yandex Cloud CLI](cli-ref/bucket/create-inventory-configuration.md) и [API](api-ref/Bucket/createInventoryConfiguration.md).
 * Появилась возможность [получить подписанную ссылку (pre-signed URL) на загрузку объекта](operations/objects/link-for-upload.md) в бакет с ограниченным доступом с помощью [Yandex Cloud CLI](cli-ref/s3/presign.md).
 
 ## IV квартал 2025 {#q4-2025}

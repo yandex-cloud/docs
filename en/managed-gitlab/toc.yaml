@@ -65,8 +65,6 @@ items:
         href: tutorials/test-vms-creation-via-gitlab-ci.md
       - name: Integration with {{ tracker-full-name }}
         href: tutorials/tracker-integration.md
-      - name: Invoking a load test from {{ GL }} CI
-        href: tutorials/loadtesting-gitlab-ci.md
       - name: Integration with Argo CD
         href: tutorials/argo-cd.md
       - name: Managing the MLOps lifecycle with ML Registry

@@ -1,6 +1,6 @@
 # Kubernetes Marketplace, REST: HelmRelease.Install
 
-Installs helm release into specified Kubernetes Cluster.
+Installs Helm release into specified Kubernetes Cluster.
 
 ## HTTP request
 
@@ -75,11 +75,7 @@ Includes only one of the fields `typedValue`. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string",
-    "helmReleaseId": "string",
-    "productVersionId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -88,17 +84,7 @@ Includes only one of the fields `typedValue`. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "clusterId": "string",
-    "appName": "string",
-    "appNamespace": "string",
-    "productId": "string",
-    "productName": "string",
-    "productVersion": "string",
-    "status": "string",
-    "createdAt": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -140,7 +126,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[InstallHelmReleaseMetadata](#yandex.cloud.k8s.marketplace.v1.InstallHelmReleaseMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -155,7 +141,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[HelmRelease](#yandex.cloud.k8s.marketplace.v1.HelmRelease)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -170,21 +156,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## InstallHelmReleaseMetadata {#yandex.cloud.k8s.marketplace.v1.InstallHelmReleaseMetadata}
-
-#|
-||Field | Description ||
-|| clusterId | **string**
-
-The ID of the Kubernetes cluster where the Helm release is being installed. ||
-|| helmReleaseId | **string**
-
-The ID of the Helm release being installed. ||
-|| productVersionId | **string**
-
-The ID of the product version being deployed. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -202,56 +173,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## HelmRelease {#yandex.cloud.k8s.marketplace.v1.HelmRelease}
-
-A Helm Release.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of a helm release. ||
-|| clusterId | **string**
-
-ID of the Kubernetes cluster. ||
-|| appName | **string**
-
-Name of the application. ||
-|| appNamespace | **string**
-
-Namespace of the application. ||
-|| productId | **string**
-
-Kubernetes marketplace product id. ||
-|| productName | **string**
-
-Kubernetes marketplace product name. ||
-|| productVersion | **string**
-
-Kubernetes marketplace product version. ||
-|| status | **enum** (Status)
-
-Status of a helm release.
-
-- `UNKNOWN`: Helm release status is unknown
-- `DEPLOYED`: Helm release deployed.
-- `UNINSTALLED`: Helm release uninstalled.
-- `SUPERSEDED`: Helm release superseded.
-- `FAILED`: Helm release installation failed.
-- `UNINSTALLING`: Helm release is being uninstalled.
-- `PENDING_INSTALL`: Helm release is to be installed.
-- `PENDING_UPGRADE`: Helm release is to be updated.
-- `PENDING_ROLLBACK`: Helm release is to be rolled back. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

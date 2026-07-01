@@ -28,7 +28,7 @@
 * Плата за кластер Managed Service for ClickHouse®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
 * Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 * Плата за бакет Object Storage: хранение данных и выполнение операций с ними ([тарифы Object Storage](../../storage/pricing.md)).
-* Плата за использование сервиса Yandex DataLens ([тарифы DataLens](../pricing.md)).
+* Плата за использование сервиса Yandex DataLens ([тарифы DataLens](../../datalens/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

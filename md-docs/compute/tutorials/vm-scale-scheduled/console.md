@@ -24,7 +24,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* плата за [диски](../../concepts/disk.md) и постоянно запущенные [ВМ](../../concepts/vm.md) ([тарифы Compute Cloud](../../pricing.md));
+* плата за [диски](../../concepts/disk.md) и постоянно запущенные [ВМ](../../concepts/vm.md) ([тарифы Compute Cloud](../../../compute/pricing.md));
 * плата за вызовы [функции](../../../functions/concepts/function.md), вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы Cloud Functions](../../../functions/pricing.md)).
 
 ## Создайте вспомогательные ресурсы {#create-aux-resources}

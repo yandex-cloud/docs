@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of broker publishing message
+            The maximum string length in characters is 50.
           type: string
       required:
         - brokerId
@@ -22,11 +23,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. Topic where message should be published
+            The maximum string length in characters is 1024.
           type: string
         data:
           description: |-
             **string** (bytes)
             Content of the message
+            The maximum string length in characters is 262144.
           type: string
           format: bytes
       required:
@@ -51,7 +54,9 @@ POST https://iot-data.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/publish
 ||Field | Description ||
 || brokerId | **string**
 
-Required field. ID of broker publishing message ||
+Required field. ID of broker publishing message
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.iot.broker.v1.PublishBrokerDataRequest}
@@ -67,10 +72,14 @@ Required field. ID of broker publishing message ||
 ||Field | Description ||
 || topic | **string**
 
-Required field. Topic where message should be published ||
+Required field. Topic where message should be published
+
+The maximum string length in characters is 1024. ||
 || data | **string** (bytes)
 
-Content of the message ||
+Content of the message
+
+The maximum string length in characters is 262144. ||
 |#
 
 ## Response {#yandex.cloud.iot.broker.v1.PublishBrokerDataResponse}

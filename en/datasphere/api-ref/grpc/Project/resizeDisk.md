@@ -23,7 +23,9 @@ Resizes project disk
 ||Field | Description ||
 || project_id | **string**
 
-Required field. ID of the project. ||
+Required field. ID of the project.
+
+The maximum string length in characters is 50. ||
 || new_disk_size_gb | **int64**
 
 Set new size project disk in gigabytes. ||
@@ -39,24 +41,10 @@ Set new size project disk in gigabytes. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "project_id": "string",
-    "old_disk_size_gb": "int64",
-    "new_disk_size_gb": "int64"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "project_id": "string",
-    "disk_size_gb": "double",
-    "disk_used_gb": "double",
-    "detailed_usage": {
-      "user_data_gb": "double",
-      "packages_gb": "double",
-      "system_data_gb": "double",
-      "free_space_gb": "double"
-    }
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -84,7 +72,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[ResizeProjectDiskMetadata](#yandex.cloud.datasphere.v2.ResizeProjectDiskMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -99,7 +87,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[DiskInfo](#yandex.cloud.datasphere.v2.DiskInfo)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -114,55 +102,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## ResizeProjectDiskMetadata {#yandex.cloud.datasphere.v2.ResizeProjectDiskMetadata}
-
-#|
-||Field | Description ||
-|| project_id | **string**
-
-ID of the project which resized project disk. ||
-|| old_disk_size_gb | **int64**
-
-Old size project disk in gigabytes. ||
-|| new_disk_size_gb | **int64**
-
-New size project disk in gigabytes. ||
-|#
-
-## DiskInfo {#yandex.cloud.datasphere.v2.DiskInfo}
-
-#|
-||Field | Description ||
-|| project_id | **string**
-
-ID of the project. ||
-|| disk_size_gb | **double**
-
-Project disk size in gigabytes. ||
-|| disk_used_gb | **double**
-
-Used project disk in gigabytes. ||
-|| detailed_usage | **[DetailedDiskInfo](#yandex.cloud.datasphere.v2.DiskInfo.DetailedDiskInfo)**
-
-Detailed information about the project disk. ||
-|#
-
-## DetailedDiskInfo {#yandex.cloud.datasphere.v2.DiskInfo.DetailedDiskInfo}
-
-#|
-||Field | Description ||
-|| user_data_gb | **double**
-
-Used project disk for user data in gigabytes. ||
-|| packages_gb | **double**
-
-Used project disk for packages in gigabytes. ||
-|| system_data_gb | **double**
-
-Used project disk for system data in gigabytes. ||
-|| free_space_gb | **double**
-
-Free space project disk in gigabytes. ||
 |#

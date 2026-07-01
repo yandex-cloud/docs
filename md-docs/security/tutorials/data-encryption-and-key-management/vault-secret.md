@@ -54,9 +54,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* плата за постоянно запущенную ВМ ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование динамического или статического [внешнего IP-адреса](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за количество активных версий KMS-ключа и число выполненных криптографических операций ([тарифы Yandex Virtual Private Cloud](../../../kms/pricing.md)).
+* плата за постоянно запущенную ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование динамического или статического [внешнего IP-адреса](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
+* плата за количество активных версий KMS-ключа и число выполненных криптографических операций ([тарифы Yandex Virtual Private Cloud](../../kms/pricing.md)).
 
 ## Настройте Auto Unseal {#setup}
 

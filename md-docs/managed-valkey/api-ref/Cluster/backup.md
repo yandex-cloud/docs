@@ -15,7 +15,7 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}:back
 || clusterId | **string**
 
 Required field. ID of the Redis cluster to back up.
-To get the Redis cluster ID, use a [ClusterService.List](../../../managed-redis/api-ref/Cluster/list#List) request.
+To get the Redis cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 |#

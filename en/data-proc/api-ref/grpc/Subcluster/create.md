@@ -41,7 +41,6 @@ Creates a subcluster in the specified cluster.
 || cluster_id | **string**
 
 Required field. ID of the Yandex Data Processing cluster to create a subcluster in.
-
 To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -56,8 +55,7 @@ Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. |
 Required field. Role that is fulfilled by hosts of the subcluster.
 
 - `MASTERNODE`: The subcluster fulfills the master role.
-
-  Master can run the following services, depending on the requested components:
+Master can run the following services, depending on the requested components:
 * HDFS: Namenode, Secondary Namenode
 * YARN: ResourceManager, Timeline Server
 * HBase Master
@@ -66,15 +64,13 @@ Required field. Role that is fulfilled by hosts of the subcluster.
 * Zeppelin
 * ZooKeeper
 - `DATANODE`: The subcluster is a DATANODE in a Yandex Data Processing cluster.
-
-  DATANODE can run the following services, depending on the requested components:
+DATANODE can run the following services, depending on the requested components:
 * HDFS DataNode
 * YARN NodeManager
 * HBase RegionServer
 * Spark libraries
 - `COMPUTENODE`: The subcluster is a COMPUTENODE in a Yandex Data Processing cluster.
-
-  COMPUTENODE can run the following services, depending on the requested components:
+COMPUTENODE can run the following services, depending on the requested components:
 * YARN NodeManager
 * Spark libraries ||
 || resources | **[Resources](#yandex.cloud.dataproc.v1.Resources)**
@@ -87,9 +83,9 @@ Required field. ID of the VPC subnet used for hosts in the subcluster.
 The maximum string length in characters is 50. ||
 || hosts_count | **int64**
 
-Required field. Number of hosts in the subcluster.
+Number of hosts in the subcluster.
 
-The minimum value is 1. ||
+The minimum value is 0. ||
 || autoscaling_config | **[AutoscalingConfig](#yandex.cloud.dataproc.v1.AutoscalingConfig)**
 
 Configuration for instance group based subclusters ||
@@ -102,16 +98,22 @@ Configuration for instance group based subclusters ||
 || resource_preset_id | **string**
 
 ID of the resource preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). ||
+All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types).
+
+The maximum string length in characters is 50. ||
 || disk_type_id | **string**
 
 Type of the storage environment for the host.
 Possible values:
 * network-hdd - network HDD drive,
-* network-ssd - network SSD drive. ||
+* network-ssd - network SSD drive.
+
+The maximum string length in characters is 50. ||
 || disk_size | **int64**
 
-Volume of the storage available to a host, in bytes. ||
+Volume of the storage available to a host, in bytes.
+
+The minimum value is 0. ||
 |#
 
 ## AutoscalingConfig {#yandex.cloud.dataproc.v1.AutoscalingConfig}
@@ -163,37 +165,10 @@ Acceptable values are 0 to 86400, inclusive. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "cluster_id": "string",
-    "subcluster_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "cluster_id": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "name": "string",
-    "role": "Role",
-    "resources": {
-      "resource_preset_id": "string",
-      "disk_type_id": "string",
-      "disk_size": "int64"
-    },
-    "subnet_id": "string",
-    "hosts_count": "int64",
-    "assign_public_ip": "bool",
-    "autoscaling_config": {
-      "max_hosts_count": "int64",
-      "preemptible": "bool",
-      "measurement_duration": "google.protobuf.Duration",
-      "warmup_duration": "google.protobuf.Duration",
-      "stabilization_duration": "google.protobuf.Duration",
-      "cpu_utilization_target": "double",
-      "decommission_timeout": "int64"
-    },
-    "instance_group_id": "string"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -221,7 +196,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateSubclusterMetadata](#yandex.cloud.dataproc.v1.CreateSubclusterMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -236,7 +211,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Subcluster](#yandex.cloud.dataproc.v1.Subcluster)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -251,144 +226,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateSubclusterMetadata {#yandex.cloud.dataproc.v1.CreateSubclusterMetadata}
-
-#|
-||Field | Description ||
-|| cluster_id | **string**
-
-ID of the cluster that the subcluster is being added to.
-
-The maximum string length in characters is 50. ||
-|| subcluster_id | **string**
-
-ID of the subcluster that is being created.
-
-The maximum string length in characters is 50. ||
-|#
-
-## Subcluster {#yandex.cloud.dataproc.v1.Subcluster}
-
-A Yandex Data Processing subcluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the subcluster. Generated at creation time. ||
-|| cluster_id | **string**
-
-ID of the Yandex Data Processing cluster that the subcluster belongs to. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp. ||
-|| name | **string**
-
-Name of the subcluster. The name is unique within the cluster.
-
-The string length in characters must be 1-63. ||
-|| role | enum **Role**
-
-Role that is fulfilled by hosts of the subcluster.
-
-- `MASTERNODE`: The subcluster fulfills the master role.
-
-  Master can run the following services, depending on the requested components:
-* HDFS: Namenode, Secondary Namenode
-* YARN: ResourceManager, Timeline Server
-* HBase Master
-* Hive: Server, Metastore, HCatalog
-* Spark History Server
-* Zeppelin
-* ZooKeeper
-- `DATANODE`: The subcluster is a DATANODE in a Yandex Data Processing cluster.
-
-  DATANODE can run the following services, depending on the requested components:
-* HDFS DataNode
-* YARN NodeManager
-* HBase RegionServer
-* Spark libraries
-- `COMPUTENODE`: The subcluster is a COMPUTENODE in a Yandex Data Processing cluster.
-
-  COMPUTENODE can run the following services, depending on the requested components:
-* YARN NodeManager
-* Spark libraries ||
-|| resources | **[Resources](#yandex.cloud.dataproc.v1.Resources2)**
-
-Resources allocated for each host in the subcluster. ||
-|| subnet_id | **string**
-
-ID of the VPC subnet used for hosts in the subcluster. ||
-|| hosts_count | **int64**
-
-Number of hosts in the subcluster. ||
-|| assign_public_ip | **bool**
-
-Assign public ip addresses for all hosts in subcluter. ||
-|| autoscaling_config | **[AutoscalingConfig](#yandex.cloud.dataproc.v1.AutoscalingConfig2)**
-
-Configuration for instance group based subclusters ||
-|| instance_group_id | **string**
-
-ID of Compute Instance Group for autoscaling subclusters ||
-|#
-
-## Resources {#yandex.cloud.dataproc.v1.Resources2}
-
-#|
-||Field | Description ||
-|| resource_preset_id | **string**
-
-ID of the resource preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). ||
-|| disk_type_id | **string**
-
-Type of the storage environment for the host.
-Possible values:
-* network-hdd - network HDD drive,
-* network-ssd - network SSD drive. ||
-|| disk_size | **int64**
-
-Volume of the storage available to a host, in bytes. ||
-|#
-
-## AutoscalingConfig {#yandex.cloud.dataproc.v1.AutoscalingConfig2}
-
-#|
-||Field | Description ||
-|| max_hosts_count | **int64**
-
-Upper limit for total instance subcluster count.
-
-Acceptable values are 1 to 100, inclusive. ||
-|| preemptible | **bool**
-
-Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
-if their resources are needed by Compute.
-For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). ||
-|| measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
-
-Required field. Time in seconds allotted for averaging metrics. ||
-|| warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
-
-The warmup time of the instance in seconds. During this time,
-traffic is sent to the instance, but instance metrics are not collected. ||
-|| stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
-
-Minimum amount of time in seconds allotted for monitoring before
-Instance Groups can reduce the number of instances in the group.
-During this time, the group size doesn't decrease, even if the new metric values
-indicate that it should. ||
-|| cpu_utilization_target | **double**
-
-Defines an autoscaling rule based on the average CPU utilization of the instance group.
-
-Acceptable values are 0 to 100, inclusive. ||
-|| decommission_timeout | **int64**
-
-Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
-
-Acceptable values are 0 to 86400, inclusive. ||
 |#

@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/regis
 
 # yc cloud-registry registry
 
-[PREVIEW] Manage registries
+Manage registries
 
 #### Command Usage
 

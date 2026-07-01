@@ -28,7 +28,7 @@ Creates new hosts for a cluster.
 || cluster_id | **string**
 
 Required field. ID of the Redis cluster to add hosts to.
-To get the Redis cluster ID, use a [ClusterService.List](../../../../managed-redis/api-ref/grpc/Cluster/list#List) request.
+To get the Redis cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || host_specs[] | **[HostSpec](#yandex.cloud.mdb.redis.v1.HostSpec)**
@@ -52,13 +52,13 @@ The maximum string length in characters is 50. ||
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The ID of the network is set in the field [Cluster.network_id](../../../../managed-redis/api-ref/grpc/Cluster/get#yandex.cloud.mdb.redis.v1.Cluster).
+The ID of the network is set in the field [Cluster.network_id](get.md#yandex.cloud.mdb.redis.v1.Cluster).
 
 The maximum string length in characters is 50. ||
 || shard_name | **string**
 
 ID of the Redis shard the host belongs to.
-To get the shard ID use a [ClusterService.ListShards](../../../../managed-redis/api-ref/grpc/Cluster/listShards#ListShards) request.
+To get the shard ID use a [ClusterService.ListShards](listShards.md#ListShards) request.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || replica_priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**

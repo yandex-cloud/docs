@@ -1,7 +1,7 @@
 # Managed Service for MongoDB API, REST: Cluster.DeleteHosts
 
 Deletes the specified hosts for a cluster.
-(-- api-linter: yc::1705::http-method-mapping=disabled --)
+
 
 ## HTTP request
 
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/ho
 || clusterId | **string**
 
 Required field. ID of the MongoDB cluster to remove hosts from.
-To get the MongoDB cluster ID, use a [ClusterService.List](../../../managed-mongodb/api-ref/Cluster/list#List) request.
+To get the MongoDB cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 |#

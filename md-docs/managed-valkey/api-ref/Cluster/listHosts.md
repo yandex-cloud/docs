@@ -15,7 +15,7 @@ GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/hosts
 || clusterId | **string**
 
 Required field. ID of the Redis cluster.
-To get the Redis cluster ID use a [ClusterService.List](../../../managed-redis/api-ref/Cluster/list#List) request.
+To get the Redis cluster ID use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -145,7 +145,7 @@ Flag showing public IP assignment status to this host. ||
 || resourcePresetId | **string**
 
 Required field. ID of the preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](../../../managed-redis/concepts/instance-types). ||
+All available presets are listed in the [documentation](../../concepts/instance-types.md). ||
 || diskSize | **string** (int64)
 
 Volume of the storage available to a host, in bytes. ||

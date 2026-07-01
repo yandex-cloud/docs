@@ -53,7 +53,8 @@ Creates a server in the specified folder.
         "mac_limit": "int64"
       },
       // end of the list of possible fields
-      "id": "string"
+      "id": "string",
+      "configuration_network_interface_id": "google.protobuf.StringValue"
     }
   ],
   "os_settings_spec": {
@@ -161,7 +162,7 @@ The maximum string length in characters for each value is 63. The string length 
 
 ## NetworkInterfaceSpec {#yandex.cloud.baremetal.v1alpha.NetworkInterfaceSpec}
 
-(-- api-linter: yc::1704::file-separation=disabled
+
 Required for backward compatibility with old clients. --)
 
 #|
@@ -197,6 +198,15 @@ Includes only one of the fields `private_interface`, `public_interface`. ||
 ID of the network interface. Should not be specified when creating a server.
 
 The maximum string length in characters is 20. Value must match the regular expression ` ([a-z][a-z0-9]*)? `. ||
+|| configuration_network_interface_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+ID of the configuration network interface that determines the network interface configuration.
+The configuration network interface defines available modes (public/private) and other properties
+for the network interface. This field is optional. If not specified, the configuration will be
+chosen automatically on the server side based on availability. It is recommended to specify this
+field for deterministic behavior. To get the configuration interface ID, use a
+[ConfigurationService.ListConfigurationNetworkInterface](../Configuration/listConfigurationNetworkInterface.md#ListConfigurationNetworkInterface) request or examine the `network_interfaces`
+field in [ConfigurationService.GetConfiguration] response. ||
 |#
 
 ## PrivateSubnetNetworkInterface {#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface}

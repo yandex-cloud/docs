@@ -25,26 +25,31 @@ Retrieves the list of TargetGroup resources in the specified folder.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder to list target groups in.
-To get the folder ID, use a [TargetGroupService.List](#List) request. ||
+ID of the folder to list target groups in.
+To get the folder ID, use a [TargetGroupService.List](#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListTargetGroupsResponse.next_page_token](#yandex.cloud.loadbalancer.v1.ListTargetGroupsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+The value must be less than or equal to 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListTargetGroupsResponse.next_page_token](#yandex.cloud.loadbalancer.v1.ListTargetGroupsResponse) returned by a previous list request. ||
+[ListTargetGroupsResponse.next_page_token](#yandex.cloud.loadbalancer.v1.ListTargetGroupsResponse) returned by a previous list request.
+The length must be less than or equal to 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can only filter by the [TargetGroup.name](#yandex.cloud.loadbalancer.v1.TargetGroup) field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+The length must be less than or equal to 1000. ||
 |#
 
 ## ListTargetGroupsResponse {#yandex.cloud.loadbalancer.v1.ListTargetGroupsResponse}
@@ -129,7 +134,8 @@ A Target resource. For more information, see [Target groups and resources](/docs
 || subnet_id | **string**
 
 ID of the subnet that targets are connected to.
-All targets in the target group must be connected to the same subnet within a single availability zone. ||
+All targets in the target group must be connected to the same subnet within a single availability zone.
+The length must be less than or equal to 50. ||
 || address | **string**
 
 IP address of the target. ||

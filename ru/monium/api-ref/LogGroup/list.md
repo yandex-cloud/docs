@@ -12,6 +12,7 @@ apiPlayground:
             **string**
             Required field. Folder ID of the log groups to return.
             To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 64.
           type: string
         pageSize:
           description: |-
@@ -28,6 +29,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `page_token` to the
             [ListLogGroupsResponse.nextPageToken](#yandex.cloud.logging.v1.ListLogGroupsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -38,6 +40,7 @@ apiPlayground:
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
             Example of a filter: `name=my-log-group`.
+            The maximum string length in characters is 1000.
           type: string
       required:
         - folderId
@@ -63,28 +66,31 @@ GET https://logging.{{ api-host }}/logging/v1/logGroups
 || folderId | **string**
 
 Required field. Folder ID of the log groups to return.
+To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
 
-To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+The maximum string length in characters is 64. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListLogGroupsResponse.nextPageToken](#yandex.cloud.logging.v1.ListLogGroupsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
 Default value: 100. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListLogGroupsResponse.nextPageToken](#yandex.cloud.logging.v1.ListLogGroupsResponse) returned by a previous list request. ||
+[ListLogGroupsResponse.nextPageToken](#yandex.cloud.logging.v1.ListLogGroupsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters log groups listed in the response.
-
 The expression must specify:
 1. The field name. Currently filtering can only be applied to the [LogGroup.name](#yandex.cloud.logging.v1.LogGroup) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Example of a filter: `name=my-log-group`. ||
+Example of a filter: `name=my-log-group`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.logging.v1.ListLogGroupsResponse}
@@ -121,7 +127,6 @@ List of log groups in the specified folder. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListLogGroupsRequest.pageSize](#yandex.cloud.logging.v1.ListLogGroupsRequest), use `next_page_token` as the value
 for the [ListLogGroupsRequest.pageToken](#yandex.cloud.logging.v1.ListLogGroupsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -161,19 +166,14 @@ Log group labels. ||
 
 Status of the log group.
 
-- `STATUS_UNSPECIFIED`: Unknown status.
-
-  Should never occur.
 - `CREATING`: Log group is creating.
 - `ACTIVE`: Log group is ready to accept messages,
 - `DELETING`: Log group is being deleted.
-
-  No messages will be accepted.
+No messages will be accepted.
 - `ERROR`: Log group is in failed state. ||
 || retentionPeriod | **string** (duration)
 
 Log group entry retention period.
-
 Entries will be present in group during this period. ||
 || dataStream | **string**
 

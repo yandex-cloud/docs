@@ -51,7 +51,7 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) and ass
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter the service account name: `mongo-express`.
-  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `{{ roles-cr-puller }}`, `{{ roles-lockbox-payloadviewer }}`, and `{{ roles-serverless-containers-invoker }}` [roles](../../load-testing/security/index.md#roles-list).
+  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `{{ roles-cr-puller }}`, `{{ roles-lockbox-payloadviewer }}`, and `{{ roles-serverless-containers-invoker }}` roles.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI {#cli}

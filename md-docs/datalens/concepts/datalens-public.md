@@ -67,7 +67,7 @@
   
         {% cut "Опубликовать дашборд" %}
      
-        ![image](../../_assets/datalens/concepts/datalens-public/shared-settings-public.png =400x399)
+        ![image](../../_assets/datalens/concepts/datalens-public/shared-settings-public.png =419x415)
   
         {% endcut %}
   
@@ -87,7 +87,7 @@
   
         {% cut "Опубликовать чарт" %}
      
-        ![image](../../_assets/datalens/concepts/datalens-public/shared-settings-public.png =400x399)
+        ![image](../../_assets/datalens/concepts/datalens-public/shared-settings-chart-public.png =419x415)
   
         {% endcut %}
   

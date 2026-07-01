@@ -41,7 +41,7 @@
 
 В стоимость поддержки CDN-инфраструктуры входят:
 * Плата за исходящий трафик с CDN-серверов ([тарифы Cloud CDN](../../cdn/pricing.md)).
-* Плата за хранение данных в Object Storage, операции с ними и исходящий трафик ([тарифы Object Storage](../pricing.md)).
+* Плата за хранение данных в Object Storage, операции с ними и исходящий трафик ([тарифы Object Storage](../../storage/pricing.md)).
 * Плата за публичные DNS-запросы и [DNS-зоны](../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../dns/index.md) ([тарифы Cloud DNS](../../dns/pricing.md)).
 
 ## Добавьте сертификат в Certificate Manager {#add-certificate}

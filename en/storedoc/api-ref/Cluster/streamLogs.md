@@ -90,7 +90,7 @@ apiPlayground:
 # Managed Service for MongoDB API, REST: Cluster.StreamLogs
 
 Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
-(-- api-linter: yc::1705::http-method-mapping=disabled --)
+
 
 ## HTTP request
 

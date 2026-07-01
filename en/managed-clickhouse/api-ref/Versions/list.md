@@ -113,7 +113,7 @@ Name of the version. ||
 || deprecated | **boolean**
 
 Whether version is deprecated.
-(-- api-linter: yc::1703::deprecated-annotation=disabled --) ||
+ ||
 || updatableTo[] | **string**
 
 List of versions that can be updated from current. ||
@@ -140,7 +140,7 @@ Existing clusters continue to operate; automatic upgrade may be scheduled.
 || deprecatedAt | **string** (date-time)
 
 Optional. Date when the version reaches DEPRECATED status (day precision)
-(-- api-linter: yc::1703::deprecated-annotation=disabled --)
+
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.

@@ -24,7 +24,7 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за хранение одной версии секрета Yandex Lockbox ([тарифы Yandex Lockbox](../../pricing.md#secrets));
+* плата за хранение одной версии секрета Yandex Lockbox ([тарифы Yandex Lockbox](../../../lockbox/pricing.md#secrets));
 * плата за хранение данных в Object Storage, операции с ними и исходящий трафик (плата не будет взиматься, если в бакете не будут храниться данные, [тарифы Object Storage](../../../storage/pricing.md#rules)).
 
 

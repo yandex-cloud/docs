@@ -1,0 +1,1 @@
+Идентификатор кластера можно получить со [списком кластеров](../../managed-spqr/operations/cluster-list.md#list-clusters) в каталоге.

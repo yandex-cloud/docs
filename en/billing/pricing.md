@@ -59,7 +59,6 @@ The cost of billable services is calculated based on the amount of consumed reso
 * [{{ org-full-name }}](../organization/pricing.md)
 * [{{ iot-full-name }}](../iot-core/pricing.md)
 * [{{ kms-full-name }}](../kms/pricing.md)
-* [{{ load-testing-full-name }}](../load-testing/pricing.md)
 * [{{ lockbox-name }}](../lockbox/pricing.md)
 * [{{ maf-full-name }}](../managed-airflow/pricing.md)
 * [{{ mkf-full-name }}](../managed-kafka/pricing.md)

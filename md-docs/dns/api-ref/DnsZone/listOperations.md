@@ -15,8 +15,9 @@ GET https://dns.api.cloud.yandex.net/dns/v1/zones/{dnsZoneId}/operations
 || dnsZoneId | **string**
 
 Required field. ID of the DNS zone to list operations for.
+To get a DNS zone ID, make a [DnsZoneService.List](list.md#List) request.
 
-To get a DNS zone ID, make a [DnsZoneService.List](list.md#List) request. ||
+The maximum string length in characters is 255. ||
 |#
 
 ## Query parameters {#yandex.cloud.dns.v1.ListDnsZoneOperationsRequest}
@@ -27,20 +28,25 @@ To get a DNS zone ID, make a [DnsZoneService.List](list.md#List) request. ||
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListDnsZoneOperationsResponse.nextPageToken](#yandex.cloud.dns.v1.ListDnsZoneOperationsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListDnsZoneOperationsResponse.nextPageToken](#yandex.cloud.dns.v1.ListDnsZoneOperationsResponse) returned by a previous list request. ||
+[ListDnsZoneOperationsResponse.nextPageToken](#yandex.cloud.dns.v1.ListDnsZoneOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 1000. ||
 || filter | **string**
 
 A filter expression that filters DNS zones listed in the response.
-
 The expression must specify:
 1. The field name. Currently you can use filtering only on the [DnsZone.name](get.md#yandex.cloud.dns.v1.DnsZone) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Example of a filter: `name=my-dns-zone`. ||
+Example of a filter: `name=my-dns-zone`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.dns.v1.ListDnsZoneOperationsResponse}
@@ -84,7 +90,6 @@ List of operations for the specified DNS zone. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListDnsZoneOperationsRequest.pageSize](#yandex.cloud.dns.v1.ListDnsZoneOperationsRequest), use `next_page_token` as the value
 for the [ListDnsZoneOperationsRequest.pageToken](#yandex.cloud.dns.v1.ListDnsZoneOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

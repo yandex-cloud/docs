@@ -4,7 +4,7 @@ editable: false
 
 # Key Management Service Audit Trails Events: AsymmetricGetPublicKey
 
-## Event JSON schema {#yandex.cloud.audit.kms.asymmetricsignature.AsymmetricGetPublicKey2-schema}
+## Event JSON schema {#yandex.cloud.audit.kms.asymmetricencryption.AsymmetricGetPublicKey2-schema}
 
 ```json
 {
@@ -98,7 +98,7 @@ editable: false
 }
 ```
 
-## Field description {#yandex.cloud.audit.kms.asymmetricsignature.AsymmetricGetPublicKey2}
+## Field description {#yandex.cloud.audit.kms.asymmetricencryption.AsymmetricGetPublicKey2}
 
 #|
 ||Field | Description ||
@@ -127,7 +127,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || error | **[Status](#google.rpc.Status)**
 
 The error result of the operation in case of failure or cancellation. ||
-|| details | **[AsymmetricGetPublicKeyDetails](#yandex.cloud.audit.kms.asymmetricsignature.AsymmetricGetPublicKeyDetails)** ||
+|| details | **[AsymmetricGetPublicKeyDetails](#yandex.cloud.audit.kms.asymmetricencryption.AsymmetricGetPublicKeyDetails)** ||
 || requestParameters | **object** ||
 || response | **object** ||
 |#
@@ -258,7 +258,7 @@ An error message. ||
 A list of messages that carry the error details. ||
 |#
 
-## AsymmetricGetPublicKeyDetails {#yandex.cloud.audit.kms.asymmetricsignature.AsymmetricGetPublicKeyDetails}
+## AsymmetricGetPublicKeyDetails {#yandex.cloud.audit.kms.asymmetricencryption.AsymmetricGetPublicKeyDetails}
 
 #|
 ||Field | Description ||
@@ -266,5 +266,4 @@ A list of messages that carry the error details. ||
 || keyName | **string**
 
 Includes only one of the fields `keyName`. ||
-|#|
 |#

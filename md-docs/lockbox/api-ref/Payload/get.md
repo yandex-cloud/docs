@@ -1,7 +1,6 @@
 # Lockbox API, REST: Payload.Get
 
 Returns the payload of the specified secret.
-
 To get the list of all available secrets, make a [SecretService.List](../Secret/list.md#List) request.
 
 ## HTTP request
@@ -16,7 +15,9 @@ GET https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{secretId}/p
 ||Field | Description ||
 || secretId | **string**
 
-Required field. ID of the secret. ||
+Required field. ID of the secret.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.lockbox.v1.GetPayloadRequest}
@@ -25,7 +26,9 @@ Required field. ID of the secret. ||
 ||Field | Description ||
 || versionId | **string**
 
-Optional ID of the version. ||
+Optional ID of the version.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.lockbox.v1.Payload}
@@ -37,11 +40,11 @@ Optional ID of the version. ||
   "versionId": "string",
   "entries": [
     {
-      "key": "string",
       // Includes only one of the fields `textValue`, `binaryValue`
       "textValue": "string",
-      "binaryValue": "string"
+      "binaryValue": "string",
       // end of the list of possible fields
+      "key": "string"
     }
   ]
 }
@@ -63,9 +66,6 @@ Payload entries. ||
 
 #|
 ||Field | Description ||
-|| key | **string**
-
-Non-confidential key of the entry. ||
 || textValue | **string**
 
 Text value.
@@ -80,4 +80,7 @@ Binary value.
 Includes only one of the fields `textValue`, `binaryValue`.
 
 Confidential value of the entry. ||
+|| key | **string**
+
+Non-confidential key of the entry. ||
 |#

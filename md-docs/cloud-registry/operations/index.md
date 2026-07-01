@@ -26,7 +26,7 @@
 ### Docker {#docker}
 
 * [Установить и настроить Docker](docker/installation.md)
-* [Аутентифицировать в Cloud Registry](docker/authentication.md)
+* [Аутентифицироваться в Cloud Registry](docker/authentication.md)
 * [Создать Docker-образ](docker/create.md)
 * [Загрузить Docker-образ](docker/push.md)
 * [Скачать Docker-образ](docker/pull.md)

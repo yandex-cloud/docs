@@ -1,7 +1,6 @@
 # Key Management Service API, gRPC: AsymmetricEncryptionKeyService.Get
 
 Returns the specified asymmetric KMS key.
-
 To get the list of available asymmetric KMS keys, make a [SymmetricKeyService.List] request.
 
 ## gRPC request

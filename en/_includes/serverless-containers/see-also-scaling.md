@@ -1,3 +1,3 @@
 ## See also
 
-* [{#T}](../../serverless-containers/concepts/container.md#scaling)
+* [Scaling a container](../../serverless-containers/concepts/container.md#scaling)

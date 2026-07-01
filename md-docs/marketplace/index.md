@@ -196,11 +196,11 @@ Yandex Cloud Marketplace — это магазин готовых инструм
 
  - [Overview](license-manager/saas/api-ref/grpc/Lock/index.md)
 
- - [Ensure](license-manager/saas/api-ref/grpc/Lock/ensure.md)
-
  - [Get](license-manager/saas/api-ref/grpc/Lock/get.md)
 
  - [GetByResourceID](license-manager/saas/api-ref/grpc/Lock/getByResourceID.md)
+
+ - [Ensure](license-manager/saas/api-ref/grpc/Lock/ensure.md)
 
 ##### Operation
 
@@ -226,11 +226,11 @@ Yandex Cloud Marketplace — это магазин готовых инструм
 
  - [Overview](license-manager/saas/api-ref/Lock/index.md)
 
- - [Ensure](license-manager/saas/api-ref/Lock/ensure.md)
-
  - [Get](license-manager/saas/api-ref/Lock/get.md)
 
  - [GetByResourceID](license-manager/saas/api-ref/Lock/getByResourceID.md)
+
+ - [Ensure](license-manager/saas/api-ref/Lock/ensure.md)
 
 ##### Operation
 

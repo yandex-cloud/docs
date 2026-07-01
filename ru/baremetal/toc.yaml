@@ -327,6 +327,8 @@ items:
                     href: cli-ref/server/power-off.md
                   - name: power-on
                     href: cli-ref/server/power-on.md
+                  - name: prolongate-ended-rent
+                    href: cli-ref/server/prolongate-ended-rent.md
                   - name: reboot
                     href: cli-ref/server/reboot.md
                   - name: reinstall
@@ -658,6 +660,8 @@ items:
                         href: cli-ref/v1alpha/server/power-off.md
                       - name: power-on
                         href: cli-ref/v1alpha/server/power-on.md
+                      - name: prolongate-ended-rent
+                        href: cli-ref/v1alpha/server/prolongate-ended-rent.md
                       - name: reboot
                         href: cli-ref/v1alpha/server/reboot.md
                       - name: reinstall
@@ -804,6 +808,8 @@ items:
                         href: cli-ref/v2/server/reboot.md
                       - name: reinstall
                         href: cli-ref/v2/server/reinstall.md
+                      - name: renew-rental
+                        href: cli-ref/v2/server/renew-rental.md
                       - name: update
                         href: cli-ref/v2/server/update.md
                   - name: vrf
@@ -868,6 +874,9 @@ items:
                         href: api-ref/grpc/Configuration/get.md
                       - name: List
                         href: api-ref/grpc/Configuration/list.md
+                      - name: ListConfigurationNetworkInterface
+                        href: >-
+                          api-ref/grpc/Configuration/listConfigurationNetworkInterface.md
                   - name: HardwarePool
                     items:
                       - name: Overview
@@ -892,6 +901,16 @@ items:
                         href: api-ref/grpc/Image/delete.md
                       - name: ListOperations
                         href: api-ref/grpc/Image/listOperations.md
+                  - name: MountedImage
+                    items:
+                      - name: Overview
+                        href: api-ref/grpc/MountedImage/index.md
+                      - name: Create
+                        href: api-ref/grpc/MountedImage/create.md
+                      - name: Delete
+                        href: api-ref/grpc/MountedImage/delete.md
+                      - name: Get
+                        href: api-ref/grpc/MountedImage/get.md
                   - name: Operation
                     items:
                       - name: Overview
@@ -992,6 +1011,8 @@ items:
                         href: api-ref/grpc/Server/startProlongation.md
                       - name: StopProlongation
                         href: api-ref/grpc/Server/stopProlongation.md
+                      - name: ProlongateEndedRent
+                        href: api-ref/grpc/Server/prolongateEndedRent.md
                   - name: StandardImage
                     items:
                       - name: Overview
@@ -1044,6 +1065,9 @@ items:
                         href: api-ref/Configuration/get.md
                       - name: List
                         href: api-ref/Configuration/list.md
+                      - name: ListConfigurationNetworkInterface
+                        href: >-
+                          api-ref/Configuration/listConfigurationNetworkInterface.md
                   - name: HardwarePool
                     items:
                       - name: Overview
@@ -1068,6 +1092,16 @@ items:
                         href: api-ref/Image/delete.md
                       - name: ListOperations
                         href: api-ref/Image/listOperations.md
+                  - name: MountedImage
+                    items:
+                      - name: Overview
+                        href: api-ref/MountedImage/index.md
+                      - name: Create
+                        href: api-ref/MountedImage/create.md
+                      - name: Delete
+                        href: api-ref/MountedImage/delete.md
+                      - name: Get
+                        href: api-ref/MountedImage/get.md
                   - name: Operation
                     items:
                       - name: Overview
@@ -1106,6 +1140,18 @@ items:
                         href: api-ref/PrivateSubnet/delete.md
                       - name: ListOperations
                         href: api-ref/PrivateSubnet/listOperations.md
+                  - name: PublicPrefixPool
+                    items:
+                      - name: Overview
+                        href: api-ref/PublicPrefixPool/index.md
+                      - name: Get
+                        href: api-ref/PublicPrefixPool/get.md
+                      - name: List
+                        href: api-ref/PublicPrefixPool/list.md
+                      - name: Update
+                        href: api-ref/PublicPrefixPool/update.md
+                      - name: ListOperations
+                        href: api-ref/PublicPrefixPool/listOperations.md
                   - name: PublicSubnet
                     items:
                       - name: Overview
@@ -1156,6 +1202,8 @@ items:
                         href: api-ref/Server/startProlongation.md
                       - name: StopProlongation
                         href: api-ref/Server/stopProlongation.md
+                      - name: ProlongateEndedRent
+                        href: api-ref/Server/prolongateEndedRent.md
                   - name: StandardImage
                     items:
                       - name: Overview

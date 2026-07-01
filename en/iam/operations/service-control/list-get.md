@@ -14,10 +14,6 @@ To get a list of services whose access in the cloud can be managed:
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
-
-  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
-  1. In the left-hand panel, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.dashboard.label_permissions_gAtoT }}**.
 
 - CLI {#cli}
 
@@ -46,10 +42,16 @@ To get a list of services whose access in the cloud can be managed:
       +--------------------+----------+
       |     SERVICE ID     |  STATUS  |
       +--------------------+----------+
+      | asset-manager      | DEFAULT  |
+      | backup             | DEFAULT  |
+      | cloud-registry     | ENABLED  |
       | connection-manager | ENABLED  |
+      | data-catalog       | DEFAULT  |
       | datasphere         | DISABLED |
       | disk-encryption    | DEFAULT  |
-      | dspm               | DEFAULT  |
+      | dspm               | ENABLED  |
+      | security-deck      | ENABLED  |
+      | src-integration    | DISABLED |
       | websql             | ENABLED  |
       +--------------------+----------+
       ```
@@ -66,11 +68,6 @@ To get information about the [status](../../concepts/service-control.md#access-s
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
-
-  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
-  1. In the left-hand panel, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.dashboard.label_permissions_gAtoT }}**.
-  1. Enter the service name in the **{{ ui-key.yacloud.iam.ssa.label_filter-by-service-placeholder }}** field.
 
 - CLI {#cli}
 

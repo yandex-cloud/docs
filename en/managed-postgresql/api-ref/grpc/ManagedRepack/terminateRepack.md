@@ -5,7 +5,7 @@ editable: false
 # Managed Service for PostgreSQL API, gRPC: ManagedRepackService.TerminateRepack
 
 Terminates currently running Repack in given cluster
-(-- api-linter: yc::1702::method-verb-prefix=disabled --)
+
 
 ## gRPC request
 

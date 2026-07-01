@@ -70,7 +70,7 @@ Audit Trails собирает [аудитные логи](concepts/format.md) р
      
        {% note warning %}
        
-       В консоли управления сбор некоторых событий [уровня сервисов](concepts/control-plane-vs-data-plane.md#data-plane-events) включен [по умолчанию](concepts/trail.md#default). Их доставка оплачивается в соответствии с [правилами тарификации](pricing.md). Если события уровня сервисов вам не нужны, отключите их сбор.
+       В консоли управления сбор некоторых событий [уровня сервисов](concepts/control-plane-vs-data-plane.md#data-plane-events) включен [по умолчанию](concepts/trail.md#default). Их доставка оплачивается в соответствии с [правилами тарификации](../../audit-trails/pricing.md). Если события уровня сервисов вам не нужны, отключите их сбор.
        
        {% endnote %}
      
@@ -109,7 +109,7 @@ Audit Trails собирает [аудитные логи](concepts/format.md) р
      
        {% note warning %}
        
-       В консоли управления сбор некоторых событий [уровня сервисов](concepts/control-plane-vs-data-plane.md#data-plane-events) включен [по умолчанию](concepts/trail.md#default). Их доставка оплачивается в соответствии с [правилами тарификации](pricing.md). Если события уровня сервисов вам не нужны, отключите их сбор.
+       В консоли управления сбор некоторых событий [уровня сервисов](concepts/control-plane-vs-data-plane.md#data-plane-events) включен [по умолчанию](concepts/trail.md#default). Их доставка оплачивается в соответствии с [правилами тарификации](../../audit-trails/pricing.md). Если события уровня сервисов вам не нужны, отключите их сбор.
        
        {% endnote %}
      

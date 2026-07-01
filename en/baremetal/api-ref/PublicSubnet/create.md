@@ -55,7 +55,6 @@ apiPlayground:
             **string** (int64)
             @deprecated
             Prefix length of the public subnet CIDR block.
-            Acceptable values are 1 to 31, inclusive.
           deprecated: true
           type: string
           format: int64
@@ -180,9 +179,7 @@ To get a list of available hardware pools, use the [HardwarePoolService.List](/d
 || prefixLength | **string** (int64)
 
 @deprecated
-Prefix length of the public subnet CIDR block.
-
-Acceptable values are 1 to 31, inclusive. ||
+Prefix length of the public subnet CIDR block. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.

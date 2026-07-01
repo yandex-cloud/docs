@@ -30,7 +30,7 @@
 В стоимость ресурсов для синхронизации секретов входит:
 * Плата за использование [мастера Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#master) ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
 * Плата за [вычислительные ресурсы](../../compute/concepts/vm-platforms.md) и [диски](../../compute/concepts/disk.md) [группы узлов Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#node-group) ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за хранение и операции с секретом ([тарифы Yandex Lockbox](../pricing.md)).
+* Плата за хранение и операции с секретом ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
 
 ### Создайте инфраструктуру {#deploy-infrastructure}
 

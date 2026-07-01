@@ -1,1 +1,1 @@
-By default, the CLI uses the cloud specified in the CLI profile. You can set a different cloud in the `--cloud-id` parameter.
+By default, the CLI uses the cloud specified in the CLI profile. If no cloud is specified in the CLI profile or you want to specify a different one, provide the ID of the cloud in the command using the `--cloud-id` property.

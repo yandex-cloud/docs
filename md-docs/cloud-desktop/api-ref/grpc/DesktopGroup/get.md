@@ -120,10 +120,14 @@ Data disk specification of the desktop group. ||
 Desktop group configuration. ||
 || auto_update_policy | **[AutoUpdatePolicy](#yandex.cloud.clouddesktop.v1.api.AutoUpdatePolicy)**
 
+Update group automatically.
+
 Includes only one of the fields `auto_update_policy`, `manual_update_policy`.
 
 Desktop group update policy. ||
 || manual_update_policy | **[ManualUpdatePolicy](#yandex.cloud.clouddesktop.v1.api.ManualUpdatePolicy)**
+
+Update group manually.
 
 Includes only one of the fields `auto_update_policy`, `manual_update_policy`.
 
@@ -195,7 +199,7 @@ Required field. Type of disk.
 
 Minimum number of ready desktops.
 
-Acceptable values are 1 to 512, inclusive. ||
+Acceptable values are 0 to 512, inclusive. ||
 || max_desktops_amount | **int64**
 
 Maximum number of desktops.
@@ -205,8 +209,8 @@ Acceptable values are 0 to 512, inclusive. ||
 
 Type of the desktop.
 
-- `PERSISTENT`
-- `NON_PERSISTENT` ||
+- `PERSISTENT`: Persistent desktop.
+- `NON_PERSISTENT`: Non persistent desktop. ||
 || members[] | **[Subject](#yandex.cloud.access.Subject)**
 
 List of members of the desktop group.

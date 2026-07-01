@@ -33,24 +33,33 @@ Updates the specified sink.
 || sink_id | **string**
 
 Required field. ID of the sink to update.
+To get a sink ID make a [SinkService.List](../../../../logging/api-ref/grpc/Sink/list.md#List) request.
 
-To get a sink ID make a [SinkService.List](../../../../logging/api-ref/grpc/Sink/list.md#List) request. ||
+The maximum string length in characters is 64. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which attributes of the function should be updated. ||
 || name | **string**
 
 New name of the sink.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
-New Description of the sink. ||
+New Description of the sink.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-New sink labels as `key:value` pairs. ||
+New sink labels as `key:value` pairs.
+
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || service_account_id | **string**
 
-new service account to use for logs writing to the sink. ||
+new service account to use for logs writing to the sink.
+
+The maximum string length in characters is 64. ||
 || yds | **[Yds](#yandex.cloud.logging.v1.Sink.Yds)**
 
 Yandex data stream
@@ -69,11 +78,15 @@ New logs destination ||
 
 ## Yds {#yandex.cloud.logging.v1.Sink.Yds}
 
+Logs destination
+
 #|
 ||Field | Description ||
 || stream_name | **string**
 
-Fully qualified name of data stream ||
+Fully qualified name of data stream
+
+The maximum string length in characters is 512. ||
 |#
 
 ## S3 {#yandex.cloud.logging.v1.Sink.S3}
@@ -82,10 +95,14 @@ Fully qualified name of data stream ||
 ||Field | Description ||
 || bucket | **string**
 
-Object storage bucket ||
+Object storage bucket
+
+Value must match the regular expression ` [a-zA-Z0-9][-a-zA-Z0-9.]{2,62} `. ||
 || prefix | **string**
 
-Prefix to use for saved log object names ||
+Prefix to use for saved log object names
+
+The maximum string length in characters is 1024. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -98,30 +115,10 @@ Prefix to use for saved log object names ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "sink_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "folder_id": "string",
-    "cloud_id": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "name": "string",
-    "description": "string",
-    "labels": "map<string, string>",
-    "service_account_id": "string",
-    // Includes only one of the fields `yds`, `s3`
-    "yds": {
-      "stream_name": "string"
-    },
-    "s3": {
-      "bucket": "string",
-      "prefix": "string"
-    }
-    // end of the list of possible fields
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -149,7 +146,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateSinkMetadata](#yandex.cloud.logging.v1.UpdateSinkMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -164,7 +161,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Sink](#yandex.cloud.logging.v1.Sink)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -179,78 +176,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateSinkMetadata {#yandex.cloud.logging.v1.UpdateSinkMetadata}
-
-#|
-||Field | Description ||
-|| sink_id | **string**
-
-ID of the sink being updated. ||
-|#
-
-## Sink {#yandex.cloud.logging.v1.Sink}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Sink ID. ||
-|| folder_id | **string**
-
-Sink folder ID. ||
-|| cloud_id | **string**
-
-Sink cloud ID. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Sink creation time. ||
-|| name | **string**
-
-Sink name. ||
-|| description | **string**
-
-Sink description. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Sink labels. ||
-|| service_account_id | **string**
-
-Logs will be written to the sink on behalf of this service account ||
-|| yds | **[Yds](#yandex.cloud.logging.v1.Sink.Yds2)**
-
-Yandex data stream
-
-Includes only one of the fields `yds`, `s3`.
-
-Logs destination ||
-|| s3 | **[S3](#yandex.cloud.logging.v1.Sink.S32)**
-
-Object storage
-
-Includes only one of the fields `yds`, `s3`.
-
-Logs destination ||
-|#
-
-## Yds {#yandex.cloud.logging.v1.Sink.Yds2}
-
-#|
-||Field | Description ||
-|| stream_name | **string**
-
-Fully qualified name of data stream ||
-|#
-
-## S3 {#yandex.cloud.logging.v1.Sink.S32}
-
-#|
-||Field | Description ||
-|| bucket | **string**
-
-Object storage bucket ||
-|| prefix | **string**
-
-Prefix to use for saved log object names ||
 |#

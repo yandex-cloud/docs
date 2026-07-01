@@ -15,8 +15,9 @@ POST https://iot-devices.api.cloud.yandex.net/iot-devices/v1/registries/{registr
 || registryId | **string**
 
 Required field. ID of the registry to add a password for.
+To get a registry ID make a [RegistryService.List](list.md#List) request.
 
-To get a registry ID make a [RegistryService.List](list.md#List) request. ||
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.iot.devices.v1.AddRegistryPasswordRequest}
@@ -32,8 +33,9 @@ To get a registry ID make a [RegistryService.List](list.md#List) request. ||
 || password | **string**
 
 Passwords for the registry.
+The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.
 
-The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols. ||
+The minimum string length in characters is 14. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -48,10 +50,7 @@ The password must contain at least three character categories among the followin
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "registryId": "string",
-    "passwordId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -60,11 +59,7 @@ The password must contain at least three character categories among the followin
       "object"
     ]
   },
-  "response": {
-    "registryId": "string",
-    "id": "string",
-    "createdAt": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -106,7 +101,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[AddRegistryPasswordMetadata](#yandex.cloud.iot.devices.v1.AddRegistryPasswordMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -121,7 +116,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[RegistryPassword](#yandex.cloud.iot.devices.v1.RegistryPassword)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -136,18 +131,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## AddRegistryPasswordMetadata {#yandex.cloud.iot.devices.v1.AddRegistryPasswordMetadata}
-
-#|
-||Field | Description ||
-|| registryId | **string**
-
-ID of the registry for which the password is being added. ||
-|| passwordId | **string**
-
-ID of a password that is being added. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -165,28 +148,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## RegistryPassword {#yandex.cloud.iot.devices.v1.RegistryPassword}
-
-A registry password.
-
-#|
-||Field | Description ||
-|| registryId | **string**
-
-ID of the registry that the password belongs to. ||
-|| id | **string**
-
-ID of the password. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

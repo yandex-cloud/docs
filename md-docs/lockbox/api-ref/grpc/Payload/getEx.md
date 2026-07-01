@@ -23,11 +23,15 @@
 ||Field | Description ||
 || secret_id | **string**
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `secret_id`, `folder_and_name`. ||
 || folder_and_name | **[FolderAndName](#yandex.cloud.lockbox.v1.FolderAndName)**
 
 Includes only one of the fields `secret_id`, `folder_and_name`. ||
-|| version_id | **string** ||
+|| version_id | **string**
+
+The maximum string length in characters is 50. ||
 |#
 
 ## FolderAndName {#yandex.cloud.lockbox.v1.FolderAndName}
@@ -36,10 +40,14 @@ Includes only one of the fields `secret_id`, `folder_and_name`. ||
 ||Field | Description ||
 || folder_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || secret_name | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## GetExResponse {#yandex.cloud.lockbox.v1.GetExResponse}

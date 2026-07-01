@@ -84,22 +84,7 @@ List of string restriction values. Empty if value type is not string. ||
       "object"
     ]
   },
-  "response": {
-    "restrictions": [
-      {
-        "name": "string",
-        "boolValue": [
-          "boolean"
-        ],
-        "longValue": [
-          "string"
-        ],
-        "stringValue": [
-          "string"
-        ]
-      }
-    ]
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -156,7 +141,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[RestrictionsResponse](#yandex.cloud.datasphere.v2.RestrictionsResponse)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -188,31 +173,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## RestrictionsResponse {#yandex.cloud.datasphere.v2.RestrictionsResponse}
-
-#|
-||Field | Description ||
-|| restrictions[] | **[Restriction](#yandex.cloud.datasphere.v2.Restriction2)**
-
-List of restrictions. ||
-|#
-
-## Restriction {#yandex.cloud.datasphere.v2.Restriction2}
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of restriction. ||
-|| boolValue[] | **boolean**
-
-List of boolean restriction values. Empty if value type is not boolean. ||
-|| longValue[] | **string** (int64)
-
-List of long restriction values. Empty if value type is not long. ||
-|| stringValue[] | **string**
-
-List of string restriction values. Empty if value type is not string. ||
 |#

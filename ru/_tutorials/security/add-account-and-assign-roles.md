@@ -57,7 +57,7 @@
 
       Чтобы не нарушить работу инфраструктуры в существующих организациях, создайте новую организацию:
 
-      1. В левом верхнем углу рядом с названием организации нажмите на значок ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите ![circle-plus](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_components.organization.action.create-organization }}**.
+      1. В левом верхнем углу рядом с названием организации нажмите на значок ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите ![circle-plus](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.center-layout.OrganizationSelect.action_create-organization_j1Yin }}**.
       1. В открывшемся окне введите название организации: `Example organization`.
       1. Нажмите кнопку **{{ ui-key.yacloud_components.organization.action.create }}**.
 
@@ -93,7 +93,7 @@
     1. Введите почту пользователя.
 
         {% include [send-invitation](../../_includes/organization/send-invitation.md) %}
-    1. Нажмите кнопку **{{ ui-key.yacloud_components.organization.action_send-invitation }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud_components.organization.action_send-invitation_6LqIj }}**.
 
 {% endlist %}
 

@@ -1,6 +1,6 @@
 ---
 title: How to create a container
-description: Use this guide to create a container.
+description: Follow this guide to create a container.
 ---
 
 # Creating a container

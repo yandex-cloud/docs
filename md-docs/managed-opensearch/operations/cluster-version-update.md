@@ -12,6 +12,56 @@
 
     В [консоли управления](https://console.yandex.cloud) откройте страницу [создания](cluster-create.md) или [изменения кластера](update.md) Managed Service for OpenSearch. Список доступен в поле **Версия**.
 
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Воспользуйтесь методом [Versions.List](../api-ref/Versions/list.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/versions'
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Versions/list.md#responses).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+       
+       ```bash
+       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+       ```
+       
+       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+
+    1. Воспользуйтесь вызовом [VersionsService.List](../api-ref/grpc/Versions/list.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/versions_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            mdb.api.cloud.yandex.net:443 \
+            yandex.cloud.mdb.opensearch.v1.VersionsService.List
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Versions/list.md#yandex.cloud.mdb.opensearch.v1.ListVersionsResponse).
+
 {% endlist %}
 
 ## Перед обновлением версии {#before-version-update}

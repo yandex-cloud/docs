@@ -38,7 +38,7 @@ Terraform распространяется под лицензией [Business S
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для работы с состояниями Terraform входят:
-* Плата за хранение данных ([тарифы Object Storage](../pricing.md#prices-storage)).
+* Плата за хранение данных ([тарифы Object Storage](../../storage/pricing.md#prices-storage)).
 * Плата за выполнение запросов к БД ([тарифы Managed Service for YDB](../../ydb/pricing/serverless.md)).
 
 В стоимость поддержки инфраструктуры, разворачиваемой через Terraform в этом руководстве в качестве примера, входят:

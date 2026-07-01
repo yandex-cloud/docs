@@ -14,7 +14,9 @@ GET https://iot-broker.api.cloud.yandex.net/iot-broker/v1/brokers/{brokerId}/cer
 ||Field | Description ||
 || brokerId | **string**
 
-Required field. ID of the broker to list certificates for. ||
+Required field. ID of the broker to list certificates for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iot.broker.v1.ListBrokerCertificatesResponse}

@@ -5,7 +5,6 @@ editable: false
 # Cloud Functions Service, gRPC: FunctionService.Get
 
 Returns the specified function.
-
 To get the list of all available functions, make a [List](/docs/functions/functions/api-ref/grpc/Function/list#List) request.
 
 ## gRPC request
@@ -25,7 +24,6 @@ To get the list of all available functions, make a [List](/docs/functions/functi
 || function_id | **string**
 
 Required field. ID of the function to return.
-
 To get a function ID make a [FunctionService.List](/docs/functions/functions/api-ref/grpc/Function/list#List) request. ||
 |#
 
@@ -66,7 +64,7 @@ The string length in characters must be 3-63. ||
 
 Description of the function.
 
-The string length in characters must be 0-256. ||
+The string length in characters must be 0-600. ||
 || labels | **object** (map<**string**, **string**>)
 
 Function labels as `key:value` pairs.

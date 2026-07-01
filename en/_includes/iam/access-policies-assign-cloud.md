@@ -1,4 +1,4 @@
-To create an access policy for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) based on a [template without additional parameters](../../iam/concepts/access-control/access-policies.md#fixed):
+To create an access policy for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) based on a [template without parameters](../../iam/concepts/access-control/access-policies.md#fixed):
 
 {% list tabs group=instructions %}
 

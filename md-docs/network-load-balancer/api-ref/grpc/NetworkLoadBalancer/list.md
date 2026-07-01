@@ -21,26 +21,31 @@ Retrieves the list of NetworkLoadBalancer resources in the specified folder.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder that the network load balancer belongs to.
-To get the folder ID, use a [NetworkLoadBalancerService.List](#List) request. ||
+ID of the folder that the network load balancer belongs to.
+To get the folder ID, use a [NetworkLoadBalancerService.List](#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [&lt;ResponseMessage&gt;.next_page_token]
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+The value must be less than or equal to 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListNetworkLoadBalancersResponse.next_page_token](#yandex.cloud.loadbalancer.v1.ListNetworkLoadBalancersResponse) returned by a previous list request. ||
+[ListNetworkLoadBalancersResponse.next_page_token](#yandex.cloud.loadbalancer.v1.ListNetworkLoadBalancersResponse) returned by a previous list request.
+The length must be less than or equal to 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can only filter by the [NetworkLoadBalancer.name](#yandex.cloud.loadbalancer.v1.NetworkLoadBalancer) field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+The length must be less than or equal to 1000. ||
 |#
 
 ## ListNetworkLoadBalancersResponse {#yandex.cloud.loadbalancer.v1.ListNetworkLoadBalancersResponse}
@@ -65,9 +70,9 @@ The expression must specify:
           "address": "string",
           "port": "int64",
           "protocol": "Protocol",
+          "ip_version": "IpVersion",
           "target_port": "int64",
-          "subnet_id": "string",
-          "ip_version": "IpVersion"
+          "subnet_id": "string"
         }
       ],
       "attached_target_groups": [
@@ -153,7 +158,6 @@ ID of the region that the network load balancer belongs to. ||
 
 Status of the network load balancer.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Network load balancer is being created.
 - `STARTING`: Network load balancer is being started.
 - `ACTIVE`: Network load balancer is active and sends traffic to the targets.
@@ -167,14 +171,12 @@ send traffic in this state. ||
 
 Type of the network load balancer. Only external network load balancers are available now.
 
-- `TYPE_UNSPECIFIED`
 - `EXTERNAL`: External network load balancer.
 - `INTERNAL`: Internal network load balancer. ||
 || session_affinity | enum **SessionAffinity**
 
 Type of the session affinity. Only 5-tuple affinity is available now.
 
-- `SESSION_AFFINITY_UNSPECIFIED`
 - `CLIENT_IP_PORT_PROTO`: 5-tuple affinity. ||
 || listeners[] | **[Listener](#yandex.cloud.loadbalancer.v1.Listener)**
 
@@ -212,22 +214,20 @@ Port. ||
 
 Network protocol for incoming traffic.
 
-- `PROTOCOL_UNSPECIFIED`
 - `TCP`
 - `UDP` ||
+|| ip_version | enum **IpVersion**
+
+IP version of the external address.
+
+- `IPV4`: IPv4
+- `IPV6`: IPv6 ||
 || target_port | **int64**
 
 Port of a target. ||
 || subnet_id | **string**
 
 ID of the subnet. ||
-|| ip_version | enum **IpVersion**
-
-IP version of the external address.
-
-- `IP_VERSION_UNSPECIFIED`
-- `IPV4`: IPv4
-- `IPV6`: IPv6 ||
 |#
 
 ## AttachedTargetGroup {#yandex.cloud.loadbalancer.v1.AttachedTargetGroup}
@@ -238,11 +238,14 @@ An AttachedTargetGroup resource. For more information, see [Targets and groups](
 ||Field | Description ||
 || target_group_id | **string**
 
-Required field. ID of the target group. ||
+ID of the target group.
+The length must be less than or equal to 50.
+This field is required. ||
 || health_checks[] | **[HealthCheck](#yandex.cloud.loadbalancer.v1.HealthCheck)**
 
 A health check to perform on the target group.
-For now we accept only one health check per AttachedTargetGroup. ||
+For now we accept only one health check per AttachedTargetGroup.
+The number of elements must be exactly 1. ||
 |#
 
 ## HealthCheck {#yandex.cloud.loadbalancer.v1.HealthCheck}
@@ -253,7 +256,9 @@ A HealthCheck resource. For more information, see [Health check](../../../concep
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long. ||
+Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long.
+The value must match the regular expression: ```|[a-z][-a-z0-9]{1,61}[a-z0-9]```.
+This field is required. ||
 || interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 The interval between health checks. The default is 2 seconds. ||
@@ -262,24 +267,28 @@ The interval between health checks. The default is 2 seconds. ||
 Timeout for a target to return a response for the health check. The default is 1 second. ||
 || unhealthy_threshold | **int64**
 
-Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. ||
+Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2.
+The value must be between 2 and 10. ||
 || healthy_threshold | **int64**
 
-Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. ||
+Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2.
+The value must be between 2 and 10. ||
 || tcp_options | **[TcpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.TcpOptions)**
 
 Options for TCP health check.
 
 Includes only one of the fields `tcp_options`, `http_options`.
 
-Protocol to use for the health check. Either TCP or HTTP. ||
+Protocol to use for the health check. Either TCP or HTTP.
+Only one field must be specified. ||
 || http_options | **[HttpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.HttpOptions)**
 
 Options for HTTP health check.
 
 Includes only one of the fields `tcp_options`, `http_options`.
 
-Protocol to use for the health check. Either TCP or HTTP. ||
+Protocol to use for the health check. Either TCP or HTTP.
+Only one field must be specified. ||
 |#
 
 ## TcpOptions {#yandex.cloud.loadbalancer.v1.HealthCheck.TcpOptions}
@@ -290,7 +299,8 @@ Configuration option for a TCP health check.
 ||Field | Description ||
 || port | **int64**
 
-Port to use for TCP health checks. ||
+Port to use for TCP health checks.
+The value must be between 1 and 65535. ||
 |#
 
 ## HttpOptions {#yandex.cloud.loadbalancer.v1.HealthCheck.HttpOptions}
@@ -301,7 +311,8 @@ Configuration option for an HTTP health check.
 ||Field | Description ||
 || port | **int64**
 
-Port to use for HTTP health checks. ||
+Port to use for HTTP health checks.
+The value must be between 1 and 65535. ||
 || path | **string**
 
 URL path to set for health checking requests for every target in the target group.
@@ -316,7 +327,8 @@ Status of the disabled zone.
 ||Field | Description ||
 || zone_id | **string**
 
-Required field. ID of zone. ||
+ID of zone.
+This field is required. ||
 || disabled_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp until which the zone will be disabled.

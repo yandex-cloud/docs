@@ -1,7 +1,7 @@
 # Identity and Access Management API, gRPC: ServiceAccountService.Reactivate
 
 Reactivates the specified service account.
-(-- api-linter: yc::1702::method-verb-prefix=disabled --)
+
 
 ## gRPC request
 

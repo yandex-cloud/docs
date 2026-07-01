@@ -1022,6 +1022,16 @@
 
  - [ResolveAgent](api-ref/ServiceControl/resolveAgent.md)
 
+#### SubjectDetails
+
+ - [Overview](api-ref/SubjectDetails/index.md)
+
+ - [Get](api-ref/SubjectDetails/get.md)
+
+ - [List](api-ref/SubjectDetails/list.md)
+
+ - [BatchGet](api-ref/SubjectDetails/batchGet.md)
+
 #### UserAccount
 
  - [Overview](api-ref/UserAccount/index.md)

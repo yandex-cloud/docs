@@ -26,6 +26,8 @@ Syntax:
 
 - [yc baremetal v2 server reinstall](reinstall.md) — Reinstalls the specified server.
 
+- [yc baremetal v2 server renew-rental](renew-rental.md) — Enable prolongation after rental period end
+
 - [yc baremetal v2 server update](update.md) — Updates the specified server.
 
 #### Global Flags

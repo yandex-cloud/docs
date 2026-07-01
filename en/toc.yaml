@@ -63,7 +63,7 @@ items:
   - name: Key Management Service
     href: kms/index.yaml
   - name: Load Testing
-    href: load-testing/index.yaml
+    href: load-testing/sunset.md
   - name: Lockbox
     href: lockbox/index.yaml
   - name: Managed Service for Apache Airflow™

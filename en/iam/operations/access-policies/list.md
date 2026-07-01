@@ -29,6 +29,11 @@ To get a list of [supported](../../concepts/access-control/access-policies.md#su
   +----------------------------------------------------+---------------------------------------------------------+--------------------------------+
   |                         ID                         |                          NAME                           |          DESCRIPTION           |
   +----------------------------------------------------+---------------------------------------------------------+--------------------------------+
+  | backup.denyActivation                              | backup-deny-activation                                  | Restrict Cloud Backup          |
+  |                                                    |                                                         | activation and backup policies |
+  |                                                    |                                                         | changes                        |
+  | backup.denyRemoveProtection                        | backup-deny-remove-protection                           | Restrict Cloud Backup removal  |
+  |                                                    |                                                         | and backup policies changes    |
   | iam.denyServiceAccountAccessKeysCreation           | iam-deny-service-account-access-keys-creation           | Deny creation of service       |
   |                                                    |                                                         | account access keys            |
   | iam.denyServiceAccountApiKeysCreation              | iam-deny-service-account-api-keys-creation              | Deny creation of service       |
@@ -47,15 +52,34 @@ To get a list of [supported](../../concepts/access-control/access-policies.md#su
   |                                                    |                                                         | to the organization            |
   | organization.denyUserListing                       | organization-deny-user-listing                          | Deny listing of users in the   |
   |                                                    |                                                         | organization                   |
-  | serverless.restrictPrivateNetworkInvocation        | serverless-restrict-private-network-invocation          | Restrict serverless functions  |
-  |                                                    |                                                         | and containers invocation from |
-  |                                                    |                                                         | private vpc networks (by vpc   |
-  |                                                    |                                                         | network ids and/or by private  |
-  |                                                    |                                                         | vpc addresses)                 |
-  | serverless.restrictPublicInvocation                | serverless-restrict-public-invocation                   | Restrict serverless functions  |
-  |                                                    |                                                         | and containers invocation      |
-  |                                                    |                                                         | from public ip addresses by    |
-  |                                                    |                                                         | whitelist                      |
+  | serverless.containers.restrictNetworkAccess        | serverless-containers-restrict-network-access           | Restrict Serverless Containers |
+  |                                                    |                                                         | network access by source IP    |
+  |                                                    |                                                         | addresses and VPC network IDs  |
+  | serverless.containers.restrictResourceVPCNetwork   | serverless-containers-restrict-resource-vpc-network     | Restrict Serverless Containers |
+  |                                                    |                                                         | resource VPC network by        |
+  |                                                    |                                                         | allowed VPC network IDs        |
+  | serverless.functions.restrictNetworkAccess         | serverless-functions-restrict-network-access            | Restrict Cloud Functions       |
+  |                                                    |                                                         | network access by source IP    |
+  |                                                    |                                                         | addresses and VPC network IDs  |
+  | serverless.functions.restrictResourceVPCNetwork    | serverless-functions-restrict-resource-vpc-network      | Restrict Cloud Functions       |
+  |                                                    |                                                         | resource VPC network by        |
+  |                                                    |                                                         | allowed VPC network IDs        |
+  | serverless.mcpGateways.restrictNetworkAccess       | serverless-mcp-gateways-restrict-network-access         | Restrict MCP Gateways network  |
+  |                                                    |                                                         | access by source IP addresses  |
+  |                                                    |                                                         | and VPC network IDs            |
+  | serverless.mcpGateways.restrictResourceVPCNetwork  | serverless-mcp-gateways-restrict-resource-vpc-network   | Restrict MCP Gateways resource |
+  |                                                    |                                                         | VPC network by allowed VPC     |
+  |                                                    |                                                         | network IDs                    |
+  | serverless.responses.restrictNetworkAccess         | serverless-responses-restrict-network-access            | Restrict Foundation Models     |
+  |                                                    |                                                         | Responses network access by    |
+  |                                                    |                                                         | source IP addresses and VPC    |
+  |                                                    |                                                         | network IDs                    |
+  | serverless.workflows.restrictNetworkAccess         | serverless-workflows-restrict-network-access            | Restrict Serverless Workflows  |
+  |                                                    |                                                         | network access by source IP    |
+  |                                                    |                                                         | addresses and VPC network IDs  |
+  | serverless.workflows.restrictResourceVPCNetwork    | serverless-workflows-restrict-resource-vpc-network      | Restrict Serverless Workflows  |
+  |                                                    |                                                         | resource VPC network by        |
+  |                                                    |                                                         | allowed VPC network IDs        |
   +----------------------------------------------------+---------------------------------------------------------+--------------------------------+
   ```
 

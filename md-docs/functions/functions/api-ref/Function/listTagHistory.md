@@ -15,7 +15,6 @@ GET https://serverless-functions.api.cloud.yandex.net/functions/v1/functions/{fu
 || functionId | **string**
 
 Required field. ID of the function to retrieve tag history for.
-
 To get a function ID, make a [FunctionService.List](list.md#List) request. ||
 |#
 
@@ -45,7 +44,6 @@ The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-
 The expression must specify:
 1. The field name. Currently filtering can only be applied to the [FunctionTagHistoryRecord.effectiveFrom](#yandex.cloud.serverless.functions.v1.ListFunctionTagHistoryResponse.FunctionTagHistoryRecord) and [FunctionTagHistoryRecord.effectiveTo](#yandex.cloud.serverless.functions.v1.ListFunctionTagHistoryResponse.FunctionTagHistoryRecord) fields.
 2. An `=` or `>` or `<` operator.
@@ -84,7 +82,6 @@ Set of relevant tag history records. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListFunctionTagHistoryRequest.pageSize](#yandex.cloud.serverless.functions.v1.ListFunctionTagHistoryRequest), use `nextPageToken` as the value
 for the [ListFunctionTagHistoryRequest.pageToken](#yandex.cloud.serverless.functions.v1.ListFunctionTagHistoryRequest) parameter in the next list request.
-
 Each subsequent page will have its own `nextPageToken` to continue paging through the results. ||
 |#
 

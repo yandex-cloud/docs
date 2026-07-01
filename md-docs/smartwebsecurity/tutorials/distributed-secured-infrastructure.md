@@ -74,7 +74,7 @@
 * плата за постоянно работающие ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
 * плата за использование Application Load Balancer ([тарифы Yandex Application Load Balancer](../../application-load-balancer/pricing.md));
 * плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
-* плата за количество запросов в сервис Smart Web Security ([тарифы Yandex Smart Web Security](../pricing.md)).
+* плата за количество запросов в сервис Smart Web Security ([тарифы Yandex Smart Web Security](../../smartwebsecurity/pricing.md)).
 
 
 ## Создайте каталог безопасности {#create-alb-folder}
@@ -360,7 +360,7 @@
       1. Выберите вариант:
 
           * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-          * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+          * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
           * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
 
       1. Нажмите **Добавить**.

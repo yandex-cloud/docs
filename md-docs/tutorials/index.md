@@ -370,31 +370,13 @@
 
  - [Высокопроизводительные вычисления (HPC) на прерываемых ВМ](testing/hpc-on-preemptible.md)
 
- - [Нагрузочное тестирование gRPC-сервиса](testing/loadtesting-grpc.md)
-
- - [HTTPS-тест с постоянной нагрузкой с помощью Phantom](testing/loadtesting-https-phantom.md)
-
- - [HTTPS-тест со ступенчатой нагрузкой с помощью Pandora](testing/loadtesting-https-pandora.md)
-
- - [HTTP-тест с нагрузкой по сценарию с помощью Pandora](testing/loadtesting-http-scenario-pandora.md)
-
- - [Нагрузочное тестирование с нескольких агентов](testing/loadtesting-multiply.md)
-
- - [Запуск внешних агентов для нагрузочного тестирования](testing/loadtesting-external-agent.md)
-
- - [Нагрузочный тест с помощью JMeter](testing/loadtesting-jmeter.md)
-
  - [Получение статистики запросов к объектам Object Storage с использованием Query](testing/server-logs-yq.md)
 
  - [Получение количества запросов к объектам Object Storage](testing/server-logs.md)
 
- - [Вызов нагрузочного тестирования из GitLab CI](testing/loadtesting-gitlab-ci.md)
-
  - [Развертывание GitLab Runner на виртуальной машине Compute Cloud](dev/install-gitlab-runner.md)
 
  - [Развертывание воркера SourceCraft на виртуальной машине Compute Cloud](dev/self-hosted-worker-sourcecraft.md)
-
- - [Сравнение результатов нагрузочных тестов](testing/loadtesting-results-compare.md)
 
  - [Миграция нагрузочного тестирования на k6](testing/loadtesting-migration-to-k6.md)
 
@@ -595,8 +577,6 @@
  - [Горизонтальное масштабирование приложения в кластере](container-infrastructure/autoscaling.md)
 
  - [Вертикальное масштабирование приложения в кластере](container-infrastructure/vpa-autoscaling.md)
-
- - [Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием](container-infrastructure/loadtesting-grpc-autoscaling.md)
 
 #### Использование Container Registry
 

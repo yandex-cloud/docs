@@ -43,7 +43,7 @@ L7-балансировщик автоматически проверяет ра
 * Плата за DNS-зону и DNS-запросы ([тарифы Cloud DNS](../../dns/pricing.md)).
 * Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
 * Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Application Load Balancer](../pricing.md)).
+* Плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Application Load Balancer](../../application-load-balancer/pricing.md)).
 * Плата за публичные IP-адреса для узлов кластера и L7-балансировщика ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 * Плата за [использование хранилища](../../container-registry/pricing.md) Container Registry.
 
@@ -150,7 +150,7 @@ L7-балансировщик автоматически проверяет ра
    Если для кластера не предоставлен публичный адрес и `kubectl` настроен через внутренний адрес кластера, выполняйте команды `kubectl` на ВМ Yandex Cloud, находящейся в одной сети с кластером.
 
 1. [Установите Docker](https://docs.docker.com/get-docker/).
-1. [Аутентифицируйтесь в Yandex Container Registry](../../container-registry/operations/authentication.md#cred-helper) с помощью Docker Credential helper.
+1. [Аутентифицируйтесь в Yandex Container Registry](../../container-registry/operations/authentication.md#cred-helper) с помощью Docker credential helper.
 
 ## Создайте Docker-образ {#docker-image}
 
@@ -195,7 +195,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
    Если не получается загрузить образ, выполните следующие действия:
 
-   * Убедитесь, что вы [аутентифицировались в Container Registry](../../container-registry/operations/authentication.md#cred-helper) с помощью Docker Credential helper.
+   * Убедитесь, что вы [аутентифицировались в Container Registry](../../container-registry/operations/authentication.md#cred-helper) с помощью Docker credential helper.
    * [Настройте доступ к реестру](../../container-registry/operations/registry/registry-access.md) — предоставьте разрешение PUSH на загрузку Docker-образов для IP-адреса вашего компьютера.
 
 ## Разверните тестовое приложение {#test-app}

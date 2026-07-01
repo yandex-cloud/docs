@@ -15,6 +15,7 @@ Actions are performed by making RPC calls. For more information about API archit
 || [Community](Community/index.md) | A set of methods for managing Community resources. ||
 || [Dataset](Dataset/index.md) | A set of methods for managing Datasets. ||
 || [DockerImage](DockerImage/index.md) | A set of methods for managing Docker Images. ||
+|| [DockerImageV2](DockerImageV2/index.md) | A set of methods for managing Docker Images v2. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [Project](Project/index.md) | A set of methods for managing Project resources. ||
 || [S3](S3/index.md) | A set of methods for managing S3 configurations. ||

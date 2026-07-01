@@ -193,12 +193,6 @@ description: В данном разделе приведены описания 
 
 {% include [kms-events](../../_includes/audit-trails/events/kms-events.md) %}
 
-## {{ load-testing-full-name }} {#loadtesting}
-
-Имя сервиса — `loadtesting`.
-
-{% include [load-testing-events](../../_includes/audit-trails/events/load-testing-events.md) %}
-
 ## {{ lockbox-full-name }} {#lockbox}
 
 Имя сервиса — `lockbox`.

@@ -104,10 +104,6 @@ TCP/IP используется в мировом интернете и корп
     
     Подробнее в [документации Cloud Interconnect](../interconnect/index.md)
   
-  * [Yandex Load Testing](https://yandex.cloud/ru/services/load-testing) — сервис для проведения нагрузочного тестирования и анализа производительности.
-
-    Подробнее в [документации Load Testing](../load-testing/index.md)
-
   * [Yandex Network Load Balancer](https://yandex.cloud/ru/services/network-load-balancer) — сервис, который распределяет сетевую нагрузку по облачным ресурсам, обеспечивая отказоустойчивость сайтов и приложений.
 
     Подробнее в [документации Network Load Balancer](../network-load-balancer/index.md)

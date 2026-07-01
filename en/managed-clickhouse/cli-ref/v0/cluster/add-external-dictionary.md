@@ -102,6 +102,18 @@ Initial dictionary key size. Applicable only for flat layout type. ||
 
 Maximum dictionary key size. Applicable only for flat layout type. ||
 || `--layout-access-to-key-from-attributes` | Allows to retrieve key attribute using dictGetString function. Applicable only for ip_trie layout type. ||
+|| `--layout-block-size` | `int`
+
+Elementary read block size in bytes. Applicable only for ssd_cache and complex_key_ssd_cache layout types. ||
+|| `--layout-file-size` | `int`
+
+Maximum cache file size in bytes. Applicable only for ssd_cache and complex_key_ssd_cache layout types. ||
+|| `--layout-read-buffer-size` | `int`
+
+RAM buffer size for reading from SSD in bytes. Applicable only for ssd_cache and complex_key_ssd_cache layout types. ||
+|| `--layout-write-buffer-size` | `int`
+
+RAM buffer size for writing to SSD in bytes. Applicable only for ssd_cache and complex_key_ssd_cache layout types. ||
 || `--http-source-url` | `string`
 
 URL of the source for the external HTTP dictionary. ||

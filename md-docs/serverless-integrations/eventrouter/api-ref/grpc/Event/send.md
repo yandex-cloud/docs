@@ -26,7 +26,7 @@ Required field. ID of the connector to send events. ||
 
 Batch of events bodies.
 
-The number of elements must be in the range 1-100. The maximum string length in characters for each value is 262144. ||
+The maximum string length in characters for each value is 262144. The number of elements must be in the range 1-100. ||
 |#
 
 ## google.protobuf.Empty {#google.protobuf.Empty}

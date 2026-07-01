@@ -16,8 +16,8 @@
 В стоимость поддержки описываемого решения входят:
 
 * Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../../compute/pricing.md)).
-* Плата за публичные IP-адреса, если они назначены узлам кластера ([тарифы Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за публичные IP-адреса, если они назначены узлам кластера ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 * Плата за [использование хранилища](../../../container-registry/pricing.md) Container Registry.
 
 
@@ -170,7 +170,7 @@
 
      {% note info %}
 
-     Чтобы не использовать Credential helper при аутентификации, удалите в конфигурационном файле `${HOME}/.docker/config.json` из блока `credHelpers` строку домена `cr.yandex`.
+     Чтобы не использовать credential helper при аутентификации, удалите в конфигурационном файле `${HOME}/.docker/config.json` из блока `credHelpers` строку домена `cr.yandex`.
 
      {% endnote %}
 

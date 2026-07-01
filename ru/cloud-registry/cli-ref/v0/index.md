@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/v0/
 
 # yc cloud-registry v0
 
-[PREVIEW] Manage CloudRegistry resources
+Manage CloudRegistry resources
 
 #### Command Usage
 
@@ -19,7 +19,7 @@ Syntax:
 
 - [yc cloud-registry v0 tools](tools.md) — Tools for specific artifact kinds
 
-- [yc cloud-registry v0 artifact](artifact/index.md) — [PREVIEW] Manage artifacts
+- [yc cloud-registry v0 artifact](artifact/index.md) — Manage artifacts
 
   - [yc cloud-registry v0 artifact add-access-binding](artifact/add-access-binding.md) — Add access binding for the specified artifact
 
@@ -35,7 +35,9 @@ Syntax:
 
   - [yc cloud-registry v0 artifact set-access-bindings](artifact/set-access-bindings.md) — Set access bindings for the specified artifact and remove existing ones
 
-- [yc cloud-registry v0 registry](registry/index.md) — [PREVIEW] Manage registries
+  - [yc cloud-registry v0 artifact upsert](artifact/upsert.md) — Upserts a folder at the specified path within the registry
+
+- [yc cloud-registry v0 registry](registry/index.md) — Manage registries
 
   - [yc cloud-registry v0 registry add-access-binding](registry/add-access-binding.md) — Add access binding for the specified registry
 

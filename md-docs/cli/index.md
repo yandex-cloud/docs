@@ -712,6 +712,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [power-on](cli-ref/baremetal/cli-ref/server/power-on.md)
 
+ - [prolongate-ended-rent](cli-ref/baremetal/cli-ref/server/prolongate-ended-rent.md)
+
  - [reboot](cli-ref/baremetal/cli-ref/server/reboot.md)
 
  - [reinstall](cli-ref/baremetal/cli-ref/server/reinstall.md)
@@ -1042,6 +1044,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [power-on](cli-ref/baremetal/cli-ref/v1alpha/server/power-on.md)
 
+ - [prolongate-ended-rent](cli-ref/baremetal/cli-ref/v1alpha/server/prolongate-ended-rent.md)
+
  - [reboot](cli-ref/baremetal/cli-ref/v1alpha/server/reboot.md)
 
  - [reinstall](cli-ref/baremetal/cli-ref/v1alpha/server/reinstall.md)
@@ -1187,6 +1191,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [reboot](cli-ref/baremetal/cli-ref/v2/server/reboot.md)
 
  - [reinstall](cli-ref/baremetal/cli-ref/v2/server/reinstall.md)
+
+ - [renew-rental](cli-ref/baremetal/cli-ref/v2/server/renew-rental.md)
 
  - [update](cli-ref/baremetal/cli-ref/v2/server/update.md)
 
@@ -1708,6 +1714,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [set-access-bindings](cli-ref/cloud-registry/cli-ref/artifact/set-access-bindings.md)
 
+ - [upsert](cli-ref/cloud-registry/cli-ref/artifact/upsert.md)
+
  - [configure-docker](cli-ref/cloud-registry/cli-ref/configure-docker.md)
 
 #### registry
@@ -1786,6 +1794,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [set-access-bindings](cli-ref/cloud-registry/cli-ref/v0/artifact/set-access-bindings.md)
 
+ - [upsert](cli-ref/cloud-registry/cli-ref/v0/artifact/upsert.md)
+
  - [configure-docker](cli-ref/cloud-registry/cli-ref/v0/configure-docker.md)
 
 ##### registry
@@ -1841,6 +1851,88 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [update](cli-ref/cloud-registry/cli-ref/v0/registry/update.md)
 
  - [tools](cli-ref/cloud-registry/cli-ref/v0/tools.md)
+
+#### v1
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/v1/index.md)
+
+##### artifact
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/v1/artifact/index.md)
+
+ - [add-access-binding](cli-ref/cloud-registry/cli-ref/v1/artifact/add-access-binding.md)
+
+ - [delete](cli-ref/cloud-registry/cli-ref/v1/artifact/delete.md)
+
+ - [get](cli-ref/cloud-registry/cli-ref/v1/artifact/get.md)
+
+ - [get-by-path](cli-ref/cloud-registry/cli-ref/v1/artifact/get-by-path.md)
+
+ - [list-access-bindings](cli-ref/cloud-registry/cli-ref/v1/artifact/list-access-bindings.md)
+
+ - [remove-access-binding](cli-ref/cloud-registry/cli-ref/v1/artifact/remove-access-binding.md)
+
+ - [set-access-bindings](cli-ref/cloud-registry/cli-ref/v1/artifact/set-access-bindings.md)
+
+ - [update-access-bindings](cli-ref/cloud-registry/cli-ref/v1/artifact/update-access-bindings.md)
+
+ - [upsert](cli-ref/cloud-registry/cli-ref/v1/artifact/upsert.md)
+
+ - [configure-docker](cli-ref/cloud-registry/cli-ref/v1/configure-docker.md)
+
+##### registry
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/v1/registry/index.md)
+
+ - [add-access-binding](cli-ref/cloud-registry/cli-ref/v1/registry/add-access-binding.md)
+
+ - [add-ip-permissions](cli-ref/cloud-registry/cli-ref/v1/registry/add-ip-permissions.md)
+
+ - [create](cli-ref/cloud-registry/cli-ref/v1/registry/create.md)
+
+ - [delete](cli-ref/cloud-registry/cli-ref/v1/registry/delete.md)
+
+ - [force-delete](cli-ref/cloud-registry/cli-ref/v1/registry/force-delete.md)
+
+ - [get](cli-ref/cloud-registry/cli-ref/v1/registry/get.md)
+
+###### lifecycle-policy
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/index.md)
+
+ - [change-state](cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/change-state.md)
+
+ - [create](cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/create.md)
+
+ - [delete](cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/delete.md)
+
+ - [dry-run](cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/dry-run.md)
+
+ - [get](cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/get.md)
+
+ - [list](cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/list.md)
+
+ - [update](cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/update.md)
+
+ - [list](cli-ref/cloud-registry/cli-ref/v1/registry/list.md)
+
+ - [list-access-bindings](cli-ref/cloud-registry/cli-ref/v1/registry/list-access-bindings.md)
+
+ - [list-artifacts](cli-ref/cloud-registry/cli-ref/v1/registry/list-artifacts.md)
+
+ - [list-ip-permissions](cli-ref/cloud-registry/cli-ref/v1/registry/list-ip-permissions.md)
+
+ - [remove-access-binding](cli-ref/cloud-registry/cli-ref/v1/registry/remove-access-binding.md)
+
+ - [remove-ip-permissions](cli-ref/cloud-registry/cli-ref/v1/registry/remove-ip-permissions.md)
+
+ - [set-access-bindings](cli-ref/cloud-registry/cli-ref/v1/registry/set-access-bindings.md)
+
+ - [set-ip-permissions](cli-ref/cloud-registry/cli-ref/v1/registry/set-ip-permissions.md)
+
+ - [update](cli-ref/cloud-registry/cli-ref/v1/registry/update.md)
+
+ - [tools](cli-ref/cloud-registry/cli-ref/v1/tools.md)
 
 ### cloudrouter
 
@@ -5074,98 +5166,6 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/load-balancer/cli-ref/v0/target-group/update.md)
 
-### loadtesting
-
- - [Overview](cli-ref/loadtesting/cli-ref/index.md)
-
-#### agent
-
- - [Overview](cli-ref/loadtesting/cli-ref/agent/index.md)
-
- - [create](cli-ref/loadtesting/cli-ref/agent/create.md)
-
- - [delete](cli-ref/loadtesting/cli-ref/agent/delete.md)
-
- - [get](cli-ref/loadtesting/cli-ref/agent/get.md)
-
- - [list](cli-ref/loadtesting/cli-ref/agent/list.md)
-
-#### test
-
- - [Overview](cli-ref/loadtesting/cli-ref/test/index.md)
-
- - [check-regression](cli-ref/loadtesting/cli-ref/test/check-regression.md)
-
- - [create](cli-ref/loadtesting/cli-ref/test/create.md)
-
- - [delete](cli-ref/loadtesting/cli-ref/test/delete.md)
-
- - [get](cli-ref/loadtesting/cli-ref/test/get.md)
-
- - [get-report-table](cli-ref/loadtesting/cli-ref/test/get-report-table.md)
-
- - [list](cli-ref/loadtesting/cli-ref/test/list.md)
-
- - [stop](cli-ref/loadtesting/cli-ref/test/stop.md)
-
- - [wait](cli-ref/loadtesting/cli-ref/test/wait.md)
-
-#### test-config
-
- - [Overview](cli-ref/loadtesting/cli-ref/test-config/index.md)
-
- - [create](cli-ref/loadtesting/cli-ref/test-config/create.md)
-
- - [get](cli-ref/loadtesting/cli-ref/test-config/get.md)
-
- - [list](cli-ref/loadtesting/cli-ref/test-config/list.md)
-
-#### v0
-
- - [Overview](cli-ref/loadtesting/cli-ref/v0/index.md)
-
-##### agent
-
- - [Overview](cli-ref/loadtesting/cli-ref/v0/agent/index.md)
-
- - [create](cli-ref/loadtesting/cli-ref/v0/agent/create.md)
-
- - [delete](cli-ref/loadtesting/cli-ref/v0/agent/delete.md)
-
- - [get](cli-ref/loadtesting/cli-ref/v0/agent/get.md)
-
- - [list](cli-ref/loadtesting/cli-ref/v0/agent/list.md)
-
-##### test
-
- - [Overview](cli-ref/loadtesting/cli-ref/v0/test/index.md)
-
- - [check-regression](cli-ref/loadtesting/cli-ref/v0/test/check-regression.md)
-
- - [create](cli-ref/loadtesting/cli-ref/v0/test/create.md)
-
- - [delete](cli-ref/loadtesting/cli-ref/v0/test/delete.md)
-
- - [get](cli-ref/loadtesting/cli-ref/v0/test/get.md)
-
- - [get-report-table](cli-ref/loadtesting/cli-ref/v0/test/get-report-table.md)
-
- - [list](cli-ref/loadtesting/cli-ref/v0/test/list.md)
-
- - [stop](cli-ref/loadtesting/cli-ref/v0/test/stop.md)
-
- - [wait](cli-ref/loadtesting/cli-ref/v0/test/wait.md)
-
-##### test-config
-
- - [Overview](cli-ref/loadtesting/cli-ref/v0/test-config/index.md)
-
- - [create](cli-ref/loadtesting/cli-ref/v0/test-config/create.md)
-
- - [get](cli-ref/loadtesting/cli-ref/v0/test-config/get.md)
-
- - [list](cli-ref/loadtesting/cli-ref/v0/test-config/list.md)
-
 ### lockbox
 
  - [Overview](cli-ref/lockbox/cli-ref/index.md)
@@ -5534,6 +5534,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update-external-dictionary](cli-ref/managed-clickhouse/cli-ref/cluster/update-external-dictionary.md)
 
+ - [connect](cli-ref/managed-clickhouse/cli-ref/connect.md)
+
 #### database
 
  - [Overview](cli-ref/managed-clickhouse/cli-ref/database/index.md)
@@ -5749,6 +5751,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [update-extension](cli-ref/managed-clickhouse/cli-ref/v0/cluster/update-extension.md)
 
  - [update-external-dictionary](cli-ref/managed-clickhouse/cli-ref/v0/cluster/update-external-dictionary.md)
+
+ - [connect](cli-ref/managed-clickhouse/cli-ref/v0/connect.md)
 
 ##### database
 
@@ -7050,6 +7054,18 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/managed-mysql/cli-ref/backup/list.md)
 
+#### backup-retention-policy
+
+ - [Overview](cli-ref/managed-mysql/cli-ref/backup-retention-policy/index.md)
+
+ - [create](cli-ref/managed-mysql/cli-ref/backup-retention-policy/create.md)
+
+ - [delete](cli-ref/managed-mysql/cli-ref/backup-retention-policy/delete.md)
+
+ - [list](cli-ref/managed-mysql/cli-ref/backup-retention-policy/list.md)
+
+ - [list-by-folder](cli-ref/managed-mysql/cli-ref/backup-retention-policy/list-by-folder.md)
+
 #### cluster
 
  - [Overview](cli-ref/managed-mysql/cli-ref/cluster/index.md)
@@ -7163,6 +7179,18 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [get](cli-ref/managed-mysql/cli-ref/v0/backup/get.md)
 
  - [list](cli-ref/managed-mysql/cli-ref/v0/backup/list.md)
+
+##### backup-retention-policy
+
+ - [Overview](cli-ref/managed-mysql/cli-ref/v0/backup-retention-policy/index.md)
+
+ - [create](cli-ref/managed-mysql/cli-ref/v0/backup-retention-policy/create.md)
+
+ - [delete](cli-ref/managed-mysql/cli-ref/v0/backup-retention-policy/delete.md)
+
+ - [list](cli-ref/managed-mysql/cli-ref/v0/backup-retention-policy/list.md)
+
+ - [list-by-folder](cli-ref/managed-mysql/cli-ref/v0/backup-retention-policy/list-by-folder.md)
 
 ##### cluster
 
@@ -10592,6 +10620,42 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [Overview](cli-ref/smartwebsecurity/cli-ref/index.md)
 
+#### advanced-rate-limiter
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/advanced-rate-limiter/index.md)
+
+##### advanced-rate-limiter-profile
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/index.md)
+
+ - [create](cli-ref/smartwebsecurity/cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/create.md)
+
+ - [delete](cli-ref/smartwebsecurity/cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/delete.md)
+
+ - [get](cli-ref/smartwebsecurity/cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/get.md)
+
+ - [list](cli-ref/smartwebsecurity/cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/list.md)
+
+ - [update](cli-ref/smartwebsecurity/cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/update.md)
+
+#### match-list
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/match-list/index.md)
+
+##### match-list
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/match-list/match-list/index.md)
+
+ - [create](cli-ref/smartwebsecurity/cli-ref/match-list/match-list/create.md)
+
+ - [delete](cli-ref/smartwebsecurity/cli-ref/match-list/match-list/delete.md)
+
+ - [get](cli-ref/smartwebsecurity/cli-ref/match-list/match-list/get.md)
+
+ - [list](cli-ref/smartwebsecurity/cli-ref/match-list/match-list/list.md)
+
+ - [update](cli-ref/smartwebsecurity/cli-ref/match-list/match-list/update.md)
+
 #### security-profile
 
  - [Overview](cli-ref/smartwebsecurity/cli-ref/security-profile/index.md)
@@ -10628,6 +10692,42 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/index.md)
 
+##### advanced-rate-limiter
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/index.md)
+
+###### advanced-rate-limiter-profile
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/index.md)
+
+ - [create](cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/create.md)
+
+ - [delete](cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/delete.md)
+
+ - [get](cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/get.md)
+
+ - [list](cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/list.md)
+
+ - [update](cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/update.md)
+
+##### match-list
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/match-list/index.md)
+
+###### match-list
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/index.md)
+
+ - [create](cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/create.md)
+
+ - [delete](cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/delete.md)
+
+ - [get](cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/get.md)
+
+ - [list](cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/list.md)
+
+ - [update](cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/update.md)
+
 ##### security-profile
 
  - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/security-profile/index.md)
@@ -10646,6 +10746,12 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/waf/index.md)
 
+###### rule-set-descriptor
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/waf/rule-set-descriptor/index.md)
+
+ - [get](cli-ref/smartwebsecurity/cli-ref/v1/waf/rule-set-descriptor/get.md)
+
 ###### waf-profile
 
  - [Overview](cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/index.md)
@@ -10663,6 +10769,12 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 #### waf
 
  - [Overview](cli-ref/smartwebsecurity/cli-ref/waf/index.md)
+
+##### rule-set-descriptor
+
+ - [Overview](cli-ref/smartwebsecurity/cli-ref/waf/rule-set-descriptor/index.md)
+
+ - [get](cli-ref/smartwebsecurity/cli-ref/waf/rule-set-descriptor/get.md)
 
 ##### waf-profile
 

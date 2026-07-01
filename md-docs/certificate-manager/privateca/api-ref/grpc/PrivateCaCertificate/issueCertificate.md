@@ -388,23 +388,10 @@ The maximum string length in characters is 1000. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "certificate_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "certificate_authority_id": "string",
-    "name": "string",
-    "description": "string",
-    "issued_at": "google.protobuf.Timestamp",
-    "not_after": "google.protobuf.Timestamp",
-    "not_before": "google.protobuf.Timestamp",
-    "deletion_protection": "bool",
-    "created_at": "google.protobuf.Timestamp",
-    "updated_at": "google.protobuf.Timestamp"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -432,7 +419,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[IssueCertificateMetadata](#yandex.cloud.certificatemanager.v1.privateca.IssueCertificateMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -447,7 +434,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[PrivateCertificate](#yandex.cloud.certificatemanager.v1.privateca.PrivateCertificate)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -462,53 +449,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## IssueCertificateMetadata {#yandex.cloud.certificatemanager.v1.privateca.IssueCertificateMetadata}
-
-Metadata for the `IssueCertificate` operation, tracking the ID of the new certificate.
-
-#|
-||Field | Description ||
-|| certificate_id | **string**
-
-The ID of the certificate that was issued. ||
-|#
-
-## PrivateCertificate {#yandex.cloud.certificatemanager.v1.privateca.PrivateCertificate}
-
-A private certificate issued by a private certificate authority.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the private certificate. ||
-|| certificate_authority_id | **string**
-
-ID of the certificate authority that issued the private certificate. ||
-|| name | **string**
-
-Name of the private certificate. ||
-|| description | **string**
-
-Description of the private certificate. ||
-|| issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time when the private certificate was issued. ||
-|| not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time after which the private certificate is not valid. ||
-|| not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time before which the private certificate is not valid. ||
-|| deletion_protection | **bool**
-
-Flag that protects deletion of the private certificate. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time when the private certificate was created. ||
-|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time when the private certificate was updated. ||
 |#

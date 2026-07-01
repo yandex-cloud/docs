@@ -26,15 +26,21 @@ Required field. ID of the broker to list operations for. ||
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a [ListBrokerOperationsResponse.nextPageToken](#yandex.cloud.iot.broker.v1.ListBrokerOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListBrokerOperationsResponse.nextPageToken](#yandex.cloud.iot.broker.v1.ListBrokerOperationsResponse) returned by a previous list request. ||
+[ListBrokerOperationsResponse.nextPageToken](#yandex.cloud.iot.broker.v1.ListBrokerOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-Currently you can use filtering only on [Broker.name](get.md#yandex.cloud.iot.broker.v1.Broker) field. ||
+Currently you can use filtering only on [Broker.name](get.md#yandex.cloud.iot.broker.v1.Broker) field.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.iot.broker.v1.ListBrokerOperationsResponse}
@@ -78,7 +84,6 @@ List of operations for the specified broker. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListBrokerOperationsRequest.pageSize](#yandex.cloud.iot.broker.v1.ListBrokerOperationsRequest), use `next_page_token` as the value
 for the [ListBrokerOperationsRequest.pageToken](#yandex.cloud.iot.broker.v1.ListBrokerOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

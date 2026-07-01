@@ -89,7 +89,7 @@ Required field. Resources for mongocfg hosts. ||
 || resource_preset_id | **string**
 
 ID of the preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](../../../../managed-mongodb/concepts/instance-types). ||
+All available presets are listed in the [documentation](../../../concepts/instance-types.md). ||
 || disk_size | **int64**
 
 Volume of the storage available to a host, in bytes. ||
@@ -125,7 +125,7 @@ The maximum string length in characters is 50. ||
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The network ID is set in the [Cluster.network_id](../../../../managed-mongodb/api-ref/grpc/Cluster/get#yandex.cloud.mdb.mongodb.v1.Cluster) field.
+The network ID is set in the [Cluster.network_id](get.md#yandex.cloud.mdb.mongodb.v1.Cluster) field.
 
 The maximum string length in characters is 50. ||
 || assign_public_ip | **bool**

@@ -36,7 +36,7 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Правила тарификации для DataSphere](../../pricing.md)
+* [{#T}](../../pricing.md)
 * [Сообщества в DataSphere](../../concepts/community.md)
 * [Платежный аккаунт](../../../billing/concepts/billing-account.md)
 * [Статусы платежного аккаунта](../../../billing/concepts/billing-account-statuses.md)

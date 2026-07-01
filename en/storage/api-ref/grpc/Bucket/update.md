@@ -107,12 +107,14 @@ to update a bucket, subject to its [policy](/docs/storage/concepts/policy).
         "days_after_expiration": "google.protobuf.Int64Value"
       },
       "noncurrent_expiration": {
-        "noncurrent_days": "google.protobuf.Int64Value"
+        "noncurrent_days": "google.protobuf.Int64Value",
+        "newer_noncurrent_versions": "google.protobuf.Int64Value"
       },
       "noncurrent_transitions": [
         {
           "noncurrent_days": "google.protobuf.Int64Value",
-          "storage_class": "string"
+          "storage_class": "string",
+          "newer_noncurrent_versions": "google.protobuf.Int64Value"
         }
       ],
       "noncurrent_delete_markers": {
@@ -586,6 +588,10 @@ aborted. ||
 
 Time period, in number of days since the version of an object was classified as non-current, after which the
 version expires. ||
+|| newer_noncurrent_versions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Specifies how many noncurrent versions S3 will retain.
+S3 will permanently delete any additional noncurrent versions beyond this specified number. ||
 |#
 
 ## NoncurrentTransition {#yandex.cloud.storage.v1.LifecycleRule.NoncurrentTransition}
@@ -605,6 +611,10 @@ version is transitioned. ||
 Required field. Storage class to which a non-current version of an object is transitioned from standard storage.
 The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
 to standard storage and transitions to or from ice storage are not allowed. ||
+|| newer_noncurrent_versions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Specifies how many noncurrent versions S3 will retain.
+S3 will permanently delete any additional noncurrent versions beyond this specified number. ||
 |#
 
 ## NoncurrentDeleteMarkers {#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers}
@@ -675,7 +685,7 @@ Maps to using `uri="http://acs.amazonaws.com/groups/global/AllUsers"` value for 
 
 ID of the account who is a grantee. Required when the `grant_type` is `GRANT_TYPE_ACCOUNT`.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 100. ||
 |#
 
 ## ObjectLock {#yandex.cloud.storage.v1.ObjectLock}

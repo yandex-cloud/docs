@@ -15,7 +15,6 @@ GET https://serverless-functions.api.cloud.yandex.net/functions/v1/functions/{fu
 || functionId | **string**
 
 Required field. ID of the function to retrieve scaling policies for.
-
 To get a function ID, make a [FunctionService.List](list.md#List) request. ||
 |#
 
@@ -28,7 +27,6 @@ To get a function ID, make a [FunctionService.List](list.md#List) request. ||
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `pageSize`, the service returns a [ListScalingPoliciesResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListScalingPoliciesResponse)
 that can be used to get the next page of results in subsequent list requests.
-
 Default value: 100.
 
 Acceptable values are 0 to 1000, inclusive. ||
@@ -71,7 +69,6 @@ Set of relevant scaling policies. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListScalingPoliciesRequest.pageSize](#yandex.cloud.serverless.functions.v1.ListScalingPoliciesRequest), use `nextPageToken` as the value
 for the [ListScalingPoliciesRequest.pageToken](#yandex.cloud.serverless.functions.v1.ListScalingPoliciesRequest) parameter in the next list request.
-
 Each subsequent page will have its own `nextPageToken` to continue paging through the results. ||
 |#
 

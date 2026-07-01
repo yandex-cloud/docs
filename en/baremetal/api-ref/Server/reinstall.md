@@ -221,7 +221,7 @@ apiPlayground:
 
 # BareMetal API, REST: Server.Reinstall
 
-(-- api-linter: yc::1702::method-verb-prefix=disabled
+
 Required for backward compatibility with old clients. --)
 Reinstalls the specified server.
 

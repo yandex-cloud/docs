@@ -33,7 +33,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость инфраструктуры для защиты от DDoS входит плата за запросы, обработанные правилами [профиля безопасности](../concepts/profiles.md) ([тарифы Yandex Smart Web Security](../pricing.md)).
+В стоимость инфраструктуры для защиты от DDoS входит плата за запросы, обработанные правилами [профиля безопасности](../concepts/profiles.md) ([тарифы Yandex Smart Web Security](../../../smartwebsecurity/pricing.md)).
 
 ## Создайте профиль безопасности {#setup-security-profile}
 

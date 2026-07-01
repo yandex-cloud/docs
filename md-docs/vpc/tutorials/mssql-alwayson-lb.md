@@ -43,7 +43,7 @@
 
 * плата за постоянно запущенную виртуальную машину ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
 * плата за использование сетевого балансировщика ([тарифы Yandex Network Load Balancer](../../network-load-balancer/pricing.md));
-* плата за использование динамического или статического публичного IP-адреса ([тарифы Yandex Virtual Private Cloud](../pricing.md)).
+* плата за использование динамического или статического публичного IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 Вы можете воспользоваться [перемещением лицензий](../../compute/qa/licensing.md) и использовать собственную лицензию SQL Server в Yandex Cloud.
 

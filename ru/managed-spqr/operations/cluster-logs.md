@@ -60,6 +60,8 @@
         * {% include [logs since time](../../_includes/cli/logs/since.md) %}
         * {% include [logs until time](../../_includes/cli/logs/until.md) %}
 
+        {% include [cluster-name-id](../../_includes/managed-spqr/cluster-name-id.md) %}
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -84,6 +86,7 @@
 
      Где:
 
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
      * `serviceType` — тип сервиса, логи которого нужно получить:
 
        * `INFRA` — операции хостов `INFRA`, объединяющие роли роутера и координатора;
@@ -135,6 +138,7 @@
 
      Где:
 
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
      * `service_type` — тип сервиса, логи которого нужно получить:
 
        * `INFRA` — операции хостов `INFRA`, объединяющие роли роутера и координатора;
@@ -179,6 +183,8 @@
 
     Где `--service-type` — тип сервиса, логи которого нужно получить (`infra`, `router` или `coordinator`).
 
+    {% include [cluster-name-id](../../_includes/managed-spqr/cluster-name-id.md) %}
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -201,6 +207,7 @@
 
      Где:
 
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
      * `serviceType` — тип сервиса, логи которого нужно получить:
 
        * `INFRA` — операции хостов `INFRA`, объединяющие роли роутера и координатора;
@@ -249,6 +256,7 @@
 
      Где:
 
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
      * `service_type` — тип сервиса, логи которого нужно получить:
 
        * `INFRA` — операции хостов `INFRA`, объединяющие роли роутера и координатора;

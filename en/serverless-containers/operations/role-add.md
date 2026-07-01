@@ -1,15 +1,15 @@
 ---
-title: Assigning roles to a container
-description: Follow this guide to assign roles to a container.
+title: Assigning roles for a container
+description: Follow this guide to assign roles for a container.
 ---
 
-# Assigning roles to a container
+# Assigning roles for a container
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-  To assign a [role](../security/index.md) to a container, run this command:
+  Run this command to assign a [role](../security/index.md) for a container:
 
     * To a user:
         ```
@@ -22,7 +22,7 @@ description: Follow this guide to assign roles to a container.
         ```
         done (1s)
         ```
-    * [To a service account](../../iam/concepts/users/service-accounts.md):
+    * To a [service account](../../iam/concepts/users/service-accounts.md):
         ```
         yc serverless container add-access-binding \
           --name <container_name> \

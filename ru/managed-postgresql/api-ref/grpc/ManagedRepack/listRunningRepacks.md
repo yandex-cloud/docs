@@ -5,7 +5,7 @@ editable: false
 # Managed Service for PostgreSQL API, gRPC: ManagedRepackService.ListRunningRepacks
 
 Lists currently running in given cluster Repacks
-(-- api-linter: yc::1702::method-verb-prefix=disabled --)
+
 
 ## gRPC request
 

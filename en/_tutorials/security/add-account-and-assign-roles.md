@@ -57,7 +57,7 @@ To create an organization, follow these steps:
 
       To avoid tampering with the infrastructure in existing organizations, create a new organization:
 
-      1. In the top-left corner, next to the organization name, click ![chevron-down](../../_assets/console-icons/chevron-down.svg) and select ![circle-plus](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_components.organization.action.create-organization }}**.
+      1. In the top-left corner, next to the organization name, click ![chevron-down](../../_assets/console-icons/chevron-down.svg) and select ![circle-plus](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.center-layout.OrganizationSelect.action_create-organization_j1Yin }}**.
       1. In the window that opens, enter a name for the organization: `Example organization`.
       1. Click **{{ ui-key.yacloud_components.organization.action.create }}**.
 
@@ -93,7 +93,7 @@ For the user to access {{ yandex-cloud }} resources, invite them to the organiza
     1. Enter the user's email.
 
         {% include [send-invitation](../../_includes/organization/send-invitation.md) %}
-    1. Click **{{ ui-key.yacloud_components.organization.action_send-invitation }}**.
+    1. Click **{{ ui-key.yacloud_components.organization.action_send-invitation_6LqIj }}**.
 
 {% endlist %}
 
@@ -186,7 +186,7 @@ Make sure you have access to `test-folder`. Once you open the folder, create a V
   1. Go to the [management console]({{ link-console-main }}) and click your profile image in the left-hand panel.
   1. Select `Example organization`.
   1. In the left-hand panel, select `test-folder`.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** service.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Select ![image](../../_assets/console-icons/server.svg) **Virtual machines**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}** and set the VM parameters:
 

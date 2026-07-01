@@ -2,7 +2,6 @@
 
 Returns the specified API gateway. Note that only API gateway basic attributes are returned.
 To get associated openapi specification, make a [GetOpenapiSpec](getOpenapiSpec.md#GetOpenapiSpec) request.
-
 To get the list of all available API gateways, make a [List](list.md#List) request.
 
 ## gRPC request
@@ -22,7 +21,6 @@ To get the list of all available API gateways, make a [List](list.md#List) reque
 || api_gateway_id | **string**
 
 Required field. ID of the API gateway to return.
-
 To get a API gateway ID make a [ApiGatewayService.List](list.md#List) request. ||
 |#
 
@@ -184,7 +182,6 @@ Log entries destination. ||
 || min_level | enum **Level**
 
 Minimum log entry level.
-
 See [LogLevel.Level](../../../../../logging/api-ref/grpc/Export/get.md#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.

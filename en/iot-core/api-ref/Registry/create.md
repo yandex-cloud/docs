@@ -13,22 +13,26 @@ apiPlayground:
             **string**
             Required field. ID of the folder to create a registry in.
             To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
             **string**
             Name of the registry. The name must be unique within the folder.
+            The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
         description:
           description: |-
             **string**
             Description of the registry.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
+            The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource.
           type: object
           additionalProperties:
             type: string
@@ -73,15 +77,11 @@ apiPlayground:
       LogOptions:
         type: object
         properties:
-          disabled:
-            description: |-
-              **boolean**
-              Is logging from registry disabled.
-            type: boolean
           logGroupId:
             description: |-
               **string**
               Entry should be written to log group resolved by ID.
+              Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
               Includes only one of the fields `logGroupId`, `folderId`.
               Log entries destination.
             pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
@@ -90,29 +90,33 @@ apiPlayground:
             description: |-
               **string**
               Entry should be written to default log group for specified folder.
+              Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
               Includes only one of the fields `logGroupId`, `folderId`.
               Log entries destination.
             pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
             type: string
+          disabled:
+            description: |-
+              **boolean**
+              Is logging from registry disabled.
+            type: boolean
           minLevel:
             description: |-
               **enum** (Level)
               Minimum log entry level.
-              See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
-              - `LEVEL_UNSPECIFIED`: Default log level.
-                Equivalent to not specifying log level at all.
+              See [LogLevel.Level](/docs/logging/api-ref/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
               - `TRACE`: Trace log level.
-                Possible use case: verbose logging of some business logic.
+              Possible use case: verbose logging of some business logic.
               - `DEBUG`: Debug log level.
-                Possible use case: debugging special cases in application logic.
+              Possible use case: debugging special cases in application logic.
               - `INFO`: Info log level.
-                Mostly used for information messages.
+              Mostly used for information messages.
               - `WARN`: Warn log level.
-                May be used to alert about significant events.
+              May be used to alert about significant events.
               - `ERROR`: Error log level.
-                May be used to alert about errors in infrastructure, logic, etc.
+              May be used to alert about errors in infrastructure, logic, etc.
               - `FATAL`: Fatal log level.
-                May be used to alert about unrecoverable failures and events.
+              May be used to alert about unrecoverable failures and events.
             type: string
             enum:
               - LEVEL_UNSPECIFIED
@@ -154,11 +158,11 @@ POST https://iot-devices.{{ api-host }}/iot-devices/v1/registries
   ],
   "password": "string",
   "logOptions": {
-    "disabled": "boolean",
     // Includes only one of the fields `logGroupId`, `folderId`
     "logGroupId": "string",
     "folderId": "string",
     // end of the list of possible fields
+    "disabled": "boolean",
     "minLevel": "string"
   }
 }
@@ -169,24 +173,30 @@ POST https://iot-devices.{{ api-host }}/iot-devices/v1/registries
 || folderId | **string**
 
 Required field. ID of the folder to create a registry in.
+To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
 
-To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the registry. The name must be unique within the folder. ||
+Name of the registry. The name must be unique within the folder.
+
+The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || description | **string**
 
-Description of the registry. ||
+Description of the registry.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as `key:value` pairs. ||
+Resource labels as `key:value` pairs.
+
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || certificates[] | **[Certificate](#yandex.cloud.iot.devices.v1.CreateRegistryRequest.Certificate)**
 
 Registry certificates. ||
 || password | **string**
 
 Registry passwords.
-
 The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols. ||
 || logOptions | **[LogOptions](#yandex.cloud.iot.devices.v1.LogOptions)**
 
@@ -208,12 +218,11 @@ Public part of the registry certificate. ||
 
 #|
 ||Field | Description ||
-|| disabled | **boolean**
-
-Is logging from registry disabled. ||
 || logGroupId | **string**
 
 Entry should be written to log group resolved by ID.
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `logGroupId`, `folderId`.
 
@@ -222,36 +231,31 @@ Log entries destination. ||
 
 Entry should be written to default log group for specified folder.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `logGroupId`, `folderId`.
 
 Log entries destination. ||
+|| disabled | **boolean**
+
+Is logging from registry disabled. ||
 || minLevel | **enum** (Level)
 
 Minimum log entry level.
+See [LogLevel.Level](/docs/logging/api-ref/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
-
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
-
-  May be used to alert about unrecoverable failures and events. ||
+May be used to alert about unrecoverable failures and events. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -266,9 +270,7 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "registryId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -277,24 +279,7 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "folderId": "string",
-    "createdAt": "string",
-    "name": "string",
-    "description": "string",
-    "labels": "object",
-    "status": "string",
-    "logGroupId": "string",
-    "logOptions": {
-      "disabled": "boolean",
-      // Includes only one of the fields `logGroupId`, `folderId`
-      "logGroupId": "string",
-      "folderId": "string",
-      // end of the list of possible fields
-      "minLevel": "string"
-    }
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -336,7 +321,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateRegistryMetadata](#yandex.cloud.iot.devices.v1.CreateRegistryMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -351,7 +336,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Registry](#yandex.cloud.iot.devices.v1.Registry)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -366,15 +351,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateRegistryMetadata {#yandex.cloud.iot.devices.v1.CreateRegistryMetadata}
-
-#|
-||Field | Description ||
-|| registryId | **string**
-
-ID of the registry that is being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -392,102 +368,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Registry {#yandex.cloud.iot.devices.v1.Registry}
-
-A registry. For more information, see [Registry](/docs/iot-core/concepts/index#registry).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the registry. ||
-|| folderId | **string**
-
-ID of the folder that the registry belongs to. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| name | **string**
-
-Name of the registry. The name is unique within the folder. ||
-|| description | **string**
-
-Description of the registry. 0-256 characters long. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
-|| status | **enum** (Status)
-
-Status of the registry.
-
-- `STATUS_UNSPECIFIED`
-- `CREATING`: Registry is being created.
-- `ACTIVE`: Registry is ready to use.
-- `DELETING`: Registry is being deleted.
-- `DISABLED`: Registry is disabled. ||
-|| logGroupId | **string**
-
-ID of the logs group for the specified registry. ||
-|| logOptions | **[LogOptions](#yandex.cloud.iot.devices.v1.LogOptions2)**
-
-Options for logging registry events ||
-|#
-
-## LogOptions {#yandex.cloud.iot.devices.v1.LogOptions2}
-
-#|
-||Field | Description ||
-|| disabled | **boolean**
-
-Is logging from registry disabled. ||
-|| logGroupId | **string**
-
-Entry should be written to log group resolved by ID.
-
-Includes only one of the fields `logGroupId`, `folderId`.
-
-Log entries destination. ||
-|| folderId | **string**
-
-Entry should be written to default log group for specified folder.
-
-Includes only one of the fields `logGroupId`, `folderId`.
-
-Log entries destination. ||
-|| minLevel | **enum** (Level)
-
-Minimum log entry level.
-
-See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
-
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
-- `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
-- `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
-- `INFO`: Info log level.
-
-  Mostly used for information messages.
-- `WARN`: Warn log level.
-
-  May be used to alert about significant events.
-- `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
-- `FATAL`: Fatal log level.
-
-  May be used to alert about unrecoverable failures and events. ||
 |#

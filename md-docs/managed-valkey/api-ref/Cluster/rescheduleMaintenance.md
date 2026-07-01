@@ -39,7 +39,7 @@ Required field. The type of reschedule request.
 - `SPECIFIC_TIME`: Start the maintenance operation at the specific time. ||
 || delayedUntil | **string** (date-time)
 
-The time until which this maintenance operation should be delayed. The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks. The value can also point to the past moment of time if [rescheduleType.IMMEDIATE](../../../managed-redis/api-ref/Cluster/rescheduleMaintenance#yandex.cloud.mdb.redis.v1.RescheduleMaintenanceRequest.RescheduleType) reschedule type is chosen.
+The time until which this maintenance operation should be delayed. The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks. The value can also point to the past moment of time if [rescheduleType.IMMEDIATE](rescheduleMaintenance.md#yandex.cloud.mdb.redis.v1.RescheduleMaintenanceRequest.RescheduleType) reschedule type is chosen.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.

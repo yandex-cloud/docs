@@ -2,7 +2,7 @@
 
 Method with strict control for changing zone state. Returns error when:
 1. Deleted record is not found.
-2. Found record with matched type and name but different TTL or value.
+2. Found record with matched type and name but different TTL, value, or description.
 3. Attempted to add record with existing name and type.
 Deletions happen first. If a record with the same name and type exists in both lists,
 then the existing record will be deleted, and a new one added.
@@ -23,7 +23,8 @@ then the existing record will be deleted, and a new one added.
       "ttl": "int64",
       "data": [
         "string"
-      ]
+      ],
+      "description": "string"
     }
   ],
   "additions": [
@@ -33,7 +34,8 @@ then the existing record will be deleted, and a new one added.
       "ttl": "int64",
       "data": [
         "string"
-      ]
+      ],
+      "description": "string"
     }
   ]
 }
@@ -45,13 +47,19 @@ then the existing record will be deleted, and a new one added.
 
 ID of the DNS zone to update record sets in.
 
-To get a DNS zone ID, make a [DnsZoneService.List](list.md#List) request. ||
+To get a DNS zone ID, make a [DnsZoneService.List](list.md#List) request.
+
+The maximum string length in characters is 255. ||
 || deletions[] | **[RecordSet](#yandex.cloud.dns.v1.RecordSet)**
 
-List of record sets to delete. ||
+List of record sets to delete.
+
+The maximum number of elements is 1000. ||
 || additions[] | **[RecordSet](#yandex.cloud.dns.v1.RecordSet)**
 
-List of record sets to add. ||
+List of record sets to add.
+
+The maximum number of elements is 1000. ||
 |#
 
 ## RecordSet {#yandex.cloud.dns.v1.RecordSet}
@@ -62,16 +70,27 @@ A record set. For details about the concept, see [Resource record](../../../conc
 ||Field | Description ||
 || name | **string**
 
-Domain name. ||
+Domain name.
+
+The string length in characters must be 1-254. ||
 || type | **string**
 
-Record type. ||
+Record type.
+
+The string length in characters must be 1-20. ||
 || ttl | **int64**
 
-Time to live in seconds. ||
+Time to live in seconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || data[] | **string**
 
-Data of the record set. ||
+Data of the record set.
+
+The string length in characters for each value must be 1-1024. The number of elements must be in the range 1-100. ||
+|| description | **string**
+
+Description of the record set. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -84,31 +103,10 @@ Data of the record set. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": "UpdateRecordSetsMetadata",
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "additions": [
-      {
-        "name": "string",
-        "type": "string",
-        "ttl": "int64",
-        "data": [
-          "string"
-        ]
-      }
-    ],
-    "deletions": [
-      {
-        "name": "string",
-        "type": "string",
-        "ttl": "int64",
-        "data": [
-          "string"
-        ]
-      }
-    ]
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -136,7 +134,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateRecordSetsMetadata](#yandex.cloud.dns.v1.UpdateRecordSetsMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -151,7 +149,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[RecordSetDiff](#yandex.cloud.dns.v1.RecordSetDiff)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -166,43 +164,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateRecordSetsMetadata {#yandex.cloud.dns.v1.UpdateRecordSetsMetadata}
-
-#|
-||Field | Description ||
-|| Empty | > ||
-|#
-
-## RecordSetDiff {#yandex.cloud.dns.v1.RecordSetDiff}
-
-#|
-||Field | Description ||
-|| additions[] | **[RecordSet](#yandex.cloud.dns.v1.RecordSet2)**
-
-List of record sets that were added ||
-|| deletions[] | **[RecordSet](#yandex.cloud.dns.v1.RecordSet2)**
-
-List of record sets that were deleted ||
-|#
-
-## RecordSet {#yandex.cloud.dns.v1.RecordSet2}
-
-A record set. For details about the concept, see [Resource record](../../../concepts/resource-record.md).
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Domain name. ||
-|| type | **string**
-
-Record type. ||
-|| ttl | **int64**
-
-Time to live in seconds. ||
-|| data[] | **string**
-
-Data of the record set. ||
 |#

@@ -342,6 +342,52 @@ Yandex Cloud DNS служит для управления зонами DNS и д
 
  - [Overview](api-ref/grpc/index.md)
 
+#### DnsFirewall
+
+ - [Overview](api-ref/grpc/DnsFirewall/index.md)
+
+ - [Get](api-ref/grpc/DnsFirewall/get.md)
+
+ - [List](api-ref/grpc/DnsFirewall/list.md)
+
+ - [Create](api-ref/grpc/DnsFirewall/create.md)
+
+ - [Update](api-ref/grpc/DnsFirewall/update.md)
+
+ - [Move](api-ref/grpc/DnsFirewall/move.md)
+
+ - [Delete](api-ref/grpc/DnsFirewall/delete.md)
+
+ - [ListOperations](api-ref/grpc/DnsFirewall/listOperations.md)
+
+ - [ListAccessBindings](api-ref/grpc/DnsFirewall/listAccessBindings.md)
+
+ - [SetAccessBindings](api-ref/grpc/DnsFirewall/setAccessBindings.md)
+
+ - [UpdateAccessBindings](api-ref/grpc/DnsFirewall/updateAccessBindings.md)
+
+#### DnsInboundEndpoint
+
+ - [Overview](api-ref/grpc/DnsInboundEndpoint/index.md)
+
+ - [Get](api-ref/grpc/DnsInboundEndpoint/get.md)
+
+ - [List](api-ref/grpc/DnsInboundEndpoint/list.md)
+
+ - [Create](api-ref/grpc/DnsInboundEndpoint/create.md)
+
+ - [Update](api-ref/grpc/DnsInboundEndpoint/update.md)
+
+ - [Delete](api-ref/grpc/DnsInboundEndpoint/delete.md)
+
+ - [ListOperations](api-ref/grpc/DnsInboundEndpoint/listOperations.md)
+
+ - [ListAccessBindings](api-ref/grpc/DnsInboundEndpoint/listAccessBindings.md)
+
+ - [SetAccessBindings](api-ref/grpc/DnsInboundEndpoint/setAccessBindings.md)
+
+ - [UpdateAccessBindings](api-ref/grpc/DnsInboundEndpoint/updateAccessBindings.md)
+
 #### DnsZone
 
  - [Overview](api-ref/grpc/DnsZone/index.md)
@@ -387,6 +433,52 @@ Yandex Cloud DNS служит для управления зонами DNS и д
 ### REST (англ.)
 
  - [Overview](api-ref/index.md)
+
+#### DnsFirewall
+
+ - [Overview](api-ref/DnsFirewall/index.md)
+
+ - [Get](api-ref/DnsFirewall/get.md)
+
+ - [List](api-ref/DnsFirewall/list.md)
+
+ - [Create](api-ref/DnsFirewall/create.md)
+
+ - [Update](api-ref/DnsFirewall/update.md)
+
+ - [Move](api-ref/DnsFirewall/move.md)
+
+ - [Delete](api-ref/DnsFirewall/delete.md)
+
+ - [ListOperations](api-ref/DnsFirewall/listOperations.md)
+
+ - [ListAccessBindings](api-ref/DnsFirewall/listAccessBindings.md)
+
+ - [SetAccessBindings](api-ref/DnsFirewall/setAccessBindings.md)
+
+ - [UpdateAccessBindings](api-ref/DnsFirewall/updateAccessBindings.md)
+
+#### DnsInboundEndpoint
+
+ - [Overview](api-ref/DnsInboundEndpoint/index.md)
+
+ - [Get](api-ref/DnsInboundEndpoint/get.md)
+
+ - [List](api-ref/DnsInboundEndpoint/list.md)
+
+ - [Create](api-ref/DnsInboundEndpoint/create.md)
+
+ - [Update](api-ref/DnsInboundEndpoint/update.md)
+
+ - [Delete](api-ref/DnsInboundEndpoint/delete.md)
+
+ - [ListOperations](api-ref/DnsInboundEndpoint/listOperations.md)
+
+ - [ListAccessBindings](api-ref/DnsInboundEndpoint/listAccessBindings.md)
+
+ - [SetAccessBindings](api-ref/DnsInboundEndpoint/setAccessBindings.md)
+
+ - [UpdateAccessBindings](api-ref/DnsInboundEndpoint/updateAccessBindings.md)
 
 #### DnsZone
 

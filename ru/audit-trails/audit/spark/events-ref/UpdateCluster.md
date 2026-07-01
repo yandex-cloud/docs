@@ -142,7 +142,8 @@ editable: false
         "metastore": {
           "clusterId": "string"
         },
-        "sparkVersion": "string"
+        "sparkVersion": "string",
+        "environmentId": "string"
       },
       "status": "string",
       "network": {
@@ -416,6 +417,9 @@ The maximum string length in characters is 50. ||
 || dependencies | **[Dependencies](#yandex.cloud.spark.v1.Dependencies)** ||
 || metastore | **[Metastore](#yandex.cloud.spark.v1.Metastore)** ||
 || sparkVersion | **string** ||
+|| environmentId | **string**
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ResourcePools {#yandex.cloud.spark.v1.ResourcePools}

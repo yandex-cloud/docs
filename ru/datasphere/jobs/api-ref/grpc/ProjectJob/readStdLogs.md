@@ -62,7 +62,6 @@ Log contents. ||
 
 Log type.
 
-- `TYPE_UNSPECIFIED`
 - `OUT`: stdout.
 - `ERR`: stderr. ||
 |#

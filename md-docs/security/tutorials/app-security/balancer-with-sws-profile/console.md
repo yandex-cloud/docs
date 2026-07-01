@@ -23,9 +23,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для L7-балансировщика с профилем безопасности Smart Web Security входят:
-* плата за постоянно запущенные [ВМ](../../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../../compute/pricing.md));
-* плата за использование вычислительных ресурсов [L7-балансировщика](../../../../application-load-balancer/concepts/index.md) ([тарифы Application Load Balancer](../../../../application-load-balancer/pricing.md));
-* плата за запросы, обработанные правилами [профиля безопасности](../../../../smartwebsecurity/concepts/profiles.md) ([тарифы Yandex Smart Web Security](../../../../smartwebsecurity/pricing.md)).
+* плата за постоянно запущенные [ВМ](../../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за использование вычислительных ресурсов [L7-балансировщика](../../../../application-load-balancer/concepts/index.md) ([тарифы Application Load Balancer](../../../application-load-balancer/pricing.md));
+* плата за запросы, обработанные правилами [профиля безопасности](../../../../smartwebsecurity/concepts/profiles.md) ([тарифы Yandex Smart Web Security](../../../smartwebsecurity/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infrastructure-prepare}

@@ -28,7 +28,7 @@ PostgreSQL cluster name. ||
 The maximum number of items to list. Default is 1000 items ||
 || `--service-type` | `string`
 
-Type of the service to request logs about. Values: 'postgresql', 'pooler' ||
+Type of the service to request logs about. Values: 'postgresql', 'pooler', 'repack' ||
 || `--columns` | `value[,value]`
 
 Columns from logs table to request ||

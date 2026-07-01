@@ -69,6 +69,8 @@ List of oauth scopes requested by the oauth client.
 The maximum string length in characters for each value is 255. Each value must match the regular expression ` [!#-\[\]-~]+ `. The maximum number of elements is 1000. ||
 || authenticationMethods[] | **string**
 
+List of authentication methods allowed for the oauth client.
+
 The maximum string length in characters for each value is 255. The maximum number of elements is 1000. ||
 || pkceRequired | **boolean**
 

@@ -31,5 +31,5 @@ Required field. ID of the Workflow execution. ||
 ||Field | Description ||
 || executionId | **string**
 
-ID of the Workflow execution. ||
+Required field. ID of the Workflow execution. ||
 |#

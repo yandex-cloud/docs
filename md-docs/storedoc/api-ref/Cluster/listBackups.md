@@ -15,7 +15,7 @@ GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/bac
 || clusterId | **string**
 
 Required field. ID of the MongoDB cluster.
-To get the MongoDB cluster ID, use a [ClusterService.List](../../../managed-mongodb/api-ref/Cluster/list#List) request.
+To get the MongoDB cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -81,7 +81,7 @@ Each subsequent list request will have its own `nextPageToken` to continue pagin
 ## Backup {#yandex.cloud.mdb.mongodb.v1.Backup}
 
 A MongoDB Backup resource. For more information, see the
-[Developer's Guide](../../../managed-mongodb/concepts).
+[Developer's Guide](../../concepts/index.md).
 
 #|
 ||Field | Description ||

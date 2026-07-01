@@ -111,9 +111,7 @@ Billable object type. Can be one of the following:
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "billableObjectId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -122,13 +120,7 @@ Billable object type. Can be one of the following:
       "object"
     ]
   },
-  "response": {
-    "effectiveTime": "string",
-    "billableObject": {
-      "id": "string",
-      "type": "string"
-    }
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -170,7 +162,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[BindBillableObjectMetadata](#yandex.cloud.billing.v1.BindBillableObjectMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -185,7 +177,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[BillableObjectBinding](#yandex.cloud.billing.v1.BillableObjectBinding)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -200,15 +192,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## BindBillableObjectMetadata {#yandex.cloud.billing.v1.BindBillableObjectMetadata}
-
-#|
-||Field | Description ||
-|| billableObjectId | **string**
-
-ID of the [yandex.cloud.billing.v1.BillableObject](#yandex.cloud.billing.v1.BillableObject) that was bound to billing account. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -226,41 +209,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## BillableObjectBinding {#yandex.cloud.billing.v1.BillableObjectBinding}
-
-Represents a binding of the BillableObject to a BillingAccount.
-
-#|
-||Field | Description ||
-|| effectiveTime | **string** (date-time)
-
-Timestamp when binding was created.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| billableObject | **[BillableObject](#yandex.cloud.billing.v1.BillableObject2)**
-
-Object that is bound to billing account. ||
-|#
-
-## BillableObject {#yandex.cloud.billing.v1.BillableObject2}
-
-Represents a link to an object in other service.
-This object is being billed in the scope of a billing account.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the object in other service. ||
-|| type | **string**
-
-Billable object type. Can be one of the following:
-* `cloud` ||
 |#

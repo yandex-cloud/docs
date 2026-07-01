@@ -14,7 +14,9 @@ GET https://iot-devices.api.cloud.yandex.net/iot-devices/v1/registries/{registry
 ||Field | Description ||
 || registryId | **string**
 
-Required field. ID of the registry to list certificates for. ||
+Required field. ID of the registry to list certificates for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iot.devices.v1.ListRegistryCertificatesResponse}

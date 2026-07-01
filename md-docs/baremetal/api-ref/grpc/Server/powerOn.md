@@ -1,6 +1,6 @@
 # BareMetal API, gRPC: ServerService.PowerOn
 
-(-- api-linter: yc::1702::method-verb-prefix=disabled
+
 Required for backward compatibility with old clients. --)
 Powers on the specified server.
 

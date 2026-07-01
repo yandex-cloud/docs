@@ -14,15 +14,57 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
-    1. Выберите кластер и нажмите кнопку **Редактировать**.
-    1. Откройте список в поле **Версия**.
+    В [консоли управления](https://console.yandex.cloud) откройте страницу [создания](cluster-create.md) или [изменения кластера](update.md) Yandex Managed Service for Valkey™. Список доступен в поле **Версия**.
 
-    {% note info %}
+- REST API {#api}
 
-    Чтобы указать номер версии в CLI, Terraform и API, добавьте к нему постфикс `-valkey` (например, `8.1-valkey`).
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    {% endnote %}
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Воспользуйтесь методом [Versions.List](../api-ref/Versions/list.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/versions'
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Versions/list.md#responses).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+       
+       ```bash
+       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+       ```
+       
+       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+
+    1. Воспользуйтесь вызовом [VersionsService.List](../api-ref/grpc/Versions/list.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/versions_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            mdb.api.cloud.yandex.net:443 \
+            yandex.cloud.mdb.redis.v1.VersionsService.List
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Versions/list.md#yandex.cloud.mdb.redis.v1.ListVersionsResponse).
 
 {% endlist %}
 
@@ -40,6 +82,12 @@
 
 * После обновления СУБД до выбранной версии вернуть кластер к предыдущей версии невозможно.
 * Успешность обновления версии Valkey™ зависит от многих факторов, в том числе от настроек кластера и данных, хранящихся в базах. Рекомендуется сначала [обновить тестовый кластер](#before-update), который использует те же данные и настройки.
+
+{% endnote %}
+
+{% note info %}
+
+Чтобы указать номер версии в CLI, Terraform и API, добавьте к нему постфикс `-valkey` (например, `8.1-valkey`).
 
 {% endnote %}
 

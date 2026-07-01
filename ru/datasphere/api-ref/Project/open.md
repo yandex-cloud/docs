@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}:open
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}/open
     method: post
     path:
       type: object
@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Project resource to open.
             To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/Project/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - projectId
@@ -27,7 +28,7 @@ Opens the specified project.
 ## HTTP request
 
 ```
-POST https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}:open
+POST https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}/open
 ```
 
 ## Path parameters
@@ -37,7 +38,9 @@ POST https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}:open
 || projectId | **string**
 
 Required field. ID of the Project resource to open.
-To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/Project/list#List) request. ||
+To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/Project/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -52,10 +55,7 @@ To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/Proje
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "projectId": "string",
-    "status": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -64,10 +64,7 @@ To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/Proje
       "object"
     ]
   },
-  "response": {
-    "projectUrl": "string",
-    "sessionToken": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -109,7 +106,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[OpenProjectMetadata](#yandex.cloud.datasphere.v2.OpenProjectMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -124,7 +121,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[OpenProjectResponse](#yandex.cloud.datasphere.v2.OpenProjectResponse)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -139,26 +136,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## OpenProjectMetadata {#yandex.cloud.datasphere.v2.OpenProjectMetadata}
-
-#|
-||Field | Description ||
-|| projectId | **string**
-
-ID of the project that is being opened. ||
-|| status | **enum** (OpenProjectStatus)
-
-Project opening status.
-
-- `OPEN_PROJECT_STATUS_UNSPECIFIED`
-- `OPEN_PROJECT_STATUS_CLOSING_IDE`: Closing previous IDE instance.
-- `OPEN_PROJECT_STATUS_UNZIPPING_PROJECT`: Unzipping project.
-- `OPEN_PROJECT_STATUS_ALLOCATING_VM`: Allocating VM for the project.
-- `OPEN_PROJECT_STATUS_ALLOCATING_RESOURCES`: Allocating resources for the project.
-- `OPEN_PROJECT_STATUS_STARTING_IDE`: Starting IDE.
-- `OPEN_PROJECT_STATUS_UNKNOWN`: Unknown open project status. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -176,19 +153,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## OpenProjectResponse {#yandex.cloud.datasphere.v2.OpenProjectResponse}
-
-#|
-||Field | Description ||
-|| projectUrl | **string**
-
-URL of the project that is being opened.
-Make GET request to `projectUrl` with sessionToken query parameter equals to `sessionToken`
-or POST request to `projectUrl` with sessionToken body parameter equals to `sessionToken`
-to fetch DataSphere web interface. ||
-|| sessionToken | **string**
-
-Session token of the project that is being opened. ||
 |#

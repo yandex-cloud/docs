@@ -15,7 +15,7 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/host
 || clusterId | **string**
 
 Required field. ID of the Redis cluster to add hosts to.
-To get the Redis cluster ID, use a [ClusterService.List](../../../managed-redis/api-ref/Cluster/list#List) request.
+To get the Redis cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -59,13 +59,13 @@ The maximum string length in characters is 50. ||
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The ID of the network is set in the field [Cluster.networkId](../../../managed-redis/api-ref/Cluster/get#yandex.cloud.mdb.redis.v1.Cluster).
+The ID of the network is set in the field [Cluster.networkId](get.md#yandex.cloud.mdb.redis.v1.Cluster).
 
 The maximum string length in characters is 50. ||
 || shardName | **string**
 
 ID of the Redis shard the host belongs to.
-To get the shard ID use a [ClusterService.ListShards](../../../managed-redis/api-ref/Cluster/listShards#ListShards) request.
+To get the shard ID use a [ClusterService.ListShards](listShards.md#ListShards) request.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || replicaPriority | **string** (int64)

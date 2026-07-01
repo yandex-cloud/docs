@@ -1,9 +1,9 @@
 ---
-title: Adding a container label
+title: Adding a label to a container
 description: Follow this guide to add a container label.
 ---
 
-# Adding a container label
+# Adding a label to a container
 
 {% list tabs group=instructions %}
 
@@ -39,7 +39,7 @@ description: Follow this guide to add a container label.
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To add a label to a container created using {{ TF }}:
+  To add a label to a container created with {{ TF }}:
 
   1. Open the {{ TF }} configuration file and add the `labels` section to the `yandex_serverless_container` resource:
 
@@ -58,14 +58,14 @@ description: Follow this guide to add a container label.
      ...
      ```
 
-	 For more information about the `yandex_serverless_container` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/serverless_container).
+	 For more information about the `yandex_serverless_container` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
-  1. Check the configuration using this command:
+  1. Validate your configuration using this command:
      ```
      terraform validate
      ```
      
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
      
      ```
      Success! The configuration is valid.
@@ -76,16 +76,16 @@ description: Follow this guide to add a container label.
      terraform plan
      ```
   
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
   1. Apply the configuration changes:
      ```
      terraform apply
      ```
      
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
-  You can verify that you have created the container labels using the [CLI](../../cli/):
+  You can check the new container labels using the [CLI](../../cli/):
 
   ```
   yc serverless container get <container_name_or_ID>
@@ -93,6 +93,6 @@ description: Follow this guide to add a container label.
 
 - API {#api}
 
-  To add a container label, use the [update](../containers/api-ref/Container/update.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/Update](../containers/api-ref/grpc/Container/update.md) gRPC API call.
+  To add a label to a container, use the [update](../containers/api-ref/Container/update.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/Update](../containers/api-ref/grpc/Container/update.md) gRPC API call.
 
 {% endlist %}

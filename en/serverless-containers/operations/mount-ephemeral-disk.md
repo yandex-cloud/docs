@@ -39,7 +39,7 @@ description: Follow this guide to mount an ephemeral disk to {{ serverless-conta
     --container-name=<container_name> \
     --environment <runtime_environment> \
     --image <container_image_path> \
-    --memory <RAM_size> \
+    --memory <RAM_amount> \
     --execution-timeout <execution_timeout> \
     --service-account-id <service_account_ID> \
     --mount type=ephemeral-disk,mount-point=<mount_point>,size=<disk_size>
@@ -71,7 +71,7 @@ description: Follow this guide to mount an ephemeral disk to {{ serverless-conta
       ```hcl
       resource "yandex_serverless_container" "ephemeral_storage_container" {
         name               = "<container_name>"
-        memory             = "<RAM_size>"
+        memory             = "<RAM_amount>"
         execution_timeout  = "<execution_timeout>"
         service_account_id = "<service_account_ID>"
 

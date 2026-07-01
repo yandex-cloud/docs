@@ -1,7 +1,6 @@
 # Cloud DNS API, gRPC: DnsZoneService.Get
 
 Returns the specified DNS zone.
-
 To get the list of all available DNS zones, make a [List](list.md#List) request.
 
 ## gRPC request
@@ -21,7 +20,6 @@ To get the list of all available DNS zones, make a [List](list.md#List) request.
 || dns_zone_id | **string**
 
 Required field. ID of the DNS zone to return.
-
 To get a DNS zone ID, make a [DnsZoneService.List](list.md#List) request. ||
 |#
 
@@ -93,7 +91,9 @@ Configuration for privately visible zones.
 ||Field | Description ||
 || network_ids[] | **string**
 
-Network IDs. ||
+Network IDs.
+
+The number of elements must be in the range 0-100. ||
 |#
 
 ## PublicVisibility {#yandex.cloud.dns.v1.PublicVisibility}

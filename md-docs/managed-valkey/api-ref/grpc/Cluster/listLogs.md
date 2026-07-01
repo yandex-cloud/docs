@@ -27,7 +27,7 @@ Retrieves logs for the specified Redis cluster.
 || cluster_id | **string**
 
 Required field. ID of the Redis cluster to request logs for.
-To get the Redis cluster ID use a [ClusterService.List](../../../../managed-redis/api-ref/grpc/Cluster/list#List) request.
+To get the Redis cluster ID use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || column_filter[] | **string**

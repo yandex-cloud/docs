@@ -4,7 +4,7 @@ editable: false
 
 # BareMetal API, gRPC: ServerService.PowerOff
 
-(-- api-linter: yc::1702::method-verb-prefix=disabled
+
 Required for backward compatibility with old clients. --)
 Powers off the specified server.
 

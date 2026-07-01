@@ -1,7 +1,7 @@
 # Интеграция с {{ container-registry-name }}
 
 
-[{{ container-registry-full-name }}](../../container-registry/) — сервис для хранения и распространения [Docker-образов](../../container-registry/concepts/docker-image.md). Интеграция с ним позволяет {{ managed-k8s-name }} запускать [поды](../../managed-kubernetes/concepts/index.md#pod) с приложениями из Docker-образов, которые хранятся в [реестре](../../container-registry/concepts/registry.md) {{ container-registry-name }}. Для взаимодействия с {{ container-registry-name }} [настраивается](#config-ch) Docker Credential helper. Он позволяет работать с приватными реестрами с помощью [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
+[{{ container-registry-full-name }}](../../container-registry/) — сервис для хранения и распространения [Docker-образов](../../container-registry/concepts/docker-image.md). Интеграция с ним позволяет {{ managed-k8s-name }} запускать [поды](../../managed-kubernetes/concepts/index.md#pod) с приложениями из Docker-образов, которые хранятся в [реестре](../../container-registry/concepts/registry.md) {{ container-registry-name }}. Для взаимодействия с {{ container-registry-name }} [настраивается](#config-ch) Docker credential helper. Он позволяет работать с приватными реестрами с помощью [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
 
 Чтобы интегрировать {{ managed-k8s-name }} с {{ container-registry-name }}:
 1. [Создайте сервисные аккаунты](#create-sa).
@@ -13,7 +13,7 @@
    1. [Создайте группу узлов {{ managed-k8s-name }}](#create-node-groups).
 1. [Подготовьте необходимые ресурсы {{ container-registry-name }}](#create-cr-res).
    1. [Создайте реестр](#registry-create).
-   1. [Сконфигурируйте Credential helper](#config-ch).
+   1. [Сконфигурируйте Docker credential helper](#config-ch).
    1. [Подготовьте Docker-образ](#docker-image).
 1. [Подключитесь к кластеру {{ managed-k8s-name }}](#cluster-connect).
 1. [Запустите тестовое приложение](#test-app).
@@ -199,11 +199,11 @@
 yc container registry create --name yc-auto-cr
 ```
 
-### Сконфигурируйте Docker Credential helper {#config-ch}
+### Сконфигурируйте Docker credential helper {#config-ch}
 
-Для упрощения аутентификации в {{ container-registry-name }} сконфигурируйте [Docker Credential helper](../../container-registry/operations/authentication.md#cred-helper). Он позволяет работать с приватными реестрами {{ yandex-cloud }}, не выполняя команду `docker login`.
+Для упрощения аутентификации в {{ container-registry-name }} сконфигурируйте [Docker credential helper](../../container-registry/operations/authentication.md#cred-helper). Он позволяет работать с приватными реестрами {{ yandex-cloud }}, не выполняя команду `docker login`.
 
-Для настройки Credential helper выполните команду:
+Для настройки credential helper выполните команду:
 
 ```bash
 yc container registry configure-docker

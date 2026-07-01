@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the project to return the unit balance for.
+            The maximum string length in characters is 50.
           type: string
       required:
         - projectId
@@ -35,7 +36,9 @@ GET https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}:unitBal
 ||Field | Description ||
 || projectId | **string**
 
-Required field. ID of the project to return the unit balance for. ||
+Required field. ID of the project to return the unit balance for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.datasphere.v2.GetUnitBalanceResponse}

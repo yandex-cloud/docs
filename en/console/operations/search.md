@@ -134,15 +134,6 @@ Object type | Fields
 [Symmetric key](../../kms/concepts/symmetric-encryption.md) | ID, name
 
 
-### {{ load-testing-full-name }} {#load-testing}
-
-Object type | Fields
---- | ---
-[Regression dashboard](../../load-testing/concepts/load-test-regressions.md#dashbordy-regressij) | ID, name
-[Load generator](../../load-testing/concepts/load-generator.md) | ID, name, labels
-[Test](../../load-testing/operations/create-test-bucket.md) | ID, name, labels
-
-
 ### {{ lockbox-full-name }} {#lockbox}
 
 Object type | Fields

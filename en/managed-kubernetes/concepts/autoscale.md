@@ -99,4 +99,3 @@ For more on {{ k8s-vpa }}, see [this {{ k8s }} guide](https://github.com/kuberne
 
 * [{#T}](../tutorials/autoscaling.md)
 * [{#T}](../tutorials/vpa-autoscaling.md)
-* [{#T}](../tutorials/load-testing-grpc-autoscaling.md)

@@ -167,10 +167,6 @@ items:
             href: tutorials/tls-termination/terraform.md
       - name: Writing load balancer logs to {{ PG }}
         href: tutorials/logging.md
-      - name: >-
-          Deploying and load testing a scalable gRPC service in {{
-          managed-k8s-full-name }}
-        href: tutorials/load-testing-grpc-autoscaling.md
       - name: Setting up the Gateway API in {{ managed-k8s-full-name }}
         href: tutorials/gateway-api.md
       - name: Configuring an L7 {{ alb-name }} using an ingress controller

@@ -40,7 +40,9 @@ The maximum string length in characters is 50. ||
 ||Field | Description ||
 || key_id | **string**
 
-ID of the asymmetric KMS key to get public key of. ||
+Required field. ID of the asymmetric KMS key to get public key of.
+
+The maximum string length in characters is 50. ||
 || public_key | **string**
 
 Public key value.

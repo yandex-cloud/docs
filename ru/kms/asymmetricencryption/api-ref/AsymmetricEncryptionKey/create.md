@@ -31,7 +31,7 @@ apiPlayground:
             **object** (map<**string**, **string**>)
             Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key.
             For example, `"project": "mvp"` or `"source": "dictionary"`.
-            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+            The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource.
           type: object
           additionalProperties:
             type: string
@@ -111,7 +111,7 @@ The maximum string length in characters is 1024. ||
 Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key.
 For example, `"project": "mvp"` or `"source": "dictionary"`.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || encryptionAlgorithm | **enum** (AsymmetricEncryptionAlgorithm)
 
 Asymmetric encryption algorithm.
@@ -136,9 +136,7 @@ Flag that inhibits deletion of the symmetric KMS key ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "keyId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -147,17 +145,7 @@ Flag that inhibits deletion of the symmetric KMS key ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "folderId": "string",
-    "createdAt": "string",
-    "name": "string",
-    "description": "string",
-    "labels": "object",
-    "status": "string",
-    "encryptionAlgorithm": "string",
-    "deletionProtection": "boolean"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -199,7 +187,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateAsymmetricEncryptionKeyMetadata](#yandex.cloud.kms.v1.asymmetricencryption.CreateAsymmetricEncryptionKeyMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -214,7 +202,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[AsymmetricEncryptionKey](#yandex.cloud.kms.v1.asymmetricencryption.AsymmetricEncryptionKey)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -229,15 +217,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateAsymmetricEncryptionKeyMetadata {#yandex.cloud.kms.v1.asymmetricencryption.CreateAsymmetricEncryptionKeyMetadata}
-
-#|
-||Field | Description ||
-|| keyId | **string**
-
-ID of the key being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -255,56 +234,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## AsymmetricEncryptionKey {#yandex.cloud.kms.v1.asymmetricencryption.AsymmetricEncryptionKey}
-
-An asymmetric KMS key that may contain several versions of the cryptographic material.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the key. ||
-|| folderId | **string**
-
-ID of the folder that the key belongs to. ||
-|| createdAt | **string** (date-time)
-
-Time when the key was created.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| name | **string**
-
-Name of the key. ||
-|| description | **string**
-
-Description of the key. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
-|| status | **enum** (Status)
-
-Current status of the key.
-
-- `CREATING`: The key is being created.
-- `ACTIVE`: The key is active and can be used for encryption and decryption or signature and verification.
-Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
-- `INACTIVE`: The key is inactive and unusable.
-Can be set to ACTIVE using the [AsymmetricKeyService.Update] method. ||
-|| encryptionAlgorithm | **enum** (AsymmetricEncryptionAlgorithm)
-
-Asymmetric Encryption Algorithm ID.
-
-- `RSA_2048_ENC_OAEP_SHA_256`: RSA-2048 encryption with OAEP padding and SHA-256
-- `RSA_3072_ENC_OAEP_SHA_256`: RSA-3072 encryption with OAEP padding and SHA-256
-- `RSA_4096_ENC_OAEP_SHA_256`: RSA-4096 encryption with OAEP padding and SHA-256 ||
-|| deletionProtection | **boolean**
-
-Flag that inhibits deletion of the key ||
 |#

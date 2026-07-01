@@ -48,7 +48,7 @@
 В стоимость предлагаемого решения входят: 
 * плата за [диски](../../../compute/concepts/disk.md), [снимки дисков](../../../compute/concepts/snapshot.md) и постоянно запущенные [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
 * плата за использование [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) и [NAT-шлюзов](../../../vpc/concepts/gateways.md#nat-gateway) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за [хранение данных](../../concepts/bucket.md) в Object Storage и [операции](../../operations/index.md) с ними ([тарифы Yandex Object Storage](../../pricing.md));
+* плата за [хранение данных](../../concepts/bucket.md) в Object Storage и [операции](../../operations/index.md) с ними ([тарифы Yandex Object Storage](../../../storage/pricing.md));
 * плата за использование управляемой БД MySQL® ([тарифы Managed Service for MySQL®](../../../managed-mysql/pricing.md));
 * при использовании Yandex Cloud DNS плата за [DNS-зоны](../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы ([тарифы Cloud DNS](../../../dns/pricing.md));
 * при использовании балансировщика нагрузки плата за количество ресурсных единиц [L7-балансировщика](../../../application-load-balancer/concepts/application-load-balancer.md) ([тарифы Yandex Application Load Balancer](../../../application-load-balancer/pricing.md));

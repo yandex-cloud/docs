@@ -89,7 +89,7 @@ apiPlayground:
 # Managed Service for MongoDB API, REST: Cluster.UpdateHosts
 
 Updates the specified parameters for the host.
-(-- api-linter: yc::1705::http-method-mapping=disabled --)
+
 
 ## HTTP request
 

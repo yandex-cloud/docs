@@ -21,7 +21,7 @@ Retrieves a list of hosts for the specified cluster.
 || cluster_id | **string**
 
 Required field. ID of the MongoDB cluster.
-To get the MongoDB cluster ID, use a [ClusterService.List](../../../../managed-mongodb/api-ref/grpc/Cluster/list#List) request.
+To get the MongoDB cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || page_size | **int64**
@@ -156,7 +156,7 @@ Host parameters ||
 || resource_preset_id | **string**
 
 ID of the preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](../../../../managed-mongodb/concepts/instance-types). ||
+All available presets are listed in the [documentation](../../../concepts/instance-types.md). ||
 || disk_size | **int64**
 
 Volume of the storage available to a host, in bytes. ||

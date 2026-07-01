@@ -162,8 +162,6 @@ Yandex Application Load Balancer служит для распределения 
 
  - [Запись логов балансировщика в PostgreSQL](tutorials/logging.md)
 
- - [Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием в Yandex Managed Service for Kubernetes](tutorials/load-testing-grpc-autoscaling.md)
-
  - [Настройка Gateway API в Yandex Managed Service for Kubernetes](tutorials/gateway-api.md)
 
  - [Настройка L7-балансировщика Application Load Balancer с помощью Ingress-контроллера](tutorials/alb-ingress-controller.md)

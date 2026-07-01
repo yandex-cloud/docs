@@ -32,10 +32,14 @@ POST https://marketplace.api.cloud.yandex.net/marketplace/metering/v1/imageProdu
 Checks whether you have the access required for the emit usage. ||
 || productId | **string**
 
-Required field. Marketplace Product's ID. ||
+Required field. Marketplace Product's ID.
+
+The maximum string length in characters is 50. ||
 || usageRecords[] | **[UsageRecord](#yandex.cloud.marketplace.metering.v1.UsageRecord)**
 
-List of product usage records (up to 25 per request). ||
+List of product usage records (up to 25 per request).
+
+The number of elements must be in the range 1-25. ||
 |#
 
 ## UsageRecord {#yandex.cloud.marketplace.metering.v1.UsageRecord}
@@ -44,13 +48,19 @@ List of product usage records (up to 25 per request). ||
 ||Field | Description ||
 || uuid | **string**
 
-Required field. Unique identifier of the usage record (UUID format). ||
+Required field. Unique identifier of the usage record (UUID format).
+
+The maximum string length in characters is 36. ||
 || skuId | **string**
 
-Required field. Consumed Marketplace SKU ID, linked to `UsageRecord.product_id`. ||
+Required field. Consumed Marketplace SKU ID, linked to `UsageRecord.product_id`.
+
+The maximum string length in characters is 50. ||
 || quantity | **string** (int64)
 
-Quantity of SKU consumed, measured in `sku.usage_unit` units (e.g. bytes). ||
+Quantity of SKU consumed, measured in `sku.usage_unit` units (e.g. bytes).
+
+Value must be greater than 0. ||
 || timestamp | **string** (date-time)
 
 Required field. Timestamp in UTC for which the usage is being reported.
@@ -113,7 +123,6 @@ Unique identifier of the usage record (UUID format). ||
 
 The reason of rejection.
 
-- `REASON_UNSPECIFIED`
 - `DUPLICATE`
 - `EXPIRED`
 - `INVALID_TIMESTAMP`

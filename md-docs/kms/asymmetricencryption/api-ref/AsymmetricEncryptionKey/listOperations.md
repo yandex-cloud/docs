@@ -15,7 +15,6 @@ GET https://kms.api.cloud.yandex.net/kms/v1/asymmetricEncryptionKeys/{keyId}/ope
 || keyId | **string**
 
 Required field. ID of the symmetric KMS key to get operations for.
-
 To get the key ID, use a [AsymmetricKeyEncryptionService.List] request.
 
 The maximum string length in characters is 50. ||

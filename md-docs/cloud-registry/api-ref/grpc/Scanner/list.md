@@ -39,9 +39,7 @@ Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListScanResultsResponse.next_page_token](#yandex.cloud.cloudregistry.v1.ListScanResultsResponse) returned by a previous list request.
-
-The maximum string length in characters is 100. ||
+[ListScanResultsResponse.next_page_token](#yandex.cloud.cloudregistry.v1.ListScanResultsResponse) returned by a previous list request. ||
 || filter | **[ListScanResultsFilter](#yandex.cloud.cloudregistry.v1.ListScanResultsFilter)**
 
 Filter the list by [ScanResult.status](#yandex.cloud.cloudregistry.v1.ScanResult). ||

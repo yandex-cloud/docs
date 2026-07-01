@@ -80,7 +80,7 @@
 
  - [Key Management Service](kms/index.md)
 
- - [Load Testing](load-testing/index.md)
+ - [Load Testing](load-testing/sunset.md)
 
  - [Lockbox](lockbox/index.md)
 

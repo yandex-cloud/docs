@@ -100,7 +100,18 @@ editable: false
         "value": "string"
       }
     ],
-    "resourceId": "string"
+    "resourceId": "string",
+    "acl": {
+      "grants": [
+        {
+          "subjectId": "string",
+          "subjectName": "string",
+          "subjectType": "string",
+          "permission": "string",
+          "grantType": "string"
+        }
+      ]
+    }
   },
   "requestParameters": "object"
 }
@@ -275,6 +286,7 @@ A list of messages that carry the error details. ||
 || storageClass | **string** ||
 || tags[] | **[Tag](#yandex.cloud.audit.storage.Tag)** ||
 || resourceId | **string** ||
+|| acl | **[BucketAcl](#yandex.cloud.audit.storage.BucketAcl)** ||
 |#
 
 ## Tag {#yandex.cloud.audit.storage.Tag}
@@ -283,4 +295,46 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || key | **string** ||
 || value | **string** ||
+|#
+
+## BucketAcl {#yandex.cloud.audit.storage.BucketAcl}
+
+#|
+||Field | Description ||
+|| grants[] | **[AclGrant](#yandex.cloud.audit.storage.AclGrant)**
+
+The number of elements must be greater than 0. ||
+|#
+
+## AclGrant {#yandex.cloud.audit.storage.AclGrant}
+
+#|
+||Field | Description ||
+|| subjectId | **string**
+
+The maximum string length in characters is 50. ||
+|| subjectName | **string** ||
+|| subjectType | **enum** (SubjectType)
+
+- `YANDEX_PASSPORT_USER_ACCOUNT`
+- `SERVICE_ACCOUNT`
+- `FEDERATED_USER_ACCOUNT`
+- `GROUP`
+- `SSH_USER`
+- `DB_NATIVE_USER`
+- `KUBERNETES_USER`
+- `DATALENS_SYSTEM_USER`
+- `INVITEE` ||
+|| permission | **enum** (Permission)
+
+- `FULL_CONTROL`
+- `WRITE`
+- `READ`
+- `READ_ACP`
+- `WRITE_ACP` ||
+|| grantType | **enum** (GrantType)
+
+- `ACCOUNT`
+- `ALL_AUTHENTICATED_USERS`
+- `ALL_USERS` ||
 |#

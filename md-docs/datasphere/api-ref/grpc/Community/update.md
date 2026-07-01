@@ -47,21 +47,10 @@ Labels of the community. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "community_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "name": "string",
-    "description": "string",
-    "labels": "map<string, string>",
-    "created_by_id": "string",
-    "organization_id": "string",
-    "zone_id": "string"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -89,7 +78,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateCommunityMetadata](#yandex.cloud.datasphere.v2.UpdateCommunityMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -104,7 +93,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Community](#yandex.cloud.datasphere.v2.Community)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -119,43 +108,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateCommunityMetadata {#yandex.cloud.datasphere.v2.UpdateCommunityMetadata}
-
-#|
-||Field | Description ||
-|| community_id | **string**
-
-ID of the community that is being updated. ||
-|#
-
-## Community {#yandex.cloud.datasphere.v2.Community}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the community. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time when community was created. ||
-|| name | **string**
-
-Name of the community. ||
-|| description | **string**
-
-Description of the comminuty. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Labels of the community. ||
-|| created_by_id | **string**
-
-ID of the user who created the community. ||
-|| organization_id | **string**
-
-ID of the organization to which community belongs. ||
-|| zone_id | **string**
-
-ID of the zone where this community was created ||
 |#

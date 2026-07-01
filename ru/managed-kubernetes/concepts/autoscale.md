@@ -99,4 +99,3 @@ description: Автоматическое масштабирование в {{ m
 
 * [{#T}](../tutorials/autoscaling.md)
 * [{#T}](../tutorials/vpa-autoscaling.md)
-* [{#T}](../tutorials/load-testing-grpc-autoscaling.md)

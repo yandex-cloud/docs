@@ -21,7 +21,7 @@ Retrieves the list of available backups for the specified MongoDB cluster.
 || cluster_id | **string**
 
 Required field. ID of the MongoDB cluster.
-To get the MongoDB cluster ID, use a [ClusterService.List](../../../../managed-mongodb/api-ref/grpc/Cluster/list#List) request.
+To get the MongoDB cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || page_size | **int64**
@@ -79,7 +79,7 @@ Each subsequent list request will have its own `next_page_token` to continue pag
 ## Backup {#yandex.cloud.mdb.mongodb.v1.Backup}
 
 A MongoDB Backup resource. For more information, see the
-[Developer's Guide](../../../../managed-mongodb/concepts).
+[Developer's Guide](../../../concepts/index.md).
 
 #|
 ||Field | Description ||

@@ -2,12 +2,10 @@
 
 GetCloud returns available folders for specified clouds within a billing account
 with optional filtering by cloud IDs, folder IDs and pagination support.
-
 This method returns a hierarchical view of clouds and their folders that the user
 has access to within the specified date range. Results can be filtered by
 specific cloud IDs and/or folder IDs, and pagination is supported for handling
 large result sets.
-
 Implementation details:
 - The method result does not contain empty cloud id information
 - Filtering is done using case-insensitive substring matching
@@ -15,13 +13,11 @@ Implementation details:
 - Folder pagination is based on folder IDs, ordered alphabetically
 - NextPageToken is only returned when there are more results available
 - Base64-encoded page tokens are used for pagination state
-
 Error handling:
 - Returns INVALID_ARGUMENT if the request parameters fail validation
 - Returns UNAUTHENTICATED if the user is not authenticated or the billing account does not exist
 - Returns PERMISSION_DENIED if the user lacks required permissions
 - Returns INTERNAL for internal server errors
-
 Required permissions:
 - `billing.accounts.getReport` on the specified billing account
 
@@ -132,8 +128,6 @@ Response for cloud metadata request
 List of clouds matching the request criteria
 Contains CloudInfo objects for each cloud that matches the specified
 filtering criteria
-The list is sorted by cloud name in ascending order.
-
 Note: only clouds with at least one folder are included in the response. ||
 || next_page_token | **string**
 
@@ -142,7 +136,6 @@ If empty, there are no more results.
 Use this token in a subsequent request's page_token field to retrieve
 the next page of results.
 The token encodes the pagination state.
-
 It should be passed verbatim in subsequent requests. ||
 |#
 
@@ -160,8 +153,7 @@ Cloud information ||
 List of folders belonging to this cloud
 Contains folder entities that belong to this cloud
 and match any folder ID filtering criteria from the request.
-The list is sorted by folder name in ascending order.
-
+The list is sorted by folder ID in ascending order.
 Only folders that had usage during the specified date range are included. ||
 |#
 

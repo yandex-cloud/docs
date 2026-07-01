@@ -143,7 +143,7 @@
       1. Перейдите на вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
       1. Найдите аккаунт `sa-live-debug` в списке и нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
       1. Выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
-      1. В открывшемся окне нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите роль `{{ roles-admin }}`.
+      1. В открывшемся окне нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `{{ roles-admin }}`.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
     - CLI {#cli}

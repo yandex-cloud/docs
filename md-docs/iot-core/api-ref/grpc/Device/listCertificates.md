@@ -18,7 +18,9 @@ Retrieves the list of device certificates for the specified device.
 ||Field | Description ||
 || device_id | **string**
 
-Required field. ID of the device to list certificates for. ||
+Required field. ID of the device to list certificates for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ListDeviceCertificatesResponse {#yandex.cloud.iot.devices.v1.ListDeviceCertificatesResponse}

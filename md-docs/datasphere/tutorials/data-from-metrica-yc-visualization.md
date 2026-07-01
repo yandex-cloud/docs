@@ -72,7 +72,7 @@
 В стоимость развертывания инфраструктуры входят:
 
 * плата за вычислительные ресурсы кластера и объем хранилища ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md));
-* плата за время вычислений ([тарифы DataSphere](../pricing.md));
+* плата за время вычислений ([тарифы DataSphere](../../datasphere/pricing.md));
 * плата за исходящий трафик ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## 1. Подключите ClickHouse® и DataSphere {#ch-datasphere-connection}

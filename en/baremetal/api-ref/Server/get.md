@@ -49,6 +49,46 @@ Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 
 ```json
 {
+  // Includes only one of the fields `customConfiguration`, `stockConfigurationId`
+  "customConfiguration": {
+    "id": "string",
+    "name": "string",
+    "memoryGib": "string",
+    "cpu": {
+      "name": "string",
+      "vendor": "string",
+      "cores": "string",
+      "physicalCores": "string",
+      "frequencyMhz": "string",
+      "threads": "string"
+    },
+    "diskDrives": [
+      {
+        "type": "string",
+        "diskCount": "string",
+        "diskSizeGib": "string"
+      }
+    ],
+    "networkCapacityGbps": "string",
+    "cpuNum": "string",
+    "networkInterfaces": [
+      {
+        "id": "string",
+        "name": "string",
+        "configurationId": "string",
+        "linkSpeedGbps": "string",
+        "availableModes": [
+          "string"
+        ],
+        "mcLagOptions": {
+          "interfaceCount": "string"
+        }
+      }
+    ],
+    "mountingAvailability": "string"
+  },
+  "stockConfigurationId": "string",
+  // end of the list of possible fields
   "id": "string",
   "cloudId": "string",
   "folderId": "string",
@@ -128,7 +168,8 @@ Value must match the regular expression ` [a-z][a-z0-9]* `. ||
       // end of the list of possible fields
       "id": "string",
       "macAddress": "string",
-      "ipAddress": "string"
+      "ipAddress": "string",
+      "configurationNetworkInterfaceId": "string"
     }
   ],
   "configurationId": "string",
@@ -148,6 +189,20 @@ A Server resource.
 
 #|
 ||Field | Description ||
+|| customConfiguration | **[Configuration](#yandex.cloud.baremetal.v1alpha.Configuration)**
+
+Custom configuration.
+
+Includes only one of the fields `customConfiguration`, `stockConfigurationId`.
+
+Configuration of the server. ||
+|| stockConfigurationId | **string**
+
+ID of the stock configuration.
+
+Includes only one of the fields `customConfiguration`, `stockConfigurationId`.
+
+Configuration of the server. ||
 || id | **string**
 
 ID of the server. ||
@@ -211,6 +266,128 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
+|#
+
+## Configuration {#yandex.cloud.baremetal.v1alpha.Configuration}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the configuration. ||
+|| name | **string**
+
+Name of the configuration. ||
+|| memoryGib | **string** (int64)
+
+Random-access memory (RAM) size in gibibytes (2^30 bytes). ||
+|| cpu | **[CPU](#yandex.cloud.baremetal.v1alpha.CPU)**
+
+CPU configuration. ||
+|| diskDrives[] | **[DiskDriveConfiguration](#yandex.cloud.baremetal.v1alpha.DiskDriveConfiguration)**
+
+Array of disk drive configurations. ||
+|| networkCapacityGbps | **string** (int64)
+
+Network capacity or bandwidth in gigabits per second. ||
+|| cpuNum | **string** (int64)
+
+Number of cpu. ||
+|| networkInterfaces[] | **[ConfigurationNetworkInterface](#yandex.cloud.baremetal.v1alpha.ConfigurationNetworkInterface)**
+
+Network interfaces of the configuration. ||
+|| mountingAvailability | **enum** (MountingAvailability)
+
+Indicates whether the mounting option is available or not for this configuration.
+
+- `AVAILABLE`: Mounting is available.
+- `UNAVAILABLE`: Mounting is unavailable. ||
+|#
+
+## CPU {#yandex.cloud.baremetal.v1alpha.CPU}
+
+CPU configuration.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the CPU. ||
+|| vendor | **string**
+
+Vendor of the CPU. ||
+|| cores | **string** (int64)
+
+@deprecated. Number of cores. ||
+|| physicalCores | **string** (int64)
+
+Number of physical cores per CPU (socket). ||
+|| frequencyMhz | **string** (int64)
+
+Frequency of the CPU in megahertz (MHz).
+
+Value must be greater than 0. ||
+|| threads | **string** (int64)
+
+Number of threads (logical cores) per CPU (socket). ||
+|#
+
+## DiskDriveConfiguration {#yandex.cloud.baremetal.v1alpha.DiskDriveConfiguration}
+
+#|
+||Field | Description ||
+|| type | **enum** (DiskDriveType)
+
+Type of the disk drive.
+
+- `HDD`: Hard disk drive (magnetic storage).
+- `SSD`: Solid state drive with SATA/SAS interface.
+- `NVME`: Solid state drive with NVMe interface. ||
+|| diskCount | **string** (int64)
+
+Number of disk drives. ||
+|| diskSizeGib | **string** (int64)
+
+Size of a single disk drive in gibibytes (2^30 bytes). ||
+|#
+
+## ConfigurationNetworkInterface {#yandex.cloud.baremetal.v1alpha.ConfigurationNetworkInterface}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Id of the network interface
+Not used while creating interfaces ||
+|| name | **string**
+
+Name of the network interface ||
+|| configurationId | **string**
+
+Id of the configuration ||
+|| linkSpeedGbps | **string** (int64)
+
+Link speed in gigabits per second ||
+|| availableModes[] | **enum** (InterfaceMode)
+
+Available modes for the network interface
+
+- `PRIVATE`: Private network interface mode.
+- `PUBLIC`: Public network interface mode. ||
+|| mcLagOptions | **[MCLagAggregationOptions](#yandex.cloud.baremetal.v1alpha.ConfigurationNetworkInterface.MCLagAggregationOptions)**
+
+MC-LAG configuration options for aggregated interfaces ||
+|#
+
+## MCLagAggregationOptions {#yandex.cloud.baremetal.v1alpha.ConfigurationNetworkInterface.MCLagAggregationOptions}
+
+MC-LAG aggregation options for the network interface.
+
+#|
+||Field | Description ||
+|| interfaceCount | **string** (int64)
+
+Number of interfaces in the MC-LAG aggregation. ||
 |#
 
 ## OsSettings {#yandex.cloud.baremetal.v1alpha.OsSettings}
@@ -355,6 +532,13 @@ Read only field. ||
 @deprecated. Use `interface.ipaddress` instead.
 IPv4 address that is assigned to the server for this network interface.
 Read only field. ||
+|| configurationNetworkInterfaceId | **string**
+
+ID of the configuration network interface that determines the network interface configuration.
+The configuration network interface defines available modes (public/private) and other properties
+for the network interface.
+
+The maximum string length in characters is 20. Value must match the regular expression ` ([a-z][a-z0-9]*)? `. ||
 |#
 
 ## PrivateSubnetNetworkInterface {#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface}

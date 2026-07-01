@@ -40,6 +40,8 @@ keywords:
        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>'
      ```
 
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/deleteShard.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
@@ -65,6 +67,8 @@ keywords:
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.ClusterService.Delete
      ```
+
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation).
 

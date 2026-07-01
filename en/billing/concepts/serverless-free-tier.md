@@ -35,7 +35,6 @@ Free tier applies to the following services:
 * [{{ yds-full-name }}](#yds)
 * [{{ data-transfer-full-name }}](#transfer)
 * [{{ iot-full-name }}](#iot)
-* [{{ load-testing-full-name }}](#load-testing)
 * [{{ ydb-full-name }}](#ydb)
 * [{{ message-queue-full-name }}](#message-queue)
 * [{{ monium-name }}](#monium)
@@ -146,16 +145,6 @@ After you spend the free amount of services, you will be charged at the applicab
 {% include [not-charged-iot.md](../../_includes/pricing/price-formula/not-charged-iot.md) %}
 
 After you spend the free amount of services, you will be charged at the applicable [rate](../../iot-core/pricing.md).
-
-{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
-
-## {{ load-testing-full-name }} {#load-testing}
-
-[{{ load-testing-full-name }}](../../load-testing/quickstart.md) allows you to perform load testing to analyze the performance of your services and applications.
-
-{% include [not-charged-load-testing.md](../../_includes/pricing/price-formula/not-charged-load-testing.md) %}
-
-After you spend the free amount of services, you will be charged at the applicable [rate](../../load-testing/pricing.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
@@ -277,3 +266,4 @@ Usage cost is calculated based on the pricing plans of the relevant service and 
 ### Calculation of {{ iot-full-name }} usage cost {#iot-example}
 
 {% include [prices-example](../../_includes/iot-core/prices-example.md) %}
+

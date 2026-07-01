@@ -26,14 +26,12 @@ Retrieves the list of triggers in the specified folder.
 || folder_id | **string**
 
 Required field. ID of the folder to list triggers in.
-
 To get a folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListTriggersResponse.next_page_token](#yandex.cloud.serverless.triggers.v1.ListTriggersResponse)
 that can be used to get the next page of results in subsequent list requests.
-
 Default value: 100. ||
 || page_token | **string**
 
@@ -42,7 +40,6 @@ Page token. To get the next page of results, set `pageToken` to the
 || filter | **string**
 
 A filter expression that filters triggers listed in the response.
-
 The expression must specify:
 1. The field name. Currently filtering can only be applied to the [Trigger.name](#yandex.cloud.serverless.triggers.v1.Trigger) field.
 2. An `=` operator.
@@ -625,7 +622,6 @@ List of triggers in the specified folder. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListTriggersRequest.page_size](#yandex.cloud.serverless.triggers.v1.ListTriggersRequest), use `nextPageToken` as the value
 for the [ListTriggersRequest.page_token](#yandex.cloud.serverless.triggers.v1.ListTriggersRequest) parameter in the next list request.
-
 Each subsequent page will have its own `nextPageToken` to continue paging through the results. ||
 |#
 
@@ -655,7 +651,7 @@ The string length in characters must be 3-63. ||
 
 Description of the trigger.
 
-The string length in characters must be 0-256. ||
+The string length in characters must be 0-500. ||
 || labels | **object** (map<**string**, **string**>)
 
 Trigger labels as `key:value` pairs. ||

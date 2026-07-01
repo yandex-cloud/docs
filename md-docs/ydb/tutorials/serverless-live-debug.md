@@ -29,7 +29,7 @@
 
 * плата за вызовы функций и вычислительные ресурсы, выделенные для выполнения функций ([тарифы Yandex Cloud Functions](../../functions/pricing.md));
 * плата за количество запросов к API-шлюзу ([тарифы Yandex API Gateway](../../api-gateway/pricing.md));
-* плата за операции с YDB и хранение данных ([тарифы Yandex Managed Service for YDB](../pricing/serverless.md));
+* плата за операции с YDB и хранение данных ([тарифы Yandex Managed Service for YDB](../../ydb/pricing/serverless.md));
 * плата за запись и хранение логов ([тарифы Yandex Cloud Logging](../../logging/pricing.md));
 
 ## Установите необходимые утилиты {#install-utilities}

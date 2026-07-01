@@ -27,7 +27,9 @@ Claims a product instance - activates it and optionally locks to subscription
 ||Field | Description ||
 || token | **string**
 
-Required field. Signed JWT token which contains information about product instance and subscription. ||
+Required field. Signed JWT token which contains information about product instance and subscription.
+
+The maximum string length in characters is 1000. ||
 || resource_id | **string**
 
 ID of the resource to which the product instance will be claimed. ||
@@ -58,29 +60,10 @@ Additional data about the SaaS resource. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "product_id": "string",
-    "product_instance_id": "string",
-    "license_instance_id": "string",
-    "lock_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "resource_id": "string",
-    "resource_type": "ResourceType",
-    "resource_metadata": "map<string, string>",
-    "state": "State",
-    "created_at": "google.protobuf.Timestamp",
-    "updated_at": "google.protobuf.Timestamp",
-    // Includes only one of the fields `saas_info`
-    "saas_info": {
-      "id": "string",
-      "data": "map<string, string>"
-    }
-    // end of the list of possible fields
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -108,7 +91,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[ClaimProductInstanceMetadata](#yandex.cloud.marketplace.pim.v1.saas.ClaimProductInstanceMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -123,7 +106,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[ProductInstance](#yandex.cloud.marketplace.pim.v1.saas.ProductInstance)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -138,79 +121,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## ClaimProductInstanceMetadata {#yandex.cloud.marketplace.pim.v1.saas.ClaimProductInstanceMetadata}
-
-#|
-||Field | Description ||
-|| product_id | **string**
-
-ID of the product to which the product instance belongs. ||
-|| product_instance_id | **string**
-
-ID of the product instance. ||
-|| license_instance_id | **string**
-
-ID of the subscription. ||
-|| lock_id | **string**
-
-ID of the subscription lock. ||
-|#
-
-## ProductInstance {#yandex.cloud.marketplace.pim.v1.saas.ProductInstance}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the product instance. ||
-|| resource_id | **string**
-
-ID of the resource. ||
-|| resource_type | enum **ResourceType**
-
-Type of the resource.
-
-- `RESOURCE_TYPE_UNSPECIFIED`
-- `SAAS`: SaaS resource.
-- `K8S`: Kubernetes resource.
-- `COMPUTE`: Compute resource.
-- `CLOUD_APPS`: Cloud Apps resource. ||
-|| resource_metadata | **object** (map<**string**, **string**>)
-
-Metadata of the resource; Reserved for future use. ||
-|| state | enum **State**
-
-State of the product instance.
-
-- `STATE_UNSPECIFIED`
-- `ACTIVATED`: Product instance is activated.
-- `DEACTIVATED`: Product instance is deactivated.
-- `PENDING_ACTIVATION`: Product instance is pending activation.
-- `DEPRECATED`: Product instance is deprecated.
-- `DELETED`: Product instance is deleted. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp ||
-|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Update timestamp ||
-|| saas_info | **[SaasInfo](#yandex.cloud.marketplace.pim.v1.saas.SaasInfo2)**
-
-Includes only one of the fields `saas_info`.
-
-Additional information about the resource. ||
-|#
-
-## SaasInfo {#yandex.cloud.marketplace.pim.v1.saas.SaasInfo2}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the SaaS resource. ||
-|| data | **object** (map<**string**, **string**>)
-
-Additional data about the SaaS resource. ||
 |#

@@ -12,7 +12,6 @@
 * [{{ dns-full-name }}](../dns/release-notes.md)
 * [{{ interconnect-full-name }}](../interconnect/release-notes.md)
 * [{{ compute-full-name }}](../compute/release-notes.md)
-* [{{ load-testing-full-name }}](../load-testing/release-notes.md)
 * [{{ objstorage-full-name }}](../storage/release-notes.md)
 * [{{ sws-full-name }}](../smartwebsecurity/release-notes.md)
 * [{{ vpc-full-name }}](../vpc/release-notes.md)
@@ -43,7 +42,6 @@
 
 ## Инструменты разработчика {#dev-tools}
 
-* [{{ load-testing-full-name }}](../load-testing/release-notes.md)
 * [{{ mgl-full-name }}](../managed-gitlab/release-notes.md)
 * [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/release-notes/index)
 

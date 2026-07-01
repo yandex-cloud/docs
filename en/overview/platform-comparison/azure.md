@@ -30,7 +30,6 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Azure IoT Hub | [{{ iot-full-name }}](../../iot-core/) |
 | Azure Key Vault | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
 | Azure Kubernetes Service (AKS) | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
-| Azure Load Testing | [{{ load-testing-full-name }}](../../load-testing/) |
 | Azure Logic Apps | [{{ si-full-name }}: {{ sw-name }}](../../serverless-integrations/quickstart/workflows.md) |
 | Azure Machine Learning, Azure Databricks, ONNX Runtime | [{{ ml-platform-full-name }}](../../datasphere/) |
 | Azure Monitor | [{{ monitoring-full-name }}](../../monitoring/) |

@@ -42,18 +42,18 @@ Write log entries to specified destination.
 || destination | **[Destination](#yandex.cloud.logging.v1.Destination)**
 
 Required field. Log entries destination.
-
 See [Destination](#yandex.cloud.logging.v1.Destination) for details. ||
 || resource | **[LogEntryResource](#yandex.cloud.logging.v1.LogEntryResource)**
 
-Common resource (type, ID) specification for log entries. ||
+Required field. Common resource (type, ID) specification for log entries. ||
 || entries[] | **[IncomingLogEntry](#yandex.cloud.logging.v1.IncomingLogEntry)**
 
-List of log entries. ||
+List of log entries.
+
+The number of elements must be in the range 1-100. ||
 || defaults | **[LogEntryDefaults](#yandex.cloud.logging.v1.LogEntryDefaults)**
 
 Log entries defaults.
-
 See [LogEntryDefaults](#yandex.cloud.logging.v1.LogEntryDefaults) for details. ||
 |#
 
@@ -65,12 +65,16 @@ See [LogEntryDefaults](#yandex.cloud.logging.v1.LogEntryDefaults) for details. |
 
 Entry should be written to log group resolved by ID.
 
+The maximum string length in characters is 63. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `log_group_id`, `folder_id`.
 
 Entry destination. ||
 || folder_id | **string**
 
 Entry should be written to default log group for the folder.
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `log_group_id`, `folder_id`.
 
@@ -80,17 +84,20 @@ Entry destination. ||
 ## LogEntryResource {#yandex.cloud.logging.v1.LogEntryResource}
 
 Log entry resource specification.
-
 May be used either by services and by user.
 
 #|
 ||Field | Description ||
 || type | **string**
 
-Resource type, i.e., `serverless.function` ||
+Resource type, i.e., `serverless.function`
+
+The maximum string length in characters is 63. ||
 || id | **string**
 
-Resource ID, i.e., ID of the function producing logs. ||
+Resource ID, i.e., ID of the function producing logs.
+
+The maximum string length in characters is 63. ||
 |#
 
 ## IncomingLogEntry {#yandex.cloud.logging.v1.IncomingLogEntry}
@@ -103,30 +110,20 @@ Required field. Timestamp of the entry. ||
 || level | enum **Level**
 
 Entry severity.
+See [LogLevel.Level](../../../../logging/api-ref/grpc/Export/get.md#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-See [LogLevel.Level](../../../../logging/api-ref/grpc/Export/run.md#yandex.cloud.logging.v1.LogLevel.Level) for details.
-
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
-
-  May be used to alert about unrecoverable failures and events. ||
+May be used to alert about unrecoverable failures and events. ||
 || message | **string**
 
 Entry text message. ||
@@ -135,7 +132,9 @@ Entry text message. ||
 Entry annotation. ||
 || stream_name | **string**
 
-Entry stream name. ||
+Entry stream name.
+
+The maximum string length in characters is 71. ||
 |#
 
 ## LogEntryDefaults {#yandex.cloud.logging.v1.LogEntryDefaults}
@@ -146,30 +145,20 @@ Entry stream name. ||
 
 Default entry severity.
 Will be applied if entry level is unspecified.
+See [LogLevel.Level](../../../../logging/api-ref/grpc/Export/get.md#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-See [LogLevel.Level](../../../../logging/api-ref/grpc/Export/run.md#yandex.cloud.logging.v1.LogLevel.Level) for details.
-
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
-
-  May be used to alert about unrecoverable failures and events. ||
+May be used to alert about unrecoverable failures and events. ||
 || json_payload | **[google.protobuf.Struct](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/struct)**
 
 Default entry annotation.
@@ -177,7 +166,9 @@ Will be merged with entry annotation.
 Any conflict will be resolved in favor of entry own annotation. ||
 || stream_name | **string**
 
-Entry stream name. ||
+Entry stream name.
+
+The maximum string length in characters is 71. ||
 |#
 
 ## WriteResponse {#yandex.cloud.logging.v1.WriteResponse}

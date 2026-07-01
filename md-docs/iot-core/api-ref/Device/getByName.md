@@ -13,13 +13,15 @@ GET https://iot-devices.api.cloud.yandex.net/iot-devices/v1/devices:getByName
 || registryId | **string**
 
 Required field. ID of the registry to get device.
+To get a registry ID make a [yandex.cloud.iot.devices.v1.RegistryService.List](../Registry/list.md#List) request.
 
-To get a registry ID make a [yandex.cloud.iot.devices.v1.RegistryService.List](../Registry/list.md#List) request. ||
+The maximum string length in characters is 50. ||
 || deviceName | **string**
 
 Required field. Name of the device to return.
+To get a device name make a [DeviceService.List](list.md#List) request.
 
-To get a device name make a [DeviceService.List](list.md#List) request. ||
+The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || deviceView | **enum** (DeviceView)
 
 Specifies which parts of the device resource should be returned
@@ -84,13 +86,11 @@ Description of the device. 0-256 characters long. ||
 || topicAliases | **object** (map<**string**, **string**>)
 
 Alias of a device topic.
-
 Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. ||
 || status | **enum** (Status)
 
 Status of the device.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Device is being created.
 - `ACTIVE`: Device is ready to use.
 - `DELETING`: Device is being deleted. ||

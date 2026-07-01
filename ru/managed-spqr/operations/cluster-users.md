@@ -31,6 +31,8 @@ description: Из статьи вы узнаете, как добавлять и
        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>/users'
      ```
 
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/list.md#yandex.cloud.mdb.spqr.v1.ListUsersResponse).
 
 - gRPC API {#grpc-api}
@@ -56,6 +58,8 @@ description: Из статьи вы узнаете, как добавлять и
        yandex.cloud.mdb.spqr.v1.UserService.List
      ```
 
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/list.md#yandex.cloud.mdb.spqr.v1.ListUsersResponse).
 
 {% endlist %}
@@ -78,6 +82,8 @@ description: Из статьи вы узнаете, как добавлять и
        --header "Authorization: Bearer $IAM_TOKEN" \
        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>'
      ```
+
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/get.md#yandex.cloud.mdb.spqr.v1.User).
 
@@ -104,6 +110,8 @@ description: Из статьи вы узнаете, как добавлять и
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.UserService.Get
      ```
+
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/get.md#yandex.cloud.mdb.spqr.v1.User).
 
@@ -185,30 +193,33 @@ description: Из статьи вы узнаете, как добавлять и
                }'
      ```
 
-     Где `userSpec` — настройки нового пользователя БД:
+     Где: 
 
-     * `name` — имя пользователя.
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
+     * `userSpec` — настройки нового пользователя БД:
 
-       {% include [user-name-limits](../../_includes/mdb/mspqr/console/user-name-limits.md) %}
+       * `name` — имя пользователя.
 
-     * `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
+         {% include [user-name-limits](../../_includes/mdb/mspqr/console/user-name-limits.md) %}
 
-     * `permissions` — список баз данных, к которым должен иметь доступ пользователь. Каждый элемент списка содержит параметр `databaseName` — имя БД.
+       * `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
 
-     * `settings` — настройки подключения:
+       * `permissions` — список баз данных, к которым должен иметь доступ пользователь. Каждый элемент списка содержит параметр `databaseName` — имя БД.
 
-       * `connLimit` — максимальное количество подключений пользователя к БД.
-       * `connectionRetries` — количество повторных попыток соединения [роутера](../concepts/index.md#router) с [шардами](../concepts/index.md#shard).
+       * `settings` — настройки подключения:
 
-     * `grants` — список грантов, которые будут назначены пользователю.
+         * `connLimit` — максимальное количество подключений пользователя к БД.
+         * `connectionRetries` — количество повторных попыток соединения [роутера](../concepts/index.md#router) с [шардами](../concepts/index.md#shard).
 
-       Возможные значения:
-       - `reader`
-       - `writer`
-       - `admin`
-       - `transfer`
+       * `grants` — список грантов, которые будут назначены пользователю.
 
-     * `deletionProtection` — защита пользователя от удаления: `true` или `false`.
+         Возможные значения:
+         - `reader`
+         - `writer`
+         - `admin`
+         - `transfer`
+
+       * `deletionProtection` — защита пользователя от удаления: `true` или `false`.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/create.md#yandex.cloud.operation.Operation).
 
@@ -252,30 +263,33 @@ description: Из статьи вы узнаете, как добавлять и
        yandex.cloud.mdb.spqr.v1.UserService.Create
      ```
 
-     Где `user_spec` — настройки нового пользователя БД:
+     Где:
 
-     * `name` — имя пользователя.
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
+     * `user_spec` — настройки нового пользователя БД:
 
-       {% include [user-name-limits](../../_includes/mdb/mspqr/console/user-name-limits.md) %}
+       * `name` — имя пользователя.
 
-     * `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
+         {% include [user-name-limits](../../_includes/mdb/mspqr/console/user-name-limits.md) %}
 
-     * `permissions` — список баз данных, к которым должен иметь доступ пользователь. Каждый элемент списка содержит параметр `database_name` — имя БД.
+       * `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
 
-     * `settings` — настройки подключения:
+       * `permissions` — список баз данных, к которым должен иметь доступ пользователь. Каждый элемент списка содержит параметр `database_name` — имя БД.
 
-       * `connection_limit` — максимальное количество подключений пользователя к БД.
-       * `connection_retries` — количество повторных попыток соединения [роутера](../concepts/index.md#router) с [шардами](../concepts/index.md#shard).
+       * `settings` — настройки подключения:
 
-     * `grants` — список грантов, которые будут назначены пользователю.
+         * `connection_limit` — максимальное количество подключений пользователя к БД.
+         * `connection_retries` — количество повторных попыток соединения [роутера](../concepts/index.md#router) с [шардами](../concepts/index.md#shard).
 
-       Возможные значения:
-       - `reader`
-       - `writer`
-       - `admin`
-       - `transfer`
+       * `grants` — список грантов, которые будут назначены пользователю.
 
-     * `deletion_protection` — защита пользователя от удаления: `true` или `false`.
+         Возможные значения:
+         - `reader`
+         - `writer`
+         - `admin`
+         - `transfer`
+
+       * `deletion_protection` — защита пользователя от удаления: `true` или `false`.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation).
 
@@ -354,6 +368,8 @@ description: Из статьи вы узнаете, как добавлять и
 
      Где:
 
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
+
      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
      * `password` — новый пароль. Длина пароля — от 8 до 128 символов.
@@ -424,6 +440,8 @@ description: Из статьи вы узнаете, как добавлять и
 
      Где:
 
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
+
      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
      * `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
@@ -484,6 +502,7 @@ description: Из статьи вы узнаете, как добавлять и
 
      Где:
 
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
        В данном случае передается только один параметр.
@@ -526,6 +545,7 @@ description: Из статьи вы узнаете, как добавлять и
 
      Где:
 
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
        В данном случае передается только один параметр.
@@ -571,6 +591,7 @@ description: Из статьи вы узнаете, как добавлять и
 
      Где:
 
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
        В данном случае передается только один параметр.
@@ -613,6 +634,7 @@ description: Из статьи вы узнаете, как добавлять и
 
      Где:
 
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
        В данном случае передается только один параметр.
@@ -653,6 +675,8 @@ description: Из статьи вы узнаете, как добавлять и
        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>'
      ```
 
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/delete.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
@@ -678,6 +702,8 @@ description: Из статьи вы узнаете, как добавлять и
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.UserService.Delete
      ```
+
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/delete.md#yandex.cloud.operation.Operation).
 

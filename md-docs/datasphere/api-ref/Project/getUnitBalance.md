@@ -14,7 +14,9 @@ GET https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/{projectId}:u
 ||Field | Description ||
 || projectId | **string**
 
-Required field. ID of the project to return the unit balance for. ||
+Required field. ID of the project to return the unit balance for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.datasphere.v2.GetUnitBalanceResponse}

@@ -18,7 +18,7 @@ Required field. ID of the resource to list access bindings for.
 To get the resource ID, use a corresponding List request.
 For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](../../../../resource-manager/api-ref/Cloud/list.md#List) request to get the Cloud resource ID.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## Query parameters {#yandex.cloud.access.ListAccessBindingsRequest}
@@ -33,7 +33,7 @@ the service returns a [ListAccessBindingsResponse.nextPageToken](#yandex.cloud.a
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100.
 
-The maximum value is 1000. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. Set `pageToken`
@@ -85,7 +85,7 @@ in the next list request. Each subsequent list request will have its own
 
 Required field. ID of the [yandex.cloud.iam.v1.Role](../../../../iam/api-ref/Role/get.md#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || subject | **[Subject](#yandex.cloud.access.Subject)**
 
 Required field. Identity for which access binding is being created.

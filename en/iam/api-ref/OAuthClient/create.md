@@ -43,6 +43,7 @@ apiPlayground:
         authenticationMethods:
           description: |-
             **string**
+            List of authentication methods allowed for the oauth client.
             The maximum string length in characters for each value is 255. The maximum number of elements is 1000.
           type: array
           items:
@@ -120,6 +121,8 @@ To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List]
 
 The maximum string length in characters is 255. ||
 || authenticationMethods[] | **string**
+
+List of authentication methods allowed for the oauth client.
 
 The maximum string length in characters for each value is 255. The maximum number of elements is 1000. ||
 || profileId | **string**

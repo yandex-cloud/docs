@@ -116,7 +116,7 @@ L7-балансировщик автоматически проверяет ра
    {% include [Run kubectl cluster-info](../../_includes/managed-kubernetes/kubectl-info.md) %}
 
 1. [Установите Docker](https://docs.docker.com/get-docker/).
-1. [Аутентифицируйтесь в {{ container-registry-full-name }}](../../container-registry/operations/authentication.md#cred-helper) с помощью Docker Credential helper.
+1. [Аутентифицируйтесь в {{ container-registry-full-name }}](../../container-registry/operations/authentication.md#cred-helper) с помощью Docker credential helper.
 
 ## Создайте Docker-образ {#docker-image}
 
@@ -161,7 +161,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
    Если не получается загрузить образ, выполните следующие действия:
 
-   * Убедитесь, что вы [аутентифицировались в {{ container-registry-name }}](../../container-registry/operations/authentication.md#cred-helper) с помощью Docker Credential helper.
+   * Убедитесь, что вы [аутентифицировались в {{ container-registry-name }}](../../container-registry/operations/authentication.md#cred-helper) с помощью Docker credential helper.
    * [Настройте доступ к реестру](../../container-registry/operations/registry/registry-access.md) — предоставьте разрешение PUSH на загрузку Docker-образов для IP-адреса вашего компьютера.
 
 ## Разверните тестовое приложение {#test-app}

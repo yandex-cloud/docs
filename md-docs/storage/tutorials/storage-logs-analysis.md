@@ -33,7 +33,7 @@
 
 В стоимость входят:
 
-* плата за хранение данных в Object Storage, операции с ними и исходящий трафик ([тарифы Object Storage](../pricing.md));
+* плата за хранение данных в Object Storage, операции с ними и исходящий трафик ([тарифы Object Storage](../../storage/pricing.md));
 * плата за постоянно запущенный кластер Managed Service for ClickHouse® ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
 
 

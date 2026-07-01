@@ -20,13 +20,15 @@ Retrieves the resources (type and IDs) in the specified log group.
 || log_group_id | **string**
 
 Required field. ID of the log group to list resources for.
+To get a log group ID make a [LogGroupService.List](list.md#List) request.
 
-To get a log group ID make a [LogGroupService.List](list.md#List) request. ||
+The maximum string length in characters is 64. ||
 || type | **string**
 
 Resource type to return resources for.
+If not specified, [ListResourcesResponse](#yandex.cloud.logging.v1.ListResourcesResponse) will contain information about all resource types.
 
-If not specified, [ListResourcesResponse](#yandex.cloud.logging.v1.ListResourcesResponse) will contain information about all resource types. ||
+The maximum string length in characters is 256. ||
 |#
 
 ## ListResourcesResponse {#yandex.cloud.logging.v1.ListResourcesResponse}
@@ -60,7 +62,6 @@ Log group resource.
 || type | **string**
 
 Resource type.
-
 Collected from log entries inside log group. ||
 || ids[] | **string**
 

@@ -23,6 +23,16 @@ Syntax:
 
   - [yc managed-mysql v0 backup list](backup/list.md) — List available backups
 
+- [yc managed-mysql v0 backup-retention-policy](backup-retention-policy/index.md) — Manage MySQL backup retention policies
+
+  - [yc managed-mysql v0 backup-retention-policy create](backup-retention-policy/create.md) — Create backup retention policy for the specified MySQL cluster
+
+  - [yc managed-mysql v0 backup-retention-policy delete](backup-retention-policy/delete.md) — Delete the specified backup retention policies
+
+  - [yc managed-mysql v0 backup-retention-policy list](backup-retention-policy/list.md) — List backup retention policies for the specified MySQL cluster
+
+  - [yc managed-mysql v0 backup-retention-policy list-by-folder](backup-retention-policy/list-by-folder.md) — List backup retention policies for all clusters in the specified folder
+
 - [yc managed-mysql v0 cluster](cluster/index.md) — Manage MySQL clusters
 
   - [yc managed-mysql v0 cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified MySQL cluster

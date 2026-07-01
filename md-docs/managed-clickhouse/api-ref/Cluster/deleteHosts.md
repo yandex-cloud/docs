@@ -1,7 +1,7 @@
 # Managed Service for ClickHouse API, REST: Cluster.DeleteHosts
 
 Deletes the specified hosts for a cluster.
-(-- api-linter: yc::1705::http-method-mapping=disabled --)
+
 
 ## HTTP request
 

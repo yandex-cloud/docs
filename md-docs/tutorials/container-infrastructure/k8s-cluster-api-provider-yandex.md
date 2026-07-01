@@ -154,7 +154,7 @@
 
 - Готовый образ
 
-  1. [Аутентифицируйтесь](../../container-registry/operations/authentication.md#cred-helper) в реестре Container Registry с помощью [Docker Credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers).
+  1. [Аутентифицируйтесь](../../container-registry/operations/authentication.md#cred-helper) в реестре Container Registry с помощью [Docker credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers).
   1. Добавьте в переменную окружения `IMG` путь к Docker-образу с провайдером Yandex Cloud в публичном реестре:
 
       ```bash
@@ -164,7 +164,7 @@
 - Образ из исходного кода
 
   1. [Создайте](../../container-registry/operations/registry/registry-create.md) реестр Container Registry и сохраните его идентификатор.
-  1. [Аутентифицируйтесь](../../container-registry/operations/authentication.md#cred-helper) в реестре Container Registry с помощью [Docker Credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers).
+  1. [Аутентифицируйтесь](../../container-registry/operations/authentication.md#cred-helper) в реестре Container Registry с помощью [Docker credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers).
   1. Добавьте в переменную окружения `IMG` путь, по которому собранный Docker-образ будет сохранен в реестре:
 
       ```bash

@@ -193,12 +193,6 @@ Service name: `kms`.
 
 {% include [kms-events](../../_includes/audit-trails/events/kms-events.md) %}
 
-## {{ load-testing-full-name }} {#loadtesting}
-
-Service name: `loadtesting`.
-
-{% include [load-testing-events](../../_includes/audit-trails/events/load-testing-events.md) %}
-
 ## {{ lockbox-full-name }} {#lockbox}
 
 Service name: `lockbox`.

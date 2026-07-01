@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the log group to list resources for.
             To get a log group ID make a [LogGroupService.List](/docs/logging/api-ref/LogGroup/list#List) request.
+            The maximum string length in characters is 64.
           type: string
       required:
         - logGroupId
@@ -23,6 +24,7 @@ apiPlayground:
             **string**
             Resource type to return resources for.
             If not specified, [ListResourcesResponse](#yandex.cloud.logging.v1.ListResourcesResponse) will contain information about all resource types.
+            The maximum string length in characters is 256.
           type: string
       additionalProperties: false
     body: null
@@ -46,8 +48,9 @@ GET https://logging.{{ api-host }}/logging/v1/logGroups/{logGroupId}:listResourc
 || logGroupId | **string**
 
 Required field. ID of the log group to list resources for.
+To get a log group ID make a [LogGroupService.List](/docs/logging/api-ref/LogGroup/list#List) request.
 
-To get a log group ID make a [LogGroupService.List](/docs/logging/api-ref/LogGroup/list#List) request. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## Query parameters {#yandex.cloud.logging.v1.ListResourcesRequest}
@@ -57,8 +60,9 @@ To get a log group ID make a [LogGroupService.List](/docs/logging/api-ref/LogGro
 || type | **string**
 
 Resource type to return resources for.
+If not specified, [ListResourcesResponse](#yandex.cloud.logging.v1.ListResourcesResponse) will contain information about all resource types.
 
-If not specified, [ListResourcesResponse](#yandex.cloud.logging.v1.ListResourcesResponse) will contain information about all resource types. ||
+The maximum string length in characters is 256. ||
 |#
 
 ## Response {#yandex.cloud.logging.v1.ListResourcesResponse}
@@ -94,7 +98,6 @@ Log group resource.
 || type | **string**
 
 Resource type.
-
 Collected from log entries inside log group. ||
 || ids[] | **string**
 

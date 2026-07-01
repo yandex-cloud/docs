@@ -22,7 +22,7 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластеры Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Apache Kafka®](../pricing.md)).
+* Плата за кластеры Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Apache Kafka®](../../managed-kafka/pricing.md)).
 * Плата за кластер Managed Service for ClickHouse®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
 * Плата за использование публичных IP-адресов, если для хостов кластеров включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 

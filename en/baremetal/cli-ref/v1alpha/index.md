@@ -121,6 +121,8 @@ Syntax:
 
   - [yc baremetal v1alpha server power-on](server/power-on.md) — Powers on the specified server.
 
+  - [yc baremetal v1alpha server prolongate-ended-rent](server/prolongate-ended-rent.md) — Enable prolongation after rental period end
+
   - [yc baremetal v1alpha server reboot](server/reboot.md) — Reboots the specified server.
 
   - [yc baremetal v1alpha server reinstall](server/reinstall.md) — Reinstalls the specified server.

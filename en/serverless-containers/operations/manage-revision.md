@@ -1,6 +1,6 @@
 ---
 title: How to create a container revision
-description: Use this guide to create a container revision.
+description: Follow this guide to create a container revision.
 ---
 
 # Creating a container revision

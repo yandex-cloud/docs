@@ -1,7 +1,7 @@
 # Managed Service for Redis API, gRPC: UserService.Get
 
 Returns the specified Redis User resource.
-To get the list of available Redis User resources, make a [List](../../../../managed-redis/api-ref/grpc/User/list#List) request.
+To get the list of available Redis User resources, make a [List](list.md#List) request.
 
 ## gRPC request
 
@@ -21,13 +21,13 @@ To get the list of available Redis User resources, make a [List](../../../../man
 || cluster_id | **string**
 
 Required field. ID of the Redis cluster the user belongs to.
-To get the cluster ID, use a [ClusterService.List](../../../../managed-redis/api-ref/grpc/Cluster/list#List) request.
+To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || user_name | **string**
 
 Required field. Name of the Redis User resource to return.
-To get the name of the user, use a [UserService.List](../../../../managed-redis/api-ref/grpc/User/list#List) request.
+To get the name of the user, use a [UserService.List](list.md#List) request.
 
 The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `. ||
 |#
@@ -52,7 +52,7 @@ The maximum string length in characters is 32. Value must match the regular expr
 ```
 
 A Redis User resource. For more information, see the
-[Developer's Guide](../../../../managed-redis/concepts).
+[Developer's Guide](../../../concepts/index.md).
 
 #|
 ||Field | Description ||

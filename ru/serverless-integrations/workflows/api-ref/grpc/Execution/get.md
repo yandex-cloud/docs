@@ -71,7 +71,7 @@ Required field. ID of the Workflow execution. ||
 ||Field | Description ||
 || execution | **[Execution](#yandex.cloud.serverless.workflows.v1.Execution)**
 
-Workflow execution details. ||
+Required field. Workflow execution details. ||
 |#
 
 ## Execution {#yandex.cloud.serverless.workflows.v1.Execution}
@@ -80,10 +80,10 @@ Workflow execution details. ||
 ||Field | Description ||
 || id | **string**
 
-ID of the Workflow execution. Generated at creation time. ||
+Required field. ID of the Workflow execution. Generated at creation time. ||
 || workflow_id | **string**
 
-ID of the Workflow. ||
+Required field. ID of the Workflow. ||
 || input | **[ExecutionInput](#yandex.cloud.serverless.workflows.v1.ExecutionInput)**
 
 Input data for the Workflow execution. ||
@@ -95,7 +95,7 @@ Result of the Workflow execution. ||
 Error details, in case Workflow execution failed. ||
 || status | enum **Status**
 
-Status of the Workflow execution
+Required field. Status of the Workflow execution
 
 - `QUEUED`: Workflow execution is being queued.
 - `RUNNING`: Workflow execution is running.
@@ -105,7 +105,7 @@ Status of the Workflow execution
 - `FINISHED`: Workflow execution is finished. ||
 || started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Start timestamp for the Workflow execution. ||
+Required field. Start timestamp for the Workflow execution. ||
 || duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Duration of the Workflow execution. ||

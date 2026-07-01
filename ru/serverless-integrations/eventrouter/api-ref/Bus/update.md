@@ -47,7 +47,7 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             New labels of the bus.
-            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+            The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource.
           type: object
           additionalProperties:
             type: string
@@ -83,17 +83,19 @@ apiPlayground:
             description: |-
               **string**
               Entry will be written to log group resolved by ID.
-              The maximum string length in characters is 50.
+              The maximum string length in characters is 50. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
               Includes only one of the fields `logGroupId`, `folderId`.
               Log entries destination.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
             type: string
           folderId:
             description: |-
               **string**
               Entry will be written to default log group for specified folder.
-              The maximum string length in characters is 50.
+              The maximum string length in characters is 50. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
               Includes only one of the fields `logGroupId`, `folderId`.
               Log entries destination.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
             type: string
           minLevel:
             description: |-
@@ -193,7 +195,7 @@ The maximum string length in characters is 256. ||
 
 New labels of the bus.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || deletionProtection | **boolean**
 
 New flag that disallow deletion of the bus. ||
@@ -213,7 +215,7 @@ New options for logging from the bus. ||
 
 Entry will be written to log group resolved by ID.
 
-The maximum string length in characters is 50.
+The maximum string length in characters is 50. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `logGroupId`, `folderId`.
 
@@ -222,7 +224,7 @@ Log entries destination. ||
 
 Entry will be written to default log group for specified folder.
 
-The maximum string length in characters is 50.
+The maximum string length in characters is 50. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `logGroupId`, `folderId`.
 
@@ -230,7 +232,6 @@ Log entries destination. ||
 || minLevel | **enum** (Level)
 
 Minimum log entry level.
-
 See [LogLevel.Level](/docs/logging/api-ref/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.
@@ -259,9 +260,7 @@ May be used to alert about unrecoverable failures and events. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "busId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -270,25 +269,7 @@ May be used to alert about unrecoverable failures and events. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "folderId": "string",
-    "cloudId": "string",
-    "createdAt": "string",
-    "name": "string",
-    "description": "string",
-    "labels": "object",
-    "deletionProtection": "boolean",
-    "status": "string",
-    "loggingEnabled": "boolean",
-    "logOptions": {
-      // Includes only one of the fields `logGroupId`, `folderId`
-      "logGroupId": "string",
-      "folderId": "string",
-      // end of the list of possible fields
-      "minLevel": "string"
-    }
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -330,7 +311,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateBusMetadata](#yandex.cloud.serverless.eventrouter.v1.UpdateBusMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -345,7 +326,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Bus](#yandex.cloud.serverless.eventrouter.v1.Bus)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -360,15 +341,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateBusMetadata {#yandex.cloud.serverless.eventrouter.v1.UpdateBusMetadata}
-
-#|
-||Field | Description ||
-|| busId | **string**
-
-Required field. ID of the bus that is being updated. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -386,96 +358,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Bus {#yandex.cloud.serverless.eventrouter.v1.Bus}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the bus. ||
-|| folderId | **string**
-
-ID of the folder that the bus belongs to. ||
-|| cloudId | **string**
-
-ID of the cloud that the bus resides in. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| name | **string**
-
-Name of the bus. ||
-|| description | **string**
-
-Description of the bus. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `key:value` pairs. ||
-|| deletionProtection | **boolean**
-
-Deletion protection. ||
-|| status | **enum** (Status)
-
-Status of the bus.
-
-- `CREATING`
-- `ACTIVE`
-- `DELETING` ||
-|| loggingEnabled | **boolean**
-
-Is logging from the bus enabled. ||
-|| logOptions | **[LogOptions](#yandex.cloud.serverless.eventrouter.v1.LogOptions2)**
-
-Options for logging from the bus. ||
-|#
-
-## LogOptions {#yandex.cloud.serverless.eventrouter.v1.LogOptions2}
-
-#|
-||Field | Description ||
-|| logGroupId | **string**
-
-Entry will be written to log group resolved by ID.
-
-The maximum string length in characters is 50.
-
-Includes only one of the fields `logGroupId`, `folderId`.
-
-Log entries destination. ||
-|| folderId | **string**
-
-Entry will be written to default log group for specified folder.
-
-The maximum string length in characters is 50.
-
-Includes only one of the fields `logGroupId`, `folderId`.
-
-Log entries destination. ||
-|| minLevel | **enum** (Level)
-
-Minimum log entry level.
-
-See [LogLevel.Level](/docs/logging/api-ref/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
-
-- `TRACE`: Trace log level.
-Possible use case: verbose logging of some business logic.
-- `DEBUG`: Debug log level.
-Possible use case: debugging special cases in application logic.
-- `INFO`: Info log level.
-Mostly used for information messages.
-- `WARN`: Warn log level.
-May be used to alert about significant events.
-- `ERROR`: Error log level.
-May be used to alert about errors in infrastructure, logic, etc.
-- `FATAL`: Fatal log level.
-May be used to alert about unrecoverable failures and events. ||
 |#

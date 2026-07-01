@@ -10,6 +10,14 @@ Syntax:
 
 #### Command Tree
 
+- [yc smartwebsecurity v1 advanced-rate-limiter](advanced-rate-limiter/index.md) — 
+
+
+
+- [yc smartwebsecurity v1 match-list](match-list/index.md) — 
+
+
+
 - [yc smartwebsecurity v1 security-profile](security-profile/index.md) — A set of methods for managing SecurityProfile resources.
 
   - [yc smartwebsecurity v1 security-profile create](security-profile/create.md) — Creates a security profile in the specified folder using the data specified in the request.

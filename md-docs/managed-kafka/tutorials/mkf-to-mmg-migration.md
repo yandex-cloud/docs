@@ -16,7 +16,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for Apache Kafka®](../pricing.md)).
+* Кластер Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
 * Кластер Yandex StoreDoc: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Yandex StoreDoc](../../storedoc/pricing.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 

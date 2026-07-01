@@ -20,7 +20,7 @@
 * Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
 * Плата за каждую ВМ (узлы кластера, DNS-сервер, ВМ для управления кластером Managed Service for Kubernetes без публичного доступа): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
 * Плата за публичные IP-адреса для ВМ ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за DNS-зону и DNS-запросы ([тарифы Cloud DNS](../pricing.md)).
+* Плата за DNS-зону и DNS-запросы ([тарифы Cloud DNS](../../dns/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

@@ -31,7 +31,7 @@
 * Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
 * Плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Application Load Balancer](../../application-load-balancer/pricing.md)).
 * Плата за публичные IP-адреса для узлов кластера и L7-балансировщика ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за количество запросов в сервис Smart Web Security ([тарифы Smart Web Security](../pricing.md)).
+* Плата за количество запросов в сервис Smart Web Security ([тарифы Smart Web Security](../../smartwebsecurity/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

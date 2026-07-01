@@ -24,13 +24,15 @@ Deletes the specified password.
 || registry_id | **string**
 
 Required field. ID of the registry to delete a password for.
+To get a registry ID make a [DeviceService.List](/docs/iot-core/api-ref/grpc/Device/list#List) request.
 
-To get a registry ID make a [DeviceService.List](/docs/iot-core/api-ref/grpc/Device/list#List) request. ||
+The maximum string length in characters is 50. ||
 || password_id | **string**
 
 Required field. ID of the password to delete.
+To get a password ID make a [RegistryService.ListPasswords](/docs/iot-core/api-ref/grpc/Registry/listPasswords#ListPasswords) request.
 
-To get a password ID make a [RegistryService.ListPasswords](/docs/iot-core/api-ref/grpc/Registry/listPasswords#ListPasswords) request. ||
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -43,13 +45,10 @@ To get a password ID make a [RegistryService.ListPasswords](/docs/iot-core/api-r
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "registry_id": "string",
-    "password_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": "google.protobuf.Empty"
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -77,7 +76,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[DeleteRegistryPasswordMetadata](#yandex.cloud.iot.devices.v1.DeleteRegistryPasswordMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -92,7 +91,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -107,18 +106,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## DeleteRegistryPasswordMetadata {#yandex.cloud.iot.devices.v1.DeleteRegistryPasswordMetadata}
-
-#|
-||Field | Description ||
-|| registry_id | **string**
-
-Required field. ID of a registry for which the password is being delete. ||
-|| password_id | **string**
-
-Required field. ID of the password to delete.
-
-To get a password ID make a [RegistryService.ListPasswords](/docs/iot-core/api-ref/grpc/Registry/listPasswords#ListPasswords) request. ||
 |#

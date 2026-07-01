@@ -43,7 +43,7 @@
 
 * плата за количество вызовов функций, вычислительные ресурсы, выделенные для выполнения функций, и исходящий трафик ([тарифы Yandex Cloud Functions](../../functions/pricing.md));
 * плата за операции с YDB и хранение данных ([тарифы Yandex Managed Service for YDB](../../ydb/pricing/serverless.md));
-* плата за хранение данных в бакете ([тарифы Yandex Object Storage](../pricing.md));
+* плата за хранение данных в бакете ([тарифы Yandex Object Storage](../../storage/pricing.md));
 * плата за количество запросов к созданному API-шлюзу и исходящий трафик ([тарифы Yandex API Gateway](../../api-gateway/pricing.md));
 * плата за запись и хранение данных в лог-группе ([тарифы Yandex Cloud Logging](../../logging/pricing.md)).
 

@@ -31,9 +31,9 @@
 
 В стоимость ресурсов для запуска Docker-образа входят:
 
-* Плата за постоянно запущенную ВМ ([тарифы Yandex Compute Cloud](../pricing.md)).
+* Плата за постоянно запущенную ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 * Плата за хранение созданных образов ([тарифы Yandex Cloud Registry](../../cloud-registry/pricing.md)).
-* Плата за исходящий трафик из Yandex Cloud в интернет ([тарифы Yandex Compute Cloud](../pricing.md)).
+* Плата за исходящий трафик из Yandex Cloud в интернет ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 
 
 ### Создайте пару ключей SSH {#create-ssh}

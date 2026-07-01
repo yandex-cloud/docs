@@ -33,10 +33,10 @@ Managed Service for Apache Airflow™ — это популярный инстр
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
-* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы Yandex Virtual Private Cloud](../pricing.md)).
-* Сервис Query: объем считанных данных при исполнении запросов ([тарифы Query](../../query/pricing.md)).
-* Кластер Managed Service for Apache Airflow™: вычислительные ресурсы компонентов кластера ([тарифы Managed Service for Apache Airflow™](../../managed-airflow/pricing.md)).
+* Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../../storage/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
+* Сервис Query: объем считанных данных при исполнении запросов ([тарифы Query](../../../query/pricing.md)).
+* Кластер Managed Service for Apache Airflow™: вычислительные ресурсы компонентов кластера ([тарифы Managed Service for Apache Airflow™](../../../managed-airflow/pricing.md)).
 
 ## Создайте сервисный аккаунт {#create-service-account}
 

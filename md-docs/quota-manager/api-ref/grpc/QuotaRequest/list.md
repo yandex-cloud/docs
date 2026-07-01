@@ -24,26 +24,32 @@ Retrieves the list of quota requests in the specified resource.
 ||Field | Description ||
 || resource | **[Resource](#yandex.cloud.quotamanager.v1.Resource)**
 
-Required field. Resource to list quota requests in. ||
+Resource to list quota requests in. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on the [quotaRequest.status] field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+The maximum string length in characters is 1000. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListQuotaRequestsResponse.next_page_token]
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100 ||
+Default value: 100
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token`
 to the [ListQuotaRequestsResponse.next_page_token]
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Resource {#yandex.cloud.quotamanager.v1.Resource}
@@ -52,10 +58,14 @@ returned by a previous list request. ||
 ||Field | Description ||
 || id | **string**
 
-Required field. The id if the resource. ||
+Required field. The id if the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.cloud, billing.account. ||
+Required field. The type of the resource, e.g. resource-manager.cloud, billing.account.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListQuotaRequestResponse {#yandex.cloud.quotamanager.v1.ListQuotaRequestResponse}
@@ -119,7 +129,6 @@ Creation timestamp. ||
 
 Status of current quota request.
 
-- `STATUS_UNSPECIFIED`
 - `PENDING`: The request is pending and is waiting to be processed.
 - `PROCESSING`: The request is processing.
 - `PROCESSED`: The request was processed.
@@ -139,10 +148,14 @@ ID of the subject who created quota request. ||
 ||Field | Description ||
 || id | **string**
 
-Required field. The id if the resource. ||
+Required field. The id if the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.cloud, billing.account. ||
+Required field. The type of the resource, e.g. resource-manager.cloud, billing.account.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## QuotaLimit {#yandex.cloud.quotamanager.v1.QuotaRequest.QuotaLimit}
@@ -165,7 +178,6 @@ Unit of quota. ||
 
 Status of current quota limit.
 
-- `STATUS_UNSPECIFIED`
 - `PENDING`: The request is pending and is waiting to be processed.
 - `PROCESSING`: The request is processing.
 - `PARTIAL_APPROVED`: The request was partially approved.

@@ -15,14 +15,12 @@ GET https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateway
 || folderId | **string**
 
 Required field. ID of the folder to list API gateways in.
-
 To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../../resource-manager/api-ref/Folder/list.md#List) request. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListApiGatewayResponse.nextPageToken](#yandex.cloud.serverless.apigateway.v1.ListApiGatewayResponse)
 that can be used to get the next page of results in subsequent list requests.
-
 Default value: 100. ||
 || pageToken | **string**
 
@@ -31,7 +29,6 @@ Page token. To get the next page of results, set `pageToken` to the
 || filter | **string**
 
 A filter expression that filters functions listed in the response.
-
 The expression must specify:
 1. The field name. Currently filtering can only be applied to the [ApiGateway.name](index.md) field.
 2. An `=` operator.
@@ -100,7 +97,6 @@ List of API gateways in the specified folder. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListApiGatewayRequest.pageSize](#yandex.cloud.serverless.apigateway.v1.ListApiGatewayRequest), use `nextPageToken` as the value
 for the [ListApiGatewayRequest.pageToken](#yandex.cloud.serverless.apigateway.v1.ListApiGatewayRequest) parameter in the next list request.
-
 Each subsequent page will have its own `nextPageToken` to continue paging through the results. ||
 |#
 
@@ -227,7 +223,6 @@ Log entries destination. ||
 || minLevel | **enum** (Level)
 
 Minimum log entry level.
-
 See [LogLevel.Level](../../../../logging/api-ref/Export/get.md#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.

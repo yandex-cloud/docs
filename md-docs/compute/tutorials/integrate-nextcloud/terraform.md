@@ -46,7 +46,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость предлагаемого решения входят: 
-* плата за [диски](../../concepts/disk.md), [снимки дисков](../../concepts/snapshot.md) и постоянно запущенные [ВМ](../../concepts/vm.md) ([тарифы Yandex Compute Cloud](../../pricing.md));
+* плата за [диски](../../concepts/disk.md), [снимки дисков](../../concepts/snapshot.md) и постоянно запущенные [ВМ](../../concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
 * плата за использование [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) и [NAT-шлюзов](../../../vpc/concepts/gateways.md#nat-gateway) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
 * плата за [хранение данных](../../../storage/concepts/bucket.md) в Object Storage и [операции](../../../storage/operations/index.md) с ними ([тарифы Yandex Object Storage](../../../storage/pricing.md));
 * плата за использование управляемой БД MySQL® ([тарифы Managed Service for MySQL®](../../../managed-mysql/pricing.md));

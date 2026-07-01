@@ -23,7 +23,7 @@ apiPlayground:
 # Identity and Access Management API, REST: ServiceAccount.Reactivate
 
 Reactivates the specified service account.
-(-- api-linter: yc::1702::method-verb-prefix=disabled --)
+
 
 ## HTTP request
 

@@ -24,7 +24,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки создаваемой инфраструктуры входят:
-* использование потока данных ([тарифы Data Streams](../../pricing.md)).
+* использование потока данных ([тарифы Data Streams](../../../data-streams/pricing.md)).
 * использование Yandex Managed Service for YDB в бессерверном режиме ([тарифы Managed Service for YDB](../../../ydb/pricing/serverless.md)).
 
 ## Разверните инфраструктуру, необходимую для загрузки аудитных логов в MaxPatrol SIEM {#deploy}

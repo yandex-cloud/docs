@@ -21,7 +21,6 @@ Lists operations for the specified asymmetric KMS key.
 || key_id | **string**
 
 Required field. ID of the symmetric KMS key to get operations for.
-
 To get the key ID, use a [AsymmetricSignatureKeyService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||

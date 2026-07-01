@@ -46,7 +46,6 @@ Some service resources do not support labels, and some interfaces may not displa
 * [{{ dns-full-name }}](../../dns/index.yaml)
 * [{{ cloud-logging-full-name }}](../../logging/index.yaml)
 * [{{ compute-full-name }}](../../compute/index.yaml)
-* [{{ load-testing-full-name }}](../../load-testing/index.yaml)
 * [{{ network-load-balancer-full-name }}](../../network-load-balancer/index.yaml)
 * [{{ objstorage-full-name }}](../../storage/index.yaml)
 * [{{ vpc-full-name }}](../../vpc/index.yaml)

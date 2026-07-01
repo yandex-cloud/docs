@@ -59,7 +59,6 @@ GET https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}/operations
 || keyId | **string**
 
 Required field. ID of the symmetric KMS key to get operations for.
-
 To get the key ID, use a [AsymmetricSignatureKeyService.List](/docs/kms/asymmetricsignature/api-ref/AsymmetricSignatureKey/list#List) request.
 
 The maximum string length in characters is 50. ||

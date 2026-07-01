@@ -36,25 +36,25 @@ You can create several access policies for one resource at the same time.
 
 ## Access policy templates {#supported-policies}
 
-Some access policy templates require you to specify additional parameters when assigned to a resource; others do not.
+Some access policy templates require you to specify parameters when assigned to a resource; others do not.
 
-### Templates without additional parameters {#fixed}
+### Templates without parameters {#fixed}
 
-The following access policy templates do not contain additional parameters and unconditionally restrict relevant actions:
+The following access policy templates do not contain parameters and unconditionally restrict relevant actions:
 
-* [iam.denyServiceAccountCreation](#iam-denyServiceAccountCreation)
+* [backup.denyActivation](#backup-denyActivation)
+* [backup.denyRemoveProtection](#backup-denyRemoveProtection)
 * [iam.denyServiceAccountAccessKeysCreation](#iam-denyServiceAccountAccessKeysCreation)
 * [iam.denyServiceAccountApiKeysCreation](#iam-denyServiceAccountApiKeysCreation)
 * [iam.denyServiceAccountAuthorizedKeysCreation](#iam-denyServiceAccountAuthorizedKeysCreation)
-* [iam.denyServiceAccountFederatedCredentialsCreation](#iam-denyServiceAccountFederatedCredentialsCreation)
+* [iam.denyServiceAccountCreation](#iam-denyServiceAccountCreation)
 * [iam.denyServiceAccountCredentialsCreation](#iam-denyServiceAccountCredentialsCreation)
+* [iam.denyServiceAccountFederatedCredentialsCreation](#iam-denyServiceAccountFederatedCredentialsCreation)
 * [iam.denyServiceAccountImpersonation](#iam-denyServiceAccountImpersonation)
 * [organization.denyMemberInvitation](#organization-denyMemberInvitation)
 * [organization.denyUserListing](#organization-denyUserListing)
 
-#### iam.denyServiceAccountCreation {#iam-denyServiceAccountCreation}
-
-This policy prohibits creating [service accounts](../users/service-accounts.md). 
+{% include [backup-access-policies](../../../_includes/backup/backup-access-policies.md) %}
 
 #### iam.denyServiceAccountAccessKeysCreation {#iam-denyServiceAccountAccessKeysCreation}
 
@@ -68,9 +68,9 @@ This policy prohibits creating [API keys](../authorization/api-key.md) for servi
 
 This policy prohibits creating [authorized keys](../authorization/key.md) for service accounts.
 
-#### iam.denyServiceAccountFederatedCredentialsCreation {#iam-denyServiceAccountFederatedCredentialsCreation}
+#### iam.denyServiceAccountCreation {#iam-denyServiceAccountCreation}
 
-This policy prohibits associating service accounts with [workload identity federations](../workload-identity.md).
+This policy prohibits creating [service accounts](../users/service-accounts.md).
 
 #### iam.denyServiceAccountCredentialsCreation {#iam-denyServiceAccountCredentialsCreation}
 
@@ -79,52 +79,118 @@ This policy prohibits the following:
 * Creating any [credentials](../authorization/index.md) for service accounts (except [IAM tokens](../authorization/iam-token.md)).
 * Associating service accounts with [workload identity federations](../workload-identity.md).
 
+#### iam.denyServiceAccountFederatedCredentialsCreation {#iam-denyServiceAccountFederatedCredentialsCreation}
+
+This policy prohibits associating service accounts with [workload identity federations](../workload-identity.md).
+
 #### iam.denyServiceAccountImpersonation {#iam-denyServiceAccountImpersonation}
 
 This policy prohibits [impersonation](../access-control/impersonation.md).
 
 #### organization.denyMemberInvitation {#organization-denyMemberInvitation}
 
-This policy prohibits [inviting](../../../organization/operations/add-account.md#useraccount) new Yandex account [users](../users/accounts.md#passport) to the organization. The policy can be created only for an [organization](../../../organization/concepts/organization.md).
+This policy prohibits [inviting](../../../organization/operations/add-account.md#useraccount) new Yandex [account](../users/accounts.md#passport) users to an organization. You can only create this policy for an [organization](../../../organization/concepts/organization.md).
 
 #### organization.denyUserListing {#organization-denyUserListing}
 
-This policy prohibits viewing the list of [organization](../../../organization/concepts/organization.md) users. The policy can be created only for an [organization](../../../organization/concepts/organization.md).
+This policy prohibits viewing the list of [organization](../../../organization/concepts/organization.md) users. You can only create this policy for an [organization](../../../organization/concepts/organization.md).
 
-### Templates with additional parameters {#customizable}
+### Templates with parameters {#customizable}
 
-The following access policy templates allow their restrictions to be modified by additional parameters:
+The following access policy templates support parameters to define restrictions:
 
-* [serverless.restrictPrivateNetworkInvocation](#serverless-restrictPrivateNetworkInvocation)
-* [serverless.restrictPublicInvocation](#serverless-restrictPublicInvocation)
+{% note tip %}
 
-#### serverless.restrictPrivateNetworkInvocation {#serverless-restrictPrivateNetworkInvocation}
+For more information on how to create access policies based on templates with parameters, see [Creating an access policy for a resource](../../operations/access-policies/assign.md#examples).
 
-{% include [access-policies-private-endpoint-notice](../../../_includes/iam/access-policies-private-endpoint-notice.md) %}
+{% endnote %}
 
-This policy limits calling [functions](../../../functions/concepts/function.md) and [containers](../../../serverless-containers/concepts/container.md) from {{ vpc-full-name }}'s [private IP addresses](../../../vpc/concepts/address.md#internal-addresses) to explicitly specified [cloud networks](../../../vpc/concepts/network.md#network) or specific IP addresses within them.
+* [serverless.containers.restrictNetworkAccess](#serverless-containers-restrictNetworkAccess)
+* [serverless.containers.restrictResourceVPCNetwork](#serverless-containers-restrictResourceVPCNetwork)
+* [serverless.functions.restrictNetworkAccess](#serverless-functions-restrictNetworkAccess)
+* [serverless.functions.restrictResourceVPCNetwork](#serverless-functions-restrictResourceVPCNetwork)
+* [serverless.mcpGateways.restrictNetworkAccess](#serverless-mcpGateways-restrictNetworkAccess)
+* [serverless.mcpGateways.restrictResourceVPCNetwork](#serverless-mcpGateways-restrictResourceVPCNetwork)
+* [serverless.responses.restrictNetworkAccess](#serverless-responses-restrictNetworkAccess)
+* [serverless.workflows.restrictNetworkAccess](#serverless-workflows-restrictNetworkAccess)
+* [serverless.workflows.restrictResourceVPCNetwork](#serverless-workflows-restrictResourceVPCNetwork)
 
-There must be a cloud network from the list specified in the policy parameters linked to the function/container.
+#### serverless.containers.restrictNetworkAccess {#serverless-containers-restrictNetworkAccess}
 
-Additional parameters:
+The policy prohibits calling and managing {{ serverless-containers-full-name }} [containers](../../../serverless-containers/concepts/container.md) from any addresses except explicitly specified IP addresses or {{ vpc-full-name }} [cloud networks](../../../vpc/concepts/network.md#network).
 
-* `allowed_vpc_network_ids`: List of cloud networks in which function/container calls are allowed from any private IP addresses.
+Customizable parameters (applied using the `OR` logic):
 
-    `allowed_vpc_network_ids` has priority over other parameters: if a non-empty value is set for it, the values of `src_ip_restricted_network_ids` and `allowed_src_ips` will be ignored by the policy.
-* `src_ip_restricted_network_ids`: List of cloud networks in which function/container calls are allowed only from the private IP addresses specified in the `allowed_src_ips` parameter.
-* `allowed_src_ips`: List of private IP addresses or [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) IP address ranges that belong to the networks specified in the `src_ip_restricted_network_ids` parameter, and from which function and container calls are allowed.
+* `allowed_src_ips`: List of IP addresses or IP address ranges in [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation you can call and manage containers from.
+* `allowed_vpc_network_ids`: List of IDs of cloud networks that allow calling and managing containers via a configured [service connection](../../../vpc/concepts/private-endpoint.md).
 
-See also the [examples of assigning a policy template](../../operations/access-policies/assign.md#serverless-restrictPrivateNetworkInvocation).
+#### serverless.containers.restrictResourceVPCNetwork {#serverless-containers-restrictResourceVPCNetwork}
 
-#### serverless.restrictPublicInvocation {#serverless-restrictPublicInvocation}
+This policy restricts which [cloud networks](../../../vpc/concepts/network.md#network) can be bound to [containers](../../../serverless-containers/concepts/container.md) in {{ serverless-containers-full-name }}, prohibiting all networks except those explicitly specified.
 
-The `serverless.restrictPublicInvocation` policy restricts the ability to call [functions](../../../functions/concepts/function.md) and [containers](../../../serverless-containers/concepts/container.md) from [public IP addresses](../../../vpc/concepts/address.md#internal-addresses).
+Customizable parameter:
 
-Additional parameters:
+* `allowed_vpc_network_ids`: List of IDs for cloud networks that can be bound to containers.
 
-* `allowed_src_ip`: List of public IP addresses or [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) IP address ranges from which function and container calls are allowed.
+#### serverless.functions.restrictNetworkAccess {#serverless-functions-restrictNetworkAccess}
 
-See also the [example of assigning a policy template](../../operations/access-policies/assign.md#serverless-restrictPublicInvocation).
+This policy prohibits calling and managing [functions](../../../functions/concepts/function.md)in {{ sf-full-name }} from any addresses except explicitly specified IP addresses or {{ vpc-full-name }} [cloud networks](../../../vpc/concepts/network.md#network).
+
+Customizable parameters (applied using the `OR` logic):
+
+* `allowed_src_ips`: List of IP addresses or IP address ranges in [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation you can call and manage functions from.
+* `allowed_vpc_network_ids`: List of IDs of cloud networks that allow calling and managing functions via a configured [service connection](../../../vpc/concepts/private-endpoint.md).
+
+#### serverless.functions.restrictResourceVPCNetwork {#serverless-functions-restrictResourceVPCNetwork}
+
+This policy restricts which [cloud networks](../../../vpc/concepts/network.md#network) can be bound to {{ sf-full-name }} [functions](../../../functions/concepts/function.md), prohibiting all networks except those explicitly specified.
+
+Customizable parameter:
+
+* `allowed_vpc_network_ids`: List of IDs for cloud networks that can be bound to functions.
+
+#### serverless.mcpGateways.restrictNetworkAccess {#serverless-mcpGateways-restrictNetworkAccess}
+
+The policy prohibits calling and managing {{ mcp-hub-name }} [MCP servers]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/#servers) from any addresses except explicitly specified IP addresses or {{ vpc-full-name }} [cloud networks](../../../vpc/concepts/network.md#network).
+
+Customizable parameters (applied using the `OR` logic):
+
+* `allowed_src_ips`: List of IP addresses or IP address ranges in [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation you can call and manage MCP servers from.
+* `allowed_vpc_network_ids`: List of IDs of cloud networks that allow calling and managing MCP servers via a configured [service connection](../../../vpc/concepts/private-endpoint.md).
+
+#### serverless.mcpGateways.restrictResourceVPCNetwork {#serverless-mcpGateways-restrictResourceVPCNetwork}
+
+This policy restricts which [cloud networks](../../../vpc/concepts/network.md#network) can be bound to {{ mcp-hub-name }} [MCP servers]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/#servers), prohibiting all networks except those explicitly specified.
+
+Customizable parameter:
+
+* `allowed_vpc_network_ids`: List of IDs for cloud networks that can be bound to MCP servers.
+
+#### serverless.responses.restrictNetworkAccess {#serverless-responses-restrictNetworkAccess}
+
+The policy prohibits calling {{ ai-studio-full-name }} [{{ responses-api }}]({{ link-docs-ai }}ai-studio/responses/) methods from any addresses except explicitly specified IP addresses or {{ vpc-full-name }} [cloud networks](../../../vpc/concepts/network.md#network).
+
+Customizable parameters (applied using the `OR` logic):
+
+* `allowed_src_ips`: List of IP addresses or IP address ranges in [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation you can call {{ responses-api }} methods from.
+* `allowed_vpc_network_ids`: List of IDs of cloud networks that allow calling {{ responses-api }} methods via a configured [service connection](../../../vpc/concepts/private-endpoint.md).
+
+#### serverless.workflows.restrictNetworkAccess {#serverless-workflows-restrictNetworkAccess}
+
+The policy prohibits executing {{ si-full-name }} [workflows](../../../serverless-integrations/concepts/workflows/workflow.md) from any addresses except explicitly specified IP addresses or {{ vpc-full-name }} [cloud networks](../../../vpc/concepts/network.md#network).
+
+Customizable parameters (applied using the `OR` logic):
+
+* `allowed_src_ips`: List of IP addresses or IP address ranges in [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation you can execute and manage workflows from.
+* `allowed_vpc_network_ids`: List of IDs of cloud networks that allow executing and managing workflows via a configured [service connection](../../../vpc/concepts/private-endpoint.md).
+
+#### serverless.workflows.restrictResourceVPCNetwork {#serverless-workflows-restrictResourceVPCNetwork}
+
+This policy restricts which [cloud networks](../../../vpc/concepts/network.md#network) can be bound to {{ si-full-name }} [workflows](../../../serverless-integrations/concepts/workflows/workflow.md), prohibiting all networks except those explicitly specified.
+
+Customizable parameter:
+
+* `allowed_vpc_network_ids`: List of IDs for cloud networks that can be bound to workflows.
 
 #### See also {#see-also}
 

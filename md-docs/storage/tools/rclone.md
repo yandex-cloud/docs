@@ -44,8 +44,8 @@
 
 В стоимость поддержки бакета входит:
 
-* плата за хранение данных в бакете ([тарифы Object Storage](../pricing.md#prices-storage));
-* плата за операции с данными ([тарифы Object Storage](../pricing.md#prices-operations)).
+* плата за хранение данных в бакете ([тарифы Object Storage](../../storage/pricing.md#prices-storage));
+* плата за операции с данными ([тарифы Object Storage](../../storage/pricing.md#prices-operations)).
 
 
 ## Подготовьте рабочее окружение {#environment-prepare}

@@ -12,7 +12,7 @@
       * Specify the {{ container-registry-full-name }} Docker image URL.
       * Additionally specify the revision settings as required:
           * **{{ ui-key.yacloud.serverless-containers.label_command }}**: Commands the container will run when started. It matches the `ENTRYPOINT` instruction in the Dockerfile.
-          * **{{ ui-key.yacloud.serverless-containers.label_args }}**: Matches the `CMD` instruction in the Dockerfile. Specify arguments in `key = value` format. If you do not specify this parameter, the default `CMD` value from the Docker image will be used.
+          * **{{ ui-key.yacloud.serverless-containers.label_args }}**: Matches the `CMD` instruction in the Dockerfile. Specify arguments in `key = value` format. If you skip this setting, the default `CMD` value from the Docker image will be used.
 
               You can provide multiple arguments to a container. To do this, click **{{ ui-key.yacloud.common.add }}**.
 
@@ -96,7 +96,7 @@
      * `args`: Arguments matching the `CMD` instruction in the Dockerfile. Specify them in `key = value` format separated by commas. If you skip this setting, the default CMD value from the Docker image will be used.
      * `work_dir`: Allows you to change the working directory of the container. It matches the `WORKDIR` instruction in the Dockerfile. We recommend setting absolute paths to directories.
 
-     For more information about `yandex_serverless_container` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
+     For more information about the `yandex_serverless_container` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Create the resources:
 

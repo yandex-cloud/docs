@@ -15,18 +15,23 @@ GET https://iot-broker.api.cloud.yandex.net/iot-broker/v1/brokers
 || folderId | **string**
 
 Required field. ID of the folder to list brokers in.
+To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../../resource-manager/api-ref/Folder/list.md#List) request.
 
-To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../../resource-manager/api-ref/Folder/list.md#List) request. ||
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a [ListBrokersResponse.nextPageToken](#yandex.cloud.iot.broker.v1.ListBrokersResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListBrokersResponse.nextPageToken](#yandex.cloud.iot.broker.v1.ListBrokersResponse) returned by a previous list request. ||
+[ListBrokersResponse.nextPageToken](#yandex.cloud.iot.broker.v1.ListBrokersResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.iot.broker.v1.ListBrokersResponse}
@@ -45,11 +50,11 @@ Page token. To get the next page of results, set `page_token` to the
       "labels": "object",
       "status": "string",
       "logOptions": {
-        "disabled": "boolean",
         // Includes only one of the fields `logGroupId`, `folderId`
         "logGroupId": "string",
         "folderId": "string",
         // end of the list of possible fields
+        "disabled": "boolean",
         "minLevel": "string"
       }
     }
@@ -68,7 +73,6 @@ List of brokers. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListBrokersRequest.pageSize](#yandex.cloud.iot.broker.v1.ListBrokersRequest), use `next_page_token` as the value
 for the [ListBrokersRequest.pageToken](#yandex.cloud.iot.broker.v1.ListBrokersRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -107,7 +111,6 @@ Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 
 Status of the broker.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Broker is being created.
 - `ACTIVE`: Broker is ready to use.
 - `DELETING`: Broker is being deleted. ||
@@ -120,12 +123,11 @@ Options for logging broker events ||
 
 #|
 ||Field | Description ||
-|| disabled | **boolean**
-
-Is logging from broker disabled. ||
 || logGroupId | **string**
 
 Entry should be written to log group resolved by ID.
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `logGroupId`, `folderId`.
 
@@ -134,34 +136,29 @@ Log entries destination. ||
 
 Entry should be written to default log group for specified folder.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `logGroupId`, `folderId`.
 
 Log entries destination. ||
+|| disabled | **boolean**
+
+Is logging from broker disabled. ||
 || minLevel | **enum** (Level)
 
 Minimum log entry level.
+See [LogLevel.Level](../../../../logging/api-ref/Export/get.md#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-See [LogLevel.Level](../../../../logging/api-ref/Export/run.md#yandex.cloud.logging.v1.LogLevel.Level) for details.
-
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
-
-  May be used to alert about unrecoverable failures and events. ||
+May be used to alert about unrecoverable failures and events. ||
 |#

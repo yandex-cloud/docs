@@ -51,7 +51,6 @@
 | AWS Databricks | [Yandex Managed Service for YTsaurus](../../managed-ytsaurus/index.md) |
 | AWS DataZone | [Yandex MetaData Hub](../../metadata-hub/index.md) |
 | AWS Direct Connect | [Yandex Cloud Interconnect](../../interconnect/index.md) |
-| AWS Distributed Load Testing | [Yandex Load Testing](../../load-testing/index.md) |
 | AWS EC2 Bare Metal | [Yandex BareMetal](../../baremetal/index.md) |
 | AWS Elastic Container Service | [Yandex Serverless Containers](../../serverless-containers/index.md) |
 | AWS Identity and Access Management, AWS Cognito | [Yandex Identity and Access Management](../../iam/index.md) |

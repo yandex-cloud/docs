@@ -1,7 +1,6 @@
 # Lockbox API, gRPC: PayloadService.Get
 
 Returns the payload of the specified secret.
-
 To get the list of all available secrets, make a [SecretService.List](../Secret/list.md#List) request.
 
 ## gRPC request
@@ -21,10 +20,14 @@ To get the list of all available secrets, make a [SecretService.List](../Secret/
 ||Field | Description ||
 || secret_id | **string**
 
-Required field. ID of the secret. ||
+Required field. ID of the secret.
+
+The maximum string length in characters is 50. ||
 || version_id | **string**
 
-Optional ID of the version. ||
+Optional ID of the version.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Payload {#yandex.cloud.lockbox.v1.Payload}
@@ -34,11 +37,11 @@ Optional ID of the version. ||
   "version_id": "string",
   "entries": [
     {
-      "key": "string",
       // Includes only one of the fields `text_value`, `binary_value`
       "text_value": "string",
-      "binary_value": "bytes"
+      "binary_value": "bytes",
       // end of the list of possible fields
+      "key": "string"
     }
   ]
 }
@@ -60,9 +63,6 @@ Payload entries. ||
 
 #|
 ||Field | Description ||
-|| key | **string**
-
-Non-confidential key of the entry. ||
 || text_value | **string**
 
 Text value.
@@ -77,4 +77,7 @@ Binary value.
 Includes only one of the fields `text_value`, `binary_value`.
 
 Confidential value of the entry. ||
+|| key | **string**
+
+Non-confidential key of the entry. ||
 |#

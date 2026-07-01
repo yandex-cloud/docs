@@ -1,7 +1,6 @@
 # Cloud Logging Service, gRPC: LogGroupService.Get
 
 Returns the specified log group.
-
 To get the list of all available log groups, make a [List](../../../../logging/api-ref/grpc/LogGroup/list.md#List) request.
 
 ## gRPC request
@@ -21,8 +20,9 @@ To get the list of all available log groups, make a [List](../../../../logging/a
 || log_group_id | **string**
 
 Required field. ID of the log group to return.
+To get a log group ID make a [LogGroupService.List](../../../../logging/api-ref/grpc/LogGroup/list.md#List) request.
 
-To get a log group ID make a [LogGroupService.List](../../../../logging/api-ref/grpc/LogGroup/list.md#List) request. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## LogGroup {#yandex.cloud.logging.v1.LogGroup}
@@ -69,19 +69,14 @@ Log group labels. ||
 
 Status of the log group.
 
-- `STATUS_UNSPECIFIED`: Unknown status.
-
-  Should never occur.
 - `CREATING`: Log group is creating.
 - `ACTIVE`: Log group is ready to accept messages,
 - `DELETING`: Log group is being deleted.
-
-  No messages will be accepted.
+No messages will be accepted.
 - `ERROR`: Log group is in failed state. ||
 || retention_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Log group entry retention period.
-
 Entries will be present in group during this period. ||
 || data_stream | **string**
 

@@ -52,7 +52,6 @@ Name of restriction. ||
 
 Value type of restriction.
 
-- `RESTRICTION_VALUE_TYPE_UNSPECIFIED`
 - `BOOLEAN`
 - `LONG`
 - `STRING` ||

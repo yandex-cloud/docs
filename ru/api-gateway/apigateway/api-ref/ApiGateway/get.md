@@ -24,7 +24,6 @@ apiPlayground:
 
 Returns the specified API gateway. Note that only API gateway basic attributes are returned.
 To get associated openapi specification, make a [GetOpenapiSpec](/docs/api-gateway/apigateway/api-ref/ApiGateway/getOpenapiSpec#GetOpenapiSpec) request.
-
 To get the list of all available API gateways, make a [List](/docs/api-gateway/apigateway/api-ref/ApiGateway/list#List) request.
 
 ## HTTP request
@@ -40,7 +39,6 @@ GET https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{api
 || apiGatewayId | **string**
 
 Required field. ID of the API gateway to return.
-
 To get a API gateway ID make a [ApiGatewayService.List](/docs/api-gateway/apigateway/api-ref/ApiGateway/list#List) request. ||
 |#
 
@@ -211,7 +209,6 @@ Log entries destination. ||
 || minLevel | **enum** (Level)
 
 Minimum log entry level.
-
 See [LogLevel.Level](/docs/logging/api-ref/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.

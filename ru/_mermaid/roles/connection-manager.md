@@ -1,4 +1,10 @@
 ```mermaid
+%%{
+  init: {
+    "flowchart": { "defaultRenderer": "elk" },
+    "elk": { "nodePlacementStrategy": "SIMPLE" }
+  }
+}%%
 flowchart BT
     connection-manager.auditor["`connection-manager.
     auditor`"] --> connection-manager.viewer

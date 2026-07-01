@@ -1,7 +1,6 @@
 # Cloud DNS API, REST: DnsZone.Get
 
 Returns the specified DNS zone.
-
 To get the list of all available DNS zones, make a [List](list.md#List) request.
 
 ## HTTP request
@@ -17,7 +16,6 @@ GET https://dns.api.cloud.yandex.net/dns/v1/zones/{dnsZoneId}
 || dnsZoneId | **string**
 
 Required field. ID of the DNS zone to return.
-
 To get a DNS zone ID, make a [DnsZoneService.List](list.md#List) request. ||
 |#
 
@@ -98,5 +96,7 @@ Configuration for privately visible zones.
 ||Field | Description ||
 || networkIds[] | **string**
 
-Network IDs. ||
+Network IDs.
+
+The number of elements must be in the range 0-100. ||
 |#

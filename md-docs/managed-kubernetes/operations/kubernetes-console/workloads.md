@@ -15,7 +15,7 @@
   1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера и на панели слева выберите ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **Рабочая нагрузка**.
   1. В правом верхнем углу нажмите кнопку **Создать** и выберите тип рабочей нагрузки.
-  1. В выпадающем списке выберите **Пространство имен**, в котором будет создана рабочая нагрузка.
+  1. В выпадающем списке выберите **Пространство имён**, в котором будет создана рабочая нагрузка.
   1. Заполните файл манифеста в соответствии с документацией Kubernetes: [под](https://kubernetes.io/docs/concepts/workloads/pods/), [контроллер Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [контроллер DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/), [контроллер StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/), [HPA](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/), [задача](https://kubernetes.io/docs/concepts/workloads/controllers/job/), [cron-задача](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/).
   1. Нажмите кнопку **Создать**.
 
@@ -54,7 +54,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера и на панели слева выберите ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **Рабочая нагрузка**.
-  1. Выберите вкладку **Cron-задачи**.
+  1. Выберите вкладку **CronJobs**.
   1. В строке cron-задачи нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Запустить** или **Остановить**.
   1. Подтвердите действие.
 

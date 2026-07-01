@@ -104,10 +104,6 @@ TCP/IP используется в мировом интернете и корп
     
     Подробнее в [документации {{ interconnect-name }}](../interconnect/)
   
-  * [{{ load-testing-full-name }}](/services/load-testing) — сервис для проведения нагрузочного тестирования и анализа производительности.
-
-    Подробнее в [документации {{ load-testing-name }}](../load-testing/)
-
   * [{{ network-load-balancer-full-name }}](/services/network-load-balancer) — сервис, который распределяет сетевую нагрузку по облачным ресурсам, обеспечивая отказоустойчивость сайтов и приложений.
 
     Подробнее в [документации {{ network-load-balancer-short-name }}](../network-load-balancer/)

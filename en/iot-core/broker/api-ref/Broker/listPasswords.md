@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the broker to list passwords in.
             To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/Broker/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - brokerId
@@ -37,8 +38,9 @@ GET https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/passwords
 || brokerId | **string**
 
 Required field. ID of the broker to list passwords in.
+To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/Broker/list#List) request.
 
-To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/Broker/list#List) request. ||
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iot.broker.v1.ListBrokerPasswordsResponse}

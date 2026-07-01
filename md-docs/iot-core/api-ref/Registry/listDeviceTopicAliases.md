@@ -15,8 +15,9 @@ GET https://iot-devices.api.cloud.yandex.net/iot-devices/v1/registries/{registry
 || registryId | **string**
 
 Required field. ID of the registry to list aliases for device topic.
+To get a registry ID make a [RegistryService.List](list.md#List) request.
 
-To get a registry ID make a [RegistryService.List](list.md#List) request. ||
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.iot.devices.v1.ListDeviceTopicAliasesRequest}
@@ -28,11 +29,15 @@ To get a registry ID make a [RegistryService.List](list.md#List) request. ||
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a [ListDeviceTopicAliasesResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListDeviceTopicAliasesResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListDeviceTopicAliasesResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListDeviceTopicAliasesResponse) returned by a previous list request. ||
+[ListDeviceTopicAliasesResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListDeviceTopicAliasesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.iot.devices.v1.ListDeviceTopicAliasesResponse}
@@ -62,14 +67,12 @@ List of device aliases for the specified registry. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListDeviceTopicAliasesRequest.pageSize](#yandex.cloud.iot.devices.v1.ListDeviceTopicAliasesRequest), use `next_page_token` as the value
 for the [ListDeviceTopicAliasesRequest.pageToken](#yandex.cloud.iot.devices.v1.ListDeviceTopicAliasesRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## DeviceAlias {#yandex.cloud.iot.devices.v1.DeviceAlias}
 
 A device topic alias.
-
 Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. For more information, see [Using topic aliases](../../concepts/topic/index.md#aliases).
 
 #|

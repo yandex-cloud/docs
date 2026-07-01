@@ -14,9 +14,6 @@ Update specified by id resource rule.
 
 ```json
 {
-  // Includes only one of the fields `weight`
-  "weight": "int64",
-  // end of the list of possible fields
   "resource_id": "string",
   "rule_id": "int64",
   "name": "string",
@@ -207,8 +204,12 @@ Update specified by id resource rule.
       "content": "string"
     }
   },
+  // Includes only one of the fields `weight`
+  "weight": "int64",
+  // end of the list of possible fields
   "origins_group_id": "google.protobuf.Int64Value",
-  "origin_protocol": "OriginProtocol"
+  "origin_protocol": "OriginProtocol",
+  "field_mask": "google.protobuf.FieldMask"
 }
 ```
 
@@ -216,12 +217,6 @@ A request to update a resource rule.
 
 #|
 ||Field | Description ||
-|| weight | **int64**
-
-Rules are ordered by weight in ascending order (lower weights execute first)
-Weight must be between 0 and 9999 inclusive
-
-Includes only one of the fields `weight`. ||
 || resource_id | **string**
 
 Required field. ID of resource.
@@ -245,6 +240,12 @@ The maximum string length in characters is 100. ||
 || options | **[ResourceOptions](#yandex.cloud.cdn.v1.ResourceOptions)**
 
 Resource options. ||
+|| weight | **int64**
+
+Rules are ordered by weight in ascending order (lower weights execute first)
+Weight must be between 0 and 9999 inclusive
+
+Includes only one of the fields `weight`. ||
 || origins_group_id | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 ID of origins group.
@@ -258,6 +259,14 @@ Required if enabling origins_group_id.
 - `HTTPS`: CDN servers will connect to your origin via HTTPS.
 - `MATCH`: Connection protocol will be chosen automatically (content on the
 origin source should be available for the CDN both through HTTP and HTTPS). ||
+|| field_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+
+Field mask for update resource rule. Works only for `options` field.
+Purpose is to allow partial updates of the resource options and setting them to null for inheritance.
+If field mask is not specified, all non-null options will be updated.
+If field mask is specified, only the fields in the mask will be updated (including null values).
+Allowed field names: `options.edge_cache_settings`, `options.browser_cache_settings`, ...
+Invalid fields will be ignored: `name`, `weight`, `options.edge_cache_settings.enabled`, `options.edge_cache_settings.default_value`, ... ||
 |#
 
 ## ResourceOptions {#yandex.cloud.cdn.v1.ResourceOptions}

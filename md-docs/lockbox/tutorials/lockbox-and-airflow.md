@@ -23,7 +23,7 @@
 * Плата за кластер Managed Service for PostgreSQL: вычислительные ресурсы и дисковое пространство ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
 * Плата за кластер Managed Service for Apache Airflow™: вычислительные ресурсы и дисковое пространство ([тарифы Apache Airflow™](../../managed-airflow/pricing.md)).
 * Плата за бакет Object Storage: хранение данных и выполнение операций с ними ([тарифы Object Storage](../../storage/pricing.md)).
-* Плата за использование секрета Yandex Lockbox: ([тарифы Yandex Lockbox](../pricing.md)).
+* Плата за использование секрета Yandex Lockbox: ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
 * Плата за использование публичных IP-адресов, если для хостов кластеров включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 

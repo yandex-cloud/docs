@@ -28,7 +28,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за хранение [секрета](../../../lockbox/concepts/secret.md) и запросы к нему ([тарифы Yandex Lockbox](../../../lockbox/pricing.md)).
+В стоимость поддержки инфраструктуры входит плата за хранение [секрета](../../../lockbox/concepts/secret.md) и запросы к нему ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
 
 ### Создайте федерацию сервисных аккаунтов {#federation-iam-accounts}
 

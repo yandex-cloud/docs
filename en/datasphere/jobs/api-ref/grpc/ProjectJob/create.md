@@ -41,18 +41,18 @@ Creates job.
     ],
     "cmd": "string",
     "env": {
-      "vars": "map<string, string>",
       // Includes only one of the fields `docker_image_resource_id`, `docker_image_spec`
       "docker_image_resource_id": "string",
       "docker_image_spec": {
-        "image_url": "string",
-        "username": "string",
         // Includes only one of the fields `password_plain_text`, `password_ds_secret_name`
         "password_plain_text": "string",
-        "password_ds_secret_name": "string"
+        "password_ds_secret_name": "string",
         // end of the list of possible fields
+        "image_url": "string",
+        "username": "string"
       },
       // end of the list of possible fields
+      "vars": "map<string, string>",
       "python_env": {
         "conda_yaml": "string",
         "local_modules": [
@@ -173,7 +173,9 @@ Job environment description. ||
 Should project disk be attached to VM. ||
 || cloud_instance_types[] | **[CloudInstanceType](#yandex.cloud.datasphere.v2.jobs.CloudInstanceType)**
 
-VM specification. ||
+VM specification.
+
+The minimum number of elements is 1. ||
 || extended_working_storage | **[ExtendedWorkingStorage](#yandex.cloud.datasphere.v2.jobs.ExtendedWorkingStorage)**
 
 Extended working storage configuration. ||
@@ -206,7 +208,6 @@ File size in bytes. ||
 
 File compression info
 
-- `FILE_COMPRESSION_TYPE_UNSPECIFIED`
 - `NONE`
 - `ZIP` ||
 |#
@@ -227,9 +228,6 @@ Variable to use in cmd substitution. ||
 
 #|
 ||Field | Description ||
-|| vars | **object** (map<**string**, **string**>)
-
-Environment variables. ||
 || docker_image_resource_id | **string**
 
 DS docker image id.
@@ -238,6 +236,9 @@ Includes only one of the fields `docker_image_resource_id`, `docker_image_spec`.
 || docker_image_spec | **[DockerImageSpec](#yandex.cloud.datasphere.v2.jobs.DockerImageSpec)**
 
 Includes only one of the fields `docker_image_resource_id`, `docker_image_spec`. ||
+|| vars | **object** (map<**string**, **string**>)
+
+Environment variables. ||
 || python_env | **[PythonEnv](#yandex.cloud.datasphere.v2.jobs.PythonEnv)** ||
 |#
 
@@ -245,12 +246,6 @@ Includes only one of the fields `docker_image_resource_id`, `docker_image_spec`.
 
 #|
 ||Field | Description ||
-|| image_url | **string**
-
-Docker image URL. ||
-|| username | **string**
-
-Username for container registry. ||
 || password_plain_text | **string**
 
 Plaintext password.
@@ -265,6 +260,12 @@ ID of DataSphere secret containing password.
 Includes only one of the fields `password_plain_text`, `password_ds_secret_name`.
 
 Password for container registry. ||
+|| image_url | **string**
+
+Docker image URL. ||
+|| username | **string**
+
+Username for container registry. ||
 |#
 
 ## PythonEnv {#yandex.cloud.datasphere.v2.jobs.PythonEnv}
@@ -323,7 +324,6 @@ Extended working storage configuration.
 ||Field | Description ||
 || type | enum **StorageType**
 
-- `STORAGE_TYPE_UNSPECIFIED`
 - `SSD` ||
 || size_gb | **int64** ||
 |#
@@ -384,29 +384,10 @@ ID of the Spark connector. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "project_id": "string",
-    "job_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "job_id": "string",
-    "upload_files": [
-      {
-        "file": {
-          "desc": {
-            "path": "string",
-            "var": "string"
-          },
-          "sha256": "string",
-          "size_bytes": "int64",
-          "compression_type": "FileCompressionType"
-        },
-        "url": "string"
-      }
-    ]
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -434,7 +415,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateProjectJobMetadata](#yandex.cloud.datasphere.v2.jobs.CreateProjectJobMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -449,7 +430,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[CreateProjectJobResponse](#yandex.cloud.datasphere.v2.jobs.CreateProjectJobResponse)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -464,70 +445,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateProjectJobMetadata {#yandex.cloud.datasphere.v2.jobs.CreateProjectJobMetadata}
-
-#|
-||Field | Description ||
-|| project_id | **string**
-
-ID of the project. ||
-|| job_id | **string**
-
-Job ID. ||
-|#
-
-## CreateProjectJobResponse {#yandex.cloud.datasphere.v2.jobs.CreateProjectJobResponse}
-
-#|
-||Field | Description ||
-|| job_id | **string**
-
-ID of the job. ||
-|| upload_files[] | **[StorageFile](#yandex.cloud.datasphere.v2.jobs.StorageFile)**
-
-Files to upload with their presigned URLs for upload. ||
-|#
-
-## StorageFile {#yandex.cloud.datasphere.v2.jobs.StorageFile}
-
-#|
-||Field | Description ||
-|| file | **[File](#yandex.cloud.datasphere.v2.jobs.File2)** ||
-|| url | **string**
-
-File URL. ||
-|#
-
-## File {#yandex.cloud.datasphere.v2.jobs.File2}
-
-#|
-||Field | Description ||
-|| desc | **[FileDesc](#yandex.cloud.datasphere.v2.jobs.FileDesc2)** ||
-|| sha256 | **string**
-
-SHA256 of the file. ||
-|| size_bytes | **int64**
-
-File size in bytes. ||
-|| compression_type | enum **FileCompressionType**
-
-File compression info
-
-- `FILE_COMPRESSION_TYPE_UNSPECIFIED`
-- `NONE`
-- `ZIP` ||
-|#
-
-## FileDesc {#yandex.cloud.datasphere.v2.jobs.FileDesc2}
-
-#|
-||Field | Description ||
-|| path | **string**
-
-Path of the file on filesystem. ||
-|| var | **string**
-
-Variable to use in cmd substitution. ||
 |#

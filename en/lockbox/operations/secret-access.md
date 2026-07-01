@@ -13,8 +13,7 @@ description: Follow this guide to configure access to a secret.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click the name of the secret you need.
   1. On the left-hand panel, select ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-  1. In the window that opens, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
-  1. Select the group, user, or [service account](../../iam/concepts/users/service-accounts.md) to grant access to the secret.
+  1. In the {{ ui-key.yacloud_components.acl.label.subject }} field of the window that opens, select a group, user, or [service account](../../iam/concepts/users/service-accounts.md) to provide with access to the secret.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [roles](../security/index.md#roles-list).
   1. Click **{{ ui-key.yacloud.common.save }}**.
 

@@ -20,7 +20,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-Плата за передачу метрик в Monitoring ([тарифы Monitoring](../pricing.md)).
+Плата за передачу метрик в Monitoring ([тарифы Monitoring](../../monitoring/pricing.md)).
 
 ## Установите и настройте Prometheus 1C Exporter {#configure-exporter}
 

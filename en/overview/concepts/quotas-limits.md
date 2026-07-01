@@ -176,13 +176,6 @@ For each quota, the table provides an ID you can use to manage quotas via {{ quo
 {% include [kms-limits.md](../../_includes/kms/kms-limits.md) %}
 
 
-### {{ load-testing-full-name }} {#load-testing}
-
-There are no active quotas in {{ load-testing-name }}.
-
-The computing resources consumed by [agents](../../load-testing/concepts/agent.md) are counted towards the [quotas]({{ link-console-quotas }}) and subject to the [{{ compute-full-name }}](../../compute/concepts/limits.md) limits.
-
-
 ### {{ lockbox-name }} {#lockbox}
 
 {% include [lockbox-limits.md](../../_includes/lockbox-limits.md) %}

@@ -1555,7 +1555,6 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 || queryCacheMinQueryDuration | **string** (int64)
 
 Minimum duration in milliseconds a query needs to run for its result to be stored in the query cache.
-(-- api-linter: yc::1701::duration-required=disabled --)
 
 Default value: **0**.
 
@@ -1815,7 +1814,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 || intervalDuration | **string** (int64)
 
 Duration of interval for quota in milliseconds.
-(-- api-linter: yc::1701::duration-required=disabled --) ||
+ ||
 || queries | **string** (int64)
 
 The total number of queries. **0** means unlimited. ||

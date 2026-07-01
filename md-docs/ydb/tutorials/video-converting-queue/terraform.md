@@ -23,7 +23,7 @@
 
 В стоимость поддержки инфраструктуры входит:
 * плата за вызовы [функций](../../../functions/concepts/function.md) ([тарифы Yandex Cloud Functions](../../../functions/pricing.md));
-* плата за выполнение запросов к [базе данных](../../concepts/serverless-and-dedicated.md) ([тарифы Yandex Managed Service for YDB](../../pricing/serverless.md));
+* плата за выполнение запросов к [базе данных](../../concepts/serverless-and-dedicated.md) ([тарифы Yandex Managed Service for YDB](../../../ydb/pricing/serverless.md));
 * плата за хранение данных в [бакете](../../../storage/concepts/bucket.md) ([тарифы Yandex Object Storage](../../../storage/pricing.md)).
 
 

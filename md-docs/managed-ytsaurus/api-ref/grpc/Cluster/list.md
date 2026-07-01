@@ -79,6 +79,9 @@ A filter expression that filters clusters listed in the response. ||
                 "size_gb": "int64",
                 "locations": [
                   "string"
+                ],
+                "location_quotas_gb": [
+                  "int64"
                 ]
               }
             ],
@@ -89,7 +92,16 @@ A filter expression that filters clusters listed in the response. ||
               },
               "auto": {
                 "min_size": "int64",
-                "max_size": "int64"
+                "max_size": "int64",
+                "initial_size": "int64",
+                // Includes only one of the fields `linear`
+                "linear": {
+                  "cooldown_interval": "google.protobuf.Duration",
+                  "statistics_interval": "google.protobuf.Duration",
+                  "overload_coefficient": "double",
+                  "underload_coefficient": "double"
+                }
+                // end of the list of possible fields
               }
               // end of the list of possible fields
             },
@@ -106,6 +118,9 @@ A filter expression that filters clusters listed in the response. ||
           },
           "rpc": {
             "count": "int64"
+          },
+          "task": {
+            "count": "int64"
           }
         },
         "odin": {
@@ -121,18 +136,26 @@ A filter expression that filters clusters listed in the response. ||
           }
         },
         "client_logging": {
-          "service_account_id": "string",
           // Includes only one of the fields `log_group_id`, `folder_id`
           "log_group_id": "string",
           "folder_id": "string",
           // end of the list of possible fields
+          "service_account_id": "string",
           "audit_logs_enabled": "bool"
+        },
+        "excel": {
+          "enabled": "bool"
         }
       },
       "created_at": "google.protobuf.Timestamp",
       "created_by": "string",
       "updated_at": "google.protobuf.Timestamp",
       "updated_by": "string",
+      "cidr_blocks_whitelist": {
+        "v4_cidr_blocks": [
+          "string"
+        ]
+      },
       "status": "Status",
       "health": "Health",
       "endpoints": {
@@ -141,10 +164,14 @@ A filter expression that filters clusters listed in the response. ||
         "internal_http_proxy_alias": "string",
         "internal_rpc_proxy_alias": "string"
       },
-      "cidr_blocks_whitelist": {
-        "v4_cidr_blocks": [
-          "string"
-        ]
+      "maintenance_window": {
+        // Includes only one of the fields `anytime`, `weekly_maintenance_window`
+        "anytime": "AnytimeMaintenanceWindow",
+        "weekly_maintenance_window": {
+          "day": "WeekDay",
+          "hour": "int64"
+        }
+        // end of the list of possible fields
       }
     }
   ],
@@ -209,6 +236,9 @@ Time when the cluster was last updated. ||
 || updated_by | **string**
 
 User who last updated the cluster. ||
+|| cidr_blocks_whitelist | **[CidrBlocks](#yandex.cloud.ytsaurus.v1.CidrBlocks)**
+
+CIDRs whitelist. ||
 || status | enum **Status**
 
 Status of the cluster.
@@ -233,9 +263,9 @@ Health of the cluster.
 || endpoints | **[Endpoints](#yandex.cloud.ytsaurus.v1.Cluster.Endpoints)**
 
 Endpoints of the cluster. ||
-|| cidr_blocks_whitelist | **[CidrBlocks](#yandex.cloud.ytsaurus.v1.CidrBlocks)**
+|| maintenance_window | **[MaintenanceWindow](#yandex.cloud.ytsaurus.v1.MaintenanceWindow)**
 
-CIDRs whitelist. ||
+Maintenance window of the cluster. ||
 |#
 
 ## ClusterSpec {#yandex.cloud.ytsaurus.v1.ClusterSpec}
@@ -268,6 +298,9 @@ Cluster regular processing settings. ||
 || client_logging | **[ClientLogging](#yandex.cloud.ytsaurus.v1.ClientLogging)**
 
 Client Cloud logging configuration. ||
+|| excel | **[ExcelSpec](#yandex.cloud.ytsaurus.v1.ExcelSpec)**
+
+Cluster Excel configuration. ||
 |#
 
 ## StorageSpec {#yandex.cloud.ytsaurus.v1.StorageSpec}
@@ -352,6 +385,9 @@ Size of a single disk in GB. ||
 || locations[] | **string**
 
 Locations on a disk. ||
+|| location_quotas_gb[] | **int64**
+
+Quotas for each location. Must be the same length as locations or empty. Zero value will disable quota for location. ||
 |#
 
 ## ScalePolicy {#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy}
@@ -389,6 +425,32 @@ Minimal amount of exec nodes. ||
 || max_size | **int64**
 
 Maximum amount of exec nodes. ||
+|| initial_size | **int64**
+
+Initial amount of exec nodes. ||
+|| linear | **[LinearScalingStrategy](#yandex.cloud.ytsaurus.v1.LinearScalingStrategy)**
+
+Linear scaling strategy.
+
+Includes only one of the fields `linear`. ||
+|#
+
+## LinearScalingStrategy {#yandex.cloud.ytsaurus.v1.LinearScalingStrategy}
+
+#|
+||Field | Description ||
+|| cooldown_interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+
+Cooldown interval. ||
+|| statistics_interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+
+Statistics interval. ||
+|| overload_coefficient | **double**
+
+Overload coefficient. ||
+|| underload_coefficient | **double**
+
+Underload coefficient. ||
 |#
 
 ## TabletSpec {#yandex.cloud.ytsaurus.v1.TabletSpec}
@@ -413,6 +475,9 @@ Configuration of HTTP proxies. ||
 || rpc | **[RpcProxySpec](#yandex.cloud.ytsaurus.v1.RpcProxySpec)**
 
 Configuration of rpc proxies. ||
+|| task | **[TaskProxySpec](#yandex.cloud.ytsaurus.v1.TaskProxySpec)**
+
+Configuration of task proxies. ||
 |#
 
 ## HttpProxySpec {#yandex.cloud.ytsaurus.v1.HttpProxySpec}
@@ -431,6 +496,15 @@ Total amount of HTTP proxies. ||
 || count | **int64**
 
 Total amount of RPC proxies. ||
+|#
+
+## TaskProxySpec {#yandex.cloud.ytsaurus.v1.TaskProxySpec}
+
+#|
+||Field | Description ||
+|| count | **int64**
+
+Total amount of task proxies. ||
 |#
 
 ## OdinSpec {#yandex.cloud.ytsaurus.v1.OdinSpec}
@@ -473,9 +547,6 @@ Max nodes in every directory. ||
 
 #|
 ||Field | Description ||
-|| service_account_id | **string**
-
-ID of Service account used for write logs. ||
 || log_group_id | **string**
 
 ID of cloud logging group.
@@ -490,27 +561,21 @@ ID of cloud logging folder. Used default loging group.
 Includes only one of the fields `log_group_id`, `folder_id`.
 
 Destination of cloud logging group. ||
+|| service_account_id | **string**
+
+ID of Service account used for write logs. ||
 || audit_logs_enabled | **bool**
 
 Enable audit logs. ||
 |#
 
-## Endpoints {#yandex.cloud.ytsaurus.v1.Cluster.Endpoints}
+## ExcelSpec {#yandex.cloud.ytsaurus.v1.ExcelSpec}
 
 #|
 ||Field | Description ||
-|| ui | **string**
+|| enabled | **bool**
 
-https://CID.ytsaurus.yandexcloud.net ||
-|| external_http_proxy_balancer | **string**
-
-https://proxy.CID.ytsaurus.yandexcloud.net ||
-|| internal_http_proxy_alias | **string**
-
-https://hp.CID.ytsaurus.mdb.yandexcloud.net:PORT ||
-|| internal_rpc_proxy_alias | **string**
-
-rp.CID.ytsaurus.mdb.yandexcloud.net:PORT ||
+Enable Excel. ||
 |#
 
 ## CidrBlocks {#yandex.cloud.ytsaurus.v1.CidrBlocks}
@@ -520,4 +585,67 @@ rp.CID.ytsaurus.mdb.yandexcloud.net:PORT ||
 || v4_cidr_blocks[] | **string**
 
 IPv4 CIDR blocks. ||
+|#
+
+## Endpoints {#yandex.cloud.ytsaurus.v1.Cluster.Endpoints}
+
+#|
+||Field | Description ||
+|| ui | **string**
+
+https://CID.ytsaurus.yandexcloud.net. ||
+|| external_http_proxy_balancer | **string**
+
+https://proxy.CID.ytsaurus.yandexcloud.net. ||
+|| internal_http_proxy_alias | **string**
+
+https://hp.CID.ytsaurus.mdb.yandexcloud.net:PORT. ||
+|| internal_rpc_proxy_alias | **string**
+
+rp.CID.ytsaurus.mdb.yandexcloud.net:PORT ||
+|#
+
+## MaintenanceWindow {#yandex.cloud.ytsaurus.v1.MaintenanceWindow}
+
+#|
+||Field | Description ||
+|| anytime | **[AnytimeMaintenanceWindow](#yandex.cloud.ytsaurus.v1.AnytimeMaintenanceWindow)**
+
+Maintenance can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
+|| weekly_maintenance_window | **[WeeklyMaintenanceWindow](#yandex.cloud.ytsaurus.v1.WeeklyMaintenanceWindow)**
+
+Maintenance is allowed only within the specified weekly window.
+
+Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
+|#
+
+## AnytimeMaintenanceWindow {#yandex.cloud.ytsaurus.v1.AnytimeMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## WeeklyMaintenanceWindow {#yandex.cloud.ytsaurus.v1.WeeklyMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| day | enum **WeekDay**
+
+Day of the week when maintenance can occur.
+
+- `MON`: Monday.
+- `TUE`: Tuesday.
+- `WED`: Wednesday.
+- `THU`: Thursday.
+- `FRI`: Friday.
+- `SAT`: Saturday.
+- `SUN`: Sunday. ||
+|| hour | **int64**
+
+Hour of the day in UTC when the maintenance window starts.
+
+Acceptable values are 1 to 24, inclusive. ||
 |#

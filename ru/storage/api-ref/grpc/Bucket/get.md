@@ -148,12 +148,14 @@ The following fields will _not_ be returned: [Bucket.cors](#yandex.cloud.storage
         "days_after_expiration": "google.protobuf.Int64Value"
       },
       "noncurrent_expiration": {
-        "noncurrent_days": "google.protobuf.Int64Value"
+        "noncurrent_days": "google.protobuf.Int64Value",
+        "newer_noncurrent_versions": "google.protobuf.Int64Value"
       },
       "noncurrent_transitions": [
         {
           "noncurrent_days": "google.protobuf.Int64Value",
-          "storage_class": "string"
+          "storage_class": "string",
+          "newer_noncurrent_versions": "google.protobuf.Int64Value"
         }
       ],
       "noncurrent_delete_markers": {
@@ -193,7 +195,11 @@ The following fields will _not_ be returned: [Bucket.cors](#yandex.cloud.storage
     "force_cloud_console_access": "bool"
   },
   "resource_id": "string",
-  "disabled_statickey_auth": "bool"
+  "disabled_statickey_auth": "bool",
+  "logging": {
+    "target_bucket": "string",
+    "target_prefix": "string"
+  }
 }
 ```
 
@@ -288,6 +294,9 @@ ID of the Yandex.Cloud entity that owns the bucket. ||
 || disabled_statickey_auth | **bool**
 
 An option to disable static key auth for a bucket. ||
+|| logging | **[BucketLoggingSetup](#yandex.cloud.storage.v1.BucketLoggingSetup)**
+
+Bucket logging setup. ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags}
@@ -365,7 +374,7 @@ Maps to using `uri="http://acs.amazonaws.com/groups/global/AllUsers"` value for 
 
 ID of the account who is a grantee. Required when the `grant_type` is `GRANT_TYPE_ACCOUNT`.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 100. ||
 |#
 
 ## CorsRule {#yandex.cloud.storage.v1.CorsRule}
@@ -689,6 +698,10 @@ aborted. ||
 
 Time period, in number of days since the version of an object was classified as non-current, after which the
 version expires. ||
+|| newer_noncurrent_versions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Specifies how many noncurrent versions S3 will retain.
+S3 will permanently delete any additional noncurrent versions beyond this specified number. ||
 |#
 
 ## NoncurrentTransition {#yandex.cloud.storage.v1.LifecycleRule.NoncurrentTransition}
@@ -708,6 +721,10 @@ version is transitioned. ||
 Required field. Storage class to which a non-current version of an object is transitioned from standard storage.
 The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
 to standard storage and transitions to or from ice storage are not allowed. ||
+|| newer_noncurrent_versions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Specifies how many noncurrent versions S3 will retain.
+S3 will permanently delete any additional noncurrent versions beyond this specified number. ||
 |#
 
 ## NoncurrentDeleteMarkers {#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers}
@@ -798,4 +815,16 @@ white list of private endpoints bucket accessible from ||
 
 if true, cloud console will be able to access a bucket
 regardless of private_endpoints list ||
+|#
+
+## BucketLoggingSetup {#yandex.cloud.storage.v1.BucketLoggingSetup}
+
+#|
+||Field | Description ||
+|| target_bucket | **string**
+
+Target bucket for logs ||
+|| target_prefix | **string**
+
+Target prefix for log object keys ||
 |#

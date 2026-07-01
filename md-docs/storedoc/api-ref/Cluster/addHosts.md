@@ -15,7 +15,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/ho
 || clusterId | **string**
 
 Required field. ID of the MongoDB cluster to add hosts to.
-To get the MongoDB cluster ID use a [ClusterService.List](../../../managed-mongodb/api-ref/Cluster/list#List) request.
+To get the MongoDB cluster ID use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -63,7 +63,7 @@ The maximum string length in characters is 50. ||
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The network ID is set in the [Cluster.networkId](../../../managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.Cluster) field.
+The network ID is set in the [Cluster.networkId](get.md#yandex.cloud.mdb.mongodb.v1.Cluster) field.
 
 The maximum string length in characters is 50. ||
 || assignPublicIp | **boolean**

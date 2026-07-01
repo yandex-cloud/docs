@@ -18,17 +18,23 @@
 ||Field | Description ||
 || backup_id | **string**
 
-Required field. Required. ID of the YDB backup. ||
+Required field. Required. ID of the YDB backup.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a `next_page_token` that can be used
 to get the next page of results in subsequent ListPaths requests.
-Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
+Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. Set `page_token` to the `next_page_token` returned by a previous ListPaths
-request to get the next page of results. ||
+request to get the next page of results.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListPathsResponse {#yandex.cloud.ydb.v1.ListPathsResponse}

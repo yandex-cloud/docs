@@ -202,6 +202,18 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [list](cli-ref/backup/list.md)
 
+### backup-retention-policy
+
+ - [Overview](cli-ref/backup-retention-policy/index.md)
+
+ - [create](cli-ref/backup-retention-policy/create.md)
+
+ - [delete](cli-ref/backup-retention-policy/delete.md)
+
+ - [list](cli-ref/backup-retention-policy/list.md)
+
+ - [list-by-folder](cli-ref/backup-retention-policy/list-by-folder.md)
+
 ### cluster
 
  - [Overview](cli-ref/cluster/index.md)
@@ -315,6 +327,18 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
  - [get](cli-ref/v0/backup/get.md)
 
  - [list](cli-ref/v0/backup/list.md)
+
+#### backup-retention-policy
+
+ - [Overview](cli-ref/v0/backup-retention-policy/index.md)
+
+ - [create](cli-ref/v0/backup-retention-policy/create.md)
+
+ - [delete](cli-ref/v0/backup-retention-policy/delete.md)
+
+ - [list](cli-ref/v0/backup-retention-policy/list.md)
+
+ - [list-by-folder](cli-ref/v0/backup-retention-policy/list-by-folder.md)
 
 #### cluster
 
@@ -432,6 +456,8 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [Overview](api-ref/grpc/BackupRetentionPolicy/index.md)
 
+ - [Get](api-ref/grpc/BackupRetentionPolicy/get.md)
+
  - [List](api-ref/grpc/BackupRetentionPolicy/list.md)
 
  - [ListByFolder](api-ref/grpc/BackupRetentionPolicy/listByFolder.md)
@@ -514,6 +540,16 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 
  - [Delete](api-ref/grpc/Database/delete.md)
 
+#### Maintenance
+
+ - [Overview](api-ref/grpc/Maintenance/index.md)
+
+ - [List](api-ref/grpc/Maintenance/list.md)
+
+ - [Get](api-ref/grpc/Maintenance/get.md)
+
+ - [Reschedule](api-ref/grpc/Maintenance/reschedule.md)
+
 #### Operation
 
  - [Overview](api-ref/grpc/Operation/index.md)
@@ -561,6 +597,8 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
 #### BackupRetentionPolicy
 
  - [Overview](api-ref/BackupRetentionPolicy/index.md)
+
+ - [Get](api-ref/BackupRetentionPolicy/get.md)
 
  - [List](api-ref/BackupRetentionPolicy/list.md)
 
@@ -643,6 +681,16 @@ Managed Service for MySQL<sup>®</sup> помогает разворачиват
  - [Update](api-ref/Database/update.md)
 
  - [Delete](api-ref/Database/delete.md)
+
+#### Maintenance
+
+ - [Overview](api-ref/Maintenance/index.md)
+
+ - [List](api-ref/Maintenance/list.md)
+
+ - [Get](api-ref/Maintenance/get.md)
+
+ - [Reschedule](api-ref/Maintenance/reschedule.md)
 
 #### Operation
 

@@ -14,6 +14,5 @@ description: В этом разделе собраны обучающие кур
 * {% include [training-production](../_includes/training/training-ppp.md) %}
 * {% include [training-infrastructure-protection](../_includes/training/training-pce.md) %}
 * {% include [training-devsecops](../_includes/training/training-dso.md) %}
-* {% include [training-load-testing](../_includes/training/training-load-testing.md) %}
 
 {% include [training-courses](../_includes/training/training-courses.md) %}

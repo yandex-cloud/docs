@@ -32,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console} 
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `webserver-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option.
@@ -107,7 +107,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) that allows inb
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify the name: `webserver-sg`.
@@ -214,7 +214,7 @@ Before you start, prepare a [key pair](../../compute/operations/vm-connect/ssh.m
 
 - Management console {#console}
 
-  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**, and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, specify `LAMP` and select the [LAMP](/marketplace/products/yc/lamp) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -312,7 +312,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. Click **{{ ui-key.yacloud.dns.button_zone-create }}**.
       1. Specify the zone settings consistent with your domain:
 
@@ -333,7 +333,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
         --public-visibility
       ```
 
-      Where `--zone` is your domain name, e.g., `example.com.`. The `--zone` parameter value must end with a trailing dot. For example, `example.com.` matches the `example.com` domain.
+      Where `--zone` is your domain's name, e.g., `example.com.`. The `--zone` parameter value must end with a trailing dot. For example, `example.com.` matches the `example.com` domain.
 
       Result:
 
@@ -363,7 +363,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. Select the DNS zone you created earlier.
       1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
       1. Specify the record settings:
@@ -417,13 +417,13 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** and select **{{ ui-key.yacloud.certificate-manager.action_request }}**.
       1. In the window that opens, specify `mymanagedcert` in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field.
       1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, specify your domain name, e.g., `example.com`.
 
           In a new line within the same field, specify the name of the subdomain to serve the CDN resource, e.g., `cdn.example.com`.
-      1. Select the [domain rights check type](../../certificate-manager/concepts/challenges.md) for `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}`.
+      1. Select the [domain rights check type](../../certificate-manager/concepts/challenges.md): `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}`.
       1. Click **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
     - {{ yandex-cloud }} CLI {#cli}
@@ -465,22 +465,22 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
     {% endlist %}
 
-    A new certificate with the `Validating` status will appear in the certificate list. This status means that a Let's Encrypt® certificate was requested and you need to pass a [domain rights check](../../certificate-manager/operations/managed/cert-validate.md) for it to be successfully processed.
+    A new certificate with the `Validating` status will appear in the certificate list. This status means that a Let's Encrypt® certificate was requested and you need to pass [domain ownership verification](../../certificate-manager/operations/managed/cert-validate.md) for it to be successfully processed.
 
-1. For the certificate to be issued successfully, pass a domain rights check:
+1. For the certificate to be issued successfully, pass domain ownership verification:
 
     {% list tabs group=instructions %}
 
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-        1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
         1. From the list of certificates, select `mymanagedcert`.
         1. In the window that opens, under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, select `CNAME record`.
         1. In the first domain section, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}** and then **{{ ui-key.yacloud.common.create }}** in the window that opens.
         1. Repeat the above action for the second domain.
 
-        The domain rights check may take from a few minutes to a few days. Wait until it is complete. As a result, the certificate will be issued and get the `Issued` status.
+        Domain ownership verification may take from a few minutes to a few days. Wait until it successfully completes. As a result, the certificate will be issued and get the `Issued` status.
 
     - {{ yandex-cloud }} CLI {#cli}
 
@@ -552,7 +552,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
             Save the values of the `value` fields from the `CNAME` type sections under `challenges.dns_challenge` for both domain names. You will need them in the next step.
 
-        1. Create CNAME [resource records](../../dns/concepts/resource-record.md) to pass the domain rights check:
+        1. Create CNAME [resource records](../../dns/concepts/resource-record.md) to pass domain ownership verification:
 
             ```bash
             yc dns zone add-records \
@@ -578,7 +578,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
             For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
-            The domain rights check may take from a few minutes to a few days. Wait until it is complete. As a result, the certificate will be issued and get the `Issued` status.
+            Domain ownership verification may take from a few minutes to a few days. Wait until it successfully completes. As a result, the certificate will be issued and get the `Issued` status.
 
         1. Make sure that the certificate status has switched to `Issued`:
 
@@ -610,7 +610,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
     - API {#api}
 
-      To get the information required to pass the domain rights check, use the [get](../../certificate-manager/api-ref/Certificate/get.md) REST API method for the [Certificate](../../certificate-manager/api-ref/Certificate/) resource or the [CertificateService/Get](../../certificate-manager/api-ref/grpc/Certificate/get.md) gRPC API call with the `view=FULL` flag.
+      To get the information required to pass domain ownership verification, use the [get](../../certificate-manager/api-ref/Certificate/get.md) REST API method for the [Certificate](../../certificate-manager/api-ref/Certificate/) resource or the [CertificateService/Get](../../certificate-manager/api-ref/grpc/Certificate/get.md) gRPC API call with the `view=FULL` flag.
       
       To create a CNAME resource record in a DNS zone, use the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../../dns/api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call.
 
@@ -632,7 +632,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket, e.g., `cdn-source-bucket`.
       1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** field, specify `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
@@ -751,7 +751,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Select the bucket you created ealier.
       1. In the top-right corner, click ![image](../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** and select the files you created: `index.html` and `content.jpg`.
       1. In the window that opens, confirm uploading the objects.
@@ -800,7 +800,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
   1. Configure the basic CDN resource settings:
       * Under **{{ ui-key.yacloud.cdn.label_section-content }}**:
@@ -905,7 +905,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
   1. [Get](../../cdn/operations/resources/get-resources-info.md#get-cname) the CDN provider domain name value.
   1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Select the DNS zone you created earlier.
   1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
   1. Specify the record settings:

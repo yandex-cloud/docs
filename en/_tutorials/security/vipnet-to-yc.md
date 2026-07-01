@@ -105,7 +105,7 @@ If you do not have a [cloud network](../../vpc/concepts/network.md#network) yet,
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to `vipnet-folder`.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. Click **Create network**.
     1. Enter a name for the network, e.g., `vipnet-network`.
     1. Disable the **Create subnets** option.
@@ -135,7 +135,7 @@ Create a [subnet](../../vpc/concepts/network.md#subnet) named `public-subnet` fo
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to `vipnet-folder`.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. Select the `vipnet-network` cloud network.
     1. Click **Add subnet**.
     1. Give your subnet a name, such as `public-subnet`.
@@ -197,7 +197,7 @@ Create the `segment1-rt`, `segment2-rt`, and `segment3-rt` route tables:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to `vipnet-folder`.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. Select the `vipnet-network` cloud network.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **Route tables**.
     1. Click **Create**.
@@ -220,7 +220,7 @@ Associate the route tables with your subnets:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to `vipnet-folder`.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. Select the `vipnet-network` cloud network.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **Route tables**.
     1. Select `segment1-subnet` and click ![image](../../_assets/console-icons/ellipsis.svg) → **Link route table**.
@@ -538,7 +538,7 @@ The tutorial uses the demo versions of the keys.
 
   1. Create a bucket:
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Click **Create bucket**.
       1. Set the bucket parameters:
           * **Name**: `my-vipnet-images`.
@@ -571,7 +571,7 @@ The tutorial uses the demo versions of the keys.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example_folder`.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers.svg) **Images**.
   1. Click **Upload image**.
   1. Enter the image name: `vipnet-va-disk1`.
@@ -655,7 +655,7 @@ The tutorial uses the demo versions of the keys.
 
     Go to the serial console of the created VM:
     1. In the [management console]({{ link-console-main }}), select `vipnet-folder`.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** and select the `vipnet-va` VM.
+    1. Go to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** and select the `vipnet-va` VM.
     1. Go to the **Serial console** tab.
     1. Enter `user` for username and `11111111` for password.
 

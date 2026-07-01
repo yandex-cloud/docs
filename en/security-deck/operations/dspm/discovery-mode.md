@@ -33,7 +33,7 @@ The summary for preliminary analysis of resources in the environment is availabl
           The number of files found and their total size are indicated for each cloud, folder, and bucket.
       * Infographics showing the number of files found by type and their size as a percentage.
 
-          Click **{{ ui-key.yacloud_org.security.discovery.more_details_button_aPdgv }}** to expand the diagram and show more detailed information.
+          Click **{{ ui-key.yacloud_org.security.discovery.AnalyticsDashboard.details_button_1ZfAk }}** to expand the diagram and show more detailed information.
   1. If required, use filters to get specific information about resources and the types of files found in them:
 
       * Optionally, under **{{ ui-key.yacloud_org.security.discovery.header_resource_kDJFW }}**, select the resources you want analyzed.

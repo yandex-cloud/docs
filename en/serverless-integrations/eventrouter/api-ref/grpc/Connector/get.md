@@ -39,7 +39,7 @@ Required field. ID of the connector to return. ||
   "description": "string",
   "labels": "map<string, string>",
   "source": {
-    // Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`, `audit_trails`
+    // Includes only one of the fields `data_stream`, `message_queue`, `event_service_source`, `timer`, `audit_trails`
     "data_stream": {
       "database": "string",
       "stream_name": "string",
@@ -53,12 +53,12 @@ Required field. ID of the connector to return. ||
       "batch_size": "int64",
       "polling_timeout": "google.protobuf.Duration"
     },
+    "event_service_source": "EventServiceSource",
     "timer": {
       "cron_expression": "string",
       "time_zone": "string",
       "payload": "string"
     },
-    "event_service_source": "EventServiceSource",
     "audit_trails": "AuditTrails"
     // end of the list of possible fields
   },
@@ -104,12 +104,12 @@ Deletion protection. ||
 Status of the connector.
 
 - `RUNNING`
+- `CREATING`: creation in progress
 - `STOPPED`: disabled by user
 - `RESOURCE_NOT_FOUND`: source does not exist
 - `PERMISSION_DENIED`: service account does not have read permission on source
 - `SUBJECT_NOT_FOUND`: service account not found
-- `DELETING`: deletion in progress
-- `CREATING`: creation in progress ||
+- `DELETING`: deletion in progress ||
 |#
 
 ## Source {#yandex.cloud.serverless.eventrouter.v1.Source}
@@ -118,19 +118,19 @@ Status of the connector.
 ||Field | Description ||
 || data_stream | **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream)**
 
-Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`, `audit_trails`. ||
+Includes only one of the fields `data_stream`, `message_queue`, `event_service_source`, `timer`, `audit_trails`. ||
 || message_queue | **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue)**
 
-Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`, `audit_trails`. ||
-|| timer | **[Timer](#yandex.cloud.serverless.eventrouter.v1.Timer)**
-
-Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`, `audit_trails`. ||
+Includes only one of the fields `data_stream`, `message_queue`, `event_service_source`, `timer`, `audit_trails`. ||
 || event_service_source | **[EventServiceSource](#yandex.cloud.serverless.eventrouter.v1.EventServiceSource)**
 
-Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`, `audit_trails`. ||
+Includes only one of the fields `data_stream`, `message_queue`, `event_service_source`, `timer`, `audit_trails`. ||
+|| timer | **[Timer](#yandex.cloud.serverless.eventrouter.v1.Timer)**
+
+Includes only one of the fields `data_stream`, `message_queue`, `event_service_source`, `timer`, `audit_trails`. ||
 || audit_trails | **[AuditTrails](#yandex.cloud.serverless.eventrouter.v1.AuditTrails)**
 
-Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`, `audit_trails`. ||
+Includes only one of the fields `data_stream`, `message_queue`, `event_service_source`, `timer`, `audit_trails`. ||
 |#
 
 ## DataStream {#yandex.cloud.serverless.eventrouter.v1.DataStream}
@@ -178,6 +178,13 @@ The maximum value is 10. ||
 Queue polling timeout. ||
 |#
 
+## EventServiceSource {#yandex.cloud.serverless.eventrouter.v1.EventServiceSource}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
 ## Timer {#yandex.cloud.serverless.eventrouter.v1.Timer}
 
 #|
@@ -195,13 +202,6 @@ time zone, e.g. Europe/Moscow ||
 payload to send to target
 
 The maximum string length in characters is 4096. ||
-|#
-
-## EventServiceSource {#yandex.cloud.serverless.eventrouter.v1.EventServiceSource}
-
-#|
-||Field | Description ||
-|| Empty | > ||
 |#
 
 ## AuditTrails {#yandex.cloud.serverless.eventrouter.v1.AuditTrails}

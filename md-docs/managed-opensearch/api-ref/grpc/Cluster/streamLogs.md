@@ -1,6 +1,6 @@
 # Managed Service for OpenSearch API, gRPC: ClusterService.StreamLogs
 
-(-- api-linter: yc::1705::http-method-mapping=disabled
+
 Backend implementation uses GET already. --)
 Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
 

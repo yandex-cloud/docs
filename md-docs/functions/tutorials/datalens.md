@@ -39,7 +39,7 @@
 * Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 * Реестр Yandex IoT Core: количество отправленных сообщений ([тарифы Yandex IoT Core](../../iot-core/pricing.md)).
-* Функции Yandex Cloud Functions: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы ([тарифы Yandex Cloud Functions](../pricing.md)).
+* Функции Yandex Cloud Functions: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы ([тарифы Yandex Cloud Functions](../../functions/pricing.md)).
 
 
 ## Подготовьте облако к работе {#configure-cloud}

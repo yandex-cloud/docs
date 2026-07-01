@@ -1,0 +1,129 @@
+---
+editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/retention_policies/{policyId}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the MySQL cluster.
+            To get the MySQL cluster ID use a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        policyId:
+          description: |-
+            **string**
+            Required field. Unique identifier for the [BackupRetentionPolicy](#yandex.cloud.mdb.v1.BackupRetentionPolicy).
+          type: string
+      required:
+        - clusterId
+        - policyId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
+---
+
+# Managed Service for MySQL API, REST: BackupRetentionPolicy.Get
+
+Get a retention policy by ID.
+
+## HTTP request
+
+```
+GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/retention_policies/{policyId}
+```
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| clusterId | **string**
+
+Required field. ID of the MySQL cluster.
+To get the MySQL cluster ID use a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
+|| policyId | **string**
+
+Required field. Unique identifier for the [BackupRetentionPolicy](#yandex.cloud.mdb.v1.BackupRetentionPolicy). ||
+|#
+
+## Response {#yandex.cloud.mdb.v1.BackupRetentionPolicy}
+
+**HTTP Code: 200 - OK**
+
+```json
+{
+  "policyId": "string",
+  "clusterId": "string",
+  "policyName": "string",
+  "createdAt": "string",
+  "cron": {
+    "dayOfMonth": "string",
+    "month": "string",
+    "dayOfWeek": "string"
+  },
+  "retainForDays": "string",
+  "description": "string"
+}
+```
+
+Message to describe a retention policy for cluster backups.
+
+#|
+||Field | Description ||
+|| policyId | **string**
+
+Required field. Required. Policy ID. ||
+|| clusterId | **string**
+
+Required field. Cluster ID.
+
+The maximum string length in characters is 50. ||
+|| policyName | **string**
+
+Required field. Required. Policy name. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| cron | **[CronTab](#yandex.cloud.mdb.v1.CronTab)**
+
+CronTab schedule. ||
+|| retainForDays | **string** (int64)
+
+Retention duration. ||
+|| description | **string**
+
+Human-readable description. ||
+|#
+
+## CronTab {#yandex.cloud.mdb.v1.CronTab}
+
+Message to describe a crontab schedule.
+
+#|
+||Field | Description ||
+|| dayOfMonth | **string**
+
+Day of month in cron format. Valid values: 1-31, *, ranges (1-15), steps (*/2, 1-15/3), lists (1,15,28).
+Defaults to "*". ||
+|| month | **string**
+
+Month in cron format. Valid values: 1-12, *, ranges (1-6), steps (*/3), lists (1,6,12).
+Defaults to "*". ||
+|| dayOfWeek | **string**
+
+Day of week in cron format. Valid values: 0-7 (0 and 7 both mean Sunday), *, ranges (1-5), steps (0-6/2), lists (1,3,5).
+Defaults to "*". ||
+|#
