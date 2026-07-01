@@ -32,7 +32,7 @@ IAM-токен для аккаунта на Яндексе можно получ
   1. Получите IAM-токен:
 
       ```bash
-      yc iam create-token
+      yc iam create-token --username=<электронная_почта>
       ```
 
       Результат:
