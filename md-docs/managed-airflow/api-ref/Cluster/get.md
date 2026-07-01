@@ -14,7 +14,9 @@ GET https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters/{clusterId}
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Apache Airflow Cluster resource to return. ||
+Required field. ID of the Apache Airflow Cluster resource to return.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.airflow.v1.Cluster}
@@ -53,6 +55,12 @@ Required field. ID of the Apache Airflow Cluster resource to return. ||
         "resourcePresetId": "string"
       }
     },
+    "dagProcessor": {
+      "count": "string",
+      "resources": {
+        "resourcePresetId": "string"
+      }
+    },
     "triggerer": {
       "count": "string",
       "resources": {
@@ -79,11 +87,8 @@ Required field. ID of the Apache Airflow Cluster resource to return. ||
     },
     "airflowVersion": "string",
     "pythonVersion": "string",
-    "dagProcessor": {
-      "count": "string",
-      "resources": {
-        "resourcePresetId": "string"
-      }
+    "datacatalog": {
+      "enabled": "boolean"
     }
   },
   "health": "string",
@@ -113,11 +118,11 @@ Required field. ID of the Apache Airflow Cluster resource to return. ||
   "webserverUrl": "string",
   "serviceAccountId": "string",
   "logging": {
-    "enabled": "boolean",
     // Includes only one of the fields `folderId`, `logGroupId`
     "folderId": "string",
     "logGroupId": "string",
     // end of the list of possible fields
+    "enabled": "boolean",
     "minLevel": "string"
   },
   "maintenanceWindow": {
@@ -144,8 +149,10 @@ Apache Airflow cluster.
 ||Field | Description ||
 || id | **string**
 
-Unique ID of the Apache Airflow cluster.
-This ID is assigned by Cloud during cluster creation. ||
+Required field. Unique ID of the Apache Airflow cluster.
+This ID is assigned by Cloud during cluster creation.
+
+The maximum string length in characters is 50. ||
 || folderId | **string**
 
 ID of the folder that the Apache Airflow cluster belongs to. ||
@@ -210,7 +217,9 @@ Address of Apache Airflow web UI. ||
 || serviceAccountId | **string**
 
 Service account used to access Cloud resources.
-For more information, see [documentation](../../concepts/impersonation.md). ||
+For more information, see [documentation](../../concepts/impersonation.md).
+
+The maximum string length in characters is 50. ||
 || logging | **[LoggingConfig](#yandex.cloud.airflow.v1.LoggingConfig)**
 
 Cloud Logging configuration. ||
@@ -256,6 +265,9 @@ Required field. Configuration of webserver instances. ||
 || scheduler | **[SchedulerConfig](#yandex.cloud.airflow.v1.SchedulerConfig)**
 
 Required field. Configuration of scheduler instances. ||
+|| dagProcessor | **[DagProcessorConfig](#yandex.cloud.airflow.v1.DagProcessorConfig)**
+
+Configuration of dag-processor instances. ||
 || triggerer | **[TriggererConfig](#yandex.cloud.airflow.v1.TriggererConfig)**
 
 Configuration of triggerer instances. ||
@@ -274,9 +286,9 @@ Apache Airflow version. Format: "Major.Minor" ||
 || pythonVersion | **string**
 
 Python version. Format: "Major.Minor" ||
-|| dagProcessor | **[DagProcessorConfig](#yandex.cloud.airflow.v1.DagProcessorConfig)**
+|| datacatalog | **[DatacatalogConfig](#yandex.cloud.airflow.v1.DatacatalogConfig)**
 
-Configuration of dag-processor instances. ||
+Configuration for datacatalog integration. ||
 |#
 
 ## AirflowConfig {#yandex.cloud.airflow.v1.AirflowConfig}
@@ -294,7 +306,9 @@ Properties to be passed to Apache Airflow configuration file. ||
 ||Field | Description ||
 || count | **string** (int64)
 
-The number of webserver instances in the cluster. ||
+The number of webserver instances in the cluster.
+
+Acceptable values are 1 to 512, inclusive. ||
 || resources | **[Resources](#yandex.cloud.airflow.v1.Resources)**
 
 Resources allocated to webserver instances. ||
@@ -315,10 +329,26 @@ ID of the preset for computational resources available to an instance (CPU, memo
 ||Field | Description ||
 || count | **string** (int64)
 
-The number of scheduler instances in the cluster. ||
+The number of scheduler instances in the cluster.
+
+Acceptable values are 1 to 512, inclusive. ||
 || resources | **[Resources](#yandex.cloud.airflow.v1.Resources)**
 
 Resources allocated to scheduler instances. ||
+|#
+
+## DagProcessorConfig {#yandex.cloud.airflow.v1.DagProcessorConfig}
+
+#|
+||Field | Description ||
+|| count | **string** (int64)
+
+The number of dag-processor instances in the cluster.
+
+Acceptable values are 1 to 512, inclusive. ||
+|| resources | **[Resources](#yandex.cloud.airflow.v1.Resources)**
+
+Resources allocated to dag-processor instances. ||
 |#
 
 ## TriggererConfig {#yandex.cloud.airflow.v1.TriggererConfig}
@@ -327,7 +357,9 @@ Resources allocated to scheduler instances. ||
 ||Field | Description ||
 || count | **string** (int64)
 
-The number of triggerer instances in the cluster. ||
+The number of triggerer instances in the cluster.
+
+Acceptable values are 0 to 512, inclusive. ||
 || resources | **[Resources](#yandex.cloud.airflow.v1.Resources)**
 
 Resources allocated to triggerer instances. ||
@@ -339,10 +371,14 @@ Resources allocated to triggerer instances. ||
 ||Field | Description ||
 || minCount | **string** (int64)
 
-The minimum number of worker instances in the cluster. ||
+The minimum number of worker instances in the cluster.
+
+Acceptable values are 0 to 512, inclusive. ||
 || maxCount | **string** (int64)
 
-The maximum number of worker instances in the cluster. ||
+The maximum number of worker instances in the cluster.
+
+Acceptable values are 1 to 512, inclusive. ||
 || resources | **[Resources](#yandex.cloud.airflow.v1.Resources)**
 
 Resources allocated to worker instances. ||
@@ -369,16 +405,13 @@ System packages that are installed in the cluster. ||
 The setting allows to enable Lockbox Secret Backend. ||
 |#
 
-## DagProcessorConfig {#yandex.cloud.airflow.v1.DagProcessorConfig}
+## DatacatalogConfig {#yandex.cloud.airflow.v1.DatacatalogConfig}
 
 #|
 ||Field | Description ||
-|| count | **string** (int64)
+|| enabled | **boolean**
 
-The number of dag-processor instances in the cluster. ||
-|| resources | **[Resources](#yandex.cloud.airflow.v1.Resources)**
-
-Resources allocated to dag-processor instances. ||
+The setting allows to enable sending data to Datacatalog Backend. ||
 |#
 
 ## NetworkConfig {#yandex.cloud.airflow.v1.NetworkConfig}
@@ -399,8 +432,12 @@ User security groups. ||
 ||Field | Description ||
 || s3 | **[S3Config](#yandex.cloud.airflow.v1.S3Config)**
 
+Configuration for s3 folder for dags
+
 Includes only one of the fields `s3`, `gitSync`. ||
 || gitSync | **[GitSyncConfig](#yandex.cloud.airflow.v1.GitSyncConfig)**
+
+Configuration for git repository for dags
 
 Includes only one of the fields `s3`, `gitSync`. ||
 |#
@@ -436,12 +473,11 @@ SSH private key for repository authentication. ||
 
 #|
 ||Field | Description ||
-|| enabled | **boolean**
-
-Logs generated by the Airflow components are delivered to Cloud Logging. ||
 || folderId | **string**
 
 Logs should be written to default log group for specified folder.
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `folderId`, `logGroupId`.
 
@@ -450,36 +486,31 @@ Destination of log records. ||
 
 Logs should be written to log group resolved by ID.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `folderId`, `logGroupId`.
 
 Destination of log records. ||
+|| enabled | **boolean**
+
+Logs generated by the Airflow components are delivered to Cloud Logging. ||
 || minLevel | **enum** (Level)
 
 Minimum log entry level.
+See [LogLevel.Level](../../../logging/api-ref/Export/get.md#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-See [LogLevel.Level](../../../logging/api-ref/Export/run.md#yandex.cloud.logging.v1.LogLevel.Level) for details.
-
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
-
-  May be used to alert about unrecoverable failures and events. ||
+May be used to alert about unrecoverable failures and events. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.airflow.v1.MaintenanceWindow}
@@ -500,7 +531,6 @@ Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 ||Field | Description ||
 || day | **enum** (WeekDay)
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -510,14 +540,18 @@ Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 - `SUN` ||
 || hour | **string** (int64)
 
-Hour of the day in UTC. ||
+Hour of the day in UTC.
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.airflow.v1.MaintenanceOperation}
 
 #|
 ||Field | Description ||
-|| info | **string** ||
+|| info | **string**
+
+The maximum string length in characters is 256. ||
 || delayedUntil | **string** (date-time)
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from

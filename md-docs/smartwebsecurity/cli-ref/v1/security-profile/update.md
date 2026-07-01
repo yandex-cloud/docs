@@ -4223,6 +4223,7 @@ Captcha ID to use with this security profile. Set empty to use default. ||
 || `--advanced-rate-limiter-profile-id` | `string`
 
 Advanced rate limiter profile ID to use with this security profile. Set empty to use default. ||
+|| `--disallow-data-processing` | Disables the use of HTTP request data for training and improving the service's ML models. ||
 || `--analyze-request-body` | `shorthand/json`
 
 Parameters for request body analyzer.
@@ -4257,6 +4258,71 @@ Action to perform if maximum size of body exceeded.
 ```
 
 {% endcut %} ||
+|| `--log-options` | `shorthand/json`
+
+Configures logging of requests processed by SWS to Audit Trails and Cloud Logging.
+
+{% cut "Description" %}
+
+> - log-group-id (string)\
+ID of the Cloud Logging log group to write SWS logs to.
+> - enable (boolean)\
+Enables logging of requests processed by SWS.
+> - enabled-modules ([]structure)\
+List of modules whose requests will be logged.
+> - enabled-actions ([]structure)\
+List of verdicts for which requests will be logged.
+> - discard-allow-percentage (integer)\
+Percentage of ALLOW verdicts to discard from logging (0-100).
+> - outputs ([]structure)\
+List of log destinations: Cloud Logging and/or Audit Trails.
+
+{% endcut %}
+
+{% cut "Shorthand Syntax" %}
+
+```hcl
+{
+  discard-allow-percentage = integer,
+  enable = boolean,
+  enabled-actions = [
+    ALLOW|DENY|CAPTCHA, ...
+  ],
+  enabled-modules = [
+    RULE_CONDITION|SMART_PROTECTION|WAF|ARL, ...
+  ],
+  log-group-id = string,
+  outputs = [
+    CLOUD_LOGGING|AUDIT_TRAILS, ...
+  ]
+}
+```
+
+{% endcut %}
+
+{% cut "JSON Syntax" %}
+
+```json
+{
+  "discard-allow-percentage": "integer",
+  "enable": "boolean",
+  "enabled-actions": [
+    "ALLOW|DENY|CAPTCHA", ...
+  ],
+  "enabled-modules": [
+    "RULE_CONDITION|SMART_PROTECTION|WAF|ARL", ...
+  ],
+  "log-group-id": "string",
+  "outputs": [
+    "CLOUD_LOGGING|AUDIT_TRAILS", ...
+  ]
+}
+```
+
+{% endcut %} ||
+|| `--custom-page-id` | `string`
+
+ID of the default custom page shown to the user when a request is denied. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `-r`, `--request-file` | `string`
 

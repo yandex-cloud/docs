@@ -22,7 +22,7 @@ apiPlayground:
 # Object Storage API, REST: Bucket.DeleteHTTPSConfig
 
 Deletes the HTTPS configuration for the specified bucket.
-(-- api-linter: yc::1705::http-method-mapping=disabled
+
 for compatibility with old format --)
 
 ## HTTP request

@@ -91,6 +91,9 @@
 
       * `--time` — момент времени, на который нужно восстановить состояние кластера, в формате `yyyy-mm-ddThh:mm:ssZ`.
       * `--name` — имя кластера.
+
+        Имя кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
       * `--description` — описание кластера.
       * `--environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
       * `--network-id` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
@@ -221,6 +224,9 @@
         Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
 
       * `name` — имя кластера.
+
+        Имя кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
       * `description` — описание кластера.
       * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
       * `configSpec.spqrSpec.router.resources` — параметры ресурсов хостов роутера:
@@ -402,6 +408,9 @@
         Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
 
       * `name` — имя кластера.
+
+        Имя кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
       * `description` — описание кластера.
       * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
       * `config_spec.spqr_spec.router.resources` — параметры ресурсов хостов роутера:
@@ -525,6 +534,8 @@
       yc managed-sharded-postgresql cluster backup <имя_или_идентификатор_кластера>
       ```
 
+      Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -542,6 +553,8 @@
         --header "Content-Type: application/json" \
         --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>:backup'
       ```
+
+      Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation).
 
@@ -576,6 +589,8 @@
         mdb.api.cloud.yandex.net:443 \
         yandex.cloud.mdb.spqr.v1.ClusterService.Backup
       ```
+
+      Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation).
 
@@ -615,7 +630,9 @@
 
       ```bash
       yc managed-sharded-postgresql cluster list-backups <имя_или_идентификатор_кластера>
-      ```    
+      ```
+
+      Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
   Чтобы получить список резервных копий всех кластеров Managed Service for Sharded PostgreSQL в каталоге:
 
@@ -649,6 +666,8 @@
             --header "Authorization: Bearer $IAM_TOKEN" \
             --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>/backups'
           ```
+
+          Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
       1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.spqr.v1.ListClusterBackupsResponse).
 
@@ -703,6 +722,8 @@
             mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.spqr.v1.ClusterService.ListBackups
           ```
+
+          Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
       1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.spqr.v1.ListClusterBackupsResponse).
 
@@ -860,6 +881,8 @@
 
       Где `--backup-window-start` — время начала ежедневного резервного копирования по UTC в формате `HH:MM:SS`.
 
+      Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -916,6 +939,8 @@
         --data "@body.json"
       ```
 
+      Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
@@ -937,6 +962,7 @@
 
       ```json
       {
+        "cluster_id": "<идентификатор_кластера>",
         "update_mask": {
           "paths": [
             "config_spec.backup_window_start"
@@ -955,6 +981,7 @@
 
       Где:
 
+      * `cluster_id` — идентификатор кластера, который можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
         {% cut "Формат перечисления настроек" %}
@@ -1039,6 +1066,8 @@
 
       Где `--backup-retain-period-days` — срок хранения автоматических резервных копий кластера. Возможные значения: от `7` до `60` дней. По умолчанию — `7`.
 
+      Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -1083,6 +1112,8 @@
         --data "@body.json"
       ```
 
+      Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
@@ -1104,6 +1135,7 @@
 
       ```json
       {
+        "cluster_id": "<идентификатор_кластера>",
         "update_mask": {
           "paths": [
             "config_spec.backup_retain_period_days"
@@ -1117,6 +1149,7 @@
 
       Где:
 
+      * `cluster_id` — идентификатор кластера, который можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
         {% cut "Формат перечисления настроек" %}

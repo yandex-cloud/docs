@@ -130,11 +130,6 @@ Service: `kms`, resource type: `resource-manager.cloud`.
 
 {% include notitle [kms-quotas](../_includes/kms/kms-limits.md#kms-quotas) %}
 
-## {{ load-testing-full-name }} {#load-testing}
-
-
-The computing resources consumed by [agents](../load-testing/concepts/agent.md) are included in [{{ compute-full-name }} quotas](#compute).
-
 ## {{ lockbox-name }} {#lockbox}
 
 Service: `lockbox`, resource type: `resource-manager.cloud`.

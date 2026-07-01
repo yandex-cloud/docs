@@ -136,7 +136,8 @@ editable: false
             "manifestDigest": "string"
           }
           // end of the list of possible fields
-        }
+        },
+        "registryId": "string"
       }
     ],
     "registryId": "string",
@@ -356,6 +357,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || modifiedBy | **string** ||
 || properties | **object** (map<**string**, **string**>) ||
 || content | **[Content](#yandex.cloud.cloudregistry.v1.Content)** ||
+|| registryId | **string** ||
 |#
 
 ## Content {#yandex.cloud.cloudregistry.v1.Content}

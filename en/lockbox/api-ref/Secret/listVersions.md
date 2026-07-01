@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the secret to list versions for.
+            The maximum string length in characters is 50.
           type: string
       required:
         - secretId
@@ -24,6 +25,7 @@ apiPlayground:
             results is larger than `page_size`, the service returns a [ListVersionsRequest.next_page_token]
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            The maximum value is 1000.
           default: '100'
           type: string
           format: int64
@@ -32,6 +34,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `page_token` to the
             [ListVersionsRequest.next_page_token] returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -54,7 +57,9 @@ GET https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}/versions
 ||Field | Description ||
 || secretId | **string**
 
-Required field. ID of the secret to list versions for. ||
+Required field. ID of the secret to list versions for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.lockbox.v1.ListVersionsRequest}
@@ -66,11 +71,15 @@ Required field. ID of the secret to list versions for. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListVersionsRequest.next_page_token]
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListVersionsRequest.next_page_token] returned by a previous list request. ||
+[ListVersionsRequest.next_page_token] returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.lockbox.v1.ListVersionsResponse}
@@ -81,15 +90,6 @@ Page token. To get the next page of results, set `page_token` to the
 {
   "versions": [
     {
-      "id": "string",
-      "secretId": "string",
-      "createdAt": "string",
-      "destroyAt": "string",
-      "description": "string",
-      "status": "string",
-      "payloadEntryKeys": [
-        "string"
-      ],
       // Includes only one of the fields `passwordPayloadSpecification`
       "passwordPayloadSpecification": {
         "passwordKey": "string",
@@ -100,8 +100,17 @@ Page token. To get the next page of results, set `page_token` to the
         "includePunctuation": "boolean",
         "includedPunctuation": "string",
         "excludedPunctuation": "string"
-      }
+      },
       // end of the list of possible fields
+      "id": "string",
+      "secretId": "string",
+      "createdAt": "string",
+      "destroyAt": "string",
+      "description": "string",
+      "status": "string",
+      "payloadEntryKeys": [
+        "string"
+      ]
     }
   ],
   "nextPageToken": "string"
@@ -126,6 +135,9 @@ in the next list request. Each subsequent list request will have its own
 
 #|
 ||Field | Description ||
+|| passwordPayloadSpecification | **[PasswordPayloadSpecification](#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
+
+Includes only one of the fields `passwordPayloadSpecification`. ||
 || id | **string**
 
 ID of the version. ||
@@ -160,7 +172,6 @@ Description of the version. ||
 
 Status of the secret.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: The version is active and the secret payload can be accessed.
 - `SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed
 is specified in the `Version.destroyAt` field.
@@ -168,9 +179,6 @@ is specified in the `Version.destroyAt` field.
 || payloadEntryKeys[] | **string**
 
 Keys of the entries contained in the version payload. ||
-|| passwordPayloadSpecification | **[PasswordPayloadSpecification](#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
-
-Includes only one of the fields `passwordPayloadSpecification`. ||
 |#
 
 ## PasswordPayloadSpecification {#yandex.cloud.lockbox.v1.PasswordPayloadSpecification}
@@ -179,10 +187,14 @@ Includes only one of the fields `passwordPayloadSpecification`. ||
 ||Field | Description ||
 || passwordKey | **string**
 
-Required field. key of the entry to store generated password value ||
+Required field. key of the entry to store generated password value
+
+Value must match the regular expression ` [-_./\\@0-9a-zA-Z]+ `. ||
 || length | **string** (int64)
 
-password length; by default, a reasonable length will be decided ||
+password length; by default, a reasonable length will be decided
+
+The maximum value is 256. ||
 || includeUppercase | **boolean**
 
 whether at least one A..Z character is included in the password, true by default ||

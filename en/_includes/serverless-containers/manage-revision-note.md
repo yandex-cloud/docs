@@ -1,5 +1,5 @@
 {% note info %}
 
-To ensure the integrity of version links, you cannot update or delete container revisions.
+To ensure the integrity of references, you cannot update or delete container revisions.
 
 {% endnote %}

@@ -5,7 +5,7 @@ description: In this article, you will learn how to work with the managed servic
 
 # All {{ serverless-containers-name }} guides
 
-* [Getting an IAM token for a service account using a container](./sa.md)
+* [Getting a service account IAM token using a container](./sa.md)
 
 ## Getting container information {#get-container}
 
@@ -15,7 +15,7 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](./revision-info.md)
 * [Configuring metadata service parameters](metadata-options.md)
 
-## Managing permissions to access a container {#manage-access-rights-container}
+## Managing container access permissions {#manage-access-rights-container}
 
 * [{#T}](./container-public.md)
 * [{#T}](./container-private.md)

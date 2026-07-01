@@ -70,9 +70,7 @@ To get a list of available hardware pools, use the [HardwarePoolService.List](..
 || prefixLength | **string** (int64)
 
 @deprecated
-Prefix length of the public subnet CIDR block.
-
-Acceptable values are 1 to 31, inclusive. ||
+Prefix length of the public subnet CIDR block. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
@@ -105,7 +103,7 @@ CIDR block of the public subnet. Must be within the public prefix pool CIDR bloc
 || publicPrefixPoolId | **string**
 
 ID of the public prefix pool that the CIDR block belongs to.
-To get a list of available public prefix pools, use the [PublicPrefixPoolService.List](../PublicPrefixPool/list#List) request. ||
+To get a list of available public prefix pools, use the [PublicPrefixPoolService.List](../PublicPrefixPool/list.md#List) request. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

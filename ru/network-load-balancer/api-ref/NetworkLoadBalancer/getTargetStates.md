@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             ID of the NetworkLoadBalancer resource with an attached target group.
+            The length must be less than or equal to 50.
           type: string
       additionalProperties: false
     query:
@@ -19,6 +20,7 @@ apiPlayground:
           description: |-
             **string**
             ID of the target group to get states of resources from.
+            The length must be less than or equal to 50.
           type: string
       additionalProperties: false
     body: null
@@ -41,7 +43,8 @@ GET https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers/{
 ||Field | Description ||
 || networkLoadBalancerId | **string**
 
-Required field. ID of the NetworkLoadBalancer resource with an attached target group. ||
+Required field. ID of the NetworkLoadBalancer resource with an attached target group.
+The length must be less than or equal to 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.loadbalancer.v1.GetTargetStatesRequest}
@@ -50,7 +53,8 @@ Required field. ID of the NetworkLoadBalancer resource with an attached target g
 ||Field | Description ||
 || targetGroupId | **string**
 
-ID of the target group to get states of resources from. ||
+ID of the target group to get states of resources from.
+The length must be less than or equal to 50. ||
 |#
 
 ## Response {#yandex.cloud.loadbalancer.v1.GetTargetStatesResponse}
@@ -93,7 +97,6 @@ IP address of the target. ||
 
 Status of the target.
 
-- `STATUS_UNSPECIFIED`
 - `INITIAL`: The network load balancer is setting up health checks for this target.
 - `HEALTHY`: Health check passed and the target is ready to receive traffic.
 - `UNHEALTHY`: Health check failed and the target is not receiving traffic.

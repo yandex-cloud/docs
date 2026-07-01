@@ -25,7 +25,7 @@ Set Redis cluster parameters. Can be used multiple times. Acceptable keys:
 
 - `maxmemory_policy`: Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../../managed-redis/concepts/instance-types).
+Service for Redis [host class](../../../concepts/instance-types.md).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `timeout`: Time that Redis keeps the connection open while the client is idle.

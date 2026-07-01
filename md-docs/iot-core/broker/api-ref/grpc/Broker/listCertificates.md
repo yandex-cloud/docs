@@ -18,7 +18,9 @@ Retrieves the list of broker certificates for the specified broker.
 ||Field | Description ||
 || broker_id | **string**
 
-Required field. ID of the broker to list certificates for. ||
+Required field. ID of the broker to list certificates for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ListBrokerCertificatesResponse {#yandex.cloud.iot.broker.v1.ListBrokerCertificatesResponse}

@@ -233,8 +233,6 @@ items:
             items:
               - name: Overview
                 href: api-ref/grpc/Export/index.md
-              - name: Run
-                href: api-ref/grpc/Export/run.md
               - name: Get
                 href: api-ref/grpc/Export/get.md
               - name: List
@@ -245,6 +243,8 @@ items:
                 href: api-ref/grpc/Export/update.md
               - name: Delete
                 href: api-ref/grpc/Export/delete.md
+              - name: Run
+                href: api-ref/grpc/Export/run.md
               - name: ListOperations
                 href: api-ref/grpc/Export/listOperations.md
               - name: ListAccessBindings
@@ -329,8 +329,6 @@ items:
             items:
               - name: Overview
                 href: api-ref/Export/index.md
-              - name: Run
-                href: api-ref/Export/run.md
               - name: Get
                 href: api-ref/Export/get.md
               - name: List
@@ -341,6 +339,8 @@ items:
                 href: api-ref/Export/update.md
               - name: Delete
                 href: api-ref/Export/delete.md
+              - name: Run
+                href: api-ref/Export/run.md
               - name: ListOperations
                 href: api-ref/Export/listOperations.md
               - name: ListAccessBindings

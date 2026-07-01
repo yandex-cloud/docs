@@ -116,9 +116,7 @@ Labels of the community. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "communityId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -127,16 +125,7 @@ Labels of the community. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "createdAt": "string",
-    "name": "string",
-    "description": "string",
-    "labels": "object",
-    "createdById": "string",
-    "organizationId": "string",
-    "zoneId": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -178,7 +167,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateCommunityMetadata](#yandex.cloud.datasphere.v2.UpdateCommunityMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -193,7 +182,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Community](#yandex.cloud.datasphere.v2.Community)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -208,15 +197,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateCommunityMetadata {#yandex.cloud.datasphere.v2.UpdateCommunityMetadata}
-
-#|
-||Field | Description ||
-|| communityId | **string**
-
-ID of the community that is being updated. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -234,41 +214,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Community {#yandex.cloud.datasphere.v2.Community}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the community. ||
-|| createdAt | **string** (date-time)
-
-Time when community was created.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| name | **string**
-
-Name of the community. ||
-|| description | **string**
-
-Description of the comminuty. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Labels of the community. ||
-|| createdById | **string**
-
-ID of the user who created the community. ||
-|| organizationId | **string**
-
-ID of the organization to which community belongs. ||
-|| zoneId | **string**
-
-ID of the zone where this community was created ||
 |#

@@ -15,10 +15,10 @@ A set of methods for managing serverless functions.
 || [Create](create.md) | Creates a function in the specified folder. ||
 || [Update](update.md) | Updates the specified function. ||
 || [Delete](delete.md) | Deletes the specified function. ||
+|| [DeleteVersion](deleteVersion.md) | Deletes the specified version of a function. ||
 || [GetVersion](getVersion.md) | Returns the specified version of a function. ||
 || [GetVersionByTag](getVersionByTag.md) | Returns all versions with the specified tag. ||
 || [ListVersions](listVersions.md) | Retrieves the list of versions for the specified function, or of all function versions ||
-|| [DeleteVersion](deleteVersion.md) | Deletes the specified version of a function. ||
 || [SetTag](setTag.md) | Set a tag for the specified version of a function. ||
 || [RemoveTag](removeTag.md) | Remove a tag from the specified version of a function. ||
 || [ListTagHistory](listTagHistory.md) | Returns the log of tags assigned to versions of the specified function. ||

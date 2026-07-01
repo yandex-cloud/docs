@@ -21,10 +21,14 @@ Cancels quotas in the specified quota request.
 ||Field | Description ||
 || quota_request_id | **string**
 
-Required field. ID of the quota request to update. ||
+Required field. ID of the quota request to update.
+
+The maximum string length in characters is 50. ||
 || quota_ids[] | **string**
 
-Quota IDs that is being canceled. ||
+Quota IDs that is being canceled.
+
+The maximum string length in characters for each value is 64. The number of elements must be in the range 1-1000. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -37,32 +41,10 @@ Quota IDs that is being canceled. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "quota_request_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "resource": {
-      "id": "string",
-      "type": "string"
-    },
-    "created_at": "google.protobuf.Timestamp",
-    "status": "Status",
-    "quota_limits": [
-      {
-        "quota_id": "string",
-        "desired_limit": "double",
-        "approved_limit": "double",
-        "unit": "string",
-        "status": "Status",
-        "message": "string",
-        "modified_by": "string"
-      }
-    ],
-    "created_by": "string"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -90,7 +72,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CancelQuotaRequestMetadata](#yandex.cloud.quotamanager.v1.CancelQuotaRequestMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -105,7 +87,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[QuotaRequest](#yandex.cloud.quotamanager.v1.QuotaRequest)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -120,87 +102,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CancelQuotaRequestMetadata {#yandex.cloud.quotamanager.v1.CancelQuotaRequestMetadata}
-
-#|
-||Field | Description ||
-|| quota_request_id | **string**
-
-ID of the quota request that is being updated. ||
-|#
-
-## QuotaRequest {#yandex.cloud.quotamanager.v1.QuotaRequest}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the quota request. ||
-|| resource | **[Resource](#yandex.cloud.quotamanager.v1.Resource)** ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp. ||
-|| status | enum **Status**
-
-Status of current quota request.
-
-- `STATUS_UNSPECIFIED`
-- `PENDING`: The request is pending and is waiting to be processed.
-- `PROCESSING`: The request is processing.
-- `PROCESSED`: The request was processed.
-- `CANCELED`: The request was canceled.
-- `DELETING`: The request is deleting. ||
-|| quota_limits[] | **[QuotaLimit](#yandex.cloud.quotamanager.v1.QuotaRequest.QuotaLimit)**
-
-Quota limits ||
-|| created_by | **string**
-
-ID of the subject who created quota request. ||
-|#
-
-## Resource {#yandex.cloud.quotamanager.v1.Resource}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Required field. The id if the resource. ||
-|| type | **string**
-
-Required field. The type of the resource, e.g. resource-manager.cloud, billing.account. ||
-|#
-
-## QuotaLimit {#yandex.cloud.quotamanager.v1.QuotaRequest.QuotaLimit}
-
-#|
-||Field | Description ||
-|| quota_id | **string**
-
-ID of the quota. ||
-|| desired_limit | **double**
-
-Desired limit. ||
-|| approved_limit | **double**
-
-Approved limit. ||
-|| unit | **string**
-
-Unit of quota. ||
-|| status | enum **Status**
-
-Status of current quota limit.
-
-- `STATUS_UNSPECIFIED`
-- `PENDING`: The request is pending and is waiting to be processed.
-- `PROCESSING`: The request is processing.
-- `PARTIAL_APPROVED`: The request was partially approved.
-- `APPROVED`: The request was approved.
-- `REJECTED`: The request was rejected.
-- `CANCELED`: The request was canceled. ||
-|| message | **string** ||
-|| modified_by | **string**
-
-ID of the subject who modified quota limit. ||
 |#

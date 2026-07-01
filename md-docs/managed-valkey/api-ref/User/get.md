@@ -1,7 +1,7 @@
 # Managed Service for Redis API, REST: User.Get
 
 Returns the specified Redis User resource.
-To get the list of available Redis User resources, make a [List](../../../managed-redis/api-ref/User/list#List) request.
+To get the list of available Redis User resources, make a [List](list.md#List) request.
 
 ## HTTP request
 
@@ -16,13 +16,13 @@ GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/users
 || clusterId | **string**
 
 Required field. ID of the Redis cluster the user belongs to.
-To get the cluster ID, use a [ClusterService.List](../../../managed-redis/api-ref/Cluster/list#List) request.
+To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || userName | **string**
 
 Required field. Name of the Redis User resource to return.
-To get the name of the user, use a [UserService.List](../../../managed-redis/api-ref/User/list#List) request.
+To get the name of the user, use a [UserService.List](list.md#List) request.
 
 The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `. ||
 |#
@@ -49,7 +49,7 @@ The maximum string length in characters is 32. Value must match the regular expr
 ```
 
 A Redis User resource. For more information, see the
-[Developer's Guide](../../../managed-redis/concepts).
+[Developer's Guide](../../concepts/index.md).
 
 #|
 ||Field | Description ||

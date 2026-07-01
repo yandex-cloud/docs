@@ -25,9 +25,6 @@ Value must be greater than 0. ||
 
 ```json
 {
-  // Includes only one of the fields `weight`
-  "weight": "string",
-  // end of the list of possible fields
   "resourceId": "string",
   "name": "string",
   "rulePattern": "string",
@@ -217,8 +214,12 @@ Value must be greater than 0. ||
       "content": "string"
     }
   },
+  // Includes only one of the fields `weight`
+  "weight": "string",
+  // end of the list of possible fields
   "originsGroupId": "string",
-  "originProtocol": "string"
+  "originProtocol": "string",
+  "fieldMask": "string"
 }
 ```
 
@@ -226,12 +227,6 @@ A request to update a resource rule.
 
 #|
 ||Field | Description ||
-|| weight | **string** (int64)
-
-Rules are ordered by weight in ascending order (lower weights execute first)
-Weight must be between 0 and 9999 inclusive
-
-Includes only one of the fields `weight`. ||
 || resourceId | **string**
 
 Required field. ID of resource.
@@ -250,6 +245,12 @@ The maximum string length in characters is 100. ||
 || options | **[ResourceOptions](#yandex.cloud.cdn.v1.ResourceOptions)**
 
 Resource options. ||
+|| weight | **string** (int64)
+
+Rules are ordered by weight in ascending order (lower weights execute first)
+Weight must be between 0 and 9999 inclusive
+
+Includes only one of the fields `weight`. ||
 || originsGroupId | **string** (int64)
 
 ID of origins group.
@@ -263,6 +264,16 @@ Required if enabling origins_group_id.
 - `HTTPS`: CDN servers will connect to your origin via HTTPS.
 - `MATCH`: Connection protocol will be chosen automatically (content on the
 origin source should be available for the CDN both through HTTP and HTTPS). ||
+|| fieldMask | **string** (field-mask)
+
+A comma-separated names off ALL fields to be updated.
+Only the specified fields will be changed. The others will be left untouched.
+If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+the field's value will be reset to the default. The default value for most fields is null or 0.
+
+If `` updateMask `` is not sent in the request, all fields' values will be updated.
+Fields specified in the request will be updated to provided values.
+The rest of the fields will be reset to the default. ||
 |#
 
 ## ResourceOptions {#yandex.cloud.cdn.v1.ResourceOptions}

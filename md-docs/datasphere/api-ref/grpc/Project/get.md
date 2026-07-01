@@ -19,7 +19,9 @@ Returns the specified project.
 || project_id | **string**
 
 Required field. ID of the Project resource to return.
-To get the project ID use a [ProjectService.List](list.md#List) request. ||
+To get the project ID use a [ProjectService.List](list.md#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Project {#yandex.cloud.datasphere.v2.Project}
@@ -105,7 +107,6 @@ Is early access preview enabled for the project. ||
 
 Project IDE.
 
-- `IDE_UNSPECIFIED`
 - `JUPYTER_LAB`: Project running on JupyterLab IDE. ||
 || default_folder_id | **string**
 
@@ -114,7 +115,6 @@ Default project folder ID. ||
 
 Timeout to automatically stop stale executions.
 
-- `STALE_EXECUTION_TIMEOUT_MODE_UNSPECIFIED`
 - `ONE_HOUR`: Setting to automatically stop stale execution after one hour with low consumption.
 - `THREE_HOURS`: Setting to automatically stop stale execution after three hours with low consumption.
 - `NO_TIMEOUT`: Setting to never automatically stop stale executions. ||

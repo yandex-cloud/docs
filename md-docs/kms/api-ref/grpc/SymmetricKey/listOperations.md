@@ -21,7 +21,6 @@ Lists operations for the specified symmetric KMS key.
 || key_id | **string**
 
 Required field. ID of the symmetric KMS key to get operations for.
-
 To get the key ID, use a [SymmetricKeyService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||

@@ -16,8 +16,8 @@ A set of methods for managing databases.
 || [Update](update.md) | Modifies the specified database. ||
 || [Start](start.md) | Starts the specified database. ||
 || [Stop](stop.md) | Stops the specified database. ||
-|| [Move](move.md) |  ||
 || [Delete](delete.md) | Deletes the specified database. ||
 || [Restore](restore.md) | Restores the specified backup ||
 || [Backup](backup.md) |  ||
+|| [Move](move.md) |  ||
 |#

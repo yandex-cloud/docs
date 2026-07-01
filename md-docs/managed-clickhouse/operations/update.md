@@ -731,7 +731,7 @@
 
 {% note warning %}
 
-Хосты ClickHouse® Keeper и ZooKeeper учитываются в расчете использованной [квоты ресурсов](https://console.yandex.cloud/cloud?section=quotas) в облаке и в [расчете стоимости](../pricing.md) кластера.
+Хосты ClickHouse® Keeper и ZooKeeper учитываются в расчете использованной [квоты ресурсов](https://console.yandex.cloud/cloud?section=quotas) в облаке и в [расчете стоимости](../../../managed-clickhouse/pricing.md) кластера.
 
 {% endnote %}
 

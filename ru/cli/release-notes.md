@@ -974,7 +974,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 
 ##### {{ cloud-registry-full-name }} {#cloud-registry-full-name-0.186.0}
 
-Добавлена команда `configure-docker` для Docker Credential helper.
+Добавлена команда `configure-docker` для Docker credential helper.
 
 ##### {{ data-transfer-name }} {#data-transfer-name-0.186.0}
 
@@ -2536,7 +2536,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ container-registry-name }} {#container-registry}
 
-* Исправлена регрессия в Docker Credential helper, приводившая к невозможности выбора профиля не по умолчанию.
+* Исправлена регрессия в Docker credential helper, приводившая к невозможности выбора профиля не по умолчанию.
 
 ##### {{ compute-name }} {#compute}
 
@@ -5014,7 +5014,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команда `yc container registry configure-docker`.
 
-  Добавлен флаг `--disable`, позволяющий отключить интеграцию с Docker Credential Helper.
+  Добавлен флаг `--disable`, позволяющий отключить интеграцию с Docker credential helper.
 
 
 #### Изменения в сервисах {{ yandex-cloud }}
@@ -5427,7 +5427,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 **Исправлено**
 
-* Исправлена работа Docker Credential helper с HTTPS-адресами. Теперь возможно получить аутентификационные данные для адреса вида `https://{{ registry }}`.
+* Исправлена работа Docker credential helper с HTTPS-адресами. Теперь возможно получить аутентификационные данные для адреса вида `https://{{ registry }}`.
 
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -6031,8 +6031,8 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 **Улучшено**
 
-* Добавлена поддержка ОС Windows для работы с Docker Credential helper.
-* Добавлена подробная ошибка при использовании `docker login` одновременно с Docker Credential helper.
+* Добавлена поддержка ОС Windows для работы с Docker credential helper.
+* Добавлена подробная ошибка при использовании `docker login` одновременно с Docker credential helper.
 
 #### {{ ig-name }} {#instance-groups}
 

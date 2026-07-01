@@ -53,7 +53,8 @@ Required field. Kind of the registry.
 - `DEBIAN`: Registry kind is debian.
 - `NUGET`: Registry kind is nuget.
 - `PYPI`: Registry kind is pypi.
-- `BINARY`: Regisrty kind is binary. ||
+- `BINARY`: Regisrty kind is binary.
+- `GO`: Registry kind is go. ||
 || type | enum **Type**
 
 Required field. Type of the registry.

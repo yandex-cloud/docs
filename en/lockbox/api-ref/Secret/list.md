@@ -11,6 +11,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the folder to list secrets in.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -19,6 +20,7 @@ apiPlayground:
             results is larger than `page_size`, the service returns a [ListSecretsRequest.next_page_token]
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            The maximum value is 1000.
           default: '100'
           type: string
           format: int64
@@ -27,6 +29,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `page_token` to the
             [ListSecretsRequest.next_page_token] returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
       required:
         - folderId
@@ -51,17 +54,23 @@ GET https://{{ api-host-lockbox }}/lockbox/v1/secrets
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to list secrets in. ||
+Required field. ID of the folder to list secrets in.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListSecretsRequest.next_page_token]
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListSecretsRequest.next_page_token] returned by a previous list request. ||
+[ListSecretsRequest.next_page_token] returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.lockbox.v1.ListSecretsResponse}
@@ -72,38 +81,6 @@ Page token. To get the next page of results, set `page_token` to the
 {
   "secrets": [
     {
-      "id": "string",
-      "folderId": "string",
-      "createdAt": "string",
-      "name": "string",
-      "description": "string",
-      "labels": "object",
-      "kmsKeyId": "string",
-      "status": "string",
-      "currentVersion": {
-        "id": "string",
-        "secretId": "string",
-        "createdAt": "string",
-        "destroyAt": "string",
-        "description": "string",
-        "status": "string",
-        "payloadEntryKeys": [
-          "string"
-        ],
-        // Includes only one of the fields `passwordPayloadSpecification`
-        "passwordPayloadSpecification": {
-          "passwordKey": "string",
-          "length": "string",
-          "includeUppercase": "boolean",
-          "includeLowercase": "boolean",
-          "includeDigits": "boolean",
-          "includePunctuation": "boolean",
-          "includedPunctuation": "string",
-          "excludedPunctuation": "string"
-        }
-        // end of the list of possible fields
-      },
-      "deletionProtection": "boolean",
       // Includes only one of the fields `passwordPayloadSpecification`
       "passwordPayloadSpecification": {
         "passwordKey": "string",
@@ -114,8 +91,40 @@ Page token. To get the next page of results, set `page_token` to the
         "includePunctuation": "boolean",
         "includedPunctuation": "string",
         "excludedPunctuation": "string"
-      }
+      },
       // end of the list of possible fields
+      "id": "string",
+      "folderId": "string",
+      "createdAt": "string",
+      "name": "string",
+      "description": "string",
+      "labels": "object",
+      "kmsKeyId": "string",
+      "status": "string",
+      "currentVersion": {
+        // Includes only one of the fields `passwordPayloadSpecification`
+        "passwordPayloadSpecification": {
+          "passwordKey": "string",
+          "length": "string",
+          "includeUppercase": "boolean",
+          "includeLowercase": "boolean",
+          "includeDigits": "boolean",
+          "includePunctuation": "boolean",
+          "includedPunctuation": "string",
+          "excludedPunctuation": "string"
+        },
+        // end of the list of possible fields
+        "id": "string",
+        "secretId": "string",
+        "createdAt": "string",
+        "destroyAt": "string",
+        "description": "string",
+        "status": "string",
+        "payloadEntryKeys": [
+          "string"
+        ]
+      },
+      "deletionProtection": "boolean"
     }
   ],
   "nextPageToken": "string"
@@ -142,6 +151,9 @@ A secret that may contain several versions of the payload.
 
 #|
 ||Field | Description ||
+|| passwordPayloadSpecification | **[PasswordPayloadSpecification](#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
+
+Includes only one of the fields `passwordPayloadSpecification`. ||
 || id | **string**
 
 ID of the secret. ||
@@ -174,29 +186,63 @@ Optional ID of the KMS key will be used to encrypt and decrypt the secret. ||
 
 Status of the secret.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The secret is being created.
 - `ACTIVE`: The secret is active and the secret payload can be accessed.
-
-  Can be set to INACTIVE using the [SecretService.Deactivate](/docs/lockbox/api-ref/Secret/deactivate#Deactivate) method.
+Can be set to INACTIVE using the [SecretService.Deactivate](/docs/lockbox/api-ref/Secret/deactivate#Deactivate) method.
 - `INACTIVE`: The secret is inactive and unusable.
-
-  Can be set to ACTIVE using the [SecretService.Deactivate](/docs/lockbox/api-ref/Secret/deactivate#Deactivate) method. ||
+Can be set to ACTIVE using the [SecretService.Deactivate](/docs/lockbox/api-ref/Secret/deactivate#Deactivate) method. ||
 || currentVersion | **[Version](#yandex.cloud.lockbox.v1.Version)**
 
 Current (i.e. the `latest`) version of the secret. ||
 || deletionProtection | **boolean**
 
 Flag that inhibits deletion of the secret. ||
-|| passwordPayloadSpecification | **[PasswordPayloadSpecification](#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
+|#
 
-Includes only one of the fields `passwordPayloadSpecification`. ||
+## PasswordPayloadSpecification {#yandex.cloud.lockbox.v1.PasswordPayloadSpecification}
+
+#|
+||Field | Description ||
+|| passwordKey | **string**
+
+Required field. key of the entry to store generated password value
+
+Value must match the regular expression ` [-_./\\@0-9a-zA-Z]+ `. ||
+|| length | **string** (int64)
+
+password length; by default, a reasonable length will be decided
+
+The maximum value is 256. ||
+|| includeUppercase | **boolean**
+
+whether at least one A..Z character is included in the password, true by default ||
+|| includeLowercase | **boolean**
+
+whether at least one a..z character is included in the password, true by default ||
+|| includeDigits | **boolean**
+
+whether at least one 0..9 character is included in the password, true by default ||
+|| includePunctuation | **boolean**
+
+whether at least one punctuation character is included in the password, true by default
+punctuation characters by default (there are 32): !"#$%&'()*+,-./:;&lt;=&gt;?@[\]^_`{\|}~
+to customize the punctuation characters, see included_punctuation and excluded_punctuation below ||
+|| includedPunctuation | **string**
+
+If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
+a string of specific punctuation characters to use (at most, all the 32) ||
+|| excludedPunctuation | **string**
+
+a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32) ||
 |#
 
 ## Version {#yandex.cloud.lockbox.v1.Version}
 
 #|
 ||Field | Description ||
+|| passwordPayloadSpecification | **[PasswordPayloadSpecification](#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
+
+Includes only one of the fields `passwordPayloadSpecification`. ||
 || id | **string**
 
 ID of the version. ||
@@ -231,7 +277,6 @@ Description of the version. ||
 
 Status of the secret.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: The version is active and the secret payload can be accessed.
 - `SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed
 is specified in the `Version.destroyAt` field.
@@ -239,40 +284,4 @@ is specified in the `Version.destroyAt` field.
 || payloadEntryKeys[] | **string**
 
 Keys of the entries contained in the version payload. ||
-|| passwordPayloadSpecification | **[PasswordPayloadSpecification](#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
-
-Includes only one of the fields `passwordPayloadSpecification`. ||
-|#
-
-## PasswordPayloadSpecification {#yandex.cloud.lockbox.v1.PasswordPayloadSpecification}
-
-#|
-||Field | Description ||
-|| passwordKey | **string**
-
-Required field. key of the entry to store generated password value ||
-|| length | **string** (int64)
-
-password length; by default, a reasonable length will be decided ||
-|| includeUppercase | **boolean**
-
-whether at least one A..Z character is included in the password, true by default ||
-|| includeLowercase | **boolean**
-
-whether at least one a..z character is included in the password, true by default ||
-|| includeDigits | **boolean**
-
-whether at least one 0..9 character is included in the password, true by default ||
-|| includePunctuation | **boolean**
-
-whether at least one punctuation character is included in the password, true by default
-punctuation characters by default (there are 32): !"#$%&'()*+,-./:;&lt;=&gt;?@[\]^_`{\|}~
-to customize the punctuation characters, see included_punctuation and excluded_punctuation below ||
-|| includedPunctuation | **string**
-
-If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
-a string of specific punctuation characters to use (at most, all the 32) ||
-|| excludedPunctuation | **string**
-
-a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32) ||
 |#

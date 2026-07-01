@@ -25,7 +25,6 @@
 | Azure IoT Hub | [Yandex IoT Core](../../iot-core/index.md) |
 | Azure Key Vault | [Yandex Certificate Manager](../../certificate-manager/index.md) |
 | Azure Kubernetes Service (AKS) | [Yandex Managed Service for Kubernetes](../../managed-kubernetes/index.md) |
-| Azure Load Testing | [Yandex Load Testing](../../load-testing/index.md) |
 | Azure Logic Apps | [Yandex Serverless Integrations: Workflows](../../serverless-integrations/quickstart/workflows.md) |
 | Azure Machine Learning, Azure Databricks, ONNX Runtime | [Yandex DataSphere](../../datasphere/index.md) |
 | Azure Monitor | [Yandex Monitoring](../../monitoring/index.md) |

@@ -6,13 +6,9 @@ editable: false
 
 GetLabel returns available label keys and values for a specific billing account
 with pagination support.
-
 This method retrieves all available label values for a specified label key
 within the given date range. It supports filtering by label value substring
 and provides pagination for handling large result sets.
-
-This method can additionally filter label values by provided clouds and folders.
-
 The method can be used in several ways:
 - With label_key only: Returns all values for that key with pagination
 - With label_key and label_value: Returns array of matching labelValues with pagination
@@ -20,19 +16,16 @@ The method can be used in several ways:
 and a separate array of labelValues from the labelValueFilters parameter
 - With label_key, label_value and label_value_filter: returns only an array of matching labelValues
 with pagination and ignores labelValueFilters (i.e., labelValueFilters won't be returned)
-
 Implementation details:
 - Case-insensitive label value matching when label_value is provided
 - When label_value is specified, label_value_filter is ignored
 - Label values are sorted alphabetically
 - Pagination occurs when results exceed page_size
-
 Error handling:
 - Returns INVALID_ARGUMENT if the request parameters fail validation
 - Returns UNAUTHENTICATED if the user is not authenticated or the billing account does not exist
 - Returns PERMISSION_DENIED if the user lacks required permissions
 - Returns INTERNAL for internal server errors
-
 Required permissions:
 - `billing.accounts.getReport` on the specified billing account
 
@@ -90,6 +83,7 @@ Optional. Cloud IDs filter.
 Additional filter that works alongside the billing_account_id and date range.
 When specified, includes labels where cloud_id matches any of the provided values.
 Acts as an OR condition (cloud_id IN cloud_ids).
+If specified, will be used for addditional authorization check to provided clouds.
 If empty, this filter is not applied. ||
 || folder_ids[] | **string**
 
@@ -97,6 +91,7 @@ Optional. Folder IDs filter.
 Additional filter that works alongside the billing_account_id and date range.
 When specified, includes labels where folder_id matches any of the provided values.
 Acts as an OR condition (folder_id IN folder_ids).
+If specified, will be used for addditional authorization check to provided folders.
 If empty, this filter is not applied. ||
 || label_key | **string**
 
@@ -163,6 +158,5 @@ If empty, there are no more results.
 Use this token in a subsequent request's page_token field to retrieve
 the next page of results.
 The token encodes the pagination state.
-
 It should be passed verbatim in subsequent requests. ||
 |#

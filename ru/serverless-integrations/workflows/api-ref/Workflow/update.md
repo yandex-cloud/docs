@@ -35,7 +35,7 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Workflow labels as `key:value` pairs.
-            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
+            The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. Each value must match the regular expression ` [-_./\@0-9a-z]* `. No more than 64 per resource.
           type: object
           additionalProperties:
             type: string
@@ -245,7 +245,7 @@ The maximum string length in characters is 256. ||
 
 Workflow labels as `key:value` pairs.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. Each value must match the regular expression ` [-_./\@0-9a-z]* `. No more than 64 per resource. ||
 || specification | **[WorkflowSpecification](#yandex.cloud.serverless.workflows.v1.WorkflowSpecification)**
 
 Specification of the Workflow. ||
@@ -310,7 +310,6 @@ Includes only one of the fields `logGroupId`, `folderId`. ||
 || minLevel | **enum** (Level)
 
 Minimum logs level.
-
 See [LogLevel.Level](/docs/logging/api-ref/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.
@@ -353,9 +352,7 @@ Required field. Timezone for the Workflow schedule. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "workflowId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -364,37 +361,7 @@ Required field. Timezone for the Workflow schedule. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "folderId": "string",
-    "specification": {
-      // Includes only one of the fields `specYaml`
-      "specYaml": "string"
-      // end of the list of possible fields
-    },
-    "createdAt": "string",
-    "name": "string",
-    "description": "string",
-    "labels": "object",
-    "status": "string",
-    "logOptions": {
-      "disabled": "boolean",
-      // Includes only one of the fields `logGroupId`, `folderId`
-      "logGroupId": "string",
-      "folderId": "string",
-      // end of the list of possible fields
-      "minLevel": "string"
-    },
-    "networkId": "string",
-    "serviceAccountId": "string",
-    "express": "boolean",
-    "schedule": {
-      "cronExpression": "string",
-      "timezone": "string"
-    },
-    "isPublic": "boolean",
-    "executionUrl": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -436,7 +403,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateWorkflowMetadata](#yandex.cloud.serverless.workflows.v1.UpdateWorkflowMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -451,7 +418,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Workflow](#yandex.cloud.serverless.workflows.v1.Workflow)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -466,15 +433,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateWorkflowMetadata {#yandex.cloud.serverless.workflows.v1.UpdateWorkflowMetadata}
-
-#|
-||Field | Description ||
-|| workflowId | **string**
-
-Required field. ID of the Workflow. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -492,130 +450,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Workflow {#yandex.cloud.serverless.workflows.v1.Workflow}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the Workflow. Generated at creation time. ||
-|| folderId | **string**
-
-ID of the folder that the Workflow belongs to. ||
-|| specification | **[WorkflowSpecification](#yandex.cloud.serverless.workflows.v1.WorkflowSpecification2)**
-
-Specification of the Workflow ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp for the Workflow.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| name | **string**
-
-Name of the Workflow. The name is unique within the folder. ||
-|| description | **string**
-
-Description of the Workflow. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Workflow labels as `key:value` pairs. ||
-|| status | **enum** (Status)
-
-Status of the Workflow.
-
-- `CREATING`: Workflow is being created.
-- `ACTIVE`: Workflow is ready for use.
-- `UPDATING`: Workflow is being updated.
-- `DELETING`: Workflow is being deleted.
-- `ERROR`: Workflow failed. The only allowed action is delete. ||
-|| logOptions | **[LogOptions](#yandex.cloud.serverless.workflows.v1.LogOptions2)**
-
-Options for logging from the Workflow. ||
-|| networkId | **string**
-
-ID of the VPC network Workflow will be executed in, in order to access private resources. ||
-|| serviceAccountId | **string**
-
-ID of the Service Account which will be used for resource access in Workflow execution. ||
-|| express | **boolean**
-
-Express execution mode. ||
-|| schedule | **[WorkflowSchedule](#yandex.cloud.serverless.workflows.v1.WorkflowSchedule2)**
-
-Workflow schedule settings. ||
-|| isPublic | **boolean**
-
-Ability of the Workflow to be executed without authentication. ||
-|| executionUrl | **string**
-
-Execution URL of the Workflow. ||
-|#
-
-## WorkflowSpecification {#yandex.cloud.serverless.workflows.v1.WorkflowSpecification2}
-
-#|
-||Field | Description ||
-|| specYaml | **string**
-
-Workflow specification in YAML format.
-
-Includes only one of the fields `specYaml`. ||
-|#
-
-## LogOptions {#yandex.cloud.serverless.workflows.v1.LogOptions2}
-
-#|
-||Field | Description ||
-|| disabled | **boolean**
-
-Is logging from Workflow disabled. ||
-|| logGroupId | **string**
-
-ID of the logging group which should be used for Workflows logs.
-
-Includes only one of the fields `logGroupId`, `folderId`. ||
-|| folderId | **string**
-
-ID of the folder which default logging group should be used for Workflows.
-
-Includes only one of the fields `logGroupId`, `folderId`. ||
-|| minLevel | **enum** (Level)
-
-Minimum logs level.
-
-See [LogLevel.Level](/docs/logging/api-ref/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
-
-- `TRACE`: Trace log level.
-Possible use case: verbose logging of some business logic.
-- `DEBUG`: Debug log level.
-Possible use case: debugging special cases in application logic.
-- `INFO`: Info log level.
-Mostly used for information messages.
-- `WARN`: Warn log level.
-May be used to alert about significant events.
-- `ERROR`: Error log level.
-May be used to alert about errors in infrastructure, logic, etc.
-- `FATAL`: Fatal log level.
-May be used to alert about unrecoverable failures and events. ||
-|#
-
-## WorkflowSchedule {#yandex.cloud.serverless.workflows.v1.WorkflowSchedule2}
-
-#|
-||Field | Description ||
-|| cronExpression | **string**
-
-Required field. Cron expression for the Workflow schedule.
-
-The maximum string length in characters is 100. ||
-|| timezone | **string**
-
-Required field. Timezone for the Workflow schedule. ||
 |#

@@ -19,10 +19,14 @@ Cancels previously scheduled version destruction, if the version hasn't been des
 ||Field | Description ||
 || secret_id | **string**
 
-Required field. ID of the secret to cancel a version's destruction for. ||
+Required field. ID of the secret to cancel a version's destruction for.
+
+The maximum string length in characters is 50. ||
 || version_id | **string**
 
-Required field. ID of the secret whose scheduled destruction should be cancelled. ||
+Required field. ID of the secret whose scheduled destruction should be cancelled.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -35,35 +39,10 @@ Required field. ID of the secret whose scheduled destruction should be cancelled
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "secret_id": "string",
-    "version_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "secret_id": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "destroy_at": "google.protobuf.Timestamp",
-    "description": "string",
-    "status": "Status",
-    "payload_entry_keys": [
-      "string"
-    ],
-    // Includes only one of the fields `password_payload_specification`
-    "password_payload_specification": {
-      "password_key": "string",
-      "length": "int64",
-      "include_uppercase": "google.protobuf.BoolValue",
-      "include_lowercase": "google.protobuf.BoolValue",
-      "include_digits": "google.protobuf.BoolValue",
-      "include_punctuation": "google.protobuf.BoolValue",
-      "included_punctuation": "string",
-      "excluded_punctuation": "string"
-    }
-    // end of the list of possible fields
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -91,7 +70,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CancelVersionDestructionMetadata](#yandex.cloud.lockbox.v1.CancelVersionDestructionMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -106,7 +85,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Version](#yandex.cloud.lockbox.v1.Version)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -121,86 +100,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CancelVersionDestructionMetadata {#yandex.cloud.lockbox.v1.CancelVersionDestructionMetadata}
-
-#|
-||Field | Description ||
-|| secret_id | **string**
-
-ID of the secret whose version's destruction is being cancelled. ||
-|| version_id | **string**
-
-ID of the version whose scheduled destruction is being cancelled. ||
-|#
-
-## Version {#yandex.cloud.lockbox.v1.Version}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the version. ||
-|| secret_id | **string**
-
-ID of the secret that the version belongs to. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time when the version was created. ||
-|| destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time when the version is going to be destroyed. Empty unless the status
-is `SCHEDULED_FOR_DESTRUCTION`. ||
-|| description | **string**
-
-Description of the version. ||
-|| status | enum **Status**
-
-Status of the secret.
-
-- `STATUS_UNSPECIFIED`
-- `ACTIVE`: The version is active and the secret payload can be accessed.
-- `SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed
-is specified in the `Version.destroy_at` field.
-- `DESTROYED`: The version is destroyed and cannot be recovered. ||
-|| payload_entry_keys[] | **string**
-
-Keys of the entries contained in the version payload. ||
-|| password_payload_specification | **[PasswordPayloadSpecification](#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
-
-Includes only one of the fields `password_payload_specification`. ||
-|#
-
-## PasswordPayloadSpecification {#yandex.cloud.lockbox.v1.PasswordPayloadSpecification}
-
-#|
-||Field | Description ||
-|| password_key | **string**
-
-Required field. key of the entry to store generated password value ||
-|| length | **int64**
-
-password length; by default, a reasonable length will be decided ||
-|| include_uppercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-whether at least one A..Z character is included in the password, true by default ||
-|| include_lowercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-whether at least one a..z character is included in the password, true by default ||
-|| include_digits | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-whether at least one 0..9 character is included in the password, true by default ||
-|| include_punctuation | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-whether at least one punctuation character is included in the password, true by default
-punctuation characters by default (there are 32): !"#$%&'()*+,-./:;&lt;=&gt;?@[\]^_`{\|}~
-to customize the punctuation characters, see included_punctuation and excluded_punctuation below ||
-|| included_punctuation | **string**
-
-If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
-a string of specific punctuation characters to use (at most, all the 32) ||
-|| excluded_punctuation | **string**
-
-a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32) ||
 |#

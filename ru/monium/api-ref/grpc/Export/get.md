@@ -5,7 +5,6 @@ editable: false
 # Cloud Logging Service, gRPC: ExportService.Get
 
 Returns the specified export.
-
 To get the list of all available exports, make a [List](/docs/logging/api-ref/grpc/Export/list#List) request.
 
 ## gRPC request
@@ -25,8 +24,9 @@ To get the list of all available exports, make a [List](/docs/logging/api-ref/gr
 || export_id | **string**
 
 Required field. ID of the export to return.
+To get a export ID make a [ExportService.List](/docs/logging/api-ref/grpc/Export/list#List) request.
 
-To get a export ID make a [ExportService.List](/docs/logging/api-ref/grpc/Export/list#List) request. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## Export {#yandex.cloud.logging.v1.Export}
@@ -98,31 +98,32 @@ Parameters of logs filtration. ||
 
 #|
 ||Field | Description ||
-|| resource_types[] | **string** ||
-|| resource_ids[] | **string** ||
-|| stream_names[] | **string** ||
+|| resource_types[] | **string**
+
+The maximum string length in characters for each value is 63. The maximum number of elements is 100. ||
+|| resource_ids[] | **string**
+
+The maximum string length in characters for each value is 63. The maximum number of elements is 100. ||
+|| stream_names[] | **string**
+
+The maximum string length in characters for each value is 63. The maximum number of elements is 100. ||
 || levels[] | enum **Level**
 
-- `LEVEL_UNSPECIFIED`: Default log level.
+The maximum number of elements is 10.
 
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
+May be used to alert about unrecoverable failures and events. ||
+|| filter | **string**
 
-  May be used to alert about unrecoverable failures and events. ||
-|| filter | **string** ||
+The maximum string length in characters is 1000. ||
 |#

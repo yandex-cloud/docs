@@ -140,7 +140,7 @@ The infrastructure support cost includes:
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-      1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ objstorage-name }}**.
+      1. Navigate to **{{ objstorage-name }}**.
       1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. On the `create bucket` page:
          1. Specify a bucket name that meets [these naming conventions](../../storage/concepts/bucket.md#naming).
@@ -186,7 +186,7 @@ The infrastructure support cost includes:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a workload identity federation.
-   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. In the left-hand panel, select ![cpus](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.label_federations }}**.
    1. Click **{{ ui-key.yacloud.iam.label_create-wli-federation }}**.
    1. In the **{{ ui-key.yacloud.iam.federations.field_issuer }}** field, enter `URL Issuer` for your {{ k8s }} cluster, which you got earlier, e.g., `https://kubernetes.default.svc.cluster.local`.
@@ -204,7 +204,7 @@ The infrastructure support cost includes:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your secret.
-   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret: `MY_SECRET`.
    1. Select **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
@@ -223,7 +223,7 @@ The infrastructure support cost includes:
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-lockbox`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -251,7 +251,7 @@ The infrastructure support cost includes:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the service account was created in.
-   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. In the list of service accounts, select `sa-lockbox`.
    1. In the top panel, click ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.action_connect-federation }}**.
    1. In the **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** field, select the federation you created earlier.
@@ -314,6 +314,6 @@ Some resources are not free of charge. Delete the resources you no longer need t
 ## See also {#see-also}
 
 * [{#T}](../../iam/concepts/workload-identity.md)
-* [Accessing the {{ yandex-cloud }} API from a {{ managed-k8s-name }} cluster using an {{ iam-name }} workload identity federation](../../tutorials/security/wlif-managed-k8s-integration.md) 
+* [Accessing the {{ yandex-cloud }} API from a {{ managed-k8s-name }} cluster using an {{ iam-name }} workload identity federation](../../tutorials/security/wlif-managed-k8s-integration.md)
 * [{#T}](../../tutorials/security/wlif-gitlab-integration.md)
 * [{#T}](../../tutorials/security/wlif-github-integration.md)

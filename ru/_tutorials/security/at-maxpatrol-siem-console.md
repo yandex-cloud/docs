@@ -84,7 +84,7 @@
 
   1. На панели слева выберите ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud_org.cloud-components.AclDashboard.action_assign-roles_41Nj1 }}**. В открывшемся окне выберите сервисный аккаунт `maxpatrol-sa`. При необходимости воспользуйтесь строкой поиска.
-  1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите [роль](../../audit-trails/security/index.md#at-viewer) `audit-trails.viewer`.
+  1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль](../../audit-trails/security/index.md#at-viewer) `audit-trails.viewer`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}

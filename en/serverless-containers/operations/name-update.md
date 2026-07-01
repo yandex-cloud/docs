@@ -13,7 +13,7 @@ description: Follow this guide to update a container name.
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Select the container.
   1. Click **{{ ui-key.yacloud.common.edit }}**.
-  1. Rename the container. The name format is as follows:
+  1. Rename the container. Follow these naming requirements:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -71,7 +71,7 @@ description: Follow this guide to update a container name.
      ...
      ```
 
-   For more information about `yandex_serverless_container` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
+   For more information about the `yandex_serverless_container` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Validate your configuration using this command:
      ```

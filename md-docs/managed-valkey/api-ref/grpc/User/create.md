@@ -34,7 +34,7 @@ Creates a Redis user in the specified cluster.
 || cluster_id | **string**
 
 Required field. ID of the Redis cluster to create a user in.
-To get the cluster ID, use a [ClusterService.List](../../../../managed-redis/api-ref/grpc/Cluster/list#List) request.
+To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || user_spec | **[UserSpec](#yandex.cloud.mdb.redis.v1.UserSpec)**

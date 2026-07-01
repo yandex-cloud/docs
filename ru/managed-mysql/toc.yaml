@@ -207,6 +207,18 @@ items:
             href: cli-ref/backup/get.md
           - name: list
             href: cli-ref/backup/list.md
+      - name: backup-retention-policy
+        items:
+          - name: Overview
+            href: cli-ref/backup-retention-policy/index.md
+          - name: create
+            href: cli-ref/backup-retention-policy/create.md
+          - name: delete
+            href: cli-ref/backup-retention-policy/delete.md
+          - name: list
+            href: cli-ref/backup-retention-policy/list.md
+          - name: list-by-folder
+            href: cli-ref/backup-retention-policy/list-by-folder.md
       - name: cluster
         items:
           - name: Overview
@@ -321,6 +333,18 @@ items:
                 href: cli-ref/v0/backup/get.md
               - name: list
                 href: cli-ref/v0/backup/list.md
+          - name: backup-retention-policy
+            items:
+              - name: Overview
+                href: cli-ref/v0/backup-retention-policy/index.md
+              - name: create
+                href: cli-ref/v0/backup-retention-policy/create.md
+              - name: delete
+                href: cli-ref/v0/backup-retention-policy/delete.md
+              - name: list
+                href: cli-ref/v0/backup-retention-policy/list.md
+              - name: list-by-folder
+                href: cli-ref/v0/backup-retention-policy/list-by-folder.md
           - name: cluster
             items:
               - name: Overview
@@ -437,6 +461,8 @@ items:
             items:
               - name: Overview
                 href: api-ref/grpc/BackupRetentionPolicy/index.md
+              - name: Get
+                href: api-ref/grpc/BackupRetentionPolicy/get.md
               - name: List
                 href: api-ref/grpc/BackupRetentionPolicy/list.md
               - name: ListByFolder
@@ -519,6 +545,16 @@ items:
                 href: api-ref/grpc/Database/update.md
               - name: Delete
                 href: api-ref/grpc/Database/delete.md
+          - name: Maintenance
+            items:
+              - name: Overview
+                href: api-ref/grpc/Maintenance/index.md
+              - name: List
+                href: api-ref/grpc/Maintenance/list.md
+              - name: Get
+                href: api-ref/grpc/Maintenance/get.md
+              - name: Reschedule
+                href: api-ref/grpc/Maintenance/reschedule.md
           - name: Operation
             items:
               - name: Overview
@@ -567,6 +603,8 @@ items:
             items:
               - name: Overview
                 href: api-ref/BackupRetentionPolicy/index.md
+              - name: Get
+                href: api-ref/BackupRetentionPolicy/get.md
               - name: List
                 href: api-ref/BackupRetentionPolicy/list.md
               - name: ListByFolder
@@ -649,6 +687,16 @@ items:
                 href: api-ref/Database/update.md
               - name: Delete
                 href: api-ref/Database/delete.md
+          - name: Maintenance
+            items:
+              - name: Overview
+                href: api-ref/Maintenance/index.md
+              - name: List
+                href: api-ref/Maintenance/list.md
+              - name: Get
+                href: api-ref/Maintenance/get.md
+              - name: Reschedule
+                href: api-ref/Maintenance/reschedule.md
           - name: Operation
             items:
               - name: Overview

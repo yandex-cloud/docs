@@ -32,7 +32,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов для работы CRUD API входят:
-* Плата за операции с YDB и хранение данных ([тарифы Managed Service for YDB в бессерверном режиме](../pricing/serverless.md)).
+* Плата за операции с YDB и хранение данных ([тарифы Managed Service for YDB в бессерверном режиме](../../ydb/pricing/serverless.md)).
 * Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик ([тарифы Serverless Containers](../../serverless-containers/pricing.md)).
 * Плата за количество запросов к API-шлюзу и исходящий трафик ([тарифы API Gateway](../../api-gateway/pricing.md)).
 

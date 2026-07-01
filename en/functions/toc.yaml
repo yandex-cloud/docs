@@ -600,6 +600,8 @@ items:
                 href: functions/api-ref/grpc/Function/update.md
               - name: Delete
                 href: functions/api-ref/grpc/Function/delete.md
+              - name: DeleteVersion
+                href: functions/api-ref/grpc/Function/deleteVersion.md
               - name: GetVersion
                 href: functions/api-ref/grpc/Function/getVersion.md
               - name: GetFunctionVersion
@@ -612,8 +614,6 @@ items:
                 href: functions/api-ref/grpc/Function/listVersions.md
               - name: ListFunctionVersions
                 href: functions/api-ref/grpc/Function/listFunctionVersions.md
-              - name: DeleteVersion
-                href: functions/api-ref/grpc/Function/deleteVersion.md
               - name: SetTag
                 href: functions/api-ref/grpc/Function/setTag.md
               - name: RemoveTag
@@ -680,14 +680,14 @@ items:
                 href: functions/api-ref/Function/update.md
               - name: Delete
                 href: functions/api-ref/Function/delete.md
+              - name: DeleteVersion
+                href: functions/api-ref/Function/deleteVersion.md
               - name: GetVersion
                 href: functions/api-ref/Function/getVersion.md
               - name: GetVersionByTag
                 href: functions/api-ref/Function/getVersionByTag.md
               - name: ListVersions
                 href: functions/api-ref/Function/listVersions.md
-              - name: DeleteVersion
-                href: functions/api-ref/Function/deleteVersion.md
               - name: SetTag
                 href: functions/api-ref/Function/setTag.md
               - name: RemoveTag

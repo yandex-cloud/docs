@@ -11,12 +11,14 @@ apiPlayground:
             **string**
             Required field. ID of the broker to delete a password for.
             To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/Broker/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         passwordId:
           description: |-
             **string**
             Required field. ID of the password to delete.
             To get a password ID make a [BrokerService.ListPasswords](/docs/iot-core/broker/api-ref/Broker/listPasswords#ListPasswords) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - brokerId
@@ -44,13 +46,15 @@ DELETE https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/passwo
 || brokerId | **string**
 
 Required field. ID of the broker to delete a password for.
+To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/Broker/list#List) request.
 
-To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/Broker/list#List) request. ||
+The maximum string length in characters is 50. ||
 || passwordId | **string**
 
 Required field. ID of the password to delete.
+To get a password ID make a [BrokerService.ListPasswords](/docs/iot-core/broker/api-ref/Broker/listPasswords#ListPasswords) request.
 
-To get a password ID make a [BrokerService.ListPasswords](/docs/iot-core/broker/api-ref/Broker/listPasswords#ListPasswords) request. ||
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -65,18 +69,16 @@ To get a password ID make a [BrokerService.ListPasswords](/docs/iot-core/broker/
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "brokerId": "string",
-    "passwordId": "string"
-  },
-  // Includes only one of the fields `error`
+  "metadata": "object",
+  // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
     "details": [
       "object"
     ]
-  }
+  },
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -118,7 +120,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[DeleteBrokerPasswordMetadata](#yandex.cloud.iot.broker.v1.DeleteBrokerPasswordMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -127,26 +129,27 @@ Any method that returns a long-running operation should document the metadata ty
 
 The error result of the operation in case of failure or cancellation.
 
-Includes only one of the fields `error`.
+Includes only one of the fields `error`, `response`.
 
 The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
+|| response | **object**
 
-## DeleteBrokerPasswordMetadata {#yandex.cloud.iot.broker.v1.DeleteBrokerPasswordMetadata}
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
 
-#|
-||Field | Description ||
-|| brokerId | **string**
+Includes only one of the fields `error`, `response`.
 
-Required field. ID of a broker for which the password is being delete. ||
-|| passwordId | **string**
-
-Required field. ID of the password to delete.
-
-To get a password ID make a [BrokerService.ListPasswords](/docs/iot-core/broker/api-ref/Broker/listPasswords#ListPasswords) request. ||
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
 ## Status {#google.rpc.Status}

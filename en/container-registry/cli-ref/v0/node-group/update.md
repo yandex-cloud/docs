@@ -36,6 +36,9 @@ List of node group labels as key-value pairs. ||
 || `--node-labels` | `key=value[,key=value...]`
 
 List of node group NODE labels as key-value pairs. ||
+|| `--node-taints` | `value[,value]`
+
+Kubernetes taints that are applied to the nodes of the node group. ||
 || `--metadata` | `key=value[,key=value...]`
 
 Metadata for instances in the node group. ||

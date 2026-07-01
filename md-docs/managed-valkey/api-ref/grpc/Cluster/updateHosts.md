@@ -1,7 +1,7 @@
 # Managed Service for Redis API, gRPC: ClusterService.UpdateHosts
 
 Updates the specified hosts.
-(-- api-linter: yc::1705::http-method-mapping=disabled --)
+
 
 ## gRPC request
 
@@ -28,7 +28,7 @@ Updates the specified hosts.
 || cluster_id | **string**
 
 Required field. ID of the Redis cluster to update hosts in.
-To get the Redis cluster ID, use a [ClusterService.List](../../../../managed-redis/api-ref/grpc/Cluster/list#List) request.
+To get the Redis cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || update_host_specs[] | **[UpdateHostSpec](#yandex.cloud.mdb.redis.v1.UpdateHostSpec)**
@@ -45,7 +45,7 @@ The number of elements must be greater than 0. ||
 || host_name | **string**
 
 Required field. Name of the host to update.
-To get the Redis host name, use a [ClusterService.ListHosts](../../../../managed-redis/api-ref/grpc/Cluster/listHosts#ListHosts) request. ||
+To get the Redis host name, use a [ClusterService.ListHosts](listHosts.md#ListHosts) request. ||
 || replica_priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 A replica with a low priority number is considered better for promotion.

@@ -14,5 +14,6 @@ Actions are performed by making RPC calls. For more information about API archit
 ||Service | Description ||
 || [Cluster](Cluster/index.md) | A set of methods for managing Spark clusters. ||
 || [Job](Job/index.md) | A set of methods for managing jobs for Spark cluster. ||
+|| [Maintenance](Maintenance/index.md) |  ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 |#

@@ -51,9 +51,9 @@
 
 В стоимость инсталляции Microsoft Windows Server with Remote Desktop Services входят:
 
-* плата за постоянно запущенные виртуальные машины ([тарифы Yandex Compute Cloud](../pricing.md));
+* плата за постоянно запущенные виртуальные машины ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
 * плата за использование динамических или статических публичных IP-адресов ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
-* стоимость исходящего трафика из Yandex Cloud в интернет ([тарифы Yandex Compute Cloud](../pricing.md)).
+* стоимость исходящего трафика из Yandex Cloud в интернет ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 
 ## Создайте облачную сеть и подсети {#create-network}
 

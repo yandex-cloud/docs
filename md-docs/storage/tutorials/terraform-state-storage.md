@@ -37,7 +37,7 @@ Terraform распространяется под лицензией [Business S
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры для загрузки состояний Terraform в Yandex Object Storage входит плата за хранение данных ([тарифы Object Storage](../pricing.md#prices-storage)).
+В стоимость поддержки инфраструктуры для загрузки состояний Terraform в Yandex Object Storage входит плата за хранение данных ([тарифы Object Storage](../../storage/pricing.md#prices-storage)).
 
 В качестве примера инфраструктуры, разворачиваемой через Terraform, в руководстве будут созданы три [ВМ](../../compute/concepts/vm.md) с [публичными IP-адресами](../../vpc/concepts/address.md#public-addresses), виртуальная [сеть](../../vpc/concepts/network.md#network) и две [подсети](../../vpc/concepts/network.md#subnet). В стоимость поддержки этой инфраструктуры входят:
 * Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).

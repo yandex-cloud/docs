@@ -39,16 +39,24 @@ Creates a project in the specified folder.
 ||Field | Description ||
 || community_id | **string**
 
-Required field. ID of the community to create a project in. ||
+Required field. ID of the community to create a project in.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the project. 0-63 characters long. ||
+Name of the project. 0-63 characters long.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the project. 0-256 characters long. ||
+Description of the project. 0-256 characters long.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Labels of the project. ||
+Labels of the project.
+
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || settings | **[Settings](#yandex.cloud.datasphere.v2.Project.Settings)**
 
 Settings of the project. ||
@@ -81,7 +89,6 @@ Is early access preview enabled for the project. ||
 
 Project IDE.
 
-- `IDE_UNSPECIFIED`
 - `JUPYTER_LAB`: Project running on JupyterLab IDE. ||
 || default_folder_id | **string**
 
@@ -90,7 +97,6 @@ Default project folder ID. ||
 
 Timeout to automatically stop stale executions.
 
-- `STALE_EXECUTION_TIMEOUT_MODE_UNSPECIFIED`
 - `ONE_HOUR`: Setting to automatically stop stale execution after one hour with low consumption.
 - `THREE_HOURS`: Setting to automatically stop stale execution after three hours with low consumption.
 - `NO_TIMEOUT`: Setting to never automatically stop stale executions. ||
@@ -124,38 +130,10 @@ The number of units that can be spent on the one execution. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "project_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "name": "string",
-    "description": "string",
-    "labels": "map<string, string>",
-    "created_by_id": "string",
-    "settings": {
-      "service_account_id": "string",
-      "subnet_id": "string",
-      "data_proc_cluster_id": "string",
-      "security_group_ids": [
-        "string"
-      ],
-      "early_access": "bool",
-      "ide": "Ide",
-      "default_folder_id": "string",
-      "stale_exec_timeout_mode": "StaleExecutionTimeoutMode",
-      "vm_inactivity_timeout": "google.protobuf.Duration",
-      "default_dedicated_spec": "string"
-    },
-    "limits": {
-      "max_units_per_hour": "google.protobuf.Int64Value",
-      "max_units_per_execution": "google.protobuf.Int64Value"
-    },
-    "community_id": "string"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -183,7 +161,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateProjectMetadata](#yandex.cloud.datasphere.v2.CreateProjectMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -198,7 +176,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Project](#yandex.cloud.datasphere.v2.Project)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -213,99 +191,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateProjectMetadata {#yandex.cloud.datasphere.v2.CreateProjectMetadata}
-
-#|
-||Field | Description ||
-|| project_id | **string**
-
-ID of the project that is being created. ||
-|#
-
-## Project {#yandex.cloud.datasphere.v2.Project}
-
-A Project resource.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the project. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| name | **string**
-
-Name of the project. 1-63 characters long. ||
-|| description | **string**
-
-Description of the project. 0-256 characters long. ||
-|| labels | **object** (map<**string**, **string**>) ||
-|| created_by_id | **string** ||
-|| settings | **[Settings](#yandex.cloud.datasphere.v2.Project.Settings2)**
-
-Settings of the project. ||
-|| limits | **[Limits](#yandex.cloud.datasphere.v2.Project.Limits2)**
-
-Limits of the project. ||
-|| community_id | **string**
-
-ID of the community that the project belongs to. ||
-|#
-
-## Settings {#yandex.cloud.datasphere.v2.Project.Settings2}
-
-#|
-||Field | Description ||
-|| service_account_id | **string**
-
-ID of the service account, on whose behalf all operations with clusters will be performed. ||
-|| subnet_id | **string**
-
-ID of the subnet where the DataProc cluster resides.
-Currently only subnets created in the availability zone ru-central1-a are supported. ||
-|| data_proc_cluster_id | **string**
-
-ID of the DataProc cluster. ||
-|| security_group_ids[] | **string**
-
-Network interfaces security groups. ||
-|| early_access | **bool**
-
-Is early access preview enabled for the project. ||
-|| ide | enum **Ide**
-
-Project IDE.
-
-- `IDE_UNSPECIFIED`
-- `JUPYTER_LAB`: Project running on JupyterLab IDE. ||
-|| default_folder_id | **string**
-
-Default project folder ID. ||
-|| stale_exec_timeout_mode | enum **StaleExecutionTimeoutMode**
-
-Timeout to automatically stop stale executions.
-
-- `STALE_EXECUTION_TIMEOUT_MODE_UNSPECIFIED`
-- `ONE_HOUR`: Setting to automatically stop stale execution after one hour with low consumption.
-- `THREE_HOURS`: Setting to automatically stop stale execution after three hours with low consumption.
-- `NO_TIMEOUT`: Setting to never automatically stop stale executions. ||
-|| vm_inactivity_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
-
-Timeout for VM deallocation. ||
-|| default_dedicated_spec | **string**
-
-Default VM configuration for DEDICATED mode. ||
-|#
-
-## Limits {#yandex.cloud.datasphere.v2.Project.Limits2}
-
-#|
-||Field | Description ||
-|| max_units_per_hour | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-The number of units that can be spent per hour. ||
-|| max_units_per_execution | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-The number of units that can be spent on the one execution. ||
 |#

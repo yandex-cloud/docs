@@ -1,7 +1,6 @@
 # Serverless Containers Service, REST: Container.GetRevision
 
 Returns the specified revision of a container.
-
 To get the list of available revisions, make a [ListRevisions](listRevisions.md#ListRevisions) request.
 
 ## HTTP request
@@ -17,7 +16,6 @@ GET https://serverless-containers.api.cloud.yandex.net/containers/v1/revisions/{
 || containerRevisionId | **string**
 
 Required field. ID of the revision to return.
-
 To get a revision ID make a [ContainerService.ListRevisions](listRevisions.md#ListRevisions) request. ||
 |#
 
@@ -56,6 +54,15 @@ To get a revision ID make a [ContainerService.ListRevisions](listRevisions.md#Li
   "concurrency": "string",
   "serviceAccountId": "string",
   "status": "string",
+  "connectivity": {
+    "networkId": "string",
+    "subnetIds": [
+      "string"
+    ]
+  },
+  "provisionPolicy": {
+    "minInstances": "string"
+  },
   "secrets": [
     {
       "id": "string",
@@ -66,19 +73,6 @@ To get a revision ID make a [ContainerService.ListRevisions](listRevisions.md#Li
       // end of the list of possible fields
     }
   ],
-  "connectivity": {
-    "networkId": "string",
-    "subnetIds": [
-      "string"
-    ]
-  },
-  "provisionPolicy": {
-    "minInstances": "string"
-  },
-  "scalingPolicy": {
-    "zoneInstancesLimit": "string",
-    "zoneRequestsLimit": "string"
-  },
   "logOptions": {
     "disabled": "boolean",
     // Includes only one of the fields `logGroupId`, `folderId`
@@ -86,6 +80,10 @@ To get a revision ID make a [ContainerService.ListRevisions](listRevisions.md#Li
     "folderId": "string",
     // end of the list of possible fields
     "minLevel": "string"
+  },
+  "scalingPolicy": {
+    "zoneInstancesLimit": "string",
+    "zoneRequestsLimit": "string"
   },
   "storageMounts": [
     {
@@ -157,7 +155,6 @@ Resources allocated to the revision. ||
 || executionTimeout | **string** (duration)
 
 Timeout for the execution of the revision.
-
 If the timeout is exceeded, Serverless Containers responds with a 504 HTTP code. ||
 || concurrency | **string** (int64)
 
@@ -172,23 +169,22 @@ Status of the revision.
 - `CREATING`: Revision is being created.
 - `ACTIVE`: Revision is currently used by the container.
 - `OBSOLETE`: Revision is not used by the container. May be deleted later. ||
-|| secrets[] | **[Secret](#yandex.cloud.serverless.containers.v1.Secret)**
-
-Yandex Lockbox secrets to be used by the revision. ||
 || connectivity | **[Connectivity](#yandex.cloud.serverless.containers.v1.Connectivity)**
 
 Network access. If specified the revision will be attached to specified network/subnet(s). ||
 || provisionPolicy | **[ProvisionPolicy](#yandex.cloud.serverless.containers.v1.ProvisionPolicy)**
 
 Policy for provisioning instances of the revision.
-
 The policy is only applied when the revision is ACTIVE. ||
-|| scalingPolicy | **[ScalingPolicy](#yandex.cloud.serverless.containers.v1.ScalingPolicy)**
+|| secrets[] | **[Secret](#yandex.cloud.serverless.containers.v1.Secret)**
 
-Policy for scaling instances of the revision. ||
+Yandex Lockbox secrets to be used by the revision. ||
 || logOptions | **[LogOptions](#yandex.cloud.serverless.containers.v1.LogOptions)**
 
 Options for logging from the container. ||
+|| scalingPolicy | **[ScalingPolicy](#yandex.cloud.serverless.containers.v1.ScalingPolicy)**
+
+Policy for scaling instances of the revision. ||
 || storageMounts[] | **[StorageMount](#yandex.cloud.serverless.containers.v1.StorageMount)**
 
 S3 mounts to be used by the revision. ||
@@ -241,7 +237,6 @@ Override for the image's WORKDIR. ||
 || command[] | **string**
 
 Command that will override ENTRYPOINT of an image.
-
 Commands will be executed as is. The runtime will not substitute environment
 variables or execute shell commands. If one wants to do that, they should
 invoke shell interpreter with an appropriate shell script. ||
@@ -254,7 +249,6 @@ invoke shell interpreter with an appropriate shell script. ||
 || args[] | **string**
 
 Arguments that will override CMD of an image.
-
 Arguments will be passed as is. The runtime will not substitute environment
 variables or execute shell commands. If one wants to do that, they should
 invoke shell interpreter with an appropriate shell script. ||
@@ -284,6 +278,33 @@ Should be 100% for cores > 1.
 Acceptable values are 0 to 100, inclusive. ||
 |#
 
+## Connectivity {#yandex.cloud.serverless.containers.v1.Connectivity}
+
+Revision connectivity specification.
+
+#|
+||Field | Description ||
+|| networkId | **string**
+
+Network the revision will have access to. ||
+|| subnetIds[] | **string**
+
+The list of subnets (from the same network) the revision can be attached to.
+Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
+
+The string length in characters for each value must be greater than 0. ||
+|#
+
+## ProvisionPolicy {#yandex.cloud.serverless.containers.v1.ProvisionPolicy}
+
+#|
+||Field | Description ||
+|| minInstances | **string** (int64)
+
+Minimum number of guaranteed provisioned container instances for all zones
+in total. ||
+|#
+
 ## Secret {#yandex.cloud.serverless.containers.v1.Secret}
 
 Secret that is available to the container at run time.
@@ -304,48 +325,6 @@ Key in secret's payload, which value to be delivered into container environment.
 Environment variable in which secret's value is delivered.
 
 Includes only one of the fields `environmentVariable`. ||
-|#
-
-## Connectivity {#yandex.cloud.serverless.containers.v1.Connectivity}
-
-Revision connectivity specification.
-
-#|
-||Field | Description ||
-|| networkId | **string**
-
-Network the revision will have access to. ||
-|| subnetIds[] | **string**
-
-Complete list of subnets (from the same network) the revision can be attached to.
-
-Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
-
-The string length in characters for each value must be greater than 0. ||
-|#
-
-## ProvisionPolicy {#yandex.cloud.serverless.containers.v1.ProvisionPolicy}
-
-#|
-||Field | Description ||
-|| minInstances | **string** (int64)
-
-Minimum number of guaranteed provisioned container instances for all zones
-in total. ||
-|#
-
-## ScalingPolicy {#yandex.cloud.serverless.containers.v1.ScalingPolicy}
-
-#|
-||Field | Description ||
-|| zoneInstancesLimit | **string** (int64)
-
-Upper limit for instance count in each zone.
-0 means no limit. ||
-|| zoneRequestsLimit | **string** (int64)
-
-Upper limit of requests count in each zone.
-0 means no limit. ||
 |#
 
 ## LogOptions {#yandex.cloud.serverless.containers.v1.LogOptions}
@@ -376,7 +355,6 @@ Log entries destination. ||
 || minLevel | **enum** (Level)
 
 Minimum log entry level.
-
 See [LogLevel.Level](../../../../logging/api-ref/Export/get.md#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.
@@ -391,6 +369,20 @@ May be used to alert about significant events.
 May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
 May be used to alert about unrecoverable failures and events. ||
+|#
+
+## ScalingPolicy {#yandex.cloud.serverless.containers.v1.ScalingPolicy}
+
+#|
+||Field | Description ||
+|| zoneInstancesLimit | **string** (int64)
+
+Upper limit for instance count in each zone.
+0 means no limit. ||
+|| zoneRequestsLimit | **string** (int64)
+
+Upper limit of requests count in each zone.
+0 means no limit. ||
 |#
 
 ## StorageMount {#yandex.cloud.serverless.containers.v1.StorageMount}

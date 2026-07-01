@@ -14,7 +14,9 @@ GET https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests/{q
 ||Field | Description ||
 || quotaRequestId | **string**
 
-Required field. ID of the quota request to list operations for. ||
+Required field. ID of the quota request to list operations for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.quotamanager.v1.ListQuotaRequestOperationsRequest}
@@ -26,12 +28,16 @@ Required field. ID of the quota request to list operations for. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListQuotaRequestOperationsResponse.nextPageToken](#yandex.cloud.quotamanager.v1.ListQuotaRequestOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken`
 to the [ListQuotaRequestOperationsResponse.nextPageToken](#yandex.cloud.quotamanager.v1.ListQuotaRequestOperationsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.quotamanager.v1.ListQuotaRequestOperationsResponse}

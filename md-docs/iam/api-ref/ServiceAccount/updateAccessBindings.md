@@ -1,7 +1,7 @@
 # Identity and Access Management API, REST: ServiceAccount.UpdateAccessBindings
 
 Updates access bindings for the specified service account.
-(-- api-linter: yc::1705::http-method-mapping=disabled --)
+
 
 ## HTTP request
 

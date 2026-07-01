@@ -13,8 +13,8 @@ A set of methods for managing backups.
 || [Get](get.md) | Returns the specified backup. ||
 || [ListPaths](listPaths.md) |  ||
 || [List](list.md) | Retrieves a list of backups. ||
+|| [Delete](delete.md) | Deletes the specified backup. ||
 || [ListAccessBindings](listAccessBindings.md) |  ||
 || [SetAccessBindings](setAccessBindings.md) |  ||
 || [UpdateAccessBindings](updateAccessBindings.md) |  ||
-|| [Delete](delete.md) | Deletes the specified backup. ||
 |#

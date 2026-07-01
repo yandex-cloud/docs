@@ -537,14 +537,14 @@ items:
                 href: api-ref/grpc/Registry/deletePassword.md
               - name: ListDeviceTopicAliases
                 href: api-ref/grpc/Registry/listDeviceTopicAliases.md
+              - name: ListOperations
+                href: api-ref/grpc/Registry/listOperations.md
               - name: ListDataStreamExports
                 href: api-ref/grpc/Registry/listDataStreamExports.md
               - name: AddDataStreamExport
                 href: api-ref/grpc/Registry/addDataStreamExport.md
               - name: DeleteDataStreamExport
                 href: api-ref/grpc/Registry/deleteDataStreamExport.md
-              - name: ListOperations
-                href: api-ref/grpc/Registry/listOperations.md
               - name: Disable
                 href: api-ref/grpc/Registry/disable.md
               - name: Enable

@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the broker to list certificates for.
+            The maximum string length in characters is 50.
           type: string
       required:
         - brokerId
@@ -35,7 +36,9 @@ GET https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/certifica
 ||Field | Description ||
 || brokerId | **string**
 
-Required field. ID of the broker to list certificates for. ||
+Required field. ID of the broker to list certificates for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iot.broker.v1.ListBrokerCertificatesResponse}

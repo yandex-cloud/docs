@@ -4,9 +4,9 @@
 
 * `docker login is not supported with yc credential helper`
 
-  **Почему возникла ошибка**: если вы используете [Docker Credential helper](../operations/authentication.md#cred-helper), нельзя [аутентифицироваться](../operations/authentication.md) в Container Registry с помощью `docker login`. Эту ошибку можно также увидеть в [Container Optimized Image](../../cos/concepts/index.md), где Credential helper используется для аутентификации от имени привязанного к [виртуальной машине](../../compute/concepts/vm.md) [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
+  **Почему возникла ошибка**: если вы используете [Docker credential helper](../operations/authentication.md#cred-helper), нельзя [аутентифицироваться](../operations/authentication.md) в Container Registry с помощью `docker login`. Эту ошибку можно также увидеть в [Container Optimized Image](../../cos/concepts/index.md), где credential helper используется для аутентификации от имени привязанного к [виртуальной машине](../../compute/concepts/vm.md) [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
 
-  **Как исправить**: аутентифицируйтесь в [реестре](../concepts/registry.md), используя Docker Credential helper, или [отключите Docker Credential helper](../operations/authentication.md#ch-not-use).
+  **Как исправить**: аутентифицируйтесь в [реестре](../concepts/registry.md), используя Docker credential helper, или [отключите Docker credential helper](../operations/authentication.md#ch-not-use).
 
 * `Got permission denied while trying to connect to the Docker daemon socket`
 

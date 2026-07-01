@@ -67,7 +67,7 @@ Required field. ID of the Workflow execution. ||
 ||Field | Description ||
 || execution | **[ExecutionPreview](#yandex.cloud.serverless.workflows.v1.ExecutionPreview)**
 
-Workflow execution details. ||
+Required field. Workflow execution details. ||
 || entries[] | **[HistoryEntry](#yandex.cloud.serverless.workflows.v1.HistoryEntry)**
 
 Workflow execution detailed history items.
@@ -81,13 +81,13 @@ The number of elements must be greater than 0. ||
 ||Field | Description ||
 || id | **string**
 
-ID of the Workflow execution. Generated at creation time. ||
+Required field. ID of the Workflow execution. Generated at creation time. ||
 || workflowId | **string**
 
-ID of the Workflow. ||
+Required field. ID of the Workflow. ||
 || status | **enum** (Status)
 
-Status of the Workflow execution
+Required field. Status of the Workflow execution
 
 - `QUEUED`: Workflow execution is being queued.
 - `RUNNING`: Workflow execution is running.
@@ -97,7 +97,7 @@ Status of the Workflow execution
 - `FINISHED`: Workflow execution is finished. ||
 || startedAt | **string** (date-time)
 
-Start timestamp for the Workflow execution.
+Required field. Start timestamp for the Workflow execution.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -116,16 +116,16 @@ Duration of the Workflow execution. ||
 ||Field | Description ||
 || id | **string**
 
-ID of the Workflow step. ||
+Required field. ID of the Workflow step. ||
 || title | **string**
 
-Title of the Workflow step. ||
+Required field. Title of the Workflow step. ||
 || description | **string**
 
 Description of the Workflow step. ||
 || startedAt | **string** (date-time)
 
-Start timestamp for the Workflow step.
+Required field. Start timestamp for the Workflow step.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -147,7 +147,7 @@ Result of the Workflow step. ||
 Error details, in case Workflow step failed. ||
 || status | **enum** (Status)
 
-Status of the Workflow step.
+Required field. Status of the Workflow step.
 
 - `SCHEDULED`: Step execution is being scheduled.
 - `STARTED`: Step execution is started.
@@ -157,7 +157,7 @@ Status of the Workflow step.
 - `CANCELLED`: Step execution is canceled. ||
 || type | **string**
 
-Type of the Workflow step (for example, FunctionCall or HttpCall). ||
+Required field. Type of the Workflow step (for example, FunctionCall or HttpCall). ||
 || attempts | **string** (int64)
 
 Number of attempts (including all retries of unsuccessful attempts). Value "1" means there were no retries. ||

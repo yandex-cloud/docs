@@ -1760,35 +1760,6 @@ description: В статье приведен полный справочник 
 Подробнее в [{#T}](../kms/security/index.md).
 
 
-## {{ load-testing-full-name }} {#load-testing-roles}
-
-#### loadtesting.viewer {#loadtesting-viewer}
-
-{% include [loadtesting.viewer](../_roles/loadtesting/viewer.md) %}
-
-#### loadtesting.editor {#loadtesting-editor}
-
-{% include [loadtesting.editor](../_roles/loadtesting/editor.md) %}
-
-#### loadtesting.admin {#loadtesting-admin}
-
-{% include [loadtesting.admin](../_roles/loadtesting/admin.md) %}
-
-#### loadtesting.loadTester {#loadtesting-loadtester}
-
-{% include [loadtesting.loadtester](../_roles/loadtesting/loadTester.md) %}
-
-#### loadtesting.generatorClient {#loadtesting-generatorclient}
-
-{% include [loadtesting.generatorclient](../_roles/loadtesting/generatorClient.md) %}
-
-#### loadtesting.externalAgent {#loadtesting-externalagent}
-
-{% include [loadtesting.externalagent](../_roles/loadtesting/externalAgent.md) %}
-
-Подробнее в [{#T}](../load-testing/security/index.md).
-
-
 ## {{ lockbox-full-name }} {#lockbox-roles}
 
 #### lockbox.auditor {#lockbox-auditor}

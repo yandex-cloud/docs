@@ -40,9 +40,7 @@ Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListArtifactsResponse.next_page_token](#yandex.cloud.cloudregistry.v1.ListArtifactsResponse) returned by a previous list request.
-
-The maximum string length in characters is 100. ||
+[ListArtifactsResponse.next_page_token](#yandex.cloud.cloudregistry.v1.ListArtifactsResponse) returned by a previous list request. ||
 |#
 
 ## ListArtifactsResponse {#yandex.cloud.cloudregistry.v1.ListArtifactsResponse}
@@ -97,7 +95,8 @@ The maximum string length in characters is 100. ||
           "manifest_digest": "string"
         }
         // end of the list of possible fields
-      }
+      },
+      "registry_id": "string"
     }
   ],
   "next_page_token": "string"
@@ -167,6 +166,9 @@ Key-value properties associated with the artifact. ||
 || content | **[Content](#yandex.cloud.cloudregistry.v1.Content)**
 
 Content of the artifact. ||
+|| registry_id | **string**
+
+Output only. ID of the registry that contains this artifact. ||
 |#
 
 ## Content {#yandex.cloud.cloudregistry.v1.Content}

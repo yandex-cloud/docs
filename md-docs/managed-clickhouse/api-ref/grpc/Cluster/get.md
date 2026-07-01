@@ -4558,7 +4558,6 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 || query_cache_min_query_duration | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Minimum duration in milliseconds a query needs to run for its result to be stored in the query cache.
-(-- api-linter: yc::1701::duration-required=disabled --)
 
 Default value: **0**.
 

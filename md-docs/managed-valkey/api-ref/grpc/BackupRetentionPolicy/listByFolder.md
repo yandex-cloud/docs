@@ -70,8 +70,8 @@ List of [BackupRetentionPolicy](#yandex.cloud.mdb.v1.BackupRetentionPolicy) asso
 || next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListBackupRetentionPoliciesRequest.page_size](../../../../managed-redis/api-ref/grpc/BackupRetentionPolicy/list#yandex.cloud.mdb.redis.v1.ListBackupRetentionPoliciesRequest), use the `next_page_token` as the value
-for the [ListBackupRetentionPoliciesRequest.page_token](../../../../managed-redis/api-ref/grpc/BackupRetentionPolicy/list#yandex.cloud.mdb.redis.v1.ListBackupRetentionPoliciesRequest) query parameter in the next list request.
+is larger than [ListBackupRetentionPoliciesRequest.page_size](list.md#yandex.cloud.mdb.redis.v1.ListBackupRetentionPoliciesRequest), use the `next_page_token` as the value
+for the [ListBackupRetentionPoliciesRequest.page_token](list.md#yandex.cloud.mdb.redis.v1.ListBackupRetentionPoliciesRequest) query parameter in the next list request.
 Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
 |#
 

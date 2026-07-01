@@ -77,7 +77,7 @@ The trigger must be in the same cloud as the registry or device whose topic it r
       --device-id <device_ID> \
       --mqtt-topic '<broker_MQTT_topic>' \
       --batch-size <message_batch_size> \
-      --batch-cutoff <maximum_timeout> \
+      --batch-cutoff <maximum_wait_time> \
       --invoke-container-id <container_ID> \
       --invoke-container-service-account-id <service_account_ID> \
       --retry-attempts <number_of_retry_attempts> \
@@ -129,7 +129,7 @@ The trigger must be in the same cloud as the registry or device whose topic it r
 
   To create a trigger for {{ iot-name }}:
 
-  1. Describe the trigger in the configuration file:
+  1. In the configuration file, describe the trigger properties:
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
@@ -138,7 +138,7 @@ The trigger must be in the same cloud as the registry or device whose topic it r
           id                 = "<container_ID>"
           service_account_id = "<service_account_ID>"
           retry_attempts     = "<number_of_retry_attempts>"
-          retry_interval     = "<time_between_retry_attempts>"
+          retry_interval     = "<interval_between_retry_attempts>"
         }
         iot {
           registry_id  = "<registry_ID>"

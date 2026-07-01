@@ -1560,7 +1560,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters:restore
 || backupId | **string**
 
 Required field. ID of the backup to create a cluster from.
-To get the backup ID, use a [ClusterService.ListBackups](../../../managed-mongodb/api-ref/Cluster/listBackups#ListBackups) request. ||
+To get the backup ID, use a [ClusterService.ListBackups](listBackups.md#ListBackups) request. ||
 || name | **string**
 
 Required field. Name of the new MongoDB cluster. The name must be unique within the folder.
@@ -1864,7 +1864,7 @@ Acceptable values are 10 to 32768, inclusive. ||
 || resourcePresetId | **string**
 
 ID of the preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](../../../managed-mongodb/concepts/instance-types). ||
+All available presets are listed in the [documentation](../../concepts/instance-types.md). ||
 || diskSize | **string** (int64)
 
 Volume of the storage available to a host, in bytes. ||
@@ -5759,7 +5759,7 @@ The maximum string length in characters is 50. ||
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The network ID is set in the [Cluster.networkId](../../../managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.Cluster) field.
+The network ID is set in the [Cluster.networkId](get.md#yandex.cloud.mdb.mongodb.v1.Cluster) field.
 
 The maximum string length in characters is 50. ||
 || assignPublicIp | **boolean**

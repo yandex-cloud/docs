@@ -26,10 +26,10 @@ The maximum number of results per page to return. If the number of available res
 Page token. To get the next page of results, set 'page_token' to the [ListPublicPrefixPoolsResponse.next_page_token] returned by a previous list request. ||
 || `--order-by` | `string`
 
-By which column the listing should be ordered and in which direction. ||
+Sorting order for the listing. Follows the AIP-132 'order_by' format: '"field [asc\|desc]"', e.g. '"createTime desc"'. Supported fields: 'publicPrefixPoolId', 'createTime', 'updateTime'. Default order: 'publicPrefixPoolId asc'. ||
 || `--filter` | `string`
 
-A filter expression that filters resources listed in the response. ||
+Filter expression following AIP-160. Supported fields and operators: - 'publicPrefixPoolId', 'name' - '=', '!=', ':' (contains) Example: 'name : "prod"'. ||
 |#
 
 #### Global Flags

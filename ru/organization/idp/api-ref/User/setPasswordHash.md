@@ -38,7 +38,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. The password hash string.
-              The maximum string length in characters is 128.
+              The maximum string length in characters is 256.
             type: string
           passwordHashType:
             description: |-
@@ -120,7 +120,7 @@ Password hash information.
 
 Required field. The password hash string.
 
-The maximum string length in characters is 128. ||
+The maximum string length in characters is 256. ||
 || passwordHashType | **enum** (PasswordHashType)
 
 Required field. Type of the password hash.

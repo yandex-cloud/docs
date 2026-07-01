@@ -14,7 +14,9 @@ GET https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests/{q
 ||Field | Description ||
 || quotaRequestId | **string**
 
-Required field. ID of the quota request to return. ||
+Required field. ID of the quota request to return.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.quotamanager.v1.QuotaRequest}
@@ -65,7 +67,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Status of current quota request.
 
-- `STATUS_UNSPECIFIED`
 - `PENDING`: The request is pending and is waiting to be processed.
 - `PROCESSING`: The request is processing.
 - `PROCESSED`: The request was processed.
@@ -85,10 +86,14 @@ ID of the subject who created quota request. ||
 ||Field | Description ||
 || id | **string**
 
-Required field. The id if the resource. ||
+Required field. The id if the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.cloud, billing.account. ||
+Required field. The type of the resource, e.g. resource-manager.cloud, billing.account.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## QuotaLimit {#yandex.cloud.quotamanager.v1.QuotaRequest.QuotaLimit}
@@ -111,7 +116,6 @@ Unit of quota. ||
 
 Status of current quota limit.
 
-- `STATUS_UNSPECIFIED`
 - `PENDING`: The request is pending and is waiting to be processed.
 - `PROCESSING`: The request is processing.
 - `PARTIAL_APPROVED`: The request was partially approved.

@@ -4,7 +4,7 @@ Returns information about legal person (Russia only) who owns this subscription 
 
 ## gRPC request
 
-**rpc GetUserInfo ([GetUserInfoRequest](#yandex.cloud.marketplace.licensemanager.saas.v1.GetUserInfoRequest)) returns ([licensemanager.v1.UserInfo](#yandex.cloud.marketplace.licensemanager.v1.UserInfo))**
+**rpc GetUserInfo ([GetUserInfoRequest](#yandex.cloud.marketplace.licensemanager.saas.v1.GetUserInfoRequest)) returns ([yandex.cloud.marketplace.licensemanager.v1.UserInfo](#yandex.cloud.marketplace.licensemanager.v1.UserInfo))**
 
 ## GetUserInfoRequest {#yandex.cloud.marketplace.licensemanager.saas.v1.GetUserInfoRequest}
 
@@ -21,7 +21,7 @@ Returns information about legal person (Russia only) who owns this subscription 
 Required field. ID of the subscription instance. ||
 |#
 
-## licensemanager.v1.UserInfo {#yandex.cloud.marketplace.licensemanager.v1.UserInfo}
+## yandex.cloud.marketplace.licensemanager.v1.UserInfo {#yandex.cloud.marketplace.licensemanager.v1.UserInfo}
 
 ```json
 {

@@ -51,7 +51,7 @@
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта — `mongo-express`.
-  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли](../../load-testing/security/index.md#roles-list) `{{ roles-cr-puller }}`, `{{ roles-lockbox-payloadviewer }}` и `{{ roles-serverless-containers-invoker }}`.
+  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роли `{{ roles-cr-puller }}`, `{{ roles-lockbox-payloadviewer }}` и `{{ roles-serverless-containers-invoker }}`.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI {#cli}
@@ -527,7 +527,7 @@
     docker.io/library/mongo-express:latest
     ```
 
-1. [Аутентифицируйтесь](../../container-registry/operations/authentication.md) в {{ container-registry-name }} с помощью Docker Credential helper:
+1. [Аутентифицируйтесь](../../container-registry/operations/authentication.md) в {{ container-registry-name }} с помощью Docker credential helper:
 
     {% list tabs group=instructions %}
 
@@ -546,6 +546,8 @@
           ```
 
           Настройки сохраняются в профиле текущего пользователя.
+
+          {% include [credential-helper](../../_includes/credential-helper.md) %}
 
       1. Проверьте, что Docker сконфигурирован — в конфигурационном файле `${HOME}/.docker/config.json` должна появиться строка:
 

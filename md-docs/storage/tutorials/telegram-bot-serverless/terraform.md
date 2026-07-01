@@ -26,7 +26,7 @@
 
 В стоимость поддержки инфраструктуры Telegram-бота входят:
 * плата за вызовы [функции](../../../functions/concepts/function.md), вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы Cloud Functions](../../../functions/pricing.md));
-* плата за [хранение данных](../../concepts/bucket.md) в Object Storage, [операции](../../operations/index.md) с ними и исходящий трафик ([тарифы Object Storage](../../pricing.md));
+* плата за [хранение данных](../../concepts/bucket.md) в Object Storage, [операции](../../operations/index.md) с ними и исходящий трафик ([тарифы Object Storage](../../../storage/pricing.md));
 * плата за количество запросов к созданному [API-шлюзу](../../../api-gateway/concepts/index.md) и исходящий трафик ([тарифы Yandex API Gateway](../../../api-gateway/pricing.md)).
 
 

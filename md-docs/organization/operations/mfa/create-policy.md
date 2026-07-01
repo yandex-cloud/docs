@@ -37,7 +37,7 @@
          
                  {% note info %}
                  
-                 Функциональность SMS в качестве фактора аутентификации находится на стадии [Preview](../../../overview/concepts/launch-stages.md) и доступна только клиентам с [тарифицируемым лимитом](../../pricing.md#prices) пользователей Yandex Identity Hub. Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+                 Функциональность SMS в качестве фактора аутентификации находится на стадии [Preview](../../../overview/concepts/launch-stages.md) и доступна только клиентам с [тарифицируемым лимитом](../../organization/pricing.md#prices) пользователей Yandex Identity Hub. Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
                  
                  {% endnote %}
          
@@ -90,7 +90,7 @@
        
            {% note info %}
            
-           Функциональность SMS в качестве фактора аутентификации находится на стадии [Preview](../../../overview/concepts/launch-stages.md) и доступна только клиентам с [тарифицируемым лимитом](../../pricing.md#prices) пользователей Yandex Identity Hub. Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+           Функциональность SMS в качестве фактора аутентификации находится на стадии [Preview](../../../overview/concepts/launch-stages.md) и доступна только клиентам с [тарифицируемым лимитом](../../organization/pricing.md#prices) пользователей Yandex Identity Hub. Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
            
            {% endnote %}
        

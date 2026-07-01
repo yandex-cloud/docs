@@ -92,7 +92,6 @@ Includes only one of the fields `folderId`, `functionId`. ||
 The maximum number of results per page to return. If the number of available results
 is larger than `pageSize`, the service returns a [ListFunctionsVersionsResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListFunctionsVersionsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
 Default value: 100.
 
 Acceptable values are 0 to 1000, inclusive. ||
@@ -105,7 +104,6 @@ The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-
 The expression must specify:
 1. The field name. Currently filtering can only be applied to the [Version.status](#yandex.cloud.serverless.functions.v1.Version) and [Version.runtime](#yandex.cloud.serverless.functions.v1.Version) fields.
 2. An `=` operator.
@@ -140,13 +138,14 @@ The maximum string length in characters is 1000. ||
         "string"
       ],
       "environment": "object",
+      "namedServiceAccounts": "object",
+      "concurrency": "string",
       "connectivity": {
         "networkId": "string",
         "subnetId": [
           "string"
         ]
       },
-      "namedServiceAccounts": "object",
       "secrets": [
         {
           "id": "string",
@@ -196,7 +195,6 @@ The maximum string length in characters is 1000. ||
         "serviceAccountId": "string"
       },
       "tmpfsSize": "string",
-      "concurrency": "string",
       "mounts": [
         {
           "name": "string",
@@ -233,7 +231,6 @@ List of versions for the specified folder or function. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListFunctionsVersionsRequest.pageSize](#yandex.cloud.serverless.functions.v1.ListFunctionsVersionsRequest), use `nextPageToken` as the value
 for the [ListFunctionsVersionsRequest.pageToken](#yandex.cloud.serverless.functions.v1.ListFunctionsVersionsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `nextPageToken` to continue paging through the results. ||
 |#
 
@@ -253,7 +250,7 @@ ID of the function that the version belongs to. ||
 
 Description of the version.
 
-The string length in characters must be 0-256. ||
+The string length in characters must be 0-600. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp for the version.
@@ -267,12 +264,10 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || runtime | **string**
 
 ID of the runtime environment for the function.
-
 Supported environments and their identifiers are listed in the [Runtime environments](/docs/functions/concepts/runtime). ||
 || entrypoint | **string**
 
 Entrypoint for the function: the name of the function to be called as the handler.
-
 Specified in the format `<function file name>.<handler name>`, for example, `index.myFunction`. ||
 || resources | **[Resources](#yandex.cloud.serverless.functions.v1.Resources)**
 
@@ -280,7 +275,6 @@ Resources allocated to the version. ||
 || executionTimeout | **string** (duration)
 
 Timeout for the execution of the version.
-
 If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. ||
 || serviceAccountId | **string**
 
@@ -302,12 +296,17 @@ Version tags. For details, see [Version tag](/docs/functions/concepts/function#t
 || environment | **object** (map<**string**, **string**>)
 
 Environment settings for the version. ||
-|| connectivity | **[Connectivity](#yandex.cloud.serverless.functions.v1.Connectivity)**
-
-Network access. If specified the version will be attached to specified network/subnet(s). ||
 || namedServiceAccounts | **object** (map<**string**, **string**>)
 
 Additional service accounts to be used by the version. ||
+|| concurrency | **string** (int64)
+
+The maximum number of requests processed by a function instance at the same time
+
+Acceptable values are 0 to 16, inclusive. ||
+|| connectivity | **[Connectivity](#yandex.cloud.serverless.functions.v1.Connectivity)**
+
+Network access. If specified the version will be attached to specified network/subnet(s). ||
 || secrets[] | **[Secret](#yandex.cloud.serverless.functions.v1.Secret)**
 
 Yandex Lockbox secrets to be used by the version. ||
@@ -323,11 +322,6 @@ Config for asynchronous invocations of the version ||
 || tmpfsSize | **string** (int64)
 
 Optional size of in-memory mounted /tmp directory in bytes. ||
-|| concurrency | **string** (int64)
-
-The maximum number of requests processed by a function instance at the same time
-
-Acceptable values are 0 to 16, inclusive. ||
 || mounts[] | **[Mount](#yandex.cloud.serverless.functions.v1.Mount)**
 
 Mounts to be used by the version. ||
@@ -418,7 +412,6 @@ Log entries destination. ||
 || minLevel | **enum** (Level)
 
 Minimum log entry level.
-
 See [LogLevel.Level](/docs/logging/api-ref/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.

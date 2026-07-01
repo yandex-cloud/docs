@@ -122,7 +122,6 @@ POST https://billing.{{ api-host }}/billing/v1/customers:createResellerServedCus
 || resellerId | **string**
 
 Required field. ID of the reseller that customer will be associated with.</br>
-
 Value must match either one of the three regular expressions:
 </br>- `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
 </br>- `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{32}$`
@@ -132,7 +131,6 @@ The maximum string length in characters is 50. ||
 || name | **string**
 
 Required field. Name of the customer.
-
 String length is not limited. ||
 || person | **[CustomerPerson](#yandex.cloud.billing.v1.CustomerPerson)**
 
@@ -148,42 +146,34 @@ Person of the customer. Contains legal information.
 || name | **string**
 
 Optional. Name of the person.
-
 String length is not limited. ||
 || longname | **string**
 
 Optional. Long name of the person.
-
 String length is not limited. ||
 || phone | **string**
 
 Optional. Phone of the person.
-
 Must be a valid telephone number or a valid [phoneword](https://en.m.wikipedia.org/wiki/Phoneword). ||
 || email | **string**
 
 Optional. Email of the person.
-
 Must be a valid [email address](https://en.wikipedia.org/wiki/Email_address). ||
 || postCode | **string**
 
 Optional. Post code of the person.
-
 String length is not limited. ||
 || postAddress | **string**
 
 Optional. Post address of the person.
-
 String length is not limited. ||
 || legalAddress | **string**
 
 Optional. Legal address of the person.
-
 String length is not limited. ||
 || tin | **string**
 
 Optional. Tax identification number of the person.
-
 String length is not limited. ||
 |#
 
@@ -199,10 +189,7 @@ String length is not limited. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "resellerId": "string",
-    "customerId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -211,10 +198,7 @@ String length is not limited. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "billingAccountId": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -256,7 +240,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CustomerMetadata](#yandex.cloud.billing.v1.CustomerMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -271,7 +255,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Customer](#yandex.cloud.billing.v1.Customer)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -286,18 +270,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CustomerMetadata {#yandex.cloud.billing.v1.CustomerMetadata}
-
-#|
-||Field | Description ||
-|| resellerId | **string**
-
-ID of the reseller. ||
-|| customerId | **string**
-
-ID of the customer. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -315,18 +287,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Customer {#yandex.cloud.billing.v1.Customer}
-
-A Customer resource.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the customer. ||
-|| billingAccountId | **string**
-
-ID of the [yandex.cloud.billing.v1.BillingAccount](/docs/billing/api-ref/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount) assigned to the customer. ||
 |#

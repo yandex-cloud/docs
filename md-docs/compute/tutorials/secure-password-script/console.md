@@ -26,7 +26,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-* плата за постоянно запущенные [ВМ](../../concepts/vm.md) ([тарифы Yandex Compute Cloud](../../pricing.md));
+* плата за постоянно запущенные [ВМ](../../concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
 * плата за использование [образа](../../concepts/image.md) (зависит от образа);
 * плата за использование [ключа](../../../kms/concepts/key.md) KMS ([тарифы KMS](../../../kms/pricing.md));
 * плата за использование [секрета](../../../lockbox/concepts/secret.md) ([тарифы Yandex Lockbox](../../../lockbox/pricing.md)).

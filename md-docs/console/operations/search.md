@@ -15,7 +15,7 @@
       * `Ресурсы` — [каталоги](../../resource-manager/concepts/resources-hierarchy.md#folder) всех облаков или конкретного облака.
       * `Документация` — только документация.
 
-  1. В поле **Поиск по облачным ресурсам** введите поисковый запрос.
+  1. В поле **Поиск по облачным ресурсам** введите поисковый запрос.
 
       Вы увидите результаты поиска в сервисах, каталогах и документации, а также ответ, сформированный Yandex Search API и YandexGPT.
 
@@ -132,15 +132,6 @@
 [Асимметричная ключевая пара подписи](../../kms/concepts/asymmetric-signature-key.md) | Идентификатор, имя
 [Асимметричная ключевая пара шифрования](../../kms/concepts/asymmetric-encryption-key.md) | Идентификатор, имя
 [Симметричный ключ](../../kms/concepts/symmetric-encryption.md) | Идентификатор, имя
-
-
-### Yandex Load Testing {#load-testing}
-
-Тип объекта | Поля
---- | ---
-[Дашборд регрессий](../../load-testing/concepts/load-test-regressions.md#dashbordy-regressij) | Идентификатор, имя
-[Генератор нагрузки](../../load-testing/concepts/load-generator.md) | Идентификатор, имя, метки
-[Тест](../../load-testing/operations/create-test-bucket.md) | Идентификатор, имя, метки
 
 
 ### Yandex Lockbox {#lockbox}

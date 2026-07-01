@@ -25,7 +25,7 @@
 * плата за вычислительные ресурсы ВМ ([тарифы Yandex Compute Cloud](../../../compute/pricing.md#prices-instance-resources));
 * плата за диски ВМ ([тарифы Yandex Compute Cloud](../../../compute/pricing.md#prices-storage));
 * плата за использование динамического внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip));
-* плата за подключенные к сервису Cloud Backup ВМ и объем резервных копий ([тарифы Yandex Cloud Backup](../../pricing.md#rules)).
+* плата за подключенные к сервису Cloud Backup ВМ и объем резервных копий ([тарифы Yandex Cloud Backup](../../../backup/pricing.md#rules)).
 
 ## Активируйте сервис {#service-activate}
 

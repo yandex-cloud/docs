@@ -1,7 +1,6 @@
 # Cloud Functions Triggers Service, gRPC: TriggerService.Get
 
 Returns the specified trigger.
-
 To get the list of all available triggers, make a [List](list.md#List) request.
 
 ## gRPC request
@@ -21,7 +20,6 @@ To get the list of all available triggers, make a [List](list.md#List) request.
 || trigger_id | **string**
 
 Required field. ID of the trigger to return.
-
 To get a trigger ID make a [TriggerService.List](list.md#List) request. ||
 |#
 
@@ -609,7 +607,7 @@ The string length in characters must be 3-63. ||
 
 Description of the trigger.
 
-The string length in characters must be 0-256. ||
+The string length in characters must be 0-500. ||
 || labels | **object** (map<**string**, **string**>)
 
 Trigger labels as `key:value` pairs. ||

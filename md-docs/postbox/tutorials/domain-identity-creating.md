@@ -30,7 +30,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для создания адреса, подтверждения владения доменом и отправки писем входят:
-* плата за отправленные [электронные письма](../concepts/index.md) (тарифы [Yandex Cloud Postbox](../pricing.md));
+* плата за отправленные [электронные письма](../concepts/index.md) (тарифы [Yandex Cloud Postbox](../../postbox/pricing.md));
 * плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../dns/index.md) ([тарифы Cloud DNS](../../dns/pricing.md)).
 
 

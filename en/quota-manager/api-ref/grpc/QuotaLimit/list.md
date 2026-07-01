@@ -31,13 +31,19 @@ Retrieves the list of quota limits for a given service.
 Required field. The resource for which quota limits are being listed. ||
 || service | **string**
 
-Required field. The service for which quota limits are being requested. ||
+Required field. The service for which quota limits are being requested.
+
+The maximum string length in characters is 64. ||
 || page_size | **int64**
 
-The maximum number of quota limits to return per response. ||
+The maximum number of quota limits to return per response.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
-Token to retrieve the next page of results. Omitted on the first request. ||
+Token to retrieve the next page of results. Omitted on the first request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## Resource {#yandex.cloud.quotamanager.v1.Resource}
@@ -46,10 +52,14 @@ Token to retrieve the next page of results. Omitted on the first request. ||
 ||Field | Description ||
 || id | **string**
 
-Required field. The id if the resource. ||
+Required field. The id if the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.cloud, billing.account. ||
+Required field. The type of the resource, e.g. resource-manager.cloud, billing.account.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListQuotaLimitsResponse {#yandex.cloud.quotamanager.v1.ListQuotaLimitsResponse}
@@ -90,10 +100,14 @@ Token to retrieve the next page of results. ||
 ||Field | Description ||
 || id | **string**
 
-Required field. The id if the resource. ||
+Required field. The id if the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.cloud, billing.account. ||
+Required field. The type of the resource, e.g. resource-manager.cloud, billing.account.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## QuotaLimit {#yandex.cloud.quotamanager.v1.QuotaLimit}

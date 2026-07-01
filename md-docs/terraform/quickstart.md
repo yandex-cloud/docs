@@ -32,8 +32,8 @@ Terraform распространяется под лицензией [Business S
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры, разворачиваемой через Terraform в этом руководстве, входят:
-* плата за постоянно запущенные [виртуальные машины](../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../compute/pricing.md));
-* плата за использование динамических [публичных IP-адресов](../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../vpc/pricing.md)).
+* плата за постоянно запущенные [виртуальные машины](../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование динамических [публичных IP-адресов](../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Установите Terraform {#install-terraform}
 

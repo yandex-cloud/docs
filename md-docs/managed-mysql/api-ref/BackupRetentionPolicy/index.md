@@ -6,6 +6,7 @@ A set of methods for managing MySQL Cluster backup retention policies.
 
 #|
 ||Method | Description ||
+|| [Get](get.md) | Get a retention policy by ID. ||
 || [List](list.md) | List all retention policies. ||
 || [ListByFolder](listByFolder.md) | List all retention policies for all clusters in a folder. ||
 || [Create](create.md) | Add a new retention policy. ||

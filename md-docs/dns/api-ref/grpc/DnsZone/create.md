@@ -30,25 +30,33 @@ Creates a DNS zone in the specified folder.
 || folder_id | **string**
 
 Required field. ID of the folder to create DNS zones in.
+To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../../resource-manager/api-ref/grpc/Folder/list.md#List) request.
 
-To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../../resource-manager/api-ref/grpc/Folder/list.md#List) request. ||
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Name of the DNS zone.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-Description of the DNS zone. ||
+Description of the DNS zone.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-DNS zone labels as `key:value` pairs. ||
+DNS zone labels as `key:value` pairs.
+
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. Each value must match the regular expression ` [-_./\@0-9a-z]* `. No more than 64 per resource. ||
 || zone | **string**
 
-Required field. DNS zone suffix. ||
+Required field. DNS zone suffix.
+
+The maximum string length in characters is 255. Value must match the regular expression ``` [.]|[a-z0-9][-a-z0-9.]*\. ```. ||
 || private_visibility | **[PrivateVisibility](#yandex.cloud.dns.v1.PrivateVisibility)**
 
-Privately visible zone settings.
-At least one of two visibility fields must be set. ||
+at least one of ||
 || public_visibility | **[PublicVisibility](#yandex.cloud.dns.v1.PublicVisibility)**
 
 Publicly visible zone settings.
@@ -66,7 +74,9 @@ Configuration for privately visible zones.
 ||Field | Description ||
 || network_ids[] | **string**
 
-Network IDs. ||
+Network IDs.
+
+The number of elements must be in the range 0-100. ||
 |#
 
 ## PublicVisibility {#yandex.cloud.dns.v1.PublicVisibility}
@@ -88,27 +98,10 @@ Configuration for publicly visible zones.
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "dns_zone_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "folder_id": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "name": "string",
-    "description": "string",
-    "labels": "map<string, string>",
-    "zone": "string",
-    "private_visibility": {
-      "network_ids": [
-        "string"
-      ]
-    },
-    "public_visibility": "PublicVisibility",
-    "deletion_protection": "bool"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -136,7 +129,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateDnsZoneMetadata](#yandex.cloud.dns.v1.CreateDnsZoneMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -151,7 +144,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[DnsZone](#yandex.cloud.dns.v1.DnsZone)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -166,74 +159,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateDnsZoneMetadata {#yandex.cloud.dns.v1.CreateDnsZoneMetadata}
-
-#|
-||Field | Description ||
-|| dns_zone_id | **string**
-
-ID of the DNS zone that is being created. ||
-|#
-
-## DnsZone {#yandex.cloud.dns.v1.DnsZone}
-
-A DNS zone. For details about the concept, see [DNS zones](../../../concepts/dns-zone.md).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the DNS zone. Generated at creation time. ||
-|| folder_id | **string**
-
-ID of the folder that the DNS zone belongs to. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp. ||
-|| name | **string**
-
-Name of the DNS zone.
-The name is unique within the folder. ||
-|| description | **string**
-
-Description of the DNS zone. ||
-|| labels | **object** (map<**string**, **string**>)
-
-DNS zone labels as `key:value` pairs. ||
-|| zone | **string**
-
-DNS zone suffix. ||
-|| private_visibility | **[PrivateVisibility](#yandex.cloud.dns.v1.PrivateVisibility2)**
-
-Privately visible zone settings.
-Specifies whether records within the zone are visible from a VPC networks only. ||
-|| public_visibility | **[PublicVisibility](#yandex.cloud.dns.v1.PublicVisibility2)**
-
-Publicly visible zone settings.
-Indicates whether records within the zone are publicly visible. ||
-|| deletion_protection | **bool**
-
-Prevents accidental zone removal. ||
-|#
-
-## PrivateVisibility {#yandex.cloud.dns.v1.PrivateVisibility2}
-
-Configuration for privately visible zones.
-
-#|
-||Field | Description ||
-|| network_ids[] | **string**
-
-Network IDs. ||
-|#
-
-## PublicVisibility {#yandex.cloud.dns.v1.PublicVisibility2}
-
-Configuration for publicly visible zones.
-
-#|
-||Field | Description ||
-|| Empty | > ||
 |#

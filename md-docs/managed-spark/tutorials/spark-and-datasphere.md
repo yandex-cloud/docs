@@ -23,8 +23,8 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for Apache Spark™: вычислительные ресурсы компонентов кластера ([тарифы Managed Service for Apache Spark™](../pricing.md)).
-* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Кластер Managed Service for Apache Spark™: вычислительные ресурсы компонентов кластера ([тарифы Managed Service for Apache Spark™](../../../managed-spark/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы Virtual Private Cloud](../../../vpc/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infra}
 

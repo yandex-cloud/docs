@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Required. ID of the YDB cluster.
+            The maximum string length in characters is 50.
           type: string
       required:
         - databaseId
@@ -35,7 +36,9 @@ GET https://ydb.{{ api-host }}/ydb/v1/databases/{databaseId}
 ||Field | Description ||
 || databaseId | **string**
 
-Required field. Required. ID of the YDB cluster. ||
+Required field. Required. ID of the YDB cluster.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.ydb.v1.Database}
@@ -67,20 +70,23 @@ Required field. Required. ID of the YDB cluster. ||
       "size": "string"
     },
     "autoScale": {
-      "minSize": "string",
-      "maxSize": "string",
       // Includes only one of the fields `targetTracking`
       "targetTracking": {
         // Includes only one of the fields `cpuUtilizationPercent`
         "cpuUtilizationPercent": "string"
         // end of the list of possible fields
-      }
+      },
       // end of the list of possible fields
+      "minSize": "string",
+      "maxSize": "string"
     }
     // end of the list of possible fields
   },
   "networkId": "string",
   "subnetIds": [
+    "string"
+  ],
+  "securityGroupIds": [
     "string"
   ],
   // Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`
@@ -107,15 +113,15 @@ Required field. Required. ID of the YDB cluster. ||
         "size": "string"
       },
       "autoScale": {
-        "minSize": "string",
-        "maxSize": "string",
         // Includes only one of the fields `targetTracking`
         "targetTracking": {
           // Includes only one of the fields `cpuUtilizationPercent`
           "cpuUtilizationPercent": "string"
           // end of the list of possible fields
-        }
+        },
         // end of the list of possible fields
+        "minSize": "string",
+        "maxSize": "string"
       }
       // end of the list of possible fields
     },
@@ -123,10 +129,10 @@ Required field. Required. ID of the YDB cluster. ||
     "subnetIds": [
       "string"
     ],
-    "assignPublicIps": "boolean",
     "securityGroupIds": [
       "string"
-    ]
+    ],
+    "assignPublicIps": "boolean"
   },
   "serverlessDatabase": {
     "throttlingRcuLimit": "string",
@@ -270,10 +276,7 @@ Required field. Required. ID of the YDB cluster. ||
       }
     ]
   },
-  "deletionProtection": "boolean",
-  "securityGroupIds": [
-    "string"
-  ]
+  "deletionProtection": "boolean"
 }
 ```
 
@@ -295,7 +298,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || description | **string** ||
 || status | **enum** (Status)
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`
 - `RUNNING`
 - `UPDATING`
@@ -309,6 +311,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || scalePolicy | **[ScalePolicy](#yandex.cloud.ydb.v1.ScalePolicy)** ||
 || networkId | **string** ||
 || subnetIds[] | **string** ||
+|| securityGroupIds[] | **string** ||
 || zonalDatabase | **[ZonalDatabase](#yandex.cloud.ydb.v1.ZonalDatabase)**
 
 deprecated field
@@ -334,14 +337,15 @@ Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedD
 || kafkaApiEndpoint | **string** ||
 || monitoringConfig | **[MonitoringConfig](#yandex.cloud.ydb.v1.MonitoringConfig)** ||
 || deletionProtection | **boolean** ||
-|| securityGroupIds[] | **string** ||
 |#
 
 ## StorageConfig {#yandex.cloud.ydb.v1.StorageConfig}
 
 #|
 ||Field | Description ||
-|| storageOptions[] | **[StorageOption](#yandex.cloud.ydb.v1.StorageOption)** ||
+|| storageOptions[] | **[StorageOption](#yandex.cloud.ydb.v1.StorageOption)**
+
+The minimum number of elements is 1. ||
 || storageSizeLimit | **string** (int64)
 
 output only field: storage size limit of dedicated database. ||
@@ -371,7 +375,9 @@ Includes only one of the fields `fixedScale`, `autoScale`. ||
 
 #|
 ||Field | Description ||
-|| size | **string** (int64) ||
+|| size | **string** (int64)
+
+The minimum value is 1. ||
 |#
 
 ## AutoScale {#yandex.cloud.ydb.v1.ScalePolicy.AutoScale}
@@ -380,17 +386,21 @@ Scale policy that dynamically changes the number of database nodes within a user
 
 #|
 ||Field | Description ||
-|| minSize | **string** (int64)
-
-Minimum number of nodes to which autoscaling can scale the database. ||
-|| maxSize | **string** (int64)
-
-Maximum number of nodes to which autoscaling can scale the database. ||
 || targetTracking | **[TargetTracking](#yandex.cloud.ydb.v1.ScalePolicy.AutoScale.TargetTracking)**
 
 Includes only one of the fields `targetTracking`.
 
 Type of autoscaling algorithm. ||
+|| minSize | **string** (int64)
+
+Minimum number of nodes to which autoscaling can scale the database.
+
+The minimum value is 1. ||
+|| maxSize | **string** (int64)
+
+Maximum number of nodes to which autoscaling can scale the database.
+
+The minimum value is 1. ||
 |#
 
 ## TargetTracking {#yandex.cloud.ydb.v1.ScalePolicy.AutoScale.TargetTracking}
@@ -404,6 +414,8 @@ close to the specified target value.
 
 A percentage of database nodes average CPU utilization.
 
+Acceptable values are 10 to 90, inclusive.
+
 Includes only one of the fields `cpuUtilizationPercent`. ||
 |#
 
@@ -413,7 +425,7 @@ Includes only one of the fields `cpuUtilizationPercent`. ||
 ||Field | Description ||
 || zoneId | **string**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## RegionalDatabase {#yandex.cloud.ydb.v1.RegionalDatabase}
@@ -422,7 +434,7 @@ Required field.  ||
 ||Field | Description ||
 || regionId | **string**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## DedicatedDatabase {#yandex.cloud.ydb.v1.DedicatedDatabase}
@@ -434,8 +446,8 @@ Required field.  ||
 || scalePolicy | **[ScalePolicy](#yandex.cloud.ydb.v1.ScalePolicy)** ||
 || networkId | **string** ||
 || subnetIds[] | **string** ||
-|| assignPublicIps | **boolean** ||
 || securityGroupIds[] | **string** ||
+|| assignPublicIps | **boolean** ||
 |#
 
 ## ServerlessDatabase {#yandex.cloud.ydb.v1.ServerlessDatabase}
@@ -478,10 +490,14 @@ write quota for topic service, defined in bytes per second. ||
 ||Field | Description ||
 || name | **string**
 
-name of backup settings ||
+name of backup settings
+
+The maximum string length in characters is 256. ||
 || description | **string**
 
-human readable description. ||
+human readable description.
+
+The maximum string length in characters is 256. ||
 || backupSchedule | **[BackupSchedule](#yandex.cloud.ydb.v1.BackupSchedule)**
 
 provide schedule. if empty, backup will be disabled. ||
@@ -492,20 +508,22 @@ provide time to live of backup. ||
 
 provide a list of source paths. Each path can be directory, table or even database itself.
 Each directory (or database) will be traversed recursively and all childs of directory will be included to backup.
-By default, backup will be created for full database. ||
+By default, backup will be created for full database.
+
+The maximum number of elements is 256. ||
 || sourcePathsToExclude[] | **string**
 
 provide a list of paths to exclude from backup.
 Each path is a directory, table, or database.
-Each directory (or database) will be traversed recursively and all childs of directory will be excluded. ||
+Each directory (or database) will be traversed recursively and all childs of directory will be excluded.
+
+The maximum number of elements is 256. ||
 || type | **enum** (Type)
 
-- `TYPE_UNSPECIFIED`
 - `SYSTEM`
 - `USER` ||
 || storageClass | **enum** (StorageClass)
 
-- `STORAGE_CLASS_UNSPECIFIED`
 - `STANDARD`
 - `REDUCED_REDUNDANCY`
 - `STANDARD_IA`
@@ -548,7 +566,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 ||Field | Description ||
 || executeTime | **[TimeOfDay](#google.type.TimeOfDay)**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## TimeOfDay {#google.type.TimeOfDay}
@@ -579,7 +597,9 @@ Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
 
 #|
 ||Field | Description ||
-|| daysOfWeek[] | **[DaysOfWeekBackupSchedule](#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule)** ||
+|| daysOfWeek[] | **[DaysOfWeekBackupSchedule](#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule)**
+
+The number of elements must be in the range 1-7. ||
 |#
 
 ## DaysOfWeekBackupSchedule {#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule}
@@ -588,7 +608,8 @@ Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
 ||Field | Description ||
 || days[] | **enum** (DayOfWeek)
 
-- `DAY_OF_WEEK_UNSPECIFIED`: The unspecified day-of-week.
+The number of elements must be in the range 1-7.
+
 - `MONDAY`: The day-of-week of Monday.
 - `TUESDAY`: The day-of-week of Tuesday.
 - `WEDNESDAY`: The day-of-week of Wednesday.
@@ -598,7 +619,7 @@ Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
 - `SUNDAY`: The day-of-week of Sunday. ||
 || executeTime | **[TimeOfDay](#google.type.TimeOfDay)**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## RecurringBackupSchedule {#yandex.cloud.ydb.v1.RecurringBackupSchedule}
@@ -663,7 +684,6 @@ alert paratemers to override. ||
 || notificationChannelId | **string** ||
 || notifyAboutStatuses[] | **enum** (AlertEvaluationStatus)
 
-- `ALERT_EVALUATION_STATUS_UNSPECIFIED`
 - `ALERT_EVALUATION_STATUS_OK`
 - `ALERT_EVALUATION_STATUS_NO_DATA`
 - `ALERT_EVALUATION_STATUS_ERROR`

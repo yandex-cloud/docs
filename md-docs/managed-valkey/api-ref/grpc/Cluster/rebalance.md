@@ -19,7 +19,7 @@ Rebalances the cluster. Evenly distributes all the hash slots between the shards
 || cluster_id | **string**
 
 Required field. ID of the Redis cluster to rebalance.
-To get the cluster ID use a [ClusterService.List](../../../../managed-redis/api-ref/grpc/Cluster/list#List) request.
+To get the cluster ID use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 |#

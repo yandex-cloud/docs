@@ -154,7 +154,7 @@
 
         {% endnote %}
 
-     * `name` — имя кластера.
+     * `name` — новое имя кластера.
 
      
      * `securityGroupIds` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md).
@@ -239,6 +239,8 @@
        --data "@body.json"
      ```
 
+     Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
@@ -261,6 +263,7 @@
      
      ```json
      {
+       "cluster_id": "<идентификатор_кластера>",
        "update_mask": {
          "paths": [
            <список_изменяемых_параметров>
@@ -345,6 +348,7 @@
 
      Где:
 
+     * `cluster_id` — идентификатор кластера, который можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
         {% cut "Формат перечисления настроек" %}
@@ -368,7 +372,7 @@
 
         {% endnote %}
 
-     * `name` — имя кластера.
+     * `name` — новое имя кластера.
 
      
      * `security_group_ids` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md).

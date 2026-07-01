@@ -5,7 +5,6 @@ description: Различные сценарии использования ко
 
 # Руководства по работе с контейнерной инфраструктурой
 
-* [{#T}](loadtesting-grpc-autoscaling.md)
 * [{#T}](container-pg-connect.md)
 * [{#T}](vm-create.md)
 * [{#T}](vm-create-with-second-disk.md)
@@ -34,7 +33,6 @@ description: Различные сценарии использования ко
 
 * [{#T}](autoscaling.md)
 * [{#T}](vpa-autoscaling.md)
-* [{#T}](loadtesting-grpc-autoscaling.md)
 
 ### Использование {{ container-registry-full-name }} {#container-registry}
 

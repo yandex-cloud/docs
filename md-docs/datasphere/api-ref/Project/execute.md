@@ -14,7 +14,9 @@ POST https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/{projectId}:
 ||Field | Description ||
 || projectId | **string**
 
-Required field. ID of the project to execute notebook/cell in. ||
+Required field. ID of the project to execute notebook/cell in.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.datasphere.v2.ProjectExecutionRequest}
@@ -39,14 +41,17 @@ Required field. ID of the project to execute notebook/cell in. ||
 || notebookId | **string**
 
 The path to the executable notebook in the project storage. The maximum string length is 200 characters.
-
 To get the path, right-click on the notebook in JupyterLab and select `Copy path`.
+
+The maximum string length in characters is 200.
 
 Includes only one of the fields `notebookId`, `cellId`. ||
 || cellId | **string**
 
 ID of the cell to execute.
 Deprecated
+
+The maximum string length in characters is 200.
 
 Includes only one of the fields `notebookId`, `cellId`. ||
 || inputVariables | **object**
@@ -60,7 +65,9 @@ Names of output variables. ||
 Specification of the VM ||
 || sparkConnectorId | **string**
 
-ID of the Spark Connector ||
+ID of the Spark Connector
+
+The maximum string length in characters is 200. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -75,13 +82,7 @@ ID of the Spark Connector ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "projectId": "string",
-    // Includes only one of the fields `notebookId`, `cellId`
-    "notebookId": "string",
-    "cellId": "string"
-    // end of the list of possible fields
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -90,9 +91,7 @@ ID of the Spark Connector ||
       "object"
     ]
   },
-  "response": {
-    "executionStatus": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -134,7 +133,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[ProjectExecutionMetadata](#yandex.cloud.datasphere.v2.ProjectExecutionMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -149,7 +148,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[ProjectExecutionResponse](#yandex.cloud.datasphere.v2.ProjectExecutionResponse)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -164,25 +163,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## ProjectExecutionMetadata {#yandex.cloud.datasphere.v2.ProjectExecutionMetadata}
-
-#|
-||Field | Description ||
-|| projectId | **string**
-
-ID of the project in which notebook is being executed. ||
-|| notebookId | **string**
-
-ID of the notebook that is being executed
-
-Includes only one of the fields `notebookId`, `cellId`. ||
-|| cellId | **string**
-
-ID of the cell that is being executed
-
-Includes only one of the fields `notebookId`, `cellId`. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -200,18 +180,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## ProjectExecutionResponse {#yandex.cloud.datasphere.v2.ProjectExecutionResponse}
-
-#|
-||Field | Description ||
-|| executionStatus | **enum** (ExecutionStatus)
-
-Execution final status.
-
-- `EXECUTION_STATUS_UNSPECIFIED`
-- `OK`: Execution finished successfully.
-- `ERROR`: Execution ended with error.
-- `ABORTED`: Execution was aborted. ||
 |#

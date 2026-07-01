@@ -23,7 +23,9 @@ Opens the specified project.
 || project_id | **string**
 
 Required field. ID of the Project resource to open.
-To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/grpc/Project/list#List) request. ||
+To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/grpc/Project/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -36,16 +38,10 @@ To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/grpc/
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "project_id": "string",
-    "status": "OpenProjectStatus"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "project_url": "string",
-    "session_token": "string"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -73,7 +69,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[OpenProjectMetadata](#yandex.cloud.datasphere.v2.OpenProjectMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -88,7 +84,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[OpenProjectResponse](#yandex.cloud.datasphere.v2.OpenProjectResponse)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -103,39 +99,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## OpenProjectMetadata {#yandex.cloud.datasphere.v2.OpenProjectMetadata}
-
-#|
-||Field | Description ||
-|| project_id | **string**
-
-ID of the project that is being opened. ||
-|| status | enum **OpenProjectStatus**
-
-Project opening status.
-
-- `OPEN_PROJECT_STATUS_UNSPECIFIED`
-- `OPEN_PROJECT_STATUS_CLOSING_IDE`: Closing previous IDE instance.
-- `OPEN_PROJECT_STATUS_UNZIPPING_PROJECT`: Unzipping project.
-- `OPEN_PROJECT_STATUS_ALLOCATING_VM`: Allocating VM for the project.
-- `OPEN_PROJECT_STATUS_ALLOCATING_RESOURCES`: Allocating resources for the project.
-- `OPEN_PROJECT_STATUS_STARTING_IDE`: Starting IDE.
-- `OPEN_PROJECT_STATUS_UNKNOWN`: Unknown open project status. ||
-|#
-
-## OpenProjectResponse {#yandex.cloud.datasphere.v2.OpenProjectResponse}
-
-#|
-||Field | Description ||
-|| project_url | **string**
-
-URL of the project that is being opened.
-Make GET request to `project_url` with sessionToken query parameter equals to `session_token`
-or POST request to `project_url` with sessionToken body parameter equals to `session_token`
-to fetch DataSphere web interface. ||
-|| session_token | **string**
-
-Session token of the project that is being opened. ||
 |#

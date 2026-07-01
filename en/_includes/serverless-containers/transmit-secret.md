@@ -77,7 +77,7 @@ Providing {{ lockbox-name }} secrets creates a new container revision. You canno
           service_account_id = "<service_account_ID>"
           secrets {
             id                   = "<secret_ID>"
-            version_id           = "secret_version_ID>"
+            version_id           = "<secret_version_ID>"
             key                  = "<secret_1_key>"
             environment_variable = "<environment_variable_1_name>"
           }

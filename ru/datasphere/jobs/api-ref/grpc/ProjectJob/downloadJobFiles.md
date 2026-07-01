@@ -33,8 +33,10 @@ Returns download urls for job files.
 ||Field | Description ||
 || job_id | **string**
 
-Required field.  ||
-|| files[] | **[File](#yandex.cloud.datasphere.v2.jobs.File)** ||
+Required field. ||
+|| files[] | **[File](#yandex.cloud.datasphere.v2.jobs.File)**
+
+The minimum number of elements is 1. ||
 |#
 
 ## File {#yandex.cloud.datasphere.v2.jobs.File}
@@ -52,7 +54,6 @@ File size in bytes. ||
 
 File compression info
 
-- `FILE_COMPRESSION_TYPE_UNSPECIFIED`
 - `NONE`
 - `ZIP` ||
 |#
@@ -120,7 +121,6 @@ File size in bytes. ||
 
 File compression info
 
-- `FILE_COMPRESSION_TYPE_UNSPECIFIED`
 - `NONE`
 - `ZIP` ||
 |#

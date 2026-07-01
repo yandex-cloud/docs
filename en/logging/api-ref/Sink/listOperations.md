@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the sink to list operations for.
             To get a sink ID make a [SinkService.List](/docs/logging/api-ref/Sink/list#List) request.
+            The maximum string length in characters is 64.
           type: string
       required:
         - sinkId
@@ -25,6 +26,7 @@ apiPlayground:
             results is larger than `page_size`, the service returns a [ListSinkOperationsResponse.nextPageToken](#yandex.cloud.logging.v1.ListSinkOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -33,6 +35,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `page_token` to the
             [ListSinkOperationsResponse.nextPageToken](#yandex.cloud.logging.v1.ListSinkOperationsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -43,6 +46,7 @@ apiPlayground:
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
             Examples of a filter: `done=false`, `created_by='John.Doe'`.
+            The maximum string length in characters is 1000.
           type: string
       additionalProperties: false
     body: null
@@ -66,8 +70,9 @@ GET https://logging.{{ api-host }}/logging/v1/sinks/{sinkId}/operations
 || sinkId | **string**
 
 Required field. ID of the sink to list operations for.
+To get a sink ID make a [SinkService.List](/docs/logging/api-ref/Sink/list#List) request.
 
-To get a sink ID make a [SinkService.List](/docs/logging/api-ref/Sink/list#List) request. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## Query parameters {#yandex.cloud.logging.v1.ListSinkOperationsRequest}
@@ -79,21 +84,25 @@ To get a sink ID make a [SinkService.List](/docs/logging/api-ref/Sink/list#List)
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListSinkOperationsResponse.nextPageToken](#yandex.cloud.logging.v1.ListSinkOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
+Default value: 100.
 
-Default value: 100. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListSinkOperationsResponse.nextPageToken](#yandex.cloud.logging.v1.ListSinkOperationsResponse) returned by a previous list request. ||
+[ListSinkOperationsResponse.nextPageToken](#yandex.cloud.logging.v1.ListSinkOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-
 The expression must specify:
 1. The field name. Currently filtering can be applied to the [operation.Operation.description](#yandex.cloud.operation.Operation), [operation.Operation.createdAt](#yandex.cloud.operation.Operation), [operation.Operation.modifiedAt](#yandex.cloud.operation.Operation), [operation.Operation.createdBy](#yandex.cloud.operation.Operation), [operation.Operation.done](#yandex.cloud.operation.Operation) fields.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Examples of a filter: `done=false`, `created_by='John.Doe'`. ||
+Examples of a filter: `done=false`, `created_by='John.Doe'`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.logging.v1.ListSinkOperationsResponse}
@@ -137,7 +146,6 @@ List of operations for the specified sink. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListOSinkperationsRequest.page_size], use `next_page_token` as the value
 for the [ListSinkOperationsRequest.pageToken](#yandex.cloud.logging.v1.ListSinkOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

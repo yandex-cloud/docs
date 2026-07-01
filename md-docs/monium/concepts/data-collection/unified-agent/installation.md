@@ -138,7 +138,7 @@ Unified Agent с версии 25.03.80 может собирать и перед
   
   * Установка исполняемого файла `unified_agent`.
   
-  * Установка базового файла конфигурации `/etc/yc/unified_agent/config.yml`. В конфигурации настроена отправка [базовых метрик виртуальной машины](../../../../monitoring/concepts/data-collection/unified-agent/inputs.md#linux_metrics_input) и [метрик здоровья агента](../../../../monitoring/concepts/data-collection/unified-agent/inputs.md#agent_metrics_input). Отправка метрик [тарифицируется](../../../../monitoring/pricing.md).
+  * Установка базового файла конфигурации `/etc/yc/unified_agent/config.yml`. В конфигурации настроена отправка [базовых метрик виртуальной машины](../../../../monitoring/concepts/data-collection/unified-agent/inputs.md#linux_metrics_input) и [метрик здоровья агента](../../../../monitoring/concepts/data-collection/unified-agent/inputs.md#agent_metrics_input). Отправка метрик [тарифицируется](../../monitoring/pricing.md).
   
       Дополнительно можно [настроить](../../../../monitoring/concepts/data-collection/unified-agent/configuration.md) поставку собственных метрик или [логов в Cloud Logging](../../../../monitoring/concepts/data-collection/unified-agent/outputs.md#yc_logs_output).
   
@@ -185,7 +185,7 @@ Unified Agent с версии 25.03.80 может собирать и перед
   
   * Установка исполняемого файла `unified_agent`.
   
-  * Установка базового файла конфигурации `/etc/yc/unified_agent/config.yml`. В конфигурации настроена отправка [базовых метрик виртуальной машины](../../../../monitoring/concepts/data-collection/unified-agent/inputs.md#linux_metrics_input) и [метрик здоровья агента](../../../../monitoring/concepts/data-collection/unified-agent/inputs.md#agent_metrics_input). Отправка метрик [тарифицируется](../../../../monitoring/pricing.md).
+  * Установка базового файла конфигурации `/etc/yc/unified_agent/config.yml`. В конфигурации настроена отправка [базовых метрик виртуальной машины](../../../../monitoring/concepts/data-collection/unified-agent/inputs.md#linux_metrics_input) и [метрик здоровья агента](../../../../monitoring/concepts/data-collection/unified-agent/inputs.md#agent_metrics_input). Отправка метрик [тарифицируется](../../monitoring/pricing.md).
   
       Дополнительно можно [настроить](../../../../monitoring/concepts/data-collection/unified-agent/configuration.md) поставку собственных метрик или [логов в Cloud Logging](../../../../monitoring/concepts/data-collection/unified-agent/outputs.md#yc_logs_output).
   

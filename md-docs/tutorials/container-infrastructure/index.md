@@ -1,6 +1,5 @@
 # Руководства по работе с контейнерной инфраструктурой
 
-* [Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием в Yandex Managed Service for Kubernetes](loadtesting-grpc-autoscaling.md)
 * [Настройка подключения к Yandex Managed Service for PostgreSQL из контейнера Serverless Containers](container-pg-connect.md)
 * [Создание ВМ с Container Optimized Image](vm-create.md)
 * [Создание ВМ с Container Optimized Image и дополнительным томом для Docker-контейнера](vm-create-with-second-disk.md)
@@ -29,7 +28,6 @@
 
 * [Горизонтальное масштабирование приложения в кластере Yandex Managed Service for Kubernetes](autoscaling.md)
 * [Вертикальное масштабирование приложения в кластере Yandex Managed Service for Kubernetes](vpa-autoscaling.md)
-* [Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием в Yandex Managed Service for Kubernetes](loadtesting-grpc-autoscaling.md)
 
 ### Использование Yandex Container Registry {#container-registry}
 

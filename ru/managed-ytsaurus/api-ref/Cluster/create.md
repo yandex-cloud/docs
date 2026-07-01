@@ -54,6 +54,11 @@ apiPlayground:
             **[ClusterSpec](#yandex.cloud.ytsaurus.v1.ClusterSpec)**
             Cluster specification.
           $ref: '#/definitions/ClusterSpec'
+        maintenanceWindow:
+          description: |-
+            **[MaintenanceWindow](#yandex.cloud.ytsaurus.v1.MaintenanceWindow)**
+            Cluster maintenance window
+          $ref: '#/definitions/MaintenanceWindow'
         cidrBlocksWhitelist:
           description: |-
             **[CidrBlocks](#yandex.cloud.ytsaurus.v1.CidrBlocks)**
@@ -148,6 +153,14 @@ apiPlayground:
             type: array
             items:
               type: string
+          locationQuotasGb:
+            description: |-
+              **string** (int64)
+              Quotas for each location. Must be the same length as locations or empty. Zero value will disable quota for location.
+            type: array
+            items:
+              type: string
+              format: int64
       FixedScale:
         type: object
         properties:
@@ -157,6 +170,31 @@ apiPlayground:
               Amount of exec nodes.
             type: string
             format: int64
+      LinearScalingStrategy:
+        type: object
+        properties:
+          cooldownInterval:
+            description: |-
+              **string** (duration)
+              Cooldown interval.
+            type: string
+            format: duration
+          statisticsInterval:
+            description: |-
+              **string** (duration)
+              Statistics interval.
+            type: string
+            format: duration
+          overloadCoefficient:
+            description: |-
+              **string**
+              Overload coefficient.
+            type: string
+          underloadCoefficient:
+            description: |-
+              **string**
+              Underload coefficient.
+            type: string
       AutoScale:
         type: object
         properties:
@@ -172,6 +210,21 @@ apiPlayground:
               Maximum amount of exec nodes.
             type: string
             format: int64
+          initialSize:
+            description: |-
+              **string** (int64)
+              Initial amount of exec nodes.
+            type: string
+            format: int64
+          linear:
+            description: |-
+              **[LinearScalingStrategy](#yandex.cloud.ytsaurus.v1.LinearScalingStrategy)**
+              Linear scaling strategy.
+              Includes only one of the fields `linear`.
+            $ref: '#/definitions/LinearScalingStrategy'
+        oneOf:
+          - required:
+              - linear
       ScalePolicy:
         type: object
         properties:
@@ -249,6 +302,15 @@ apiPlayground:
               Total amount of RPC proxies.
             type: string
             format: int64
+      TaskProxySpec:
+        type: object
+        properties:
+          count:
+            description: |-
+              **string** (int64)
+              Total amount of task proxies.
+            type: string
+            format: int64
       ProxySpec:
         type: object
         properties:
@@ -262,6 +324,11 @@ apiPlayground:
               **[RpcProxySpec](#yandex.cloud.ytsaurus.v1.RpcProxySpec)**
               Configuration of rpc proxies.
             $ref: '#/definitions/RpcProxySpec'
+          task:
+            description: |-
+              **[TaskProxySpec](#yandex.cloud.ytsaurus.v1.TaskProxySpec)**
+              Configuration of task proxies.
+            $ref: '#/definitions/TaskProxySpec'
       OdinSpec:
         type: object
         properties:
@@ -307,11 +374,6 @@ apiPlayground:
       ClientLogging:
         type: object
         properties:
-          serviceAccountId:
-            description: |-
-              **string**
-              ID of Service account used for write logs.
-            type: string
           logGroupId:
             description: |-
               **string**
@@ -326,6 +388,11 @@ apiPlayground:
               Includes only one of the fields `logGroupId`, `folderId`.
               Destination of cloud logging group.
             type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              ID of Service account used for write logs.
+            type: string
           auditLogsEnabled:
             description: |-
               **boolean**
@@ -336,6 +403,14 @@ apiPlayground:
               - logGroupId
           - required:
               - folderId
+      ExcelSpec:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Enable Excel.
+            type: boolean
       ClusterSpec:
         type: object
         properties:
@@ -385,6 +460,65 @@ apiPlayground:
               **[ClientLogging](#yandex.cloud.ytsaurus.v1.ClientLogging)**
               Client Cloud logging configuration.
             $ref: '#/definitions/ClientLogging'
+          excel:
+            description: |-
+              **[ExcelSpec](#yandex.cloud.ytsaurus.v1.ExcelSpec)**
+              Cluster Excel configuration.
+            $ref: '#/definitions/ExcelSpec'
+      AnytimeMaintenanceWindow:
+        type: object
+        properties: {}
+      WeeklyMaintenanceWindow:
+        type: object
+        properties:
+          day:
+            description: |-
+              **enum** (WeekDay)
+              Day of the week when maintenance can occur.
+              - `MON`: Monday.
+              - `TUE`: Tuesday.
+              - `WED`: Wednesday.
+              - `THU`: Thursday.
+              - `FRI`: Friday.
+              - `SAT`: Saturday.
+              - `SUN`: Sunday.
+            type: string
+            enum:
+              - WEEK_DAY_UNSPECIFIED
+              - MON
+              - TUE
+              - WED
+              - THU
+              - FRI
+              - SAT
+              - SUN
+          hour:
+            description: |-
+              **string** (int64)
+              Hour of the day in UTC when the maintenance window starts.
+              Acceptable values are 1 to 24, inclusive.
+            type: string
+            format: int64
+      MaintenanceWindow:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              Maintenance can be scheduled anytime.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            description: |-
+              **[WeeklyMaintenanceWindow](#yandex.cloud.ytsaurus.v1.WeeklyMaintenanceWindow)**
+              Maintenance is allowed only within the specified weekly window.
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+            $ref: '#/definitions/WeeklyMaintenanceWindow'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - weeklyMaintenanceWindow
       CidrBlocks:
         type: object
         properties:
@@ -444,6 +578,9 @@ POST https://ytsaurus.{{ api-host }}/ytsaurus/v1/clusters
             "sizeGb": "string",
             "locations": [
               "string"
+            ],
+            "locationQuotasGb": [
+              "string"
             ]
           }
         ],
@@ -454,7 +591,16 @@ POST https://ytsaurus.{{ api-host }}/ytsaurus/v1/clusters
           },
           "auto": {
             "minSize": "string",
-            "maxSize": "string"
+            "maxSize": "string",
+            "initialSize": "string",
+            // Includes only one of the fields `linear`
+            "linear": {
+              "cooldownInterval": "string",
+              "statisticsInterval": "string",
+              "overloadCoefficient": "string",
+              "underloadCoefficient": "string"
+            }
+            // end of the list of possible fields
           }
           // end of the list of possible fields
         },
@@ -471,6 +617,9 @@ POST https://ytsaurus.{{ api-host }}/ytsaurus/v1/clusters
       },
       "rpc": {
         "count": "string"
+      },
+      "task": {
+        "count": "string"
       }
     },
     "odin": {
@@ -486,13 +635,25 @@ POST https://ytsaurus.{{ api-host }}/ytsaurus/v1/clusters
       }
     },
     "clientLogging": {
-      "serviceAccountId": "string",
       // Includes only one of the fields `logGroupId`, `folderId`
       "logGroupId": "string",
       "folderId": "string",
       // end of the list of possible fields
+      "serviceAccountId": "string",
       "auditLogsEnabled": "boolean"
+    },
+    "excel": {
+      "enabled": "boolean"
     }
+  },
+  "maintenanceWindow": {
+    // Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+    "anytime": "object",
+    "weeklyMaintenanceWindow": {
+      "day": "string",
+      "hour": "string"
+    }
+    // end of the list of possible fields
   },
   "cidrBlocksWhitelist": {
     "v4CidrBlocks": [
@@ -530,6 +691,9 @@ IDs of the security groups to attach to the cluster. ||
 || spec | **[ClusterSpec](#yandex.cloud.ytsaurus.v1.ClusterSpec)**
 
 Cluster specification. ||
+|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.ytsaurus.v1.MaintenanceWindow)**
+
+Cluster maintenance window ||
 || cidrBlocksWhitelist | **[CidrBlocks](#yandex.cloud.ytsaurus.v1.CidrBlocks)**
 
 CIDRs whitelist. ||
@@ -565,6 +729,9 @@ Cluster regular processing settings. ||
 || clientLogging | **[ClientLogging](#yandex.cloud.ytsaurus.v1.ClientLogging)**
 
 Client Cloud logging configuration. ||
+|| excel | **[ExcelSpec](#yandex.cloud.ytsaurus.v1.ExcelSpec)**
+
+Cluster Excel configuration. ||
 |#
 
 ## StorageSpec {#yandex.cloud.ytsaurus.v1.StorageSpec}
@@ -649,6 +816,9 @@ Size of a single disk in GB. ||
 || locations[] | **string**
 
 Locations on a disk. ||
+|| locationQuotasGb[] | **string** (int64)
+
+Quotas for each location. Must be the same length as locations or empty. Zero value will disable quota for location. ||
 |#
 
 ## ScalePolicy {#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy}
@@ -686,6 +856,32 @@ Minimal amount of exec nodes. ||
 || maxSize | **string** (int64)
 
 Maximum amount of exec nodes. ||
+|| initialSize | **string** (int64)
+
+Initial amount of exec nodes. ||
+|| linear | **[LinearScalingStrategy](#yandex.cloud.ytsaurus.v1.LinearScalingStrategy)**
+
+Linear scaling strategy.
+
+Includes only one of the fields `linear`. ||
+|#
+
+## LinearScalingStrategy {#yandex.cloud.ytsaurus.v1.LinearScalingStrategy}
+
+#|
+||Field | Description ||
+|| cooldownInterval | **string** (duration)
+
+Cooldown interval. ||
+|| statisticsInterval | **string** (duration)
+
+Statistics interval. ||
+|| overloadCoefficient | **string**
+
+Overload coefficient. ||
+|| underloadCoefficient | **string**
+
+Underload coefficient. ||
 |#
 
 ## TabletSpec {#yandex.cloud.ytsaurus.v1.TabletSpec}
@@ -710,6 +906,9 @@ Configuration of HTTP proxies. ||
 || rpc | **[RpcProxySpec](#yandex.cloud.ytsaurus.v1.RpcProxySpec)**
 
 Configuration of rpc proxies. ||
+|| task | **[TaskProxySpec](#yandex.cloud.ytsaurus.v1.TaskProxySpec)**
+
+Configuration of task proxies. ||
 |#
 
 ## HttpProxySpec {#yandex.cloud.ytsaurus.v1.HttpProxySpec}
@@ -728,6 +927,15 @@ Total amount of HTTP proxies. ||
 || count | **string** (int64)
 
 Total amount of RPC proxies. ||
+|#
+
+## TaskProxySpec {#yandex.cloud.ytsaurus.v1.TaskProxySpec}
+
+#|
+||Field | Description ||
+|| count | **string** (int64)
+
+Total amount of task proxies. ||
 |#
 
 ## OdinSpec {#yandex.cloud.ytsaurus.v1.OdinSpec}
@@ -770,9 +978,6 @@ Max nodes in every directory. ||
 
 #|
 ||Field | Description ||
-|| serviceAccountId | **string**
-
-ID of Service account used for write logs. ||
 || logGroupId | **string**
 
 ID of cloud logging group.
@@ -787,9 +992,59 @@ ID of cloud logging folder. Used default loging group.
 Includes only one of the fields `logGroupId`, `folderId`.
 
 Destination of cloud logging group. ||
+|| serviceAccountId | **string**
+
+ID of Service account used for write logs. ||
 || auditLogsEnabled | **boolean**
 
 Enable audit logs. ||
+|#
+
+## ExcelSpec {#yandex.cloud.ytsaurus.v1.ExcelSpec}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enable Excel. ||
+|#
+
+## MaintenanceWindow {#yandex.cloud.ytsaurus.v1.MaintenanceWindow}
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Maintenance can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.ytsaurus.v1.WeeklyMaintenanceWindow)**
+
+Maintenance is allowed only within the specified weekly window.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+|#
+
+## WeeklyMaintenanceWindow {#yandex.cloud.ytsaurus.v1.WeeklyMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| day | **enum** (WeekDay)
+
+Day of the week when maintenance can occur.
+
+- `MON`: Monday.
+- `TUE`: Tuesday.
+- `WED`: Wednesday.
+- `THU`: Thursday.
+- `FRI`: Friday.
+- `SAT`: Saturday.
+- `SUN`: Sunday. ||
+|| hour | **string** (int64)
+
+Hour of the day in UTC when the maintenance window starts.
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## CidrBlocks {#yandex.cloud.ytsaurus.v1.CidrBlocks}
@@ -813,9 +1068,7 @@ IPv4 CIDR blocks. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -824,109 +1077,7 @@ IPv4 CIDR blocks. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "folderId": "string",
-    "zoneId": "string",
-    "name": "string",
-    "description": "string",
-    "labels": "object",
-    "subnetId": "string",
-    "securityGroupIds": [
-      "string"
-    ],
-    "spec": {
-      "storage": {
-        "hdd": {
-          "sizeGb": "string",
-          "count": "string"
-        },
-        "ssd": {
-          "sizeGb": "string",
-          "type": "string",
-          "count": "string",
-          "changelogs": {
-            "sizeGb": "string"
-          }
-        }
-      },
-      "compute": [
-        {
-          "preset": "string",
-          "disks": [
-            {
-              "type": "string",
-              "sizeGb": "string",
-              "locations": [
-                "string"
-              ]
-            }
-          ],
-          "scalePolicy": {
-            // Includes only one of the fields `fixed`, `auto`
-            "fixed": {
-              "size": "string"
-            },
-            "auto": {
-              "minSize": "string",
-              "maxSize": "string"
-            }
-            // end of the list of possible fields
-          },
-          "name": "string"
-        }
-      ],
-      "tablet": {
-        "preset": "string",
-        "count": "string"
-      },
-      "proxy": {
-        "http": {
-          "count": "string"
-        },
-        "rpc": {
-          "count": "string"
-        }
-      },
-      "odin": {
-        "checksTtl": "string"
-      },
-      "flavor": "string",
-      "cron": {
-        "clearTmp": {
-          "interval": "string",
-          "accountUsageRatioSaveTotal": "string",
-          "accountUsageRatioSavePerOwner": "string",
-          "maxDirNodeCount": "string"
-        }
-      },
-      "clientLogging": {
-        "serviceAccountId": "string",
-        // Includes only one of the fields `logGroupId`, `folderId`
-        "logGroupId": "string",
-        "folderId": "string",
-        // end of the list of possible fields
-        "auditLogsEnabled": "boolean"
-      }
-    },
-    "createdAt": "string",
-    "createdBy": "string",
-    "updatedAt": "string",
-    "updatedBy": "string",
-    "status": "string",
-    "health": "string",
-    "endpoints": {
-      "ui": "string",
-      "externalHttpProxyBalancer": "string",
-      "internalHttpProxyAlias": "string",
-      "internalRpcProxyAlias": "string"
-    },
-    "cidrBlocksWhitelist": {
-      "v4CidrBlocks": [
-        "string"
-      ]
-    }
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -968,7 +1119,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateClusterMetadata](#yandex.cloud.ytsaurus.v1.CreateClusterMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -983,7 +1134,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Cluster](#yandex.cloud.ytsaurus.v1.Cluster)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -998,15 +1149,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateClusterMetadata {#yandex.cloud.ytsaurus.v1.CreateClusterMetadata}
-
-#|
-||Field | Description ||
-|| clusterId | **string**
-
-ID of the cluster being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -1024,375 +1166,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Cluster {#yandex.cloud.ytsaurus.v1.Cluster}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the cluster. Generated at creation time. ||
-|| folderId | **string**
-
-ID of the folder that the cluster belongs to. ||
-|| zoneId | **string**
-
-ID of the availability zone where the cluster resides. ||
-|| name | **string**
-
-Name of the cluster.
-The name is unique within the folder. ||
-|| description | **string**
-
-Description of the cluster. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Cluster labels as `key:value` pairs. ||
-|| subnetId | **string**
-
-ID of the subnet where the cluster resides. ||
-|| securityGroupIds[] | **string**
-
-Network interfaces security groups. ||
-|| spec | **[ClusterSpec](#yandex.cloud.ytsaurus.v1.ClusterSpec2)**
-
-Cluster specification. ||
-|| createdAt | **string** (date-time)
-
-Time when the cluster was created.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| createdBy | **string**
-
-User who created the cluster. ||
-|| updatedAt | **string** (date-time)
-
-Time when the cluster was last updated.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| updatedBy | **string**
-
-User who last updated the cluster. ||
-|| status | **enum** (Status)
-
-Status of the cluster.
-
-- `STATUS_UNKNOWN`: Unknown status.
-- `CREATING`: Cluster is being created.
-- `RUNNING`: Cluster is running.
-- `ERROR`: Cluster encountered a problem and cannot operate.
-- `STOPPING`: Cluster is being stopped.
-- `STOPPED`: Cluster stopped.
-- `STARTING`: Cluster is being started.
-- `UPDATING`: Cluster is being updated.
-- `DELETING`: Cluster is being deleted. ||
-|| health | **enum** (Health)
-
-Health of the cluster.
-
-- `HEALTH_UNKNOWN`: Unknown health.
-- `ALIVE`: Cluster is alive.
-- `DEAD`: Cluster is dead.
-- `DEGRADED`: Cluster is degraded. ||
-|| endpoints | **[Endpoints](#yandex.cloud.ytsaurus.v1.Cluster.Endpoints)**
-
-Endpoints of the cluster. ||
-|| cidrBlocksWhitelist | **[CidrBlocks](#yandex.cloud.ytsaurus.v1.CidrBlocks2)**
-
-CIDRs whitelist. ||
-|#
-
-## ClusterSpec {#yandex.cloud.ytsaurus.v1.ClusterSpec2}
-
-#|
-||Field | Description ||
-|| storage | **[StorageSpec](#yandex.cloud.ytsaurus.v1.StorageSpec2)**
-
-Cluster storage configuration. ||
-|| compute[] | **[ComputeSpec](#yandex.cloud.ytsaurus.v1.ComputeSpec2)**
-
-Cluster exec nodes configuration. ||
-|| tablet | **[TabletSpec](#yandex.cloud.ytsaurus.v1.TabletSpec2)**
-
-Cluster tablet nodes configuration. ||
-|| proxy | **[ProxySpec](#yandex.cloud.ytsaurus.v1.ProxySpec2)**
-
-Cluster proxies configuration. ||
-|| odin | **[OdinSpec](#yandex.cloud.ytsaurus.v1.OdinSpec2)**
-
-Odin configuration. ||
-|| flavor | **enum** (Flavor)
-
-Cluster flavor (type).
-
-- `DEMO`: Demo cluster configuration with minimal system resources. Not fault-tolerant, not for production use. ||
-|| cron | **[CronSpec](#yandex.cloud.ytsaurus.v1.CronSpec2)**
-
-Cluster regular processing settings. ||
-|| clientLogging | **[ClientLogging](#yandex.cloud.ytsaurus.v1.ClientLogging2)**
-
-Client Cloud logging configuration. ||
-|#
-
-## StorageSpec {#yandex.cloud.ytsaurus.v1.StorageSpec2}
-
-#|
-||Field | Description ||
-|| hdd | **[HddSpec](#yandex.cloud.ytsaurus.v1.StorageSpec.HddSpec2)**
-
-Configuration of cluster HDD strorage. ||
-|| ssd | **[SsdSpec](#yandex.cloud.ytsaurus.v1.StorageSpec.SsdSpec2)**
-
-Configuration of cluster SSD strorage ||
-|#
-
-## HddSpec {#yandex.cloud.ytsaurus.v1.StorageSpec.HddSpec2}
-
-#|
-||Field | Description ||
-|| sizeGb | **string** (int64)
-
-Size of a single HDD disk in GB. ||
-|| count | **string** (int64)
-
-Total amount of HDD disks. ||
-|#
-
-## SsdSpec {#yandex.cloud.ytsaurus.v1.StorageSpec.SsdSpec2}
-
-#|
-||Field | Description ||
-|| sizeGb | **string** (int64)
-
-Size of a single SSD disk in GB. ||
-|| type | **string**
-
-Type of a SSD disk. ||
-|| count | **string** (int64)
-
-Total amount of SSD disks. ||
-|| changelogs | **[Changelogs](#yandex.cloud.ytsaurus.v1.StorageSpec.SsdSpec.Changelogs2)**
-
-Configuration of dynamic table changelogs. ||
-|#
-
-## Changelogs {#yandex.cloud.ytsaurus.v1.StorageSpec.SsdSpec.Changelogs2}
-
-#|
-||Field | Description ||
-|| sizeGb | **string** (int64)
-
-Size of changelogs disk in GB. ||
-|#
-
-## ComputeSpec {#yandex.cloud.ytsaurus.v1.ComputeSpec2}
-
-#|
-||Field | Description ||
-|| preset | **string**
-
-VM configuration preset name. ||
-|| disks[] | **[DiskSpec](#yandex.cloud.ytsaurus.v1.ComputeSpec.DiskSpec2)**
-
-Configuration of exec node strorage. ||
-|| scalePolicy | **[ScalePolicy](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy2)**
-
-Exec nodes scaling policy. ||
-|| name | **string**
-
-Name for exec pool. ||
-|#
-
-## DiskSpec {#yandex.cloud.ytsaurus.v1.ComputeSpec.DiskSpec2}
-
-#|
-||Field | Description ||
-|| type | **string**
-
-Type of a disk. ||
-|| sizeGb | **string** (int64)
-
-Size of a single disk in GB. ||
-|| locations[] | **string**
-
-Locations on a disk. ||
-|#
-
-## ScalePolicy {#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy2}
-
-#|
-||Field | Description ||
-|| fixed | **[FixedScale](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy.FixedScale2)**
-
-Scale policy that doesn't change number of running exec nodes over time.
-
-Includes only one of the fields `fixed`, `auto`. ||
-|| auto | **[AutoScale](#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy.AutoScale2)**
-
-Scale policy that can adjust number of running exec nodes within specified range based on some criteria.
-
-Includes only one of the fields `fixed`, `auto`. ||
-|#
-
-## FixedScale {#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy.FixedScale2}
-
-#|
-||Field | Description ||
-|| size | **string** (int64)
-
-Amount of exec nodes. ||
-|#
-
-## AutoScale {#yandex.cloud.ytsaurus.v1.ComputeSpec.ScalePolicy.AutoScale2}
-
-#|
-||Field | Description ||
-|| minSize | **string** (int64)
-
-Minimal amount of exec nodes. ||
-|| maxSize | **string** (int64)
-
-Maximum amount of exec nodes. ||
-|#
-
-## TabletSpec {#yandex.cloud.ytsaurus.v1.TabletSpec2}
-
-#|
-||Field | Description ||
-|| preset | **string**
-
-VM configuration preset name. ||
-|| count | **string** (int64)
-
-Total amount of tablet nodes. ||
-|#
-
-## ProxySpec {#yandex.cloud.ytsaurus.v1.ProxySpec2}
-
-#|
-||Field | Description ||
-|| http | **[HttpProxySpec](#yandex.cloud.ytsaurus.v1.HttpProxySpec2)**
-
-Configuration of HTTP proxies. ||
-|| rpc | **[RpcProxySpec](#yandex.cloud.ytsaurus.v1.RpcProxySpec2)**
-
-Configuration of rpc proxies. ||
-|#
-
-## HttpProxySpec {#yandex.cloud.ytsaurus.v1.HttpProxySpec2}
-
-#|
-||Field | Description ||
-|| count | **string** (int64)
-
-Total amount of HTTP proxies. ||
-|#
-
-## RpcProxySpec {#yandex.cloud.ytsaurus.v1.RpcProxySpec2}
-
-#|
-||Field | Description ||
-|| count | **string** (int64)
-
-Total amount of RPC proxies. ||
-|#
-
-## OdinSpec {#yandex.cloud.ytsaurus.v1.OdinSpec2}
-
-#|
-||Field | Description ||
-|| checksTtl | **string** (duration)
-
-TTL of Odin check samples. ||
-|#
-
-## CronSpec {#yandex.cloud.ytsaurus.v1.CronSpec2}
-
-#|
-||Field | Description ||
-|| clearTmp | **[ClearTmpCronSpec](#yandex.cloud.ytsaurus.v1.ClearTmpCronSpec2)**
-
-Cluster regular tmp-account cleaning settings. ||
-|#
-
-## ClearTmpCronSpec {#yandex.cloud.ytsaurus.v1.ClearTmpCronSpec2}
-
-#|
-||Field | Description ||
-|| interval | **string** (duration)
-
-Script starting interval. ||
-|| accountUsageRatioSaveTotal | **string**
-
-Total max space usage ratio. ||
-|| accountUsageRatioSavePerOwner | **string**
-
-Per account max space usage ratio. ||
-|| maxDirNodeCount | **string** (int64)
-
-Max nodes in every directory. ||
-|#
-
-## ClientLogging {#yandex.cloud.ytsaurus.v1.ClientLogging2}
-
-#|
-||Field | Description ||
-|| serviceAccountId | **string**
-
-ID of Service account used for write logs. ||
-|| logGroupId | **string**
-
-ID of cloud logging group.
-
-Includes only one of the fields `logGroupId`, `folderId`.
-
-Destination of cloud logging group. ||
-|| folderId | **string**
-
-ID of cloud logging folder. Used default loging group.
-
-Includes only one of the fields `logGroupId`, `folderId`.
-
-Destination of cloud logging group. ||
-|| auditLogsEnabled | **boolean**
-
-Enable audit logs. ||
-|#
-
-## Endpoints {#yandex.cloud.ytsaurus.v1.Cluster.Endpoints}
-
-#|
-||Field | Description ||
-|| ui | **string**
-
-https://CID.ytsaurus.yandexcloud.net ||
-|| externalHttpProxyBalancer | **string**
-
-https://proxy.CID.ytsaurus.yandexcloud.net ||
-|| internalHttpProxyAlias | **string**
-
-https://hp.CID.ytsaurus.mdb.yandexcloud.net:PORT ||
-|| internalRpcProxyAlias | **string**
-
-rp.CID.ytsaurus.mdb.yandexcloud.net:PORT ||
-|#
-
-## CidrBlocks {#yandex.cloud.ytsaurus.v1.CidrBlocks2}
-
-#|
-||Field | Description ||
-|| v4CidrBlocks[] | **string**
-
-IPv4 CIDR blocks. ||
 |#

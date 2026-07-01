@@ -32,7 +32,7 @@
 
         Приглашения можно отправлять на любые адреса электронной почты. Приглашенный пользователь сможет выбрать нужный аккаунт на Яндексе, когда примет приглашение.
 
-    1. Нажмите **{{ ui-key.yacloud_components.organization.action_send-invitation }}**.
+    1. Нажмите **{{ ui-key.yacloud_components.organization.action_send-invitation_6LqIj }}**.
 
 {% endlist %}
 

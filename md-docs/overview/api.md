@@ -35,7 +35,6 @@
 | Yandex Identity and Access Management                     | [gRPC](../iam/api-ref/grpc/index.md)<br>[REST](../iam/api-ref/index.md) |
 | Yandex IoT Core                     | [Devices gRPC](../iot-core/api-ref/grpc/index.md)<br>[Devices REST](../iot-core/api-ref/index.md)<br>[Broker gRPC](../iot-core/broker/api-ref/grpc/index.md)<br>[Broker REST](../iot-core/broker/api-ref/index.md) |
 | Yandex Key Management Service                     | [gRPC](../kms/api-ref/grpc/index.md)<br>[REST](../kms/api-ref/index.md) |
-| Yandex Load Testing            | [gRPC](../load-testing/user/api-ref/grpc/index.md)<br>[REST](../load-testing/user/api-ref/index.md) |
 | Yandex Lockbox  | [gRPC](../lockbox/api-ref/grpc/index.md)<br>[REST](../lockbox/api-ref/index.md) |
 | Yandex Managed Service for Apache Airflow™                     | [gRPC](../managed-airflow/api-ref/grpc/index.md)<br>[REST](../managed-airflow/api-ref/index.md) |
 | Yandex Managed Service for Apache Kafka®                     | [gRPC](../managed-kafka/api-ref/grpc/index.md)<br>[REST](../managed-kafka/api-ref/index.md) |

@@ -210,6 +210,42 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
  - [Overview](cli-ref/index.md)
 
+### advanced-rate-limiter
+
+ - [Overview](cli-ref/advanced-rate-limiter/index.md)
+
+#### advanced-rate-limiter-profile
+
+ - [Overview](cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/index.md)
+
+ - [create](cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/create.md)
+
+ - [delete](cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/delete.md)
+
+ - [get](cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/get.md)
+
+ - [list](cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/list.md)
+
+ - [update](cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/update.md)
+
+### match-list
+
+ - [Overview](cli-ref/match-list/index.md)
+
+#### match-list
+
+ - [Overview](cli-ref/match-list/match-list/index.md)
+
+ - [create](cli-ref/match-list/match-list/create.md)
+
+ - [delete](cli-ref/match-list/match-list/delete.md)
+
+ - [get](cli-ref/match-list/match-list/get.md)
+
+ - [list](cli-ref/match-list/match-list/list.md)
+
+ - [update](cli-ref/match-list/match-list/update.md)
+
 ### security-profile
 
  - [Overview](cli-ref/security-profile/index.md)
@@ -246,6 +282,42 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
  - [Overview](cli-ref/v1/index.md)
 
+#### advanced-rate-limiter
+
+ - [Overview](cli-ref/v1/advanced-rate-limiter/index.md)
+
+##### advanced-rate-limiter-profile
+
+ - [Overview](cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/index.md)
+
+ - [create](cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/create.md)
+
+ - [delete](cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/delete.md)
+
+ - [get](cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/get.md)
+
+ - [list](cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/list.md)
+
+ - [update](cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/update.md)
+
+#### match-list
+
+ - [Overview](cli-ref/v1/match-list/index.md)
+
+##### match-list
+
+ - [Overview](cli-ref/v1/match-list/match-list/index.md)
+
+ - [create](cli-ref/v1/match-list/match-list/create.md)
+
+ - [delete](cli-ref/v1/match-list/match-list/delete.md)
+
+ - [get](cli-ref/v1/match-list/match-list/get.md)
+
+ - [list](cli-ref/v1/match-list/match-list/list.md)
+
+ - [update](cli-ref/v1/match-list/match-list/update.md)
+
 #### security-profile
 
  - [Overview](cli-ref/v1/security-profile/index.md)
@@ -264,6 +336,12 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 
  - [Overview](cli-ref/v1/waf/index.md)
 
+##### rule-set-descriptor
+
+ - [Overview](cli-ref/v1/waf/rule-set-descriptor/index.md)
+
+ - [get](cli-ref/v1/waf/rule-set-descriptor/get.md)
+
 ##### waf-profile
 
  - [Overview](cli-ref/v1/waf/waf-profile/index.md)
@@ -281,6 +359,12 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
 ### waf
 
  - [Overview](cli-ref/waf/index.md)
+
+#### rule-set-descriptor
+
+ - [Overview](cli-ref/waf/rule-set-descriptor/index.md)
+
+ - [get](cli-ref/waf/rule-set-descriptor/get.md)
 
 #### waf-profile
 
@@ -353,6 +437,32 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
  - [Get](advanced_rate_limiter/api-ref/grpc/Operation/get.md)
 
  - [Cancel](advanced_rate_limiter/api-ref/grpc/Operation/cancel.md)
+
+#### SmartWebSecurity MatchList API
+
+ - [Overview](match_list/api-ref/grpc/index.md)
+
+##### MatchList
+
+ - [Overview](match_list/api-ref/grpc/MatchList/index.md)
+
+ - [Get](match_list/api-ref/grpc/MatchList/get.md)
+
+ - [List](match_list/api-ref/grpc/MatchList/list.md)
+
+ - [Create](match_list/api-ref/grpc/MatchList/create.md)
+
+ - [Update](match_list/api-ref/grpc/MatchList/update.md)
+
+ - [Delete](match_list/api-ref/grpc/MatchList/delete.md)
+
+##### Operation
+
+ - [Overview](match_list/api-ref/grpc/Operation/index.md)
+
+ - [Get](match_list/api-ref/grpc/Operation/get.md)
+
+ - [Cancel](match_list/api-ref/grpc/Operation/cancel.md)
 
 #### SmartWebSecurity WAF API
 
@@ -437,6 +547,30 @@ Yandex Smart Web Security позволяет защитить вашу инфр�
  - [Get](advanced_rate_limiter/api-ref/Operation/get.md)
 
  - [Cancel](advanced_rate_limiter/api-ref/Operation/cancel.md)
+
+#### SmartWebSecurity MatchList API
+
+ - [Overview](match_list/api-ref/index.md)
+
+##### MatchList
+
+ - [Overview](match_list/api-ref/MatchList/index.md)
+
+ - [Get](match_list/api-ref/MatchList/get.md)
+
+ - [List](match_list/api-ref/MatchList/list.md)
+
+ - [Create](match_list/api-ref/MatchList/create.md)
+
+ - [Update](match_list/api-ref/MatchList/update.md)
+
+##### Operation
+
+ - [Overview](match_list/api-ref/Operation/index.md)
+
+ - [Get](match_list/api-ref/Operation/get.md)
+
+ - [Cancel](match_list/api-ref/Operation/cancel.md)
 
 #### SmartWebSecurity WAF API
 

@@ -706,16 +706,6 @@
         "logExcluded": "string"
       }
     ],
-    // Includes only one of the fields `coreRuleSet`
-    "coreRuleSet": {
-      "inboundAnomalyScore": "string",
-      "paranoiaLevel": "string",
-      "ruleSet": {
-        "name": "string",
-        "version": "string"
-      }
-    },
-    // end of the list of possible fields
     "analyzeRequestBody": {
       "isEnabled": "string",
       "sizeLimit": "string",
@@ -943,9 +933,6 @@ A list of messages that carry the error details. ||
 || wafProfileName | **string** ||
 || rules[] | **[WafProfileRule](#yandex.cloud.audit.smartwebsecurity.WafProfileRule)** ||
 || exclusionRules[] | **[WafProfileExclusionRule](#yandex.cloud.audit.smartwebsecurity.WafProfileExclusionRule)** ||
-|| coreRuleSet | **[CoreRuleSet](#yandex.cloud.audit.smartwebsecurity.CoreRuleSet)**
-
-Includes only one of the fields `coreRuleSet`. ||
 || analyzeRequestBody | **[AnalyzeRequestBody](#yandex.cloud.audit.smartwebsecurity.AnalyzeRequestBody)** ||
 || labels | **object** (map<**string**, **string**>) ||
 || description | **string** ||
@@ -1232,23 +1219,6 @@ Includes only one of the fields `leMatch`, `geMatch`, `eqMatch`, `neMatch`. ||
 || ruleIds[] | **string** ||
 |#
 
-## CoreRuleSet {#yandex.cloud.audit.smartwebsecurity.CoreRuleSet}
-
-#|
-||Field | Description ||
-|| inboundAnomalyScore | **string** (int64) ||
-|| paranoiaLevel | **string** (int64) ||
-|| ruleSet | **[RuleSet](#yandex.cloud.audit.smartwebsecurity.RuleSet)** ||
-|#
-
-## RuleSet {#yandex.cloud.audit.smartwebsecurity.RuleSet}
-
-#|
-||Field | Description ||
-|| name | **string** ||
-|| version | **string** ||
-|#
-
 ## AnalyzeRequestBody {#yandex.cloud.audit.smartwebsecurity.AnalyzeRequestBody}
 
 #|
@@ -1293,6 +1263,14 @@ Acceptable values are 1 to 999999, inclusive. ||
 
 Acceptable values are 2 to 10000, inclusive. ||
 || paranoiaLevel | **string** (int64) ||
+|#
+
+## RuleSet {#yandex.cloud.audit.smartwebsecurity.RuleSet}
+
+#|
+||Field | Description ||
+|| name | **string** ||
+|| version | **string** ||
 |#
 
 ## WafProfileYaRuleSet {#yandex.cloud.audit.smartwebsecurity.WafProfileYaRuleSet}

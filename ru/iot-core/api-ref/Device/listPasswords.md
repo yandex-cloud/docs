@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the registry to list passwords in.
             To get a registry ID make a [RegistryService.List](/docs/iot-core/api-ref/Registry/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - deviceId
@@ -37,8 +38,9 @@ GET https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}/passwor
 || deviceId | **string**
 
 Required field. ID of the registry to list passwords in.
+To get a registry ID make a [RegistryService.List](/docs/iot-core/api-ref/Registry/list#List) request.
 
-To get a registry ID make a [RegistryService.List](/docs/iot-core/api-ref/Registry/list#List) request. ||
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iot.devices.v1.ListDevicePasswordsResponse}

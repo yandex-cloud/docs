@@ -49,20 +49,19 @@ Security groups can be used in the following {{ yandex-cloud }} service objects:
 |-----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | [{{ compute-short-name }}](../../compute/)          | [VM interface](../../compute/concepts/network.md), [instance group template](../../compute/concepts/instance-groups/instance-template.md#network)       |
 | [{{ managed-k8s-name }}](../../managed-kubernetes/) | [Cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), [node group](../../managed-kubernetes/concepts/index.md#node-group) |
-| [{{ alb-name }}](../../application-load-balancer/)  | [Load balancer](../../application-load-balancer/concepts/application-load-balancer.md#security-groups)                                          |
-| [{{ mpg-name }}](../../managed-postgresql/)         | [Cluster](../../managed-postgresql/concepts/network.md#security-groups)                                                                         |
-| [{{ mch-name }}](../../managed-clickhouse/)         | [Cluster](../../managed-clickhouse/concepts/network.md#security-groups)                                                                         |
-| [{{ mgp-name }}](../../managed-greenplum/)          | [Cluster](../../managed-greenplum/concepts/network.md#security-groups)                                                                          |
-| [{{ mmy-name }}](../../managed-mysql/)              | [Cluster](../../managed-mysql/concepts/network.md#security-groups)                                                                              |
-| [{{ mrd-name }}](../../managed-valkey/)             | [Cluster](../../managed-valkey/concepts/network.md#security-groups)                                                                             |
-| [{{ mmg-name }}](../../storedoc)                    | [Cluster](../../storedoc/concepts/network.md#security-groups)                                                                                   |
-| [{{ mkf-name }}](../../managed-kafka/)              | [Cluster](../../managed-kafka/concepts/network.md#security-groups)                                                                              |
-| [{{ mos-name }}](../../managed-opensearch/)         | [Cluster](../../managed-opensearch/concepts/network.md#security-groups)                                                                         |
-| [{{ mtr-name }}](../../managed-trino/)              | [Cluster](../../managed-trino/concepts/network.md#security-groups)                                                                              |
-| [{{ dataproc-name }}](../../data-proc/)             | [Cluster](../../data-proc/concepts/network.md#security-groups)                                                                                  |
-| [{{ data-transfer-name }}](../../data-transfer/)    | [Endpoint](../../data-transfer/concepts/network.md#security-groups)                                                                             |
-| [{{ load-testing-name }}](../../load-testing/)      | [Test agent](../../load-testing/concepts/agent.md)                                                                                      |
-| [{{ mgl-name }}](../../managed-gitlab/)             | [Instance](../../managed-gitlab/operations/configure-security-group.md)                                                                          |
+| [{{ alb-name }}](../../application-load-balancer/) | [Load balancer](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) |
+| [{{ mpg-name }}](../../managed-postgresql/) | [Cluster](../../managed-postgresql/concepts/network.md#security-groups) |
+| [{{ mch-name }}](../../managed-clickhouse/) | [Cluster](../../managed-clickhouse/concepts/network.md#security-groups) |
+| [{{ mgp-name }}](../../managed-greenplum/) | [Cluster](../../managed-greenplum/concepts/network.md#security-groups) |
+| [{{ mmy-name }}](../../managed-mysql/) | [Cluster](../../managed-mysql/concepts/network.md#security-groups) |
+| [{{ mrd-name }}](../../managed-valkey/) | [Cluster](../../managed-valkey/concepts/network.md#security-groups) |
+| [{{ mmg-name }}](../../storedoc) | [Cluster](../../storedoc/concepts/network.md#security-groups) |
+| [{{ mkf-name }}](../../managed-kafka/) | [Cluster](../../managed-kafka/concepts/network.md#security-groups) |
+| [{{ mos-name }}](../../managed-opensearch/) | [Cluster](../../managed-opensearch/concepts/network.md#security-groups) |
+| [{{ mtr-name }}](../../managed-trino/) | [Cluster](../../managed-trino/concepts/network.md#security-groups) |
+| [{{ dataproc-name }}](../../data-proc/) | [Cluster](../../data-proc/concepts/network.md#security-groups) |
+| [{{ data-transfer-name }}](../../data-transfer/) | [Endpoint](../../data-transfer/concepts/network.md#security-groups) |
+| [{{ mgl-name }}](../../managed-gitlab/) | [Instance](../../managed-gitlab/operations/configure-security-group.md) |
 
 {% note info %}
 

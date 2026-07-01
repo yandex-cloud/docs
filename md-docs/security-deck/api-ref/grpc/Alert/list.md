@@ -97,7 +97,8 @@ The maximum string length in characters is 200. ||
       },
       "create_time": "google.protobuf.Timestamp",
       "update_time": "google.protobuf.Timestamp",
-      "details": "google.protobuf.Struct"
+      "details": "google.protobuf.Struct",
+      "rule_id": "string"
     }
   ],
   "next_page_token": "string"
@@ -190,6 +191,11 @@ Equals to create_time immediately after creation. ||
 
 Alert technical details.
 Optional. Only present in Get method response. ||
+|| rule_id | **string**
+
+Rule ID associated with alert.
+Optional. May be absent if alert provider did not set this value
+or if alert is not related to a rule. ||
 |#
 
 ## Category {#yandex.cloud.securitydeck.alerts.v1.Alert.Category}

@@ -69,6 +69,8 @@ description: Следуя данной инструкции, вы сможете
          --delayed-until <временная_метка>
       ```
 
+      {% include [cluster-name-id](../../_includes/managed-spqr/cluster-name-id.md) %}
+
       Временная метка должна иметь один из следующих форматов:
         * [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt)
         * ЧЧ:ММ:СС
@@ -98,12 +100,15 @@ description: Следуя данной инструкции, вы сможете
                 }'
         ```
 
-        Где `rescheduleType` — тип переноса, принимает одно из двух значений:
+        Где: 
 
-          * `NEXT_AVAILABLE_WINDOW` — перенести обслуживание на ближайшее окно (доступно только в кластере с [настроенным окном обслуживания](#set-maintenance-window) по расписанию);
-          * `SPECIFIC_TIME` — перенести обслуживание на определенную дату и время.
+          * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
+          * `rescheduleType` — тип переноса, принимает одно из двух значений:
 
-        Временная метка должна иметь формат [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), например: `2006-01-02T15:04:05Z`. При выборе типа переноса `NEXT_AVAILABLE_WINDOW` параметр `delayedUntil` указывать не нужно.
+            * `NEXT_AVAILABLE_WINDOW` — перенести обслуживание на ближайшее окно (доступно только в кластере с [настроенным окном обслуживания](#set-maintenance-window) по расписанию);
+            * `SPECIFIC_TIME` — перенести обслуживание на определенную дату и время.
+
+          Временная метка должна иметь формат [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), например: `2006-01-02T15:04:05Z`. При выборе типа переноса `NEXT_AVAILABLE_WINDOW` параметр `delayedUntil` указывать не нужно.
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation).
 
@@ -132,12 +137,15 @@ description: Следуя данной инструкции, вы сможете
        yandex.cloud.mdb.spqr.v1.ClusterService.RescheduleMaintenance
      ```
 
-     Где `reschedule_type` — тип переноса, принимает одно из двух значений:
+     Где 
 
-       * `NEXT_AVAILABLE_WINDOW` — перенести обслуживание на ближайшее окно (доступно только в кластере с [настроенным окном обслуживания](#set-maintenance-window) по расписанию);
-       * `SPECIFIC_TIME` — перенести обслуживание на определенную дату и время.
+       * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
+       * `reschedule_type` — тип переноса, принимает одно из двух значений:
 
-     Временная метка должна иметь формат [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), например: `2006-01-02T15:04:05Z`. При выборе типа переноса `NEXT_AVAILABLE_WINDOW` параметр `delayed_until` указывать не нужно.
+         * `NEXT_AVAILABLE_WINDOW` — перенести обслуживание на ближайшее окно (доступно только в кластере с [настроенным окном обслуживания](#set-maintenance-window) по расписанию);
+         * `SPECIFIC_TIME` — перенести обслуживание на определенную дату и время.
+
+       Временная метка должна иметь формат [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt), например: `2006-01-02T15:04:05Z`. При выборе типа переноса `NEXT_AVAILABLE_WINDOW` параметр `delayed_until` указывать не нужно.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.mdb.spqr.v1.Cluster).
 
@@ -179,6 +187,8 @@ description: Следуя данной инструкции, вы сможете
          --reschedule-type immediate
       ```
 
+      {% include [cluster-name-id](../../_includes/managed-spqr/cluster-name-id.md) %}
+
 - REST API {#api}
 
   Чтобы провести запланированное обслуживание кластера немедленно:
@@ -199,6 +209,8 @@ description: Следуя данной инструкции, вы сможете
                     "rescheduleType": "IMMEDIATE"
                 }'
         ```
+
+        {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/rescheduleMaintenance.md#yandex.cloud.operation.Operation).
 
@@ -225,6 +237,8 @@ description: Следуя данной инструкции, вы сможете
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.ClusterService.RescheduleMaintenance
      ```
+
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/rescheduleMaintenance.md#yandex.cloud.mdb.spqr.v1.Cluster).
 
@@ -276,6 +290,8 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
+      {% include [cluster-name-id](../../_includes/managed-spqr/cluster-name-id.md) %}
+
 - {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -323,6 +339,7 @@ description: Следуя данной инструкции, вы сможете
 
      Где:
 
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
        В данном случае передается только один параметр.
@@ -373,6 +390,7 @@ description: Следуя данной инструкции, вы сможете
 
      Где:
 
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
        В данном случае передается только один параметр.

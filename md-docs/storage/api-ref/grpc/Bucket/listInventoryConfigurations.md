@@ -106,7 +106,8 @@ Contains the optional fields that are included in the inventory results.
 - `OBJECT_LOCK_LEGAL_HOLD_STATUS`: The legal hold status of the locked object.
 - `CHECKSUM_ALGORITHM`: Indicates the algorithm that is used to create the checksum for the object.
 - `OBJECT_ACCESS_CONTROL_LIST`: An access control list (ACL) for each object.
-- `OBJECT_OWNER`: The owner of the object. ||
+- `OBJECT_OWNER`: The owner of the object.
+- `INTELLIGENT_TIERING_ACCESS_TIER`: The S3 Intelligent-Tiering access tier of the object. ||
 |#
 
 ## InventoryDestination {#yandex.cloud.storage.v1.InventoryConfiguration.InventoryDestination}

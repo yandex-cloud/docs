@@ -26,7 +26,6 @@
 * [{{ iam-full-name }}](../../audit-trails/concepts/events.md#iam)
 * [{{ iot-full-name }}](../../audit-trails/concepts/events.md#iot)
 * [{{ kms-full-name }}](../../audit-trails/concepts/events.md#kms)
-* [{{ load-testing-full-name }}](../../audit-trails/concepts/events.md#loadtesting)
 * [{{ lockbox-full-name }}](../../audit-trails/concepts/events.md#lockbox)
 * [{{ maf-full-name }}](../../audit-trails/concepts/events.md#managed-service-for-airflow)
 * [{{ mkf-full-name }}](../../audit-trails/concepts/events.md#managed-service-for-kafka)

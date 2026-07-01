@@ -27,7 +27,7 @@ Add a new retention policy.
 || cluster_id | **string**
 
 Required field. ID of the mongodb cluster.
-To get the mongodb cluster ID use a [ClusterService.List](../../../../managed-mongodb/api-ref/grpc/Cluster/list#List) request.
+To get the mongodb cluster ID use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || cron | **[CronTab](#yandex.cloud.mdb.v1.CronTab)**

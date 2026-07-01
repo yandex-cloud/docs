@@ -15,7 +15,7 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/user
 || clusterId | **string**
 
 Required field. ID of the Redis cluster to create a user in.
-To get the cluster ID, use a [ClusterService.List](../../../managed-redis/api-ref/Cluster/list#List) request.
+To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 |#

@@ -466,8 +466,6 @@ Monium платформа для сбора, хранения и анализа 
 
  - [Overview](api-ref/grpc/Export/index.md)
 
- - [Run](api-ref/grpc/Export/run.md)
-
  - [Get](api-ref/grpc/Export/get.md)
 
  - [List](api-ref/grpc/Export/list.md)
@@ -477,6 +475,8 @@ Monium платформа для сбора, хранения и анализа 
  - [Update](api-ref/grpc/Export/update.md)
 
  - [Delete](api-ref/grpc/Export/delete.md)
+
+ - [Run](api-ref/grpc/Export/run.md)
 
  - [ListOperations](api-ref/grpc/Export/listOperations.md)
 
@@ -562,8 +562,6 @@ Monium платформа для сбора, хранения и анализа 
 
  - [Overview](api-ref/Export/index.md)
 
- - [Run](api-ref/Export/run.md)
-
  - [Get](api-ref/Export/get.md)
 
  - [List](api-ref/Export/list.md)
@@ -573,6 +571,8 @@ Monium платформа для сбора, хранения и анализа 
  - [Update](api-ref/Export/update.md)
 
  - [Delete](api-ref/Export/delete.md)
+
+ - [Run](api-ref/Export/run.md)
 
  - [ListOperations](api-ref/Export/listOperations.md)
 

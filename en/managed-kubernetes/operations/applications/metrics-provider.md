@@ -111,5 +111,4 @@ The provider converts a request to collect external metrics from a {{ managed-k8
 
 ## Use cases {#examples}
 
-* [{{ MP }} for {{ managed-k8s-name }} autoscaling](../../tutorials/load-testing-grpc-autoscaling.md)
 * [{#T}](../../tutorials/marketplace/metrics-provider.md)

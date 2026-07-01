@@ -22,7 +22,7 @@ Syntax:
 
 - [yc cic](cic/cli-ref/index.md) — Manage Interconnect resources
 
-- [yc cloud-registry](cloud-registry/cli-ref/index.md) — [PREVIEW] Manage CloudRegistry resources
+- [yc cloud-registry](cloud-registry/cli-ref/index.md) — Manage CloudRegistry resources
 
 - [yc cloudrouter](cloudrouter/cli-ref/index.md) — Manage Cloud Router resources
 
@@ -53,8 +53,6 @@ Syntax:
 - [yc kms](kms/cli-ref/index.md) — Manage Yandex Key Management Service resources
 
 - [yc load-balancer](load-balancer/cli-ref/index.md) — Manage Yandex Load Balancer resources
-
-- [yc loadtesting](loadtesting/cli-ref/index.md) — Manage Yandex Load Testing resources
 
 - [yc lockbox](lockbox/cli-ref/index.md) — Manage Yandex Lockbox resources
 

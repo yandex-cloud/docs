@@ -87,7 +87,6 @@
 ## Примеры использования {#examples}
 
 * [Настройка логирования для L7-балансировщика Yandex Application Load Balancer с помощью Ingress-контроллера](../../tutorials/alb-ingress-controller-log-options.md).
-* [Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием](../../tutorials/load-testing-grpc-autoscaling.md).
 
 ## Полезные ссылки {#see-also}
 

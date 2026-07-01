@@ -57,7 +57,7 @@
   1. Перейдите в сервис **Identity and Access Management**.
   1. Нажмите **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта — `mongo-express`.
-  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роли](../../load-testing/security/index.md#roles-list) `container-registry.images.puller`, `lockbox.payloadViewer` и `serverless-containers.containerInvoker`.
+  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роли `container-registry.images.puller`, `lockbox.payloadViewer` и `serverless-containers.containerInvoker`.
   1. Нажмите **Создать**.
 
 - CLI {#cli}
@@ -350,7 +350,7 @@
         1. Выберите вариант:
         
             * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
             * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
@@ -549,7 +549,7 @@
     docker.io/library/mongo-express:latest
     ```
 
-1. [Аутентифицируйтесь](../operations/authentication.md) в Container Registry с помощью Docker Credential helper:
+1. [Аутентифицируйтесь](../operations/authentication.md) в Container Registry с помощью Docker credential helper:
 
     {% list tabs group=instructions %}
 
@@ -568,6 +568,12 @@
           ```
 
           Настройки сохраняются в профиле текущего пользователя.
+
+          {% note warning %}
+          
+          Credential helper работает только при использовании Docker без `sudo`. О том, как настроить запуск Docker от имени текущего пользователя без использования `sudo`, читайте в [официальной документации Docker](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+          
+          {% endnote %}
 
       1. Проверьте, что Docker сконфигурирован — в конфигурационном файле `${HOME}/.docker/config.json` должна появиться строка:
 

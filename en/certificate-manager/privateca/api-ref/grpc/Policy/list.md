@@ -51,38 +51,6 @@ The maximum string length in characters is 100. ||
 {
   "policy": [
     {
-      "id": "string",
-      "certificate_authority_id": "string",
-      "name": "string",
-      "subject_policy": {
-        "country": "string",
-        "organization": "string",
-        "organizational_unit": "string",
-        "distinguished_name_qualifier": "string",
-        "state_or_province": "string",
-        "common_name": "string",
-        "email_address": "string",
-        "serial_number": "string",
-        "locality": "string",
-        "title": "string",
-        "surname": "string",
-        "given_name": "string",
-        "initials": "string",
-        "generation_qualifier": "string"
-      },
-      "san_policy": {
-        "other_name_oid": "string",
-        "rfc_822_name": "string",
-        "dns_name": "string",
-        "directory_name": "string",
-        "edi_party_name": {
-          "name_assigner": "string",
-          "party_name": "string"
-        },
-        "uniform_resource_identifier": "string",
-        "ip_address": "string",
-        "registered_id": "string"
-      },
       // Includes only one of the fields `key_usages_white_list`, `key_usages_black_list`
       "key_usages_white_list": {
         "key_usage": [
@@ -119,6 +87,38 @@ The maximum string length in characters is 100. ||
         ]
       },
       // end of the list of possible fields
+      "id": "string",
+      "certificate_authority_id": "string",
+      "name": "string",
+      "subject_policy": {
+        "country": "string",
+        "organization": "string",
+        "organizational_unit": "string",
+        "distinguished_name_qualifier": "string",
+        "state_or_province": "string",
+        "common_name": "string",
+        "email_address": "string",
+        "serial_number": "string",
+        "locality": "string",
+        "title": "string",
+        "surname": "string",
+        "given_name": "string",
+        "initials": "string",
+        "generation_qualifier": "string"
+      },
+      "san_policy": {
+        "other_name_oid": "string",
+        "rfc_822_name": "string",
+        "dns_name": "string",
+        "directory_name": "string",
+        "edi_party_name": {
+          "name_assigner": "string",
+          "party_name": "string"
+        },
+        "uniform_resource_identifier": "string",
+        "ip_address": "string",
+        "registered_id": "string"
+      },
       "created_at": "google.protobuf.Timestamp",
       "updated_at": "google.protobuf.Timestamp"
     }
@@ -145,21 +145,6 @@ A policy defines the rules and constraints for issuing certificates within a cer
 
 #|
 ||Field | Description ||
-|| id | **string**
-
-ID of the policy. ||
-|| certificate_authority_id | **string**
-
-ID of the certificate authority the policy belongs to. ||
-|| name | **string**
-
-Name of the policy. ||
-|| subject_policy | **[SubjectPolicy](#yandex.cloud.certificatemanager.v1.privateca.SubjectPolicy)**
-
-Policy for the subject field of the certificate. ||
-|| san_policy | **[SubjectAlternativeNamePolicy](#yandex.cloud.certificatemanager.v1.privateca.SubjectAlternativeNamePolicy)**
-
-Policy for the Subject Alternative Name (SAN) extension of the certificate. ||
 || key_usages_white_list | **[KeyUsagePolicy](#yandex.cloud.certificatemanager.v1.privateca.KeyUsagePolicy)**
 
 Whitelist of allowed key usages.
@@ -202,12 +187,82 @@ Blacklist of disallowed extensions.
 Includes only one of the fields `extension_white_list`, `extension_black_list`.
 
 Policy for certificate extensions. ||
+|| id | **string**
+
+ID of the policy. ||
+|| certificate_authority_id | **string**
+
+ID of the certificate authority the policy belongs to. ||
+|| name | **string**
+
+Name of the policy. ||
+|| subject_policy | **[SubjectPolicy](#yandex.cloud.certificatemanager.v1.privateca.SubjectPolicy)**
+
+Policy for the subject field of the certificate. ||
+|| san_policy | **[SubjectAlternativeNamePolicy](#yandex.cloud.certificatemanager.v1.privateca.SubjectAlternativeNamePolicy)**
+
+Policy for the Subject Alternative Name (SAN) extension of the certificate. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp when the policy was created. ||
 || updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp when the policy was last updated. ||
+|#
+
+## KeyUsagePolicy {#yandex.cloud.certificatemanager.v1.privateca.KeyUsagePolicy}
+
+Policy for key usages in a certificate.
+
+#|
+||Field | Description ||
+|| key_usage[] | enum **KeyUsageExtension**
+
+List of key usages that are allowed or disallowed.
+
+- `DIGITAL_SIGNATURE`
+- `CONTENT_COMMITMENT`
+- `KEY_ENCIPHERMENT`
+- `DATA_ENCIPHERMENT`
+- `KEY_AGREEMENT`
+- `KEY_CERT_SIGN`
+- `CRL_SIGN`
+- `ENCIPHER_ONLY`
+- `DECIPHER_ONLY` ||
+|#
+
+## ExtendedKeyUsagePolicy {#yandex.cloud.certificatemanager.v1.privateca.ExtendedKeyUsagePolicy}
+
+Policy for extended key usages in a certificate.
+
+#|
+||Field | Description ||
+|| extended_key_usage[] | enum **ExtendedKeyUsageExtension**
+
+List of extended key usages that are allowed or disallowed.
+
+- `SERVER_AUTH`
+- `CLIENT_AUTH`
+- `CODE_SIGNING`
+- `EMAIL_PROTECTION`
+- `TIME_STAMPING`
+- `OCSP_SIGNING`
+- `IPSEC_IKE`
+- `MS_CODE_IND`
+- `MS_CODE_COM`
+- `MS_CTL_SIGN`
+- `MS_EFS` ||
+|#
+
+## ExtensionPolicy {#yandex.cloud.certificatemanager.v1.privateca.ExtensionPolicy}
+
+Policy for certificate extensions.
+
+#|
+||Field | Description ||
+|| extension_oid[] | **string**
+
+List of extension OIDs that are allowed or disallowed. ||
 |#
 
 ## SubjectPolicy {#yandex.cloud.certificatemanager.v1.privateca.SubjectPolicy}
@@ -346,59 +401,4 @@ The maximum string length in characters is 1000. ||
 The actual identifier of the EDI party
 
 The maximum string length in characters is 1000. ||
-|#
-
-## KeyUsagePolicy {#yandex.cloud.certificatemanager.v1.privateca.KeyUsagePolicy}
-
-Policy for key usages in a certificate.
-
-#|
-||Field | Description ||
-|| key_usage[] | enum **KeyUsageExtension**
-
-List of key usages that are allowed or disallowed.
-
-- `DIGITAL_SIGNATURE`
-- `CONTENT_COMMITMENT`
-- `KEY_ENCIPHERMENT`
-- `DATA_ENCIPHERMENT`
-- `KEY_AGREEMENT`
-- `KEY_CERT_SIGN`
-- `CRL_SIGN`
-- `ENCIPHER_ONLY`
-- `DECIPHER_ONLY` ||
-|#
-
-## ExtendedKeyUsagePolicy {#yandex.cloud.certificatemanager.v1.privateca.ExtendedKeyUsagePolicy}
-
-Policy for extended key usages in a certificate.
-
-#|
-||Field | Description ||
-|| extended_key_usage[] | enum **ExtendedKeyUsageExtension**
-
-List of extended key usages that are allowed or disallowed.
-
-- `SERVER_AUTH`
-- `CLIENT_AUTH`
-- `CODE_SIGNING`
-- `EMAIL_PROTECTION`
-- `TIME_STAMPING`
-- `OCSP_SIGNING`
-- `IPSEC_IKE`
-- `MS_CODE_IND`
-- `MS_CODE_COM`
-- `MS_CTL_SIGN`
-- `MS_EFS` ||
-|#
-
-## ExtensionPolicy {#yandex.cloud.certificatemanager.v1.privateca.ExtensionPolicy}
-
-Policy for certificate extensions.
-
-#|
-||Field | Description ||
-|| extension_oid[] | **string**
-
-List of extension OIDs that are allowed or disallowed. ||
 |#

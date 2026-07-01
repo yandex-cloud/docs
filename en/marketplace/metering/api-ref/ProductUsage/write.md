@@ -17,11 +17,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. Marketplace Product Instance's ID
+            The maximum string length in characters is 50.
           type: string
         usageRecords:
           description: |-
             **[UsageRecord](#yandex.cloud.marketplace.metering.v1.UsageRecord)**
             List of product usage records (up to 25 per request)
+            The number of elements must be in the range 1-25.
           type: array
           items:
             $ref: '#/definitions/UsageRecord'
@@ -36,16 +38,19 @@ apiPlayground:
             description: |-
               **string**
               Required field. Unique identifier of the usage record (UUID format).
+              The maximum string length in characters is 36.
             type: string
           skuId:
             description: |-
               **string**
               Required field. Consumed Marketplace SKU ID, linked to `UsageRecord.product_id`.
+              The maximum string length in characters is 50.
             type: string
           quantity:
             description: |-
               **string** (int64)
               Quantity of SKU consumed, measured in `sku.usage_unit` units (e.g. bytes).
+              Value must be greater than 0.
             type: string
             format: int64
           timestamp:
@@ -99,10 +104,14 @@ POST https://marketplace.{{ api-host }}/marketplace/metering/v1/productUsage/wri
 Do not write usage, only validate ||
 || productInstanceId | **string**
 
-Required field. Marketplace Product Instance's ID ||
+Required field. Marketplace Product Instance's ID
+
+The maximum string length in characters is 50. ||
 || usageRecords[] | **[UsageRecord](#yandex.cloud.marketplace.metering.v1.UsageRecord)**
 
-List of product usage records (up to 25 per request) ||
+List of product usage records (up to 25 per request)
+
+The number of elements must be in the range 1-25. ||
 |#
 
 ## UsageRecord {#yandex.cloud.marketplace.metering.v1.UsageRecord}
@@ -111,13 +120,19 @@ List of product usage records (up to 25 per request) ||
 ||Field | Description ||
 || uuid | **string**
 
-Required field. Unique identifier of the usage record (UUID format). ||
+Required field. Unique identifier of the usage record (UUID format).
+
+The maximum string length in characters is 36. ||
 || skuId | **string**
 
-Required field. Consumed Marketplace SKU ID, linked to `UsageRecord.product_id`. ||
+Required field. Consumed Marketplace SKU ID, linked to `UsageRecord.product_id`.
+
+The maximum string length in characters is 50. ||
 || quantity | **string** (int64)
 
-Quantity of SKU consumed, measured in `sku.usage_unit` units (e.g. bytes). ||
+Quantity of SKU consumed, measured in `sku.usage_unit` units (e.g. bytes).
+
+Value must be greater than 0. ||
 || timestamp | **string** (date-time)
 
 Required field. Timestamp in UTC for which the usage is being reported.
@@ -180,7 +195,6 @@ Unique identifier of the usage record (UUID format). ||
 
 The reason of rejection.
 
-- `REASON_UNSPECIFIED`
 - `DUPLICATE`
 - `EXPIRED`
 - `INVALID_TIMESTAMP`

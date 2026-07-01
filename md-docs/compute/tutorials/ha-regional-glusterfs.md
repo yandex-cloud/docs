@@ -30,7 +30,7 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за постоянно работающие ВМ и диски ([тарифы Yandex Compute Cloud](../pricing.md));
+* плата за постоянно работающие ВМ и диски ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
 * плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
 
 ## Настройте профиль CLI {#setup-profile}

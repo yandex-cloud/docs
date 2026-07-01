@@ -1,7 +1,7 @@
 # Object Storage API, REST: Bucket.UpdateAccessBindings
 
 Updates access bindings for the specified bucket.
-(-- api-linter: yc::1705::http-method-mapping=disabled
+
 for compatibility with old format --)
 
 ## HTTP request
@@ -18,7 +18,7 @@ PATCH https://storage.api.cloud.yandex.net/storage/v1/buckets/{resourceId}:updat
 
 Required field. ID of the resource for which access bindings are being updated.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## Body parameters {#yandex.cloud.access.UpdateAccessBindingsRequest}
@@ -72,7 +72,7 @@ Required field. Access binding. For more information, see [Access Bindings](../.
 
 Required field. ID of the [yandex.cloud.iam.v1.Role](../../../iam/api-ref/Role/get.md#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || subject | **[Subject](#yandex.cloud.access.Subject)**
 
 Required field. Identity for which access binding is being created.

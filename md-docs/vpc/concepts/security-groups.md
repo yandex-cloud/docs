@@ -56,7 +56,6 @@
 | [Managed Service for Trino](../../managed-trino/index.md)              | [кластер](../../managed-trino/concepts/network.md#security-groups)                                                                              |
 | [Yandex Data Processing](../../data-proc/index.md)             | [кластер](../../data-proc/concepts/network.md#security-groups)                                                                                  |
 | [Data Transfer](../../data-transfer/index.md)    | [эндпоинт](../../data-transfer/concepts/network.md#security-groups)                                                                             |
-| [Load Testing](../../load-testing/index.md)      | [агент тестирования](../../load-testing/concepts/agent.md)                                                                                      |
 | [Managed Service for GitLab](../../managed-gitlab/index.md)             | [инстанс](../../managed-gitlab/operations/configure-security-group.md)                                                                          |
 
 {% note info %}

@@ -16,8 +16,8 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Apache Kafka®](../pricing.md)).
-* Плата за использование публичных IP-адресов ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Apache Kafka®](../../../managed-kafka/pricing.md)).
+* Плата за использование публичных IP-адресов ([тарифы Virtual Private Cloud](../../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

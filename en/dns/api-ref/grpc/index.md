@@ -12,6 +12,8 @@ Actions are performed by making RPC calls. For more information about API archit
 
 #|
 ||Service | Description ||
+|| [DnsFirewall](DnsFirewall/index.md) | A set of methods for managing DNS firewalls. ||
+|| [DnsInboundEndpoint](DnsInboundEndpoint/index.md) |  ||
 || [DnsZone](DnsZone/index.md) | A set of methods for managing DNS zones. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 |#

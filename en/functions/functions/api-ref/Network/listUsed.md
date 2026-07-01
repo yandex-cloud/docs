@@ -66,7 +66,6 @@ GET https://serverless-functions.{{ api-host }}/functions/v1/networks/used
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListUsedNetworksResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListUsedNetworksResponse)
 that can be used to get the next page of results in subsequent list requests.
-
 Default value: 100.
 
 The maximum value is 1000. ||
@@ -118,7 +117,6 @@ List of used networks in the specified scope. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListUsedNetworksRequest.pageSize](#yandex.cloud.serverless.functions.v1.ListUsedNetworksRequest), use `nextPageToken` as the value
 for the [ListUsedNetworksRequest.pageToken](#yandex.cloud.serverless.functions.v1.ListUsedNetworksRequest) parameter in the next list request.
-
 Each subsequent page will have its own `nextPageToken` to continue paging through the results. ||
 |#
 

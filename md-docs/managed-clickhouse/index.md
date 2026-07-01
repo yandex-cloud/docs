@@ -330,6 +330,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
 
  - [update-external-dictionary](cli-ref/cluster/update-external-dictionary.md)
 
+ - [connect](cli-ref/connect.md)
+
 ### database
 
  - [Overview](cli-ref/database/index.md)
@@ -545,6 +547,8 @@ Managed Service for ClickHouse<sup>®</sup> позволяет: <ul><li>Созд
  - [update-extension](cli-ref/v0/cluster/update-extension.md)
 
  - [update-external-dictionary](cli-ref/v0/cluster/update-external-dictionary.md)
+
+ - [connect](cli-ref/v0/connect.md)
 
 #### database
 

@@ -1,7 +1,7 @@
 # Managed Service for Redis API, REST: Cluster.Get
 
 Returns the specified Redis cluster.
-To get the list of available Redis clusters, make a [List](../../../managed-redis/api-ref/Cluster/list#List) request.
+To get the list of available Redis clusters, make a [List](list.md#List) request.
 
 ## HTTP request
 
@@ -16,7 +16,7 @@ GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}
 || clusterId | **string**
 
 Required field. ID of the Redis cluster to return.
-To get the cluster ID use a [ClusterService.List](../../../managed-redis/api-ref/Cluster/list#List) request.
+To get the cluster ID use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -463,7 +463,7 @@ The maximum string length in characters is 50. ||
 ```
 
 Description of a Redis cluster. For more information, see
-the Managed Service for Redis [documentation](../../../managed-redis/concepts).
+the Managed Service for Redis [documentation](../../concepts/index.md).
 
 #|
 ||Field | Description ||
@@ -671,7 +671,7 @@ parameters.
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../managed-redis/concepts/instance-types).
+Service for Redis [host class](../../concepts/instance-types.md).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -771,7 +771,7 @@ parameters.
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../managed-redis/concepts/instance-types).
+Service for Redis [host class](../../concepts/instance-types.md).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -871,7 +871,7 @@ parameters.
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../managed-redis/concepts/instance-types).
+Service for Redis [host class](../../concepts/instance-types.md).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -976,7 +976,7 @@ parameters.
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../managed-redis/concepts/instance-types).
+Service for Redis [host class](../../concepts/instance-types.md).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -1061,7 +1061,7 @@ The minimum value is 0. ||
 || resourcePresetId | **string**
 
 Required field. ID of the preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](../../../managed-redis/concepts/instance-types). ||
+All available presets are listed in the [documentation](../../concepts/instance-types.md). ||
 || diskSize | **string** (int64)
 
 Volume of the storage available to a host, in bytes. ||
@@ -1136,7 +1136,7 @@ parameters.
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../managed-redis/concepts/instance-types).
+Service for Redis [host class](../../concepts/instance-types.md).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.

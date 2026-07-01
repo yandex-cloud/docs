@@ -168,6 +168,8 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [set-access-bindings](cli-ref/artifact/set-access-bindings.md)
 
+ - [upsert](cli-ref/artifact/upsert.md)
+
  - [configure-docker](cli-ref/configure-docker.md)
 
 ### registry
@@ -246,6 +248,8 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [set-access-bindings](cli-ref/v0/artifact/set-access-bindings.md)
 
+ - [upsert](cli-ref/v0/artifact/upsert.md)
+
  - [configure-docker](cli-ref/v0/configure-docker.md)
 
 #### registry
@@ -302,6 +306,88 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [tools](cli-ref/v0/tools.md)
 
+### v1
+
+ - [Overview](cli-ref/v1/index.md)
+
+#### artifact
+
+ - [Overview](cli-ref/v1/artifact/index.md)
+
+ - [add-access-binding](cli-ref/v1/artifact/add-access-binding.md)
+
+ - [delete](cli-ref/v1/artifact/delete.md)
+
+ - [get](cli-ref/v1/artifact/get.md)
+
+ - [get-by-path](cli-ref/v1/artifact/get-by-path.md)
+
+ - [list-access-bindings](cli-ref/v1/artifact/list-access-bindings.md)
+
+ - [remove-access-binding](cli-ref/v1/artifact/remove-access-binding.md)
+
+ - [set-access-bindings](cli-ref/v1/artifact/set-access-bindings.md)
+
+ - [update-access-bindings](cli-ref/v1/artifact/update-access-bindings.md)
+
+ - [upsert](cli-ref/v1/artifact/upsert.md)
+
+ - [configure-docker](cli-ref/v1/configure-docker.md)
+
+#### registry
+
+ - [Overview](cli-ref/v1/registry/index.md)
+
+ - [add-access-binding](cli-ref/v1/registry/add-access-binding.md)
+
+ - [add-ip-permissions](cli-ref/v1/registry/add-ip-permissions.md)
+
+ - [create](cli-ref/v1/registry/create.md)
+
+ - [delete](cli-ref/v1/registry/delete.md)
+
+ - [force-delete](cli-ref/v1/registry/force-delete.md)
+
+ - [get](cli-ref/v1/registry/get.md)
+
+##### lifecycle-policy
+
+ - [Overview](cli-ref/v1/registry/lifecycle-policy/index.md)
+
+ - [change-state](cli-ref/v1/registry/lifecycle-policy/change-state.md)
+
+ - [create](cli-ref/v1/registry/lifecycle-policy/create.md)
+
+ - [delete](cli-ref/v1/registry/lifecycle-policy/delete.md)
+
+ - [dry-run](cli-ref/v1/registry/lifecycle-policy/dry-run.md)
+
+ - [get](cli-ref/v1/registry/lifecycle-policy/get.md)
+
+ - [list](cli-ref/v1/registry/lifecycle-policy/list.md)
+
+ - [update](cli-ref/v1/registry/lifecycle-policy/update.md)
+
+ - [list](cli-ref/v1/registry/list.md)
+
+ - [list-access-bindings](cli-ref/v1/registry/list-access-bindings.md)
+
+ - [list-artifacts](cli-ref/v1/registry/list-artifacts.md)
+
+ - [list-ip-permissions](cli-ref/v1/registry/list-ip-permissions.md)
+
+ - [remove-access-binding](cli-ref/v1/registry/remove-access-binding.md)
+
+ - [remove-ip-permissions](cli-ref/v1/registry/remove-ip-permissions.md)
+
+ - [set-access-bindings](cli-ref/v1/registry/set-access-bindings.md)
+
+ - [set-ip-permissions](cli-ref/v1/registry/set-ip-permissions.md)
+
+ - [update](cli-ref/v1/registry/update.md)
+
+ - [tools](cli-ref/v1/tools.md)
+
  - [Справочник Terraform](tf-ref.md)
 
 ## Справочник API
@@ -319,6 +405,8 @@ Yandex Cloud Registry — сервис для безопасного хране�
  - [Get](api-ref/grpc/Artifact/get.md)
 
  - [GetByPath](api-ref/grpc/Artifact/getByPath.md)
+
+ - [List](api-ref/grpc/Artifact/list.md)
 
  - [Delete](api-ref/grpc/Artifact/delete.md)
 
@@ -347,6 +435,12 @@ Yandex Cloud Registry — сервис для безопасного хране�
  - [ChangeState](api-ref/grpc/LifecyclePolicy/changeState.md)
 
  - [DryRun](api-ref/grpc/LifecyclePolicy/dryRun.md)
+
+#### Migration
+
+ - [Overview](api-ref/grpc/Migration/index.md)
+
+ - [StartCloud](api-ref/grpc/Migration/startCloud.md)
 
 #### Operation
 
@@ -414,6 +508,24 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [Delete](api-ref/grpc/ScanPolicy/delete.md)
 
+#### Yandex Cloud Registry Domains API
+
+ - [Overview](domain/api-ref/grpc/index.md)
+
+##### Debian
+
+ - [Overview](domain/api-ref/grpc/Debian/index.md)
+
+ - [ReindexPackages](domain/api-ref/grpc/Debian/reindexPackages.md)
+
+##### Operation
+
+ - [Overview](domain/api-ref/grpc/Operation/index.md)
+
+ - [Get](domain/api-ref/grpc/Operation/get.md)
+
+ - [Cancel](domain/api-ref/grpc/Operation/cancel.md)
+
 ### REST (англ.)
 
  - [Overview](api-ref/index.md)
@@ -425,6 +537,8 @@ Yandex Cloud Registry — сервис для безопасного хране�
  - [Get](api-ref/Artifact/get.md)
 
  - [GetByPath](api-ref/Artifact/getByPath.md)
+
+ - [List](api-ref/Artifact/list.md)
 
  - [Delete](api-ref/Artifact/delete.md)
 
@@ -505,5 +619,23 @@ Yandex Cloud Registry — сервис для безопасного хране�
  - [Update](api-ref/ScanPolicy/update.md)
 
  - [Delete](api-ref/ScanPolicy/delete.md)
+
+#### Yandex Cloud Registry Domains API
+
+ - [Overview](domain/api-ref/index.md)
+
+##### Debian
+
+ - [Overview](domain/api-ref/Debian/index.md)
+
+ - [ReindexPackages](domain/api-ref/Debian/reindexPackages.md)
+
+##### Operation
+
+ - [Overview](domain/api-ref/Operation/index.md)
+
+ - [Get](domain/api-ref/Operation/get.md)
+
+ - [Cancel](domain/api-ref/Operation/cancel.md)
 
  - [Аудитные логи Audit Trails](at-ref.md)

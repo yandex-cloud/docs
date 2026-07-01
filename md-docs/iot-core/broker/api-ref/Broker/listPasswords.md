@@ -15,8 +15,9 @@ GET https://iot-broker.api.cloud.yandex.net/iot-broker/v1/brokers/{brokerId}/pas
 || brokerId | **string**
 
 Required field. ID of the broker to list passwords in.
+To get a broker ID make a [BrokerService.List](list.md#List) request.
 
-To get a broker ID make a [BrokerService.List](list.md#List) request. ||
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iot.broker.v1.ListBrokerPasswordsResponse}

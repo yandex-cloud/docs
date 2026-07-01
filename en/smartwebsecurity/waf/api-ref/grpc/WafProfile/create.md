@@ -609,7 +609,8 @@ Creates a WAF profile in the specified folder using the data specified in the re
               "value": "string",
               "case_sensitive": "bool"
             }
-          ]
+          ],
+          "is_excluded": "bool"
         }
       }
     }
@@ -1307,7 +1308,7 @@ Matcher for request headers. ||
 Matcher for request cookies. ||
 || body_matcher | **[BodyMatcher](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.BodyMatcher)**
 
-Matcher for request body. ||
+Matcher for request body exclusion flag. ||
 |#
 
 ## RequestParamMatcher {#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.RequestParamMatcher}
@@ -1361,9 +1362,12 @@ The maximum number of elements is 20. ||
 ||Field | Description ||
 || body_values[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.StringMatcher)**
 
-List of request body values to match. Up to 20 entries.
+Deprecated. Previously matched body content. Use is_excluded instead.
 
 The maximum number of elements is 20. ||
+|| is_excluded | **bool**
+
+When true, request body is excluded from WAF inspection for this exclusion rule. ||
 |#
 
 ## AnalyzeRequestBody {#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.AnalyzeRequestBody}

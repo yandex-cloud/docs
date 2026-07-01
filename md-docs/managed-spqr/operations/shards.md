@@ -49,7 +49,10 @@
                }'
      ```
 
-     Где `mdbPostgresql.clusterId` — идентификатор кластера Managed Service for PostgreSQL в составе шарда.
+     Где:
+
+     * `<идентификатор_кластера>` — идентификатор кластера, который можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+     * `mdbPostgresql.clusterId` — идентификатор кластера Managed Service for PostgreSQL в составе шарда.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addShard.md#yandex.cloud.operation.Operation).
 
@@ -91,7 +94,10 @@
        yandex.cloud.mdb.spqr.v1.ClusterService.AddShard
      ```
 
-     Где `mdb_postgresql.cluster_id` — идентификатор кластера Managed Service for PostgreSQL в составе шарда.
+     Где:
+
+     * `cluster_id` — идентификатор кластера, который можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+     * `mdb_postgresql.cluster_id` — идентификатор кластера Managed Service for PostgreSQL в составе шарда.
 
 {% endlist %}
 
@@ -127,6 +133,8 @@
        --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>/shards/<имя_шарда>'
      ```
 
+     Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/deleteShard.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
@@ -161,6 +169,8 @@
        mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.spqr.v1.ClusterService.DeleteShard
      ```
+
+     Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/deleteShard.md#yandex.cloud.operation.Operation).
 

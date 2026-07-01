@@ -24,7 +24,6 @@ C помощью Managed Service for Kubernetes вы можете работат
 
 * [Горизонтальное масштабирование приложения в кластере](autoscaling.md)
 * [Вертикальное масштабирование приложения в кластере](vpa-autoscaling.md)
-* [Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием](load-testing-grpc-autoscaling.md)
 
 ## Использование Yandex Container Registry {#container-registry}
 

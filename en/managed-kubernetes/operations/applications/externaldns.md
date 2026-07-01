@@ -84,7 +84,6 @@ To automatically create DNS records using [ExternalDNS with Webhook {{ dns-full-
 ## Use cases {#examples}
 
 * [{#T}](../../tutorials/alb-ingress-controller-log-options.md).
-* [{#T}](../../tutorials/load-testing-grpc-autoscaling.md).
 
 ## See also {#see-also}
 

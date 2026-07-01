@@ -27,4 +27,4 @@ Yandex Cloud Postbox ориентирован на отправку транза
 #### Полезные ссылки {#see-also}
 
 * [Как начать работать с Yandex Cloud Postbox](../quickstart.md)
-* [Правила тарификации для Yandex Cloud Postbox](../pricing.md)
+* [{#T}](../pricing.md)

@@ -55,7 +55,7 @@ List of storages. If not specified, the default value based on the selected conf
 Array of partitions created on the storage.
 >>>>> - type (structure)\
 Partition type.
->>>>> - size-bytes (bytes)\
+>>>>> - size-bytes (integer)\
 Size of the storage partition.
 >>>>> - mount-point (string)\
 Storage mount point.
@@ -67,7 +67,7 @@ Disk storage.
 ID of the disk.
 >>>>>> - type (structure)\
 Type of the disk drive.
->>>>>> - size-bytes (bytes)\
+>>>>>> - size-bytes (integer)\
 Size of the disk.
 >>>>> - raid (structure)\
 RAID storage.
@@ -79,7 +79,7 @@ Array of disks in the RAID configuration.
 ID of the disk.
 >>>>>>> - type (structure)\
 Type of the disk drive.
->>>>>>> - size-bytes (bytes)\
+>>>>>>> - size-bytes (integer)\
 Size of the disk.
 >>> - ssh-key (oneof)\
 Oneof ssh-key field
@@ -153,13 +153,13 @@ Array of disk drive configurations.
 Type of the disk drive.
 >>>>> - count (integer)\
 Number of disk drives.
->>>>> - size-bytes (bytes)\
+>>>>> - size-bytes (integer)\
 Size of a single disk drive.
 >>>> - ram (structure)\
 Random-access memory (RAM).
 >>>>> - id (string)\
 ID of the RAM from configurator.
->>>>> - size-bytes (bytes)\
+>>>>> - size-bytes (integer)\
 Ram size.
 >>> - stock-configuration-id (string)\
 ID of the stock configuration.
@@ -184,14 +184,14 @@ ID of the stock configuration.
         disk-drives = [
           {
             count = integer,
-            size-bytes = bytes,
+            size-bytes = integer,
             type = HDD|SSD|NVME
           }, ...
         ],
         name = string,
         ram = {
           id = string,
-          size-bytes = bytes
+          size-bytes = integer
         }
       } | stock-configuration-id=string,
       description = string,
@@ -233,19 +233,19 @@ ID of the stock configuration.
             partitions = [
               {
                 mount-point = string,
-                size-bytes = bytes,
+                size-bytes = integer,
                 type = EXT4|SWAP|EXT3|XFS
               }, ...
             ],
             storage-type = disk={
               id = string,
-              size-bytes = bytes,
+              size-bytes = integer,
               type = HDD|SSD|NVME
             } | raid={
               disks = [
                 {
                   id = string,
-                  size-bytes = bytes,
+                  size-bytes = integer,
                   type = HDD|SSD|NVME
                 }, ...
               ],
@@ -283,14 +283,14 @@ ID of the stock configuration.
           "disk-drives": [
             {
               "count": "integer",
-              "size-bytes": "bytes",
+              "size-bytes": "integer",
               "type": "HDD|SSD|NVME"
             }, ...
           ],
           "name": "string",
           "ram": {
             "id": "string",
-            "size-bytes": "bytes"
+            "size-bytes": "integer"
           }
         },
         "stock-configuration-id": "string"
@@ -346,21 +346,21 @@ ID of the stock configuration.
             "partitions": [
               {
                 "mount-point": "string",
-                "size-bytes": "bytes",
+                "size-bytes": "integer",
                 "type": "EXT4|SWAP|EXT3|XFS"
               }, ...
             ],
             "storage-type": {
               "disk": {
                 "id": "string",
-                "size-bytes": "bytes",
+                "size-bytes": "integer",
                 "type": "HDD|SSD|NVME"
               },
               "raid": {
                 "disks": [
                   {
                     "id": "string",
-                    "size-bytes": "bytes",
+                    "size-bytes": "integer",
                     "type": "HDD|SSD|NVME"
                   }, ...
                 ],

@@ -5,7 +5,7 @@
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [container](../../serverless-containers/concepts/container.md).
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Click **{{ ui-key.yacloud.serverless-containers.button_create-container }}**.
-  1. Enter a name and description for the container. The name format is as follows:
+  1. Enter a name and description for the container. Follow these naming requirements:
 
      {% include [name-format](../../_includes/name-format.md) %}
 
@@ -70,7 +70,7 @@
      >}
      >```
 
-     For more information about `yandex_serverless_container` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
+     For more information about the `yandex_serverless_container` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
   1. Make sure the configuration files are correct.
      1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
@@ -79,7 +79,7 @@
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
+     If the configuration is described correctly, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration.
   1. Deploy the cloud resources.
      1. If the configuration is correct, run this command:
 
@@ -87,7 +87,7 @@
         terraform apply
         ```
 
-     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
+     1. To confirm resource creation, type `yes` and press **Enter**.
 
         This will create all the resources you need in the specified [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 

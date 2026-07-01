@@ -55,12 +55,12 @@ description: Из статьи вы узнаете, как задать наст
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 
-* [Настройки конфигурации](#bucket-config) для бакета {{ objstorage-full-name }} или пользовательского S3-совместимого хранилища.
+* [Настройки подключения](#bucket-config) для бакета {{ objstorage-full-name }} или пользовательского S3-совместимого хранилища.
 * [Дополнительные параметры](#additional-settings).
 
-### Настройки конфигурации бакета {#bucket-config}
+### Настройки подключения {#bucket-config}
 
-{% list tabs group=instructions %}
+{% list tabs group=bucket %}
 
 - Бакет {{ objstorage-full-name }} {#obj-storage}
 
@@ -71,32 +71,59 @@ description: Из статьи вы узнаете, как задать наст
 
 - Пользовательское S3-совместимое хранилище {#s3-storage}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}** — имя бакета.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_access_key_id.title }}** и **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_secret_access_key.title }}** — [идентификатор и содержимое ключа AWS](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) для доступа к частному бакету.
-    * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.endpoint.title }}** — эндпоинт для службы, совместимой с Amazon S3. Оставьте поле пустым для использования Amazon.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.region.title }}** — регион для отправки запросов.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}** — имя бакета, в который будут загружаться данные из источника.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.region.title }}** — регион, в котором хранятся данные.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.endpoint.title }}** — эндпоинт для сервиса, совместимого с Amazon S3.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_access_key_id.title }}** и **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_secret_access_key.title }}** — [идентификатор и содержимое ключа AWS](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) для доступа к бакету.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.use_ssl.title }}** — выберите, если удаленный сервер использует безопасное соединение SSL/TLS.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.verify_ssl_cert.title }}** — разрешить самоподписанные сертификаты.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.verify_ssl_cert.title }}** — запретить самоподписанные сертификаты.
 
 {% endlist %}
 
+Если создаваемый эндпоинт и бакет {{ objstorage-name }} лежат в разных каталогах, то при создании в настройках соединения нужно выбрать ручную настройку и указать следующие значения:
+
+  * регион: `ru-central1`;
+  * эндпоинт: {{ s3-storage-host }};
+  * включить обе настройки, связанные с использованием SSL.
+
 ### Дополнительные настройки {#additional-settings}
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** — формат, в котором данные будут записаны в бакет: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`, `PARQUET` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}`. Подробнее читайте в разделе [{#T}](../../../concepts/serializer.md#serializer-s3).
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1Endpoint.path_prefix.title }}** — путь в бакете, по которому будут выгружаться данные.
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.any_as_string.title }}** — преобразование комплексных значений в строки для выходного формата `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`.
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1SerializerConfig.title }}** — формат, в котором данные будут записаны в бакет: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_PARQUET.title }}`. Подробнее читайте в разделе [{#T}](../../../concepts/serializer.md#serializer-s3).
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}** — сжатие выходных данных, `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.GZIP.title }}` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.UNCOMPRESSED.title }}`.
+    {% list tabs group=bucket-data-format %}
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.buffer_size.title }}** — размер файлов, на которые разделены данные.
+    - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }} {#json}
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.buffer_interval.title }}** — интервал, спустя который файл будет записан, вне зависимости от его размера.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1SerializerConfig.compression_codec.title }}** — алгоритм сжатия выходных данных: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.GZIP.title }}` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.UNCOMPRESSED.title }}`.
+  
+    - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }} {#csv}
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}** — имя папки объекта. Поддерживает шаблон раскладки данных по дате. Пример: `2006/01/02/<имя_папки>`.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1SerializerConfig.compression_codec.title }}** — алгоритм сжатия выходных данных: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.GZIP.title }}` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.UNCOMPRESSED.title }}`.
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout_timezone.title }}** — часовой пояс, по времени которого раскладываются файлы. Влияет только на раскладывание файлов по папкам в бакете, но не влияет на данные внутри файлов.
+    - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_PARQUET.title }} {#parquet}
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout_column.title }}** — имя колонки для указания логического времени для данных. Значение по умолчанию — системное время записи. Время при записи данных в приемник преобразуется в UTC. Это поведение нельзя изменить.
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1SerializerConfig.Parquet.column_compression_codec.title }}** — алгоритм сжатия блоков данных: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.GZIP.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageParquetCompressionCodecUI.SNAPPY.title }}` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageParquetCompressionCodecUI.ZSTD.title }}`.
+  
+         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.Parquet.row_group.title }}** — параметры разбиения данных на группы. Можно указать максимальное количество строк в группе или максимальный размер группы в байтах. При совместном использовании настроек новая группа будет создаваться, когда хотя бы одно из ограничений будет нарушено.
+
+    {% endlist %}
+
+* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1AdvancedWriterSettings.title }}** — дополнительные настройки записи выходных файлов:
+
+    {% list tabs group=writer-settings %}
+
+    - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1WriterSettings.SnapshotWriter.title }} {#snapshot}
+
+      *  **Максимальное число записей в одном файле** — если оставить поле пустым, то данные запишутся в один файл.
+      *  **Максимальное число байтов в одном файле** — если оставить поле пустым, то данные запишутся в один файл.
+
+    - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1WriterSettings.ReplicationWriter.title }} {#replication}
+
+      * **Интервал ротации** — значение в секундах, по истечении которого новый файл будет записан. Данные о времени берутся из параметров получаемых сообщений. Значение по умолчанию — 1 час.
+
+    {% endlist %}
 
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).
 

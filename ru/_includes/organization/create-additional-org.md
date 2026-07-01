@@ -4,7 +4,7 @@
 
   1. Войдите в сервис [{{ cloud-center }}]({{ cloud-center-link }}) с учетной записью пользователя, от имени которого вы хотите создать новую организацию.
 
-  1. В левом верхнем углу экрана рядом с названием текущей организации нажмите значок ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите ![circle-plus](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_components.organization.action.create-organization }}**.
+  1. В левом верхнем углу экрана рядом с названием текущей организации нажмите значок ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите ![circle-plus](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.center-layout.OrganizationSelect.action_create-organization_j1Yin }}**.
 
   1. В открывшемся окне введите название и описание организации.
 

@@ -17,7 +17,9 @@ POST https://dns.api.cloud.yandex.net/dns/v1/zones/{dnsZoneId}:upsertRecordSets
 
 Required field. ID of the DNS zone to upsert record sets to.
 
-To get a DNS zone ID, make a [DnsZoneService.List](list.md#List) request. ||
+To get a DNS zone ID, make a [DnsZoneService.List](list.md#List) request.
+
+The maximum string length in characters is 255. ||
 |#
 
 ## Body parameters {#yandex.cloud.dns.v1.UpsertRecordSetsRequest}
@@ -31,7 +33,8 @@ To get a DNS zone ID, make a [DnsZoneService.List](list.md#List) request. ||
       "ttl": "string",
       "data": [
         "string"
-      ]
+      ],
+      "description": "string"
     }
   ],
   "replacements": [
@@ -41,7 +44,8 @@ To get a DNS zone ID, make a [DnsZoneService.List](list.md#List) request. ||
       "ttl": "string",
       "data": [
         "string"
-      ]
+      ],
+      "description": "string"
     }
   ],
   "merges": [
@@ -51,7 +55,8 @@ To get a DNS zone ID, make a [DnsZoneService.List](list.md#List) request. ||
       "ttl": "string",
       "data": [
         "string"
-      ]
+      ],
+      "description": "string"
     }
   ]
 }
@@ -61,13 +66,19 @@ To get a DNS zone ID, make a [DnsZoneService.List](list.md#List) request. ||
 ||Field | Description ||
 || deletions[] | **[RecordSet](#yandex.cloud.dns.v1.RecordSet)**
 
-Delete only specified records from corresponding record sets. ||
+Delete only specified records from corresponding record sets.
+
+The maximum number of elements is 1000. ||
 || replacements[] | **[RecordSet](#yandex.cloud.dns.v1.RecordSet)**
 
-Entirely replace specified record sets. ||
+Entirely replace specified record sets.
+
+The maximum number of elements is 1000. ||
 || merges[] | **[RecordSet](#yandex.cloud.dns.v1.RecordSet)**
 
-Replace specified records or add new ones if no such record sets exists. ||
+Replace specified records or add new ones if no such record sets exists.
+
+The maximum number of elements is 1000. ||
 |#
 
 ## RecordSet {#yandex.cloud.dns.v1.RecordSet}
@@ -78,16 +89,27 @@ A record set. For details about the concept, see [Resource record](../../concept
 ||Field | Description ||
 || name | **string**
 
-Domain name. ||
+Domain name.
+
+The string length in characters must be 1-254. ||
 || type | **string**
 
-Record type. ||
+Record type.
+
+The string length in characters must be 1-20. ||
 || ttl | **string** (int64)
 
-Time to live in seconds. ||
+Time to live in seconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || data[] | **string**
 
-Data of the record set. ||
+Data of the record set.
+
+The string length in characters for each value must be 1-1024. The number of elements must be in the range 1-100. ||
+|| description | **string**
+
+Description of the record set. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -111,28 +133,7 @@ Data of the record set. ||
       "object"
     ]
   },
-  "response": {
-    "additions": [
-      {
-        "name": "string",
-        "type": "string",
-        "ttl": "string",
-        "data": [
-          "string"
-        ]
-      }
-    ],
-    "deletions": [
-      {
-        "name": "string",
-        "type": "string",
-        "ttl": "string",
-        "data": [
-          "string"
-        ]
-      }
-    ]
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -189,7 +190,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[RecordSetDiff](#yandex.cloud.dns.v1.RecordSetDiff)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -221,36 +222,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## RecordSetDiff {#yandex.cloud.dns.v1.RecordSetDiff}
-
-#|
-||Field | Description ||
-|| additions[] | **[RecordSet](#yandex.cloud.dns.v1.RecordSet2)**
-
-List of record sets that were added ||
-|| deletions[] | **[RecordSet](#yandex.cloud.dns.v1.RecordSet2)**
-
-List of record sets that were deleted ||
-|#
-
-## RecordSet {#yandex.cloud.dns.v1.RecordSet2}
-
-A record set. For details about the concept, see [Resource record](../../concepts/resource-record.md).
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Domain name. ||
-|| type | **string**
-
-Record type. ||
-|| ttl | **string** (int64)
-
-Time to live in seconds. ||
-|| data[] | **string**
-
-Data of the record set. ||
 |#

@@ -27,7 +27,6 @@ Required field. ID of the folder to list Workflows in. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListWorkflowsResponse.next_page_token](#yandex.cloud.serverless.workflows.v1.ListWorkflowsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
 Default value: 100. ||
 || page_token | **string**
 
@@ -36,7 +35,6 @@ Page token. To get the next page of results, set `pageToken` to the
 || filter | **string**
 
 A filter expression that filters functions listed in the response.
-
 The expression must specify:
 1. The field name. Currently filtering can only be applied to following fields: name, created_at.
 2. An `=` operator.
@@ -86,7 +84,6 @@ List of Workflows. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListWorkflowsRequest.page_size](#yandex.cloud.serverless.workflows.v1.ListWorkflowsRequest), use `next_page_token` as the value
 for the [ListWorkflowsRequest.page_token](#yandex.cloud.serverless.workflows.v1.ListWorkflowsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -96,16 +93,16 @@ Each subsequent page will have its own `next_page_token` to continue paging thro
 ||Field | Description ||
 || id | **string**
 
-ID of the Workflow. Generated at creation time. ||
+Required field. ID of the Workflow. Generated at creation time. ||
 || folder_id | **string**
 
-ID of the folder that the Workflow belongs to. ||
+Required field. ID of the folder that the Workflow belongs to. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Creation timestamp for the Workflow. ||
+Required field. Creation timestamp for the Workflow. ||
 || name | **string**
 
-Name of the Workflow. The name is unique within the folder. ||
+Required field. Name of the Workflow. The name is unique within the folder. ||
 || description | **string**
 
 Description of the Workflow. ||
@@ -114,7 +111,7 @@ Description of the Workflow. ||
 Workflow labels as `key:value` pairs. ||
 || status | enum **Status**
 
-Status of the Workflow.
+Required field. Status of the Workflow.
 
 - `CREATING`: Workflow is being created.
 - `ACTIVE`: Workflow is ready for use.
@@ -161,7 +158,6 @@ Includes only one of the fields `log_group_id`, `folder_id`. ||
 || min_level | enum **Level**
 
 Minimum logs level.
-
 See [LogLevel.Level](../../../../../logging/api-ref/grpc/Export/get.md#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.

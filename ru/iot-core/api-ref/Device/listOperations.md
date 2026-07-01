@@ -25,6 +25,7 @@ apiPlayground:
             results is larger than `page_size`, the service returns a [ListDeviceOperationsResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListDeviceOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -33,12 +34,14 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `page_token` to the
             [ListDeviceOperationsResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListDeviceOperationsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
             **string**
             A filter expression that filters resources listed in the response.
             Currently you can use filtering only on [Device.name](/docs/iot-core/api-ref/Device/get#yandex.cloud.iot.devices.v1.Device) field.
+            The maximum string length in characters is 1000.
           type: string
       additionalProperties: false
     body: null
@@ -62,7 +65,6 @@ GET https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}/operati
 || deviceId | **string**
 
 Required field. ID of the device to list operations for.
-
 To get a device ID make a [DeviceService.List](/docs/iot-core/api-ref/Device/list#List) request. ||
 |#
 
@@ -75,15 +77,21 @@ To get a device ID make a [DeviceService.List](/docs/iot-core/api-ref/Device/lis
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a [ListDeviceOperationsResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListDeviceOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListDeviceOperationsResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListDeviceOperationsResponse) returned by a previous list request. ||
+[ListDeviceOperationsResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListDeviceOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-Currently you can use filtering only on [Device.name](/docs/iot-core/api-ref/Device/get#yandex.cloud.iot.devices.v1.Device) field. ||
+Currently you can use filtering only on [Device.name](/docs/iot-core/api-ref/Device/get#yandex.cloud.iot.devices.v1.Device) field.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.iot.devices.v1.ListDeviceOperationsResponse}
@@ -127,7 +135,6 @@ List of operations for the specified device certificate. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListDeviceOperationsRequest.pageSize](#yandex.cloud.iot.devices.v1.ListDeviceOperationsRequest), use `next_page_token` as the value
 for the [ListDeviceOperationsRequest.pageToken](#yandex.cloud.iot.devices.v1.ListDeviceOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

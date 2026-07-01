@@ -1,6 +1,6 @@
 # yandex_mdb_redis_cluster_v2 (Resource)
 
-Manages a Redis cluster within the Yandex Cloud. For more information, see [the official documentation](https://cloud.yandex.com/docs/managed-redis/). [How to connect to the DB](../../managed-redis/quickstart#connect). To connect, use port 6379. The port number is not configurable.
+Manages a Redis cluster within the Yandex Cloud. For more information, see [the official documentation](https://cloud.yandex.com/docs/managed-redis/). [How to connect to the DB](../../managed-valkey/quickstart.md#connect). To connect, use port 6379. The port number is not configurable.
 
 ## Example usage
 

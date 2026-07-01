@@ -17,6 +17,6 @@
 
    {% cut "Поделиться в организации" %}
      
-   ![image](../../../_assets/datalens/concepts/datalens-public/shared-settings-link.png =393x390)
+   ![image](../../../_assets/datalens/concepts/datalens-public/shared-settings-link.png =419x415)
 
    {% endcut %}

@@ -111,5 +111,4 @@
 
 ## Примеры использования {#examples}
 
-* [{{ MP }} для автомасштабирования {{ managed-k8s-name }}](../../tutorials/load-testing-grpc-autoscaling.md).
 * [{#T}](../../tutorials/marketplace/metrics-provider.md).

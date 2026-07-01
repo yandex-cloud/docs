@@ -32,25 +32,33 @@ POST https://dns.api.cloud.yandex.net/dns/v1/zones
 || folderId | **string**
 
 Required field. ID of the folder to create DNS zones in.
+To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
 
-To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request. ||
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Name of the DNS zone.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-Description of the DNS zone. ||
+Description of the DNS zone.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-DNS zone labels as `key:value` pairs. ||
+DNS zone labels as `key:value` pairs.
+
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. Each value must match the regular expression ` [-_./\@0-9a-z]* `. No more than 64 per resource. ||
 || zone | **string**
 
-Required field. DNS zone suffix. ||
+Required field. DNS zone suffix.
+
+The maximum string length in characters is 255. Value must match the regular expression ``` [.]|[a-z0-9][-a-z0-9.]*\. ```. ||
 || privateVisibility | **[PrivateVisibility](#yandex.cloud.dns.v1.PrivateVisibility)**
 
-Privately visible zone settings.
-At least one of two visibility fields must be set. ||
+at least one of ||
 || publicVisibility | **object**
 
 Publicly visible zone settings.
@@ -68,7 +76,9 @@ Configuration for privately visible zones.
 ||Field | Description ||
 || networkIds[] | **string**
 
-Network IDs. ||
+Network IDs.
+
+The number of elements must be in the range 0-100. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -83,9 +93,7 @@ Network IDs. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "dnsZoneId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -94,22 +102,7 @@ Network IDs. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "folderId": "string",
-    "createdAt": "string",
-    "name": "string",
-    "description": "string",
-    "labels": "object",
-    "zone": "string",
-    "privateVisibility": {
-      "networkIds": [
-        "string"
-      ]
-    },
-    "publicVisibility": "object",
-    "deletionProtection": "boolean"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -151,7 +144,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateDnsZoneMetadata](#yandex.cloud.dns.v1.CreateDnsZoneMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -166,7 +159,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[DnsZone](#yandex.cloud.dns.v1.DnsZone)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -181,15 +174,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateDnsZoneMetadata {#yandex.cloud.dns.v1.CreateDnsZoneMetadata}
-
-#|
-||Field | Description ||
-|| dnsZoneId | **string**
-
-ID of the DNS zone that is being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -207,63 +191,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## DnsZone {#yandex.cloud.dns.v1.DnsZone}
-
-A DNS zone. For details about the concept, see [DNS zones](../../concepts/dns-zone.md).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the DNS zone. Generated at creation time. ||
-|| folderId | **string**
-
-ID of the folder that the DNS zone belongs to. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| name | **string**
-
-Name of the DNS zone.
-The name is unique within the folder. ||
-|| description | **string**
-
-Description of the DNS zone. ||
-|| labels | **object** (map<**string**, **string**>)
-
-DNS zone labels as `key:value` pairs. ||
-|| zone | **string**
-
-DNS zone suffix. ||
-|| privateVisibility | **[PrivateVisibility](#yandex.cloud.dns.v1.PrivateVisibility2)**
-
-Privately visible zone settings.
-Specifies whether records within the zone are visible from a VPC networks only. ||
-|| publicVisibility | **object**
-
-Publicly visible zone settings.
-Indicates whether records within the zone are publicly visible. ||
-|| deletionProtection | **boolean**
-
-Prevents accidental zone removal. ||
-|#
-
-## PrivateVisibility {#yandex.cloud.dns.v1.PrivateVisibility2}
-
-Configuration for privately visible zones.
-
-#|
-||Field | Description ||
-|| networkIds[] | **string**
-
-Network IDs. ||
 |#

@@ -103,7 +103,7 @@ List of version IDs that the current version can be updated to ||
 || deprecated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Optional. Date when the version reaches DEPRECATED status (day precision)
-(-- api-linter: yc::1703::deprecated-annotation=disabled --) ||
+ ||
 || eol_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Optional. Date when the version reaches EOL status (day precision) ||

@@ -316,7 +316,7 @@ Includes only one of the fields `nullValue`, `numberValue`, `stringValue`, `bool
 ||Field | Description ||
 || executionId | **string**
 
-ID of the Workflow execution. ||
+Required field. ID of the Workflow execution. ||
 |#
 
 ## HTTP request
@@ -430,5 +430,5 @@ Includes only one of the fields `nullValue`, `numberValue`, `stringValue`, `bool
 ||Field | Description ||
 || executionId | **string**
 
-ID of the Workflow execution. ||
+Required field. ID of the Workflow execution. ||
 |#

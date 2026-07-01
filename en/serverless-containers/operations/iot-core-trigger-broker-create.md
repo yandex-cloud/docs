@@ -75,8 +75,8 @@ The trigger must be in the same cloud as the broker whose topic it reads message
       --name <trigger_name> \
       --broker-id <broker_ID> \
       --mqtt-topic '<MQTT_topic>' \
-      --batch-size <message_group_size> \
-      --batch-cutoff <maximum_timeout> \
+      --batch-size <message_batch_size> \
+      --batch-cutoff <maximum_wait_time> \
       --invoke-container-id <container_ID> \
       --invoke-container-service-account-id <service_account_ID> \
       --retry-attempts <number_of_retry_attempts> \
@@ -89,7 +89,7 @@ The trigger must be in the same cloud as the broker whose topic it reads message
 
     * `--name`: Trigger name.
     * `--broker-id`: [Broker ID](../../iot-core/operations/broker/broker-list.md).
-    * `--mqtt-topic`: MQTT topic you want to create a trigger for. This is an optional parameter. If you skip it, the trigger will fire for all broker topics.
+    * `--mqtt-topic`: MQTT topic you want to create a trigger for. This is an optional setting. If you skip it, the trigger will fire for all broker topics.
 
     {% include [trigger-param](../../_includes/iot-core/trigger-param-sc.md) %}
 

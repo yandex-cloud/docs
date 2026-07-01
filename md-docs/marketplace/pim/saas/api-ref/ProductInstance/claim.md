@@ -25,7 +25,9 @@ POST https://marketplace.api.cloud.yandex.net/marketplace/pim/saas/v1/instances/
 ||Field | Description ||
 || token | **string**
 
-Required field. Signed JWT token which contains information about product instance and subscription. ||
+Required field. Signed JWT token which contains information about product instance and subscription.
+
+The maximum string length in characters is 1000. ||
 || resourceId | **string**
 
 ID of the resource to which the product instance will be claimed. ||
@@ -58,12 +60,7 @@ Additional data about the SaaS resource. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "productId": "string",
-    "productInstanceId": "string",
-    "licenseInstanceId": "string",
-    "lockId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -72,21 +69,7 @@ Additional data about the SaaS resource. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "resourceId": "string",
-    "resourceType": "string",
-    "resourceMetadata": "object",
-    "state": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
-    // Includes only one of the fields `saasInfo`
-    "saasInfo": {
-      "id": "string",
-      "data": "object"
-    }
-    // end of the list of possible fields
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -128,7 +111,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[ClaimProductInstanceMetadata](#yandex.cloud.marketplace.pim.v1.saas.ClaimProductInstanceMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -143,7 +126,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[ProductInstance](#yandex.cloud.marketplace.pim.v1.saas.ProductInstance)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -158,24 +141,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## ClaimProductInstanceMetadata {#yandex.cloud.marketplace.pim.v1.saas.ClaimProductInstanceMetadata}
-
-#|
-||Field | Description ||
-|| productId | **string**
-
-ID of the product to which the product instance belongs. ||
-|| productInstanceId | **string**
-
-ID of the product instance. ||
-|| licenseInstanceId | **string**
-
-ID of the subscription. ||
-|| lockId | **string**
-
-ID of the subscription lock. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -193,75 +158,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## ProductInstance {#yandex.cloud.marketplace.pim.v1.saas.ProductInstance}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the product instance. ||
-|| resourceId | **string**
-
-ID of the resource. ||
-|| resourceType | **enum** (ResourceType)
-
-Type of the resource.
-
-- `RESOURCE_TYPE_UNSPECIFIED`
-- `SAAS`: SaaS resource.
-- `K8S`: Kubernetes resource.
-- `COMPUTE`: Compute resource.
-- `CLOUD_APPS`: Cloud Apps resource. ||
-|| resourceMetadata | **object** (map<**string**, **string**>)
-
-Metadata of the resource; Reserved for future use. ||
-|| state | **enum** (State)
-
-State of the product instance.
-
-- `STATE_UNSPECIFIED`
-- `ACTIVATED`: Product instance is activated.
-- `DEACTIVATED`: Product instance is deactivated.
-- `PENDING_ACTIVATION`: Product instance is pending activation.
-- `DEPRECATED`: Product instance is deprecated.
-- `DELETED`: Product instance is deleted. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| updatedAt | **string** (date-time)
-
-Update timestamp
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| saasInfo | **[SaasInfo](#yandex.cloud.marketplace.pim.v1.saas.SaasInfo2)**
-
-Includes only one of the fields `saasInfo`.
-
-Additional information about the resource. ||
-|#
-
-## SaasInfo {#yandex.cloud.marketplace.pim.v1.saas.SaasInfo2}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the SaaS resource. ||
-|| data | **object** (map<**string**, **string**>)
-
-Additional data about the SaaS resource. ||
 |#

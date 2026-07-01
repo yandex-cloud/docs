@@ -62,7 +62,7 @@ The maximum string length in characters is 256. ||
 
 Workflow labels as `key:value` pairs.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. Each value must match the regular expression ` [-_./\@0-9a-z]* `. No more than 64 per resource. ||
 || specification | **[WorkflowSpecification](#yandex.cloud.serverless.workflows.v1.WorkflowSpecification)**
 
 Required field. Specification of Workflow ||
@@ -117,7 +117,6 @@ Includes only one of the fields `log_group_id`, `folder_id`. ||
 || min_level | enum **Level**
 
 Minimum logs level.
-
 See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.
@@ -158,42 +157,10 @@ Required field. Timezone for the Workflow schedule. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "workflow_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "folder_id": "string",
-    "specification": {
-      // Includes only one of the fields `spec_yaml`
-      "spec_yaml": "string"
-      // end of the list of possible fields
-    },
-    "created_at": "google.protobuf.Timestamp",
-    "name": "string",
-    "description": "string",
-    "labels": "map<string, string>",
-    "status": "Status",
-    "log_options": {
-      "disabled": "bool",
-      // Includes only one of the fields `log_group_id`, `folder_id`
-      "log_group_id": "string",
-      "folder_id": "string",
-      // end of the list of possible fields
-      "min_level": "Level"
-    },
-    "network_id": "string",
-    "service_account_id": "string",
-    "express": "bool",
-    "schedule": {
-      "cron_expression": "string",
-      "timezone": "string"
-    },
-    "is_public": "bool",
-    "execution_url": "string"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -221,7 +188,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateWorkflowMetadata](#yandex.cloud.serverless.workflows.v1.CreateWorkflowMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -236,7 +203,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Workflow](#yandex.cloud.serverless.workflows.v1.Workflow)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -251,132 +218,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateWorkflowMetadata {#yandex.cloud.serverless.workflows.v1.CreateWorkflowMetadata}
-
-#|
-||Field | Description ||
-|| workflow_id | **string**
-
-Required field. ID of the Workflow. ||
-|#
-
-## Workflow {#yandex.cloud.serverless.workflows.v1.Workflow}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the Workflow. Generated at creation time. ||
-|| folder_id | **string**
-
-ID of the folder that the Workflow belongs to. ||
-|| specification | **[WorkflowSpecification](#yandex.cloud.serverless.workflows.v1.WorkflowSpecification2)**
-
-Specification of the Workflow ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp for the Workflow. ||
-|| name | **string**
-
-Name of the Workflow. The name is unique within the folder. ||
-|| description | **string**
-
-Description of the Workflow. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Workflow labels as `key:value` pairs. ||
-|| status | enum **Status**
-
-Status of the Workflow.
-
-- `CREATING`: Workflow is being created.
-- `ACTIVE`: Workflow is ready for use.
-- `UPDATING`: Workflow is being updated.
-- `DELETING`: Workflow is being deleted.
-- `ERROR`: Workflow failed. The only allowed action is delete. ||
-|| log_options | **[LogOptions](#yandex.cloud.serverless.workflows.v1.LogOptions2)**
-
-Options for logging from the Workflow. ||
-|| network_id | **string**
-
-ID of the VPC network Workflow will be executed in, in order to access private resources. ||
-|| service_account_id | **string**
-
-ID of the Service Account which will be used for resource access in Workflow execution. ||
-|| express | **bool**
-
-Express execution mode. ||
-|| schedule | **[WorkflowSchedule](#yandex.cloud.serverless.workflows.v1.WorkflowSchedule2)**
-
-Workflow schedule settings. ||
-|| is_public | **bool**
-
-Ability of the Workflow to be executed without authentication. ||
-|| execution_url | **string**
-
-Execution URL of the Workflow. ||
-|#
-
-## WorkflowSpecification {#yandex.cloud.serverless.workflows.v1.WorkflowSpecification2}
-
-#|
-||Field | Description ||
-|| spec_yaml | **string**
-
-Workflow specification in YAML format.
-
-Includes only one of the fields `spec_yaml`. ||
-|#
-
-## LogOptions {#yandex.cloud.serverless.workflows.v1.LogOptions2}
-
-#|
-||Field | Description ||
-|| disabled | **bool**
-
-Is logging from Workflow disabled. ||
-|| log_group_id | **string**
-
-ID of the logging group which should be used for Workflows logs.
-
-Includes only one of the fields `log_group_id`, `folder_id`. ||
-|| folder_id | **string**
-
-ID of the folder which default logging group should be used for Workflows.
-
-Includes only one of the fields `log_group_id`, `folder_id`. ||
-|| min_level | enum **Level**
-
-Minimum logs level.
-
-See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
-
-- `TRACE`: Trace log level.
-Possible use case: verbose logging of some business logic.
-- `DEBUG`: Debug log level.
-Possible use case: debugging special cases in application logic.
-- `INFO`: Info log level.
-Mostly used for information messages.
-- `WARN`: Warn log level.
-May be used to alert about significant events.
-- `ERROR`: Error log level.
-May be used to alert about errors in infrastructure, logic, etc.
-- `FATAL`: Fatal log level.
-May be used to alert about unrecoverable failures and events. ||
-|#
-
-## WorkflowSchedule {#yandex.cloud.serverless.workflows.v1.WorkflowSchedule2}
-
-#|
-||Field | Description ||
-|| cron_expression | **string**
-
-Required field. Cron expression for the Workflow schedule.
-
-The maximum string length in characters is 100. ||
-|| timezone | **string**
-
-Required field. Timezone for the Workflow schedule. ||
 |#

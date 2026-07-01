@@ -81,9 +81,7 @@ The maximum string length in characters is 4096. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "commentId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -92,33 +90,7 @@ The maximum string length in characters is 4096. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "alertId": "string",
-    "createdBy": {
-      // Includes only one of the fields `subject`, `sensor`
-      "subject": {
-        "id": "string"
-      },
-      "sensor": {
-        "id": "string"
-      }
-      // end of the list of possible fields
-    },
-    "createTime": "string",
-    "updatedBy": {
-      // Includes only one of the fields `subject`, `sensor`
-      "subject": {
-        "id": "string"
-      },
-      "sensor": {
-        "id": "string"
-      }
-      // end of the list of possible fields
-    },
-    "updateTime": "string",
-    "text": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -160,7 +132,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateCommentMetadata](#yandex.cloud.securitydeck.alerts.v1.CreateCommentMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -175,7 +147,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Comment](#yandex.cloud.securitydeck.alerts.v1.Comment)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -190,15 +162,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateCommentMetadata {#yandex.cloud.securitydeck.alerts.v1.CreateCommentMetadata}
-
-#|
-||Field | Description ||
-|| commentId | **string**
-
-ID of the comment that is being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -216,89 +179,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Comment {#yandex.cloud.securitydeck.alerts.v1.Comment}
-
-A comment.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Comment ID. ||
-|| alertId | **string**
-
-ID of the alert the comment is for. ||
-|| createdBy | **[Actor](#yandex.cloud.securitydeck.alerts.v1.Actor)**
-
-Who created the comment. ||
-|| createTime | **string** (date-time)
-
-Comment creation date.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| updatedBy | **[Actor](#yandex.cloud.securitydeck.alerts.v1.Actor)**
-
-Who modified the comment last.
-Optional. Not present if comment was not modified after initial creation. ||
-|| updateTime | **string** (date-time)
-
-When was the comment last modified.
-Optional. Not present if comment was not modified after initial creation.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| text | **string**
-
-The comment contents. Yandex Flavored Markdown. ||
-|#
-
-## Actor {#yandex.cloud.securitydeck.alerts.v1.Actor}
-
-Information about an entity that performed an action (created an alert, added a comment, etc.).
-
-#|
-||Field | Description ||
-|| subject | **[Subject](#yandex.cloud.securitydeck.alerts.v1.Actor.Subject)**
-
-Action was performed by a specific Cloud subject.
-
-Includes only one of the fields `subject`, `sensor`. ||
-|| sensor | **[Sensor](#yandex.cloud.securitydeck.alerts.v1.Actor.Sensor)**
-
-Action was performed by (or on behalf of) an alert provider system (aka sensor)
-
-Includes only one of the fields `subject`, `sensor`. ||
-|#
-
-## Subject {#yandex.cloud.securitydeck.alerts.v1.Actor.Subject}
-
-Cloud subject.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Subject ID. ||
-|#
-
-## Sensor {#yandex.cloud.securitydeck.alerts.v1.Actor.Sensor}
-
-Alert provider system (aka sensor).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Sensor ID. ||
 |#

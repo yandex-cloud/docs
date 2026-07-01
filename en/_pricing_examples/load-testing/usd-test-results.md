@@ -1,3 +1,0 @@
-For example, a month of storing test results amounting to 640 hours of test time will cost:
-
-> (600 × {% calc [currency=USD] {{ sku|USD|load_testing.storage.test_results.v1|number }} %}) + (40 × {% calc [currency=USD] {{ sku|USD|load_testing.storage.test_results.v1|pricingRate.2160000|number }} × 3600 %}) = {% calc [currency=USD] 600 × {{ sku|USD|load_testing.storage.test_results.v1|number }} + 40 × {{ sku|USD|load_testing.storage.test_results.v1|pricingRate.2160000|number }} × 3600 %}

@@ -22,7 +22,7 @@ Retrieves a list of links to web interfaces being proxied by Yandex Data Process
 ||Field | Description ||
 || cluster_id | **string**
 
-Required. ID of the Hadoop cluster.
+Required field. Required. ID of the Hadoop cluster.
 
 The maximum string length in characters is 50. ||
 |#

@@ -5,7 +5,7 @@ editable: false
 # Managed Service for MongoDB API, gRPC: ClusterService.UpdateHosts
 
 Updates the specified parameters for the host.
-(-- api-linter: yc::1705::http-method-mapping=disabled --)
+
 
 ## gRPC request
 

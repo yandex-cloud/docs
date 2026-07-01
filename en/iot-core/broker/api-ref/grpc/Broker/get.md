@@ -5,7 +5,6 @@ editable: false
 # IoT Core Broker Service, gRPC: BrokerService.Get
 
 Returns the specified broker.
-
 To get the list of available brokers, make a [List](/docs/iot-core/broker/api-ref/grpc/Broker/list#List) request.
 
 ## gRPC request
@@ -25,8 +24,9 @@ To get the list of available brokers, make a [List](/docs/iot-core/broker/api-re
 || broker_id | **string**
 
 Required field. ID of the broker to return.
+To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/grpc/Broker/list#List) request.
 
-To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/grpc/Broker/list#List) request. ||
+The maximum string length in characters is 50. ||
 |#
 
 ## Broker {#yandex.cloud.iot.broker.v1.Broker}
@@ -41,11 +41,11 @@ To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/grp
   "labels": "map<string, string>",
   "status": "Status",
   "log_options": {
-    "disabled": "bool",
     // Includes only one of the fields `log_group_id`, `folder_id`
     "log_group_id": "string",
     "folder_id": "string",
     // end of the list of possible fields
+    "disabled": "bool",
     "min_level": "Level"
   }
 }
@@ -77,7 +77,6 @@ Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 
 Status of the broker.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Broker is being created.
 - `ACTIVE`: Broker is ready to use.
 - `DELETING`: Broker is being deleted. ||
@@ -90,12 +89,11 @@ Options for logging broker events ||
 
 #|
 ||Field | Description ||
-|| disabled | **bool**
-
-Is logging from broker disabled. ||
 || log_group_id | **string**
 
 Entry should be written to log group resolved by ID.
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `log_group_id`, `folder_id`.
 
@@ -104,34 +102,29 @@ Log entries destination. ||
 
 Entry should be written to default log group for specified folder.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `log_group_id`, `folder_id`.
 
 Log entries destination. ||
+|| disabled | **bool**
+
+Is logging from broker disabled. ||
 || min_level | enum **Level**
 
 Minimum log entry level.
+See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
-
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
-
-  May be used to alert about unrecoverable failures and events. ||
+May be used to alert about unrecoverable failures and events. ||
 |#

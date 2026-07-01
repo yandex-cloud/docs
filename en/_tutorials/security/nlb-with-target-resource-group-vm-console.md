@@ -14,7 +14,7 @@ To migrate a service from a network load balancer to an L7 load balancer:
 
 {% include [group-vm-recommendations](../_tutorials_includes/migration-from-nlb-to-alb/group-vm-recommendations.md) %}
 
-## Create your infrastructure {#before-you-begin}
+## Create the infrastructure {#before-you-begin}
 
 1. [Create subnets](../../vpc/operations/subnet-create.md) in three availability zones for the L7 load balancer.
 
@@ -105,7 +105,7 @@ To migrate traffic:
 1. Update the target group integration for the instance group:
 
     1. In the [management console]({{ link-console-main }}), select the folder containing your instance group.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
     1. Select the group to update.
     1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.

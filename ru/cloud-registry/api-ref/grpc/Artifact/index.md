@@ -12,6 +12,7 @@ A set of methods for managing Artifacts.
 ||Method | Description ||
 || [Get](get.md) | Returns the specified artifact resource. ||
 || [GetByPath](getByPath.md) | Returns the specified artifact resource by path within the registry. ||
+|| [List](list.md) | Returns a list of artifacts. ||
 || [Delete](delete.md) | Deletes the specified artifact. ||
 || [ListAccessBindings](listAccessBindings.md) | access bindings ||
 || [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified artifact (folder, package, artifact, etc). ||

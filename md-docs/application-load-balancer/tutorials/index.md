@@ -10,7 +10,6 @@
 * [Организация сине-зеленого и канареечного развертывания версий веб-сервиса](blue-green-canary-deployment.md)
 * [Терминирование TLS-соединений](tls-termination/index.md)
 * [Запись логов балансировщика в PostgreSQL](logging.md)
-* [Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием в Yandex Managed Service for Kubernetes](load-testing-grpc-autoscaling.md)
 * [Настройка Gateway API в Yandex Managed Service for Kubernetes](gateway-api.md)
 * [Настройка L7-балансировщика Yandex Application Load Balancer с помощью Ingress-контроллера](alb-ingress-controller.md)
 * [Настройка логирования для L7-балансировщика Yandex Application Load Balancer с помощью Ingress-контроллера](alb-ingress-controller-log-options.md)

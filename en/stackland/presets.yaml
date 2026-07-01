@@ -88,6 +88,7 @@ default:
   TF: Terraform
   TF-full: HashiCorp Terraform
   TR: Trino
+  version: 0.5.0
   VLK: Valkey™
   ya-360: Yandex 360 for Business
   yandex-cloud: Yandex Cloud

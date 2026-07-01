@@ -4610,7 +4610,6 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 || queryCacheMinQueryDuration | **string** (int64)
 
 Minimum duration in milliseconds a query needs to run for its result to be stored in the query cache.
-(-- api-linter: yc::1701::duration-required=disabled --)
 
 Default value: **0**.
 

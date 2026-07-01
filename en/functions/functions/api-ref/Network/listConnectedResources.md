@@ -74,7 +74,6 @@ GET https://serverless-functions.{{ api-host }}/functions/v1/networks/connection
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListConnectedResourcesResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListConnectedResourcesResponse)
 that can be used to get the next page of results in subsequent list requests.
-
 Default value: 100.
 
 The maximum value is 1000. ||
@@ -132,7 +131,6 @@ List of serverless resources connected to any network from the specified scope. 
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListConnectedResourcesRequest.pageSize](#yandex.cloud.serverless.functions.v1.ListConnectedResourcesRequest), use `nextPageToken` as the value
 for the [ListConnectedResourcesRequest.pageToken](#yandex.cloud.serverless.functions.v1.ListConnectedResourcesRequest) parameter in the next list request.
-
 Each subsequent page will have its own `nextPageToken` to continue paging through the results. ||
 |#
 

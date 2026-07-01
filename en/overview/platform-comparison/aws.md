@@ -56,7 +56,6 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | AWS Databricks | [{{ myt-full-name }}](../../managed-ytsaurus/) |
 | AWS DataZone | [{{ metadata-hub-full-name }}](../../metadata-hub/) |
 | AWS Direct Connect | [{{ interconnect-full-name }}](../../interconnect/) |
-| AWS Distributed Load Testing | [{{ load-testing-full-name }}](../../load-testing/) |
 | AWS EC2 Bare Metal | [{{ baremetal-full-name }}](../../baremetal/) |
 | AWS Elastic Container Service | [{{ serverless-containers-full-name }}](../../serverless-containers/) |
 | AWS Identity and Access Management, AWS Cognito | [{{ iam-full-name }}](../../iam/) |

@@ -32,7 +32,7 @@ Creates new hosts for a cluster.
 || cluster_id | **string**
 
 Required field. ID of the MongoDB cluster to add hosts to.
-To get the MongoDB cluster ID use a [ClusterService.List](../../../../managed-mongodb/api-ref/grpc/Cluster/list#List) request.
+To get the MongoDB cluster ID use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || host_specs[] | **[HostSpec](#yandex.cloud.mdb.mongodb.v1.HostSpec)**
@@ -56,7 +56,7 @@ The maximum string length in characters is 50. ||
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The network ID is set in the [Cluster.network_id](../../../../managed-mongodb/api-ref/grpc/Cluster/get#yandex.cloud.mdb.mongodb.v1.Cluster) field.
+The network ID is set in the [Cluster.network_id](get.md#yandex.cloud.mdb.mongodb.v1.Cluster) field.
 
 The maximum string length in characters is 50. ||
 || assign_public_ip | **bool**

@@ -4,7 +4,7 @@ editable: false
 
 # Kubernetes Marketplace, gRPC: HelmReleaseService.Update
 
-Updates helm release.
+Updates Helm release.
 
 ## gRPC request
 
@@ -75,24 +75,10 @@ Includes only one of the fields `typed_value`. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "cluster_id": "string",
-    "helm_release_id": "string",
-    "product_version_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "cluster_id": "string",
-    "app_name": "string",
-    "app_namespace": "string",
-    "product_id": "string",
-    "product_name": "string",
-    "product_version": "string",
-    "status": "Status",
-    "created_at": "google.protobuf.Timestamp"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -120,7 +106,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateHelmReleaseMetadata](#yandex.cloud.k8s.marketplace.v1.UpdateHelmReleaseMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -135,7 +121,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[HelmRelease](#yandex.cloud.k8s.marketplace.v1.HelmRelease)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -150,64 +136,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateHelmReleaseMetadata {#yandex.cloud.k8s.marketplace.v1.UpdateHelmReleaseMetadata}
-
-#|
-||Field | Description ||
-|| cluster_id | **string**
-
-The ID of the Kubernetes cluster where the Helm release is being updated. ||
-|| helm_release_id | **string**
-
-The ID of the Helm release being updated. ||
-|| product_version_id | **string**
-
-The ID of the new product version to update the Helm release to. ||
-|#
-
-## HelmRelease {#yandex.cloud.k8s.marketplace.v1.HelmRelease}
-
-A Helm Release.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of a helm release. ||
-|| cluster_id | **string**
-
-ID of the Kubernetes cluster. ||
-|| app_name | **string**
-
-Name of the application. ||
-|| app_namespace | **string**
-
-Namespace of the application. ||
-|| product_id | **string**
-
-Kubernetes marketplace product id. ||
-|| product_name | **string**
-
-Kubernetes marketplace product name. ||
-|| product_version | **string**
-
-Kubernetes marketplace product version. ||
-|| status | enum **Status**
-
-Status of a helm release.
-
-- `UNKNOWN`: Helm release status is unknown
-- `DEPLOYED`: Helm release deployed.
-- `UNINSTALLED`: Helm release uninstalled.
-- `SUPERSEDED`: Helm release superseded.
-- `FAILED`: Helm release installation failed.
-- `UNINSTALLING`: Helm release is being uninstalled.
-- `PENDING_INSTALL`: Helm release is to be installed.
-- `PENDING_UPGRADE`: Helm release is to be updated.
-- `PENDING_ROLLBACK`: Helm release is to be rolled back. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp. ||
 |#

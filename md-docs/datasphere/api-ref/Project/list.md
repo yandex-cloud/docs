@@ -20,11 +20,15 @@ Required field. ID of the community to list projects in. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListProjectsResponse.nextPageToken](#yandex.cloud.datasphere.v2.ListProjectsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListProjectsResponse.nextPageToken](#yandex.cloud.datasphere.v2.ListProjectsResponse) returned by a previous list request. ||
+[ListProjectsResponse.nextPageToken](#yandex.cloud.datasphere.v2.ListProjectsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || projectNamePattern | **string**
 
 Name pattern to filter projects that are returned.
@@ -149,7 +153,6 @@ Is early access preview enabled for the project. ||
 
 Project IDE.
 
-- `IDE_UNSPECIFIED`
 - `JUPYTER_LAB`: Project running on JupyterLab IDE. ||
 || defaultFolderId | **string**
 
@@ -158,7 +161,6 @@ Default project folder ID. ||
 
 Timeout to automatically stop stale executions.
 
-- `STALE_EXECUTION_TIMEOUT_MODE_UNSPECIFIED`
 - `ONE_HOUR`: Setting to automatically stop stale execution after one hour with low consumption.
 - `THREE_HOURS`: Setting to automatically stop stale execution after three hours with low consumption.
 - `NO_TIMEOUT`: Setting to never automatically stop stale executions. ||

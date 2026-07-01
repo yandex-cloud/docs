@@ -4,6 +4,12 @@
 С помощью сервисных ролей Yandex Connection Manager вы сможете просматривать несекретные данные подключений и управлять подключениями. Просматривать секретные данные подключений, такие как пароли доступа к БД, можно в сервисе [Yandex Lockbox](../../lockbox/index.md). Для этого дополнительно необходима [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
 
 ```mermaid
+%%{
+  init: {
+    "flowchart": { "defaultRenderer": "elk" },
+    "elk": { "nodePlacementStrategy": "SIMPLE" }
+  }
+}%%
 flowchart BT
     connection-manager.auditor["`connection-manager.
     auditor`"] --> connection-manager.viewer

@@ -1,1 +1,1 @@
-The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a container. The number of messages cannot exceed the specified batch size.
+The trigger groups messages within the specified wait time period and sends them to the container. The number of messages cannot exceed the specified batch size.

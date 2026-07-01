@@ -1,7 +1,7 @@
 # Managed Service for Redis API, REST: ResourcePreset.Get
 
 Returns the specified resource preset.
-To get the list of available resource presets, make a [List](../../../managed-redis/api-ref/ResourcePreset/list#List) request.
+To get the list of available resource presets, make a [List](list.md#List) request.
 
 ## HTTP request
 
@@ -16,7 +16,7 @@ GET https://mdb.api.cloud.yandex.net/managed-redis/v1/resourcePresets/{resourceP
 || resourcePresetId | **string**
 
 Required field. ID of the resource preset to return.
-To get the resource preset ID, use a [ResourcePresetService.List](../../../managed-redis/api-ref/ResourcePreset/list#List) request. ||
+To get the resource preset ID, use a [ResourcePresetService.List](list.md#List) request. ||
 |#
 
 ## Response {#yandex.cloud.mdb.redis.v1.ResourcePreset}

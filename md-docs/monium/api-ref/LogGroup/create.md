@@ -26,28 +26,36 @@ POST https://logging.api.cloud.yandex.net/logging/v1/logGroups
 || folderId | **string**
 
 Required field. ID of the folder to create a log group in.
+To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
 
-To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request. ||
+The maximum string length in characters is 64. ||
 || name | **string**
 
 Name of the log group.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` ([a-z]([-a-z0-9]{1,61}[a-z0-9])?)? `. ||
 || description | **string**
 
-Description of the log group. ||
+Description of the log group.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
-Log group labels as `key:value` pairs. ||
+Log group labels as `key:value` pairs.
+
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || retentionPeriod | **string** (duration)
 
 Log group entry retention period.
-
 Entries will be present in group during this period.
 If specified, must be non-negative.
 Empty or zero value is treated as no limit. ||
 || dataStream | **string**
 
-If specified, all log records will be written to this data stream ||
+If specified, all log records will be written to this data stream
+
+The maximum string length in characters is 512. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -62,9 +70,7 @@ If specified, all log records will be written to this data stream ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "logGroupId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -73,18 +79,7 @@ If specified, all log records will be written to this data stream ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "folderId": "string",
-    "cloudId": "string",
-    "createdAt": "string",
-    "name": "string",
-    "description": "string",
-    "labels": "object",
-    "status": "string",
-    "retentionPeriod": "string",
-    "dataStream": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -126,7 +121,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateLogGroupMetadata](#yandex.cloud.logging.v1.CreateLogGroupMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -141,7 +136,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[LogGroup](#yandex.cloud.logging.v1.LogGroup)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -156,15 +151,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateLogGroupMetadata {#yandex.cloud.logging.v1.CreateLogGroupMetadata}
-
-#|
-||Field | Description ||
-|| logGroupId | **string**
-
-ID of the log group being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -182,59 +168,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## LogGroup {#yandex.cloud.logging.v1.LogGroup}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Log group ID. ||
-|| folderId | **string**
-
-Log group folder ID. ||
-|| cloudId | **string**
-
-Log group cloud ID. ||
-|| createdAt | **string** (date-time)
-
-Log group creation time.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| name | **string**
-
-Log group name. ||
-|| description | **string**
-
-Log group description. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Log group labels. ||
-|| status | **enum** (Status)
-
-Status of the log group.
-
-- `STATUS_UNSPECIFIED`: Unknown status.
-
-  Should never occur.
-- `CREATING`: Log group is creating.
-- `ACTIVE`: Log group is ready to accept messages,
-- `DELETING`: Log group is being deleted.
-
-  No messages will be accepted.
-- `ERROR`: Log group is in failed state. ||
-|| retentionPeriod | **string** (duration)
-
-Log group entry retention period.
-
-Entries will be present in group during this period. ||
-|| dataStream | **string**
-
-Data stream name ||
 |#

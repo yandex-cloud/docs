@@ -304,7 +304,9 @@ To get the HTTP router ID, make a [HttpRouterService.List](../HttpRouter/list.md
       "perMinute": "string"
       // end of the list of possible fields
     }
-  }
+  },
+  "labels": "object",
+  "description": "string"
 }
 ```
 
@@ -352,6 +354,16 @@ Route options for the virtual host. ||
 || rateLimit | **[RateLimit](#yandex.cloud.apploadbalancer.v1.RateLimit)**
 
 RateLimit is a rate limit configuration applied for a whole virtual host. ||
+|| labels | **object** (map<**string**, **string**>)
+
+VirtualHost's labels as `key:value` pairs.
+
+No more than 16 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+|| description | **string**
+
+Description of the virtual host.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## Route {#yandex.cloud.apploadbalancer.v1.Route}
@@ -1308,7 +1320,9 @@ Value must match the regular expression ``` (?i:ssl-client-subject-dn|client-cer
         "perMinute": "string"
         // end of the list of possible fields
       }
-    }
+    },
+    "labels": "object",
+    "description": "string"
   }
   // end of the list of possible fields
 }
@@ -1456,6 +1470,16 @@ Deprecated, use route_options.modify_response_headers. ||
 || rateLimit | **[RateLimit](#yandex.cloud.apploadbalancer.v1.RateLimit2)**
 
 RateLimit is a rate limit configuration applied for a whole virtual host. ||
+|| labels | **object** (map<**string**, **string**>)
+
+VirtualHost's labels as `key:value` pairs.
+
+No more than 16 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+|| description | **string**
+
+Description of the virtual host.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## Route {#yandex.cloud.apploadbalancer.v1.Route2}

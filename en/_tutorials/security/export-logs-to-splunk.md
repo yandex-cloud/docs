@@ -11,7 +11,7 @@ To configure delivery of audit log files from a bucket to Splunk:
 
 1. [Get your cloud ready](#before-begin).
 1. [Set up your environment](#prepare-environment).
-1. [Assign roles to the service account](#add-roles).
+1. [Assign the required roles to your service account](#add-roles).
 1. [Create a trail](#create-trail).
 1. [Set up Splunk for import](#prepare-splunk).
 1. [Enable egress NAT for the subnet with the intermediate VM](#enable-nat).
@@ -50,7 +50,7 @@ The infrastructure support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
       1. Enter a name for the bucket by following the [naming conventions](../../storage/concepts/bucket.md#naming).
@@ -74,7 +74,7 @@ The infrastructure support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your bucket.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and set the key attributes:
 
      * Any name and optional description.
@@ -110,9 +110,9 @@ The infrastructure support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the service account. Follow these naming requirements:
+  1. Enter a name for the service account. The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -120,7 +120,7 @@ The infrastructure support cost includes:
 
 {% endlist %}
 
-## Assign roles to the service account {#add-roles}
+## Assign the required roles to your service account {#add-roles}
 
 {% list tabs group=instructions %}
 
@@ -187,7 +187,7 @@ To create the trail, make sure you have the following roles:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create the trail.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}** and specify:
 
      * **{{ ui-key.yacloud.common.name }}**: Name of the new trail.
@@ -235,10 +235,10 @@ Enable `HTTPEventCollector` and follow this [guide](https://docs.splunk.com/Docu
 
   1. Create a NAT gateway:
       1. In the [management console]({{ link-console-main }}), select the folder containing the subnet for the intermediate VM.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.switch_gateways }}**.
       1. Click **{{ ui-key.yacloud.common.create }}**.
-      1. Enter a name for the gateway. Follow these naming requirements:
+      1. Enter a name for the gateway. The naming requirements are as follows:
 
           {% include [name-format](../../_includes/name-format.md) %}
    
@@ -305,10 +305,10 @@ Enable `HTTPEventCollector` and follow this [guide](https://docs.splunk.com/Docu
      terraform plan
      ```
   
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
   
   1. Deploy the cloud resources.
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
   
         ```
         terraform apply

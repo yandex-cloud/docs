@@ -31,7 +31,6 @@ apiPlayground:
 # Yandex Data Processing API, REST: Subcluster.Get
 
 Returns the specified subcluster.
-
 To get the list of all available subclusters, make a [SubclusterService.List](/docs/data-proc/api-ref/Subcluster/list#List) request.
 
 ## HTTP request
@@ -52,7 +51,6 @@ The maximum string length in characters is 50. ||
 || subclusterId | **string**
 
 Required field. ID of the subcluster to return.
-
 To get a subcluster ID make a [SubclusterService.List](/docs/data-proc/api-ref/Subcluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -120,8 +118,7 @@ The string length in characters must be 1-63. ||
 Role that is fulfilled by hosts of the subcluster.
 
 - `MASTERNODE`: The subcluster fulfills the master role.
-
-  Master can run the following services, depending on the requested components:
+Master can run the following services, depending on the requested components:
 * HDFS: Namenode, Secondary Namenode
 * YARN: ResourceManager, Timeline Server
 * HBase Master
@@ -130,15 +127,13 @@ Role that is fulfilled by hosts of the subcluster.
 * Zeppelin
 * ZooKeeper
 - `DATANODE`: The subcluster is a DATANODE in a Yandex Data Processing cluster.
-
-  DATANODE can run the following services, depending on the requested components:
+DATANODE can run the following services, depending on the requested components:
 * HDFS DataNode
 * YARN NodeManager
 * HBase RegionServer
 * Spark libraries
 - `COMPUTENODE`: The subcluster is a COMPUTENODE in a Yandex Data Processing cluster.
-
-  COMPUTENODE can run the following services, depending on the requested components:
+COMPUTENODE can run the following services, depending on the requested components:
 * YARN NodeManager
 * Spark libraries ||
 || resources | **[Resources](#yandex.cloud.dataproc.v1.Resources)**
@@ -168,16 +163,22 @@ ID of Compute Instance Group for autoscaling subclusters ||
 || resourcePresetId | **string**
 
 ID of the resource preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). ||
+All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types).
+
+The maximum string length in characters is 50. ||
 || diskTypeId | **string**
 
 Type of the storage environment for the host.
 Possible values:
 * network-hdd - network HDD drive,
-* network-ssd - network SSD drive. ||
+* network-ssd - network SSD drive.
+
+The maximum string length in characters is 50. ||
 || diskSize | **string** (int64)
 
-Volume of the storage available to a host, in bytes. ||
+Volume of the storage available to a host, in bytes.
+
+The minimum value is 0. ||
 |#
 
 ## AutoscalingConfig {#yandex.cloud.dataproc.v1.AutoscalingConfig}

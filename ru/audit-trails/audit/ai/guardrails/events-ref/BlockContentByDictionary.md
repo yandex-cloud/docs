@@ -90,7 +90,8 @@ editable: false
   "details": {
     "version": "string",
     "direction": "string",
-    "guardrailId": "string"
+    "guardrailId": "string",
+    "dictionaryId": "string"
   },
   "response": "object"
 }
@@ -266,4 +267,5 @@ A list of messages that carry the error details. ||
 - `V3` ||
 || direction | **string** ||
 || guardrailId | **string** ||
+|| dictionaryId | **string** ||
 |#

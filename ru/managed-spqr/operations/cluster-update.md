@@ -141,7 +141,7 @@ keywords:
 
         {% endnote %}
 
-     * `name` — имя кластера.
+     * `name` — новое имя кластера.
 
      
      * `securityGroupIds` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md).
@@ -222,6 +222,8 @@ keywords:
        --data "@body.json"
      ```
 
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
@@ -236,6 +238,7 @@ keywords:
      
      ```json
      {
+       "cluster_id": "<идентификатор_кластера>",
        "update_mask": {
          "paths": [
            <список_изменяемых_параметров>
@@ -320,6 +323,7 @@ keywords:
 
      Где:
 
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
         {% cut "Формат перечисления настроек" %}
@@ -343,7 +347,7 @@ keywords:
 
         {% endnote %}
 
-     * `name` — имя кластера.
+     * `name` — новое имя кластера.
 
      
      * `security_group_ids` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md).

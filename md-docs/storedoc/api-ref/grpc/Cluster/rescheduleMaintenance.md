@@ -32,7 +32,7 @@ Required field. The type of reschedule request.
 - `SPECIFIC_TIME`: Start the maintenance operation at the specific time. ||
 || delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-The time until which this maintenance operation should be delayed. The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks. The value can also point to the past moment of time if [reschedule_type.IMMEDIATE](../../../../managed-mongodb/api-ref/grpc/Cluster/rescheduleMaintenance#yandex.cloud.mdb.mongodb.v1.RescheduleMaintenanceRequest.RescheduleType) reschedule type is chosen. ||
+The time until which this maintenance operation should be delayed. The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks. The value can also point to the past moment of time if [reschedule_type.IMMEDIATE](rescheduleMaintenance.md#yandex.cloud.mdb.mongodb.v1.RescheduleMaintenanceRequest.RescheduleType) reschedule type is chosen. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

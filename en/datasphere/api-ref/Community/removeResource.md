@@ -9,7 +9,7 @@ apiPlayground:
         resourceId:
           description: |-
             **string**
-            Required field. 
+            Required field.
           type: string
       required:
         - resourceId
@@ -21,13 +21,13 @@ apiPlayground:
         communityId:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 50.
           type: string
         resourceType:
           description: |-
             **enum** (ResourceType)
-            Required field. 
-            - `RESOURCE_TYPE_UNSPECIFIED`
+            Required field.
             - `RESOURCE_TYPE_SECRET`
             - `RESOURCE_TYPE_DOCKER_IMAGE`
             - `RESOURCE_TYPE_DATASET`
@@ -66,7 +66,7 @@ POST https://datasphere.{{ api-host }}/datasphere/v2/communities/{resourceId}:re
 ||Field | Description ||
 || resourceId | **string**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## Body parameters {#yandex.cloud.datasphere.v2.RemoveCommunityResourceRequest}
@@ -82,12 +82,13 @@ Required field.  ||
 ||Field | Description ||
 || communityId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || resourceType | **enum** (ResourceType)
 
-Required field. 
+Required field.
 
-- `RESOURCE_TYPE_UNSPECIFIED`
 - `RESOURCE_TYPE_SECRET`
 - `RESOURCE_TYPE_DOCKER_IMAGE`
 - `RESOURCE_TYPE_DATASET`
@@ -109,14 +110,15 @@ Required field.
   "modifiedAt": "string",
   "done": "boolean",
   "metadata": "object",
-  // Includes only one of the fields `error`
+  // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
     "details": [
       "object"
     ]
-  }
+  },
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -167,7 +169,22 @@ Any method that returns a long-running operation should document the metadata ty
 
 The error result of the operation in case of failure or cancellation.
 
-Includes only one of the fields `error`.
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **object**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
 
 The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.

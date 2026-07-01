@@ -37,8 +37,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов входят:
-* Плата за вычислительные ресурсы ВМ ([тарифы Compute Cloud](../pricing.md#prices-instance-resources)).
-* Плата за [диски](../concepts/disk.md) ВМ ([тарифы Compute Cloud](../pricing.md#prices-storage)).
+* Плата за вычислительные ресурсы ВМ ([тарифы Compute Cloud](../../compute/pricing.md#prices-instance-resources)).
+* Плата за [диски](../concepts/disk.md) ВМ ([тарифы Compute Cloud](../../compute/pricing.md#prices-storage)).
 * Плата за использование динамического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 * Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы Cloud Functions](../../functions/pricing.md)).
 * Плата за количество запросов к очередям и исходящий трафик ([тарифы Message Queue](../../message-queue/pricing.md)).
@@ -842,7 +842,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
         1. Выберите вариант:
         
             * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
             * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.

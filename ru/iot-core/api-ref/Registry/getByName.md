@@ -12,12 +12,14 @@ apiPlayground:
             **string**
             Required field. ID of the folder to list registries in.
             To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         registryName:
           description: |-
             **string**
             Required field. Name of the registry to return.
             To get a registry Name make a [RegistryService.List](/docs/iot-core/api-ref/Registry/list#List) request.
+            The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
       required:
@@ -43,13 +45,15 @@ GET https://iot-devices.{{ api-host }}/iot-devices/v1/registries:getByName
 || folderId | **string**
 
 Required field. ID of the folder to list registries in.
+To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
 
-To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+The maximum string length in characters is 50. ||
 || registryName | **string**
 
 Required field. Name of the registry to return.
+To get a registry Name make a [RegistryService.List](/docs/iot-core/api-ref/Registry/list#List) request.
 
-To get a registry Name make a [RegistryService.List](/docs/iot-core/api-ref/Registry/list#List) request. ||
+The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.iot.devices.v1.Registry}
@@ -67,11 +71,11 @@ To get a registry Name make a [RegistryService.List](/docs/iot-core/api-ref/Regi
   "status": "string",
   "logGroupId": "string",
   "logOptions": {
-    "disabled": "boolean",
     // Includes only one of the fields `logGroupId`, `folderId`
     "logGroupId": "string",
     "folderId": "string",
     // end of the list of possible fields
+    "disabled": "boolean",
     "minLevel": "string"
   }
 }
@@ -110,7 +114,6 @@ Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 
 Status of the registry.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Registry is being created.
 - `ACTIVE`: Registry is ready to use.
 - `DELETING`: Registry is being deleted.
@@ -127,12 +130,11 @@ Options for logging registry events ||
 
 #|
 ||Field | Description ||
-|| disabled | **boolean**
-
-Is logging from registry disabled. ||
 || logGroupId | **string**
 
 Entry should be written to log group resolved by ID.
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `logGroupId`, `folderId`.
 
@@ -141,34 +143,29 @@ Log entries destination. ||
 
 Entry should be written to default log group for specified folder.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `logGroupId`, `folderId`.
 
 Log entries destination. ||
+|| disabled | **boolean**
+
+Is logging from registry disabled. ||
 || minLevel | **enum** (Level)
 
 Minimum log entry level.
+See [LogLevel.Level](/docs/logging/api-ref/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
-
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
-
-  May be used to alert about unrecoverable failures and events. ||
+May be used to alert about unrecoverable failures and events. ||
 |#

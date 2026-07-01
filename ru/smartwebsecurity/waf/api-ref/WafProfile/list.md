@@ -67,6 +67,7 @@ Currently page_size, page_token, filter and order_by are not supported and List 
       "description": "string",
       "labels": "object",
       "createdAt": "string",
+      "updatedAt": "string",
       "rules": [
         {
           "ruleId": "string",
@@ -646,7 +647,8 @@ Currently page_size, page_token, filter and order_by are not supported and List 
                   "value": "string",
                   "caseSensitive": "boolean"
                 }
-              ]
+              ],
+              "isExcluded": "boolean"
             }
           }
         }
@@ -757,6 +759,16 @@ The maximum string length in characters for each value is 63. The string length 
 || createdAt | **string** (date-time)
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| updatedAt | **string** (date-time)
+
+Update timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -1376,7 +1388,7 @@ Matcher for request headers. ||
 Matcher for request cookies. ||
 || bodyMatcher | **[BodyMatcher](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.BodyMatcher)**
 
-Matcher for request body. ||
+Matcher for request body exclusion flag. ||
 |#
 
 ## RequestParamMatcher {#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.RequestParamMatcher}
@@ -1430,9 +1442,12 @@ The maximum number of elements is 20. ||
 ||Field | Description ||
 || bodyValues[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.StringMatcher)**
 
-List of request body values to match. Up to 20 entries.
+Deprecated. Previously matched body content. Use is_excluded instead.
 
 The maximum number of elements is 20. ||
+|| isExcluded | **boolean**
+
+When true, request body is excluded from WAF inspection for this exclusion rule. ||
 |#
 
 ## AnalyzeRequestBody {#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.AnalyzeRequestBody}

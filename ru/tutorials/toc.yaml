@@ -421,36 +421,18 @@ items:
         href: dev/gitlab-tracker-integration.md
       - name: Высокопроизводительные вычисления (HPC) на прерываемых ВМ
         href: testing/hpc-on-preemptible.md
-      - name: Нагрузочное тестирование gRPC-сервиса
-        href: testing/loadtesting-grpc.md
-      - name: HTTPS-тест с постоянной нагрузкой с помощью Phantom
-        href: testing/loadtesting-https-phantom.md
-      - name: HTTPS-тест со ступенчатой нагрузкой с помощью Pandora
-        href: testing/loadtesting-https-pandora.md
-      - name: HTTP-тест с нагрузкой по сценарию с помощью Pandora
-        href: testing/loadtesting-http-scenario-pandora.md
-      - name: Нагрузочное тестирование с нескольких агентов
-        href: testing/loadtesting-multiply.md
-      - name: Запуск внешних агентов для нагрузочного тестирования
-        href: testing/loadtesting-external-agent.md
-      - name: Нагрузочный тест с помощью JMeter
-        href: testing/loadtesting-jmeter.md
       - name: >-
           Получение статистики запросов к объектам {{ objstorage-name }} с
           использованием {{ yq-name }}
         href: testing/server-logs-yq.md
       - name: Получение количества запросов к объектам {{ objstorage-name }}
         href: testing/server-logs.md
-      - name: Вызов нагрузочного тестирования из {{ GL }} CI
-        href: testing/loadtesting-gitlab-ci.md
       - name: Развертывание {{ GLR }} на виртуальной машине {{ compute-name }}
         href: dev/install-gitlab-runner.md
       - name: >-
           Развертывание воркера {{ src-full-name }} на виртуальной машине {{
           compute-name }}
         href: dev/self-hosted-worker-sourcecraft.md
-      - name: Сравнение результатов нагрузочных тестов
-        href: testing/loadtesting-results-compare.md
       - name: Миграция нагрузочного тестирования на k6
         href: testing/loadtesting-migration-to-k6.md
       - name: >-
@@ -687,10 +669,6 @@ items:
                 href: container-infrastructure/autoscaling.md
               - name: Вертикальное масштабирование приложения в кластере
                 href: container-infrastructure/vpa-autoscaling.md
-              - name: >-
-                  Развертывание и нагрузочное тестирование gRPC-сервиса с
-                  масштабированием
-                href: container-infrastructure/loadtesting-grpc-autoscaling.md
           - name: Использование {{ container-registry-name }}
             items:
               - name: Интеграция с {{ container-registry-name }}

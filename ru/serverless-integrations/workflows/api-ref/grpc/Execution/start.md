@@ -108,5 +108,5 @@ Includes only one of the fields `nullValue`, `numberValue`, `stringValue`, `bool
 ||Field | Description ||
 || execution_id | **string**
 
-ID of the Workflow execution. ||
+Required field. ID of the Workflow execution. ||
 |#

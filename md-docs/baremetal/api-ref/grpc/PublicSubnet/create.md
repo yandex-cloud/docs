@@ -68,9 +68,7 @@ To get a list of available hardware pools, use the [HardwarePoolService.List](..
 || prefix_length | **int64**
 
 @deprecated
-Prefix length of the public subnet CIDR block.
-
-Acceptable values are 1 to 31, inclusive. ||
+Prefix length of the public subnet CIDR block. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.

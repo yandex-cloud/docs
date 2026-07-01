@@ -29,7 +29,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за использование [OIDC-приложения](../../concepts/applications/oidc.md) ([тарифы Yandex Identity Hub](../../pricing.md)).
+В стоимость поддержки инфраструктуры входит плата за использование [OIDC-приложения](../../concepts/applications/oidc.md) ([тарифы Yandex Identity Hub](../../../organization/pricing.md)).
 
 ### Перед началом работы {#check-to-begin}
 

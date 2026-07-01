@@ -4,7 +4,7 @@
 To migrate a service from a network load balancer to an L7 load balancer:
 
 1. [See the service migration recommendations](#recommendations).
-1. [Create your infrastructure](#deploy).
+1. [Create the infrastructure](#deploy).
 1. [Install an {{ alb-name }} ingress controller and create resources in your {{ managed-k8s-name }} cluster](#install-ingress-nginx). At this step, you will associate your {{ sws-name }} profile with the L7 load balancer.
 1. [Test the L7 load balancer](#test).
 1. [Migrate user traffic from the network load balancer to the L7 load balancer](#migration-nlb-to-alb).
@@ -17,7 +17,7 @@ To migrate a service from a network load balancer to an L7 load balancer:
 
 The {{ managed-k8s-name }} services used as backends must be of the `NodePort` type. If your service type is different, change it to `NodePort`. For more information about this type, see [this {{ k8s }} article](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
 
-## Create your infrastructure {#deploy}
+## Create the infrastructure {#deploy}
 
 1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
 1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
@@ -43,7 +43,7 @@ The {{ managed-k8s-name }} services used as backends must be of the `NodePort` t
     * `certificate` (for `HTTPS`): Path to the self-signed custom certificate.
     * `private_key` (for `HTTPS`): Path to the private key file.
 
-1. Validate your {{ TF }} configuration files using this command:
+1. Make sure the {{ TF }} configuration files are correct using this command:
 
     ```bash
     terraform validate
@@ -101,7 +101,7 @@ Select one of these migration options:
 1. Navigate to the L7 load balancer:
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder with the {{ managed-k8s-name }} cluster.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Select the cluster.
     1. Select ![image](../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.k8s.cluster.switch_network }}** on the left and then the **{{ ui-key.yacloud.k8s.network.label_ingress }}** tab on the right. For your `Ingress` resource, follow the L7 load balancer link in the **Load balancer** column.
     1. Monitor the L7 load balancer's user traffic on the [load balancer statistics](../../application-load-balancer/operations/application-load-balancer-get-stats.md) charts.

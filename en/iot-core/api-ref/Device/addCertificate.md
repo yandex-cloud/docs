@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the device for which the certificate is being added.
             To get a device ID make a [DeviceService.List](/docs/iot-core/api-ref/Device/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - deviceId
@@ -45,8 +46,9 @@ POST https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}/certif
 || deviceId | **string**
 
 Required field. ID of the device for which the certificate is being added.
+To get a device ID make a [DeviceService.List](/docs/iot-core/api-ref/Device/list#List) request.
 
-To get a device ID make a [DeviceService.List](/docs/iot-core/api-ref/Device/list#List) request. ||
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.iot.devices.v1.AddDeviceCertificateRequest}
@@ -76,10 +78,7 @@ Public part of the certificate. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "deviceId": "string",
-    "fingerprint": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -88,12 +87,7 @@ Public part of the certificate. ||
       "object"
     ]
   },
-  "response": {
-    "deviceId": "string",
-    "fingerprint": "string",
-    "certificateData": "string",
-    "createdAt": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -135,7 +129,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[AddDeviceCertificateMetadata](#yandex.cloud.iot.devices.v1.AddDeviceCertificateMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -150,7 +144,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[DeviceCertificate](#yandex.cloud.iot.devices.v1.DeviceCertificate)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -165,18 +159,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## AddDeviceCertificateMetadata {#yandex.cloud.iot.devices.v1.AddDeviceCertificateMetadata}
-
-#|
-||Field | Description ||
-|| deviceId | **string**
-
-ID of the device certificate that is being added. ||
-|| fingerprint | **string**
-
-Fingerprint of the certificate that is being added. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -194,31 +176,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## DeviceCertificate {#yandex.cloud.iot.devices.v1.DeviceCertificate}
-
-A device certificate. For more information, see [Managing device certificates](/docs/iot-core/operations/certificates/device-certificates).
-
-#|
-||Field | Description ||
-|| deviceId | **string**
-
-ID of the device that the certificate belongs to. ||
-|| fingerprint | **string**
-
-SHA256 hash of the certificate. ||
-|| certificateData | **string**
-
-Public part of the certificate. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

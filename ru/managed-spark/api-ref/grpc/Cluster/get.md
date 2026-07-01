@@ -18,6 +18,8 @@ Returns the specified Spark cluster.
 }
 ```
 
+Get Cluster Request.
+
 #|
 ||Field | Description ||
 || cluster_id | **string**
@@ -82,7 +84,8 @@ The maximum string length in characters is 50. ||
     "metastore": {
       "cluster_id": "string"
     },
-    "spark_version": "string"
+    "spark_version": "string",
+    "environment_id": "string"
   },
   "status": "Status",
   "network": {
@@ -150,7 +153,9 @@ The name is unique within the folder. 1-64 characters long. ||
 || description | **string**
 
 Description of the Spark cluster. 0-256 characters long. ||
-|| labels | **object** (map<**string**, **string**>) ||
+|| labels | **object** (map<**string**, **string**>)
+
+Cluster Labels. ||
 || config | **[ClusterConfig](#yandex.cloud.spark.v1.ClusterConfig)**
 
 Configuration of the Spark cluster. ||
@@ -158,21 +163,23 @@ Configuration of the Spark cluster. ||
 
 Cluster status.
 
-- `STATUS_UNKNOWN`: Cluster status is unknown
-- `CREATING`: Cluster is being created
+- `STATUS_UNKNOWN`: Cluster status is unknown.
+- `CREATING`: Cluster is being created.
 - `RUNNING`: Cluster is running normally.
 - `UPDATING`: Cluster is being updated.
 - `ERROR`: Cluster encountered a problem and cannot operate.
 - `STOPPING`: Cluster is stopping.
 - `STOPPED`: Cluster is stopped.
 - `STARTING`: Cluster is starting. ||
-|| network | **[NetworkConfig](#yandex.cloud.spark.v1.NetworkConfig)** ||
+|| network | **[NetworkConfig](#yandex.cloud.spark.v1.NetworkConfig)**
+
+Cluster Network Configuration. ||
 || deletion_protection | **bool**
 
-Deletion Protection inhibits deletion of the cluster ||
+Deletion Protection inhibits deletion of the cluster. ||
 || service_account_id | **string**
 
-Service account that will be used to access a YC resources
+Service account that will be used to access a YC resources.
 
 The maximum string length in characters is 50. ||
 || logging | **[LoggingConfig](#yandex.cloud.spark.v1.LoggingConfig)**
@@ -188,7 +195,7 @@ Aggregated cluster health.
 - `DEGRADED`: Cluster is partially alive (it can perform some of its essential functions). ||
 || links[] | **[UILink](#yandex.cloud.spark.v1.UILink)**
 
-UI URLs ||
+UI URLs. ||
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.spark.v1.MaintenanceWindow)**
 
 Window of maintenance operations. ||
@@ -199,38 +206,49 @@ Maintenance operation planned at nearest maintenance_window. ||
 
 ## ClusterConfig {#yandex.cloud.spark.v1.ClusterConfig}
 
+Configuration of the Spark cluster.
+
 #|
 ||Field | Description ||
 || resource_pools | **[ResourcePools](#yandex.cloud.spark.v1.ResourcePools)**
 
-Required field. ||
+Required field. Resource Pools. ||
 || history_server | **[HistoryServerConfig](#yandex.cloud.spark.v1.HistoryServerConfig)**
 
-Configuration for HistoryServer ||
+Configuration for HistoryServer. ||
 || dependencies | **[Dependencies](#yandex.cloud.spark.v1.Dependencies)**
 
-Container custom environment dependencies ||
+Container custom environment dependencies. ||
 || metastore | **[Metastore](#yandex.cloud.spark.v1.Metastore)**
 
-Metastore Cluster ||
+Metastore Cluster. ||
 || spark_version | **string**
 
-Spark version. Format: "Major.Minor" ||
+Spark version. Format: "Major.Minor". ||
+|| environment_id | **string**
+
+Job Environment ID.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ResourcePools {#yandex.cloud.spark.v1.ResourcePools}
+
+Resource Pools.
 
 #|
 ||Field | Description ||
 || driver | **[ResourcePool](#yandex.cloud.spark.v1.ResourcePool)**
 
-Required field. ||
+Required field. Driver Resource Pool. ||
 || executor | **[ResourcePool](#yandex.cloud.spark.v1.ResourcePool)**
 
-Required field. ||
+Required field. Executor Resource Pool. ||
 |#
 
 ## ResourcePool {#yandex.cloud.spark.v1.ResourcePool}
+
+Resource Pool.
 
 #|
 ||Field | Description ||
@@ -241,67 +259,103 @@ Required field. ID of the preset for computational resources allocated to a inst
 The maximum string length in characters is 50. ||
 || scale_policy | **[ScalePolicy](#yandex.cloud.spark.v1.ScalePolicy)**
 
-Required field. ||
+Required field. Scale Policy. ||
 |#
 
 ## ScalePolicy {#yandex.cloud.spark.v1.ScalePolicy}
+
+Scale Policy.
 
 #|
 ||Field | Description ||
 || fixed_scale | **[FixedScale](#yandex.cloud.spark.v1.ScalePolicy.FixedScale)**
 
-Includes only one of the fields `fixed_scale`, `auto_scale`. ||
+Fixed Scale Policy.
+
+Includes only one of the fields `fixed_scale`, `auto_scale`.
+
+Scale Type. ||
 || auto_scale | **[AutoScale](#yandex.cloud.spark.v1.ScalePolicy.AutoScale)**
 
-Includes only one of the fields `fixed_scale`, `auto_scale`. ||
+Auto Scale Policy.
+
+Includes only one of the fields `fixed_scale`, `auto_scale`.
+
+Scale Type. ||
 |#
 
 ## FixedScale {#yandex.cloud.spark.v1.ScalePolicy.FixedScale}
 
+Fixed Scale Policy.
+
 #|
 ||Field | Description ||
 || size | **int64**
+
+Fixed Size.
 
 Acceptable values are 1 to 100, inclusive. ||
 |#
 
 ## AutoScale {#yandex.cloud.spark.v1.ScalePolicy.AutoScale}
 
+Auto Scale Policy.
+
 #|
 ||Field | Description ||
 || min_size | **int64**
 
+Min Size.
+
 Acceptable values are 0 to 100, inclusive. ||
 || max_size | **int64**
+
+Max Size.
 
 Acceptable values are 1 to 100, inclusive. ||
 |#
 
 ## HistoryServerConfig {#yandex.cloud.spark.v1.HistoryServerConfig}
 
+Configuration for HistoryServer.
+
 #|
 ||Field | Description ||
-|| enabled | **bool** ||
+|| enabled | **bool**
+
+History Server is enabled. ||
 |#
 
 ## Dependencies {#yandex.cloud.spark.v1.Dependencies}
 
+Cluster Dependencies.
+
 #|
 ||Field | Description ||
-|| pip_packages[] | **string** ||
-|| deb_packages[] | **string** ||
+|| pip_packages[] | **string**
+
+Pip Packages. ||
+|| deb_packages[] | **string**
+
+Deb Packages. ||
 |#
 
 ## Metastore {#yandex.cloud.spark.v1.Metastore}
+
+Metastore Cluster.
 
 #|
 ||Field | Description ||
 || cluster_id | **string**
 
+Cluster ID.
+
 The maximum string length in characters is 50. ||
 |#
 
 ## NetworkConfig {#yandex.cloud.spark.v1.NetworkConfig}
+
+Cluster Network Configuration.
 
 #|
 ||Field | Description ||
@@ -310,32 +364,50 @@ The maximum string length in characters is 50. ||
 IDs of VPC network subnets where instances of the cluster are attached. ||
 || security_group_ids[] | **string**
 
-User security groups ||
+User security groups. ||
 |#
 
 ## LoggingConfig {#yandex.cloud.spark.v1.LoggingConfig}
 
+Logging Config.
+
 #|
 ||Field | Description ||
-|| enabled | **bool** ||
+|| enabled | **bool**
+
+Logging is enabled. ||
 || folder_id | **string**
 
+Folder ID.
+
 Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
-Includes only one of the fields `folder_id`, `log_group_id`. ||
+Includes only one of the fields `folder_id`, `log_group_id`.
+
+Destination. ||
 || log_group_id | **string**
 
+Logging Group ID.
+
 Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
-Includes only one of the fields `folder_id`, `log_group_id`. ||
+Includes only one of the fields `folder_id`, `log_group_id`.
+
+Destination. ||
 |#
 
 ## UILink {#yandex.cloud.spark.v1.UILink}
 
+UI URL.
+
 #|
 ||Field | Description ||
-|| name | **string** ||
-|| url | **string** ||
+|| name | **string**
+
+Name. ||
+|| url | **string**
+
+URL. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.spark.v1.MaintenanceWindow}

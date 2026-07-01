@@ -1,7 +1,7 @@
 # Managed Service for MongoDB API, gRPC: BackupService.Get
 
 Returns the specified MongoDB backup.
-To get the list of available MongoDB backups, make a [List](../../../../managed-mongodb/api-ref/grpc/Backup/list#List) request.
+To get the list of available MongoDB backups, make a [List](list.md#List) request.
 
 ## gRPC request
 
@@ -20,7 +20,7 @@ To get the list of available MongoDB backups, make a [List](../../../../managed-
 || backup_id | **string**
 
 Required field. ID of the backup to return information about.
-To get the backup ID, use a [ClusterService.ListBackups](../../../../managed-mongodb/api-ref/grpc/Cluster/listBackups#ListBackups) request. ||
+To get the backup ID, use a [ClusterService.ListBackups](../Cluster/listBackups.md#ListBackups) request. ||
 |#
 
 ## Backup {#yandex.cloud.mdb.mongodb.v1.Backup}
@@ -42,7 +42,7 @@ To get the backup ID, use a [ClusterService.ListBackups](../../../../managed-mon
 ```
 
 A MongoDB Backup resource. For more information, see the
-[Developer's Guide](../../../../managed-mongodb/concepts).
+[Developer's Guide](../../../concepts/index.md).
 
 #|
 ||Field | Description ||

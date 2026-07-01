@@ -1062,6 +1062,16 @@ items:
                 href: api-ref/ServiceControl/disable.md
               - name: ResolveAgent
                 href: api-ref/ServiceControl/resolveAgent.md
+          - name: SubjectDetails
+            items:
+              - name: Overview
+                href: api-ref/SubjectDetails/index.md
+              - name: Get
+                href: api-ref/SubjectDetails/get.md
+              - name: List
+                href: api-ref/SubjectDetails/list.md
+              - name: BatchGet
+                href: api-ref/SubjectDetails/batchGet.md
           - name: UserAccount
             items:
               - name: Overview

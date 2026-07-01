@@ -6,7 +6,7 @@
 
 Подробнее о том, какой сервис координации выбрать, читайте в разделе [Выбор сервиса координации](../concepts/coordination-system.md#coordination-system-selection).
 
-Хосты ClickHouse® Keeper и ZooKeeper учитываются в расчете использованной [квоты ресурсов](https://console.yandex.cloud/cloud?section=quotas) в облаке и в [расчете стоимости](../pricing.md) кластера.
+Хосты ClickHouse® Keeper и ZooKeeper учитываются в расчете использованной [квоты ресурсов](https://console.yandex.cloud/cloud?section=quotas) в облаке и в [расчете стоимости](../../../managed-clickhouse/pricing.md) кластера.
 
 
 Подключениями к БД кластера управляет сервис Connection Manager. Вместе с кластером автоматически создаются:

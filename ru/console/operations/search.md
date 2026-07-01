@@ -134,15 +134,6 @@
 [Симметричный ключ](../../kms/concepts/symmetric-encryption.md) | Идентификатор, имя
 
 
-### {{ load-testing-full-name }} {#load-testing}
-
-Тип объекта | Поля
---- | ---
-[Дашборд регрессий](../../load-testing/concepts/load-test-regressions.md#dashbordy-regressij) | Идентификатор, имя
-[Генератор нагрузки](../../load-testing/concepts/load-generator.md) | Идентификатор, имя, метки
-[Тест](../../load-testing/operations/create-test-bucket.md) | Идентификатор, имя, метки
-
-
 ### {{ lockbox-full-name }} {#lockbox}
 
 Тип объекта | Поля

@@ -429,6 +429,139 @@ default:
   mkf:
     kp: Karapace
     kp-api-version: '6.1'
+  mkt-k8s-key:
+    yc_alb-ingress-controller:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
+        tag: v0.2.26
+    yc_argo-cd:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
+        tag: 7.3.11-2
+    yc_bitrix-env:
+      dockerImages:
+        nginx:
+          repository:
+            name: >-
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1775660129087745327177484940704164668665505295409
+            tag: 1.28.3-v1
+        php:
+          repository:
+            name: >-
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1775660129087745327177484940704164668665505295409
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env
+        tag: 1.0.6
+    yc_cert-manager-webhook-yandex:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/cert-manager-webhook-yandex/cert-manager-webhook-yandex
+        tag: 1.0.9
+    yc_chaos-mesh:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/chaos-mesh/chart/chaos-mesh
+        tag: 2.8.0
+    yc_crossplane:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
+        tag: v1.20.6
+    yc_csi-s3:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
+        tag: 0.43.7
+    yc_external-secrets:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/external-secrets/charts/external-secrets
+        tag: 2.5.0
+    yc_externaldns:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/externaldns/chart/externaldns
+        tag: 0.5.1-b
+    yc_falco:
+      helmChart:
+        name: cr.yandex/yc-marketplace/falco
+        tag: 2.2.5
+    yc_filebeat-oss:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/filebeat-oss/chart/filebeat-oss
+        tag: 7.12.1-1
+    yc_fluent-bit:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit
+        tag: 4.2.3-1
+    yc_gatekeeper:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/gatekeeper/gatekeeper
+        tag: 3.20.1
+    yc_gateway-api:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
+        tag: v0.7.3
+    yc_gitlab-agent:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/gitlab-org/gitlab-agent/chart/gitlab-agent
+        tag: 1.16.1
+    yc_gitlab-runner:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/gitlab-org/gitlab-runner/chart/gitlab-runner
+        tag: 0.54.1
+    yc_gwin:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
+        tag: v1.4.0
+    yc_istio:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
+        tag: 1.21.2-1
+    yc_keda:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/keda/chart/keda-external-scaler-yc
+        tag: 1.1.3
+    yc_kubernetes-node-remediation:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/medik8s/kubernetes-node-remediation/chart/kubernetes-node-remediation
+        tag: 1.0.1
+    yc_kyverno:
+      helmChart:
+        name: cr.yandex/yc-marketplace/multi-kyverno
+        tag: 1.0.0
+    yc_loki:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki
+        tag: 1.2.0-7
+    yc_metric-provider:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/metric-provider/chart/metric-provider
+        tag: 0.1.13
+    yc_node-local-dns:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/node-local-dns
+        tag: 1.5.1
+    yc_node-sitter:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/node-sitter/node-sitter/chart/node-sitter
+        tag: 0.1.6
+    yc_prometheus-operator:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/prometheus/kube-prometheus-stack
+        tag: 72.6.2-1
+    yc_thumbor:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor
+        tag: 0.1.2-10
+    yc_velero-yc-csi:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/velero/chart/velero
+        tag: 8.5.0-5
   ml-platform-full-name: Yandex DataSphere
   ml-platform-name: DataSphere
   ml-platform-short-name: DataSphere
@@ -511,535 +644,6 @@ default:
     docs: https://opensearch.org/docs/latest
   oslogin: OS Login
   packer-source-link: github.com/hashicorp/yandex
-  permission-admin: Администрирование
-  permission-execute: Исполнение
-  permission-read: Просмотр
-  permission-write: Редактирование
-  PG: PostgreSQL
-  pg-docs: https://www.postgresql.org/docs/current
-  pg:
-    docs:
-      org: https://www.postgresql.org/docs
-      pro: https://postgrespro.ru/docs
-    versions:
-      console:
-        dpr: '14'
-        str-1c: 14-1c, 15-1c, 16-1c, 17-1c, 18-1c
-        str-last: '15'
-      tf:
-        latest: '18'
-        str: 14, 14-1c, 15, 15-1c, 16, 16-1c, 17, 17-1c, 18 и 18-1c
-  pgadmin: "pgAdmin\_4"
-  php-cli-ver: php82
-  php-full-ver: PHP 8.2
-  port-any: 0-65535
-  port-http: 80
-  port-https: 443
-  port-k8s: 6443
-  port-mch-cli: 9440
-  port-mch-http: 8443
-  port-mes: 9200
-  port-metastore: 9083
-  port-mgp: 6432
-  port-mkf-ssl: 9091
-  port-mkf-text: 9092
-  port-mmg: 27018
-  port-mmg-sharded: 27017
-  port-mmy: 3306
-  port-mos: 9200
-  port-mpg: 6432
-  port-mrd: 6379
-  port-mrd-sentinel: 26379
-  port-mrd-tls: 6380
-  port-range-k8s-nodeport: 30000-32767
-  port-ssh: 22
-  postbox-endpoint: https://postbox.cloud.yandex.net
-  postbox-full-name: Yandex Cloud Postbox
-  postbox-host: postbox.cloud.yandex.net
-  postbox-name: Yandex Cloud Postbox
-  postbox-short-name: Yandex Cloud Postbox
-  preview-stage: <code><b><small>Preview</small></b></code>
-  price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
-  prometheus-name: Prometheus
-  promql-name: PromQL
-  python-cli-ver: python314
-  python-full-ver: Python 3.14
-  quota-manager-full-name: Yandex Cloud Quota Manager
-  quota-manager-name: Cloud Quota Manager
-  quota-manager-short-name: Quota Manager
-  RD: Redis
-  region-id: ru-central1
-  registry: cr.yandex
-  resmgr-full-name: Yandex Resource Manager
-  resmgr-name: Resource Manager
-  resmgr-short-name: Resource Manager
-  responses-api: Responses API
-  RMQ: RabbitMQ
-  roles-admin: admin
-  roles-alb-editor: alb.editor
-  roles-auditor: auditor
-  roles-cloud-member: resource-manager.clouds.member
-  roles-cloud-owner: resource-manager.clouds.owner
-  roles-connection-manager-user: connection-manager.user
-  roles-connection-manager-viewer: connection-manager.viewer
-  roles-cr-images-scanner: container-registry.images.scanner
-  roles-cr-puller: container-registry.images.puller
-  roles-cr-pusher: container-registry.images.pusher
-  roles-datalens-admin: datalens.admin
-  roles-datalens-creator: datalens.creator
-  roles-datalens-instances-admin: datalens.instances.admin
-  roles-datalens-visitor: datalens.visitor
-  roles-datalens-workbooks-editor: datalens.workbooks.editor
-  roles-datasphere-admin: datasphere.admin
-  roles-datasphere-communities-admin: datasphere.communities.admin
-  roles-datasphere-communities-developer: datasphere.communities.developer
-  roles-datasphere-communities-editor: datasphere.communities.editor
-  roles-datasphere-communities-viewer: datasphere.communities.viewer
-  roles-datasphere-project-admin: datasphere.community-projects.admin
-  roles-datasphere-project-developer: datasphere.community-projects.developer
-  roles-datasphere-project-editor: datasphere.community-projects.editor
-  roles-datasphere-user: datasphere.user
-  roles-editor: editor
-  roles-functions-admin: functions.admin
-  roles-functions-editor: functions.editor
-  roles-functions-invoker: functions.functionInvoker
-  roles-functions-mdbProxiesUser: functions.mdbProxiesUser
-  roles-functions-viewer: functions.viewer
-  roles-iam-sa-admin: iam.serviceAccounts.admin
-  roles-iam-sa-tokencreator: iam.serviceAccounts.tokenCreator
-  roles-image-user: compute.images.user
-  roles-license-manager-subscription-agent: license-manager.subscriptionAgent
-  roles-license-manager-user: license-manager.user
-  roles-lockbox-admin: lockbox.admin
-  roles-lockbox-editor: lockbox.editor
-  roles-lockbox-payloadviewer: lockbox.payloadViewer
-  roles-lockbox-viewer: lockbox.viewer
-  roles-logging-reader: logging.reader
-  roles-logging-writer: logging.writer
-  roles-mdb-admin: mdb.admin
-  roles-monitoring-editor: monitoring.editor
-  roles-monitoring-viewer: monitoring.viewer
-  roles-organization-admin: organization-manager.admin
-  roles-organization-owner: organization-manager.organizations.owner
-  roles-resource-manager-admin: resource-manager.admin
-  roles-resource-manager-editor: resource-manager.editor
-  roles-serverless-containers-invoker: serverless-containers.containerInvoker
-  roles-speechkit-stt: ai.speechkit-stt.user
-  roles-speechsense-data-editor: Data editor
-  roles-viewer: viewer
-  roles-vpc-admin: vpc.admin
-  roles-vpc-private-admin: vpc.privateAdmin
-  roles-vpc-public-admin: vpc.publicAdmin
-  roles-vpc-user: vpc.user
-  roles-yagpt-user: ai.languageModels.user
-  roles:
-    data-catalog:
-      admin: data-catalog.admin
-      assets:
-        admin: data-catalog.assets.admin
-        auditor: data-catalog.assets.auditor
-        editor: data-catalog.assets.editor
-        viewer: data-catalog.assets.viewer
-      auditor: data-catalog.auditor
-      catalogs:
-        admin: data-catalog.catalogs.admin
-        auditor: data-catalog.catalogs.auditor
-        editor: data-catalog.catalogs.editor
-        viewer: data-catalog.catalogs.viewer
-      classifications:
-        admin: data-catalog.classifications.admin
-        auditor: data-catalog.classifications.auditor
-        editor: data-catalog.classifications.editor
-        viewer: data-catalog.classifications.viewer
-      classificationTags:
-        admin: data-catalog.classificationsTags.admin
-        auditor: data-catalog.classificationsTags.auditor
-        editor: data-catalog.classificationsTags.editor
-        user: data-catalog.classificationsTags.user
-        viewer: data-catalog.classificationsTags.viewer
-      dataConsumer: data-catalog.dataConsumer
-      dataSteward: data-catalog.dataSteward
-      domains:
-        admin: data-catalog.domains.admin
-        auditor: data-catalog.domains.auditor
-        editor: data-catalog.domains.editor
-        user: data-catalog.domains.user
-        viewer: data-catalog.domains.viewer
-      editor: data-catalog.editor
-      glossaries:
-        admin: data-catalog.glossaries.admin
-        auditor: data-catalog.glossaries.auditor
-        editor: data-catalog.glossaries.editor
-        viewer: data-catalog.glossaries.viewer
-      glossaryTerms:
-        admin: data-catalog.glossaryTerms.admin
-        auditor: data-catalog.glossaryTerms.auditor
-        editor: data-catalog.glossaryTerms.editor
-        user: data-catalog.glossaryTerms.user
-        viewer: data-catalog.glossaryTerms.viewer
-      ingestions:
-        admin: data-catalog.ingestions.admin
-        auditor: data-catalog.ingestions.auditor
-        editor: data-catalog.ingestions.editor
-        viewer: data-catalog.ingestions.viewer
-      ingestionSources:
-        admin: data-catalog.ingestionSources.admin
-        auditor: data-catalog.ingestionSources.auditor
-        editor: data-catalog.ingestionSources.editor
-        viewer: data-catalog.ingestionSources.viewer
-      lineages:
-        admin: data-catalog.lineages.admin
-        auditor: data-catalog.lineages.auditor
-        editor: data-catalog.lineages.editor
-        viewer: data-catalog.lineages.viewer
-      user: data-catalog.user
-      viewer: data-catalog.viewer
-    gitlab:
-      admin: gitlab.admin
-      editor: gitlab.editor
-      viewer: gitlab.viewer
-    k8s:
-      admin: k8s.admin
-      cluster-api:
-        cluster-admin: k8s.cluster-api.cluster-admin
-      clusters:
-        agent: k8s.clusters.agent
-      editor: k8s.editor
-    maf:
-      admin: managed-airflow.admin
-      editor: managed-airflow.editor
-      integrationProvider: managed-airflow.integrationProvider
-      user: managed-airflow.user
-      viewer: managed-airflow.viewer
-    mch:
-      admin: managed-clickhouse.admin
-      editor: managed-clickhouse.editor
-      viewer: managed-clickhouse.viewer
-    metastore:
-      admin: managed-metastore.admin
-      auditor: managed-metastore.auditor
-      editor: managed-metastore.editor
-      integrationProvider: managed-metastore.integrationProvider
-      maintenanceTask:
-        editor: managed-metastore.maintenanceTask.editor
-        viewer: managed-metastore.maintenanceTask.viewer
-      viewer: managed-metastore.viewer
-    mgp:
-      admin: managed-greenplum.admin
-      editor: managed-greenplum.editor
-      viewer: managed-greenplum.viewer
-    mkf:
-      admin: managed-kafka.admin
-      editor: managed-kafka.editor
-      viewer: managed-kafka.viewer
-    mmg:
-      admin: managed-mongodb.admin
-      editor: managed-mongodb.editor
-      viewer: managed-mongodb.viewer
-    mmy:
-      admin: managed-mysql.admin
-      editor: managed-mysql.editor
-      viewer: managed-mysql.viewer
-    mos:
-      admin: managed-opensearch.admin
-      editor: managed-opensearch.editor
-      viewer: managed-opensearch.viewer
-    mpg:
-      admin: managed-postgresql.admin
-      editor: managed-postgresql.editor
-      viewer: managed-postgresql.viewer
-    mrd:
-      admin: managed-redis.admin
-      editor: managed-redis.editor
-      viewer: managed-redis.viewer
-  s1-medium: s1.medium (8 vCPU, 32 ГБ)
-  s1-micro: s1.micro (2 vCPU, 8 ГБ)
-  s3-c2-m8: s3-c2-m8 (2 vCPU, 8 ГБ)
-  s3-dotnet-sdk-host: s3.yandexcloud.net
-  s3-storage-host: storage.yandexcloud.net
-  s3-storage-host-cli: storage.yandexcloud.net
-  s3-storage-host-doc-files: storage.yandexcloud.net/doc-files
-  s3-storage-host-mch: storage.yandexcloud.net/managed-clickhouse
-  s3-storage-host-ru: storage.yandexcloud.net
-  s3-web-host: website.yandexcloud.net
-  saml-limit-display-name: 64 символа
-  saml-limit-email: 256 символов
-  saml-limit-first-name: 64 символа
-  saml-limit-last-name: 64 символа
-  saml-limit-phone: 64 символа
-  saml-limit-thumbnail-photo: 204800 символов
-  sample-rfc3339-timestamp: '2006-01-02T15:04:05Z'
-  schema-registry-endpoint: schema-registry.yandexcloud.net:443
-  schema-registry-full-name: Yandex Schema Registry
-  schema-registry-name: Schema Registry
-  SD: Yandex StoreDoc
-  sd-full-name: Yandex Security Deck
-  sd-name: Security Deck
-  search-api: Yandex Search API
-  search-api-full-name: Yandex Search API
-  search-api-name: Yandex Search API
-  search-api-request-ch: 400 символов
-  search-api-request-w: 40 слов
-  security-group: enp6saqnq4ie********
-  security-standard-current-version: 1.4.2
-  serial-ssh-host: serialssh.cloud.yandex.net
-  serverless-containers-full-name: Yandex Serverless Containers
-  serverless-containers-host: containers.yandexcloud.net
-  serverless-containers-name: Serverless Containers
-  serverless-containers-short-name: Serverless Containers
-  sf-full-name: Yandex Cloud Functions
-  sf-name: Cloud Functions
-  sf-short-name: Cloud Functions
-  sf-url: functions.yandexcloud.net
-  si-full-name: Yandex Serverless Integrations
-  si-name: Serverless Integrations
-  sk-hybrid-full-name: Yandex SpeechKit Hybrid
-  sk-hybrid-name: SpeechKit Hybrid
-  spark-service-address: 10.248.0.0/13
-  speechkit-full-name: Yandex SpeechKit
-  speechkit-name: SpeechKit
-  speechkit-short-name: SpeechKit
-  speechkit-slug: speechkit
-  speechsense-full-name: Yandex SpeechSense
-  speechsense-name: SpeechSense
-  SPQR: Sharded PostgreSQL
-  spqr:
-    docs: https://docs.pg-sharding.tech
-  SPRK: Apache Spark™
-  SR: StarRocks
-  src-full-name: SourceCraft
-  src-name: SourceCraft
-  stackland-full-name: Yandex Cloud Stackland
-  stackland-name: Stackland
-  storage-aws-cli-alias: ycs3
-  sts-full-name: Yandex Security Token Service
-  sts-host: sts.yandexcloud.net
-  sts-name: Security Token Service
-  stt-long-audioLength: 4 часа
-  stt-long-fileSize: 1 ГБ
-  stt-long-resultsStorageTime: 3 суток
-  stt-short-audioLength: 30 секунд
-  stt-short-channelsCount: 1
-  stt-short-fileSize: 1 МБ
-  stt-streaming-audioLength: 5 минут
-  stt-streaming-fileSize: 10 МБ
-  subjects-allAuthenticatedUsers: allAuthenticatedUsers
-  subnet-id: b0rcctk2rvtr********
-  subnet-name: default-ru-central1-d
-  support-center-name: Cloud Center
-  support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
-  sw-full-name: Yandex Workflows
-  sw-name: Workflows
-  sws-full-name: Yandex Smart Web Security
-  sws-name: Smart Web Security
-  t4-ice-lake: Intel Ice Lake with NVIDIA® Tesla® T4
-  t4i-ice-lake: Intel Ice Lake with T4i
-  tag-all: <code><b><small>Все интерфейсы</small></b></code>
-  tag-api: <code><b><small>API</small></b></code>
-  tag-cli: <code><b><small>CLI</small></b></code>
-  tag-con: <code><b><small>Консоль управления</small></b></code>
-  tag-preview: <code><b><small>Preview</small></b></code>
-  tag-sql: <code><b><small>SQL</small></b></code>
-  tag-tf: <code><b><small>Terraform</small></b></code>
-  td-full-name: Обнаружение угроз
-  td-name: TD
-  terraform-mirror: https://hashicorp-releases.yandexcloud.net/terraform/
-  TF: Terraform
-  tf-cloud-id: b1gq90dgh25********
-  tf-docs-link: https://yandex.cloud/ru/docs/terraform
-  tf-folder-id: b1gia87mbaom********
-  TF-full: HashiCorp Terraform
-  tf-provider-alb-backendgroup: https://yandex.cloud/ru/docs/terraform/resources/alb_backend_group
-  tf-provider-alb-targetgroup: https://yandex.cloud/ru/docs/terraform/resources/alb_target_group
-  tf-provider-datasources-link: https://yandex.cloud/ru/docs/terraform/data-sources
-  tf-provider-dt-endpoint: https://yandex.cloud/ru/docs/terraform/resources/datatransfer_endpoint
-  tf-provider-dt-transfer: https://yandex.cloud/ru/docs/terraform/resources/datatransfer_transfer
-  tf-provider-k8s-cluster: https://yandex.cloud/ru/docs/terraform/resources/kubernetes_cluster
-  tf-provider-k8s-nodegroup: https://yandex.cloud/ru/docs/terraform/resources/kubernetes_node_group
-  tf-provider-link: https://yandex.cloud/ru/docs/terraform
-  tf-provider-maf: https://yandex.cloud/ru/docs/terraform/resources/airflow_cluster
-  tf-provider-mch: https://yandex.cloud/ru/docs/terraform/resources/mdb_clickhouse_cluster
-  tf-provider-metastore: https://yandex.cloud/ru/docs/terraform/resources/metastore_cluster
-  tf-provider-mgp: https://yandex.cloud/ru/docs/terraform/resources/mdb_greenplum_cluster
-  tf-provider-mkf: https://yandex.cloud/ru/docs/terraform/resources/mdb_kafka_cluster
-  tf-provider-mmg: https://yandex.cloud/ru/docs/terraform/resources/mdb_mongodb_cluster
-  tf-provider-mmy: https://yandex.cloud/ru/docs/terraform/resources/mdb_mysql_cluster
-  tf-provider-mos: https://yandex.cloud/ru/docs/terraform/resources/mdb_opensearch_cluster
-  tf-provider-mpg: https://yandex.cloud/ru/docs/terraform/resources/mdb_postgresql_cluster
-  tf-provider-mrd: https://yandex.cloud/ru/docs/terraform/resources/mdb_redis_cluster_v2
-  tf-provider-msp: https://yandex.cloud/ru/docs/terraform/resources/spark_cluster
-  tf-provider-mtr: https://yandex.cloud/ru/docs/terraform/resources/trino_cluster
-  tf-provider-mtr-access: https://yandex.cloud/ru/docs/terraform/resources/trino_access_control
-  tf-provider-resources-link: https://yandex.cloud/ru/docs/terraform/resources
-  tf-provider-ytsaurus: https://yandex.cloud/ru/docs/terraform/resources/ytsaurus_cluster
-  TF-version: '0.90'
-  TR: Trino
-  tr:
-    docs: https://trino.io/docs/current
-  traces-name: Monium Traces
-  tracker-full-name: Яндекс Трекер
-  tracker-name: Трекер
-  tracker-short-name: Tracker
-  translate-full-name: Yandex Translate
-  translate-name: Translate
-  translate-short-name: Translate
-  trino-service-address: 10.248.0.0/13
-  tts-v3-count: 250 символов
-  tts-v3-time: 24 секунды
-  unified-agent-full-name: Yandex Unified Agent
-  unified-agent-short-name: Unified Agent
-  v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
-  v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
-  vector-store-name: Vector Store
-  video-full-name: Yandex Cloud Video
-  video-name: Cloud Video
-  video-player-name: Cloud Video Player
-  video-short-name: Cloud Video
-  vision-full-name: Yandex Vision OCR
-  vision-name: Vision OCR
-  vision-short-name: Vision OCR
-  VLK: Valkey™
-  vpc-full-name: Yandex Virtual Private Cloud
-  vpc-name: Virtual Private Cloud
-  vpc-short-name: VPC
-  vuln-man-name: Управление уязвимостями
-  vuln-man-short-name: VM
-  websql-full-name: Yandex WebSQL
-  websql-link: https://websql.yandex.cloud
-  websql-name: WebSQL
-  wiki-full-name: Яндекс Вики
-  wiki-name: Вики
-  wiki-short-name: Wiki
-  wordstat-name: Wordstat
-  ya-360: Яндекс 360 для бизнеса
-  ya-oauth-url: https://oauth.yandex.ru
-  yagpt-full-name: YandexGPT API
-  yagpt-name: YandexGPT
-  yandex-360: Яндекс 360
-  yandex-cloud: Yandex Cloud
-  yandex-direct: Яндекс Директ
-  yandex-domain: yandex.ru
-  yandex-oauth: Яндекс.OAuth
-  yandex-siem-full-name: Yandex SIEM
-  yandexart-name: YandexART
-  yc-compute: yc compute
-  yc-compute-ig: yc compute instance-group
-  yc-compute-instance: yc compute instance
-  yc-dp: yc dataproc
-  yc-dt: yc datatransfer
-  yc-gl: yc managed-gitlab
-  yc-install-path: /yandexcloud-yc/install.sh
-  yc-k8s: yc managed-kubernetes
-  yc-mdb-af: yc managed-airflow
-  yc-mdb-ch: yc managed-clickhouse
-  yc-mdb-es: yc managed-elasticsearch
-  yc-mdb-gp: yc managed-greenplum
-  yc-mdb-kf: yc managed-kafka
-  yc-mdb-mg: yc managed-mongodb
-  yc-mdb-ms: yc managed-sqlserver
-  yc-mdb-my: yc managed-mysql
-  yc-mdb-os: yc managed-opensearch
-  yc-mdb-pg: yc managed-postgresql
-  yc-mdb-rd: yc managed-redis
-  yc-mdb-sp: yc managed-spark
-  yc-mdb-tr: yc managed-trino
-  yc-metastore: yc managed-metastore
-  yc-serverless: yc serverless
-  yc-windows-path: /yandexcloud-yc/install.ps1
-  yc-ydb: yc ydb
-  yc-ytsaurus: yc managed-ytsaurus
-  ycdr-full-name: Yandex Cloud Detection and Response
-  ycdr-name: YCDR
-  ydb-full-name: Yandex Managed Service for YDB
-  ydb-name: Managed Service for YDB
-  ydb-short-name: YDB
-  ydb:
-    aws-ep: >-
-      https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaom********/etnudu2n9ri3********
-    cli: ydb
-    docs: https://ydb.tech/docs/ru/
-    document-api-endpoint: https://docapi.serverless.yandexcloud.net
-    ep-dedicated: grpcs://lb.etnk1u65e4sh********.ydb.mdb.yandexcloud.net:2135
-    ep-serverless: grpcs://ydb.serverless.yandexcloud.net:2135
-    id-dedicated: etnk1u65e4sh********
-    id-serverless: etnudu2n9ri3********
-    name-dedicated: ydb-dedicated
-    name-serverless: ydb-serverless
-    path-dedicated: /ru-central1/b1gia87mbaom********/etnk1u65e4sh********
-    path-serverless: /ru-central1/b1gia87mbaom********/etnudu2n9ri3********
-    port-dedicated: 2135
-    version-cdc: 22.5
-  yds-full-name: Yandex Data Streams
-  yds-name: Data Streams
-  yds-short-name: Data Streams
-  ymq-endpoint: https://message-queue.api.cloud.yandex.net/
-  yq-full-name: Yandex Query
-  yq-iceberg-name: Iceberg
-  yq-name: Query
-  yq-short-name: YQ
-  yql-full-name: Yandex Query Language
-  yql-short-name: YQL
-  yt-name: YT
-  ytsaurus-name: YTsaurus
-  YZ: Yezzey
-  ZK: ZooKeeper
-  zk-host-class: b2.medium
-  zone-id: ru-central1-d
-  pcs|alb: dn2unvkm0hrt4fqvm9n7
-  pcs|api-gateway: dn25mc2lq81eqg1ohe4i
-  pcs|audit-trails: dn27fg1qtguelq2d772a
-  pcs|baremetal: dn2jfbheag6vvls7oplt
-  pcs|baremetal_custom: dn2ix4ahzfz24aamritd
-  pcs|cdn: dn2rse5n40m8h0bu8jqa
-  pcs|cloud_backup: dn21j2nquomme940r5rt
-  pcs|cloud_desktop: dn25bk2bcun5eb7kkdq0
-  pcs|cloud_network: dn21qssbrdtcaus362kp
-  pcs|cloud_registry: dn2qs7qwygypc5mxez6y
-  pcs|cns: dn2fat3ycizke72tqqwo
-  pcs|compute: dn22pas77ftg9h3f2djj
-  pcs|compute_gpu: dn28okfvqh19eiue6l2m
-  pcs|cr: dn2tng436tjcn7cjudv1
-  pcs|datatransfer: dn2dtfaj8fno5r3beac3
-  pcs|dns: dn2dns25hpthhkqn2cps
-  pcs|gost_gateway: dn27aisfrgy53mtfs4a7
-  pcs|identity-hub: dn2rbtyqhowkmimgqc5u
-  pcs|interconnect: dn2iqlgecrio4statr88
-  pcs|iot: dn2hj92de1icl8k3m3bg
-  pcs|kms: dn2kmsd7hrdeb1u7c4nb
-  pcs|load-testing: dn2ul6hj517ba5ckvl0i
-  pcs|lockbox: dn2k9ntpr7hljm0o71sg
-  pcs|logging: dn2ir0595ak1ntlqc1i2
-  pcs|managed-gitlab: dn2g45ennmllm0knk0gi
-  pcs|mdb:
-    apache_airflow: dn2o8879r181fgps5lb3
-    ch: dn2220hr46dtogekm57v
-    dataproc: dn28hpu6268356q0j8mk
-    greenplum: dn2l7rvq9j43kk6ips5i
-    kafka: dn2mse6mu1meu7orkmre
-    mongo: dn2b0fi02sdmf46ijdl5
-    mysql: dn28hpu626uudbq0j8mk
-    opensearch: dn2hjd8fhbb14l7vkp2c
-    pg: dn2hmdmghr9j2odlvssi
-    redis: dn2hb3vlkb6qfih0pgv6
-  pcs|metadatahub: dn2rnt6lkfbauucwnfby
-  pcs|mk8s: dn2af04ph5otc5f23o1h
-  pcs|monium: dn2oxk4367kv6etfvj5x
-  pcs|nlb: dn2pr3ni7eesvh97h5ro
-  pcs|postbox: dn2h92g8s9qofi6iu1gp
-  pcs|security_deck: dn28d4gpcfmv27l612lh
-  pcs|serverless: dn2hj814q5t5pipfkqo4
-  pcs|serverless-containers: dn2qu7ck7veplf4kmbuh
-  pcs|smart-captcha: dn2f26fqvaoddbr0ld1a
-  pcs|spark: dn2pkj6x6txcsqlb72gm
-  pcs|storage: dn2li5qddoc5cad2n6br
-  pcs|sws: dn2hj22hpe85kloqo6ag
-  pcs|trino: dn2nclqznmamrcxbqk7b
-  pcs|video: dn27cwr4adplwdruh4ff
-  pcs|ydb: dn2ydbtgqogjqcrlbehu
-  pcs|yds: dn2yds6scistjlmes0fe
-  pcs|ymq: dn2ymqni7eesvh97h5ro
-  pcs|yq: dn21r83o3orctiho7bg5
-  pcs|yt: dn2thrwhzxl2ygay7nvq
   pc|baremetal:
     component:
       bms-1029p-body:
@@ -1943,6 +1547,370 @@ default:
         provisioned_rcu: dn2kg3kak19fubcmerdh
         requests: dn2f1mpij5h7573tqjdt
         storage: dn2iqvpuvujh28ggku9h
+  pcs|alb: dn2unvkm0hrt4fqvm9n7
+  pcs|api-gateway: dn25mc2lq81eqg1ohe4i
+  pcs|audit-trails: dn27fg1qtguelq2d772a
+  pcs|baremetal: dn2jfbheag6vvls7oplt
+  pcs|baremetal_custom: dn2ix4ahzfz24aamritd
+  pcs|cdn: dn2rse5n40m8h0bu8jqa
+  pcs|cloud_backup: dn21j2nquomme940r5rt
+  pcs|cloud_desktop: dn25bk2bcun5eb7kkdq0
+  pcs|cloud_network: dn21qssbrdtcaus362kp
+  pcs|cloud_registry: dn2qs7qwygypc5mxez6y
+  pcs|cns: dn2fat3ycizke72tqqwo
+  pcs|compute: dn22pas77ftg9h3f2djj
+  pcs|compute_gpu: dn28okfvqh19eiue6l2m
+  pcs|cr: dn2tng436tjcn7cjudv1
+  pcs|datatransfer: dn2dtfaj8fno5r3beac3
+  pcs|dns: dn2dns25hpthhkqn2cps
+  pcs|gost_gateway: dn27aisfrgy53mtfs4a7
+  pcs|identity-hub: dn2rbtyqhowkmimgqc5u
+  pcs|interconnect: dn2iqlgecrio4statr88
+  pcs|iot: dn2hj92de1icl8k3m3bg
+  pcs|kms: dn2kmsd7hrdeb1u7c4nb
+  pcs|lockbox: dn2k9ntpr7hljm0o71sg
+  pcs|logging: dn2ir0595ak1ntlqc1i2
+  pcs|managed-gitlab: dn2g45ennmllm0knk0gi
+  pcs|mdb:
+    apache_airflow: dn2o8879r181fgps5lb3
+    ch: dn2220hr46dtogekm57v
+    dataproc: dn28hpu6268356q0j8mk
+    greenplum: dn2l7rvq9j43kk6ips5i
+    kafka: dn2mse6mu1meu7orkmre
+    mongo: dn2b0fi02sdmf46ijdl5
+    mysql: dn28hpu626uudbq0j8mk
+    opensearch: dn2hjd8fhbb14l7vkp2c
+    pg: dn2hmdmghr9j2odlvssi
+    redis: dn2hb3vlkb6qfih0pgv6
+  pcs|metadatahub: dn2rnt6lkfbauucwnfby
+  pcs|mk8s: dn2af04ph5otc5f23o1h
+  pcs|monium: dn2oxk4367kv6etfvj5x
+  pcs|nlb: dn2pr3ni7eesvh97h5ro
+  pcs|postbox: dn2h92g8s9qofi6iu1gp
+  pcs|security_deck: dn28d4gpcfmv27l612lh
+  pcs|serverless: dn2hj814q5t5pipfkqo4
+  pcs|serverless-containers: dn2qu7ck7veplf4kmbuh
+  pcs|smart-captcha: dn2f26fqvaoddbr0ld1a
+  pcs|spark: dn2pkj6x6txcsqlb72gm
+  pcs|storage: dn2li5qddoc5cad2n6br
+  pcs|sws: dn2hj22hpe85kloqo6ag
+  pcs|trino: dn2nclqznmamrcxbqk7b
+  pcs|video: dn27cwr4adplwdruh4ff
+  pcs|ydb: dn2ydbtgqogjqcrlbehu
+  pcs|yds: dn2yds6scistjlmes0fe
+  pcs|ymq: dn2ymqni7eesvh97h5ro
+  pcs|yq: dn21r83o3orctiho7bg5
+  pcs|yt: dn2thrwhzxl2ygay7nvq
+  permission-admin: Администрирование
+  permission-execute: Исполнение
+  permission-read: Просмотр
+  permission-write: Редактирование
+  PG: PostgreSQL
+  pg-docs: https://www.postgresql.org/docs/current
+  pg:
+    docs:
+      org: https://www.postgresql.org/docs
+      pro: https://postgrespro.ru/docs
+    versions:
+      console:
+        dpr: '14'
+        str-1c: 14-1c, 15-1c, 16-1c, 17-1c, 18-1c
+        str-last: '15'
+      tf:
+        latest: '18'
+        str: 14, 14-1c, 15, 15-1c, 16, 16-1c, 17, 17-1c, 18 и 18-1c
+  pgadmin: "pgAdmin\_4"
+  php-cli-ver: php82
+  php-full-ver: PHP 8.2
+  port-any: 0-65535
+  port-http: 80
+  port-https: 443
+  port-k8s: 6443
+  port-mch-cli: 9440
+  port-mch-http: 8443
+  port-mes: 9200
+  port-metastore: 9083
+  port-mgp: 6432
+  port-mkf-ssl: 9091
+  port-mkf-text: 9092
+  port-mmg: 27018
+  port-mmg-sharded: 27017
+  port-mmy: 3306
+  port-mos: 9200
+  port-mpg: 6432
+  port-mrd: 6379
+  port-mrd-sentinel: 26379
+  port-mrd-tls: 6380
+  port-range-k8s-nodeport: 30000-32767
+  port-ssh: 22
+  postbox-endpoint: https://postbox.cloud.yandex.net
+  postbox-full-name: Yandex Cloud Postbox
+  postbox-host: postbox.cloud.yandex.net
+  postbox-name: Yandex Cloud Postbox
+  postbox-short-name: Yandex Cloud Postbox
+  preview-stage: <code><b><small>Preview</small></b></code>
+  price-per-hour-count-per-second: Цена указывается за 1 час использования. Тарификация посекундная.
+  prometheus-name: Prometheus
+  promql-name: PromQL
+  python-cli-ver: python314
+  python-full-ver: Python 3.14
+  quota-manager-full-name: Yandex Cloud Quota Manager
+  quota-manager-name: Cloud Quota Manager
+  quota-manager-short-name: Quota Manager
+  RD: Redis
+  region-id: ru-central1
+  registry: cr.yandex
+  resmgr-full-name: Yandex Resource Manager
+  resmgr-name: Resource Manager
+  resmgr-short-name: Resource Manager
+  responses-api: Responses API
+  RMQ: RabbitMQ
+  roles:
+    gitlab:
+      admin: gitlab.admin
+      editor: gitlab.editor
+      viewer: gitlab.viewer
+    k8s:
+      admin: k8s.admin
+      editor: k8s.editor
+      viewer: k8s.viewer
+      clusters:
+        agent: k8s.clusters.agent
+      tunnelClusters:
+        agent: k8s.tunnelClusters.agent
+      cluster-api:
+        cluster-admin: k8s.cluster-api.cluster-admin
+        editor: k8s.cluster-api.editor
+        viewer: k8s.cluster-api.viewer
+    maf:
+      admin: managed-airflow.admin
+      editor: managed-airflow.editor
+      viewer: managed-airflow.viewer
+      user: managed-airflow.user
+      integrationProvider: managed-airflow.integrationProvider
+    mch:
+      admin: managed-clickhouse.admin
+      auditor: managed-clickhouse.auditor
+      editor: managed-clickhouse.editor
+      oncall: managed-clickhouse.onCall
+      support: managed-clickhouse.support
+      supportadmin: managed-clickhouse.supportAdmin
+      viewer: managed-clickhouse.viewer
+    mes:
+      admin: managed-elasticsearch.admin
+      auditor: managed-elasticsearch.auditor
+      editor: managed-elasticsearch.editor
+      viewer: managed-elasticsearch.viewer
+    metastore:
+      admin: managed-metastore.admin
+      auditor: managed-metastore.auditor
+      editor: managed-metastore.editor
+      integrationProvider: managed-metastore.integrationProvider
+      viewer: managed-metastore.viewer
+      maintenanceTask:
+        editor: managed-metastore.maintenanceTask.editor
+        viewer: managed-metastore.maintenanceTask.viewer
+    mgp:
+      admin: managed-greenplum.admin
+      auditor: managed-greenplum.auditor
+      editor: managed-greenplum.editor
+      viewer: managed-greenplum.viewer
+    mkf:
+      admin: managed-kafka.admin
+      auditor: managed-kafka.auditor
+      editor: managed-kafka.editor
+      viewer: managed-kafka.viewer
+    mmg:
+      admin: managed-mongodb.admin
+      auditor: managed-mongodb.auditor
+      editor: managed-mongodb.editor
+      viewer: managed-mongodb.viewer
+    mms:
+      admin: managed-sqlserver.admin
+      auditor: managed-sqlserver.auditor
+      editor: managed-sqlserver.editor
+      viewer: managed-sqlserver.viewer
+    mmy:
+      admin: managed-mysql.admin
+      auditor: managed-mysql.auditor
+      editor: managed-mysql.editor
+      viewer: managed-mysql.viewer
+    mos:
+      admin: managed-opensearch.admin
+      auditor: managed-opensearch.auditor
+      editor: managed-opensearch.editor
+      viewer: managed-opensearch.viewer
+    mpg:
+      admin: managed-postgresql.admin
+      auditor: managed-postgresql.auditor
+      editor: managed-postgresql.editor
+      viewer: managed-postgresql.viewer
+    mrd:
+      admin: managed-redis.admin
+      auditor: managed-redis.auditor
+      editor: managed-redis.editor
+      viewer: managed-redis.viewer
+    data-catalog:
+      auditor: data-catalog.auditor
+      viewer: data-catalog.viewer
+      editor: data-catalog.editor
+      admin: data-catalog.admin
+      dataSteward: data-catalog.dataSteward
+      dataConsumer: data-catalog.dataConsumer
+      user: data-catalog.user
+      catalogs:
+        auditor: data-catalog.catalogs.auditor
+        viewer: data-catalog.catalogs.viewer
+        editor: data-catalog.catalogs.editor
+        admin: data-catalog.catalogs.admin
+      assets:
+        auditor: data-catalog.assets.auditor
+        viewer: data-catalog.assets.viewer
+        editor: data-catalog.assets.editor
+        admin: data-catalog.assets.admin
+      classifications:
+        auditor: data-catalog.classifications.auditor
+        viewer: data-catalog.classifications.viewer
+        editor: data-catalog.classifications.editor
+        admin: data-catalog.classifications.admin
+      classificationTags:
+        auditor: data-catalog.classificationsTags.auditor
+        viewer: data-catalog.classificationsTags.viewer
+        user: data-catalog.classificationsTags.user
+        editor: data-catalog.classificationsTags.editor
+        admin: data-catalog.classificationsTags.admin
+      domains:
+        auditor: data-catalog.domains.auditor
+        viewer: data-catalog.domains.viewer
+        user: data-catalog.domains.user
+        editor: data-catalog.domains.editor
+        admin: data-catalog.domains.admin
+      glossaries:
+        auditor: data-catalog.glossaries.auditor
+        viewer: data-catalog.glossaries.viewer
+        editor: data-catalog.glossaries.editor
+        admin: data-catalog.glossaries.admin
+      glossaryTerms:
+        auditor: data-catalog.glossaryTerms.auditor
+        viewer: data-catalog.glossaryTerms.viewer
+        user: data-catalog.glossaryTerms.user
+        editor: data-catalog.glossaryTerms.editor
+        admin: data-catalog.glossaryTerms.admin
+      ingestions:
+        auditor: data-catalog.ingestions.auditor
+        viewer: data-catalog.ingestions.viewer
+        editor: data-catalog.ingestions.editor
+        admin: data-catalog.ingestions.admin
+      ingestionSources:
+        auditor: data-catalog.ingestionSources.auditor
+        viewer: data-catalog.ingestionSources.viewer
+        editor: data-catalog.ingestionSources.editor
+        admin: data-catalog.ingestionSources.admin
+      lineages:
+        auditor: data-catalog.lineages.auditor
+        viewer: data-catalog.lineages.viewer
+        editor: data-catalog.lineages.editor
+        admin: data-catalog.lineages.admin
+  roles-admin: admin
+  roles-alb-editor: alb.editor
+  roles-auditor: auditor
+  roles-cloud-member: resource-manager.clouds.member
+  roles-cloud-owner: resource-manager.clouds.owner
+  roles-connection-manager-user: connection-manager.user
+  roles-connection-manager-viewer: connection-manager.viewer
+  roles-cr-images-scanner: container-registry.images.scanner
+  roles-cr-puller: container-registry.images.puller
+  roles-cr-pusher: container-registry.images.pusher
+  roles-datalens-admin: datalens.admin
+  roles-datalens-creator: datalens.creator
+  roles-datalens-instances-admin: datalens.instances.admin
+  roles-datalens-visitor: datalens.visitor
+  roles-datalens-workbooks-editor: datalens.workbooks.editor
+  roles-datasphere-admin: datasphere.admin
+  roles-datasphere-communities-admin: datasphere.communities.admin
+  roles-datasphere-communities-developer: datasphere.communities.developer
+  roles-datasphere-communities-editor: datasphere.communities.editor
+  roles-datasphere-communities-viewer: datasphere.communities.viewer
+  roles-datasphere-project-admin: datasphere.community-projects.admin
+  roles-datasphere-project-developer: datasphere.community-projects.developer
+  roles-datasphere-project-editor: datasphere.community-projects.editor
+  roles-datasphere-user: datasphere.user
+  roles-editor: editor
+  roles-functions-admin: functions.admin
+  roles-functions-editor: functions.editor
+  roles-functions-invoker: functions.functionInvoker
+  roles-functions-mdbProxiesUser: functions.mdbProxiesUser
+  roles-functions-viewer: functions.viewer
+  roles-iam-sa-admin: iam.serviceAccounts.admin
+  roles-iam-sa-tokencreator: iam.serviceAccounts.tokenCreator
+  roles-image-user: compute.images.user
+  roles-license-manager-subscription-agent: license-manager.subscriptionAgent
+  roles-license-manager-user: license-manager.user
+  roles-lockbox-admin: lockbox.admin
+  roles-lockbox-editor: lockbox.editor
+  roles-lockbox-payloadviewer: lockbox.payloadViewer
+  roles-lockbox-viewer: lockbox.viewer
+  roles-logging-reader: logging.reader
+  roles-logging-writer: logging.writer
+  roles-mdb-admin: mdb.admin
+  roles-monitoring-editor: monitoring.editor
+  roles-monitoring-viewer: monitoring.viewer
+  roles-organization-admin: organization-manager.admin
+  roles-organization-owner: organization-manager.organizations.owner
+  roles-resource-manager-admin: resource-manager.admin
+  roles-resource-manager-editor: resource-manager.editor
+  roles-serverless-containers-invoker: serverless-containers.containerInvoker
+  roles-speechkit-stt: ai.speechkit-stt.user
+  roles-speechsense-data-editor: Data editor
+  roles-viewer: viewer
+  roles-vpc-admin: vpc.admin
+  roles-vpc-private-admin: vpc.privateAdmin
+  roles-vpc-public-admin: vpc.publicAdmin
+  roles-vpc-user: vpc.user
+  roles-yagpt-user: ai.languageModels.user
+  s1-medium: s1.medium (8 vCPU, 32 ГБ)
+  s1-micro: s1.micro (2 vCPU, 8 ГБ)
+  s3-c2-m8: s3-c2-m8 (2 vCPU, 8 ГБ)
+  s3-dotnet-sdk-host: s3.yandexcloud.net
+  s3-storage-host: storage.yandexcloud.net
+  s3-storage-host-cli: storage.yandexcloud.net
+  s3-storage-host-doc-files: storage.yandexcloud.net/doc-files
+  s3-storage-host-mch: storage.yandexcloud.net/managed-clickhouse
+  s3-storage-host-ru: storage.yandexcloud.net
+  s3-web-host: website.yandexcloud.net
+  saml-limit-display-name: 64 символа
+  saml-limit-email: 256 символов
+  saml-limit-first-name: 64 символа
+  saml-limit-last-name: 64 символа
+  saml-limit-phone: 64 символа
+  saml-limit-thumbnail-photo: 204800 символов
+  sample-rfc3339-timestamp: '2006-01-02T15:04:05Z'
+  schema-registry-endpoint: schema-registry.yandexcloud.net:443
+  schema-registry-full-name: Yandex Schema Registry
+  schema-registry-name: Schema Registry
+  SD: Yandex StoreDoc
+  sd-full-name: Yandex Security Deck
+  sd-name: Security Deck
+  search-api: Yandex Search API
+  search-api-full-name: Yandex Search API
+  search-api-name: Yandex Search API
+  search-api-request-ch: 400 символов
+  search-api-request-w: 40 слов
+  security-group: enp6saqnq4ie********
+  security-standard-current-version: 1.4.2
+  serial-ssh-host: serialssh.cloud.yandex.net
+  serverless-containers-full-name: Yandex Serverless Containers
+  serverless-containers-host: containers.yandexcloud.net
+  serverless-containers-name: Serverless Containers
+  serverless-containers-short-name: Serverless Containers
+  sf-full-name: Yandex Cloud Functions
+  sf-name: Cloud Functions
+  sf-short-name: Cloud Functions
+  sf-url: functions.yandexcloud.net
+  si-full-name: Yandex Serverless Integrations
+  si-name: Serverless Integrations
+  sk-hybrid-full-name: Yandex SpeechKit Hybrid
+  sk-hybrid-name: SpeechKit Hybrid
   sku|KZT|ai:
     datasphere:
       computing:
@@ -2118,16 +2086,6 @@ default:
       v1:
         software|number: 0.02195
         software|string: "0,02195\_₸"
-  sku|KZT|load_testing:
-    storage:
-      test_results:
-        v1|number: 0
-        v1|pricingRate:
-          2160000|number: 0.2745
-    test_execution:
-      v1|number: 0
-      v1|pricingRate:
-        180000|number: 2.745
   sku|KZT|lockbox:
     api:
       v1:
@@ -2653,16 +2611,6 @@ default:
       v1:
         software|number: 0.00439
         software|string: "0,00439\_₽"
-  sku|RUB|load_testing:
-    storage:
-      test_results:
-        v1|number: 0
-        v1|pricingRate:
-          2160000|number: 0.0549
-    test_execution:
-      v1|number: 0
-      v1|pricingRate:
-        180000|number: 0.549
   sku|RUB|lockbox:
     api:
       v1:
@@ -3004,6 +2952,97 @@ default:
         v3|number: 1.38
       ram:
         v3|number: 0.369
+  spark-service-address: 10.248.0.0/13
+  speechkit-full-name: Yandex SpeechKit
+  speechkit-name: SpeechKit
+  speechkit-short-name: SpeechKit
+  speechkit-slug: speechkit
+  speechsense-full-name: Yandex SpeechSense
+  speechsense-name: SpeechSense
+  SPQR: Sharded PostgreSQL
+  spqr:
+    docs: https://docs.pg-sharding.tech
+  SPRK: Apache Spark™
+  SR: StarRocks
+  src-full-name: SourceCraft
+  src-name: SourceCraft
+  stackland-full-name: Yandex Cloud Stackland
+  stackland-name: Stackland
+  storage-aws-cli-alias: ycs3
+  sts-full-name: Yandex Security Token Service
+  sts-host: sts.yandexcloud.net
+  sts-name: Security Token Service
+  stt-long-audioLength: 4 часа
+  stt-long-fileSize: 1 ГБ
+  stt-long-resultsStorageTime: 3 суток
+  stt-short-audioLength: 30 секунд
+  stt-short-channelsCount: 1
+  stt-short-fileSize: 1 МБ
+  stt-streaming-audioLength: 5 минут
+  stt-streaming-fileSize: 10 МБ
+  subjects-allAuthenticatedUsers: allAuthenticatedUsers
+  subnet-id: b0rcctk2rvtr********
+  subnet-name: default-ru-central1-d
+  support-center-name: Cloud Center
+  support-passport-create: https://yandex.ru/support/passport/authorization/registration.html
+  sw-full-name: Yandex Workflows
+  sw-name: Workflows
+  sws-full-name: Yandex Smart Web Security
+  sws-name: Smart Web Security
+  t4-ice-lake: Intel Ice Lake with NVIDIA® Tesla® T4
+  t4i-ice-lake: Intel Ice Lake with T4i
+  tag-all: <code><b><small>Все интерфейсы</small></b></code>
+  tag-api: <code><b><small>API</small></b></code>
+  tag-cli: <code><b><small>CLI</small></b></code>
+  tag-con: <code><b><small>Консоль управления</small></b></code>
+  tag-preview: <code><b><small>Preview</small></b></code>
+  tag-sql: <code><b><small>SQL</small></b></code>
+  tag-tf: <code><b><small>Terraform</small></b></code>
+  td-full-name: Обнаружение угроз
+  td-name: TD
+  terraform-mirror: https://hashicorp-releases.yandexcloud.net/terraform/
+  TF: Terraform
+  tf-cloud-id: b1gq90dgh25********
+  tf-docs-link: https://yandex.cloud/ru/docs/terraform
+  tf-folder-id: b1gia87mbaom********
+  TF-full: HashiCorp Terraform
+  tf-provider-alb-backendgroup: https://yandex.cloud/ru/docs/terraform/resources/alb_backend_group
+  tf-provider-alb-targetgroup: https://yandex.cloud/ru/docs/terraform/resources/alb_target_group
+  tf-provider-datasources-link: https://yandex.cloud/ru/docs/terraform/data-sources
+  tf-provider-dt-endpoint: https://yandex.cloud/ru/docs/terraform/resources/datatransfer_endpoint
+  tf-provider-dt-transfer: https://yandex.cloud/ru/docs/terraform/resources/datatransfer_transfer
+  tf-provider-k8s-cluster: https://yandex.cloud/ru/docs/terraform/resources/kubernetes_cluster
+  tf-provider-k8s-nodegroup: https://yandex.cloud/ru/docs/terraform/resources/kubernetes_node_group
+  tf-provider-link: https://yandex.cloud/ru/docs/terraform
+  tf-provider-maf: https://yandex.cloud/ru/docs/terraform/resources/airflow_cluster
+  tf-provider-mch: https://yandex.cloud/ru/docs/terraform/resources/mdb_clickhouse_cluster
+  tf-provider-metastore: https://yandex.cloud/ru/docs/terraform/resources/metastore_cluster
+  tf-provider-mgp: https://yandex.cloud/ru/docs/terraform/resources/mdb_greenplum_cluster
+  tf-provider-mkf: https://yandex.cloud/ru/docs/terraform/resources/mdb_kafka_cluster
+  tf-provider-mmg: https://yandex.cloud/ru/docs/terraform/resources/mdb_mongodb_cluster
+  tf-provider-mmy: https://yandex.cloud/ru/docs/terraform/resources/mdb_mysql_cluster
+  tf-provider-mos: https://yandex.cloud/ru/docs/terraform/resources/mdb_opensearch_cluster
+  tf-provider-mpg: https://yandex.cloud/ru/docs/terraform/resources/mdb_postgresql_cluster
+  tf-provider-mrd: https://yandex.cloud/ru/docs/terraform/resources/mdb_redis_cluster_v2
+  tf-provider-msp: https://yandex.cloud/ru/docs/terraform/resources/spark_cluster
+  tf-provider-mtr: https://yandex.cloud/ru/docs/terraform/resources/trino_cluster
+  tf-provider-mtr-access: https://yandex.cloud/ru/docs/terraform/resources/trino_access_control
+  tf-provider-resources-link: https://yandex.cloud/ru/docs/terraform/resources
+  tf-provider-ytsaurus: https://yandex.cloud/ru/docs/terraform/resources/ytsaurus_cluster
+  TF-version: '0.90'
+  TR: Trino
+  tr:
+    docs: https://trino.io/docs/current
+  traces-name: Monium Traces
+  tracker-full-name: Яндекс Трекер
+  tracker-name: Трекер
+  tracker-short-name: Tracker
+  translate-full-name: Yandex Translate
+  translate-name: Translate
+  translate-short-name: Translate
+  trino-service-address: 10.248.0.0/13
+  tts-v3-count: 250 символов
+  tts-v3-time: 24 секунды
   ui-key:
     data-catalog:
       console:
@@ -3173,6 +3212,7 @@ default:
       billing-account-detail:
         filter_label-labels-all: Все метки
         filter_label-products-all: Все продукты
+        filter_label-services-all: Все сервисы
         label_credit-cudCredit: Скидка на резервируемое потребление
         label_credit-monetaryGrantCredit: Грант
         label_credit-volumeIncentiveCredit: Скидка за объём потребления
@@ -3273,8 +3313,6 @@ default:
             filter_label_label-key: 'Ключ метки:'
             filter_label-services: 'Сервисы:'
             label_from: От
-            label_product: Продукты
-            label_service: Сервисы
             label_title: Детализация
             label_title-usage-short: Потребление за
             label_to: До
@@ -3283,7 +3321,6 @@ default:
             tab_product: По продуктам
             tab_service: По сервисам
             value_cost: Потребление
-            value_folders: Каталогам
           exports:
             button_create-periodic-export: Создать регулярный экспорт
             button_open-yandex-query: Обработать в YQ
@@ -3339,7 +3376,6 @@ default:
             button_remove-user: Удалить пользователя
         accounts:
           button_bind: Привязать
-          column_cloud: Облака
           column_status: Статус
         cud:
           purchase:
@@ -3384,16 +3420,15 @@ default:
           account-type-filter: Тип аккаунта
       acl:
         action:
-          add-role: Добавить роль
           apply: Сохранить
           assign-roles: Назначить роли
           edit-roles: Изменить роли
           revoke-access: Отозвать доступ
-          select-subject: Выбрать пользователя
         button:
           add-role: Добавить роль
         label:
           service-accounts: Сервисные аккаунты
+          subject: Кому выдать доступ
           title: Выдача доступа
           user-accounts: Пользовательские аккаунты
         resource-acl:
@@ -3403,11 +3438,11 @@ default:
         addDiskButton: Добавить
         allTemplates: Все шаблоны
         amount: Количество
-        assemblyDiscountLabel: Дешевле со сборкой
+        assemblyDiscountLabel: "Дешевле со\_сборкой"
         cpuTitle: Процессор
         CustomConfiguration: Своя конфигурация
         disks: Диски
-        goToAssembly: Перейти к сборке
+        goToAssembly: "Перейти к\_сборке"
         networkLabel: Сеть
         poolFilter: Пул
         prefillWithTemplate: Предзаполнить шаблоном
@@ -3416,8 +3451,6 @@ default:
         StockConfigurations: Готовые конфигурации
         type: Тип
         withReserve: Есть
-      cloud-center:
-        action_more: Ещё
       cloud:
         button_save: Сохранить
       fileinput:
@@ -3435,28 +3468,28 @@ default:
         product-pricing-type_license: Subscription
         product-pricing-type_payg: PAYG
       notify-subs:
-        label_inherited-subscribers: Подписчики по умолчанию
+        label_inherited-subscribers: "Подписчики по\_умолчанию"
         label_subscribers-dialog-header: Добавление пользователей
-        label_users: Пользователи
       organization:
-        action_send-invitation: Отправить приглашение
+        action_send-invitation_6LqIj: Отправить приглашение
         action:
           add: Добавить
           create: Создать новую организацию
-          create-organization: Создать организацию
       revoke-access-dialog:
         action_revoke-all: Отозвать все
       search:
-        label_placeholder: Поиск по облачным ресурсам
+        label_placeholder: "Поиск по\_облачным ресурсам"
         search_filters_all: Везде
         search_filters_docs: Документация
       security:
         dspm:
           action_button_apply: Скачать файл
           action_button_export_without_validation: Экспортировать без проверки
-          action_export_with_validation: Проверить и экспортировать
-          card_title_image: На изображениях
-          card_title_text: В тексте
+          action_export_with_validation: "Проверить и\_экспортировать"
+          card_field_title: Данные для поиска
+          card_title_image: "На\_изображениях"
+          card_title_text: "В\_тексте"
+          column_name: Имя
           dialog_select-service-account_create-new-action: Создать новый
           header_scan_result_sensitive_data: Отображение чувствительных данных
       services:
@@ -3490,9 +3523,7 @@ default:
       ssh-key-add-dialog:
         value_radio-generate: Сгенерировать ключ
         value_radio-manual: Ввести вручную
-        value_radio-upload: Загрузить из файла
-      usermenu:
-        label_login: Войти
+        value_radio-upload: "Загрузить из\_файла"
     yacloud_monitoring:
       actions:
         common:
@@ -3942,6 +3973,8 @@ default:
           logout_nXPin: Выйти из аккаунта
           profile_8kyBA: Профиль
           security_7zQ3g: Вход и безопасность
+        OrganizationSelect:
+          action_create-organization_j1Yin: Создать организацию
       cloud-components:
         AclDashboard:
           action_assign-roles_41Nj1: Назначить роли
@@ -3962,6 +3995,8 @@ default:
         save: Сохранить
         section-base: Общая информация
       component:
+        filters:
+          label_select-all: Все
         form-file-upload:
           field:
             method: Способ
@@ -4010,7 +4045,9 @@ default:
           label_include_in_scan: Включать в сканирование
           public_buckets: Публичные бакеты
           title_all_buckets: Все бакеты
+          title_public_buckets: Публичные бакеты
         scan:
+          action_create-scan: Новое сканирование
           action_download-results: Скачать результаты
           action_export-results: Экспортировать результаты
           label_data-type: Тип данных
@@ -4526,8 +4563,10 @@ default:
             field_type_kCG8J: Тип исключения
             field_type_manual_mbKxp: Проверено вручную
         discovery:
+          action_include-in-scan_2wT6B: Добавить к сканированию
+          AnalyticsDashboard:
+            details_button_1ZfAk: Детали
           header_resource_kDJFW: Ресурс
-          more_details_button_aPdgv: Больше деталей
         dspm:
           action_button-export_pMSM8: Выгрузить
           AnalyticsPage:
@@ -4539,6 +4578,7 @@ default:
             public_2C56E: Публичные
             scannable_jWMD6: Доступные для сканирования
             searchResource_cGkdQ: Поиск по имени ресурса
+          button_file_filter_jXXxv: Фильтр по файлам
           data-sources:
             bXXxQ: Выбранные ресурсы
           dataSourceTypes:
@@ -4546,9 +4586,18 @@ default:
             yandex_360_1TUsr: Яндекс 360
           DiscoveryPageLayout:
             header_button_text_hefvE: Настроить контроль
+          DiscoveryScanCreatePage:
+            label_scan-scopes_1wnUU: Области сканирования
+          DiscoveryScanSelectorCard:
+            title_resources_2FDpG: Группа ресурсов
+          DiscoveryScansPage:
+            action_new-scan-scope_puKvy: Новая область сканирования
           DspmPageLayout:
             settings_wHmWK: Параметры
             title_analytics_vaYT5: Анализ данных
+            title_discovery_kkTCM: v2.0
+            title_dspm_xm8pa: v1.0
+            title_prefix_iWUEX: 'Интерфейс: '
           field_bucket-path_5qRqM: Путь в бакете
           field_file-name_kWRPK: Имя файла
           field_service-account_rTeXv: Сервисный аккаунт
@@ -4559,9 +4608,14 @@ default:
             value_personal-data_w5gVm: Персональные данные
             value_secrets_4CdGy: Секреты
           label_field-bucket_3mM6u: Бакет
+          label_include_in_scan_discovery_4wwj7: Бакеты
+          label_resources_9BVEB: Ресурсы
           ScanForm:
             action_create-scan_dvakP: Создать сканирование без проверки
             table_action_assign_roles_bw4am: Назначить роли
+          search-categories_section_title_cPyLn: Категории данных для поиска
+          section_settings_title_igA6u: Параметры области
+          selected_resources_fbUsF: Выбранные
           tab_issues_title_hLQN2: Проверка параметров
           Yandex360DataSourceForm:
             action_add_resources_2qrRH: Добавить ресурсы
@@ -4751,7 +4805,6 @@ default:
       component:
         file-input:
           button_choose: Выбрать файл
-          button_choose-multiple: Выбрать файлы
       marketplace_v2:
         common:
           menu_ticket: Тикет заявки
@@ -4784,6 +4837,9 @@ default:
           section_title_packages: Состав продукта
           section_title_resource-spec: Необходимые ресурсы
           version-table_action_create: Создать версию
+      page:
+        authorization:
+          button_enter: Войти
       portal:
         products: Продукты
         publisher-users: Управление доступом
@@ -5661,7 +5717,6 @@ default:
         operations-key-value: Операции
         operations:
           column_status: Статус
-          column_value_done: Завершена
         overview: Обзор
         password: Пароль
         remove: Удалить
@@ -6729,7 +6784,6 @@ default:
             label_kafka: Managed Service for&nbsp;Kafka
             label_kms: Key Management Service
             label_load-balancer: Network Load Balancer
-            label_load-testing: Load Testing
             label_lockbox: Lockbox
             label_logging: Cloud Logging
             label_managed-airflow: Managed Service for&nbsp;Apache&nbsp;Airflow™
@@ -6873,7 +6927,7 @@ default:
           popup-add-sa_field_namespace: Пространство имен
         cluster:
           button_create-resource: Создать
-          field_namespace: Пространство имен
+          field_namespace: Пространство имён
           marketplace:
             button_install: Установить
             button_release-uninstall: Удалить
@@ -6889,14 +6943,14 @@ default:
             label_title: Обзор
             section_master: Конфигурация мастера
           switch_access: Управление доступом
-          switch_configuration: Конфигурация
+          switch_configuration: ConfigMap и секреты
           switch_custom-resources: Пользовательские ресурсы
           switch_events: События
           switch_marketplace: Marketplace
-          switch_namespaces: Пространства имен
-          switch_network: Сеть
+          switch_namespaces: Пространства имён
+          switch_network: Сервисы и Ingress
           switch_nodes-manager: Управление узлами
-          switch_storage: Хранилища
+          switch_storage: Постоянные тома
           switch_workloads: Рабочая нагрузка
         Cluster:
           CommonInfo:
@@ -6912,13 +6966,13 @@ default:
             field_master-type: Тип мастера
             field_master-version: Версия Kubernetes
             field_network: Облачная сеть
-            field_network-policy: Включить сетевые политики
+            field_network-policy: Сalico CNI
             field_node-service-account: Сервисный аккаунт для узлов
             field_release-channel: Релизный канал
             field_service-account: Сервисный аккаунт для ресурсов
             field_service-cidr: CIDR сервисов
             field_subnetwork: Подсеть
-            field_tunnel-mode: Включить туннельный режим
+            field_tunnel-mode: Сilium CNI
             label_logging-enabled: Запись логов
             label_maintenance-weekly: Расписание по дням
             label_master-computing-resources: Вычислительные ресурсы
@@ -6952,7 +7006,7 @@ default:
         namespaces:
           popup-add_field_name: Имя
         network:
-          label_ingress: Ingress
+          label_ingress: Ingresses
         node-group:
           access-method:
             field_os-login-access-method: Доступ по OS Login
@@ -7017,12 +7071,12 @@ default:
         storage:
           button_action-add-default: Использовать по умолчанию
           button_action-remove-default: Не использовать по умолчанию
-          label_pv: Persistent Volumes
-          label_storage-classes: Классы хранилищ
+          label_pv: PersistentVolumes
+          label_storage-classes: StorageClasses
         switch_operations: Операции
         workloads:
-          label_cron-jobs: Cron-задачи
-          label_pods: Поды
+          label_cron-jobs: CronJobs
+          label_pods: Pods
           label_tab-logs: Логи
           label_tab-yaml: YAML
         WorkloadsActions:
@@ -7182,66 +7236,6 @@ default:
           button_create: Создать целевую группу
           label_list: Целевые группы
           label_targets-section-title: Целевые ресурсы
-      load-testing:
-        button_add-tag: Добавить метку
-        button_comparison-test-add: Добавить к сравнению
-        button_create-agent: Создать агент
-        button_create-chart: Создать график
-        button_create-regression-dashboard: Создать дашборд
-        button_create-test: Создать тест
-        button_duplicate-configuration: Дублировать конфигурацию
-        button_export-report: Экспортировать
-        button_tags-link: Добавить метки
-        field_chart-name: Название графика
-        field_config-file: Файл конфигурации
-        field_export-bucket: Имя бакета
-        field_export-enable: Сохранять артефакты
-        field_export-filter-exclude: Исключать файлы
-        field_export-filter-include: Сохранять файлы
-        field_export-is-archive: Архивировать в zip
-        field_load-generator: Генератор нагрузки
-        field_name-filter: Фильтр по имени
-        field_report-export-bucket: Экспортировать в бакет
-        field_report-export-folder: Папка в бакете
-        field_report-export-format: Формат отчёта
-        field_report-export-time-interval: Временной интервал
-        field_settings-type: Способ настройки
-        field_test-data-type: Тип данных
-        filter_label_tags: Фильтр по меткам
-        label_agent-by-filter-any-option: Любой подходящий
-        label_agent-by-filter-condition-option: Задать условия
-        label_agent-by-filter-selector: Первый освободившийся
-        label_agent-from-list-selector: Выбрать из списка
-        label_agent-temporal-selector: Временный
-        label_agents-count: Количество агентов
-        label_agents-list: Агенты
-        label_choose-from-bucket: Выбрать из бакета
-        label_monitoring-report: Мониторинг
-        label_quantile: Квантиль
-        label_regressions-title: Регрессии
-        label_report-export-title: Экспорт отчёта
-        label_report-exports-history-title: История экспортов
-        label_results-comparison-section-title: Сравнение результатов
-        label_settings-type-config: Конфигурационный файл
-        label_settings-type-form: Форма
-        label_tables: Таблицы
-        label_test-report: Результаты теста
-        label_test-rules-section: Правила добавления тестов
-        label_test-settings: Настройки теста
-        label_test-tags: Метки теста
-        label_test-text: Имя теста
-        label_tests-comparison-section-title: Сравнение
-        label_tests-example-section: Тесты, попадающие в регрессию
-        label_tests-list: Тесты
-        meta-section: Информация о тесте
-        restart: Перезапустить
-        section_agent: Агент
-        section_export: Логи теста
-        test-data-section: Прикрепленные файлы
-        title_temporal-agent-field: Настройки временного агента
-        value_cumulative-quantiles-chart-type: 'Время ответа: кумулятивные квантили'
-        value_imbalance_rps-chart-type: 'Точка разладки: RPS'
-        value_instances-chart-type: 'Тестирующие потоки: количество'
       lockbox:
         BaseInfoSection:
           field_deletion-protection: Запретить удаление секрета
@@ -9450,16 +9444,10 @@ default:
                     OBJECT_STORAGE_UNPARSED_RETRY:
                       title: Повторять
                     ObjectStorageAdvancedSettings:
-                      bucket_layout_column:
-                        title: Колонка со временем
                       bucket_layout_timezone:
                         title: Часовой пояс
                       bucket_layout:
                         title: Имя папки
-                      buffer_interval:
-                        title: Интервал записи
-                      buffer_size:
-                        title: Размер буфера
                       scan_interval:
                         title: Интервал сканирования
                     ObjectStorageCodecUI:
@@ -9479,6 +9467,11 @@ default:
                         title: Автоматически
                     ObjectStorageEndpoint:
                       title: Параметры эндпоинта
+                    ObjectStorageParquetCompressionCodecUI:
+                      SNAPPY:
+                        title: Snappy
+                      ZSTD:
+                        title: Zstd
                     ObjectStorageResultTable:
                       add_system_cols:
                         title: Добавить системные колонки
@@ -9487,8 +9480,13 @@ default:
                         title: CSV
                       OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON:
                         title: JSON
+                      OBJECT_STORAGE_SERIALIZATION_FORMAT_PARQUET:
+                        title: Parquet
                       OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW:
                         title: Сырые данные
+                      Parquet:
+                        row_group:
+                          title: Размер группы строк
                     ObjectStorageSource:
                       ObjectStorageEventSource:
                         SQS:
@@ -9558,6 +9556,23 @@ default:
                         title: Формат сжатия
                       output_format:
                         title: Выходной формат
+                    ObjectStorageV1AdvancedWriterSettings:
+                      title: Расширенные настройки писателя
+                    ObjectStorageV1Endpoint:
+                      path_prefix:
+                        title: Префикс пути
+                    ObjectStorageV1SerializerConfig:
+                      compression_codec:
+                        title: Формат сжатия
+                      Parquet:
+                        column_compression_codec:
+                          title: Формат сжатия колонок
+                      title: Формат данных
+                    ObjectStorageV1WriterSettings:
+                      ReplicationWriter:
+                        title: Писатель репликации
+                      SnapshotWriter:
+                        title: Писатель снапшотов
             opensearch:
               console:
                 form:
@@ -10280,7 +10295,6 @@ default:
         add-member: Добавить участника
         add-to-project: Добавить в проект
         alias: Алиас
-        apply: Применить
         billing: Биллинг
         bucket: Бакет
         build: Собрать
@@ -10757,136 +10771,102 @@ default:
           button-label: Стоп
         tutorial-type-toggle:
           option-streaming: Потоковый
-  mkt-k8s-key:
-    yc_alb-ingress-controller:
-      helmChart:
-        name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.26
-    yc_argo-cd:
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
-        tag: 7.3.11-2
-    yc_bitrix-env:
-      dockerImages:
-        nginx:
-          repository:
-            name: >-
-              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1775660129087745327177484940704164668665505295409
-            tag: 1.28.3-v1
-        php:
-          repository:
-            name: >-
-              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1775660129087745327177484940704164668665505295409
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env
-        tag: 1.0.6
-    yc_cert-manager-webhook-yandex:
-      helmChart:
-        name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/cert-manager-webhook-yandex/cert-manager-webhook-yandex
-        tag: 1.0.9
-    yc_chaos-mesh:
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/chaos-mesh/chart/chaos-mesh
-        tag: 2.8.0
-    yc_crossplane:
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: v1.20.6
-    yc_csi-s3:
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
-        tag: 0.43.7
-    yc_external-secrets:
-      helmChart:
-        name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/external-secrets/charts/external-secrets
-        tag: 2.5.0
-    yc_externaldns:
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/externaldns/chart/externaldns
-        tag: 0.5.1-b
-    yc_falco:
-      helmChart:
-        name: cr.yandex/yc-marketplace/falco
-        tag: 2.2.5
-    yc_filebeat-oss:
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/filebeat-oss/chart/filebeat-oss
-        tag: 7.12.1-1
-    yc_fluent-bit:
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit
-        tag: 4.2.3-1
-    yc_gatekeeper:
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/gatekeeper/gatekeeper
-        tag: 3.20.1
-    yc_gateway-api:
-      helmChart:
-        name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: v0.7.3
-    yc_gitlab-agent:
-      helmChart:
-        name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/gitlab-org/gitlab-agent/chart/gitlab-agent
-        tag: 1.16.1
-    yc_gitlab-runner:
-      helmChart:
-        name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/gitlab-org/gitlab-runner/chart/gitlab-runner
-        tag: 0.54.1
-    yc_gwin:
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.4.0
-    yc_istio:
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
-        tag: 1.21.2-1
-    yc_keda:
-      helmChart:
-        name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/keda/chart/keda-external-scaler-yc
-        tag: 1.1.3
-    yc_kubernetes-node-remediation:
-      helmChart:
-        name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/medik8s/kubernetes-node-remediation/chart/kubernetes-node-remediation
-        tag: 1.0.1
-    yc_kyverno:
-      helmChart:
-        name: cr.yandex/yc-marketplace/multi-kyverno
-        tag: 1.0.0
-    yc_loki:
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki
-        tag: 1.2.0-7
-    yc_metric-provider:
-      helmChart:
-        name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/metric-provider/chart/metric-provider
-        tag: 0.1.13
-    yc_node-local-dns:
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/node-local-dns
-        tag: 1.5.1
-    yc_node-sitter:
-      helmChart:
-        name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/node-sitter/node-sitter/chart/node-sitter
-        tag: 0.1.6
-    yc_prometheus-operator:
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/prometheus/kube-prometheus-stack
-        tag: 72.6.2-1
-    yc_thumbor:
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor
-        tag: 0.1.2-10
-    yc_velero-yc-csi:
-      helmChart:
-        name: cr.yandex/yc-marketplace/yandex-cloud/velero/chart/velero
-        tag: 8.5.0-5
+  unified-agent-full-name: Yandex Unified Agent
+  unified-agent-short-name: Unified Agent
+  v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
+  v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
+  vector-store-name: Vector Store
+  video-full-name: Yandex Cloud Video
+  video-name: Cloud Video
+  video-player-name: Cloud Video Player
+  video-short-name: Cloud Video
+  vision-full-name: Yandex Vision OCR
+  vision-name: Vision OCR
+  vision-short-name: Vision OCR
+  VLK: Valkey™
+  vpc-full-name: Yandex Virtual Private Cloud
+  vpc-name: Virtual Private Cloud
+  vpc-short-name: VPC
+  vuln-man-name: Управление уязвимостями
+  vuln-man-short-name: VM
+  websql-full-name: Yandex WebSQL
+  websql-link: https://websql.yandex.cloud
+  websql-name: WebSQL
+  wiki-full-name: Яндекс Вики
+  wiki-name: Вики
+  wiki-short-name: Wiki
+  wordstat-name: Wordstat
+  ya-360: Яндекс 360 для бизнеса
+  ya-oauth-url: https://oauth.yandex.ru
+  yagpt-full-name: YandexGPT API
+  yagpt-name: YandexGPT
+  yandex-360: Яндекс 360
+  yandex-cloud: Yandex Cloud
+  yandex-direct: Яндекс Директ
+  yandex-domain: yandex.ru
+  yandex-oauth: Яндекс.OAuth
+  yandex-siem-full-name: Yandex SIEM
+  yandexart-name: YandexART
+  yc-compute: yc compute
+  yc-compute-ig: yc compute instance-group
+  yc-compute-instance: yc compute instance
+  yc-dp: yc dataproc
+  yc-dt: yc datatransfer
+  yc-gl: yc managed-gitlab
+  yc-install-path: /yandexcloud-yc/install.sh
+  yc-k8s: yc managed-kubernetes
+  yc-mdb-af: yc managed-airflow
+  yc-mdb-ch: yc managed-clickhouse
+  yc-mdb-es: yc managed-elasticsearch
+  yc-mdb-gp: yc managed-greenplum
+  yc-mdb-kf: yc managed-kafka
+  yc-mdb-mg: yc managed-mongodb
+  yc-mdb-ms: yc managed-sqlserver
+  yc-mdb-my: yc managed-mysql
+  yc-mdb-os: yc managed-opensearch
+  yc-mdb-pg: yc managed-postgresql
+  yc-mdb-rd: yc managed-redis
+  yc-mdb-sp: yc managed-spark
+  yc-mdb-tr: yc managed-trino
+  yc-metastore: yc managed-metastore
+  yc-serverless: yc serverless
+  yc-windows-path: /yandexcloud-yc/install.ps1
+  yc-ydb: yc ydb
+  yc-ytsaurus: yc managed-ytsaurus
+  ycdr-full-name: Yandex Cloud Detection and Response
+  ycdr-name: YCDR
+  ydb-full-name: Yandex Managed Service for YDB
+  ydb-name: Managed Service for YDB
+  ydb-short-name: YDB
+  ydb:
+    aws-ep: >-
+      https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaom********/etnudu2n9ri3********
+    cli: ydb
+    docs: https://ydb.tech/docs/ru/
+    document-api-endpoint: https://docapi.serverless.yandexcloud.net
+    ep-dedicated: grpcs://lb.etnk1u65e4sh********.ydb.mdb.yandexcloud.net:2135
+    ep-serverless: grpcs://ydb.serverless.yandexcloud.net:2135
+    id-dedicated: etnk1u65e4sh********
+    id-serverless: etnudu2n9ri3********
+    name-dedicated: ydb-dedicated
+    name-serverless: ydb-serverless
+    path-dedicated: /ru-central1/b1gia87mbaom********/etnk1u65e4sh********
+    path-serverless: /ru-central1/b1gia87mbaom********/etnudu2n9ri3********
+    port-dedicated: 2135
+    version-cdc: 22.5
+  yds-full-name: Yandex Data Streams
+  yds-name: Data Streams
+  yds-short-name: Data Streams
+  ymq-endpoint: https://message-queue.api.cloud.yandex.net/
+  yq-full-name: Yandex Query
+  yq-iceberg-name: Iceberg
+  yq-name: Query
+  yq-short-name: YQ
+  yql-full-name: Yandex Query Language
+  yql-short-name: YQL
+  yt-name: YT
+  ytsaurus-name: YTsaurus
+  YZ: Yezzey
+  ZK: ZooKeeper
+  zk-host-class: b2.medium
+  zone-id: ru-central1-d

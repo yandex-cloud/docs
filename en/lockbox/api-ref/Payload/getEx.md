@@ -10,6 +10,7 @@ apiPlayground:
         secretId:
           description: |-
             **string**
+            The maximum string length in characters is 50.
             Includes only one of the fields `secretId`, `folderAndName`.
           type: string
         folderAndName:
@@ -18,7 +19,9 @@ apiPlayground:
             Includes only one of the fields `secretId`, `folderAndName`.
           $ref: '#/definitions/FolderAndName'
         versionId:
-          description: '**string**'
+          description: |-
+            **string**
+            The maximum string length in characters is 50.
           type: string
       additionalProperties: false
       oneOf:
@@ -34,12 +37,14 @@ apiPlayground:
           folderId:
             description: |-
               **string**
-              Required field. 
+              Required field.
+              The maximum string length in characters is 50.
             type: string
           secretName:
             description: |-
               **string**
-              Required field. 
+              Required field.
+              The maximum string length in characters is 100.
             type: string
         required:
           - folderId
@@ -60,11 +65,15 @@ GET https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets:getEx
 ||Field | Description ||
 || secretId | **string**
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `secretId`, `folderAndName`. ||
 || folderAndName | **[FolderAndName](#yandex.cloud.lockbox.v1.FolderAndName)**
 
 Includes only one of the fields `secretId`, `folderAndName`. ||
-|| versionId | **string** ||
+|| versionId | **string**
+
+The maximum string length in characters is 50. ||
 |#
 
 ## FolderAndName {#yandex.cloud.lockbox.v1.FolderAndName}
@@ -73,10 +82,14 @@ Includes only one of the fields `secretId`, `folderAndName`. ||
 ||Field | Description ||
 || folderId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || secretName | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.lockbox.v1.GetExResponse}

@@ -15,15 +15,17 @@ GET https://iot-devices.api.cloud.yandex.net/iot-devices/v1/devices
 || registryId | **string**
 
 ID of the registry to list devices in.
-
 To get a registry ID make a [yandex.cloud.iot.devices.v1.RegistryService.List](../Registry/list.md#List) request.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `registryId`, `folderId`. ||
 || folderId | **string**
 
 ID of the folder to list devices in.
-
 To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `registryId`, `folderId`. ||
 || pageSize | **string** (int64)
@@ -31,11 +33,15 @@ Includes only one of the fields `registryId`, `folderId`. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListDevicesResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListDevicesResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 20000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListDevicesResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListDevicesResponse) returned by a previous list request. ||
+[ListDevicesResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListDevicesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || deviceView | **enum** (DeviceView)
 
 Specifies which parts of the device resource should be returned
@@ -86,7 +92,6 @@ List of devices. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListDevicesRequest.pageSize](#yandex.cloud.iot.devices.v1.ListDevicesRequest), use `next_page_token` as the value
 for the [ListDevicesRequest.pageToken](#yandex.cloud.iot.devices.v1.ListDevicesRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -121,13 +126,11 @@ Description of the device. 0-256 characters long. ||
 || topicAliases | **object** (map<**string**, **string**>)
 
 Alias of a device topic.
-
 Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. ||
 || status | **enum** (Status)
 
 Status of the device.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Device is being created.
 - `ACTIVE`: Device is ready to use.
 - `DELETING`: Device is being deleted. ||

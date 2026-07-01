@@ -25,7 +25,6 @@ The maximum string length in characters is 50. ||
 || job_id | **string**
 
 Required field. ID of the job to return.
-
 To get a job ID make a [JobService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -152,10 +151,14 @@ A Yandex Data Processing job. For details about the concept, see [documentation]
 ||Field | Description ||
 || id | **string**
 
-ID of the job. Generated at creation time. ||
+Required field. ID of the job. Generated at creation time.
+
+The maximum string length in characters is 50. ||
 || cluster_id | **string**
 
-ID of the Yandex Data Processing cluster that the job belongs to. ||
+Required field. ID of the Yandex Data Processing cluster that the job belongs to.
+
+The maximum string length in characters is 50. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
@@ -221,28 +224,42 @@ Attributes of YARN application. ||
 ||Field | Description ||
 || args[] | **string**
 
-Optional arguments to pass to the driver. ||
+Optional arguments to pass to the driver.
+
+The maximum string length in characters for each value is 1024. The maximum number of elements is 32. ||
 || jar_file_uris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || file_uris[] | **string**
 
 URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
-and distributed Hadoop tasks. ||
+and distributed Hadoop tasks.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || archive_uris[] | **string**
 
-URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Yandex Data Processing and MapReduce. ||
+Property names and values, used to configure Yandex Data Processing and MapReduce.
+
+The maximum string length in characters for each value is 256. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z][-_0-9a-zA-Z.]* `. No more than 100 per resource. ||
 || main_jar_file_uri | **string**
 
 HCFS URI of the .jar file containing the driver class.
+
+The string length in characters must be less than 2048.
 
 Includes only one of the fields `main_jar_file_uri`, `main_class`. ||
 || main_class | **string**
 
 The name of the driver class.
+
+The string length in characters must be less than 256.
 
 Includes only one of the fields `main_jar_file_uri`, `main_class`. ||
 |#
@@ -253,35 +270,55 @@ Includes only one of the fields `main_jar_file_uri`, `main_class`. ||
 ||Field | Description ||
 || args[] | **string**
 
-Optional arguments to pass to the driver. ||
+Optional arguments to pass to the driver.
+
+The maximum string length in characters for each value is 10000. The maximum number of elements is 256. ||
 || jar_file_uris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || file_uris[] | **string**
 
 URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
-and distributed Hadoop tasks. ||
+and distributed Hadoop tasks.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || archive_uris[] | **string**
 
-URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Yandex Data Processing and Spark. ||
+Property names and values, used to configure Yandex Data Processing and Spark.
+
+The maximum string length in characters for each value is 256. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z][-_0-9a-zA-Z.]* `. No more than 100 per resource. ||
 || main_jar_file_uri | **string**
 
-The HCFS URI of the JAR file containing the `main` class for the job. ||
+Required field. The HCFS URI of the JAR file containing the `main` class for the job.
+
+The string length in characters must be less than 2048. ||
 || main_class | **string**
 
-The name of the driver class. ||
+The name of the driver class.
+
+The string length in characters must be less than 256. ||
 || packages[] | **string**
 
-List of maven coordinates of jars to include on the driver and executor classpaths. ||
+List of maven coordinates of jars to include on the driver and executor classpaths.
+
+The string length in characters for each value must be less than 256. The maximum number of elements is 100. ||
 || repositories[] | **string**
 
-List of additional remote repositories to search for the maven coordinates given with --packages. ||
+List of additional remote repositories to search for the maven coordinates given with --packages.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 10. ||
 || exclude_packages[] | **string**
 
-List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. ||
+List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts.
+
+The string length in characters for each value must be less than 256. The maximum number of elements is 100. ||
 |#
 
 ## PysparkJob {#yandex.cloud.dataproc.v1.PysparkJob}
@@ -290,35 +327,55 @@ List of groupId:artifactId, to exclude while resolving the dependencies provided
 ||Field | Description ||
 || args[] | **string**
 
-Optional arguments to pass to the driver. ||
+Optional arguments to pass to the driver.
+
+The maximum string length in characters for each value is 100000. The maximum number of elements is 2500. ||
 || jar_file_uris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || file_uris[] | **string**
 
 URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
-and distributed Hadoop tasks. ||
+and distributed Hadoop tasks.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || archive_uris[] | **string**
 
-URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Yandex Data Processing and PySpark. ||
+Property names and values, used to configure Yandex Data Processing and PySpark.
+
+The maximum string length in characters for each value is 10000. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z][-_0-9a-zA-Z.]* `. No more than 100 per resource. ||
 || main_python_file_uri | **string**
 
-URI of the file with the driver code. Must be a .py file. ||
+Required field. URI of the file with the driver code. Must be a .py file.
+
+The string length in characters must be less than 2048. ||
 || python_file_uris[] | **string**
 
-URIs of Python files to pass to the PySpark framework. ||
+URIs of Python files to pass to the PySpark framework.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || packages[] | **string**
 
-List of maven coordinates of jars to include on the driver and executor classpaths. ||
+List of maven coordinates of jars to include on the driver and executor classpaths.
+
+The string length in characters for each value must be less than 256. The maximum number of elements is 100. ||
 || repositories[] | **string**
 
-List of additional remote repositories to search for the maven coordinates given with --packages. ||
+List of additional remote repositories to search for the maven coordinates given with --packages.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 10. ||
 || exclude_packages[] | **string**
 
-List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. ||
+List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts.
+
+The string length in characters for each value must be less than 256. The maximum number of elements is 100. ||
 |#
 
 ## HiveJob {#yandex.cloud.dataproc.v1.HiveJob}
@@ -327,19 +384,27 @@ List of groupId:artifactId, to exclude while resolving the dependencies provided
 ||Field | Description ||
 || properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Yandex Data Processing and Hive. ||
+Property names and values, used to configure Yandex Data Processing and Hive.
+
+The maximum string length in characters for each value is 256. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z][-_0-9a-zA-Z.]* `. No more than 100 per resource. ||
 || continue_on_failure | **bool**
 
 Flag indicating whether a job should continue to run if a query fails. ||
 || script_variables | **object** (map<**string**, **string**>)
 
-Query variables and their values. ||
+Query variables and their values.
+
+The maximum string length in characters for each value is 2048. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z][_0-9a-zA-Z]* `. No more than 100 per resource. ||
 || jar_file_uris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Hive driver and each task. ||
+JAR file URIs to add to CLASSPATH of the Hive driver and each task.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || query_file_uri | **string**
 
 URI of the script with all the necessary Hive queries.
+
+The string length in characters must be less than 2048.
 
 Includes only one of the fields `query_file_uri`, `query_list`. ||
 || query_list | **[QueryList](#yandex.cloud.dataproc.v1.QueryList)**
@@ -355,7 +420,9 @@ Includes only one of the fields `query_file_uri`, `query_list`. ||
 ||Field | Description ||
 || queries[] | **string**
 
-List of Hive queries. ||
+List of Hive queries.
+
+The string length in characters for each value must be less than 10240. The maximum number of elements is 100. ||
 |#
 
 ## ApplicationInfo {#yandex.cloud.dataproc.v1.ApplicationInfo}

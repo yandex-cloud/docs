@@ -31,7 +31,7 @@ Yandex DataSphere позволяет строить [модели машинно
 В стоимость работы модели входит:
 
 * плата за использование бакета ([тарифы Yandex Object Storage](../../storage/pricing.md)).
-* плата за использование вычислительных ресурсов ([тарифы Yandex DataSphere](../pricing.md)).
+* плата за использование вычислительных ресурсов ([тарифы Yandex DataSphere](../../datasphere/pricing.md)).
 
 ## Подготовьте инфраструктуру {#deploy-infrastructure}
 

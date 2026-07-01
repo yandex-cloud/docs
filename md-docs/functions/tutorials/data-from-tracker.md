@@ -40,7 +40,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Постоянно запущенный кластер Managed Service for ClickHouse® ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md));
-* Использование функции Cloud Functions ([тарифы Cloud Functions](../pricing.md)).
+* Использование функции Cloud Functions ([тарифы Cloud Functions](../../functions/pricing.md)).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 

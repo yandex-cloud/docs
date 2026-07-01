@@ -5,7 +5,7 @@ editable: false
 # Identity and Access Management API, gRPC: ServiceAccountService.UpdateAccessBindings
 
 Updates access bindings for the specified service account.
-(-- api-linter: yc::1705::http-method-mapping=disabled --)
+
 
 ## gRPC request
 

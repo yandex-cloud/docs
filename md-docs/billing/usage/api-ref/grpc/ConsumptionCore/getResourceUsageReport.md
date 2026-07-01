@@ -2,20 +2,16 @@
 
 Returns aggregated usage report by individual resource
 under the specified billing account.
-
 This method provides detailed usage and cost information grouped by individual resources
 within the specified billing account. The data can be filtered by various
 entity types and aggregated at different time granularities.
-
 Implementation details:
-- Results are organized by resource, with each resource's usage, costs, and credits detailed.
-- Each resource-id + service-instance-type unique combination results in one entry in entity data.
-- resource_ids is a required field. Data for the specified resources is returned (using OR logic).
-You may use MetadataService.GetResources to receive resource-ids for current request.
-- Other filters (cloud_ids, folder_ids, service_ids, sku_ids, labels) are always applied if present.
-- This provides the most granular view of costs as it breaks down to the individual resource level.
-- Enables precise cost analysis at the individual resource instance level (specific VMs, disks, etc.).
-
+- Results are organized by resource, with each resource's usage, costs, and credits detailed
+- If resource_ids are specified, only data for those resources is included (using OR logic)
+- When no resource_ids are specified, data for all resources under the billing account is returned
+- Other filters (cloud_ids, folder_ids, service_ids, sku_ids, labels) are always applied if present
+- This provides the most granular view of costs as it breaks down to the individual resource level
+- Enables precise cost analysis at the individual resource instance level (specific VMs, disks, etc.)
 Error handling:
 - Returns INVALID_ARGUMENT if the request parameters fail validation
 - Returns UNAUTHENTICATED if the user is not authenticated or the billing account does not exist
@@ -58,7 +54,6 @@ Error handling:
 ```
 
 Request for retrieving usage report data.
-
 This message defines the parameters for requesting usage reports across
 all ConsumptionCoreService methods. It supports filtering by various
 entity types and specifying the time range and aggregation period.
@@ -117,14 +112,12 @@ The filter is applied with OR logic (results include data matching any of the sp
 Optional. Filter by labels: key is label key (e.g., "env", "team", "region"),
 value is list of label values to match (e.g., ["prod", "stage"] for key "env").
 This allows filtering resources based on their attached labels.
-
 Example: To filter resources that have either (env=prod OR env=test) AND (team=finance),
 use the following filter:
 {
 "env": { "values": ["prod", "test"] },
 "team": { "values": ["finance"] }
 }
-
 Note: The filter logic is (value1 OR value2 OR ...) for each key,
 and (key1 AND key2 AND ...) between different keys. ||
 || labels_or_filter_logic | **bool**
@@ -136,17 +129,15 @@ different label keys - resources must match ANY specified label condition.
 Example with labels_or_filter_logic = false (AND logic):
 labels = {"env": ["prod"], "team": ["finance"]}
 Returns resources that have BOTH env=prod AND team=finance
-
 Example with labels_or_filter_logic = true (OR logic):
 labels = {"env": ["prod"], "team": ["finance"]}
 Returns resources that have EITHER env=prod OR team=finance (or both)
-
 Note: Within each label key, multiple values are always combined with OR
 logic. For example: {"env": ["prod", "test"]} always means env=prod OR
 env=test ||
 || resource_ids[] | **string**
 
-Optional for all requests except GetResourceUsageReport. List of resource IDs to filter the data.
+Optional. List of resource IDs to filter the data.
 If specified, only usage data from these specific resources (e.g., individual VMs, disks) will be included.
 If omitted, data from all resources used by the billing account will be included.
 Filter is applied with OR logic (results include data matching any of the specified resource IDs). ||
@@ -159,7 +150,6 @@ in time series results. Available options include:
 - MONTH: Group metrics by month, providing monthly breakdowns
 - QUARTER: Group metrics by quarter, providing quarterly breakdowns
 - YEAR: Group metrics by year, providing yearly breakdowns
-
 This setting affects the time series data returned in the periodic field of each entity.
 If omitted, the service will typically use DAY as the default granularity.
 
@@ -281,12 +271,11 @@ List of label values associated with a specific label key. ||
 ```
 
 Response for usage report requests by resource.
-
 Contains aggregated usage, cost, and credit information organized by resource entities,
 with both summary totals and detailed breakdowns for each individual resource.
 The response includes:
 1. Overall totals for the entire period (cost, credits, expense)
-2. Entity-level totals for each unique resource-id and service instance type combination
+2. Entity-level totals for each resource
 3. Time series breakdown for each resource according to the requested aggregation period
 
 #|
@@ -374,16 +363,16 @@ containing both summary data for the entity across the entire period and a time 
 ||Field | Description ||
 || cost | **[StringDecimal](#yandex.cloud.billing.usage_records.v1.StringDecimal)**
 
-Total cost associated with this resource. ||
+Total cost associated with this label group. ||
 || credit_details | **[CreditDetails](#yandex.cloud.billing.usage_records.v1.CreditDetails)**
 
 Total credits (discounts, grants, adjustments) applied to this label group. ||
 || expense | **[StringDecimal](#yandex.cloud.billing.usage_records.v1.StringDecimal)**
 
-Total expense (including cost and credit) for this resource group. ||
+Total expense (including cost and credit) for this label group. ||
 || resource | **[Resource](#yandex.cloud.billing.usage_records.v1.Resource)**
 
-Metadata for the resource-based grouping. ||
+Metadata for the label-based grouping. ||
 || periodic[] | **[UsageReportPeriodicData](#yandex.cloud.billing.usage_records.v1.UsageReportPeriodicData)**
 
 Time series with usage and billing details for each TimeGrouping period (e.g., daily). ||

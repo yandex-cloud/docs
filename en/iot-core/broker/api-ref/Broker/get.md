@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the broker to return.
             To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/Broker/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - brokerId
@@ -23,7 +24,6 @@ apiPlayground:
 # IoT Core Broker Service, REST: Broker.Get
 
 Returns the specified broker.
-
 To get the list of available brokers, make a [List](/docs/iot-core/broker/api-ref/Broker/list#List) request.
 
 ## HTTP request
@@ -39,8 +39,9 @@ GET https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}
 || brokerId | **string**
 
 Required field. ID of the broker to return.
+To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/Broker/list#List) request.
 
-To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/Broker/list#List) request. ||
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iot.broker.v1.Broker}
@@ -57,11 +58,11 @@ To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/Bro
   "labels": "object",
   "status": "string",
   "logOptions": {
-    "disabled": "boolean",
     // Includes only one of the fields `logGroupId`, `folderId`
     "logGroupId": "string",
     "folderId": "string",
     // end of the list of possible fields
+    "disabled": "boolean",
     "minLevel": "string"
   }
 }
@@ -100,7 +101,6 @@ Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 
 Status of the broker.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Broker is being created.
 - `ACTIVE`: Broker is ready to use.
 - `DELETING`: Broker is being deleted. ||
@@ -113,12 +113,11 @@ Options for logging broker events ||
 
 #|
 ||Field | Description ||
-|| disabled | **boolean**
-
-Is logging from broker disabled. ||
 || logGroupId | **string**
 
 Entry should be written to log group resolved by ID.
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `logGroupId`, `folderId`.
 
@@ -127,34 +126,29 @@ Log entries destination. ||
 
 Entry should be written to default log group for specified folder.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `logGroupId`, `folderId`.
 
 Log entries destination. ||
+|| disabled | **boolean**
+
+Is logging from broker disabled. ||
 || minLevel | **enum** (Level)
 
 Minimum log entry level.
+See [LogLevel.Level](/docs/logging/api-ref/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
-
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
-
-  May be used to alert about unrecoverable failures and events. ||
+May be used to alert about unrecoverable failures and events. ||
 |#

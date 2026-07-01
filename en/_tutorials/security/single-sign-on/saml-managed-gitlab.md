@@ -18,7 +18,7 @@ To give access to {{ mgl-name }} to the users of your organization:
 - Management console {#console}
 
    1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [{{ GL }}](../../../managed-gitlab/concepts/index.md#instance) instance.
-   1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
    1. Click **{{ ui-key.yacloud.gitlab.button_create-instance }}**.
    1. At the top of the page:
 
@@ -78,7 +78,7 @@ To give access to {{ mgl-name }} to the users of your organization:
 To enable {{ GL }} authentication using OmniAuth, add an authentication provider:
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
 1. Click the instance you created and select the **{{ ui-key.yacloud.gitlab.title_omniauth }}** tab.
 1. Click **{{ ui-key.yacloud.gitlab.button_setup-omniauth }}**.
 1. To add an authentication provider, click **Add**.

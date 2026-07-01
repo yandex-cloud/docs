@@ -38,7 +38,7 @@
         {% endnote %}
 
      1. [Создайте кластер Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](node-group/node-group-create.md) любой подходящей конфигурации. При создании укажите сеть, подсеть и группы безопасности, подготовленные заранее. Также в кластере задействуйте контроллер сетевых политик Calico:
-        * В консоли управления, выбрав опцию **Включить сетевые политики**.
+        * В консоли управления, выбрав опцию **Сalico CNI**.
         * С помощью CLI, указав флаг `--enable-network-policy`.
         * С помощью метода [create](../managed-kubernetes/api-ref/Cluster/create.md) для ресурса [Cluster](../managed-kubernetes/api-ref/Cluster/index.md).
 

@@ -70,27 +70,10 @@ Protect the CA from accidental deletion. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "certificate_authority_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "folder_id": "string",
-    "name": "string",
-    "description": "string",
-    "parent_certificate_authority_id": "string",
-    "status": "Status",
-    "issued_at": "google.protobuf.Timestamp",
-    "not_after": "google.protobuf.Timestamp",
-    "not_before": "google.protobuf.Timestamp",
-    "crl_endpoint": "string",
-    "end_entities_ttl_limit_days": "int64",
-    "deletion_protection": "bool",
-    "created_at": "google.protobuf.Timestamp",
-    "updated_at": "google.protobuf.Timestamp"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -118,7 +101,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[ImportCertificateAuthorityMetadata](#yandex.cloud.certificatemanager.v1.privateca.ImportCertificateAuthorityMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -133,7 +116,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[CertificateAuthority](#yandex.cloud.certificatemanager.v1.privateca.CertificateAuthority)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -148,68 +131,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## ImportCertificateAuthorityMetadata {#yandex.cloud.certificatemanager.v1.privateca.ImportCertificateAuthorityMetadata}
-
-Metadata for the ImportCertificateAuthority operation.
-
-#|
-||Field | Description ||
-|| certificate_authority_id | **string**
-
-The ID of the imported Certificate Authority. ||
-|#
-
-## CertificateAuthority {#yandex.cloud.certificatemanager.v1.privateca.CertificateAuthority}
-
-A certificate authority (CA) used to sign certificates.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the certificate authority. ||
-|| folder_id | **string**
-
-ID of the folder that the certificate authority belongs to. ||
-|| name | **string**
-
-Name of the certificate authority. ||
-|| description | **string**
-
-Description of the certificate authority. ||
-|| parent_certificate_authority_id | **string**
-
-ID of the parent certificate authority that signed this certificate authority if any. ||
-|| status | enum **Status**
-
-Status of the certificate authority.
-
-- `UNSIGNED`: The certificate authority is unsigned and pending signing.
-- `ACTIVE`: The certificate authority is active and can issue certificates. ||
-|| issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time when the certificate authority was issued. ||
-|| not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time after which the certificate authority is not valid. ||
-|| not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time before which the certificate authority is not valid. ||
-|| crl_endpoint | **string**
-
-Endpoint of the certificate revocation list (CRL) for the certificate authority. ||
-|| end_entities_ttl_limit_days | **int64**
-
-Maximum allowed TTL (in days) for end-entity certificates issued by this CA. ||
-|| deletion_protection | **bool**
-
-Flag that protects deletion of the certificate authority. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time when the certificate authority was created. ||
-|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time when the certificate authority was last updated. ||
 |#

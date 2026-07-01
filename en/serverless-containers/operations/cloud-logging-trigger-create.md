@@ -62,8 +62,8 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
     yc serverless trigger create logging \
       --name <trigger_name> \
       --log-group-name <log_group_name> \
-      --batch-size <message_group_size> \
-      --batch-cutoff <maximum_timeout> \
+      --batch-size <message_batch_size> \
+      --batch-cutoff <maximum_wait_time> \
       --resource-ids <resource_ID> \
       --resource-types <resource_type> \
       --stream-names <logging_stream> \
@@ -128,7 +128,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
   To create a trigger for {{ cloud-logging-name }}:
 
-  1. In the configuration file, specify the trigger properties:
+  1. In the configuration file, describe the trigger properties:
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
@@ -137,7 +137,7 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
           id                 = "<container_ID>"
           service_account_id = "<service_account_ID>"
           retry_attempts     = "<number_of_retry_attempts>"
-          retry_interval     = "<time_between_retry_attempts>"
+          retry_interval     = "<interval_between_retry_attempts>"
         }
         logging {
           group_id       = "<log_group_ID>"

@@ -26,22 +26,27 @@ Lists operations for the specified device.
 || device_id | **string**
 
 Required field. ID of the device to list operations for.
-
 To get a device ID make a [DeviceService.List](/docs/iot-core/api-ref/grpc/Device/list#List) request. ||
 || page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a [ListDeviceOperationsResponse.next_page_token](#yandex.cloud.iot.devices.v1.ListDeviceOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListDeviceOperationsResponse.next_page_token](#yandex.cloud.iot.devices.v1.ListDeviceOperationsResponse) returned by a previous list request. ||
+[ListDeviceOperationsResponse.next_page_token](#yandex.cloud.iot.devices.v1.ListDeviceOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-Currently you can use filtering only on [Device.name](/docs/iot-core/api-ref/grpc/Device/get#yandex.cloud.iot.devices.v1.Device) field. ||
+Currently you can use filtering only on [Device.name](/docs/iot-core/api-ref/grpc/Device/get#yandex.cloud.iot.devices.v1.Device) field.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListDeviceOperationsResponse {#yandex.cloud.iot.devices.v1.ListDeviceOperationsResponse}
@@ -77,7 +82,6 @@ List of operations for the specified device certificate. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListDeviceOperationsRequest.page_size](#yandex.cloud.iot.devices.v1.ListDeviceOperationsRequest), use `next_page_token` as the value
 for the [ListDeviceOperationsRequest.page_token](#yandex.cloud.iot.devices.v1.ListDeviceOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

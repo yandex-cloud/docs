@@ -1,3 +1,0 @@
-For example, running a series of tests lasting 60 hours will cost:
-
-> (50 × {% calc [currency=USD] {{ sku|USD|load_testing.test_execution.v1|number }} %}) + (10 × {% calc [currency=USD] {{ sku|USD|load_testing.test_execution.v1|pricingRate.180000|number }} × 3600 %}) = {% calc [currency=USD] 50 × {{ sku|USD|load_testing.test_execution.v1|number }} + 10 × {{ sku|USD|load_testing.test_execution.v1|pricingRate.180000|number }} × 3600 %}

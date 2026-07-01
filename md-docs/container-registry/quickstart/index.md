@@ -46,7 +46,7 @@
    ```
 
    Полученный `ID` далее будет использоваться для обращения к созданному реестру.
-1. Аутентифицируйтесь в Container Registry с помощью [Docker Credential helper](../operations/authentication.md#cred-helper):
+1. Аутентифицируйтесь в Container Registry с помощью [Docker credential helper](../operations/authentication.md#cred-helper):
    1. Сконфигурируйте [Docker](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers) для использования `docker-credential-yc`:
 
       ```bash
@@ -60,6 +60,13 @@
       ```
 
       При конфигурации сохраняется информация о текущем профиле пользователя.
+
+      {% note warning %}
+      
+      Credential helper работает только при использовании Docker без `sudo`. О том, как настроить запуск Docker от имени текущего пользователя без использования `sudo`, читайте в [официальной документации Docker](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+      
+      {% endnote %}
+
    1. Проверьте, что Docker сконфигурирован.
 
       В конфигурационном файле `/home/<user>/.docker/config.json` должна появиться строка:

@@ -77,7 +77,7 @@ To create a trigger, you will need:
     yc serverless trigger create mail \
       --name <trigger_name> \
       --batch-size <message_batch_size> \
-      --batch-cutoff <maximum_timeout> \
+      --batch-cutoff <maximum_wait_time> \
       --attachements-bucket <bucket_name> \
       --attachements-service-account-id <service_account_ID> \
       --invoke-container-id <container_ID> \
@@ -134,7 +134,7 @@ To create a trigger, you will need:
   
     To create an email trigger that invokes a container:
   
-    1. In the configuration file, specify the trigger properties:
+    1. In the configuration file, describe the trigger properties:
 
        ```hcl
        resource "yandex_function_trigger" "my_trigger" {
@@ -143,7 +143,7 @@ To create a trigger, you will need:
            id                 = "<container_ID>"
            service_account_id = "<service_account_ID>"
            retry_attempts     = <number_of_retry_attempts>
-           retry_interval     = <time_between_retry_attempts>
+           retry_interval     = <interval_between_retry_attempts>
          }
          mail {
            attachments_bucket_id = "<bucket_name>"
@@ -164,7 +164,7 @@ To create a trigger, you will need:
 
           {% include [name-format](../../_includes/name-format.md) %}
     
-       * `container`: Container parameters:
+       * `container`: Container settings:
          
           {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
 

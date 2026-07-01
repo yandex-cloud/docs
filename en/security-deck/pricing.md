@@ -36,7 +36,7 @@ Pricing details are outlined below:
 This package includes [Cloud Security Posture Management](./concepts/cspm.md) and [Threat Detector](./concepts/threat-detector.md).
 
 Our subscription plans are priced per calendar month.
-A calendar month is defined as the period from 00:00 on the first day of the month to 23:59 on the last day of the same month, UTC+3.
+A calendar month is a period from 00:00 on the first day of the month to 23:59 on the last day of the same month, UTC+3.
 
 Prices for the number of monthly resources are fixed and do not depend on the number of days in the month.
 
@@ -52,7 +52,10 @@ If you cancel your {{ atr-name }} subscription in the [management console]({{ li
 
 ### {{ dspm-full-name }} ({{ dspm-name }}) {#dspm-rules}
 
-When performing [data scan](operations/dspm/create-scan.md), {{ dspm-name }} sends requests to files in {{ objstorage-full-name }} buckets. Such requests are charged as per the [{{ objstorage-name }} pricing policy](../storage/pricing.md). Using {{ dspm-name }} is charged separately.
+Using {{ dspm-name }} consists of two main phases, which are billed separately:
+
+* [Data analysis](./concepts/dspm.md#discovery-mode): This is the initial operational phase of {{ dspm-name }}, during which resources containing potentially sensitive data are automatically discovered, identified, and cataloged within the selected environment. Within this phase, 100,000 objects per month are free of charge. Once this limit is exceeded, the use of {{ dspm-name }} is billed either according to your selected plan or per million objects.
+* Continuous monitoring ([scanning](./concepts/dspm.md#scanning)): This phase involves regular requests to files in {{ objstorage-full-name }} buckets and Yandex 360 disks to check for compliance with security policies. The read operations are billed as per [{{ objstorage-name }} pricing](../storage/pricing.md).
 
 ### {{ kspm-full-name }} ({{ kspm-name }}) {#kspm-rules}
 
@@ -99,7 +102,6 @@ The price does not depend on the number of days in the calendar month.
     currency="USD"
   />
 </MDX>
-
 
 
 #### Cost calculation example {#amount-example}

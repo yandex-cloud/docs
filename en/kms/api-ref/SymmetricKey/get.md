@@ -24,7 +24,6 @@ apiPlayground:
 # Key Management Service API, REST: SymmetricKey.Get
 
 Returns the specified symmetric KMS key.
-
 To get the list of available symmetric KMS keys, make a [SymmetricKeyService.List](/docs/kms/api-ref/SymmetricKey/list#List) request.
 
 ## HTTP request

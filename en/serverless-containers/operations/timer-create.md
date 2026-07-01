@@ -112,7 +112,7 @@ Create a [timer](../concepts/trigger/timer.md), i.e., a trigger that invokes a [
           id                 = "<container_ID>"
           service_account_id = "<service_account_ID>"
           retry_attempts     = <number_of_retry_attempts>
-          retry_interval     = <time_between_retry_attempts>
+          retry_interval     = <interval_between_retry_attempts>
         }
         timer {
           cron_expression = "<cron_expression>"

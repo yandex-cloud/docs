@@ -90,7 +90,9 @@ editable: false
   "details": {
     "version": "string",
     "guardrailId": "string",
-    "category": "string"
+    "category": "string",
+    "severity": "string",
+    "direction": "string"
   },
   "response": "object"
 }
@@ -266,4 +268,6 @@ A list of messages that carry the error details. ||
 - `V3` ||
 || guardrailId | **string** ||
 || category | **string** ||
+|| severity | **string** ||
+|| direction | **string** ||
 |#

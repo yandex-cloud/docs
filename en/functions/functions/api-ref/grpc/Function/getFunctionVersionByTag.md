@@ -24,12 +24,10 @@ Deprecated. Use [GetVersionByTag](/docs/functions/functions/api-ref/grpc/Functio
 || function_id | **string**
 
 Required field. ID of the function whose versions should be listed.
-
 To get a function ID use a [FunctionService.List](/docs/functions/functions/api-ref/grpc/Function/list#List) request. ||
 || tag | **string**
 
 Version tag.
-
 To get the history of version tags make a [FunctionService.ListTagHistory](/docs/functions/functions/api-ref/grpc/Function/listTagHistory#ListTagHistory) request.
 
 Value must match the regular expression ``` [a-z][-_0-9a-z]*|[$]latest ```. ||
@@ -56,13 +54,14 @@ Value must match the regular expression ``` [a-z][-_0-9a-z]*|[$]latest ```. ||
     "string"
   ],
   "environment": "map<string, string>",
+  "named_service_accounts": "map<string, string>",
+  "concurrency": "int64",
   "connectivity": {
     "network_id": "string",
     "subnet_id": [
       "string"
     ]
   },
-  "named_service_accounts": "map<string, string>",
   "secrets": [
     {
       "id": "string",
@@ -112,7 +111,6 @@ Value must match the regular expression ``` [a-z][-_0-9a-z]*|[$]latest ```. ||
     "service_account_id": "string"
   },
   "tmpfs_size": "int64",
-  "concurrency": "int64",
   "mounts": [
     {
       "name": "string",
@@ -150,19 +148,17 @@ ID of the function that the version belongs to. ||
 
 Description of the version.
 
-The string length in characters must be 0-256. ||
+The string length in characters must be 0-600. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp for the version. ||
 || runtime | **string**
 
 ID of the runtime environment for the function.
-
 Supported environments and their identifiers are listed in the [Runtime environments](/docs/functions/concepts/runtime). ||
 || entrypoint | **string**
 
 Entrypoint for the function: the name of the function to be called as the handler.
-
 Specified in the format `<function file name>.<handler name>`, for example, `index.myFunction`. ||
 || resources | **[Resources](#yandex.cloud.serverless.functions.v1.Resources)**
 
@@ -170,7 +166,6 @@ Resources allocated to the version. ||
 || execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Timeout for the execution of the version.
-
 If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code. ||
 || service_account_id | **string**
 
@@ -192,12 +187,17 @@ Version tags. For details, see [Version tag](/docs/functions/concepts/function#t
 || environment | **object** (map<**string**, **string**>)
 
 Environment settings for the version. ||
-|| connectivity | **[Connectivity](#yandex.cloud.serverless.functions.v1.Connectivity)**
-
-Network access. If specified the version will be attached to specified network/subnet(s). ||
 || named_service_accounts | **object** (map<**string**, **string**>)
 
 Additional service accounts to be used by the version. ||
+|| concurrency | **int64**
+
+The maximum number of requests processed by a function instance at the same time
+
+Acceptable values are 0 to 16, inclusive. ||
+|| connectivity | **[Connectivity](#yandex.cloud.serverless.functions.v1.Connectivity)**
+
+Network access. If specified the version will be attached to specified network/subnet(s). ||
 || secrets[] | **[Secret](#yandex.cloud.serverless.functions.v1.Secret)**
 
 Yandex Lockbox secrets to be used by the version. ||
@@ -213,11 +213,6 @@ Config for asynchronous invocations of the version ||
 || tmpfs_size | **int64**
 
 Optional size of in-memory mounted /tmp directory in bytes. ||
-|| concurrency | **int64**
-
-The maximum number of requests processed by a function instance at the same time
-
-Acceptable values are 0 to 16, inclusive. ||
 || mounts[] | **[Mount](#yandex.cloud.serverless.functions.v1.Mount)**
 
 Mounts to be used by the version. ||
@@ -308,7 +303,6 @@ Log entries destination. ||
 || min_level | enum **Level**
 
 Minimum log entry level.
-
 See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.

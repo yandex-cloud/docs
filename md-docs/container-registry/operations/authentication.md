@@ -17,7 +17,7 @@
   * С помощью OAuth-токена (срок жизни — год).
   * С помощью IAM-токена (срок жизни — не более 12 часов).
 
-* [С помощью хранилища учетных данных Docker Credential helper](#cred-helper).
+* [С помощью хранилища учетных данных Docker credential helper](#cred-helper).
 
 ## Аутентифицироваться как пользователь {#user}
 
@@ -81,15 +81,15 @@
 
 При выполнении команды вы можете получить сообщение об ошибке: `docker login is not supported with yc credential helper`.
 
-В этом случае [отключите Docker Credential helper](#ch-not-use). Подробнее в разделе [Решение проблем в Container Registry](../error/index.md).
+В этом случае [отключите Docker credential helper](#ch-not-use). Подробнее в разделе [Решение проблем в Container Registry](../error/index.md).
 
-## Аутентифицироваться с помощью Docker Credential helper {#cred-helper}
+## Аутентифицироваться с помощью Docker credential helper {#cred-helper}
 
-Docker Engine может хранить учетные данные пользователя во внешнем хранилище. Это безопаснее, чем хранить их в конфигурационном файле Docker. Чтобы использовать хранилище учетных данных, необходима внешняя программа — [Docker Credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers).
+Docker Engine может хранить учетные данные пользователя во внешнем хранилище. Это безопаснее, чем хранить их в конфигурационном файле Docker. Чтобы использовать хранилище учетных данных, необходима внешняя программа — [Docker credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers).
 
-В состав [Yandex Cloud CLI](../../cli/quickstart.md) входит утилита `docker-credential-yc`, которая выступает в роли Docker Credential helper для Yandex Cloud. Она хранит учетные данные пользователя и позволяет работать с приватными реестрами Yandex Cloud, не выполняя команду `docker login`.
+В состав [Yandex Cloud CLI](../../cli/quickstart.md) входит утилита `docker-credential-yc`, которая выступает в роли Docker credential helper для Yandex Cloud. Она хранит учетные данные пользователя и позволяет работать с приватными реестрами Yandex Cloud, не выполняя команду `docker login`.
 
-### Настройка Credential helper {#ch-setting}
+### Настройка credential helper {#ch-setting}
 
 Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
@@ -110,9 +110,9 @@ Docker Engine может хранить учетные данные пользо
    Настройки сохраняются в профиле текущего пользователя.
 
    {% note warning %}
-
-   Credential helper работает только при использовании Docker без `sudo`. О том, как настроить запуск Docker от имени текущего пользователя без использования `sudo` читайте в [официальной документации](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
-
+   
+   Credential helper работает только при использовании Docker без `sudo`. О том, как настроить запуск Docker от имени текущего пользователя без использования `sudo`, читайте в [официальной документации Docker](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+   
    {% endnote %}
 
 1. Проверьте, что Docker сконфигурирован.
@@ -125,11 +125,11 @@ Docker Engine может хранить учетные данные пользо
 
 1. Docker готов к использованию, например, для [загрузки Docker-образов](docker-image/docker-image-push.md).
 
-### Дополнительные опции Credential helper {#ch-feature}
+### Дополнительные опции credential helper {#ch-feature}
 
-#### Использовать Credential helper для другого профиля Yandex Cloud CLI {#ch-profile}
+#### Использовать credential helper для другого профиля Yandex Cloud CLI {#ch-profile}
 
-Вы можете использовать Credential helper для другого профиля, не переключая текущий, с помощью команды:
+Вы можете использовать credential helper для другого профиля, не переключая текущий, с помощью команды:
 
 ```bash
 yc container registry configure-docker --profile <имя_профиля>
@@ -137,6 +137,6 @@ yc container registry configure-docker --profile <имя_профиля>
 
 Подробнее об управлении профилями читайте в [пошаговых инструкциях Yandex Cloud CLI](../../cli/operations/index.md#profile).
 
-#### Не использовать Credential helper {#ch-not-use}
+#### Не использовать credential helper {#ch-not-use}
 
-Чтобы не использовать Credential helper при аутентификации, удалите в конфигурационном файле `${HOME}/.docker/config.json` из блока `credHelpers` строку домена `cr.yandex`.
+Чтобы не использовать credential helper при аутентификации, удалите в конфигурационном файле `${HOME}/.docker/config.json` из блока `credHelpers` строку домена `cr.yandex`.

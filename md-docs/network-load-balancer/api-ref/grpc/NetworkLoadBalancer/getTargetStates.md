@@ -19,10 +19,12 @@ Gets states of target resources in the attached target group.
 ||Field | Description ||
 || network_load_balancer_id | **string**
 
-ID of the NetworkLoadBalancer resource with an attached target group. ||
+ID of the NetworkLoadBalancer resource with an attached target group.
+The length must be less than or equal to 50. ||
 || target_group_id | **string**
 
-ID of the target group to get states of resources from. ||
+ID of the target group to get states of resources from.
+The length must be less than or equal to 50. ||
 |#
 
 ## GetTargetStatesResponse {#yandex.cloud.loadbalancer.v1.GetTargetStatesResponse}
@@ -63,7 +65,6 @@ IP address of the target. ||
 
 Status of the target.
 
-- `STATUS_UNSPECIFIED`
 - `INITIAL`: The network load balancer is setting up health checks for this target.
 - `HEALTHY`: Health check passed and the target is ready to receive traffic.
 - `UNHEALTHY`: Health check failed and the target is not receiving traffic.

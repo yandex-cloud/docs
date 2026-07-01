@@ -40,7 +40,6 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 * [Yandex Identity and Access Management](events.md#iam)
 * [Yandex IoT Core](events.md#iot)
 * [Yandex Key Management Service](events.md#kms)
-* [Yandex Load Testing](events.md#loadtesting)
 * [Yandex Lockbox](events.md#lockbox)
 * [Yandex Managed Service for Apache Airflow™](events.md#managed-service-for-airflow)
 * [Yandex Managed Service for Apache Kafka®](events.md#managed-service-for-kafka)
@@ -775,7 +774,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `UpdateWorkbook` | Изменение воркбука
 `UpdateWorkbookAccessBindings` | Изменение настроек доступа к воркбуку
 
-^1^ С 1 декабря 2025 года события больше не передаются в связи с прекращением действия [тарифа Business](../../datalens/pricing-changes.md).
+^1^ С 1 декабря 2025 года события больше не передаются в связи с прекращением действия [тарифа Business](../../../datalens/pricing-changes.md).
 
 ## Yandex DataSphere {#datasphere}
 
@@ -941,30 +940,6 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `UpdateAsymmetricEncryptionKeyAccessBindings` | Изменение прав доступа для асимметричной ключевой пары шифрования
 `asymmetricencryption.CancelAsymmetricEncryptionKeyDeletion` | Отмена удаления асимметричной ключевой пары шифрования
 `asymmetricsignature.CancelAsymmetricSignatureKeyDeletion` | Отмена удаления ключевой пары электронной подписи
-
-## Yandex Load Testing {#loadtesting}
-
-Имя сервиса — `loadtesting`.
-
-Имя события | Описание
---- | ---
-`CreateAgent` | Создание агента
-`CreateConfig` | Создание конфигурации
-`CreateMigration` | Создание миграции
-`CreateRegressionDashboard` | Создание дашборда регрессий
-`CreateTest` | Создание теста
-`DeleteAgent` | Удаление агента
-`DeleteConfig` | Удаление конфигурации
-`DeleteRegressionDashboard` | Удаление дашборда регрессий
-`DeleteTest` | Удаление теста
-`RestartAgent` | Перезапуск агента
-`StartAgent` | Запуск агента
-`StopAgent` | Остановка агента
-`StopTest` | Остановка теста
-`UpdateAgent` | Изменение агента
-`UpdateRegressionDashboard` | Изменение дашборда регрессий
-`UpdateTest` | Изменение теста
-`UpgradeImageAgent` | Обновление образа агента
 
 ## Yandex Lockbox {#lockbox}
 

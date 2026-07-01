@@ -28,11 +28,15 @@ Retrieves a list of backups.
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a `next_page_token` that can be used
 to get the next page of results in subsequent ListBackups requests.
-Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
+Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. Set `page_token` to the `next_page_token` returned by a previous ListBackups
-request to get the next page of results. ||
+request to get the next page of results.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListBackupsResponse {#yandex.cloud.ydb.v1.ListBackupsResponse}
@@ -127,7 +131,6 @@ indicates when backup started. ||
 indicates when backup completed. ||
 || status | enum **Status**
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `READY`
 - `ERROR`
@@ -137,7 +140,6 @@ indicates when backup completed. ||
 settings used to make backup. ||
 || type | enum **Type**
 
-- `TYPE_UNSPECIFIED`
 - `SYSTEM`: indicates that backup started by the system.
 - `USER` ||
 || size | **int64**
@@ -151,10 +153,14 @@ size of backup in bytes. ||
 ||Field | Description ||
 || name | **string**
 
-name of backup settings ||
+name of backup settings
+
+The maximum string length in characters is 256. ||
 || description | **string**
 
-human readable description. ||
+human readable description.
+
+The maximum string length in characters is 256. ||
 || backup_schedule | **[BackupSchedule](#yandex.cloud.ydb.v1.BackupSchedule)**
 
 provide schedule. if empty, backup will be disabled. ||
@@ -165,20 +171,22 @@ provide time to live of backup. ||
 
 provide a list of source paths. Each path can be directory, table or even database itself.
 Each directory (or database) will be traversed recursively and all childs of directory will be included to backup.
-By default, backup will be created for full database. ||
+By default, backup will be created for full database.
+
+The maximum number of elements is 256. ||
 || source_paths_to_exclude[] | **string**
 
 provide a list of paths to exclude from backup.
 Each path is a directory, table, or database.
-Each directory (or database) will be traversed recursively and all childs of directory will be excluded. ||
+Each directory (or database) will be traversed recursively and all childs of directory will be excluded.
+
+The maximum number of elements is 256. ||
 || type | enum **Type**
 
-- `TYPE_UNSPECIFIED`
 - `SYSTEM`
 - `USER` ||
 || storage_class | enum **StorageClass**
 
-- `STORAGE_CLASS_UNSPECIFIED`
 - `STANDARD`
 - `REDUCED_REDUNDANCY`
 - `STANDARD_IA`
@@ -214,14 +222,16 @@ using provided schedule. ||
 ||Field | Description ||
 || execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## WeeklyBackupSchedule {#yandex.cloud.ydb.v1.WeeklyBackupSchedule}
 
 #|
 ||Field | Description ||
-|| days_of_week[] | **[DaysOfWeekBackupSchedule](#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule)** ||
+|| days_of_week[] | **[DaysOfWeekBackupSchedule](#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule)**
+
+The number of elements must be in the range 1-7. ||
 |#
 
 ## DaysOfWeekBackupSchedule {#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule}
@@ -230,7 +240,8 @@ Required field.  ||
 ||Field | Description ||
 || days[] | enum **DayOfWeek**
 
-- `DAY_OF_WEEK_UNSPECIFIED`: The unspecified day-of-week.
+The number of elements must be in the range 1-7.
+
 - `MONDAY`: The day-of-week of Monday.
 - `TUESDAY`: The day-of-week of Tuesday.
 - `WEDNESDAY`: The day-of-week of Wednesday.
@@ -240,7 +251,7 @@ Required field.  ||
 - `SUNDAY`: The day-of-week of Sunday. ||
 || execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## RecurringBackupSchedule {#yandex.cloud.ydb.v1.RecurringBackupSchedule}

@@ -5,7 +5,7 @@ editable: false
 # Managed Service for PostgreSQL API, gRPC: ManagedRepackService.LaunchRepack
 
 Launches new Repack in given cluster
-(-- api-linter: yc::1702::method-verb-prefix=disabled --)
+
 
 ## gRPC request
 

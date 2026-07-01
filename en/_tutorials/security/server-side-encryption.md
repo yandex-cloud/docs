@@ -39,7 +39,7 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
 
@@ -169,7 +169,7 @@ Create a new key or use an existing one. To create a key:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a key.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}**.
   1. In the window that opens:
 
@@ -312,7 +312,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the previously created bucket.
   1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Open the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
@@ -460,7 +460,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the previously created bucket.
   1. In the left-hand panel, select **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Open the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.

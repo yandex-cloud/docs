@@ -49,4 +49,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Аутентифицировать в Cloud Registry](authentication.md)
+* [Аутентифицироваться в Cloud Registry](authentication.md)

@@ -2,15 +2,14 @@
 
 {% note info %}
 
-Функциональность анализа данных находится на [стадии Preview](../../../overview/concepts/launch-stages.md) и в настоящее время не тарифицируется.
-
-После перехода в стадию общего доступа анализ данных будет тарифицироваться отдельно от [сканирований](../../concepts/dspm.md#scanning) источников данных.
+Анализ данных тарифицируется отдельно от [сканирований](../../concepts/dspm.md#scanning) источников данных.
 
 {% endnote %}
 
-[Анализ данных](../../concepts/dspm.md#discovery-mode) — это начальный этап работы модуля [Контроль данных](../../concepts/dspm.md) (DSPM). Основная задача анализа — автоматически находить, идентифицировать и каталогизировать ресурсы, где потенциально могут находиться чувствительные данные, в пределах выбранного [окружения](../../concepts/workspace.md).
+[Анализ данных](../../concepts/dspm.md#discovery-mode) — это начальный этап работы модуля [Контроль данных](../../concepts/dspm.md) (DSPM). Модуль находит, идентифицирует и каталогизирует все бакеты Object Storage в пределах выбранного [окружения](../../concepts/workspace.md).
 
-Результаты анализа данных вы можете [сохранить](#save-results) в локальный файл или [бакет](../../../storage/concepts/bucket.md) Yandex Object Storage.
+Анализ запускается автоматически после активации модуля Data Security Posture Management.
+
 
 ## Перед началом работы {#before-begin}
 
@@ -34,16 +33,17 @@
 
 {% endlist %}
 
+
 ## Посмотреть результаты анализа {#view-results}
 
-Результаты предварительного анализа ресурсов в окружении доступны в разделе **Анализ данных** модуля DSPM. Чтобы посмотреть их:
+Результаты предварительного анализа ресурсов в окружении доступны в Интерфейсе v2.0 в разделе **Анализ данных** модуля DSPM. Чтобы посмотреть их:
 
 {% list tabs group=instructions %}
 
-- Интерфейс Security Deck {#console}
+- Интерфейс v2.0 {#cloud-sd-v2}
 
-  1. Перейдите в сервис [Yandex Security Deck](https://center.yandex.cloud/security/).
-  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **Контроль данных** и перейдите на вкладку **Анализ данных**.
+  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **Контроль данных**.
+  1. На странице модуля **Контроль данных** выберите `Интерфейс: v2.0` и перейдите на вкладку **Анализ данных**.
 
       На странице представлена информация о количестве и суммарном объеме файлов, найденных в ресурсах окружения, которые могут потенциально содержать чувствительные данные:
 
@@ -52,7 +52,7 @@
           Для каждого облака, каталога и бакета указано количество найденных в них файлов и их суммарный объем.
       * Инфографика с информацией о количестве найденных файлов разных типов и их объеме в процентном соотношении.
 
-          Нажмите **Больше деталей** ![chevrons-up](../../../_assets/console-icons/chevrons-up.svg), чтобы расширить диаграмму и показать более подробную информацию.
+          Нажмите **Детали** ![chevrons-up](../../../_assets/console-icons/chevrons-up.svg), чтобы расширить диаграмму и показать более подробную информацию.
   1. При необходимости используйте фильтры, чтобы получить конкретизированные сведения о ресурсах и типах обнаруженных в них файлов:
 
       * (Опционально) В блоке **Ресурс** отметьте те ресурсы, по которым вы хотите получить анализ.
@@ -62,16 +62,47 @@
       * (Опционально) В блоке **Форматы** выберите те [MIME-типы](https://ru.wikipedia.org/wiki/Список_MIME-типов) файлов, по которым вы хотите получить анализ:
 
           * `Доступные для сканирования` — файлы всех поддерживаемых MIME-типов.
-          * `Text files` — текстовые файлы c MIME-типами `text/plain`, `application/rtf` и т.п.
-          * `Office documents` — файлы документов, таблиц и презентаций c MIME-типами `application/msword`, `application/vnd.ms-excel` и т.п.
-          * `PDF documents` — файлы документов c MIME-типом `application/pdf`.
-          * `Images` — файлы изображений c MIME-типами `image/bmp`, `image/gif` и т.п.
-          * `Email and messages` — файлы сообщений c MIME-типом `message/rfc822`.
-          * `Specialized formats` — файлы в специализированных форматах таких как `application/x-x509-cert; format=pem` и т.п.
+          * `Документы`:
+              * `Текстовые документы` — текстовые файлы c MIME-типами `text/plain`, `application/rtf` и т.п.
+              * `Документы текстовых процессоров` — текстовые файлы с MIME-типами `application/macwriteii`, `application/msword` и т.п.
+              * `PDF и другие документы для печати` — файлы MIME-типов `application/pdf`, `image/vnd.djvu` и т.п.
+              * `Презентации` — файлы презентаций c MIME-типами `application/vnd.apple.keynote`, `application/vnd.ms-powerpoint` и т.п.
+              * `Электронные книги` — текстовые файлы с MIME-типами `application/epub+zip`, `application/hwp+zip` и т.п.
+          * `Графика и дизайн`:
+              * `Растровая графика` — файлы изображений c MIME-типами `image/bmp`, `image/gif` и т.п.
+              * `Векторная графика` — файлы изображений c MIME-типами `application/coreldraw`, `image/cgm` и т.п.
+              * `3D-модели` — файлы изображений c MIME-типами `image/x-3ds`, `model/e57` и т.п.
+          * `Мультимедиа`:
+              * `Аудиофайлы` — файлы аудио c MIME-типами `audio/32kadpcm`, `audio/3gpp` и т.п.
+              * `Видеофайлы` — файлы видео c MIME-типами `application/mp4`, `application/mpeg4-generic` и т.п.
+          * `Код и служебные файлы`:
+              * `Исходный код` — файлы кода `application/sieve`, `application/x-bat` и т.п.
+              * `Конфигурационные файлы` — конфигурационные файлы c MIME-типами `text/x-config`, `text/x-ini` и т.п.
+              * `Сертификаты и ключи` — файлы с секретами MIME-типов `application/pgp-encrypted`, `application/pgp-keys` и т.п.
+              * `Исполняемые и бинарные файлы` — служебные файлы c MIME-типами `application/applefile`, `application/java-vm` и т.п.
+          * `Наборы данных`:
+              * `Структурированные данные` — файлы с данными MIME-типов `application/cbor`, `application/json` и т.п.
+              * `Табличные форматы` — файлы таблиц MIME-типов `application/vnd.apple.numbers`, `application/vnd.ms-excel` и т.п.
+              * `Файлы баз данных` — файлы баз данных c MIME-типами `application/vnd.lotus-approach`, `application/vnd.oasis.opendocument.base` и т.п.
+              * `ГИС` — файлы с MIME-типами `application/vnd.google-earth.kml+xml`, `application/vnd.google-earth.kmz` и т.п.
+          * `Архивы и контейнеры`: 
+              * `Архивы` — файлы c архивами MIME-типов `application/gzip`, `application/java-archive` и т.п.
+              * `Образы дисков` — файлы образов с MIME-типами `application/vnd.msa-disk-image`, `application/x-apple-diskimage` и т.п.
+          * `Цифровые коммуникации`:
+              * `Веб` — веб-файлы MIME-типов `application/ecmascript`, `text/html` и т.п.
+              * `Почта и сообщения` — файлы с MIME-типами `application/activemessage`, `message/cpim` и т.п.
+              * `Шрифты` — файлы шрифтов с MIME-типами `application/font-tdpfr`, `application/x-font-bdf` и т.п.
+          * `Узкоспециализированные форматы`:
+              * `Научные данные` — файлы с научными данными с MIME-типами `application/cellml+xml`, `chemical/x-cdx` и т.п.
+          * `Медицинские изображения` — файлы с MIME-типами `application/dicom`.
+          * `Прочее` — прочие файлы с MIME-типами. 
 
       Чтобы сбросить установленные фильтры, нажмите кнопку ![arrow-rotate-left](../../../_assets/console-icons/arrow-rotate-left.svg) **Сбросить**.
 
 {% endlist %}
+
+После того как анализ данных выявил потенциально опасные ресурсы, нажмите **Добавить к сканированию**, чтобы [создать](create-scan.md#cloud-sd-v2) для них непрерывное сканирование изменений.
+
 
 ## Сохранить результаты анализа {#save-results}
 
@@ -79,10 +110,10 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Security Deck {#console}
+- Интерфейс v2.0 {#cloud-sd-v2}
 
-  1. Перейдите в сервис [Yandex Security Deck](https://center.yandex.cloud/security/).
-  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **Контроль данных** и перейдите на вкладку **Анализ данных**.
+  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **Контроль данных**.
+  1. На странице модуля **Контроль данных** выберите `Интерфейс: v2.0` и перейдите на вкладку **Анализ данных**.
   1. Нажмите кнопку ![arrow-down-to-line](../../../_assets/console-icons/arrow-down-to-line.svg) **Экспорт** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите:
 
       * ![arrow-down-to-line](../../../_assets/console-icons/arrow-down-to-line.svg) **Скачать результаты в файл**, чтобы сохранить результаты анализа в локальный файл.
@@ -116,5 +147,5 @@
 
 * [Модуль контроля данных (DSPM)](../../concepts/dspm.md)
 * [Окружения Security Deck](../../concepts/workspace.md)
-* [Создать источник данных DSPM](create-data-source.md)
+* [Подготовить данные для сканирования в DSPM](create-data-source.md)
 * [Создать сканирование DSPM](create-scan.md)

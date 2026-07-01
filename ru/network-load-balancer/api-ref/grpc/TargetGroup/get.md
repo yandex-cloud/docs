@@ -22,8 +22,10 @@ Returns the specified TargetGroup resource.
 ||Field | Description ||
 || target_group_id | **string**
 
-Required field. ID of the TargetGroup resource to return.
-To get the target group ID, use a [TargetGroupService.List](/docs/network-load-balancer/api-ref/grpc/TargetGroup/list#List) request. ||
+ID of the TargetGroup resource to return.
+To get the target group ID, use a [TargetGroupService.List](/docs/network-load-balancer/api-ref/grpc/TargetGroup/list#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## TargetGroup {#yandex.cloud.loadbalancer.v1.TargetGroup}
@@ -86,7 +88,8 @@ A Target resource. For more information, see [Target groups and resources](/docs
 || subnet_id | **string**
 
 ID of the subnet that targets are connected to.
-All targets in the target group must be connected to the same subnet within a single availability zone. ||
+All targets in the target group must be connected to the same subnet within a single availability zone.
+The length must be less than or equal to 50. ||
 || address | **string**
 
 IP address of the target. ||

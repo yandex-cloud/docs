@@ -107,7 +107,7 @@ warp get \
 * плата за использование Object Storage ([тарифы Yandex Object Storage](../../storage/pricing.md)).
 * плата за использование сетевого балансировщика ([тарифы Network Load Balancer](../../network-load-balancer/pricing.md)).
 * плата за постоянно работающие ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../pricing.md)).
+* плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Подготовьте среду для развертывания ресурсов {#setup-environment}
 

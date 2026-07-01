@@ -51,6 +51,7 @@ Currently page_size, page_token, filter and order_by are not supported and List 
       "description": "string",
       "labels": "map<string, string>",
       "created_at": "google.protobuf.Timestamp",
+      "updated_at": "google.protobuf.Timestamp",
       "rules": [
         {
           "rule_id": "string",
@@ -630,7 +631,8 @@ Currently page_size, page_token, filter and order_by are not supported and List 
                   "value": "string",
                   "case_sensitive": "bool"
                 }
-              ]
+              ],
+              "is_excluded": "bool"
             }
           }
         }
@@ -741,6 +743,9 @@ The maximum string length in characters for each value is 63. The string length 
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Update timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || rules[] | **[WafProfileRule](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileRule)**
 
 Settings for each rule in rule set. ||
@@ -1353,7 +1358,7 @@ Matcher for request headers. ||
 Matcher for request cookies. ||
 || body_matcher | **[BodyMatcher](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.BodyMatcher)**
 
-Matcher for request body. ||
+Matcher for request body exclusion flag. ||
 |#
 
 ## RequestParamMatcher {#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.RequestParamMatcher}
@@ -1407,9 +1412,12 @@ The maximum number of elements is 20. ||
 ||Field | Description ||
 || body_values[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.StringMatcher)**
 
-List of request body values to match. Up to 20 entries.
+Deprecated. Previously matched body content. Use is_excluded instead.
 
 The maximum number of elements is 20. ||
+|| is_excluded | **bool**
+
+When true, request body is excluded from WAF inspection for this exclusion rule. ||
 |#
 
 ## AnalyzeRequestBody {#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.AnalyzeRequestBody}

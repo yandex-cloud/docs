@@ -5,7 +5,7 @@ editable: false
 # Object Storage API, gRPC: BucketService.DeleteHTTPSConfig
 
 Deletes the HTTPS configuration for the specified bucket.
-(-- api-linter: yc::1705::http-method-mapping=disabled
+
 for compatibility with old format --)
 
 ## gRPC request

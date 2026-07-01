@@ -1,7 +1,7 @@
 # Managed Service for MongoDB API, gRPC: ClusterService.UpdateHosts
 
 Updates the specified parameters for the host.
-(-- api-linter: yc::1705::http-method-mapping=disabled --)
+
 
 ## gRPC request
 
@@ -31,7 +31,7 @@ Updates the specified parameters for the host.
 || cluster_id | **string**
 
 Required field. ID of the MongoDB cluster to update hosts from.
-To get the MongoDB cluster ID, use a [ClusterService.List](../../../../managed-mongodb/api-ref/grpc/Cluster/list#List) request.
+To get the MongoDB cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || update_host_specs[] | **[UpdateHostSpec](#yandex.cloud.mdb.mongodb.v1.UpdateHostSpec)**
@@ -47,7 +47,7 @@ The number of elements must be greater than 0. ||
 ||Field | Description ||
 || host_name | **string**
 
-Required field. Host to be updated. Specify the [host FQDN](../../../../managed-mongodb/operations/connect#fqdn).
+Required field. Host to be updated. Specify the [host FQDN](../../../operations/connect/index.md#fqdn).
 
 The maximum string length in characters is 253. ||
 || hidden | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**

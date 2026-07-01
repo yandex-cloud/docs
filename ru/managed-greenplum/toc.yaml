@@ -25,6 +25,8 @@ items:
             href: operations/cluster-backups.md
           - name: Управление доступом к кластеру
             href: operations/cluster-access.md
+          - name: Обновление версии в {{ mgp-full-name }}
+            href: operations/cluster-version-update.md
           - name: Техническое обслуживание
             href: operations/cluster-maintenance.md
           - name: Удаление кластера

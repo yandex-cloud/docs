@@ -286,7 +286,8 @@ A list of messages that carry the error details. ||
 - `DEBIAN`
 - `NUGET`
 - `PYPI`
-- `BINARY` ||
+- `BINARY`
+- `GO` ||
 || type | **enum** (Type)
 
 - `LOCAL`

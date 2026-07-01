@@ -15,7 +15,6 @@ GET https://certificate-manager.api.cloud.yandex.net/certificate-manager/v1/cert
 || certificateId | **string**
 
 Required field. ID of the certificate to list operations for.
-
 To get the certificate ID, use a [CertificateService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||

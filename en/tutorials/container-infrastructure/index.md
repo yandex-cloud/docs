@@ -5,7 +5,6 @@ description: Various container infrastructure use cases in {{ yandex-cloud }}
 
 # Tutorials for working with a container infrastructure
 
-* [{#T}](loadtesting-grpc-autoscaling.md)
 * [{#T}](container-pg-connect.md)
 * [{#T}](vm-create.md)
 * [{#T}](vm-create-with-second-disk.md)
@@ -34,7 +33,6 @@ description: Various container infrastructure use cases in {{ yandex-cloud }}
 
 * [{#T}](autoscaling.md)
 * [{#T}](vpa-autoscaling.md)
-* [{#T}](loadtesting-grpc-autoscaling.md)
 
 ### Using {{ container-registry-full-name }} {#container-registry}
 

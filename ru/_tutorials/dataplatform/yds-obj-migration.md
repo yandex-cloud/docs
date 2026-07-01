@@ -81,19 +81,20 @@
 
 1. [Отправьте в поток](../../data-streams/operations/aws-cli/send.md) тестовые данные. В качестве сообщения используйте данные от сенсоров автомобиля в формате JSON:
 
-```json
-{
-    "device_id":"iv9a94th6rzt********",
-    "datetime":"2020-06-05T17:27:00",
-    "latitude":"55.70329032",
-    "longitude":"37.65472196",
-    "altitude":"427.5",
-    "speed":"0",
-    "battery_voltage":"23.5",
-    "cabin_temperature":"17",
-    "fuel_level":null
-}
-```
+    ```json
+    {
+        "device_id":"iv9a94th6rzt********",
+        "datetime":"2020-06-05T17:27:00",
+        "latitude":"55.70329032",
+        "longitude":"37.65472196",
+        "altitude":"427.5",
+        "speed":"0",
+        "battery_voltage":"23.5",
+        "cabin_temperature":"17",
+        "fuel_level":null
+    }
+    ```
+1. Подождите 5–10 секунд и отправьте в поток второе сообщение.
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
@@ -171,6 +172,8 @@
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `storage.uploader`.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** — выберите `JSON` или `CSV`, если в расширенных настройках эндпоинта источника включили опцию **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**.
+      
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1AdvancedWriterSettings.title }}** — выберите **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageV1WriterSettings.ReplicationWriter.title }}** и в поле **Интервал ротации** укажите 1.
 
 1. Создайте трансфер:
 
@@ -217,7 +220,7 @@
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Выберите бакет из списка.
-    1. Проверьте, что бакет содержит файл `<имя_потока>_0.raw` (`.json` или `.csv`, в зависимости от выбранного выходного формата) с тестовыми данными.
+    1. Проверьте, что бакет содержит файл `<имя_потока>/partition=0/<имя_потока>+0+0.raw` (`.json` или `.csv`, в зависимости от выбранного выходного формата) с первым сообщением.
 
 1. [Отправьте в поток {{ yds-name }}](../../data-streams/operations/aws-cli/send.md) новое сообщение:
 
@@ -240,7 +243,7 @@
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Выберите бакет из списка.
-    1. Проверьте, что в бакет добавился файл `<имя_потока>_0-1_1.raw` (`.json` или `.csv`, в зависимости от выбранного выходного формата) с новыми данными.
+    1. Проверьте, что бакет содержит файл `<имя_потока>/partition=0/<имя_потока>+0+1.raw` (`.json` или `.csv`, в зависимости от выбранного выходного формата) с первым сообщением.
 
 ## Удалите созданные ресурсы {#clear-out}
 

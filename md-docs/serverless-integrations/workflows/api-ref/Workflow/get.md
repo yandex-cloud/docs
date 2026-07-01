@@ -61,7 +61,7 @@ Required field. ID of the Workflow. ||
 ||Field | Description ||
 || workflow | **[Workflow](#yandex.cloud.serverless.workflows.v1.Workflow)**
 
-Workflow properties. ||
+Required field. Workflow properties. ||
 |#
 
 ## Workflow {#yandex.cloud.serverless.workflows.v1.Workflow}
@@ -70,16 +70,16 @@ Workflow properties. ||
 ||Field | Description ||
 || id | **string**
 
-ID of the Workflow. Generated at creation time. ||
+Required field. ID of the Workflow. Generated at creation time. ||
 || folderId | **string**
 
-ID of the folder that the Workflow belongs to. ||
+Required field. ID of the folder that the Workflow belongs to. ||
 || specification | **[WorkflowSpecification](#yandex.cloud.serverless.workflows.v1.WorkflowSpecification)**
 
-Specification of the Workflow ||
+Required field. Specification of the Workflow ||
 || createdAt | **string** (date-time)
 
-Creation timestamp for the Workflow.
+Required field. Creation timestamp for the Workflow.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -89,7 +89,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || name | **string**
 
-Name of the Workflow. The name is unique within the folder. ||
+Required field. Name of the Workflow. The name is unique within the folder. ||
 || description | **string**
 
 Description of the Workflow. ||
@@ -98,7 +98,7 @@ Description of the Workflow. ||
 Workflow labels as `key:value` pairs. ||
 || status | **enum** (Status)
 
-Status of the Workflow.
+Required field. Status of the Workflow.
 
 - `CREATING`: Workflow is being created.
 - `ACTIVE`: Workflow is ready for use.
@@ -159,7 +159,6 @@ Includes only one of the fields `logGroupId`, `folderId`. ||
 || minLevel | **enum** (Level)
 
 Minimum logs level.
-
 See [LogLevel.Level](../../../../logging/api-ref/Export/get.md#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.

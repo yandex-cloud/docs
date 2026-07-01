@@ -76,7 +76,7 @@ list request will have its own `next_page_token` to continue paging through the 
 ## Backup {#yandex.cloud.mdb.redis.v1.Backup}
 
 Description of a Redis backup. For more information, see
-the Managed Service for Redis [documentation](../../../../managed-redis/concepts/backup).
+the Managed Service for Redis [documentation](../../../concepts/backup.md).
 
 #|
 ||Field | Description ||

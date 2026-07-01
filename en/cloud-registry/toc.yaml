@@ -151,6 +151,8 @@ items:
             href: cli-ref/artifact/remove-access-binding.md
           - name: set-access-bindings
             href: cli-ref/artifact/set-access-bindings.md
+          - name: upsert
+            href: cli-ref/artifact/upsert.md
       - name: configure-docker
         href: cli-ref/configure-docker.md
       - name: registry
@@ -229,6 +231,8 @@ items:
                 href: cli-ref/v0/artifact/remove-access-binding.md
               - name: set-access-bindings
                 href: cli-ref/v0/artifact/set-access-bindings.md
+              - name: upsert
+                href: cli-ref/v0/artifact/upsert.md
           - name: configure-docker
             href: cli-ref/v0/configure-docker.md
           - name: registry
@@ -285,6 +289,88 @@ items:
                 href: cli-ref/v0/registry/update.md
           - name: tools
             href: cli-ref/v0/tools.md
+      - name: v1
+        items:
+          - name: Overview
+            href: cli-ref/v1/index.md
+          - name: artifact
+            items:
+              - name: Overview
+                href: cli-ref/v1/artifact/index.md
+              - name: add-access-binding
+                href: cli-ref/v1/artifact/add-access-binding.md
+              - name: delete
+                href: cli-ref/v1/artifact/delete.md
+              - name: get
+                href: cli-ref/v1/artifact/get.md
+              - name: get-by-path
+                href: cli-ref/v1/artifact/get-by-path.md
+              - name: list-access-bindings
+                href: cli-ref/v1/artifact/list-access-bindings.md
+              - name: remove-access-binding
+                href: cli-ref/v1/artifact/remove-access-binding.md
+              - name: set-access-bindings
+                href: cli-ref/v1/artifact/set-access-bindings.md
+              - name: update-access-bindings
+                href: cli-ref/v1/artifact/update-access-bindings.md
+              - name: upsert
+                href: cli-ref/v1/artifact/upsert.md
+          - name: configure-docker
+            href: cli-ref/v1/configure-docker.md
+          - name: registry
+            items:
+              - name: Overview
+                href: cli-ref/v1/registry/index.md
+              - name: add-access-binding
+                href: cli-ref/v1/registry/add-access-binding.md
+              - name: add-ip-permissions
+                href: cli-ref/v1/registry/add-ip-permissions.md
+              - name: create
+                href: cli-ref/v1/registry/create.md
+              - name: delete
+                href: cli-ref/v1/registry/delete.md
+              - name: force-delete
+                href: cli-ref/v1/registry/force-delete.md
+              - name: get
+                href: cli-ref/v1/registry/get.md
+              - name: lifecycle-policy
+                items:
+                  - name: Overview
+                    href: cli-ref/v1/registry/lifecycle-policy/index.md
+                  - name: change-state
+                    href: cli-ref/v1/registry/lifecycle-policy/change-state.md
+                  - name: create
+                    href: cli-ref/v1/registry/lifecycle-policy/create.md
+                  - name: delete
+                    href: cli-ref/v1/registry/lifecycle-policy/delete.md
+                  - name: dry-run
+                    href: cli-ref/v1/registry/lifecycle-policy/dry-run.md
+                  - name: get
+                    href: cli-ref/v1/registry/lifecycle-policy/get.md
+                  - name: list
+                    href: cli-ref/v1/registry/lifecycle-policy/list.md
+                  - name: update
+                    href: cli-ref/v1/registry/lifecycle-policy/update.md
+              - name: list
+                href: cli-ref/v1/registry/list.md
+              - name: list-access-bindings
+                href: cli-ref/v1/registry/list-access-bindings.md
+              - name: list-artifacts
+                href: cli-ref/v1/registry/list-artifacts.md
+              - name: list-ip-permissions
+                href: cli-ref/v1/registry/list-ip-permissions.md
+              - name: remove-access-binding
+                href: cli-ref/v1/registry/remove-access-binding.md
+              - name: remove-ip-permissions
+                href: cli-ref/v1/registry/remove-ip-permissions.md
+              - name: set-access-bindings
+                href: cli-ref/v1/registry/set-access-bindings.md
+              - name: set-ip-permissions
+                href: cli-ref/v1/registry/set-ip-permissions.md
+              - name: update
+                href: cli-ref/v1/registry/update.md
+          - name: tools
+            href: cli-ref/v1/tools.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
@@ -303,6 +389,8 @@ items:
                 href: api-ref/grpc/Artifact/get.md
               - name: GetByPath
                 href: api-ref/grpc/Artifact/getByPath.md
+              - name: List
+                href: api-ref/grpc/Artifact/list.md
               - name: Delete
                 href: api-ref/grpc/Artifact/delete.md
               - name: ListAccessBindings
@@ -331,6 +419,12 @@ items:
                 href: api-ref/grpc/LifecyclePolicy/changeState.md
               - name: DryRun
                 href: api-ref/grpc/LifecyclePolicy/dryRun.md
+          - name: Migration
+            items:
+              - name: Overview
+                href: api-ref/grpc/Migration/index.md
+              - name: StartCloud
+                href: api-ref/grpc/Migration/startCloud.md
           - name: Operation
             items:
               - name: Overview
@@ -397,6 +491,24 @@ items:
                 href: api-ref/grpc/ScanPolicy/update.md
               - name: Delete
                 href: api-ref/grpc/ScanPolicy/delete.md
+          - name: Yandex Cloud Registry Domains API
+            items:
+              - name: Overview
+                href: domain/api-ref/grpc/index.md
+              - name: Debian
+                items:
+                  - name: Overview
+                    href: domain/api-ref/grpc/Debian/index.md
+                  - name: ReindexPackages
+                    href: domain/api-ref/grpc/Debian/reindexPackages.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: domain/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: domain/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: domain/api-ref/grpc/Operation/cancel.md
       - name: REST
         items:
           - name: Overview
@@ -409,6 +521,8 @@ items:
                 href: api-ref/Artifact/get.md
               - name: GetByPath
                 href: api-ref/Artifact/getByPath.md
+              - name: List
+                href: api-ref/Artifact/list.md
               - name: Delete
                 href: api-ref/Artifact/delete.md
               - name: ListAccessBindings
@@ -489,6 +603,24 @@ items:
                 href: api-ref/ScanPolicy/update.md
               - name: Delete
                 href: api-ref/ScanPolicy/delete.md
+          - name: Yandex Cloud Registry Domains API
+            items:
+              - name: Overview
+                href: domain/api-ref/index.md
+              - name: Debian
+                items:
+                  - name: Overview
+                    href: domain/api-ref/Debian/index.md
+                  - name: ReindexPackages
+                    href: domain/api-ref/Debian/reindexPackages.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: domain/api-ref/Operation/index.md
+                  - name: Get
+                    href: domain/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: domain/api-ref/Operation/cancel.md
   - name: '{{ at-name }} events'
     href: at-ref.md
 path: en/cloud-registry/toc.yaml

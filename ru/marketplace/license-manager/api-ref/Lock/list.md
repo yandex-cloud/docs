@@ -24,6 +24,7 @@ apiPlayground:
             results is larger than `page_size`, the service returns a [ListLocksResponse.nextPageToken](#yandex.cloud.marketplace.licensemanager.v1.ListLocksResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -32,6 +33,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `page_token` to the
             [ListLocksResponse.nextPageToken](#yandex.cloud.marketplace.licensemanager.v1.ListLocksResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -42,11 +44,13 @@ apiPlayground:
             2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
             3. The value. Must be in double quotes `""`. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
             Example of a filter: `product_id="my-product-id"`.
+            The maximum string length in characters is 1000.
           type: string
         orderBy:
           description: |-
             **string**
             Sorting order for the list of subscription locks.
+            The maximum string length in characters is 100.
           type: string
       required:
         - resourceId
@@ -81,23 +85,30 @@ Required field. ID of the folder that the subscription locks belong to. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListLocksResponse.nextPageToken](#yandex.cloud.marketplace.licensemanager.v1.ListLocksResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListLocksResponse.nextPageToken](#yandex.cloud.marketplace.licensemanager.v1.ListLocksResponse) returned by a previous list request. ||
+[ListLocksResponse.nextPageToken](#yandex.cloud.marketplace.licensemanager.v1.ListLocksResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters subscription locks listed in the response.
-
 The expression must specify:
 1. The field name. Currently you can use filtering only on [Lock.product_id] field.
 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
 3. The value. Must be in double quotes `""`. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Example of a filter: `product_id="my-product-id"`. ||
+Example of a filter: `product_id="my-product-id"`.
+
+The maximum string length in characters is 1000. ||
 || orderBy | **string**
 
-Sorting order for the list of subscription locks. ||
+Sorting order for the list of subscription locks.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.marketplace.licensemanager.v1.ListLocksResponse}
@@ -131,7 +142,8 @@ Sorting order for the list of subscription locks. ||
           "payload": "string"
         }
         // end of the list of possible fields
-      }
+      },
+      "instanceProlongation": "boolean"
     }
   ],
   "nextPageToken": "string"
@@ -148,7 +160,6 @@ List of subscription locks. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListLocksRequest.pageSize](#yandex.cloud.marketplace.licensemanager.v1.ListLocksRequest), use `next_page_token` as the value
 for the [ListLocksRequest.pageToken](#yandex.cloud.marketplace.licensemanager.v1.ListLocksRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -209,7 +220,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Subscription lock state.
 
-- `STATE_UNSPECIFIED`
 - `UNLOCKED`: Subscription unlocked.
 - `LOCKED`: Subscription locked to the resource.
 - `DELETED`: Subscription lock deleted. ||
@@ -220,6 +230,9 @@ ID of the subscription template. ||
 
 External subscription instance (optional), for usage convenience propagated
 from parent subscription instance. ||
+|| instanceProlongation | **boolean**
+
+Indicates whether the subscription lock can be automatically prolonged/renewed. ||
 |#
 
 ## ExternalInstance {#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance}

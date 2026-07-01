@@ -49,7 +49,8 @@ Required field. ID of the resource to which the subscription will be locked. ||
       "payload": "string"
     }
     // end of the list of possible fields
-  }
+  },
+  "instanceProlongation": "boolean"
 }
 ```
 
@@ -108,7 +109,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Subscription lock state.
 
-- `STATE_UNSPECIFIED`
 - `UNLOCKED`: Subscription unlocked.
 - `LOCKED`: Subscription locked to the resource.
 - `DELETED`: Subscription lock deleted. ||
@@ -119,6 +119,9 @@ ID of the subscription template. ||
 
 External subscription instance (optional), for usage convenience propagated
 from parent subscription instance. ||
+|| instanceProlongation | **boolean**
+
+Indicates whether the subscription lock can be automatically prolonged/renewed. ||
 |#
 
 ## ExternalInstance {#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance}

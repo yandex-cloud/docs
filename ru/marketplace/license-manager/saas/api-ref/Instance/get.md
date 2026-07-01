@@ -80,7 +80,8 @@ Required field. ID of the subscription instance. ||
           "payload": "string"
         }
         // end of the list of possible fields
-      }
+      },
+      "instanceProlongation": "boolean"
     }
   ],
   "licenseTemplate": {
@@ -96,6 +97,7 @@ Required field. ID of the subscription instance. ||
     "updatedAt": "string",
     "state": "string"
   },
+  "prolongation": "boolean",
   "externalInstance": {
     "name": "string",
     "properties": "object",
@@ -178,7 +180,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Subscription state.
 
-- `STATE_UNSPECIFIED`
 - `PENDING`: Subscription created but not active yet.
 - `ACTIVE`: Subscription is active.
 - `CANCELLED`: Subscription canceled. It is still active, but won't be automatically renewed after the end of the current period.
@@ -191,6 +192,9 @@ List of subscription locks. ||
 || licenseTemplate | **[Template](#yandex.cloud.marketplace.licensemanager.v1.Template)**
 
 Subscription template. ||
+|| prolongation | **boolean**
+
+Indicates whether the subscription can be automatically prolonged/renewed. ||
 || externalInstance | **[ExternalInstance](#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance)**
 
 External subscription instance (optional). ||
@@ -253,7 +257,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Subscription lock state.
 
-- `STATE_UNSPECIFIED`
 - `UNLOCKED`: Subscription unlocked.
 - `LOCKED`: Subscription locked to the resource.
 - `DELETED`: Subscription lock deleted. ||
@@ -264,6 +267,9 @@ ID of the subscription template. ||
 
 External subscription instance (optional), for usage convenience propagated
 from parent subscription instance. ||
+|| instanceProlongation | **boolean**
+
+Indicates whether the subscription lock can be automatically prolonged/renewed. ||
 |#
 
 ## ExternalInstance {#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance}
@@ -365,7 +371,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Subscription template state.
 
-- `STATE_UNSPECIFIED`
 - `PENDING`: Subscription template created but not active yet.
 - `ACTIVE`: Subscription template is active.
 - `DEPRECATED`: Subscription template deprecated.

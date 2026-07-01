@@ -25,7 +25,6 @@ Lists operations for the specified certificate.
 || certificate_id | **string**
 
 Required field. ID of the certificate to list operations for.
-
 To get the certificate ID, use a [CertificateService.List](/docs/certificate-manager/api-ref/grpc/Certificate/list#List) request.
 
 The maximum string length in characters is 50. ||
