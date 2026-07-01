@@ -10,6 +10,7 @@
 * [Расширение кластера](cluster-expand.md)
 * [Управление резервными копиями](cluster-backups.md)
 * [Управление доступом к кластеру](cluster-access.md)
+* [Обновление версии Greenplum®](cluster-version-update.md)
 * [Техническое обслуживание](cluster-maintenance.md)
 * [Удаление кластера](cluster-delete.md)
 

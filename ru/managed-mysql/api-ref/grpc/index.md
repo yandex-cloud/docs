@@ -18,6 +18,7 @@ See [the documentation](/docs/managed-mysql/operations/cluster-backups) for deta
 || [Cluster](Cluster/index.md) | A set of methods for managing MySQL clusters. ||
 || [Database](Database/index.md) | A set of methods for managing MySQL databases in a cluster.
 See [the documentation](/docs/managed-mysql/operations/databases) for details. ||
+|| [Maintenance](Maintenance/index.md) | A set of methods for managing maintenances in a service. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [ResourcePreset](ResourcePreset/index.md) | A set of methods for managing MySQL resource presets.
 See [the documentation](/docs/managed-mysql/concepts/instance-types) for details. ||

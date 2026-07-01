@@ -1,9 +1,9 @@
 ---
-title: How to transmit {{ lockbox-full-name }} secrets to a container
-description: Use this guide to transmit {{ lockbox-full-name }} secrets to a container.
+title: How to provide{{ lockbox-full-name }} secrets to a container
+description: Follow this guide to provide {{ lockbox-full-name }} secrets to a container.
 ---
 
-# Transmitting {{ lockbox-full-name }} secrets to a container
+# Providing {{ lockbox-full-name }} secrets to a container
 
 {% note info %}
 
@@ -11,6 +11,6 @@ description: Use this guide to transmit {{ lockbox-full-name }} secrets to a con
 
 {% endnote %}
 
-[{{ lockbox-name }}](../../lockbox/) is a service for storing secrets. You can transmit a {{ lockbox-name }} secret to a container in the [environment variable](../concepts/runtime.md#environment-variables).
+[{{ lockbox-name }}](../../lockbox/) is designed to store secrets. You can provide a {{ lockbox-name }} secret to a container via an [environment variable](../concepts/runtime.md#environment-variables).
 
 {% include [transmit-secret](../../_includes/serverless-containers/transmit-secret.md) %}

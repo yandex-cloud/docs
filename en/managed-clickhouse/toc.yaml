@@ -340,6 +340,8 @@ items:
             href: cli-ref/cluster/update-extension.md
           - name: update-external-dictionary
             href: cli-ref/cluster/update-external-dictionary.md
+      - name: connect
+        href: cli-ref/connect.md
       - name: database
         items:
           - name: Overview
@@ -556,6 +558,8 @@ items:
                 href: cli-ref/v0/cluster/update-extension.md
               - name: update-external-dictionary
                 href: cli-ref/v0/cluster/update-external-dictionary.md
+          - name: connect
+            href: cli-ref/v0/connect.md
           - name: database
             items:
               - name: Overview

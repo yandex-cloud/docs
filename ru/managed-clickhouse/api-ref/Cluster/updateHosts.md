@@ -63,7 +63,7 @@ apiPlayground:
 # Managed Service for ClickHouse API, REST: Cluster.UpdateHosts
 
 Updates the specified hosts.
-(-- api-linter: yc::1705::http-method-mapping=disabled --)
+
 
 ## HTTP request
 

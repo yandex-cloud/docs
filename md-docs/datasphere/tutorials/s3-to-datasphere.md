@@ -29,7 +29,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость реализации обучения модели с помощью данных из Object Storage входят:
-* Плата за использование [вычислительных ресурсов DataSphere](../pricing.md).
+* Плата за использование [вычислительных ресурсов DataSphere](../../datasphere/pricing.md).
 * Плата за хранение данных в бакете ([тарифы Object Storage](../../storage/pricing.md#prices-storage)).
 * Плата за операции с данными ([тарифы Object Storage](../../storage/pricing.md#prices-operations)).
 

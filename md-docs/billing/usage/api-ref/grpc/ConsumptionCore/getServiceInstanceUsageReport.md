@@ -2,13 +2,11 @@
 
 Returns aggregated usage report for the specified service instances
 under the specified billing account.
-
 This method provides detailed usage and cost information grouped by service instances
 within the specified billing account. Service instances represent individual billable
 entities such as cloud instances, DataLens instances, Tracker instances, Cloud Video
 instances, and other service-specific instances. The data can be filtered by various
 entity types and aggregated at different time granularities.
-
 Implementation details:
 - Results are organized by service instance, with each instance's usage, costs, and credits detailed
 - If service_instance_ids are specified, only data for those instances is included (using OR logic)
@@ -16,7 +14,6 @@ Implementation details:
 - Other filters (cloud_ids, folder_ids, service_ids, sku_ids, resource_ids, labels) are always applied if present
 - If both cloud_ids and service_instance_ids are specified in the request, the results are filtered
 by the intersection of these filters (AND logic).
-
 Error handling:
 - Returns INVALID_ARGUMENT if the request parameters fail validation
 - Returns UNAUTHENTICATED if the user is not authenticated or the billing account does not exist
@@ -59,7 +56,6 @@ Error handling:
 ```
 
 Request for retrieving usage report data.
-
 This message defines the parameters for requesting usage reports across
 all ConsumptionCoreService methods. It supports filtering by various
 entity types and specifying the time range and aggregation period.
@@ -118,14 +114,12 @@ The filter is applied with OR logic (results include data matching any of the sp
 Optional. Filter by labels: key is label key (e.g., "env", "team", "region"),
 value is list of label values to match (e.g., ["prod", "stage"] for key "env").
 This allows filtering resources based on their attached labels.
-
 Example: To filter resources that have either (env=prod OR env=test) AND (team=finance),
 use the following filter:
 {
 "env": { "values": ["prod", "test"] },
 "team": { "values": ["finance"] }
 }
-
 Note: The filter logic is (value1 OR value2 OR ...) for each key,
 and (key1 AND key2 AND ...) between different keys. ||
 || labels_or_filter_logic | **bool**
@@ -137,17 +131,15 @@ different label keys - resources must match ANY specified label condition.
 Example with labels_or_filter_logic = false (AND logic):
 labels = {"env": ["prod"], "team": ["finance"]}
 Returns resources that have BOTH env=prod AND team=finance
-
 Example with labels_or_filter_logic = true (OR logic):
 labels = {"env": ["prod"], "team": ["finance"]}
 Returns resources that have EITHER env=prod OR team=finance (or both)
-
 Note: Within each label key, multiple values are always combined with OR
 logic. For example: {"env": ["prod", "test"]} always means env=prod OR
 env=test ||
 || resource_ids[] | **string**
 
-Optional for all requests except GetResourceUsageReport. List of resource IDs to filter the data.
+Optional. List of resource IDs to filter the data.
 If specified, only usage data from these specific resources (e.g., individual VMs, disks) will be included.
 If omitted, data from all resources used by the billing account will be included.
 Filter is applied with OR logic (results include data matching any of the specified resource IDs). ||
@@ -160,7 +152,6 @@ in time series results. Available options include:
 - MONTH: Group metrics by month, providing monthly breakdowns
 - QUARTER: Group metrics by quarter, providing quarterly breakdowns
 - YEAR: Group metrics by year, providing yearly breakdowns
-
 This setting affects the time series data returned in the periodic field of each entity.
 If omitted, the service will typically use DAY as the default granularity.
 
@@ -283,7 +274,6 @@ List of label values associated with a specific label key. ||
 ```
 
 Response for usage report requests by service instance.
-
 Contains aggregated usage, cost, and credit information organized by service instance entities,
 with both summary totals and detailed breakdowns for each service instance. Service instances
 represent individual billable entities such as cloud instances, DataLens instances, Tracker
@@ -407,7 +397,7 @@ Identifier of the service instance entity. ||
 Type of the service instance: tracker, datalens, cloud, etc. ||
 || name | **string**
 
-Human-readable display name of the service instance. ||
+Human-readable display name of the serice instance. ||
 || billing_account_id | **string**
 
 Optional billing account identifier associated with this service instance

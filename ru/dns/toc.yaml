@@ -339,6 +339,52 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
+          - name: DnsFirewall
+            items:
+              - name: Overview
+                href: api-ref/grpc/DnsFirewall/index.md
+              - name: Get
+                href: api-ref/grpc/DnsFirewall/get.md
+              - name: List
+                href: api-ref/grpc/DnsFirewall/list.md
+              - name: Create
+                href: api-ref/grpc/DnsFirewall/create.md
+              - name: Update
+                href: api-ref/grpc/DnsFirewall/update.md
+              - name: Move
+                href: api-ref/grpc/DnsFirewall/move.md
+              - name: Delete
+                href: api-ref/grpc/DnsFirewall/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/DnsFirewall/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/DnsFirewall/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/DnsFirewall/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/DnsFirewall/updateAccessBindings.md
+          - name: DnsInboundEndpoint
+            items:
+              - name: Overview
+                href: api-ref/grpc/DnsInboundEndpoint/index.md
+              - name: Get
+                href: api-ref/grpc/DnsInboundEndpoint/get.md
+              - name: List
+                href: api-ref/grpc/DnsInboundEndpoint/list.md
+              - name: Create
+                href: api-ref/grpc/DnsInboundEndpoint/create.md
+              - name: Update
+                href: api-ref/grpc/DnsInboundEndpoint/update.md
+              - name: Delete
+                href: api-ref/grpc/DnsInboundEndpoint/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/DnsInboundEndpoint/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/DnsInboundEndpoint/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/DnsInboundEndpoint/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/DnsInboundEndpoint/updateAccessBindings.md
           - name: DnsZone
             items:
               - name: Overview
@@ -385,6 +431,52 @@ items:
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: DnsFirewall
+            items:
+              - name: Overview
+                href: api-ref/DnsFirewall/index.md
+              - name: Get
+                href: api-ref/DnsFirewall/get.md
+              - name: List
+                href: api-ref/DnsFirewall/list.md
+              - name: Create
+                href: api-ref/DnsFirewall/create.md
+              - name: Update
+                href: api-ref/DnsFirewall/update.md
+              - name: Move
+                href: api-ref/DnsFirewall/move.md
+              - name: Delete
+                href: api-ref/DnsFirewall/delete.md
+              - name: ListOperations
+                href: api-ref/DnsFirewall/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/DnsFirewall/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/DnsFirewall/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/DnsFirewall/updateAccessBindings.md
+          - name: DnsInboundEndpoint
+            items:
+              - name: Overview
+                href: api-ref/DnsInboundEndpoint/index.md
+              - name: Get
+                href: api-ref/DnsInboundEndpoint/get.md
+              - name: List
+                href: api-ref/DnsInboundEndpoint/list.md
+              - name: Create
+                href: api-ref/DnsInboundEndpoint/create.md
+              - name: Update
+                href: api-ref/DnsInboundEndpoint/update.md
+              - name: Delete
+                href: api-ref/DnsInboundEndpoint/delete.md
+              - name: ListOperations
+                href: api-ref/DnsInboundEndpoint/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/DnsInboundEndpoint/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/DnsInboundEndpoint/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/DnsInboundEndpoint/updateAccessBindings.md
           - name: DnsZone
             items:
               - name: Overview

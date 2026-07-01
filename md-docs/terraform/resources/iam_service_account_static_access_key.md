@@ -1,6 +1,6 @@
 # yandex_iam_service_account_static_access_key (Resource)
 
-Allows management of [Yandex Cloud IAM service account static access keys](../../iam/operations/sa/create-access-key). Generated pair of keys is used to access [Yandex Object Storage](../../storage/index.md) on behalf of service account.
+Allows management of [Yandex Cloud IAM service account static access keys](../../iam/operations/authentication/manage-access-keys.md). Generated pair of keys is used to access [Yandex Object Storage](../../storage/index.md) on behalf of service account.
 
 Before using keys do not forget to [assign a proper role](../../iam/operations/sa/assign-role-for-sa.md) to the service account.
 

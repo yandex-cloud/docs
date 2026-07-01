@@ -35,12 +35,12 @@ Log offset. ||
 {
   "logs": [
     {
-      "content": "bytes",
-      "created_at": "google.protobuf.Timestamp",
       // Includes only one of the fields `standard_stream`, `file_path`
       "standard_stream": "StandardStream",
-      "file_path": "string"
+      "file_path": "string",
       // end of the list of possible fields
+      "content": "bytes",
+      "created_at": "google.protobuf.Timestamp"
     }
   ],
   "offset": "int64"
@@ -59,19 +59,12 @@ Log offset. ||
 
 #|
 ||Field | Description ||
-|| content | **bytes**
-
-Log message contents. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Log message creation timestamp. ||
 || standard_stream | enum **StandardStream**
 
 Program standard streams.
 
 Includes only one of the fields `standard_stream`, `file_path`.
 
-- `STANDARD_STREAM_UNSPECIFIED`
 - `OUT`: Stdout.
 - `ERR`: Stderr. ||
 || file_path | **string**
@@ -79,4 +72,10 @@ Includes only one of the fields `standard_stream`, `file_path`.
 System debug log files.
 
 Includes only one of the fields `standard_stream`, `file_path`. ||
+|| content | **bytes**
+
+Log message contents. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Log message creation timestamp. ||
 |#

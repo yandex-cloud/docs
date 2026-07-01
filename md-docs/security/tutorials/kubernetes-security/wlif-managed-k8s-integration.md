@@ -46,10 +46,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* Плата за вычислительные ресурсы и диски [узлов](../../../managed-kubernetes/concepts/index.md#node-group) кластера Managed Service for Kubernetes ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
+* Плата за вычислительные ресурсы и диски [узлов](../../../managed-kubernetes/concepts/index.md#node-group) кластера Managed Service for Kubernetes ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 * Плата за использование [мастера](../../../managed-kubernetes/concepts/index.md#master) Managed Service for Kubernetes и исходящий трафик ([тарифы Managed Service for Kubernetes](../../../managed-kubernetes/pricing.md)).
-* Плата за [публичные IP-адреса](../../../vpc/concepts/address.md#public-addresses) кластера Managed Service for Kubernetes ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
-* Плата за хранение [секрета](../../../lockbox/concepts/secret.md) и запросы к нему ([тарифы Yandex Lockbox](../../../lockbox/pricing.md)).
+* Плата за [публичные IP-адреса](../../../vpc/concepts/address.md#public-addresses) кластера Managed Service for Kubernetes ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за хранение [секрета](../../../lockbox/concepts/secret.md) и запросы к нему ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
 
 ## Настройте кластер Managed Service for Kubernetes {#prepare-cluster}
 

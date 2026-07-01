@@ -1,11 +1,11 @@
 ---
-title: Управлять результатами сканирования в {{ dspm-name }}
+title: Управлять результатами регулярного сканирования в {{ dspm-name }}
 description: Следуя данной инструкции, вы узнаете об операциях, которые можно выполнить с результатами сканирования в модуле {{ dspm-name }} сервиса {{ sd-full-name }}.
 ---
 
-# Управлять результатами сканирования в {{ dspm-name }}
+# Управлять результатами регулярного сканирования в {{ dspm-name }}
 
-После завершения [сканирования](../../concepts/dspm.md#scanning) доступны следующие операции с его результатами:
+После завершения [регулярного сканирования](../../concepts/dspm.md#scanning) в Интерфейсе v1.0 доступны следующие операции с его результатами:
 
 * [просмотр](#view);
 * [скачивание](#download);
@@ -17,10 +17,10 @@ description: Следуя данной инструкции, вы узнаете
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс v1.0 {#cloud-sd-v1}
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}**.
+  1. На странице модуля **{{ ui-key.yacloud_org.security-center.dspm.label_dspm }}** выберите `{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_prefix_iWUEX }}{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_dspm_xm8pa }}` и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}**.
   1. Выберите сканирование.
   1. На вкладке **{{ ui-key.yacloud_org.security-center.dspm.scan_results-title }}** отобразятся чувствительные данные, если они были найдены при сканировании. Информация о каждом найденном объекте представлена в следующих столбцах:
 
@@ -46,10 +46,10 @@ description: Следуя данной инструкции, вы узнаете
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс v1.0 {#cloud-sd-v1}
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}**.
+  1. На странице модуля **{{ ui-key.yacloud_org.security-center.dspm.label_dspm }}** выберите `{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_prefix_iWUEX }}{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_dspm_xm8pa }}` и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}**.
   1. Справа от сканирования нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/arrow-shape-down-to-line.svg) **{{ ui-key.yacloud_org.dspm.scan.action_download-results }}**.
 
      Вы также можете перейти на страницу сканирования, нажать **{{ ui-key.yacloud_org.common.more }}** ![image](../../../_assets/console-icons/chevron-down.svg) и выбрать ![image](../../../_assets/console-icons/arrow-shape-down-to-line.svg) **{{ ui-key.yacloud_org.dspm.scan.action_download-results }}**.
@@ -65,10 +65,10 @@ description: Следуя данной инструкции, вы узнаете
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс v1.0 {#cloud-sd-v1}
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}**.
+  1. На странице модуля **{{ ui-key.yacloud_org.security-center.dspm.label_dspm }}** выберите `{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_prefix_iWUEX }}{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_dspm_xm8pa }}` и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}**.
   1. Справа от сканирования нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/folder-arrow-up-in.svg) **{{ ui-key.yacloud_org.dspm.scan.action_export-results }}**.
 
      Вы также можете перейти на страницу сканирования, нажать **{{ ui-key.yacloud_org.common.more }}** ![image](../../../_assets/console-icons/chevron-down.svg) и выбрать ![image](../../../_assets/console-icons/folder-arrow-up-in.svg) **{{ ui-key.yacloud_org.dspm.scan.action_export-results }}**.
@@ -93,10 +93,10 @@ description: Следуя данной инструкции, вы узнаете
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс v1.0 {#cloud-sd-v1}
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}**.
+  1. На странице модуля **{{ ui-key.yacloud_org.security-center.dspm.label_dspm }}** выберите `{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_prefix_iWUEX }}{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_dspm_xm8pa }}` и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}**.
   1. Выберите сканирование и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.scan-issues-title }}**.
 
      Информацию об ошибках сканирования также можно получить, выбрав ![alerts](../../../_assets/security-deck/alerts.svg) **{{ ui-key.yacloud_org.security-center.label_alerts }}** на панели слева.
@@ -109,10 +109,10 @@ description: Следуя данной инструкции, вы узнаете
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс v1.0 {#cloud-sd-v1}
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
-  1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}**.
+  1. На странице модуля **{{ ui-key.yacloud_org.security-center.dspm.label_dspm }}** выберите `{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_prefix_iWUEX }}{{ ui-key.yacloud_org.security.dspm.DspmPageLayout.title_dspm_xm8pa }}` и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}**.
   1. Справа от сканирования нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
 
      Вы также можете перейти на страницу сканирования, нажать **{{ ui-key.yacloud_org.common.more }}** ![image](../../../_assets/console-icons/chevron-down.svg) и выбрать ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.

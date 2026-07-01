@@ -32,10 +32,10 @@
 
 В стоимость поддержки инфраструктуры для организации защищенного доступа к контенту в Cloud CDN входят:
 
-* плата за использование [публичного IP-адреса](../../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../../vpc/pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../../compute/pricing.md));
-* плата за использование [публичной DNS-зоны](../../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы ([тарифы Yandex Cloud DNS](../../../../dns/pricing.md));
-* плата за [хранение данных](../../../../storage/concepts/bucket.md) в Object Storage, [операции](../../../../storage/operations/index.md) с ними и исходящий трафик ([тарифы Object Storage](../../../../storage/pricing.md));
+* плата за использование [публичного IP-адреса](../../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
+* плата за вычислительные ресурсы и диски [ВМ](../../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за использование [публичной DNS-зоны](../../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы ([тарифы Yandex Cloud DNS](../../../dns/pricing.md));
+* плата за [хранение данных](../../../../storage/concepts/bucket.md) в Object Storage, [операции](../../../../storage/operations/index.md) с ними и исходящий трафик ([тарифы Object Storage](../../../storage/pricing.md));
 * плата за исходящий трафик с [CDN-серверов](../../../../cdn/concepts/index.md) ([тарифы Cloud CDN](../../../../cdn/pricing.md)).
 
 
@@ -257,7 +257,7 @@
         1. Выберите вариант:
         
             * `Ввести вручную` — вставьте содержимое открытого [SSH](../../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
             * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.

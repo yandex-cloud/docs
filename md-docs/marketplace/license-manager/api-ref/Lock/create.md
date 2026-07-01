@@ -39,9 +39,7 @@ Required field. ID of the resource to which the subscription will be locked. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "lockId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -50,32 +48,7 @@ Required field. ID of the resource to which the subscription will be locked. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "instanceId": "string",
-    "resourceId": "string",
-    "startTime": "string",
-    "endTime": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
-    "state": "string",
-    "templateId": "string",
-    "externalInstance": {
-      "name": "string",
-      "properties": "object",
-      // Includes only one of the fields `subscription`, `license`
-      "subscription": {
-        "subscriptionId": "string",
-        "licenseId": "string",
-        "activationKey": "string"
-      },
-      "license": {
-        "licenseId": "string",
-        "payload": "string"
-      }
-      // end of the list of possible fields
-    }
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -117,7 +90,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateLockMetadata](#yandex.cloud.marketplace.licensemanager.v1.CreateLockMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -132,7 +105,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Lock](#yandex.cloud.marketplace.licensemanager.v1.Lock)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -147,15 +120,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateLockMetadata {#yandex.cloud.marketplace.licensemanager.v1.CreateLockMetadata}
-
-#|
-||Field | Description ||
-|| lockId | **string**
-
-ID of the subscription lock. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -173,121 +137,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Lock {#yandex.cloud.marketplace.licensemanager.v1.Lock}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the subscription lock. ||
-|| instanceId | **string**
-
-ID of the subscription instance. ||
-|| resourceId | **string**
-
-ID of the resource. ||
-|| startTime | **string** (date-time)
-
-Timestamp of the start of the subscription lock.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| endTime | **string** (date-time)
-
-Timestamp of the end of the subscription lock.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| updatedAt | **string** (date-time)
-
-Update timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| state | **enum** (State)
-
-Subscription lock state.
-
-- `STATE_UNSPECIFIED`
-- `UNLOCKED`: Subscription unlocked.
-- `LOCKED`: Subscription locked to the resource.
-- `DELETED`: Subscription lock deleted. ||
-|| templateId | **string**
-
-ID of the subscription template. ||
-|| externalInstance | **[ExternalInstance](#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance)**
-
-External subscription instance (optional), for usage convenience propagated
-from parent subscription instance. ||
-|#
-
-## ExternalInstance {#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance}
-
-ExternalInstance attachment to external service subscription.
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Optional external subscription name. ||
-|| properties | **object** (map<**string**, **string**>)
-
-Mapping of vendor defined properties in key, value format. ||
-|| subscription | **[ExternalSubscription](#yandex.cloud.marketplace.licensemanager.v1.ExternalSubscription)**
-
-Includes only one of the fields `subscription`, `license`. ||
-|| license | **[ExternalLicense](#yandex.cloud.marketplace.licensemanager.v1.ExternalLicense)**
-
-Includes only one of the fields `subscription`, `license`. ||
-|#
-
-## ExternalSubscription {#yandex.cloud.marketplace.licensemanager.v1.ExternalSubscription}
-
-#|
-||Field | Description ||
-|| subscriptionId | **string**
-
-External subscription id. ||
-|| licenseId | **string**
-
-Optional: paired license id for external subscription. ||
-|| activationKey | **string**
-
-Optional: default activation key for external subscription. ||
-|#
-
-## ExternalLicense {#yandex.cloud.marketplace.licensemanager.v1.ExternalLicense}
-
-#|
-||Field | Description ||
-|| licenseId | **string**
-
-External license bound to subscription instance. ||
-|| payload | **string** (bytes)
-
-License (vendor specific) payload. ||
 |#

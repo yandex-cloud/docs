@@ -46,7 +46,7 @@ The maximum string length in characters is 1024. ||
 Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key.
 For example, `"project": "mvp"` or `"source": "dictionary"`.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || default_algorithm | enum **SymmetricAlgorithm**
 
 Required field. Encryption algorithm to be used with a new key version, generated with the next rotation.
@@ -75,35 +75,10 @@ Flag that inhibits deletion of the symmetric KMS key ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "key_id": "string",
-    "primary_version_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "folder_id": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "name": "string",
-    "description": "string",
-    "labels": "map<string, string>",
-    "status": "Status",
-    "primary_version": {
-      "id": "string",
-      "key_id": "string",
-      "status": "Status",
-      "algorithm": "SymmetricAlgorithm",
-      "created_at": "google.protobuf.Timestamp",
-      "primary": "bool",
-      "destroy_at": "google.protobuf.Timestamp",
-      "hosted_by_hsm": "bool"
-    },
-    "default_algorithm": "SymmetricAlgorithm",
-    "rotated_at": "google.protobuf.Timestamp",
-    "rotation_period": "google.protobuf.Duration",
-    "deletion_protection": "bool"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -131,7 +106,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateSymmetricKeyMetadata](#yandex.cloud.kms.v1.CreateSymmetricKeyMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -146,7 +121,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[SymmetricKey](#yandex.cloud.kms.v1.SymmetricKey)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -161,119 +136,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateSymmetricKeyMetadata {#yandex.cloud.kms.v1.CreateSymmetricKeyMetadata}
-
-#|
-||Field | Description ||
-|| key_id | **string**
-
-ID of the key being created. ||
-|| primary_version_id | **string**
-
-ID of the primary version of the key being created. ||
-|#
-
-## SymmetricKey {#yandex.cloud.kms.v1.SymmetricKey}
-
-A symmetric KMS key that may contain several versions of the cryptographic material.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the key. ||
-|| folder_id | **string**
-
-ID of the folder that the key belongs to. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time when the key was created. ||
-|| name | **string**
-
-Name of the key. ||
-|| description | **string**
-
-Description of the key. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
-|| status | enum **Status**
-
-Current status of the key.
-
-- `CREATING`: The key is being created.
-- `ACTIVE`: The key is active and can be used for encryption and decryption.
-Can be set to INACTIVE using the [SymmetricKeyService.Update](/docs/kms/api-ref/grpc/SymmetricKey/update#Update) method.
-- `INACTIVE`: The key is inactive and unusable.
-Can be set to ACTIVE using the [SymmetricKeyService.Update](/docs/kms/api-ref/grpc/SymmetricKey/update#Update) method. ||
-|| primary_version | **[SymmetricKeyVersion](#yandex.cloud.kms.v1.SymmetricKeyVersion)**
-
-Primary version of the key, used as the default for all encrypt/decrypt operations,
-when no version ID is specified. ||
-|| default_algorithm | enum **SymmetricAlgorithm**
-
-Default encryption algorithm to be used with new versions of the key.
-
-- `AES_128`: AES algorithm with 128-bit keys.
-- `AES_192`: AES algorithm with 192-bit keys.
-- `AES_256`: AES algorithm with 256-bit keys.
-- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
-- `GOST_R_3412_2015_K`: GOST R 34.12-2015 Kuznyechik algorithm ||
-|| rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time of the last key rotation (time when the last version was created).
-Empty if the key does not have versions yet. ||
-|| rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
-
-Time period between automatic key rotations. ||
-|| deletion_protection | **bool**
-
-Flag that inhibits deletion of the key ||
-|#
-
-## SymmetricKeyVersion {#yandex.cloud.kms.v1.SymmetricKeyVersion}
-
-Symmetric KMS key version: metadata about actual cryptographic data.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the key version. ||
-|| key_id | **string**
-
-ID of the symmetric KMS key that the version belongs to. ||
-|| status | enum **Status**
-
-Status of the key version.
-
-- `ACTIVE`: The version is active and can be used for encryption and decryption.
-- `SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed
-is specified in the `SymmetricKeyVersion.destroy_at` field.
-- `DESTROYED`: The version is destroyed and cannot be recovered. ||
-|| algorithm | enum **SymmetricAlgorithm**
-
-Encryption algorithm that should be used when using the key version to encrypt plaintext.
-
-- `AES_128`: AES algorithm with 128-bit keys.
-- `AES_192`: AES algorithm with 192-bit keys.
-- `AES_256`: AES algorithm with 256-bit keys.
-- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
-- `GOST_R_3412_2015_K`: GOST R 34.12-2015 Kuznyechik algorithm ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time when the key version was created. ||
-|| primary | **bool**
-
-Indication of a primary version, that is to be used by default for all cryptographic
-operations that don't have a key version explicitly specified. ||
-|| destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time when the key version is going to be destroyed. Empty unless the status
-is `SCHEDULED_FOR_DESTRUCTION`. ||
-|| hosted_by_hsm | **bool**
-
-Indication of the version that is hosted by HSM. ||
 |#

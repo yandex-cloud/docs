@@ -198,12 +198,12 @@ items:
                 items:
                   - name: Overview
                     href: license-manager/saas/api-ref/grpc/Lock/index.md
-                  - name: Ensure
-                    href: license-manager/saas/api-ref/grpc/Lock/ensure.md
                   - name: Get
                     href: license-manager/saas/api-ref/grpc/Lock/get.md
                   - name: GetByResourceID
                     href: license-manager/saas/api-ref/grpc/Lock/getByResourceID.md
+                  - name: Ensure
+                    href: license-manager/saas/api-ref/grpc/Lock/ensure.md
               - name: Operation
                 items:
                   - name: Overview
@@ -228,12 +228,12 @@ items:
                 items:
                   - name: Overview
                     href: license-manager/saas/api-ref/Lock/index.md
-                  - name: Ensure
-                    href: license-manager/saas/api-ref/Lock/ensure.md
                   - name: Get
                     href: license-manager/saas/api-ref/Lock/get.md
                   - name: GetByResourceID
                     href: license-manager/saas/api-ref/Lock/getByResourceID.md
+                  - name: Ensure
+                    href: license-manager/saas/api-ref/Lock/ensure.md
               - name: Operation
                 items:
                   - name: Overview

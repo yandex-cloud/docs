@@ -21,7 +21,7 @@ Retrieves a list of shards.
 || cluster_id | **string**
 
 Required field. ID of the Redis cluster to list shards in.
-To get the cluster ID use a [ClusterService.List](../../../../managed-redis/api-ref/grpc/Cluster/list#List) request.
+To get the cluster ID use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || page_size | **int64**

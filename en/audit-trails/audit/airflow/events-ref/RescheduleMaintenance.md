@@ -152,7 +152,10 @@ editable: false
           "enabled": "boolean"
         },
         "airflowVersion": "string",
-        "pythonVersion": "string"
+        "pythonVersion": "string",
+        "datacatalog": {
+          "enabled": "boolean"
+        }
       },
       "health": "string",
       "status": "string",
@@ -452,6 +455,7 @@ The maximum string length in characters is 50. ||
 || lockbox | **[LockboxConfig](#yandex.cloud.airflow.v1.LockboxConfig)** ||
 || airflowVersion | **string** ||
 || pythonVersion | **string** ||
+|| datacatalog | **[DatacatalogConfig](#yandex.cloud.airflow.v1.DatacatalogConfig)** ||
 |#
 
 ## AirflowConfig {#yandex.cloud.airflow.v1.AirflowConfig}
@@ -530,6 +534,13 @@ Acceptable values are 1 to 512, inclusive. ||
 |#
 
 ## LockboxConfig {#yandex.cloud.airflow.v1.LockboxConfig}
+
+#|
+||Field | Description ||
+|| enabled | **boolean** ||
+|#
+
+## DatacatalogConfig {#yandex.cloud.airflow.v1.DatacatalogConfig}
 
 #|
 ||Field | Description ||

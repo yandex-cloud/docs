@@ -24,13 +24,15 @@ Moves the specified DNS zone to another folder.
 || dns_zone_id | **string**
 
 Required field. ID of the DNS zone to move.
+To get the DNS zone ID, make a [DnsZoneService.List](/docs/dns/api-ref/grpc/DnsZone/list#List) request.
 
-To get the DNS zone ID, make a [DnsZoneService.List](/docs/dns/api-ref/grpc/DnsZone/list#List) request. ||
+The maximum string length in characters is 255. ||
 || destination_folder_id | **string**
 
 Required field. ID of the folder to move the zone to.
+To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
 
-To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -43,27 +45,10 @@ To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "dns_zone_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "folder_id": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "name": "string",
-    "description": "string",
-    "labels": "map<string, string>",
-    "zone": "string",
-    "private_visibility": {
-      "network_ids": [
-        "string"
-      ]
-    },
-    "public_visibility": "PublicVisibility",
-    "deletion_protection": "bool"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -91,7 +76,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[MoveDnsZoneMetadata](#yandex.cloud.dns.v1.MoveDnsZoneMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -106,7 +91,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[DnsZone](#yandex.cloud.dns.v1.DnsZone)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -121,74 +106,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## MoveDnsZoneMetadata {#yandex.cloud.dns.v1.MoveDnsZoneMetadata}
-
-#|
-||Field | Description ||
-|| dns_zone_id | **string**
-
-ID of the DNS zone that is being moved. ||
-|#
-
-## DnsZone {#yandex.cloud.dns.v1.DnsZone}
-
-A DNS zone. For details about the concept, see [DNS zones](/docs/dns/concepts/dns-zone).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the DNS zone. Generated at creation time. ||
-|| folder_id | **string**
-
-ID of the folder that the DNS zone belongs to. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp. ||
-|| name | **string**
-
-Name of the DNS zone.
-The name is unique within the folder. ||
-|| description | **string**
-
-Description of the DNS zone. ||
-|| labels | **object** (map<**string**, **string**>)
-
-DNS zone labels as `key:value` pairs. ||
-|| zone | **string**
-
-DNS zone suffix. ||
-|| private_visibility | **[PrivateVisibility](#yandex.cloud.dns.v1.PrivateVisibility)**
-
-Privately visible zone settings.
-Specifies whether records within the zone are visible from a VPC networks only. ||
-|| public_visibility | **[PublicVisibility](#yandex.cloud.dns.v1.PublicVisibility)**
-
-Publicly visible zone settings.
-Indicates whether records within the zone are publicly visible. ||
-|| deletion_protection | **bool**
-
-Prevents accidental zone removal. ||
-|#
-
-## PrivateVisibility {#yandex.cloud.dns.v1.PrivateVisibility}
-
-Configuration for privately visible zones.
-
-#|
-||Field | Description ||
-|| network_ids[] | **string**
-
-Network IDs. ||
-|#
-
-## PublicVisibility {#yandex.cloud.dns.v1.PublicVisibility}
-
-Configuration for publicly visible zones.
-
-#|
-||Field | Description ||
-|| Empty | > ||
 |#

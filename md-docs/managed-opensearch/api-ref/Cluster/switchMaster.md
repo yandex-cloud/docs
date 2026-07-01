@@ -1,6 +1,6 @@
 # Managed Service for OpenSearch API, REST: Cluster.SwitchMaster
 
-(-- api-linter: yc::1702::method-verb-prefix=disabled --)
+
 Switches current master or ensures that master not on specified hosts.
 
 ## HTTP request

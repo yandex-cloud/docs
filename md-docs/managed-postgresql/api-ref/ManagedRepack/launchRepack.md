@@ -1,7 +1,7 @@
 # Managed Service for PostgreSQL API, REST: ManagedRepack.LaunchRepack
 
 Launches new Repack in given cluster
-(-- api-linter: yc::1702::method-verb-prefix=disabled --)
+
 
 ## HTTP request
 

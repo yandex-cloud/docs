@@ -80,7 +80,8 @@ Required field. The path to a specific node where the registry artifact is locat
       "manifestDigest": "string"
     }
     // end of the list of possible fields
-  }
+  },
+  "registryId": "string"
 }
 ```
 
@@ -144,6 +145,9 @@ Key-value properties associated with the artifact. ||
 || content | **[Content](#yandex.cloud.cloudregistry.v1.Content)**
 
 Content of the artifact. ||
+|| registryId | **string**
+
+Output only. ID of the registry that contains this artifact. ||
 |#
 
 ## Content {#yandex.cloud.cloudregistry.v1.Content}

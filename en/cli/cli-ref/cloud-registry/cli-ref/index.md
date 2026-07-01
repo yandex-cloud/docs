@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/
 
 # yc cloud-registry
 
-[PREVIEW] Manage CloudRegistry resources
+Manage CloudRegistry resources
 
 #### Command Usage
 
@@ -19,7 +19,7 @@ Syntax:
 
 - [yc cloud-registry tools](tools.md) — Tools for specific artifact kinds
 
-- [yc cloud-registry artifact](artifact/index.md) — [PREVIEW] Manage artifacts
+- [yc cloud-registry artifact](artifact/index.md) — Manage artifacts
 
   - [yc cloud-registry artifact add-access-binding](artifact/add-access-binding.md) — Add access binding for the specified artifact
 
@@ -35,7 +35,9 @@ Syntax:
 
   - [yc cloud-registry artifact set-access-bindings](artifact/set-access-bindings.md) — Set access bindings for the specified artifact and remove existing ones
 
-- [yc cloud-registry registry](registry/index.md) — [PREVIEW] Manage registries
+  - [yc cloud-registry artifact upsert](artifact/upsert.md) — Upserts a folder at the specified path within the registry
+
+- [yc cloud-registry registry](registry/index.md) — Manage registries
 
   - [yc cloud-registry registry add-access-binding](registry/add-access-binding.md) — Add access binding for the specified registry
 
@@ -67,11 +69,17 @@ Syntax:
 
   - [yc cloud-registry registry update](registry/update.md) — Updates the specified registry
 
-- [yc cloud-registry v0](v0/index.md) — [PREVIEW] Manage CloudRegistry resources
+- [yc cloud-registry v0](v0/index.md) — Manage CloudRegistry resources
 
   - [yc cloud-registry v0 configure-docker](v0/configure-docker.md) — 
 
   - [yc cloud-registry v0 tools](v0/tools.md) — Tools for specific artifact kinds
+
+- [yc cloud-registry v1](v1/index.md) — (new command tree) [PREVIEW] Manage Cloud Registry resources
+
+  - [yc cloud-registry v1 configure-docker](v1/configure-docker.md) — Configure the Docker credential helper for Cloud Registry.
+
+  - [yc cloud-registry v1 tools](v1/tools.md) — 
 
 #### Global Flags
 

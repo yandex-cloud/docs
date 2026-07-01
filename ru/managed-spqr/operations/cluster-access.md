@@ -41,6 +41,8 @@ description: Следуя данной инструкции, вы настрои
         --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>:listAccessBindings'
       ```
 
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listAccessBindings.md#yandex.cloud.access.ListAccessBindingsResponse).
 
 - gRPC API {#grpc-api}
@@ -65,6 +67,8 @@ description: Следуя данной инструкции, вы настрои
         {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.spqr.v1.ClusterService.ListAccessBindings
       ```
+
+      {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/listAccessBindings.md#yandex.cloud.access.ListAccessBindingsResponse).
 
@@ -95,7 +99,7 @@ description: Следуя данной инструкции, вы настрои
             
       Где:
 
-      * `cluster_id` — идентификатор кластера.
+      * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
       * `role` — назначаемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
       * `members` — список [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
 
@@ -151,12 +155,12 @@ description: Следуя данной инструкции, вы настрои
       
       Где:
 
+      * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
       * `access_binding_deltas.roleId` — назначаемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
       * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
 
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
-
 
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
@@ -198,7 +202,7 @@ description: Следуя данной инструкции, вы настрои
       
       Где:
 
-      * `resource_id` — идентификатор кластера.
+      * {% include [cluster-id-resource](../../_includes/managed-spqr/cluster-id-resource.md) %}
       * `access_binding_deltas.roleId` — назначаемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
       * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
@@ -245,7 +249,7 @@ description: Следуя данной инструкции, вы настрои
       
       Где:
 
-      * `cluster_id` — идентификатор кластера.
+      * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
       * `role` — назначаемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
       * `members` — список [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
 
@@ -319,12 +323,12 @@ description: Следуя данной инструкции, вы настрои
       
       Где:
 
+      * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
       * `accessBindings.roleId` — назначаемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
       * `accessBindings.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `accessBindings.subject.type` — тип субъекта, которому назначается роль.
 
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
-
 
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation).
@@ -385,7 +389,7 @@ description: Следуя данной инструкции, вы настрои
       
       Где:
 
-      * `resource_id` — идентификатор кластера.
+      * {% include [cluster-id-resource](../../_includes/managed-spqr/cluster-id-resource.md) %}
       * `accessBindings.roleId` — назначаемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
       * `accessBindings.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `accessBindings.subject.type` — тип субъекта, которому назначается роль.
@@ -463,6 +467,7 @@ description: Следуя данной инструкции, вы настрои
       
       Где:
 
+      * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
       * `access_binding_deltas.roleId` — назначаемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
       * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
@@ -510,7 +515,7 @@ description: Следуя данной инструкции, вы настрои
       
       Где:
 
-      * `resource_id` — идентификатор кластера.
+      * {% include [cluster-id-resource](../../_includes/managed-spqr/cluster-id-resource.md) %}
       * `access_binding_deltas.roleId` — назначаемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
       * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.

@@ -42,9 +42,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость инсталляции Active Directory входят:
-* Плата за постоянно запущенные [ВМ](../concepts/vm.md) ([тарифы Yandex Compute Cloud](../pricing.md)).
+* Плата за постоянно запущенные [ВМ](../concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 * Плата за использование динамических или статических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
-* Стоимость исходящего трафика из Yandex Cloud в интернет ([тарифы Compute Cloud](../pricing.md)).
+* Стоимость исходящего трафика из Yandex Cloud в интернет ([тарифы Compute Cloud](../../compute/pricing.md)).
 
 ## Создайте облачную сеть и подсети {#create-network}
 

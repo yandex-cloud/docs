@@ -106,8 +106,8 @@ links:
     description: Encryption key management
     href: kms/
   - title: Yandex Load Testing
-    description: Load testing for services and apps
-    href: load-testing/
+    description: Service shutdown and migration to k6
+    href: load-testing/sunset
   - title: Yandex Lockbox
     description: Creating and storing secrets
     href: lockbox/

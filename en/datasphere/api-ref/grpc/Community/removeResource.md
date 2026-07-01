@@ -24,12 +24,13 @@ Removes shared resource from community
 ||Field | Description ||
 || community_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || resource_type | enum **ResourceType**
 
-Required field. 
+Required field.
 
-- `RESOURCE_TYPE_UNSPECIFIED`
 - `RESOURCE_TYPE_SECRET`
 - `RESOURCE_TYPE_DOCKER_IMAGE`
 - `RESOURCE_TYPE_DATASET`
@@ -38,7 +39,7 @@ Required field.
 - `RESOURCE_TYPE_ALIAS` ||
 || resource_id | **string**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -54,7 +55,7 @@ Required field.  ||
   "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": "google.protobuf.Empty"
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -97,7 +98,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,

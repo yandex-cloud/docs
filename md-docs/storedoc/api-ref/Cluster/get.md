@@ -1,7 +1,7 @@
 # Managed Service for MongoDB API, REST: Cluster.Get
 
 Returns the specified MongoDB Cluster resource.
-To get the list of available MongoDB Cluster resources, make a [List](../../../managed-mongodb/api-ref/Cluster/list#List) request.
+To get the list of available MongoDB Cluster resources, make a [List](list.md#List) request.
 
 ## HTTP request
 
@@ -16,7 +16,7 @@ GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}
 || clusterId | **string**
 
 Required field. ID of the MongoDB Cluster resource to return.
-To get the cluster ID, use a [ClusterService.List](../../../managed-mongodb/api-ref/Cluster/list#List) request.
+To get the cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -3598,7 +3598,7 @@ The maximum string length in characters is 50. ||
 }
 ```
 
-A managed MongoDB cluster. For more information, see the [documentation](../../../managed-mongodb/concepts).
+A managed MongoDB cluster. For more information, see the [documentation](../../concepts/index.md).
 
 #|
 ||Field | Description ||
@@ -3650,10 +3650,10 @@ ID of the network that the cluster belongs to. ||
 
 Aggregated cluster health.
 
-- `HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../../../managed-mongodb/api-ref/Cluster/listHosts#yandex.cloud.mdb.mongodb.v1.Host) for every host in the cluster is UNKNOWN).
-- `ALIVE`: Cluster is alive and well ([Host.health](../../../managed-mongodb/api-ref/Cluster/listHosts#yandex.cloud.mdb.mongodb.v1.Host) for every host in the cluster is ALIVE).
-- `DEAD`: Cluster is inoperable ([Host.health](../../../managed-mongodb/api-ref/Cluster/listHosts#yandex.cloud.mdb.mongodb.v1.Host) for every host in the cluster is DEAD).
-- `DEGRADED`: Cluster is working below capacity ([Host.health](../../../managed-mongodb/api-ref/Cluster/listHosts#yandex.cloud.mdb.mongodb.v1.Host) for at least one host in the cluster is not ALIVE). ||
+- `HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](listHosts.md#yandex.cloud.mdb.mongodb.v1.Host) for every host in the cluster is UNKNOWN).
+- `ALIVE`: Cluster is alive and well ([Host.health](listHosts.md#yandex.cloud.mdb.mongodb.v1.Host) for every host in the cluster is ALIVE).
+- `DEAD`: Cluster is inoperable ([Host.health](listHosts.md#yandex.cloud.mdb.mongodb.v1.Host) for every host in the cluster is DEAD).
+- `DEGRADED`: Cluster is working below capacity ([Host.health](listHosts.md#yandex.cloud.mdb.mongodb.v1.Host) for at least one host in the cluster is not ALIVE). ||
 || status | **enum** (Status)
 
 Current state of the cluster.
@@ -3977,7 +3977,7 @@ Acceptable values are 10 to 32768, inclusive. ||
 || resourcePresetId | **string**
 
 ID of the preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](../../../managed-mongodb/concepts/instance-types). ||
+All available presets are listed in the [documentation](../../concepts/instance-types.md). ||
 || diskSize | **string** (int64)
 
 Volume of the storage available to a host, in bytes. ||

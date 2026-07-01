@@ -262,7 +262,7 @@ Terraform распространяется под лицензией [Business S
 
    {% list tabs group=registry_auth %}
 
-   - Docker Credential helper {#docker}
+   - Docker credential helper {#docker}
 
      1. Сконфигурируйте Docker для использования `docker-credential-yc`:
 
@@ -279,9 +279,9 @@ Terraform распространяется под лицензией [Business S
         Настройки сохраняются в профиле текущего пользователя.
 
         {% note warning %}
-
-        Credential helper работает только при использовании Docker без `sudo`. О том, как настроить запуск Docker от имени текущего пользователя без использования `sudo` читайте в [официальной документации Docker](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
-
+        
+        Credential helper работает только при использовании Docker без `sudo`. О том, как настроить запуск Docker от имени текущего пользователя без использования `sudo`, читайте в [официальной документации Docker](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+        
         {% endnote %}
 
      1. Проверьте, что Docker сконфигурирован.

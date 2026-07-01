@@ -12,7 +12,6 @@
 * [Yandex Cloud DNS](../dns/release-notes.md)
 * [Yandex Cloud Interconnect](../interconnect/release-notes.md)
 * [Yandex Compute Cloud](../compute/release-notes.md)
-* [Yandex Load Testing](../load-testing/release-notes.md)
 * [Yandex Object Storage](../storage/release-notes.md)
 * [Yandex Smart Web Security](../smartwebsecurity/release-notes.md)
 * [Yandex Virtual Private Cloud](../vpc/release-notes.md)
@@ -43,7 +42,6 @@
 
 ## Инструменты разработчика {#dev-tools}
 
-* [Yandex Load Testing](../load-testing/release-notes.md)
 * [Yandex Managed Service for GitLab](../managed-gitlab/release-notes.md)
 * [Yandex Search API](https://aistudio.yandex.ru/docs/ru/search-api/release-notes/index)
 

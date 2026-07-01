@@ -15,8 +15,9 @@ GET https://logging.api.cloud.yandex.net/logging/v1/logGroups/{logGroupId}/opera
 || logGroupId | **string**
 
 Required field. ID of the log group to list operations for.
+To get a log group ID make a [LogGroupService.List](../../../logging/api-ref/LogGroup/list.md#List) request.
 
-To get a log group ID make a [LogGroupService.List](../../../logging/api-ref/LogGroup/list.md#List) request. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## Query parameters {#yandex.cloud.logging.v1.ListOperationsRequest}
@@ -28,21 +29,25 @@ To get a log group ID make a [LogGroupService.List](../../../logging/api-ref/Log
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListOperationsResponse.nextPageToken](#yandex.cloud.logging.v1.ListOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
+Default value: 100.
 
-Default value: 100. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListOperationsResponse.nextPageToken](#yandex.cloud.logging.v1.ListOperationsResponse) returned by a previous list request. ||
+[ListOperationsResponse.nextPageToken](#yandex.cloud.logging.v1.ListOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-
 The expression must specify:
 1. The field name. Currently filtering can be applied to the [operation.Operation.description](#yandex.cloud.operation.Operation), [operation.Operation.createdAt](#yandex.cloud.operation.Operation), [operation.Operation.modifiedAt](#yandex.cloud.operation.Operation), [operation.Operation.createdBy](#yandex.cloud.operation.Operation), [operation.Operation.done](#yandex.cloud.operation.Operation) fields.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Examples of a filter: `done=false`, `created_by='John.Doe'`. ||
+Examples of a filter: `done=false`, `created_by='John.Doe'`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.logging.v1.ListOperationsResponse}
@@ -86,7 +91,6 @@ List of operations for the specified log group. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListOperationsRequest.pageSize](#yandex.cloud.logging.v1.ListOperationsRequest), use `next_page_token` as the value
 for the [ListOperationsRequest.pageToken](#yandex.cloud.logging.v1.ListOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

@@ -15,8 +15,9 @@ POST https://iot-devices.api.cloud.yandex.net/iot-devices/v1/registries/{registr
 || registryId | **string**
 
 Required field. ID of the registry for which the certificate is being added.
+To get a registry ID make a [RegistryService.List](list.md#List) request.
 
-To get a registry ID make a [RegistryService.List](list.md#List) request. ||
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.iot.devices.v1.AddRegistryCertificateRequest}
@@ -46,10 +47,7 @@ Public part of the certificate that is being added. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "registryId": "string",
-    "fingerprint": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -58,12 +56,7 @@ Public part of the certificate that is being added. ||
       "object"
     ]
   },
-  "response": {
-    "registryId": "string",
-    "fingerprint": "string",
-    "certificateData": "string",
-    "createdAt": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -105,7 +98,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[AddRegistryCertificateMetadata](#yandex.cloud.iot.devices.v1.AddRegistryCertificateMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -120,7 +113,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[RegistryCertificate](#yandex.cloud.iot.devices.v1.RegistryCertificate)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -135,18 +128,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## AddRegistryCertificateMetadata {#yandex.cloud.iot.devices.v1.AddRegistryCertificateMetadata}
-
-#|
-||Field | Description ||
-|| registryId | **string**
-
-ID of the registry certificate that is being added. ||
-|| fingerprint | **string**
-
-Fingerprint of the certificate that is being added. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -164,31 +145,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## RegistryCertificate {#yandex.cloud.iot.devices.v1.RegistryCertificate}
-
-A registry certificate. For more information, see [Managing registry certificates](../../operations/certificates/registry-certificates.md).
-
-#|
-||Field | Description ||
-|| registryId | **string**
-
-ID of the registry that the certificate belongs to. ||
-|| fingerprint | **string**
-
-SHA256 hash of the certificates. ||
-|| certificateData | **string**
-
-Public part of the certificate. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

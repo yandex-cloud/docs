@@ -17,7 +17,7 @@ description: Follow this guide to assign a user as an organization administrator
 
   1. Select the user you want to assign as an administrator. If required, use the search bar.
 
-  1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** and select [`organization-manager.admin`](../../iam/roles-reference.md#organization-manager-admin).
+  1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select [`organization-manager.admin`](../../iam/roles-reference.md#organization-manager-admin).
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 

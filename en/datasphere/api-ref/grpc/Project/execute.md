@@ -14,11 +14,11 @@ Executes code of the specified notebook using configuration defined in the proje
 
 ```json
 {
-  "project_id": "string",
   // Includes only one of the fields `notebook_id`, `cell_id`
   "notebook_id": "string",
   "cell_id": "string",
   // end of the list of possible fields
+  "project_id": "string",
   "input_variables": "google.protobuf.Struct",
   "output_variable_names": [
     "string"
@@ -30,14 +30,12 @@ Executes code of the specified notebook using configuration defined in the proje
 
 #|
 ||Field | Description ||
-|| project_id | **string**
-
-Required field. ID of the project to execute notebook/cell in. ||
 || notebook_id | **string**
 
 The path to the executable notebook in the project storage. The maximum string length is 200 characters.
-
 To get the path, right-click on the notebook in JupyterLab and select `Copy path`.
+
+The maximum string length in characters is 200.
 
 Includes only one of the fields `notebook_id`, `cell_id`. ||
 || cell_id | **string**
@@ -45,7 +43,14 @@ Includes only one of the fields `notebook_id`, `cell_id`. ||
 ID of the cell to execute.
 Deprecated
 
+The maximum string length in characters is 200.
+
 Includes only one of the fields `notebook_id`, `cell_id`. ||
+|| project_id | **string**
+
+Required field. ID of the project to execute notebook/cell in.
+
+The maximum string length in characters is 50. ||
 || input_variables | **[google.protobuf.Struct](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/struct)**
 
 Values of input variables. Input variables will be available in the project as environment variables. ||
@@ -57,7 +62,9 @@ Names of output variables. ||
 Specification of the VM ||
 || spark_connector_id | **string**
 
-ID of the Spark Connector ||
+ID of the Spark Connector
+
+The maximum string length in characters is 200. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -70,18 +77,10 @@ ID of the Spark Connector ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "project_id": "string",
-    // Includes only one of the fields `notebook_id`, `cell_id`
-    "notebook_id": "string",
-    "cell_id": "string"
-    // end of the list of possible fields
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "execution_status": "ExecutionStatus"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -109,7 +108,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[ProjectExecutionMetadata](#yandex.cloud.datasphere.v2.ProjectExecutionMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -124,7 +123,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[ProjectExecutionResponse](#yandex.cloud.datasphere.v2.ProjectExecutionResponse)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -139,37 +138,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## ProjectExecutionMetadata {#yandex.cloud.datasphere.v2.ProjectExecutionMetadata}
-
-#|
-||Field | Description ||
-|| project_id | **string**
-
-ID of the project in which notebook is being executed. ||
-|| notebook_id | **string**
-
-ID of the notebook that is being executed
-
-Includes only one of the fields `notebook_id`, `cell_id`. ||
-|| cell_id | **string**
-
-ID of the cell that is being executed
-
-Includes only one of the fields `notebook_id`, `cell_id`. ||
-|#
-
-## ProjectExecutionResponse {#yandex.cloud.datasphere.v2.ProjectExecutionResponse}
-
-#|
-||Field | Description ||
-|| execution_status | enum **ExecutionStatus**
-
-Execution final status.
-
-- `EXECUTION_STATUS_UNSPECIFIED`
-- `OK`: Execution finished successfully.
-- `ERROR`: Execution ended with error.
-- `ABORTED`: Execution was aborted. ||
 |#

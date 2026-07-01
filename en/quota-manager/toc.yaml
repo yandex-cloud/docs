@@ -112,12 +112,12 @@ items:
                 href: api-ref/grpc/QuotaRequest/index.md
               - name: Get
                 href: api-ref/grpc/QuotaRequest/get.md
+              - name: List
+                href: api-ref/grpc/QuotaRequest/list.md
               - name: Create
                 href: api-ref/grpc/QuotaRequest/create.md
               - name: Cancel
                 href: api-ref/grpc/QuotaRequest/cancel.md
-              - name: List
-                href: api-ref/grpc/QuotaRequest/list.md
               - name: ListOperations
                 href: api-ref/grpc/QuotaRequest/listOperations.md
       - name: REST
@@ -148,12 +148,12 @@ items:
                 href: api-ref/QuotaRequest/index.md
               - name: Get
                 href: api-ref/QuotaRequest/get.md
+              - name: List
+                href: api-ref/QuotaRequest/list.md
               - name: Create
                 href: api-ref/QuotaRequest/create.md
               - name: Cancel
                 href: api-ref/QuotaRequest/cancel.md
-              - name: List
-                href: api-ref/QuotaRequest/list.md
               - name: ListOperations
                 href: api-ref/QuotaRequest/listOperations.md
   - name: Release notes

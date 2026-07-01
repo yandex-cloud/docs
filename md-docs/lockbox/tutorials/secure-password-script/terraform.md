@@ -25,7 +25,7 @@
 * плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
 * плата за использование [образа](../../../compute/concepts/image.md) (зависит от образа);
 * плата за использование [ключа](../../../kms/concepts/key.md) KMS ([тарифы KMS](../../../kms/pricing.md));
-* плата за использование [секрета](../../concepts/secret.md) ([тарифы Yandex Lockbox](../../pricing.md)).
+* плата за использование [секрета](../../concepts/secret.md) ([тарифы Yandex Lockbox](../../../lockbox/pricing.md)).
 
 
 ## Создайте инфраструктуру {#deploy}

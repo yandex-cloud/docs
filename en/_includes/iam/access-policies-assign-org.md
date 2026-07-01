@@ -1,4 +1,4 @@
-To create an access policy for an [organization](../../organization/concepts/organization.md) based on a [template without optional parameters](../../iam/concepts/access-control/access-policies.md#fixed):
+To create an access policy for an [organization](../../organization/concepts/organization.md) based on a [template without parameters](../../iam/concepts/access-control/access-policies.md#fixed):
 
 {% list tabs group=instructions %}
 

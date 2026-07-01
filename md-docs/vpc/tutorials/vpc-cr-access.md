@@ -70,7 +70,7 @@ Container Registry для хранения Docker-образов в реестр
 * плата за постоянно работающие ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
 * плата за использование Network Load Balancer ([тарифы Yandex Network Load Balancer](../../network-load-balancer/pricing.md));
 * плата за хранение загруженных Docker-образов ([тарифы Container Registry](../../container-registry/pricing.md));
-* плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../pricing.md)).
+* плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ### Необходимые квоты {#required-quotes}
 

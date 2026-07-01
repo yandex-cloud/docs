@@ -33,12 +33,10 @@ Delete all jobs data.
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "project_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": "DeleteAllProjectJobDataResponse"
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -66,7 +64,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[DeleteAllProjectJobDataMetadata](#yandex.cloud.datasphere.v2.jobs.DeleteAllProjectJobDataMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -81,7 +79,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[DeleteAllProjectJobDataResponse](#yandex.cloud.datasphere.v2.jobs.DeleteAllProjectJobDataResponse)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -96,18 +94,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## DeleteAllProjectJobDataMetadata {#yandex.cloud.datasphere.v2.jobs.DeleteAllProjectJobDataMetadata}
-
-#|
-||Field | Description ||
-|| project_id | **string** ||
-|#
-
-## DeleteAllProjectJobDataResponse {#yandex.cloud.datasphere.v2.jobs.DeleteAllProjectJobDataResponse}
-
-#|
-||Field | Description ||
-|| Empty | > ||
 |#

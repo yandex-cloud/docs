@@ -1,3 +1,0 @@
-Например, месяц хранения результатов тестов суммарной продолжительностью 640 часов будет стоить:
-
-> (600 × {% calc [currency=RUB] {{ sku|RUB|load_testing.storage.test_results.v1|number }} %}) + (40 × {% calc [currency=RUB] {{ sku|RUB|load_testing.storage.test_results.v1|pricingRate.2160000|number }} × 3600 %}) = {% calc [currency=RUB] 600 × {{ sku|RUB|load_testing.storage.test_results.v1|number }} + 40 × {{ sku|RUB|load_testing.storage.test_results.v1|pricingRate.2160000|number }} × 3600 %}

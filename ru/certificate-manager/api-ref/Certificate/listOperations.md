@@ -59,7 +59,6 @@ GET https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{cert
 || certificateId | **string**
 
 Required field. ID of the certificate to list operations for.
-
 To get the certificate ID, use a [CertificateService.List](/docs/certificate-manager/api-ref/Certificate/list#List) request.
 
 The maximum string length in characters is 50. ||

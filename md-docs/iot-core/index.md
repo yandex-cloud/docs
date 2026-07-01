@@ -542,13 +542,13 @@
 
  - [ListDeviceTopicAliases](api-ref/grpc/Registry/listDeviceTopicAliases.md)
 
+ - [ListOperations](api-ref/grpc/Registry/listOperations.md)
+
  - [ListDataStreamExports](api-ref/grpc/Registry/listDataStreamExports.md)
 
  - [AddDataStreamExport](api-ref/grpc/Registry/addDataStreamExport.md)
 
  - [DeleteDataStreamExport](api-ref/grpc/Registry/deleteDataStreamExport.md)
-
- - [ListOperations](api-ref/grpc/Registry/listOperations.md)
 
  - [Disable](api-ref/grpc/Registry/disable.md)
 

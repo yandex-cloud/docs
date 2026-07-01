@@ -11,22 +11,24 @@ apiPlayground:
         groupId:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 64.
           type: string
         sinkId:
           description: |-
             **string**
-            Required field. 
+            Required field.
+            The maximum string length in characters is 64.
           type: string
         params:
           description: |-
             **[ExportParams](#yandex.cloud.logging.v1.ExportParams)**
-            Required field. 
+            Required field.
           $ref: '#/definitions/ExportParams'
         resultFilename:
           description: |-
             **string**
-            Required field. 
+            Required field.
           type: string
         since:
           description: |-
@@ -61,37 +63,42 @@ apiPlayground:
         type: object
         properties:
           resourceTypes:
-            description: '**string**'
+            description: |-
+              **string**
+              The maximum string length in characters for each value is 63. The maximum number of elements is 100.
             type: array
             items:
               type: string
           resourceIds:
-            description: '**string**'
+            description: |-
+              **string**
+              The maximum string length in characters for each value is 63. The maximum number of elements is 100.
             type: array
             items:
               type: string
           streamNames:
-            description: '**string**'
+            description: |-
+              **string**
+              The maximum string length in characters for each value is 63. The maximum number of elements is 100.
             type: array
             items:
               type: string
           levels:
             description: |-
               **enum** (Level)
-              - `LEVEL_UNSPECIFIED`: Default log level.
-                Equivalent to not specifying log level at all.
+              The maximum number of elements is 10.
               - `TRACE`: Trace log level.
-                Possible use case: verbose logging of some business logic.
+              Possible use case: verbose logging of some business logic.
               - `DEBUG`: Debug log level.
-                Possible use case: debugging special cases in application logic.
+              Possible use case: debugging special cases in application logic.
               - `INFO`: Info log level.
-                Mostly used for information messages.
+              Mostly used for information messages.
               - `WARN`: Warn log level.
-                May be used to alert about significant events.
+              May be used to alert about significant events.
               - `ERROR`: Error log level.
-                May be used to alert about errors in infrastructure, logic, etc.
+              May be used to alert about errors in infrastructure, logic, etc.
               - `FATAL`: Fatal log level.
-                May be used to alert about unrecoverable failures and events.
+              May be used to alert about unrecoverable failures and events.
             type: array
             items:
               type: string
@@ -104,7 +111,9 @@ apiPlayground:
                 - ERROR
                 - FATAL
           filter:
-            description: '**string**'
+            description: |-
+              **string**
+              The maximum string length in characters is 1000.
             type: string
 ---
 
@@ -149,16 +158,20 @@ POST https://logging.{{ api-host }}/logging/v1/run-export
 ||Field | Description ||
 || groupId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 64. ||
 || sinkId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 64. ||
 || params | **[ExportParams](#yandex.cloud.logging.v1.ExportParams)**
 
-Required field.  ||
+Required field. ||
 || resultFilename | **string**
 
-Required field.  ||
+Required field. ||
 || since | **string** (date-time)
 
 Required field. String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
@@ -181,33 +194,34 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 #|
 ||Field | Description ||
-|| resourceTypes[] | **string** ||
-|| resourceIds[] | **string** ||
-|| streamNames[] | **string** ||
+|| resourceTypes[] | **string**
+
+The maximum string length in characters for each value is 63. The maximum number of elements is 100. ||
+|| resourceIds[] | **string**
+
+The maximum string length in characters for each value is 63. The maximum number of elements is 100. ||
+|| streamNames[] | **string**
+
+The maximum string length in characters for each value is 63. The maximum number of elements is 100. ||
 || levels[] | **enum** (Level)
 
-- `LEVEL_UNSPECIFIED`: Default log level.
+The maximum number of elements is 10.
 
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
+May be used to alert about unrecoverable failures and events. ||
+|| filter | **string**
 
-  May be used to alert about unrecoverable failures and events. ||
-|| filter | **string** ||
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -222,11 +236,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "groupId": "string",
-    "sinkId": "string",
-    "resultFilename": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -235,28 +245,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
       "object"
     ]
   },
-  "response": {
-    "groupId": "string",
-    "sinkId": "string",
-    "params": {
-      "resourceTypes": [
-        "string"
-      ],
-      "resourceIds": [
-        "string"
-      ],
-      "streamNames": [
-        "string"
-      ],
-      "levels": [
-        "string"
-      ],
-      "filter": "string"
-    },
-    "resultFilename": "string",
-    "since": "string",
-    "until": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -298,7 +287,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[RunExportMetadata](#yandex.cloud.logging.v1.RunExportMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -313,7 +302,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[RunExportDetails](#yandex.cloud.logging.v1.RunExportDetails)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -328,15 +317,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## RunExportMetadata {#yandex.cloud.logging.v1.RunExportMetadata}
-
-#|
-||Field | Description ||
-|| groupId | **string** ||
-|| sinkId | **string** ||
-|| resultFilename | **string** ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -354,63 +334,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## RunExportDetails {#yandex.cloud.logging.v1.RunExportDetails}
-
-#|
-||Field | Description ||
-|| groupId | **string** ||
-|| sinkId | **string** ||
-|| params | **[ExportParams](#yandex.cloud.logging.v1.ExportParams2)** ||
-|| resultFilename | **string** ||
-|| since | **string** (date-time)
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| until | **string** (date-time)
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|#
-
-## ExportParams {#yandex.cloud.logging.v1.ExportParams2}
-
-#|
-||Field | Description ||
-|| resourceTypes[] | **string** ||
-|| resourceIds[] | **string** ||
-|| streamNames[] | **string** ||
-|| levels[] | **enum** (Level)
-
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
-- `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
-- `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
-- `INFO`: Info log level.
-
-  Mostly used for information messages.
-- `WARN`: Warn log level.
-
-  May be used to alert about significant events.
-- `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
-- `FATAL`: Fatal log level.
-
-  May be used to alert about unrecoverable failures and events. ||
-|| filter | **string** ||
 |#

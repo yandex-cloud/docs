@@ -1,7 +1,7 @@
 # Managed Service for MongoDB API, gRPC: ResourcePresetService.Get
 
 Returns the specified ResourcePreset resource.
-To get the list of available ResourcePreset resources, make a [List](../../../../managed-mongodb/api-ref/grpc/ResourcePreset/list#List) request.
+To get the list of available ResourcePreset resources, make a [List](list.md#List) request.
 
 ## gRPC request
 
@@ -20,7 +20,7 @@ To get the list of available ResourcePreset resources, make a [List](../../../..
 || resource_preset_id | **string**
 
 Required field. ID of the resource preset to return.
-To get the resource preset ID, use a [ResourcePresetService.List](../../../../managed-mongodb/api-ref/grpc/ResourcePreset/list#List) request. ||
+To get the resource preset ID, use a [ResourcePresetService.List](list.md#List) request. ||
 |#
 
 ## ResourcePreset {#yandex.cloud.mdb.mongodb.v1.ResourcePreset}

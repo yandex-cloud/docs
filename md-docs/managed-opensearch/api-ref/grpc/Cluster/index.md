@@ -20,19 +20,19 @@ A set of methods for managing OpenSearch clusters.
 || [Start](start.md) | Starts the specified OpenSearch cluster. ||
 || [Stop](stop.md) | Stops the specified OpenSearch cluster. ||
 || [ListLogs](listLogs.md) | Retrieves logs for the specified OpenSearch cluster. ||
-|| [StreamLogs](streamLogs.md) | (-- api-linter: yc::1705::http-method-mapping=disabled ||
+|| [StreamLogs](streamLogs.md) |  ||
 || [ListOperations](listOperations.md) | Retrieves the list of Operation resources for the specified cluster. ||
 || [ListHosts](listHosts.md) | Retrieves a list of hosts for the specified cluster. ||
-|| [AddOpenSearchNodeGroup](addOpenSearchNodeGroup.md) | (-- api-linter: yc::1705::custom-method-colon=disabled ||
+|| [AddOpenSearchNodeGroup](addOpenSearchNodeGroup.md) |  ||
 || [DeleteOpenSearchNodeGroup](deleteOpenSearchNodeGroup.md) | Deletes an OpenSearch type host group. ||
 || [UpdateOpenSearchNodeGroup](updateOpenSearchNodeGroup.md) | Updates an OpenSearch type host group. ||
-|| [AddDashboardsNodeGroup](addDashboardsNodeGroup.md) | (-- api-linter: yc::1705::custom-method-colon=disabled ||
+|| [AddDashboardsNodeGroup](addDashboardsNodeGroup.md) |  ||
 || [DeleteDashboardsNodeGroup](deleteDashboardsNodeGroup.md) | Deletes a Dashboards type host group. ||
 || [UpdateDashboardsNodeGroup](updateDashboardsNodeGroup.md) | Updates a Dashboards type host group. ||
 || [GetAuthSettings](getAuthSettings.md) | Retrieves auth settings for specified cluster. ||
 || [UpdateAuthSettings](updateAuthSettings.md) | Updates auth settings for specified cluster. ||
-|| [RestartOpenSearch](restartOpenSearch.md) | (-- api-linter: yc::1705::custom-method-colon=disabled ||
-|| [SwitchMaster](switchMaster.md) | (-- api-linter: yc::1702::method-verb-prefix=disabled --) ||
+|| [RestartOpenSearch](restartOpenSearch.md) |  ||
+|| [SwitchMaster](switchMaster.md) |  ||
 || [ListAccessBindings](listAccessBindings.md) | Retrieves a list of access bindings for the specified OpenSearch cluster. ||
 || [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified OpenSearch cluster. ||
 || [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified OpenSearch cluster. ||

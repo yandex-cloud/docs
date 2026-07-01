@@ -9,9 +9,11 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required. ID of the Hadoop cluster.
+            Required field. Required. ID of the Hadoop cluster.
             The maximum string length in characters is 50.
           type: string
+      required:
+        - clusterId
       additionalProperties: false
     query: null
     body: null

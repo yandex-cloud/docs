@@ -86,7 +86,7 @@ Required field. ID of the Workflow execution. ||
 ||Field | Description ||
 || execution | **[Execution](#yandex.cloud.serverless.workflows.v1.Execution)**
 
-Workflow execution details. ||
+Required field. Workflow execution details. ||
 |#
 
 ## Execution {#yandex.cloud.serverless.workflows.v1.Execution}
@@ -95,10 +95,10 @@ Workflow execution details. ||
 ||Field | Description ||
 || id | **string**
 
-ID of the Workflow execution. Generated at creation time. ||
+Required field. ID of the Workflow execution. Generated at creation time. ||
 || workflowId | **string**
 
-ID of the Workflow. ||
+Required field. ID of the Workflow. ||
 || input | **[ExecutionInput](#yandex.cloud.serverless.workflows.v1.ExecutionInput)**
 
 Input data for the Workflow execution. ||
@@ -110,7 +110,7 @@ Result of the Workflow execution. ||
 Error details, in case Workflow execution failed. ||
 || status | **enum** (Status)
 
-Status of the Workflow execution
+Required field. Status of the Workflow execution
 
 - `QUEUED`: Workflow execution is being queued.
 - `RUNNING`: Workflow execution is running.
@@ -120,7 +120,7 @@ Status of the Workflow execution
 - `FINISHED`: Workflow execution is finished. ||
 || startedAt | **string** (date-time)
 
-Start timestamp for the Workflow execution.
+Required field. Start timestamp for the Workflow execution.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.

@@ -50,7 +50,62 @@ Creates a bucket in the specified folder.
     ],
     "force_cloud_console_access": "bool"
   },
-  "disabled_statickey_auth": "bool"
+  "disabled_statickey_auth": "bool",
+  "lifecycle_rules": [
+    {
+      "id": "google.protobuf.StringValue",
+      "enabled": "bool",
+      "filter": {
+        "prefix": "string",
+        "object_size_greater_than": "google.protobuf.Int64Value",
+        "object_size_less_than": "google.protobuf.Int64Value",
+        "tag": {
+          "key": "string",
+          "value": "string"
+        },
+        "and_operator": {
+          "prefix": "string",
+          "object_size_greater_than": "google.protobuf.Int64Value",
+          "object_size_less_than": "google.protobuf.Int64Value",
+          "tag": [
+            {
+              "key": "string",
+              "value": "string"
+            }
+          ]
+        }
+      },
+      "expiration": {
+        "date": "google.protobuf.Timestamp",
+        "days": "google.protobuf.Int64Value",
+        "expired_object_delete_marker": "google.protobuf.BoolValue"
+      },
+      "transitions": [
+        {
+          "date": "google.protobuf.Timestamp",
+          "days": "google.protobuf.Int64Value",
+          "storage_class": "string"
+        }
+      ],
+      "abort_incomplete_multipart_upload": {
+        "days_after_expiration": "google.protobuf.Int64Value"
+      },
+      "noncurrent_expiration": {
+        "noncurrent_days": "google.protobuf.Int64Value",
+        "newer_noncurrent_versions": "google.protobuf.Int64Value"
+      },
+      "noncurrent_transitions": [
+        {
+          "noncurrent_days": "google.protobuf.Int64Value",
+          "storage_class": "string",
+          "newer_noncurrent_versions": "google.protobuf.Int64Value"
+        }
+      ],
+      "noncurrent_delete_markers": {
+        "noncurrent_days": "google.protobuf.Int64Value"
+      }
+    }
+  ]
 }
 ```
 
@@ -118,6 +173,10 @@ requires permission s3:PutBucketAllowedPrivateEndpoints ||
 
 An option to disable static key auth for a bucket.
 requires permission s3:UpdateBucketStaticKeyAuthSettings ||
+|| lifecycle_rules[] | **[LifecycleRule](#yandex.cloud.storage.v1.LifecycleRule)**
+
+Configuration for bucket's lifecycle rules.
+requires permission s3:PutLifecycleConfiguration ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags}
@@ -179,7 +238,7 @@ Required field. The grantee type for the grant.
 
 - `GRANT_TYPE_ACCOUNT`: A grantee is an [account on the platform](../../../../iam/concepts/index.md#accounts).
 For this grantee type, you need to specify the user ID in `Bucket.acl.grants.grantee_id` field. To get user ID, see
-[instruction](../../../../iam/operations/users/get).
+[instruction](../../../../organization/operations/users-get.md).
 Maps to using `id="*"` value for `x-amz-grant-*` header ([bucketPutAcl](../../../s3/api-ref/acl/bucketput.md)
 method of Amazon S3-compatible HTTP API).
 - `GRANT_TYPE_ALL_AUTHENTICATED_USERS`: Grantees are all authenticated users, both from your clouds and other users' clouds. Access
@@ -195,7 +254,7 @@ Maps to using `uri="http://acs.amazonaws.com/groups/global/AllUsers"` value for 
 
 ID of the account who is a grantee. Required when the `grant_type` is `GRANT_TYPE_ACCOUNT`.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 100. ||
 |#
 
 ## Tag {#yandex.cloud.storage.v1.Tag}
@@ -246,6 +305,210 @@ white list of private endpoints bucket accessible from ||
 
 if true, cloud console will be able to access a bucket
 regardless of private_endpoints list ||
+|#
+
+## LifecycleRule {#yandex.cloud.storage.v1.LifecycleRule}
+
+An object lifecycle rule resource for the bucket.
+For details about the concept, see [documentation](../../../concepts/lifecycles.md).
+
+#|
+||Field | Description ||
+|| id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+ID of the rule. Provided by the client or generated at creation time. ||
+|| enabled | **bool**
+
+Indicates whether the rule is in effect. ||
+|| filter | **[RuleFilter](#yandex.cloud.storage.v1.LifecycleRule.RuleFilter)**
+
+Filter that identifies the objects to which the rule applies.
+If not specified, the rule applies to all objects in the bucket. ||
+|| expiration | **[Expiration](#yandex.cloud.storage.v1.LifecycleRule.Expiration)**
+
+Expiration rule.
+The expiration of an object is described as follows.
+For the unversioned bucket ([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is `VERSIONING_DISABLED`), the object is deleted and cannot be
+recovered.
+For the bucket with versioning enabled ([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`), the current version of the
+object (if it exists and is not a delete marker) is retained as a non-current version, and a delete marker becomes
+the current version of the object.
+For the bucket with versioning suspended ([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is `VERSIONING_SUSPENDED`), the current version of
+the object is retained as a non-current version if it is not a delete marker, or is removed otherwise, and a
+delete marker becomes the current version of the object. ||
+|| transitions[] | **[Transition](#yandex.cloud.storage.v1.LifecycleRule.Transition)**
+
+List of transition rules.
+The transition of an object is described as follows.
+For the unversioned bucket ([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is `VERSIONING_DISABLED`), the object is transitioned to the
+specified storage class.
+For the bucket with versioning enabled ([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended
+(`VERSIONING_SUSPENDED`), the current version of the object is transitioned to the specified storage class. ||
+|| abort_incomplete_multipart_upload | **[AfterDays](#yandex.cloud.storage.v1.LifecycleRule.AfterDays)**
+
+Configuration for aborting incomplete [multipart uploads](../../../concepts/multipart.md). ||
+|| noncurrent_expiration | **[NoncurrentExpiration](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentExpiration)**
+
+Expiration rule for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is
+`VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
+At expiration, the non-current version of the object is deleted and cannot be recovered. ||
+|| noncurrent_transitions[] | **[NoncurrentTransition](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentTransition)**
+
+List of transition rules for non-current versions of objects in a bucket with versioning enabled
+([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
+At transition, the non-current version of the object is transitioned to the specified storage class. ||
+|| noncurrent_delete_markers | **[NoncurrentDeleteMarkers](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers)**
+
+Expiration rule for non-current delete markers of an objects in a bucket with versioning
+enabled ([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
+Works in the same way as noncurrent_expiration rule, but only for delete markers.
+At expiration, the non-current delete marker of the object is deleted and cannot be recovered. ||
+|#
+
+## RuleFilter {#yandex.cloud.storage.v1.LifecycleRule.RuleFilter}
+
+#|
+||Field | Description ||
+|| prefix | **string**
+
+Key prefix that the object must have in order for the rule to apply. ||
+|| object_size_greater_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Size that the object must be greater. ||
+|| object_size_less_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Size that the object must be less t. ||
+|| tag | **[Tag](#yandex.cloud.storage.v1.Tag)**
+
+Tags that the object's tag set must have for the rule to apply. ||
+|| and_operator | **[And](#yandex.cloud.storage.v1.LifecycleRule.RuleFilter.And)**
+
+Apply a logical AND to all of the predicates configured inside the And operator. ||
+|#
+
+## And {#yandex.cloud.storage.v1.LifecycleRule.RuleFilter.And}
+
+#|
+||Field | Description ||
+|| prefix | **string**
+
+Key prefix that the object must have in order for the rule to apply. ||
+|| object_size_greater_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Size that the object must be greater. ||
+|| object_size_less_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Size that the object must be less than. ||
+|| tag[] | **[Tag](#yandex.cloud.storage.v1.Tag)**
+
+Tags that the object's tag set must have for the rule to apply. ||
+|#
+
+## Expiration {#yandex.cloud.storage.v1.LifecycleRule.Expiration}
+
+#|
+||Field | Description ||
+|| date | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Specific date of object expiration.
+The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket expire
+immediately.
+Exactly one of `date`, `days`, and `expired_object_delete_marker` fields can be specified. ||
+|| days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Time period, in number of days from the creation or modification of the object, after which an object expires.
+Exactly one of `days`, `date`, and `expired_object_delete_marker` fields can be specified. ||
+|| expired_object_delete_marker | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Indicates whether a delete marker of an object with no non-current versions (referred to as an expired object
+delete marker) is removed at the object's expiration.
+Exactly one of `expired_object_delete_marker`, `date`, and `days` fields can be specified. ||
+|#
+
+## Transition {#yandex.cloud.storage.v1.LifecycleRule.Transition}
+
+List of transition rules.
+The transition of an object is described as follows.
+For the unversioned bucket ([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is `VERSIONING_DISABLED`), the object is transitioned to the
+specified storage class.
+For the bucket with versioning enabled ([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended
+(`VERSIONING_SUSPENDED`), the current version of the object is transitioned to the specified storage class.
+
+#|
+||Field | Description ||
+|| date | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Specific date of object transition.
+The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket are
+transitioned immediately.
+At most one of `date` and `days` fields can be specified. ||
+|| days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Time period, in number of days from the creation or modification of the object, after which an object is
+transitioned.
+At most one of `days` and `date` fields can be specified. ||
+|| storage_class | **string**
+
+Required field. Storage class to which an object is transitioned from standard storage.
+The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
+to standard storage and transitions to or from ice storage are not allowed. ||
+|#
+
+## AfterDays {#yandex.cloud.storage.v1.LifecycleRule.AfterDays}
+
+#|
+||Field | Description ||
+|| days_after_expiration | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Time period, in number of days from the start of the multipart upload, after which the incomplete upload is
+aborted. ||
+|#
+
+## NoncurrentExpiration {#yandex.cloud.storage.v1.LifecycleRule.NoncurrentExpiration}
+
+#|
+||Field | Description ||
+|| noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Time period, in number of days since the version of an object was classified as non-current, after which the
+version expires. ||
+|| newer_noncurrent_versions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Specifies how many noncurrent versions S3 will retain.
+S3 will permanently delete any additional noncurrent versions beyond this specified number. ||
+|#
+
+## NoncurrentTransition {#yandex.cloud.storage.v1.LifecycleRule.NoncurrentTransition}
+
+List of transition rules for non-current versions of objects in a bucket with versioning enabled
+([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
+At transition, the non-current version of the object is transitioned to the specified storage class.
+
+#|
+||Field | Description ||
+|| noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Time period, in number of days since the version of an object was classified as non-current, after which the
+version is transitioned. ||
+|| storage_class | **string**
+
+Required field. Storage class to which a non-current version of an object is transitioned from standard storage.
+The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
+to standard storage and transitions to or from ice storage are not allowed. ||
+|| newer_noncurrent_versions | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Specifies how many noncurrent versions S3 will retain.
+S3 will permanently delete any additional noncurrent versions beyond this specified number. ||
+|#
+
+## NoncurrentDeleteMarkers {#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers}
+
+#|
+||Field | Description ||
+|| noncurrent_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Time period, in number of days since the version of a delete marker was classified as non-current, after which
+the delete marker expires. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

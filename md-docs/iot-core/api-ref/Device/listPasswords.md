@@ -15,8 +15,9 @@ GET https://iot-devices.api.cloud.yandex.net/iot-devices/v1/devices/{deviceId}/p
 || deviceId | **string**
 
 Required field. ID of the registry to list passwords in.
+To get a registry ID make a [RegistryService.List](../Registry/list.md#List) request.
 
-To get a registry ID make a [RegistryService.List](../Registry/list.md#List) request. ||
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iot.devices.v1.ListDevicePasswordsResponse}

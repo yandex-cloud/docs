@@ -505,7 +505,7 @@ list request will have its own `next_page_token` to continue paging through the 
 ## Cluster {#yandex.cloud.mdb.redis.v1.Cluster}
 
 Description of a Redis cluster. For more information, see
-the Managed Service for Redis [documentation](../../../../managed-redis/concepts).
+the Managed Service for Redis [documentation](../../../concepts/index.md).
 
 #|
 ||Field | Description ||
@@ -706,7 +706,7 @@ parameters.
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../../managed-redis/concepts/instance-types).
+Service for Redis [host class](../../../concepts/instance-types.md).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -806,7 +806,7 @@ parameters.
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../../managed-redis/concepts/instance-types).
+Service for Redis [host class](../../../concepts/instance-types.md).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -906,7 +906,7 @@ parameters.
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../../managed-redis/concepts/instance-types).
+Service for Redis [host class](../../../concepts/instance-types.md).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -1011,7 +1011,7 @@ parameters.
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../../managed-redis/concepts/instance-types).
+Service for Redis [host class](../../../concepts/instance-types.md).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -1096,7 +1096,7 @@ The minimum value is 0. ||
 || resource_preset_id | **string**
 
 Required field. ID of the preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](../../../../managed-redis/concepts/instance-types). ||
+All available presets are listed in the [documentation](../../../concepts/instance-types.md). ||
 || disk_size | **int64**
 
 Volume of the storage available to a host, in bytes. ||
@@ -1147,7 +1147,7 @@ parameters.
 
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
-Service for Redis [host class](../../../../managed-redis/concepts/instance-types).
+Service for Redis [host class](../../../concepts/instance-types.md).
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.

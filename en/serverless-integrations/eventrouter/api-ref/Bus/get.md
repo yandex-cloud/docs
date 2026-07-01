@@ -121,7 +121,7 @@ Options for logging from the bus. ||
 
 Entry will be written to log group resolved by ID.
 
-The maximum string length in characters is 50.
+The maximum string length in characters is 50. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `logGroupId`, `folderId`.
 
@@ -130,7 +130,7 @@ Log entries destination. ||
 
 Entry will be written to default log group for specified folder.
 
-The maximum string length in characters is 50.
+The maximum string length in characters is 50. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `logGroupId`, `folderId`.
 
@@ -138,7 +138,6 @@ Log entries destination. ||
 || minLevel | **enum** (Level)
 
 Minimum log entry level.
-
 See [LogLevel.Level](/docs/logging/api-ref/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.

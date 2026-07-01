@@ -230,8 +230,6 @@
 
  - [Вертикальное масштабирование приложения в кластере](tutorials/vpa-autoscaling.md)
 
- - [Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием](tutorials/load-testing-grpc-autoscaling.md)
-
 ### Использование Container Registry
 
  - [Интеграция с Container Registry](tutorials/container-registry.md)

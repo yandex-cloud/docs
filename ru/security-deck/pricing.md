@@ -50,9 +50,9 @@ editable: false
 #|
 || **Модуль** | **Единица тарификации** | **Условия** ||
 || {{ atr-name }} | Совокупное потребление ресурсов за предшествующий месяц в организации, для которой подключается модуль | Рассчитывается ежемесячно.</br>Цена рассчитывается в начале календарного месяца и не изменяется до его конца.</br>При использовании модуля с первого числа месяца цена не зависит от продолжительности календарного месяца. При использовании со второго числа месяца и далее тарифицируется только время, оставшееся до конца месяца, по принципу почасовой оплаты.</br>При отмене подписки в [консоли управления]({{ link-console-main }}) оплата перестает начисляться с первого числа следующего календарного месяца. ||
-|| Модуль контроля данных ({{ dspm-name }}) | Запросы модуля к файлам в бакетах {{ objstorage-full-name }} и на дисках в {{ yandex-360 }} при [сканировании данных](operations/dspm/create-scan.md) | Запросы тарифицируются по [правилам тарификации](../storage/pricing.md) {{ objstorage-name }}.</br>Использование модуля тарифицируется дополнительно. ||
+|| Модуль контроля данных ({{ dspm-name }}) | <ul><li>[Анализ данных](./concepts/dspm.md#discovery-mode): при превышении лимита стоимость рассчитывается за каждый миллион объектов.</li><li>[Сканирование](./concepts/dspm.md#scanning): операции чтения данных и количество просканированных данных.</li></ul> | <ul><li>[Анализ данных](./concepts/dspm.md#discovery-mode) — свыше бесплатного лимита на 100 000 объектов стоимость рассчитывается по лестничной тарифной сетке за каждый миллион объектов.</li><li>Непрерывный контроль ([сканирование](./concepts/dspm.md#scanning)) — запросы тарифицируются по [правилам тарификации](../storage/pricing.md) {{ objstorage-name }}.</li></ul> ||
 || Модуль контроля {{ k8s }} ({{ kspm-name }}) | Рабочие узлы в кластерах [{{ managed-k8s-full-name }}](../managed-kubernetes/), которые подключены к сканированию | Рассчитывается ежемесячно. ||
-|| Модуль контроля конфигурации ({{ cspm-name }}) | Количество ресурсов в окружении, которые проходят проверку по включенным стандартам:</br>* виртуальная машина {{ compute-full-name }};</br>* бакет {{ objstorage-full-name }};</br>* кластеры баз данных&nbsp;^1^;</br>* кластер {{ k8s }};</br>* облачная сеть {{ vpc-full-name }} | Рассчитывается ежемесячно.</br>Тарифицируются все стандарты, кроме [базовых правил безопасности облачной платформы {{ yandex-cloud }}](concepts/standard-compliance/yc-security-baseline.md).</br>Каждое окружение тарифицируется отдельно, даже если ресурсы в них пересекаются.</br>Неактивные ресурсы также тарифицируются.</br>Цена не зависит от продолжительности календарного месяца. ||
+|| Модуль контроля конфигурации ({{ cspm-name }}) | Количество ресурсов в окружении, которые проходят проверку по включенным стандартам:<ul><li>виртуальная машина {{ compute-full-name }};</li><li>бакет {{ objstorage-full-name }};</li><li>кластеры баз данных&nbsp;^1^;</li><li>кластер {{ k8s }};</li><li>облачная сеть {{ vpc-full-name }}.</li></ul> | Рассчитывается ежемесячно.</br>Тарифицируются все стандарты, кроме [базовых правил безопасности облачной платформы {{ yandex-cloud }}](concepts/standard-compliance/yc-security-baseline.md).</br>Каждое окружение тарифицируется отдельно, даже если ресурсы в них пересекаются.</br>Неактивные ресурсы также тарифицируются.</br>Цена не зависит от продолжительности календарного месяца. ||
 |#
 
 ^1^ В проверку включены кластеры баз данных следующих сервисов:
@@ -108,7 +108,7 @@ editable: false
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|security_deck }}']}
-    excludeSkuIds={['{{ pc|security_deck.access_transparency.subscription.v1 }}', '{{ pc|security_deck.kspm.nodes }}', '{{ pc|security_deck.cspm.resources }}', '{{ pc|security_deck.dspm.t1_5.subscription.monthly_usage.v1 }}', '{{ pc|security_deck.dspm.t11.subscription.monthly_usage.v1 }}', '{{ pc|security_deck.dspm.t3.subscription.monthly_usage.v1 }}', '{{ pc|security_deck.dspm.t5_5.subscription.monthly_usage.v1 }}']} 
+    excludeSkuIds={['{{ pc|security_deck.access_transparency.subscription.v1 }}', '{{ pc|security_deck.kspm.nodes }}', '{{ pc|security_deck.cspm.resources }}', '{{ pc|security_deck.dspm.t1_5.subscription.monthly_usage.v1 }}', '{{ pc|security_deck.dspm.t11.subscription.monthly_usage.v1 }}', '{{ pc|security_deck.dspm.t3.subscription.monthly_usage.v1 }}', '{{ pc|security_deck.dspm.t5_5.subscription.monthly_usage.v1 }}']}
     installationCode="ru"
     currency="RUB"
   />
@@ -116,8 +116,7 @@ editable: false
 
 
 
-
-#### Пример расчета стоимости {#amount-example}
+##### Пример расчета стоимости {#amount-example}
 
 Например, вы настроили сканирование бакета, в котором хранится 50 текстовых файлов общим объемом 5 ГБ. Все файлы были просканированы. Итоговая стоимость одного сканирования составит:
 
@@ -162,7 +161,6 @@ editable: false
     currency="RUB"
   />
 </MDX>
-
 
 
 

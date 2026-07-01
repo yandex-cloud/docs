@@ -19,8 +19,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
     1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the required service account.
     1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
     1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-    1. In the **{{ ui-key.yacloud_components.acl.label.title }}** window, click **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
-    1. Select a user from the list or use the user search option.
+    1. In the {{ ui-key.yacloud_components.acl.label.subject }} field of the {{ ui-key.yacloud_components.acl.label.title }} window, select a user from the list or search by user.
     1. Click **{{ ui-key.yacloud_components.acl.button.add-role }}**.
     1. Choose the role.
     1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.

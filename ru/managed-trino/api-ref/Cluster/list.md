@@ -138,8 +138,11 @@ The maximum string length in characters is 1000. ||
           "exchangeManager": {
             "additionalProperties": "object",
             "storage": {
-              // Includes only one of the fields `serviceS3`
-              "serviceS3": "object"
+              // Includes only one of the fields `serviceS3`, `s3`
+              "serviceS3": "object",
+              "s3": {
+                "bucket": "string"
+              }
               // end of the list of possible fields
             }
           },
@@ -500,11 +503,11 @@ The maximum string length in characters is 1000. ||
       "deletionProtection": "boolean",
       "serviceAccountId": "string",
       "logging": {
-        "enabled": "boolean",
         // Includes only one of the fields `folderId`, `logGroupId`
         "folderId": "string",
         "logGroupId": "string",
         // end of the list of possible fields
+        "enabled": "boolean",
         "minLevel": "string"
       },
       "coordinatorUrl": "string",
@@ -770,7 +773,7 @@ Configuration for exchange manager. ||
 
 Additional properties.
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. No more than 256 per resource. ||
 |#
 
 ## ExchangeManagerConfig {#yandex.cloud.trino.v1.ExchangeManagerConfig}
@@ -781,7 +784,7 @@ No more than 256 per resource. The maximum string length in characters for each 
 
 Additional properties.
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. No more than 256 per resource. ||
 || storage | **[ExchangeManagerStorage](#yandex.cloud.trino.v1.ExchangeManagerStorage)**
 
 Storage for spooled data by exchange manager. ||
@@ -793,9 +796,23 @@ Storage for spooled data by exchange manager. ||
 ||Field | Description ||
 || serviceS3 | **object**
 
-Use service side s3 bucket for exchange manager.
+Use a service side S3 bucket for exchange manager.
 
-Includes only one of the fields `serviceS3`. ||
+Includes only one of the fields `serviceS3`, `s3`. ||
+|| s3 | **[S3](#yandex.cloud.trino.v1.ExchangeManagerStorage.S3)**
+
+Use an S3 bucket for exchange manager.
+
+Includes only one of the fields `serviceS3`, `s3`. ||
+|#
+
+## S3 {#yandex.cloud.trino.v1.ExchangeManagerStorage.S3}
+
+#|
+||Field | Description ||
+|| bucket | **string**
+
+Required field. Name of the bucket to be used as the spool destination for exchange manager. ||
 |#
 
 ## AccessControlConfig {#yandex.cloud.trino.v1.AccessControlConfig}
@@ -836,12 +853,12 @@ Catalog session property access control rules. ||
 
 IAM user IDs the rule is applied to.
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || groups[] | **string**
 
 IAM group IDs the rule is applied to.
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -888,7 +905,9 @@ Includes only one of the fields `nameRegexp`, `ids`, `names`. ||
 ||Field | Description ||
 || any[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. ||
+List of table names. The rule will be applied if a table name is within this list.
+
+The maximum string length in characters for each value is 63. The maximum number of elements is 128. ||
 |#
 
 ## CatalogNames {#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogNames}
@@ -897,7 +916,9 @@ The maximum number of elements is 128. The maximum string length in characters f
 ||Field | Description ||
 || any[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. ||
+List of catalog names. The rule will be applied if a catalog name is within this list.
+
+The maximum string length in characters for each value is 63. The maximum number of elements is 128. ||
 |#
 
 ## SchemaAccessRule {#yandex.cloud.trino.v1.SchemaAccessRule}
@@ -908,12 +929,12 @@ The maximum number of elements is 128. The maximum string length in characters f
 
 IAM user IDs the rule is applied to.
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || groups[] | **string**
 
 IAM group IDs the rule is applied to.
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -957,7 +978,9 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 ||Field | Description ||
 || any[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. ||
+List of schema names. The rule will be applied if a schema name is within this list.
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. The maximum number of elements is 128. ||
 |#
 
 ## TableAccessRule {#yandex.cloud.trino.v1.TableAccessRule}
@@ -968,12 +991,12 @@ The maximum number of elements is 128. The maximum string length in characters f
 
 IAM user IDs the rule is applied to.
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || groups[] | **string**
 
 IAM group IDs the rule is applied to.
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -1032,7 +1055,9 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 ||Field | Description ||
 || any[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. ||
+List of table names. The rule will be applied if a table name is within this list.
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. The maximum number of elements is 128. ||
 |#
 
 ## Column {#yandex.cloud.trino.v1.TableAccessRule.Column}
@@ -1066,12 +1091,12 @@ The maximum string length in characters is 128. ||
 
 IAM user IDs the rule is applied to.
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || groups[] | **string**
 
 IAM group IDs the rule is applied to.
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -1119,7 +1144,9 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 ||Field | Description ||
 || any[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. ||
+List of function names. The rule will be applied if a function name is within this list.
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. The maximum number of elements is 128. ||
 |#
 
 ## ProcedureAccessRule {#yandex.cloud.trino.v1.ProcedureAccessRule}
@@ -1130,12 +1157,12 @@ The maximum number of elements is 128. The maximum string length in characters f
 
 IAM user IDs the rule is applied to.
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || groups[] | **string**
 
 IAM group IDs the rule is applied to.
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -1181,7 +1208,9 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 ||Field | Description ||
 || any[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. ||
+List of procedure names. The rule will be applied if a procedure name is within this list.
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. The maximum number of elements is 128. ||
 |#
 
 ## QueryAccessRule {#yandex.cloud.trino.v1.QueryAccessRule}
@@ -1192,18 +1221,18 @@ The maximum number of elements is 128. The maximum string length in characters f
 
 IAM user IDs the rule is applied to.
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || groups[] | **string**
 
 IAM group IDs the rule is applied to.
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || queryOwners[] | **string**
 
 Owners of queries the rule is applied to.
 Cannot be combined with EXECUTE privilege.
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || privileges[] | **enum** (Privilege)
 
 Privileges granted by the user.
@@ -1226,12 +1255,12 @@ The maximum string length in characters is 128. ||
 
 IAM user IDs the rule is applied to.
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || groups[] | **string**
 
 IAM group IDs the rule is applied to.
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || property | **[PropertyAccessRuleMatcher](#yandex.cloud.trino.v1.PropertyAccessRuleMatcher)**
 
 Property matcher specifying what properties the rule is applied to. ||
@@ -1272,7 +1301,9 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 ||Field | Description ||
 || any[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z_]+ `. ||
+List of property names. The rule will be applied if a property name is within this list.
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z_]+ `. The maximum number of elements is 128. ||
 |#
 
 ## CatalogSessionPropertyAccessRule {#yandex.cloud.trino.v1.CatalogSessionPropertyAccessRule}
@@ -1283,12 +1314,12 @@ The maximum number of elements is 128. The maximum string length in characters f
 
 IAM user IDs the rule is applied to.
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || groups[] | **string**
 
 IAM group IDs the rule is applied to.
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)**
 
 Catalog matcher specifying what catalogs the rule is applied to. ||
@@ -1401,16 +1432,16 @@ Regex to match against query source. ||
 
 Type of query to match.
 
-- `SELECT`
-- `EXPLAIN`
-- `DESCRIBE`
-- `INSERT`
-- `UPDATE`
-- `MERGE`
-- `DELETE`
-- `ANALYZE`
-- `DATA_DEFINITION`
-- `ALTER_TABLE_EXECUTE` ||
+- `SELECT`: SELECT query.
+- `EXPLAIN`: EXPLAIN query.
+- `DESCRIBE`: DESCRIBE query.
+- `INSERT`: INSERT query.
+- `UPDATE`: UPDATE query.
+- `MERGE`: MERGE query.
+- `DELETE`: DELECT query.
+- `ANALYZE`: ANALYZE query.
+- `DATA_DEFINITION`: Data definition query.
+- `ALTER_TABLE_EXECUTE`: ALTER TABLE EXECUTE query. ||
 || clientTags[] | **string**
 
 Tags that must all be present in the query's client tags. ||
@@ -1437,7 +1468,7 @@ Query properties. ||
 Trusted CA-certificates. Each element should contain single self-signed CA-certificate or
 chain of CA-certificates where first certificate is the leaf and last certificate is the self-signed root.
 
-The maximum number of elements is 8. The maximum string length in characters for each value is 8192. ||
+The maximum string length in characters for each value is 8192. The maximum number of elements is 8. ||
 |#
 
 ## NetworkConfig {#yandex.cloud.trino.v1.NetworkConfig}
@@ -1468,9 +1499,6 @@ Enables access to the cluster only via private endpoint. ||
 
 #|
 ||Field | Description ||
-|| enabled | **boolean**
-
-Logs generated by the Trino components are delivered to Cloud Logging. ||
 || folderId | **string**
 
 Logs should be written to default log group for specified folder.
@@ -1489,30 +1517,26 @@ Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 Includes only one of the fields `folderId`, `logGroupId`.
 
 Destination of log records. ||
+|| enabled | **boolean**
+
+Logs generated by the Trino components are delivered to Cloud Logging. ||
 || minLevel | **enum** (Level)
 
 Minimum log entry level.
-
-See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+See [LogLevel.Level](/docs/logging/api-ref/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
-
-  May be used to alert about unrecoverable failures and events. ||
+May be used to alert about unrecoverable failures and events. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.trino.v1.MaintenanceWindow}
@@ -1521,8 +1545,12 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
 ||Field | Description ||
 || anytime | **object**
 
+The cluster may be restarted for maintenance at any time.
+
 Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 || weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.trino.v1.WeeklyMaintenanceWindow)**
+
+Maintenance is allowed only within the specified weekly window.
 
 Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 |#
@@ -1533,16 +1561,18 @@ Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 ||Field | Description ||
 || day | **enum** (WeekDay)
 
-- `MON`
-- `TUE`
-- `WED`
-- `THU`
-- `FRI`
-- `SAT`
-- `SUN` ||
+Day of the week when maintenance can occur.
+
+- `MON`: Monday.
+- `TUE`: Tuesday.
+- `WED`: Wednesday.
+- `THU`: Thursday.
+- `FRI`: Friday.
+- `SAT`: Saturday.
+- `SUN`: Sunday. ||
 || hour | **string** (int64)
 
-Hour of the day in UTC.
+Hour of the day in UTC when the maintenance window starts.
 
 Acceptable values are 1 to 24, inclusive. ||
 |#
@@ -1553,8 +1583,12 @@ Acceptable values are 1 to 24, inclusive. ||
 ||Field | Description ||
 || info | **string**
 
+Information about the maintenance operation.
+
 The maximum string length in characters is 256. ||
 || delayedUntil | **string** (date-time)
+
+Maintenance is postponed until the specified timestamp.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -1564,6 +1598,8 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || latestMaintenanceTime | **string** (date-time)
 
+Timestamp of the latest successfully completed maintenance.
+
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
 
@@ -1571,6 +1607,8 @@ To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || nextMaintenanceWindowTime | **string** (date-time)
+
+Timestamp of the next scheduled maintenance window.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.

@@ -3,7 +3,7 @@
 
     {% include [account-access-lost](../../_includes/billing/account-access-lost.md) %}
 
-1. On the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** page, in the top-right corner, click **{{ ui-key.yacloud_components.cloud-center.action_more }}** and select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_billing.billing.account.dashboard.label_inactivation }}**.
+1. On the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** page, in the top-right corner, click **{{ ui-key.yacloud_org.common.more }}** and select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_billing.billing.account.dashboard.label_inactivation }}**.
 1. Confirm and wait until the check is completed.
 1. If the account can be deleted, the deletion notification will pop up. At this point, you can still abort the operation by clicking **{{ ui-key.yacloud_billing.billing.account.dashboard.popup-go-pay_button_cancel }}**.
 1. If the account cannot be deleted, click **{{ ui-key.yacloud_billing.billing.account.dashboard.card_label_threshold-description }}** to see the reason.

@@ -5,7 +5,6 @@ editable: false
 # Key Management Service API, gRPC: SymmetricKeyService.Get
 
 Returns the specified symmetric KMS key.
-
 To get the list of available symmetric KMS keys, make a [SymmetricKeyService.List](/docs/kms/api-ref/grpc/SymmetricKey/list#List) request.
 
 ## gRPC request

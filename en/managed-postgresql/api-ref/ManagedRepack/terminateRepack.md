@@ -34,7 +34,7 @@ apiPlayground:
 # Managed Service for PostgreSQL API, REST: ManagedRepack.TerminateRepack
 
 Terminates currently running Repack in given cluster
-(-- api-linter: yc::1702::method-verb-prefix=disabled --)
+
 
 ## HTTP request
 

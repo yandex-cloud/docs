@@ -35,7 +35,6 @@ Free tier распространяется на сервисы:
 * [{{ yds-full-name }}](#yds)
 * [{{ data-transfer-full-name }}](#transfer)
 * [{{ iot-full-name }}](#iot)
-* [{{ load-testing-full-name }}](#load-testing)
 * [{{ ydb-full-name }}](#ydb)
 * [{{ message-queue-full-name }}](#message-queue)
 * [{{ monium-name }}](#monium)
@@ -146,16 +145,6 @@ Free tier распространяется на сервисы:
 {% include [not-charged-iot.md](../../_includes/pricing/price-formula/not-charged-iot.md) %}
 
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../iot-core/pricing.md).
-
-{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
-
-## {{ load-testing-full-name }} {#load-testing}
-
-[{{ load-testing-full-name }}](../../load-testing/quickstart.md) позволяет проводить нагрузочное тестирование, чтобы анализировать производительность ваших сервисов и приложений.
-
-{% include [not-charged-load-testing.md](../../_includes/pricing/price-formula/not-charged-load-testing.md) %}
-
-После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../load-testing/pricing.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
@@ -277,3 +266,4 @@ Free tier распространяется на сервисы:
 ### Расчет стоимости использования {{ iot-full-name }} {#iot-example}
 
 {% include [prices-example](../../_includes/iot-core/prices-example.md) %}
+

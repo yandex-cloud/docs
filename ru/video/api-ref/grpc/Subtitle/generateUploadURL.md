@@ -7,7 +7,7 @@ editable: false
 Generates a URL for uploading a subtitle file to an existing subtitle record.
 This URL can be used to upload the actual subtitle file using an HTTP PUT request.
 The URL is pre-signed and has a limited validity period.
-(-- api-linter: yc::1705::http-method-mapping=disabled --)
+
 
 ## gRPC request
 

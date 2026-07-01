@@ -89,7 +89,7 @@ VPN-туннель работает между двумя решениями ViP
 В стоимость инфраструктуры входит:
 * Плата за вычислительные ресурсы, диски и образы ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 * Плата за хранение данных в бакете и операции с ними ([тарифы Yandex Object Storage](../../storage/pricing.md)).
-* Плата за публичный IP-адрес и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../pricing.md)).
+* Плата за публичный IP-адрес и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Подготовьте окружение {#environment-preparing}

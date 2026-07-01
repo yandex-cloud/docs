@@ -168,7 +168,7 @@ Required field. Type of disk.
 
 Minimum number of ready desktops.
 
-Acceptable values are 1 to 512, inclusive. ||
+Acceptable values are 0 to 512, inclusive. ||
 || maxDesktopsAmount | **string** (int64)
 
 Maximum number of desktops.
@@ -178,8 +178,8 @@ Acceptable values are 0 to 512, inclusive. ||
 
 Type of the desktop.
 
-- `PERSISTENT`
-- `NON_PERSISTENT` ||
+- `PERSISTENT`: Persistent desktop.
+- `NON_PERSISTENT`: Non persistent desktop. ||
 || members[] | **[Subject](#yandex.cloud.access.Subject)**
 
 List of members of the desktop group.

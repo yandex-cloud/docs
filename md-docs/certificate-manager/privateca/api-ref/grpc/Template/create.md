@@ -47,19 +47,10 @@ Required field. Certificate template data. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "folder_id": "string",
-    "name": "string",
-    "data": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "updated_at": "google.protobuf.Timestamp"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -87,7 +78,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateTemplateMetadata](#yandex.cloud.certificatemanager.v1.privateca.CreateTemplateMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -102,7 +93,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Template](#yandex.cloud.certificatemanager.v1.privateca.Template)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -117,41 +108,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateTemplateMetadata {#yandex.cloud.certificatemanager.v1.privateca.CreateTemplateMetadata}
-
-Metadata returned in the response of the template creation.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the newly created template. ||
-|#
-
-## Template {#yandex.cloud.certificatemanager.v1.privateca.Template}
-
-Json or yaml template for easier certificate issuing. If used while certificate creation, certificate would take all fields from template.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the template. Generated at creation time. ||
-|| folder_id | **string**
-
-ID of the folder that the template belongs to. ||
-|| name | **string**
-
-Name of the template. ||
-|| data | **string**
-
-Json representation of template. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Timestamp when the template was created. ||
-|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Timestamp when the template was last updated. ||
 |#

@@ -145,8 +145,8 @@
     * Запросите статус ресурса `Ingress` командой `kubectl get Ingress`.
     * В [консоли управления](https://console.yandex.cloud):
       * Перейдите на страницу кластера Managed Service for Kubernetes.
-      * На панели слева выберите ![image](../../_assets/console-icons/timestamps.svg) **Сеть**.
-      * Перейдите на вкладку **Ingress**.
+      * На панели слева выберите ![image](../../_assets/console-icons/timestamps.svg) **Сервисы и Ingress**.
+      * Перейдите на вкладку **Ingresses**.
 1. Убедитесь, что маршрутизация работает, как ожидается. Для этого протестируйте доступность HTTP/HTTPS-эндпоинтов вашего приложения.
 1. Убедитесь, что проверки статуса бэкендов показывают их работоспособность.
 1. Проверьте наличие ошибок в [логах](../../application-load-balancer/operations/application-load-balancer-get-logs.md) и наличие признаков проблем с производительностью в [метриках балансировщика](../../application-load-balancer/metrics.md).

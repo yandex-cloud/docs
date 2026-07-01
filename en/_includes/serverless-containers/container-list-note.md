@@ -1,1 +1,1 @@
-To access a container, use its name or unique ID. To get them, [get a list of containers](../../serverless-containers/operations/list.md) in the folder.
+To access a container, use its name or ID. To get them, [get a list of containers](../../serverless-containers/operations/list.md) in the folder.

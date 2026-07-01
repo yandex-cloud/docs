@@ -19,10 +19,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы Data Transfer](../../data-transfer/pricing.md)).
-* NAT-шлюз: почасовое использование и исходящий через него трафик ([тарифы Virtual Private Cloud](../../vpc/pricing.md#nat-gateways)).
+* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../../managed-postgresql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы Data Transfer](../../../data-transfer/pricing.md)).
+* NAT-шлюз: почасовое использование и исходящий через него трафик ([тарифы Virtual Private Cloud](../../../vpc/pricing.md#nat-gateways)).
 
 
 ## Перед началом работы {#before-you-begin}

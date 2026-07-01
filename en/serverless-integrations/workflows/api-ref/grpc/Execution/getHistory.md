@@ -73,7 +73,7 @@ Required field. ID of the Workflow execution. ||
 ||Field | Description ||
 || execution | **[ExecutionPreview](#yandex.cloud.serverless.workflows.v1.ExecutionPreview)**
 
-Workflow execution details. ||
+Required field. Workflow execution details. ||
 || entries[] | **[HistoryEntry](#yandex.cloud.serverless.workflows.v1.HistoryEntry)**
 
 Workflow execution detailed history items.
@@ -87,13 +87,13 @@ The number of elements must be greater than 0. ||
 ||Field | Description ||
 || id | **string**
 
-ID of the Workflow execution. Generated at creation time. ||
+Required field. ID of the Workflow execution. Generated at creation time. ||
 || workflow_id | **string**
 
-ID of the Workflow. ||
+Required field. ID of the Workflow. ||
 || status | enum **Status**
 
-Status of the Workflow execution
+Required field. Status of the Workflow execution
 
 - `QUEUED`: Workflow execution is being queued.
 - `RUNNING`: Workflow execution is running.
@@ -103,7 +103,7 @@ Status of the Workflow execution
 - `FINISHED`: Workflow execution is finished. ||
 || started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Start timestamp for the Workflow execution. ||
+Required field. Start timestamp for the Workflow execution. ||
 || duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Duration of the Workflow execution. ||
@@ -115,16 +115,16 @@ Duration of the Workflow execution. ||
 ||Field | Description ||
 || id | **string**
 
-ID of the Workflow step. ||
+Required field. ID of the Workflow step. ||
 || title | **string**
 
-Title of the Workflow step. ||
+Required field. Title of the Workflow step. ||
 || description | **string**
 
 Description of the Workflow step. ||
 || started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Start timestamp for the Workflow step. ||
+Required field. Start timestamp for the Workflow step. ||
 || duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Duration of the Workflow step. ||
@@ -139,7 +139,7 @@ Result of the Workflow step. ||
 Error details, in case Workflow step failed. ||
 || status | enum **Status**
 
-Status of the Workflow step.
+Required field. Status of the Workflow step.
 
 - `SCHEDULED`: Step execution is being scheduled.
 - `STARTED`: Step execution is started.
@@ -149,7 +149,7 @@ Status of the Workflow step.
 - `CANCELLED`: Step execution is canceled. ||
 || type | **string**
 
-Type of the Workflow step (for example, FunctionCall or HttpCall). ||
+Required field. Type of the Workflow step (for example, FunctionCall or HttpCall). ||
 || attempts | **int64**
 
 Number of attempts (including all retries of unsuccessful attempts). Value "1" means there were no retries. ||

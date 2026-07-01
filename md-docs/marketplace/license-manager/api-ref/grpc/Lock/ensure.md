@@ -36,37 +36,10 @@ Required field. ID of the resource to which the subscription will be locked. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "lock_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "instance_id": "string",
-    "resource_id": "string",
-    "start_time": "google.protobuf.Timestamp",
-    "end_time": "google.protobuf.Timestamp",
-    "created_at": "google.protobuf.Timestamp",
-    "updated_at": "google.protobuf.Timestamp",
-    "state": "State",
-    "template_id": "string",
-    "external_instance": {
-      "name": "string",
-      "properties": "map<string, string>",
-      // Includes only one of the fields `subscription`, `license`
-      "subscription": {
-        "subscription_id": "string",
-        "license_id": "string",
-        "activation_key": "string"
-      },
-      "license": {
-        "license_id": "string",
-        "payload": "bytes"
-      }
-      // end of the list of possible fields
-    }
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -94,7 +67,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[EnsureLockMetadata](#yandex.cloud.marketplace.licensemanager.v1.EnsureLockMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -109,7 +82,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Lock](#yandex.cloud.marketplace.licensemanager.v1.Lock)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -124,102 +97,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## EnsureLockMetadata {#yandex.cloud.marketplace.licensemanager.v1.EnsureLockMetadata}
-
-#|
-||Field | Description ||
-|| lock_id | **string**
-
-ID of the subscription lock. ||
-|#
-
-## Lock {#yandex.cloud.marketplace.licensemanager.v1.Lock}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the subscription lock. ||
-|| instance_id | **string**
-
-ID of the subscription instance. ||
-|| resource_id | **string**
-
-ID of the resource. ||
-|| start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Timestamp of the start of the subscription lock. ||
-|| end_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Timestamp of the end of the subscription lock. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp. ||
-|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Update timestamp. ||
-|| state | enum **State**
-
-Subscription lock state.
-
-- `STATE_UNSPECIFIED`
-- `UNLOCKED`: Subscription unlocked.
-- `LOCKED`: Subscription locked to the resource.
-- `DELETED`: Subscription lock deleted. ||
-|| template_id | **string**
-
-ID of the subscription template. ||
-|| external_instance | **[ExternalInstance](#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance)**
-
-External subscription instance (optional), for usage convenience propagated
-from parent subscription instance. ||
-|#
-
-## ExternalInstance {#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance}
-
-ExternalInstance attachment to external service subscription.
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Optional external subscription name. ||
-|| properties | **object** (map<**string**, **string**>)
-
-Mapping of vendor defined properties in key, value format. ||
-|| subscription | **[ExternalSubscription](#yandex.cloud.marketplace.licensemanager.v1.ExternalSubscription)**
-
-Includes only one of the fields `subscription`, `license`. ||
-|| license | **[ExternalLicense](#yandex.cloud.marketplace.licensemanager.v1.ExternalLicense)**
-
-Includes only one of the fields `subscription`, `license`. ||
-|#
-
-## ExternalSubscription {#yandex.cloud.marketplace.licensemanager.v1.ExternalSubscription}
-
-#|
-||Field | Description ||
-|| subscription_id | **string**
-
-External subscription id. ||
-|| license_id | **string**
-
-Optional: paired license id for external subscription. ||
-|| activation_key | **string**
-
-Optional: default activation key for external subscription. ||
-|#
-
-## ExternalLicense {#yandex.cloud.marketplace.licensemanager.v1.ExternalLicense}
-
-#|
-||Field | Description ||
-|| license_id | **string**
-
-External license bound to subscription instance. ||
-|| payload | **bytes**
-
-License (vendor specific) payload. ||
 |#

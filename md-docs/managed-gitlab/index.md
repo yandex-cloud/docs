@@ -68,8 +68,6 @@
 
  - [Интеграция с Яндекс Трекер](tutorials/tracker-integration.md)
 
- - [Вызов нагрузочного тестирования из GitLab CI](tutorials/loadtesting-gitlab-ci.md)
-
  - [Интеграция с Argo CD](tutorials/argo-cd.md)
 
  - [Управление жизненным циклом MLOps с помощью ML Registry](tutorials/mlops-ml-registry.md)

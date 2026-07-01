@@ -88,7 +88,7 @@ apiPlayground:
 # Managed Service for Redis API, REST: Cluster.AddShard
 
 Creates a new shard.
-(-- api-linter: core::0136::http-uri-suffix=disabled --)
+
 
 ## HTTP request
 

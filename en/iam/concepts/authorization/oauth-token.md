@@ -8,7 +8,7 @@ description: In this article, you will learn what an OAuth token is, about its p
 
 {% note warning "OAuth token authentication is no longer supported" %}
 
-Starting June 1, 2026, we will no longer accept **new** OAuth tokens received via YandexID. Tokens **issued before June 1, 2026** will remain valid until their expiration date.
+Starting June 1, 2026, the authentication service no longer accepts **new** OAuth tokens received via YandexID. Tokens **issued before June 1, 2026** will remain valid until their expiration date.
 
 {% endnote %}
 

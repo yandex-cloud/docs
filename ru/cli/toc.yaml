@@ -856,6 +856,8 @@ items:
                 href: cli-ref/baremetal/cli-ref/server/power-off.md
               - name: power-on
                 href: cli-ref/baremetal/cli-ref/server/power-on.md
+              - name: prolongate-ended-rent
+                href: cli-ref/baremetal/cli-ref/server/prolongate-ended-rent.md
               - name: reboot
                 href: cli-ref/baremetal/cli-ref/server/reboot.md
               - name: reinstall
@@ -1213,6 +1215,9 @@ items:
                     href: cli-ref/baremetal/cli-ref/v1alpha/server/power-off.md
                   - name: power-on
                     href: cli-ref/baremetal/cli-ref/v1alpha/server/power-on.md
+                  - name: prolongate-ended-rent
+                    href: >-
+                      cli-ref/baremetal/cli-ref/v1alpha/server/prolongate-ended-rent.md
                   - name: reboot
                     href: cli-ref/baremetal/cli-ref/v1alpha/server/reboot.md
                   - name: reinstall
@@ -1368,6 +1373,8 @@ items:
                     href: cli-ref/baremetal/cli-ref/v2/server/reboot.md
                   - name: reinstall
                     href: cli-ref/baremetal/cli-ref/v2/server/reinstall.md
+                  - name: renew-rental
+                    href: cli-ref/baremetal/cli-ref/v2/server/renew-rental.md
                   - name: update
                     href: cli-ref/baremetal/cli-ref/v2/server/update.md
               - name: vrf
@@ -1920,6 +1927,8 @@ items:
                   cli-ref/cloud-registry/cli-ref/artifact/remove-access-binding.md
               - name: set-access-bindings
                 href: cli-ref/cloud-registry/cli-ref/artifact/set-access-bindings.md
+              - name: upsert
+                href: cli-ref/cloud-registry/cli-ref/artifact/upsert.md
           - name: configure-docker
             href: cli-ref/cloud-registry/cli-ref/configure-docker.md
           - name: registry
@@ -2013,6 +2022,8 @@ items:
                   - name: set-access-bindings
                     href: >-
                       cli-ref/cloud-registry/cli-ref/v0/artifact/set-access-bindings.md
+                  - name: upsert
+                    href: cli-ref/cloud-registry/cli-ref/v0/artifact/upsert.md
               - name: configure-docker
                 href: cli-ref/cloud-registry/cli-ref/v0/configure-docker.md
               - name: registry
@@ -2086,6 +2097,110 @@ items:
                     href: cli-ref/cloud-registry/cli-ref/v0/registry/update.md
               - name: tools
                 href: cli-ref/cloud-registry/cli-ref/v0/tools.md
+          - name: v1
+            items:
+              - name: Overview
+                href: cli-ref/cloud-registry/cli-ref/v1/index.md
+              - name: artifact
+                items:
+                  - name: Overview
+                    href: cli-ref/cloud-registry/cli-ref/v1/artifact/index.md
+                  - name: add-access-binding
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/artifact/add-access-binding.md
+                  - name: delete
+                    href: cli-ref/cloud-registry/cli-ref/v1/artifact/delete.md
+                  - name: get
+                    href: cli-ref/cloud-registry/cli-ref/v1/artifact/get.md
+                  - name: get-by-path
+                    href: cli-ref/cloud-registry/cli-ref/v1/artifact/get-by-path.md
+                  - name: list-access-bindings
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/artifact/list-access-bindings.md
+                  - name: remove-access-binding
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/artifact/remove-access-binding.md
+                  - name: set-access-bindings
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/artifact/set-access-bindings.md
+                  - name: update-access-bindings
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/artifact/update-access-bindings.md
+                  - name: upsert
+                    href: cli-ref/cloud-registry/cli-ref/v1/artifact/upsert.md
+              - name: configure-docker
+                href: cli-ref/cloud-registry/cli-ref/v1/configure-docker.md
+              - name: registry
+                items:
+                  - name: Overview
+                    href: cli-ref/cloud-registry/cli-ref/v1/registry/index.md
+                  - name: add-access-binding
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/registry/add-access-binding.md
+                  - name: add-ip-permissions
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/registry/add-ip-permissions.md
+                  - name: create
+                    href: cli-ref/cloud-registry/cli-ref/v1/registry/create.md
+                  - name: delete
+                    href: cli-ref/cloud-registry/cli-ref/v1/registry/delete.md
+                  - name: force-delete
+                    href: cli-ref/cloud-registry/cli-ref/v1/registry/force-delete.md
+                  - name: get
+                    href: cli-ref/cloud-registry/cli-ref/v1/registry/get.md
+                  - name: lifecycle-policy
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/index.md
+                      - name: change-state
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/change-state.md
+                      - name: create
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/create.md
+                      - name: delete
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/delete.md
+                      - name: dry-run
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/dry-run.md
+                      - name: get
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/get.md
+                      - name: list
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/list.md
+                      - name: update
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v1/registry/lifecycle-policy/update.md
+                  - name: list
+                    href: cli-ref/cloud-registry/cli-ref/v1/registry/list.md
+                  - name: list-access-bindings
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/registry/list-access-bindings.md
+                  - name: list-artifacts
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/registry/list-artifacts.md
+                  - name: list-ip-permissions
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/registry/list-ip-permissions.md
+                  - name: remove-access-binding
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/registry/remove-access-binding.md
+                  - name: remove-ip-permissions
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/registry/remove-ip-permissions.md
+                  - name: set-access-bindings
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/registry/set-access-bindings.md
+                  - name: set-ip-permissions
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/v1/registry/set-ip-permissions.md
+                  - name: update
+                    href: cli-ref/cloud-registry/cli-ref/v1/registry/update.md
+              - name: tools
+                href: cli-ref/cloud-registry/cli-ref/v1/tools.md
       - name: cloudrouter
         items:
           - name: Overview
@@ -5622,98 +5737,6 @@ items:
                       cli-ref/load-balancer/cli-ref/v0/target-group/remove-targets.md
                   - name: update
                     href: cli-ref/load-balancer/cli-ref/v0/target-group/update.md
-      - name: loadtesting
-        items:
-          - name: Overview
-            href: cli-ref/loadtesting/cli-ref/index.md
-          - name: agent
-            items:
-              - name: Overview
-                href: cli-ref/loadtesting/cli-ref/agent/index.md
-              - name: create
-                href: cli-ref/loadtesting/cli-ref/agent/create.md
-              - name: delete
-                href: cli-ref/loadtesting/cli-ref/agent/delete.md
-              - name: get
-                href: cli-ref/loadtesting/cli-ref/agent/get.md
-              - name: list
-                href: cli-ref/loadtesting/cli-ref/agent/list.md
-          - name: test
-            items:
-              - name: Overview
-                href: cli-ref/loadtesting/cli-ref/test/index.md
-              - name: check-regression
-                href: cli-ref/loadtesting/cli-ref/test/check-regression.md
-              - name: create
-                href: cli-ref/loadtesting/cli-ref/test/create.md
-              - name: delete
-                href: cli-ref/loadtesting/cli-ref/test/delete.md
-              - name: get
-                href: cli-ref/loadtesting/cli-ref/test/get.md
-              - name: get-report-table
-                href: cli-ref/loadtesting/cli-ref/test/get-report-table.md
-              - name: list
-                href: cli-ref/loadtesting/cli-ref/test/list.md
-              - name: stop
-                href: cli-ref/loadtesting/cli-ref/test/stop.md
-              - name: wait
-                href: cli-ref/loadtesting/cli-ref/test/wait.md
-          - name: test-config
-            items:
-              - name: Overview
-                href: cli-ref/loadtesting/cli-ref/test-config/index.md
-              - name: create
-                href: cli-ref/loadtesting/cli-ref/test-config/create.md
-              - name: get
-                href: cli-ref/loadtesting/cli-ref/test-config/get.md
-              - name: list
-                href: cli-ref/loadtesting/cli-ref/test-config/list.md
-          - name: v0
-            items:
-              - name: Overview
-                href: cli-ref/loadtesting/cli-ref/v0/index.md
-              - name: agent
-                items:
-                  - name: Overview
-                    href: cli-ref/loadtesting/cli-ref/v0/agent/index.md
-                  - name: create
-                    href: cli-ref/loadtesting/cli-ref/v0/agent/create.md
-                  - name: delete
-                    href: cli-ref/loadtesting/cli-ref/v0/agent/delete.md
-                  - name: get
-                    href: cli-ref/loadtesting/cli-ref/v0/agent/get.md
-                  - name: list
-                    href: cli-ref/loadtesting/cli-ref/v0/agent/list.md
-              - name: test
-                items:
-                  - name: Overview
-                    href: cli-ref/loadtesting/cli-ref/v0/test/index.md
-                  - name: check-regression
-                    href: cli-ref/loadtesting/cli-ref/v0/test/check-regression.md
-                  - name: create
-                    href: cli-ref/loadtesting/cli-ref/v0/test/create.md
-                  - name: delete
-                    href: cli-ref/loadtesting/cli-ref/v0/test/delete.md
-                  - name: get
-                    href: cli-ref/loadtesting/cli-ref/v0/test/get.md
-                  - name: get-report-table
-                    href: cli-ref/loadtesting/cli-ref/v0/test/get-report-table.md
-                  - name: list
-                    href: cli-ref/loadtesting/cli-ref/v0/test/list.md
-                  - name: stop
-                    href: cli-ref/loadtesting/cli-ref/v0/test/stop.md
-                  - name: wait
-                    href: cli-ref/loadtesting/cli-ref/v0/test/wait.md
-              - name: test-config
-                items:
-                  - name: Overview
-                    href: cli-ref/loadtesting/cli-ref/v0/test-config/index.md
-                  - name: create
-                    href: cli-ref/loadtesting/cli-ref/v0/test-config/create.md
-                  - name: get
-                    href: cli-ref/loadtesting/cli-ref/v0/test-config/get.md
-                  - name: list
-                    href: cli-ref/loadtesting/cli-ref/v0/test-config/list.md
       - name: lockbox
         items:
           - name: Overview
@@ -6105,6 +6128,8 @@ items:
               - name: update-external-dictionary
                 href: >-
                   cli-ref/managed-clickhouse/cli-ref/cluster/update-external-dictionary.md
+          - name: connect
+            href: cli-ref/managed-clickhouse/cli-ref/connect.md
           - name: database
             items:
               - name: Overview
@@ -6347,6 +6372,8 @@ items:
                   - name: update-external-dictionary
                     href: >-
                       cli-ref/managed-clickhouse/cli-ref/v0/cluster/update-external-dictionary.md
+              - name: connect
+                href: cli-ref/managed-clickhouse/cli-ref/v0/connect.md
               - name: database
                 items:
                   - name: Overview
@@ -7806,6 +7833,21 @@ items:
                 href: cli-ref/managed-mysql/cli-ref/backup/get.md
               - name: list
                 href: cli-ref/managed-mysql/cli-ref/backup/list.md
+          - name: backup-retention-policy
+            items:
+              - name: Overview
+                href: cli-ref/managed-mysql/cli-ref/backup-retention-policy/index.md
+              - name: create
+                href: >-
+                  cli-ref/managed-mysql/cli-ref/backup-retention-policy/create.md
+              - name: delete
+                href: >-
+                  cli-ref/managed-mysql/cli-ref/backup-retention-policy/delete.md
+              - name: list
+                href: cli-ref/managed-mysql/cli-ref/backup-retention-policy/list.md
+              - name: list-by-folder
+                href: >-
+                  cli-ref/managed-mysql/cli-ref/backup-retention-policy/list-by-folder.md
           - name: cluster
             items:
               - name: Overview
@@ -7921,6 +7963,23 @@ items:
                     href: cli-ref/managed-mysql/cli-ref/v0/backup/get.md
                   - name: list
                     href: cli-ref/managed-mysql/cli-ref/v0/backup/list.md
+              - name: backup-retention-policy
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/managed-mysql/cli-ref/v0/backup-retention-policy/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/managed-mysql/cli-ref/v0/backup-retention-policy/create.md
+                  - name: delete
+                    href: >-
+                      cli-ref/managed-mysql/cli-ref/v0/backup-retention-policy/delete.md
+                  - name: list
+                    href: >-
+                      cli-ref/managed-mysql/cli-ref/v0/backup-retention-policy/list.md
+                  - name: list-by-folder
+                    href: >-
+                      cli-ref/managed-mysql/cli-ref/v0/backup-retention-policy/list-by-folder.md
               - name: cluster
                 items:
                   - name: Overview
@@ -12030,6 +12089,55 @@ items:
         items:
           - name: Overview
             href: cli-ref/smartwebsecurity/cli-ref/index.md
+          - name: advanced-rate-limiter
+            items:
+              - name: Overview
+                href: >-
+                  cli-ref/smartwebsecurity/cli-ref/advanced-rate-limiter/index.md
+              - name: advanced-rate-limiter-profile
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/create.md
+                  - name: delete
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/delete.md
+                  - name: get
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/get.md
+                  - name: list
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/list.md
+                  - name: update
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/update.md
+          - name: match-list
+            items:
+              - name: Overview
+                href: cli-ref/smartwebsecurity/cli-ref/match-list/index.md
+              - name: match-list
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/match-list/match-list/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/match-list/match-list/create.md
+                  - name: delete
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/match-list/match-list/delete.md
+                  - name: get
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/match-list/match-list/get.md
+                  - name: list
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/match-list/match-list/list.md
+                  - name: update
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/match-list/match-list/update.md
           - name: security-profile
             items:
               - name: Overview
@@ -12072,6 +12180,55 @@ items:
             items:
               - name: Overview
                 href: cli-ref/smartwebsecurity/cli-ref/v1/index.md
+              - name: advanced-rate-limiter
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/index.md
+                  - name: advanced-rate-limiter-profile
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/create.md
+                      - name: delete
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/delete.md
+                      - name: get
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/get.md
+                      - name: list
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/list.md
+                      - name: update
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/update.md
+              - name: match-list
+                items:
+                  - name: Overview
+                    href: cli-ref/smartwebsecurity/cli-ref/v1/match-list/index.md
+                  - name: match-list
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/create.md
+                      - name: delete
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/delete.md
+                      - name: get
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/get.md
+                      - name: list
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/list.md
+                      - name: update
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/match-list/match-list/update.md
               - name: security-profile
                 items:
                   - name: Overview
@@ -12096,6 +12253,14 @@ items:
                 items:
                   - name: Overview
                     href: cli-ref/smartwebsecurity/cli-ref/v1/waf/index.md
+                  - name: rule-set-descriptor
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/waf/rule-set-descriptor/index.md
+                      - name: get
+                        href: >-
+                          cli-ref/smartwebsecurity/cli-ref/v1/waf/rule-set-descriptor/get.md
                   - name: waf-profile
                     items:
                       - name: Overview
@@ -12120,6 +12285,14 @@ items:
             items:
               - name: Overview
                 href: cli-ref/smartwebsecurity/cli-ref/waf/index.md
+              - name: rule-set-descriptor
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/waf/rule-set-descriptor/index.md
+                  - name: get
+                    href: >-
+                      cli-ref/smartwebsecurity/cli-ref/waf/rule-set-descriptor/get.md
               - name: waf-profile
                 items:
                   - name: Overview

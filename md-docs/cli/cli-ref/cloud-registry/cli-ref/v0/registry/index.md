@@ -1,6 +1,6 @@
 # yc cloud-registry v0 registry
 
-[PREVIEW] Manage registries
+Manage registries
 
 #### Command Usage
 

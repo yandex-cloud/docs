@@ -4,7 +4,7 @@
 
 {% note info %}
 
-Для просмотра ресурсов кластера в разделе Ingress нужна [роль](../../../application-load-balancer/security/index.md#alb-auditor) `alb.auditor` или выше.
+Для просмотра ресурсов кластера в разделе Ingresses нужна [роль](../../../application-load-balancer/security/index.md#alb-auditor) `alb.auditor` или выше.
 
 {% endnote %}
 
@@ -17,9 +17,9 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Network](../../../_assets/console-icons/timestamps.svg) **Сеть**.
+  1. Нажмите на имя нужного кластера и на панели слева выберите ![Network](../../../_assets/console-icons/timestamps.svg) **Сервисы и Ingress**.
   1. В правом верхнем углу нажмите кнопку **Создать** и выберите тип ресурса.
-  1. В выпадающем списке выберите **Пространство имен**, в котором будет создан ресурс.
+  1. В выпадающем списке выберите **Пространство имён**, в котором будет создан ресурс.
   1. Заполните файл манифеста в соответствии с документацией Kubernetes: [Service](https://kubernetes.io/docs/concepts/services-networking/service/), [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
   1. Нажмите кнопку **Создать**.
 
@@ -36,7 +36,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Network](../../../_assets/console-icons/timestamps.svg) **Сеть**.
+  1. Нажмите на имя нужного кластера и на панели слева выберите ![Network](../../../_assets/console-icons/timestamps.svg) **Сервисы и Ingress**.
   1. Выберите вкладку с типом ресурса, который нужно отредактировать.
   1. В строке ресурса нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
   1. Внесите изменения в файл манифеста в правой части экрана. Изменения будут выделены цветом.
@@ -57,7 +57,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
-  1. Нажмите на имя нужного кластера и на панели слева выберите ![Network](../../../_assets/console-icons/timestamps.svg) **Сеть**.
+  1. Нажмите на имя нужного кластера и на панели слева выберите ![Network](../../../_assets/console-icons/timestamps.svg) **Сервисы и Ingress**.
   1. Выберите вкладку с типом ресурса, который нужно удалить.
   1. В строке ресурса нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
   1. Подтвердите действие.

@@ -2,12 +2,10 @@
 
 GetResources returns available resources for specified service instances within a billing account
 with optional filtering by service instance IDs, resource IDs and pagination support.
-
 This method returns a hierarchical view of service instances and their resources that the user
 has access to within the specified date range. Results can be filtered by
 specific service instance IDs and/or resource IDs, and pagination is supported for handling
 large result sets.
-
 Implementation details:
 - Filtering by resources is done using case-insensitive substring matching
 - Filtering is done using case-insensitive substring matching
@@ -15,15 +13,13 @@ Implementation details:
 - Resource pagination is based on resource IDs, ordered alphabetically
 - NextPageToken is only returned when there are more results available
 - Base64-encoded page tokens are used for pagination state
-
 Error handling:
 - Returns INVALID_ARGUMENT if the request parameters fail validation
 - Returns UNAUTHENTICATED if the user is not authenticated or the billing account does not exist
 - Returns PERMISSION_DENIED if the user lacks required permissions
 - Returns INTERNAL for internal server errors
-
 Required permissions:
-- `billing.accounts.getReport` on the specified billing account
+- `billing.accounts.getReport` or `billingInternal.accounts.getReport` on the specified billing account
 
 ## gRPC request
 
@@ -138,8 +134,6 @@ specified in the request, along with pagination information.
 List of service instances matching the request criteria
 Contains ServiceInstanceInfo objects for each service instance that matches the specified
 filtering criteria
-The list is sorted by service instance name in ascending order.
-
 Note: only service instances with at least one resource are included in the response. ||
 || next_page_token | **string**
 
@@ -148,7 +142,6 @@ If empty, there are no more results.
 Use this token in a subsequent request's page_token field to retrieve
 the next page of results.
 The token encodes the pagination state.
-
 It should be passed verbatim in subsequent requests. ||
 |#
 
@@ -167,7 +160,6 @@ List of resources belonging to this service instances
 Contains resource entities that belong to this service instance
 and match any resource ID filtering criteria from the request.
 The list is sorted by resource ID in ascending order.
-
 Only resources that had usage during the specified date range are included. ||
 |#
 
@@ -185,7 +177,7 @@ Identifier of the service instance entity. ||
 Type of the service instance: tracker, datalens, cloud, etc. ||
 || name | **string**
 
-Human-readable display name of the service instance. ||
+Human-readable display name of the serice instance. ||
 || billing_account_id | **string**
 
 Optional billing account identifier associated with this service instance

@@ -68,7 +68,7 @@ A Helm Release.
 ||Field | Description ||
 || id | **string**
 
-ID of a helm release. ||
+ID of a Helm release. ||
 || clusterId | **string**
 
 ID of the Kubernetes cluster. ||
@@ -80,7 +80,7 @@ Name of the application. ||
 Namespace of the application. ||
 || productId | **string**
 
-Kubernetes marketplace product id. ||
+Kubernetes marketplace product ID. ||
 || productName | **string**
 
 Kubernetes marketplace product name. ||
@@ -89,9 +89,9 @@ Kubernetes marketplace product name. ||
 Kubernetes marketplace product version. ||
 || status | **enum** (Status)
 
-Status of a helm release.
+Status of the Helm release.
 
-- `UNKNOWN`: Helm release status is unknown
+- `UNKNOWN`: Helm release status is unknown.
 - `DEPLOYED`: Helm release deployed.
 - `UNINSTALLED`: Helm release uninstalled.
 - `SUPERSEDED`: Helm release superseded.

@@ -19,8 +19,9 @@ Returns stats for the specified log group.
 || log_group_id | **string**
 
 Required field. ID of the log group to return stats for.
+To get a log group ID make a [LogGroupService.List](../../../../logging/api-ref/grpc/LogGroup/list.md#List) request.
 
-To get a log group ID make a [LogGroupService.List](../../../../logging/api-ref/grpc/LogGroup/list.md#List) request. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## GetLogGroupStatsResponse {#yandex.cloud.logging.v1.GetLogGroupStatsResponse}

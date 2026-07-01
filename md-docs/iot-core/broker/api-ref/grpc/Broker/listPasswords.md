@@ -19,8 +19,9 @@ Retrieves the list of passwords for the specified broker.
 || broker_id | **string**
 
 Required field. ID of the broker to list passwords in.
+To get a broker ID make a [BrokerService.List](list.md#List) request.
 
-To get a broker ID make a [BrokerService.List](list.md#List) request. ||
+The maximum string length in characters is 50. ||
 |#
 
 ## ListBrokerPasswordsResponse {#yandex.cloud.iot.broker.v1.ListBrokerPasswordsResponse}

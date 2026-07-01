@@ -25,11 +25,11 @@
         
         This is an optional setting. If no settings are specified in the `cloud_logger` section, events will not be exported to the log group.
 
-        To export synchronization agent logs to a log group, assign to your account the additional `logging.writer` [role](../../logging/security/index.md#logging-writer) for the log group or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing it.
+        To export synchronization agent logs to a log group, assign to the service account the additional `logging.writer` [role](../../logging/security/index.md#logging-writer) for the log group or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing it.
 
     {% note info %}
 
-    If no settings are specified in the `logger.file` or `logger.cloud_logger` sections, the event and error info will be fed into the standard stream named `stdout`; otherwise, the logs will be saved to files and/or log group.
+    If no settings are specified in the `logger.file` and `logger.cloud_logger` sections, the event and error info will be fed into a standard stream named `stdout`; otherwise, the logs will be saved to files and/or the log group.
 
     {% endnote %}
 

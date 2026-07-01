@@ -34,11 +34,11 @@
 
  - [Обзор](operations/dspm/index.md)
 
- - [Создать источник данных](operations/dspm/create-data-source.md)
+ - [Управлять анализом данных](operations/dspm/discovery-mode.md)
+
+ - [Подготовить данные для сканирования](operations/dspm/create-data-source.md)
 
  - [Создать сканирование](operations/dspm/create-scan.md)
-
- - [Управлять анализом данных](operations/dspm/discovery-mode.md)
 
  - [Управлять результатами сканирования](operations/dspm/work-with-results.md)
 

@@ -24,7 +24,7 @@ apiPlayground:
 # Managed Service for PostgreSQL API, REST: ManagedRepack.ListRunningRepacks
 
 Lists currently running in given cluster Repacks
-(-- api-linter: yc::1702::method-verb-prefix=disabled --)
+
 
 ## HTTP request
 

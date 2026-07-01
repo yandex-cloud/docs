@@ -34,6 +34,8 @@ description: Из статьи вы узнаете, как управлять х
     --cluster-name <имя_кластера>
   ```
 
+  {% include [cluster-name](../../_includes/managed-spqr/cluster-name.md) %}
+
   Результат:
 
   
@@ -62,6 +64,8 @@ description: Из статьи вы узнаете, как управлять х
        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>/hosts'
      ```
 
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.spqr.v1.ListClusterHostsResponse).
 
 - gRPC API {#grpc-api}
@@ -86,6 +90,8 @@ description: Из статьи вы узнаете, как управлять х
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.ClusterService.ListHosts
      ```
+
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.spqr.v1.ListClusterHostsResponse).
 
@@ -158,6 +164,8 @@ description: Из статьи вы узнаете, как управлять х
      ```
 
 
+     {% include [cluster-name](../../_includes/managed-spqr/cluster-name.md) %}
+
      
      Идентификатор подсети необходимо указать, если в зоне доступности больше одной подсети, в противном случае {{ mspqr-short-name }} автоматически выберет единственную подсеть.
 
@@ -197,12 +205,15 @@ description: Из статьи вы узнаете, как управлять х
                }'
      ```
 
-     Где `hostSpecs` — массив новых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
+     Где:
 
-     * `zoneId` — зона доступности.
-     * `subnetId` — идентификатор подсети.
-     * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
-     * `type` — [тип хоста](../concepts/index.md#router): `infra` (для кластера со стандартным шардированием), `router` или `coordinator` (для кластера с расширенным шардированием).
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
+     * `hostSpecs` — массив новых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
+
+       * `zoneId` — зона доступности.
+       * `subnetId` — идентификатор подсети.
+       * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+       * `type` — [тип хоста](../concepts/index.md#router): `infra` (для кластера со стандартным шардированием), `router` или `coordinator` (для кластера с расширенным шардированием).
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation).
 
@@ -240,12 +251,17 @@ description: Из статьи вы узнаете, как управлять х
        yandex.cloud.mdb.spqr.v1.ClusterService.AddHosts
      ```
 
-     Где `host_specs` — массив новых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
+     Где:
 
-     * `zone_id` — зона доступности.
-     * `subnet_id` — идентификатор подсети.
-     * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
-     * `type` — [тип хоста](../concepts/index.md#router): `infra` (для кластера со стандартным шардированием), `router` или `coordinator` (для кластера с расширенным шардированием).
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
+     * `host_specs` — массив новых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
+
+       * `zone_id` — зона доступности.
+       * `subnet_id` — идентификатор подсети.
+       * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+       * `type` — [тип хоста](../concepts/index.md#router): `infra` (для кластера со стандартным шардированием), `router` или `coordinator` (для кластера с расширенным шардированием).
+
+
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation).
 
@@ -275,6 +291,9 @@ description: Из статьи вы узнаете, как управлять х
   Где:
 
   * `cluster-name` — имя кластера.
+
+    {% include [cluster-name](../../_includes/managed-spqr/cluster-name.md) %}
+
   * `assign-public-ip` — публичный доступ к хосту: `true` или `false`.
 
   Имя хоста можно запросить со [списком хостов в кластере](#list).
@@ -309,11 +328,14 @@ description: Из статьи вы узнаете, как управлять х
                }'
      ```
 
-     Где `updateHostSpecs` — массив изменяемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
+     Где: 
 
-     * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
-     * `hostName` — имя изменяемого хоста.
-     * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
+     * `updateHostSpecs` — массив изменяемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
+
+       * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+       * `hostName` — имя изменяемого хоста.
+       * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
 
      Имя хоста можно запросить со [списком хостов в кластере](#list).
 
@@ -358,11 +380,14 @@ description: Из статьи вы узнаете, как управлять х
        yandex.cloud.mdb.postgresql.v1.ClusterService.UpdateHosts
      ```
 
-     Где `update_host_specs` — массив изменяемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
+     Где:
 
-     * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
-     * `host_name` — имя изменяемого хоста.
-     * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
+     * `update_host_specs` — массив изменяемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
+
+       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+       * `host_name` — имя изменяемого хоста.
+       * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
 
      Имя хоста можно запросить со [списком хостов в кластере](#list).
 
@@ -399,6 +424,8 @@ description: Из статьи вы узнаете, как управлять х
 
   Имя хоста можно запросить со [списком хостов в кластере](#list).
 
+  {% include [cluster-name](../../_includes/managed-spqr/cluster-name.md) %}
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -420,7 +447,10 @@ description: Из статьи вы узнаете, как управлять х
                }'
      ```
 
-     Где `hostNames` — массив строк, состоящий из единственного элемента с именем удаляемого хоста. Имя хоста можно запросить со [списком хостов в кластере](#list).
+     Где:
+
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
+     * `hostNames` — массив строк, состоящий из единственного элемента с именем удаляемого хоста. Имя хоста можно запросить со [списком хостов в кластере](#list).
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation).
 
@@ -450,7 +480,10 @@ description: Из статьи вы узнаете, как управлять х
        yandex.cloud.mdb.spqr.v1.ClusterService.DeleteHosts
      ```
 
-     Где `host_names` — массив строк, состоящий из единственного элемента с именем удаляемого хоста. Имя хоста можно запросить со [списком хостов в кластере](#list).
+     Где: 
+
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
+     * `host_names` — массив строк, состоящий из единственного элемента с именем удаляемого хоста. Имя хоста можно запросить со [списком хостов в кластере](#list).
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation).
 

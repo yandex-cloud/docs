@@ -44,9 +44,7 @@ Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListVulnerabilitiesResponse.next_page_token](#yandex.cloud.cloudregistry.v1.ListVulnerabilitiesResponse) returned by a previous list request.
-
-The maximum string length in characters is 100. ||
+[ListVulnerabilitiesResponse.next_page_token](#yandex.cloud.cloudregistry.v1.ListVulnerabilitiesResponse) returned by a previous list request. ||
 || filter | **[ListVulnerabilitiesFilter](#yandex.cloud.cloudregistry.v1.ListVulnerabilitiesFilter)**
 
 Filter the list by [Vulnerability.severity](#yandex.cloud.cloudregistry.v1.Vulnerability) and [Vulnerability.name](#yandex.cloud.cloudregistry.v1.Vulnerability). ||

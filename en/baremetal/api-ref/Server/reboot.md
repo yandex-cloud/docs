@@ -16,13 +16,29 @@ apiPlayground:
           type: string
       additionalProperties: false
     query: null
-    body: null
+    body:
+      type: object
+      properties:
+        rebootMode:
+          description: |-
+            **enum** (RebootMode)
+            Optional parameter to specify in what mode to boot after successfull reboot.
+            - `NETWORK`: Reboot server via network (PXE).
+            - `CDROM`: Reboot server via CD-ROM.
+            - `BIOS`: Reboot server via BIOS.
+          type: string
+          enum:
+            - REBOOT_MODE_UNSPECIFIED
+            - NETWORK
+            - CDROM
+            - BIOS
+      additionalProperties: false
     definitions: null
 ---
 
 # BareMetal API, REST: Server.Reboot
 
-(-- api-linter: yc::1702::method-verb-prefix=disabled
+
 Required for backward compatibility with old clients. --)
 Reboots the specified server.
 
@@ -42,6 +58,25 @@ Required field. ID of the server to reboot.
 To get the server ID, use a [ServerService.List](/docs/baremetal/api-ref/Server/list#List) request.
 
 Value must match the regular expression ` [a-z][a-z0-9]* `. ||
+|#
+
+## Body parameters {#yandex.cloud.baremetal.v1alpha.RebootServerRequest}
+
+```json
+{
+  "rebootMode": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| rebootMode | **enum** (RebootMode)
+
+Optional parameter to specify in what mode to boot after successfull reboot.
+
+- `NETWORK`: Reboot server via network (PXE).
+- `CDROM`: Reboot server via CD-ROM.
+- `BIOS`: Reboot server via BIOS. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

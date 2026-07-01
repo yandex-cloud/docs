@@ -32,7 +32,7 @@
 
         {% include [send-invitation](../_includes/organization/send-invitation.md) %}
 
-    1. Нажмите **{{ ui-key.yacloud_components.organization.action_send-invitation }}**.
+    1. Нажмите **{{ ui-key.yacloud_components.organization.action_send-invitation_6LqIj }}**.
 
 {% endlist %}
 

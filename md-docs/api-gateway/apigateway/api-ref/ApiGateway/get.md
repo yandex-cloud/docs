@@ -2,7 +2,6 @@
 
 Returns the specified API gateway. Note that only API gateway basic attributes are returned.
 To get associated openapi specification, make a [GetOpenapiSpec](getOpenapiSpec.md#GetOpenapiSpec) request.
-
 To get the list of all available API gateways, make a [List](list.md#List) request.
 
 ## HTTP request
@@ -18,7 +17,6 @@ GET https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateway
 || apiGatewayId | **string**
 
 Required field. ID of the API gateway to return.
-
 To get a API gateway ID make a [ApiGatewayService.List](list.md#List) request. ||
 |#
 
@@ -189,7 +187,6 @@ Log entries destination. ||
 || minLevel | **enum** (Level)
 
 Minimum log entry level.
-
 See [LogLevel.Level](../../../../logging/api-ref/Export/get.md#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.

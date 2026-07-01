@@ -38,7 +38,7 @@ The cost of infrastructure support includes a bucket use fee (see [{{ objstorage
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../../storage/concepts/bucket.md), e.g., `example-folder`.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
     1. On the bucket creation page:
         * Enter a name for the bucket according to the [naming requirements](../../../storage/concepts/bucket.md#naming).
@@ -58,7 +58,7 @@ Create a service account named `trail-sa`:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to `example-folder`.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
     1. Specify **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}**: `trail-sa`.
     1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -147,7 +147,7 @@ Assign the `storage.viewer` role for `example-folder` to the `bucket-yq-sa` serv
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify `logsyq`.
   1. Under **{{ ui-key.yacloud.audit-trails.label_destination }}**, configure the destination object:
@@ -176,7 +176,7 @@ You need to create a connection only when connecting the trail to {{ yq-short-na
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select `example-folder`.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
     1. Select the `logsyq` trail.
     1. Click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
     1. Create a connection:
@@ -199,7 +199,7 @@ Open the page to create an analytical query to {{ at-name }} logs:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder with your trail.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+    1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
     1. Select the trail for which you configured a [connection to {{ yq-short-name }}](#trail-yq).
     1. Click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}** to go to the analytical query execution page.
 

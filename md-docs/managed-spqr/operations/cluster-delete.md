@@ -33,6 +33,8 @@
        --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>'
      ```
 
+     Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/deleteShard.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
@@ -66,6 +68,8 @@
        mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.spqr.v1.ClusterService.Delete
      ```
+
+     Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation).
 

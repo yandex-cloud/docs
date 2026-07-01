@@ -57,18 +57,10 @@ Billable object type. Can be one of the following:
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "billable_object_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "effective_time": "google.protobuf.Timestamp",
-    "billable_object": {
-      "id": "string",
-      "type": "string"
-    }
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -96,7 +88,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[BindBillableObjectMetadata](#yandex.cloud.billing.v1.BindBillableObjectMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -111,7 +103,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[BillableObjectBinding](#yandex.cloud.billing.v1.BillableObjectBinding)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -126,43 +118,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## BindBillableObjectMetadata {#yandex.cloud.billing.v1.BindBillableObjectMetadata}
-
-#|
-||Field | Description ||
-|| billable_object_id | **string**
-
-ID of the [yandex.cloud.billing.v1.BillableObject](#yandex.cloud.billing.v1.BillableObject) that was bound to billing account. ||
-|#
-
-## BillableObjectBinding {#yandex.cloud.billing.v1.BillableObjectBinding}
-
-Represents a binding of the BillableObject to a BillingAccount.
-
-#|
-||Field | Description ||
-|| effective_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Timestamp when binding was created. ||
-|| billable_object | **[BillableObject](#yandex.cloud.billing.v1.BillableObject2)**
-
-Object that is bound to billing account. ||
-|#
-
-## BillableObject {#yandex.cloud.billing.v1.BillableObject2}
-
-Represents a link to an object in other service.
-This object is being billed in the scope of a billing account.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the object in other service. ||
-|| type | **string**
-
-Billable object type. Can be one of the following:
-* `cloud` ||
 |#

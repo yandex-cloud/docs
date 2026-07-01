@@ -8,7 +8,7 @@ Returns the specified subscription instance.
 
 ## gRPC request
 
-**rpc Get ([GetInstanceRequest](#yandex.cloud.marketplace.licensemanager.saas.v1.GetInstanceRequest)) returns ([licensemanager.v1.Instance](#yandex.cloud.marketplace.licensemanager.v1.Instance))**
+**rpc Get ([GetInstanceRequest](#yandex.cloud.marketplace.licensemanager.saas.v1.GetInstanceRequest)) returns ([yandex.cloud.marketplace.licensemanager.v1.Instance](#yandex.cloud.marketplace.licensemanager.v1.Instance))**
 
 ## GetInstanceRequest {#yandex.cloud.marketplace.licensemanager.saas.v1.GetInstanceRequest}
 
@@ -25,7 +25,7 @@ Returns the specified subscription instance.
 Required field. ID of the subscription instance. ||
 |#
 
-## licensemanager.v1.Instance {#yandex.cloud.marketplace.licensemanager.v1.Instance}
+## yandex.cloud.marketplace.licensemanager.v1.Instance {#yandex.cloud.marketplace.licensemanager.v1.Instance}
 
 ```json
 {
@@ -65,7 +65,8 @@ Required field. ID of the subscription instance. ||
           "payload": "bytes"
         }
         // end of the list of possible fields
-      }
+      },
+      "instance_prolongation": "bool"
     }
   ],
   "license_template": {
@@ -81,6 +82,7 @@ Required field. ID of the subscription instance. ||
     "updated_at": "google.protobuf.Timestamp",
     "state": "State"
   },
+  "prolongation": "bool",
   "external_instance": {
     "name": "string",
     "properties": "map<string, string>",
@@ -135,7 +137,6 @@ Update timestamp. ||
 
 Subscription state.
 
-- `STATE_UNSPECIFIED`
 - `PENDING`: Subscription created but not active yet.
 - `ACTIVE`: Subscription is active.
 - `CANCELLED`: Subscription canceled. It is still active, but won't be automatically renewed after the end of the current period.
@@ -148,6 +149,9 @@ List of subscription locks. ||
 || license_template | **[Template](#yandex.cloud.marketplace.licensemanager.v1.Template)**
 
 Subscription template. ||
+|| prolongation | **bool**
+
+Indicates whether the subscription can be automatically prolonged/renewed. ||
 || external_instance | **[ExternalInstance](#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance)**
 
 External subscription instance (optional). ||
@@ -182,7 +186,6 @@ Update timestamp. ||
 
 Subscription lock state.
 
-- `STATE_UNSPECIFIED`
 - `UNLOCKED`: Subscription unlocked.
 - `LOCKED`: Subscription locked to the resource.
 - `DELETED`: Subscription lock deleted. ||
@@ -193,6 +196,9 @@ ID of the subscription template. ||
 
 External subscription instance (optional), for usage convenience propagated
 from parent subscription instance. ||
+|| instance_prolongation | **bool**
+
+Indicates whether the subscription lock can be automatically prolonged/renewed. ||
 |#
 
 ## ExternalInstance {#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance}
@@ -280,7 +286,6 @@ Update timestamp. ||
 
 Subscription template state.
 
-- `STATE_UNSPECIFIED`
 - `PENDING`: Subscription template created but not active yet.
 - `ACTIVE`: Subscription template is active.
 - `DEPRECATED`: Subscription template deprecated.

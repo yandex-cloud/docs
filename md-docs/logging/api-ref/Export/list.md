@@ -15,28 +15,31 @@ GET https://logging.api.cloud.yandex.net/logging/v1/exports
 || folderId | **string**
 
 Required field. Folder ID of the exports to return.
+To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
 
-To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request. ||
+The maximum string length in characters is 64. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListExportssResponse.next_page_token]
 that can be used to get the next page of results in subsequent list requests.
-
 Default value: 100. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListExportsResponse.nextPageToken](#yandex.cloud.logging.v1.ListExportsResponse) returned by a previous list request. ||
+[ListExportsResponse.nextPageToken](#yandex.cloud.logging.v1.ListExportsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters exports listed in the response.
-
 The expression must specify:
 1. The field name. Currently filtering can only be applied to the [Export.name](#yandex.cloud.logging.v1.Export) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Example of a filter: `name="my-export"`. ||
+Example of a filter: `name="my-export"`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.logging.v1.ListExportsResponse}
@@ -87,7 +90,6 @@ List of exports in the specified folder. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListExportsRequest.pageSize](#yandex.cloud.logging.v1.ListExportsRequest), use `next_page_token` as the value
 for the [ListExportsRequest.pageToken](#yandex.cloud.logging.v1.ListExportsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -138,31 +140,32 @@ Parameters of logs filtration. ||
 
 #|
 ||Field | Description ||
-|| resourceTypes[] | **string** ||
-|| resourceIds[] | **string** ||
-|| streamNames[] | **string** ||
+|| resourceTypes[] | **string**
+
+The maximum string length in characters for each value is 63. The maximum number of elements is 100. ||
+|| resourceIds[] | **string**
+
+The maximum string length in characters for each value is 63. The maximum number of elements is 100. ||
+|| streamNames[] | **string**
+
+The maximum string length in characters for each value is 63. The maximum number of elements is 100. ||
 || levels[] | **enum** (Level)
 
-- `LEVEL_UNSPECIFIED`: Default log level.
+The maximum number of elements is 10.
 
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
+May be used to alert about unrecoverable failures and events. ||
+|| filter | **string**
 
-  May be used to alert about unrecoverable failures and events. ||
-|| filter | **string** ||
+The maximum string length in characters is 1000. ||
 |#

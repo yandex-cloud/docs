@@ -14,7 +14,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for MySQL®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for MySQL®](../pricing.md)).
+* Кластер Managed Service for MySQL®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for MySQL®](../../managed-mysql/pricing.md)).
 * Кластер Yandex MPP Analytics for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/pricing/index.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 

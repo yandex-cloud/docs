@@ -138,7 +138,9 @@ The maximum string length in characters is 1000. ||
       // end of the list of possible fields
       "ui_url": "string",
       "service_account_id": "string",
-      "connect_url": "string"
+      "connect_url": "string",
+      "environment_id": "string",
+      "environment_build_revision": "int64"
     }
   ],
   "next_page_token": "string"
@@ -169,11 +171,15 @@ Spark job.
 ||Field | Description ||
 || id | **string**
 
-Required. Unique ID of the Spark job.
-This ID is assigned by MDB in the process of creating Spark job. ||
+Required field. Required. Unique ID of the Spark job.
+This ID is assigned by MDB in the process of creating Spark job.
+
+The maximum string length in characters is 50. ||
 || cluster_id | **string**
 
-Required. Unique ID of the Spark cluster. ||
+Required field. Required. Unique ID of the Spark cluster.
+
+The maximum string length in characters is 50. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Spark job was created. ||
@@ -188,10 +194,10 @@ The time when the Spark job was finished. ||
 Name of the Spark job. ||
 || created_by | **string**
 
-The id of the user who created the job ||
+The id of the user who created the job. ||
 || status | enum **Status**
 
-Status.
+Job Status.
 
 - `PROVISIONING`: Job created and is waiting to acquire.
 - `PENDING`: Job acquired and is waiting for execution.
@@ -202,15 +208,21 @@ Status.
 - `CANCELLING`: Job is waiting for cancellation. ||
 || spark_job | **[SparkJob](#yandex.cloud.spark.v1.SparkJob)**
 
+Spark Job.
+
 Includes only one of the fields `spark_job`, `pyspark_job`, `spark_connect_job`.
 
 Job specification. ||
 || pyspark_job | **[PysparkJob](#yandex.cloud.spark.v1.PysparkJob)**
 
+Pyspark Job.
+
 Includes only one of the fields `spark_job`, `pyspark_job`, `spark_connect_job`.
 
 Job specification. ||
 || spark_connect_job | **[SparkConnectJob](#yandex.cloud.spark.v1.SparkConnectJob)**
+
+Spark-connect Job.
 
 Includes only one of the fields `spark_job`, `pyspark_job`, `spark_connect_job`.
 
@@ -220,107 +232,177 @@ Job specification. ||
 Spark UI Url. ||
 || service_account_id | **string**
 
-Service account used to access Cloud resources. ||
+Service account used to access Cloud resources.
+
+The maximum string length in characters is 50. ||
 || connect_url | **string**
 
 Spark Connect Url. ||
+|| environment_id | **string**
+
+Job Environment ID.
+
+The maximum string length in characters is 50. ||
+|| environment_build_revision | **int64**
+
+Environment build revision. ||
 |#
 
 ## SparkJob {#yandex.cloud.spark.v1.SparkJob}
 
+Spark Job.
+
 #|
 ||Field | Description ||
 || args[] | **string**
 
-Optional arguments to pass to the driver. ||
+Optional arguments to pass to the driver.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || jar_file_uris[] | **string**
 
-Jar file URIs to add to the CLASSPATHs of the Spark driver and tasks. ||
+Jar file URIs to add to the CLASSPATHs of the Spark driver and tasks.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || file_uris[] | **string**
 
-URIs of files to be copied to the working directory of Spark drivers and distributed tasks. ||
+URIs of files to be copied to the working directory of Spark drivers and distributed tasks.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || archive_uris[] | **string**
 
-URIs of archives to be extracted in the working directory of Spark drivers and tasks. ||
+URIs of archives to be extracted in the working directory of Spark drivers and tasks.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || properties | **object** (map<**string**, **string**>)
 
-A mapping of property names to values, used to configure Spark. ||
+A mapping of property names to values, used to configure Spark.
+
+The maximum string length in characters for each value is 256. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z][-_0-9a-zA-Z.]* `. No more than 100 per resource. ||
 || main_jar_file_uri | **string**
 
-URI of the jar file containing the main class. ||
+Required field. The HCFS URI of the jar file containing the main class.
+
+The string length in characters must be less than 2048. ||
 || main_class | **string**
 
-The name of the driver's main class. ||
+The name of the driver's main class.
+
+The string length in characters must be less than 256. ||
 || packages[] | **string**
 
-List of maven coordinates of jars to include on the driver and executor classpaths. ||
+List of maven coordinates of jars to include on the driver and executor classpaths.
+
+The string length in characters for each value must be less than 256. The maximum number of elements is 100. ||
 || repositories[] | **string**
 
-List of additional remote repositories to search for the maven coordinates given with --packages. ||
+List of additional remote repositories to search for the maven coordinates given with --packages.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 10. ||
 || exclude_packages[] | **string**
 
-List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. ||
+List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts.
+
+The string length in characters for each value must be less than 256. The maximum number of elements is 100. ||
 |#
 
 ## PysparkJob {#yandex.cloud.spark.v1.PysparkJob}
 
+Pyspark Job.
+
 #|
 ||Field | Description ||
 || args[] | **string**
 
-Optional arguments to pass to the driver. ||
+Optional arguments to pass to the driver.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || jar_file_uris[] | **string**
 
-Jar file URIs to add to the CLASSPATHs of the Spark driver and tasks. ||
+Jar file URIs to add to the CLASSPATHs of the Spark driver and tasks.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || file_uris[] | **string**
 
-URIs of files to be copied to the working directory of Spark drivers and distributed tasks. ||
+URIs of files to be copied to the working directory of Spark drivers and distributed tasks.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || archive_uris[] | **string**
 
-URIs of archives to be extracted in the working directory of Spark drivers and tasks. ||
+URIs of archives to be extracted in the working directory of Spark drivers and tasks.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || properties | **object** (map<**string**, **string**>)
 
-A mapping of property names to values, used to configure Spark. ||
+A mapping of property names to values, used to configure Spark.
+
+The maximum string length in characters for each value is 256. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z][-_0-9a-zA-Z.]* `. No more than 100 per resource. ||
 || main_python_file_uri | **string**
 
-URI of the main Python file to use as the driver. Must be a .py file. ||
+Required field. URI of the main Python file to use as the driver. Must be a .py file.
+
+The string length in characters must be less than 2048. ||
 || python_file_uris[] | **string**
 
-URIs of Python files to pass to the PySpark framework. ||
+URIs of Python files to pass to the PySpark framework.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || packages[] | **string**
 
-List of maven coordinates of jars to include on the driver and executor classpaths. ||
+List of maven coordinates of jars (groupId:artifactId:version) to include on the driver and executor classpaths.
+
+The string length in characters for each value must be less than 256. The maximum number of elements is 100. ||
 || repositories[] | **string**
 
-List of additional remote repositories to search for the maven coordinates given with --packages. ||
+List of additional remote repositories to search for the maven coordinates given with --packages.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 10. ||
 || exclude_packages[] | **string**
 
-List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. ||
+List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts.
+
+The string length in characters for each value must be less than 256. The maximum number of elements is 100. ||
 |#
 
 ## SparkConnectJob {#yandex.cloud.spark.v1.SparkConnectJob}
+
+Spark-connect Job.
 
 #|
 ||Field | Description ||
 || jar_file_uris[] | **string**
 
-Jar file URIs to add to the CLASSPATHs of the Spark driver and tasks. ||
+Jar file URIs to add to the CLASSPATHs of the Spark driver and tasks.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || file_uris[] | **string**
 
-URIs of files to be copied to the working directory of Spark drivers and distributed tasks. ||
+URIs of files to be copied to the working directory of Spark drivers and distributed tasks.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || archive_uris[] | **string**
 
-URIs of archives to be extracted in the working directory of Spark drivers and tasks. ||
+URIs of archives to be extracted in the working directory of Spark drivers and tasks.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 100. ||
 || properties | **object** (map<**string**, **string**>)
 
-A mapping of property names to values, used to configure Spark. ||
+A mapping of property names to values, used to configure Spark.
+
+The maximum string length in characters for each value is 256. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z][-_0-9a-zA-Z.]* `. No more than 100 per resource. ||
 || packages[] | **string**
 
-List of maven coordinates of jars to include on the driver and executor classpaths. ||
+List of maven coordinates of jars to include on the driver and executor classpaths.
+
+The string length in characters for each value must be less than 256. The maximum number of elements is 100. ||
 || repositories[] | **string**
 
-List of additional remote repositories to search for the maven coordinates given with --packages. ||
+List of additional remote repositories to search for the maven coordinates given with --packages.
+
+The string length in characters for each value must be less than 2048. The maximum number of elements is 10. ||
 || exclude_packages[] | **string**
 
-List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. ||
+List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts.
+
+The string length in characters for each value must be less than 256. The maximum number of elements is 100. ||
 |#

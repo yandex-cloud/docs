@@ -148,7 +148,7 @@ To create a trigger, you will need:
 
   To create a trigger for {{ yds-name }}:
 
-  1. Describe the trigger in the configuration file:
+  1. In the configuration file, describe the trigger properties:
 
      ```hcl
      resource "yandex_function_trigger" "my_trigger" {
@@ -157,7 +157,7 @@ To create a trigger, you will need:
          id                 = "<container_ID>"
          service_account_id = "<service_account_ID>"
          retry_attempts     = "<number_of_retry_attempts>"
-         retry_interval     = "<time_between_retry_attempts>"
+         retry_interval     = "<interval_between_retry_attempts>"
        }
        data_streams {
          stream_name        = "<data_stream_name>"
@@ -190,7 +190,7 @@ To create a trigger, you will need:
          * `stream_name`: Data stream name.
          * `database`: Location of the {{ ydb-short-name }} database associated with the stream in {{ yds-name }}.
 
-             To find out where the DB is located, run the `yc ydb database list` command. The database location is specified in the `ENDPOINT` column, in the `database` property, e.g., `/ru-central1/b1gia87mba**********/etn7hehf6g*******`.
+             To find out where the database is located, run the `yc ydb database list` command. The database location is specified in the `ENDPOINT` column, in the `database` property, e.g., `/ru-central1/b1gia87mba**********/etn7hehf6g*******`.
 
          * `service_account_id`: ID of the service account with write and read permissions for the stream.
 

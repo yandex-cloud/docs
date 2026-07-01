@@ -15,7 +15,7 @@ GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/users
 || clusterId | **string**
 
 Required field. ID of the cluster to list Redis users in.
-To get the cluster ID, use a [ClusterService.List](../../../managed-redis/api-ref/Cluster/list#List) request.
+To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -81,7 +81,7 @@ list request will have its own `nextPageToken` to continue paging through the re
 ## User {#yandex.cloud.mdb.redis.v1.User}
 
 A Redis User resource. For more information, see the
-[Developer's Guide](../../../managed-redis/concepts).
+[Developer's Guide](../../concepts/index.md).
 
 #|
 ||Field | Description ||

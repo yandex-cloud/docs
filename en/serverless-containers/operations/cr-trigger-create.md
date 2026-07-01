@@ -67,7 +67,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
       --registry-id <registry_ID> \
       --events 'create-image','delete-image','create-image-tag','delete-image-tag' \
       --batch-size <event_batch_size> \
-      --batch-cutoff <maximum_timeout> \
+      --batch-cutoff <maximum_wait_time> \
       --invoke-container-id <container_ID> \
       --invoke-container-service-account-id <service_account_ID> \
       --retry-attempts <number_of_retry_attempts> \
@@ -133,7 +133,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
           id                 = "<container_ID>"
           service_account_id = "<service_account_ID>"
           retry_attempts     = "<number_of_retry_attempts>"
-          retry_interval     = "<time_between_retry_attempts>"
+          retry_interval     = "<interval_between_retry_attempts>"
         }
         container_registry {
           registry_id      = "<registry_ID>"
@@ -159,7 +159,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
            {% include [name-format](../../_includes/name-format.md) %}
 
-      * `container`: Container parameters:
+      * `container`: Container settings:
         
         {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
 
@@ -173,9 +173,9 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
         * [Events](../concepts/trigger/cr-trigger.md#event) that set off the trigger:
 
           * `create_image`: Trigger will invoke the container when a new Docker image is created in the registry. The possible values are `true` or `false`.
-          * `delete_image`: Trigger will invoke the container when a Docker image is deleted from the registry. It can either be `true` or `false`.
-          * `create_image_tag`: Trigger will invoke the container when a new Docker image tag is created in the registry. It can either be `true` or `false`.
-          * `delete_image_tag`: Trigger will invoke the container when a Docker image tag is deleted from the registry. It can either be `true` or `false`.
+          * `delete_image`: Trigger will invoke the container when a Docker image is deleted from the registry. The possible values are `true` or `false`.
+          * `create_image_tag`: Trigger will invoke the container when a new Docker image tag is created in the registry. The possible values are `true` or `false`.
+          * `delete_image_tag`: Trigger will invoke the container when a Docker image tag is deleted from the registry. The possible values are `true` or `false`.
 
         {% include [tf-batch-params-events](../../_includes/serverless-containers/tf-batch-params-events.md) %}
 

@@ -74,7 +74,7 @@ list request will have its own `nextPageToken` to continue paging through the re
 ## Backup {#yandex.cloud.mdb.mongodb.v1.Backup}
 
 A MongoDB Backup resource. For more information, see the
-[Developer's Guide](../../../managed-mongodb/concepts).
+[Developer's Guide](../../concepts/index.md).
 
 #|
 ||Field | Description ||

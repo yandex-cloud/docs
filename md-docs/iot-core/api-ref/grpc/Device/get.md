@@ -1,7 +1,6 @@
 # IoT Core Service, gRPC: DeviceService.Get
 
 Returns the specified device.
-
 To get the list of available devices, make a [List](list.md#List) request.
 
 ## gRPC request
@@ -22,8 +21,9 @@ To get the list of available devices, make a [List](list.md#List) request.
 || device_id | **string**
 
 Required field. ID of the device to return.
+To get a device ID make a [DeviceService.List](list.md#List) request.
 
-To get a device ID make a [DeviceService.List](list.md#List) request. ||
+The maximum string length in characters is 50. ||
 || device_view | enum **DeviceView**
 
 Specifies which parts of the device resource should be returned
@@ -79,13 +79,11 @@ Description of the device. 0-256 characters long. ||
 || topic_aliases | **object** (map<**string**, **string**>)
 
 Alias of a device topic.
-
 Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. ||
 || status | enum **Status**
 
 Status of the device.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Device is being created.
 - `ACTIVE`: Device is ready to use.
 - `DELETING`: Device is being deleted. ||

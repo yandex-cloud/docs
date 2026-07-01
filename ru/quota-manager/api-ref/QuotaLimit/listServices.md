@@ -11,17 +11,20 @@ apiPlayground:
           description: |-
             **string**
             Required field. The type of resources for which services are being requested.
+            The maximum string length in characters is 64.
           type: string
         pageSize:
           description: |-
             **string** (int64)
             The maximum number of services to return per response.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
           description: |-
             **string**
             Token to retrieve the next page of results. Omitted on the first request.
+            The maximum string length in characters is 2000.
           type: string
       required:
         - resourceType
@@ -46,13 +49,19 @@ GET https://quota-manager.{{ api-host }}/quota-manager/v1/quotaLimits/services
 ||Field | Description ||
 || resourceType | **string**
 
-Required field. The type of resources for which services are being requested. ||
+Required field. The type of resources for which services are being requested.
+
+The maximum string length in characters is 64. ||
 || pageSize | **string** (int64)
 
-The maximum number of services to return per response. ||
+The maximum number of services to return per response.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
-Token to retrieve the next page of results. Omitted on the first request. ||
+Token to retrieve the next page of results. Omitted on the first request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## Response {#yandex.cloud.quotamanager.v1.ListServicesResponse}

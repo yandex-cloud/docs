@@ -28,7 +28,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость инфраструктуры входят:
-* плата за постоянно запущенные [ВМ](../../concepts/vm.md) ([тарифы Compute Cloud](../../pricing.md));
+* плата за постоянно запущенные [ВМ](../../concepts/vm.md) ([тарифы Compute Cloud](../../../compute/pricing.md));
 * плата за [сетевые балансировщики](../../../network-load-balancer/concepts/index.md) и балансировку трафика ([тарифы Network Load Balancer](../../../network-load-balancer/pricing.md)).
 
 ## Создайте инфраструктуру {#deploy}

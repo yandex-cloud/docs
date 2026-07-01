@@ -2874,7 +2874,7 @@ Yandex Managed Service for Kubernetes не поддерживает аноним
 
 ### Дополнительная информация
 
-Чеклист для безопасной конфигурации Kubernetes доступен [по ссылке](../domains/checklist#kubernetes-security).
+Чеклист для безопасной конфигурации Kubernetes доступен [по ссылке](../domains/index.md#kubernetes-security).
 
 ## 03.03.2021 — CVE-2021-21309 — удаленное выполнение кода через уязвимость в Redis
 

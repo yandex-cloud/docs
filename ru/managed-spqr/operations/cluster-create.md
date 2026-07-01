@@ -503,7 +503,7 @@ keywords:
 
      Где:
 
-     * `folder_id` — идентификатор каталога.  Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md)..
+     * `folder_id` — идентификатор каталога.  Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
      * `name` — имя кластера.
      * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
      * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.

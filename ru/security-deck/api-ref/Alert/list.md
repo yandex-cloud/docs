@@ -158,7 +158,8 @@ The maximum string length in characters is 200. ||
       },
       "createTime": "string",
       "updateTime": "string",
-      "details": "object"
+      "details": "object",
+      "ruleId": "string"
     }
   ],
   "nextPageToken": "string"
@@ -265,6 +266,11 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Alert technical details.
 Optional. Only present in Get method response. ||
+|| ruleId | **string**
+
+Rule ID associated with alert.
+Optional. May be absent if alert provider did not set this value
+or if alert is not related to a rule. ||
 |#
 
 ## Category {#yandex.cloud.securitydeck.alerts.v1.Alert.Category}

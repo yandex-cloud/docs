@@ -1,7 +1,7 @@
 # Managed Service for MongoDB API, gRPC: UserService.Get
 
 Returns the specified MongoDB User resource.
-To get the list of available MongoDB User resources, make a [List](../../../../managed-mongodb/api-ref/grpc/User/list#List) request.
+To get the list of available MongoDB User resources, make a [List](list.md#List) request.
 
 ## gRPC request
 
@@ -21,13 +21,13 @@ To get the list of available MongoDB User resources, make a [List](../../../../m
 || cluster_id | **string**
 
 Required field. ID of the MongoDB cluster the user belongs to.
-To get the cluster ID, use a [ClusterService.List](../../../../managed-mongodb/api-ref/grpc/Cluster/list#List) request.
+To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || user_name | **string**
 
 Required field. Name of the MongoDB User resource to return.
-To get the name of the user, use a [UserService.List](../../../../managed-mongodb/api-ref/grpc/User/list#List) request.
+To get the name of the user, use a [UserService.List](list.md#List) request.
 
 The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$ `. ||
 |#
@@ -52,7 +52,7 @@ The maximum string length in characters is 63. Value must match the regular expr
 ```
 
 A MongoDB User resource. For more information, see the
-[Developer's Guide](../../../../managed-mongodb/concepts).
+[Developer's Guide](../../../concepts/index.md).
 
 #|
 ||Field | Description ||

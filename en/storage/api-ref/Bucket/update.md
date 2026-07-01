@@ -504,6 +504,13 @@ apiPlayground:
               version expires.
             type: string
             format: int64
+          newerNoncurrentVersions:
+            description: |-
+              **string** (int64)
+              Specifies how many noncurrent versions S3 will retain.
+              S3 will permanently delete any additional noncurrent versions beyond this specified number.
+            type: string
+            format: int64
       NoncurrentTransition:
         type: object
         properties:
@@ -521,6 +528,13 @@ apiPlayground:
               The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
               to standard storage and transitions to or from ice storage are not allowed.
             type: string
+          newerNoncurrentVersions:
+            description: |-
+              **string** (int64)
+              Specifies how many noncurrent versions S3 will retain.
+              S3 will permanently delete any additional noncurrent versions beyond this specified number.
+            type: string
+            format: int64
         required:
           - storageClass
       NoncurrentDeleteMarkers:
@@ -667,7 +681,7 @@ apiPlayground:
             description: |-
               **string**
               ID of the account who is a grantee. Required when the [grantType](#yandex.cloud.storage.v1.ACL.Grant) is `GRANT_TYPE_ACCOUNT`.
-              The maximum string length in characters is 50.
+              The maximum string length in characters is 100.
             type: string
         required:
           - permission
@@ -898,12 +912,14 @@ To get the bucket name, make a [BucketService.List](/docs/storage/api-ref/Bucket
         "daysAfterExpiration": "string"
       },
       "noncurrentExpiration": {
-        "noncurrentDays": "string"
+        "noncurrentDays": "string",
+        "newerNoncurrentVersions": "string"
       },
       "noncurrentTransitions": [
         {
           "noncurrentDays": "string",
-          "storageClass": "string"
+          "storageClass": "string",
+          "newerNoncurrentVersions": "string"
         }
       ],
       "noncurrentDeleteMarkers": {
@@ -1392,6 +1408,10 @@ aborted. ||
 
 Time period, in number of days since the version of an object was classified as non-current, after which the
 version expires. ||
+|| newerNoncurrentVersions | **string** (int64)
+
+Specifies how many noncurrent versions S3 will retain.
+S3 will permanently delete any additional noncurrent versions beyond this specified number. ||
 |#
 
 ## NoncurrentTransition {#yandex.cloud.storage.v1.LifecycleRule.NoncurrentTransition}
@@ -1411,6 +1431,10 @@ version is transitioned. ||
 Required field. Storage class to which a non-current version of an object is transitioned from standard storage.
 The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
 to standard storage and transitions to or from ice storage are not allowed. ||
+|| newerNoncurrentVersions | **string** (int64)
+
+Specifies how many noncurrent versions S3 will retain.
+S3 will permanently delete any additional noncurrent versions beyond this specified number. ||
 |#
 
 ## NoncurrentDeleteMarkers {#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers}
@@ -1481,7 +1505,7 @@ Maps to using `uri="http://acs.amazonaws.com/groups/global/AllUsers"` value for 
 
 ID of the account who is a grantee. Required when the `grantType` is `GRANT_TYPE_ACCOUNT`.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 100. ||
 |#
 
 ## ObjectLock {#yandex.cloud.storage.v1.ObjectLock}

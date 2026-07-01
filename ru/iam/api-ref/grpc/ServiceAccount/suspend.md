@@ -5,7 +5,7 @@ editable: false
 # Identity and Access Management API, gRPC: ServiceAccountService.Suspend
 
 Suspends the specified service account.
-(-- api-linter: yc::1702::method-verb-prefix=disabled --)
+
 
 ## gRPC request
 

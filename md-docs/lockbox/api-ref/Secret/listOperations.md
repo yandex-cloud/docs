@@ -14,7 +14,9 @@ GET https://lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{secretId}/operation
 ||Field | Description ||
 || secretId | **string**
 
-Required field. ID of the secret to get operations for. ||
+Required field. ID of the secret to get operations for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.lockbox.v1.ListSecretOperationsRequest}
@@ -26,11 +28,15 @@ Required field. ID of the secret to get operations for. ||
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a [ListSecretOperationsRequest.next_page_token]
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListSecretOperationsRequest.next_page_token] returned by a previous list request. ||
+[ListSecretOperationsRequest.next_page_token] returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.lockbox.v1.ListSecretOperationsResponse}

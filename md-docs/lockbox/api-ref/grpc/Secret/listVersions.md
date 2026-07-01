@@ -20,17 +20,23 @@ Retrieves the list of versions of the specified secret.
 ||Field | Description ||
 || secret_id | **string**
 
-Required field. ID of the secret to list versions for. ||
+Required field. ID of the secret to list versions for.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListVersionsRequest.next_page_token]
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListVersionsRequest.next_page_token] returned by a previous list request. ||
+[ListVersionsRequest.next_page_token] returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListVersionsResponse {#yandex.cloud.lockbox.v1.ListVersionsResponse}
@@ -39,15 +45,6 @@ Page token. To get the next page of results, set `page_token` to the
 {
   "versions": [
     {
-      "id": "string",
-      "secret_id": "string",
-      "created_at": "google.protobuf.Timestamp",
-      "destroy_at": "google.protobuf.Timestamp",
-      "description": "string",
-      "status": "Status",
-      "payload_entry_keys": [
-        "string"
-      ],
       // Includes only one of the fields `password_payload_specification`
       "password_payload_specification": {
         "password_key": "string",
@@ -58,8 +55,17 @@ Page token. To get the next page of results, set `page_token` to the
         "include_punctuation": "google.protobuf.BoolValue",
         "included_punctuation": "string",
         "excluded_punctuation": "string"
-      }
+      },
       // end of the list of possible fields
+      "id": "string",
+      "secret_id": "string",
+      "created_at": "google.protobuf.Timestamp",
+      "destroy_at": "google.protobuf.Timestamp",
+      "description": "string",
+      "status": "Status",
+      "payload_entry_keys": [
+        "string"
+      ]
     }
   ],
   "next_page_token": "string"
@@ -84,6 +90,9 @@ in the next list request. Each subsequent list request will have its own
 
 #|
 ||Field | Description ||
+|| password_payload_specification | **[PasswordPayloadSpecification](#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
+
+Includes only one of the fields `password_payload_specification`. ||
 || id | **string**
 
 ID of the version. ||
@@ -104,7 +113,6 @@ Description of the version. ||
 
 Status of the secret.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: The version is active and the secret payload can be accessed.
 - `SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed
 is specified in the `Version.destroy_at` field.
@@ -112,9 +120,6 @@ is specified in the `Version.destroy_at` field.
 || payload_entry_keys[] | **string**
 
 Keys of the entries contained in the version payload. ||
-|| password_payload_specification | **[PasswordPayloadSpecification](#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
-
-Includes only one of the fields `password_payload_specification`. ||
 |#
 
 ## PasswordPayloadSpecification {#yandex.cloud.lockbox.v1.PasswordPayloadSpecification}
@@ -123,10 +128,14 @@ Includes only one of the fields `password_payload_specification`. ||
 ||Field | Description ||
 || password_key | **string**
 
-Required field. key of the entry to store generated password value ||
+Required field. key of the entry to store generated password value
+
+Value must match the regular expression ` [-_./\\@0-9a-zA-Z]+ `. ||
 || length | **int64**
 
-password length; by default, a reasonable length will be decided ||
+password length; by default, a reasonable length will be decided
+
+The maximum value is 256. ||
 || include_uppercase | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 whether at least one A..Z character is included in the password, true by default ||

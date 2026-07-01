@@ -32,8 +32,8 @@
 В стоимость развертывания инфраструктуры для данного решения входят:
 
 * Плата за постоянно запущенную виртуальную машину ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
-* Плата за использование статического внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../pricing.md)).
-* Плата за исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../pricing.md))
+* Плата за использование статического внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
+* Плата за исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md))
 
 
 ## Подготовьте облако к работе {#before-you-begin}

@@ -117,4 +117,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Правила тарификации в Yandex Identity Hub](../pricing.md)
+* [{#T}](../pricing.md)

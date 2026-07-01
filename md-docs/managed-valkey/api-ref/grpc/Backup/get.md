@@ -1,7 +1,7 @@
 # Managed Service for Redis API, gRPC: BackupService.Get
 
 Returns the specified Redis backup.
-To get the list of available Redis backups, make a [List](../../../../managed-redis/api-ref/grpc/Backup/list#List) request.
+To get the list of available Redis backups, make a [List](list.md#List) request.
 
 ## gRPC request
 
@@ -20,7 +20,7 @@ To get the list of available Redis backups, make a [List](../../../../managed-re
 || backup_id | **string**
 
 Required field. ID of the Redis backup to return.
-To get the backup ID, use a [ClusterService.ListBackups](../../../../managed-redis/api-ref/grpc/Cluster/listBackups#ListBackups) request. ||
+To get the backup ID, use a [ClusterService.ListBackups](../Cluster/listBackups.md#ListBackups) request. ||
 |#
 
 ## Backup {#yandex.cloud.mdb.redis.v1.Backup}
@@ -40,7 +40,7 @@ To get the backup ID, use a [ClusterService.ListBackups](../../../../managed-red
 ```
 
 Description of a Redis backup. For more information, see
-the Managed Service for Redis [documentation](../../../../managed-redis/concepts/backup).
+the Managed Service for Redis [documentation](../../../concepts/backup.md).
 
 #|
 ||Field | Description ||

@@ -23,7 +23,6 @@ apiPlayground:
 # Cloud Functions Service, REST: Function.Get
 
 Returns the specified function.
-
 To get the list of all available functions, make a [List](/docs/functions/functions/api-ref/Function/list#List) request.
 
 ## HTTP request
@@ -39,7 +38,6 @@ GET https://serverless-functions.{{ api-host }}/functions/v1/functions/{function
 || functionId | **string**
 
 Required field. ID of the function to return.
-
 To get a function ID make a [FunctionService.List](/docs/functions/functions/api-ref/Function/list#List) request. ||
 |#
 
@@ -89,7 +87,7 @@ The string length in characters must be 3-63. ||
 
 Description of the function.
 
-The string length in characters must be 0-256. ||
+The string length in characters must be 0-600. ||
 || labels | **object** (map<**string**, **string**>)
 
 Function labels as `key:value` pairs.

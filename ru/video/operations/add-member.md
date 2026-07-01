@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
       1. Введите почтовый адрес пользователя, которого вы хотите пригласить в организацию (например, `login@yandex.ru`).
       
           Вы можете указать несколько электронных адресов через запятую, чтобы [пригласить](../../organization/operations/add-account.md#send-invitation) в организацию сразу несколько пользователей.
-      1. Нажмите кнопку **{{ ui-key.yacloud_components.organization.action_send-invitation }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud_components.organization.action_send-invitation_6LqIj }}**.
   1. После того как пользователь примет приглашение и присоединится к организации, нажмите кнопку **{{ ui-key.yacloud_video.dashboard.action_go-to-org }}** и [назначьте](../../organization/operations/add-role.md) новому пользователю необходимые [роли](../security/index.md#service-roles). 
 
       Например, вы можете назначить пользователю роль `video.editor` для создания, изменения и удаления ресурсов сервиса и трансляции видеопотока или `video.viewer` — только для просмотра ресурсов сервиса.

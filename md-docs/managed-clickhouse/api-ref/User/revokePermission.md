@@ -1,7 +1,7 @@
 # Managed Service for ClickHouse API, REST: User.RevokePermission
 
 Revokes a permission from the specified ClickHouse user.
-(-- api-linter: yc::1702::method-verb-prefix=disabled --)
+
 
 ## HTTP request
 

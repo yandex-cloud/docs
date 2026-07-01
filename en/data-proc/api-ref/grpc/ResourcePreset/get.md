@@ -5,7 +5,6 @@ editable: false
 # Yandex Data Processing API, gRPC: ResourcePresetService.Get
 
 Returns the specified ResourcePreset resource.
-
 To get the list of available ResourcePreset resources, make a [List](/docs/data-proc/api-ref/grpc/ResourcePreset/list#List) request.
 
 ## gRPC request
@@ -25,7 +24,9 @@ To get the list of available ResourcePreset resources, make a [List](/docs/data-
 || resource_preset_id | **string**
 
 Required field. Required. ID of the resource preset to return.
-To get the resource preset ID, use a [ResourcePresetService.List](/docs/data-proc/api-ref/grpc/ResourcePreset/list#List) request. ||
+To get the resource preset ID, use a [ResourcePresetService.List](/docs/data-proc/api-ref/grpc/ResourcePreset/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ResourcePreset {#yandex.cloud.dataproc.v1.ResourcePreset}

@@ -26,7 +26,7 @@ To use {{ yq-full-name }}, set up a data binding based on the target object:
     1. Create a connection:
 
         1. In the [management console]({{ link-console-main }}), select the folder containing the trail that delivers logs to the bucket.
-        1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+        1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
         1. Select the trail that delivers logs to the bucket.
         1. Click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
         1. Select `bucket-yq-sa` **{{ ui-key.yacloud.common.resource-acl.label_service-account }}**.

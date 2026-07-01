@@ -64,7 +64,7 @@ Primitive roles are aggregator roles that define user permissions to access serv
 * `editor`: Same as `billing.accounts.editor`.
 * `admin`: Same as `billing.accounts.admin`.
 
-Primitive roles can only be assigned to users in the **{{ ui-key.yacloud_components.notify-subs.label_users }}** list.
+Primitive roles can only be assigned to users in the **Users** list.
 
 ## Available operations for a partner account {#partner-available-operations}
 

@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the log group to return.
             To get a log group ID make a [LogGroupService.List](/docs/logging/api-ref/LogGroup/list#List) request.
+            The maximum string length in characters is 64.
           type: string
       required:
         - logGroupId
@@ -23,7 +24,6 @@ apiPlayground:
 # Cloud Logging Service, REST: LogGroup.Get
 
 Returns the specified log group.
-
 To get the list of all available log groups, make a [List](/docs/logging/api-ref/LogGroup/list#List) request.
 
 ## HTTP request
@@ -39,8 +39,9 @@ GET https://logging.{{ api-host }}/logging/v1/logGroups/{logGroupId}
 || logGroupId | **string**
 
 Required field. ID of the log group to return.
+To get a log group ID make a [LogGroupService.List](/docs/logging/api-ref/LogGroup/list#List) request.
 
-To get a log group ID make a [LogGroupService.List](/docs/logging/api-ref/LogGroup/list#List) request. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## Response {#yandex.cloud.logging.v1.LogGroup}
@@ -96,19 +97,14 @@ Log group labels. ||
 
 Status of the log group.
 
-- `STATUS_UNSPECIFIED`: Unknown status.
-
-  Should never occur.
 - `CREATING`: Log group is creating.
 - `ACTIVE`: Log group is ready to accept messages,
 - `DELETING`: Log group is being deleted.
-
-  No messages will be accepted.
+No messages will be accepted.
 - `ERROR`: Log group is in failed state. ||
 || retentionPeriod | **string** (duration)
 
 Log group entry retention period.
-
 Entries will be present in group during this period. ||
 || dataStream | **string**
 

@@ -590,6 +590,8 @@
 
  - [Delete](functions/api-ref/grpc/Function/delete.md)
 
+ - [DeleteVersion](functions/api-ref/grpc/Function/deleteVersion.md)
+
  - [GetVersion](functions/api-ref/grpc/Function/getVersion.md)
 
  - [GetFunctionVersion](functions/api-ref/grpc/Function/getFunctionVersion.md)
@@ -601,8 +603,6 @@
  - [ListVersions](functions/api-ref/grpc/Function/listVersions.md)
 
  - [ListFunctionVersions](functions/api-ref/grpc/Function/listFunctionVersions.md)
-
- - [DeleteVersion](functions/api-ref/grpc/Function/deleteVersion.md)
 
  - [SetTag](functions/api-ref/grpc/Function/setTag.md)
 
@@ -670,13 +670,13 @@
 
  - [Delete](functions/api-ref/Function/delete.md)
 
+ - [DeleteVersion](functions/api-ref/Function/deleteVersion.md)
+
  - [GetVersion](functions/api-ref/Function/getVersion.md)
 
  - [GetVersionByTag](functions/api-ref/Function/getVersionByTag.md)
 
  - [ListVersions](functions/api-ref/Function/listVersions.md)
-
- - [DeleteVersion](functions/api-ref/Function/deleteVersion.md)
 
  - [SetTag](functions/api-ref/Function/setTag.md)
 

@@ -169,10 +169,6 @@ items:
             href: tutorials/tls-termination/terraform.md
       - name: Запись логов балансировщика в {{ PG }}
         href: tutorials/logging.md
-      - name: >-
-          Развертывание и нагрузочное тестирование gRPC-сервиса с
-          масштабированием в {{ managed-k8s-full-name }}
-        href: tutorials/load-testing-grpc-autoscaling.md
       - name: Настройка Gateway API в {{ managed-k8s-full-name }}
         href: tutorials/gateway-api.md
       - name: >-

@@ -26,10 +26,10 @@ The maximum number of results per page to return. If the number of available res
 Page token. To get the next page of results, set 'page_token' to the [ListServerResponse.next_page_token] returned by a previous list request. ||
 || `--order-by` | `string`
 
-By which column the listing should be ordered and in which direction. ||
+Sorting order for the listing. Follows the AIP-132 'order_by' format: '"field [asc\|desc]"', e.g. '"createTime desc"'. Supported fields: 'serverId', 'createTime', 'updateTime'. Default order: 'serverId asc'. ||
 || `--filter` | `string`
 
-A filter expression that filters resources listed in the response. ||
+Filter expression following AIP-160. Supported fields and operators: - 'serverId', 'name', 'hardwarePoolId' - '=', '!=', ':' (contains) - 'state' - '=', '!=' - 'networkInterfaces.privateInterface.nativeSubnetId' - ':' (contains) - 'networkInterfaces.publicInterface.nativeSubnetId' - ':' (contains) Example: 'state = "RUNNING" AND name : "prod"'. ||
 |#
 
 #### Global Flags

@@ -1,4 +1,5 @@
 ```mermaid
+%%{ init: "flowchart": { "defaultRenderer": "elk" } }%%
 flowchart BT
     schema-registry.auditor --> schema-registry.viewer
     schema-registry.viewer --> schema-registry.editor

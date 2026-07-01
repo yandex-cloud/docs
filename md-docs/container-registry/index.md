@@ -122,8 +122,6 @@ Container Registry предоставляет встроенный <a href="conc
 
  - [Настройка отказоустойчивой архитектуры в Yandex Cloud](tutorials/fault-tolerance.md)
 
- - [Запуск внешних агентов для нагрузочного тестирования](tutorials/loadtesting-external-agent.md)
-
  - [Запуск контейнерного приложения в Yandex Serverless Containers](tutorials/deploy-app-container.md)
 
  - [Развертывание gRPC-сервиса на основе Docker-образа](tutorials/grpc-node.md)

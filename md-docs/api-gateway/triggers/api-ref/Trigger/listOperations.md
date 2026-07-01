@@ -26,7 +26,6 @@ Required field. ID of the trigger to list operations for. ||
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `pageSize`, the service returns a [ListTriggerOperationsResponse.nextPageToken](#yandex.cloud.serverless.triggers.v1.ListTriggerOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
 Default value: 100.
 
 Acceptable values are 0 to 1000, inclusive. ||
@@ -39,7 +38,6 @@ The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-
 The expression must specify:
 1. The field name. Currently filtering can only be applied to the [Trigger.name](../../../../functions/triggers/api-ref/Trigger/get.md#yandex.cloud.serverless.triggers.v1.Trigger) field.
 2. An `=` operator.
@@ -90,7 +88,6 @@ List of operations for the specified trigger. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListTriggerOperationsRequest.pageSize](#yandex.cloud.serverless.triggers.v1.ListTriggerOperationsRequest), use `nextPageToken` as the value
 for the [ListTriggerOperationsRequest.pageToken](#yandex.cloud.serverless.triggers.v1.ListTriggerOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `nextPageToken` to continue paging through the results. ||
 |#
 

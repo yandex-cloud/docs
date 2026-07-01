@@ -410,13 +410,13 @@ Yandex Managed Service for YDB помогает разворачивать и п
 
  - [List](api-ref/grpc/Backup/list.md)
 
+ - [Delete](api-ref/grpc/Backup/delete.md)
+
  - [ListAccessBindings](api-ref/grpc/Backup/listAccessBindings.md)
 
  - [SetAccessBindings](api-ref/grpc/Backup/setAccessBindings.md)
 
  - [UpdateAccessBindings](api-ref/grpc/Backup/updateAccessBindings.md)
-
- - [Delete](api-ref/grpc/Backup/delete.md)
 
 #### Database
 
@@ -434,6 +434,12 @@ Yandex Managed Service for YDB помогает разворачивать и п
 
  - [Stop](api-ref/grpc/Database/stop.md)
 
+ - [Delete](api-ref/grpc/Database/delete.md)
+
+ - [Restore](api-ref/grpc/Database/restore.md)
+
+ - [Backup](api-ref/grpc/Database/backup.md)
+
  - [Move](api-ref/grpc/Database/move.md)
 
  - [ListAccessBindings](api-ref/grpc/Database/listAccessBindings.md)
@@ -441,12 +447,6 @@ Yandex Managed Service for YDB помогает разворачивать и п
  - [SetAccessBindings](api-ref/grpc/Database/setAccessBindings.md)
 
  - [UpdateAccessBindings](api-ref/grpc/Database/updateAccessBindings.md)
-
- - [Delete](api-ref/grpc/Database/delete.md)
-
- - [Restore](api-ref/grpc/Database/restore.md)
-
- - [Backup](api-ref/grpc/Database/backup.md)
 
 #### Location
 
@@ -512,13 +512,13 @@ Yandex Managed Service for YDB помогает разворачивать и п
 
  - [Stop](api-ref/Database/stop.md)
 
- - [Move](api-ref/Database/move.md)
-
  - [Delete](api-ref/Database/delete.md)
 
  - [Restore](api-ref/Database/restore.md)
 
  - [Backup](api-ref/Database/backup.md)
+
+ - [Move](api-ref/Database/move.md)
 
 #### Location
 
@@ -576,7 +576,7 @@ Yandex Managed Service for YDB помогает разворачивать и п
 
  - [Создание потока изменений таблицы](terraform/cdc.md)
 
- - [Создание вторичных индексов строковых таблиц](terraform/row-tables-secondary-index.md)
+ - [Создание вторичных индексов строковых таблиц](terraform/tables-secondary-index.md)
 
  - [Управление конфигурацией топиков YDB](terraform/topic.md)
 

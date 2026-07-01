@@ -150,7 +150,7 @@ L7-балансировщик автоматически проверяет ра
    Если для кластера не предоставлен публичный адрес и `kubectl` настроен через внутренний адрес кластера, выполняйте команды `kubectl` на ВМ Yandex Cloud, находящейся в одной сети с кластером.
 
 1. [Установите Docker](https://docs.docker.com/get-docker/).
-1. [Аутентифицируйтесь в Yandex Container Registry](../../container-registry/operations/authentication.md#cred-helper) с помощью Docker Credential helper.
+1. [Аутентифицируйтесь в Yandex Container Registry](../../container-registry/operations/authentication.md#cred-helper) с помощью Docker credential helper.
 
 ## Создайте Docker-образ {#docker-image}
 
@@ -195,7 +195,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 
    Если не получается загрузить образ, выполните следующие действия:
 
-   * Убедитесь, что вы [аутентифицировались в Container Registry](../../container-registry/operations/authentication.md#cred-helper) с помощью Docker Credential helper.
+   * Убедитесь, что вы [аутентифицировались в Container Registry](../../container-registry/operations/authentication.md#cred-helper) с помощью Docker credential helper.
    * [Настройте доступ к реестру](../../container-registry/operations/registry/registry-access.md) — предоставьте разрешение PUSH на загрузку Docker-образов для IP-адреса вашего компьютера.
 
 ## Разверните тестовое приложение {#test-app}

@@ -25,11 +25,10 @@ Lists existing access bindings for the specified key.
 || resource_id | **string**
 
 Required field. ID of the resource to list access bindings for.
-
 To get the resource ID, use a corresponding List request.
 For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/api-ref/grpc/Cloud/list#List) request to get the Cloud resource ID.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
@@ -38,7 +37,7 @@ the service returns a [ListAccessBindingsResponse.next_page_token](#yandex.cloud
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100.
 
-The maximum value is 1000. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. Set `page_token`
@@ -88,7 +87,7 @@ in the next list request. Each subsequent list request will have its own
 
 Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/grpc/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || subject | **[Subject](#yandex.cloud.access.Subject)**
 
 Required field. Identity for which access binding is being created.
@@ -102,8 +101,7 @@ It can represent an account with a unique ID or several accounts with a system i
 || id | **string**
 
 Required field. ID of the subject.
-
-It can contain one of the following values:
+It can contain one of the following values:oauth
 * `allAuthenticatedUsers`: A special public group that represents anyone
 who is authenticated. It can be used only if the `type` is `system`.
 * `allUsers`: A special public group that represents anyone. No authentication is required.
@@ -120,13 +118,11 @@ The maximum string length in characters is 100. ||
 || type | **string**
 
 Required field. Type of the subject.
-
 It can contain one of the following values:
 * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
 * `serviceAccount`: A service account. This type represents the [yandex.cloud.iam.v1.ServiceAccount](/docs/iam/api-ref/grpc/ServiceAccount/get#yandex.cloud.iam.v1.ServiceAccount) resource.
 * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
 * `system`: System group. This type represents several accounts with a common system identifier.
-
 For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
 
 The maximum string length in characters is 100. ||

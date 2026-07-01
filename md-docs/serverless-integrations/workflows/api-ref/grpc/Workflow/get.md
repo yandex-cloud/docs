@@ -63,7 +63,7 @@ Required field. ID of the Workflow. ||
 ||Field | Description ||
 || workflow | **[Workflow](#yandex.cloud.serverless.workflows.v1.Workflow)**
 
-Workflow properties. ||
+Required field. Workflow properties. ||
 |#
 
 ## Workflow {#yandex.cloud.serverless.workflows.v1.Workflow}
@@ -72,19 +72,19 @@ Workflow properties. ||
 ||Field | Description ||
 || id | **string**
 
-ID of the Workflow. Generated at creation time. ||
+Required field. ID of the Workflow. Generated at creation time. ||
 || folder_id | **string**
 
-ID of the folder that the Workflow belongs to. ||
+Required field. ID of the folder that the Workflow belongs to. ||
 || specification | **[WorkflowSpecification](#yandex.cloud.serverless.workflows.v1.WorkflowSpecification)**
 
-Specification of the Workflow ||
+Required field. Specification of the Workflow ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Creation timestamp for the Workflow. ||
+Required field. Creation timestamp for the Workflow. ||
 || name | **string**
 
-Name of the Workflow. The name is unique within the folder. ||
+Required field. Name of the Workflow. The name is unique within the folder. ||
 || description | **string**
 
 Description of the Workflow. ||
@@ -93,7 +93,7 @@ Description of the Workflow. ||
 Workflow labels as `key:value` pairs. ||
 || status | enum **Status**
 
-Status of the Workflow.
+Required field. Status of the Workflow.
 
 - `CREATING`: Workflow is being created.
 - `ACTIVE`: Workflow is ready for use.
@@ -154,7 +154,6 @@ Includes only one of the fields `log_group_id`, `folder_id`. ||
 || min_level | enum **Level**
 
 Minimum logs level.
-
 See [LogLevel.Level](../../../../../logging/api-ref/grpc/Export/get.md#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.

@@ -5,26 +5,21 @@ editable: false
 # Billing Usage API, gRPC: MetadataService.GetServiceInstance
 
 GetServiceInstance returns service instance usage metadata for a specific billing account and date range.
-
 This method provides a view of all available service instance entities
 that can be used for usage reporting within the specified date range
-for the billing account and all its sub-accounts.
-
+for the billing account and all its sub-accounts including:
 Implementation details:
 - All data is filtered to only include items that had usage during the specified date range
-
 Error handling:
 - Returns INVALID_ARGUMENT if the request parameters fail validation
 - Returns UNAUTHENTICATED if the user is not authenticated or the billing account does not exist
 - Returns PERMISSION_DENIED if the user lacks required permissions
 - Returns INTERNAL for internal server errors
-
 This method supports additional filtering by service_instance_ids.
 These filters work as supplementary conditions to the primary billing_account_id and date range filters.
 When provided, they further narrow down the results by applying additional OR conditions for each filter type.
-
 Required permissions:
-- `billing.accounts.getReport` on the specified billing account
+- `billing.accounts.getReport` or `billingInternal.accounts.getReport` on the specified billing account
 
 ## gRPC request
 
@@ -95,8 +90,7 @@ Response for service instance usage metadata request
 || service_instances[] | **[ServiceInstance](#yandex.cloud.billing.usage_records.v1.ServiceInstance)**
 
 List of available service instances for the current user/context (billing_account_id with sub-accounts)
-Contains service instance entities that the user has access to within the specified date range.
-The list is sorted by service instance name in ascending order. ||
+Contains service instance entities that the user has access to within the specified date range. ||
 |#
 
 ## ServiceInstance {#yandex.cloud.billing.usage_records.v1.ServiceInstance}
@@ -113,7 +107,7 @@ Identifier of the service instance entity. ||
 Type of the service instance: tracker, datalens, cloud, etc. ||
 || name | **string**
 
-Human-readable display name of the service instance. ||
+Human-readable display name of the serice instance. ||
 || billing_account_id | **string**
 
 Optional billing account identifier associated with this service instance

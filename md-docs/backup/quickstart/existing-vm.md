@@ -8,7 +8,7 @@
 {% cut "В стоимость ресурсов для резервного копирования ВМ входят:" %}
 
 * плата за [вычислительные ресурсы](../../compute/concepts/vm-platforms.md) и [диски](../../compute/concepts/disk.md) ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за защищенные ВМ и хранение резервных копий ([тарифы Yandex Cloud Backup](../pricing.md)).
+* плата за защищенные ВМ и хранение резервных копий ([тарифы Yandex Cloud Backup](../../backup/pricing.md)).
 
 {% endcut %}
 

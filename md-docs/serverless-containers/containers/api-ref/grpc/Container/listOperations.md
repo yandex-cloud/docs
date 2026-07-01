@@ -27,7 +27,6 @@ Required field. ID of the container to list operations for. ||
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `pageSize`, the service returns a [ListContainerOperationsResponse.next_page_token](#yandex.cloud.serverless.containers.v1.ListContainerOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
 Default value: 100.
 
 Acceptable values are 0 to 1000, inclusive. ||
@@ -40,7 +39,6 @@ The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-
 The expression must specify:
 1. The field name. Currently filtering can be applied to the [operation.Operation.done](#yandex.cloud.operation.Operation), [operation.Operation.created_by](#yandex.cloud.operation.Operation) field.
 2. An `=` operator.
@@ -83,7 +81,6 @@ List of operations for the specified container. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListContainerOperationsRequest.page_size](#yandex.cloud.serverless.containers.v1.ListContainerOperationsRequest), use `nextPageToken` as the value
 for the [ListContainerOperationsRequest.page_token](#yandex.cloud.serverless.containers.v1.ListContainerOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `nextPageToken` to continue paging through the results. ||
 |#
 

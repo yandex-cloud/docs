@@ -52,7 +52,10 @@ keywords:
                }'
      ```
 
-     Где `mdbPostgresql.clusterId` — идентификатор кластера {{ mpg-name }} в составе шарда.
+     Где:
+
+     * {% include [cluster-id](../../_includes/managed-spqr/cluster-id.md) %}
+     * `mdbPostgresql.clusterId` — идентификатор кластера {{ mpg-name }} в составе шарда.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addShard.md#yandex.cloud.operation.Operation).
 
@@ -86,7 +89,10 @@ keywords:
        yandex.cloud.mdb.spqr.v1.ClusterService.AddShard
      ```
 
-     Где `mdb_postgresql.cluster_id` — идентификатор кластера {{ mpg-name }} в составе шарда.
+     Где:
+
+     * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
+     * `mdb_postgresql.cluster_id` — идентификатор кластера {{ mpg-name }} в составе шарда.
 
 {% endlist %}
 
@@ -120,6 +126,8 @@ keywords:
        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>/shards/<имя_шарда>'
      ```
 
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/deleteShard.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
@@ -146,6 +154,8 @@ keywords:
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.ClusterService.DeleteShard
      ```
+
+     {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/deleteShard.md#yandex.cloud.operation.Operation).
 

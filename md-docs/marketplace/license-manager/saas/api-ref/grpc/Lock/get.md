@@ -4,7 +4,7 @@ Returns the specified subscription lock.
 
 ## gRPC request
 
-**rpc Get ([GetLockRequest](#yandex.cloud.marketplace.licensemanager.saas.v1.GetLockRequest)) returns ([licensemanager.v1.Lock](#yandex.cloud.marketplace.licensemanager.v1.Lock))**
+**rpc Get ([GetLockRequest](#yandex.cloud.marketplace.licensemanager.saas.v1.GetLockRequest)) returns ([yandex.cloud.marketplace.licensemanager.v1.Lock](#yandex.cloud.marketplace.licensemanager.v1.Lock))**
 
 ## GetLockRequest {#yandex.cloud.marketplace.licensemanager.saas.v1.GetLockRequest}
 
@@ -21,7 +21,7 @@ Returns the specified subscription lock.
 Required field. ID of the subscription lock. ||
 |#
 
-## licensemanager.v1.Lock {#yandex.cloud.marketplace.licensemanager.v1.Lock}
+## yandex.cloud.marketplace.licensemanager.v1.Lock {#yandex.cloud.marketplace.licensemanager.v1.Lock}
 
 ```json
 {
@@ -48,7 +48,8 @@ Required field. ID of the subscription lock. ||
       "payload": "bytes"
     }
     // end of the list of possible fields
-  }
+  },
+  "instance_prolongation": "bool"
 }
 ```
 
@@ -79,7 +80,6 @@ Update timestamp. ||
 
 Subscription lock state.
 
-- `STATE_UNSPECIFIED`
 - `UNLOCKED`: Subscription unlocked.
 - `LOCKED`: Subscription locked to the resource.
 - `DELETED`: Subscription lock deleted. ||
@@ -90,6 +90,9 @@ ID of the subscription template. ||
 
 External subscription instance (optional), for usage convenience propagated
 from parent subscription instance. ||
+|| instance_prolongation | **bool**
+
+Indicates whether the subscription lock can be automatically prolonged/renewed. ||
 |#
 
 ## ExternalInstance {#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance}

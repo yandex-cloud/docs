@@ -38,7 +38,7 @@
 
 * плата за обслуживание потока данных ([тарифы Yandex Data Streams](../../data-streams/pricing.md));
 * плата за перенос данных между источниками и приемниками ([тарифы Yandex Data Transfer](../../data-transfer/pricing.md));
-* плата за хранение данных ([тарифы Yandex Object Storage](../pricing.md)).
+* плата за хранение данных ([тарифы Yandex Object Storage](../../storage/pricing.md)).
 
 ## Настройте окружение {#setup}
 

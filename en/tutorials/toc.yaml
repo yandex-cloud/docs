@@ -262,8 +262,12 @@ items:
             href: security/single-sign-on/oidc-mws.md
           - name: '{{ OS }}'
             href: security/single-sign-on/saml-opensearch-self-managed.md
-          - name: OpenVPN Access Server
-            href: security/single-sign-on/saml-ovpn.md
+          - name: OpenVPN
+            items:
+              - name: OpenVPN Access Server
+                href: security/single-sign-on/saml-ovpn.md
+              - name: OpenVPN Community Edition
+                href: security/single-sign-on/oidc-ovpn.md
           - name: Selectel
             href: security/single-sign-on/saml-selectel.md
           - name: Sentry
@@ -395,36 +399,18 @@ items:
         href: dev/gitlab-tracker-integration.md
       - name: High-performance computing on preemptible VMs
         href: testing/hpc-on-preemptible.md
-      - name: Load testing a gRPC service
-        href: testing/loadtesting-grpc.md
-      - name: Fixed-load HTTPS testing with Phantom
-        href: testing/loadtesting-https-phantom.md
-      - name: Step-load HTTPS testing with Pandora
-        href: testing/loadtesting-https-pandora.md
-      - name: Scripted HTTP load testing with Pandora
-        href: testing/loadtesting-http-scenario-pandora.md
-      - name: Load testing using multiple agents
-        href: testing/loadtesting-multiply.md
-      - name: Running external agents for load testing
-        href: testing/loadtesting-external-agent.md
-      - name: JMeter load testing
-        href: testing/loadtesting-jmeter.md
       - name: >-
           Getting statistics on queries to {{ objstorage-name }} objects using
           {{ yq-name }}
         href: testing/server-logs-yq.md
       - name: Getting the number of queries to {{ objstorage-name }} objects
         href: testing/server-logs.md
-      - name: Invoking a load test from {{ GL }} CI
-        href: testing/loadtesting-gitlab-ci.md
       - name: Deploying {{ GLR }} on a {{ compute-name }} virtual machine
         href: dev/install-gitlab-runner.md
       - name: >-
           Deploying a {{ src-full-name }} worker on a {{ compute-name }} virtual
           machine
         href: dev/self-hosted-worker-sourcecraft.md
-      - name: Comparing load test results
-        href: testing/loadtesting-results-compare.md
       - name: Load testing migration to k6
         href: testing/loadtesting-migration-to-k6.md
       - name: >-
@@ -659,8 +645,6 @@ items:
                 href: container-infrastructure/autoscaling.md
               - name: Vertical scaling of an application in a cluster
                 href: container-infrastructure/vpa-autoscaling.md
-              - name: Deploying and load testing a scalable gRPC service
-                href: container-infrastructure/loadtesting-grpc-autoscaling.md
           - name: Usage {{ container-registry-name }}
             items:
               - name: Integration with {{ container-registry-name }}

@@ -19,9 +19,9 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for ClickHouse®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
-* Плата за ВМ: использование вычислительных ресурсов, хранилища и публичного IP-адреса (опционально) ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за DNS-зону и DNS-запросы ([тарифы Cloud DNS](../../dns/pricing.md)).
+* Плата за кластер Managed Service for ClickHouse®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Managed Service for ClickHouse®](../../../managed-clickhouse/pricing.md)).
+* Плата за ВМ: использование вычислительных ресурсов, хранилища и публичного IP-адреса (опционально) ([тарифы Compute Cloud](../../../compute/pricing.md)).
+* Плата за DNS-зону и DNS-запросы ([тарифы Cloud DNS](../../../dns/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

@@ -5,7 +5,6 @@ editable: false
 # Cloud Logging Service, gRPC: SinkService.Get
 
 Returns the specified sink.
-
 To get the list of all available sinks, make a [List](/docs/logging/api-ref/grpc/Sink/list#List) request.
 
 ## gRPC request
@@ -25,8 +24,9 @@ To get the list of all available sinks, make a [List](/docs/logging/api-ref/grpc
 || sink_id | **string**
 
 Required field. ID of the sink to return.
+To get a sink ID make a [SinkService.List](/docs/logging/api-ref/grpc/Sink/list#List) request.
 
-To get a sink ID make a [SinkService.List](/docs/logging/api-ref/grpc/Sink/list#List) request. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## Sink {#yandex.cloud.logging.v1.Sink}
@@ -83,25 +83,25 @@ Logs will be written to the sink on behalf of this service account ||
 
 Yandex data stream
 
-Includes only one of the fields `yds`, `s3`.
-
-Logs destination ||
+Includes only one of the fields `yds`, `s3`. ||
 || s3 | **[S3](#yandex.cloud.logging.v1.Sink.S3)**
 
 Object storage
 
-Includes only one of the fields `yds`, `s3`.
-
-Logs destination ||
+Includes only one of the fields `yds`, `s3`. ||
 |#
 
 ## Yds {#yandex.cloud.logging.v1.Sink.Yds}
+
+Logs destination
 
 #|
 ||Field | Description ||
 || stream_name | **string**
 
-Fully qualified name of data stream ||
+Fully qualified name of data stream
+
+The maximum string length in characters is 512. ||
 |#
 
 ## S3 {#yandex.cloud.logging.v1.Sink.S3}
@@ -110,8 +110,12 @@ Fully qualified name of data stream ||
 ||Field | Description ||
 || bucket | **string**
 
-Object storage bucket ||
+Object storage bucket
+
+Value must match the regular expression ` [a-zA-Z0-9][-a-zA-Z0-9.]{2,62} `. ||
 || prefix | **string**
 
-Prefix to use for saved log object names ||
+Prefix to use for saved log object names
+
+The maximum string length in characters is 1024. ||
 |#

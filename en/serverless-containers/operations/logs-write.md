@@ -131,7 +131,7 @@ description: Follow this guide to configure container logging.
         resource "yandex_serverless_container" "<container_name>" {
           name               = "<container_name>"
           service_account_id = "<service_account_ID>"
-          memory             = <RAM_size>
+          memory             = <RAM_amount>
           image {
             url = "<Docker_image_URL>"
           }

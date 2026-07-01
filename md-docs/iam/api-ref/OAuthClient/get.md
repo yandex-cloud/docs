@@ -64,7 +64,9 @@ List of oauth scopes requested by the oauth client. ||
 || folderId | **string**
 
 ID of the folder oauth client belongs to. ||
-|| authenticationMethods[] | **string** ||
+|| authenticationMethods[] | **string**
+
+List of authentication methods allowed for the oauth client. ||
 || status | **enum** (Status)
 
 Current status of the oauth client.

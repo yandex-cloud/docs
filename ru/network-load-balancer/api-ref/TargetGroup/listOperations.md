@@ -9,11 +9,11 @@ apiPlayground:
         targetGroupId:
           description: |-
             **string**
-            Required field. ID of the TargetGroup resource to update.
+            ID of the TargetGroup resource to update.
             To get the target group ID, use a [TargetGroupService.List](/docs/network-load-balancer/api-ref/TargetGroup/list#List) request.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
-      required:
-        - targetGroupId
       additionalProperties: false
     query:
       type: object
@@ -25,7 +25,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListTargetGroupOperationsResponse.nextPageToken](#yandex.cloud.loadbalancer.v1.ListTargetGroupOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
-          default: '100'
+            The value must be less than or equal to 1000.
           type: string
           format: int64
         pageToken:
@@ -33,6 +33,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListTargetGroupOperationsResponse.nextPageToken](#yandex.cloud.loadbalancer.v1.ListTargetGroupOperationsResponse) returned by a previous list request.
+            The length must be less than or equal to 100.
           type: string
       additionalProperties: false
     body: null
@@ -56,7 +57,9 @@ GET https://load-balancer.{{ api-host }}/load-balancer/v1/targetGroups/{targetGr
 || targetGroupId | **string**
 
 Required field. ID of the TargetGroup resource to update.
-To get the target group ID, use a [TargetGroupService.List](/docs/network-load-balancer/api-ref/TargetGroup/list#List) request. ||
+To get the target group ID, use a [TargetGroupService.List](/docs/network-load-balancer/api-ref/TargetGroup/list#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.loadbalancer.v1.ListTargetGroupOperationsRequest}
@@ -68,11 +71,13 @@ To get the target group ID, use a [TargetGroupService.List](/docs/network-load-b
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `pageSize`, the service returns a [ListTargetGroupOperationsResponse.nextPageToken](#yandex.cloud.loadbalancer.v1.ListTargetGroupOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListTargetGroupOperationsResponse.nextPageToken](#yandex.cloud.loadbalancer.v1.ListTargetGroupOperationsResponse) returned by a previous list request. ||
+[ListTargetGroupOperationsResponse.nextPageToken](#yandex.cloud.loadbalancer.v1.ListTargetGroupOperationsResponse) returned by a previous list request.
+The length must be less than or equal to 100. ||
 |#
 
 ## Response {#yandex.cloud.loadbalancer.v1.ListTargetGroupOperationsResponse}

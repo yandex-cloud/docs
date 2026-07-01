@@ -114,11 +114,11 @@ Yandex Cloud Quota Manager позволяет управлять квотами 
 
  - [Get](api-ref/grpc/QuotaRequest/get.md)
 
+ - [List](api-ref/grpc/QuotaRequest/list.md)
+
  - [Create](api-ref/grpc/QuotaRequest/create.md)
 
  - [Cancel](api-ref/grpc/QuotaRequest/cancel.md)
-
- - [List](api-ref/grpc/QuotaRequest/list.md)
 
  - [ListOperations](api-ref/grpc/QuotaRequest/listOperations.md)
 
@@ -150,11 +150,11 @@ Yandex Cloud Quota Manager позволяет управлять квотами 
 
  - [Get](api-ref/QuotaRequest/get.md)
 
+ - [List](api-ref/QuotaRequest/list.md)
+
  - [Create](api-ref/QuotaRequest/create.md)
 
  - [Cancel](api-ref/QuotaRequest/cancel.md)
-
- - [List](api-ref/QuotaRequest/list.md)
 
  - [ListOperations](api-ref/QuotaRequest/listOperations.md)
 

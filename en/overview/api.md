@@ -35,7 +35,6 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 | {{ iam-full-name }}                     | [gRPC](../iam/api-ref/grpc/)<br>[REST](../iam/api-ref/) |
 | {{ iot-full-name }}                     | [Devices gRPC](../iot-core/api-ref/grpc/)<br>[Devices REST](../iot-core/api-ref/)<br>[Broker gRPC](../iot-core/broker/api-ref/grpc/)<br>[Broker REST](../iot-core/broker/api-ref/) |
 | {{ kms-full-name }}                     | [gRPC](../kms/api-ref/grpc/)<br>[REST](../kms/api-ref/) |
-| {{ load-testing-full-name }}            | [gRPC](../load-testing/user/api-ref/grpc/)<br>[REST](../load-testing/user/api-ref/) |
 | {{ lockbox-name }} {{ tag-preview }} | [gRPC](../lockbox/api-ref/grpc/)<br>[REST](../lockbox/api-ref/) |
 | {{ maf-full-name }}                     | [gRPC](../managed-airflow/api-ref/grpc/)<br>[REST](../managed-airflow/api-ref/) |
 | {{ mkf-full-name }}                     | [gRPC](../managed-kafka/api-ref/grpc/)<br>[REST](../managed-kafka/api-ref/) |

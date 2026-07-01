@@ -326,7 +326,7 @@ To set up log transfer:
 
        1. Open the [management console]({{ link-console-main }}).
        1. Navigate to the folder specified in `folder_id`.
-       1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+       1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
        1. Open the `default` log group.
        1. On the **{{ ui-key.yacloud.common.logs }}** tab, configure filters:
           * `resource_type=logtest` to view test service logs.

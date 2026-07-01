@@ -1,4 +1,4 @@
-To create a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) access policy from a [template without additional parameters](../../iam/concepts/access-control/access-policies.md#fixed):
+To create a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) access policy from a [template without parameters](../../iam/concepts/access-control/access-policies.md#fixed):
 
 {% list tabs group=instructions %}
 

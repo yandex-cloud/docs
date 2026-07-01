@@ -2,18 +2,15 @@
 
 Returns aggregated usage report for the specified clouds
 under the specified billing account.
-
 This method provides detailed usage and cost information grouped by clouds
 within the specified billing account. The data can be filtered by various
 entity types and aggregated at different time granularities.
-
 Implementation details:
 - Results are organized by cloud, with each cloud's usage, costs, and credits detailed
 - If cloud_ids are specified, only data for those clouds is included (using OR logic)
 - When no cloud_ids are specified, data for all clouds under the billing account is returned
 - Other filters (folder_ids, service_ids, sku_ids, resource_ids, labels) are always applied if present
 - Hierarchical data structure allows analyzing costs across the organization's cloud resources
-
 Error handling:
 - Returns INVALID_ARGUMENT if the request parameters fail validation
 - Returns UNAUTHENTICATED if the user is not authenticated or the billing account does not exist
@@ -56,7 +53,6 @@ Error handling:
 ```
 
 Request for retrieving usage report data.
-
 This message defines the parameters for requesting usage reports across
 all ConsumptionCoreService methods. It supports filtering by various
 entity types and specifying the time range and aggregation period.
@@ -115,14 +111,12 @@ The filter is applied with OR logic (results include data matching any of the sp
 Optional. Filter by labels: key is label key (e.g., "env", "team", "region"),
 value is list of label values to match (e.g., ["prod", "stage"] for key "env").
 This allows filtering resources based on their attached labels.
-
 Example: To filter resources that have either (env=prod OR env=test) AND (team=finance),
 use the following filter:
 {
 "env": { "values": ["prod", "test"] },
 "team": { "values": ["finance"] }
 }
-
 Note: The filter logic is (value1 OR value2 OR ...) for each key,
 and (key1 AND key2 AND ...) between different keys. ||
 || labels_or_filter_logic | **bool**
@@ -134,17 +128,15 @@ different label keys - resources must match ANY specified label condition.
 Example with labels_or_filter_logic = false (AND logic):
 labels = {"env": ["prod"], "team": ["finance"]}
 Returns resources that have BOTH env=prod AND team=finance
-
 Example with labels_or_filter_logic = true (OR logic):
 labels = {"env": ["prod"], "team": ["finance"]}
 Returns resources that have EITHER env=prod OR team=finance (or both)
-
 Note: Within each label key, multiple values are always combined with OR
 logic. For example: {"env": ["prod", "test"]} always means env=prod OR
 env=test ||
 || resource_ids[] | **string**
 
-Optional for all requests except GetResourceUsageReport. List of resource IDs to filter the data.
+Optional. List of resource IDs to filter the data.
 If specified, only usage data from these specific resources (e.g., individual VMs, disks) will be included.
 If omitted, data from all resources used by the billing account will be included.
 Filter is applied with OR logic (results include data matching any of the specified resource IDs). ||
@@ -157,7 +149,6 @@ in time series results. Available options include:
 - MONTH: Group metrics by month, providing monthly breakdowns
 - QUARTER: Group metrics by quarter, providing quarterly breakdowns
 - YEAR: Group metrics by year, providing yearly breakdowns
-
 This setting affects the time series data returned in the periodic field of each entity.
 If omitted, the service will typically use DAY as the default granularity.
 
@@ -279,7 +270,6 @@ List of label values associated with a specific label key. ||
 ```
 
 Response for usage report requests by cloud.
-
 Contains aggregated usage, cost, and credit information organized by cloud entities,
 with both summary totals and detailed breakdowns for each cloud.
 The response includes:

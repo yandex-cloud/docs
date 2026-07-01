@@ -15,6 +15,10 @@ Syntax:
 
 #### Command Tree
 
+- [yc smartwebsecurity waf rule-set-descriptor](rule-set-descriptor/index.md) — A set of methods for managing RuleSetDescriptor resources.
+
+  - [yc smartwebsecurity waf rule-set-descriptor get](rule-set-descriptor/get.md) — Returns the specified RuleSetDescriptor resource.
+
 - [yc smartwebsecurity waf waf-profile](waf-profile/index.md) — A set of methods for managing WafProfile resources.
 
   - [yc smartwebsecurity waf waf-profile create](waf-profile/create.md) — Creates a WAF profile in the specified folder using the data specified in the request.

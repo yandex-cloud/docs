@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of registry publishing message
+            The maximum string length in characters is 50.
           type: string
       required:
         - registryId
@@ -22,11 +23,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. Topic where message should be published
+            The maximum string length in characters is 1024.
           type: string
         data:
           description: |-
             **string** (bytes)
             Content of the message
+            The maximum string length in characters is 262144.
           type: string
           format: bytes
       required:
@@ -51,7 +54,9 @@ POST https://{{ api-host-iot-data }}/iot-devices/v1/registries/{registryId}/publ
 ||Field | Description ||
 || registryId | **string**
 
-Required field. ID of registry publishing message ||
+Required field. ID of registry publishing message
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.iot.devices.v1.PublishRegistryDataRequest}
@@ -67,10 +72,14 @@ Required field. ID of registry publishing message ||
 ||Field | Description ||
 || topic | **string**
 
-Required field. Topic where message should be published ||
+Required field. Topic where message should be published
+
+The maximum string length in characters is 1024. ||
 || data | **string** (bytes)
 
-Content of the message ||
+Content of the message
+
+The maximum string length in characters is 262144. ||
 |#
 
 ## Response {#yandex.cloud.iot.devices.v1.PublishRegistryDataResponse}

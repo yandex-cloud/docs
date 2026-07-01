@@ -1,7 +1,7 @@
 # Managed Service for Redis API, REST: Cluster.UpdateHosts
 
 Updates the specified hosts.
-(-- api-linter: yc::1705::http-method-mapping=disabled --)
+
 
 ## HTTP request
 
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/host
 || clusterId | **string**
 
 Required field. ID of the Redis cluster to update hosts in.
-To get the Redis cluster ID, use a [ClusterService.List](../../../managed-redis/api-ref/Cluster/list#List) request.
+To get the Redis cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -52,7 +52,7 @@ The number of elements must be greater than 0. ||
 || hostName | **string**
 
 Required field. Name of the host to update.
-To get the Redis host name, use a [ClusterService.ListHosts](../../../managed-redis/api-ref/Cluster/listHosts#ListHosts) request. ||
+To get the Redis host name, use a [ClusterService.ListHosts](listHosts.md#ListHosts) request. ||
 || replicaPriority | **string** (int64)
 
 A replica with a low priority number is considered better for promotion.

@@ -14,7 +14,9 @@ GET https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits/{quo
 ||Field | Description ||
 || quotaId | **string**
 
-Required field. The id of the quota to retrieve. ||
+Required field. The id of the quota to retrieve.
+
+The maximum string length in characters is 64. ||
 |#
 
 ## Query parameters {#yandex.cloud.quotamanager.v1.GetQuotaLimitRequest}
@@ -32,10 +34,14 @@ Required field. The resource for which the quota limit is being requested. ||
 ||Field | Description ||
 || id | **string**
 
-Required field. The id if the resource. ||
+Required field. The id if the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.cloud, billing.account. ||
+Required field. The type of the resource, e.g. resource-manager.cloud, billing.account.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.quotamanager.v1.QuotaLimit}

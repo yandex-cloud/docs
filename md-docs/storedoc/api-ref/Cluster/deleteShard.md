@@ -15,13 +15,13 @@ DELETE https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/
 || clusterId | **string**
 
 Required field. ID of the MongoDB cluster to delete a shard in.
-To get the cluster ID, use a [ClusterService.List](../../../managed-mongodb/api-ref/Cluster/list#List) request.
+To get the cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || shardName | **string**
 
 Required field. Name of the MongoDB shard to delete.
-To get the name of the shard use a [ClusterService.ListShards](../../../managed-mongodb/api-ref/Cluster/listShards#ListShards) request.
+To get the name of the shard use a [ClusterService.ListShards](listShards.md#ListShards) request.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#

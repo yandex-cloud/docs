@@ -1,1 +1,1 @@
-Invoking a container triggers the [active revision](../../serverless-containers/concepts/container.md#revision).
+When invoking a container, its [active revision](../../serverless-containers/concepts/container.md#revision) is used.

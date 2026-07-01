@@ -1300,13 +1300,6 @@ gt4.1 ^1^ | 0
 Максимальный объем данных для шифрования [encrypt](../../kms/api-ref/SymmetricCrypto/encrypt.md)-операцией | 32 КБ
 
 
-### Yandex Load Testing {#load-testing}
-
-В сервисе Load Testing нет действующих квот.
-
-Потребление вычислительных ресурсов [агентами](../../load-testing/concepts/agent.md) учитывается в [квотах](https://console.yandex.cloud/cloud?section=quotas) и ограничено лимитами сервиса [Yandex Compute Cloud](../../compute/concepts/limits.md).
-
-
 ### Yandex Lockbox {#lockbox}
 
 #### Квоты {#quotas}

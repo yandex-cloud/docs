@@ -145,7 +145,7 @@ apiPlayground:
 
 # Managed Service for OpenSearch API, REST: Cluster.AddOpenSearchNodeGroup
 
-(-- api-linter: yc::1705::custom-method-colon=disabled
+
 Required for backward compatibility with old clients. --)
 Creates an OpenSearch type host group.
 

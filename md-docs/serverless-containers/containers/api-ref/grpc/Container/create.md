@@ -22,7 +22,6 @@ Creates a container in the specified folder.
 || folder_id | **string**
 
 Required field. ID of the folder to create a container in.
-
 To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../../../resource-manager/api-ref/grpc/Folder/list.md#List) request. ||
 || name | **string**
 
@@ -39,7 +38,7 @@ The maximum string length in characters is 256. ||
 
 Resource labels as `key:value` pairs.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. Each value must match the regular expression ` [-_./\@0-9a-z]* `. No more than 64 per resource. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -52,21 +51,10 @@ No more than 64 per resource. The maximum string length in characters for each v
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "container_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "folder_id": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "name": "string",
-    "description": "string",
-    "labels": "map<string, string>",
-    "url": "string",
-    "status": "Status"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -94,7 +82,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateContainerMetadata](#yandex.cloud.serverless.containers.v1.CreateContainerMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -109,7 +97,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Container](#yandex.cloud.serverless.containers.v1.Container)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -124,48 +112,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateContainerMetadata {#yandex.cloud.serverless.containers.v1.CreateContainerMetadata}
-
-#|
-||Field | Description ||
-|| container_id | **string**
-
-ID of the container that is being created. ||
-|#
-
-## Container {#yandex.cloud.serverless.containers.v1.Container}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the container. Generated at creation time. ||
-|| folder_id | **string**
-
-ID of the folder that the container belongs to. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp for the container. ||
-|| name | **string**
-
-Name of the container. The name is unique within the folder. ||
-|| description | **string**
-
-Description of the container. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Container labels as `key:value` pairs. ||
-|| url | **string**
-
-URL that needs to be requested to call the container. ||
-|| status | enum **Status**
-
-Status of the container.
-
-- `CREATING`: Container is being created.
-- `ACTIVE`: Container is ready for use.
-- `DELETING`: Container is being deleted.
-- `ERROR`: Container failed. The only allowed action is delete. ||
 |#

@@ -64,18 +64,18 @@ ID of the job. ||
     ],
     "cmd": "string",
     "env": {
-      "vars": "map<string, string>",
       // Includes only one of the fields `docker_image_resource_id`, `docker_image_spec`
       "docker_image_resource_id": "string",
       "docker_image_spec": {
-        "image_url": "string",
-        "username": "string",
         // Includes only one of the fields `password_plain_text`, `password_ds_secret_name`
         "password_plain_text": "string",
-        "password_ds_secret_name": "string"
+        "password_ds_secret_name": "string",
         // end of the list of possible fields
+        "image_url": "string",
+        "username": "string"
       },
       // end of the list of possible fields
+      "vars": "map<string, string>",
       "python_env": {
         "conda_yaml": "string",
         "local_modules": [
@@ -231,7 +231,6 @@ Finish job timestamp. ||
 
 Status of the job.
 
-- `JOB_STATUS_UNSPECIFIED`
 - `CREATING`
 - `EXECUTING`
 - `UPLOADING_OUTPUT`
@@ -317,7 +316,9 @@ Job environment description. ||
 Should project disk be attached to VM. ||
 || cloud_instance_types[] | **[CloudInstanceType](#yandex.cloud.datasphere.v2.jobs.CloudInstanceType)**
 
-VM specification. ||
+VM specification.
+
+The minimum number of elements is 1. ||
 || extended_working_storage | **[ExtendedWorkingStorage](#yandex.cloud.datasphere.v2.jobs.ExtendedWorkingStorage)**
 
 Extended working storage configuration. ||
@@ -350,7 +351,6 @@ File size in bytes. ||
 
 File compression info
 
-- `FILE_COMPRESSION_TYPE_UNSPECIFIED`
 - `NONE`
 - `ZIP` ||
 |#
@@ -371,9 +371,6 @@ Variable to use in cmd substitution. ||
 
 #|
 ||Field | Description ||
-|| vars | **object** (map<**string**, **string**>)
-
-Environment variables. ||
 || docker_image_resource_id | **string**
 
 DS docker image id.
@@ -382,6 +379,9 @@ Includes only one of the fields `docker_image_resource_id`, `docker_image_spec`.
 || docker_image_spec | **[DockerImageSpec](#yandex.cloud.datasphere.v2.jobs.DockerImageSpec)**
 
 Includes only one of the fields `docker_image_resource_id`, `docker_image_spec`. ||
+|| vars | **object** (map<**string**, **string**>)
+
+Environment variables. ||
 || python_env | **[PythonEnv](#yandex.cloud.datasphere.v2.jobs.PythonEnv)** ||
 |#
 
@@ -389,12 +389,6 @@ Includes only one of the fields `docker_image_resource_id`, `docker_image_spec`.
 
 #|
 ||Field | Description ||
-|| image_url | **string**
-
-Docker image URL. ||
-|| username | **string**
-
-Username for container registry. ||
 || password_plain_text | **string**
 
 Plaintext password.
@@ -409,6 +403,12 @@ ID of DataSphere secret containing password.
 Includes only one of the fields `password_plain_text`, `password_ds_secret_name`.
 
 Password for container registry. ||
+|| image_url | **string**
+
+Docker image URL. ||
+|| username | **string**
+
+Username for container registry. ||
 |#
 
 ## PythonEnv {#yandex.cloud.datasphere.v2.jobs.PythonEnv}
@@ -467,7 +467,6 @@ Extended working storage configuration.
 ||Field | Description ||
 || type | enum **StorageType**
 
-- `STORAGE_TYPE_UNSPECIFIED`
 - `SSD` ||
 || size_gb | **int64** ||
 |#
@@ -531,7 +530,6 @@ Includes only one of the fields `output_file_desc`, `log_file_name`. ||
 || description | **string** ||
 || type | enum **ErrorType**
 
-- `ERROR_TYPE_UNSPECIFIED`
 - `UPLOAD_FAILED`
 - `NOT_FOUND` ||
 |#

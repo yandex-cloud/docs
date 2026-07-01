@@ -125,6 +125,8 @@ items:
         href: concepts/supported-clients.md
       - name: Настройки {{ SD }}
         href: concepts/settings-list.md
+      - name: Политика поддержки версий {{ SD }}
+        href: concepts/update-policy.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

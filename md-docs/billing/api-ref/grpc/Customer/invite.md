@@ -53,42 +53,34 @@ Person of the customer. Contains legal information.
 || name | **string**
 
 Optional. Name of the person.
-
 String length is not limited. ||
 || longname | **string**
 
 Optional. Long name of the person.
-
 String length is not limited. ||
 || phone | **string**
 
 Optional. Phone of the person.
-
 Must be a valid telephone number or a valid [phoneword](https://en.m.wikipedia.org/wiki/Phoneword). ||
 || email | **string**
 
 Optional. Email of the person.
-
 Must be a valid [email address](https://en.wikipedia.org/wiki/Email_address). ||
 || post_code | **string**
 
 Optional. Post code of the person.
-
 String length is not limited. ||
 || post_address | **string**
 
 Optional. Post address of the person.
-
 String length is not limited. ||
 || legal_address | **string**
 
 Optional. Legal address of the person.
-
 String length is not limited. ||
 || tin | **string**
 
 Optional. Tax identification number of the person.
-
 String length is not limited. ||
 |#
 
@@ -102,16 +94,10 @@ String length is not limited. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "reseller_id": "string",
-    "customer_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "billing_account_id": "string"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -139,7 +125,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CustomerMetadata](#yandex.cloud.billing.v1.CustomerMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -154,7 +140,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Customer](#yandex.cloud.billing.v1.Customer)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -169,30 +155,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CustomerMetadata {#yandex.cloud.billing.v1.CustomerMetadata}
-
-#|
-||Field | Description ||
-|| reseller_id | **string**
-
-ID of the reseller. ||
-|| customer_id | **string**
-
-ID of the customer. ||
-|#
-
-## Customer {#yandex.cloud.billing.v1.Customer}
-
-A Customer resource.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the customer. ||
-|| billing_account_id | **string**
-
-ID of the [yandex.cloud.billing.v1.BillingAccount](../BillingAccount/get.md#yandex.cloud.billing.v1.BillingAccount) assigned to the customer. ||
 |#

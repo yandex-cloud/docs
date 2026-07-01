@@ -23,7 +23,7 @@ Creates a new MongoDB database in the specified cluster.
 || cluster_id | **string**
 
 Required field. ID of the MongoDB cluster to create a database in.
-To get the cluster ID, use a [ClusterService.List](../../../../managed-mongodb/api-ref/grpc/Cluster/list#List) request.
+To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || database_spec | **[DatabaseSpec](#yandex.cloud.mdb.mongodb.v1.DatabaseSpec)**

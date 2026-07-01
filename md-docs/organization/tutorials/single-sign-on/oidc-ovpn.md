@@ -35,7 +35,7 @@
 В стоимость поддержки инфраструктуры входят:
 
 * плата за постоянно запущенную [виртуальную машину](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование [OIDC-приложения](../../concepts/applications/oidc.md) ([тарифы Yandex Identity Hub](../../pricing.md)).
+* плата за использование [OIDC-приложения](../../concepts/applications/oidc.md) ([тарифы Yandex Identity Hub](../../../organization/pricing.md)).
 
 ## Создайте инфраструктуру {#deploy}
 

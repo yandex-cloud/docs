@@ -39,7 +39,7 @@
 * плата за хранение данных Data Streams ([тарифы Yandex Data Streams](../../data-streams/pricing.md));
 * плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы Cloud Functions](../../functions/pricing.md));
 * плата за использование Yandex Cloud Postbox ([тарифы Yandex Cloud Postbox](../../postbox/pricing.md));
-* плата за тариф DataLens ([тарифы Yandex DataLens](../pricing.md)).
+* плата за тариф DataLens ([тарифы Yandex DataLens](../../datalens/pricing.md)).
 
 
 ## Создайте сервисные аккаунты {#service-accounts}

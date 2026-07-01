@@ -32,7 +32,7 @@ apiPlayground:
 # Managed Service for ClickHouse API, REST: Cluster.DeleteExternalDictionary
 
 Deletes the specified external dictionary.
-(-- api-linter: yc::1705::http-method-mapping=disabled --)
+
 
 ## HTTP request
 

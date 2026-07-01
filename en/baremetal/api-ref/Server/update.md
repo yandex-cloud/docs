@@ -247,6 +247,17 @@ apiPlayground:
               The maximum string length in characters is 20. Value must match the regular expression ` ([a-z][a-z0-9]*)? `.
             pattern: ([a-z][a-z0-9]*)?
             type: string
+          configurationNetworkInterfaceId:
+            description: |-
+              **string**
+              ID of the configuration network interface that determines the network interface configuration.
+              The configuration network interface defines available modes (public/private) and other properties
+              for the network interface. This field is optional. If not specified, the configuration will be
+              chosen automatically on the server side based on availability. It is recommended to specify this
+              field for deterministic behavior. To get the configuration interface ID, use a
+              [ConfigurationService.ListConfigurationNetworkInterface](/docs/baremetal/api-ref/Configuration/listConfigurationNetworkInterface#ListConfigurationNetworkInterface) request or examine the `network_interfaces`
+              field in [ConfigurationService.GetConfiguration] response.
+            type: string
         allOf:
           - oneOf:
               - required:
@@ -326,7 +337,8 @@ Value must match the regular expression ` [a-z][a-z0-9]* `. ||
         "macLimit": "string"
       },
       // end of the list of possible fields
-      "id": "string"
+      "id": "string",
+      "configurationNetworkInterfaceId": "string"
     }
   ],
   "labels": "object"
@@ -373,7 +385,7 @@ The maximum string length in characters for each value is 63. The string length 
 
 ## NetworkInterfaceSpec {#yandex.cloud.baremetal.v1alpha.NetworkInterfaceSpec}
 
-(-- api-linter: yc::1704::file-separation=disabled
+
 Required for backward compatibility with old clients. --)
 
 #|
@@ -409,6 +421,15 @@ Includes only one of the fields `privateInterface`, `publicInterface`. ||
 ID of the network interface. Should not be specified when creating a server.
 
 The maximum string length in characters is 20. Value must match the regular expression ` ([a-z][a-z0-9]*)? `. ||
+|| configurationNetworkInterfaceId | **string**
+
+ID of the configuration network interface that determines the network interface configuration.
+The configuration network interface defines available modes (public/private) and other properties
+for the network interface. This field is optional. If not specified, the configuration will be
+chosen automatically on the server side based on availability. It is recommended to specify this
+field for deterministic behavior. To get the configuration interface ID, use a
+[ConfigurationService.ListConfigurationNetworkInterface](/docs/baremetal/api-ref/Configuration/listConfigurationNetworkInterface#ListConfigurationNetworkInterface) request or examine the `network_interfaces`
+field in [ConfigurationService.GetConfiguration] response. ||
 |#
 
 ## PrivateSubnetNetworkInterface {#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface}

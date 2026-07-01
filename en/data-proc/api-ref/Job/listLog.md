@@ -15,11 +15,12 @@ apiPlayground:
         jobId:
           description: |-
             **string**
-            ID of the job being created.
+            Required field. ID of the job being created.
             The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
+        - jobId
       additionalProperties: false
     query:
       type: object
@@ -115,5 +116,7 @@ This token allows you to get the next page of results for ListLog requests,
 if the number of results is larger than `page_size` specified in the request.
 To get the next page, specify the value of `next_page_token` as a value for
 the `page_token` parameter in the next ListLog request. Subsequent ListLog
-requests will have their own `next_page_token` to continue paging through the results. ||
+requests will have their own `next_page_token` to continue paging through the results.
+
+The maximum string length in characters is 200. ||
 |#

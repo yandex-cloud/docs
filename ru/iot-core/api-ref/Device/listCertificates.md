@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the device to list certificates for.
+            The maximum string length in characters is 50.
           type: string
       required:
         - deviceId
@@ -35,7 +36,9 @@ GET https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}/certifi
 ||Field | Description ||
 || deviceId | **string**
 
-Required field. ID of the device to list certificates for. ||
+Required field. ID of the device to list certificates for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iot.devices.v1.ListDeviceCertificatesResponse}

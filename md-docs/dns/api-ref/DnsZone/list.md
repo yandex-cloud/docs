@@ -15,26 +15,32 @@ GET https://dns.api.cloud.yandex.net/dns/v1/zones
 || folderId | **string**
 
 Required field. ID of the folder to list DNS zones in.
+To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
 
-To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request. ||
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListDnsZonesResponse.nextPageToken](#yandex.cloud.dns.v1.ListDnsZonesResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListDnsZonesResponse.nextPageToken](#yandex.cloud.dns.v1.ListDnsZonesResponse) returned by a previous list request. ||
+[ListDnsZonesResponse.nextPageToken](#yandex.cloud.dns.v1.ListDnsZonesResponse) returned by a previous list request.
+
+The maximum string length in characters is 1000. ||
 || filter | **string**
 
 A filter expression that filters DNS zones listed in the response.
-
 The expression must specify:
 1. The field name. Currently you can use filtering only on the [DnsZone.name](#yandex.cloud.dns.v1.DnsZone) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Example of a filter: `name=my-dns-zone`. ||
+Example of a filter: `name=my-dns-zone`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.dns.v1.ListDnsZonesResponse}
@@ -75,7 +81,6 @@ List of DNS zones in the specified folder. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListDnsZonesRequest.pageSize](#yandex.cloud.dns.v1.ListDnsZonesRequest), use `next_page_token` as the value
 for the [ListDnsZonesRequest.pageToken](#yandex.cloud.dns.v1.ListDnsZonesRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -135,5 +140,7 @@ Configuration for privately visible zones.
 ||Field | Description ||
 || networkIds[] | **string**
 
-Network IDs. ||
+Network IDs.
+
+The number of elements must be in the range 0-100. ||
 |#

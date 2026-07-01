@@ -20,6 +20,7 @@ This API reference is organized by resource. Actions are performed by sending HT
 || [Role](Role/index.md) | A set of methods for managing Role resources. ||
 || [ServiceAccount](ServiceAccount/index.md) | A set of methods for managing ServiceAccount resources. ||
 || [ServiceControl](ServiceControl/index.md) | A set of methods for managing Service resources. ||
+|| [SubjectDetails](SubjectDetails/index.md) |  ||
 || [UserAccount](UserAccount/index.md) | A set of methods for managing user accounts. Currently applicable only for [Yandex accounts](../concepts/users/accounts.md#passport). ||
 || [YandexPassportUserAccount](YandexPassportUserAccount/index.md) | A set of methods for managing YandexPassportUserAccount resources. ||
 |#

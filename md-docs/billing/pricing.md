@@ -61,7 +61,6 @@
 * [Yandex Identity Hub](../organization/pricing.md)
 * [Yandex IoT Core](../iot-core/pricing.md)
 * [Yandex Key Management Service](../kms/pricing.md)
-* [Yandex Load Testing](../load-testing/pricing.md)
 * [Yandex Lockbox](../lockbox/pricing.md)
 * [Yandex Managed Service for Apache Airflow™](../managed-airflow/pricing.md)
 * [Yandex Managed Service for Apache Kafka®](../managed-kafka/pricing.md)

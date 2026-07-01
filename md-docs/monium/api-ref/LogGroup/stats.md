@@ -15,8 +15,9 @@ GET https://logging.api.cloud.yandex.net/logging/v1/logGroups/{logGroupId}/stats
 || logGroupId | **string**
 
 Required field. ID of the log group to return stats for.
+To get a log group ID make a [LogGroupService.List](../../../logging/api-ref/LogGroup/list.md#List) request.
 
-To get a log group ID make a [LogGroupService.List](../../../logging/api-ref/LogGroup/list.md#List) request. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## Response {#yandex.cloud.logging.v1.GetLogGroupStatsResponse}

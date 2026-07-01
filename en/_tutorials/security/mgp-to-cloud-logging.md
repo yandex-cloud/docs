@@ -18,7 +18,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
    * Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-      1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
       1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Enter a name for the cluster.
       1. Select the DBMS version ({{ GP }} or {{ CB }}). Learn more about [available DBMS versions](../../managed-greenplum/concepts/overview.md).
@@ -76,7 +76,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
       * `--service-account`: ID of the service account you [created earlier](#before-you-begin).
 
-      * `--log-enabled`: Enables log transfer. It is required for other flags responsible for transferring specific logs, e.g., `--log-greenplum-enabled`.
+      * `--log-enabled`: Enables log transfer. Required for other flags responsible for transferring specific logs, e.g., `--log-greenplum-enabled`.
 
       * `--log-greenplum-enabled`: Transferring DBMS logs.
 
@@ -222,7 +222,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
    * Management console {#console}
 
       1. In the management console, navigate to the relevant folder.
-      1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Click the row with the `default` log group.
 
       The page that opens will show the log group entries.
@@ -281,7 +281,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
    * Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-      1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
       1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Enter a name for the cluster.
       1. Select the DBMS version ({{ GP }} or {{ CB }}). Learn more about [available DBMS versions](../../managed-greenplum/concepts/overview.md).
@@ -339,7 +339,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
       * `--service-account`: ID of the service account you [created earlier](#before-you-begin).
 
-      * `--log-enabled`: Enables log transfer. It is required for other flags responsible for transferring specific logs, e.g., `--log-greenplum-enabled`.
+      * `--log-enabled`: Enables log transfer. Required for other flags responsible for transferring specific logs, e.g., `--log-greenplum-enabled`.
 
       * `--log-greenplum-enabled`: Transferring DBMS logs.
 
@@ -485,7 +485,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
    * Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-      1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Click the row with the `my-log-group` log group.
 
       The page that opens will show the records.

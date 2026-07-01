@@ -30,4 +30,4 @@ output "permission" {
   - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `permission` [Block]. Set of permissions granted to the user.
   - `database_name` (**Required**)(String). The name of the database that the permission grants access to.
-  - `roles` (Set Of String). The roles of the user in this database. For more information see [the official documentation](../../managed-mongodb/concepts/users-and-roles).
+  - `roles` (Set Of String). The roles of the user in this database. For more information see [the official documentation](../../storedoc/concepts/users-and-roles.md).

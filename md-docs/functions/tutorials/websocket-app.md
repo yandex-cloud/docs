@@ -50,7 +50,7 @@
 * плата за хранение данных и операции с данными ([тарифы Yandex Object Storage](../../storage/pricing.md));
 * плата за запросы к созданным API-шлюзам и исходящий трафик ([тарифы Yandex API Gateway](../../api-gateway/pricing.md));
 * плата за запросы к очередям и исходящий трафик ([тарифы Yandex Message Queue](../../message-queue/pricing.md));
-* плата за вызовы функций и вычислительные ресурсы, выделенные для выполнения функций ([тарифы Yandex Cloud Functions](../pricing.md)).
+* плата за вызовы функций и вычислительные ресурсы, выделенные для выполнения функций ([тарифы Yandex Cloud Functions](../../functions/pricing.md)).
 
 ## Подготовьте окружение {#prepare}
 

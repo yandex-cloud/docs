@@ -8,7 +8,6 @@
 * [Хранение Docker-образов из проектов Yandex Managed Service for GitLab](image-storage.md)
 * [Подключение к Container Registry из Virtual Private Cloud](vpc-cr-access.md)
 * [Настройка отказоустойчивой архитектуры в Yandex Cloud](fault-tolerance.md)
-* [Запуск внешних агентов для нагрузочного тестирования](loadtesting-external-agent.md)
 * [Запуск контейнерного приложения в Yandex Serverless Containers](deploy-app-container.md)
 * [Развертывание gRPC-сервиса на основе Docker-образа](grpc-node.md)
 * [Развертывание сервиса в Yandex DataSphere на основе Docker-образа](node-from-docker.md)

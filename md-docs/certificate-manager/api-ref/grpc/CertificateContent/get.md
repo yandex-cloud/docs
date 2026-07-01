@@ -20,10 +20,14 @@ Returns chain and private key of the specified certificate.
 ||Field | Description ||
 || certificate_id | **string**
 
-ID of the certificate to download content. ||
+Required field. ID of the certificate to download content.
+
+The maximum string length in characters is 50. ||
 || version_id | **string**
 
-Optional ID of the version. ||
+Optional ID of the version.
+
+The maximum string length in characters is 50. ||
 || private_key_format | enum **PrivateKeyFormat**
 
 Desired format of private key

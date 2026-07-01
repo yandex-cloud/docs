@@ -14,7 +14,9 @@ GET https://iot-devices.api.cloud.yandex.net/iot-devices/v1/devices/{deviceId}/c
 ||Field | Description ||
 || deviceId | **string**
 
-Required field. ID of the device to list certificates for. ||
+Required field. ID of the device to list certificates for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iot.devices.v1.ListDeviceCertificatesResponse}

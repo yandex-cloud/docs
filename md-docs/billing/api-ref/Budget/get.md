@@ -26,13 +26,12 @@ The maximum string length in characters is 50. ||
 
 ```json
 {
-  "id": "string",
-  "name": "string",
-  "createdAt": "string",
-  "billingAccountId": "string",
-  "status": "string",
   // Includes only one of the fields `costBudget`, `expenseBudget`, `balanceBudget`
   "costBudget": {
+    // Includes only one of the fields `resetPeriod`, `startDate`
+    "resetPeriod": "string",
+    "startDate": "string",
+    // end of the list of possible fields
     "amount": "string",
     "notificationUserAccountIds": [
       "string"
@@ -59,13 +58,13 @@ The maximum string length in characters is 50. ||
         }
       ]
     },
-    // Includes only one of the fields `resetPeriod`, `startDate`
-    "resetPeriod": "string",
-    "startDate": "string",
-    // end of the list of possible fields
     "endDate": "string"
   },
   "expenseBudget": {
+    // Includes only one of the fields `resetPeriod`, `startDate`
+    "resetPeriod": "string",
+    "startDate": "string",
+    // end of the list of possible fields
     "amount": "string",
     "notificationUserAccountIds": [
       "string"
@@ -92,10 +91,6 @@ The maximum string length in characters is 50. ||
         }
       ]
     },
-    // Includes only one of the fields `resetPeriod`, `startDate`
-    "resetPeriod": "string",
-    "startDate": "string",
-    // end of the list of possible fields
     "endDate": "string"
   },
   "balanceBudget": {
@@ -114,8 +109,13 @@ The maximum string length in characters is 50. ||
     ],
     "startDate": "string",
     "endDate": "string"
-  }
+  },
   // end of the list of possible fields
+  "id": "string",
+  "name": "string",
+  "createdAt": "string",
+  "billingAccountId": "string",
+  "status": "string"
 }
 ```
 
@@ -123,6 +123,27 @@ A Budget resource. For more information, see [/docs/billing/concepts/budget].
 
 #|
 ||Field | Description ||
+|| costBudget | **[CostBudgetSpec](#yandex.cloud.billing.v1.CostBudgetSpec)**
+
+Cost budget specification.
+
+Includes only one of the fields `costBudget`, `expenseBudget`, `balanceBudget`.
+
+Specification of the budget. ||
+|| expenseBudget | **[ExpenseBudgetSpec](#yandex.cloud.billing.v1.ExpenseBudgetSpec)**
+
+Expense budget specification.
+
+Includes only one of the fields `costBudget`, `expenseBudget`, `balanceBudget`.
+
+Specification of the budget. ||
+|| balanceBudget | **[BalanceBudgetSpec](#yandex.cloud.billing.v1.BalanceBudgetSpec)**
+
+Balance budget specification.
+
+Includes only one of the fields `costBudget`, `expenseBudget`, `balanceBudget`.
+
+Specification of the budget. ||
 || id | **string**
 
 ID of the budget. ||
@@ -149,27 +170,6 @@ Status of the budget.
 - `CREATING`: The budget is being created.
 - `ACTIVE`: The budget is active.
 - `FINISHED`: The budget is finished. ||
-|| costBudget | **[CostBudgetSpec](#yandex.cloud.billing.v1.CostBudgetSpec)**
-
-Cost budget specification.
-
-Includes only one of the fields `costBudget`, `expenseBudget`, `balanceBudget`.
-
-Specification of the budget. ||
-|| expenseBudget | **[ExpenseBudgetSpec](#yandex.cloud.billing.v1.ExpenseBudgetSpec)**
-
-Expense budget specification.
-
-Includes only one of the fields `costBudget`, `expenseBudget`, `balanceBudget`.
-
-Specification of the budget. ||
-|| balanceBudget | **[BalanceBudgetSpec](#yandex.cloud.billing.v1.BalanceBudgetSpec)**
-
-Balance budget specification.
-
-Includes only one of the fields `costBudget`, `expenseBudget`, `balanceBudget`.
-
-Specification of the budget. ||
 |#
 
 ## CostBudgetSpec {#yandex.cloud.billing.v1.CostBudgetSpec}
@@ -178,22 +178,6 @@ Cost budget specification describes budget that can be used to control cost of c
 
 #|
 ||Field | Description ||
-|| amount | **string**
-
-Required field. Max cost threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](../BillingAccount/get.md#yandex.cloud.billing.v1.BillingAccount). ||
-|| notificationUserAccountIds[] | **string**
-
-User account IDs.
-Specified users will be be notified if the budget exceeds.
-
-The minimum number of elements is 1. ||
-|| thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
-
-List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule).
-Rules define intermediate cost thresholds of the budget. ||
-|| filter | **[ConsumptionFilter](#yandex.cloud.billing.v1.ConsumptionFilter)**
-
-Filter that can be used for specific resources selection. Only consumption cost of selected resources are used for the budget calculation. ||
 || resetPeriod | **enum** (ResetPeriodType)
 
 Periodic start type that resets budget after specified period is finished.
@@ -214,6 +198,22 @@ Must be the first day of a month and must be formatted like YYYY-MM-DD.
 Includes only one of the fields `resetPeriod`, `startDate`.
 
 Start type of the budget. ||
+|| amount | **string**
+
+Required field. Max cost threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](../BillingAccount/get.md#yandex.cloud.billing.v1.BillingAccount). ||
+|| notificationUserAccountIds[] | **string**
+
+User account IDs.
+Specified users will be be notified if the budget exceeds.
+
+The minimum number of elements is 1. ||
+|| thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
+
+List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule).
+Rules define intermediate cost thresholds of the budget. ||
+|| filter | **[ConsumptionFilter](#yandex.cloud.billing.v1.ConsumptionFilter)**
+
+Filter that can be used for specific resources selection. Only consumption cost of selected resources are used for the budget calculation. ||
 || endDate | **string**
 
 Required field. End date of the budget.
@@ -284,22 +284,6 @@ Expense budget specification describes budget that can be used to control expens
 
 #|
 ||Field | Description ||
-|| amount | **string**
-
-Required field. Max expense threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](../BillingAccount/get.md#yandex.cloud.billing.v1.BillingAccount). ||
-|| notificationUserAccountIds[] | **string**
-
-User account IDs.
-Specified users will be be notified if the budget exceeds.
-
-The minimum number of elements is 1. ||
-|| thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
-
-List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule).
-Rules define intermediate expense thresholds of the budget. ||
-|| filter | **[ConsumptionFilter](#yandex.cloud.billing.v1.ConsumptionFilter)**
-
-Filter that can be used for specific resources selection. Only consumption expense of selected resources are used for the budget calculation. ||
 || resetPeriod | **enum** (ResetPeriodType)
 
 Periodic start type that resets budget after specified period is finished.
@@ -320,6 +304,22 @@ Must be the first day of a month and must be formatted like YYYY-MM-DD.
 Includes only one of the fields `resetPeriod`, `startDate`.
 
 Start type of the budget. ||
+|| amount | **string**
+
+Required field. Max expense threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](../BillingAccount/get.md#yandex.cloud.billing.v1.BillingAccount). ||
+|| notificationUserAccountIds[] | **string**
+
+User account IDs.
+Specified users will be be notified if the budget exceeds.
+
+The minimum number of elements is 1. ||
+|| thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
+
+List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule).
+Rules define intermediate expense thresholds of the budget. ||
+|| filter | **[ConsumptionFilter](#yandex.cloud.billing.v1.ConsumptionFilter)**
+
+Filter that can be used for specific resources selection. Only consumption expense of selected resources are used for the budget calculation. ||
 || endDate | **string**
 
 Required field. End date of the budget.

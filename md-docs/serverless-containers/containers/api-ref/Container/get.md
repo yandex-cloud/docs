@@ -1,7 +1,6 @@
 # Serverless Containers Service, REST: Container.Get
 
 Returns the specified container.
-
 To get the list of all available containers, make a [List](list.md#List) request.
 
 ## HTTP request
@@ -17,7 +16,6 @@ GET https://serverless-containers.api.cloud.yandex.net/containers/v1/containers/
 || containerId | **string**
 
 Required field. ID of the container to return.
-
 To get a container ID make a [ContainerService.List](list.md#List) request. ||
 |#
 

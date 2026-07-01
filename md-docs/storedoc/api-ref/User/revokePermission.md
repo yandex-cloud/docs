@@ -15,13 +15,13 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/us
 || clusterId | **string**
 
 Required field. ID of the MongoDB cluster the user belongs to.
-To get the cluster ID, use a [ClusterService.List](../../../managed-mongodb/api-ref/Cluster/list#List) request.
+To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || userName | **string**
 
 Required field. Name of the user to revoke a permission from.
-To get the name of the user, use a [UserService.List](../../../managed-mongodb/api-ref/User/list#List) request.
+To get the name of the user, use a [UserService.List](list.md#List) request.
 
 The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$ `. ||
 |#

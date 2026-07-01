@@ -1646,6 +1646,7 @@ Currently page_size, page_token, filter and order_by are not supported and List 
         }
       ],
       "created_at": "google.protobuf.Timestamp",
+      "updated_at": "google.protobuf.Timestamp",
       "cloud_id": "string",
       "captcha_id": "string",
       "advanced_rate_limiter_profile_id": "string",
@@ -1722,6 +1723,9 @@ List of security rules. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Update timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || cloud_id | **string**
 
 ID of the cloud that the security profile belongs to. ||

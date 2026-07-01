@@ -98,7 +98,9 @@ description: Various security use cases in {{ yandex-cloud }}.
 * [{{ mos-name }}](./single-sign-on/saml-opensearch.md)
 * [MWS](./single-sign-on/oidc-mws.md)
 * [{{ OS }}](./single-sign-on/saml-opensearch-self-managed.md)
-* [OpenVPN Access Server](./single-sign-on/saml-ovpn.md)
+* OpenVPN
+    * [OpenVPN Access Server](./single-sign-on/saml-ovpn.md)
+    * [OpenVPN Community Edition](./single-sign-on/oidc-ovpn.md)
 * [Selectel](./single-sign-on/saml-selectel.md)
 * [Sentry](./single-sign-on/saml-sentry.md)
 * [SonarQube](single-sign-on/saml-sonarqube.md)

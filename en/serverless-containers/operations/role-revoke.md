@@ -1,17 +1,17 @@
 ---
-title: Revoking roles assigned to a container
-description: Use this guide to revoke roles assigned to a container.
+title: Revoking roles assigned for a container
+description: Follow this guide to revoke roles assigned for a container.
 ---
 
-# Revoking roles assigned to a container
+# Revoking roles assigned for a container
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-  To revoke a [role](../security/index.md) for a container, run this command:
+  Run this command to revoke a [role](../security/index.md) for a container:
 
-    * User:
+    * From a user:
         ```
         yc serverless container remove-access-binding \
           --name <container_name> \
@@ -22,7 +22,7 @@ description: Use this guide to revoke roles assigned to a container.
         ```
         done (1s)
         ```
-    * [Service account](../../iam/concepts/users/service-accounts.md):
+    * From a [service account](../../iam/concepts/users/service-accounts.md):
         ```
         yc serverless container remove-access-binding \
           --name <container_name> \
@@ -33,7 +33,7 @@ description: Use this guide to revoke roles assigned to a container.
         ```
         done (1s)
         ```
-    * All authorized users (the `All authenticated users` [public group](../../iam/concepts/access-control/public-group.md)):
+    * From all authenticated users (the `All authenticated users` [public group](../../iam/concepts/access-control/public-group.md)):
         ```
         yc serverless container remove-access-binding \
           --name <container_name> \
@@ -47,6 +47,6 @@ description: Use this guide to revoke roles assigned to a container.
 
 - API {#api}
 
-  To revoke container roles, use the [updateAccessBindings](../containers/api-ref/Container/updateAccessBindings.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/UpdateAccessBindings](../containers/api-ref/grpc/Container/updateAccessBindings.md) gRPC API call.
+  To revoke roles for a container, use the [updateAccessBindings](../containers/api-ref/Container/updateAccessBindings.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/UpdateAccessBindings](../containers/api-ref/grpc/Container/updateAccessBindings.md) gRPC API call.
 
 {% endlist %}

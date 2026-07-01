@@ -1,6 +1,6 @@
 # yandex_mdb_redis_cluster (DataSource)
 
-Get information about a Yandex Managed Redis cluster. For more information, see [the official documentation](../../managed-redis/concepts).
+Get information about a Yandex Managed Redis cluster. For more information, see [the official documentation](../../managed-valkey/concepts/index.md).
 
 {% note warning %}
 
@@ -65,7 +65,7 @@ output "network_id" {
   - `planned_usage_threshold` (Number). Maintenance window autoscaling disk usage (percent).
 - `environment` (**Required**)(String). Deployment environment of the Redis cluster. Can be either `PRESTABLE` or `PRODUCTION`.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `health` (*Read-Only*) (String). Aggregated health of the cluster. Can be either `ALIVE`, `DEGRADED`, `DEAD` or `HEALTH_UNKNOWN`. For more information see `health` field of JSON representation in [the official documentation](../../managed-redis/api-ref/Cluster).
+- `health` (*Read-Only*) (String). Aggregated health of the cluster. Can be either `ALIVE`, `DEGRADED`, `DEAD` or `HEALTH_UNKNOWN`. For more information see `health` field of JSON representation in [the official documentation](../../managed-valkey/api-ref/Cluster/index.md).
 - `host` [Block]. A host of the Redis cluster.
   - `assign_public_ip` (Bool). Sets whether the host should get a public IP address or not.
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
@@ -85,8 +85,8 @@ output "network_id" {
 - `resources` [Block]. Resources allocated to hosts of the Redis cluster.
   - `disk_size` (**Required**)(Number). Volume of the storage available to a host, in gigabytes.
   - `disk_type_id` (String). Type of the storage of Redis hosts - environment default is used if missing.
-  - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](../../managed-redis/concepts).
+  - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](../../managed-valkey/concepts/index.md).
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
 - `sharded` (Bool). Redis Cluster mode enabled/disabled. Enables sharding when cluster non-sharded. If cluster is sharded - disabling is not allowed.
-- `status` (*Read-Only*) (String). Status of the cluster. Can be either `CREATING`, `STARTING`, `RUNNING`, `UPDATING`, `STOPPING`, `STOPPED`, `ERROR` or `STATUS_UNKNOWN`. For more information see `status` field of JSON representation in [the official documentation](../../managed-redis/api-ref/Cluster).
+- `status` (*Read-Only*) (String). Status of the cluster. Can be either `CREATING`, `STARTING`, `RUNNING`, `UPDATING`, `STOPPING`, `STOPPED`, `ERROR` or `STATUS_UNKNOWN`. For more information see `status` field of JSON representation in [the official documentation](../../managed-valkey/api-ref/Cluster/index.md).
 - `tls_enabled` (Bool). TLS support mode enabled/disabled.

@@ -39,7 +39,7 @@
 
 * плата за хранение данных в бакете ([тарифы Object Storage](../../storage/pricing.md#prices-storage));
 * плата за операции с данными ([тарифы Object Storage](../../storage/pricing.md#prices-operations));
-* плата за использование ключей KMS ([тарифы Key Management Service](../pricing.md#prices)).
+* плата за использование ключей KMS ([тарифы Key Management Service](../../kms/pricing.md#prices)).
 
 
 ## Создайте бакет {#create-bucket}

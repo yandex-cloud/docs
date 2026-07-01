@@ -24,7 +24,7 @@
 В стоимость поддержки создаваемого решения входят:
 
 * плата за использование [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../concepts/vm.md) ([тарифы Yandex Compute Cloud](../../pricing.md));
+* плата за вычислительные ресурсы и диски [ВМ](../../concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
 * плата за использование публичной [DNS-зоны](../../../dns/concepts/dns-zone.md) и публичные [DNS-запросы](../../../glossary/dns.md) ([тарифы Yandex Cloud DNS](../../../dns/pricing.md)).
 
 ## Делегируйте домен сервису Cloud DNS {#delegate-domain}

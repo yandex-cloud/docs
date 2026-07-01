@@ -67,5 +67,5 @@ Is default version. ||
 || deprecated | **bool**
 
 Is version deprecated.
-(-- api-linter: yc::1703::deprecated-annotation=disabled --) ||
+ ||
 |#

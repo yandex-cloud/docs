@@ -28,11 +28,11 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за использование бакета Yandex Object Storage ([тарифы Object Storage](../../../storage/pricing.md));
-* плата за хранение и запросы секретов Yandex Lockbox ([тарифы Yandex Lockbox](../../../lockbox/pricing.md));
-* плата за вызовы функций и вычислительные ресурсы, выделенные для выполнения функций ([тарифы Cloud Functions](../../pricing.md));
-* плата за объем считанных из источников данных при исполнении запросов Query ([тарифы Query](../../../query/pricing.md));
-* плата за использование DataLens в соответствии с тарифным планом ([тарифы DataLens](../../../datalens/pricing.md)).
+* плата за использование бакета Yandex Object Storage ([тарифы Object Storage](../../storage/pricing.md));
+* плата за хранение и запросы секретов Yandex Lockbox ([тарифы Yandex Lockbox](../../lockbox/pricing.md));
+* плата за вызовы функций и вычислительные ресурсы, выделенные для выполнения функций ([тарифы Cloud Functions](../../functions/pricing.md));
+* плата за объем считанных из источников данных при исполнении запросов Query ([тарифы Query](../../query/pricing.md));
+* плата за использование DataLens в соответствии с тарифным планом ([тарифы DataLens](../../datalens/pricing.md)).
 
 ## Подготовьте инфраструктуру {#prepare-infrastructure}
 

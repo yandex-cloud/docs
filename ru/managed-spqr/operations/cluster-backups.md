@@ -96,6 +96,9 @@ description: Как создавать резервные копии и восс
 
       * `--time` — момент времени, на который нужно восстановить состояние кластера, в формате `yyyy-mm-ddThh:mm:ssZ`.
       * `--name` — имя кластера.
+
+        {% include [cluster-name](../../_includes/managed-spqr/cluster-name.md) %}
+
       * `--description` — описание кластера.
       * `--environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
       * `--network-id` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
@@ -220,6 +223,9 @@ description: Как создавать резервные копии и восс
         Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
 
       * `name` — имя кластера.
+
+        {% include [cluster-name](../../_includes/managed-spqr/cluster-name.md) %}
+
       * `description` — описание кластера.
       * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
       * `configSpec.spqrSpec.router.resources` — параметры ресурсов хостов роутера:
@@ -389,6 +395,9 @@ description: Как создавать резервные копии и восс
         Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
 
       * `name` — имя кластера.
+
+        {% include [cluster-name](../../_includes/managed-spqr/cluster-name.md) %}
+
       * `description` — описание кластера.
       * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
       * `config_spec.spqr_spec.router.resources` — параметры ресурсов хостов роутера:
@@ -508,6 +517,8 @@ description: Как создавать резервные копии и восс
       yc managed-sharded-postgresql cluster backup <имя_или_идентификатор_кластера>
       ```
 
+      {% include [cluster-name-id](../../_includes/managed-spqr/cluster-name-id.md) %}
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -523,6 +534,8 @@ description: Как создавать резервные копии и восс
         --header "Content-Type: application/json" \
         --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>:backup'
       ```
+
+      {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation).
 
@@ -549,6 +562,8 @@ description: Как создавать резервные копии и восс
         {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.spqr.v1.ClusterService.Backup
       ```
+
+      {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation).
 
@@ -588,7 +603,9 @@ description: Как создавать резервные копии и восс
 
       ```bash
       yc managed-sharded-postgresql cluster list-backups <имя_или_идентификатор_кластера>
-      ```    
+      ```
+
+      {% include [cluster-name-id](../../_includes/managed-spqr/cluster-name-id.md) %}
 
   Чтобы получить список резервных копий всех кластеров {{ mspqr-name }} в каталоге:
 
@@ -620,6 +637,8 @@ description: Как создавать резервные копии и восс
             --header "Authorization: Bearer $IAM_TOKEN" \
             --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>/backups'
           ```
+
+          {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
       1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.spqr.v1.ListClusterBackupsResponse).
 
@@ -666,6 +685,8 @@ description: Как создавать резервные копии и восс
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.spqr.v1.ClusterService.ListBackups
           ```
+
+          {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
 
       1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.spqr.v1.ListClusterBackupsResponse).
 
@@ -813,6 +834,8 @@ description: Как создавать резервные копии и восс
 
       Где `--backup-window-start` — время начала ежедневного резервного копирования по UTC в формате `HH:MM:SS`.
 
+      {% include [cluster-name-id](../../_includes/managed-spqr/cluster-name-id.md) %}
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -867,6 +890,8 @@ description: Как создавать резервные копии и восс
         --data "@body.json"
       ```
 
+      {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
@@ -880,6 +905,7 @@ description: Как создавать резервные копии и восс
 
       ```json
       {
+        "cluster_id": "<идентификатор_кластера>",
         "update_mask": {
           "paths": [
             "config_spec.backup_window_start"
@@ -898,6 +924,7 @@ description: Как создавать резервные копии и восс
 
       Где:
 
+      * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
         {% cut "Формат перечисления настроек" %}
@@ -982,6 +1009,8 @@ description: Как создавать резервные копии и восс
 
       Где `--backup-retain-period-days` — срок хранения автоматических резервных копий кластера. Возможные значения: от `7` до `60` дней. По умолчанию — `7`.
 
+      {% include [cluster-name-id](../../_includes/managed-spqr/cluster-name-id.md) %}
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -1024,6 +1053,8 @@ description: Как создавать резервные копии и восс
         --data "@body.json"
       ```
 
+      {% include [cluster-id-standard](../../_includes/managed-spqr/cluster-id-standard.md) %}
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
@@ -1037,6 +1068,7 @@ description: Как создавать резервные копии и восс
 
       ```json
       {
+        "cluster_id": "<идентификатор_кластера>",
         "update_mask": {
           "paths": [
             "config_spec.backup_retain_period_days"
@@ -1050,6 +1082,7 @@ description: Как создавать резервные копии и восс
 
       Где:
 
+      * {% include [cluster-id-cluster](../../_includes/managed-spqr/cluster-id-cluster.md) %}
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
         {% cut "Формат перечисления настроек" %}

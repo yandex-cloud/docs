@@ -109,8 +109,8 @@ links:
     description: Управление ключами шифрования
     href: kms/
   - title: Yandex Load Testing
-    description: Нагрузочное тестирование сервисов и приложений
-    href: load-testing/
+    description: Информация о закрытии сервиса и миграции на k6
+    href: load-testing/sunset
   - title: Yandex Lockbox
     description: Создание и хранение секретов
     href: lockbox/

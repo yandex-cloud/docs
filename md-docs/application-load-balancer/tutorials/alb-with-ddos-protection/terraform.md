@@ -28,7 +28,7 @@
 * плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
 * плата за использование [публичного статического IP-адреса](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
 * плата за фильтрацию входящего трафика на публичный IP-адрес с [защитой от DDoS-атак](../../../vpc/ddos-protection/index.md) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-ddos-protection));
-* плата за использование вычислительных ресурсов [L7-балансировщика](../../concepts/index.md) ([тарифы Application Load Balancer](../../pricing.md)).
+* плата за использование вычислительных ресурсов [L7-балансировщика](../../concepts/index.md) ([тарифы Application Load Balancer](../../../application-load-balancer/pricing.md)).
 
 
 ## Создайте инфраструктуру {#deploy}

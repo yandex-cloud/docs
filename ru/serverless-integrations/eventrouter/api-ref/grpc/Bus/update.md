@@ -53,7 +53,7 @@ The maximum string length in characters is 256. ||
 
 New labels of the bus.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || deletion_protection | **bool**
 
 New flag that disallow deletion of the bus. ||
@@ -73,7 +73,7 @@ New options for logging from the bus. ||
 
 Entry will be written to log group resolved by ID.
 
-The maximum string length in characters is 50.
+The maximum string length in characters is 50. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `log_group_id`, `folder_id`.
 
@@ -82,7 +82,7 @@ Log entries destination. ||
 
 Entry will be written to default log group for specified folder.
 
-The maximum string length in characters is 50.
+The maximum string length in characters is 50. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `log_group_id`, `folder_id`.
 
@@ -90,7 +90,6 @@ Log entries destination. ||
 || min_level | enum **Level**
 
 Minimum log entry level.
-
 See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.
@@ -117,30 +116,10 @@ May be used to alert about unrecoverable failures and events. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "bus_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "folder_id": "string",
-    "cloud_id": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "name": "string",
-    "description": "string",
-    "labels": "map<string, string>",
-    "deletion_protection": "bool",
-    "status": "Status",
-    "logging_enabled": "bool",
-    "log_options": {
-      // Includes only one of the fields `log_group_id`, `folder_id`
-      "log_group_id": "string",
-      "folder_id": "string",
-      // end of the list of possible fields
-      "min_level": "Level"
-    }
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -168,7 +147,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateBusMetadata](#yandex.cloud.serverless.eventrouter.v1.UpdateBusMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -183,7 +162,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Bus](#yandex.cloud.serverless.eventrouter.v1.Bus)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -198,98 +177,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateBusMetadata {#yandex.cloud.serverless.eventrouter.v1.UpdateBusMetadata}
-
-#|
-||Field | Description ||
-|| bus_id | **string**
-
-Required field. ID of the bus that is being updated. ||
-|#
-
-## Bus {#yandex.cloud.serverless.eventrouter.v1.Bus}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the bus. ||
-|| folder_id | **string**
-
-ID of the folder that the bus belongs to. ||
-|| cloud_id | **string**
-
-ID of the cloud that the bus resides in. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp. ||
-|| name | **string**
-
-Name of the bus. ||
-|| description | **string**
-
-Description of the bus. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `key:value` pairs. ||
-|| deletion_protection | **bool**
-
-Deletion protection. ||
-|| status | enum **Status**
-
-Status of the bus.
-
-- `CREATING`
-- `ACTIVE`
-- `DELETING` ||
-|| logging_enabled | **bool**
-
-Is logging from the bus enabled. ||
-|| log_options | **[LogOptions](#yandex.cloud.serverless.eventrouter.v1.LogOptions2)**
-
-Options for logging from the bus. ||
-|#
-
-## LogOptions {#yandex.cloud.serverless.eventrouter.v1.LogOptions2}
-
-#|
-||Field | Description ||
-|| log_group_id | **string**
-
-Entry will be written to log group resolved by ID.
-
-The maximum string length in characters is 50.
-
-Includes only one of the fields `log_group_id`, `folder_id`.
-
-Log entries destination. ||
-|| folder_id | **string**
-
-Entry will be written to default log group for specified folder.
-
-The maximum string length in characters is 50.
-
-Includes only one of the fields `log_group_id`, `folder_id`.
-
-Log entries destination. ||
-|| min_level | enum **Level**
-
-Minimum log entry level.
-
-See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
-
-- `TRACE`: Trace log level.
-Possible use case: verbose logging of some business logic.
-- `DEBUG`: Debug log level.
-Possible use case: debugging special cases in application logic.
-- `INFO`: Info log level.
-Mostly used for information messages.
-- `WARN`: Warn log level.
-May be used to alert about significant events.
-- `ERROR`: Error log level.
-May be used to alert about errors in infrastructure, logic, etc.
-- `FATAL`: Fatal log level.
-May be used to alert about unrecoverable failures and events. ||
 |#

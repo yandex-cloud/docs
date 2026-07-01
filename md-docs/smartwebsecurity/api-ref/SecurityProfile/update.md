@@ -1639,10 +1639,26 @@ Required field. ID of the security profile to update. ||
   ],
   "captchaId": "string",
   "advancedRateLimiterProfileId": "string",
+  "disallowDataProcessing": "boolean",
   "analyzeRequestBody": {
     "sizeLimit": "string",
     "sizeLimitAction": "string"
-  }
+  },
+  "logOptions": {
+    "logGroupId": "string",
+    "enable": "boolean",
+    "enabledModules": [
+      "string"
+    ],
+    "enabledActions": [
+      "string"
+    ],
+    "discardAllowPercentage": "string",
+    "outputs": [
+      "string"
+    ]
+  },
+  "customPageId": "string"
 }
 ```
 
@@ -1684,9 +1700,18 @@ Captcha ID to use with this security profile. Set empty to use default. ||
 || advancedRateLimiterProfileId | **string**
 
 Advanced rate limiter profile ID to use with this security profile. Set empty to use default. ||
+|| disallowDataProcessing | **boolean**
+
+Disables the use of HTTP request data for training and improving the service's ML models. ||
 || analyzeRequestBody | **[AnalyzeRequestBody](#yandex.cloud.smartwebsecurity.v1.SecurityProfile.AnalyzeRequestBody)**
 
 Parameters for request body analyzer. ||
+|| logOptions | **[LogOptions](#yandex.cloud.smartwebsecurity.v1.SecurityProfile.LogOptions)**
+
+Configures logging of requests processed by SWS to Audit Trails and Cloud Logging. ||
+|| customPageId | **string**
+
+ID of the default custom page shown to the user when a request is denied. ||
 |#
 
 ## SecurityRule {#yandex.cloud.smartwebsecurity.v1.SecurityRule}
@@ -2281,6 +2306,44 @@ Required field. Action to perform if maximum size of body exceeded.
 
 - `IGNORE`: Ignore body.
 - `DENY`: Deny request. ||
+|#
+
+## LogOptions {#yandex.cloud.smartwebsecurity.v1.SecurityProfile.LogOptions}
+
+#|
+||Field | Description ||
+|| logGroupId | **string**
+
+ID of the Cloud Logging log group to write SWS logs to. ||
+|| enable | **boolean**
+
+Enables logging of requests processed by SWS. ||
+|| enabledModules[] | **enum** (Module)
+
+List of modules whose requests will be logged.
+
+- `RULE_CONDITION`: Base rules condition check.
+- `SMART_PROTECTION`: Smart Protection module.
+- `WAF`: Web Application Firewall module.
+- `ARL`: Advanced Rate Limiter module. ||
+|| enabledActions[] | **enum** (Action)
+
+List of verdicts for which requests will be logged.
+
+- `ALLOW`: Request was allowed.
+- `DENY`: Request was denied.
+- `CAPTCHA`: Request was redirected to CAPTCHA. ||
+|| discardAllowPercentage | **string** (int64)
+
+Percentage of ALLOW verdicts to discard from logging (0-100).
+
+Acceptable values are 0 to 100, inclusive. ||
+|| outputs[] | **enum** (Output)
+
+List of log destinations: Cloud Logging and/or Audit Trails.
+
+- `CLOUD_LOGGING`: Write logs to Cloud Logging.
+- `AUDIT_TRAILS`: Write logs to Audit Trails. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

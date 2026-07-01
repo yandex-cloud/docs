@@ -357,7 +357,8 @@ editable: false
         // end of the list of possible fields
       }
     ],
-    "labels": "object"
+    "labels": "object",
+    "description": "string"
   },
   "requestParameters": "object",
   "response": "object"
@@ -536,6 +537,7 @@ A list of messages that carry the error details. ||
 || modifyRequestHeaders[] | **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification)** ||
 || modifyResponseHeaders[] | **[HeaderModification](#yandex.cloud.apploadbalancer.v1.HeaderModification)** ||
 || labels | **object** (map<**string**, **string**>) ||
+|| description | **string** ||
 |#
 
 ## Route {#yandex.cloud.apploadbalancer.v1.Route}

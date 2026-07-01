@@ -35,7 +35,7 @@ List of storages. If not specified, the default value based on the selected conf
 Array of partitions created on the storage.
 >>> - type (structure)\
 Partition type.
->>> - size-bytes (bytes)\
+>>> - size-bytes (integer)\
 Size of the storage partition.
 >>> - mount-point (string)\
 Storage mount point.
@@ -47,7 +47,7 @@ Disk storage.
 ID of the disk.
 >>>> - type (structure)\
 Type of the disk drive.
->>>> - size-bytes (bytes)\
+>>>> - size-bytes (integer)\
 Size of the disk.
 >>> - raid (structure)\
 RAID storage.
@@ -59,7 +59,7 @@ Array of disks in the RAID configuration.
 ID of the disk.
 >>>>> - type (structure)\
 Type of the disk drive.
->>>>> - size-bytes (bytes)\
+>>>>> - size-bytes (integer)\
 Size of the disk.
 > - ssh-key (oneof)\
 Oneof ssh-key field
@@ -98,19 +98,19 @@ The key used to access a specific secret entry.
       partitions = [
         {
           mount-point = string,
-          size-bytes = bytes,
+          size-bytes = integer,
           type = EXT4|SWAP|EXT3|XFS
         }, ...
       ],
       storage-type = disk={
         id = string,
-        size-bytes = bytes,
+        size-bytes = integer,
         type = HDD|SSD|NVME
       } | raid={
         disks = [
           {
             id = string,
-            size-bytes = bytes,
+            size-bytes = integer,
             type = HDD|SSD|NVME
           }, ...
         ],
@@ -145,21 +145,21 @@ The key used to access a specific secret entry.
       "partitions": [
         {
           "mount-point": "string",
-          "size-bytes": "bytes",
+          "size-bytes": "integer",
           "type": "EXT4|SWAP|EXT3|XFS"
         }, ...
       ],
       "storage-type": {
         "disk": {
           "id": "string",
-          "size-bytes": "bytes",
+          "size-bytes": "integer",
           "type": "HDD|SSD|NVME"
         },
         "raid": {
           "disks": [
             {
               "id": "string",
-              "size-bytes": "bytes",
+              "size-bytes": "integer",
               "type": "HDD|SSD|NVME"
             }, ...
           ],

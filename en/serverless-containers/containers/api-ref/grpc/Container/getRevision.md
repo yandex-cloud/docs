@@ -5,7 +5,6 @@ editable: false
 # Serverless Containers Service, gRPC: ContainerService.GetRevision
 
 Returns the specified revision of a container.
-
 To get the list of available revisions, make a [ListRevisions](/docs/serverless-containers/containers/api-ref/grpc/Container/listRevisions#ListRevisions) request.
 
 ## gRPC request
@@ -25,7 +24,6 @@ To get the list of available revisions, make a [ListRevisions](/docs/serverless-
 || container_revision_id | **string**
 
 Required field. ID of the revision to return.
-
 To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless-containers/containers/api-ref/grpc/Container/listRevisions#ListRevisions) request. ||
 |#
 
@@ -62,6 +60,15 @@ To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless-co
   "concurrency": "int64",
   "service_account_id": "string",
   "status": "Status",
+  "connectivity": {
+    "network_id": "string",
+    "subnet_ids": [
+      "string"
+    ]
+  },
+  "provision_policy": {
+    "min_instances": "int64"
+  },
   "secrets": [
     {
       "id": "string",
@@ -72,19 +79,6 @@ To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless-co
       // end of the list of possible fields
     }
   ],
-  "connectivity": {
-    "network_id": "string",
-    "subnet_ids": [
-      "string"
-    ]
-  },
-  "provision_policy": {
-    "min_instances": "int64"
-  },
-  "scaling_policy": {
-    "zone_instances_limit": "int64",
-    "zone_requests_limit": "int64"
-  },
   "log_options": {
     "disabled": "bool",
     // Includes only one of the fields `log_group_id`, `folder_id`
@@ -92,6 +86,10 @@ To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless-co
     "folder_id": "string",
     // end of the list of possible fields
     "min_level": "Level"
+  },
+  "scaling_policy": {
+    "zone_instances_limit": "int64",
+    "zone_requests_limit": "int64"
   },
   "storage_mounts": [
     {
@@ -156,7 +154,6 @@ Resources allocated to the revision. ||
 || execution_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Timeout for the execution of the revision.
-
 If the timeout is exceeded, Serverless Containers responds with a 504 HTTP code. ||
 || concurrency | **int64**
 
@@ -171,23 +168,22 @@ Status of the revision.
 - `CREATING`: Revision is being created.
 - `ACTIVE`: Revision is currently used by the container.
 - `OBSOLETE`: Revision is not used by the container. May be deleted later. ||
-|| secrets[] | **[Secret](#yandex.cloud.serverless.containers.v1.Secret)**
-
-Yandex Lockbox secrets to be used by the revision. ||
 || connectivity | **[Connectivity](#yandex.cloud.serverless.containers.v1.Connectivity)**
 
 Network access. If specified the revision will be attached to specified network/subnet(s). ||
 || provision_policy | **[ProvisionPolicy](#yandex.cloud.serverless.containers.v1.ProvisionPolicy)**
 
 Policy for provisioning instances of the revision.
-
 The policy is only applied when the revision is ACTIVE. ||
-|| scaling_policy | **[ScalingPolicy](#yandex.cloud.serverless.containers.v1.ScalingPolicy)**
+|| secrets[] | **[Secret](#yandex.cloud.serverless.containers.v1.Secret)**
 
-Policy for scaling instances of the revision. ||
+Yandex Lockbox secrets to be used by the revision. ||
 || log_options | **[LogOptions](#yandex.cloud.serverless.containers.v1.LogOptions)**
 
 Options for logging from the container. ||
+|| scaling_policy | **[ScalingPolicy](#yandex.cloud.serverless.containers.v1.ScalingPolicy)**
+
+Policy for scaling instances of the revision. ||
 || storage_mounts[] | **[StorageMount](#yandex.cloud.serverless.containers.v1.StorageMount)**
 
 S3 mounts to be used by the revision. ||
@@ -240,7 +236,6 @@ Override for the image's WORKDIR. ||
 || command[] | **string**
 
 Command that will override ENTRYPOINT of an image.
-
 Commands will be executed as is. The runtime will not substitute environment
 variables or execute shell commands. If one wants to do that, they should
 invoke shell interpreter with an appropriate shell script. ||
@@ -253,7 +248,6 @@ invoke shell interpreter with an appropriate shell script. ||
 || args[] | **string**
 
 Arguments that will override CMD of an image.
-
 Arguments will be passed as is. The runtime will not substitute environment
 variables or execute shell commands. If one wants to do that, they should
 invoke shell interpreter with an appropriate shell script. ||
@@ -283,6 +277,33 @@ Should be 100% for cores > 1.
 Acceptable values are 0 to 100, inclusive. ||
 |#
 
+## Connectivity {#yandex.cloud.serverless.containers.v1.Connectivity}
+
+Revision connectivity specification.
+
+#|
+||Field | Description ||
+|| network_id | **string**
+
+Network the revision will have access to. ||
+|| subnet_ids[] | **string**
+
+The list of subnets (from the same network) the revision can be attached to.
+Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
+
+The string length in characters for each value must be greater than 0. ||
+|#
+
+## ProvisionPolicy {#yandex.cloud.serverless.containers.v1.ProvisionPolicy}
+
+#|
+||Field | Description ||
+|| min_instances | **int64**
+
+Minimum number of guaranteed provisioned container instances for all zones
+in total. ||
+|#
+
 ## Secret {#yandex.cloud.serverless.containers.v1.Secret}
 
 Secret that is available to the container at run time.
@@ -303,48 +324,6 @@ Key in secret's payload, which value to be delivered into container environment.
 Environment variable in which secret's value is delivered.
 
 Includes only one of the fields `environment_variable`. ||
-|#
-
-## Connectivity {#yandex.cloud.serverless.containers.v1.Connectivity}
-
-Revision connectivity specification.
-
-#|
-||Field | Description ||
-|| network_id | **string**
-
-Network the revision will have access to. ||
-|| subnet_ids[] | **string**
-
-Complete list of subnets (from the same network) the revision can be attached to.
-
-Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
-
-The string length in characters for each value must be greater than 0. ||
-|#
-
-## ProvisionPolicy {#yandex.cloud.serverless.containers.v1.ProvisionPolicy}
-
-#|
-||Field | Description ||
-|| min_instances | **int64**
-
-Minimum number of guaranteed provisioned container instances for all zones
-in total. ||
-|#
-
-## ScalingPolicy {#yandex.cloud.serverless.containers.v1.ScalingPolicy}
-
-#|
-||Field | Description ||
-|| zone_instances_limit | **int64**
-
-Upper limit for instance count in each zone.
-0 means no limit. ||
-|| zone_requests_limit | **int64**
-
-Upper limit of requests count in each zone.
-0 means no limit. ||
 |#
 
 ## LogOptions {#yandex.cloud.serverless.containers.v1.LogOptions}
@@ -375,7 +354,6 @@ Log entries destination. ||
 || min_level | enum **Level**
 
 Minimum log entry level.
-
 See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.
@@ -390,6 +368,20 @@ May be used to alert about significant events.
 May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
 May be used to alert about unrecoverable failures and events. ||
+|#
+
+## ScalingPolicy {#yandex.cloud.serverless.containers.v1.ScalingPolicy}
+
+#|
+||Field | Description ||
+|| zone_instances_limit | **int64**
+
+Upper limit for instance count in each zone.
+0 means no limit. ||
+|| zone_requests_limit | **int64**
+
+Upper limit of requests count in each zone.
+0 means no limit. ||
 |#
 
 ## StorageMount {#yandex.cloud.serverless.containers.v1.StorageMount}

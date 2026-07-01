@@ -1,5 +1,7 @@
 # Managed Spark API, gRPC: ClusterService.ListOperations
 
+Retrieves a list of all Spark clusters for Health service.
+
 ## gRPC request
 
 **rpc ListOperations ([ListClusterOperationsRequest](#yandex.cloud.spark.v1.ListClusterOperationsRequest)) returns ([ListClusterOperationsResponse](#yandex.cloud.spark.v1.ListClusterOperationsResponse))**
@@ -13,6 +15,8 @@
   "page_token": "string"
 }
 ```
+
+List Cluster Operations Request.
 
 #|
 ||Field | Description ||
@@ -60,9 +64,13 @@ The maximum string length in characters is 200. ||
 }
 ```
 
+List Cluster Operations Response.
+
 #|
 ||Field | Description ||
-|| operations[] | **[Operation](#yandex.cloud.operation.Operation)** ||
+|| operations[] | **[Operation](#yandex.cloud.operation.Operation)**
+
+List of operations. ||
 || next_page_token | **string**
 
 This token allows you to get the next page of results for ListOperations requests,

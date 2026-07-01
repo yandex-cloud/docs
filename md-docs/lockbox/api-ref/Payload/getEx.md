@@ -12,11 +12,15 @@ GET https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets:getEx
 ||Field | Description ||
 || secretId | **string**
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `secretId`, `folderAndName`. ||
 || folderAndName | **[FolderAndName](#yandex.cloud.lockbox.v1.FolderAndName)**
 
 Includes only one of the fields `secretId`, `folderAndName`. ||
-|| versionId | **string** ||
+|| versionId | **string**
+
+The maximum string length in characters is 50. ||
 |#
 
 ## FolderAndName {#yandex.cloud.lockbox.v1.FolderAndName}
@@ -25,10 +29,14 @@ Includes only one of the fields `secretId`, `folderAndName`. ||
 ||Field | Description ||
 || folderId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || secretName | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.lockbox.v1.GetExResponse}

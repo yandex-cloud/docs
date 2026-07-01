@@ -21,10 +21,14 @@ POST https://datasphere.api.cloud.yandex.net/datasphere/v2/docker/activate
 ||Field | Description ||
 || projectId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || dockerId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -40,14 +44,15 @@ Required field.  ||
   "modifiedAt": "string",
   "done": "boolean",
   "metadata": "object",
-  // Includes only one of the fields `error`
+  // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
     "details": [
       "object"
     ]
-  }
+  },
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -98,7 +103,22 @@ Any method that returns a long-running operation should document the metadata ty
 
 The error result of the operation in case of failure or cancellation.
 
-Includes only one of the fields `error`.
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **object**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
 
 The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.

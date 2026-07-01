@@ -3664,7 +3664,6 @@ apiPlayground:
             description: |-
               **string** (int64)
               Minimum duration in milliseconds a query needs to run for its result to be stored in the query cache.
-              (-- api-linter: yc::1701::duration-required=disabled --)
               Default value: **0**.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_min_query_duration).
             type: string
@@ -8568,7 +8567,6 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 || queryCacheMinQueryDuration | **string** (int64)
 
 Minimum duration in milliseconds a query needs to run for its result to be stored in the query cache.
-(-- api-linter: yc::1701::duration-required=disabled --)
 
 Default value: **0**.
 

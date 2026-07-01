@@ -515,7 +515,7 @@ Includes only one of the fields `fixed_scale`, `auto_scale`. ||
 
 Number of nodes in the node group.
 
-Acceptable values are 0 to 100, inclusive. ||
+The minimum value is 0. ||
 |#
 
 ## AutoScale {#yandex.cloud.k8s.v1.ScalePolicy.AutoScale}
@@ -526,17 +526,17 @@ Acceptable values are 0 to 100, inclusive. ||
 
 Minimum number of nodes in the node group.
 
-Acceptable values are 0 to 100, inclusive. ||
+The minimum value is 0. ||
 || max_size | **int64**
 
 Maximum number of nodes in the node group.
 
-Acceptable values are 0 to 100, inclusive. ||
+The minimum value is 0. ||
 || initial_size | **int64**
 
 Initial number of nodes in the node group.
 
-Acceptable values are 0 to 100, inclusive. ||
+The minimum value is 0. ||
 |#
 
 ## NodeGroupAllocationPolicy {#yandex.cloud.k8s.v1.NodeGroupAllocationPolicy}
@@ -1349,7 +1349,7 @@ Includes only one of the fields `fixed_scale`, `auto_scale`. ||
 
 Number of nodes in the node group.
 
-Acceptable values are 0 to 100, inclusive. ||
+The minimum value is 0. ||
 |#
 
 ## AutoScale {#yandex.cloud.k8s.v1.ScalePolicy.AutoScale2}
@@ -1360,17 +1360,17 @@ Acceptable values are 0 to 100, inclusive. ||
 
 Minimum number of nodes in the node group.
 
-Acceptable values are 0 to 100, inclusive. ||
+The minimum value is 0. ||
 || max_size | **int64**
 
 Maximum number of nodes in the node group.
 
-Acceptable values are 0 to 100, inclusive. ||
+The minimum value is 0. ||
 || initial_size | **int64**
 
 Initial number of nodes in the node group.
 
-Acceptable values are 0 to 100, inclusive. ||
+The minimum value is 0. ||
 |#
 
 ## NodeGroupAllocationPolicy {#yandex.cloud.k8s.v1.NodeGroupAllocationPolicy2}

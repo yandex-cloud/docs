@@ -32,7 +32,7 @@
 
 В стоимость поддержки создаваемой инфраструктуры входит:
 
-* плата за количество запросов к API-шлюзу и исходящий трафик ([тарифы Yandex API Gateway](../pricing.md));
+* плата за количество запросов к API-шлюзу и исходящий трафик ([тарифы Yandex API Gateway](../../api-gateway/pricing.md));
 * плата за использование SpeechKit ([тарифы SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/pricing)).
 
 

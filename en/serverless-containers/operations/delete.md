@@ -54,7 +54,7 @@ description: Follow this guide to delete a container.
      ...
      ```
 
-	 For more information about `yandex_serverless_container` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
+	 For more information about the `yandex_serverless_container` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Validate your configuration using this command:
      ```

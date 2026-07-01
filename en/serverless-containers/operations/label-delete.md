@@ -33,9 +33,9 @@ description: Follow this guide to delete a container label.
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To delete the label of a container created using {{ TF }}:
+  To delete a label of a container created with {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and in the `yandex_serverless_container` resource delete the label in the `labels` section:
+  1. Open the {{ TF }} configuration file and delete the label from the `labels` section in the `yandex_serverless_container` resource:
      ```hcl
      ...
      resource "yandex_serverless_container" "test-container" {
@@ -51,14 +51,14 @@ description: Follow this guide to delete a container label.
      ...
      ```
 
-	 For more information about the `yandex_serverless_container` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/serverless_container).
+	 For more information about the `yandex_serverless_container` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
-  1. Check the configuration using this command:
+  1. Validate your configuration using this command:
      ```
      terraform validate
      ```
      
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
      
      ```
      Success! The configuration is valid.
@@ -69,16 +69,16 @@ description: Follow this guide to delete a container label.
      terraform plan
      ```
   
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
   1. Apply the configuration changes:
      ```
      terraform apply
      ```
      
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
-  You can check the container label deletion using the [CLI](../../cli/):
+  You can verify that the container label has been deleted using the [CLI](../../cli/):
 
   ```
   yc serverless container get <container_name_or_ID>

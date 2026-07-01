@@ -98,6 +98,14 @@ apiPlayground:
             An option to disable static key auth for a bucket.
             requires permission s3:UpdateBucketStaticKeyAuthSettings
           type: boolean
+        lifecycleRules:
+          description: |-
+            **[LifecycleRule](#yandex.cloud.storage.v1.LifecycleRule)**
+            Configuration for bucket's lifecycle rules.
+            requires permission s3:PutLifecycleConfiguration
+          type: array
+          items:
+            $ref: '#/definitions/LifecycleRule'
       required:
         - name
         - folderId
@@ -183,7 +191,7 @@ apiPlayground:
             description: |-
               **string**
               ID of the account who is a grantee. Required when the [grantType](#yandex.cloud.storage.v1.ACL.Grant) is `GRANT_TYPE_ACCOUNT`.
-              The maximum string length in characters is 50.
+              The maximum string length in characters is 100.
             type: string
         required:
           - permission
@@ -256,6 +264,265 @@ apiPlayground:
               if true, cloud console will be able to access a bucket
               regardless of private_endpoints list
             type: boolean
+      And:
+        type: object
+        properties:
+          prefix:
+            description: |-
+              **string**
+              Key prefix that the object must have in order for the rule to apply.
+            type: string
+          objectSizeGreaterThan:
+            description: |-
+              **string** (int64)
+              Size that the object must be greater.
+            type: string
+            format: int64
+          objectSizeLessThan:
+            description: |-
+              **string** (int64)
+              Size that the object must be less than.
+            type: string
+            format: int64
+          tag:
+            description: |-
+              **[Tag](#yandex.cloud.storage.v1.Tag)**
+              Tags that the object's tag set must have for the rule to apply.
+            type: array
+            items:
+              $ref: '#/definitions/Tag'
+      RuleFilter:
+        type: object
+        properties:
+          prefix:
+            description: |-
+              **string**
+              Key prefix that the object must have in order for the rule to apply.
+            type: string
+          objectSizeGreaterThan:
+            description: |-
+              **string** (int64)
+              Size that the object must be greater.
+            type: string
+            format: int64
+          objectSizeLessThan:
+            description: |-
+              **string** (int64)
+              Size that the object must be less t.
+            type: string
+            format: int64
+          tag:
+            description: |-
+              **[Tag](#yandex.cloud.storage.v1.Tag)**
+              Tags that the object's tag set must have for the rule to apply.
+            $ref: '#/definitions/Tag'
+          andOperator:
+            description: |-
+              **[And](#yandex.cloud.storage.v1.LifecycleRule.RuleFilter.And)**
+              Apply a logical AND to all of the predicates configured inside the And operator.
+            $ref: '#/definitions/And'
+      Expiration:
+        type: object
+        properties:
+          date:
+            description: |-
+              **string** (date-time)
+              Specific date of object expiration.
+              The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket expire
+              immediately.
+              Exactly one of [date](#yandex.cloud.storage.v1.LifecycleRule.Transition), [days](#yandex.cloud.storage.v1.LifecycleRule.Transition), and [expiredObjectDeleteMarker](#yandex.cloud.storage.v1.LifecycleRule.Expiration) fields can be specified.
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+              `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+              To work with values in this field, use the APIs described in the
+              [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+            type: string
+            format: date-time
+          days:
+            description: |-
+              **string** (int64)
+              Time period, in number of days from the creation or modification of the object, after which an object expires.
+              Exactly one of [days](#yandex.cloud.storage.v1.LifecycleRule.Transition), [date](#yandex.cloud.storage.v1.LifecycleRule.Transition), and [expiredObjectDeleteMarker](#yandex.cloud.storage.v1.LifecycleRule.Expiration) fields can be specified.
+            type: string
+            format: int64
+          expiredObjectDeleteMarker:
+            description: |-
+              **boolean**
+              Indicates whether a delete marker of an object with no non-current versions (referred to as an expired object
+              delete marker) is removed at the object's expiration.
+              Exactly one of [expiredObjectDeleteMarker](#yandex.cloud.storage.v1.LifecycleRule.Expiration), [date](#yandex.cloud.storage.v1.LifecycleRule.Transition), and [days](#yandex.cloud.storage.v1.LifecycleRule.Transition) fields can be specified.
+            type: boolean
+      Transition:
+        type: object
+        properties:
+          date:
+            description: |-
+              **string** (date-time)
+              Specific date of object transition.
+              The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket are
+              transitioned immediately.
+              At most one of [date](#yandex.cloud.storage.v1.LifecycleRule.Transition) and [days](#yandex.cloud.storage.v1.LifecycleRule.Transition) fields can be specified.
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+              `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+              To work with values in this field, use the APIs described in the
+              [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+            type: string
+            format: date-time
+          days:
+            description: |-
+              **string** (int64)
+              Time period, in number of days from the creation or modification of the object, after which an object is
+              transitioned.
+              At most one of [days](#yandex.cloud.storage.v1.LifecycleRule.Transition) and [date](#yandex.cloud.storage.v1.LifecycleRule.Transition) fields can be specified.
+            type: string
+            format: int64
+          storageClass:
+            description: |-
+              **string**
+              Required field. Storage class to which an object is transitioned from standard storage.
+              The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
+              to standard storage and transitions to or from ice storage are not allowed.
+            type: string
+        required:
+          - storageClass
+      AfterDays:
+        type: object
+        properties:
+          daysAfterExpiration:
+            description: |-
+              **string** (int64)
+              Time period, in number of days from the start of the multipart upload, after which the incomplete upload is
+              aborted.
+            type: string
+            format: int64
+      NoncurrentExpiration:
+        type: object
+        properties:
+          noncurrentDays:
+            description: |-
+              **string** (int64)
+              Time period, in number of days since the version of an object was classified as non-current, after which the
+              version expires.
+            type: string
+            format: int64
+          newerNoncurrentVersions:
+            description: |-
+              **string** (int64)
+              Specifies how many noncurrent versions S3 will retain.
+              S3 will permanently delete any additional noncurrent versions beyond this specified number.
+            type: string
+            format: int64
+      NoncurrentTransition:
+        type: object
+        properties:
+          noncurrentDays:
+            description: |-
+              **string** (int64)
+              Time period, in number of days since the version of an object was classified as non-current, after which the
+              version is transitioned.
+            type: string
+            format: int64
+          storageClass:
+            description: |-
+              **string**
+              Required field. Storage class to which a non-current version of an object is transitioned from standard storage.
+              The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
+              to standard storage and transitions to or from ice storage are not allowed.
+            type: string
+          newerNoncurrentVersions:
+            description: |-
+              **string** (int64)
+              Specifies how many noncurrent versions S3 will retain.
+              S3 will permanently delete any additional noncurrent versions beyond this specified number.
+            type: string
+            format: int64
+        required:
+          - storageClass
+      NoncurrentDeleteMarkers:
+        type: object
+        properties:
+          noncurrentDays:
+            description: |-
+              **string** (int64)
+              Time period, in number of days since the version of a delete marker was classified as non-current, after which
+              the delete marker expires.
+            type: string
+            format: int64
+      LifecycleRule:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              ID of the rule. Provided by the client or generated at creation time.
+            type: string
+          enabled:
+            description: |-
+              **boolean**
+              Indicates whether the rule is in effect.
+            type: boolean
+          filter:
+            description: |-
+              **[RuleFilter](#yandex.cloud.storage.v1.LifecycleRule.RuleFilter)**
+              Filter that identifies the objects to which the rule applies.
+              If not specified, the rule applies to all objects in the bucket.
+            $ref: '#/definitions/RuleFilter'
+          expiration:
+            description: |-
+              **[Expiration](#yandex.cloud.storage.v1.LifecycleRule.Expiration)**
+              Expiration rule.
+              The expiration of an object is described as follows.
+              For the unversioned bucket ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_DISABLED`), the object is deleted and cannot be
+              recovered.
+              For the bucket with versioning enabled ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`), the current version of the
+              object (if it exists and is not a delete marker) is retained as a non-current version, and a delete marker becomes
+              the current version of the object.
+              For the bucket with versioning suspended ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_SUSPENDED`), the current version of
+              the object is retained as a non-current version if it is not a delete marker, or is removed otherwise, and a
+              delete marker becomes the current version of the object.
+            $ref: '#/definitions/Expiration'
+          transitions:
+            description: |-
+              **[Transition](#yandex.cloud.storage.v1.LifecycleRule.Transition)**
+              List of transition rules.
+              The transition of an object is described as follows.
+              For the unversioned bucket ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_DISABLED`), the object is transitioned to the
+              specified storage class.
+              For the bucket with versioning enabled ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended
+              (`VERSIONING_SUSPENDED`), the current version of the object is transitioned to the specified storage class.
+            type: array
+            items:
+              $ref: '#/definitions/Transition'
+          abortIncompleteMultipartUpload:
+            description: |-
+              **[AfterDays](#yandex.cloud.storage.v1.LifecycleRule.AfterDays)**
+              Configuration for aborting incomplete [multipart uploads](/docs/storage/concepts/multipart).
+            $ref: '#/definitions/AfterDays'
+          noncurrentExpiration:
+            description: |-
+              **[NoncurrentExpiration](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentExpiration)**
+              Expiration rule for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is
+              `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
+              At expiration, the non-current version of the object is deleted and cannot be recovered.
+            $ref: '#/definitions/NoncurrentExpiration'
+          noncurrentTransitions:
+            description: |-
+              **[NoncurrentTransition](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentTransition)**
+              List of transition rules for non-current versions of objects in a bucket with versioning enabled
+              ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
+              At transition, the non-current version of the object is transitioned to the specified storage class.
+            type: array
+            items:
+              $ref: '#/definitions/NoncurrentTransition'
+          noncurrentDeleteMarkers:
+            description: |-
+              **[NoncurrentDeleteMarkers](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers)**
+              Expiration rule for non-current delete markers of an objects in a bucket with versioning
+              enabled ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
+              Works in the same way as noncurrent_expiration rule, but only for delete markers.
+              At expiration, the non-current delete marker of the object is deleted and cannot be recovered.
+            $ref: '#/definitions/NoncurrentDeleteMarkers'
 ---
 
 # Object Storage API, REST: Bucket.Create
@@ -312,7 +579,62 @@ POST https://storage.{{ api-host }}/storage/v1/buckets
     ],
     "forceCloudConsoleAccess": "boolean"
   },
-  "disabledStatickeyAuth": "boolean"
+  "disabledStatickeyAuth": "boolean",
+  "lifecycleRules": [
+    {
+      "id": "string",
+      "enabled": "boolean",
+      "filter": {
+        "prefix": "string",
+        "objectSizeGreaterThan": "string",
+        "objectSizeLessThan": "string",
+        "tag": {
+          "key": "string",
+          "value": "string"
+        },
+        "andOperator": {
+          "prefix": "string",
+          "objectSizeGreaterThan": "string",
+          "objectSizeLessThan": "string",
+          "tag": [
+            {
+              "key": "string",
+              "value": "string"
+            }
+          ]
+        }
+      },
+      "expiration": {
+        "date": "string",
+        "days": "string",
+        "expiredObjectDeleteMarker": "boolean"
+      },
+      "transitions": [
+        {
+          "date": "string",
+          "days": "string",
+          "storageClass": "string"
+        }
+      ],
+      "abortIncompleteMultipartUpload": {
+        "daysAfterExpiration": "string"
+      },
+      "noncurrentExpiration": {
+        "noncurrentDays": "string",
+        "newerNoncurrentVersions": "string"
+      },
+      "noncurrentTransitions": [
+        {
+          "noncurrentDays": "string",
+          "storageClass": "string",
+          "newerNoncurrentVersions": "string"
+        }
+      ],
+      "noncurrentDeleteMarkers": {
+        "noncurrentDays": "string"
+      }
+    }
+  ]
 }
 ```
 
@@ -380,6 +702,10 @@ requires permission s3:PutBucketAllowedPrivateEndpoints ||
 
 An option to disable static key auth for a bucket.
 requires permission s3:UpdateBucketStaticKeyAuthSettings ||
+|| lifecycleRules[] | **[LifecycleRule](#yandex.cloud.storage.v1.LifecycleRule)**
+
+Configuration for bucket's lifecycle rules.
+requires permission s3:PutLifecycleConfiguration ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags}
@@ -457,7 +783,7 @@ Maps to using `uri="http://acs.amazonaws.com/groups/global/AllUsers"` value for 
 
 ID of the account who is a grantee. Required when the `grantType` is `GRANT_TYPE_ACCOUNT`.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 100. ||
 |#
 
 ## Tag {#yandex.cloud.storage.v1.Tag}
@@ -508,6 +834,224 @@ white list of private endpoints bucket accessible from ||
 
 if true, cloud console will be able to access a bucket
 regardless of private_endpoints list ||
+|#
+
+## LifecycleRule {#yandex.cloud.storage.v1.LifecycleRule}
+
+An object lifecycle rule resource for the bucket.
+For details about the concept, see [documentation](/docs/storage/concepts/lifecycles).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the rule. Provided by the client or generated at creation time. ||
+|| enabled | **boolean**
+
+Indicates whether the rule is in effect. ||
+|| filter | **[RuleFilter](#yandex.cloud.storage.v1.LifecycleRule.RuleFilter)**
+
+Filter that identifies the objects to which the rule applies.
+If not specified, the rule applies to all objects in the bucket. ||
+|| expiration | **[Expiration](#yandex.cloud.storage.v1.LifecycleRule.Expiration)**
+
+Expiration rule.
+The expiration of an object is described as follows.
+For the unversioned bucket ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_DISABLED`), the object is deleted and cannot be
+recovered.
+For the bucket with versioning enabled ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`), the current version of the
+object (if it exists and is not a delete marker) is retained as a non-current version, and a delete marker becomes
+the current version of the object.
+For the bucket with versioning suspended ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_SUSPENDED`), the current version of
+the object is retained as a non-current version if it is not a delete marker, or is removed otherwise, and a
+delete marker becomes the current version of the object. ||
+|| transitions[] | **[Transition](#yandex.cloud.storage.v1.LifecycleRule.Transition)**
+
+List of transition rules.
+The transition of an object is described as follows.
+For the unversioned bucket ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_DISABLED`), the object is transitioned to the
+specified storage class.
+For the bucket with versioning enabled ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended
+(`VERSIONING_SUSPENDED`), the current version of the object is transitioned to the specified storage class. ||
+|| abortIncompleteMultipartUpload | **[AfterDays](#yandex.cloud.storage.v1.LifecycleRule.AfterDays)**
+
+Configuration for aborting incomplete [multipart uploads](/docs/storage/concepts/multipart). ||
+|| noncurrentExpiration | **[NoncurrentExpiration](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentExpiration)**
+
+Expiration rule for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is
+`VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
+At expiration, the non-current version of the object is deleted and cannot be recovered. ||
+|| noncurrentTransitions[] | **[NoncurrentTransition](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentTransition)**
+
+List of transition rules for non-current versions of objects in a bucket with versioning enabled
+([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
+At transition, the non-current version of the object is transitioned to the specified storage class. ||
+|| noncurrentDeleteMarkers | **[NoncurrentDeleteMarkers](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers)**
+
+Expiration rule for non-current delete markers of an objects in a bucket with versioning
+enabled ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
+Works in the same way as noncurrent_expiration rule, but only for delete markers.
+At expiration, the non-current delete marker of the object is deleted and cannot be recovered. ||
+|#
+
+## RuleFilter {#yandex.cloud.storage.v1.LifecycleRule.RuleFilter}
+
+#|
+||Field | Description ||
+|| prefix | **string**
+
+Key prefix that the object must have in order for the rule to apply. ||
+|| objectSizeGreaterThan | **string** (int64)
+
+Size that the object must be greater. ||
+|| objectSizeLessThan | **string** (int64)
+
+Size that the object must be less t. ||
+|| tag | **[Tag](#yandex.cloud.storage.v1.Tag)**
+
+Tags that the object's tag set must have for the rule to apply. ||
+|| andOperator | **[And](#yandex.cloud.storage.v1.LifecycleRule.RuleFilter.And)**
+
+Apply a logical AND to all of the predicates configured inside the And operator. ||
+|#
+
+## And {#yandex.cloud.storage.v1.LifecycleRule.RuleFilter.And}
+
+#|
+||Field | Description ||
+|| prefix | **string**
+
+Key prefix that the object must have in order for the rule to apply. ||
+|| objectSizeGreaterThan | **string** (int64)
+
+Size that the object must be greater. ||
+|| objectSizeLessThan | **string** (int64)
+
+Size that the object must be less than. ||
+|| tag[] | **[Tag](#yandex.cloud.storage.v1.Tag)**
+
+Tags that the object's tag set must have for the rule to apply. ||
+|#
+
+## Expiration {#yandex.cloud.storage.v1.LifecycleRule.Expiration}
+
+#|
+||Field | Description ||
+|| date | **string** (date-time)
+
+Specific date of object expiration.
+The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket expire
+immediately.
+Exactly one of `date`, `days`, and `expiredObjectDeleteMarker` fields can be specified.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| days | **string** (int64)
+
+Time period, in number of days from the creation or modification of the object, after which an object expires.
+Exactly one of `days`, `date`, and `expiredObjectDeleteMarker` fields can be specified. ||
+|| expiredObjectDeleteMarker | **boolean**
+
+Indicates whether a delete marker of an object with no non-current versions (referred to as an expired object
+delete marker) is removed at the object's expiration.
+Exactly one of `expiredObjectDeleteMarker`, `date`, and `days` fields can be specified. ||
+|#
+
+## Transition {#yandex.cloud.storage.v1.LifecycleRule.Transition}
+
+List of transition rules.
+The transition of an object is described as follows.
+For the unversioned bucket ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_DISABLED`), the object is transitioned to the
+specified storage class.
+For the bucket with versioning enabled ([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended
+(`VERSIONING_SUSPENDED`), the current version of the object is transitioned to the specified storage class.
+
+#|
+||Field | Description ||
+|| date | **string** (date-time)
+
+Specific date of object transition.
+The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket are
+transitioned immediately.
+At most one of `date` and `days` fields can be specified.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| days | **string** (int64)
+
+Time period, in number of days from the creation or modification of the object, after which an object is
+transitioned.
+At most one of `days` and `date` fields can be specified. ||
+|| storageClass | **string**
+
+Required field. Storage class to which an object is transitioned from standard storage.
+The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
+to standard storage and transitions to or from ice storage are not allowed. ||
+|#
+
+## AfterDays {#yandex.cloud.storage.v1.LifecycleRule.AfterDays}
+
+#|
+||Field | Description ||
+|| daysAfterExpiration | **string** (int64)
+
+Time period, in number of days from the start of the multipart upload, after which the incomplete upload is
+aborted. ||
+|#
+
+## NoncurrentExpiration {#yandex.cloud.storage.v1.LifecycleRule.NoncurrentExpiration}
+
+#|
+||Field | Description ||
+|| noncurrentDays | **string** (int64)
+
+Time period, in number of days since the version of an object was classified as non-current, after which the
+version expires. ||
+|| newerNoncurrentVersions | **string** (int64)
+
+Specifies how many noncurrent versions S3 will retain.
+S3 will permanently delete any additional noncurrent versions beyond this specified number. ||
+|#
+
+## NoncurrentTransition {#yandex.cloud.storage.v1.LifecycleRule.NoncurrentTransition}
+
+List of transition rules for non-current versions of objects in a bucket with versioning enabled
+([Bucket.versioning](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
+At transition, the non-current version of the object is transitioned to the specified storage class.
+
+#|
+||Field | Description ||
+|| noncurrentDays | **string** (int64)
+
+Time period, in number of days since the version of an object was classified as non-current, after which the
+version is transitioned. ||
+|| storageClass | **string**
+
+Required field. Storage class to which a non-current version of an object is transitioned from standard storage.
+The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
+to standard storage and transitions to or from ice storage are not allowed. ||
+|| newerNoncurrentVersions | **string** (int64)
+
+Specifies how many noncurrent versions S3 will retain.
+S3 will permanently delete any additional noncurrent versions beyond this specified number. ||
+|#
+
+## NoncurrentDeleteMarkers {#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers}
+
+#|
+||Field | Description ||
+|| noncurrentDays | **string** (int64)
+
+Time period, in number of days since the version of a delete marker was classified as non-current, after which
+the delete marker expires. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

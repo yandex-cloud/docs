@@ -120,8 +120,6 @@ items:
         href: tutorials/vpc-cr-access.md
       - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
         href: tutorials/fault-tolerance.md
-      - name: Запуск внешних агентов для нагрузочного тестирования
-        href: tutorials/loadtesting-external-agent.md
       - name: >-
           Запуск контейнерного приложения в {{ serverless-containers-full-name
           }}

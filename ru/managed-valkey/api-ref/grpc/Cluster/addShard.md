@@ -5,7 +5,7 @@ editable: false
 # Managed Service for Redis API, gRPC: ClusterService.AddShard
 
 Creates a new shard.
-(-- api-linter: core::0136::http-uri-suffix=disabled --)
+
 
 ## gRPC request
 

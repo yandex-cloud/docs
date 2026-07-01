@@ -78,7 +78,8 @@ The maximum string length in characters is 50. ||
       "manifest_digest": "string"
     }
     // end of the list of possible fields
-  }
+  },
+  "registry_id": "string"
 }
 ```
 
@@ -128,6 +129,9 @@ Key-value properties associated with the artifact. ||
 || content | **[Content](#yandex.cloud.cloudregistry.v1.Content)**
 
 Content of the artifact. ||
+|| registry_id | **string**
+
+Output only. ID of the registry that contains this artifact. ||
 |#
 
 ## Content {#yandex.cloud.cloudregistry.v1.Content}

@@ -1,3 +1,0 @@
-Например, выполнение тестов суммарной продолжительностью 60 часов будет стоить:
-
-> (50 × {% calc [currency=RUB]{{ sku|RUB|load_testing.test_execution.v1|number }} %}) + (10 × {% calc [currency=RUB]{{ sku|RUB|load_testing.test_execution.v1|pricingRate.180000|number }} × 3600 %}) = {% calc [currency=RUB] 50 × {{ sku|RUB|load_testing.test_execution.v1|number }} + 10 × {{ sku|RUB|load_testing.test_execution.v1|pricingRate.180000|number }} × 3600 %}

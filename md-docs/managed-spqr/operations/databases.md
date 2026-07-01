@@ -28,6 +28,8 @@
        --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>/databases'
      ```
 
+     Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/list.md#yandex.cloud.mdb.spqr.v1.ListDatabasesResponse).
 
 - gRPC API {#grpc-api}
@@ -61,6 +63,8 @@
        yandex.cloud.mdb.spqr.v1.DatabaseService.List
      ```
 
+     Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/list.md#yandex.cloud.mdb.spqr.v1.ListDatabasesResponse).
 
 {% endlist %}
@@ -85,6 +89,8 @@
        --header "Authorization: Bearer $IAM_TOKEN" \
        --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>'
      ```
+
+     Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/get.md#yandex.cloud.mdb.spqr.v1.Database).
 
@@ -119,6 +125,8 @@
        mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.spqr.v1.DatabaseService.Get
      ```
+
+     Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/get.md#yandex.cloud.mdb.spqr.v1.Database).
 
@@ -171,13 +179,16 @@
                }'
      ```
 
-     Где `databaseSpec` — параметры новой БД:
+     Где: 
 
-     * `name` — имя БД.
+     * `<идентификатор_кластера>` — идентификатор кластера, который можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+     * `databaseSpec` — параметры новой БД:
 
-       Имя БД может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы. Создать БД с этими именами нельзя.
+       * `name` — имя БД.
 
-     * `deletionProtection` — защита БД от удаления: `true` или `false`.
+         Имя БД может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы. Создать БД с этими именами нельзя.
+
+       * `deletionProtection` — защита БД от удаления: `true` или `false`.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/create.md#yandex.cloud.operation.Operation).
 
@@ -216,13 +227,16 @@
        yandex.cloud.mdb.spqr.v1.DatabaseService.Create
      ```
 
-     Где `database_spec` — параметры новой БД:
+     Где:
 
-     * `name` — имя БД.
+     * `cluster_id` — идентификатор кластера, который можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+     * `database_spec` — параметры новой БД:
 
-       Имя БД может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы. Создать БД с этими именами нельзя.
+       * `name` — имя БД.
 
-     * `deletion_protection` — защита БД от удаления: `true` или `false`.
+         Имя БД может содержать латинские буквы, цифры, подчеркивание и дефис. Максимальная длина имени 63 символа. Имена `postgres`, `template0`, `template1` зарезервированы. Создать БД с этими именами нельзя.
+
+       * `deletion_protection` — защита БД от удаления: `true` или `false`.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation).
 
@@ -255,6 +269,8 @@
        --header "Authorization: Bearer $IAM_TOKEN" \
        --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>'
      ```
+
+     Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/delete.md#yandex.cloud.operation.Operation).
 
@@ -289,6 +305,8 @@
        mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.spqr.v1.DatabaseService.Delete
      ```
+
+     Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/delete.md#yandex.cloud.operation.Operation).
 

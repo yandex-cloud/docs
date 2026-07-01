@@ -47,12 +47,12 @@ To mount buckets to a container:
   yc serverless container revision deploy \
     --container-name <container_name> \
     --image <Docker_image_URL> \
-    --memory <RAM_size> \
+    --memory <RAM_amount> \
     --execution-timeout <execution_timeout> \
     --service-account-id <service_account_ID> \
     --command '<command_1>','<command_2>' \
     --args '<key_1=value_1>','<key_2=value_2>' \
-    --mount type=object-storage,mount-point=<mount_path>,bucket=<bucket_name>,prefix=<directory_name>,mode=<mount_mode>
+    --mount type=object-storage,mount-point=<mount_path>,bucket=<bucket_name>,prefix=<folder_name>,mode=<mount_mode>
   ```
 
   Where:
@@ -90,7 +90,7 @@ To mount buckets to a container:
           mode             = "<mount_mode>"
           object_storage {
             bucket = "<bucket_name>"
-            prefix = "<directory_name>"
+            prefix = "<folder_name>"
           }
         }
       }

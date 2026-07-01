@@ -57,5 +57,4 @@ editable: false
 Цена_хранения = Цена_за_ГБ_в_месяц * 15 * 12 / 24 / 30
 ```
 
-
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

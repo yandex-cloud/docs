@@ -23,8 +23,9 @@ Retrieves the list of YDS exports for the specified registry.
 || registry_id | **string**
 
 Required field. ID of the registry to list YDS exports in.
+To get a registry ID make a [RegistryService.List](/docs/iot-core/api-ref/grpc/Registry/list#List) request.
 
-To get a registry ID make a [RegistryService.List](/docs/iot-core/api-ref/grpc/Registry/list#List) request. ||
+The maximum string length in characters is 50. ||
 |#
 
 ## ListDataStreamExportsResponse {#yandex.cloud.iot.devices.v1.ListDataStreamExportsResponse}

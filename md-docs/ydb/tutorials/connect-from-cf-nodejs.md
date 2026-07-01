@@ -37,7 +37,7 @@
 
 В стоимость поддержки инфраструктуры для этого сценария входит:
 * Плата за использование функции ([тарифы Yandex Cloud Functions](../../functions/pricing.md)).
-* Плата за выполнение запросов к БД ([тарифы Yandex Managed Service for YDB](../pricing/serverless.md)).
+* Плата за выполнение запросов к БД ([тарифы Yandex Managed Service for YDB](../../ydb/pricing/serverless.md)).
 
 ## Подготовьте окружение {#prepare-environment}
 

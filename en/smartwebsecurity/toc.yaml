@@ -226,6 +226,48 @@ items:
     items:
       - name: Overview
         href: cli-ref/index.md
+      - name: advanced-rate-limiter
+        items:
+          - name: Overview
+            href: cli-ref/advanced-rate-limiter/index.md
+          - name: advanced-rate-limiter-profile
+            items:
+              - name: Overview
+                href: >-
+                  cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/index.md
+              - name: create
+                href: >-
+                  cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/create.md
+              - name: delete
+                href: >-
+                  cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/delete.md
+              - name: get
+                href: >-
+                  cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/get.md
+              - name: list
+                href: >-
+                  cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/list.md
+              - name: update
+                href: >-
+                  cli-ref/advanced-rate-limiter/advanced-rate-limiter-profile/update.md
+      - name: match-list
+        items:
+          - name: Overview
+            href: cli-ref/match-list/index.md
+          - name: match-list
+            items:
+              - name: Overview
+                href: cli-ref/match-list/match-list/index.md
+              - name: create
+                href: cli-ref/match-list/match-list/create.md
+              - name: delete
+                href: cli-ref/match-list/match-list/delete.md
+              - name: get
+                href: cli-ref/match-list/match-list/get.md
+              - name: list
+                href: cli-ref/match-list/match-list/list.md
+              - name: update
+                href: cli-ref/match-list/match-list/update.md
       - name: security-profile
         items:
           - name: Overview
@@ -262,6 +304,48 @@ items:
         items:
           - name: Overview
             href: cli-ref/v1/index.md
+          - name: advanced-rate-limiter
+            items:
+              - name: Overview
+                href: cli-ref/v1/advanced-rate-limiter/index.md
+              - name: advanced-rate-limiter-profile
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/create.md
+                  - name: delete
+                    href: >-
+                      cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/delete.md
+                  - name: get
+                    href: >-
+                      cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/get.md
+                  - name: list
+                    href: >-
+                      cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/list.md
+                  - name: update
+                    href: >-
+                      cli-ref/v1/advanced-rate-limiter/advanced-rate-limiter-profile/update.md
+          - name: match-list
+            items:
+              - name: Overview
+                href: cli-ref/v1/match-list/index.md
+              - name: match-list
+                items:
+                  - name: Overview
+                    href: cli-ref/v1/match-list/match-list/index.md
+                  - name: create
+                    href: cli-ref/v1/match-list/match-list/create.md
+                  - name: delete
+                    href: cli-ref/v1/match-list/match-list/delete.md
+                  - name: get
+                    href: cli-ref/v1/match-list/match-list/get.md
+                  - name: list
+                    href: cli-ref/v1/match-list/match-list/list.md
+                  - name: update
+                    href: cli-ref/v1/match-list/match-list/update.md
           - name: security-profile
             items:
               - name: Overview
@@ -280,6 +364,12 @@ items:
             items:
               - name: Overview
                 href: cli-ref/v1/waf/index.md
+              - name: rule-set-descriptor
+                items:
+                  - name: Overview
+                    href: cli-ref/v1/waf/rule-set-descriptor/index.md
+                  - name: get
+                    href: cli-ref/v1/waf/rule-set-descriptor/get.md
               - name: waf-profile
                 items:
                   - name: Overview
@@ -298,6 +388,12 @@ items:
         items:
           - name: Overview
             href: cli-ref/waf/index.md
+          - name: rule-set-descriptor
+            items:
+              - name: Overview
+                href: cli-ref/waf/rule-set-descriptor/index.md
+              - name: get
+                href: cli-ref/waf/rule-set-descriptor/get.md
           - name: waf-profile
             items:
               - name: Overview
@@ -376,6 +472,32 @@ items:
                     href: advanced_rate_limiter/api-ref/grpc/Operation/get.md
                   - name: Cancel
                     href: advanced_rate_limiter/api-ref/grpc/Operation/cancel.md
+          - name: SmartWebSecurity MatchList API
+            items:
+              - name: Overview
+                href: match_list/api-ref/grpc/index.md
+              - name: MatchList
+                items:
+                  - name: Overview
+                    href: match_list/api-ref/grpc/MatchList/index.md
+                  - name: Get
+                    href: match_list/api-ref/grpc/MatchList/get.md
+                  - name: List
+                    href: match_list/api-ref/grpc/MatchList/list.md
+                  - name: Create
+                    href: match_list/api-ref/grpc/MatchList/create.md
+                  - name: Update
+                    href: match_list/api-ref/grpc/MatchList/update.md
+                  - name: Delete
+                    href: match_list/api-ref/grpc/MatchList/delete.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: match_list/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: match_list/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: match_list/api-ref/grpc/Operation/cancel.md
           - name: SmartWebSecurity WAF API
             items:
               - name: Overview
@@ -466,6 +588,30 @@ items:
                     href: advanced_rate_limiter/api-ref/Operation/get.md
                   - name: Cancel
                     href: advanced_rate_limiter/api-ref/Operation/cancel.md
+          - name: SmartWebSecurity MatchList API
+            items:
+              - name: Overview
+                href: match_list/api-ref/index.md
+              - name: MatchList
+                items:
+                  - name: Overview
+                    href: match_list/api-ref/MatchList/index.md
+                  - name: Get
+                    href: match_list/api-ref/MatchList/get.md
+                  - name: List
+                    href: match_list/api-ref/MatchList/list.md
+                  - name: Create
+                    href: match_list/api-ref/MatchList/create.md
+                  - name: Update
+                    href: match_list/api-ref/MatchList/update.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: match_list/api-ref/Operation/index.md
+                  - name: Get
+                    href: match_list/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: match_list/api-ref/Operation/cancel.md
           - name: SmartWebSecurity WAF API
             items:
               - name: Overview

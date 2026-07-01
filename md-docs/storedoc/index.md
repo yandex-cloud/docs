@@ -138,6 +138,8 @@
 
  - [Настройки Yandex StoreDoc](concepts/settings-list.md)
 
+ - [Политика поддержки версий Yandex StoreDoc](concepts/update-policy.md)
+
  - [Управление доступом](security/index.md)
 
  - [Правила тарификации](pricing.md)

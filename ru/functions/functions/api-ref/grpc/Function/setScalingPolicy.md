@@ -27,12 +27,10 @@ Set scaling policy for specified function and tag
 || function_id | **string**
 
 Required field. ID of the function to retrieve scaling policies for.
-
 To get a function ID, make a [FunctionService.List](/docs/functions/functions/api-ref/grpc/Function/list#List) request. ||
 || tag | **string**
 
 Required field. Version tag.
-
 To get the history of version tags make a [FunctionService.ListTagHistory](/docs/functions/functions/api-ref/grpc/Function/listTagHistory#ListTagHistory) request.
 
 Value must match the regular expression ``` [a-z][-_0-9a-z]*|[$]latest ```. ||
@@ -66,20 +64,10 @@ The minimum value is 0. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "function_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "function_id": "string",
-    "tag": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "modified_at": "google.protobuf.Timestamp",
-    "provisioned_instances_count": "int64",
-    "zone_instances_limit": "int64",
-    "zone_requests_limit": "int64"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -107,7 +95,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[SetScalingPolicyMetadata](#yandex.cloud.serverless.functions.v1.SetScalingPolicyMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -122,7 +110,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[ScalingPolicy](#yandex.cloud.serverless.functions.v1.ScalingPolicy)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -137,43 +125,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## SetScalingPolicyMetadata {#yandex.cloud.serverless.functions.v1.SetScalingPolicyMetadata}
-
-#|
-||Field | Description ||
-|| function_id | **string**
-
-ID of the function for which scaling policy was set. ||
-|#
-
-## ScalingPolicy {#yandex.cloud.serverless.functions.v1.ScalingPolicy}
-
-#|
-||Field | Description ||
-|| function_id | **string**
-
-ID of the function that the scaling policy belongs to. ||
-|| tag | **string**
-
-Tag of the version that the scaling policy belongs to. For details, see [Version tag](/docs/functions/concepts/function#tag). ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp for the scaling policy ||
-|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Modification timestamp for the scaling policy ||
-|| provisioned_instances_count | **int64**
-
-Minimum guaranteed provisioned instances count for all zones in total.
-Billed separately. ||
-|| zone_instances_limit | **int64**
-
-Upper limit for instance count in each zone.
-0 means no limit. ||
-|| zone_requests_limit | **int64**
-
-Upper limit of requests count in each zone.
-0 means no limit. ||
 |#

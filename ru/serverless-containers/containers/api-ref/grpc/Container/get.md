@@ -5,7 +5,6 @@ editable: false
 # Serverless Containers Service, gRPC: ContainerService.Get
 
 Returns the specified container.
-
 To get the list of all available containers, make a [List](/docs/serverless-containers/containers/api-ref/grpc/Container/list#List) request.
 
 ## gRPC request
@@ -25,7 +24,6 @@ To get the list of all available containers, make a [List](/docs/serverless-cont
 || container_id | **string**
 
 Required field. ID of the container to return.
-
 To get a container ID make a [ContainerService.List](/docs/serverless-containers/containers/api-ref/grpc/Container/list#List) request. ||
 |#
 

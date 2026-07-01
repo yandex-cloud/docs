@@ -13,6 +13,7 @@
 С помощью сервисных ролей Schema Registry вы сможете просматривать пространства имен, субъекты и схемы в реестре схем, а также создавать, редактировать и удалять пространства имен и схемы.
 
 ```mermaid
+%%{ init: "flowchart": { "defaultRenderer": "elk" } }%%
 flowchart BT
     schema-registry.auditor --> schema-registry.viewer
     schema-registry.viewer --> schema-registry.editor

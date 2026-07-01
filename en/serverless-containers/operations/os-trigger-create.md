@@ -69,7 +69,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
       --suffix '<object_key_suffix>' \
       --events 'create-object','delete-object','update-object' \
       --batch-size <event_batch_size> \
-      --batch-cutoff <maximum_timeout> \
+      --batch-cutoff <maximum_wait_time> \
       --invoke-container-id <container_ID> \
       --invoke-container-service-account-id <service_account_ID> \
       --retry-attempts <number_of_retry_attempts> \
@@ -129,7 +129,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
   To create a trigger for {{ objstorage-name }}:
 
-  1. Describe the trigger in the configuration file:
+  1. In the configuration file, describe the trigger properties:
 
      ```hcl
      resource "yandex_function_trigger" "my_trigger" {
@@ -138,7 +138,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
          id                 = "<container_ID>"
          service_account_id = "<service_account_ID>"
          retry_attempts     = "<number_of_retry_attempts>"
-         retry_interval     = "<time_between_retry_attempts>"
+         retry_interval     = "<interval_between_retry_attempts>"
        }
        object_storage {
          bucket_id    = "<bucket_ID>"
@@ -163,7 +163,7 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-      * `container`: Container parameters:
+      * `container`: Container settings:
 
           {% include [tf-container-params](../../_includes/serverless-containers/tf-container-params.md) %}
 
@@ -176,9 +176,9 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
           * `suffix`: Bucket object key [suffix](../concepts/trigger/os-trigger.md#filter). This is an optional setting. It is used for filtering.
           * [Events](../concepts/trigger/os-trigger.md#event) that set off the trigger:
 
-              * `create`: Trigger will invoke the container if a new object is created in the storage. It can either be `true` or `false`.
-              * `update`: Trigger will invoke the container if an object is updated in the storage. It can either be `true` or `false`.
-              * `delete`: Trigger will invoke the container if an object is deleted from the storage. It can either be `true` or `false`.
+              * `create`: Trigger will invoke the container if a new object is created in the storage. The possible values are `true` or `false`.
+              * `update`: Trigger will invoke the container if an object is updated in the storage. The possible values are `true` or `false`.
+              * `delete`: Trigger will invoke the container if an object is deleted from the storage. The possible values are `true` or `false`.
 
           {% include [tf-batch-params-events.md](../../_includes/serverless-containers/tf-batch-params-events.md) %}
 

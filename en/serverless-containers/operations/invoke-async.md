@@ -85,7 +85,7 @@ description: Follow this guide to configure and run an asynchronous invocation f
       ```hcl
       resource "yandex_serverless_container" "test-container" {
         name               = "<container_name>"
-        memory             = "<RAM_size>"
+        memory             = "<RAM_amount>"
         execution_timeout  = "<execution_timeout>"
         service_account_id = "<service_account_ID>"
 

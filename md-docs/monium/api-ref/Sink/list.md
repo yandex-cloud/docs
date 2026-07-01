@@ -15,28 +15,31 @@ GET https://logging.api.cloud.yandex.net/logging/v1/sinks
 || folderId | **string**
 
 Required field. Folder ID of the sinks to return.
+To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
 
-To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request. ||
+The maximum string length in characters is 64. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListSinkssResponse.next_page_token]
 that can be used to get the next page of results in subsequent list requests.
-
 Default value: 100. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListSinksResponse.nextPageToken](#yandex.cloud.logging.v1.ListSinksResponse) returned by a previous list request. ||
+[ListSinksResponse.nextPageToken](#yandex.cloud.logging.v1.ListSinksResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters sinks listed in the response.
-
 The expression must specify:
 1. The field name. Currently filtering can only be applied to the [Sink.name](#yandex.cloud.logging.v1.Sink) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Example of a filter: `name="my-sink"`. ||
+Example of a filter: `name="my-sink"`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.logging.v1.ListSinksResponse}
@@ -80,7 +83,6 @@ List of sinks in the specified folder. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListSinksRequest.pageSize](#yandex.cloud.logging.v1.ListSinksRequest), use `next_page_token` as the value
 for the [ListSinksRequest.pageToken](#yandex.cloud.logging.v1.ListSinksRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -123,25 +125,25 @@ Logs will be written to the sink on behalf of this service account ||
 
 Yandex data stream
 
-Includes only one of the fields `yds`, `s3`.
-
-Logs destination ||
+Includes only one of the fields `yds`, `s3`. ||
 || s3 | **[S3](#yandex.cloud.logging.v1.Sink.S3)**
 
 Object storage
 
-Includes only one of the fields `yds`, `s3`.
-
-Logs destination ||
+Includes only one of the fields `yds`, `s3`. ||
 |#
 
 ## Yds {#yandex.cloud.logging.v1.Sink.Yds}
+
+Logs destination
 
 #|
 ||Field | Description ||
 || streamName | **string**
 
-Fully qualified name of data stream ||
+Fully qualified name of data stream
+
+The maximum string length in characters is 512. ||
 |#
 
 ## S3 {#yandex.cloud.logging.v1.Sink.S3}
@@ -150,8 +152,12 @@ Fully qualified name of data stream ||
 ||Field | Description ||
 || bucket | **string**
 
-Object storage bucket ||
+Object storage bucket
+
+Value must match the regular expression ` [a-zA-Z0-9][-a-zA-Z0-9.]{2,62} `. ||
 || prefix | **string**
 
-Prefix to use for saved log object names ||
+Prefix to use for saved log object names
+
+The maximum string length in characters is 1024. ||
 |#

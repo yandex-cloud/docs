@@ -117,7 +117,7 @@ To create a trigger, you will need:
 
   To create a trigger for {{ message-queue-name }}:
 
-  1. Describe the trigger in the configuration file:
+  1. In the configuration file, describe the trigger properties:
 
      ```hcl
      resource "yandex_function_trigger" "my_trigger" {

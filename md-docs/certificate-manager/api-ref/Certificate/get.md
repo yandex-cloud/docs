@@ -1,7 +1,6 @@
 # Certificate Manager API, REST: Certificate.Get
 
 Returns the specified certificate.
-
 To get the list of available certificates, make a [List](list.md#List) request.
 
 ## HTTP request
@@ -17,7 +16,6 @@ GET https://certificate-manager.api.cloud.yandex.net/certificate-manager/v1/cert
 || certificateId | **string**
 
 Required field. ID of the certificate to return.
-
 To get the ID of a certificate use a [CertificateService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -42,32 +40,23 @@ The output type of the certificate.
 ```json
 {
   "id": "string",
+  "name": "string",
+  "labels": "object",
   "folderId": "string",
   "createdAt": "string",
-  "name": "string",
-  "description": "string",
-  "labels": "object",
+  "updatedAt": "string",
   "type": "string",
   "domains": [
     "string"
   ],
-  "status": "string",
   "issuer": "string",
-  "subject": "string",
-  "serial": "string",
-  "updatedAt": "string",
   "issuedAt": "string",
   "notAfter": "string",
   "notBefore": "string",
+  "serial": "string",
+  "status": "string",
   "challenges": [
     {
-      "domain": "string",
-      "type": "string",
-      "createdAt": "string",
-      "updatedAt": "string",
-      "status": "string",
-      "message": "string",
-      "error": "string",
       // Includes only one of the fields `dnsChallenge`, `httpChallenge`
       "dnsChallenge": {
         "name": "string",
@@ -77,10 +66,19 @@ The output type of the certificate.
       "httpChallenge": {
         "url": "string",
         "content": "string"
-      }
+      },
       // end of the list of possible fields
+      "createdAt": "string",
+      "updatedAt": "string",
+      "domain": "string",
+      "type": "string",
+      "status": "string",
+      "message": "string",
+      "error": "string"
     }
   ],
+  "subject": "string",
+  "description": "string",
   "deletionProtection": "boolean",
   "incompleteChain": "boolean"
 }
@@ -93,6 +91,13 @@ A certificate. For details about the concept, see [documentation](../../concepts
 || id | **string**
 
 ID of the certificate. Generated at creation time. ||
+|| name | **string**
+
+Name of the certificate.
+The name is unique within the folder. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Certificate labels as `key:value` pairs. ||
 || folderId | **string**
 
 ID of the folder that the certificate belongs to. ||
@@ -106,44 +111,6 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| name | **string**
-
-Name of the certificate.
-The name is unique within the folder. ||
-|| description | **string**
-
-Description of the certificate. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Certificate labels as `key:value` pairs. ||
-|| type | **enum** (CertificateType)
-
-Type of the certificate.
-
-- `IMPORTED`: The certificate is imported by user.
-- `MANAGED`: The certificate is created by service. ||
-|| domains[] | **string**
-
-Fully qualified domain names of the certificate. ||
-|| status | **enum** (Status)
-
-Status of the certificate.
-
-- `VALIDATING`: The certificate domains validation are required. Used only for managed certificates.
-- `INVALID`: The certificate issuance is failed. Used only for managed certificates.
-- `ISSUED`: The certificate is issued.
-- `REVOKED`: The certificate is revoked.
-- `RENEWING`: The certificate renewal is started. Used only for managed certificates.
-- `RENEWAL_FAILED`: The certificate renewal is failed. Used only for managed certificates. ||
-|| issuer | **string**
-
-[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the certificate authority that issued the certificate. ||
-|| subject | **string**
-
-[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the entity that is associated with the public key contained in the certificate. ||
-|| serial | **string**
-
-Serial number of the certificate. ||
 || updatedAt | **string** (date-time)
 
 Time when the certificate is updated.
@@ -154,6 +121,18 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| type | **enum** (CertificateType)
+
+Type of the certificate.
+
+- `IMPORTED`: The certificate is imported by user.
+- `MANAGED`: The certificate is created by service. ||
+|| domains[] | **string**
+
+Fully qualified domain names of the certificate. ||
+|| issuer | **string**
+
+[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the certificate authority that issued the certificate. ||
 || issuedAt | **string** (date-time)
 
 Time when the certificate is issued.
@@ -184,9 +163,28 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| serial | **string**
+
+Serial number of the certificate. ||
+|| status | **enum** (Status)
+
+Status of the certificate.
+
+- `VALIDATING`: The certificate domains validation are required. Used only for managed certificates.
+- `INVALID`: The certificate issuance is failed. Used only for managed certificates.
+- `ISSUED`: The certificate is issued.
+- `REVOKED`: The certificate is revoked.
+- `RENEWING`: The certificate renewal is started. Used only for managed certificates.
+- `RENEWAL_FAILED`: The certificate renewal is failed. Used only for managed certificates. ||
 || challenges[] | **[Challenge](#yandex.cloud.certificatemanager.v1.Challenge)**
 
 Domains validation challenges of the certificate. Used only for managed certificates. ||
+|| subject | **string**
+
+[Distinguished Name](https://tools.ietf.org/html/rfc1779) of the entity that is associated with the public key contained in the certificate. ||
+|| description | **string**
+
+Description of the certificate. ||
 || deletionProtection | **boolean**
 
 Flag that protects deletion of the certificate ||
@@ -201,15 +199,20 @@ Domain validation challenge.
 
 #|
 ||Field | Description ||
-|| domain | **string**
+|| dnsChallenge | **[DnsRecord](#yandex.cloud.certificatemanager.v1.Challenge.DnsRecord)**
 
-Domain of the challenge. ||
-|| type | **enum** (ChallengeType)
+DNS-record.
 
-Type of the challenge.
+Includes only one of the fields `dnsChallenge`, `httpChallenge`.
 
-- `DNS`: Domain validation type that using DNS-records.
-- `HTTP`: Domain validation type that using HTTP-files. ||
+Data of the challenge. ||
+|| httpChallenge | **[HttpFile](#yandex.cloud.certificatemanager.v1.Challenge.HttpFile)**
+
+HTTP-file.
+
+Includes only one of the fields `dnsChallenge`, `httpChallenge`.
+
+Data of the challenge. ||
 || createdAt | **string** (date-time)
 
 Time when the challenge is created.
@@ -230,6 +233,15 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| domain | **string**
+
+Domain of the challenge. ||
+|| type | **enum** (ChallengeType)
+
+Type of the challenge.
+
+- `DNS`: Domain validation type that using DNS-records.
+- `HTTP`: Domain validation type that using HTTP-files. ||
 || status | **enum** (Status)
 
 Status of the challenge.
@@ -244,20 +256,6 @@ Description of the challenge. ||
 || error | **string**
 
 Error of the challenge. ||
-|| dnsChallenge | **[DnsRecord](#yandex.cloud.certificatemanager.v1.Challenge.DnsRecord)**
-
-DNS-record.
-
-Includes only one of the fields `dnsChallenge`, `httpChallenge`.
-
-Data of the challenge. ||
-|| httpChallenge | **[HttpFile](#yandex.cloud.certificatemanager.v1.Challenge.HttpFile)**
-
-HTTP-file.
-
-Includes only one of the fields `dnsChallenge`, `httpChallenge`.
-
-Data of the challenge. ||
 |#
 
 ## DnsRecord {#yandex.cloud.certificatemanager.v1.Challenge.DnsRecord}

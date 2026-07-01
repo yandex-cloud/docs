@@ -95,11 +95,26 @@
         // Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`, `hudi`, `mysql`, `greenplum`
         "hive": {
           "metastore": {
-            // Includes only one of the fields `hive`
+            // Includes only one of the fields `hive`, `rest`
             "hive": {
-              // Includes only one of the fields `uri`
-              "uri": "string"
+              // Includes only one of the fields `uri`, `managedClusterId`
+              "uri": "string",
+              "managedClusterId": "string",
               // end of the list of possible fields
+              "protocol": {
+                // Includes only one of the fields `thrift`, `rest`
+                "thrift": "object",
+                "rest": "object"
+                // end of the list of possible fields
+              }
+            },
+            "rest": {
+              "uri": "string",
+              "authorization": {
+                // Includes only one of the fields `none`
+                "none": "object"
+                // end of the list of possible fields
+              }
             }
             // end of the list of possible fields
           },
@@ -118,11 +133,26 @@
         },
         "iceberg": {
           "metastore": {
-            // Includes only one of the fields `hive`
+            // Includes only one of the fields `hive`, `rest`
             "hive": {
-              // Includes only one of the fields `uri`
-              "uri": "string"
+              // Includes only one of the fields `uri`, `managedClusterId`
+              "uri": "string",
+              "managedClusterId": "string",
               // end of the list of possible fields
+              "protocol": {
+                // Includes only one of the fields `thrift`, `rest`
+                "thrift": "object",
+                "rest": "object"
+                // end of the list of possible fields
+              }
+            },
+            "rest": {
+              "uri": "string",
+              "authorization": {
+                // Includes only one of the fields `none`
+                "none": "object"
+                // end of the list of possible fields
+              }
             }
             // end of the list of possible fields
           },
@@ -141,11 +171,26 @@
         },
         "deltaLake": {
           "metastore": {
-            // Includes only one of the fields `hive`
+            // Includes only one of the fields `hive`, `rest`
             "hive": {
-              // Includes only one of the fields `uri`
-              "uri": "string"
+              // Includes only one of the fields `uri`, `managedClusterId`
+              "uri": "string",
+              "managedClusterId": "string",
               // end of the list of possible fields
+              "protocol": {
+                // Includes only one of the fields `thrift`, `rest`
+                "thrift": "object",
+                "rest": "object"
+                // end of the list of possible fields
+              }
+            },
+            "rest": {
+              "uri": "string",
+              "authorization": {
+                // Includes only one of the fields `none`
+                "none": "object"
+                // end of the list of possible fields
+              }
             }
             // end of the list of possible fields
           },
@@ -228,11 +273,26 @@
         },
         "hudi": {
           "metastore": {
-            // Includes only one of the fields `hive`
+            // Includes only one of the fields `hive`, `rest`
             "hive": {
-              // Includes only one of the fields `uri`
-              "uri": "string"
+              // Includes only one of the fields `uri`, `managedClusterId`
+              "uri": "string",
+              "managedClusterId": "string",
               // end of the list of possible fields
+              "protocol": {
+                // Includes only one of the fields `thrift`, `rest`
+                "thrift": "object",
+                "rest": "object"
+                // end of the list of possible fields
+              }
+            },
+            "rest": {
+              "uri": "string",
+              "authorization": {
+                // Includes only one of the fields `none`
+                "none": "object"
+                // end of the list of possible fields
+              }
             }
             // end of the list of possible fields
           },
@@ -534,7 +594,10 @@ The maximum string length in characters for each value is 128. The string length
 ||Field | Description ||
 || hive | **[HiveMetastore](#yandex.cloud.trino.v1.Metastore.HiveMetastore)**
 
-Includes only one of the fields `hive`. ||
+Includes only one of the fields `hive`, `rest`. ||
+|| rest | **[RestMetastore](#yandex.cloud.trino.v1.Metastore.RestMetastore)**
+
+Includes only one of the fields `hive`, `rest`. ||
 |#
 
 ## HiveMetastore {#yandex.cloud.trino.v1.Metastore.HiveMetastore}
@@ -543,7 +606,40 @@ Includes only one of the fields `hive`. ||
 ||Field | Description ||
 || uri | **string**
 
-Includes only one of the fields `uri`. ||
+Includes only one of the fields `uri`, `managedClusterId`. ||
+|| managedClusterId | **string**
+
+Includes only one of the fields `uri`, `managedClusterId`. ||
+|| protocol | **[Protocol](#yandex.cloud.trino.v1.Metastore.HiveMetastore.Protocol)** ||
+|#
+
+## Protocol {#yandex.cloud.trino.v1.Metastore.HiveMetastore.Protocol}
+
+#|
+||Field | Description ||
+|| thrift | **object**
+
+Includes only one of the fields `thrift`, `rest`. ||
+|| rest | **object**
+
+Includes only one of the fields `thrift`, `rest`. ||
+|#
+
+## RestMetastore {#yandex.cloud.trino.v1.Metastore.RestMetastore}
+
+#|
+||Field | Description ||
+|| uri | **string** ||
+|| authorization | **[Authorization](#yandex.cloud.trino.v1.Metastore.RestMetastore.Authorization)** ||
+|#
+
+## Authorization {#yandex.cloud.trino.v1.Metastore.RestMetastore.Authorization}
+
+#|
+||Field | Description ||
+|| none | **object**
+
+Includes only one of the fields `none`. ||
 |#
 
 ## FileSystem {#yandex.cloud.trino.v1.FileSystem}

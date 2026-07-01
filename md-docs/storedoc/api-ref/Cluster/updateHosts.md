@@ -1,7 +1,7 @@
 # Managed Service for MongoDB API, REST: Cluster.UpdateHosts
 
 Updates the specified parameters for the host.
-(-- api-linter: yc::1705::http-method-mapping=disabled --)
+
 
 ## HTTP request
 
@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/ho
 || clusterId | **string**
 
 Required field. ID of the MongoDB cluster to update hosts from.
-To get the MongoDB cluster ID, use a [ClusterService.List](../../../managed-mongodb/api-ref/Cluster/list#List) request.
+To get the MongoDB cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -54,7 +54,7 @@ The number of elements must be greater than 0. ||
 ||Field | Description ||
 || hostName | **string**
 
-Required field. Host to be updated. Specify the [host FQDN](../../../managed-mongodb/operations/connect#fqdn).
+Required field. Host to be updated. Specify the [host FQDN](../../operations/connect/index.md#fqdn).
 
 The maximum string length in characters is 253. ||
 || hidden | **boolean**

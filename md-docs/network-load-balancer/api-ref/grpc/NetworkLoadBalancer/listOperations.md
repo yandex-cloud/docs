@@ -20,17 +20,21 @@ Lists operations for the specified network load balancer.
 ||Field | Description ||
 || network_load_balancer_id | **string**
 
-Required field. ID of the NetworkLoadBalancer resource to list operations for. ||
+ID of the NetworkLoadBalancer resource to list operations for.
+The length must be less than or equal to 50.
+This field is required. ||
 || page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a [ListNetworkLoadBalancerOperationsResponse.next_page_token](#yandex.cloud.loadbalancer.v1.ListNetworkLoadBalancerOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+The value must be less than or equal to 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListNetworkLoadBalancerOperationsResponse.next_page_token](#yandex.cloud.loadbalancer.v1.ListNetworkLoadBalancerOperationsResponse) returned by a previous list request. ||
+[ListNetworkLoadBalancerOperationsResponse.next_page_token](#yandex.cloud.loadbalancer.v1.ListNetworkLoadBalancerOperationsResponse) returned by a previous list request.
+The length must be less than or equal to 100. ||
 |#
 
 ## ListNetworkLoadBalancerOperationsResponse {#yandex.cloud.loadbalancer.v1.ListNetworkLoadBalancerOperationsResponse}

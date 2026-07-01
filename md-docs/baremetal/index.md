@@ -336,6 +336,8 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [power-on](cli-ref/server/power-on.md)
 
+ - [prolongate-ended-rent](cli-ref/server/prolongate-ended-rent.md)
+
  - [reboot](cli-ref/server/reboot.md)
 
  - [reinstall](cli-ref/server/reinstall.md)
@@ -666,6 +668,8 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [power-on](cli-ref/v1alpha/server/power-on.md)
 
+ - [prolongate-ended-rent](cli-ref/v1alpha/server/prolongate-ended-rent.md)
+
  - [reboot](cli-ref/v1alpha/server/reboot.md)
 
  - [reinstall](cli-ref/v1alpha/server/reinstall.md)
@@ -812,6 +816,8 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [reinstall](cli-ref/v2/server/reinstall.md)
 
+ - [renew-rental](cli-ref/v2/server/renew-rental.md)
+
  - [update](cli-ref/v2/server/update.md)
 
 ###### vrf
@@ -876,6 +882,8 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [List](api-ref/grpc/Configuration/list.md)
 
+ - [ListConfigurationNetworkInterface](api-ref/grpc/Configuration/listConfigurationNetworkInterface.md)
+
 ###### HardwarePool
 
  - [Overview](api-ref/grpc/HardwarePool/index.md)
@@ -899,6 +907,16 @@ Yandex BareMetal предоставляет возможность арендо�
  - [Delete](api-ref/grpc/Image/delete.md)
 
  - [ListOperations](api-ref/grpc/Image/listOperations.md)
+
+###### MountedImage
+
+ - [Overview](api-ref/grpc/MountedImage/index.md)
+
+ - [Create](api-ref/grpc/MountedImage/create.md)
+
+ - [Delete](api-ref/grpc/MountedImage/delete.md)
+
+ - [Get](api-ref/grpc/MountedImage/get.md)
 
 ###### Operation
 
@@ -1000,6 +1018,8 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [StopProlongation](api-ref/grpc/Server/stopProlongation.md)
 
+ - [ProlongateEndedRent](api-ref/grpc/Server/prolongateEndedRent.md)
+
 ###### StandardImage
 
  - [Overview](api-ref/grpc/StandardImage/index.md)
@@ -1052,6 +1072,8 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [List](api-ref/Configuration/list.md)
 
+ - [ListConfigurationNetworkInterface](api-ref/Configuration/listConfigurationNetworkInterface.md)
+
 ###### HardwarePool
 
  - [Overview](api-ref/HardwarePool/index.md)
@@ -1075,6 +1097,16 @@ Yandex BareMetal предоставляет возможность арендо�
  - [Delete](api-ref/Image/delete.md)
 
  - [ListOperations](api-ref/Image/listOperations.md)
+
+###### MountedImage
+
+ - [Overview](api-ref/MountedImage/index.md)
+
+ - [Create](api-ref/MountedImage/create.md)
+
+ - [Delete](api-ref/MountedImage/delete.md)
+
+ - [Get](api-ref/MountedImage/get.md)
 
 ###### Operation
 
@@ -1113,6 +1145,18 @@ Yandex BareMetal предоставляет возможность арендо�
  - [Delete](api-ref/PrivateSubnet/delete.md)
 
  - [ListOperations](api-ref/PrivateSubnet/listOperations.md)
+
+###### PublicPrefixPool
+
+ - [Overview](api-ref/PublicPrefixPool/index.md)
+
+ - [Get](api-ref/PublicPrefixPool/get.md)
+
+ - [List](api-ref/PublicPrefixPool/list.md)
+
+ - [Update](api-ref/PublicPrefixPool/update.md)
+
+ - [ListOperations](api-ref/PublicPrefixPool/listOperations.md)
 
 ###### PublicSubnet
 
@@ -1163,6 +1207,8 @@ Yandex BareMetal предоставляет возможность арендо�
  - [StartProlongation](api-ref/Server/startProlongation.md)
 
  - [StopProlongation](api-ref/Server/stopProlongation.md)
+
+ - [ProlongateEndedRent](api-ref/Server/prolongateEndedRent.md)
 
 ###### StandardImage
 

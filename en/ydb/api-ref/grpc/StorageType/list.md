@@ -26,11 +26,15 @@ Returns the list of available storage types.
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a `next_page_token` that can be used
 to get the next page of results in subsequent ListStorageTypes requests.
-Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
+Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. Set `page_token` to the `next_page_token` returned by a previous ListStorageTypes
-request to get the next page of results. ||
+request to get the next page of results.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListStorageTypesResponse {#yandex.cloud.ydb.v1.ListStorageTypesResponse}

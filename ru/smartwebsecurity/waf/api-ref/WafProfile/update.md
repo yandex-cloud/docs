@@ -628,11 +628,17 @@ apiPlayground:
           bodyValues:
             description: |-
               **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.StringMatcher)**
-              List of request body values to match. Up to 20 entries.
+              Deprecated. Previously matched body content. Use is_excluded instead.
               The maximum number of elements is 20.
+            deprecated: true
             type: array
             items:
               $ref: '#/definitions/StringMatcher'
+          isExcluded:
+            description: |-
+              **boolean**
+              When true, request body is excluded from WAF inspection for this exclusion rule.
+            type: boolean
       RequestCondition:
         type: object
         properties:
@@ -654,7 +660,7 @@ apiPlayground:
           bodyMatcher:
             description: |-
               **[BodyMatcher](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.BodyMatcher)**
-              Matcher for request body.
+              Matcher for request body exclusion flag.
             $ref: '#/definitions/BodyMatcher'
       WafProfileExclusionRule:
         type: object
@@ -1486,7 +1492,8 @@ Required field. ID of the WAF profile to update. ||
               "value": "string",
               "caseSensitive": "boolean"
             }
-          ]
+          ],
+          "isExcluded": "boolean"
         }
       }
     }
@@ -2191,7 +2198,7 @@ Matcher for request headers. ||
 Matcher for request cookies. ||
 || bodyMatcher | **[BodyMatcher](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.BodyMatcher)**
 
-Matcher for request body. ||
+Matcher for request body exclusion flag. ||
 |#
 
 ## RequestParamMatcher {#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.RequestParamMatcher}
@@ -2245,9 +2252,12 @@ The maximum number of elements is 20. ||
 ||Field | Description ||
 || bodyValues[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.StringMatcher)**
 
-List of request body values to match. Up to 20 entries.
+Deprecated. Previously matched body content. Use is_excluded instead.
 
 The maximum number of elements is 20. ||
+|| isExcluded | **boolean**
+
+When true, request body is excluded from WAF inspection for this exclusion rule. ||
 |#
 
 ## AnalyzeRequestBody {#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.AnalyzeRequestBody}

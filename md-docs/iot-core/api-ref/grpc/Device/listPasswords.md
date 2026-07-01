@@ -19,8 +19,9 @@ Retrieves the list of passwords for the specified device.
 || device_id | **string**
 
 Required field. ID of the registry to list passwords in.
+To get a registry ID make a [RegistryService.List](../Registry/list.md#List) request.
 
-To get a registry ID make a [RegistryService.List](../Registry/list.md#List) request. ||
+The maximum string length in characters is 50. ||
 |#
 
 ## ListDevicePasswordsResponse {#yandex.cloud.iot.devices.v1.ListDevicePasswordsResponse}

@@ -27,15 +27,21 @@ Required field. ID of the registry to list operations for. ||
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a [ListRegistryOperationsResponse.next_page_token](#yandex.cloud.iot.devices.v1.ListRegistryOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListRegistryOperationsResponse.next_page_token](#yandex.cloud.iot.devices.v1.ListRegistryOperationsResponse) returned by a previous list request. ||
+[ListRegistryOperationsResponse.next_page_token](#yandex.cloud.iot.devices.v1.ListRegistryOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-Currently you can use filtering only on [Registry.name](get.md#yandex.cloud.iot.devices.v1.Registry) field. ||
+Currently you can use filtering only on [Registry.name](get.md#yandex.cloud.iot.devices.v1.Registry) field.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListRegistryOperationsResponse {#yandex.cloud.iot.devices.v1.ListRegistryOperationsResponse}
@@ -71,7 +77,6 @@ List of operations for the specified registry. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListRegistryOperationsRequest.page_size](#yandex.cloud.iot.devices.v1.ListRegistryOperationsRequest), use `next_page_token` as the value
 for the [ListRegistryOperationsRequest.page_token](#yandex.cloud.iot.devices.v1.ListRegistryOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

@@ -238,6 +238,16 @@
 
  - [Cancel](api-ref/grpc/Job/cancel.md)
 
+#### Maintenance
+
+ - [Overview](api-ref/grpc/Maintenance/index.md)
+
+ - [List](api-ref/grpc/Maintenance/list.md)
+
+ - [Get](api-ref/grpc/Maintenance/get.md)
+
+ - [Reschedule](api-ref/grpc/Maintenance/reschedule.md)
+
 #### Operation
 
  - [Overview](api-ref/grpc/Operation/index.md)

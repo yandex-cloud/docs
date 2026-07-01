@@ -14,7 +14,9 @@ GET https://marketplace.api.cloud.yandex.net/marketplace/pim/saas/v1/instances/{
 ||Field | Description ||
 || productInstanceId | **string**
 
-Required field. ID of the product instance to return. ||
+Required field. ID of the product instance to return.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.marketplace.pim.v1.saas.ProductInstance}
@@ -51,7 +53,6 @@ ID of the resource. ||
 
 Type of the resource.
 
-- `RESOURCE_TYPE_UNSPECIFIED`
 - `SAAS`: SaaS resource.
 - `K8S`: Kubernetes resource.
 - `COMPUTE`: Compute resource.
@@ -63,7 +64,6 @@ Metadata of the resource; Reserved for future use. ||
 
 State of the product instance.
 
-- `STATE_UNSPECIFIED`
 - `ACTIVATED`: Product instance is activated.
 - `DEACTIVATED`: Product instance is deactivated.
 - `PENDING_ACTIVATION`: Product instance is pending activation.

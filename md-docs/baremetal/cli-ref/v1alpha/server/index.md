@@ -24,6 +24,8 @@ Syntax:
 
 - [yc baremetal v1alpha server power-on](power-on.md) — Powers on the specified server.
 
+- [yc baremetal v1alpha server prolongate-ended-rent](prolongate-ended-rent.md) — Enable prolongation after rental period end
+
 - [yc baremetal v1alpha server reboot](reboot.md) — Reboots the specified server.
 
 - [yc baremetal v1alpha server reinstall](reinstall.md) — Reinstalls the specified server.

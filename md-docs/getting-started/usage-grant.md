@@ -44,7 +44,7 @@
 * Для резидентов Республики Казахстан (РК) размер гранта составляет не менее 20&nbsp;000 ₸ с учетом НДС.
 * Для нерезидентов Российской Федерации и Республики Казахстан размер гранта составляет не менее 30 $, без учета налогов и сборов.
 
-Грант доступен в течение 60 дней и может использоваться для оплаты услуг любых сервисов, кроме [кластеров GPU](../compute/pricing.md#prices-gpu-clusters), [услуг сервиса Yandex Cloud Postbox](../postbox/pricing.md), [платных тарифов](../support/pricing.md) технической поддержки и платных продуктов [Yandex Cloud Marketplace](../marketplace/operations/users/buy-subscription.md).
+Грант доступен в течение 60 дней и может использоваться для оплаты услуг любых сервисов, кроме [кластеров GPU](../../compute/pricing.md#prices-gpu-clusters), [услуг сервиса Yandex Cloud Postbox](../../postbox/pricing.md), [платных тарифов](../../support/pricing.md) технической поддержки и платных продуктов [Yandex Cloud Marketplace](../marketplace/operations/users/buy-subscription.md).
 
 
 ## Бизнес-аккаунт {#business}

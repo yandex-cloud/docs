@@ -67,7 +67,6 @@ Required field. ID of the folder to list Workflows in. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListWorkflowsResponse.nextPageToken](#yandex.cloud.serverless.workflows.v1.ListWorkflowsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
 Default value: 100. ||
 || pageToken | **string**
 
@@ -76,7 +75,6 @@ Page token. To get the next page of results, set `pageToken` to the
 || filter | **string**
 
 A filter expression that filters functions listed in the response.
-
 The expression must specify:
 1. The field name. Currently filtering can only be applied to following fields: name, created_at.
 2. An `=` operator.
@@ -128,7 +126,6 @@ List of Workflows. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListWorkflowsRequest.pageSize](#yandex.cloud.serverless.workflows.v1.ListWorkflowsRequest), use `next_page_token` as the value
 for the [ListWorkflowsRequest.pageToken](#yandex.cloud.serverless.workflows.v1.ListWorkflowsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -138,13 +135,13 @@ Each subsequent page will have its own `next_page_token` to continue paging thro
 ||Field | Description ||
 || id | **string**
 
-ID of the Workflow. Generated at creation time. ||
+Required field. ID of the Workflow. Generated at creation time. ||
 || folderId | **string**
 
-ID of the folder that the Workflow belongs to. ||
+Required field. ID of the folder that the Workflow belongs to. ||
 || createdAt | **string** (date-time)
 
-Creation timestamp for the Workflow.
+Required field. Creation timestamp for the Workflow.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -154,7 +151,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || name | **string**
 
-Name of the Workflow. The name is unique within the folder. ||
+Required field. Name of the Workflow. The name is unique within the folder. ||
 || description | **string**
 
 Description of the Workflow. ||
@@ -163,7 +160,7 @@ Description of the Workflow. ||
 Workflow labels as `key:value` pairs. ||
 || status | **enum** (Status)
 
-Status of the Workflow.
+Required field. Status of the Workflow.
 
 - `CREATING`: Workflow is being created.
 - `ACTIVE`: Workflow is ready for use.
@@ -210,7 +207,6 @@ Includes only one of the fields `logGroupId`, `folderId`. ||
 || minLevel | **enum** (Level)
 
 Minimum logs level.
-
 See [LogLevel.Level](/docs/logging/api-ref/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.

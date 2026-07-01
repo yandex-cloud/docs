@@ -5,7 +5,7 @@ canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/artif
 
 # yc cloud-registry artifact
 
-[PREVIEW] Manage artifacts
+Manage artifacts
 
 #### Command Usage
 
@@ -28,6 +28,8 @@ Syntax:
 - [yc cloud-registry artifact remove-access-binding](remove-access-binding.md) — Remove access binding for the specified artifact
 
 - [yc cloud-registry artifact set-access-bindings](set-access-bindings.md) — Set access bindings for the specified artifact and remove existing ones
+
+- [yc cloud-registry artifact upsert](upsert.md) — Upserts a folder at the specified path within the registry
 
 #### Global Flags
 

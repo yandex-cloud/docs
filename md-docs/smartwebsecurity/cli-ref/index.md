@@ -20,6 +20,14 @@ Aliases:
 
 #### Command Tree
 
+- [yc smartwebsecurity advanced-rate-limiter](advanced-rate-limiter/index.md) — 
+
+
+
+- [yc smartwebsecurity match-list](match-list/index.md) — 
+
+
+
 - [yc smartwebsecurity security-profile](security-profile/index.md) — A set of methods for managing SecurityProfile resources.
 
   - [yc smartwebsecurity security-profile create](security-profile/create.md) — Creates a security profile in the specified folder using the data specified in the request.

@@ -84,7 +84,6 @@ description: Следуя данной инструкции, вы сможете
 ## Примеры использования {#examples}
 
 * [{#T}](../../tutorials/alb-ingress-controller-log-options.md).
-* [{#T}](../../tutorials/load-testing-grpc-autoscaling.md).
 
 ## Полезные ссылки {#see-also}
 

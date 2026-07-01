@@ -129,6 +129,6 @@
 Чтобы поделиться дашбордом или чартом, воспользуйтесь одним из способов:
 
 * [Добавьте](../../datalens/security/add-new-user.md) пользователя в организацию или облако и предоставьте ему доступ к дашборду или чарту.
-* [Выгрузите](../../datalens/qa/connections.md#uploading-data-logs-api) данные в кластер [Managed Service for ClickHouse®](../index.md) и используйте подключение к БД ClickHouse® в качестве источника. С тарифами сервиса Managed Service for ClickHouse® можно ознакомиться в разделе [Правила тарификации](../pricing.md).
+* [Выгрузите](../../datalens/qa/connections.md#uploading-data-logs-api) данные в кластер [Managed Service for ClickHouse®](../index.md) и используйте подключение к БД ClickHouse® в качестве источника. С тарифами сервиса Managed Service for ClickHouse® можно ознакомиться в разделе [Правила тарификации](../../managed-clickhouse/pricing.md).
 
 _ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

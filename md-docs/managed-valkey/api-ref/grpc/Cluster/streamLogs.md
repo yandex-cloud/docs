@@ -1,7 +1,7 @@
 # Managed Service for Redis API, gRPC: ClusterService.StreamLogs
 
 Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
-(-- api-linter: yc::1705::http-method-mapping=disabled --)
+
 
 ## gRPC request
 

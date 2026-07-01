@@ -33,7 +33,7 @@ Updates the specified Redis user.
 || cluster_id | **string**
 
 Required field. ID of the Redis cluster the user belongs to.
-To get the cluster ID, use a [ClusterService.List](../../../../managed-redis/api-ref/grpc/Cluster/list#List) request.
+To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || user_name | **string**

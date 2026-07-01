@@ -23,13 +23,15 @@ editable: false
 || registry_id | **string**
 
 Required field. ID of the registry to get device.
+To get a registry ID make a [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/api-ref/grpc/Registry/list#List) request.
 
-To get a registry ID make a [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/api-ref/grpc/Registry/list#List) request. ||
+The maximum string length in characters is 50. ||
 || device_name | **string**
 
 Required field. Name of the device to return.
+To get a device name make a [DeviceService.List](/docs/iot-core/api-ref/grpc/Device/list#List) request.
 
-To get a device name make a [DeviceService.List](/docs/iot-core/api-ref/grpc/Device/list#List) request. ||
+The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || device_view | enum **DeviceView**
 
 Specifies which parts of the device resource should be returned
@@ -85,13 +87,11 @@ Description of the device. 0-256 characters long. ||
 || topic_aliases | **object** (map<**string**, **string**>)
 
 Alias of a device topic.
-
 Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/abcdef/events`. ||
 || status | enum **Status**
 
 Status of the device.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Device is being created.
 - `ACTIVE`: Device is ready to use.
 - `DELETING`: Device is being deleted. ||

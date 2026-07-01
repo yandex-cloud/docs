@@ -38,6 +38,8 @@
         --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>:listAccessBindings'
       ```
 
+     Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listAccessBindings.md#yandex.cloud.access.ListAccessBindingsResponse).
 
 - gRPC API {#grpc-api}
@@ -71,6 +73,8 @@
         yandex.cloud.mdb.spqr.v1.ClusterService.ListAccessBindings
       ```
 
+      Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/listAccessBindings.md#yandex.cloud.access.ListAccessBindingsResponse).
 
 {% endlist %}
@@ -100,7 +104,7 @@
             
       Где:
 
-      * `cluster_id` — идентификатор кластера.
+      * `cluster_id` — идентификатор кластера, который можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
       * `role` — назначаемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
       * `members` — список [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
 
@@ -195,6 +199,7 @@
       
       Где:
 
+      * `<идентификатор_кластера>` — идентификатор кластера, который можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
       * `access_binding_deltas.roleId` — назначаемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
       * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
@@ -214,7 +219,6 @@
               * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
           
           Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
-
 
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateAccessBindings.md#yandex.cloud.operation.Operation).
@@ -264,7 +268,7 @@
       
       Где:
 
-      * `resource_id` — идентификатор кластера.
+      * `resource_id` — идентификатор кластера, который можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
       * `access_binding_deltas.roleId` — назначаемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
       * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
@@ -325,7 +329,7 @@
       
       Где:
 
-      * `cluster_id` — идентификатор кластера.
+      * `cluster_id` — идентификатор кластера, который можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
       * `role` — назначаемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
       * `members` — список [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль, в формате: `<тип_субъекта>:<идентификатор_субъекта>`.
 
@@ -438,6 +442,7 @@
       
       Где:
 
+      * `<идентификатор_кластера>` — идентификатор кластера, который можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
       * `accessBindings.roleId` — назначаемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
       * `accessBindings.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `accessBindings.subject.type` — тип субъекта, которому назначается роль.
@@ -457,7 +462,6 @@
               * `group:federation:<идентификатор_федерации>:users` — все пользователи указанной федерации удостоверений.
           
           Подробнее о типах субъектов в разделе [Субъект, которому назначается роль](../../iam/concepts/access-control/index.md#subject).
-
 
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/setAccessBindings.md#yandex.cloud.operation.Operation).
@@ -526,7 +530,7 @@
       
       Где:
 
-      * `resource_id` — идентификатор кластера.
+      * `resource_id` — идентификатор кластера, который можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
       * `accessBindings.roleId` — назначаемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
       * `accessBindings.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `accessBindings.subject.type` — тип субъекта, которому назначается роль.
@@ -643,6 +647,7 @@
       
       Где:
 
+      * `<идентификатор_кластера>` — идентификатор кластера, который можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
       * `access_binding_deltas.roleId` — назначаемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
       * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.
@@ -712,7 +717,7 @@
       
       Где:
 
-      * `resource_id` — идентификатор кластера.
+      * `resource_id` — идентификатор кластера, который можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
       * `access_binding_deltas.roleId` — назначаемая [роль](../security.md#roles-list), например `managed-spqr.editor`.
       * `access_binding_deltas.subject.id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль.
       * `access_binding_deltas.subject.type` — тип субъекта, которому назначается роль.

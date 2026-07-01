@@ -15,9 +15,10 @@ GET https://dns.api.cloud.yandex.net/dns/v1/zones/{resourceId}:listAccessBinding
 || resourceId | **string**
 
 Required field. ID of the resource to list access bindings for.
-
 To get the resource ID, use a corresponding List request.
-For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](../../../resource-manager/api-ref/Cloud/list.md#List) request to get the Cloud resource ID. ||
+For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](../../../resource-manager/api-ref/Cloud/list.md#List) request to get the Cloud resource ID.
+
+The maximum string length in characters is 64. ||
 |#
 
 ## Query parameters {#yandex.cloud.access.ListAccessBindingsRequest}
@@ -30,12 +31,16 @@ The maximum number of results per page that should be returned. If the number of
 results is larger than `pageSize`,
 the service returns a [ListAccessBindingsResponse.nextPageToken](#yandex.cloud.access.ListAccessBindingsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. Set `pageToken`
 to the [ListAccessBindingsResponse.nextPageToken](#yandex.cloud.access.ListAccessBindingsResponse)
-returned by a previous list request to get the next page of results. ||
+returned by a previous list request to get the next page of results.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.access.ListAccessBindingsResponse}
@@ -78,7 +83,9 @@ in the next list request. Each subsequent list request will have its own
 ||Field | Description ||
 || roleId | **string**
 
-Required field. ID of the [yandex.cloud.iam.v1.Role](../../../iam/api-ref/Role/get.md#yandex.cloud.iam.v1.Role) that is assigned to the `subject`. ||
+Required field. ID of the [yandex.cloud.iam.v1.Role](../../../iam/api-ref/Role/get.md#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
+
+The maximum string length in characters is 64. ||
 || subject | **[Subject](#yandex.cloud.access.Subject)**
 
 Required field. Identity for which access binding is being created.
@@ -92,8 +99,7 @@ It can represent an account with a unique ID or several accounts with a system i
 || id | **string**
 
 Required field. ID of the subject.
-
-It can contain one of the following values:
+It can contain one of the following values:oauth
 * `allAuthenticatedUsers`: A special public group that represents anyone
 who is authenticated. It can be used only if the `type` is `system`.
 * `allUsers`: A special public group that represents anyone. No authentication is required.
@@ -104,16 +110,18 @@ with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `group:federation:<id>:users`: A special system group that represents all users of federation
 with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `<cloud generated id>`: An identifier that represents a user account.
-It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. ||
+It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+The maximum string length in characters is 100. ||
 || type | **string**
 
 Required field. Type of the subject.
-
 It can contain one of the following values:
 * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
 * `serviceAccount`: A service account. This type represents the [yandex.cloud.iam.v1.ServiceAccount](../../../iam/api-ref/ServiceAccount/get.md#yandex.cloud.iam.v1.ServiceAccount) resource.
 * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
 * `system`: System group. This type represents several accounts with a common system identifier.
+For more information, see [Subject to which the role is assigned](../../../iam/concepts/access-control/index.md#subject).
 
-For more information, see [Subject to which the role is assigned](../../../iam/concepts/access-control/index.md#subject). ||
+The maximum string length in characters is 100. ||
 |#

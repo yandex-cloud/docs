@@ -15,7 +15,6 @@ GET https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters
 || folderId | **string**
 
 Required field. ID of the folder to list clusters in.
-
 To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -36,7 +35,6 @@ The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters clusters listed in the response.
-
 The expression must specify:
 1. The field name. Currently you can use filtering only on [Cluster.name](#yandex.cloud.dataproc.v1.Cluster) field.
 2. An `=` operator.
@@ -121,8 +119,9 @@ List of clusters in the specified folder. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListClustersRequest.pageSize](#yandex.cloud.dataproc.v1.ListClustersRequest), use `next_page_token` as the value
 for the [ListClustersRequest.pageToken](#yandex.cloud.dataproc.v1.ListClustersRequest) parameter in the next list request.
+Each subsequent page will have its own `next_page_token` to continue paging through the results.
 
-Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
+The maximum string length in characters is 200. ||
 |#
 
 ## Cluster {#yandex.cloud.dataproc.v1.Cluster}
@@ -133,7 +132,9 @@ A Yandex Data Processing cluster. For details about the concept, see [documentat
 ||Field | Description ||
 || id | **string**
 
-ID of the cluster. Generated at creation time. ||
+Required field. ID of the cluster. Generated at creation time.
+
+The maximum string length in characters is 50. ||
 || folderId | **string**
 
 ID of the folder that the cluster belongs to. ||
@@ -281,7 +282,6 @@ Set of services used in the cluster (if empty, the default set is used).
 
 Properties set for all hosts in `*-site.xml` configurations. The key should indicate
 the service and the property.
-
 For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property
 in the file `/etc/hadoop/conf/hdfs-site.xml`. ||
 || sshPublicKeys[] | **string**

@@ -20,7 +20,6 @@ Required field. ID of the Workflow. ||
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `pageSize`, the service returns a [ListExecutionsResponse.nextPageToken](#yandex.cloud.serverless.workflows.v1.ListExecutionsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
 Default value: 100.
 
 Acceptable values are 0 to 2147483647, inclusive. ||
@@ -31,7 +30,6 @@ Page token. To get the next page of results, set `pageToken` to the
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-
 The expression must specify:
 1. The field name. Currently filtering can be applied to the following fields: status, started_at, finished_at.
 2. Operator: `=`, `<` or `>`.
@@ -68,7 +66,6 @@ List of Workflow executions. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListExecutionsRequest.pageSize](#yandex.cloud.serverless.workflows.v1.ListExecutionsRequest), use `next_page_token` as the value
 for the [ListExecutionsRequest.pageToken](#yandex.cloud.serverless.workflows.v1.ListExecutionsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -78,13 +75,13 @@ Each subsequent page will have its own `next_page_token` to continue paging thro
 ||Field | Description ||
 || id | **string**
 
-ID of the Workflow execution. Generated at creation time. ||
+Required field. ID of the Workflow execution. Generated at creation time. ||
 || workflowId | **string**
 
-ID of the Workflow. ||
+Required field. ID of the Workflow. ||
 || status | **enum** (Status)
 
-Status of the Workflow execution
+Required field. Status of the Workflow execution
 
 - `QUEUED`: Workflow execution is being queued.
 - `RUNNING`: Workflow execution is running.
@@ -94,7 +91,7 @@ Status of the Workflow execution
 - `FINISHED`: Workflow execution is finished. ||
 || startedAt | **string** (date-time)
 
-Start timestamp for the Workflow execution.
+Required field. Start timestamp for the Workflow execution.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.

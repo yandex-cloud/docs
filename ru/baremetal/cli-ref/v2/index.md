@@ -81,6 +81,8 @@ Syntax:
 
   - [yc baremetal v2 server reinstall](server/reinstall.md) — Reinstalls the specified server.
 
+  - [yc baremetal v2 server renew-rental](server/renew-rental.md) — Enable prolongation after rental period end
+
   - [yc baremetal v2 server update](server/update.md) — Updates the specified server.
 
 - [yc baremetal v2 vrf](vrf/index.md) — A set of methods for managing VRF resources.

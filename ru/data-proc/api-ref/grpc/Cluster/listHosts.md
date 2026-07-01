@@ -25,8 +25,7 @@ Retrieves the list of hosts in the specified cluster.
 ||Field | Description ||
 || cluster_id | **string**
 
-ID of the cluster to list hosts for.
-
+Required field. ID of the cluster to list hosts for.
 To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -47,7 +46,6 @@ The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters hosts listed in the response.
-
 The expression must specify:
 1. The field name. Currently you can use filtering only on [Cluster.name](/docs/data-proc/api-ref/grpc/Cluster/get#yandex.cloud.dataproc.v1.Cluster) field.
 2. An `=` operator.
@@ -84,8 +82,9 @@ Requested list of hosts. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListClusterHostsRequest.page_size](#yandex.cloud.dataproc.v1.ListClusterHostsRequest), use `next_page_token` as the value
 for the [ListClusterHostsRequest.page_token](#yandex.cloud.dataproc.v1.ListClusterHostsRequest) parameter in the next list request.
+Each subsequent page will have its own `next_page_token` to continue paging through the results.
 
-Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
+The maximum string length in characters is 200. ||
 |#
 
 ## Host {#yandex.cloud.dataproc.v1.Host}
@@ -118,8 +117,7 @@ ID of the Compute virtual machine that is used as the Yandex Data Processing hos
 Role of the host in the cluster.
 
 - `MASTERNODE`: The subcluster fulfills the master role.
-
-  Master can run the following services, depending on the requested components:
+Master can run the following services, depending on the requested components:
 * HDFS: Namenode, Secondary Namenode
 * YARN: ResourceManager, Timeline Server
 * HBase Master
@@ -128,15 +126,13 @@ Role of the host in the cluster.
 * Zeppelin
 * ZooKeeper
 - `DATANODE`: The subcluster is a DATANODE in a Yandex Data Processing cluster.
-
-  DATANODE can run the following services, depending on the requested components:
+DATANODE can run the following services, depending on the requested components:
 * HDFS DataNode
 * YARN NodeManager
 * HBase RegionServer
 * Spark libraries
 - `COMPUTENODE`: The subcluster is a COMPUTENODE in a Yandex Data Processing cluster.
-
-  COMPUTENODE can run the following services, depending on the requested components:
+COMPUTENODE can run the following services, depending on the requested components:
 * YARN NodeManager
 * Spark libraries ||
 |#

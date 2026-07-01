@@ -6,9 +6,11 @@ Manage ClickHouse clusters, hosts, databases, backups, users and ml-models.
 
 Syntax:
 
-`yc managed-clickhouse v0 <group>`
+`yc managed-clickhouse v0 <group|command>`
 
 #### Command Tree
+
+- [yc managed-clickhouse v0 connect](connect.md) — Connect to ClickHouse cluster with iam-auth
 
 - [yc managed-clickhouse v0 backup](backup/index.md) — Manage ClickHouse backups.
 

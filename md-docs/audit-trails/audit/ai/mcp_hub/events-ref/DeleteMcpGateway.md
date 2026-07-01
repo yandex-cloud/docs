@@ -191,9 +191,13 @@
             "mode": "string"
           }
           // end of the list of possible fields
-        }
+        },
+        "outputJsonSchema": "string"
       }
-    ]
+    ],
+    // Includes only one of the fields `transport`
+    "transport": "string"
+    // end of the list of possible fields
   },
   "requestParameters": "object",
   "response": "object"
@@ -395,6 +399,12 @@ Includes only one of the fields `mcpGatewayNetworkId`. ||
 
 Includes only one of the fields `mcpGatewayPublic`. ||
 || mcpGatewayTools[] | **[McpTool](#yandex.cloud.serverless.mcpgateway.v1.McpTool)** ||
+|| transport | **enum** (McpTransport)
+
+Includes only one of the fields `transport`.
+
+- `SSE`
+- `STREAMABLE` ||
 |#
 
 ## McpTool {#yandex.cloud.serverless.mcpgateway.v1.McpTool}
@@ -409,6 +419,7 @@ The maximum string length in characters is 128. Value must match the regular exp
 The maximum string length in characters is 65536. ||
 || inputJsonSchema | **string** ||
 || action | **[McpToolAction](#yandex.cloud.serverless.mcpgateway.v1.McpToolAction)** ||
+|| outputJsonSchema | **string** ||
 |#
 
 ## McpToolAction {#yandex.cloud.serverless.mcpgateway.v1.McpToolAction}

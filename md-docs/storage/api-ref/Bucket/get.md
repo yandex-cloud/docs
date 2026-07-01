@@ -147,12 +147,14 @@ The following fields will _not_ be returned: [Bucket.cors](#yandex.cloud.storage
         "daysAfterExpiration": "string"
       },
       "noncurrentExpiration": {
-        "noncurrentDays": "string"
+        "noncurrentDays": "string",
+        "newerNoncurrentVersions": "string"
       },
       "noncurrentTransitions": [
         {
           "noncurrentDays": "string",
-          "storageClass": "string"
+          "storageClass": "string",
+          "newerNoncurrentVersions": "string"
         }
       ],
       "noncurrentDeleteMarkers": {
@@ -192,7 +194,11 @@ The following fields will _not_ be returned: [Bucket.cors](#yandex.cloud.storage
     "forceCloudConsoleAccess": "boolean"
   },
   "resourceId": "string",
-  "disabledStatickeyAuth": "boolean"
+  "disabledStatickeyAuth": "boolean",
+  "logging": {
+    "targetBucket": "string",
+    "targetPrefix": "string"
+  }
 }
 ```
 
@@ -294,6 +300,9 @@ ID of the Yandex.Cloud entity that owns the bucket. ||
 || disabledStatickeyAuth | **boolean**
 
 An option to disable static key auth for a bucket. ||
+|| logging | **[BucketLoggingSetup](#yandex.cloud.storage.v1.BucketLoggingSetup)**
+
+Bucket logging setup. ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags}
@@ -355,7 +364,7 @@ Required field. The grantee type for the grant.
 
 - `GRANT_TYPE_ACCOUNT`: A grantee is an [account on the platform](../../../iam/concepts/index.md#accounts).
 For this grantee type, you need to specify the user ID in `Bucket.acl.grants.granteeId` field. To get user ID, see
-[instruction](../../../iam/operations/users/get).
+[instruction](../../../organization/operations/users-get.md).
 Maps to using `id="*"` value for `x-amz-grant-*` header ([bucketPutAcl](../../s3/api-ref/acl/bucketput.md)
 method of Amazon S3-compatible HTTP API).
 - `GRANT_TYPE_ALL_AUTHENTICATED_USERS`: Grantees are all authenticated users, both from your clouds and other users' clouds. Access
@@ -371,7 +380,7 @@ Maps to using `uri="http://acs.amazonaws.com/groups/global/AllUsers"` value for 
 
 ID of the account who is a grantee. Required when the `grantType` is `GRANT_TYPE_ACCOUNT`.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 100. ||
 |#
 
 ## CorsRule {#yandex.cloud.storage.v1.CorsRule}
@@ -709,6 +718,10 @@ aborted. ||
 
 Time period, in number of days since the version of an object was classified as non-current, after which the
 version expires. ||
+|| newerNoncurrentVersions | **string** (int64)
+
+Specifies how many noncurrent versions S3 will retain.
+S3 will permanently delete any additional noncurrent versions beyond this specified number. ||
 |#
 
 ## NoncurrentTransition {#yandex.cloud.storage.v1.LifecycleRule.NoncurrentTransition}
@@ -728,6 +741,10 @@ version is transitioned. ||
 Required field. Storage class to which a non-current version of an object is transitioned from standard storage.
 The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
 to standard storage and transitions to or from ice storage are not allowed. ||
+|| newerNoncurrentVersions | **string** (int64)
+
+Specifies how many noncurrent versions S3 will retain.
+S3 will permanently delete any additional noncurrent versions beyond this specified number. ||
 |#
 
 ## NoncurrentDeleteMarkers {#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers}
@@ -818,4 +835,16 @@ white list of private endpoints bucket accessible from ||
 
 if true, cloud console will be able to access a bucket
 regardless of private_endpoints list ||
+|#
+
+## BucketLoggingSetup {#yandex.cloud.storage.v1.BucketLoggingSetup}
+
+#|
+||Field | Description ||
+|| targetBucket | **string**
+
+Target bucket for logs ||
+|| targetPrefix | **string**
+
+Target prefix for log object keys ||
 |#

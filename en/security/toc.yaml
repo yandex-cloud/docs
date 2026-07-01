@@ -19,6 +19,8 @@ items:
         href: domains/iaas-checklist.md
       - name: Authentication and authorization security checklist
         href: domains/iam-checklist.md
+      - name: Ransomware attack prevention checklist
+        href: domains/ransomware-checklist.md
       - name: Kubernetes security
         href: domains/kubernetes.md
       - name: >-
@@ -95,44 +97,66 @@ items:
             href: tutorials/authentication/entra-id.md
           - name: User group mapping in {{ keycloak }}
             href: tutorials/authentication/keycloak.md
-      - name: Security and standards
+      - name: SSO setup
         items:
-          - name: Setting up OIDC SSO in Grafana Cloud
-            href: tutorials/single-sign-on/oidc-grafana.md
           - name: Setting up OIDC SSO in 1C:Enterprise
             href: tutorials/single-sign-on/oidc-1c-enterprise.md
-          - name: Setting up OIDC SSO in Cloud.ru
-            href: tutorials/single-sign-on/oidc-cloud-ru.md
-          - name: Setting up OIDC SSO in Jenkins
-            href: tutorials/single-sign-on/oidc-jenkins.md
-          - name: Setting up SAML SSO in Grafana Cloud
-            href: tutorials/single-sign-on/saml-grafana.md
+          - name: Cloud.ru
+            items:
+              - name: Setting up SAML SSO in Cloud.ru
+                href: tutorials/single-sign-on/saml-cloud-ru.md
+              - name: Setting up OIDC SSO in Cloud.ru
+                href: tutorials/single-sign-on/oidc-cloud-ru.md
+          - name: Grafana
+            items:
+              - name: Setting up SAML SSO in Grafana Cloud
+                href: tutorials/single-sign-on/saml-grafana.md
+              - name: Setting up OIDC SSO in Grafana Cloud
+                href: tutorials/single-sign-on/oidc-grafana.md
+              - name: Setting up OIDC SSO in Grafana OSS
+                href: tutorials/single-sign-on/oidc-grafana-oss.md
+          - name: Setting up OIDC SSO in Harbor
+            href: tutorials/single-sign-on/oidc-harbor.md
+          - name: Jenkins
+            items:
+              - name: Setting up SAML SSO in Jenkins
+                href: tutorials/single-sign-on/saml-jenkins.md
+              - name: Setting up OIDC SSO in Jenkins
+                href: tutorials/single-sign-on/oidc-jenkins.md
           - name: Setting up SAML SSO in {{ mgl-name }}
             href: tutorials/single-sign-on/saml-managed-gitlab.md
-          - name: Setting up SAML SSO in Zabbix
-            href: tutorials/single-sign-on/saml-zabbix.md
           - name: Setting up SAML SSO in {{ mos-name }}
             href: tutorials/single-sign-on/saml-opensearch.md
+          - name: Setting up OIDC SSO in MWS
+            href: tutorials/single-sign-on/oidc-mws.md
           - name: Setting up SAML SSO in {{ OS }}
             href: tutorials/single-sign-on/saml-opensearch-self-managed.md
+          - name: OpenVPN
+            items:
+              - name: Setting up SAML SSO in OpenVPN Access Server
+                href: tutorials/single-sign-on/saml-ovpn.md
+              - name: Setting up OIDC SSO in OpenVPN Community Edition
+                href: tutorials/single-sign-on/oidc-ovpn.md
+          - name: Setting up SAML SSO in Selectel
+            href: tutorials/single-sign-on/saml-selectel.md
+          - name: Setting up SAML SSO in Sentry
+            href: tutorials/single-sign-on/saml-sentry.md
           - name: Setting up SAML SSO in SonarQube
             href: tutorials/single-sign-on/saml-sonarqube.md
+          - name: VK Cloud
+            items:
+              - name: Setting up SAML SSO in VK Cloud
+                href: tutorials/single-sign-on/saml-vk-cloud.md
+          - name: Setting up SAML SSO in Zabbix
+            href: tutorials/single-sign-on/saml-zabbix.md
+          - name: Setting up SAML SSO in Passwork
+            href: tutorials/single-sign-on/saml-passwork.md
           - name: Setting up SAML SSO in {{ yandex-360 }}
             href: tutorials/single-sign-on/saml-yandex-360.md
           - name: Yandex Browser for organizations
             href: tutorials/single-sign-on/saml-ya-browser-corporate.md
-          - name: Setting up SAML SSO in OpenVPN Access Server
-            href: tutorials/single-sign-on/saml-ovpn.md
-          - name: Setting up SAML SSO in Cloud.ru
-            href: tutorials/single-sign-on/saml-cloud-ru.md
-          - name: Setting up SAML SSO in VK Cloud
-            href: tutorials/single-sign-on/saml-vk-cloud.md
-          - name: Setting up OIDC SSO in Harbor
-            href: tutorials/single-sign-on/oidc-harbor.md
-          - name: Setting up SAML SSO in Sentry
-            href: tutorials/single-sign-on/saml-sentry.md
-          - name: Setting up SAML SSO in Jenkins
-            href: tutorials/single-sign-on/saml-jenkins.md
+          - name: Using OAuth2 Proxy for applications not supporting SSO
+            href: tutorials/single-sign-on/oidc-nginx-oauth2-proxy.md
       - name: Network security
         items:
           - name: Setting up virtual hosting

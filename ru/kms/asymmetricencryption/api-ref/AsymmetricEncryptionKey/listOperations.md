@@ -59,7 +59,6 @@ GET https://{{ api-host-kms }}/kms/v1/asymmetricEncryptionKeys/{keyId}/operation
 || keyId | **string**
 
 Required field. ID of the symmetric KMS key to get operations for.
-
 To get the key ID, use a [AsymmetricKeyEncryptionService.List] request.
 
 The maximum string length in characters is 50. ||

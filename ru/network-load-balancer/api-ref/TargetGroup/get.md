@@ -9,11 +9,11 @@ apiPlayground:
         targetGroupId:
           description: |-
             **string**
-            Required field. ID of the TargetGroup resource to return.
+            ID of the TargetGroup resource to return.
             To get the target group ID, use a [TargetGroupService.List](/docs/network-load-balancer/api-ref/TargetGroup/list#List) request.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
-      required:
-        - targetGroupId
       additionalProperties: false
     query: null
     body: null
@@ -37,7 +37,9 @@ GET https://load-balancer.{{ api-host }}/load-balancer/v1/targetGroups/{targetGr
 || targetGroupId | **string**
 
 Required field. ID of the TargetGroup resource to return.
-To get the target group ID, use a [TargetGroupService.List](/docs/network-load-balancer/api-ref/TargetGroup/list#List) request. ||
+To get the target group ID, use a [TargetGroupService.List](/docs/network-load-balancer/api-ref/TargetGroup/list#List) request.
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.loadbalancer.v1.TargetGroup}
@@ -109,7 +111,8 @@ A Target resource. For more information, see [Target groups and resources](/docs
 || subnetId | **string**
 
 ID of the subnet that targets are connected to.
-All targets in the target group must be connected to the same subnet within a single availability zone. ||
+All targets in the target group must be connected to the same subnet within a single availability zone.
+The length must be less than or equal to 50. ||
 || address | **string**
 
 IP address of the target. ||

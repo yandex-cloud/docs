@@ -1,7 +1,6 @@
 # Yandex Data Processing API, gRPC: ClusterService.Get
 
 Returns the specified cluster.
-
 To get the list of all available clusters, make a [ClusterService.List](list.md#List) request.
 
 ## gRPC request
@@ -21,7 +20,6 @@ To get the list of all available clusters, make a [ClusterService.List](list.md#
 || cluster_id | **string**
 
 Required field. ID of the Yandex Data Processing cluster.
-
 To get a cluster ID make a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -91,7 +89,9 @@ A Yandex Data Processing cluster. For details about the concept, see [documentat
 ||Field | Description ||
 || id | **string**
 
-ID of the cluster. Generated at creation time. ||
+Required field. ID of the cluster. Generated at creation time.
+
+The maximum string length in characters is 50. ||
 || folder_id | **string**
 
 ID of the folder that the cluster belongs to. ||
@@ -232,7 +232,6 @@ Set of services used in the cluster (if empty, the default set is used).
 
 Properties set for all hosts in `*-site.xml` configurations. The key should indicate
 the service and the property.
-
 For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property
 in the file `/etc/hadoop/conf/hdfs-site.xml`. ||
 || ssh_public_keys[] | **string**

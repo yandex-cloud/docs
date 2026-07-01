@@ -18,7 +18,9 @@ Returns the unit balance of the specified project.
 ||Field | Description ||
 || project_id | **string**
 
-Required field. ID of the project to return the unit balance for. ||
+Required field. ID of the project to return the unit balance for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## GetUnitBalanceResponse {#yandex.cloud.datasphere.v2.GetUnitBalanceResponse}

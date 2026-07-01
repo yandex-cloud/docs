@@ -236,10 +236,6 @@ items:
             href: tutorials/autoscaling.md
           - name: Вертикальное масштабирование приложения в кластере
             href: tutorials/vpa-autoscaling.md
-          - name: >-
-              Развертывание и нагрузочное тестирование gRPC-сервиса с
-              масштабированием
-            href: tutorials/load-testing-grpc-autoscaling.md
       - name: Использование {{ container-registry-name }}
         items:
           - name: Интеграция с {{ container-registry-name }}

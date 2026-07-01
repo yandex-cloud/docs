@@ -22,7 +22,9 @@ Retrieves the list of registry certificates for the specified registry.
 ||Field | Description ||
 || registry_id | **string**
 
-Required field. ID of the registry to list certificates for. ||
+Required field. ID of the registry to list certificates for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ListRegistryCertificatesResponse {#yandex.cloud.iot.devices.v1.ListRegistryCertificatesResponse}

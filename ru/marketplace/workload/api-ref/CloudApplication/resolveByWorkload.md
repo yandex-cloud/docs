@@ -12,7 +12,6 @@ apiPlayground:
           description: |-
             **enum** (WorkloadType)
             Required field. Type of workload. See WorkloadType.
-            - `WORKLOAD_TYPE_UNSPECIFIED`
             - `COMPUTE_INSTANCE`: Compute Instance
           type: string
           enum:
@@ -22,6 +21,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Identifier of workload
+            The maximum string length in characters is 50.
           type: string
       required:
         - workloadType
@@ -55,11 +55,12 @@ POST https://cloudapps.{{ api-host }}/cloudapps/workload/v1/cloud-applications:r
 
 Required field. Type of workload. See WorkloadType.
 
-- `WORKLOAD_TYPE_UNSPECIFIED`
 - `COMPUTE_INSTANCE`: Compute Instance ||
 || workloadId | **string**
 
-Required field. Identifier of workload ||
+Required field. Identifier of workload
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.cloudapps.workload.v1.ResolveByWorkloadResponse}
@@ -97,12 +98,13 @@ Details of cloud application ||
 ||Field | Description ||
 || id | **string**
 
-Required field. Application Identifier ||
+Required field. Application Identifier
+
+The maximum string length in characters is 50. ||
 || status | **enum** (Status)
 
 Required field. Application Status
 
-- `STATUS_UNSPECIFIED`
 - `PROCESSING`: Application under deploying / updating /deleting
 - `DEPLOYED`: Application successfully deployed to YC
 - `FAILED`: Application failed to deploy ||
@@ -119,7 +121,6 @@ Required field. Application billing info ||
 
 Required field. Type of application billing
 
-- `BILLING_TYPE_UNSPECIFIED`
 - `PAY_AS_YOU_GO`: User pays for application usage time
 - `SUBSCRIPTION`: User bought a subscription ||
 || subscriptions[] | **[Subscription](#yandex.cloud.cloudapps.workload.v1.CloudApplication.Billing.Subscription)**

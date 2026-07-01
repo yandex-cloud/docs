@@ -916,11 +916,6 @@ ZIP-архив через S3 бакет | 128 МБ
 Количество версий у одного ключа | 100
 Максимальный объем данных для шифрования [encrypt](../kms/api-ref/SymmetricCrypto/encrypt.md)-операцией | 32 КБ
 
-## Yandex Load Testing {#load-testing}
-
-
-Потребление вычислительных ресурсов [агентами](../load-testing/concepts/agent.md) учитывается в квотах сервиса [Yandex Compute Cloud](#compute).
-
 ## Yandex Lockbox {#lockbox}
 
 Сервис — `lockbox`, тип ресурса — `resource-manager.cloud`.

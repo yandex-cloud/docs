@@ -10,7 +10,7 @@
 * [Организация](organization.md)
 * [Отчетный период](reporting-period.md)
 * [Резервируемое потребление](cvos.md)
-* [Уровень нетарифицируемого использования (free tier)](serverless-free-tier.md)
+* [{#T}](serverless-free-tier.md)
 * [Бюджет](budget.md)
 * [Договор](contract.md)
 * [Квоты и лимиты в сервисе Yandex Cloud Billing](limits.md)

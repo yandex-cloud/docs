@@ -69,22 +69,7 @@ List of string restriction values. Empty if value type is not string. ||
   "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "restrictions": [
-      {
-        "name": "string",
-        "bool_value": [
-          "bool"
-        ],
-        "long_value": [
-          "int64"
-        ],
-        "string_value": [
-          "string"
-        ]
-      }
-    ]
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -127,7 +112,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[RestrictionsResponse](#yandex.cloud.datasphere.v2.RestrictionsResponse)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -142,31 +127,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## RestrictionsResponse {#yandex.cloud.datasphere.v2.RestrictionsResponse}
-
-#|
-||Field | Description ||
-|| restrictions[] | **[Restriction](#yandex.cloud.datasphere.v2.Restriction2)**
-
-List of restrictions. ||
-|#
-
-## Restriction {#yandex.cloud.datasphere.v2.Restriction2}
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of restriction. ||
-|| bool_value[] | **bool**
-
-List of boolean restriction values. Empty if value type is not boolean. ||
-|| long_value[] | **int64**
-
-List of long restriction values. Empty if value type is not long. ||
-|| string_value[] | **string**
-
-List of string restriction values. Empty if value type is not string. ||
 |#

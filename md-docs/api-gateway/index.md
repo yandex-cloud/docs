@@ -300,9 +300,9 @@ Yandex API Gateway — сервис для управления API-шлюзам
 
  - [Delete](apigateway/api-ref/grpc/ApiGateway/delete.md)
 
- - [Resume](apigateway/api-ref/grpc/ApiGateway/resume.md)
-
  - [Stop](apigateway/api-ref/grpc/ApiGateway/stop.md)
+
+ - [Resume](apigateway/api-ref/grpc/ApiGateway/resume.md)
 
  - [AddDomain](apigateway/api-ref/grpc/ApiGateway/addDomain.md)
 
@@ -344,9 +344,9 @@ Yandex API Gateway — сервис для управления API-шлюзам
 
  - [Delete](apigateway/api-ref/ApiGateway/delete.md)
 
- - [Resume](apigateway/api-ref/ApiGateway/resume.md)
-
  - [Stop](apigateway/api-ref/ApiGateway/stop.md)
+
+ - [Resume](apigateway/api-ref/ApiGateway/resume.md)
 
  - [AddDomain](apigateway/api-ref/ApiGateway/addDomain.md)
 

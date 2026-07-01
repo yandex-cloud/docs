@@ -130,7 +130,8 @@ The maximum string length in characters is 50. Value must match the regular expr
         "vendor": "string",
         "cores": "string",
         "physicalCores": "string",
-        "frequencyMhz": "string"
+        "frequencyMhz": "string",
+        "threads": "string"
       },
       "diskDrives": [
         {
@@ -140,7 +141,22 @@ The maximum string length in characters is 50. Value must match the regular expr
         }
       ],
       "networkCapacityGbps": "string",
-      "cpuNum": "string"
+      "cpuNum": "string",
+      "networkInterfaces": [
+        {
+          "id": "string",
+          "name": "string",
+          "configurationId": "string",
+          "linkSpeedGbps": "string",
+          "availableModes": [
+            "string"
+          ],
+          "mcLagOptions": {
+            "interfaceCount": "string"
+          }
+        }
+      ],
+      "mountingAvailability": "string"
     }
   ],
   "nextPageToken": "string"
@@ -185,6 +201,15 @@ Network capacity or bandwidth in gigabits per second. ||
 || cpuNum | **string** (int64)
 
 Number of cpu. ||
+|| networkInterfaces[] | **[ConfigurationNetworkInterface](#yandex.cloud.baremetal.v1alpha.ConfigurationNetworkInterface)**
+
+Network interfaces of the configuration. ||
+|| mountingAvailability | **enum** (MountingAvailability)
+
+Indicates whether the mounting option is available or not for this configuration.
+
+- `AVAILABLE`: Mounting is available.
+- `UNAVAILABLE`: Mounting is unavailable. ||
 |#
 
 ## CPU {#yandex.cloud.baremetal.v1alpha.CPU}
@@ -210,6 +235,9 @@ Number of physical cores per CPU (socket). ||
 Frequency of the CPU in megahertz (MHz).
 
 Value must be greater than 0. ||
+|| threads | **string** (int64)
+
+Number of threads (logical cores) per CPU (socket). ||
 |#
 
 ## DiskDriveConfiguration {#yandex.cloud.baremetal.v1alpha.DiskDriveConfiguration}
@@ -229,4 +257,43 @@ Number of disk drives. ||
 || diskSizeGib | **string** (int64)
 
 Size of a single disk drive in gibibytes (2^30 bytes). ||
+|#
+
+## ConfigurationNetworkInterface {#yandex.cloud.baremetal.v1alpha.ConfigurationNetworkInterface}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Id of the network interface
+Not used while creating interfaces ||
+|| name | **string**
+
+Name of the network interface ||
+|| configurationId | **string**
+
+Id of the configuration ||
+|| linkSpeedGbps | **string** (int64)
+
+Link speed in gigabits per second ||
+|| availableModes[] | **enum** (InterfaceMode)
+
+Available modes for the network interface
+
+- `PRIVATE`: Private network interface mode.
+- `PUBLIC`: Public network interface mode. ||
+|| mcLagOptions | **[MCLagAggregationOptions](#yandex.cloud.baremetal.v1alpha.ConfigurationNetworkInterface.MCLagAggregationOptions)**
+
+MC-LAG configuration options for aggregated interfaces ||
+|#
+
+## MCLagAggregationOptions {#yandex.cloud.baremetal.v1alpha.ConfigurationNetworkInterface.MCLagAggregationOptions}
+
+MC-LAG aggregation options for the network interface.
+
+#|
+||Field | Description ||
+|| interfaceCount | **string** (int64)
+
+Number of interfaces in the MC-LAG aggregation. ||
 |#

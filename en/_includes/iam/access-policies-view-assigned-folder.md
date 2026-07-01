@@ -15,11 +15,13 @@ To view a list of access policies created for a [folder](../../resource-manager/
   Result:
 
   ```
-  +---------------------------------------+
-  |      ACCESS POLICY TEMPLATE ID        |
-  +---------------------------------------+
-  | iam.denyServiceAccountApiKeysCreation |
-  +---------------------------------------+
+  +---------------------------------------------+-------------------------------------------------+
+  |          ACCESS POLICY TEMPLATE ID          |                   PARAMETERS                    |
+  +---------------------------------------------+-------------------------------------------------+
+  | backup.denyRemoveProtection                 |                                                 |
+  | serverless.containers.restrictNetworkAccess | allowed_vpc_network_ids=[enphfcfseu9i********], |
+  |                                             | allowed_src_ips=[192.168.1.12/24]               |
+  +---------------------------------------------+-------------------------------------------------+
   ```
 
 - API {#api}

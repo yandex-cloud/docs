@@ -30,7 +30,7 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* Плата за [диски](../concepts/disk.md) и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../pricing.md)).
+* Плата за [диски](../concepts/disk.md) и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 * Плата за использование [мастера Yandex Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#master) ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
 * Плата за хранение созданных Docker-образов ([тарифы Container Registry](../../container-registry/pricing.md)).
 * Плата за хранение секретов ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
@@ -127,7 +127,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-gitlab-ci-cd.gi
         1. Выберите вариант:
         
             * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
             * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.

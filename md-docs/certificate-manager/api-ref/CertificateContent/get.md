@@ -14,7 +14,9 @@ GET https://data.certificate-manager.api.cloud.yandex.net/certificate-manager/v1
 ||Field | Description ||
 || certificateId | **string**
 
-Required field. ID of the certificate to download content. ||
+Required field. ID of the certificate to download content.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.certificatemanager.v1.GetCertificateContentRequest}
@@ -23,7 +25,9 @@ Required field. ID of the certificate to download content. ||
 ||Field | Description ||
 || versionId | **string**
 
-Optional ID of the version. ||
+Optional ID of the version.
+
+The maximum string length in characters is 50. ||
 || privateKeyFormat | **enum** (PrivateKeyFormat)
 
 Desired format of private key
