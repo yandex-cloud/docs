@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > Справочник API > [REST (англ.)](../index.md) > UserAccount > Overview
+
 # Identity and Access Management API, REST: UserAccount
 
 A set of methods for managing user accounts. Currently applicable only for [Yandex accounts](../../concepts/users/accounts.md#passport).

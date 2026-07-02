@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SnapshotSchedule](index.md) > Create
+
 # Compute Cloud API, REST: SnapshotSchedule.Create
 
 Creates a snapshot schedule in the specified folder.

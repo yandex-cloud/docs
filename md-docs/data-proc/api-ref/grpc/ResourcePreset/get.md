@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Processing](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ResourcePreset](index.md) > Get
+
 # Yandex Data Processing API, gRPC: ResourcePresetService.Get
 
 Returns the specified ResourcePreset resource.

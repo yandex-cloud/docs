@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > DeleteDisk
+
 # Compute Audit Trails Events: DeleteDisk
 
 ## Event JSON schema {#yandex.cloud.audit.compute.DeleteDisk2-schema}

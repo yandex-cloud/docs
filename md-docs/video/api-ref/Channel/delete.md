@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Channel](index.md) > Delete
+
 # Video API, REST: Channel.Delete
 
 Deletes a specific channel by its ID.

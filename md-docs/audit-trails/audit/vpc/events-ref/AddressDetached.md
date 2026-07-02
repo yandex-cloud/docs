@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > vpc > AddressDetached
+
 # Virtual Private Cloud Audit Trails Events: AddressDetached
 
 ## Event JSON schema {#yandex.cloud.audit.network.AddressDetached2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > Пошаговые инструкции > Изменение кластера
+
 # Изменение кластера Apache Hive™ Metastore
 
 {% list tabs group=instructions %}

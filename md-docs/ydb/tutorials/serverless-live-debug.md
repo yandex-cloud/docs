@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Практические руководства](index.md) > Интерактивная отладка функций Cloud Functions
+
 # Интерактивная отладка функций Yandex Cloud Functions
 
 
@@ -29,7 +31,7 @@
 
 * плата за вызовы функций и вычислительные ресурсы, выделенные для выполнения функций ([тарифы Yandex Cloud Functions](../../functions/pricing.md));
 * плата за количество запросов к API-шлюзу ([тарифы Yandex API Gateway](../../api-gateway/pricing.md));
-* плата за операции с YDB и хранение данных ([тарифы Yandex Managed Service for YDB](../../ydb/pricing/serverless.md));
+* плата за операции с YDB и хранение данных ([тарифы Yandex Managed Service for YDB](../pricing/serverless.md));
 * плата за запись и хранение логов ([тарифы Yandex Cloud Logging](../../logging/pricing.md));
 
 ## Установите необходимые утилиты {#install-utilities}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Безопасность в Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Сбор, мониторинг и анализ аудитных логов > Запись логов балансировщика в PostgreSQL
+
 # Запись логов балансировщика в PostgreSQL
 
 
@@ -35,11 +37,11 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Виртуальные машины: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
-* Функции Yandex Cloud Functions: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы ([тарифы Yandex Cloud Functions](../../functions/pricing.md)).
+* Виртуальные машины: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Compute Cloud](../../../compute/pricing.md)).
+* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../../managed-postgresql/pricing.md)).
+* Функции Yandex Cloud Functions: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы ([тарифы Yandex Cloud Functions](../../../functions/pricing.md)).
 * Логи Cloud Logging: объем записываемых данных и время их хранения ([тарифы Cloud Logging](../../../logging/pricing.md)).
-* Балансировщики Application Load Balancer: использование вычислительных ресурсов каждого активного балансировщика ([тарифы Application Load Balancer](../../application-load-balancer/pricing.md)).
+* Балансировщики Application Load Balancer: использование вычислительных ресурсов каждого активного балансировщика ([тарифы Application Load Balancer](../../../application-load-balancer/pricing.md)).
 
 
 ## Создайте облачную сеть {#create-network}

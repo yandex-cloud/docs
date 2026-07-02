@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex StoreDoc](../index.md) > [Практические руководства](index.md) > Анализ производительности и оптимизация Yandex StoreDoc
+
 # Анализ производительности и оптимизация Yandex StoreDoc
 
 

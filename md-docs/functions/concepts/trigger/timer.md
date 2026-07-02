@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Концепции](../index.md) > [Триггер](index.md) > Таймер
+
 # Таймер, который вызывает функцию Cloud Functions
 
 _Таймер_ — это [триггер](index.md), который запускает [функцию](../function.md) Cloud Functions по расписанию. Расписание задается в виде [cron-выражения](#cron-expression). Время в cron-выражении указывается по [UTC+0](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).

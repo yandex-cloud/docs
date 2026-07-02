@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for OpenSearch](../../index.md) > [Пошаговые инструкции](../index.md) > [Подключение](index.md) > Подключение из приложений
+
 # Подключение к кластеру OpenSearch из приложений
 
 В этом разделе представлены настройки для подключения к хостам кластера Managed Service for OpenSearch с помощью [инструментов командной строки](#command-line-tools), [OpenSearch Dashboards](#dashboards) и из [Docker-контейнера](#connection-docker). Примеры подключения из приложения — в разделе [Примеры кода](code-examples.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Создание сервера MLFlow для логирования экспериментов и артефактов
+
 # Создание сервера MLFlow для логирования экспериментов и артефактов
 
 В практическом руководстве показано, как развернуть [MLFlow Tracking Server](https://mlflow.org/docs/latest/tracking.html) для логирования экспериментов и артефактов на отдельной виртуальной машине [Yandex Compute Cloud](../../compute/index.md). Эксперименты будут проводиться в JupyterLab Notebook. Для хранения внутренних объектов будет использоваться база данных [Yandex Managed Service for PostgreSQL](../../managed-postgresql/index.md), а для хранения артефактов — бакет [Yandex Object Storage](../index.md).
@@ -29,7 +31,7 @@
 
 * Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
 * Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
+* Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../pricing.md)).
 * Проект DataSphere: использование вычислительных ресурсов и хранилища ([тарифы DataSphere](../../datasphere/pricing.md)).
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Cloud Marketplace](../../../../../index.md) > Партнерам > Справочник License Manager SaaS API > [gRPC (англ.)](../index.md) > [Lock](index.md) > GetByResourceID
+
 # Yandex Cloud Marketplace License Manager for SaaS, gRPC: LockService.GetByResourceID
 
 Returns the subscription lock for given resource and subscription.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > EnableTenantBilling
+
 # DataLens Audit Trails Events: EnableTenantBilling
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.EnableTenantBilling2-schema}

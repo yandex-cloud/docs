@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > dns > ProcessDnsQuery
+
 # Cloud DNS Audit Trails Events: ProcessDnsQuery
 
 ## Event JSON schema {#yandex.cloud.audit.dns.ProcessDnsQuery2-schema}

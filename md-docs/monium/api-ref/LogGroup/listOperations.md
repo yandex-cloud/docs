@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Monium](../../index.md) > Справочник API > Логи > [REST (англ.)](../index.md) > [LogGroup](index.md) > ListOperations
+
 # Cloud Logging Service, REST: LogGroup.ListOperations
 
 Lists operations for the specified log group.

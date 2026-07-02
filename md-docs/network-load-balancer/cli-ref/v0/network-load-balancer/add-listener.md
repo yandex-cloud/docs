@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Network Load Balancer](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [network-load-balancer](index.md) > add-listener
+
 # yc load-balancer v0 network-load-balancer add-listener
 
 Adds a listener to the specified network load balancer.

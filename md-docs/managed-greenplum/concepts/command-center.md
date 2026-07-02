@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Концепции](overview.md) > Командный центр
+
 # Командный центр Yandex MPP Analytics for PostgreSQL
 
 _Командный центр_ в Yandex MPP Analytics for PostgreSQL — это инструмент, с помощью которого можно:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > extension > Overview
+
 # yc managed-clickhouse extension
 
 Manage available ClickHouse extensions.

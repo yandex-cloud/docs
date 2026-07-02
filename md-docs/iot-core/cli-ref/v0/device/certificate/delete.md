@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex IoT Core](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [device](../index.md) > [certificate](index.md) > delete
+
 # yc iot v0 device certificate delete
 
 Delete specified certificate from device

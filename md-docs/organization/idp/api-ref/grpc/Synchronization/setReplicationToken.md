@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [Identity Provider API](../index.md) > [Synchronization](index.md) > SetReplicationToken
+
 # Identity Provider API, gRPC: SynchronizationService.SetReplicationToken
 
 Sets the replication token for synchronization.

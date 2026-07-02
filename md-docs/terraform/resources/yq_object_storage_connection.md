@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Yandex Query > Resources > yq_object_storage_connection
+
 # yandex_yq_object_storage_connection (Resource)
 
 Manages Object Storage connection in Yandex Query service. For more information, see [the official documentation](../../query/concepts/glossary.md#connection).

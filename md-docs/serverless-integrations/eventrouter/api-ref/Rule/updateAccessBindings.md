@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > [Rule](index.md) > UpdateAccessBindings
+
 # EventRouter Service, REST: Rule.UpdateAccessBindings
 
 Updates access bindings for the specified rule.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > ListSegmentHosts
+
 # Managed Service for Greenplum® API, gRPC: ClusterService.ListSegmentHosts
 
 Retrieves a list of segment hosts for the specified cluster.

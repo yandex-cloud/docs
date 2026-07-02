@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > speechsense > DeleteProject
+
 # Talk Analytics Audit Trails Events: DeleteProject
 
 ## Event JSON schema {#yandex.cloud.audit.speechsense.DeleteProject2-schema}

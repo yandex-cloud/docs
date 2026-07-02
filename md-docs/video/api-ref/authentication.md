@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Video](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API
 
 

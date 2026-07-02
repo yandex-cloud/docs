@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [User](index.md) > Create
+
 # Managed Service for Greenplum® API, gRPC: UserService.Create
 
 Creates user

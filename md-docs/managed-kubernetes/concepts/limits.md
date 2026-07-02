@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Managed Service for Kubernetes
 
 В сервисе Managed Service for Kubernetes действуют следующие ограничения:

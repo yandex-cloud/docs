@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Managed Service for Trino
 
 В сервисе Managed Service for Trino действуют следующие ограничения:

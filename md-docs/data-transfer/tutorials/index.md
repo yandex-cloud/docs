@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Data Transfer
 
 

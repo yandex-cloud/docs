@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Database](index.md) > Update
+
 # Managed Service for MongoDB API, gRPC: DatabaseService.Update
 
 Updates the specified MongoDB database.

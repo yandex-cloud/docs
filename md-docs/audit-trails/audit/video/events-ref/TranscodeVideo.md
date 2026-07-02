@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > video > TranscodeVideo
+
 # Cloud Video Audit Trails Events: TranscodeVideo
 
 ## Event JSON schema {#yandex.cloud.audit.video.TranscodeVideo2-schema}

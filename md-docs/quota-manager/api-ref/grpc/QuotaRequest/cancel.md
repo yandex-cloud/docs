@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Quota Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [QuotaRequest](index.md) > Cancel
+
 # Quota Manager API, gRPC: QuotaRequestService.Cancel
 
 Cancels quotas in the specified quota request.

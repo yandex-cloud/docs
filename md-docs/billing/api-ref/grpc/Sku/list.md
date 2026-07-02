@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Billing](../../../index.md) > Справочник API > gRPC (англ.) > [Billing](../index.md) > [Sku](index.md) > List
+
 # Billing API, gRPC: SkuService.List
 
 Retrieves the list of SKUs.

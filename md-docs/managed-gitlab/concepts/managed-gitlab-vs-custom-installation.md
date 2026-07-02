@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > [Концепции](index.md) > Преимущества сервиса перед пользовательской инсталляцией GitLab
+
 # Преимущества Managed Service for GitLab перед пользовательской инсталляцией GitLab Community Edition
 
 _Пользовательская инсталляция_ — это GitLab, который установлен на сервер или локальный компьютер (self-managed GitLab). Ниже рассматривается пользовательская инсталляция [GitLab Community Edition](https://about.gitlab.com/install/ce-or-ee/).

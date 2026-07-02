@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > Справочник API > [AWS S3 REST](../index.md) > [REST](index.md) > CORS > Все методы
+
 # Все методы CORS
 
 Метод | Описание

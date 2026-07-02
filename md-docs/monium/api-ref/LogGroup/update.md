@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Monium](../../index.md) > Справочник API > Логи > [REST (англ.)](../index.md) > [LogGroup](index.md) > Update
+
 # Cloud Logging Service, REST: LogGroup.Update
 
 Updates the specified log group.

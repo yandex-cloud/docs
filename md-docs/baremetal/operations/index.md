@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для сервиса Yandex BareMetal
 
 ## Серверы {#servers}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > Database > Overview
+
 # Managed Service for PostgreSQL API, REST: Database
 
 A set of methods for managing PostgreSQL Database resources.

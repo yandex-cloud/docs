@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Пошаговые инструкции](index.md) > Хранение и обработка данных > Настройка доступа к Object Storage
+
 # Настройка доступа к Object Storage из кластера ClickHouse®
 
 Managed Service for ClickHouse® поддерживает работу с Yandex Object Storage для:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [compute](../../index.md) > [v0](../index.md) > [image](index.md) > add-access-binding
+
 # yc compute v0 image add-access-binding
 
 Add access binding for the specified image

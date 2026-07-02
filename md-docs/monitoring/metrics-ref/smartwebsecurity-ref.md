@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Smart Web Security
+
 # Метрики Yandex Smart Web Security
 
 

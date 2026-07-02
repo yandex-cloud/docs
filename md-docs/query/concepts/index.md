@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > Концепции > Обзор
+
 # Обзор Yandex Query
 
 Yandex Query – это сервис обработки данных, способный выполнять федеративные запросы к объектному хранилищу [Yandex Object Storage](../../storage/concepts/index.md), управляемым базам данных [Managed Service for ClickHouse®](https://yandex.cloud/ru/services/managed-clickhouse), [Yandex MPP Analytics for PostgreSQL](https://yandex.cloud/ru/services/managed-greenplum), [Managed Service for MySQL®](https://yandex.cloud/ru/services/managed-mysql), [Managed Service for PostgreSQL](https://yandex.cloud/ru/services/managed-postgresql) и [Managed Service for YDB](https://yandex.cloud/ru/services/ydb), а также потокам данных реального времени [Yandex Data Streams](../../data-streams/concepts/index.md). С помощью YQL, единого диалекта SQL, Yandex Query позволяет агрегировать результаты выполнения запросов [между этими системами](federated-processing.md).

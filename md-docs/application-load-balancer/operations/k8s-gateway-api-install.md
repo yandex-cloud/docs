@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Инструменты для Managed Service for Kubernetes > Gateway API > Установить Gateway API
+
 # Установить Gateway API Application Load Balancer для Managed Service for Kubernetes
 
 # Установка Gateway API

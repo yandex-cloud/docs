@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Yandex Cloud Billing](../index.md) > Устранение ошибки `Unauthorized` при создании платежного аккаунта
+
 # Устранение ошибки `Unauthorized` при создании платежного аккаунта
 
 

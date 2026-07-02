@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [managed-clickhouse](index.md) > connect
+
 # yc managed-clickhouse connect
 
 Connect to ClickHouse cluster with iam-auth

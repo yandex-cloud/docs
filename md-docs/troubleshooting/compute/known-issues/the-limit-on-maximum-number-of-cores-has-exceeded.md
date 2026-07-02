@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Compute Cloud](../index.md) > Устранение ошибки `The limit on maximum number of cores has exceeded`
+
 # Устранение ошибки `The limit on maximum number of cores has exceeded`
 
 

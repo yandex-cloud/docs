@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Key Management Service API](../index.md) > [Operation](index.md) > Cancel
+
 # Key Management Service API, REST: Operation.Cancel
 
 Cancels the specified operation.

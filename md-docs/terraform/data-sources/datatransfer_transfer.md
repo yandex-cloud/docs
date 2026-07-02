@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Data Transfer > Data Sources > datatransfer_transfer
+
 # yandex_datatransfer_transfer (DataSource)
 
 Transfer core entity

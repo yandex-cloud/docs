@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../index.md) > [Пошаговые инструкции](../index.md) > [Подключение](index.md) > Подключение из приложений
+
 # Подключение к кластеру Apache Kafka® из приложений
 
 В этом разделе представлены настройки для подключения к хостам кластера Managed Service for Apache Kafka® с помощью [инструментов командной строки](#command-line-tools) и из [Docker-контейнера](#docker). О подключении из кода вашего приложения смотрите [Примеры кода](code-examples.md).

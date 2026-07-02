@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.greenplum > DeletePXFDatasource
+
 # Managed Service for Greenplum® Audit Trails Events: DeletePXFDatasource
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.greenplum.DeletePXFDatasource2-schema}

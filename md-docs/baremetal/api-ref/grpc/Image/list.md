@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [Image](index.md) > List
+
 # BareMetal API, gRPC: ImageService.List
 
 Retrieves the list of Image resources in the specified folder.

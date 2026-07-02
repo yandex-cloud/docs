@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Архитектура, сетевое взаимодействие](index.md) > Подключение к сервисам > Подключение к Container Registry из VPC
+
 # Подключение к Container Registry из Virtual Private Cloud
 
 

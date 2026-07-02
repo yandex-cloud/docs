@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Концепции](../index.md) > [Аутентификация](index.md) > ID-токен
+
 # ID-токен сервисного аккаунта
 
 {% note info %}

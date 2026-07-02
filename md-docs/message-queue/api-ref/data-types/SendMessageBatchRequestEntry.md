@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Message Queue](../../index.md) > [Справочник API](../index.md) > Типы данных > SendMessageBatchRequestEntry
+
 # SendMessageBatchRequestEntry
 
 Идентификатор и сведения об отправляемом сообщении. Подробное описание атрибутов приведено в описании метода [SendMessage](../message/SendMessage.md#array-parameters).

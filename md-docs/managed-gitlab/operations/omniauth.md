@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > [Пошаговые инструкции](index.md) > Настройка OmniAuth
+
 # Настройка OmniAuth
 
 С помощью [OmniAuth](https://rubygems.org/gems/omniauth/) пользователи могут авторизоваться в GitLab, используя учетные данные других сервисов.

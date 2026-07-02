@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция БД из стороннего кластера Apache Kafka® в Managed Service for Apache Kafka®
+
 # Миграция базы данных из стороннего кластера Apache Kafka® в Yandex Managed Service for Apache Kafka®
 
 Перенести топики из _кластера-источника_ Apache Kafka® в _кластер-приемник_ Managed Service for Apache Kafka® можно двумя способами:

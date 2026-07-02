@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > Работа с YDB через Terraform > Управление конфигурацией топиков YDB
+
 # Управление конфигурацией топиков YDB
 
 Для работы с [топиками](https://ydb.tech/docs/ru//concepts/topic) используется ресурс `yandex_ydb_topic`.

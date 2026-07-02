@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Valkey™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Rebalance
+
 # Managed Service for Redis API, gRPC: ClusterService.Rebalance
 
 Rebalances the cluster. Evenly distributes all the hash slots between the shards.

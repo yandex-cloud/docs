@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud DNS](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [firewall](index.md) > add-access-binding
+
 # yc dns v0 firewall add-access-binding
 
 Add access binding to the specified dns firewall

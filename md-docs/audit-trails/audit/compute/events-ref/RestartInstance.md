@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > RestartInstance
+
 # Compute Audit Trails Events: RestartInstance
 
 ## Event JSON schema {#yandex.cloud.audit.compute.RestartInstance2-schema}

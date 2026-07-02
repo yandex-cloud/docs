@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [host-group](index.md) > remove-labels
+
 # yc compute host-group remove-labels
 
 Remove labels from the specified host group

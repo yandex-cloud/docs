@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity and Access Management](../index.md) > Безопасное использование Yandex Cloud
+
 # Безопасное использование Yandex Cloud
 
 В разделе представлены рекомендации по использованию возможностей сервиса IAM для обеспечения безопасной работы с сервисами Yandex Cloud.

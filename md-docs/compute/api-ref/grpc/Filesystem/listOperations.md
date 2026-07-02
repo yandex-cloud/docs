@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Filesystem](index.md) > ListOperations
+
 # Compute Cloud API, gRPC: FilesystemService.ListOperations
 
 Lists operations for the specified filesystem.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Instance](index.md) > RemoveOneToOneNat
+
 # Compute Cloud API, gRPC: InstanceService.RemoveOneToOneNat
 
 Removes One-to-one NAT from the network interface.

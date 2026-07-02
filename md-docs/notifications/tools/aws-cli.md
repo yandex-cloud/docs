@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > [Инструменты](index.md) > AWS CLI
+
 # Как начать работать с Yandex Cloud Notification Service с помощью AWS CLI
 
 

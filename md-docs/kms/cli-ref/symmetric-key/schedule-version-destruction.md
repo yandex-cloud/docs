@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > [Справочник CLI (англ.)](../index.md) > [symmetric-key](index.md) > schedule-version-destruction
+
 # yc kms symmetric-key schedule-version-destruction
 
 Schedule destruction of the specified symmetric key version

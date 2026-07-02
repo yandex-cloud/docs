@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [dns](../../index.md) > [v0](../index.md) > [inbound-endpoint](index.md) > add-access-binding
+
 # yc dns v0 inbound-endpoint add-access-binding
 
 Add access binding to the specified dns inbound endpoint

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [StylePreset](index.md) > Delete
+
 # Video API, REST: StylePreset.Delete
 
 Deletes a specific style preset by its ID.

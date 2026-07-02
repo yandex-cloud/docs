@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Data Transfer
+
 # Метрики Yandex Data Transfer
 
 В этом разделе описаны метрики сервиса [Data Transfer](../../data-transfer/index.md), поставляемые в Monitoring.

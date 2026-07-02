@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Containers](../../../index.md) > Справочник API Containers > [REST (англ.)](../index.md) > [Container](index.md) > UpdateAccessBindings
+
 # Serverless Containers Service, REST: Container.UpdateAccessBindings
 
 Updates access bindings for the specified container.

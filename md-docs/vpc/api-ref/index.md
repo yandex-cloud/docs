@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > Справочник API > REST (англ.) > Overview
+
 # Virtual Private Cloud API: REST reference
 
 This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about API architecture, see [API Concepts](../../api-design-guide/index.md).

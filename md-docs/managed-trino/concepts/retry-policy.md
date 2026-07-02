@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > [Концепции](index.md) > Отказоустойчивое выполнение запросов
+
 # Отказоустойчивое выполнение запросов в кластере Managed Service for Trino
 
 Отказоустойчивое выполнение запросов в кластере Managed Service for Trino обеспечивается механизмом [Fault tolerant execution](https://trino.io/docs/current/admin/fault-tolerant-execution.html). По умолчанию при недостатке ресурсов или ошибке при выполнении запроса [воркер](index.md#workers) прекращает его обработку. Такой запрос нужно перезапустить вручную. При включении Fault tolerant execution запрос или промежуточное задание в составе запроса будут выполнены повторно в случае сбоя.

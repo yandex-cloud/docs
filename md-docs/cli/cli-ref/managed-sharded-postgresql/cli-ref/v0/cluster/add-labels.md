@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-sharded-postgresql](../../index.md) > [v0](../index.md) > [cluster](index.md) > add-labels
+
 # yc managed-sharded-postgresql v0 cluster add-labels
 
 Add labels to Sharded PostgreSQL cluster

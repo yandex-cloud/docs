@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Shielding](index.md) > Update
+
 # Cloud CDN API, gRPC: ShieldingService.Update
 
 Updates shielding parameters for a resource, such as changing the geographical location of the shielding server.

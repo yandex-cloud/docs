@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > [Справочник CLI (англ.)](../index.md) > [routing-instance](index.md) > delete
+
 # yc cloudrouter routing-instance delete
 
 Deletes a RoutingInstance resource.

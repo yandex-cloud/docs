@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [Storage](index.md) > GetDefault
+
 # BareMetal API, REST: Storage.GetDefault
 
 Returns the default storage for the specified configuration.

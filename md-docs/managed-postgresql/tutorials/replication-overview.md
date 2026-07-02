@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Практические руководства](index.md) > Репликация и миграция > Логическая репликация PostgreSQL
+
 # Логическая репликация PostgreSQL
 
 Сервис Managed Service for PostgreSQL поддерживает [логическую репликацию](https://www.postgresql.org/docs/current/logical-replication.html).

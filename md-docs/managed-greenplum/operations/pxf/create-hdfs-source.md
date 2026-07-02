@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > Работа с PXF > Создание внешних источников данных > HDFS
+
 # Создание внешнего источника данных HDFS
 
 В Yandex MPP Analytics for PostgreSQL в качестве [внешнего источника данных](../../concepts/external-tables.md#pxf-data-sources) с типом подключения HDFS можно использовать систему HDFS в составе сервиса [Yandex Data Processing](../../../data-proc/index.md) или другие сторонние сервисы HDFS.

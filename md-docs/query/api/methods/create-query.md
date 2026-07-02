@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Query](../../index.md) > Справочник > [HTTP API](../index.md) > [Методы](index.md) > create-query
+
 # create-query
 
 Метод создает запрос к данным и запускает его выполнение. После этого запрос переходит в статус `RUNNING`. Результат можно [получить](get-query-results.md) только после успешного выполнения запроса. Чтобы узнать статус выполнения запроса, используйте метод [get-query-status](get-query-status.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > ytsaurus > DeleteCluster
+
 # Ytsaurus Audit Trails Events: DeleteCluster
 
 ## Event JSON schema {#yandex.cloud.audit.ytsaurus.DeleteCluster2-schema}

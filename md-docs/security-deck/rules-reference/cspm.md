@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Security Deck](../index.md) > [Справочник правил](index.md) > CSPM
+
 ## Cloud Security Posture Management (CSPM)
 
 Правила для проверки конфигурации облачных ресурсов.

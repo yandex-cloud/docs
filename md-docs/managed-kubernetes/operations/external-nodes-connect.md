@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Пошаговые инструкции](index.md) > Работа с внешними узлами > Подключение внешних узлов к кластеру
+
 # Подключение внешних узлов к кластеру
 
 {% note info %}

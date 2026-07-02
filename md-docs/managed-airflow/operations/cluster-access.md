@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Управление доступом к кластеру
+
 # Управление доступом к кластеру Managed Service for Apache Airflow™
 
 Вы можете предоставить пользователю или сервисному аккаунту [роль](../security/index.md) для доступа к конкретному [кластеру](../concepts/index.md).

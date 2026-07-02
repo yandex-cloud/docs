@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [PublicPrefixPool](index.md) > Update
+
 # BareMetal API, REST: PublicPrefixPool.Update
 
 Updates the specified public prefix pool.

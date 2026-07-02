@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.spqr > UpdateUser
+
 # Managed Service for SPQR Audit Trails Events: UpdateUser
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.spqr.UpdateUser2-schema}

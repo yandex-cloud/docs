@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [OAuthClient](index.md) > ListProfiles
+
 # Identity and Access Management API, gRPC: OAuthClientService.ListProfiles
 
 Retrieves the list of profiles that define sets of allowed settings for oauth clients.

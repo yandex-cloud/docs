@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for PostgreSQL](../index.md) > Примеры конфигураций и сценариев Managed Service for PostgreSQL
+
 ## Примеры конфигураций и сценариев Managed Service for PostgreSQL {#configuration-examples}
 
 * [Как работает параметр `Conn limit`](conn-limit-parameter.md)

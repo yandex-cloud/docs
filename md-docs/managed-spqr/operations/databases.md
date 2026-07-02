@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Управление базами данных
+
 # Управление базами данных в Sharded PostgreSQL
 
 Вы можете добавлять и удалять базы данных, а также просматривать информацию о них.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > Справочник API > [AWS S3 REST](index.md) > Начало работы с S3 API
+
 # Начало работы с AWS S3 API в Yandex Object Storage
 
 [AWS S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/Type_API_Reference.html) — это интерфейс взаимодействия с сервисами AWS, совместимый с Yandex Object Storage.

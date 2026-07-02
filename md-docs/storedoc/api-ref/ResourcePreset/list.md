@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ResourcePreset](index.md) > List
+
 # Managed Service for MongoDB API, REST: ResourcePreset.List
 
 Retrieves the list of available ResourcePreset resources.

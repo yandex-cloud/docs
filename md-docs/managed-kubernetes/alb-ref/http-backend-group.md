@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Инструменты Application Load Balancer](index.md) > Ingress-контроллер > Конфигурация ресурсов > HttpBackendGroup
+
 # Поля ресурса HttpBackendGroup
 
 Ресурс `HttpBackendGroup` позволяет объединять бэкенды — сервисы Kubernetes, между которыми распределяется трафик, — в группу. По таким ресурсам [Ingress-контроллер Application Load Balancer](ingress-controller/index.md) создает [группы бэкендов](../../application-load-balancer/concepts/backend-group.md).

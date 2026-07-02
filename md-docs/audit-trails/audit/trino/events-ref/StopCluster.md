@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > trino > StopCluster
+
 # Managed Service for Trino Audit Trails Events: StopCluster
 
 ## Event JSON schema {#yandex.cloud.audit.trino.StopCluster2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > [Начало работы](index.md) > Потоковая обработка
+
 # Потоковая обработка данных из Yandex Data Streams
 
 В этом примере вы выполните [потоковую обработку данных](../concepts/stream-processing.md) о поездках Нью-Йоркского такси. Данные для примера будут записаны с помощью генератора в специально созданный поток [Yandex Data Streams](../../data-streams/index.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [compute](../../index.md) > [v0](../index.md) > [host-group](index.md) > remove-access-binding
+
 # yc compute v0 host-group remove-access-binding
 
 Remove access binding for the specified host group

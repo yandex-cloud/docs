@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > Справочник CLI (англ.) > Overview
+
 # yc managed-kafka
 
 Manage Apache Kafka clusters, brokers, topics, users and connectors.

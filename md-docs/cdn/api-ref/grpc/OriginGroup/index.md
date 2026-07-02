@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > OriginGroup > Overview
+
 # Cloud CDN API, gRPC: OriginGroupService
 
 Origin Groups management service.

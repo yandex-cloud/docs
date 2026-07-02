@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > clouddesktop > CreateDesktopGroup
+
 # Cloud Desktop Audit Trails Events: CreateDesktopGroup
 
 ## Event JSON schema {#yandex.cloud.audit.clouddesktop.CreateDesktopGroup2-schema}

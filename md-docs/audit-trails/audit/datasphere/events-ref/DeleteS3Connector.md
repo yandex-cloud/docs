@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > DeleteS3Connector
+
 # DataSphere Audit Trails Events: DeleteS3Connector
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.DeleteS3Connector2-schema}

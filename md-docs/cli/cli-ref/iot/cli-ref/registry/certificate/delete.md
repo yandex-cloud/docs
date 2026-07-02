@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [iot](../../index.md) > [registry](../index.md) > [certificate](index.md) > delete
+
 # yc iot registry certificate delete
 
 Delete specified certificate from registry

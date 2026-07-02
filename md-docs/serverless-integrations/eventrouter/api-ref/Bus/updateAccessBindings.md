@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > [Bus](index.md) > UpdateAccessBindings
+
 # EventRouter Service, REST: Bus.UpdateAccessBindings
 
 Updates access bindings for the specified bus.

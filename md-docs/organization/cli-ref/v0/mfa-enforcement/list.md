@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [mfa-enforcement](index.md) > list
+
 # yc organization-manager v0 mfa-enforcement list
 
 List mfa enforcements

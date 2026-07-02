@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > Рабочие процессы и автоматизация на Serverless > Настройка CI/CD в SourceCraft для развертывания приложения в Serverless Containers с помощью GitHub Actions
+
 # Настройка CI/CD в SourceCraft для развертывания приложения в Yandex Serverless Containers с помощью GitHub Actions
 
 # Настройка CI/CD для развертывания приложения в Yandex Serverless Containers с помощью GitHub Actions

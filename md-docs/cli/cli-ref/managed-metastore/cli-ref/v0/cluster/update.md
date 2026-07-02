@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-metastore](../../index.md) > [v0](../index.md) > [cluster](index.md) > update
+
 # yc managed-metastore v0 cluster update
 
 Update the specified Metastore cluster

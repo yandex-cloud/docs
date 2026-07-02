@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Interconnect](../index.md) > [Концепции](index.md) > Приватное соединение
+
 # Приватное соединение
 
 Приватное соединение (private connection) — это логическое соединение вашей On-Prem инфраструктуры с виртуальной сетью в облаке. Точкой назначения приватного соединения в облачной сети является [Routing Instance](../../cloud-router/concepts/routing-instance.md).

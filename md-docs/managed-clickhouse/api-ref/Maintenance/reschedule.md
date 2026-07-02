@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Maintenance](index.md) > Reschedule
+
 # Managed Service for ClickHouse API, REST: Maintenance.Reschedule
 
 Allows user to reschedule Maintenance to another date and time.

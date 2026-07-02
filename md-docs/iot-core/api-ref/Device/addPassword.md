@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > [REST (англ.)](../index.md) > [Device](index.md) > AddPassword
+
 # IoT Core Service, REST: Device.AddPassword
 
 Adds password for the specified device.

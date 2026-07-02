@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Functions](../../../index.md) > Справочник API Functions > [REST (англ.)](../index.md) > [Function](index.md) > SetTag
+
 # Cloud Functions Service, REST: Function.SetTag
 
 Set a tag for the specified version of a function.

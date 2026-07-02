@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Практические руководства](index.md) > Создание нового Kubernetes-проекта в Yandex Cloud
+
 # Создание нового Kubernetes-проекта в Yandex Cloud
 
 

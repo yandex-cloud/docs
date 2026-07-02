@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Functions](../index.md) > [Концепции](index.md) > Dead Letter Queue
+
 # Dead Letter Queue в Cloud Functions
 
 _Dead Letter Queue (DLQ)_ — это [очередь](../../message-queue/concepts/queue.md), куда перенаправляются сообщения, которые не смогла обработать вызываемая триггером [функция](function.md) Cloud Functions. Сообщение считается обработанным, если функция, которая его получила, завершилась без ошибок. Перенаправленные в DLQ сообщения хранятся в ней для дальнейшей диагностики.

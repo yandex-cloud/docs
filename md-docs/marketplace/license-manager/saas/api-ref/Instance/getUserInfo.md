@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Marketplace](../../../../index.md) > Партнерам > Справочник License Manager SaaS API > [REST (англ.)](../index.md) > [Instance](index.md) > GetUserInfo
+
 # Yandex Cloud Marketplace License Manager for SaaS, REST: Instance.GetUserInfo
 
 Returns information about legal person (Russia only) who owns this subscription instance.

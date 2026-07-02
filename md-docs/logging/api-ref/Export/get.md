@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Export](index.md) > Get
+
 # Cloud Logging Service, REST: Export.Get
 
 Returns the specified export.

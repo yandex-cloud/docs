@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [ydb](../index.md) > [storage-type](index.md) > get
+
 # yc ydb storage-type get
 
 Get information about the specified YDB storage type preset.

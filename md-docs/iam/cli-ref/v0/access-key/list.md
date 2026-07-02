@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [access-key](index.md) > list
+
 # yc iam v0 access-key list
 
 List access keys for the specified service account

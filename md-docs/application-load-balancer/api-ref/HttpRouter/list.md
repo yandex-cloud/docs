@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [HttpRouter](index.md) > List
+
 # Application Load Balancer API, REST: HttpRouter.List
 
 Lists HTTP routers in the specified folder.

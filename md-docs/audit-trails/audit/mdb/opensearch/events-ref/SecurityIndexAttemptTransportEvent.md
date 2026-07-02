@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.opensearch > SecurityIndexAttemptTransportEvent
+
 # Managed Service for OpenSearch Audit Trails Events: SecurityIndexAttemptTransportEvent
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.opensearch.SecurityIndexAttemptTransportEvent2-schema}

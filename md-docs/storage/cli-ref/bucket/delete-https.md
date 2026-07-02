@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Справочник YC CLI (англ.)](../index.md) > [bucket](index.md) > delete-https
+
 # yc storage bucket delete-https
 
 Deletes bucket https settings

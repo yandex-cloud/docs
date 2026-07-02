@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > Вопросы и ответы > Вопросы о ClickHouse®
+
 # Вопросы о ClickHouse®
 
 * [Почему стоит использовать ClickHouse® в Managed Service for ClickHouse®, а не собственную установку на виртуальной машине?](#clickhouse-advantages-vm)

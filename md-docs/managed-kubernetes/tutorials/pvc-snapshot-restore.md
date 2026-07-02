@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Практические руководства](index.md) > Резервное копирование > Работа со снапшотами
+
 # Работа со снапшотами
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Folder](index.md) > List
+
 # Resource Manager API, REST: Folder.List
 
 Retrieves the list of Folder resources in the specified cloud.

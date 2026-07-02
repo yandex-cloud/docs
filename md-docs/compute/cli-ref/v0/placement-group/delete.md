@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [placement-group](index.md) > delete
+
 # yc compute v0 placement-group delete
 
 Delete the specified placement group

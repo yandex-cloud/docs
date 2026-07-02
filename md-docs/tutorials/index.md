@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Практические руководства > Практические руководства платформы Yandex Cloud
+
 # Практические руководства платформы Yandex Cloud
 
 Практические руководства, которые помогут вам решать различные задачи с помощью сервисов Yandex Cloud.
@@ -739,6 +741,10 @@
  - [Получение статистики посещения сайта с использованием S3 Select](web/user-agent-statistics.md)
 
  - [Оформление контента из Cloud Video в IFrame](web/video-iframe.md)
+
+ - [Установка Gatsby с помощью Cloud Apps](web/gatsby-static-site-cloudapp.md)
+
+ - [Установка Hugo с помощью Cloud Apps](web/hugo-static-site-cloudapp.md)
 
 ### 1С
 

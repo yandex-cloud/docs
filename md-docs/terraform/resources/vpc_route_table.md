@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Virtual Private Cloud > Resources > vpc_route_table
+
 # yandex_vpc_route_table (Resource)
 
 Manages a route table within the Yandex Cloud. For more information, see [the official documentation](../../vpc/concepts/index.md).

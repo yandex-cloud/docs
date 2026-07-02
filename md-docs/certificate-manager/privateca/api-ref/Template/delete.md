@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > REST (англ.) > [Certificate Manager Private CA API](../index.md) > [Template](index.md) > Delete
+
 # Certificate Manager Private CA API, REST: Template.Delete
 
 Deletes a certificate template by the specified ID.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.redis > DatabaseUserLogin
+
 # Managed Service for ValKey Audit Trails Events: DatabaseUserLogin
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.redis.DatabaseUserLogin2-schema}

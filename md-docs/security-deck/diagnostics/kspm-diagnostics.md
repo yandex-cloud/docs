@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Security Deck](../index.md) > [Диагностика ошибок](index.md) > Ошибки в работе KSPM
+
 # Диагностика ошибок в работе модуля Контроль Kubernetes (KSPM)
 
 ## Existing Kyverno installation detected and has to be removed manually {#existing-kyverno-installation}

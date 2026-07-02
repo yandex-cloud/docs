@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [RoutingInstance](index.md) > RemovePrivateConnection
+
 # Cloud Router API, REST: RoutingInstance.RemovePrivateConnection
 
 Removes specified PrivateConnection from a RoutingInstance resource.

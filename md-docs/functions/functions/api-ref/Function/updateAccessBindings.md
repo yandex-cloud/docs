@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Functions](../../../index.md) > Справочник API Functions > [REST (англ.)](../index.md) > [Function](index.md) > UpdateAccessBindings
+
 # Cloud Functions Service, REST: Function.UpdateAccessBindings
 
 Updates access bindings for the specified function.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили ARL > Изменить правило
+
 # Изменить правило в профиле ARL
 
 В [профиле ARL](../concepts/arl.md) можно изменить только правила ARL. Базовые [правила](../concepts/rules.md), а также правила Smart Protection и WAF [изменяются в профиле безопасности](rule-update.md).

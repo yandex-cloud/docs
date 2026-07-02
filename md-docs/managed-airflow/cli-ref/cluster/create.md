@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Airflow™](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > create
+
 # yc managed-airflow cluster create
 
 Create Airflow cluster

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Functions](../../../index.md) > Справочник API Functions > [REST (англ.)](../index.md) > Network > Overview
+
 # Cloud Functions Service, REST: Network
 
 A set of methods for managing VPC networks connected to serverless resources.

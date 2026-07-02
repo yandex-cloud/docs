@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud DNS](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [inbound-endpoint](index.md) > update
+
 # yc dns v0 inbound-endpoint update
 
 Modify configuration or attributes of a dns inbound endpoint.

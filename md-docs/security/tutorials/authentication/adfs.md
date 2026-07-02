@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Безопасность в Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Аутентификация и управление доступом > Сопоставление групп пользователей в Active Directory Federation Services
+
 # Сопоставление групп пользователей в Microsoft Active Directory Federation Services
 
 Вы можете использовать сервис [Active Directory Federation Services](https://learn.microsoft.com/ru-ru/windows-server/identity/ad-fs/ad-fs-overview) (AD FS) для аутентификации пользователей в организации.

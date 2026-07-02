@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex SmartCaptcha](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Captcha](index.md) > List
+
 # SmartCaptcha API, gRPC: CaptchaService.List
 
 Retrieves the list of Captcha resources in the specified folder.

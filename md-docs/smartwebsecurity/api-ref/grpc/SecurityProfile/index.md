@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > SecurityProfile > Overview
+
 # SmartWebSecurity API, gRPC: SecurityProfileService
 
 A set of methods for managing SecurityProfile resources.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Видеоплеер > [SDK](../index.md) > [JavaScript](index.md) > События плеера
+
 # События плеера
 
 С помощью методов [on и once](player-methods.md#subscribe-methods) SDK для JavaScript вы можете подписаться на события [видеоплеера](../../concepts/player.md) Cloud Video Player:

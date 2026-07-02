@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Чарты > Чарты в визарде > Пошаговые инструкции > Настройка навигатора
+
 # Настройка навигатора в Yandex DataLens
 
 {% note info %}

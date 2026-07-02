@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-clickhouse](../index.md) > [cluster](index.md) > remove-extension
+
 # yc managed-clickhouse cluster remove-extension
 
 Remove an extension from a ClickHouse cluster.

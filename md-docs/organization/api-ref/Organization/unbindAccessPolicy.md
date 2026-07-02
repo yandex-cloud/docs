@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Organization](index.md) > UnbindAccessPolicy
+
 # Identity Hub API, REST: Organization.UnbindAccessPolicy
 
 Unbinds the access policy template from the organization.

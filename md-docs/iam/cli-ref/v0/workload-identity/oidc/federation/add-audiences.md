@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity and Access Management](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [v0](../../../index.md) > [workload-identity](../../index.md) > [oidc](../index.md) > [federation](index.md) > add-audiences
+
 # yc iam v0 workload-identity oidc federation add-audiences
 
 Add audiences to workload identity federation

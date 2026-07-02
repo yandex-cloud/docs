@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Serverless Containers](../../index.md) > [Концепции](../index.md) > [Триггер](index.md) > Триггер для бюджетов
+
 # Триггер для бюджетов, который вызывает контейнер Serverless Containers
 
 [Триггер](index.md) для [бюджетов](../../../billing/concepts/budget.md) запускает [контейнер](../container.md) Serverless Containers при превышении пороговых значений.

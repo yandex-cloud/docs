@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > Delete
+
 # Managed Service for Redis API, REST: Cluster.Delete
 
 Deletes the specified Redis cluster.

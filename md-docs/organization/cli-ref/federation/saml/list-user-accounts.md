@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [federation](../index.md) > [saml](index.md) > list-user-accounts
+
 # yc organization-manager federation saml list-user-accounts
 
 List user accounts of the specified federation

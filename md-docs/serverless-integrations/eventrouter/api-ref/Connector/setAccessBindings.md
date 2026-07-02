@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > [Connector](index.md) > SetAccessBindings
+
 # EventRouter Service, REST: Connector.SetAccessBindings
 
 Sets access bindings for the connector.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > DDoS Protection
+
 # Yandex DDoS Protection в Virtual Private Cloud
 
 

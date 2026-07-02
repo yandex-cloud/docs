@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ReservedInstancePool](index.md) > Update
+
 # Compute Cloud API, gRPC: ReservedInstancePoolService.Update
 
 Updates the specified reserved instance pool.

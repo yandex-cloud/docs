@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DnsInboundEndpoint](index.md) > Create
+
 # Cloud DNS API, REST: DnsInboundEndpoint.Create
 
 Creates a DNS inbound endpoint in the specified folder.

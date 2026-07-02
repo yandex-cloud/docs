@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Stackland](../index.md) > [Практические руководства](index.md) > Установка Stackland на виртуальные машины в Yandex Cloud
+
 # Установка Stackland на виртуальные машины в Yandex Cloud
 
 В этом руководстве описана установка Yandex Cloud Stackland на виртуальные машины в Yandex Cloud из пользовательского загрузочного образа.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Notification Service](../../index.md) > [Пошаговые инструкции](../index.md) > SMS-уведомления > Удалить тестовый номер
+
 # Удалить тестовый номер
 
 {% list tabs group=instructions %}

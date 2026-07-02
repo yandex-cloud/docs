@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for YTsaurus](../../index.md) > [Справочник YC CLI (англ.)](../index.md) > cluster > Overview
+
 # yc managed-ytsaurus cluster
 
 Manage YTsaurus clusters.

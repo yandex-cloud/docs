@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Trino](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > remove-access-control
+
 # yc managed-trino v0 cluster remove-access-control
 
 Remove access control from Trino cluster configuration

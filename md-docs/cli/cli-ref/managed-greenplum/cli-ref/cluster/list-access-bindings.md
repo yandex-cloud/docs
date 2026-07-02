@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-greenplum](../index.md) > [cluster](index.md) > list-access-bindings
+
 # yc managed-greenplum cluster list-access-bindings
 
 List access bindings for the specified Greenplum cluster

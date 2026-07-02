@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [host-group](index.md) > list-access-bindings
+
 # yc compute host-group list-access-bindings
 
 List access bindings for the specified host group

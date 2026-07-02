@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [config](../index.md) > [profile](index.md) > activate
+
 # yc config profile activate
 
 Activate the specified configuration profile

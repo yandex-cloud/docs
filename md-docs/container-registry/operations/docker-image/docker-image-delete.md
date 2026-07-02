@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Пошаговые инструкции](../index.md) > Управление Docker-образом > Удалить Docker-образ из реестра
+
 # Удалить Docker-образ из реестра
 
 {% note alert %}

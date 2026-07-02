@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > [Пошаговые инструкции](index.md) > Управление федерациями удостоверений > Обновить SAML-сертификат Yandex Cloud
+
 # Обновить SAML-сертификат Yandex Cloud в федерации удостоверений
 
 {% note info %}

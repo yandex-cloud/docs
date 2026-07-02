@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Compute Cloud](../../../../index.md) > Справочник API > gRPC (англ.) > [Compute Cloud Instance Groups API](../index.md) > [Operation](index.md) > Get
+
 # Compute Cloud Instance Groups API, gRPC: OperationService.Get
 
 Returns the specified Operation resource.

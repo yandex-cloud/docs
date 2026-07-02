@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > Концепции > Настройка и управление > Аудитные логи Audit Trails > Справочник аудитных логов > UpdatePrivateSubnet
+
 # BareMetal Audit Trails Events: UpdatePrivateSubnet
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.UpdatePrivateSubnet2-schema}

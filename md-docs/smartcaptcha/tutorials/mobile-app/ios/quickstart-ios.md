@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex SmartCaptcha](../../../index.md) > [Практические руководства](../../index.md) > Капча в приложении iOS
+
 # SmartCaptcha в приложении на iOS
 
 # Yandex SmartCaptcha в приложении на iOS

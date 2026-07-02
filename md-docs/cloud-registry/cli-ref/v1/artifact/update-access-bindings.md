@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v1](../index.md) > [artifact](index.md) > update-access-bindings
+
 # yc cloud-registry v1 artifact update-access-bindings
 
 Updates access bindings for the specified artifact (folder, package, artifact, etc).

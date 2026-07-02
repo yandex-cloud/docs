@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Архитектура, сетевое взаимодействие](index.md) > Подключение к сервисам > Подключение к Object Storage из VPC
+
 # Подключение к Object Storage из Virtual Private Cloud
 
 

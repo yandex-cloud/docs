@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Концепции](../index.md) > Как устроено управление доступом > Обзор
+
 # Как устроено управление доступом в Yandex Cloud
 
 На этой странице можно узнать, как управлять доступом к ресурсам, и как IAM проверяет права доступа к ним.
@@ -64,53 +66,25 @@
 
 * `userAccount` — [аккаунт на Яндексе](../users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md):
 
-    Идентификатор субъекта: `userAccount:<идентификатор_пользователя>`.
-
-    Где `<идентификатор_пользователя>` — уникальный [идентификатор](../../../api-design-guide/concepts/resources-identification.md), [присвоенный](../../../organization/operations/users-get.md) пользователю. Например: `userAccount:ajecpdmpr4pr********`.
-
 * `serviceAccount` — [сервисный аккаунт](../users/service-accounts.md), созданный в Yandex Cloud:
-
-    Идентификатор субъекта: `serviceAccount:<идентификатор_сервисного_аккаунта>`.
-
-    Где `<идентификатор_сервисного_аккаунта>` — уникальный идентификатор, [присвоенный](../../operations/sa/get-id.md) сервисному аккаунту. Например: `serviceAccount:ajevnu4u2q3m********`.
 
     Сервисному аккаунту можно [назначать роли](../../operations/sa/assign-role-for-sa.md#binding-role-resource) на любые ресурсы в любом облаке, если эти ресурсы относятся к той же организации, что и сервисный аккаунт. Также сервисному аккаунту можно [назначать роли](../../operations/sa/assign-role-for-sa.md#binding-role-organization) на саму организацию.
 
 * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../../organization/concepts/add-federation.md), например из Active Directory:
 
-    Идентификатор субъекта: `federatedUser:<идентификатор_пользователя>`.
+* `group` — [группа пользователей](../../../organization/concepts/groups.md) [Yandex Identity Hub](../../../organization/index.md), созданная администратором организации:
 
-    Где `<идентификатор_пользователя>` — уникальный идентификатор, [присвоенный](../../../organization/operations/users-get.md) федеративному пользователю. Например: `federatedUser:aje7b4u65nb6********`.
+* `system` — [системная](system-group.md) или [публичная](public-group.md) группа пользователей:
 
-* `group` — группа пользователей [Yandex Identity Hub](../../../organization/index.md):
+    * `All authenticated users` — [публичная группа](public-group.md#allAuthenticatedUsers) всех авторизованных пользователей.
 
-    * [Группа пользователей](../../../organization/concepts/groups.md), созданная администратором организации:
+    * `All users` — [публичная группа](public-group.md#allUsers) всех пользователей.
 
-        Идентификатор субъекта: `group:<идентификатор_пользовательской_группы>`.
+    * `All users in organization X` — [системная группа](system-group.md#allOrganizationUsers) всех пользователей организации `X`.
 
-        Где `<идентификатор_пользовательской_группы>` — уникальный идентификатор, присвоенный группе пользователей, созданной администратором организации. Например: `group:ajeser8mnc4c********`.
+    * `All users in federation N` — [системная группа](system-group.md#allFederationUsers) всех пользователей федерации `N`.
 
-    * [Системная группа](system-group.md#allOrganizationUsers) `All users in organization X`:
-
-        Идентификатор субъекта: `group:organization:<идентификатор_организации>:users`.
-
-        Где `<идентификатор_организации>` — уникальный [идентификатор](../../../organization/operations/organization-get-id.md), присвоенный [организации](../../../organization/quickstart.md) `X`. Например: `group:organization:bpfaidqca8vd********:users`.
-
-    * [Системная группа](system-group.md#allFederationUsers) `All users in federation N`:
-
-        Идентификатор субъекта: `group:federation:<идентификатор_федерации>:users`.
-
-        Где `<идентификатор_федерации>` — уникальный идентификатор, присвоенный [федерации удостоверений](../../../organization/concepts/add-federation.md) `N`. Например: `group:federation:bpf8tpgggfoi********:users`.
-
-* `system` — [публичная группа](public-group.md) пользователей:
-
-    * [Публичная группа](public-group.md#allAuthenticatedUsers) пользователей `All authenticated users`:
-
-        Идентификатор субъекта: `system:allAuthenticatedUsers`.
-
-    * [Публичная группа](public-group.md#allUsers) `All users`:
-
-        Идентификатор субъекта: `system:allUsers`.
+    * `All users in userpool P` — [системная группа](system-group.md#allUserpoolUsers) всех локальных пользователей пула `P`.
 
 ### Назначение прав доступа {#access-bindings}
 

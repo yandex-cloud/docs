@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > Практические руководства > Все практические руководства
+
 # Практические руководства для Yandex Monitoring
 
 * [Автоматическое масштабирование группы виртуальных машин для обработки сообщений из очереди Yandex Message Queue](autoscale-monitoring.md)

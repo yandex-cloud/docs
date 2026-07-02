@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Registry](index.md) > Delete
+
 # Yandex Cloud Registry API, gRPC: RegistryService.Delete
 
 Deletes the specified registry.

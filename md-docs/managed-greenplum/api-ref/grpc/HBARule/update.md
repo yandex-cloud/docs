@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [HBARule](index.md) > Update
+
 # Managed Service for Greenplum® API, gRPC: HBARuleService.Update
 
 Update specified HBA rule for the specified Greenplum cluster without changind it order.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > Концепции > Настройка и управление > Аудитные логи Audit Trails > Справочник аудитных логов > ApplyUpdatePrivateCloudConnection
+
 # BareMetal Audit Trails Events: ApplyUpdatePrivateCloudConnection
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.ApplyUpdatePrivateCloudConnection2-schema}

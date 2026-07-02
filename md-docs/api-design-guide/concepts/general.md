@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Концепции API Yandex Cloud](../index.md) > Основные принципы
+
 # Основные принципы
 
 API Yandex Cloud спроектированы на основе механизма [gRPC](https://grpc.io/docs/). Для описания методов и структур данных в API используется [Protocol Buffers](https://developers.google.com/protocol-buffers/docs/proto3) (proto 3).

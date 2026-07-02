@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > kms > CancelAsymmetricSignatureKeyDeletion
+
 # Key Management Service Audit Trails Events: CancelAsymmetricSignatureKeyDeletion
 
 ## Event JSON schema {#yandex.cloud.audit.kms.asymmetricsignature.CancelAsymmetricSignatureKeyDeletion2-schema}

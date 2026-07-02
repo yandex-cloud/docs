@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Network Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [NetworkLoadBalancer](index.md) > EnableZones
+
 # Network Load Balancer API, REST: NetworkLoadBalancer.EnableZones
 
 Enable zones for the specified network load balancer.

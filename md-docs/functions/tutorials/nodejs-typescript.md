@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Functions](../index.md) > [Практические руководства](index.md) > Бэкенд на Serverless > Создание функции Node.js с помощью TypeScript
+
 # Создание функции Node.js с помощью TypeScript
 
 

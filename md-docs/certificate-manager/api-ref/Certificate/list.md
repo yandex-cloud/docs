@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Certificate Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Certificate](index.md) > List
+
 # Certificate Manager API, REST: Certificate.List
 
 Returns the list of certificates in the specified folder.

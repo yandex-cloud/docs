@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > DataLens Public API > [DataLens API (англ.)](index.md) > deleteEditorChart
+
 # DataLens API: Delete editor chart
 
 Deletes the specified Editor chart.

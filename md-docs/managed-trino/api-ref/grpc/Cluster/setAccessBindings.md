@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Trino](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > SetAccessBindings
+
 # Managed Service for Trino API, gRPC: ClusterService.SetAccessBindings
 
 Sets access bindings for the specified Trino cluster.

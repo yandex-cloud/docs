@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > EventRouter > Управление правилом > Управлять метками > Добавить метку
+
 # Добавить метку правилу
 
 {% list tabs group=instructions %}

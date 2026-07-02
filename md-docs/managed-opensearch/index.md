@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Managed Service for OpenSearch > Managed Service for OpenSearch
+
 # Yandex Managed Service for OpenSearch
 
 Сервис Managed Service for OpenSearch помогает разворачивать и поддерживать кластеры серверов OpenSearch в инфраструктуре Yandex Cloud.

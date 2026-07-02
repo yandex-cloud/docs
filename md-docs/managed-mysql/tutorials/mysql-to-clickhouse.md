@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for MySQL®](../index.md) > [Практические руководства](index.md) > Миграция базы данных из MySQL® в ClickHouse® с помощью Yandex Data Transfer
+
 # Миграция базы данных из MySQL® в ClickHouse® с помощью Yandex Data Transfer
 
 # Асинхронная репликация данных из Managed Service for MySQL® в Managed Service for ClickHouse® с помощью Yandex Data Transfer
@@ -28,7 +30,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for MySQL®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for MySQL®](../../managed-mysql/pricing.md)).
+* Кластер Managed Service for MySQL®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for MySQL®](../pricing.md)).
 * Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 * Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы Data Transfer](../../data-transfer/pricing.md)).

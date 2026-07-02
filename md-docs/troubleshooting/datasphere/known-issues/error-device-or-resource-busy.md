@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [DataSphere](../index.md) > Устранение ошибки `Device or resource busy`
+
 # Устранение ошибки `Device or resource busy`
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for Apache Airflow™ > Data Sources > airflow_cluster
+
 # yandex_airflow_cluster (DataSource)
 
 Managed Airflow cluster.

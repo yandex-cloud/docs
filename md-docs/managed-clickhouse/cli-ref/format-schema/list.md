@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [format-schema](index.md) > list
+
 # yc managed-clickhouse format-schema list
 
 List format schemas in a ClickHouse cluster.

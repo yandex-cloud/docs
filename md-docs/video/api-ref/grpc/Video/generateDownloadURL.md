@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Video](index.md) > GenerateDownloadURL
+
 # Video API, gRPC: VideoService.GenerateDownloadURL
 
 Generates a URL for downloading the original video file.

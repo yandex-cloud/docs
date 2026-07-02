@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [storage](../index.md) > [s3api](index.md) > delete-objects
+
 # yc storage s3api delete-objects
 
 Deletes objects based on a list of keys passed in a request

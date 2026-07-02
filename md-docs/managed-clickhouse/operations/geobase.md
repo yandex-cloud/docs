@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Пошаговые инструкции](index.md) > Хранение и обработка данных > Управление собственной геобазой
+
 # Управление собственной геобазой в Managed Service for ClickHouse®
 
 Геобаза в ClickHouse® — это текстовые файлы, которые содержат иерархию и имена регионов. Вы можете добавить в ClickHouse® несколько альтернативных геобаз для поддержки разных точек зрения о принадлежности регионов странам. Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/dictionaries/internal-dicts/).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cic](../../index.md) > [v0](../index.md) > trunk-connection > Overview
+
 # yc cic v0 trunk-connection
 
 [PREVIEW] Manage trunk connections.

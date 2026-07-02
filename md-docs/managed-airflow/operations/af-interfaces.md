@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > [Пошаговые инструкции](index.md) > Работа с интерфейсами Apache Airflow™
+
 # Работа с интерфейсами Apache Airflow™
 
 Для работы с Managed Service for Apache Airflow™ можно использовать [веб-интерфейс](#web-gui) или [API Apache Airflow™](#rest-api).

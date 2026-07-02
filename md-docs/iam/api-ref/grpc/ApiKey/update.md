@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ApiKey](index.md) > Update
+
 # Identity and Access Management API, gRPC: ApiKeyService.Update
 
 Updates the specified API key.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [topic](index.md) > get
+
 # yc managed-kafka topic get
 
 Get information about a Kafka topic.

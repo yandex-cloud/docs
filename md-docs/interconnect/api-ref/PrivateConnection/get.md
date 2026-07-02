@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [PrivateConnection](index.md) > Get
+
 # Cloud Interconnect API, REST: PrivateConnection.Get
 
 Returns the specified PrivateConnection resource.

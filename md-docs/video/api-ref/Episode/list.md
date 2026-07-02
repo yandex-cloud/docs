@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Episode](index.md) > List
+
 # Video API, REST: Episode.List
 
 Lists all episodes associated with a specific stream or stream line with pagination support.

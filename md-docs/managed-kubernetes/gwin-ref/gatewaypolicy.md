@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > Инструменты Application Load Balancer > Gwin > Конфигурация ресурсов (англ.) > GatewayPolicy
+
 # GatewayPolicy
 
 GatewayPolicy is a Gwin custom resource for configuring gateway-level policies in Yandex Application Load Balancer. It allows you to define load balancer settings, logging configuration, autoscaling, listener settings, and HTTP router options that apply to Gateway resources.

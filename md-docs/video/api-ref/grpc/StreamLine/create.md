@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [StreamLine](index.md) > Create
+
 # Video API, gRPC: StreamLineService.Create
 
 Creates a new stream line in the specified channel with the provided configuration.

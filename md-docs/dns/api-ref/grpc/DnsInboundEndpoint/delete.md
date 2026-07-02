@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud DNS](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DnsInboundEndpoint](index.md) > Delete
+
 # Cloud DNS API, gRPC: DnsInboundEndpointService.Delete
 
 Deletes the specified DNS inbound endpoint.

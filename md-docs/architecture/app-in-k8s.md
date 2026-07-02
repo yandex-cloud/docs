@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Архитектурные решения](index.md) > Отказоустойчивость > Развертывание веб-приложения в отказоустойчивой конфигурации в Yandex Cloud
+
 # Развертывание веб-приложения в отказоустойчивой конфигурации в Yandex Cloud
 
 В данном руководстве приведен пример решения задачи по развертыванию веб-приложения в отказоустойчивой конфигурации в инфраструктуре Yandex Cloud. В основе инфраструктуры, обеспечивающей работу веб-приложения, лежит группа масштабируемых управляемых сервисов экосистемы Yandex Cloud: [Yandex Managed Service for Kubernetes](../managed-kubernetes/index.md), [Yandex Managed Service for PostgreSQL](../managed-postgresql/index.md) и [Yandex Application Load Balancer](../application-load-balancer/index.md).

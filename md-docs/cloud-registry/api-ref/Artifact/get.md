@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Artifact](index.md) > Get
+
 # Yandex Cloud Registry API, REST: Artifact.Get
 
 Returns the specified artifact resource.

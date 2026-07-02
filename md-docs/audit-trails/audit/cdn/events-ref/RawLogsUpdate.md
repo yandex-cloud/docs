@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > cdn > RawLogsUpdate
+
 # Cloud CDN Audit Trails Events: RawLogsUpdate
 
 ## Event JSON schema {#yandex.cloud.audit.cdn.gcore.RawLogsUpdate2-schema}

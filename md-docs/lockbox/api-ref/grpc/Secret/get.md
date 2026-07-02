@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Lockbox](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Secret](index.md) > Get
+
 # Lockbox API, gRPC: SecretService.Get
 
 Returns the specified secret.

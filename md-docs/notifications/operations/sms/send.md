@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Notification Service](../../index.md) > [Пошаговые инструкции](../index.md) > SMS-уведомления > Отправить тестовое SMS-уведомление
+
 # Отправить тестовое SMS-уведомление
 
 {% list tabs group=instructions %}

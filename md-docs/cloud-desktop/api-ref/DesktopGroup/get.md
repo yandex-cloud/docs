@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DesktopGroup](index.md) > Get
+
 # Cloud Desktop API, REST: DesktopGroup.Get
 
 Returns the specified desktop group resource.

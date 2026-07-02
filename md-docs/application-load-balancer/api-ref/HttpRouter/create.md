@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [HttpRouter](index.md) > Create
+
 # Application Load Balancer API, REST: HttpRouter.Create
 
 Creates an HTTP router in the specified folder.

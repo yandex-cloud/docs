@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Channel](index.md) > Create
+
 # Video API, gRPC: ChannelService.Create
 
 Creates a new channel in the specified organization.

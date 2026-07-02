@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity and Access Management > Data Sources > iam_role
+
 # yandex_iam_role (DataSource)
 
 Generates an [IAM](../../iam/index.md) role document that may be referenced by and applied to other Yandex Cloud Platform resources, such as the `yandex_resourcemanager_folder` resource. For more information, see [the official documentation](../../iam/concepts/access-control/roles.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Valkey™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > StartFailover
+
 # Managed Service for Redis API, gRPC: ClusterService.StartFailover
 
 Start a manual failover on the specified Redis cluster.

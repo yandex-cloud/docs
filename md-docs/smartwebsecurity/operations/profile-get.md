@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили безопасности > Получить информацию о профиле
+
 # Получить информацию о профиле безопасности
 
 {% list tabs group=instructions %}

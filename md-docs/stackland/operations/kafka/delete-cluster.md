@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Брокер сообщений > Удалить кластер
+
 # Удалить кластер Apache Kafka®
 
 Если у вас есть кластер [Apache Kafka®](../../concepts/components/kafka.md) в [проекте](../projects/create-project.md)), вы можете удалить его.

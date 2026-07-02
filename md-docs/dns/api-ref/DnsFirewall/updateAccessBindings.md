@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DnsFirewall](index.md) > UpdateAccessBindings
+
 # Cloud DNS API, REST: DnsFirewall.UpdateAccessBindings
 
 Updates access bindings for the specified DNS firewall.

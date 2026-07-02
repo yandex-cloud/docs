@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Практические руководства](index.md) > Рабочие процессы и автоматизация на Serverless > Запуск GitLab Runner в Serverless Containers
+
 # Запуск GitLab Runner в Yandex Serverless Containers
 
 
@@ -88,7 +90,7 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик ([тарифы Serverless Containers](../../serverless-containers/pricing.md)).
+* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик ([тарифы Serverless Containers](../pricing.md)).
 * Плата за хранение секретов ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
 
 

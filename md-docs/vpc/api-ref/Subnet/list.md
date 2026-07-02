@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Subnet](index.md) > List
+
 # Virtual Private Cloud API, REST: Subnet.List
 
 Retrieves the list of Subnet resources in the specified folder.

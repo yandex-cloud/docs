@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cloud-registry](../../index.md) > [v1](../index.md) > [artifact](index.md) > upsert
+
 # yc cloud-registry v1 artifact upsert
 
 Upserts a folder at the specified path within the registry.

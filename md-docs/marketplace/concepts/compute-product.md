@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Marketplace](../index.md) > Партнерам > Концепции > Требования к продуктам Marketplace > Создание образа продукта на базе Linux
+
 # Создание образа продукта на базе Linux для загрузки в Cloud Marketplace
 
 Чтобы добавить в Marketplace продукт для Yandex Compute Cloud, нужно загрузить образ в Yandex Cloud. Продукты могут быть созданы на базе ОС Linux. Этот раздел поможет создать образ на базе ОС Linux.

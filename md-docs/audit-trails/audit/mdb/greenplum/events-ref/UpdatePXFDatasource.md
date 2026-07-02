@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.greenplum > UpdatePXFDatasource
+
 # Managed Service for Greenplum® Audit Trails Events: UpdatePXFDatasource
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.greenplum.UpdatePXFDatasource2-schema}

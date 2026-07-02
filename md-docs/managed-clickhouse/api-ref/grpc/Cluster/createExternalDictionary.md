@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > CreateExternalDictionary
+
 # Managed Service for ClickHouse API, gRPC: ClusterService.CreateExternalDictionary
 
 Creates an external dictionary for the specified ClickHouse cluster.

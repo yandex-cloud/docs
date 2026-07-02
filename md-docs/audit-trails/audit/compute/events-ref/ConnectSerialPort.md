@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > ConnectSerialPort
+
 # Compute Audit Trails Events: ConnectSerialPort
 
 ## Event JSON schema {#yandex.cloud.audit.compute.serialssh.ConnectSerialPort2-schema}

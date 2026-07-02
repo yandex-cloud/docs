@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [filesystem](index.md) > remove-labels
+
 # yc compute filesystem remove-labels
 
 Remove labels from specified filesystem

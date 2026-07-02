@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for MySQL®](../index.md) > [Концепции](index.md) > Сеть в Managed Service for MySQL
+
 # Сеть и кластеры в Managed Service for MySQL®
 
 

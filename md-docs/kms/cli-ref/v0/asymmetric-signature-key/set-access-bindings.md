@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [asymmetric-signature-key](index.md) > set-access-bindings
+
 # yc kms v0 asymmetric-signature-key set-access-bindings
 
 Set access bindings for the specified asymmetric signature key and delete all existing access bindings if there were any

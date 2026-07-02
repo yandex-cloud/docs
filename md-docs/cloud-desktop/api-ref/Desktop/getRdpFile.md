@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Desktop](index.md) > GetRdpFile
+
 # Cloud Desktop API, REST: Desktop.GetRdpFile
 
 Returns a RDP file for the specified desktop.

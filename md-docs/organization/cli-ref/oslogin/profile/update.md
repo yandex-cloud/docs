@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [oslogin](../index.md) > [profile](index.md) > update
+
 # yc organization-manager oslogin profile update
 
 Update the specified OS Login profile

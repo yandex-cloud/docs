@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Концепции](index.md) > Политика работы с версиями ClickHouse®
+
 # Политика работы с версиями ClickHouse®
 
 ClickHouse® использует политику частых релизов. В Managed Service for ClickHouse® доступен ограниченный набор версий ClickHouse®: 25.8.24.21 LTS, 26.3.12.3 LTS, 26.4.4.38 и 26.5.2.39. Список версий постоянно актуализируется. При устаревании используемая в кластере Managed Service for ClickHouse® версия ClickHouse® обновляется.

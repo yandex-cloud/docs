@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Контейнерная инфраструктура](index.md) > Managed Service for Kubernetes > Мониторинг > Мониторинг кластера с помощью Prometheus и Grafana
+
 # Мониторинг кластера Yandex Managed Service for Kubernetes с помощью Prometheus Operator с поддержкой Yandex Monitoring
 
 # Мониторинг кластера с помощью Prometheus Operator с поддержкой Yandex Monitoring

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > Источники и приемники данных > Работа с базами данных Managed Service for PostgreSQL
+
 # Работа с базами данных Managed Service for PostgreSQL
 
 В этом разделе описана основная информация про работу с [Managed Service for PostgreSQL](https://yandex.cloud/ru/services/managed-postgresql).

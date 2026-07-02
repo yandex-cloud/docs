@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [StylePreset](index.md) > List
+
 # Video API, REST: StylePreset.List
 
 Lists all style presets in a specific channel with pagination support.

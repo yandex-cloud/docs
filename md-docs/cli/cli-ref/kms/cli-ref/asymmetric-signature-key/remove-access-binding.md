@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [kms](../index.md) > [asymmetric-signature-key](index.md) > remove-access-binding
+
 # yc kms asymmetric-signature-key remove-access-binding
 
 Remove access binding for the specified asymmetric signature key

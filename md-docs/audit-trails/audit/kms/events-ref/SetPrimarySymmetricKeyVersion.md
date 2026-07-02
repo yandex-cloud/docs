@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > kms > SetPrimarySymmetricKeyVersion
+
 # Key Management Service Audit Trails Events: SetPrimarySymmetricKeyVersion
 
 ## Event JSON schema {#yandex.cloud.audit.kms.SetPrimarySymmetricKeyVersion2-schema}

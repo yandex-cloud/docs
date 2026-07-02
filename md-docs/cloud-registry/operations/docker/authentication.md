@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > [Пошаговые инструкции](../index.md) > Управление артефактами > Docker-образ > Аутентифицироваться в Cloud Registry
+
 # Аутентифицироваться в Cloud Registry
 
 Перед началом работы с Cloud Registry необходимо [настроить Docker](installation.md) и аутентифицироваться для соответствующего интерфейса:

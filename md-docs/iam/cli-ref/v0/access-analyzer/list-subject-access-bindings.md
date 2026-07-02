@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [access-analyzer](index.md) > list-subject-access-bindings
+
 # yc iam v0 access-analyzer list-subject-access-bindings
 
 List access bindings for the specified subject

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [serverless](../index.md) > [mcp-gateway](index.md) > list-access-bindings
+
 # yc serverless mcp-gateway list-access-bindings
 
 List access bindings for the specified MCP Gateway

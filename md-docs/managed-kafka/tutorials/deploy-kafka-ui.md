@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Практические руководства](index.md) > Самостоятельное развертывание веб-интерфейса Apache Kafka®
+
 # Самостоятельное развертывание веб-интерфейса Apache Kafka®
 
 # Самостоятельное развертывание веб-интерфейса Apache Kafka®
@@ -35,7 +37,7 @@ Managed Service for Apache Kafka® имеет [встроенную поддер
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Apache Kafka®](../../managed-kafka/pricing.md)).
+* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Apache Kafka®](../pricing.md)).
 * Плата за ВМ: использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
 * Плата за публичные IP-адреса для ВМ и хостов кластера, если для них включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
@@ -240,7 +242,7 @@ TrustStore — это хранилище доверенных сертифика
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Apache Kafka®](../../managed-kafka/pricing.md)).
+* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Apache Kafka®](../pricing.md)).
 * Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
 * Плата за узлы кластера Managed Service for Kubernetes (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
 * Плата за публичные IP-адреса для хостов кластера Managed Service for Apache Kafka® и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).

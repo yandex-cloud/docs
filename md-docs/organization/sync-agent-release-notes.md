@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Identity Hub](index.md) > История изменений Yandex Identity Hub Sync Agent
+
 # Релизы Yandex Identity Hub Sync Agent
 
 ## Текущая версия {#latest-release}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Практические руководства](index.md) > Настройка сетевых ресурсов и взаимодействие между ними > Реализация отказоустойчивых сценариев для сетевых виртуальных машин
+
 # Реализация отказоустойчивых сценариев для сетевых виртуальных машин
 
 
@@ -64,7 +66,7 @@
 
 * плата за постоянно работающие ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
 * плата за использование Network Load Balancer ([тарифы Yandex Network Load Balancer](../../network-load-balancer/pricing.md));
-* плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
+* плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../pricing.md));
 * плата за использование функции ([тарифы Yandex Cloud Functions](../../functions/pricing.md));
 
 ## Настройте профиль CLI {#setup-profile}

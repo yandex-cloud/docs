@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > [Справочник CLI (англ.)](../index.md) > [trunk-connection](index.md) > remove-labels
+
 # yc cic trunk-connection remove-labels
 
 Remove labels from a trunk connection.

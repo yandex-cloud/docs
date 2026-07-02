@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YDB](../../../index.md) > Document API, совместимый с Amazon DynamoDB > Инструменты > Работа с AWS CLI > Обзор
+
 # Работа с AWS CLI в Managed Service for YDB. Обзор
 
 В разделе описано, как с использованием AWS CLI выполнить следующие операции в YDB:

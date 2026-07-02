@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Использование плагина yandex-lemmer в Managed Service for OpenSearch
+
 # Использование плагина yandex-lemmer в Yandex Managed Service for OpenSearch
 
 # Использование плагина yandex-lemmer в Yandex Managed Service for OpenSearch

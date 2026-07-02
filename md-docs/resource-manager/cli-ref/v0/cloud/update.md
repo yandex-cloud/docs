@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Resource Manager](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cloud](index.md) > update
+
 # yc resource-manager v0 cloud update
 
 Update the specified cloud

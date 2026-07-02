@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > Аутентификация > Управление статическими ключами доступа
+
 # Управление статическими ключами доступа
 
 [Часть сервисов](../../concepts/authorization/access-key.md#supported-services) Yandex Cloud поддерживает аутентификацию с помощью [статических ключей доступа](../../concepts/authorization/access-key.md).

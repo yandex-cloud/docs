@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SnapshotSchedule](index.md) > ListAccessBindings
+
 # Compute Cloud API, gRPC: SnapshotScheduleService.ListAccessBindings
 
 Lists access bindings for the snapshot schedule.

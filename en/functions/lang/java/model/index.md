@@ -1,29 +1,29 @@
 ---
 title: Java programming model
-description: In this article, you will learn about the Java-based programming models offered by {{ sf-name }} and the requirements for the handler.
+description: In this article, you will learn about the Java programming models supported by {{ sf-name }} and the handler requirements.
 ---
 
 # Java programming model
 
-{{ sf-name }} provides four models for programming in Java: using the [Function](jdk-function.md) and [YcFunction](yc-function.md) interfaces, the [HttpServlet](servlet-api.md) class, and the [Spring Boot](spring-boot.md) framework. The first three methods of setting a function handler involve writing their own implementations of these interfaces or classes, and the last one involves loading an application in its original form without any changes.
+{{ sf-name }} provides four Java programming models which are based on the [Function](jdk-function.md) and [YcFunction](yc-function.md) interfaces, the [HttpServlet](servlet-api.md) class, and [Spring Boot](spring-boot.md). The first three ways of setting a function handler involve implementing custom implementations of these interfaces or classes, while the last one involves uploading the application in its original form without any changes.
 
-The difference between the [Function](jdk-function.md) and [YcFunction](yc-function.md) models is in the presence of the [invocation context](../context.md). For example, if you need to work with {{ yandex-cloud }} services using the [SDK](../sdk.md), we recommend opting for [YcFunction](yc-function.md). With the [HttpServlet](servlet-api.md) class based model, you can get full control over the return value and `HTTP` method used to call the function. Just as `YcFunction`, it also provides access to the [invocation context](../context.md).
+The difference between the [Function](jdk-function.md) and [YcFunction](yc-function.md) models is the availability of the [invocation context](../context.md). For example, if you need to work with {{ yandex-cloud }} services using the [SDK](../sdk.md), we recommend opting for [YcFunction](yc-function.md). With the [HttpServlet](servlet-api.md) model, you can fully manage the return value and `HTTP` method used to invoke the function, and, like the `YcFunction` model, provides access to the [invocation context](../context.md).
 
-There are two separate types for the [Function](jdk-function.md) and [YcFunction](yc-function.md) models: `byte[]` and `String`. Using them is different from using other types. If you use them as the handler function argument type, the runtime environment will not convert the incoming request into a `JSON` interpretation for these types and will deliver it directly to the user handler function, unless the [?integration=raw](../../../concepts/function-invoke.md#http) parameter is used.
+There are two separate types for the [Function](jdk-function.md) and [YcFunction](yc-function.md) models: `byte[]` and `String`. They are used differently from other types. If you use them as the handler argument type, the runtime will not convert the incoming request into `JSON` and instead will provide it directly to the user-defined handler, unless [?integration=raw](../../../concepts/function-invoke.md#http) is used.
 
 {% note info %}
 
-The library used for serialization and deserialization from `JSON` is [jsoniter](http://jsoniter.com/java-features.html).
+The [jsoniter](http://jsoniter.com/java-features.html) library is used for serializing and deserializing `JSON`.
 
 {% endnote %}
 
 ## Handler requirements {#requirements}
 
-Regardless of the selected model, a project is uploaded as a source code, a JAR archive, or a Maven project. In addition, the following requirements apply to a class that contains a handler function:
+No matter which model you select, the project can be uploaded as source code, a JAR archive, or a Maven project. The class that contains the handler must also meet the following requirements:
 
 * It must be public.
-* The class must have a public no-argument constructor.
+* It must have a public no-argument constructor.
 
-   It is included by default. However, if you created your own constructor that accepts arguments, you must also create a no-argument one.
+   It is provided by default. However, if you created your own constructor with arguments, you should also create a no-argument one.
 
-* It should not be [generic](https://docs.oracle.com/javase/8/docs/technotes/guides/language/generics.html).
+* It must not be [generic](https://docs.oracle.com/javase/8/docs/technotes/guides/language/generics.html).

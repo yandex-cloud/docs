@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for YDB](../../index.md) > [Справочник API Yandex Cloud для Managed Service for YDB](../overview.md) > [REST (англ.)](../index.md) > [Database](index.md) > Restore
+
 # Managed Service for YDB API, REST: Database.Restore
 
 Restores the specified backup

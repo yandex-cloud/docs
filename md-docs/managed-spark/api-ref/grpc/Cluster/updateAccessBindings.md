@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Spark™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > UpdateAccessBindings
+
 # Managed Spark API, gRPC: ClusterService.UpdateAccessBindings
 
 Updates access bindings for the specified Spark cluster.

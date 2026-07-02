@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Compute Cloud](index.md) > Аудитные логи Audit Trails
+
 # Справочник аудитных логов Yandex Audit Trails
 
 

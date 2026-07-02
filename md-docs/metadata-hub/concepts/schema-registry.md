@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Schema Registry > Концепции > Реестр схем
+
 # Реестр схем данных
 
 

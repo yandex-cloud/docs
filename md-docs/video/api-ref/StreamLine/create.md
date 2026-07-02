@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [StreamLine](index.md) > Create
+
 # Video API, REST: StreamLine.Create
 
 Creates a new stream line in the specified channel with the provided configuration.

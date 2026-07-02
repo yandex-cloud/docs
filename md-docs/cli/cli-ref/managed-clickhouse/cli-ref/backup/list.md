@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-clickhouse](../index.md) > [backup](index.md) > list
+
 # yc managed-clickhouse backup list
 
 List ClickHouse backups available in a folder.

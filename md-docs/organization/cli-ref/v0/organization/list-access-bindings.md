@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [organization](index.md) > list-access-bindings
+
 # yc organization-manager v0 organization list-access-bindings
 
 List access bindings for the specified organization

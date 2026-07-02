@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Managed Service for Kubernetes > Все решения для Managed Service for Kubernetes
+
 # Решения для Managed Service for Kubernetes
 
 ## Примеры конфигураций и сценариев Managed Service for Kubernetes {#configuration-examples}

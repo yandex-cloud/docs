@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [kms](../../index.md) > [v0](../index.md) > [symmetric-key](index.md) > rotate
+
 # yc kms v0 symmetric-key rotate
 
 Rotate the specified symmetric key: creates a new key version and makes it the primary version

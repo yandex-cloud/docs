@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > Расширения спецификации > Обзор
+
 # Расширения спецификации API Gateway. Обзор
 
 ## Расширение x-yc-apigateway {#top-level}

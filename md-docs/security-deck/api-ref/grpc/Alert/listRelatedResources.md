@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Security Deck](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Alert](index.md) > ListRelatedResources
+
 # Security Deck Alerts API, gRPC: AlertService.ListRelatedResources
 
 List alert related resources.

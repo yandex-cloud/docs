@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Прикладные решения > Интернет вещей (IoT) > Работа с Yandex IoT Core с устройства с Android на языке Java
+
 # Работа с Yandex IoT Core с устройства Android на языке Java
 
 {% note warning %}

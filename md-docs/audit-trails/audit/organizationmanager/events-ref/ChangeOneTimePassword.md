@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > ChangeOneTimePassword
+
 # Identity Hub Audit Trails Events: ChangeOneTimePassword
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.idp.ChangeOneTimePassword2-schema}

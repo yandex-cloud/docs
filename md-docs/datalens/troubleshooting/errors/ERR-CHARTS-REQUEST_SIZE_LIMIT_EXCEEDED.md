@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Request size limit exceeded
+
 # [Yandex DataLens] Request size limit exceeded
 
 `ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED`

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [load-balancer](../index.md) > [target-group](index.md) > list-operations
+
 # yc load-balancer target-group list-operations
 
 List operations for the specified target group

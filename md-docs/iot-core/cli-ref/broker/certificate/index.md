@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [broker](../index.md) > certificate > Overview
+
 # yc iot broker certificate
 
 Manage IoT broker certificates

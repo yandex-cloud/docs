@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Архитектура, сетевое взаимодействие](index.md) > BareMetal > Организация сетевой связности между подсетями BareMetal и On-Prem с помощью Cloud Interconnect
+
 # Организация сетевой связности между подсетями Yandex BareMetal и on-premises с помощью Cloud Interconnect
 
 В данном руководстве вы установите сетевую связность между [сервером](../../baremetal/concepts/servers.md) BareMetal, расположенным в [приватной подсети](../../baremetal/concepts/private-network.md) Yandex BareMetal, и ресурсами, которые развернуты on-premises. Сетевая связность будет организована с помощью сервисов [Cloud Interconnect](../../interconnect/index.md) и [Cloud Router](../../cloud-router/index.md).

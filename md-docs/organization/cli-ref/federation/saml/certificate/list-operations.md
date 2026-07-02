@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [federation](../../index.md) > [saml](../index.md) > [certificate](index.md) > list-operations
+
 # yc organization-manager federation saml certificate list-operations
 
 List operations for the specified certificate

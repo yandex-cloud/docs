@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Registry](../index.md) > [Практические руководства](index.md) > Настройка отказоустойчивой архитектуры в Yandex Cloud
+
 # Настройка отказоустойчивой архитектуры в Yandex Cloud
 
 

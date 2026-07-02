@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > organization-manager > Overview
+
 # yc organization-manager
 
 Manage Yandex Organization Manager resources

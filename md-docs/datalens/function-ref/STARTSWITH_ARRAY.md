@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Вычисляемые поля > Справочник функций > Функции для работы с массивами > STARTSWITH
+
 # STARTSWITH (массивы)
 
 _Функция `STARTSWITH` также доступна в следующих категориях: [Строковые функции](STARTSWITH.md)._

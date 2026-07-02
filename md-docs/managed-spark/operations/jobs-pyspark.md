@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Spark™](../index.md) > [Пошаговые инструкции](index.md) > Задания (jobs) > Задания PySpark
+
 # Управление заданиями PySpark
 
 ## Создать задание {#create}

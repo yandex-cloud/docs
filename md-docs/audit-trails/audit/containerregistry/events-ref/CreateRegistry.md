@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > containerregistry > CreateRegistry
+
 # Container Registry Audit Trails Events: CreateRegistry
 
 ## Event JSON schema {#yandex.cloud.audit.containerregistry.CreateRegistry2-schema}

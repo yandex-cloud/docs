@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-sharded-postgresql](../../index.md) > [v0](../index.md) > [hosts](index.md) > update
+
 # yc managed-sharded-postgresql v0 hosts update
 
 Update the specified hosts

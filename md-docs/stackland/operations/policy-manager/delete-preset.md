@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Политики > Удалить пресет с политиками
+
 # Удалить пресеты политик
 
 Администраторы Stackland могут удалять пресеты Policy Manager.

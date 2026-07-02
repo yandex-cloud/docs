@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [AWS S3 REST](../../index.md) > [REST](../index.md) > Multipart upload > AbortMultipartUpload
+
 # Object Storage API, REST совместимый с Amazon S3: AbortMultipartUpload
 
 Прерывает загрузку и удаляет все уже сохраненные части объекта из Object Storage. Если запрос на прерывание загрузки поступил в процессе загрузки какой-либо из частей, то результат не гарантирован.

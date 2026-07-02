@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Использование схем формата данных с Managed Service for Apache Kafka® > Использование Managed Schema Registry с Managed Service for Apache Kafka®
+
 # Использование Managed Schema Registry с Yandex Managed Service for Apache Kafka®
 
 Чтобы использовать [Managed Schema Registry](../../managed-kafka/concepts/managed-schema-registry.md#msr) совместно с Managed Service for Apache Kafka®:
@@ -13,9 +15,9 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за вычислительные ресурсы кластера Managed Service for Apache Kafka® и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../../managed-kafka/pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование [публичного IP-адреса](../../vpc/concepts/ips.md) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
+* плата за вычислительные ресурсы кластера Managed Service for Apache Kafka® и объем хранилища ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md));
+* плата за вычислительные ресурсы и диски [ВМ](../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование [публичного IP-адреса](../../vpc/concepts/ips.md) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > speechsense > GetTalk
+
 # Talk Analytics Audit Trails Events: GetTalk
 
 ## Event JSON schema {#yandex.cloud.audit.speechsense.GetTalk2-schema}

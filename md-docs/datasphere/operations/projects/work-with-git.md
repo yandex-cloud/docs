@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > DataSphere Notebook > Работа с Git
+
 # Работа с Git
 
 ## Перед началом работы {#before-begin}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [instance](index.md) > detach-disk
+
 # yc compute instance detach-disk
 
 Detach disk from the specified virtual machine instance

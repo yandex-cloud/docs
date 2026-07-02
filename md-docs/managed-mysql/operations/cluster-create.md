@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for MySQL®](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Создание кластера
+
 # Создание кластера MySQL®
 
 
@@ -14,11 +16,18 @@
 {% endnote %}
 
 
+## Роли для создания кластера {#roles}
+
+Для создания кластера Managed Service for MySQL® и работы с ним вашему аккаунту в Yandex Cloud нужны роли:
+
+* [managed-mysql.editor](../security/index.md#managed-mysql-editor) или выше — чтобы создать кластер;
+* [vpc.user](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
+* [mdb.viewer](../../iam/roles-reference.md#mdb-viewer) — чтобы просматривать кластеры управляемых баз данных (MDB) на дашборде в [консоли управления](https://console.yandex.cloud).
+
+О назначении ролей читайте в [документации Yandex Identity and Access Management](../../iam/operations/roles/grant.md).
+
+
 ## Создать кластер {#create-cluster}
-
-
-Для создания кластера Managed Service for MySQL® нужна роль [vpc.user](../../vpc/security/index.md#vpc-user) и роль [managed-mysql.editor или выше](../security/index.md#roles-list). О том, как назначить роль, читайте в [документации Identity and Access Management](../../iam/operations/roles/grant.md).
-
 
 
 Подключениями к БД кластера управляет сервис Connection Manager. Вместе с кластером автоматически создаются:

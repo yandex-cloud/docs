@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Monitoring](../../index.md) > [Пошаговые инструкции](../index.md) > Работа с метриками > Поставка метрик с хостов вне Yandex Cloud
+
 # Поставка метрик с хостов вне Yandex Cloud
 
 Для поставки в Yandex Monitoring метрик с хостов, расположенных за пределами Yandex Cloud:

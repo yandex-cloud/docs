@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Backup](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Backup](index.md) > DeleteArchive
+
 # Cloud Backup API, gRPC: BackupService.DeleteArchive
 
 Delete specific archive.

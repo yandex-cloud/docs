@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [SAML Federation API](../index.md) > [Certificate](index.md) > ListOperations
+
 # SAML Federation API, REST: Certificate.ListOperations
 
 Lists operations for the specified certificate.

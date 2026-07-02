@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > accesstransparency > ComputeNodeAccess
+
 # Access Transparency Audit Trails Events: ComputeNodeAccess
 
 ## Event JSON schema {#yandex.cloud.audit.accesstransparency.ComputeNodeAccess2-schema}

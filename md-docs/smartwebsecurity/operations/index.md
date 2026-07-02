@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Smart Web Security
 
 ## Управление профилями безопасности {#profiles}

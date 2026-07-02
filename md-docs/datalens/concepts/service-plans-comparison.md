@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Правила тарификации > Архив > Тарифные планы до 1 декабря 2025
+
 # Тарифные планы Yandex DataLens
 
 

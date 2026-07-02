@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Бакеты > Создание бакета
+
 # Создание бакета
 
 Чтобы создать [бакет](../../concepts/bucket.md), у вас должна быть _минимальная_ [роль](../../security/index.md#storage-editor) `storage.editor` на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).

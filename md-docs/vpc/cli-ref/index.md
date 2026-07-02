@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > Справочник CLI (англ.) > Overview
+
 # yc vpc
 
 Manage Yandex Virtual Private Cloud resources

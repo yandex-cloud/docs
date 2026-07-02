@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity and Access Management](../index.md) > [Концепции](index.md) > Федерации сервисных аккаунтов
+
 # Федерации сервисных аккаунтов
 
 Федерация сервисных аккаунтов (Workload Identity Federation) — это инструмент Yandex Identity and Access Management, позволяющий настроить процесс обмена токенов любой системы, совместимой с протоколом [OpenID Connect](https://openid.net/developers/how-connect-works/), на [IAM-токены](authorization/iam-token.md), которые можно использовать для обращения к [API Yandex Cloud](../../api-design-guide/index.md).

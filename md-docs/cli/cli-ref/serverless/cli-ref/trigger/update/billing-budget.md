@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [trigger](../index.md) > [update](index.md) > billing-budget
+
 # yc serverless trigger update billing-budget
 
 Update billing budget trigger

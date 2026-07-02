@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > Расширения > Управление расширениями
+
 # Управление расширениями в Yandex MPP Analytics for PostgreSQL
 
 Yandex MPP Analytics for PostgreSQL поддерживает следующие расширения Greenplum® и PostgreSQL:

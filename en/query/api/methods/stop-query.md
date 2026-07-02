@@ -1,16 +1,16 @@
 # stop-query
 
-The method stops a query.
+This method terminates a query.
 
 {% include [!](../../_includes/api-common.md) %}
 
 ## Request {#request}
 
-`POST` request to `/queries/{query_id}/stop?project={folder_id}`, where `{folder_id}` is a folder ID and `{query_id}` is the query ID.
+`POST` request to `/queries/{query_id}/stop?project={folder_id}`, where `{folder_id}` is the folder ID and `{query_id}` is the query ID.
 
 ## Response {#response}
 
-If successful, an empty HTTP response with code 204 is returned.
+If successful, the response returns an HTTP 204 status code and an empty body.
 
 ## Example {#example}
 

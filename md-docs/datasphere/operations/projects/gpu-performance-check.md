@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > DataSphere Notebook > Проверить загрузку GPU
+
 # Проверить загрузку GPU
 
 В Yandex DataSphere доступны [конфигурации вычислительных ресурсов](../../concepts/configurations.md) с [GPU](../../../glossary/gpu.md).

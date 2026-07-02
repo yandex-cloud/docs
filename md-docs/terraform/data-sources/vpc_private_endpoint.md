@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Virtual Private Cloud > Data Sources > vpc_private_endpoint
+
 # yandex_vpc_private_endpoint (DataSource)
 
 Get information about a Yandex VPC Private Endpoint. For more information, see [Yandex Cloud VPC](../../vpc/concepts/index.md).

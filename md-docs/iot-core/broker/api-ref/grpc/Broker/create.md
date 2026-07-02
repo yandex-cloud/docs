@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex IoT Core](../../../../index.md) > Справочник API Broker > [gRPC (англ.)](../index.md) > [Broker](index.md) > Create
+
 # IoT Core Broker Service, gRPC: BrokerService.Create
 
 Creates a broker in the specified folder.

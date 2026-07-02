@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Marketplace](../../../../index.md) > Партнерам > Справочник License Manager SaaS API > [REST (англ.)](../index.md) > [Lock](index.md) > GetByResourceID
+
 # Yandex Cloud Marketplace License Manager for SaaS, REST: Lock.GetByResourceID
 
 Returns the subscription lock for given resource and subscription.

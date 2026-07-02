@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [TargetGroup](index.md) > Create
+
 # Application Load Balancer API, gRPC: TargetGroupService.Create
 
 Creates a target group in the specified folder.

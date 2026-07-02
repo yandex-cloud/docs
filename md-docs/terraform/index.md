@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Terraform в Yandex Cloud > Terraform в Yandex Cloud
+
 # Terraform в Yandex Cloud
 
 Terraform — инструмент для управления вашей облачной инфраструктурой как кодом (Infrastructure as a Code, IaC) с помощью файлов конфигурации.

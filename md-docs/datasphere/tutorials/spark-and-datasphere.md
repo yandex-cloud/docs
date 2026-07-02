@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > [Практические руководства](index.md) > Аналитика данных > Использование сервиса Yandex Managed Service for Apache Spark™
+
 # Использование сервиса Yandex Managed Service for Apache Spark™ в DataSphere
 
 # Использование сервиса Yandex Managed Service for Apache Spark™ в DataSphere
@@ -23,8 +25,8 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for Apache Spark™: вычислительные ресурсы компонентов кластера ([тарифы Managed Service for Apache Spark™](../../../managed-spark/pricing.md)).
-* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы Virtual Private Cloud](../../../vpc/pricing.md)).
+* Кластер Managed Service for Apache Spark™: вычислительные ресурсы компонентов кластера ([тарифы Managed Service for Apache Spark™](../../managed-spark/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infra}
 

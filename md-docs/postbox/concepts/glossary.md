@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Postbox](../index.md) > [Концепции](index.md) > Термины и определения
+
 # Термины и определения в Yandex Cloud Postbox
 
 ## Адрес {#adress}

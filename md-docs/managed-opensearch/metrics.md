@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for OpenSearch](index.md) > Метрики Monitoring
+
 # Справочник метрик Yandex Monitoring
 
 В этом разделе описаны метрики сервиса Managed Service for OpenSearch, поставляемые в [Monitoring](../monitoring/concepts/index.md). Чтобы посмотреть детальную информацию о состоянии кластера и его хостов, воспользуйтесь [инструкцией](operations/monitoring.md).

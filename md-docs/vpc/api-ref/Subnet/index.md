@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > Subnet > Overview
+
 # Virtual Private Cloud API, REST: Subnet
 
 A set of methods for managing Subnet resources.

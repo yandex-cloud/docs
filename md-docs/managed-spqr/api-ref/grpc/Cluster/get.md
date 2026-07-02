@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Get
+
 # Managed Service for SPQR API, gRPC: ClusterService.Get
 
 Returns the specified SPQR Cluster resource.

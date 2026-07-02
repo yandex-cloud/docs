@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [Identity Provider API](../index.md) > [Synchronization](index.md) > CreateSynchronizationSettings
+
 # Identity Provider API, gRPC: SynchronizationService.CreateSynchronizationSettings
 
 Creates synchronization settings for a subject container.

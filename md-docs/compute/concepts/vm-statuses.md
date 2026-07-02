@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Концепции](index.md) > Виртуальные машины > Статусы
+
 # Статусы виртуальной машины
 
 ## Список статусов {#list-of-statuses}

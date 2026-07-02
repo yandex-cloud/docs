@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [User](index.md) > Create
+
 # Managed Service for PostgreSQL API, REST: User.Create
 
 Creates a PostgreSQL user in the specified cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [dataproc](../index.md) > [resource-preset](index.md) > list
+
 # yc dataproc resource-preset list
 
 List available resource presets for Data Proc.

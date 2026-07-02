@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Миграция данных из Yandex Data Streams с помощью Yandex Data Transfer
+
 # Миграция данных из Yandex Data Streams с помощью Yandex Data Transfer
 
 С помощью сервиса Data Transfer вы можете перенести данные из [потока Data Streams](../../data-streams/concepts/glossary.md#stream-concepts) в бакет Yandex Object Storage:
@@ -21,7 +23,7 @@
     * [По выделенным ресурсам](../../data-streams/pricing.md#rules) — оплачивается фиксированная почасовая ставка за установленный лимит пропускной способности и срок хранения сообщений, а также дополнительно количество единиц фактически записанных данных.
     * [По фактическому использованию](../../data-streams/pricing.md#on-demand) (On-demand) — оплачиваются выполненные операции записи и чтения данных, объем считанных/записанных данных, а также объем фактически используемого хранилища для сообщений, по которым не истек срок хранения.
 
-* Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
+* Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

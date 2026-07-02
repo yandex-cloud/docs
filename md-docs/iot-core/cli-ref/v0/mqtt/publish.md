@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [mqtt](index.md) > publish
+
 # yc iot v0 mqtt publish
 
 Publish telemetry

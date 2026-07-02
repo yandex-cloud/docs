@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Разработка на Node.js](index.md) > Управление зависимостями
+
 # Управление зависимостями функции на Node.js
 
 Сервис Cloud Functions может автоматически устанавливать зависимости, необходимые для работы функции на Node.js, во время создания новой [версии функции](../../operations/function/version-manage.md).

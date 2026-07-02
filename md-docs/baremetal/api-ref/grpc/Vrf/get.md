@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [Vrf](index.md) > Get
+
 # BareMetal API, gRPC: VrfService.Get
 
 Returns the specific VRF resource.

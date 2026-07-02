@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud DNS](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > DnsInboundEndpoint > Overview
+
 # Cloud DNS API, gRPC: DnsInboundEndpointService
 
 ## Methods

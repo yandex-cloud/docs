@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция БД из Greenplum® в ClickHouse®
+
 # Миграция базы данных из Greenplum® в ClickHouse®
 
 Вы можете перенести базу данных из Greenplum® в ClickHouse® с помощью сервиса Yandex Data Transfer.

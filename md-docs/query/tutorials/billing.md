@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > [Практические руководства](index.md) > Обработка файлов детализации в сервисе Yandex Cloud Billing
+
 # Обработка файлов детализации в сервисе Yandex Cloud Billing
 
 [Yandex Cloud Billing](../../billing/index.md) позволяет получать информацию об объеме использованных ресурсов, проверять расходы денежных средств и оплачивать потребление ресурсов. Детализацию расходов можно отправлять в [Yandex Object Storage](../../storage/index.md) и далее обрабатывать с помощью Yandex Query.

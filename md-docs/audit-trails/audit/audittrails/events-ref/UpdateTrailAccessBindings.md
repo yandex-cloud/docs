@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > audittrails > UpdateTrailAccessBindings
+
 # Audit Trails Events: UpdateTrailAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.audittrails.UpdateTrailAccessBindings2-schema}

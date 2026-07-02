@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Безопасность в Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > Безопасность Kubernetes > Миграция сервисов с балансировщика NLB с целевыми ресурсами из кластера Managed Service for Kubernetes на L7-балансировщик ALB > Обзор
+
 # Миграция сервисов с балансировщика NLB с целевыми ресурсами из кластера Yandex Managed Service for Kubernetes на L7-балансировщик ALB
 
 

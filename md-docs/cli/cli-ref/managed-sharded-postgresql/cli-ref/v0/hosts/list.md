@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-sharded-postgresql](../../index.md) > [v0](../index.md) > [hosts](index.md) > list
+
 # yc managed-sharded-postgresql v0 hosts list
 
 List hosts for the specified Sharded PostgreSQL cluster

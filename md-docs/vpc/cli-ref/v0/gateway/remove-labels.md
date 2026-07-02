@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [gateway](index.md) > remove-labels
+
 # yc vpc v0 gateway remove-labels
 
 Remove labels from a gateway.

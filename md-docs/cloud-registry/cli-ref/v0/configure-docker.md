@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [v0](index.md) > configure-docker
+
 # yc cloud-registry v0 configure-docker
 
 

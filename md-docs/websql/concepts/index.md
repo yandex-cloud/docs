@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex WebSQL](../index.md) > Концепции > О сервисе Yandex WebSQL
+
 # О сервисе Yandex WebSQL
 
 Yandex WebSQL — это сервис Yandex Cloud, который позволяет подключаться к публично доступным БД и кластерам управляемых БД.

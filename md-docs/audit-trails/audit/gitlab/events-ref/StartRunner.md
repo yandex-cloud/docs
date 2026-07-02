@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > gitlab > StartRunner
+
 # Managed Service for GitLab Audit Trails Events: StartRunner
 
 ## Event JSON schema {#yandex.cloud.audit.gitlab.StartRunner2-schema}

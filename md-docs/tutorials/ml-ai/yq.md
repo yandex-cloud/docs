@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Машинное обучение и искусственный интеллект](index.md) > Аналитика с помощью DataSphere > Анализ данных с помощью Query
+
 # Анализ данных с помощью Yandex Query
 
 Yandex Query — это интерактивный сервис для бессерверного анализа данных. Он позволяет обрабатывать данные из различных хранилищ без создания выделенного кластера обработки данных, используя SQL-запросы. Yandex Query работает с хранилищами данных [Yandex Object Storage](../../storage/index.md), [Managed Service for PostgreSQL](../../managed-postgresql/index.md), [Managed Service for ClickHouse®](../../managed-clickhouse/index.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > [Концепции](index.md) > Шардирование
+
 # Шардирование в Managed Service for Sharded PostgreSQL
 
 [_Шардирование_](../../glossary/sharding.md) — стратегия горизонтального масштабирования, при которой данные из нескольких PostgreSQL-кластеров объединяются в единый кластер Sharded PostgreSQL. При этом PostgreSQL-кластеры располагаются в том же каталоге и в той же облачной сети, что и кластер Sharded PostgreSQL. В кластере Sharded PostgreSQL данные распределяются по шардам с помощью [ключа шардирования](sharding-keys.md). Количество шардов в кластере не ограничено.

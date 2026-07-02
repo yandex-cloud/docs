@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Unknown field
+
 # [Yandex DataLens] Unknown field
 
 `ERR.DS_API.FIELD.NOT_FOUND`

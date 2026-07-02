@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Практические руководства](index.md) > Миграция данных в Managed Service for ClickHouse® средствами ClickHouse®
+
 # Миграция данных в Managed Service for ClickHouse® средствами ClickHouse®
 
 # Миграция данных в Managed Service for ClickHouse® средствами ClickHouse®

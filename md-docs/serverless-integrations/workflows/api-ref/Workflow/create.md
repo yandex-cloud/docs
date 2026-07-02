@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API Workflows > [REST (англ.)](../index.md) > [Workflow](index.md) > Create
+
 # Workflows Service, REST: Workflow.Create
 
 Creates Workflow in specified folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > EventRouter > Управление коннектором > Создать коннектор > Таймер
+
 # Создать таймер
 
 {% list tabs group=instructions %}

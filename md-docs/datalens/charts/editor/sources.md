@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Чарты > [Чарты в Editor](index.md) > Источники
+
 # Источники данных в Editor Yandex DataLens
 
 ## Виды источников {#source-types}

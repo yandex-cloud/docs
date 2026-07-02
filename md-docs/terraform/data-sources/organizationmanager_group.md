@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity Hub > Data Sources > organizationmanager_group
+
 # yandex_organizationmanager_group (DataSource)
 
 Get information about a Yandex Cloud Organization Manager Group. For more information, see [the official documentation](../../organization/manage-groups).

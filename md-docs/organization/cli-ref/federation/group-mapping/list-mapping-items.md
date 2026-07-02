@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [federation](../index.md) > [group-mapping](index.md) > list-mapping-items
+
 # yc organization-manager federation group-mapping list-mapping-items
 
 List group mapping items for specified federation

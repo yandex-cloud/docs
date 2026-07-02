@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Концепции](index.md) > Политика поддержки версий PostgreSQL
+
 # Политика поддержки версий PostgreSQL
 
 Данный документ описывает жизненный цикл [мажорных](#version-lifecycle) версий PostgreSQL в Yandex Cloud. Политика основана на официальном цикле поддержки [сообщества](https://www.postgresql.org/) PostgreSQL и предназначена для обеспечения баланса между стабильностью работы кластеров и поддержанием современной и безопасной инфраструктуры.

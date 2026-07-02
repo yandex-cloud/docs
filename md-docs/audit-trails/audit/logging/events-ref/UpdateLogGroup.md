@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > logging > UpdateLogGroup
+
 # Cloud Logging Audit Trails Events: UpdateLogGroup
 
 ## Event JSON schema {#yandex.cloud.audit.logging.UpdateLogGroup2-schema}

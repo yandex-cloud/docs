@@ -21,13 +21,13 @@ items:
         href: concepts/limits.md
       - name: Query processing
         href: concepts/request-processing.md
-      - name: Batch processing
+      - name: Analytical data processing
         items:
           - name: Description
             href: concepts/batch-processing.md
           - name: Federated queries
             href: concepts/federated-processing.md
-          - name: Data partitioning
+          - name: Partitioning
             href: concepts/partitioning.md
           - name: Partition projection
             href: concepts/partition-projection.md
@@ -49,35 +49,35 @@ items:
         href: operations/connection.md
       - name: Managing bindings
         href: operations/binding.md
-      - name: Uploading a data schema
+      - name: Uploading a schema
         href: operations/schema-uploading.md
       - name: Managing queries
         href: operations/query.md
-      - name: Connecting using an IDE
+      - name: Connecting via an IDE
         href: operations/ide.md
-  - name: Data sources and targets
+  - name: Data sources and sinks
     items:
       - name: Data formats and compression algorithms
         href: sources-and-sinks/formats.md
       - name: Working with {{ objstorage-full-name }}
         items:
-          - name: Reading data using connections
+          - name: Reading data via connections
             href: sources-and-sinks/object-storage.md
-          - name: Reading data using bindings
+          - name: Reading data via bindings
             href: sources-and-sinks/object-storage-binding.md
           - name: Writing data
             href: sources-and-sinks/object-storage-write.md
       - name: Working with Data Streams
         items:
-          - name: Reading data using connections
+          - name: Reading data via connections
             href: sources-and-sinks/data-streams.md
-          - name: Reading data using bindings
+          - name: Reading data via bindings
             href: sources-and-sinks/data-streams-binding.md
           - name: Writing data
             href: sources-and-sinks/data-streams-write.md
       - name: Working with {{ monitoring-full-name }}
         items:
-          - name: Reading data using connections
+          - name: Reading data via connections
             href: sources-and-sinks/monitoring.md
           - name: Writing data
             href: sources-and-sinks/monitoring-write.md
@@ -91,7 +91,7 @@ items:
         href: sources-and-sinks/postgresql.md
       - name: Working with {{ ydb-name }} databases
         href: sources-and-sinks/ydb.md
-      - name: Reading data from {{ yq-iceberg-name }} tables
+      - name: Reading {{ yq-iceberg-name }} tables
         href: sources-and-sinks/iceberg.md
   - name: Tutorials
     items:
@@ -105,11 +105,11 @@ items:
         href: tutorials/datalens.md
       - name: Processing {{ at-name }} events
         href: tutorials/audit-trails.md
-      - name: Processing files with usage details in {{ billing-name }}
+      - name: Processing usage detail files in {{ billing-name }}
         href: tutorials/billing.md
       - name: Analyzing data with {{ jlab }}
         href: tutorials/jupyter.md
-      - name: Automating tasks using {{ maf-short-name }}
+      - name: Task automation via {{ maf-short-name }}
         href: tutorials/airflow-auto-tasks.md
       - name: Analyzing data with {{ yq-name }}
         href: tutorials/yq.md
@@ -124,8 +124,8 @@ items:
       - name: Searching for {{ yandex-cloud }} events in {{ yq-name }}
         href: tutorials/search-events-query.md
       - name: >-
-          Migrating data from {{ forms-full-name }} to {{ datalens-full-name }}
-          using {{ sf-full-name }} and {{ yq-full-name }}
+          Ingesting {{ forms-full-name }} data into {{ datalens-full-name }} via
+          {{ sf-full-name }} and {{ yq-full-name }}
         items:
           - name: Overview
             href: tutorials/forms-and-datalens-integration/index.md
@@ -137,19 +137,19 @@ items:
     items:
       - name: Overview
         href: yql-tutorials/index.md
-      - name: Selecting data from all columns
+      - name: Selecting all columns
         href: yql-tutorials/select-all-columns.md
-      - name: Selecting data from specific columns
+      - name: Selecting specific columns
         href: yql-tutorials/select-specific-columns.md
       - name: Sorting and filtering
         href: yql-tutorials/sort-filter.md
-      - name: Aggregating data
+      - name: Data aggregation
         href: yql-tutorials/basic-aggregation.md
-      - name: Additional selection criteria
+      - name: Additional filter conditions
         href: yql-tutorials/conditional-values.md
       - name: Working with JSON
         href: yql-tutorials/json.md
-      - name: Running a streaming data query
+      - name: Querying streaming data
         href: yql-tutorials/streaming-query.md
   - name: Access management
     href: security/index.md
@@ -181,11 +181,11 @@ items:
                 href: api/methods/stop-query.md
               - name: get-query-results
                 href: api/methods/get-query-results.md
-          - name: YQL and JSON type mapping
+          - name: YQL to JSON type mapping
             href: api/yql-json-conversion-rules.md
       - name: '{{ AF }}'
         href: airflow/operator.md
-  - name: Integration
+  - name: Integrations
     href: integrations.md
   - name: '{{ at-name }} events'
     href: at-ref.md

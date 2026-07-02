@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Snapshot](index.md) > Delete
+
 # Compute Cloud API, REST: Snapshot.Delete
 
 Deletes the specified snapshot.

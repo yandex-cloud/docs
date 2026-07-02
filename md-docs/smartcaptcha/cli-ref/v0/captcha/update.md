@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex SmartCaptcha](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [captcha](index.md) > update
+
 # yc smartcaptcha v0 captcha update
 
 Update the specified captcha

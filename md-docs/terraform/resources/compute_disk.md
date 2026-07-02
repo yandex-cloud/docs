@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Compute Cloud > Resources > compute_disk
+
 # yandex_compute_disk (Resource)
 
 Persistent disks are used for data storage and function similarly to physical hard and solid state drives.

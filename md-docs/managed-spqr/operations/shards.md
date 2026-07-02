@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Управление шардами
+
 # Управление шардами Sharded PostgreSQL
 
 ## Создать шард {#create-shard}

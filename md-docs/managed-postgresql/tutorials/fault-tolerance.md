@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Практические руководства](index.md) > Настройка отказоустойчивой архитектуры в Yandex Cloud
+
 # Настройка отказоустойчивой архитектуры в Yandex Cloud
 
 
@@ -27,7 +29,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Виртуальные машины: использование вычислительных ресурсов, хранилища, публичных IP-адресов и операционной системы ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
+* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 

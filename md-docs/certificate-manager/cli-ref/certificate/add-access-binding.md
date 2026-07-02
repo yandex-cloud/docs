@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Certificate Manager](../../index.md) > [Справочник CLI (англ.)](../index.md) > [certificate](index.md) > add-access-binding
+
 # yc certificate-manager certificate add-access-binding
 
 Add access binding for the specified certificate

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../index.md) > Справочник API > [Managed Service for Kubernetes REST (англ.)](../index.md) > [NodeGroup](index.md) > Create
+
 # Managed Services for Kubernetes API, REST: NodeGroup.Create
 
 Creates a node group in the specified Kubernetes cluster.

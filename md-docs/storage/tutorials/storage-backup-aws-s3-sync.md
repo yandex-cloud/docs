@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Резервное копирование > Резервное копирование в Object Storage с помощью aws s3 sync
+
 # Резервное копирование в Yandex Object Storage с помощью AWS S3 Sync
 
 В этом практическом руководстве вы настроите резервное копирование файлов из локальной системы в облачное хранилище [Yandex Object Storage](../index.md) с помощью [AWS S3 Sync](https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html).
@@ -36,7 +38,7 @@ AWS S3 Sync — стандартная команда [AWS CLI](../tools/aws-cli
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки бакета входит плата за хранение данных в бакете и операции с ними ([тарифы Yandex Object Storage](../../../storage/pricing.md)).
+В стоимость поддержки бакета входит плата за хранение данных в бакете и операции с ними ([тарифы Yandex Object Storage](../pricing.md)).
 
 
 ## Создайте бакет {#create-bucket}

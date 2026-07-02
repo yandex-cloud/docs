@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [container](../index.md) > [node-group](index.md) > update
+
 # yc container node-group update
 
 Modify configuration or attributes of a node group.

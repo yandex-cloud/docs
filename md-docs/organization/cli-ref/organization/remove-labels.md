@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Справочник CLI (англ.)](../index.md) > [organization](index.md) > remove-labels
+
 # yc organization-manager organization remove-labels
 
 Remove labels from specified organization

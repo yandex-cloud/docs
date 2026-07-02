@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-sharded-postgresql](../../index.md) > [v0](../index.md) > [cluster](index.md) > remove-labels
+
 # yc managed-sharded-postgresql v0 cluster remove-labels
 
 Remove labels from Sharded PostgreSQL cluster

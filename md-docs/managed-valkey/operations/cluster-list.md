@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Valkey™](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Информация об имеющихся кластерах
+
 # Информация об имеющихся кластерах Valkey™
 
 Вы можете запросить детальную информацию о каждом созданном вами кластере Yandex Managed Service for Valkey™.

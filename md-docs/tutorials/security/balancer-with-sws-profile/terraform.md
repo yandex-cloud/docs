@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > [Безопасность](../index.md) > [Создание L7-балансировщика Application Load Balancer с профилем безопасности Smart Web Security](index.md) > Terraform
+
 # Создание L7-балансировщика Application Load Balancer с профилем безопасности Smart Web Security с помощью Terraform
 
 Чтобы создать [L7-балансировщик с профилем безопасности Smart Web Security](index.md) с помощью Terraform:

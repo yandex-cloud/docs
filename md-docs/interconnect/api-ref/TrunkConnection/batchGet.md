@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [TrunkConnection](index.md) > BatchGet
+
 # Cloud Interconnect API, REST: TrunkConnection.BatchGet
 
 ## HTTP request

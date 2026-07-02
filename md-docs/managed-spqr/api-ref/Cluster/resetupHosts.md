@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > ResetupHosts
+
 # Managed Service for SPQR API, REST: Cluster.ResetupHosts
 
 Resetups hosts.

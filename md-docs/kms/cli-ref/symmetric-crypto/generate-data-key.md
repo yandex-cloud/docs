@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > [Справочник CLI (англ.)](../index.md) > [symmetric-crypto](index.md) > generate-data-key
+
 # yc kms symmetric-crypto generate-data-key
 
 Generate data key and encrypt it with specified symmetric key

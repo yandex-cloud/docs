@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Compute Cloud](../index.md) > Устранение ошибки `FAILED_PRECONDITION Relocation to zone `ru-central1-a/b/c` is disabled`
+
 # Устранение ошибки `FAILED_PRECONDITION: Relocation to zone "ru-central1-a/b/c" is disabled`
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Все пошаговые инструкции
+
 # Все пошаговые инструкции
 
 

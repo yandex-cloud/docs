@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Monium](../../../index.md) > Справочник API > Логи > [gRPC (англ.)](../index.md) > [LogGroup](index.md) > SetAccessBindings
+
 # Cloud Logging Service, gRPC: LogGroupService.SetAccessBindings
 
 Sets access bindings for the specified log group.

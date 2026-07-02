@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [AWS S3 REST](../../index.md) > [REST](../index.md) > Object > options
+
 # Object Storage API, REST совместимый с Amazon S3: options
 
 Проверяет возможность [CORS-запроса](../../../concepts/cors.md) к объекту.

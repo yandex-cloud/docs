@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > Статический сайт в Yandex Object Storage > Обзор
+
 # Статический сайт в Yandex Object Storage
 
 С помощью этой инструкции вы научитесь загружать [статические файлы](../../concepts/hosting.md) вашего сайта в [Object Storage](../../index.md) и привязывать к [бакету](../../concepts/bucket.md) доменное имя. Для управления доменом можно воспользоваться сервисом [Yandex Cloud DNS](../../../dns/index.md).

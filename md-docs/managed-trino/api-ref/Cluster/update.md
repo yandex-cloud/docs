@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Trino](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > Update
+
 # Managed Service for Trino API, REST: Cluster.Update
 
 Updates configuration of the specified Trino cluster.

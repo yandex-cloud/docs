@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Kubernetes](index.md) > История изменений
+
 # История изменений в Yandex Managed Service for Kubernetes
 
 <!-- Changelog begin -->

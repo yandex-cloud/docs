@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SymmetricKey](index.md) > ScheduleVersionDestruction
+
 # Key Management Service API, REST: SymmetricKey.ScheduleVersionDestruction
 
 Schedules the specified key version for destruction.

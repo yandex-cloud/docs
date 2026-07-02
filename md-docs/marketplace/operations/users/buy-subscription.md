@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Marketplace](../../index.md) > Пользователям > Пошаговые инструкции > Управление подпиской > Покупка подписки
+
 # Покупка подписки
 
 Для покупки подписки необходима [роль](../../security/index.md#license-manager-user) `license-manager.user` на каталог.

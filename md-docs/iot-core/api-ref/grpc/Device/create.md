@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Devices > [gRPC (англ.)](../index.md) > [Device](index.md) > Create
+
 # IoT Core Service, gRPC: DeviceService.Create
 
 Creates a device in the specified registry.

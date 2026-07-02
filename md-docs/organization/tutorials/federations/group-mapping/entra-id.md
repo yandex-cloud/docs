@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Практические руководства](../../index.md) > [Управление федерациями удостоверений](../index.md) > Сопоставление групп пользователей > Сопоставление групп пользователей в Microsoft Entra ID
+
 # Сопоставление групп пользователей в Microsoft Entra ID
 
 Вы можете использовать сервис [Microsoft Entra ID](https://www.microsoft.com/ru-ru/security/business/identity-access/microsoft-entra-id) (бывший Azure Active Directory) для аутентификации пользователей в организации.

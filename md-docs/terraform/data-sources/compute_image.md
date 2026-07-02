@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Compute Cloud > Data Sources > compute_image
+
 # yandex_compute_image (DataSource)
 
 Get information about a Yandex Compute image. For more information, see [the official documentation](../../compute/concepts/image.md).

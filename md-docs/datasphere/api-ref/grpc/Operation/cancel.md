@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex DataSphere](../../../index.md) > [Справочник API](../../overview.md) > [gRPC (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # DataSphere API v2, gRPC: OperationService.Cancel
 
 Cancels the specified operation.

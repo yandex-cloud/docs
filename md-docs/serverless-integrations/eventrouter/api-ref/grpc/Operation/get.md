@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API EventRouter > [gRPC (англ.)](../index.md) > [Operation](index.md) > Get
+
 # EventRouter Service, gRPC: OperationService.Get
 
 Returns the specified Operation resource.

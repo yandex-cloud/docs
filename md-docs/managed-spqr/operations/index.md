@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Managed Service for Sharded PostgreSQL
 
 ## Кластеры

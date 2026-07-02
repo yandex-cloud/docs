@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [cic](../index.md) > [trunk-connection](index.md) > add-labels
+
 # yc cic trunk-connection add-labels
 
 Add labels to a trunk connection.

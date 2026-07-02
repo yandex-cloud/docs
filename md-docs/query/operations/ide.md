@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > Пошаговые инструкции > Подключение с помощью IDE
+
 # Подключение с помощью IDE
 
 Yandex Query позволяет выполнять подключения по протоколу Java DataBase Connectivity ([JDBC](https://ru.wikipedia.org/wiki/Java_Database_Connectivity)), поэтому для работы с подключениями в Query подходят графические IDE, также поддерживающие этот протокол: например DBeaver, DataGrip или другие.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Концепции](index.md) > HTTP-роутеры
+
 # HTTP-роутеры
 
 HTTP-роутер определяет правила маршрутизации HTTP-запросов в [группы бэкендов](backend-group.md).

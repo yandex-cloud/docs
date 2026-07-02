@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Playlist](index.md) > Update
+
 # Video API, gRPC: PlaylistService.Update
 
 Updates an existing playlist's metadata and items.

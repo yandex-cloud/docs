@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > connector > Overview
+
 # yc managed-kafka v0 connector
 
 Manage Kafka connectors.

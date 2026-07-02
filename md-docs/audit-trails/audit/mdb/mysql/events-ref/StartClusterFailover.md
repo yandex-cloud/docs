@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mysql > StartClusterFailover
+
 # Managed Service for MySQL Audit Trails Events: StartClusterFailover
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mysql.StartClusterFailover2-schema}

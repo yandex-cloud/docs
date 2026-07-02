@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > apploadbalancer > RemoveLoadBalancerSniMatch
+
 # Application Load Balancer Audit Trails Events: RemoveLoadBalancerSniMatch
 
 ## Event JSON schema {#yandex.cloud.audit.apploadbalancer.RemoveLoadBalancerSniMatch2-schema}

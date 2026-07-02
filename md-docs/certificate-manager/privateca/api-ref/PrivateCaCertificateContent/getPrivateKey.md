@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > REST (англ.) > [Certificate Manager Private CA API](../index.md) > [PrivateCaCertificateContent](index.md) > GetPrivateKey
+
 # Certificate Manager Private CA API, REST: PrivateCaCertificateContent.GetPrivateKey
 
 Returns the private key for the specified certificate.

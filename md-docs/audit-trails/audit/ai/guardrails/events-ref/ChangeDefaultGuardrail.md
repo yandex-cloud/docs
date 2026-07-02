@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > ai.guardrails > ChangeDefaultGuardrail
+
 # AI Studio Guardrails Audit Trails Events: ChangeDefaultGuardrail
 
 ## Event JSON schema {#yandex.cloud.audit.ai.guardrails.ChangeDefaultGuardrail2-schema}

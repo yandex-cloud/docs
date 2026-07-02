@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [asymmetric-encryption-key](index.md) > create
+
 # yc kms v0 asymmetric-encryption-key create
 
 Create asymmetric encryption key

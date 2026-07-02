@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ResourceRules](index.md) > Create
+
 # Cloud CDN API, gRPC: ResourceRulesService.Create
 
 Create new resource rule with specified unique name and rule pattern.

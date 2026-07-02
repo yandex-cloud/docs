@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Gateway](index.md) > List
+
 # Virtual Private Cloud API, gRPC: GatewayService.List
 
 Retrieves the list of Gateway resources in the specified folder.

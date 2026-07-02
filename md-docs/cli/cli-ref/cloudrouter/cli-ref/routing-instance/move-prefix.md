@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [cloudrouter](../index.md) > [routing-instance](index.md) > move-prefix
+
 # yc cloudrouter routing-instance move-prefix
 
 Moves the specified prefix between availability zones of the RoutingInstance.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SymmetricKey](index.md) > Rotate
+
 # Key Management Service API, gRPC: SymmetricKeyService.Rotate
 
 Rotates the specified key: creates a new key version and makes it the primary version.

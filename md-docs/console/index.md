@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Cloud Console > Консоль управления
+
 # Yandex Cloud Console
 
 Сервис Yandex Cloud Console (консоль управления) предоставляет интерфейс для работы в Yandex Cloud, с помощью которого вы можете управлять облачными ресурсами, настраивать <a href="../support/notify.md">оповещения</a> и обращаться в <a href="../support/overview.md">службу поддержки</a>. Для доступа к консоли вам потребуется личный аккаунт на Яндексе (<a href="https://yandex.ru/support/passport/authorization/registration.html">Яндекс ID</a>) или корпоративный аккаунт, если вы используете <a href="../organization/concepts/add-federation.md">систему единого входа</a> (SSO).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [application-load-balancer](../index.md) > [virtual-host](index.md) > remove-grpc-route
+
 # yc application-load-balancer virtual-host remove-grpc-route
 
 Removes grpc route from the specified virtual host of the http router

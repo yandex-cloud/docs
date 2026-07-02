@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > EventRouter > Получение информации о коннекторе > Получить список коннекторов
+
 # Получить список коннекторов
 
 {% list tabs group=instructions %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > video > CreateStylePreset
+
 # Cloud Video Audit Trails Events: CreateStylePreset
 
 ## Event JSON schema {#yandex.cloud.audit.video.CreateStylePreset2-schema}

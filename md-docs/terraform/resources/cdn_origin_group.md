@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud CDN > Resources > cdn_origin_group
+
 # yandex_cdn_origin_group (Resource)
 
 Allows management of [Yandex Cloud CDN Origin Groups](../../cdn/concepts/origins.md).

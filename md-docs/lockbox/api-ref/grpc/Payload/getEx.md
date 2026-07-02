@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Lockbox](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Payload](index.md) > GetEx
+
 # Lockbox API, gRPC: PayloadService.GetEx
 
 ## gRPC request

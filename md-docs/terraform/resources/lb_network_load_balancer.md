@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Network Load Balancer > Resources > lb_network_load_balancer
+
 # yandex_lb_network_load_balancer (Resource)
 
 Creates a network load balancer in the specified folder using the data specified in the config. For more information, see [the official documentation](../../load-balancer/concepts).

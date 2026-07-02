@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > Вопросы и ответы > Общие вопросы
+
 # Общие вопросы про Yandex MPP Analytics for PostgreSQL
 
 * [Что такое Yandex MPP Analytics for PostgreSQL?](#what-is)

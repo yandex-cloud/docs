@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Thumbnail](index.md) > Delete
+
 # Video API, gRPC: ThumbnailService.Delete
 
 Deletes a specific thumbnail by its ID.

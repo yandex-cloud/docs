@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Концепции](index.md) > Внешние узлы кластера
+
 # Внешние узлы кластера
 
 {% note info %}

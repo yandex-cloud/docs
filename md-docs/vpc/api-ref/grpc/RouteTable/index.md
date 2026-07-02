@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > RouteTable > Overview
+
 # Virtual Private Cloud API, gRPC: RouteTableService
 
 A set of methods for managing RouteTable resources.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [cic](../index.md) > [private-connection](index.md) > delete
+
 # yc cic private-connection delete
 
 Deletes a PrivateConnection resource.

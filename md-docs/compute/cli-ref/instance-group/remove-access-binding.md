@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [instance-group](index.md) > remove-access-binding
+
 # yc compute instance-group remove-access-binding
 
 Remove access binding for the specified instance group

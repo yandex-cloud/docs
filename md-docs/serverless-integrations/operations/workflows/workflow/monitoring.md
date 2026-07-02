@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > Workflows > Управление рабочим процессом > Посмотреть графики мониторинга
+
 # Посмотреть графики мониторинга рабочего процесса
 
 {% list tabs group=instructions %}

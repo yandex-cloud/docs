@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity Hub](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [idp](../../../index.md) > [application](../../index.md) > [saml](../index.md) > [signature-certificate](index.md) > delete
+
 # yc organization-manager idp application saml signature-certificate delete
 
 Delete the specified SAML signature certificate

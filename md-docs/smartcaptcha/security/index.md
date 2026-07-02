@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex SmartCaptcha](../index.md) > Управление доступом
+
 # Управление доступом в SmartCaptcha
 
 В этом разделе вы узнаете:

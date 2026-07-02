@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Cloud Marketplace](../../../../../index.md) > Партнерам > Справочник License Manager SaaS API > [gRPC (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Yandex Cloud Marketplace License Manager for SaaS, gRPC: OperationService.Cancel
 
 Cancels the specified operation.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for MySQL®](../index.md) > [Концепции](index.md) > Высокая доступность кластера
+
 # Высокая доступность кластера Managed Service for MySQL®
 
 В этой статье описаны параметры кластера, упоминаемые в [Соглашении об уровне обслуживания (SLA)](https://yandex.ru/legal/cloud_sla_mdb/), а также другие настройки и параметры, влияющие на [высокую доступность кластера Managed Service for MySQL®](../../architecture/fault-tolerance.md#mdb-ha).

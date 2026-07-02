@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Playlist](index.md) > Get
+
 # Video API, REST: Playlist.Get
 
 Retrieves detailed information about a specific playlist by its ID.

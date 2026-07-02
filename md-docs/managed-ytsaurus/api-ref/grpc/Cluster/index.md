@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YTsaurus](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Cluster > Overview
+
 # Ytsaurus API, gRPC: ClusterService
 
 A set of methods for managing Cluster resources.

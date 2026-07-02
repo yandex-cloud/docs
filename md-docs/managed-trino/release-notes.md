@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Trino](index.md) > История изменений
+
 # История изменений в Yandex Managed Service for Trino
 
 

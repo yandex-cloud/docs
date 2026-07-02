@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Концепции](index.md) > Автоматическое масштабирование
+
 # Автоматическое масштабирование подкластеров
 
 {% note info %}

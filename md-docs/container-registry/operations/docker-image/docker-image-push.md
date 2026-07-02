@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Пошаговые инструкции](../index.md) > Управление Docker-образом > Загрузить Docker-образ в реестр
+
 # Загрузить Docker-образ в реестр
 
 Инструкция описывает, как загрузить локальный [Docker-образ](../../concepts/docker-image.md) в реестр.

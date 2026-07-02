@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [BackendGroup](index.md) > Get
+
 # Application Load Balancer API, REST: BackendGroup.Get
 
 Returns the specified backend group.

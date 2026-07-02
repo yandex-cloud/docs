@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Managed Service for MySQL® > Все решения для Managed Service for MySQL®
+
 # Решения для Managed Service for MySQL®
 
 

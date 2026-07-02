@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > securitydeck.kspm > DeleteProject
+
 # Security Deck KSPM Audit Trails Events: DeleteProject
 
 ## Event JSON schema {#yandex.cloud.audit.securitydeck.kspm.DeleteProject2-schema}

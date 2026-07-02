@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for PostgreSQL](../index.md) > Устранение ошибки `terminating connection due to administrator command` и `ERROR: odyssey: remote server read/write error`
+
 # Устранение ошибки `terminating connection due to administrator command` и `ERROR: odyssey: remote server read/write error`
 
 

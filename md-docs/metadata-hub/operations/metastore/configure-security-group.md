@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > Пошаговые инструкции > Настройка группы безопасности
+
 # Настройка группы безопасности для кластера Apache Hive™ Metastore
 
 Если в вашей облачной сети используются [группы безопасности](../../../vpc/concepts/security-groups.md), они могут препятствовать работе кластера Apache Hive™ Metastore. В этом случае настройте группу безопасности, назначенную кластеру Apache Hive™ Metastore. Для этого [добавьте](../../../vpc/operations/security-group-add-rule.md) в нее следующие правила для входящего трафика:

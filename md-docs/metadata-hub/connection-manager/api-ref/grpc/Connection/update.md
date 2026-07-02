@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex MetaData Hub](../../../../index.md) > Connection Manager > Справочник API > [gRPC (англ.)](../index.md) > [Connection](index.md) > Update
+
 # Connection Manager API, gRPC: ConnectionService.Update
 
 Updates the specified connection.

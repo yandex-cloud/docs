@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Изменение настроек ClickHouse® > На уровне запроса
+
 # Изменение настроек ClickHouse® на уровне запроса
 
 Вы можете задать [настройки ClickHouse® на уровне запроса](https://clickhouse.com/docs/ru/operations/settings/query-level), чтобы гибко настроить базы данных в кластере Managed Service for ClickHouse®. Указать настройки можно несколькими способами:

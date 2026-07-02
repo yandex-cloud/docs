@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [PrivateConnection](index.md) > Create
+
 # Cloud Interconnect API, REST: PrivateConnection.Create
 
 Creates a PrivateConnection resource in the specified folder using the data specified in the request.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > [Справочник CLI (англ.)](../index.md) > [group](index.md) > add-access-binding
+
 # yc logging group add-access-binding
 
 Add access binding for the specified log group

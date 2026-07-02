@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [Identity Provider API](../index.md) > [Userpool](index.md) > List
+
 # Identity Provider API, REST: Userpool.List
 
 Retrieves the list of userpools in the specified organization.

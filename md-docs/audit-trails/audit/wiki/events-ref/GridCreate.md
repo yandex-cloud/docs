@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > GridCreate
+
 # Yandex Wiki Audit Trails Events: GridCreate
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.GridCreate2-schema}

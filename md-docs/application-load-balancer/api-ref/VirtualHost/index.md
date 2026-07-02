@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > VirtualHost > Overview
+
 # Application Load Balancer API, REST: VirtualHost
 
 A set of methods for managing virtual hosts of HTTP routers.

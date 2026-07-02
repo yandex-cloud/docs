@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Legal > Все решения для Legal
+
 # Решения для Legal
 
 ## Примеры конфигураций и сценариев Legal {#configuration-examples}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Концепции](index.md) > Обновление мажорной версии PostgreSQL
+
 # Обновление мажорной версии PostgreSQL в Yandex Managed Service for PostgreSQL
 
 {% note warning %}

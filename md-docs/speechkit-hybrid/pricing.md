@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex SpeechKit Hybrid](index.md) > Правила тарификации
+
 # Правила тарификации для Yandex SpeechKit Hybrid
 
 Стоимость использования Yandex SpeechKit Hybrid зависит от [модели лицензирования](architecture.md) и [системных требований](system-requirements.md) и обсуждается индивидуально в каждом конкретном случае. SpeechKit Hybrid предоставляет две модели лицензирования: Cloud Billing и Yubikey.

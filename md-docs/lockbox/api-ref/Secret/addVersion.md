@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Lockbox](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Secret](index.md) > AddVersion
+
 # Lockbox API, REST: Secret.AddVersion
 
 Adds new version based on a previous one.

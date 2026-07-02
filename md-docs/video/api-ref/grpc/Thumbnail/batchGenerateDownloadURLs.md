@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Thumbnail](index.md) > BatchGenerateDownloadURLs
+
 # Video API, gRPC: ThumbnailService.BatchGenerateDownloadURLs
 
 Generates download URLs for multiple thumbnails in a single request.

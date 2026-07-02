@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Правила тарификации](index.md) > Режим Serverless > Стоимость операций с топиками
+
 # Правила оценки стоимости операций с топиками
 
 

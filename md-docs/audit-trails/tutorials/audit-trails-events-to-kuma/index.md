@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Audit Trails](../../index.md) > [Практические руководства](../index.md) > Экспорт аудитных логов в SIEM > Загрузка аудитных логов в SIEM KUMA > Обзор
+
 # Загрузка аудитных логов в SIEM KUMA
 
 # Загрузка аудитных логов Yandex Audit Trails в SIEM KUMA

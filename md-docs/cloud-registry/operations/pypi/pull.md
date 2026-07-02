@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > [Пошаговые инструкции](../index.md) > Управление артефактами > Python-артефакт > Скачать Python-пакет из реестра
+
 # Скачать Python-пакет из реестра Cloud Registry
 
 Для скачивания [Python-пакета](../../concepts/artifacts/python.md) необходима [роль](../../security/index.md#cloud-registry-artifacts-puller) `cloud-registry.artifacts.puller` или выше.

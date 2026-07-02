@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Monium](../../index.md) > Справочник API > Логи > [REST (англ.)](../index.md) > [Sink](index.md) > Get
+
 # Cloud Logging Service, REST: Sink.Get
 
 Returns the specified sink.

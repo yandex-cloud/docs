@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Virtual Private Cloud > Data Sources > vpc_security_group
+
 # yandex_vpc_security_group (DataSource)
 
 Get information about a Yandex VPC Security Group Rule. For more information, see [the official documentation](../../vpc/concepts/security-groups.md).

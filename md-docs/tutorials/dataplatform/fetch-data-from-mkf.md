@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Получение данных из Managed Service for Apache Kafka® в Managed Service for ClickHouse®
+
 # Получение данных из Yandex Managed Service for Apache Kafka® в Yandex Managed Service for ClickHouse®
 
 В кластер Managed Service for ClickHouse® можно в реальном времени поставлять данные из топиков Apache Kafka®. Эти данные будут автоматически вставлены в таблицы ClickHouse® на [движке `Kafka`](https://clickhouse.com/docs/ru/engines/table-engines/integrations/kafka).

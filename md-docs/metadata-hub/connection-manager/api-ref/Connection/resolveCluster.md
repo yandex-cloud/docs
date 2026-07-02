@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MetaData Hub](../../../index.md) > Connection Manager > Справочник API > [REST (англ.)](../index.md) > [Connection](index.md) > ResolveCluster
+
 # Connection Manager API, REST: Connection.ResolveCluster
 
 Returns the connection with the resolved cluster; that is,

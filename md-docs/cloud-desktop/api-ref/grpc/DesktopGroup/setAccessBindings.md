@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Desktop](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DesktopGroup](index.md) > SetAccessBindings
+
 # Cloud Desktop API, gRPC: DesktopGroupService.SetAccessBindings
 
 Sets access bindings for the specified desktop group.

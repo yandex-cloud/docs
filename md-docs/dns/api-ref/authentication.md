@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud DNS](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Cloud DNS
 
 # Аутентификация в API

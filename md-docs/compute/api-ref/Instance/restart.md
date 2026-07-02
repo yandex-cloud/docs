@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Instance](index.md) > Restart
+
 # Compute Cloud API, REST: Instance.Restart
 
 Restarts the running instance.

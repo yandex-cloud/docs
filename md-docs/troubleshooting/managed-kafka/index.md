@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Managed Service for Apache Kafka® > Все решения для Managed Service for Apache Kafka®
+
 # Решения для Managed Service for Apache Kafka®
 
 ## Примеры конфигураций и сценариев Managed Service for Apache Kafka® {#configuration-examples}

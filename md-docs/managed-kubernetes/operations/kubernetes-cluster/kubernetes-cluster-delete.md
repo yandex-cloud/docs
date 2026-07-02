@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Управление кластером Kubernetes > Удаление кластера Kubernetes
+
 # Удаление кластера Kubernetes
 
 {% note alert %}

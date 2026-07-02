@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Postbox](../../index.md) > [Справочник API](../index.md) > REST > Все методы
+
 # Методы API Amazon для сервиса Yandex Cloud Postbox
 
 ## Отправка писем {#send-email}

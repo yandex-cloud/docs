@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [PerformanceDiagnostics](index.md) > ListRawStatements
+
 # Managed Service for PostgreSQL API, gRPC: PerformanceDiagnosticsService.ListRawStatements
 
 Retrieves statistics on planning and execution of SQL statements (queries).

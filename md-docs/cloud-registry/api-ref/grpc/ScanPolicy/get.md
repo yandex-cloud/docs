@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ScanPolicy](index.md) > Get
+
 # Yandex Cloud Registry API, gRPC: ScanPolicyService.Get
 
 Returns the specified scan policy.

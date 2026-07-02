@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cache](index.md) > Prefetch
+
 # Cloud CDN API, REST: Cache.Prefetch
 
 Uploads specified files from origins to cache of the specified resource. For defails about prefetching, see [documentation](../../concepts/caching.md#prefetch).

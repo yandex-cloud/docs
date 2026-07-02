@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for MySQL®](../index.md) > [Концепции](index.md) > Резервные копии
+
 # Резервные копии в Managed Service for MySQL®
 
 Managed Service for MySQL® обеспечивает автоматическое и ручное резервное копирование баз данных.

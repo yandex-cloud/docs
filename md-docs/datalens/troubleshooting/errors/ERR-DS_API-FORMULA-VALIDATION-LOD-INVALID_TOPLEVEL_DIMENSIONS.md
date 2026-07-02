@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Invalid top-level LOD dimension found in expression
+
 # [Yandex DataLens] Invalid top-level LOD dimension found in expression
 
 `ERR.DS_API.FORMULA.VALIDATION.LOD.INVALID_TOPLEVEL_DIMENSIONS`

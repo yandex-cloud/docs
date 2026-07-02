@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Processing](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Job](index.md) > Create
+
 # Yandex Data Processing API, gRPC: JobService.Create
 
 Creates a job for a cluster.

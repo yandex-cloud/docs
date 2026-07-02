@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > [Справочник CLI (англ.)](../index.md) > [routing-instance](index.md) > upsert-prefixes
+
 # yc cloudrouter routing-instance upsert-prefixes
 
 Upserts specified prefixes to a RoutingInstance resource.

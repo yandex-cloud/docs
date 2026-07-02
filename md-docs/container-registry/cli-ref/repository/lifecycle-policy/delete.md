@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [repository](../index.md) > [lifecycle-policy](index.md) > delete
+
 # yc container repository lifecycle-policy delete
 
 Delete a lifecycle policy.

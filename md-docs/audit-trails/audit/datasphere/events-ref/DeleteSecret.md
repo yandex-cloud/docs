@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > DeleteSecret
+
 # DataSphere Audit Trails Events: DeleteSecret
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.DeleteSecret2-schema}

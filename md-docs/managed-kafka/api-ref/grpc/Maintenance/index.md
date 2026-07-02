@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Maintenance > Overview
+
 # Managed Service for Apache Kafka® API, gRPC: MaintenanceService
 
 A set of methods for managing maintenances in a service.

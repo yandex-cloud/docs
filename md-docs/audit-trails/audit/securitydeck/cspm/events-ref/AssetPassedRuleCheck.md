@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > securitydeck.cspm > AssetPassedRuleCheck
+
 # Security Deck CSPM Audit Trails Events: AssetPassedRuleCheck
 
 ## Event JSON schema {#yandex.cloud.audit.securitydeck.cspm.AssetPassedRuleCheck2-schema}

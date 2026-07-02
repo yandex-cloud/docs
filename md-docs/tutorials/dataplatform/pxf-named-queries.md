@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Получение данных из внешних источников с помощью именованных запросов в Greenplum®
+
 # Получение данных из внешних источников с помощью именованных запросов
 
 В Greenplum® для получения данных из внешних СУБД по протоколу [PXF](../../managed-greenplum/concepts/external-tables.md) можно использовать именованные запросы (named queries).
@@ -21,10 +23,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Yandex MPP Analytics for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Yandex MPP Analytics for PostgreSQL](../../../managed-greenplum/pricing/index.md)).
-* Кластер Yandex Managed Service for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../../managed-postgresql/pricing.md)).
-* NAT-шлюз: почасовое использование шлюзов и исходящий через них трафик ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
-* Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Virtual Private Cloud](../../../vpc/pricing.md)).
+* Кластер Yandex MPP Analytics for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/pricing/index.md)).
+* Кластер Yandex Managed Service for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
+* NAT-шлюз: почасовое использование шлюзов и исходящий через них трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YTsaurus](../index.md) > Концепции > Аутентификация
+
 # Аутентификация в YTsaurus
 
 Доступ к ресурсам сервиса Managed Service for YTsaurus возможен:

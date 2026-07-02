@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Расширения спецификации](index.md) > Валидация данных
+
 # Валидация данных
 
 Расширения `x-yc-apigateway-validators` и `x-yc-apigateway-validator` позволяют определить валидатор для следующих схем, описанных в спецификации API-шлюза внутри [операции](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#operation-object):

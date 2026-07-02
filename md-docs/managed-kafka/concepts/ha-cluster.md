@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Концепции](index.md) > Высокая доступность кластера
+
 # Высокая доступность кластера Managed Service for Apache Kafka®
 
 Высокая доступность кластера Managed Service for Apache Kafka® определяется количеством и расположением его хостов, настройками топиков и другими параметрами кластера.

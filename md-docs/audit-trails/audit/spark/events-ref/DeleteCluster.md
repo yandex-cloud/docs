@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > spark > DeleteCluster
+
 # Managed Spark Audit Trails Events: DeleteCluster
 
 ## Event JSON schema {#yandex.cloud.audit.spark.DeleteCluster2-schema}

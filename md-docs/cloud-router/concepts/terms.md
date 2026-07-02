@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Router](../index.md) > [Концепции](index.md) > Терминология
+
 # Терминология
 
 ## Терминология Cloud Router

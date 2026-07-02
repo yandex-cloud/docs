@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MetaData Hub](../../../index.md) > Apache Hive™ Metastore > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Update
+
 # Managed Service for Hive Metastore™ API, gRPC: ClusterService.Update
 
 Updates the configuration of the specified Metastore Cluster.

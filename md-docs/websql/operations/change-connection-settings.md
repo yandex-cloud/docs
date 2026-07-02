@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex WebSQL](../index.md) > [Пошаговые инструкции](index.md) > Управление подключениями > Изменение настроек подключения
+
 # Изменение настроек подключения
 
 В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**](https://websql.yandex.cloud) вы можете изменить настройки [подключения](../concepts/index.md#connection):

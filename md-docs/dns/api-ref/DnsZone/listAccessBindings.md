@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DnsZone](index.md) > ListAccessBindings
+
 # Cloud DNS API, REST: DnsZone.ListAccessBindings
 
 Lists existing access bindings for the specified DNS zone.

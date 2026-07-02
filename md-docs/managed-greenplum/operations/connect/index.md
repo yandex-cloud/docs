@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > Подключение > Предварительная настройка
+
 # Предварительная настройка для подключения к кластеру Yandex MPP Analytics for PostgreSQL
 
 В кластере Yandex MPP Analytics for PostgreSQL вы можете развернуть СУБД Greenplum® или Apache Cloudberry™. Обе СУБД основаны на PostgreSQL, поэтому для подключения к ним используются те же инструменты, что и для PostgreSQL.

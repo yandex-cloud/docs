@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Шаблоны ответов > Управлять шаблоном
+
 # Управлять шаблоном страницы ответа
 
 ## Изменить шаблон {#change-template}

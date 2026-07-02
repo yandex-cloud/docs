@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Network Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > Сетевые балансировщики > Удалить балансировщик
+
 # Удалить сетевой балансировщик
 
 {% note info %}

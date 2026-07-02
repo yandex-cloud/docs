@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YDB](../../../index.md) > Document API, совместимый с Amazon DynamoDB > [Справочник Document API](../index.md) > Actions > DescribeTable
+
 # Метод DescribeTable
 
 Возвращает информацию о таблице, включая текущее состояние, время создания, схему первичного ключа и индексы.

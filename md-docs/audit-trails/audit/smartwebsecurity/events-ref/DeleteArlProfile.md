@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > smartwebsecurity > DeleteArlProfile
+
 # Smart Web Security Audit Trails Events: DeleteArlProfile
 
 ## Event JSON schema {#yandex.cloud.audit.smartwebsecurity.DeleteArlProfile2-schema}

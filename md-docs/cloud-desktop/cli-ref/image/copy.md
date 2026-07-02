@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > [Справочник CLI (англ.)](../index.md) > [image](index.md) > copy
+
 # yc desktops image copy
 
 Create desktop image as copy of the specified desktop or compute image

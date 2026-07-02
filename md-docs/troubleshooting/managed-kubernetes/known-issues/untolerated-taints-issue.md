@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Kubernetes](../index.md) > Устранение ошибки `0/10 nodes are available - node(s) had untolerated taint`
+
 # Устранение ошибки `0/10 nodes are available - node(s) had untolerated taint`
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Практические руководства](../../index.md) > [Настройка единого входа в приложения (SSO)](../index.md) > Jenkins > OpenID Connect
+
 # Создать OIDC-приложение в Yandex Identity Hub для интеграции с Jenkins
 
 [Jenkins](https://www.jenkins.io/) — программная система с открытым исходным кодом на Java, предназначенная для обеспечения процесса непрерывной интеграции программного обеспечения.

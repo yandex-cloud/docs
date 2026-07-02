@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [maintenance](index.md) > reschedule
+
 # yc compute v0 maintenance reschedule
 
 Reschedule the maintenance

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Episode](index.md) > GetManifests
+
 # Video API, gRPC: EpisodeService.GetManifests
 
 Retrieves the manifest URLs for the episode's media content.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Видеоплеер > SDK > JavaScript > Справочник API > Interfaces > PlayerSdkApi
+
 # Interface: PlayerSdkApi
 
 [Интерфейс PlayerSdk](../../../sdk/javascript/index.md).

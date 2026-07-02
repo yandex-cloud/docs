@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Managed Service for GitLab
 
 * [Развертывание GitLab Runner на виртуальной машине Yandex Compute Cloud](install-gitlab-runner.md)

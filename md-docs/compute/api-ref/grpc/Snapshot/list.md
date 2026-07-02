@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Snapshot](index.md) > List
+
 # Compute Cloud API, gRPC: SnapshotService.List
 
 Retrieves the list of Snapshot resources in the specified folder.

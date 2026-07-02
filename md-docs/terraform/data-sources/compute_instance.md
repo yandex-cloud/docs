@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Compute Cloud > Data Sources > compute_instance
+
 # yandex_compute_instance (DataSource)
 
 Get information about a Yandex Compute instance. For more information, see [the official documentation](../../compute/concepts/vm.md).

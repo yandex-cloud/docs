@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Пошаговые инструкции](../index.md) > Управление функцией > Миграция в зону ru-central1-d
+
 # Миграция функций в зону ru-central1-d
 
 # Миграция между зонами

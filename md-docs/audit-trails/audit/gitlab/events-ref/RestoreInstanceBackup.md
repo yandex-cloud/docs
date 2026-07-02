@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > gitlab > RestoreInstanceBackup
+
 # Managed Service for GitLab Audit Trails Events: RestoreInstanceBackup
 
 ## Event JSON schema {#yandex.cloud.audit.gitlab.RestoreInstanceBackup2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-sharded-postgresql](../index.md) > [user](index.md) > create
+
 # yc managed-sharded-postgresql user create
 
 Create a Sharded PostgreSQL user

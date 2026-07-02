@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ReservedInstancePool](index.md) > ListOperations
+
 # Compute Cloud API, gRPC: ReservedInstancePoolService.ListOperations
 
 Lists operations for the specified reserved instance pool.

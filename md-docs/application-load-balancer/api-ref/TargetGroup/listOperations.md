@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [TargetGroup](index.md) > ListOperations
+
 # Application Load Balancer API, REST: TargetGroup.ListOperations
 
 Lists operations for the specified target group.

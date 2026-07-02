@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DesktopImage](index.md) > Get
+
 # Cloud Desktop API, REST: DesktopImage.Get
 
 Returns the specified desktop image.

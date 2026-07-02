@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > [Справочник CLI (англ.)](../index.md) > [inbound-endpoint](index.md) > delete
+
 # yc dns inbound-endpoint delete
 
 Delete a dns inbound endpoint.

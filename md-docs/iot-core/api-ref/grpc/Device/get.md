@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Devices > [gRPC (англ.)](../index.md) > [Device](index.md) > Get
+
 # IoT Core Service, gRPC: DeviceService.Get
 
 Returns the specified device.

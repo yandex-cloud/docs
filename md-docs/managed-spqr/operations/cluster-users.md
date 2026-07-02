@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Управление пользователями
+
 # Управление пользователями в Sharded PostgreSQL
 
 Вы можете добавлять и удалять пользователей, а также управлять их индивидуальными настройками.

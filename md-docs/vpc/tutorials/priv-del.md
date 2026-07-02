@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Практические руководства](index.md) > Cloud Interconnect > Удаление приватного соединения
+
 ## Удаление приватного соединения {#priv-del}
 
 Чтобы удалить cуществующее приватное соединение из транка, создайте [новое обращение в поддержку](https://center.yandex.cloud/support).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Billing](../../index.md) > Справочник API > REST (англ.) > [Billing](../index.md) > [BillingAccount](index.md) > ListBillableObjectBindings
+
 # Billing API, REST: BillingAccount.ListBillableObjectBindings
 
 Retrieves the list of billable object bindings associated with the specified billing account.

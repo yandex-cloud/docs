@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ResourceGroup](index.md) > GetAtRevision
+
 # Managed Service for Greenplum® API, gRPC: ResourceGroupService.GetAtRevision
 
 Returns the specified resource group at revision.

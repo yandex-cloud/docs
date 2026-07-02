@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Resource Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cloud](index.md) > Create
+
 # Resource Manager API, gRPC: CloudService.Create
 
 Creates a cloud in the specified organization.

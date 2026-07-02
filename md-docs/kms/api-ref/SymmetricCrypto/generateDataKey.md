@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SymmetricCrypto](index.md) > GenerateDataKey
+
 # Key Management Service API, REST: SymmetricCrypto.GenerateDataKey
 
 Generates a new symmetric data encryption key (not a KMS key) and returns

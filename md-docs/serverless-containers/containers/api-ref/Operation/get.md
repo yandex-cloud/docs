@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Containers](../../../index.md) > Справочник API Containers > [REST (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Serverless Containers Service, REST: Operation.Get
 
 Returns the specified Operation resource.

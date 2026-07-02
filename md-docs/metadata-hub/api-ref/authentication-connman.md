@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Connection Manager > Справочник API > Аутентификация в API
+
 # Аутентификация в API Yandex MetaData Hub
 
 

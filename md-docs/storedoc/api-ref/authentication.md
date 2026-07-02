@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex StoreDoc](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Yandex StoreDoc
 
 # Аутентификация в API

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Изменение конфигурации кластера
+
 # Изменение конфигурации кластера Yandex MPP Analytics for PostgreSQL
 
 

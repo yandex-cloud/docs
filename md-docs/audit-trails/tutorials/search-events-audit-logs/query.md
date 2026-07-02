@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Audit Trails](../../index.md) > [Практические руководства](../index.md) > [Поиск событий в аудитных логах](index.md) > Настройка работы с Yandex Query
+
 # Настройка работы с Yandex Query
 
 # Настройка работы с Yandex Query

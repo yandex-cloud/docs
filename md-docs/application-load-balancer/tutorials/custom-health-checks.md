@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Практические руководства](index.md) > Проверка состояния приложений в кластере Managed Service for Kubernetes с помощью L7-балансировщика Application Load Balancer
+
 # Проверка состояния приложений в кластере Yandex Managed Service for Kubernetes с помощью L7-балансировщика Yandex Application Load Balancer
 
 Вы можете автоматически проверять работоспособность приложений, которые развернуты в кластере Managed Service for Kubernetes с помощью [Ingress-контроллера Application Load Balancer](../tools/k8s-ingress-controller/index.md).
@@ -43,7 +45,7 @@ L7-балансировщик автоматически проверяет ра
 * Плата за DNS-зону и DNS-запросы ([тарифы Cloud DNS](../../dns/pricing.md)).
 * Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
 * Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Application Load Balancer](../../application-load-balancer/pricing.md)).
+* Плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Application Load Balancer](../pricing.md)).
 * Плата за публичные IP-адреса для узлов кластера и L7-балансировщика ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 * Плата за [использование хранилища](../../container-registry/pricing.md) Container Registry.
 

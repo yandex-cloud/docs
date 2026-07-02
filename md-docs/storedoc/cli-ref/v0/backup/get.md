@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [backup](index.md) > get
+
 # yc managed-mongodb v0 backup get
 
 Get information about the specified MongoDB backup.

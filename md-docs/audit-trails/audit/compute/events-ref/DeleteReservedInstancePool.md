@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > DeleteReservedInstancePool
+
 # Compute Audit Trails Events: DeleteReservedInstancePool
 
 ## Event JSON schema {#yandex.cloud.audit.compute.DeleteReservedInstancePool2-schema}

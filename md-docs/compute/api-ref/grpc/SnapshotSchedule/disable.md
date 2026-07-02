@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SnapshotSchedule](index.md) > Disable
+
 # Compute Cloud API, gRPC: SnapshotScheduleService.Disable
 
 Disables the specified snapshot schedule.

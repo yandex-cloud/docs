@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Compute Cloud](index.md) > Справочник Terraform
+
 # Справочник Terraform для Yandex Compute Cloud
 
 

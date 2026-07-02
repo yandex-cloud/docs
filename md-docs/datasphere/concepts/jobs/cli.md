@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Концепции](../index.md) > [DataSphere Jobs](index.md) > DataSphere CLI
+
 # DataSphere CLI
 
 Для запуска заданий DataSphere Jobs используется утилита DataSphere CLI.

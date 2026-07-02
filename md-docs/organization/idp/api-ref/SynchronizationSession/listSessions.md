@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [Identity Provider API](../index.md) > [SynchronizationSession](index.md) > ListSessions
+
 # Identity Provider API, REST: SynchronizationSession.ListSessions
 
 Lists synchronization sessions for a subject container.

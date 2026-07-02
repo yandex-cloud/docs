@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [baremetal](../../index.md) > [v1alpha](../index.md) > [public-prefix-pool](index.md) > update
+
 # yc baremetal v1alpha public-prefix-pool update
 
 Updates the specified public prefix pool.

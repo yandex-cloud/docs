@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Практические руководства](../index.md) > [Настройка единого входа в приложения (SSO)](index.md) > OpenVPN > OpenVPN Community Edition
+
 # Настроить аутентификацию в OpenVPN Community Edition через Yandex Identity Hub по протоколу OIDC
 
 
@@ -35,7 +37,7 @@
 В стоимость поддержки инфраструктуры входят:
 
 * плата за постоянно запущенную [виртуальную машину](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование [OIDC-приложения](../../concepts/applications/oidc.md) ([тарифы Yandex Identity Hub](../../../organization/pricing.md)).
+* плата за использование [OIDC-приложения](../../concepts/applications/oidc.md) ([тарифы Yandex Identity Hub](../../pricing.md)).
 
 ## Создайте инфраструктуру {#deploy}
 

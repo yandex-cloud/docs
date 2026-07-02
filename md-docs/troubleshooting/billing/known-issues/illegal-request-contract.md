@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Yandex Cloud Billing](../index.md) > Устранение ошибки `ILLEGAL_REQUEST_CONTRACT` при формировании счета на оплату
+
 # Устранение ошибки `ILLEGAL_REQUEST_CONTRACT` при формировании счета на оплату
 
 

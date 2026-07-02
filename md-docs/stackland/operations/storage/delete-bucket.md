@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Бакеты > Удалить бакет
+
 # Удалить бакет
 
 Если у вас есть [бакет](../../concepts/components/storage.md) и он пуст, вы можете его удалить.

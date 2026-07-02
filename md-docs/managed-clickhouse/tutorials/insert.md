@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Практические руководства](index.md) > Добавление данных в БД
+
 # Добавление данных в ClickHouse®
 
 Для обычной вставки данных в таблицы используйте запрос `INSERT INTO`:

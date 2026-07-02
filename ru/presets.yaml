@@ -1853,6 +1853,7 @@ default:
   roles-logging-reader: logging.reader
   roles-logging-writer: logging.writer
   roles-mdb-admin: mdb.admin
+  roles-mdb-viewer: mdb.viewer
   roles-monitoring-editor: monitoring.editor
   roles-monitoring-viewer: monitoring.viewer
   roles-organization-admin: organization-manager.admin
@@ -3154,6 +3155,7 @@ default:
         field_text_commit-directly-to-the-branch_mBfk8: 'Сохранить непосредственно в ветку:'
         option_just-commit_to5sC: Просто сохранить
         title_navigation-code_8bgjg: Код
+        title_navigation-repository-settings_35xCK: Настройки репозитория
       repoCreate:
         button_browse-templates_bP3xB: Просмотр шаблонов
         button_create-repo_nMrwv: Создать репозиторий
@@ -3601,6 +3603,8 @@ default:
             title: Политики эскалаций
           explorer:
             title: Метрики
+          logs-analytics:
+            title: Ошибки
           logs:
             title: Логи
           notification-feed:
@@ -5572,6 +5576,7 @@ default:
       cloud-apps:
         button_empty-install-application: Установить приложение
         button_install: Установить
+        button_install-application: Установить приложение
         label_marketplace: Магазин приложений
       cloud-registry:
         action_registry-create: Создать реестр

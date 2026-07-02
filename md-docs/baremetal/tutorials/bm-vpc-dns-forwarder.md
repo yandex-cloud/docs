@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > [Практические руководства](index.md) > Настройка DNS-связности между сегментами Yandex BareMetal и Yandex Virtual Private Cloud для доступа к Managed Service for PostgreSQL по FQDN
+
 # Настройка DNS-связности между сегментами Yandex BareMetal и Yandex Virtual Private Cloud для доступа к Managed Service for PostgreSQL по FQDN
 
 Использование полных доменных имен (FQDN) для подключения к облачным сервисам, таким как Yandex Managed Service for PostgreSQL, является рекомендуемой практикой: это обеспечивает абстракцию от инфраструктуры и автоматизацию процессов. FQDN остается стабильным, в то время как IP-адреса могут изменяться при масштабировании, восстановлении или миграции сервисов.

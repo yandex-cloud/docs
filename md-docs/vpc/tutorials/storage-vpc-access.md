@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Практические руководства](index.md) > Подключение к сервисам > Подключение к Object Storage из Virtual Private Cloud
+
 # Подключение к Object Storage из Virtual Private Cloud
 
 
@@ -107,7 +109,7 @@ warp get \
 * плата за использование Object Storage ([тарифы Yandex Object Storage](../../storage/pricing.md)).
 * плата за использование сетевого балансировщика ([тарифы Network Load Balancer](../../network-load-balancer/pricing.md)).
 * плата за постоянно работающие ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../pricing.md)).
 
 ## Подготовьте среду для развертывания ресурсов {#setup-environment}
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > CreateInstance
+
 # Compute Audit Trails Events: CreateInstance
 
 ## Event JSON schema {#yandex.cloud.audit.compute.CreateInstance2-schema}

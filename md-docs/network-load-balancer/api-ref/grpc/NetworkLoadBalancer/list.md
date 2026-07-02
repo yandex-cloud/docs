@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Network Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [NetworkLoadBalancer](index.md) > List
+
 # Network Load Balancer API, gRPC: NetworkLoadBalancerService.List
 
 Retrieves the list of NetworkLoadBalancer resources in the specified folder.

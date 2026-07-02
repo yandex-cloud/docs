@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > Справочник API > REST (англ.) > [SmartWebSecurity ARL API](../index.md) > [AdvancedRateLimiterProfile](index.md) > Get
+
 # SmartWebSecurity ARL API, REST: AdvancedRateLimiterProfile.Get
 
 Returns the specified AdvancedRateLimiterProfile resource.

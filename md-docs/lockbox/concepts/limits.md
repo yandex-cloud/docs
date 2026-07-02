@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Lockbox](../index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Yandex Lockbox
 
 В сервисе Yandex Lockbox действуют следующие ограничения:

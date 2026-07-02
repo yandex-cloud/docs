@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for PostgreSQL](../index.md) > Устранение ошибки `Must be superuser to create this extension`
+
 # Устранение ошибки `Must be superuser to create this extension`
 
 

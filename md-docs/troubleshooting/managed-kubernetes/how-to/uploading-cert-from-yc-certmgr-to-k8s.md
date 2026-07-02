@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Kubernetes](../index.md) > Как использовать сертификаты из Certificate Manager в балансировщиках нагрузки или в Managed Service for Kubernetes
+
 # Как использовать сертификаты из Certificate Manager в балансировщиках нагрузки или в Managed Service for Kubernetes
 
 

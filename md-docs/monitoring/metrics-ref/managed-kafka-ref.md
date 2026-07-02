@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Managed Service for Apache Kafka®
+
 # Метрики Yandex Managed Service for Apache Kafka®
 
 В этом разделе описаны метрики сервиса [Managed Service for Apache Kafka®](../../managed-kafka/index.md), поставляемые в Monitoring.

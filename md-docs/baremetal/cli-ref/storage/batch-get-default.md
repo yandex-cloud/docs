@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../index.md) > [storage](index.md) > batch-get-default
+
 # yc baremetal storage batch-get-default
 
 Returns the default storages for the specified configurations.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud CDN](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Cloud CDN
 
 В сервисе Yandex Cloud CDN действуют следующие ограничения:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LoadBalancer](index.md) > List
+
 # Application Load Balancer API, gRPC: LoadBalancerService.List
 
 Lists application load balancers in the specified folder.

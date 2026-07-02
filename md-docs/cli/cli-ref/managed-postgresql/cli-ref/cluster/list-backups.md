@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-postgresql](../index.md) > [cluster](index.md) > list-backups
+
 # yc managed-postgresql cluster list-backups
 
 List available backups for the specified PostgreSQL cluster

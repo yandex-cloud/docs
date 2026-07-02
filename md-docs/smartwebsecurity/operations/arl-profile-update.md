@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили ARL > Изменить основные параметры профиля
+
 # Изменить основные параметры профиля ARL
 
 {% list tabs group=instructions %}

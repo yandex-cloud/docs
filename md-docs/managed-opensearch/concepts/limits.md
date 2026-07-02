@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Managed Service for OpenSearch
 
 

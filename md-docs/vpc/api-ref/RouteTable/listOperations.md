@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [RouteTable](index.md) > ListOperations
+
 # Virtual Private Cloud API, REST: RouteTable.ListOperations
 
 List operations for the specified route table.

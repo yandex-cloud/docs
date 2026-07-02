@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Галерея в DataLens
+
 # Галерея в DataLens
 
 [Галерея в DataLens](https://datalens.ru/gallery) — каталог готовых примеров дашбордов для вдохновения и решения бизнес-задач.

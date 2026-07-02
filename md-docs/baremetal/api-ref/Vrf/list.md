@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [Vrf](index.md) > List
+
 # BareMetal API, REST: Vrf.List
 
 Retrieves the list of VRF resources in the specified folder.

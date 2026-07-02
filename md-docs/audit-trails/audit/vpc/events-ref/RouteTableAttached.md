@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > vpc > RouteTableAttached
+
 # Virtual Private Cloud Audit Trails Events: RouteTableAttached
 
 ## Event JSON schema {#yandex.cloud.audit.network.RouteTableAttached2-schema}

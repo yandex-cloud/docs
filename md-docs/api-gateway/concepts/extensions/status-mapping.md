@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Расширения спецификации](index.md) > Замена кода ответа
+
 # Расширение x-yc-status-mapping
 
 Расширение `x-yc-status-mapping` позволяет заменить код ответа в интеграции. Например, если в [интеграции с Object Storage](object-storage.md) вернулся код ответа 404, можно заменить его на 200.

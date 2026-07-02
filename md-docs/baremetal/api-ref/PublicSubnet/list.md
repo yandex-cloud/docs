@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [PublicSubnet](index.md) > List
+
 # BareMetal API, REST: PublicSubnet.List
 
 Retrieves the list of PublicSubnet resources in the specified folder.

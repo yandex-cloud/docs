@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for MySQL®](../index.md) > Устранение ошибки `Access denied` при сохранении SQL-дампа базы при помощи утилиты mysqldump из кластера Managed Service for MySQL®
+
 # Устранение ошибки `Access denied` при сохранении SQL-дампа базы при помощи утилиты mysqldump из кластера Managed Service for MySQL®  
 
 

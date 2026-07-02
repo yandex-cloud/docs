@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [repository](../index.md) > [lifecycle-policy](index.md) > get
+
 # yc container repository lifecycle-policy get
 
 Get information about a lifecycle policy.

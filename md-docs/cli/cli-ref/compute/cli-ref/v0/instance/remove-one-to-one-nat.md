@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [compute](../../index.md) > [v0](../index.md) > [instance](index.md) > remove-one-to-one-nat
+
 # yc compute v0 instance remove-one-to-one-nat
 
 Remove one-to-one NAT to the specified network interface of virtual machine instance

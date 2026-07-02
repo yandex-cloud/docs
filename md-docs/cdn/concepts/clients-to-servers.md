@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud CDN](../index.md) > [Концепции](index.md) > Обмен данными между клиентами и CDN > Обзор
+
 # Настройки обмена данными между клиентами и CDN
 
 Когда клиент запрашивает через ваш сервис файл, опубликованный через Cloud CDN, между клиентом и CDN-балансировщиком устанавливается HTTP- или HTTPS-соединение, в зависимости от схемы в URI: `http://cdn.example.com/styles/common.css` или `https://cdn.example.com/styles/common.css`.

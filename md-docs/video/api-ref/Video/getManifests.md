@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Video](index.md) > GetManifests
+
 # Video API, REST: Video.GetManifests
 
 Retrieves the manifest URLs for a specific video.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > clouddesktop > ResetDesktopPassword
+
 # Cloud Desktop Audit Trails Events: ResetDesktopPassword
 
 ## Event JSON schema {#yandex.cloud.audit.clouddesktop.ResetDesktopPassword2-schema}

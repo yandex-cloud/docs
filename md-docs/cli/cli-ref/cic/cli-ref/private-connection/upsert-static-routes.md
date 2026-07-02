@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [cic](../index.md) > [private-connection](index.md) > upsert-static-routes
+
 # yc cic private-connection upsert-static-routes
 
 Upsert static routes to a privateConnection.

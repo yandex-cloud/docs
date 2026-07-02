@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Yandex Identity and Access Management](../../../../../../index.md) > Справочник API > gRPC (англ.) > Workload Identity > [Federation](../index.md) > [Federation](index.md) > Update
+
 # Federation, gRPC: FederationService.Update
 
 Updates the specified OIDC workload identity federation.

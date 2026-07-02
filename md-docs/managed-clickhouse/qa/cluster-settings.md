@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > Вопросы и ответы > Настройки параметров кластера
+
 # Настройки параметров ClickHouse®-кластера
 
 * [Как создать пользователя для доступа из DataLens с правами только на чтение?](#datalens-readonly)

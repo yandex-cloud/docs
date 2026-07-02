@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > [Справочник CLI (англ.)](../index.md) > [origin-group](index.md) > list
+
 # yc cdn origin-group list
 
 List origin groups in the specified folder

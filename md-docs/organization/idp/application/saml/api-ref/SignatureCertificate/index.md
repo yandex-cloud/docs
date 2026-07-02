@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity Hub](../../../../../index.md) > Справочник API > REST (англ.) > Identity Provider API > [SAML Application API](../index.md) > SignatureCertificate > Overview
+
 # SAML Application API, REST: SignatureCertificate
 
 A set of methods for managing signature certificates for SAML applications.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [idp](../index.md) > [user](index.md) > get-password-metadata
+
 # yc organization-manager idp user get-password-metadata
 
 Get metadata about the authenticated user's password

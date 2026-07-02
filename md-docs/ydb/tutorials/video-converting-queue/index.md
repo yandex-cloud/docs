@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for YDB](../../index.md) > [Практические руководства](../index.md) > Конвертация видео в GIF на Python > Обзор
+
 # Конвертация видео в GIF на Python
 
 

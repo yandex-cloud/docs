@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [DataSphere](../index.md) > Получение доступа к конфигурациям GPU g1.1 и выше в DataSphere
+
 # Получение доступа к конфигурациям GPU g1.1 и выше в DataSphere
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Yandex Identity Hub](../../../../../../index.md) > Справочник API > gRPC (англ.) > Identity Provider API > [SAML Application API](../index.md) > [Application](index.md) > UpdateAssignments
+
 # SAML Application API, gRPC: ApplicationService.UpdateAssignments
 
 Updates assignments for the specified SAML application.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > [Справочник CLI (англ.)](../index.md) > [symmetric-key](index.md) > list-access-bindings
+
 # yc kms symmetric-key list-access-bindings
 
 List access bindings for the specified symmetric key

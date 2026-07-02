@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Functions](../../../index.md) > Справочник API Functions > [REST (англ.)](../index.md) > [Function](index.md) > GetVersion
+
 # Cloud Functions Service, REST: Function.GetVersion
 
 Returns the specified version of a function.

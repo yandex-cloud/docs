@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Вспомогательные утилиты
+
 # Вспомогательные утилиты
 
 Пакет Greenplum Database 6 содержит ряд полезных утилит для работы с базами данных [Greenplum® 6](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/client_tool_guides-tools-ref.html) и [Apache Cloudberry™](https://cloudberry.apache.org/docs/sys-utilities/). В частности:

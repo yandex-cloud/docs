@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Вычисляемые поля > Справочник функций > Функции для работы с массивами > ARR_INDEX_OF
+
 # ARR_INDEX_OF
 
 

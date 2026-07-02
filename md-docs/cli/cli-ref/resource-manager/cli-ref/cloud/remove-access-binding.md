@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [resource-manager](../index.md) > [cloud](index.md) > remove-access-binding
+
 # yc resource-manager cloud remove-access-binding
 
 Remove access binding for the specified cloud

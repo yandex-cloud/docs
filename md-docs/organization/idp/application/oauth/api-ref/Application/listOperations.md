@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity Hub](../../../../../index.md) > Справочник API > REST (англ.) > Identity Provider API > [OAUTH Application API](../index.md) > [Application](index.md) > ListOperations
+
 # OAUTH Application API, REST: Application.ListOperations
 
 Lists operations for the specified OAuth application.

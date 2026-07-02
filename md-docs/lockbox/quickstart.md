@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Lockbox](index.md) > Начало работы
+
 # Начало работы с Yandex Lockbox
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-mongodb](../index.md) > [cluster](index.md) > list-access-bindings
+
 # yc managed-mongodb cluster list-access-bindings
 
 List access bindings for the specified MongoDB cluster

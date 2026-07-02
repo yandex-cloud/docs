@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iot > DeleteBrokerPassword
+
 # IoT Core Audit Trails Events: DeleteBrokerPassword
 
 ## Event JSON schema {#yandex.cloud.audit.iot.broker.DeleteBrokerPassword2-schema}

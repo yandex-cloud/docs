@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Spark™](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [job](index.md) > cancel
+
 # yc managed-spark v0 job cancel
 
 Cancel Spark job.

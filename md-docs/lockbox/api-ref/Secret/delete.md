@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Lockbox](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Secret](index.md) > Delete
+
 # Lockbox API, REST: Secret.Delete
 
 Deletes the specified secret.

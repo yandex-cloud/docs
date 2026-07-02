@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Router](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [RoutingInstance](index.md) > UpsertPrefixes
+
 # Cloud Router API, gRPC: RoutingInstanceService.UpsertPrefixes
 
 Upserts specified prefixes to a RoutingInstance resource.

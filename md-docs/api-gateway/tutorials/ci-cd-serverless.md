@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex API Gateway](../index.md) > [Практические руководства](index.md) > Рабочие процессы и автоматизация на Serverless > Построение пайплайна CI/CD в GitLab с использованием serverless-продуктов
+
 # Построение пайплайна CI/CD с использованием serverless-продуктов
 
 # Построение пайплайна CI/CD в GitLab с использованием serverless-продуктов
@@ -35,7 +37,7 @@
 * Плата за хранение созданных Docker-образов ([тарифы Container Registry](../../container-registry/pricing.md)).
 * Плата за хранение секретов ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
 * Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик ([тарифы Serverless Containers](../../serverless-containers/pricing.md)).
-* Плата за запросы к API-шлюзу ([тарифы API Gateway](../../api-gateway/pricing.md)).
+* Плата за запросы к API-шлюзу ([тарифы API Gateway](../pricing.md)).
 * Плата за использование [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 ## Перед началом работы {#before-begin}

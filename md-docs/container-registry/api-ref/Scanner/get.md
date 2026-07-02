@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Scanner](index.md) > Get
+
 # Container Registry API, REST: Scanner.Get
 
 Returns the specified ScanResult resource.

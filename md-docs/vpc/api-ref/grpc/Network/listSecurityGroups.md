@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Network](index.md) > ListSecurityGroups
+
 # Virtual Private Cloud API, gRPC: NetworkService.ListSecurityGroups
 
 Lists security groups from the specified network.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Transfer](../../../index.md) > [Пошаговые инструкции](../../index.md) > [Настройка эндпоинтов](../index.md) > Yandex Data Streams > Источник
+
 # Передача данных из эндпоинта-источника Yandex Data Streams
 
 

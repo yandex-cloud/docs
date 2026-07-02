@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Безопасность в Yandex Cloud](../index.md) > [Стандарт по защите облачной инфраструктуры, версия 1.4.2](index.md) > Безопасность Kubernetes
+
 # Требования к безопасности Kubernetes
 
 ## 7. Безопасность Kubernetes {#kubernetes-security}

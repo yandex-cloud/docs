@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LifecyclePolicy](index.md) > Create
+
 # Container Registry API, gRPC: LifecyclePolicyService.Create
 
 Creates a lifecycle policy in the specified repository.

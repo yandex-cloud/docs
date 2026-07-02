@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Концепции](index.md) > Графики мониторинга
+
 # Графики мониторинга
 
 {% note info %}

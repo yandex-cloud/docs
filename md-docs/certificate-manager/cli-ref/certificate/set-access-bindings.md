@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Certificate Manager](../../index.md) > [Справочник CLI (англ.)](../index.md) > [certificate](index.md) > set-access-bindings
+
 # yc certificate-manager certificate set-access-bindings
 
 Set access bindings for the specified certificate and delete all existing access bindings if there were any

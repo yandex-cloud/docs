@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud CDN](../index.md) > Практические руководства > Все практические руководства
+
 # Практические руководства Cloud CDN
 
 * [Публикация обновлений для игр с помощью Yandex Cloud CDN](prefetch.md)

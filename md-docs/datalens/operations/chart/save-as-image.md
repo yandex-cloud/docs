@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Чарты > Сохранение чарта как изображения
+
 # Сохранить чарт как изображение в Yandex DataLens
 
 Вы можете сохранить чарт в формате `PNG`. Доступно для [чартов в визарде](../../concepts/chart/dataset-based-charts.md), [QL-чартов](../../concepts/chart/ql-charts.md) и [чартов в Editor](../../charts/editor/index.md).

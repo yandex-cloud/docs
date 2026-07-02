@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Smart Captcha > Data Sources > smartcaptcha_captcha
+
 # yandex_smartcaptcha_captcha (DataSource)
 
 A Captcha resource.

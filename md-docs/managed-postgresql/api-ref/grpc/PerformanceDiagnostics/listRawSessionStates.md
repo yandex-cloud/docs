@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [PerformanceDiagnostics](index.md) > ListRawSessionStates
+
 # Managed Service for PostgreSQL API, gRPC: PerformanceDiagnosticsService.ListRawSessionStates
 
 Retrieves raw statistics on sessions. Corresponds to the [pg_stat_activity view](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).

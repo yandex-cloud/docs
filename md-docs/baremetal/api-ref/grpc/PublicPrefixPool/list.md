@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [PublicPrefixPool](index.md) > List
+
 # BareMetal API, gRPC: PublicPrefixPoolService.List
 
 Lists public prefix pools in the specified folder.

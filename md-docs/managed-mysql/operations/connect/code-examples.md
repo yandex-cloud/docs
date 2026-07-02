@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > [Пошаговые инструкции](../index.md) > [Подключение](index.md) > Примеры кода
+
 # Примеры кода для подключения к кластеру MySQL®
 
 ## Примеры строк подключения {#connection-string}

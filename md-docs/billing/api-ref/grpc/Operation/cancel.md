@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Billing](../../../index.md) > Справочник API > gRPC (англ.) > [Billing](../index.md) > [Operation](index.md) > Cancel
+
 # Billing API, gRPC: OperationService.Cancel
 
 Cancels the specified operation.

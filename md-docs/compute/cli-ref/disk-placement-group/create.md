@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [disk-placement-group](index.md) > create
+
 # yc compute disk-placement-group create
 
 Create a disk placement group

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [PrivateConnection](index.md) > RemoveStaticRoute
+
 # Cloud Interconnect API, REST: PrivateConnection.RemoveStaticRoute
 
 Removes specified static routes to a PrivateConnection resource.

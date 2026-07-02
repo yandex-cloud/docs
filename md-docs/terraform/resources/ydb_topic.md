@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for YDB > Resources > ydb_topic
+
 # yandex_ydb_topic (Resource)
 
 Manage a YDB Topic. For more information, see [the official documentation](../../ydb/concepts/index.md#ydb).

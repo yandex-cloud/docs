@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > Справочник API > [Yandex Cloud REST (англ.)](../index.md) > [Bucket](index.md) > DeleteHTTPSConfig
+
 # Object Storage API, REST: Bucket.DeleteHTTPSConfig
 
 Deletes the HTTPS configuration for the specified bucket.

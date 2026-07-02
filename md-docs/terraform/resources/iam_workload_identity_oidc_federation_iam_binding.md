@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity and Access Management > Resources > iam_workload_identity_oidc_federation_iam_binding
+
 # yandex_iam_workload_identity_oidc_federation_iam_binding (Resource)
 
 Allows creation and management of a single binding within IAM policy for an existing `federation`.

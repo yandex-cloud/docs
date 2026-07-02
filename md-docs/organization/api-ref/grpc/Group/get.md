@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Group](index.md) > Get
+
 # Identity Hub API, gRPC: GroupService.Get
 
 Returns the specified Group resource.

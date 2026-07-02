@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Начало работы в сервисе
+
 # Начало работы с сервисами Yandex MetaData Hub
 
 Yandex MetaData Hub позволяет управлять данными в Yandex Cloud. Вы можете:

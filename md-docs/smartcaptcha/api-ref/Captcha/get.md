@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex SmartCaptcha](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Captcha](index.md) > Get
+
 # SmartCaptcha API, REST: Captcha.Get
 
 Returns the specified Captcha resource.

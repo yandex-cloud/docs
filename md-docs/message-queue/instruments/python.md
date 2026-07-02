@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Message Queue](../index.md) > [Начало работы](index.md) > Примеры кода > Python
+
 # Пример использования Yandex Message Queue на Python
 
 {% note warning %}

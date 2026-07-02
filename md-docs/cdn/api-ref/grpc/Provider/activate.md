@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Provider](index.md) > Activate
+
 # Cloud CDN API, gRPC: ProviderService.Activate
 
 Deprecated: This functionality is no longer supported - provider activation happens automatically.

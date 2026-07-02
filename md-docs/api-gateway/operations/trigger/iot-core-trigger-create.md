@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Пошаговые инструкции](../index.md) > Создание триггера > Создать триггер для Yandex IoT Core > Устройство
+
 # Создать триггер, который отправляет сообщения в WebSocket-соединения из топика реестра или устройства Yandex IoT Core
 
 Создайте [триггер](../../concepts/trigger/iot-core-trigger.md) для топика устройства или реестра Yandex IoT Core и отправляйте копии сообщений в [WebSocket-соединения](../../concepts/extensions/websocket.md).

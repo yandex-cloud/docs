@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Инструменты Application Load Balancer](index.md) > Gwin > Политики Gwin
+
 # Политики Gwin
 
 Gwin — инструмент для создания балансировщиков нагрузки Yandex Application Load Balancer и управления ими в [кластерах Yandex Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster).

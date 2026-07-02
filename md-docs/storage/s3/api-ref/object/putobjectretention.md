@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [AWS S3 REST](../../index.md) > [REST](../index.md) > Object > PutObjectRetention
+
 # Object Storage API, REST совместимый с Amazon S3: PutObjectRetention
 
 Устанавливает на версию объекта временную [блокировку](../../../concepts/object-lock.md) либо настраивает или снимает уже установленную блокировку.

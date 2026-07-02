@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Address](index.md) > List
+
 # Virtual Private Cloud API, gRPC: AddressService.List
 
 Retrieves the list of Address resources in the specified folder.

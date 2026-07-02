@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Справочник CLI (англ.)](../index.md) > [organization](index.md) > set-access-bindings
+
 # yc organization-manager organization set-access-bindings
 
 Set access bindings for the specified organization and delete all existing access bindings if there were any

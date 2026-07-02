@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [load-balancer](../../index.md) > [v0](../index.md) > [network-load-balancer](index.md) > stop
+
 # yc load-balancer v0 network-load-balancer stop
 
 Stops load balancing and health checking with the specified network load balancer.

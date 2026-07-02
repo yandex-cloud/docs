@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DnsZone](index.md) > UpdateAccessBindings
+
 # Cloud DNS API, REST: DnsZone.UpdateAccessBindings
 
 Updates access bindings for the specified DNS zone.

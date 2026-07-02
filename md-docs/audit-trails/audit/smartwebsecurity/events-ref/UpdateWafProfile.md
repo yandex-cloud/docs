@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > smartwebsecurity > UpdateWafProfile
+
 # Smart Web Security Audit Trails Events: UpdateWafProfile
 
 ## Event JSON schema {#yandex.cloud.audit.smartwebsecurity.UpdateWafProfile2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Monium](../../../index.md) > Справочник API > Логи > [gRPC (англ.)](../index.md) > [LogGroup](index.md) > Delete
+
 # Cloud Logging Service, gRPC: LogGroupService.Delete
 
 Deletes the specified log group.

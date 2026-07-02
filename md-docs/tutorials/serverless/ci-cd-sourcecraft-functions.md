@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > Рабочие процессы и автоматизация на Serverless > Настройка CI/CD между Cloud Functions и SourceCraft
+
 # Настройка CI/CD между Yandex Cloud Functions и SourceCraft
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.clickhouse > DeleteFormatSchema
+
 # Managed Service for ClickHouse Audit Trails Events: DeleteFormatSchema
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.clickhouse.DeleteFormatSchema2-schema}

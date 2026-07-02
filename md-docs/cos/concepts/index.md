@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Solution](../index.md) > Концепции > Образ Container Optimized Image
+
 # Образ Container Optimized Image
 
 _Container Optimized Image_ — [образ](../../compute/concepts/image.md) виртуальной машины, оптимизированный для запуска [Docker-контейнеров](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers). Образ включает в себя: Ubuntu LTS, Docker и демона для запуска Docker-контейнеров.

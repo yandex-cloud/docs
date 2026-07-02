@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Инструкции по работе с Yandex Identity Hub
 
 ## Настройка уведомлений {#setup-notifications}

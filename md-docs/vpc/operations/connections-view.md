@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Пошаговые инструкции](index.md) > График сетевых соединений
+
 # График сетевых соединений
 
 Чтобы посмотреть график [сетевых соединений](../concepts/monitoring-connections.md) вашей [виртуальной машины](../../glossary/vm.md) или кластера:

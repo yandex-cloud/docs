@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Postbox](index.md) > История изменений
+
 # История изменений в Yandex Cloud Postbox
 
 ## Июнь 2026 {#june-2026}

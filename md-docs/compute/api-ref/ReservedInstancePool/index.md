@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > ReservedInstancePool > Overview
+
 # Compute Cloud API, REST: ReservedInstancePool
 
 A set of methods for managing reserved instance pool resources.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > cloudapps > DeleteCloudApplication
+
 # Cloud Apps Workload Audit Trails Events: DeleteCloudApplication
 
 ## Event JSON schema {#yandex.cloud.audit.cloudapps.DeleteCloudApplication2-schema}

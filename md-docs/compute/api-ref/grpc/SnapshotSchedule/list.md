@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SnapshotSchedule](index.md) > List
+
 # Compute Cloud API, gRPC: SnapshotScheduleService.List
 
 Retrieves the list of snapshot schedules in the specified folder.

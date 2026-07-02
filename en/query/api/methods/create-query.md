@@ -1,14 +1,14 @@
 # create-query
 
-The method creates a data query and runs it. After that, the query status changes to `RUNNING`. You can only [get](get-query-results.md) results once the query completes successfully. To find out the query status, use the [get-query-status](get-query-status.md) method.
+This method creates a data query and runs it. Once started, the query status changes to `RUNNING`. You can only [get](get-query-results.md) results after the query completes successfully. To check the query status, use the [get-query-status](get-query-status.md) method.
 
 {% include [!](../../_includes/api-common.md) %}
 
 ## Request {#request}
 
-`POST` request to `/queries?project={folder_id}`, where `{folder_id}` is a folder ID.
+`POST` request to `/queries?project={folder_id}`, where `{folder_id}` is the folder ID.
 
-The request body contains data in JSON format:
+The request body contains JSON-formatted data:
 
 ```json
 {
@@ -19,16 +19,16 @@ The request body contains data in JSON format:
 }
 ```
 
-| Field | Description | Acceptable values | Comment | Limitations |
+| Field | Description | Valid values | Note | Limitations |
 | ----- | ----- | ----- | ----- | ----- |
-| `name` | Query name | | If the parameter is not specified, it is assigned the default name. | The length must not exceed 1024 bytes. |
-| `type` | Query type | `STREAMING` for streaming queries, `ANALYTICS` for analytical ones | Default value: `ANALYTICS` | |
-| `text` | Query text | String | Required | The length must be from 1 to 102400 bytes. |
-| `description` | Query description | | The default value is an empty string. | The length must not exceed 10240 bytes. |
+| `name` | Query name | | If this value is not specified, the query is assigned the default name | The field length must not exceed 1,024 bytes |
+| `type` | Query type | `STREAMING` for streaming queries, `ANALYTICS` for analytical queries | Default value: `ANALYTICS` | |
+| `text` | Query text | String | Required | The field length must be between 1 and 102,400 bytes |
+| `description` | Query description | | The default value is an empty string | The field length must not exceed 10,240 bytes |
 
 ## Response {#response}
 
-If successful, the HTTP code 200 and query ID are returned.
+If successful, the response returns an HTTP 200 status code and the query ID.
 
 ```json
 {
@@ -36,9 +36,9 @@ If successful, the HTTP code 200 and query ID are returned.
 }
 ```
 
-| Field | Description | Comment |
+| Field | Description | Note |
 | ----- | ----- | ----- |
-| `id` | ID of the created query | Required |
+| `id` | New query ID | Required |
 
 ## Example {#example}
 

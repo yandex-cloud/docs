@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Начало работы](../index.md) > [Создание триггера](index.md) > Таймер
+
 # Создание таймера, который запускает функцию
 
 Создайте [таймер](../../concepts/trigger/timer.md), который будет вызывать [функцию](../../concepts/function.md) Cloud Functions каждую минуту.

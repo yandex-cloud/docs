@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [iam](../index.md) > [refresh-token](index.md) > list
+
 # yc iam refresh-token list
 
 List subjects Refresh Tokens

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Yandex Monitoring
 
 ## Работа с метриками {#working-with-metrics}

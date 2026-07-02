@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LoadBalancer](index.md) > RemoveListener
+
 # Application Load Balancer API, gRPC: LoadBalancerService.RemoveListener
 
 Deletes the specified listener.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Scanner > Overview
+
 # Yandex Cloud Registry API, gRPC: ScannerService
 
 A set of methods for scanning artifacts.

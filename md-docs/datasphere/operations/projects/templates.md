@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > DataSphere Notebook > Настроить создание ноутбуков по шаблону
+
 # Настроить создание ноутбуков JupyterLab по шаблону
 
 Чтобы создавать ноутбуки JupyterLab по шаблону, активируйте расширение JupyterLab-templates. Для этого:

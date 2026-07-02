@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [instance](index.md) > create-with-container
+
 # yc compute instance create-with-container
 
 Create a virtual machine instance running Docker container

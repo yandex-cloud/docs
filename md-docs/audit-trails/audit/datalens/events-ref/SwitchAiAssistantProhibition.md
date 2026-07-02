@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > SwitchAiAssistantProhibition
+
 # DataLens Audit Trails Events: SwitchAiAssistantProhibition
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.SwitchAiAssistantProhibition2-schema}

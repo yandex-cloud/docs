@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > storage > ObjectCreate
+
 # Object Storage Audit Trails Events: ObjectCreate
 
 ## Event JSON schema {#yandex.cloud.audit.storage.ObjectCreate2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cloudrouter](../../index.md) > [v0](../index.md) > [routing-instance](index.md) > add-private-connection
+
 # yc cloudrouter v0 routing-instance add-private-connection
 
 Add CIC private connection to the routingInstance.

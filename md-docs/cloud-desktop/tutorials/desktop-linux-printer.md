@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Desktop](../index.md) > Практические руководства > Настройка печати с Cloud Desktop на локальный принтер в Linux
+
 # Настройка печати с Yandex Cloud Desktop на локальный принтер в Linux
 
 
@@ -35,7 +37,7 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* Плата за использование вычислительных ресурсов, дисков и исходящий трафик рабочего стола ([тарифы Yandex Cloud Desktop](../../cloud-desktop/pricing.md)).
+* Плата за использование вычислительных ресурсов, дисков и исходящий трафик рабочего стола ([тарифы Yandex Cloud Desktop](../pricing.md)).
 * Плата за время использования [NAT-шлюза](../../vpc/concepts/gateways.md) и исходящий через него трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YDB](../../../index.md) > Document API, совместимый с Amazon DynamoDB > Инструменты > [Работа с AWS SDK](index.md) > Создание таблицы
+
 # Создание таблицы в AWS SDK
 
 Чтобы создать таблицу с именем `Series`, ключом партицирования `series_id` и ключом сортировки `title`:

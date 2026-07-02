@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > cloudregistry > SetRegistryFolderAccessBindings
+
 # Yandex Cloud Registry Audit Trails Events: SetRegistryFolderAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.cloudregistry.SetRegistryFolderAccessBindings2-schema}

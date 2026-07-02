@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-mongodb](../index.md) > [shards](index.md) > get
+
 # yc managed-mongodb shards get
 
 Get information about a shard in a MongoDB cluster.

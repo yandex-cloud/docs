@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Marketplace](../../../../index.md) > Партнерам > Справочник Product Instance Management API > [REST (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Yandex Cloud Marketplace Product Instance Management API, REST: Operation.Get
 
 Returns the specified Operation resource.

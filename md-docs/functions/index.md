@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Cloud Functions > Cloud Functions
+
 # Yandex Cloud Functions
 
 Сервис Cloud Functions позволяет запускать приложения в безопасном, отказоустойчивом и масштабируемом окружении без создания и обслуживания виртуальных машин.

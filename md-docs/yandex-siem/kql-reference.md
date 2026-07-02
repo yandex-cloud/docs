@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex SIEM](index.md) > Справочник KQL
+
 # Справочник KQL
 
 {% note info %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [dns](../../index.md) > [v0](../index.md) > [firewall](index.md) > remove-access-binding
+
 # yc dns v0 firewall remove-access-binding
 
 Remove access binding from the specified dns firewall

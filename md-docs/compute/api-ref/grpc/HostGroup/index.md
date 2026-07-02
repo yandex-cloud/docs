@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > HostGroup > Overview
+
 # Compute Cloud API, gRPC: HostGroupService
 
 A set of methods for managing groups of dedicated hosts.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Functions](../../../index.md) > [Разработка на Java](../index.md) > [Модель программирования](index.md) > Spring Boot
+
 # Использование аннотации SpringBootApplication для задания обработчика на Java
 
 Вы можете задать обработчик на Java, загрузив `Spring Boot` приложение с точкой входа в виде класса, помеченного аннотацией [SpringBootApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html).

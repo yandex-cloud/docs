@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > containerregistry > DeleteImage
+
 # Container Registry Audit Trails Events: DeleteImage
 
 ## Event JSON schema {#yandex.cloud.audit.containerregistry.DeleteImage2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [filesystem](index.md) > list-operations
+
 # yc compute v0 filesystem list-operations
 
 List operations for the specified filesystem

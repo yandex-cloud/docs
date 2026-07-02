@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-airflow](../../index.md) > [v0](../index.md) > [cluster](index.md) > set-access-bindings
+
 # yc managed-airflow v0 cluster set-access-bindings
 
 Set access bindings for the specified Airflow cluster and delete all existing access bindings if there were any

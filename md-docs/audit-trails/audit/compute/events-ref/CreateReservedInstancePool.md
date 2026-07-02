@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > CreateReservedInstancePool
+
 # Compute Audit Trails Events: CreateReservedInstancePool
 
 ## Event JSON schema {#yandex.cloud.audit.compute.CreateReservedInstancePool2-schema}

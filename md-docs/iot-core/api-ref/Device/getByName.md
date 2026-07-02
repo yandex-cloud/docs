@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > [REST (англ.)](../index.md) > [Device](index.md) > GetByName
+
 # IoT Core Service, REST: Device.GetByName
 
 ## HTTP request

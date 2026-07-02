@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [instance](index.md) > add-metadata
+
 # yc compute instance add-metadata
 
 Add or update metadata for the specified virtual machine instance

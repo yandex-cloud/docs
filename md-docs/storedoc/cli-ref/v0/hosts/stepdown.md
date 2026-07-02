@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [hosts](index.md) > stepdown
+
 # yc managed-mongodb v0 hosts stepdown
 
 Stepdown specified MongoD hosts.

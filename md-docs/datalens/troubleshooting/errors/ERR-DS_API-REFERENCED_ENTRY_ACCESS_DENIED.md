@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Referenced connection <идентификатор_подключения> cannot be loaded access denied
+
 # [Yandex DataLens] Referenced connection <идентификатор_подключения> cannot be loaded: access denied
 
 `ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED`

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [dns](../index.md) > [firewall](index.md) > remove-labels
+
 # yc dns firewall remove-labels
 
 Remove labels from the specified dns firewall

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Yandex Cloud
 
 Для выполнения операций через [API](../../glossary/rest-api.md) можно использовать [IAM-токен](../../iam/concepts/authorization/iam-token.md) или [API-ключ](../../iam/concepts/authorization/api-key.md). Любой из этих способов аутентификации подходит для работы с [Prometheus](../../monitoring/operations/prometheus/index.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > Справочник API > REST (англ.) > [SmartWebSecurity MatchList API](../index.md) > [MatchList](index.md) > Get
+
 # SmartWebSecurity MatchList API, REST: MatchList.Get
 
 Returns the specified MatchList resource.

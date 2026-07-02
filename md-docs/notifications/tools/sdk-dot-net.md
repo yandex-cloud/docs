@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > [Инструменты](index.md) > AWS SDK для .NET
+
 # Как начать работать с AWS SDK для .NET в Yandex Cloud Notification Service
 
 

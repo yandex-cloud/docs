@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Monium](../../../index.md) > Справочник API > Логи > [gRPC (англ.)](../index.md) > Sink > Overview
+
 # Cloud Logging Service, gRPC: SinkService
 
 A set of methods for managing log sinks.

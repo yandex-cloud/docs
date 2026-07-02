@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Streams](../../index.md) > [HTTP API, совместимый с Amazon Kinesis Data Streams](../index.md) > Методы > IncreaseStreamRetentionPeriod
+
 # IncreaseStreamRetentionPeriod
 
 Увеличивает [время хранения сообщений](../../concepts/glossary.md#retention-time) потока данных.

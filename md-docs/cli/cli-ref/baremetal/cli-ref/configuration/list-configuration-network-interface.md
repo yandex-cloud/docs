@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [baremetal](../index.md) > [configuration](index.md) > list-configuration-network-interface
+
 # yc baremetal configuration list-configuration-network-interface
 
 Retrieves the list of ConfigurationNetworkInterface resources.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Billing](../../index.md) > Справочник API > REST (англ.) > [Billing](../index.md) > [Operation](index.md) > Get
+
 # Billing API, REST: Operation.Get
 
 Returns the specified Operation resource.

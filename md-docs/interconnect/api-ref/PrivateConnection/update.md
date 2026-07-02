@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [PrivateConnection](index.md) > Update
+
 # Cloud Interconnect API, REST: PrivateConnection.Update
 
 Updates a PrivateConnection resource using the data specified in the request.

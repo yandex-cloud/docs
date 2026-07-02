@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > RenameEntry
+
 # DataLens Audit Trails Events: RenameEntry
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.RenameEntry2-schema}

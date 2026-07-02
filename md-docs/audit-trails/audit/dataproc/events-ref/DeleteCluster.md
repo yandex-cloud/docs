@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > dataproc > DeleteCluster
+
 # Yandex Data Processing Audit Trails Events: DeleteCluster
 
 ## Event JSON schema {#yandex.cloud.audit.dataproc.DeleteCluster2-schema}

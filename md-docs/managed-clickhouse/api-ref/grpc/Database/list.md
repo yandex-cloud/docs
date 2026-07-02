@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Database](index.md) > List
+
 # Managed Service for ClickHouse API, gRPC: DatabaseService.List
 
 Retrieves the list of ClickHouse Database resources in the specified cluster.

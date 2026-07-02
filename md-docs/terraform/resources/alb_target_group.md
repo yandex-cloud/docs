@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Application Load Balancer > Resources > alb_target_group
+
 # yandex_alb_target_group (Resource)
 
 Creates a target group in the specified folder and adds the specified targets to it. For more information, see [the official documentation](../../application-load-balancer/concepts/target-group.md).

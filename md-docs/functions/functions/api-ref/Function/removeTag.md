@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Functions](../../../index.md) > Справочник API Functions > [REST (англ.)](../index.md) > [Function](index.md) > RemoveTag
+
 # Cloud Functions Service, REST: Function.RemoveTag
 
 Remove a tag from the specified version of a function.

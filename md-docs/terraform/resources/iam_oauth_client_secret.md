@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity and Access Management > Resources > iam_oauth_client_secret
+
 # yandex_iam_oauth_client_secret (Resource)
 
 Allows management of [Yandex Cloud IAM OAuth client secret](../../iam/concepts/authorization/oauth-client-secret). The OAuth client secret is used for OAuth 2.0 client authentication.

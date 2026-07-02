@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > REST (англ.) > [Certificate Manager Private CA API](../index.md) > [Template](index.md) > SetAccessBindings
+
 # Certificate Manager Private CA API, REST: Template.SetAccessBindings
 
 Set new access bindings for a specific certificate template.

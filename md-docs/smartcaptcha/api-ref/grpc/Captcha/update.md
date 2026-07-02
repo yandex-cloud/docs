@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex SmartCaptcha](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Captcha](index.md) > Update
+
 # SmartCaptcha API, gRPC: CaptchaService.Update
 
 Updates the specified captcha.

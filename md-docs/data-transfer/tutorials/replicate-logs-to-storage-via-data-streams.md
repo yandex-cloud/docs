@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Загрузка данных в Object Storage > Репликация логов в Object Storage с помощью Data Streams
+
 # Репликация логов в Yandex Object Storage с помощью Yandex Data Streams
 
 С помощью [Yandex Data Streams](../../data-streams/index.md) можно настроить автоматическую репликацию логов сервисов и пользовательских приложений в [Yandex Object Storage](../../storage/index.md).

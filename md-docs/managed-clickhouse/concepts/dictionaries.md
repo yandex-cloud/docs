@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Концепции](index.md) > Словари
+
 # Словари ClickHouse®
 
 _Словарь_ в ClickHouse® — это хранилище данных типа «ключ-значение», которое полностью или частично хранится в оперативной памяти сервера ClickHouse®.

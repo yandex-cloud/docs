@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Базы данных > Запросы в Yandex WebSQL
+
 # Запросы в Yandex WebSQL
 
 Вы можете отправлять запросы к базам данных в кластере Yandex MPP Analytics for PostgreSQL с помощью сервиса [Yandex WebSQL](../../websql/index.md).

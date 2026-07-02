@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Управление хостами кластера > Управление группами хостов
+
 # Управление группами хостов OpenSearch
 
 

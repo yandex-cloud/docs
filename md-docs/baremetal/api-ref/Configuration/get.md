@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [Configuration](index.md) > Get
+
 # BareMetal API, REST: Configuration.Get
 
 Returns the specific Configuration resource.

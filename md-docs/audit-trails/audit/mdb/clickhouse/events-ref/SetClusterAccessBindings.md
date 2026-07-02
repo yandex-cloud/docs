@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.clickhouse > SetClusterAccessBindings
+
 # Managed Service for ClickHouse Audit Trails Events: SetClusterAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.clickhouse.SetClusterAccessBindings2-schema}

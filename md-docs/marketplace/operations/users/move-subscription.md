@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Marketplace](../../index.md) > Пользователям > Пошаговые инструкции > Управление подпиской > Перемещение подписки
+
 # Перемещение подписки между каталогами
 
 {% list tabs group=instructions %}

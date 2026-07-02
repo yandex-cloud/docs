@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > PlacementGroup > Overview
+
 # Compute Cloud API, gRPC: PlacementGroupService
 
 A set of methods for managing placement groups.

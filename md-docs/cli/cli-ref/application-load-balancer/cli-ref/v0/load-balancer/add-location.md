@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [application-load-balancer](../../index.md) > [v0](../index.md) > [load-balancer](index.md) > add-location
+
 # yc application-load-balancer v0 load-balancer add-location
 
 Adds locations to application load balancer.

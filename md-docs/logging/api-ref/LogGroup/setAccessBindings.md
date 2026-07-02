@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [LogGroup](index.md) > SetAccessBindings
+
 # Cloud Logging Service, REST: LogGroup.SetAccessBindings
 
 Sets access bindings for the specified log group.

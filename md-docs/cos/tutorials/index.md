@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Solution](../index.md) > Практические руководства > Все руководства
+
 # Все руководства
 
 * [Создание ВМ с Container Optimized Image](vm-create.md)

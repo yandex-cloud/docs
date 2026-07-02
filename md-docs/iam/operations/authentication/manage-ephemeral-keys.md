@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > Аутентификация > Управление эфемерными ключами доступа
+
 # Управление эфемерными ключами доступа
 
 [Часть сервисов](../../concepts/authorization/ephemeral-keys.md#supported-services) Yandex Cloud поддерживает аутентификацию с помощью [эфемерных ключей доступа](../../concepts/authorization/ephemeral-keys.md).

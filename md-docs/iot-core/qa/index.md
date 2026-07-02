@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex IoT Core](../index.md) > Вопросы и ответы
+
 # Общие вопросы про Yandex IoT Core
 
 {% note warning %}

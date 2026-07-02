@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Концепции](index.md) > Шифрование
+
 # Шифрование в Managed Service for Kubernetes
 
 В Yandex Cloud действует множество [мер обеспечения информационной безопасности](../../security/standarts.md). В том числе реализовано многоуровневое шифрование данных сервиса Managed Service for Kubernetes:

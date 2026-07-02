@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Database](index.md) > List
+
 # Managed Service for MySQL API, REST: Database.List
 
 Retrieves the list of databases in a cluster.

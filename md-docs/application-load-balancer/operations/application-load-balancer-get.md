@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > L7-балансировщики > Получить информацию об L7-балансировщике
+
 # Получить информацию об L7-балансировщике
 
 {% list tabs group=instructions %}

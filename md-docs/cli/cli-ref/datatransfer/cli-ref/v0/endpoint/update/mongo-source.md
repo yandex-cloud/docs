@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [datatransfer](../../../index.md) > [v0](../../index.md) > [endpoint](../index.md) > [update](index.md) > mongo-source
+
 # yc datatransfer v0 endpoint update mongo-source
 
 Update MongoDB source

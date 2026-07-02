@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Backup](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Resource](index.md) > GetInstanceRegistrationToken
+
 # Cloud Backup API, gRPC: ResourceService.GetInstanceRegistrationToken
 
 Get instance registration token to install backup agent withot SA attached to instance

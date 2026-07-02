@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Serverless Containers](../../index.md) > Справочник API Containers > Аутентификация в API
+
 # Аутентификация в API Serverless Containers
 
 # Аутентификация в API

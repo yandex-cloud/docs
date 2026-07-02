@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [PublicSubnet](index.md) > Create
+
 # BareMetal API, gRPC: PublicSubnetService.Create
 
 Creates a public subnet in the specified folder.

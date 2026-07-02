@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v1](../index.md) > [registry](index.md) > force-delete
+
 # yc cloud-registry v1 registry force-delete
 
 Forcefully deletes the specified registry along with all its repositories and data.

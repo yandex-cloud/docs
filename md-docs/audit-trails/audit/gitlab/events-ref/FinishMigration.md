@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > gitlab > FinishMigration
+
 # Managed Service for GitLab Audit Trails Events: FinishMigration
 
 ## Event JSON schema {#yandex.cloud.audit.gitlab.FinishMigration2-schema}

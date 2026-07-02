@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [VirtualHost](index.md) > Get
+
 # Application Load Balancer API, gRPC: VirtualHostService.Get
 
 Returns the specified virtual host.

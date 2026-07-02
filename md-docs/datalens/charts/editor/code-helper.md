@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Чарты > [Чарты в Editor](index.md) > Нейроаналитик в Editor
+
 # Нейроаналитик в Editor
 
 Нейроаналитик — это AI-помощник, который ускоряет и упрощает создание и редактирование визуализаций в Editor. Доступен для трех типов визуализаций: [Таблица](widgets/table.md), [Markdown](widgets/markdown.md) и [Advanced-чарт](widgets/advanced.md). Нейроаналитик работает только с вкладкой **Prepare**.

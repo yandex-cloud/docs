@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Desktop](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [desktop](index.md) > restart
+
 # yc desktops v0 desktop restart
 
 Restart the specified desktop

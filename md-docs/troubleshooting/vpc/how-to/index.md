@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [VPC](../index.md) > Примеры конфигураций и сценариев VPC
+
 ## Примеры конфигураций и сценариев VPC {#configuration-examples}
 
 * [Как отключить защиту от DDoS](disable-ddos-protection-on-external-ip.md)

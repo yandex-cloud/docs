@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Работа с метаданными ВМ > Изменить метаданные ВМ
+
 # Изменить метаданные виртуальной машины
 
 При внесении изменений в метаданные ВМ с помощью команды Yandex Cloud CLI [`yc compute instance update`](../../../cli/cli-ref/compute/cli-ref/instance/update.md), метода REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызова gRPC API [InstanceService/Update](../../api-ref/grpc/Instance/update.md) весь имеющийся набор [метаданных](../../concepts/vm-metadata.md) в каталоге [user-data](../../concepts/metadata/directories.md#dir-user) и в пути `instance/attributes/*` каталога [computeMetadata](../../concepts/metadata/directories.md#dir-compute) полностью перезаписывается переданным обновленным набором.

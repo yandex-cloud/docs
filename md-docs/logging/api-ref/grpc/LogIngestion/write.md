@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Logging](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LogIngestion](index.md) > Write
+
 # Cloud Logging Service, gRPC: LogIngestionService.Write
 
 Write log entries to specified destination.

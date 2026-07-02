@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > DataLens Public API > [DataLens API (англ.)](index.md) > listEmbeddingSecrets
+
 # DataLens API: List embedding secrets
 
 Lists keys for embedding of the specified workbook.

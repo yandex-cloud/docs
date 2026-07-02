@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [vpc](../index.md) > [security-group](index.md) > add-labels
+
 # yc vpc security-group add-labels
 
 Add labels to a security group.

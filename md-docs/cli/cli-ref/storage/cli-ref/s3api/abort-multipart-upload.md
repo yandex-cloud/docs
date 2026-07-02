@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [storage](../index.md) > [s3api](index.md) > abort-multipart-upload
+
 # yc storage s3api abort-multipart-upload
 
 Aborts a multipart upload

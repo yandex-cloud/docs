@@ -1,8 +1,4 @@
-# Yandex Resource Manager
-
-Сервис Yandex Resource Manager определяет ресурсную модель Yandex Cloud и позволяет структурировать ресурсы с помощью каталогов.
-
-Инфраструктура Yandex Cloud <a href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a> в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
+[Документация Yandex Cloud](../index.md) > Yandex Resource Manager > Resource Manager
 
 # Yandex Resource Manager
 

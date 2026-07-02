@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [image](index.md) > scan
+
 # yc container image scan
 
 [PREVIEW] Start scan of Docker image for vulnerabilities.

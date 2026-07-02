@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [certificate](index.md) > list-operations
+
 # yc certificate-manager v0 certificate list-operations
 
 List operations for the specified certificate

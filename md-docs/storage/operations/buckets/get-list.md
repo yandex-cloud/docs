@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Бакеты > Получение списка бакетов
+
 # Получение списка бакетов
 
 {% list tabs group=instructions %}

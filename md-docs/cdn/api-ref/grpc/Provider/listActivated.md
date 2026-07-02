@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Provider](index.md) > ListActivated
+
 # Cloud CDN API, gRPC: ProviderService.ListActivated
 
 List activated providers for specified client.

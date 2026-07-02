@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > containerregistry > DeleteScanPolicy
+
 # Container Registry Audit Trails Events: DeleteScanPolicy
 
 ## Event JSON schema {#yandex.cloud.audit.containerregistry.DeleteScanPolicy2-schema}

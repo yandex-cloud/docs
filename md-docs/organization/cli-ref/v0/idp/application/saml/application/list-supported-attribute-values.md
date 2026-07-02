@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Yandex Identity Hub](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [v0](../../../../index.md) > [idp](../../../index.md) > [application](../../index.md) > [saml](../index.md) > [application](index.md) > list-supported-attribute-values
+
 # yc organization-manager v0 idp application saml application list-supported-attribute-values
 
 List supported attribute values for SAML applications

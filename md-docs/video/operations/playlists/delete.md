@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > [Пошаговые инструкции](../index.md) > Плейлисты > Удалить плейлист
+
 # Удалить плейлист
 
 {% list tabs group=instructions %}

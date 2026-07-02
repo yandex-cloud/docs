@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Практические руководства](index.md) > Поставка данных из YDB в Yandex Data Streams с помощью Yandex Data Transfer
+
 # Захват изменений YDB и поставка в Yandex Data Streams
 
 # Захват изменений из YDB и поставка в YDS

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Lockbox > Data Sources > lockbox_secret
+
 # yandex_lockbox_secret (DataSource)
 
 Get information about Yandex Cloud Lockbox secret. For more information, see [the official documentation](../../lockbox/index.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for MySQL®](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [user](index.md) > revoke-permission
+
 # yc managed-mysql v0 user revoke-permission
 
 Revoke permission from the specified MySQL user

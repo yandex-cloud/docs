@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for GitLab](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Instance](index.md) > List
+
 # Managed Service for Gitlab API, REST: Instance.List
 
 Retrieves the list of GitLab instances in the specified folder.

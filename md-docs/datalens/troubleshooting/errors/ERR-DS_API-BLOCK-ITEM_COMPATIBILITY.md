@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Got items with incompatible roles in block
+
 # [Yandex DataLens] Got items with incompatible roles in block
 
 `ERR.DS_API.BLOCK.ITEM_COMPATIBILITY`

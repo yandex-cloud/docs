@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > certificatemanager > GetCertificateContent
+
 # Certificate Manager Audit Trails Events: GetCertificateContent
 
 ## Event JSON schema {#yandex.cloud.audit.certificatemanager.GetCertificateContent2-schema}

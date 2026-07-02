@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for PostgreSQL](index.md) > Начало работы
+
 # Как начать работать с Managed Service for PostgreSQL
 
 Сервис Managed Service for PostgreSQL помогает создавать и поддерживать кластеры PostgreSQL в инфраструктуре Yandex Cloud.
@@ -35,7 +37,11 @@
    
       ![create-folder2](../_assets/resource-manager/create-folder-2.png)
 
-1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роли [vpc.user](../vpc/security/index.md#vpc-user) и [managed-postgresql.editor](security/index.md#managed-postgresql-editor) на каталог. Эти роли позволяют создать кластер.
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роли:
+
+    * [managed-postgresql.editor](security/index.md#managed-postgresql-editor) или выше — чтобы создать кластер;
+    * [vpc.user](../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../vpc/concepts/network.md#network) кластера;
+    * [mdb.viewer](../iam/roles-reference.md#mdb-viewer) — чтобы просматривать кластеры управляемых баз данных (MDB) на дашборде в [консоли управления](https://console.yandex.cloud).
 
     {% note info %}
     

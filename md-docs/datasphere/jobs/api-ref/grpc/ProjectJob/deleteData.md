@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex DataSphere](../../../../index.md) > Справочник API > gRPC (англ.) > [DataSphere Jobs API v2](../index.md) > [ProjectJob](index.md) > DeleteData
+
 # DataSphere Jobs API v2, gRPC: ProjectJobService.DeleteData
 
 Delete job data.

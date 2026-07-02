@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > [Концепции](index.md) > Выбор стратегии шардирования
+
 # Выбор стратегии шардирования
 
 Sharded PostgreSQL — это система для горизонтального масштабирования PostgreSQL с помощью [шардирования](sharding.md). Использование шардированной системы оправдано в следующих случаях:

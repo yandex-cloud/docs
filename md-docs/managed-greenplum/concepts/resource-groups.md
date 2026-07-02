@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Концепции](overview.md) > Ресурсные группы
+
 # Ресурсные группы
 
 Ресурсные группы позволяют пользователям с [ролью](cluster-users.md#mdb_admin) `mdb_admin` устанавливать квоты на выделяемые для обработки запросов ресурсы:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [DataLens](../index.md) > Решения для известных проблем DataLens
+
 ## Решения для известных проблем DataLens {#known-issues-resolving}
 
 * [Устранение проблем при создании подключения к таблице Google Sheets из DataLens](unable-to-load-file-when-using-gsheets-as-data-source.md)

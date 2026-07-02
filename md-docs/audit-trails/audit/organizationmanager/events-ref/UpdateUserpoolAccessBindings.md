@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > UpdateUserpoolAccessBindings
+
 # Identity Hub Audit Trails Events: UpdateUserpoolAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.idp.UpdateUserpoolAccessBindings2-schema}

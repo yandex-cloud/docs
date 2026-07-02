@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex SpeechKit Hybrid](index.md) > Документация Яндекс Спичкит Гибрид (Yandex SpeechKit Hybrid)
+
 # Документация Яндекс Спичкит Гибрид (Yandex SpeechKit Hybrid)
 
 | **Название документа**  | **Ссылка на скачивание**                 |

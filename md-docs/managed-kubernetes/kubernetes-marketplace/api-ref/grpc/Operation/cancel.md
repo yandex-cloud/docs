@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../../index.md) > Справочник API > [Kubernetes Marketplace gRPC (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Kubernetes Marketplace, gRPC: OperationService.Cancel
 
 Cancels the specified operation.

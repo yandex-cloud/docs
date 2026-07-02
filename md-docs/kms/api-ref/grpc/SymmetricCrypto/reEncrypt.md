@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SymmetricCrypto](index.md) > ReEncrypt
+
 # Key Management Service API, gRPC: SymmetricCryptoService.ReEncrypt
 
 Re-encrypts a ciphertext with the specified KMS key.

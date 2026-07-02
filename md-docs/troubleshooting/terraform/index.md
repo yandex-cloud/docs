@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Terraform-провайдер Yandex Cloud > Все решения для Terraform-провайдера Yandex Cloud
+
 # Решения для провайдера Terraform Yandex Cloud
 
 ## Примеры конфигураций и сценариев провайдера Terraform Yandex Cloud {#configuration-examples}

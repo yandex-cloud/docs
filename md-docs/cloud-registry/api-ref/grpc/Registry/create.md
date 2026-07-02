@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Registry](index.md) > Create
+
 # Yandex Cloud Registry API, gRPC: RegistryService.Create
 
 Creates a registry in the specified folder.

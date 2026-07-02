@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YDB](../../../index.md) > Document API, совместимый с Amazon DynamoDB > Инструменты > Работа с AWS SDK > Обзор
+
 # Работа с AWS SDK в Managed Service for YDB. Обзор
 
 В этом разделе описано, как с помощью AWS SDK для нескольких языков программирования написать простые программы, которые выполняют следующие операции в YDB:

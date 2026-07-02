@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Data source refused connection
+
 # [Yandex DataLens] Data source refused connection
 
 `ERR.DS_API.DB.SOURCE_CONNECT_ERROR`

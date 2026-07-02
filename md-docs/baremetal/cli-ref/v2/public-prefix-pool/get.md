@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v2](../index.md) > [public-prefix-pool](index.md) > get
+
 # yc baremetal v2 public-prefix-pool get
 
 Returns the specified public prefix pool.

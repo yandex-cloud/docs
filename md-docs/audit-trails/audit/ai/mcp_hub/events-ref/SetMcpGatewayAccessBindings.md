@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > ai.mcp_hub > SetMcpGatewayAccessBindings
+
 # AI Studio MCP Hub Audit Trails Events: SetMcpGatewayAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.ai.mcp_hub.SetMcpGatewayAccessBindings2-schema}

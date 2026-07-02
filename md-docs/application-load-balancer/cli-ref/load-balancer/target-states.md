@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [load-balancer](index.md) > target-states
+
 # yc application-load-balancer load-balancer target-states
 
 Shows states of targets in the target group and backend group for application load balancer.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > reschedule-maintenance
+
 # yc managed-clickhouse cluster reschedule-maintenance
 
 Reschedule currently planned maintenance operation.

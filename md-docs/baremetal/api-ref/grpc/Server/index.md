@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > Server > Overview
+
 # BareMetal API, gRPC: ServerService
 
 A set of methods for managing Server resources.

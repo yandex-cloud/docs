@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Kubernetes Marketplace > Resources > kubernetes_marketplace_helm_release
+
 # yandex_kubernetes_marketplace_helm_release (Resource)
 
 Allows management of Kubernetes product installed from Yandex Cloud Marketplace.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > Концепции > Взаимосвязь ресурсов
+
 # Взаимосвязь ресурсов в Yandex Compute Cloud
 
 Все ресурсы в Compute Cloud можно разделить на 3 типа:

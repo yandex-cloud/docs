@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Video](../index.md) > [Концепции](index.md) > Видео
+
 # Видео в сервисе Cloud Video
 
 С помощью Cloud Video вы можете загружать на [канал](index.md#channels) _видео_ для дальнейшей публикации на внешних ресурсах.

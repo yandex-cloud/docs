@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Trino](../../index.md) > [Справочник CLI (англ.)](../index.md) > v0 > Overview
+
 # yc managed-trino v0
 
 Manage Trino clusters.

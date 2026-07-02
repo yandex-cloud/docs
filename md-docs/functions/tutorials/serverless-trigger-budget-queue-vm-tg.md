@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Functions](../index.md) > [Практические руководства](index.md) > Рабочие процессы и автоматизация на Serverless > Создание триггеров, которые вызывают функции для остановки ВМ и отправки уведомлений в Telegram
+
 # Создание триггеров, которые вызывают функции Cloud Functions для остановки ВМ и отправки уведомлений в Telegram
 
 
@@ -40,7 +42,7 @@
 * Плата за вычислительные ресурсы ВМ ([тарифы Compute Cloud](../../compute/pricing.md#prices-instance-resources)).
 * Плата за [диски](../../compute/concepts/disk.md) ВМ ([тарифы Compute Cloud](../../compute/pricing.md#prices-storage)).
 * Плата за использование динамического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы Cloud Functions](../../functions/pricing.md)).
+* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы Cloud Functions](../pricing.md)).
 * Плата за количество запросов к очередям и исходящий трафик ([тарифы Message Queue](../../message-queue/pricing.md)).
 * Плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) ([тарифы Yandex Cloud Logging](../../logging/pricing.md)), если вы используете сервис [Cloud Logging](../../logging/index.md).
 

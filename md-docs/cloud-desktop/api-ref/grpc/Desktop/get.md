@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Desktop](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Desktop](index.md) > Get
+
 # Cloud Desktop API, gRPC: DesktopService.Get
 
 Returns the specified desktop resource.

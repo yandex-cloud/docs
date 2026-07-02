@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > apploadbalancer > DeleteVirtualHost
+
 # Application Load Balancer Audit Trails Events: DeleteVirtualHost
 
 ## Event JSON schema {#yandex.cloud.audit.apploadbalancer.DeleteVirtualHost2-schema}

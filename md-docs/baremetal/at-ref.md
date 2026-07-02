@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex BareMetal](index.md) > Концепции > Настройка и управление > Аудитные логи Audit Trails > Обзор
+
 # Справочник аудитных логов Yandex Audit Trails
 
 В Audit Trails для Yandex BareMetal поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).

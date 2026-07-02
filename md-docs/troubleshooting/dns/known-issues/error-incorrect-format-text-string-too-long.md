@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Cloud DNS](../index.md) > Устранение ошибки `Incorrect format. Text string too long`
+
 # Устранение ошибки `Incorrect format. Text string too long`
 
 

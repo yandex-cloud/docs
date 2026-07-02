@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Концепции](index.md) > Термины и определения
+
 # Термины и определения для Managed Service for YDB
 
 ## База данных {#database}

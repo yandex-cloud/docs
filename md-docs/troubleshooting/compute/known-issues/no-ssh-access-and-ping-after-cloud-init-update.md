@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Compute Cloud](../index.md) > Нет доступа к ВМ по SSH и ping после обновления cloud-init
+
 # Нет доступа к ВМ по SSH и ping после обновления cloud-init
 
 ## Описание проблемы {#description}

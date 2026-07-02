@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Group > Overview
+
 # Identity Hub API, gRPC: GroupService
 
 A set of methods for managing groups.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Message Queue](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Message Queue
 
 * [Конвертация видео в GIF на Python](video-converting-queue/index.md)

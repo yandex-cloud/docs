@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [backend-group](index.md) > update-http-backend
+
 # yc application-load-balancer backend-group update-http-backend
 
 Update HTTP backend to the backend group

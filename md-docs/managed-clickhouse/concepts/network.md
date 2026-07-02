@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Концепции](index.md) > Сеть в Managed Service for ClickHouse®
+
 # Сеть и кластеры БД в Managed Service for ClickHouse®
 
 

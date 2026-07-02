@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Video](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Cloud Video
 
 ## Каналы {#channels}

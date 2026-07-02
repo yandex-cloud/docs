@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Resource Manager](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Resource Manager
 
 * [Управление метками](manage-labels.md)

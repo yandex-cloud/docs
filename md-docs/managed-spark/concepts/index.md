@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Spark™](../index.md) > Концепции > Взаимосвязь ресурсов сервиса
+
 # Взаимосвязь ресурсов в Yandex Managed Service for Apache Spark™
 
 Yandex Managed Service for Apache Spark™ — это управляемый сервис для развертывания кластеров Apache Spark™ и запуска Spark/PySpark-заданий в инфраструктуре Yandex Cloud.

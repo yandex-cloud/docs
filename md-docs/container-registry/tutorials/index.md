@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Registry](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Container Registry
 
 * [Запуск Docker-образа на виртуальной машине](run-docker-on-vm/index.md)

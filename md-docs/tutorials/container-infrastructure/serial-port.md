@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Контейнерная инфраструктура](index.md) > Настройка вывода информации из Docker-контейнера в серийный порт
+
 # Настройка вывода информации из Docker-контейнера в серийный порт
 
 Чтобы создать [виртуальную машину](../../compute/concepts/vm.md) из [образа](../../compute/concepts/image.md) [Container Optimized Image](../../cos/concepts/index.md) и настроить перенаправление потока вывода приложения в [серийный порт](../../compute/concepts/serial-console.md) ВМ:

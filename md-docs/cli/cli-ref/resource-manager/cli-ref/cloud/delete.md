@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [resource-manager](../index.md) > [cloud](index.md) > delete
+
 # yc resource-manager cloud delete
 
 Delete the specified cloud

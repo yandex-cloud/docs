@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Processing](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > SetAccessBindings
+
 # Yandex Data Processing API, REST: Cluster.SetAccessBindings
 
 Sets access bindings for the specified cluster.

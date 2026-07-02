@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > HttpRouter > Overview
+
 # Application Load Balancer API, gRPC: HttpRouterService
 
 A set of methods for managing HTTP routers.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [gateway](index.md) > get
+
 # yc vpc gateway get
 
 Get information about a gateway.

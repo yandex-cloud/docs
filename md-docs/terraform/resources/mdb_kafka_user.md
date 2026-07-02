@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for Apache Kafka® > Resources > mdb_kafka_user
+
 # yandex_mdb_kafka_user (Resource)
 
 Manages a user of a Kafka User within the Yandex Cloud. For more information, see [the official documentation](../../managed-kafka/concepts/index.md).

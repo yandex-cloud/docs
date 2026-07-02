@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [dns](../../index.md) > [v0](../index.md) > [inbound-endpoint](index.md) > remove-access-binding
+
 # yc dns v0 inbound-endpoint remove-access-binding
 
 Remove access binding from the specified dns inbound endpoint

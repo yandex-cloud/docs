@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-clickhouse](../index.md) > shards > Overview
+
 # yc managed-clickhouse shards
 
 Manage shards in a ClickHouse cluster.

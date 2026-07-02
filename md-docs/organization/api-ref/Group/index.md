@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > Group > Overview
+
 # Identity Hub API, REST: Group
 
 A set of methods for managing groups.

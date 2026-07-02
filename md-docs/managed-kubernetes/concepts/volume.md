@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Концепции](index.md) > Использование объектов API Kubernetes > Том
+
 # Том
 
 Данные для работы приложений в [контейнерах](../../glossary/containerization.md#type-of-containers) можно хранить в самих контейнерах, но при этом возникают проблемы:

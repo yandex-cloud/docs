@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Управление кластером Kubernetes > Поддержка федерации сервисных аккаунтов IAM в кластере Kubernetes
+
 # Включение поддержки федерации сервисных аккаунтов Yandex Identity and Access Management в кластере Yandex Managed Service for Kubernetes
 
 В Managed Service for Kubernetes реализована интеграция с _федерациями сервисных аккаунтов_ Identity and Access Management.

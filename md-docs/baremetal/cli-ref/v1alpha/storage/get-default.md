@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v1alpha](../index.md) > [storage](index.md) > get-default
+
 # yc baremetal v1alpha storage get-default
 
 Returns the default storage for the specified configuration.

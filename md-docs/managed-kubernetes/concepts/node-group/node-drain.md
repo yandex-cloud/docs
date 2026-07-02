@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Концепции](../index.md) > Группа узлов > Расселение подов с узла
+
 # Расселение подов с узла
 
 При обновлении группы узлов со старого узла поды расселяются — переносятся на новый узел. Для того чтобы расселение не сказывалось на доступности сервисов, обслуживаемых приложениями в кластере Kubernetes, сконфигурируйте объект API Kubernetes [PodDisruptionBudget](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/pod-disruption-budget-v1/) для подов приложения.

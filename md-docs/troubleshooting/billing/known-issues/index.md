@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Yandex Cloud Billing](../index.md) > Решения для известных проблем Yandex Cloud Billing
+
 ## Решения для известных проблем Yandex Cloud Billing {#known-issues-resolving}
 
 * [В детализации по платежному аккаунту стало отображаться потребление по сервису Cloud Logging](cloud-logging-unexpectedly-charges-in-billing-account-details.md)

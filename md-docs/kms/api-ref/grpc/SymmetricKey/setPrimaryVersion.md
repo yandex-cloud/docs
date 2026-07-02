@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SymmetricKey](index.md) > SetPrimaryVersion
+
 # Key Management Service API, gRPC: SymmetricKeyService.SetPrimaryVersion
 
 Sets the primary version for the specified key. The primary version is used

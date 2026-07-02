@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > [Пошаговые инструкции](index.md) > Сеть > Создать статический маршрут
+
 # Создать статический маршрут
 
 В приватной сети Yandex BareMetal вы можете создавать [статические маршруты](../concepts/private-network.md#static-routes) для сетевого трафика.

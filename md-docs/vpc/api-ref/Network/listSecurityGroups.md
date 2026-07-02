@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Network](index.md) > ListSecurityGroups
+
 # Virtual Private Cloud API, REST: Network.ListSecurityGroups
 
 Lists security groups from the specified network.

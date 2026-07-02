@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > Справочник API > [Yandex Cloud REST (англ.)](../index.md) > Bucket > Overview
+
 # Object Storage API, REST: Bucket
 
 A set of methods for managing buckets.

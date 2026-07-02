@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > DataLens > Все решения для DataLens
+
 # Решения для DataLens
 
 ## Примеры конфигураций и сценариев DataLens {#configuration-examples}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Изменение кластера
+
 # Изменение кластера Sharded PostgreSQL
 
 После создания кластера вы можете изменить его основные и дополнительные настройки.

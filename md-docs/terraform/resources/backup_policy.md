@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud Backup > Resources > backup_policy
+
 # yandex_backup_policy (Resource)
 
 Allows management of [Yandex Cloud Backup Policy](../../backup/concepts/policy.md).

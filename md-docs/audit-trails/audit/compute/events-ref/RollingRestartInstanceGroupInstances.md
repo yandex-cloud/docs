@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > RollingRestartInstanceGroupInstances
+
 # Compute Audit Trails Events: RollingRestartInstanceGroupInstances
 
 ## Event JSON schema {#yandex.cloud.audit.compute.instancegroup.RollingRestartInstanceGroupInstances2-schema}

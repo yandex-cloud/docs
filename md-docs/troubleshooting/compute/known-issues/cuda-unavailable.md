@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Compute Cloud](../index.md) > Недоступна CUDA на платформе GPU
+
 # Недоступна CUDA на платформе GPU
 
 

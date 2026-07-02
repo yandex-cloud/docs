@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Airflow™](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > Delete
+
 # Managed Service for Apache Airflow™ API, REST: Cluster.Delete
 
 Deletes the specified Apache Airflow cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Connector](index.md) > Delete
+
 # Managed Service for Apache Kafka® API, gRPC: ConnectorService.Delete
 
 Deletes an Apache Kafka® connector.

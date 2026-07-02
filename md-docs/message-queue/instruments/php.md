@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Message Queue](../index.md) > [Начало работы](index.md) > Примеры кода > PHP
+
 # Пример использования Yandex Message Queue на PHP
 
 С помощью [AsyncAws](https://async-aws.com) можно управлять очередями сообщений в Message Queue, отправлять и принимать сообщения.

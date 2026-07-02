@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > audit-trails > Overview
+
 # yc audit-trails
 
 Manage Audit Trails resources

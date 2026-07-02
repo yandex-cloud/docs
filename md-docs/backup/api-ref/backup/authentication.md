@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Backup](../../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Cloud Backup
 
 # Аутентификация в API

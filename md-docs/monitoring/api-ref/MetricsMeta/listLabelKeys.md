@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Monitoring](../../index.md) > Справочник API > [REST](../index.md) > [MetricsMeta](index.md) > listLabelKeys
+
 # Метод listLabelKeys
 Возвращает список ключей меток.
  

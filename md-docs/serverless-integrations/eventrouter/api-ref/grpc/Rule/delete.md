@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API EventRouter > [gRPC (англ.)](../index.md) > [Rule](index.md) > Delete
+
 # EventRouter Service, gRPC: RuleService.Delete
 
 Deletes the specified rule.

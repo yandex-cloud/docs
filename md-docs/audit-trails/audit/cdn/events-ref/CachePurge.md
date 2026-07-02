@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > cdn > CachePurge
+
 # Cloud CDN Audit Trails Events: CachePurge
 
 ## Event JSON schema {#yandex.cloud.audit.cdn.gcore.CachePurge2-schema}

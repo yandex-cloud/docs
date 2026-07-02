@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Billing](../../../index.md) > Справочник API > gRPC (англ.) > [Billing](../index.md) > Sku > Overview
+
 # Billing API, gRPC: SkuService
 
 A set of methods for managing Sku resources.

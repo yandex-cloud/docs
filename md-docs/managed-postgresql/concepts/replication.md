@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Концепции](index.md) > Репликация
+
 # Репликация в Managed Service for PostgreSQL
 
 В кластерах Managed Service for PostgreSQL используется _кворумная репликация_ (quorum-based synchronous replication):

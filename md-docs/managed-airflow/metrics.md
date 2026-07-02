@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Apache Airflow™](index.md) > Метрики Yandex Monitoring
+
 # Справочник метрик Yandex Monitoring
 
 В этом разделе описаны метрики сервиса Managed Service for Apache Airflow™, поставляемые в [Monitoring](../monitoring/index.md).

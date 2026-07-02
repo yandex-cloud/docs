@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [organization-manager](../index.md) > [mfa-enforcement](index.md) > list-audience
+
 # yc organization-manager mfa-enforcement list-audience
 
 List audience for the specified mfa enforcement

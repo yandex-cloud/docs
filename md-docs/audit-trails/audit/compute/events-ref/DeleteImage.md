@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > DeleteImage
+
 # Compute Audit Trails Events: DeleteImage
 
 ## Event JSON schema {#yandex.cloud.audit.compute.DeleteImage2-schema}

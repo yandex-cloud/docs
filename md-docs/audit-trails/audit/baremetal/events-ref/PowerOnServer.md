@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > baremetal > PowerOnServer
+
 # BareMetal Audit Trails Events: PowerOnServer
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.PowerOnServer2-schema}

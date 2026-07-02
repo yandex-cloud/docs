@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [private-cloud-connection](index.md) > list
+
 # yc baremetal v0 private-cloud-connection list
 
 List private cloud connections

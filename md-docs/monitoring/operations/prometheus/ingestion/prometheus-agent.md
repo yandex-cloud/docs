@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Monitoring](../../../index.md) > [Yandex Managed Service for Prometheus®](../index.md) > [Запись метрик](index.md) > Агент сбора метрик
+
 # Агент для сбора метрик Prometheus
 
 Чтобы передавать метрики из виртуальной машины в Yandex Managed Service for Prometheus®, надо установить агент для сбора метрик. Вы можете установить любой агент, который поддерживает передачу метрик, либо воспользоваться Unified Agent с возможностью передачи метрик Prometheus. 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Resource Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Folder](index.md) > SetAccessBindings
+
 # Resource Manager API, gRPC: FolderService.SetAccessBindings
 
 Sets access bindings for the specified folder.

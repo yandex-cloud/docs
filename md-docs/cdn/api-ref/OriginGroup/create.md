@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [OriginGroup](index.md) > Create
+
 # Cloud CDN API, REST: OriginGroup.Create
 
 Creates origin group.

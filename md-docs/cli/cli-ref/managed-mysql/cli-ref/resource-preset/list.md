@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-mysql](../index.md) > [resource-preset](index.md) > list
+
 # yc managed-mysql resource-preset list
 
 List available MySQL resource presets.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Microsoft в Yandex Cloud > Использование продуктов Microsoft
+
 # Использование продуктов Microsoft в Yandex Cloud
 
 Перенесите свои привычные инструменты Microsoft в облако и используйте готовую масштабируемую инфраструктуру Yandex Cloud для решения своих задач.

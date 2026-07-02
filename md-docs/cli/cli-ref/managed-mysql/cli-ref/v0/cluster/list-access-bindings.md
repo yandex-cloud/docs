@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-mysql](../../index.md) > [v0](../index.md) > [cluster](index.md) > list-access-bindings
+
 # yc managed-mysql v0 cluster list-access-bindings
 
 List access bindings for the specified MySQL cluster

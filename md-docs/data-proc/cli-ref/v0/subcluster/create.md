@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Processing](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [subcluster](index.md) > create
+
 # yc dataproc v0 subcluster create
 
 Create a subcluster.

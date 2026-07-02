@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > [Пошаговые инструкции](../index.md) > Ресурсы > Удалить ресурс
+
 # Удаление ресурса
 
 {% list tabs group=instructions %}

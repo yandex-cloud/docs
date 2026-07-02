@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Подключения > Файлы и сервисы > Создание подключения к SpeechSense
+
 # Создание подключения к Yandex SpeechSense
 
 Чтобы создать подключение к SpeechSense:

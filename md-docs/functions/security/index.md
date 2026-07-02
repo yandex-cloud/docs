@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Functions](../index.md) > Управление доступом
+
 # Управление доступом в Cloud Functions
 
 В этом разделе вы узнаете:

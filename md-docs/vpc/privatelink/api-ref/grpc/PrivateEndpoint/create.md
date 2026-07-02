@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Virtual Private Cloud](../../../../index.md) > Справочник API > gRPC (англ.) > [Virtual Private Cloud API](../index.md) > [PrivateEndpoint](index.md) > Create
+
 # Virtual Private Cloud API, gRPC: PrivateEndpointService.Create
 
 Creates an private endpoint in the specified folder and network.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Концепции](index.md) > Удаление устаревших метрик (TTL)
+
 # Удаление устаревших метрик (TTL)
 
 В Yandex Monitoring существует два типа метрик:

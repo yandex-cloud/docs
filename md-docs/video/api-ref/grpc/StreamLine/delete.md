@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [StreamLine](index.md) > Delete
+
 # Video API, gRPC: StreamLineService.Delete
 
 Deletes a specific stream line by its ID.

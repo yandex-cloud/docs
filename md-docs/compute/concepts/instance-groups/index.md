@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Концепции](../index.md) > Группы виртуальных машин > Обзор
+
 # Концепции Instance Groups
 
 

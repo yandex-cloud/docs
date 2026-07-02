@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud DNS](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DnsZone](index.md) > List
+
 # Cloud DNS API, gRPC: DnsZoneService.List
 
 Retrieves the list of DNS zones in the specified folder.

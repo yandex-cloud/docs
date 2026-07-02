@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Key Management Service](../index.md) > Управление доступом
+
 # Управление доступом в Key Management Service
 
 В этом разделе вы узнаете:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Backup](index.md) > Delete
+
 # Managed Service for MongoDB API, gRPC: BackupService.Delete
 
 Returns the list of available backups for the specified MongoDB cluster.

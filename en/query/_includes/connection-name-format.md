@@ -1,4 +1,4 @@
-* The name must be in lowercase Latin letters.
-* Length: between 3 and 63 characters.
+* The name must consist of lowercase Latin letters.
+* It must be between 3 and 63 characters in length.
 * It may contain digits and hyphens.
-* The first character must be a letter, the last one cannot be a hyphen.
+* It must start with a letter and cannot end with a hyphen.

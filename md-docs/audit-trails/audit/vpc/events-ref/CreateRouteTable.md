@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > vpc > CreateRouteTable
+
 # Virtual Private Cloud Audit Trails Events: CreateRouteTable
 
 ## Event JSON schema {#yandex.cloud.audit.network.CreateRouteTable2-schema}

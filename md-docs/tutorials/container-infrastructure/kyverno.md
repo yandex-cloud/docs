@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Контейнерная инфраструктура](index.md) > Managed Service for Kubernetes > Использование продуктов Cloud Marketplace > Настройка Kyverno & Kyverno Policies
+
 # Настройка Kyverno & Kyverno Policies в Yandex Managed Service for Kubernetes
 
 # Настройка Kyverno & Kyverno Policies

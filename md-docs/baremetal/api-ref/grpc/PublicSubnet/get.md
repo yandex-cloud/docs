@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [PublicSubnet](index.md) > Get
+
 # BareMetal API, gRPC: PublicSubnetService.Get
 
 Returns the specific PublicSubnet resource.

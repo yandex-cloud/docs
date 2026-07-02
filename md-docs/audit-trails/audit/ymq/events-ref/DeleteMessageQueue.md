@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > ymq > DeleteMessageQueue
+
 # Message Queue Audit Trails Events: DeleteMessageQueue
 
 ## Event JSON schema {#yandex.cloud.audit.ymq.DeleteMessageQueue2-schema}

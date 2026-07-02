@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Управление хостами кластера > Миграция групп хостов в другую зону доступности
+
 # Миграция групп хостов в кластере Managed Service for OpenSearch в другую зону доступности
 
 

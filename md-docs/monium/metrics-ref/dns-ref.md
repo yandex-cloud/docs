@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Cloud DNS
+
 # Метрики Yandex Cloud DNS
 
 В этом разделе описаны метрики сервиса [Cloud DNS](../../dns/index.md), поставляемые в Monium Metrics.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [disk-placement-group](index.md) > list-operations
+
 # yc compute disk-placement-group list-operations
 
 List operations for the specified disk placement group

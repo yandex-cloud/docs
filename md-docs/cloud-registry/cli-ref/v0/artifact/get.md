@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [artifact](index.md) > get
+
 # yc cloud-registry v0 artifact get
 
 Get information about the artifact

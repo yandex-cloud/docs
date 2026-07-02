@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Пошаговые инструкции](../index.md) > Управление приложениями (SSO) > OIDC-приложения > Настроить доступ к приложению
+
 # Настроить доступ к OIDC-приложению в Yandex Identity Hub
 
 

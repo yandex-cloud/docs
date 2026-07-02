@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [OriginGroup](index.md) > Update
+
 # Cloud CDN API, gRPC: OriginGroupService.Update
 
 Updates the specified origin group.

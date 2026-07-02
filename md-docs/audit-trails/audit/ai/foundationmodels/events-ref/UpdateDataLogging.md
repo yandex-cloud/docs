@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > ai.foundationmodels > UpdateDataLogging
+
 # AI Studio Audit Trails Events: UpdateDataLogging
 
 ## Event JSON schema {#yandex.cloud.audit.ai.foundationmodels.UpdateDataLogging2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Sink](index.md) > Create
+
 # Cloud Logging Service, REST: Sink.Create
 
 Creates a sink in the specified folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Devices > [gRPC (англ.)](../index.md) > [DeviceData](index.md) > Publish
+
 # IoT Core Service, gRPC: DeviceDataService.Publish
 
 Publishes message on behalf of specified device

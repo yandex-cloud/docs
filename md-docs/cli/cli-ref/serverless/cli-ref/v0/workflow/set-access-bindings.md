@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [v0](../index.md) > [workflow](index.md) > set-access-bindings
+
 # yc serverless v0 workflow set-access-bindings
 
 Set access bindings for the specified Workflow and delete all existing access bindings if there were any

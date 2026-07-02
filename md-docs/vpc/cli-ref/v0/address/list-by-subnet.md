@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [address](index.md) > list-by-subnet
+
 # yc vpc v0 address list-by-subnet
 
 List addresses in a subnet.

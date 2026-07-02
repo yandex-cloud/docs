@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Serverless Containers > Data Sources > serverless_container
+
 # yandex_serverless_container (DataSource)
 
 Get information about a Yandex Cloud Serverless Container. This data source is used to define Yandex Cloud Container that can be used by other resources.

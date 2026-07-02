@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Trail > Overview
+
 # Audit Trails API, gRPC: TrailService
 
 A set of methods for managing trails.

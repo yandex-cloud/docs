@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Monium](../../index.md) > Справочник API > Логи > [REST (англ.)](../index.md) > [Sink](index.md) > SetAccessBindings
+
 # Cloud Logging Service, REST: Sink.SetAccessBindings
 
 Sets access bindings for the specified sink.

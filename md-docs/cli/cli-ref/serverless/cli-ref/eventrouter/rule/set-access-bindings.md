@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [eventrouter](../index.md) > [rule](index.md) > set-access-bindings
+
 # yc serverless eventrouter rule set-access-bindings
 
 Set access bindings for the specified rule and delete all existing access bindings if there were any

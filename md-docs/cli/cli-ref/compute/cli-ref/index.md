@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > compute > Overview
+
 # yc compute
 
 Manage Yandex Compute Cloud resources

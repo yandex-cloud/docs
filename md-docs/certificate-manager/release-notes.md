@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Certificate Manager](index.md) > История изменений
+
 # История изменений в Yandex Certificate Manager
 
 ## IV квартал 2024 {#q4-2024}

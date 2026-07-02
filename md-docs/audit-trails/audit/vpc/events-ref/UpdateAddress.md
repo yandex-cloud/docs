@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > vpc > UpdateAddress
+
 # Virtual Private Cloud Audit Trails Events: UpdateAddress
 
 ## Event JSON schema {#yandex.cloud.audit.network.UpdateAddress2-schema}

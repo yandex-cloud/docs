@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ResourcePreset](index.md) > Get
+
 # Managed Service for PostgreSQL API, REST: ResourcePreset.Get
 
 Returns the specified ResourcePreset resource.

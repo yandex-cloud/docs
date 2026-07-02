@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > [Справочник CLI (англ.)](../index.md) > [private-connection](index.md) > list-operations
+
 # yc cic private-connection list-operations
 
 Lists operations for the specified PrivateConnection.

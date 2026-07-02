@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > CrashInstance
+
 # Compute Audit Trails Events: CrashInstance
 
 ## Event JSON schema {#yandex.cloud.audit.compute.CrashInstance2-schema}

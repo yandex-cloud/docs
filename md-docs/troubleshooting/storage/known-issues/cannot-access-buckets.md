@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Object Storage](../index.md) > Устранение ошибки доступа к бакетам S3 из кластера Yandex Data Processing 1.4
+
 # Устранение ошибки доступа к бакетам S3 из кластера Yandex Data Processing 1.4
 
 

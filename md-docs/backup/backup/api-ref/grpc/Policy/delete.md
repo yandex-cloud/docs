@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Backup](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Policy](index.md) > Delete
+
 # Cloud Backup API, gRPC: PolicyService.Delete
 
 Delete specific policy.

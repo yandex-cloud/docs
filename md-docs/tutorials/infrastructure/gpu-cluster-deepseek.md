@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Базовая инфраструктура](index.md) > Инструменты > Запуск языковой модели DeepSeek-R1 в кластере GPU Compute Cloud
+
 # Запуск языковой модели DeepSeek-R1 в кластере GPU Yandex Compute Cloud
 
 

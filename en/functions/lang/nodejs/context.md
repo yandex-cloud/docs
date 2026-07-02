@@ -7,9 +7,9 @@ The invocation context provides additional information about a Node.js function 
 * `functionFolderId`: Folder containing the function.
 * `functionName`: Function ID.
 * `functionVersion`: Function version ID.
-* `memoryLimitInMB`: Amount of memory specified when creating the version, MB.
+* `memoryLimitInMB`: Amount of memory specified when creating the version, in MB.
 * `requestId`: Request ID.
-* `token`: Parameters for authentication in the APIs of {{ yandex-cloud }} services.
+* `token`: Parameters for authentication with the {{ yandex-cloud }} APIs.
 
 The context also contains the following helper methods:
 * `getRemainingTimeInMillis()`: Returns the remaining time for the current request, in ms.
@@ -19,11 +19,11 @@ The context also contains the following helper methods:
 
 You can use the invocation context to authenticate with {{ yandex-cloud }} APIs and manage how the HTTP request `body` is retrieved.
 
-### Authentication in the {{ yandex-cloud }} API {#token}
+### Authentication with the {{ yandex-cloud }} APIs {#token}
 
-If you specified a service account for a function, the `token` parameter contains authentication information for that service account:
+If you specified a service account for the function, the `token` parameter contains authentication information for that service account:
 * `access_token`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
-* `expires_in`: Token lifetime in seconds.
+* `expires_in`: Token lifetime, in seconds.
 * `token_type`: Token type, e.g.,`Bearer`.
 
 You can also get this information using the metadata service. For more information about this method, see [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm).

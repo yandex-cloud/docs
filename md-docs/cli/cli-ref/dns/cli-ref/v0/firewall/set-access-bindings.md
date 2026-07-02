@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [dns](../../index.md) > [v0](../index.md) > [firewall](index.md) > set-access-bindings
+
 # yc dns v0 firewall set-access-bindings
 
 Set access bindings to the specified dns firewall and delete all existing access bindings if there are any.

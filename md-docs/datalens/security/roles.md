@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > [Управление доступом](index.md) > Роли в DataLens
+
 # Роли в Yandex DataLens
 
 

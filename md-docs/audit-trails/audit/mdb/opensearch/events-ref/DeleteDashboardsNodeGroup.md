@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.opensearch > DeleteDashboardsNodeGroup
+
 # Managed Service for OpenSearch Audit Trails Events: DeleteDashboardsNodeGroup
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.opensearch.DeleteDashboardsNodeGroup2-schema}

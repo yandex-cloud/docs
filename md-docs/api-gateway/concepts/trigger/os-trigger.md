@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Триггер](index.md) > Триггер для Object Storage
+
 # Триггер для Object Storage, который отправляет сообщения в WebSocket-соединения
 
 [Триггер](index.md) для Object Storage отправляет сообщения в [WebSocket-соединения](../extensions/websocket.md), когда наступает определенное событие с [объектом](../../../storage/concepts/object.md) Object Storage. Триггер должен находиться в одном облаке с бакетом, на события которого он подписан.

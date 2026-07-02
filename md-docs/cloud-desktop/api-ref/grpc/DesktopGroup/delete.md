@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Desktop](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DesktopGroup](index.md) > Delete
+
 # Cloud Desktop API, gRPC: DesktopGroupService.Delete
 
 Deletes the specified desktop group.

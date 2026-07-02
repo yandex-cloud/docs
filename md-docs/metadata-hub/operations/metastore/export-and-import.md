@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > Пошаговые инструкции > Экспорт и импорт кластера
+
 # Экспорт и импорт метаданных Hive в кластере Apache Hive™ Metastore
 
 ## Перед началом работы {#before-you-begin}

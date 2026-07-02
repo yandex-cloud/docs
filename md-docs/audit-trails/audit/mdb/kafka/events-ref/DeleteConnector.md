@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.kafka > DeleteConnector
+
 # Managed Service for Apache Kafka® Audit Trails Events: DeleteConnector
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.kafka.DeleteConnector2-schema}

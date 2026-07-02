@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Joined columns should form prefix of joined table key columns
+
 # [Yandex DataLens] Joined columns should form prefix of joined table key columns
 
 `ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.NOT_KEY_PREFIX_COLUMN`

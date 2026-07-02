@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > smartwebsecurity > DeleteWafProfile
+
 # Smart Web Security Audit Trails Events: DeleteWafProfile
 
 ## Event JSON schema {#yandex.cloud.audit.smartwebsecurity.DeleteWafProfile2-schema}

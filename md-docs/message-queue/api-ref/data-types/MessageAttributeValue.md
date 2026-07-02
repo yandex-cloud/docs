@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Message Queue](../../index.md) > [Справочник API](../index.md) > Типы данных > MessageAttributeValue
+
 # MessageAttributeValue
 
 Значение пользовательского атрибута сообщения. На строковые значения накладываются те же ограничения, что и на тело сообщения.

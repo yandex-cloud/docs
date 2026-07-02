@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > IoT Core Devices > Data Sources > iot_core_registry
+
 # yandex_iot_core_registry (DataSource)
 
 Get information about a Yandex IoT Core Registry. For more information IoT Core, see [Yandex Cloud IoT Registry](../../iot-core/quickstart.md).

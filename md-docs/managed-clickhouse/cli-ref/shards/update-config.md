@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [shards](index.md) > update-config
+
 # yc managed-clickhouse shards update-config
 
 Update the configurationg for a shard.

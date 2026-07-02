@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [LogGroup](index.md) > Delete
+
 # Cloud Logging Service, REST: LogGroup.Delete
 
 Deletes the specified log group.

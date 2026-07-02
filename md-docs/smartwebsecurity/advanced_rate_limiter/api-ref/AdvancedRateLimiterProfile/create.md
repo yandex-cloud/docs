@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > Справочник API > REST (англ.) > [SmartWebSecurity ARL API](../index.md) > [AdvancedRateLimiterProfile](index.md) > Create
+
 # SmartWebSecurity ARL API, REST: AdvancedRateLimiterProfile.Create
 
 Creates a ARL profile in the specified folder using the data specified in the request.

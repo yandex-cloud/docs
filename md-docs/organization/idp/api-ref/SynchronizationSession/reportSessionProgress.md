@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [Identity Provider API](../index.md) > [SynchronizationSession](index.md) > ReportSessionProgress
+
 # Identity Provider API, REST: SynchronizationSession.ReportSessionProgress
 
 Reports progress for a synchronization session.

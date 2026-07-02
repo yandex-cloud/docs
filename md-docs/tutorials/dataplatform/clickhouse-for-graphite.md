@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Настройка Managed Service for ClickHouse® для Graphite
+
 # Настройка Yandex Managed Service for ClickHouse® для Graphite
 
 # Настройка Managed Service for ClickHouse® для Graphite

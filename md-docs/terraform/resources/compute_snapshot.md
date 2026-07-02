@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Compute Cloud > Resources > compute_snapshot
+
 # yandex_compute_snapshot (Resource)
 
 Creates a new snapshot of a disk. For more information, see [the official documentation](../../compute/concepts/snapshot.md).

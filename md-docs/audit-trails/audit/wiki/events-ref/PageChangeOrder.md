@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > PageChangeOrder
+
 # Yandex Wiki Audit Trails Events: PageChangeOrder
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.PageChangeOrder2-schema}

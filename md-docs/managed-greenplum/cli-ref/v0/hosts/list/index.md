@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [hosts](../index.md) > list > Overview
+
 # yc managed-greenplum v0 hosts list
 
 List hosts for the specified Greenplum cluster

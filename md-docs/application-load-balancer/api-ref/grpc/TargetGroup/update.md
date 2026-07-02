@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [TargetGroup](index.md) > Update
+
 # Application Load Balancer API, gRPC: TargetGroupService.Update
 
 Updates the specified target group.

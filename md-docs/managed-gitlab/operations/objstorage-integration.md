@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > [Пошаговые инструкции](index.md) > Интеграция с Object Storage
+
 # Интеграция с Object Storage
 
 Интеграция с Object Storage позволяет уменьшить объем данных на дисках [инстанса](../concepts/index.md#instance) и предотвратить их переполнение. Вы можете выбрать типы данных, которые будут храниться в Object Storage:

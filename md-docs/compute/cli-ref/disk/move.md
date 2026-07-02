@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [disk](index.md) > move
+
 # yc compute disk move
 
 Move the specified disk into the folder

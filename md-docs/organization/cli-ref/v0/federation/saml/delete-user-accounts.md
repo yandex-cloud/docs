@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [federation](../index.md) > [saml](index.md) > delete-user-accounts
+
 # yc organization-manager v0 federation saml delete-user-accounts
 
 Delete user accounts from the specified federation

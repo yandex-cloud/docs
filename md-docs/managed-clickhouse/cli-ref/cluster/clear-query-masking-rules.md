@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > clear-query-masking-rules
+
 # yc managed-clickhouse cluster clear-query-masking-rules
 
 Clear query masking rules settings for a ClickHouse cluster.

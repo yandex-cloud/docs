@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > Концепции > MFA
+
 # Многофакторная аутентификация в Yandex Identity Hub
 
 Yandex Identity Hub позволяет настроить [многофакторную аутентификацию](https://ru.wikipedia.org/wiki/Многофакторная_аутентификация) (MFA) для [федеративных](../../iam/concepts/users/accounts.md#saml-federation) и [локальных](../../iam/concepts/users/accounts.md#local) пользовательских аккаунтов.
@@ -65,7 +67,7 @@ MFA дает возможность повысить степень защище
 
         {% note info %}
         
-        Функциональность SMS в качестве фактора аутентификации находится на стадии [Preview](../../overview/concepts/launch-stages.md) и доступна только клиентам с [тарифицируемым лимитом](../../organization/pricing.md#prices) пользователей Yandex Identity Hub. Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+        Функциональность SMS в качестве фактора аутентификации находится на стадии [Preview](../../overview/concepts/launch-stages.md) и доступна только клиентам с [тарифицируемым лимитом](../pricing.md#prices) пользователей Yandex Identity Hub. Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
         
         {% endnote %}
 

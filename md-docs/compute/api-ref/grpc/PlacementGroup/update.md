@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [PlacementGroup](index.md) > Update
+
 # Compute Cloud API, gRPC: PlacementGroupService.Update
 
 Updates the specified placement group.

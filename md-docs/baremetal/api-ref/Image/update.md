@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [Image](index.md) > Update
+
 # BareMetal API, REST: Image.Update
 
 Updates the specified image.

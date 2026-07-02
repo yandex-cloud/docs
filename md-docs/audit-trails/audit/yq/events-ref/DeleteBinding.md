@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > yq > DeleteBinding
+
 # Yandex Query Audit Trails Events: DeleteBinding
 
 ## Event JSON schema {#yandex.cloud.audit.yq.DeleteBinding2-schema}

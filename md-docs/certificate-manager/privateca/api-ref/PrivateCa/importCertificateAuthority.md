@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > REST (англ.) > [Certificate Manager Private CA API](../index.md) > [PrivateCa](index.md) > ImportCertificateAuthority
+
 # Certificate Manager Private CA API, REST: PrivateCa.ImportCertificateAuthority
 
 Imports an externally generated Certificate Authority (CA).

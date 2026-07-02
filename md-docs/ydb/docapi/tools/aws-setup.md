@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for YDB](../../index.md) > Document API, совместимый с Amazon DynamoDB > Инструменты > Настройка инструментов AWS
+
 # Настройка инструментов AWS
 
 Для работы с БД через Document API в режиме совместимости с AWS DynamoDB вы можете использовать инструменты AWS:

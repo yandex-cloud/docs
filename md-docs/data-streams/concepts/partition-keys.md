@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Streams](../index.md) > [Концепции](index.md) > Сегменты и ключи сегментов
+
 # Сегменты и ключи сегментов
 
 Следующие примеры поясняют понятия [сегментов](glossary.md#hard) (Partitions) и [ключей сегментов](glossary.md#partition-key) (PartitionKey).

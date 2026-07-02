@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [image](index.md) > set-access-bindings
+
 # yc compute v0 image set-access-bindings
 
 Set access bindings for the specified image and delete all existing access bindings if there were any

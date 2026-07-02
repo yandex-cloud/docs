@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > [Справочник CLI (англ.)](../index.md) > [inbound-endpoint](index.md) > list-operations
+
 # yc dns inbound-endpoint list-operations
 
 List operations of the specified dns inbound endpoint.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Desktop](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DesktopGroup](index.md) > ListAccessBindings
+
 # Cloud Desktop API, gRPC: DesktopGroupService.ListAccessBindings
 
 Returns a list of the access bindings for the specified desktop group.

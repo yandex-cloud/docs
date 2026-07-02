@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > ydb > UpdateDatabase
+
 # Managed Service for YDB Audit Trails Events: UpdateDatabase
 
 ## Event JSON schema {#yandex.cloud.audit.ydb.UpdateDatabase2-schema}

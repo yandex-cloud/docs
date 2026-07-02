@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Spark™](../index.md) > [Концепции](index.md) > Автоматическое масштабирование
+
 # Автоматическое масштабирование в Yandex Managed Service for Apache Spark™
 
 *Автоматическое масштабирование* — это изменение количества хостов в кластере Apache Spark™ в зависимости от текущей нагрузки.

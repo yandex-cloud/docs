@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex SmartCaptcha](../../../index.md) > [Практические руководства](../../index.md) > Невидимая капча в приложении Android
+
 # Невидимая SmartCaptcha в приложении на Android
 
 # Невидимая Yandex SmartCaptcha в приложении на Android

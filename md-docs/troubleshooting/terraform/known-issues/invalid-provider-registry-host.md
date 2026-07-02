@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Terraform-провайдер Yandex Cloud](../index.md) > Устранение ошибки `Invalid provider registry host`
+
 # Устранение ошибки `Invalid provider registry host`
 
 

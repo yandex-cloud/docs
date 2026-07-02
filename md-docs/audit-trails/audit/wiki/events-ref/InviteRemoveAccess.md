@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > InviteRemoveAccess
+
 # Yandex Wiki Audit Trails Events: InviteRemoveAccess
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.InviteRemoveAccess2-schema}

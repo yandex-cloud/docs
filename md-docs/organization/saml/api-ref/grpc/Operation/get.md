@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [SAML Federation API](../index.md) > [Operation](index.md) > Get
+
 # SAML Federation API, gRPC: OperationService.Get
 
 Returns the specified Operation resource.

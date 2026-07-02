@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Video](index.md) > Create
+
 # Video API, gRPC: VideoService.Create
 
 Creates a new video in the specified channel.

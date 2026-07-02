@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MetaData Hub](../../../index.md) > Apache Hive™ Metastore > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > ImportData
+
 # Managed Service for Hive Metastore™ API, gRPC: ClusterService.ImportData
 
 Imports data to the specified Metastore Cluster.

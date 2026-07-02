@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Serverless Integrations](index.md) > История изменений
+
 # История изменений в Yandex Serverless Integrations
 
 ## Февраль 2026 {#february-2026}

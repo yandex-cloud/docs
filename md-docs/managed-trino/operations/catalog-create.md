@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > [Пошаговые инструкции](index.md) > Каталоги > Создание каталога
+
 # Создание каталога Trino
 
 ## Роли для создания каталога Trino {#roles}

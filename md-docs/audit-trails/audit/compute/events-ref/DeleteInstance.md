@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > DeleteInstance
+
 # Compute Audit Trails Events: DeleteInstance
 
 ## Event JSON schema {#yandex.cloud.audit.compute.DeleteInstance2-schema}

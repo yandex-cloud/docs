@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Lockbox](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Secret](index.md) > ListAccessBindings
+
 # Lockbox API, REST: Secret.ListAccessBindings
 
 Lists existing access bindings for the specified secret.

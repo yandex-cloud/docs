@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Group](index.md) > ConvertAllToBasic
+
 # Identity Hub API, gRPC: GroupService.ConvertAllToBasic
 
 Converts all groups that belongs to subject container from external to basic (not external).

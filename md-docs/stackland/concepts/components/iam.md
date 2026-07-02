@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > Концепции > [Компоненты](overview.md) > IAM
+
 # Identity and Access Management
 
 Identity and Access Management — компонент для управления доступом пользователей и сервисных аккаунтов к ресурсам платформы. Компонент обеспечивает централизованную аутентификацию и авторизацию во всех сервисах платформы.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Logging](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [sink](index.md) > remove-access-binding
+
 # yc logging v0 sink remove-access-binding
 
 Rempve access binding from the specified sink

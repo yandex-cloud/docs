@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Безопасность в Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Сбор, мониторинг и анализ аудитных логов > Поиск событий Yandex Cloud в Cloud Logging
+
 # Поиск событий Yandex Cloud в Yandex Cloud Logging
 
 # Поиск событий Yandex Cloud в Cloud Logging

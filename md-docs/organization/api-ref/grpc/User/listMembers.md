@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [User](index.md) > ListMembers
+
 # Identity Hub API, gRPC: UserService.ListMembers
 
 List organization active members.

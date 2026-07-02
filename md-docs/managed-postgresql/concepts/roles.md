@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Концепции](index.md) > Назначение ролей
+
 # Назначение ролей PostgreSQL
 
 Сервис Managed Service for PostgreSQL не дает доступа к [предопределенным ролям](https://www.postgresql.org/docs/current/predefined-roles.html). Вместо этого он предоставляет специальные роли:

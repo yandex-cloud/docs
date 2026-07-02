@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Object Storage > Resources > storage_object
+
 # yandex_storage_object (Resource)
 
 Allows management of [Yandex Cloud Storage Object](../../storage/concepts/object.md).

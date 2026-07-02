@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > reschedule-maintenance
+
 # yc managed-greenplum cluster reschedule-maintenance
 
 Reschedule maintenance for the specified Greenplum cluster

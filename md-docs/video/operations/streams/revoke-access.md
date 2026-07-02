@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > [Пошаговые инструкции](../index.md) > Трансляции > Отозвать доступ к трансляции
+
 # Отозвать доступ к трансляции
 
 {% list tabs group=instructions %}

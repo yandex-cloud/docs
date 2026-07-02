@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DnsFirewall](index.md) > Delete
+
 # Cloud DNS API, REST: DnsFirewall.Delete
 
 Deletes the specified DNS firewall.

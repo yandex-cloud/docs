@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Пошаговые инструкции](../index.md) > Подключение > Предварительная настройка
+
 # Предварительная настройка для подключения к кластеру ClickHouse®
 
 К хостам кластера Managed Service for ClickHouse® можно подключиться:

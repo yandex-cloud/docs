@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > speechsense > SearchTalks
+
 # Talk Analytics Audit Trails Events: SearchTalks
 
 ## Event JSON schema {#yandex.cloud.audit.speechsense.SearchTalks2-schema}

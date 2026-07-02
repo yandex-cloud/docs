@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.spqr > DeleteClusterShards
+
 # Managed Service for SPQR Audit Trails Events: DeleteClusterShards
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.spqr.DeleteClusterShards2-schema}

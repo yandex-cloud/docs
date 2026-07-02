@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [История изменений](index.md) > Образы
+
 # История изменений образов Yandex Data Processing
 Полный состав актуальных и устаревших образов Yandex Data Processing в разделе [Среда исполнения](../concepts/environment.md).
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > baremetal > DeletePublicPrefixPool
+
 # BareMetal Audit Trails Events: DeletePublicPrefixPool
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.DeletePublicPrefixPool2-schema}

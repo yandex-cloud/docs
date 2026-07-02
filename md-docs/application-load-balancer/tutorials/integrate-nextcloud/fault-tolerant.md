@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Практические руководства](../index.md) > [Развертывание Nextcloud в интеграции с Object Storage](index.md) > Развертывание Nextcloud на ВМ или в группе ВМ вручную
+
 # Развертывание Nextcloud вручную на виртуальной машине или в группе виртуальных машин Yandex Compute Cloud в интеграции с Yandex Object Storage
 
 В этом руководстве вы подключите [бакет](../../../storage/concepts/bucket.md) Object Storage к решению Nextcloud, развернутому на [виртуальной машине](../../../compute/concepts/vm.md) Compute Cloud с базой данных в [кластере](../../../managed-mysql/concepts/index.md) Yandex Managed Service for MySQL®. Для обеспечения отказоустойчивости и избыточности создаваемой под Nextcloud инфраструктуры вы масштабируете Nextcloud на [группу виртуальных машин](../../../compute/concepts/instance-groups/index.md) с распределением нагрузки при помощи [L7-балансировщика](../../concepts/application-load-balancer.md) Yandex Application Load Balancer. В отказоустойчивой конфигурации Nextcloud будет доступен по доменному имени, для которого в Yandex Certificate Manager будет выпущен [TLS-сертификат](../../../certificate-manager/concepts/managed-certificate.md).
@@ -61,7 +63,7 @@
 * плата за [хранение данных](../../../storage/concepts/bucket.md) в Object Storage и [операции](../../../storage/operations/index.md) с ними ([тарифы Yandex Object Storage](../../../storage/pricing.md));
 * плата за использование управляемой БД MySQL® ([тарифы Managed Service for MySQL®](../../../managed-mysql/pricing.md));
 * при использовании Yandex Cloud DNS плата за [DNS-зоны](../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы ([тарифы Cloud DNS](../../../dns/pricing.md));
-* при использовании балансировщика нагрузки плата за количество ресурсных единиц [L7-балансировщика](../../concepts/application-load-balancer.md) ([тарифы Yandex Application Load Balancer](../../../application-load-balancer/pricing.md));
+* при использовании балансировщика нагрузки плата за количество ресурсных единиц [L7-балансировщика](../../concepts/application-load-balancer.md) ([тарифы Yandex Application Load Balancer](../../pricing.md));
 * при использовании [лог-группы](../../../logging/concepts/log-group.md) для записи логов балансировщика плата за запись и хранение данных ([тарифы Yandex Cloud Logging](../../../logging/pricing.md)).
 
 ## Разверните Nextcloud в базовой конфигурации {#the-basic-variant}

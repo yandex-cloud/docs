@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [PlacementGroup](index.md) > ListInstances
+
 # Compute Cloud API, gRPC: PlacementGroupService.ListInstances
 
 Lists instances for the specified placement group.

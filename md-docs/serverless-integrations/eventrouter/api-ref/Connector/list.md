@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > [Connector](index.md) > List
+
 # EventRouter Service, REST: Connector.List
 
 Retrieves the list of connectors in the specified folder.

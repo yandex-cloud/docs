@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > ChangeDiskStatus
+
 # Compute Audit Trails Events: ChangeDiskStatus
 
 ## Event JSON schema {#yandex.cloud.audit.compute.ChangeDiskStatus2-schema}

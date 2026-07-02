@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Maintenance](index.md) > Get
+
 # Managed Service for Greenplum® API, gRPC: MaintenanceService.Get
 
 Retrieves the specific Maintenance by ID.

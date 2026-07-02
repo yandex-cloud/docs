@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > serverless > DeleteDomain
+
 # API Gateway Audit Trails Events: DeleteDomain
 
 ## Event JSON schema {#yandex.cloud.audit.serverless.apigateway.DeleteDomain2-schema}

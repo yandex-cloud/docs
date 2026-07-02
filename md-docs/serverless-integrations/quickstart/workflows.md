@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Integrations](../index.md) > [Начало работы](index.md) > Workflows
+
 # Начало работы с Workflows
 
 {% note info %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Практические руководства](index.md) > Непрерывная интеграция с GitLab > Сканирование уязвимостей Container Registry при непрерывном развертывании приложений с помощью GitLab
+
 # Сканирование уязвимостей Container Registry при непрерывном развертывании приложений с помощью GitLab
 
 # Сканирование уязвимостей Container Registry при непрерывном развертывании приложений Managed Service for Kubernetes с помощью GitLab

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [pxf-datasource](../index.md) > update > Overview
+
 # yc managed-greenplum pxf-datasource update
 
 Update pxf-datasource for specified Greenplum cluster

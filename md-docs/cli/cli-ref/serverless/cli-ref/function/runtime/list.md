@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [function](../index.md) > [runtime](index.md) > list
+
 # yc serverless function runtime list
 
 List runtimes

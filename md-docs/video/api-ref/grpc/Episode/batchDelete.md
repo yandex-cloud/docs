@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Episode](index.md) > BatchDelete
+
 # Video API, gRPC: EpisodeService.BatchDelete
 
 Deletes multiple episodes associated with a specific stream or stream line in a single request.

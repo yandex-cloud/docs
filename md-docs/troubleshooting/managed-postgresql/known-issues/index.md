@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for PostgreSQL](../index.md) > Решения для известных проблем Managed Service for PostgreSQL
+
 ## Решения для известных проблем Managed Service for PostgreSQL {#known-issues-resolving}
 
 * [Восстановление работоспособности кластера Managed Service for PostgreSQL после исчерпания свободного места в хранилище данных](restoring-health-of-a-cluster-after-switching-its-disks-to-read-only-mode.md)

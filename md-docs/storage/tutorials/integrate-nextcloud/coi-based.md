@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > [Развертывание Nextcloud в интеграции с Object Storage](index.md) > Развертывание Nextcloud на ВМ из образа Container Optimized Image
+
 # Развертывание Nextcloud на виртуальной машине Yandex Compute Cloud из образа Container Optimized Image в интеграции с Object Storage
 
 В этом руководстве вы развернете решение Nextcloud на [виртуальной машине](../../../compute/concepts/vm.md) Compute Cloud с помощью образа [Container Optimized Image](../../../cos/concepts/index.md) и подключите к нему [бакет](../../concepts/bucket.md) Object Storage. Для реализации этого решения вам потребуется [доменное имя](https://ru.wikipedia.org/wiki/Доменное_имя), по которому будет осуществляться доступ к ресурсам в Nextcloud.
@@ -30,7 +32,7 @@
 В стоимость предлагаемого решения входят: 
 * плата за [диски](../../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
 * плата за использование [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за [хранение данных](../../concepts/bucket.md) в Object Storage и [операции](../../operations/index.md) с ними ([тарифы Yandex Object Storage](../../../storage/pricing.md));
+* плата за [хранение данных](../../concepts/bucket.md) в Object Storage и [операции](../../operations/index.md) с ними ([тарифы Yandex Object Storage](../../pricing.md));
 * при использовании Yandex Cloud DNS плата за [DNS-зоны](../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы ([тарифы Cloud DNS](../../../dns/pricing.md)).
 
 ## Создайте и настройте облачную сеть {#setup-network}

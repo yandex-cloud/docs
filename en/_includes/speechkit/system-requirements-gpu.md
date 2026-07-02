@@ -1,6 +1,6 @@
 ## Hardware requirements for STT and TTS servers {#hardware}
 
-Below are the recommended hardware requirements for running {{ sk-hybrid-name }} containers. The estimated values of {{ sk-hybrid-name }} specifications are given for reference for the hardware with the NVIDIA 535 driver. The actual values may change after containers are updated and new features arrive.
+Below are the recommended hardware requirements for running {{ sk-hybrid-name }} containers. The estimated values of {{ sk-hybrid-name }} specifications are given for reference for the hardware with the NVIDIA 535 driver. The actual values may change after container updates and addition of new features.
 
 The data in the tables is for the Russian language only, unless otherwise specified:
 

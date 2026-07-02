@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Практические руководства](../index.md) > Использование продуктов Cloud Marketplace > Интеграция с Argo CD
+
 # Интеграция с Argo CD
 
 
@@ -21,14 +23,14 @@
 В стоимость поддержки описываемого решения входят:
 
 * Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичные IP-адреса, если они назначены узлам кластера ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за NAT-шлюз, если он используется вместо публичных IP-адресов для узлов кластера ([тарифы Virtual Private Cloud](../../vpc/pricing.md#nat-gateways)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../../compute/pricing.md)).
+* Плата за публичные IP-адреса, если они назначены узлам кластера ([тарифы Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
+* Плата за NAT-шлюз, если он используется вместо публичных IP-адресов для узлов кластера ([тарифы Virtual Private Cloud](../../../vpc/pricing.md#nat-gateways)).
 * Плата за [использование хранилища](../../../container-registry/pricing.md) Container Registry.
 * Плата за инстанс GitLab. Она зависит от способа создания инстанса:
 
-   * Managed Service for GitLab: оплачиваются ресурсы ВМ, хранение данных и резервных копий, объем исходящего трафика ([тарифы Managed Service for GitLab](../../managed-gitlab/pricing)).
-   * ВМ с образом GitLab: оплачиваются ресурсы ВМ, образ GitLab, публичный IP-адрес для ВМ ([тарифы Compute Cloud](../../compute/pricing.md) и [Virtual Private Cloud](../../vpc/pricing.md#nat-gateways)).
+   * Managed Service for GitLab: оплачиваются ресурсы ВМ, хранение данных и резервных копий, объем исходящего трафика ([тарифы Managed Service for GitLab](../../../managed-gitlab/pricing.md)).
+   * ВМ с образом GitLab: оплачиваются ресурсы ВМ, образ GitLab, публичный IP-адрес для ВМ ([тарифы Compute Cloud](../../../compute/pricing.md) и [Virtual Private Cloud](../../../vpc/pricing.md#nat-gateways)).
 
 
 ## Перед началом работы {#before-you-begin}

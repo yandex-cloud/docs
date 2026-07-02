@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API Workflows > [REST (англ.)](../index.md) > [Workflow](index.md) > List
+
 # Workflows Service, REST: Workflow.List
 
 Retrieves list of Workflows in specified folder.

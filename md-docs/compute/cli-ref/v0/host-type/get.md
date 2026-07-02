@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [host-type](index.md) > get
+
 # yc compute v0 host-type get
 
 Show information about the specified host type

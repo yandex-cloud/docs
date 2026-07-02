@@ -209,12 +209,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support costs for a web app include:
 
-* Fee for VM computing resources and disks the {{ k8s }} cluster will be deployed on (see [{{ compute-name }} pricing](../compute/pricing.md)).
-* Fee for using the L7 load balancer’s computing resources (see [{{ alb-full-name }} pricing](../application-load-balancer/pricing.md)).
-* Fee for using the master of the {{ managed-k8s-name }} managing cluster and outbound traffic (see [{{ managed-k8s-full-name }} pricing](../managed-kubernetes/pricing.md)).
-* Fee for using [public IP addresses](../vpc/concepts/address.md#public-addresses) and [NAT gateway](../vpc/concepts/gateways.md) (see [{{ vpc-full-name }} pricing](../vpc/pricing.md)).
+* Fee for the VM computing resources and disks that the {{ k8s }} cluster will be deployed on (see [{{ compute-name }} pricing](../compute/pricing.md)).
+* Fee for using the L7 load balancer's computing resources (see [{{ alb-full-name }} pricing](../application-load-balancer/pricing.md)).
+* Fee for using the {{ managed-k8s-name }} management cluster master and outgoing traffic (see [{{ managed-k8s-full-name }} pricing](../managed-kubernetes/pricing.md)).
+* Fee for using [public IP addresses](../vpc/concepts/address.md#public-addresses) and a [NAT gateway](../vpc/concepts/gateways.md) (see [{{ vpc-full-name }} pricing](../vpc/pricing.md)).
 * Fee for a continuously running {{ mpg-name }} cluster (see [{{ mpg-name }} pricing](../managed-postgresql/pricing.md)).
-* Fee for using a public [DNS zone](../dns/concepts/dns-zone.md#public-zones) and public DNS requests (see [{{ dns-full-name }} pricing](../dns/pricing.md)).
+* Fee for using a [public DNS zone](../dns/concepts/dns-zone.md#public-zones) and public DNS requests (see [{{ dns-full-name }} pricing](../dns/pricing.md)).
 * Fee for logging and log storage in a [log group](../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../logging/pricing.md)).
  
 ## Create the infrastructure {#deploy}
@@ -222,7 +222,7 @@ The infrastructure support costs for a web app include:
 {% include [terraform-definition](../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 To create your infrastructure via {{ TF }}:
-1. [Install {{ TF }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [obtain authentication credentials](../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
+1. [Install {{ TF }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get authentication credentials](../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
 
 1. Prepare your infrastructure description files:
 
@@ -236,7 +236,7 @@ To create your infrastructure via {{ TF }}:
         ```bash
         cd yc-mk8s-ha-todo-application
         ```
-    1. In the `terraform.tfvars` file, specify these custom settings:
+    1. In the `terraform.tfvars` file, set the following user-defined properties:
 
         * `folder_id`: [Folder ID](../resource-manager/operations/folder/get-id.md).
         * `target_host`: Your domain's name. The domain must be [delegated](../dns/concepts/dns-zone.md#public-zones) to [{{ dns-full-name }}](../dns/index.yaml).

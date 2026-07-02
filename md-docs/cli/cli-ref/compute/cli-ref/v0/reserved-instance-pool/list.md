@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [compute](../../index.md) > [v0](../index.md) > [reserved-instance-pool](index.md) > list
+
 # yc compute v0 reserved-instance-pool list
 
 List reserved instance pools

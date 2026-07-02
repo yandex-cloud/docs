@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v1alpha](../index.md) > [private-subnet](index.md) > update
+
 # yc baremetal v1alpha private-subnet update
 
 Updates the specified private subnet.

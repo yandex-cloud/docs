@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Audit Trails
+
 # Метрики Yandex Audit Trails
 
 В этом разделе описаны метрики сервиса [Audit Trails](../../audit-trails/index.md), поставляемые в Monitoring.

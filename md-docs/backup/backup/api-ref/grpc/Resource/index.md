@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Backup](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Resource > Overview
+
 # Cloud Backup API, gRPC: ResourceService
 
 A set of methods for managing backup resources: [Compute Cloud instances](../../../../concepts/vm-connection.md#os).

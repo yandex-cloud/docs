@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > Управление доступом
+
 # Управление доступом в Virtual Private Cloud
 
 Для управления правами доступа в Virtual Private Cloud используются [роли](../../iam/concepts/access-control/roles.md).

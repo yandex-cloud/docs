@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Справочник YC CLI (англ.)](../index.md) > [s3api](index.md) > upload-part-copy
+
 # yc storage s3api upload-part-copy
 
 Uploads a part by copying data from an existing object as data source

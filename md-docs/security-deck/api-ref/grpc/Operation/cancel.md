@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Security Deck](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Security Deck Alerts API, gRPC: OperationService.Cancel
 
 Cancels the specified operation.

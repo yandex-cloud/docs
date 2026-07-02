@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Resource Manager](../index.md) > Справочник CLI (англ.) > Overview
+
 # yc resource-manager
 
 Manage Yandex Resource Manager resources

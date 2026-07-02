@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Playlist](index.md) > Delete
+
 # Video API, gRPC: PlaylistService.Delete
 
 Deletes a specific playlist by its ID.

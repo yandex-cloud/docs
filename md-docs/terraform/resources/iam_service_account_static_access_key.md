@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity and Access Management > Resources > iam_service_account_static_access_key
+
 # yandex_iam_service_account_static_access_key (Resource)
 
 Allows management of [Yandex Cloud IAM service account static access keys](../../iam/operations/authentication/manage-access-keys.md). Generated pair of keys is used to access [Yandex Object Storage](../../storage/index.md) on behalf of service account.

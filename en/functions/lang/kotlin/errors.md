@@ -1,6 +1,6 @@
 # Kotlin function error handling
 
-If the [handler](handler.md) reports a Kotlin function execution or loading error, the [runtime](../../concepts/runtime/index.md) automatically catches the error and returns a JSON document with information about the error type. For more information about the JSON document format, see [Calling a function](../../concepts/function-invoke.md#error). Error details are written to the [execution log](logging.md).
+If the [handler](handler.md) reports a function execution or loading error, the [runtime](../../concepts/runtime/index.md) automatically catches the error and returns a JSON document with information about the error type. For more information about the JSON document format, see [Invoking a function](../../concepts/function-invoke.md#error). Error details are written to the [execution log](logging.md).
 
 ## Examples of error handling {#examples}
 

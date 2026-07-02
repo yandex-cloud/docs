@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Пошаговые инструкции](../index.md) > Создание триггера > Создать таймер
+
 # Создать таймер, который отправляет сообщения в WebSocket-соединения
 
 Создайте [таймер](../../concepts/trigger/timer.md) — триггер, который будет отправлять сообщения в [WebSocket-соединения](../../concepts/extensions/websocket.md) по расписанию.

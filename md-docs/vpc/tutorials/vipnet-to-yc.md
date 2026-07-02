@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Практические руководства](index.md) > Организация VPN-подключений > ViPNet Coordinator в Yandex Cloud
+
 # ViPNet Coordinator VA в Yandex Cloud
 
 Вы можете установить [ViPNet Coordinator VA](https://infotecs.ru/product/vipnet-coordinator-va.html#soft) в облаке и использовать его как VPN-шлюз для Site-to-site [VPN](../../glossary/vpn.md) между ресурсами облака и ресурсами удаленной площадки (on-premises).
@@ -89,7 +91,7 @@ VPN-туннель работает между двумя решениями ViP
 В стоимость инфраструктуры входит:
 * Плата за вычислительные ресурсы, диски и образы ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 * Плата за хранение данных в бакете и операции с ними ([тарифы Yandex Object Storage](../../storage/pricing.md)).
-* Плата за публичный IP-адрес и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за публичный IP-адрес и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../pricing.md)).
 
 
 ## Подготовьте окружение {#environment-preparing}

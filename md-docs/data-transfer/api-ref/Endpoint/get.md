@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Transfer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Endpoint](index.md) > Get
+
 # Data Transfer API, REST: Endpoint.Get
 
 Returns the specified endpoint.

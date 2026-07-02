@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DnsZone](index.md) > UpdatePrivateNetworks
+
 # Cloud DNS API, REST: DnsZone.UpdatePrivateNetworks
 
 Atomically updates zone private networks

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [load-balancer](index.md) > logging
+
 # yc application-load-balancer load-balancer logging
 
 Manage cloud logging settings of the load balancer.

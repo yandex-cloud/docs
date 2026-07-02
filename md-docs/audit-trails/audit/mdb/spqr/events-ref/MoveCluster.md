@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.spqr > MoveCluster
+
 # Managed Service for SPQR Audit Trails Events: MoveCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.spqr.MoveCluster2-schema}

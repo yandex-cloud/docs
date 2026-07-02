@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-spark](../../index.md) > [v0](../index.md) > [cluster](index.md) > set-access-bindings
+
 # yc managed-spark v0 cluster set-access-bindings
 
 Set access bindings for the specified Spark cluster and delete all existing access bindings if there were any

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > Пошаговые инструкции > Управление доступом к кластеру
+
 # Управление доступом к кластеру Apache Hive™ Metastore
 
 Вы можете предоставить пользователю или сервисному аккаунту [роль](../../security/metastore-roles.md) для доступа к конкретному [кластеру](../../concepts/metastore.md).

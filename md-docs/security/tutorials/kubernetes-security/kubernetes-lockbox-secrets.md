@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Безопасность в Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Безопасность Kubernetes > Синхронизация с секретами Managed Service for Kubernetes
+
 # Синхронизация с секретами Yandex Managed Service for Kubernetes
 
 С помощью инструмента [External Secrets Operator](https://external-secrets.io/latest/provider/yandex-lockbox/) вы можете настроить синхронизацию [секретов](../../../lockbox/concepts/secret.md) [Yandex Lockbox](../../../lockbox/index.md) с [секретами](../../../managed-kubernetes/concepts/encryption.md) [кластера Yandex Managed Service for Kubernetes](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
@@ -29,8 +31,8 @@
 
 В стоимость ресурсов для синхронизации секретов входит:
 * Плата за использование [мастера Managed Service for Kubernetes](../../../managed-kubernetes/concepts/index.md#master) ([тарифы Managed Service for Kubernetes](../../../managed-kubernetes/pricing.md)).
-* Плата за [вычислительные ресурсы](../../../compute/concepts/vm-platforms.md) и [диски](../../../compute/concepts/disk.md) [группы узлов Managed Service for Kubernetes](../../../managed-kubernetes/concepts/index.md#node-group) ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за хранение и операции с секретом ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
+* Плата за [вычислительные ресурсы](../../../compute/concepts/vm-platforms.md) и [диски](../../../compute/concepts/disk.md) [группы узлов Managed Service for Kubernetes](../../../managed-kubernetes/concepts/index.md#node-group) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
+* Плата за хранение и операции с секретом ([тарифы Yandex Lockbox](../../../lockbox/pricing.md)).
 
 ### Создайте инфраструктуру {#deploy-infrastructure}
 

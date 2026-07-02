@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Database](index.md) > Create
+
 # Managed Service for MongoDB API, REST: Database.Create
 
 Creates a new MongoDB database in the specified cluster.

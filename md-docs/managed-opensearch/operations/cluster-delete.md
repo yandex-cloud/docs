@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Удаление кластера
+
 # Удаление кластера OpenSearch
 
 Вы можете удалить кластер OpenSearch, если он вам больше не нужен. Все данные в кластере будут удалены.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Message Queue](../index.md) > [Справочник API](index.md) > Стандартные ошибки
+
 # Стандартные ошибки
 
 HTTP | Код ошибки| Описание

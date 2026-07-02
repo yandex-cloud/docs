@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex StoreDoc](index.md) > Публичные материалы
+
 # Публичные материалы о Yandex StoreDoc
 
 ## Конференции и вебинары {#conf-and-webinars}

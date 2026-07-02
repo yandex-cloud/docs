@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [instance-group](index.md) > stop-instances
+
 # yc compute instance-group stop-instances
 
 Stop instances of the specified instance group

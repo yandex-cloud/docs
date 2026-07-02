@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [AWS S3 REST](../../index.md) > [REST](../index.md) > Object > CopyObject
+
 # Object Storage API, REST совместимый с Amazon S3: CopyObject
 
 Создает копию объекта, хранящегося в Object Storage. Объекты, размером до 5 ГБ можно скопировать одной операцией `copy`, если объект больше, чем 5 ГБ, то необходимо применять операцию [copyPart](../multipart/copypart.md).

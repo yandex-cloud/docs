@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [certificate-manager](../index.md) > [certificate](index.md) > update
+
 # yc certificate-manager certificate update
 
 Update the specified certificate

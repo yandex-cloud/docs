@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Справочник CLI (англ.)](../index.md) > [service-control](index.md) > disable
+
 # yc iam service-control disable
 
 Disable service access to cloud

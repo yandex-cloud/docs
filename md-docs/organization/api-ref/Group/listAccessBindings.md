@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Group](index.md) > ListAccessBindings
+
 # Identity Hub API, REST: Group.ListAccessBindings
 
 Lists access bindings for the specified group.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > backup > DeleteArchive
+
 # Cloud Backup Audit Trails Events: DeleteArchive
 
 ## Event JSON schema {#yandex.cloud.audit.backup.DeleteArchive2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > serverless > RemoveScalingPolicy
+
 # Cloud Functions Audit Trails Events: RemoveScalingPolicy
 
 ## Event JSON schema {#yandex.cloud.audit.serverless.functions.RemoveScalingPolicy2-schema}

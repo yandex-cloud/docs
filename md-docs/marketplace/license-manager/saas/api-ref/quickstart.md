@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Marketplace](../../../index.md) > Партнерам > Справочник License Manager SaaS API > Начало работы с License Manager SaaS API
+
 # Как начать работать с Marketplace License Manager SaaS API
 
 В этом разделе вы узнаете, как интегрировать SaaS-[продукт](../../../concepts/product.md) c Yandex Cloud Marketplace License Manager SaaS API.

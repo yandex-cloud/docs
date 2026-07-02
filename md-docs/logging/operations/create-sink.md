@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Logging](../index.md) > [Пошаговые инструкции](index.md) > Выгрузка логов > Создать приемник логов
+
 # Создать приемник логов
 
 {% list tabs group=instructions %}

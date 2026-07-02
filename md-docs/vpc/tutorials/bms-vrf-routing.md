@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Практические руководства](index.md) > BareMetal > Настройка VRRP для кластера серверов BareMetal с использованием Keepalived
+
 # Настройка VRRP для кластера серверов BareMetal с использованием Keepalived 
 
 [VRRP](https://ru.wikipedia.org/wiki/VRRP) (Virtual Router Redundancy Protocol) — это сетевой протокол, предназначенный для повышения отказоустойчивости маршрутизаторов, выполняющих роль шлюза по умолчанию. 

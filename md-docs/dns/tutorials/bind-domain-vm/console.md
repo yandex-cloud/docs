@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > [Практические руководства](../index.md) > [Привязка доменного имени к ВМ с веб-сервером](index.md) > Консоль управления, CLI и API
+
 # Привязка доменного имени к ВМ с веб-сервером с помощью консоли управления, CLI или API
 
 Чтобы создать инфраструктуру для [привязки доменного имени к ВМ с веб-сервером](index.md):
@@ -29,7 +31,7 @@
 
 * плата за использование [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
 * плата за вычислительные ресурсы и диски [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование публичной [DNS-зоны](../../concepts/dns-zone.md) и публичные [DNS-запросы](../../../glossary/dns.md) ([тарифы Yandex Cloud DNS](../../../dns/pricing.md)).
+* плата за использование публичной [DNS-зоны](../../concepts/dns-zone.md) и публичные [DNS-запросы](../../../glossary/dns.md) ([тарифы Yandex Cloud DNS](../../pricing.md)).
 
 ### Создайте облачную сеть и подсеть {#create-network}
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iot > DeleteDevice
+
 # IoT Core Audit Trails Events: DeleteDevice
 
 ## Event JSON schema {#yandex.cloud.audit.iot.devices.DeleteDevice2-schema}

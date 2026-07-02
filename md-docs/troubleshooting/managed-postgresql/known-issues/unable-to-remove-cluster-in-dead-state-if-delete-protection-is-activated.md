@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for PostgreSQL](../index.md) > Не удается удалить кластер Managed Service for PostgreSQL в состоянии `DEAD`, если на нем включена защита от удаления
+
 # Не удается удалить кластер Managed Service for PostgreSQL в состоянии `DEAD`, если на нем включена защита от удаления
 
 

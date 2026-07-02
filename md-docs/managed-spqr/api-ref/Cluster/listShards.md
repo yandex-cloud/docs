@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > ListShards
+
 # Managed Service for SPQR API, REST: Cluster.ListShards
 
 Retrieves a list of shards.

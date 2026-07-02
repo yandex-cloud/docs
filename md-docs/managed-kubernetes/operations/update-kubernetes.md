@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Пошаговые инструкции](index.md) > Обновление Kubernetes
+
 # Обновление Kubernetes
 
 {% note info %}

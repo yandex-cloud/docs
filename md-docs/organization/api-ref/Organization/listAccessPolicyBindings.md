@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Organization](index.md) > ListAccessPolicyBindings
+
 # Identity Hub API, REST: Organization.ListAccessPolicyBindings
 
 Returns list of access policy bindings for the organization.

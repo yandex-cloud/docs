@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Desktop](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DesktopImage](index.md) > List
+
 # Cloud Desktop API, gRPC: DesktopImageService.List
 
 Lists desktop images in the specified folder.

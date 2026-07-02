@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex SmartCaptcha](../index.md) > Концепции > Капча в React
+
 # Подключение капчи в React
 
 Для подключения SmartCaptcha в React можно использовать npm-пакет `@yandex/smart-captcha`.

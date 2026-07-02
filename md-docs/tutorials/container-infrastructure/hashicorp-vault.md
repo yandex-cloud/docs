@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Контейнерная инфраструктура](index.md) > Managed Service for Kubernetes > Использование продуктов Cloud Marketplace > Использование HashiCorp Vault для хранения секретов
+
 # Использование HashiCorp Vault для хранения секретов в Yandex Managed Service for Kubernetes
 
 # Использование HashiCorp Vault для хранения секретов

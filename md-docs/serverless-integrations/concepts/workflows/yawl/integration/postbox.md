@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > [Концепции](../../../index.md) > Workflows > [Спецификация YaWL](../index.md) > Интеграционные шаги > Postbox
+
 # Postbox
 
 Рассылка писем с помощью Yandex Cloud Postbox. Поля `simple` и `raw` — взаимоисключающие.

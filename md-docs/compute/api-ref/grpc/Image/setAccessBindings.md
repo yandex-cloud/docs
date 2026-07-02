@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Image](index.md) > SetAccessBindings
+
 # Compute Cloud API, gRPC: ImageService.SetAccessBindings
 
 Sets access bindings for the image.

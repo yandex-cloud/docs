@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Пошаговые инструкции](../index.md) > Управление приложениями (SSO) > OIDC-приложения > Изменить приложение
+
 # Изменить OIDC-приложение в Yandex Identity Hub
 
 

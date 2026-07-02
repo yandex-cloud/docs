@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Backup](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Resource](index.md) > CreateDirectory
+
 # Cloud Backup API, gRPC: ResourceService.CreateDirectory
 
 CreateDirectory creates new directory by requested path.

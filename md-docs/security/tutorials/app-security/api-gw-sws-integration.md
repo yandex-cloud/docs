@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Безопасность в Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Защита приложений > Защита API Gateway при помощи Smart Web Security
+
 # Защита Yandex API Gateway при помощи Yandex Smart Web Security
 
 # Защита API Gateway при помощи Smart Web Security

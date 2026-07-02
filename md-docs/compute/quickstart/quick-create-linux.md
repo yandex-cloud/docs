@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Начало работы](index.md) > Создание виртуальной машины Linux
+
 # Создание виртуальной машины Linux
 
 Создайте [ВМ](../concepts/vm.md) Linux с помощью сервиса Compute Cloud в консоли управления Yandex Cloud и подключитесь к ней.
@@ -110,7 +112,7 @@
    
            {% endnote %}
    
-       За использование публичного IP-адреса взимается плата согласно [правилам тарификации Yandex Virtual Private Cloud](../../../vpc/pricing.md).
+       За использование публичного IP-адреса взимается плата согласно [правилам тарификации Yandex Virtual Private Cloud](../../vpc/pricing.md).
    
    * Выберите [подходящие группы безопасности](../../vpc/concepts/security-groups.md):
    

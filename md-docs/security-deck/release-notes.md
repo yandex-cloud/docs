@@ -1,4 +1,14 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Security Deck](index.md) > История изменений
+
 # История изменений в Yandex Security Deck
+
+## Апрель 2026 {#april-2026}
+
+* Запущен [Обнаружение угроз](concepts/threat-detector.md) (TD). Модуль находится на стадии [Preview](../overview/concepts/launch-stages.md) и доступен только по запросу.
+* В модуле [CSPM](concepts/cspm.md) появились новые правила проверки инфраструктуры на соответствие стандартам безопасности. Новые правила регламентируют [мониторинг событий безопасности](rules-reference/cspm.md#gitlab-audited) инстанса Managed Service for GitLab и управление учетными данными пользователей.
+* Появилась возможность вручную [запустить проверку](operations/cspm/check-environment.md) инфраструктуры на соответствие стандартам безопасности в модуле [CSPM](concepts/cspm.md).
+* Стало возможным [просматривать и скачивать](operations/dspm/discovery-mode.md) результаты предварительного анализа в модуле [DSPM](concepts/dspm.md).
+* На странице алертов от модулей [CSPM](concepts/cspm.md) и [KSPM](concepts/kspm.md) теперь можно [исключить ресурс](operations/alerts/work.md#create-exception) из проверки на соответствие требованиям.
 
 ## Март 2026 {#march-2026}
 * Запущен [модуль управления уязвимостями (VM)](concepts/vulnerability-management.md). Модуль находится на стадии [Preview](../overview/concepts/launch-stages.md) и доступен только по запросу.

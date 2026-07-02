@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Подключение бакета как диска в Windows
+
 # Подключение бакета как диска в Windows
 
 Вы настроите синхронизацию данных в бакете Yandex Object Storage и на локальном компьютере с помощью утилиты [rclone](https://rclone.org). Бакет будет смонтирован как диск в файловой системе Windows.
@@ -40,8 +42,8 @@
 
 В стоимость поддержки бакета входит:
 
-* плата за хранение данных в бакете ([тарифы Object Storage](../../storage/pricing.md#prices-storage));
-* плата за операции с данными ([тарифы Object Storage](../../storage/pricing.md#prices-operations)).
+* плата за хранение данных в бакете ([тарифы Object Storage](../pricing.md#prices-storage));
+* плата за операции с данными ([тарифы Object Storage](../pricing.md#prices-operations)).
 
 
 ## Подготовьте рабочее окружение {#environment-prepare}

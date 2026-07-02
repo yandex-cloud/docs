@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mongodb > CreateUser
+
 # Managed Service for MongoDB Audit Trails Events: CreateUser
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mongodb.CreateUser2-schema}

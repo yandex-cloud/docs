@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > Вопросы и ответы > Производительность
+
 # Производительность кластера Managed Service for Sharded PostgreSQL
 
 * [Как повысить производительность?](#how-to-improve-performance)

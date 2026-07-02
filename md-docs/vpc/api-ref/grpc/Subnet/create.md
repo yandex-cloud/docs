@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Subnet](index.md) > Create
+
 # Virtual Private Cloud API, gRPC: SubnetService.Create
 
 Creates a subnet in the specified folder and network.

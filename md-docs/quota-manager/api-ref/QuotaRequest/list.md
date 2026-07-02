@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Quota Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [QuotaRequest](index.md) > List
+
 # Quota Manager API, REST: QuotaRequest.List
 
 Retrieves the list of quota requests in the specified resource.

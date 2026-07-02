@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > Справочник API > [REST (англ.)](../index.md) > TrunkConnection > Overview
+
 # Cloud Interconnect API, REST: TrunkConnection
 
 A set of methods for managing TrunkConnection resources.

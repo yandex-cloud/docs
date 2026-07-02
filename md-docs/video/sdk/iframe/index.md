@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Видеоплеер > [SDK](../index.md) > IFrame > Начало работы
+
 # Начало работы с SDK видеоплеера для IFrame
 
 Вы можете интегрировать [видеоплеер](../../concepts/player.md) с контентом из Cloud Video в ваш проект с помощью Cloud Video Player SDK для IFrame. SDK позволяет управлять плеером через JavaScript API, используя механизм `postMessage` для взаимодействия с iframe.

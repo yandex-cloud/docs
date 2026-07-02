@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Virtual Private Cloud > Data Sources > vpc_gateway
+
 # yandex_vpc_gateway (DataSource)
 
 Get information about a Yandex VPC gateway. For more information, see [Yandex Cloud VPC](../../vpc/concepts/index.md).

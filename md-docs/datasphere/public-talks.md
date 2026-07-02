@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex DataSphere](index.md) > Публичные материалы
+
 # Публичные материалы о DataSphere
 
 ## Статьи, анонсы и видео {#articles}

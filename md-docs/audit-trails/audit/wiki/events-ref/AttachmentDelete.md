@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > AttachmentDelete
+
 # Yandex Wiki Audit Trails Events: AttachmentDelete
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.AttachmentDelete2-schema}

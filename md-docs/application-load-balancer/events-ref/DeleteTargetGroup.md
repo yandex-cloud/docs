@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Справочник аудитных логов > DeleteTargetGroup
+
 # Application Load Balancer Audit Trails Events: DeleteTargetGroup
 
 ## Event JSON schema {#yandex.cloud.audit.apploadbalancer.DeleteTargetGroup2-schema}

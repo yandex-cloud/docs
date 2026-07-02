@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-kafka](../index.md) > [connector](index.md) > resume
+
 # yc managed-kafka connector resume
 
 Resume a Kafka connector.

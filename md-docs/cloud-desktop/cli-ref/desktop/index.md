@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > [Справочник CLI (англ.)](../index.md) > desktop > Overview
+
 # yc desktops desktop
 
 [PREVIEW] Manage desktop instances

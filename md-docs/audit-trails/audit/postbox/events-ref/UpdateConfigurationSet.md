@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > postbox > UpdateConfigurationSet
+
 # Yandex Cloud Postbox Audit Trails Events: UpdateConfigurationSet
 
 ## Event JSON schema {#yandex.cloud.audit.postbox.UpdateConfigurationSet2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Sink](index.md) > List
+
 # Cloud Logging Service, REST: Sink.List
 
 Retrieves the list of sinks in the specified folder.

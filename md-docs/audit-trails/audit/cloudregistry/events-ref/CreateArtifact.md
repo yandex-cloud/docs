@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > cloudregistry > CreateArtifact
+
 # Yandex Cloud Registry Audit Trails Events: CreateArtifact
 
 ## Event JSON schema {#yandex.cloud.audit.cloudregistry.CreateArtifact2-schema}

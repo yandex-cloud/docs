@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Обновление версии PostgreSQL
+
 # Обновление версии PostgreSQL
 
 {% note warning %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > [Справочник YC CLI (англ.)](../../index.md) > [v0](../index.md) > [s3api](index.md) > upload-part
+
 # yc storage v0 s3api upload-part
 
 Uploads a part in a multipart upload

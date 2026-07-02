@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Практические руководства](index.md) > Cloud Interconnect > Удаление транкового подключения
+
 ## Удаление транкового подключения {#trunk-del}
 
 {% note warning %}

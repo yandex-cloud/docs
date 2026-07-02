@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > Расширения > gp_relsizes_stats
+
 # Использование gp_relsizes_stats в Yandex MPP Analytics for PostgreSQL
 
 {% note warning %}

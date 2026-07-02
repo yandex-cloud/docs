@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LifecyclePolicy](index.md) > Update
+
 # Yandex Cloud Registry API, gRPC: LifecyclePolicyService.Update
 
 Updates the specified lifecycle policy.

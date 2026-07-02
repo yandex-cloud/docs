@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Certificate](index.md) > Delete
+
 # Certificate Manager API, gRPC: CertificateService.Delete
 
 Deletes the specified certificate.

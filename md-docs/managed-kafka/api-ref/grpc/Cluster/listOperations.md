@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > ListOperations
+
 # Managed Service for Apache Kafka® API, gRPC: ClusterService.ListOperations
 
 Retrieves the list of operations for the specified Apache Kafka® cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Network Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [NetworkLoadBalancer](index.md) > Delete
+
 # Network Load Balancer API, REST: NetworkLoadBalancer.Delete
 
 Deletes the specified network load balancer.

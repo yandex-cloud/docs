@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Object Storage](index.md) > Вопросы и ответы
+
 # Вопросы и ответы про Object Storage
 
 * [Что такое Yandex Object Storage?](#qa-what-is)

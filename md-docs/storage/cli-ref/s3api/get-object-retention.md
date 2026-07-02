@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Справочник YC CLI (англ.)](../index.md) > [s3api](index.md) > get-object-retention
+
 # yc storage s3api get-object-retention
 
 Returns settings of the retention put on an object version

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex SmartCaptcha](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Captcha](index.md) > Get
+
 # SmartCaptcha API, gRPC: CaptchaService.Get
 
 Returns the specified Captcha resource.

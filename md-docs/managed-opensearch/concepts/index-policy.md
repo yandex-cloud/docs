@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > [Концепции](index.md) > Политики индексов
+
 # Политики индексов
 
 _Политика_ — это набор правил, который описывает, как следует управлять индексом. Работать с политиками позволяет плагин [OpenSearch Index State Management (ISM)](https://opensearch.org/docs/latest/im-plugin/ism/index/).

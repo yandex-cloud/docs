@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-kubernetes](../../index.md) > [v0](../index.md) > [cluster](index.md) > update
+
 # yc managed-kubernetes v0 cluster update
 
 Modify configuration or attributes of a Kubernetes cluster.

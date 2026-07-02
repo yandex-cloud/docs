@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Пошаговые инструкции](index.md) > Подключение Terraform-провайдера Kubernetes
+
 # Подключение Terraform-провайдера Kubernetes
 
 Вы можете создать ресурсы Kubernetes с помощью манифестов Terraform. Для этого подключите Terraform-провайдер `kubernetes`. Он поддерживает Terraform-ресурсы, которые соответствуют конфигурационным файлам YAML для различных Kubernetes-ресурсов.

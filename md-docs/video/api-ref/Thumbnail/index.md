@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > Thumbnail > Overview
+
 # Video API, REST: Thumbnail
 
 Thumbnail management service.

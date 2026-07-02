@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Практические руководства](index.md) > Загрузка данных из Яндекс Метрика в витрину ClickHouse®
+
 # Загрузка данных из Яндекс Метрика в витрину ClickHouse®
 
 # Загрузка данных из Яндекс Метрика в витрину ClickHouse® с помощью Yandex Data Transfer
@@ -25,7 +27,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
+* Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for ClickHouse®](../pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 * Пакет [Метрика Про](https://yandex.ru/support/metrica/pro/price.html).
 

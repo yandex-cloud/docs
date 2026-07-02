@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Functions](../index.md) > [Практические руководства](index.md) > Интернет вещей > Эмуляция множества IoT-устройств
+
 # Эмуляция множества IoT-устройств
 
 {% note warning %}

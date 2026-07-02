@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > [Пошаговые инструкции](../index.md) > Управление артефактами > Docker-образ > Создать Docker-образ
+
 # Создать Docker-образ в Cloud Registry
 
 В инструкции описано, как создать [Docker-образ](../../concepts/artifacts/docker.md) на основе Dockerfile и собрать его.

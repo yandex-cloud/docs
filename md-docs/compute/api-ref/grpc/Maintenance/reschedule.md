@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Maintenance](index.md) > Reschedule
+
 # Compute Cloud API, gRPC: MaintenanceService.Reschedule
 
 Allows user to reschedule Maintenance to another date and time.

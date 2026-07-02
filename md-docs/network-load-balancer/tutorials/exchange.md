@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Network Load Balancer](../index.md) > [Практические руководства](index.md) > Развертывание Microsoft Exchange
+
 # Развертывание Microsoft Exchange
 
 

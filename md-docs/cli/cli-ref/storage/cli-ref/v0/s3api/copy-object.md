@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [storage](../../index.md) > [v0](../index.md) > [s3api](index.md) > copy-object
+
 # yc storage v0 s3api copy-object
 
 Creates a copy of an object that is already stored in Object Storage

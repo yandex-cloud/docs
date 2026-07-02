@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > [REST (англ.)](../index.md) > [Device](index.md) > ListOperations
+
 # IoT Core Service, REST: Device.ListOperations
 
 Lists operations for the specified device.

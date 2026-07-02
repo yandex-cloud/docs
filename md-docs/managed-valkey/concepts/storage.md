@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Valkey™](../index.md) > [Концепции](index.md) > Хранилище
+
 # Хранилище в Yandex Managed Service for Valkey™
 
 

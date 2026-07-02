@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Data Transfer
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex SmartCaptcha](../index.md) > [Пошаговые инструкции](index.md) > Миграция на новый формат условий в API, CLI и Terraform
+
 # Обновление формата условий в API, CLI и Terraform
 
 {% note warning %}

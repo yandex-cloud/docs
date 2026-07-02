@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Streams](../index.md) > [Начало работы](index.md) > Сбор и поставка данных > AWS CLI
+
 # AWS CLI
 
 {% note info %}

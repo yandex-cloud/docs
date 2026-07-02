@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Managed Service for PostgreSQL
 
 * [Создание кластера PostgreSQL для <q>1С:Предприятия</q>](1c-postgresql.md)

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Functions](../../../../index.md) > Справочник API Functions > [gRPC (англ.)](../index.md) > [Network](index.md) > GetUsed
+
 # Cloud Functions Service, gRPC: NetworkService.GetUsed
 
 Returns the specified network used in serverless resources.

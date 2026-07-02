@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for MySQL®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [User](index.md) > GrantPermission
+
 # Managed Service for MySQL API, gRPC: UserService.GrantPermission
 
 Grants permission to access a database to a user in a cluster.

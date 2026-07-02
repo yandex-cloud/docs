@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud CDN > Data Sources > cdn_origin_group
+
 # yandex_cdn_origin_group (DataSource)
 
 Get information about a Yandex CDN Origin Group. For more information, see [the official documentation](../../cdn/concepts/origins.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > L7-балансировщики > Посмотреть логи L7-балансировщика
+
 # Посмотреть логи L7-балансировщика
 
 Вы можете [настроить](application-load-balancer-manage-logs.md) поставку [логов](../concepts/monitoring.md#logging) L7-балансировщика в [лог-группу](../../logging/concepts/log-group.md) Yandex Cloud Logging.

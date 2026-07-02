@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud DNS](../index.md) > [Пошаговые инструкции](index.md) > Фильтры > Создать фильтр
+
 # Создать фильтр DNS
 
 Чтобы создать [фильтр DNS](../concepts/dns-filter.md):

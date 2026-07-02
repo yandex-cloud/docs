@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex SpeechKit Hybrid](index.md) > Аутентификация в API
+
 # Аутентификация в API SpeechKit Hybrid
 
 При работе с SpeechKit Hybrid для выполнения операций через API аутентификация не требуется.

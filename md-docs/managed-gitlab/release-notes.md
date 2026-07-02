@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for GitLab](index.md) > История изменений
+
 # История изменений в Yandex Managed Service for GitLab
 
 ## IV квартал 2025 {#q4-2025}

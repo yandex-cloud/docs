@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Security Deck](../index.md) > [Концепции](index.md) > Портал соответствия требованиям
+
 # Портал соответствия требованиям
 
 [Портал соответствия требованиям](https://yandex.cloud/ru/security/compliance-portal) Security Deck содержит все необходимые документы, отчеты, инструкции и дополнительные сведения о системе безопасности Yandex Cloud.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity and Access Management > Data Sources > iam_service_agent
+
 # yandex_iam_service_agent (DataSource)
 
 Get information about a Yandex Cloud Service Agent.

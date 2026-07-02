@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Registry](../index.md) > [Практические руководства](index.md) > Интеграция с Container Registry
+
 # Интеграция с Yandex Managed Service for Kubernetes
 
 # Интеграция с Container Registry

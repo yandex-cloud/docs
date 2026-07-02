@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Broker > [REST (англ.)](../index.md) > [Broker](index.md) > DeletePassword
+
 # IoT Core Broker Service, REST: Broker.DeletePassword
 
 Deletes the specified password.

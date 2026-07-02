@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex StoreDoc](../index.md) > [Концепции](index.md) > Настройки Yandex StoreDoc
+
 # Настройки Yandex StoreDoc
 
 При [создании](../operations/cluster-create.md) или [изменении](../operations/update.md#change-mongod-config) кластера Yandex StoreDoc можно задать настройки, которые относятся к Yandex StoreDoc.

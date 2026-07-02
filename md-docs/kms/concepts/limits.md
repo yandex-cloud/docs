@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Key Management Service](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Key Management Service
 
 В сервисе Key Management Service действуют следующие ограничения:

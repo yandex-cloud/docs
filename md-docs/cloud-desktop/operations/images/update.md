@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > [Пошаговые инструкции](../index.md) > Образы > Изменить образ
+
 # Изменить образ
 
 Изменение [образа](../../concepts/images.md) приводит к пересозданию [рабочих столов](../../concepts/desktops-and-groups.md).

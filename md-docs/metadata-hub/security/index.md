@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Управление доступом
+
 # Управление доступом в Yandex MetaData Hub
 
 

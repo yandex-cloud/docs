@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Kubernetes](index.md) > Начало работы
+
 # Начало работы с Managed Service for Kubernetes
 
 

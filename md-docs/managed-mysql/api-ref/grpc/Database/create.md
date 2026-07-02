@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for MySQL®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Database](index.md) > Create
+
 # Managed Service for MySQL API, gRPC: DatabaseService.Create
 
 Creates a new database in a cluster.

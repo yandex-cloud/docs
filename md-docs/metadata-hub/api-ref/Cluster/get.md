@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > Get
+
 # Managed Service for Hive Metastore™ API, REST: Cluster.Get
 
 Returns the specified Metastore Cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex API Gateway](../index.md) > [Пошаговые инструкции](index.md) > Управление API-шлюзом > Удалить API-шлюз
+
 # Удалить API-шлюз
 
 {% list tabs group=instructions %}

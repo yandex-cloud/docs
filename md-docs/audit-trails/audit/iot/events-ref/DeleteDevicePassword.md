@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iot > DeleteDevicePassword
+
 # IoT Core Audit Trails Events: DeleteDevicePassword
 
 ## Event JSON schema {#yandex.cloud.audit.iot.devices.DeleteDevicePassword2-schema}

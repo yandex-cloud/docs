@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > DataLens Public API > [DataLens API (англ.)](index.md) > getAuditEntriesUpdates
+
 # DataLens API: Get updated entries for audit
 
 ## HTTP request

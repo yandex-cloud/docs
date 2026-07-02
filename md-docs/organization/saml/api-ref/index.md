@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > REST (англ.) > SAML Federation API > Overview
+
 # SAML Federation API: REST reference
 
 This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about API architecture, see [API Concepts](../../../api-design-guide/index.md).

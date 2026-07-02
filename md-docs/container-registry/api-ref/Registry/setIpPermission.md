@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Registry](index.md) > SetIpPermission
+
 # Container Registry API, REST: Registry.SetIpPermission
 
 Set ip permissions for the specified registry.

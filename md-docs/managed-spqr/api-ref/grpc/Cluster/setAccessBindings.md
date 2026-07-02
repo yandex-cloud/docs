@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > SetAccessBindings
+
 # Managed Service for SPQR API, gRPC: ClusterService.SetAccessBindings
 
 Sets access bindings for the specified SPQR cluster.

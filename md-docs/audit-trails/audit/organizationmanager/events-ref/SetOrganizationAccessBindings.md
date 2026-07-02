@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > SetOrganizationAccessBindings
+
 # Identity Hub Audit Trails Events: SetOrganizationAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.SetOrganizationAccessBindings2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Пошаговые инструкции](index.md) > Кластеры Yandex Data Processing > Подключение > Получение FQDN хоста
+
 # Получение FQDN хоста Yandex Data Processing
 
 {% list tabs group=instructions %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API EventRouter > [gRPC (англ.)](../index.md) > [Rule](index.md) > Get
+
 # EventRouter Service, gRPC: RuleService.Get
 
 Returns the specified rules.

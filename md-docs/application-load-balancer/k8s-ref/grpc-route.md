@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Инструменты для Managed Service for Kubernetes > Gateway API > Конфигурация ресурсов > GRPCRoute
+
 # Поля ресурса GRPCRoute
 
 В ресурсе `GRPCRoute` определяются правила маршрутизации трафика по бэкендам — сервисам Kubernetes (ресурсам [Service](service-for-gateway.md)) или перенаправления трафика. `GRPCRoute` получает входящий трафик от тех [ресурсов `Gateway`](gateway.md), требованиям которых соответствует.

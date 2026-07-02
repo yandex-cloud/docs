@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Video](../index.md) > Решение проблем
+
 # Решение проблем в Cloud Video
 
 ## Видеоплеер {#player}

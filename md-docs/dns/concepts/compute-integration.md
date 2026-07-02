@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud DNS](../index.md) > [Концепции](index.md) > Интеграция с Compute Cloud
+
 # Интеграция с Compute Cloud
 
 Вы можете назначать доменные имена ([FQDN](../../compute/concepts/network.md#hostname)) виртуальным машинам сразу при их создании в сервисе Compute Cloud.

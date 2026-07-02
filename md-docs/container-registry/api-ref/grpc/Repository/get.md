@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Repository](index.md) > Get
+
 # Container Registry API, gRPC: RepositoryService.Get
 
 Returns the specified Repository resource.

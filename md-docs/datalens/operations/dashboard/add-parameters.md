@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Дашборды > Пошаговые инструкции > Настройки дашборда > Добавление параметров на дашборд
+
 # Добавление параметров на дашборд в Yandex DataLens
 
 Чтобы установить [параметр](../../dashboard/dashboard_parameters.md#params-dash):

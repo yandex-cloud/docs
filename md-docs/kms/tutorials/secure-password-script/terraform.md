@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > [Практические руководства](../index.md) > [Безопасная передача пароля в скрипт инициализации](index.md) > Terraform
+
 # Безопасная передача пароля в скрипт инициализации с помощью Terraform
 
 Чтобы [создать ВМ и защитить конфиденциальную информацию в скрипте инициализации](index.md) с помощью Terraform:
@@ -24,7 +26,7 @@
 В стоимость поддержки инфраструктуры входит:
 * плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
 * плата за использование [образа](../../../compute/concepts/image.md) (зависит от образа);
-* плата за использование [ключа](../../concepts/key.md) KMS ([тарифы KMS](../../../kms/pricing.md));
+* плата за использование [ключа](../../concepts/key.md) KMS ([тарифы KMS](../../pricing.md));
 * плата за использование [секрета](../../../lockbox/concepts/secret.md) ([тарифы Yandex Lockbox](../../../lockbox/pricing.md)).
 
 

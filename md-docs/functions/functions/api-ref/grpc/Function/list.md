@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Functions](../../../../index.md) > Справочник API Functions > [gRPC (англ.)](../index.md) > [Function](index.md) > List
+
 # Cloud Functions Service, gRPC: FunctionService.List
 
 Retrieves the list of functions in the specified folder.

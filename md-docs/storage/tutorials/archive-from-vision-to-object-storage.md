@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Распознавание архива изображений в Vision OCR
+
 # Распознавание архива изображений в Yandex Vision OCR
 
 С помощью сервисов [Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr) и [Yandex Object Storage](../index.md) можно организовать распознавание текста на изображениях и хранение архива исходных изображений и результатов распознавания.
@@ -28,7 +30,7 @@
 
 В стоимость поддержки инфраструктуры для распознавания изображений и хранения данных входят:
 * Плата за вычислительные ресурсы и [диски](../../compute/concepts/disk.md) [ВМ](../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за хранение данных в [бакете](../concepts/bucket.md) и [операции](../operations/index.md) с ними ([тарифы Object Storage](../../storage/pricing.md)).
+* Плата за хранение данных в [бакете](../concepts/bucket.md) и [операции](../operations/index.md) с ними ([тарифы Object Storage](../pricing.md)).
 * Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 * Плата за использование Vision OCR ([тарифы для Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/pricing)).
 

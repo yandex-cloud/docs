@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Apache Kafka®](../index.md) > Устранение ошибки `Failed authentication with /`
+
 # Устранение ошибки `Failed authentication with /`
 
 

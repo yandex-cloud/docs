@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Certificate Manager](../../../../index.md) > Справочник API > gRPC (англ.) > [Certificate Manager Private CA API](../index.md) > [PrivateCaCertificate](index.md) > UpdateAccessBindings
+
 # Certificate Manager Private CA API, gRPC: PrivateCaCertificateService.UpdateAccessBindings
 
 Updates the specified access bindings for a certificate.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-mysql](../../index.md) > [v0](../index.md) > [cluster](index.md) > start-failover
+
 # yc managed-mysql v0 cluster start-failover
 
 Start manual failover for the specified MySQL cluster

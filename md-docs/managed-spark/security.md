@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Apache Spark™](index.md) > Управление доступом
+
 # Управление доступом к Yandex Managed Service for Apache Spark™
 
 

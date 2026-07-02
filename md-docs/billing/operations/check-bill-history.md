@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Billing](../index.md) > [Пошаговые инструкции](index.md) > Анализ использования сервисов Yandex Cloud > Посмотреть историю платежей
+
 # Посмотреть историю платежей
 
 Всю историю зачислений на [лицевой счет](../concepts/personal-account.md#balance) вы можете отслеживать на странице **История платежей** либо в сервисе [Яндекс Баланс](https://yandex.ru/support/balance/operations/find-bill.html). Способ отслеживания зависит от вашего юридического статуса ([типа платежного аккаунта](../concepts/billing-account.md#ba-types)).

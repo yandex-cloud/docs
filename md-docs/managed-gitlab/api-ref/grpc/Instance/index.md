@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for GitLab](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Instance > Overview
+
 # Managed Service for Gitlab API, gRPC: InstanceService
 
 InstanceService provides methods for managing GitLab instances.

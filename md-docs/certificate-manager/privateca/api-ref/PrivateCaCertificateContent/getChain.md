@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > REST (англ.) > [Certificate Manager Private CA API](../index.md) > [PrivateCaCertificateContent](index.md) > GetChain
+
 # Certificate Manager Private CA API, REST: PrivateCaCertificateContent.GetChain
 
 Returns the certificate chain for the specified certificate.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > [Пошаговые инструкции](index.md) > Подключения > Managed Service for Apache Airflow™: подключение к базе данных
+
 # Подключение к базе данных Yandex Managed Service for Apache Airflow™
 
 {% note warning %}

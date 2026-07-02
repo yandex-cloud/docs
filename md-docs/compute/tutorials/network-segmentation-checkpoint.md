@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Практические руководства](index.md) > Сегментация облачной инфраструктуры с помощью решения Check Point Next-Generation Firewall
+
 # Сегментация облачной инфраструктуры с помощью решения Check Point Next-Generation Firewall
 
 С помощью руководства вы развернете защищенную сетевую инфраструктуру на основе Check Point Next-Generation Firewall. Инфраструктура состоит из трех сегментов, каждый из которых содержит ресурсы одного назначения, обособленные от других ресурсов. Например, выделенный [DMZ](https://ru.wikipedia.org/wiki/DMZ_(компьютерные_сети)) сегмент предназначен для размещения общедоступных приложений, а сегмент mgmt содержит ресурсы, используемые для управления облачной сетевой инфраструктурой. Связь между сегментами происходит через виртуальную машину [Check Point](https://www.checkpoint.com/quantum/next-generation-firewall/) [Next-Generation Firewall](https://en.wikipedia.org/wiki/Next-generation_firewall), обеспечивающую комплексную защиту сегментов и контроль трафика между сегментами.
@@ -57,7 +59,7 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за постоянно работающие ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за постоянно работающие ВМ ([тарифы Yandex Compute Cloud](../pricing.md));
 * плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ### Необходимые квоты {#required-quotes}

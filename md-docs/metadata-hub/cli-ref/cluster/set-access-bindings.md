@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > set-access-bindings
+
 # yc managed-metastore cluster set-access-bindings
 
 Set access bindings for the specified Metastore cluster and delete all existing access bindings if there were any

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Processing](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > ListUILinks
+
 # Yandex Data Processing API, gRPC: ClusterService.ListUILinks
 
 Retrieves a list of links to web interfaces being proxied by Yandex Data Processing UI Proxy.

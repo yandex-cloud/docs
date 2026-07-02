@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity and Access Management](../../../../index.md) > Справочник API > gRPC (англ.) > [Access Key](../index.md) > [AccessKey](index.md) > List
+
 # Access Key, gRPC: AccessKeyService.List
 
 Retrieves the list of access keys for the specified service account.

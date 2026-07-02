@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > smartwebsecurity > CreateMatchList
+
 # Smart Web Security Audit Trails Events: CreateMatchList
 
 ## Event JSON schema {#yandex.cloud.audit.smartwebsecurity.CreateMatchList2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [BackupRetentionPolicy](index.md) > ListByFolder
+
 # Managed Service for MongoDB API, REST: BackupRetentionPolicy.ListByFolder
 
 List all retention policies for all clusters in a folder.

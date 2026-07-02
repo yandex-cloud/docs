@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > cdn > ResourceRuleDelete
+
 # Cloud CDN Audit Trails Events: ResourceRuleDelete
 
 ## Event JSON schema {#yandex.cloud.audit.cdn.gcore.ResourceRuleDelete2-schema}

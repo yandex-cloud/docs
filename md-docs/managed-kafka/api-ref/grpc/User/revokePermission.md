@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [User](index.md) > RevokePermission
+
 # Managed Service for Apache Kafka® API, gRPC: UserService.RevokePermission
 
 Revokes permission from the specified Kafka user.

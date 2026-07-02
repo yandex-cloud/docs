@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.clickhouse > UpdateUser
+
 # Managed Service for ClickHouse Audit Trails Events: UpdateUser
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.clickhouse.UpdateUser2-schema}

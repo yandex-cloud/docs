@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Security Deck](../index.md) > [Управление доступом](index.md) > Роли CIEM
+
 # Роли для диагностики доступов (CIEM)
 
 [Просматривать](../operations/ciem/view-permissions.md) доступы в [интерфейсе Security Deck](https://center.yandex.cloud/security/iam-diagnostics/) могут [члены организации](../../organization/concepts/membership.md), которым на эту организацию назначена [роль](../../organization/security/index.md#organization-manager-viewer) `organization-manager.viewer` или выше.

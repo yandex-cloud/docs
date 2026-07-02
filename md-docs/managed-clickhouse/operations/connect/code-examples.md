@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Пошаговые инструкции](../index.md) > [Подключение](index.md) > Примеры кода
+
 # Примеры кода для подключения к кластеру ClickHouse®
 
 

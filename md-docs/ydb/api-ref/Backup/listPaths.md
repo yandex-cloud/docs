@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for YDB](../../index.md) > [Справочник API Yandex Cloud для Managed Service for YDB](../overview.md) > [REST (англ.)](../index.md) > [Backup](index.md) > ListPaths
+
 # Managed Service for YDB API, REST: Backup.ListPaths
 
 ## HTTP request

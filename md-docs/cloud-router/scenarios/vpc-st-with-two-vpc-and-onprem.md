@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Router](../index.md) > [Сценарии использования](index.md) > Связность для двух облачных сетей и on-premises
+
 # Организация сетевой связности между двумя и более облачными сетями и On-Prem ресурсами (VPC Stitching)
 
 {% note warning %}

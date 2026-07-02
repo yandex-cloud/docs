@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [Configuration](index.md) > Get
+
 # BareMetal API, gRPC: ConfigurationService.Get
 
 Returns the specific Configuration resource.

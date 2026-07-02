@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > User > Overview
+
 # Identity Hub API, REST: User
 
 A set of methods for managing Organization users.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > DeleteDocker
+
 # DataSphere Audit Trails Events: DeleteDocker
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.DeleteDocker2-schema}

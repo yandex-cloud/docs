@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [User](index.md) > Update
+
 # Managed Service for SPQR API, REST: User.Update
 
 Updates the specified SPQR user.

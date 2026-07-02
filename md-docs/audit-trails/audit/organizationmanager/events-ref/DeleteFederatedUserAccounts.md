@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > DeleteFederatedUserAccounts
+
 # Identity Hub Audit Trails Events: DeleteFederatedUserAccounts
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.saml.DeleteFederatedUserAccounts2-schema}

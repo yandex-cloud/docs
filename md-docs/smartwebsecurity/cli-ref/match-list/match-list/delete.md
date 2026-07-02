@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [match-list](../index.md) > [match-list](index.md) > delete
+
 # yc smartwebsecurity match-list match-list delete
 
 Deletes the specified MatchList resource.

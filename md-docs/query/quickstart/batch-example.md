@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > [Начало работы](index.md) > Аналитическая обработка
+
 # Аналитическая обработка данных из Yandex Object Storage
 
 В этом примере вы выполните [аналитическую обработку данных](../concepts/batch-processing.md) о поездках Нью-Йоркского такси. Данные для выполнения примера предварительно размещены в бакете [Yandex Object Storage](../../storage/index.md) в файлах формата [Parquet](https://parquet.apache.org/docs/file-format/).

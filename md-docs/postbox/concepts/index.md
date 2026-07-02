@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Postbox](../index.md) > Концепции > Обзор
+
 # Обзор сервиса Yandex Cloud Postbox
 
 Yandex Cloud Postbox — это сервис электронной почты, который предоставляет простой и экономичный способ отправки писем с пользовательских [адресов](glossary.md#adress) и позволяет гибко настроить [уведомления](notification.md) о доставке писем.
@@ -27,4 +29,4 @@ Yandex Cloud Postbox ориентирован на отправку транза
 #### Полезные ссылки {#see-also}
 
 * [Как начать работать с Yandex Cloud Postbox](../quickstart.md)
-* [{#T}](../pricing.md)
+* [Правила тарификации для Yandex Cloud Postbox](../pricing.md)

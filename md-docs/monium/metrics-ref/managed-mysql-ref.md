@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Managed Service for MySQL®
+
 # Метрики Yandex Managed Service for MySQL®
 
 В этом разделе описаны метрики сервиса [Managed Service for MySQL®](../../managed-mysql/index.md), поставляемые в Monium Metrics.

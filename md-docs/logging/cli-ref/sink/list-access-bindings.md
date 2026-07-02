@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > [Справочник CLI (англ.)](../index.md) > [sink](index.md) > list-access-bindings
+
 # yc logging sink list-access-bindings
 
 List log group access bindings

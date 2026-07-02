@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [format-schema](index.md) > get
+
 # yc managed-clickhouse format-schema get
 
 Get information about a ClickHouse format schema.

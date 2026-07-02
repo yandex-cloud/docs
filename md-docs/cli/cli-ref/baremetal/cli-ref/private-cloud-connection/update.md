@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [baremetal](../index.md) > [private-cloud-connection](index.md) > update
+
 # yc baremetal private-cloud-connection update
 
 Updates the routing_instance_id in a private cloud connection.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud DNS > Resources > dns_zone
+
 # yandex_dns_zone (Resource)
 
 Manages a DNS Zone.

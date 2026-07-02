@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DnsZone](index.md) > UpsertRecordSets
+
 # Cloud DNS API, REST: DnsZone.UpsertRecordSets
 
 Method without strict control for changing zone state. Nothing happens if deleted record doesn't exist.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Network Load Balancer](../index.md) > Решения для известных проблем Network Load Balancer
+
 ## Решения для известных проблем Network Load Balancer {#known-issues-resolving}
 
 * [Устранение ошибки `Permission denied to create UDP listener in folder` при создании Network Load Balancer](permission-denied-to-create-udp-listener-in-folder.md)

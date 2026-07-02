@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [http-router](index.md) > get
+
 # yc application-load-balancer v0 http-router get
 
 Show information about the specified http router

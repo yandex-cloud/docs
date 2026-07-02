@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Начало работы](../index.md) > [Создание функции](index.md) > Bash
+
 # Создание функции на Bash
 
 Создайте и выполните [функцию](../../concepts/function.md) на Bash, которая приветствует пользователя.

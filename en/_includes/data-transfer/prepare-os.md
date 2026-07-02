@@ -1,4 +1,4 @@
-* Make sure the number of columns in the source does not exceed the maximum number of fields in {{ OS }} indexes. The maximum number of fields is provided in the `index.mapping.total_fields.limit` parameter. Its default value is `1,000`.
+* Make sure the number of columns in the source does not exceed the maximum number of fields in {{ OS }} indexes. The maximum number of fields is set in the `index.mapping.total_fields.limit` parameter. Its default value is `1,000`.
 
    {% note warning %}
 
@@ -36,13 +36,13 @@
 
    You can also set up templates using the [OpenSearch Dashboards interface](https://opensearch.org/docs/latest/dashboards/im-dashboards/component-templates/).
 
-   To check the current `index.mapping.total_fields.limit` parameter value, execute the following request:
+   To check the current `index.mapping.total_fields.limit` parameter value, run this request:
 
    ```bash
    curl \
        --user <{{ OS }}_username>:<password> \
        --header 'Content-Type: application/json' \
-       --request GET 'https://<URL_of_{{ OS }}_host_with_DATA_role>:9200/<index name>/_settings/*total_fields.limit?include_defaults=true'
+       --request GET 'https://<URL_of_{{ OS }}_host_with_DATA_role>:9200/<index_name>/_settings/*total_fields.limit?include_defaults=true'
    ```
 
 * By default, when transferring data to a single index, only one host is used. To distribute the load across hosts when transferring large amounts of data, [set up a template](https://opensearch.org/docs/latest/im-plugin/index-templates/) to split new indexes into shards in advance.
@@ -77,7 +77,7 @@
    * Index is over 50 GB in size.
    * Index is over 30 days old.
 
-   You can create and enable a policy using requests. For more information about policies, see the [{{ OS }} documentation]({{ os.docs }}/im-plugin/ism/policies/).
+   You can create and enable a policy using requests. For more on policies, see [this {{ OS }} guide]({{ os.docs }}/im-plugin/ism/policies/).
 
    {% cut "Example of a policy creation request" %}
 

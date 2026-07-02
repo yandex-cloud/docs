@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [storage-onprem/_cli-ref-v-1-0](../index.md) > buckets > get > max_size
+
 # cli buckets get max_size
 
 Get bucket max_size

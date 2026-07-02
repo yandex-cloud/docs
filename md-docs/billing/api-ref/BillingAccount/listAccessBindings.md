@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Billing](../../index.md) > Справочник API > REST (англ.) > [Billing](../index.md) > [BillingAccount](index.md) > ListAccessBindings
+
 # Billing API, REST: BillingAccount.ListAccessBindings
 
 Lists access bindings for the specified billing account.

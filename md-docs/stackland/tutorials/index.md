@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Stackland](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства
 
 * [Установка Stackland на Yandex BareMetal](install-on-yc-bms.md)

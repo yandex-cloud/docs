@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [serverless](../index.md) > [api-gateway](index.md) > add-domain
+
 # yc serverless api-gateway add-domain
 
 Attach domain to the specified API Gateway

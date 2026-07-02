@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [instance](index.md) > update-network-interface
+
 # yc compute instance update-network-interface
 
 Update the specified network interface of virtual machine instance

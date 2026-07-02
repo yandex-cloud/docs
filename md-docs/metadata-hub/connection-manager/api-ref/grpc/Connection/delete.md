@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex MetaData Hub](../../../../index.md) > Connection Manager > Справочник API > [gRPC (англ.)](../index.md) > [Connection](index.md) > Delete
+
 # Connection Manager API, gRPC: ConnectionService.Delete
 
 Deletes the specified connection.

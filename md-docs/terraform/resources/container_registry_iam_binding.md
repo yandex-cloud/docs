@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Container Registry > Resources > container_registry_iam_binding
+
 # yandex_container_registry_iam_binding (Resource)
 
 Allows creation and management of a single binding within IAM policy for an existing `registry`.

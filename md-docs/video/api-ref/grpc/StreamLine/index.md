@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > StreamLine > Overview
+
 # Video API, gRPC: StreamLineService
 
 Stream line management service.

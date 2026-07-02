@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [config](../index.md) > [v0](index.md) > unset
+
 # yc config v0 unset
 
 Unset value for the specified configuration property

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SnapshotSchedule](index.md) > Disable
+
 # Compute Cloud API, REST: SnapshotSchedule.Disable
 
 Disables the specified snapshot schedule.

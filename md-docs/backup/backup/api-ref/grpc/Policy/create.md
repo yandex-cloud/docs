@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Backup](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Policy](index.md) > Create
+
 # Cloud Backup API, gRPC: PolicyService.Create
 
 Create a new policy.

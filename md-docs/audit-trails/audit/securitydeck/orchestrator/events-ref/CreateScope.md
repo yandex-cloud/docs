@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > securitydeck.orchestrator > CreateScope
+
 # Security Deck Orchestrator Audit Trails Events: CreateScope
 
 ## Event JSON schema {#yandex.cloud.audit.securitydeck.orchestrator.CreateScope2-schema}

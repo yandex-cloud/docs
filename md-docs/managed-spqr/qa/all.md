@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > Вопросы и ответы > Все вопросы на одной странице
+
 # Вопросы и ответы про Managed Service for Sharded PostgreSQL {#general}
 
 ### Общие вопросы про Managed Service for Sharded PostgreSQL {#toc-general}

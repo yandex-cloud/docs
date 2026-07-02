@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Datacatalog > Data Sources > datacatalog_catalog
+
 # yandex_datacatalog_catalog (DataSource)
 
 Request message for getting a catalog.

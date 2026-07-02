@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Контейнерная инфраструктура](index.md) > Managed Service for Kubernetes > Работа с DNS > Настройка NodeLocal DNS Cache
+
 # Настройка NodeLocal DNS Yandex Managed Service for Kubernetes
 
 Чтобы снизить нагрузку по [DNS-запросам](../../glossary/dns.md) в [кластере Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), используйте компонент NodeLocal DNS.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DnsFirewall](index.md) > ListOperations
+
 # Cloud DNS API, REST: DnsFirewall.ListOperations
 
 Lists operations for the specified DNS firewall.

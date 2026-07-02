@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > Бэкенд на Serverless > Настройка Postfix для отправки через Yandex Cloud Postbox
+
 # Настройка Postfix для отправки через Yandex Cloud Postbox
 
 В этом руководстве вы научитесь отправлять электронные письма через [Yandex Cloud Postbox](../../postbox/index.md) с использованием [Postfix](https://ru.wikipedia.org/wiki/Postfix) на виртуальной машине [Yandex Compute Cloud](../../compute/index.md).

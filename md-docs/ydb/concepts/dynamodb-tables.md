@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Концепции](index.md) > Таблицы DynamoDB
+
 # Таблицы DynamoDB
 
 В [бессерверном режиме работы](serverless-and-dedicated.md#serverless) базы данных Managed Service for YDB вы можете использовать _документные таблицы_.

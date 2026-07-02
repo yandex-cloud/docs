@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Получение информации об имеющихся кластерах
+
 # Получение информации об имеющихся кластерах Sharded PostgreSQL
 
 Вы можете запросить детальную информацию о каждом созданном вами кластере Managed Service for Sharded PostgreSQL.

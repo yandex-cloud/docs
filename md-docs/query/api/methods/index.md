@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Query](../../index.md) > Справочник > [HTTP API](../index.md) > Методы > Все методы
+
 # Все методы
 
 HTTP API Yandex Query доступен по адресу [https://api.yandex-query.cloud.yandex.net/api/fq/v1](https://api.yandex-query.cloud.yandex.net/api/fq/v1).

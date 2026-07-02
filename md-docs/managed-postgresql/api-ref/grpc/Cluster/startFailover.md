@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > StartFailover
+
 # Managed Service for PostgreSQL API, gRPC: ClusterService.StartFailover
 
 Start a manual failover on the specified PostgreSQL cluster.

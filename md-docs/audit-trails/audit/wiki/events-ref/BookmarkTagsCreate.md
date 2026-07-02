@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > BookmarkTagsCreate
+
 # Yandex Wiki Audit Trails Events: BookmarkTagsCreate
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.BookmarkTagsCreate2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LifecyclePolicy](index.md) > ChangeState
+
 # Yandex Cloud Registry API, gRPC: LifecyclePolicyService.ChangeState
 
 Changes the state of the specified lifecycle policy.

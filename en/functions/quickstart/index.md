@@ -1,11 +1,11 @@
 ---
 title: Getting started with {{ sf-full-name }}
-description: This guide describes how you can create and set up a function or trigger.
+description: Follow this guide to create and set up a function or trigger.
 ---
 
 # Getting started with {{ sf-name }}
 
-Choose how to explore:
+Choose a scenario to get started with:
 
 * [{#T}](create-function/index.md)
 

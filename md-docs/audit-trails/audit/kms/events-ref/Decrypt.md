@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > kms > Decrypt
+
 # Key Management Service Audit Trails Events: Decrypt
 
 ## Event JSON schema {#yandex.cloud.audit.kms.Decrypt2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Virtual Private Cloud](../../../../index.md) > Справочник API > gRPC (англ.) > [Virtual Private Cloud API](../index.md) > Operation > Overview
+
 # Virtual Private Cloud API, gRPC: OperationService
 
 A set of methods for managing operations for asynchronous API requests.

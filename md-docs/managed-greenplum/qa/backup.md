@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > Вопросы и ответы > Резервное копирование
+
 # Резервное копирование в Yandex MPP Analytics for PostgreSQL
 
 #### Когда выполняется резервное копирование? Доступен ли кластер БД во время резервного копирования? {#backup-window}

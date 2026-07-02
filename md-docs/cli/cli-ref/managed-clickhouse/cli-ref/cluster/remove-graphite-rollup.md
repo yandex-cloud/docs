@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-clickhouse](../index.md) > [cluster](index.md) > remove-graphite-rollup
+
 # yc managed-clickhouse cluster remove-graphite-rollup
 
 Remove graphite rollup configuration from a ClickHouse cluster.

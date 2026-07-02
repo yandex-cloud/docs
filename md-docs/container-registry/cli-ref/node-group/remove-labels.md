@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [node-group](index.md) > remove-labels
+
 # yc container node-group remove-labels
 
 Remove labels from the specified node group.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [instance-group](index.md) > rolling-recreate
+
 # yc compute instance-group rolling-recreate
 
 Recreate instances of the specified instance group respecting policies

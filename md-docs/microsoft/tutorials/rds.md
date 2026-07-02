@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Microsoft в Yandex Cloud](../index.md) > [Практические руководства](index.md) > Развертывание Remote Desktop Services
+
 # Развертывание Microsoft Remote Desktop Services
 
 

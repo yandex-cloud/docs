@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > GridRemoveColumns
+
 # Yandex Wiki Audit Trails Events: GridRemoveColumns
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.GridRemoveColumns2-schema}

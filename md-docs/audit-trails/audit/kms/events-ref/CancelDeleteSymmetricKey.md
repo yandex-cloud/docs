@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > kms > CancelDeleteSymmetricKey
+
 # Key Management Service Audit Trails Events: CancelDeleteSymmetricKey
 
 ## Event JSON schema {#yandex.cloud.audit.kms.CancelDeleteSymmetricKey2-schema}

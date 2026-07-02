@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Практические руководства](../index.md) > Отказоустойчивый сайт с балансировкой нагрузки через Application Load Balancer > Обзор
+
 # Отказоустойчивый сайт с балансировкой нагрузки через Yandex Application Load Balancer
 
 

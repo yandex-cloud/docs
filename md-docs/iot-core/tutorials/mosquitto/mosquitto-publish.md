@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > [Практические руководства](../index.md) > Работа с помощью Mosquitto > Отправить сообщение
+
 # Отправить сообщение с использованием Mosquitto
 
 {% note warning %}

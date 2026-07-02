@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [snapshot](index.md) > list-access-bindings
+
 # yc compute snapshot list-access-bindings
 
 List access bindings for the specified snapshot

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > vpc > CreateSubnet
+
 # Virtual Private Cloud Audit Trails Events: CreateSubnet
 
 ## Event JSON schema {#yandex.cloud.audit.network.CreateSubnet2-schema}

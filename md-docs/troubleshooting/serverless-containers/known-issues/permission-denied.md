@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Serverless Containers](../index.md) > Устранение ошибки 403 `Permission denied`
+
 # Устранение ошибки 403 (Permission denied)
 
 ## Описание задачи {#case-description}

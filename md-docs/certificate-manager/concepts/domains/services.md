@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Certificate Manager](../../index.md) > [Концепции](../index.md) > [Домен](index.md) > Интеграция с сервисами Yandex Cloud
+
 # Интеграция системы управления доменами с сервисами Yandex Cloud
 
 Домены находятся на стадии [Preview](../../../overview/concepts/launch-stages.md).

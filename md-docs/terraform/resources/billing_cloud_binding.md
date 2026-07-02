@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Billing > Resources > billing_cloud_binding
+
 # yandex_billing_cloud_binding (Resource)
 
 Bind cloud to billing account. Creating the bind, which connect the cloud to the billing account.

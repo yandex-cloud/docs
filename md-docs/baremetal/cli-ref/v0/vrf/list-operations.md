@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [vrf](index.md) > list-operations
+
 # yc baremetal v0 vrf list-operations
 
 List operations for the specified vrf

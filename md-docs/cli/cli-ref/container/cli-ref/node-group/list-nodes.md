@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [container](../index.md) > [node-group](index.md) > list-nodes
+
 # yc container node-group list-nodes
 
 List nodes for the specified node group.

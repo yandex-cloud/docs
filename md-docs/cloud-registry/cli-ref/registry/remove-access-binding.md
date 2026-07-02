@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [registry](index.md) > remove-access-binding
+
 # yc cloud-registry registry remove-access-binding
 
 Remove access binding for the specified registry

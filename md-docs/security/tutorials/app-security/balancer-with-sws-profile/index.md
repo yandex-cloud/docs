@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Безопасность в Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > Защита приложений > Создание L7-балансировщика Application Load Balancer с профилем безопасности Smart Web Security > Обзор
+
 # Создание L7-балансировщика Yandex Application Load Balancer с профилем безопасности Yandex Smart Web Security
 
 С помощью сервиса Yandex Smart Web Security вы можете защитить инфраструктуру от [DDoS-атак](../../../../glossary/ddos.md) и ботов на уровне приложений (L7).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ClusterExtension](index.md) > Delete
+
 # Managed Service for ClickHouse API, gRPC: ClusterExtensionService.Delete
 
 Deletes the specified extension from the cluster.

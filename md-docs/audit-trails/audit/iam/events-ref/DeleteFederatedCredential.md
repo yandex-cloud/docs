@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > DeleteFederatedCredential
+
 # Identity and Access Management Audit Trails Events: DeleteFederatedCredential
 
 ## Event JSON schema {#yandex.cloud.audit.iam.workload.DeleteFederatedCredential2-schema}

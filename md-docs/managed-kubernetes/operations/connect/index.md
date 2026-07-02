@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Подключение к кластеру > Обзор способов подключения
+
 # Обзор способов подключения
 
 К [кластеру Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster) можно подключиться следующими способами:

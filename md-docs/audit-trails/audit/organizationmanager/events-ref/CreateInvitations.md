@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > CreateInvitations
+
 # Identity Hub Audit Trails Events: CreateInvitations
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.CreateInvitations2-schema}

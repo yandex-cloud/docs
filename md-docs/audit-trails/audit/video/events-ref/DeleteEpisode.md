@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > video > DeleteEpisode
+
 # Cloud Video Audit Trails Events: DeleteEpisode
 
 ## Event JSON schema {#yandex.cloud.audit.video.DeleteEpisode2-schema}

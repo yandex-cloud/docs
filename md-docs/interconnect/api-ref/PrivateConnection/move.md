@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [PrivateConnection](index.md) > Move
+
 # Cloud Interconnect API, REST: PrivateConnection.Move
 
 Moves the specified PrivateConnection to another folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > smartwebsecurity > UpdateSecurityProfile
+
 # Smart Web Security Audit Trails Events: UpdateSecurityProfile
 
 ## Event JSON schema {#yandex.cloud.audit.smartwebsecurity.UpdateSecurityProfile2-schema}

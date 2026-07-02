@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > [Практические руководства](index.md) > Интеграция с Яндекс Трекер
+
 # Интеграция с Яндекс Трекер
 
 # Интеграция GitLab с Яндекс Трекер

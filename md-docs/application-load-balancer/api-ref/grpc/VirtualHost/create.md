@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [VirtualHost](index.md) > Create
+
 # Application Load Balancer API, gRPC: VirtualHostService.Create
 
 Creates a virtual host in the specified HTTP router.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > Справочник API Triggers > Аутентификация в API
+
 # Аутентификация в API Cloud Functions (Триггеры)
 
 # Аутентификация в API

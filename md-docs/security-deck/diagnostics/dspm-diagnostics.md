@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Security Deck](../index.md) > [Диагностика ошибок](index.md) > Ошибки в работе DSPM
+
 # Диагностика ошибок в работе модуля контроля данных (DSPM)
 
 ## Unable to list dataSource `Id` {#unable-to-list-datasource}

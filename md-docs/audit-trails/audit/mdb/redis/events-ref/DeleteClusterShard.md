@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.redis > DeleteClusterShard
+
 # Managed Service for ValKey Audit Trails Events: DeleteClusterShard
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.redis.DeleteClusterShard2-schema}

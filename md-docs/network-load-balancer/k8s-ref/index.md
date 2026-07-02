@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Network Load Balancer](../index.md) > Справочник инструментов для Managed Service for Kubernetes > Обзор
+
 # Справочник ресурсов для Managed Service for Kubernetes
 
 В справочнике описана конфигурация ресурсов Kubernetes для развертывания сетевых балансировщиков нагрузки для кластеров Yandex Managed Service for Kubernetes:

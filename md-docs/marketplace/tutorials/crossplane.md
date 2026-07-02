@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Marketplace](../index.md) > Пользователям > [Практические руководства](index.md) > Использование продуктов Cloud Marketplace в Managed Service for Kubernetes > Интеграция с Crossplane
+
 # Интеграция с Crossplane
 
 [Crossplane](https://crossplane.io/) — надстройка для Kubernetes с открытым исходным кодом, которая позволяет собрать решения от разных поставщиков в единую инфраструктуру и предоставить разработчикам приложений доступ к ней через высокоуровневые [API](../../glossary/rest-api.md). С помощью Crossplane пользователи могут управлять сторонними сервисами так же, как ресурсами Kubernetes.

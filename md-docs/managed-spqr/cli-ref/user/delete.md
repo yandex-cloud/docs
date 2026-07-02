@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [user](index.md) > delete
+
 # yc managed-sharded-postgresql user delete
 
 Delete the specified Sharded PostgreSQL user

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud DNS](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Cloud DNS
 
 ## Зоны DNS {#dns-zones}

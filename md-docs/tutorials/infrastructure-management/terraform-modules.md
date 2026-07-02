@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Базовая инфраструктура](../infrastructure/index.md) > Инструменты > Использование модулей Yandex Cloud в Terraform
+
 # Использование модулей Yandex Cloud в Terraform
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cloud](index.md) > List
+
 # Resource Manager API, REST: Cloud.List
 
 Retrieves the list of Cloud resources.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Практические руководства](index.md) > Тестирование отказоустойчивости в инфраструктуре Yandex Cloud
+
 # Тестирование отказоустойчивости в инфраструктуре Yandex Cloud на основе Yandex Application Load Balancer
 
 

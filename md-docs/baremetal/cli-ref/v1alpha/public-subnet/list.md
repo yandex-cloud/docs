@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v1alpha](../index.md) > [public-subnet](index.md) > list
+
 # yc baremetal v1alpha public-subnet list
 
 Retrieves the list of PublicSubnet resources in the specified folder.

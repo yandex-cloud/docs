@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > Справочник API Yandex Cloud для Managed Service for YDB > Обзор
+
 # API Yandex Cloud для Managed Service for YDB
 
 Вы можете управлять ресурсами Managed Service for YDB с помощью [API Yandex Cloud](../../api-design-guide/index.md).

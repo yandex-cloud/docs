@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Lockbox](../index.md) > [Концепции](index.md) > Интеграция с сервисами Yandex Cloud
+
 # Интеграция с сервисами Yandex Cloud
 
 

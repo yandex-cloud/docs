@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Информация об имеющихся кластерах
+
 # Информация об имеющихся кластерах OpenSearch
 
 Вы можете запросить детальную информацию о каждом созданном вами кластере Managed Service for OpenSearch.

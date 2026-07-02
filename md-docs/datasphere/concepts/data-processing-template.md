@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > [Концепции](index.md) > Ресурсы > Шаблоны Yandex Data Processing
+
 # Шаблоны Yandex Data Processing
 
 Шаблон Yandex Data Processing — это специальный ресурс для быстрого развертывания кластеров Yandex Data Processing в проектах DataSphere. Шаблон определяет конфигурацию кластера, на его основе DataSphere может развернуть кластер несколько раз.

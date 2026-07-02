@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Backup](../../index.md) > [Справочник CLI (англ.)](../index.md) > [provider](index.md) > activate
+
 # yc backup provider activate
 
 Activate backup provider

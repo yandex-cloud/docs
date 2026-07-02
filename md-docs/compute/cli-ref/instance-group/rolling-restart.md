@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [instance-group](index.md) > rolling-restart
+
 # yc compute instance-group rolling-restart
 
 Restart instances of the specified instance group respecting policies

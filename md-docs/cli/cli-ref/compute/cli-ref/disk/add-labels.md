@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [disk](index.md) > add-labels
+
 # yc compute disk add-labels
 
 Add labels to specified disk

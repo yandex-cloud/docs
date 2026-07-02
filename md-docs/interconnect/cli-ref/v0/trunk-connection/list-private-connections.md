@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [trunk-connection](index.md) > list-private-connections
+
 # yc cic v0 trunk-connection list-private-connections
 
 List private connections for a trunk connection.

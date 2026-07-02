@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex DataSphere](../../../index.md) > [Справочник API](../../overview.md) > [gRPC (англ.)](../index.md) > Community > Overview
+
 # DataSphere API v2, gRPC: CommunityService
 
 A set of methods for managing Community resources.

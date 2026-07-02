@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > Справочник > SDK
+
 # SDK
 
 Yandex Query построен на основе [внешних таблиц YDB](https://ydb.tech/docs/ru//concepts/datamodel/external_table), поэтому для взаимодействия с сервисом используется [YDB SDK](https://ydb.tech/docs/ru//reference/ydb-sdk/).

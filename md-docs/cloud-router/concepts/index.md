@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Router](../index.md) > Концепции > Обзор сервиса
+
 # Обзор Yandex Cloud Router
 
 Yandex Cloud Router — это сервис для управления сетевыми топологиями гибридного облака в Yandex Cloud.

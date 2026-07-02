@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [StreamLine](index.md) > Delete
+
 # Video API, REST: StreamLine.Delete
 
 Deletes a specific stream line by its ID.

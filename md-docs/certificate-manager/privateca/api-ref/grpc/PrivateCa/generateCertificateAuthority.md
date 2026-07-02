@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Certificate Manager](../../../../index.md) > Справочник API > gRPC (англ.) > [Certificate Manager Private CA API](../index.md) > [PrivateCa](index.md) > GenerateCertificateAuthority
+
 # Certificate Manager Private CA API, gRPC: PrivateCaService.GenerateCertificateAuthority
 
 Generates a new Certificate Authority (CA).

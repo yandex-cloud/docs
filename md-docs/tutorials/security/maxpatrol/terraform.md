@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > [Безопасность](../index.md) > [Загрузка аудитных логов в MaxPatrol SIEM](index.md) > Terraform
+
 # Загрузка аудитных логов в MaxPatrol SIEM с помощью Terraform
 
 

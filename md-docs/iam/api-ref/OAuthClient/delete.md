@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [OAuthClient](index.md) > Delete
+
 # Identity and Access Management API, REST: OAuthClient.Delete
 
 Deletes the specified oauth client with all its secrets.

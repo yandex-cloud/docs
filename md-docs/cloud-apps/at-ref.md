@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Cloud Apps](index.md) > Аудитные логи Audit Trails
+
 # Справочник аудитных логов Yandex Audit Trails
 
 В Audit Trails поддерживается отслеживание событий уровня конфигурации (Control Plane) для Yandex Cloud Apps. Подробнее в разделе [Аудитный лог событий уровня конфигурации](../audit-trails/concepts/format.md).

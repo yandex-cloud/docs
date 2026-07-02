@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-sharded-postgresql](../index.md) > [hosts](index.md) > add
+
 # yc managed-sharded-postgresql hosts add
 
 Create new hosts for the cluster in the specified availability zones

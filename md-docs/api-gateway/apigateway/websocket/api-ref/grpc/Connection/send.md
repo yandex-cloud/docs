@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex API Gateway](../../../../../index.md) > Справочник API Websocket > [gRPC (англ.)](../index.md) > [Connection](index.md) > Send
+
 # API Gateway WebSocket Connection Service, gRPC: ConnectionService.Send
 
 Sends data to the specified connection.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Billing](../../../index.md) > Справочник API > gRPC (англ.) > [Billing](../index.md) > [Budget](index.md) > List
+
 # Billing API, gRPC: BudgetService.List
 
 Retrieves the list of budgets corresponding to the specified billing account.

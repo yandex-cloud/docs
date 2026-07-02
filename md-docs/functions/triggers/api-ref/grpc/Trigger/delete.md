@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Functions](../../../../index.md) > Справочник API Triggers > [gRPC (англ.)](../index.md) > [Trigger](index.md) > Delete
+
 # Cloud Functions Triggers Service, gRPC: TriggerService.Delete
 
 Deletes the specified trigger.

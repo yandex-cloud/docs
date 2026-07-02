@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for OpenSearch](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > list-backups
+
 # yc managed-opensearch cluster list-backups
 
 List available backups for an OpenSearch cluster.

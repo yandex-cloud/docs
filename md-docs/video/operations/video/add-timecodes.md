@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > [Пошаговые инструкции](../index.md) > Видео > Добавить таймкоды
+
 # Добавить таймкоды к видео
 
 {% list tabs group=instructions %}

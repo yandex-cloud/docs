@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Подключение к кластеру
+
 # Подключение к кластеру Trino
 
 В этом разделе представлены настройки для подключения к кластеру Managed Service for Trino с помощью [инструментов командной строки](#cli-tools), из [графических IDE](#connection-ide) и [WebSQL](#websql). О подключении из кода вашего приложения смотрите [Примеры строк подключения](#connection-strings).

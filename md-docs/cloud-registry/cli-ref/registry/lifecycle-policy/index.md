@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [registry](../index.md) > lifecycle-policy > Overview
+
 # yc cloud-registry registry lifecycle-policy
 
 Manage lifecycle policies for artifacts

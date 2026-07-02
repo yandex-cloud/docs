@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [v0](../index.md) > [api-gateway](index.md) > remove-access-binding
+
 # yc serverless v0 api-gateway remove-access-binding
 
 Remove access binding for the specified API Gateway

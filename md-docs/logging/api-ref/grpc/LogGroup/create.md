@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Logging](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LogGroup](index.md) > Create
+
 # Cloud Logging Service, gRPC: LogGroupService.Create
 
 Creates a log group in the specified folder.

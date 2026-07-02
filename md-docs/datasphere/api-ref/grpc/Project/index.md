@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex DataSphere](../../../index.md) > [Справочник API](../../overview.md) > [gRPC (англ.)](../index.md) > Project > Overview
+
 # DataSphere API v2, gRPC: ProjectService
 
 A set of methods for managing Project resources.

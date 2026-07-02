@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™
+
 # Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™
 
 # Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™
@@ -38,10 +40,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for Apache Airflow™: вычислительные ресурсы компонентов кластера ([тарифы Managed Service for Apache Airflow™](../../../managed-airflow/pricing.md)).
-* Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../../storage/pricing.md)).
+* Кластер Managed Service for Apache Airflow™: вычислительные ресурсы компонентов кластера ([тарифы Managed Service for Apache Airflow™](../../managed-airflow/pricing.md)).
+* Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
 * Сервис Yandex Cloud Logging: объем записываемых данных и время их хранения ([тарифы Cloud Logging](../../logging/pricing.md)).
-* Кластер Yandex Managed Service for Apache Spark™: вычислительные ресурсы компонентов кластера ([тарифы Yandex Managed Service for Apache Spark™](../../../managed-spark/pricing.md)).
+* Кластер Yandex Managed Service for Apache Spark™: вычислительные ресурсы компонентов кластера ([тарифы Yandex Managed Service for Apache Spark™](../../managed-spark/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infra}

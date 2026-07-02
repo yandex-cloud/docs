@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > [Концепции](index.md) > Ресурсные группы
+
 # Ресурсные группы в Managed Service for Trino
 
 _Ресурсные группы_ в Managed Service for Trino — это механизм управления нагрузкой, позволяющий:

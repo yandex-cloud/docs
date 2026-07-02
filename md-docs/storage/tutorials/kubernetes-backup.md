@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Резервное копирование > Резервное копирование кластера Managed Service for Kubernetes в Object Storage
+
 # Резервное копирование кластера Managed Service for Kubernetes в Object Storage
 
 
@@ -21,7 +23,7 @@
 * Плата за каждый кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
 * Плата за ВМ (две группы узлов и ВМ для управления кластером без публичного доступа): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
 * Плата за публичные IP-адреса для узлов кластеров ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за бакет Object Storage: хранение данных и выполнение операций с ними ([тарифы Object Storage](../../storage/pricing.md)).
+* Плата за бакет Object Storage: хранение данных и выполнение операций с ними ([тарифы Object Storage](../pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

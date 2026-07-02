@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Functions](../index.md) > [Практические руководства](index.md) > Боты на Serverless > Разработка Slack-бота
+
 # Как создать чат-бот для Slack
 
 
@@ -35,7 +37,7 @@
 В стоимость поддержки чат-бота входят:
 
 * плата за использование API-шлюза (тарифы [Yandex API Gateway](../../api-gateway/pricing.md));
-* плата за использование функций (тарифы [Yandex Cloud Functions](../../functions/pricing.md)).
+* плата за использование функций (тарифы [Yandex Cloud Functions](../pricing.md)).
 
 ## Подготовьте окружение {#prepare}
 

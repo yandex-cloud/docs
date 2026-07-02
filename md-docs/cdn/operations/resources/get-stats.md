@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > [Пошаговые инструкции](../index.md) > Ресурсы > Посмотреть статистику ресурса
+
 # Просмотр статистики CDN-ресурса
 
 Cloud CDN автоматически отправляет метрики работы CDN-ресурса в сервис [Yandex Monitoring](../../../monitoring/index.md).

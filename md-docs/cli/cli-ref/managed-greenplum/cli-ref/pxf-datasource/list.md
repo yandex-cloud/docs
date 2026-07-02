@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-greenplum](../index.md) > [pxf-datasource](index.md) > list
+
 # yc managed-greenplum pxf-datasource list
 
 List pxf-datasources for specified Greenplum cluster

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [LoadBalancer](index.md) > ListOperations
+
 # Application Load Balancer API, REST: LoadBalancer.ListOperations
 
 Lists operations for the specified application load balancer.

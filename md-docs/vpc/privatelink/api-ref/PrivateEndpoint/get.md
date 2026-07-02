@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > REST (англ.) > [Virtual Private Cloud API](../index.md) > [PrivateEndpoint](index.md) > Get
+
 # Virtual Private Cloud API, REST: PrivateEndpoint.Get
 
 Returns the specified Private Endpoint resource.

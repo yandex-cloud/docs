@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API Triggers > [REST (англ.)](../index.md) > [Trigger](index.md) > Get
+
 # Cloud Functions Triggers Service, REST: Trigger.Get
 
 Returns the specified trigger.

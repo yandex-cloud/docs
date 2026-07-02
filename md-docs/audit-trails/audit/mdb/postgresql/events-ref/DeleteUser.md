@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.postgresql > DeleteUser
+
 # Managed Service for PostgreSQL Audit Trails Events: DeleteUser
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.postgresql.DeleteUser2-schema}

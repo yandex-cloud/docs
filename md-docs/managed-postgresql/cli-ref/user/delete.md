@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [user](index.md) > delete
+
 # yc managed-postgresql user delete
 
 Delete the specified PostgreSQL user

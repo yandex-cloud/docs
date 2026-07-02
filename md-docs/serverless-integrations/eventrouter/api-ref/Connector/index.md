@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > Connector > Overview
+
 # EventRouter Service, REST: Connector
 
 A set of methods for managing connectors for serverless eventrouter.

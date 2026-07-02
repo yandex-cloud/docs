@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > [Пошаговые инструкции](index.md) > Логи и мониторинг > Просмотр логов кластера
+
 # Просмотр логов кластера Trino
 
 Managed Service for Trino позволяет [получить фрагмент логов кластера](#get-log) за выбранный период.

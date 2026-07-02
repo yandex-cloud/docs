@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Backup](index.md) > Delete
+
 # Managed Service for Greenplum® API, REST: Backup.Delete
 
 ## HTTP request

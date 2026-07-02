@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > [Справочник CLI (англ.)](../index.md) > [folder](index.md) > unbind-access-policy
+
 # yc resource-manager folder unbind-access-policy
 
 Unbind access policy from the specified folder

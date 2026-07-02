@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [instance-group](index.md) > add-metadata
+
 # yc compute v0 instance-group add-metadata
 
 Add or update metadata for instance template of the specified instance group

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Object Storage](../index.md) > Решения для известных проблем Object Storage
+
 ## Решения для известных проблем Object Storage {#known-issues-resolving}
 
 * [Устранение ошибки `Bucket is not empty` при удалении бакета](bucket-deletion-issue.md)

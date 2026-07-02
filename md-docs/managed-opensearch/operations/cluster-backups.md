@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Управление резервными копиями
+
 # Управление резервными копиями в Managed Service for OpenSearch
 
 Managed Service for OpenSearch позволяет создавать резервные копии [индексов](../concepts/indexing.md) как средствами Yandex Cloud, так и с помощью механизма [снапшотов](../../glossary/snapshot.md) OpenSearch. Подробнее о механизме снапшотов в [документации OpenSearch](https://opensearch.org/docs/latest/opensearch/snapshots/snapshot-restore/).

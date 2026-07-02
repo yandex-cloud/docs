@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Триггер](index.md) > Триггер для Data Streams
+
 # Триггер для Data Streams, который отправляет сообщения в WebSocket-соединения
 
 [Триггер](index.md) для Data Streams отправляет сообщения в [WebSocket-соединения](../extensions/websocket.md) при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts).

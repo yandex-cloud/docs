@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > Бэкенд на Serverless > Создание адреса Yandex Cloud Postbox и проверка владения доменом с помощью Terraform
+
 # Создание адреса Yandex Cloud Postbox и проверка владения доменом с помощью Terraform
 
 В этом руководстве вы с помощью Terraform создадите [адрес](../../postbox/concepts/glossary.md#adress) в [Yandex Cloud Postbox](../../postbox/index.md), а также добавите в [DNS-зону](../../dns/concepts/dns-zone.md) вашего домена необходимые [ресурсные записи](../../dns/concepts/resource-record.md#txt) для подтверждения владения доменом и отправки писем.

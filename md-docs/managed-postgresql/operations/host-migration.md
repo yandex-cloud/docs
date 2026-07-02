@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Миграция хостов в другую зону доступности
+
 # Миграция хостов кластера PostgreSQL в другую зону доступности
 
 

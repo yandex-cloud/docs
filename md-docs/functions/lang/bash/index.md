@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > Разработка на Bash > Обзор
+
 # Разработка на Bash. Обзор
 
 С помощью сервиса Cloud Functions вы можете запускать приложения, написанные на [Bash](https://www.gnu.org/software/bash/).

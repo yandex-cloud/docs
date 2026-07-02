@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > baremetal > CreatePrivateSubnet
+
 # BareMetal Audit Trails Events: CreatePrivateSubnet
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.CreatePrivateSubnet2-schema}

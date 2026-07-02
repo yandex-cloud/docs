@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YTsaurus](../index.md) > [Пошаговые инструкции](index.md) > Удаление кластера
+
 # Удаление кластера YTsaurus
 
 Вы можете удалить кластер YTsaurus, если он вам больше не нужен.

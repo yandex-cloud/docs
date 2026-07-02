@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Broker > [REST (англ.)](../index.md) > [BrokerData](index.md) > Publish
+
 # IoT Core Broker Service, REST: BrokerData.Publish
 
 Publishes message on behalf of specified broker

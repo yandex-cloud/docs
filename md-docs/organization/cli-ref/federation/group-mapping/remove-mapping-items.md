@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [federation](../index.md) > [group-mapping](index.md) > remove-mapping-items
+
 # yc organization-manager federation group-mapping remove-mapping-items
 
 Remove group mapping items from the specified federation

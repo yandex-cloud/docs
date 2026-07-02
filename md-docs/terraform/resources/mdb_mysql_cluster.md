@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for MySQL > Resources > mdb_mysql_cluster
+
 # yandex_mdb_mysql_cluster (Resource)
 
 Manages a MySQL cluster within the Yandex Cloud. For more information, see [the official documentation](../../managed-mysql/index.md).

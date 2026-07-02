@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Не удалось создать <тип_объекта>
+
 # [Yandex DataLens] Ошибка на стороне БД
 
 `ERR.DS_API.DB.DB_OPERATIONAL_ERROR`

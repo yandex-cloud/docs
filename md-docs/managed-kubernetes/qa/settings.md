@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > Вопросы и ответы > Настройка и обновление
+
 # Настройка и обновление
 
 * [Что делать, если часть моих данных потеряется при обновлении версии Kubernetes?](#backups-update)

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Невозможно обновить данные
+
 # [Yandex DataLens] Невозможно обновить данные
 
 `ERR.FILE.CANNOT_UPDATE_DATA`

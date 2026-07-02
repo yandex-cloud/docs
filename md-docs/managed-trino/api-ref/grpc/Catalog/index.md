@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Trino](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Catalog > Overview
+
 # Managed Service for Trino API, gRPC: CatalogService
 
 A set of methods for managing Trino Cluster Catalog resources.

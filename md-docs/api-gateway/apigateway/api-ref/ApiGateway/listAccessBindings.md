@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex API Gateway](../../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ApiGateway](index.md) > ListAccessBindings
+
 # API Gateway Service, REST: ApiGateway.ListAccessBindings
 
 Lists existing access bindings for the specified API gateway.

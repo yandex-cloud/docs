@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex DataSphere](../../../index.md) > [Справочник API](../../overview.md) > [gRPC (англ.)](../index.md) > [Community](index.md) > GetRestrictionsMeta
+
 # DataSphere API v2, gRPC: CommunityService.GetRestrictionsMeta
 
 Get meta information about available restrictions.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-opensearch](../index.md) > [plugin](index.md) > delete
+
 # yc managed-opensearch plugin delete
 
 Delete plugins from a managed OpenSearch cluster.

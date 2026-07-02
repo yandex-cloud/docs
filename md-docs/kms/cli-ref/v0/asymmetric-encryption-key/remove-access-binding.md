@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [asymmetric-encryption-key](index.md) > remove-access-binding
+
 # yc kms v0 asymmetric-encryption-key remove-access-binding
 
 Remove access binding for the specified asymmetric encryption key

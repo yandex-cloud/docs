@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Yandex Identity Hub](../../../../../../index.md) > Справочник API > gRPC (англ.) > Identity Provider API > [OAUTH Application API](../index.md) > Application > Overview
+
 # OAUTH Application API, gRPC: ApplicationService
 
 A set of methods for managing OAuth application.

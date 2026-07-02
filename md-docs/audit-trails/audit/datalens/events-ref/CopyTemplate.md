@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > CopyTemplate
+
 # DataLens Audit Trails Events: CopyTemplate
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.CopyTemplate2-schema}

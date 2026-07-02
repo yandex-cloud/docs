@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > Концепции > [Компоненты](overview.md) > Managed Service for Apache Kafka®
+
 # Managed Service for Apache Kafka® {#kafka}
 
 Managed Service for Apache Kafka® — это брокер сообщений, который позволяет реализовать архитектуру с использованием очередей сообщений. С помощью компонента можно создавать кластеры, топики и управлять доступом пользователей. Для этого используются кастомные ресурсы:

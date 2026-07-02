@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Registry](../index.md) > Вопросы и ответы
+
 # Вопросы и ответы про Container Registry
 
 #### Почему тег `latest` отсутствует или установлен не на последнем загруженном Docker-образе? {#latest}

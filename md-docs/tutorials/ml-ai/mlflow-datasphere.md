@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Машинное обучение и искусственный интеллект](index.md) > Разработка с помощью DataSphere > Создание сервера MLFlow для логирования экспериментов и артефактов
+
 # Создание сервера MLFlow для логирования экспериментов и артефактов
 
 В практическом руководстве показано, как развернуть [MLFlow Tracking Server](https://mlflow.org/docs/latest/tracking.html) для логирования экспериментов и артефактов на отдельной виртуальной машине [Yandex Compute Cloud](../../compute/index.md). Эксперименты будут проводиться в JupyterLab Notebook. Для хранения внутренних объектов будет использоваться база данных [Yandex Managed Service for PostgreSQL](../../managed-postgresql/index.md), а для хранения артефактов — бакет [Yandex Object Storage](../../storage/index.md).

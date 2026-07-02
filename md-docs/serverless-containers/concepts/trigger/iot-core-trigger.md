@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Serverless Containers](../../index.md) > [Концепции](../index.md) > [Триггер](index.md) > Триггер для Yandex IoT Core
+
 # Триггер для Yandex IoT Core, который передает сообщения в контейнер Serverless Containers
 
 [Триггер](index.md) для Yandex IoT Core предназначен для управления сообщениями, которыми обмениваются устройства, реестры и брокеры. Он создается для [топиков](../../../iot-core/concepts/topic/index.md): принимает из них копии сообщений и передает в контейнер Serverless Containers для обработки.

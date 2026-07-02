@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Virtual Private Cloud](index.md) > Метрики Monitoring
+
 # Справочник метрик Yandex Monitoring
 
 В этом разделе описаны метрики сервиса VPC, поставляемые в [Monitoring](../monitoring/index.md).

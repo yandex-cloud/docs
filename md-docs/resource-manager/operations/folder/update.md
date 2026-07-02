@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > [Пошаговые инструкции](../index.md) > Каталог > Изменение каталога
+
 # Изменение каталога
 
 Чтобы изменить имя и описание [каталога](../../concepts/resources-hierarchy.md#folder), используйте консоль управления, CLI, API или Terraform.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Backup](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Provider](index.md) > Activate
+
 # Cloud Backup API, gRPC: ProviderService.Activate
 
 Activate provider for specified client.

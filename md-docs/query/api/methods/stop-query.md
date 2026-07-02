@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Query](../../index.md) > Справочник > [HTTP API](../index.md) > [Методы](index.md) > stop-query
+
 # stop-query
 
 Метод останавливает запрос.

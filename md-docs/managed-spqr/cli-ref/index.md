@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > Справочник CLI (англ.) > Overview
+
 # yc managed-sharded-postgresql
 
 Manage Sharded PostgreSQL clusters, hosts, databases, backups and users.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [IamToken](index.md) > CreateForServiceAccount
+
 # Identity and Access Management API, gRPC: IamTokenService.CreateForServiceAccount
 
 Create an IAM token for service account.

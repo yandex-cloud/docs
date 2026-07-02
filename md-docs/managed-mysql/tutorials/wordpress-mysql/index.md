@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > [Практические руководства](../index.md) > Сайт на WordPress с БД MySQL® > Обзор
+
 # Создание сайта на WordPress с кластером базы данных MySQL®
 
 С помощью этой инструкции вы научитесь разворачивать сайт на базе CMS WordPress с [кластером баз данных](../../concepts/index.md) под управлением СУБД MySQL® в инфраструктуре Yandex Cloud.

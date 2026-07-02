@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex SpeechKit Hybrid > Yandex SpeechKit Hybrid
+
 # Yandex SpeechKit Hybrid
 
 SpeechKit Hybrid — это технологии Yandex SpeechKit, работающие внутри вашей инфраструктуры. В основе SpeechKit Hybrid лежат контейнеры Docker, которые отлично подходят для обеспечения требований к безопасности и управлению данными.

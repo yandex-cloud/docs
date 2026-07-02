@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > SpeechSense > Настроить и активировать
+
 # Настроить и активировать SpeechSense
 
 После [загрузки образов](install-images.md) активируйте компонент SpeechSense в кластере Stackland.

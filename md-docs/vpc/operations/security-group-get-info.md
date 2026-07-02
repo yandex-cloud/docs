@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Пошаговые инструкции](index.md) > Группы безопасности > Получить информацию о группе безопасности
+
 # Получить информацию о группе безопасности
 
 {% list tabs group=instructions %}

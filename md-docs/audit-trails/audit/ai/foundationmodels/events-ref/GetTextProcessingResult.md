@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > ai.foundationmodels > GetTextProcessingResult
+
 # AI Studio Audit Trails Events: GetTextProcessingResult
 
 ## Event JSON schema {#yandex.cloud.audit.ai.foundationmodels.GetTextProcessingResult2-schema}

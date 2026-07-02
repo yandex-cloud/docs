@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Data Transfer
+
 # Метрики Yandex Data Transfer
 
 В этом разделе описаны метрики сервиса [Data Transfer](../../data-transfer/index.md), поставляемые в Monium Metrics.

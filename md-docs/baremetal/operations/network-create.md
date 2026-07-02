@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > [Пошаговые инструкции](index.md) > Сеть > Создать VRF
+
 # Создать VRF
 
 {% list tabs group=instructions %}

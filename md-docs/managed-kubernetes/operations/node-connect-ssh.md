@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Пошаговые инструкции](index.md) > Подключение к узлу по SSH
+
 # Подключение к узлу по SSH
 
 Чтобы подключиться к [узлу](../concepts/index.md#node-group) [кластера Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster) по [SSH](../../glossary/ssh-keygen.md):

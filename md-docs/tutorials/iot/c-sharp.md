@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Прикладные решения > Интернет вещей (IoT) > Работа с Yandex IoT Core на языке C#
+
 # Работа с Yandex IoT Core на языке C#
 
 {% note warning %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Serverless Containers](../../index.md) > [Концепции](../index.md) > [Триггер](index.md) > Триггер для Object Storage
+
 # Триггер для Object Storage, который вызывает контейнер Serverless Containers
 
 [Триггер](index.md) для Object Storage запускает [контейнер](../container.md) Serverless Containers, когда наступает определенное событие с [объектом](../../../storage/concepts/object.md) Object Storage. Триггер должен находиться в одном облаке с бакетом, на события которого он подписан.

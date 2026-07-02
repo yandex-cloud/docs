@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > Справочник API > [REST (англ.)](../index.md) > PrivateConnection > Overview
+
 # Cloud Interconnect API, REST: PrivateConnection
 
 A set of methods for managing PrivateConnection resources.

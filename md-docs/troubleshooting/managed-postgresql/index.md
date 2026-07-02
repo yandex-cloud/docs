@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Managed Service for PostgreSQL > Все решения для Managed Service for PostgreSQL
+
 # Решения для Managed Service for PostgreSQL
 
 ## Примеры конфигураций и сценариев Managed Service for PostgreSQL {#configuration-examples}

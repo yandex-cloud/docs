@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Source avatar title conflicts with another avatar
+
 # [Yandex DataLens] Source avatar title conflicts with another avatar
 
 `ERR.DS_API.AVATAR.TITLE.CONFLICT`

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for ClickHouse®](index.md) > Начало работы
+
 # Как начать работать с Managed Service for ClickHouse®
 
 
@@ -48,7 +50,11 @@
    
       ![create-folder2](../_assets/resource-manager/create-folder-2.png)
 
-1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [vpc.user](../vpc/security/index.md#vpc-user) и роль [managed-clickhouse.editor или выше](security.md#roles-list). Эти роли позволяют создать кластер.
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роли:
+
+   * [managed-clickhouse.editor](security.md#managed-clickhouse-editor) или выше — чтобы создать кластер;
+   * [vpc.user](../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../vpc/concepts/network.md#network) кластера;
+   * [mdb.viewer](../iam/roles-reference.md#mdb-viewer) — чтобы просматривать кластеры управляемых баз данных (MDB) на дашборде в [консоли управления](https://console.yandex.cloud).
 
    Для привязки сервисного аккаунта к кластеру (например, для [работы с Yandex Object Storage](operations/s3-access.md)) вашему аккаунту дополнительно нужна роль [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) или выше.
 

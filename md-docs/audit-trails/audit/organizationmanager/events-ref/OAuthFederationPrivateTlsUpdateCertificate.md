@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > OAuthFederationPrivateTlsUpdateCertificate
+
 # Identity Hub Audit Trails Events: OAuthFederationPrivateTlsUpdateCertificate
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.oauth.OAuthFederationPrivateTlsUpdateCertificate2-schema}

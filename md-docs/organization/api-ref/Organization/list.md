@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Organization](index.md) > List
+
 # Identity Hub API, REST: Organization.List
 
 Retrieves the list of Organization resources.

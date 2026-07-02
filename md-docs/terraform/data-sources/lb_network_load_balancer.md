@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Network Load Balancer > Data Sources > lb_network_load_balancer
+
 # yandex_lb_network_load_balancer (DataSource)
 
 Get information about a Yandex Load Balancer network load balancer. For more information, see [the official documentation](../../load-balancer/concepts).

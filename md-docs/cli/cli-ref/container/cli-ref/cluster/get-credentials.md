@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [container](../index.md) > [cluster](index.md) > get-credentials
+
 # yc container cluster get-credentials
 
 Create or update kubeconfig for the specified Kubernetes cluster.

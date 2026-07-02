@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity Hub](../../../../../index.md) > Справочник API > REST (англ.) > Identity Provider API > [OAUTH Application API](../index.md) > [Application](index.md) > SetAccessBindings
+
 # OAUTH Application API, REST: Application.SetAccessBindings
 
 Sets access bindings for the specified OAuth application.

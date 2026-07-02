@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Cloud Functions](../index.md) > Устранение ошибки Permission denied при создании новых ресурсов
+
 # Устранение ошибки Permission denied при создании новых ресурсов
 
 ## Описание проблемы {#description}

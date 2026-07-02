@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex DataSphere](index.md) > История изменений
+
 # История изменений в Yandex DataSphere
 
 Здесь будет опубликована информация об изменениях в сервисе Yandex DataSphere.

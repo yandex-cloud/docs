@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Чарты > Чарты в визарде > Пошаговые инструкции > Настройка цветовой палитры
+
 # Управление цветовой палитрой в Yandex DataLens
 
 В Yandex DataLens вы можете [создать](#create-palette), [изменить](#edit-palette), [удалить](#delete-palette) цветовую палитру и [настроить цветовую палитру по умолчанию](#default-palette).

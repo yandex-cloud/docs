@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Network Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > Целевые группы > Удалить целевую группу
+
 # Удалить целевую группу Network Load Balancer
 
 {% note alert %}

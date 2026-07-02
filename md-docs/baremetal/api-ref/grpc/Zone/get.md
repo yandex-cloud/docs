@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [Zone](index.md) > Get
+
 # BareMetal API, gRPC: ZoneService.Get
 
 Returns the specific Zone resource.

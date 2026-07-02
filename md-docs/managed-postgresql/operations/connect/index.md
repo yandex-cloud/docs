@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > Подключение > Предварительная настройка
+
 # Предварительная настройка для подключения к кластеру PostgreSQL
 
 К хостам кластера Managed Service for PostgreSQL можно подключиться:

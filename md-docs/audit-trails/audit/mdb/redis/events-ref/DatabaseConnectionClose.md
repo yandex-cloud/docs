@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.redis > DatabaseConnectionClose
+
 # Managed Service for ValKey Audit Trails Events: DatabaseConnectionClose
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.redis.DatabaseConnectionClose2-schema}

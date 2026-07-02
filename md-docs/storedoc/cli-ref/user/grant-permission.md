@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > [user](index.md) > grant-permission
+
 # yc managed-mongodb user grant-permission
 
 Grant a permission to the specified MongoDB user.

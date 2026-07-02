@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Концепции](index.md) > Условия
+
 # Условия
 
 {% note info %}

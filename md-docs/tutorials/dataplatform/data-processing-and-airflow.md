@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Автоматизация работы с Yandex Data Processing с помощью Managed Service for Apache Airflow™
+
 # Автоматизация работы с Yandex Data Processing с помощью Yandex Managed Service for Apache Airflow™
 
 # Автоматизация работы с Yandex Data Processing с помощью Yandex Managed Service for Apache Airflow™
@@ -15,7 +17,7 @@
 1. Создать и запустить [задание PySpark](../../data-proc/concepts/jobs.md).
 1. Удалить кластер Yandex Data Processing.
 
-При таком DAG кластер существует непродолжительное время. Так как стоимость ресурсов Yandex Data Processing [зависит от времени их использования](../../../data-proc/pricing.md), в кластере можно задействовать ресурсы повышенной мощности и быстро обработать большее количество данных за те же деньги.
+При таком DAG кластер существует непродолжительное время. Так как стоимость ресурсов Yandex Data Processing [зависит от времени их использования](../../data-proc/pricing.md), в кластере можно задействовать ресурсы повышенной мощности и быстро обработать большее количество данных за те же деньги.
 
 В этом DAG кластер Yandex Data Processing создается без сервиса Hive. Для хранения табличных метаданных в примере ниже используется [кластер Apache Hive™ Metastore](../../metadata-hub/concepts/metastore.md). Сохраненные метаданные затем может использовать другой кластер Yandex Data Processing.
 
@@ -41,11 +43,11 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for Apache Airflow™: вычислительные ресурсы компонентов кластера ([тарифы Managed Service for Apache Airflow™](../../../managed-airflow/pricing.md)).
+* Кластер Managed Service for Apache Airflow™: вычислительные ресурсы компонентов кластера ([тарифы Managed Service for Apache Airflow™](../../managed-airflow/pricing.md)).
 * Кластер Apache Hive™ Metastore: вычислительные ресурсы компонентов кластера ([тарифы Yandex MetaData Hub](../../metadata-hub/pricing.md#metastore)).
-* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
-* Бакеты Yandex Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../../storage/pricing.md)).
-* Кластер Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы Yandex Data Processing](../../../data-proc/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Бакеты Yandex Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
+* Кластер Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы Yandex Data Processing](../../data-proc/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infra}

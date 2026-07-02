@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [SAML Federation API](../index.md) > [Certificate](index.md) > Create
+
 # SAML Federation API, REST: Certificate.Create
 
 Creates a certificate in the specified federation.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Maintenance](index.md) > List
+
 # Managed Service for SPQR API, gRPC: MaintenanceService.List
 
 Lists maintenances by conditions, specified in request.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Certificate Manager](../../index.md) > [Пошаговые инструкции](../index.md) > Сертификат от Let's Encrypt > Добавление сертификата
+
 # Добавить сертификат от Let's Encrypt®
 
 [Сертификат](../../concepts/managed-certificate.md) из Certificate Manager можно использовать только в [указанных сервисах](../../concepts/services.md) Yandex Cloud.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Apache Spark™](index.md) > Метрики Yandex Monitoring
+
 # Справочник метрик Yandex Monitoring
 
 В этом разделе описаны метрики сервиса Yandex Managed Service for Apache Spark™, поставляемые в [Monitoring](../monitoring/concepts/index.md).

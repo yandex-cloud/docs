@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Interconnect](../index.md) > [Концепции](index.md) > Мониторинг
+
 # Мониторинг Cloud Interconnect
  
 Сервис мониторинга дает возможность оценить состояние и потребление ресурсов Yandex Cloud Interconnect.

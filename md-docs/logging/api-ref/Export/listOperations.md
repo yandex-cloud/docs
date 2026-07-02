@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Export](index.md) > ListOperations
+
 # Cloud Logging Service, REST: Export.ListOperations
 
 Lists operations for the specified export.

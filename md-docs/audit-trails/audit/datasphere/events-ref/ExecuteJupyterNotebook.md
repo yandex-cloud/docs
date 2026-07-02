@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > ExecuteJupyterNotebook
+
 # DataSphere Audit Trails Events: ExecuteJupyterNotebook
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.ExecuteJupyterNotebook2-schema}

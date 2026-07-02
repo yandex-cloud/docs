@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [VirtualHost](index.md) > Update
+
 # Application Load Balancer API, REST: VirtualHost.Update
 
 Updates the specified virtual host of the specified HTTP router.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-kubernetes](../../index.md) > [v0](../index.md) > [cluster](index.md) > add-access-binding
+
 # yc managed-kubernetes v0 cluster add-access-binding
 
 Add access binding for the specified Kubernetes cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [point-of-presence](index.md) > get
+
 # yc cic v0 point-of-presence get
 
 Get information about a point of presence.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > BookmarkTagsDelete
+
 # Yandex Wiki Audit Trails Events: BookmarkTagsDelete
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.BookmarkTagsDelete2-schema}

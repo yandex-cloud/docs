@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > UpdateOsLoginProfile
+
 # Identity Hub Audit Trails Events: UpdateOsLoginProfile
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.UpdateOsLoginProfile2-schema}

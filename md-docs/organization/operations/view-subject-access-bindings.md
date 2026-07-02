@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > [Пошаговые инструкции](index.md) > Управление доступом > Просмотреть список доступов субъекта
+
 # Просмотреть список доступов субъекта
 
 Вы можете централизованно просматривать полный список прав доступа индивидуальных [субъектов](../../iam/concepts/access-control/index.md#subject) и групп к [ресурсам](../../iam/concepts/access-control/resources-with-access-control.md) организации. Для этого можно использовать [модуль CIEM](../../security-deck/concepts/ciem.md) сервиса [Yandex Security Deck](https://center.yandex.cloud/security/) или [Yandex Cloud CLI](../../cli/index.md).

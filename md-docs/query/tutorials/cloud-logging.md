@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > [Практические руководства](index.md) > Обработка логов Cloud Logging
+
 # Обработка логов Yandex Cloud Logging
 
 [Yandex Cloud Logging](../../logging/index.md) — это сервис, который позволяет читать и записывать логи сервисов Yandex Cloud и пользовательских приложений.

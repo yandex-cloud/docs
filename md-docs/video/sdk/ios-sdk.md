@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Video](../index.md) > Видеоплеер > [SDK](index.md) > iOS > Начало работы
+
 # SDK видеоплеера для iOS
 
 С помощью [SDK](https://github.com/yandex-cloud/cloud-video-player-ios-sdk/) вы можете встроить в ваше iOS-приложение [видеоплеер](../concepts/player.md) для воспроизведения контента из Cloud Video.

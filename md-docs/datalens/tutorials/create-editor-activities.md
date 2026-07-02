@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > [Практические руководства](index.md) > Функциональные > Пример использования вкладки Activities в Editor
+
 # Пример использования вкладки Activities в Editor
 
 

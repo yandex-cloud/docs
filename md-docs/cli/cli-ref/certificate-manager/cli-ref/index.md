@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > certificate-manager > Overview
+
 # yc certificate-manager
 
 Manage Certificate Manager resources

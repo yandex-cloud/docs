@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Инструменты для Managed Service for Kubernetes](../index.md) > Ingress-контроллер > Обзор
+
 # Ingress-контроллер для Managed Service for Kubernetes
 
 {% note tip %}

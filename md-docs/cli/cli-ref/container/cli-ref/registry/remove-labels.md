@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [container](../index.md) > [registry](index.md) > remove-labels
+
 # yc container registry remove-labels
 
 Remove labels from a registry.

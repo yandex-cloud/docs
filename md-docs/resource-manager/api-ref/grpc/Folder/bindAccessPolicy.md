@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Resource Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Folder](index.md) > BindAccessPolicy
+
 # Resource Manager API, gRPC: FolderService.BindAccessPolicy
 
 Binds the access policy template to the folder.

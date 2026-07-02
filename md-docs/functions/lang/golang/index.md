@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > Разработка на Go > Обзор
+
 # Разработка на Go. Обзор
 
 С помощью сервиса Cloud Functions вы можете запускать приложения, написанные на [Go](https://go.dev/doc/).

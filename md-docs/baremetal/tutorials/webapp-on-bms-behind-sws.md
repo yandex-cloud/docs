@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > [Практические руководства](index.md) > Развертывание веб-приложения на серверах BareMetal с L7-балансировщиком и защитой Smart Web Security
+
 # Развертывание веб-приложения на серверах BareMetal с L7-балансировщиком и защитой Yandex Smart Web Security
 
 # Развертывание веб-приложения на серверах Yandex BareMetal с L7-балансировщиком и защитой Yandex Smart Web Security

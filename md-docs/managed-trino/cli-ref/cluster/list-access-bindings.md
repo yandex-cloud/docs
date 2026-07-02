@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Trino](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > list-access-bindings
+
 # yc managed-trino cluster list-access-bindings
 
 List access bindings for the specified Trino cluster

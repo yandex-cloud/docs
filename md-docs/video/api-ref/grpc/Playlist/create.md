@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Playlist](index.md) > Create
+
 # Video API, gRPC: PlaylistService.Create
 
 Creates a new playlist in the specified channel with the provided items.

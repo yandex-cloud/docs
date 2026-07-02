@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > Аутентификация > IAM-токены > Refresh-токены > Получение списка refresh-токенов
+
 # Получение списка refresh-токенов
 
 {% note info %}

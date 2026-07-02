@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Image](index.md) > GetLatestByFamily
+
 # Compute Cloud API, REST: Image.GetLatestByFamily
 
 Returns the latest image that is part of an image family.

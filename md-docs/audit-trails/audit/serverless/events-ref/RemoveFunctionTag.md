@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > serverless > RemoveFunctionTag
+
 # Cloud Functions Audit Trails Events: RemoveFunctionTag
 
 ## Event JSON schema {#yandex.cloud.audit.serverless.functions.RemoveFunctionTag2-schema}

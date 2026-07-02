@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YDB](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [backup](index.md) > list
+
 # yc ydb v0 backup list
 
 List YDB backups in a folder.

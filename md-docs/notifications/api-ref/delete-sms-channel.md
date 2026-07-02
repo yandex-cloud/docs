@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > [Справочник API](index.md) > SMS > Delete
+
 # Действие DeleteSMSChannel
 
 Удаляет [канал SMS-уведомлений](../concepts/sms.md).

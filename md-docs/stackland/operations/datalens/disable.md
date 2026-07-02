@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > DataLens > Отключить DataLens
+
 # Отключить DataLens
 
 ## Отключить компонент {#disable}

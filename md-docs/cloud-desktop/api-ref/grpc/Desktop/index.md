@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Desktop](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Desktop > Overview
+
 # Cloud Desktop API, gRPC: DesktopService
 
 A set of methods for managing desktop resources.

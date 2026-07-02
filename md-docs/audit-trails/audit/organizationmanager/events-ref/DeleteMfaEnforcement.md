@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > DeleteMfaEnforcement
+
 # Identity Hub Audit Trails Events: DeleteMfaEnforcement
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.DeleteMfaEnforcement2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Практические руководства](../index.md) > Боты на Serverless > Разработка Telegram-бота > Обзор
+
 # Как создать бота в Telegram
 
 

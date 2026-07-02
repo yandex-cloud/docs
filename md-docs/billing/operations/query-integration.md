@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Billing](../index.md) > [Пошаговые инструкции](index.md) > Анализ использования сервисов Yandex Cloud > Детализация расходов > Поиск в детализации с помощью Yandex Query
+
 # Поиск данных в детализации с помощью запросов Yandex Query
 
 

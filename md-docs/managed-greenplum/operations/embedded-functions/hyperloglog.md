@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > Встроенные функции > Оценка количества уникальных элементов с помощью алгоритма HyperLogLog
+
 # Оценка количества уникальных элементов с помощью алгоритма HyperLogLog
 
 Чтобы оценить количество уникальных элементов в столбце таблицы (_мощность_ множества), вы можете воспользоваться встроенными в Yandex MPP Analytics for PostgreSQL функциями, реализующими [алгоритм HyperLogLog](https://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf).

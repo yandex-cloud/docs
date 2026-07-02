@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex SmartCaptcha](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Captcha](index.md) > Delete
+
 # SmartCaptcha API, gRPC: CaptchaService.Delete
 
 Deletes the specified captcha.

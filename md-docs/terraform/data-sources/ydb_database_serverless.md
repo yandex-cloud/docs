@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for YDB > Data Sources > ydb_database_serverless
+
 # yandex_ydb_database_serverless (DataSource)
 
 Get information about a Yandex Database serverless cluster. For more information, see [the official documentation](../../ydb/concepts/serverless_and_dedicated).

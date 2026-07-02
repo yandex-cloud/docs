@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for OpenSearch](../../index.md) > [Справочник CLI (англ.)](../index.md) > extension > Overview
+
 # yc managed-opensearch extension
 
 Extensions of a managed OpenSearch cluster.

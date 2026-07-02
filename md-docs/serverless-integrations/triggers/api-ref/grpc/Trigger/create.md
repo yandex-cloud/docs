@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API Triggers > [gRPC (англ.)](../index.md) > [Trigger](index.md) > Create
+
 # Cloud Functions Triggers Service, gRPC: TriggerService.Create
 
 Creates a trigger in the specified folder.

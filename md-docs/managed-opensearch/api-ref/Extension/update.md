@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for OpenSearch](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Extension](index.md) > Update
+
 # Managed Service for OpenSearch API, REST: Extension.Update
 
 Updates the specified extension.

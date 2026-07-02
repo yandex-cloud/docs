@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Инструменты для Managed Service for Kubernetes > Gwin > Конфигурация ресурсов (англ.) > ServicePolicy
+
 # ServicePolicy
 
 ServicePolicy is a Gwin custom resource for configuring Service-specific policies. It allows you to configure how Kubernetes Services are used as ALB targets, controlling target selection, addressing, and zone matching.

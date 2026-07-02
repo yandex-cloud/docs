@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SecurityProfile](index.md) > Get
+
 # SmartWebSecurity API, gRPC: SecurityProfileService.Get
 
 Returns the specified SecurityProfile resource.

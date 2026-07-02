@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.spqr > AddClusterShards
+
 # Managed Service for SPQR Audit Trails Events: AddClusterShards
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.spqr.AddClusterShards2-schema}

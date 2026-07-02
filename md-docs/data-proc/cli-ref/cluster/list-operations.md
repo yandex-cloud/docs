@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Processing](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > list-operations
+
 # yc dataproc cluster list-operations
 
 List operations for a cluster.

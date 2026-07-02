@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [smartwebsecurity](../index.md) > [security-profile](index.md) > list
+
 # yc smartwebsecurity security-profile list
 
 Retrieves the list of SecurityProfile resources in the specified folder.

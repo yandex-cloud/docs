@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [route-table](index.md) > delete
+
 # yc vpc route-table delete
 
 Delete a route table.

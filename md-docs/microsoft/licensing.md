@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Microsoft в Yandex Cloud](index.md) > Лицензирование > Лицензии Microsoft в Yandex Cloud
+
 # Лицензии Microsoft в Yandex Cloud
 
 {% note info %}

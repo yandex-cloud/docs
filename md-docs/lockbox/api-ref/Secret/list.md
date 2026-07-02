@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Lockbox](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Secret](index.md) > List
+
 # Lockbox API, REST: Secret.List
 
 Retrieves the list of secrets in the specified folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > [Пошаговые инструкции](index.md) > Логи и мониторинг > Передача логов Apache Airflow™ в Cloud Logging
+
 # Передача логов кластера Managed Service for Apache Airflow™ в Yandex Cloud Logging
 
 Вы можете настроить регулярный сбор логов о работе кластера Managed Service for Apache Airflow™. Логи поставляются в [лог-группу](../../logging/concepts/log-group.md) в сервисе Cloud Logging. Можно выбрать лог-группу одного из двух типов:

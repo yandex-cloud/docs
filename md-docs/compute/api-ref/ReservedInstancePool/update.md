@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ReservedInstancePool](index.md) > Update
+
 # Compute Cloud API, REST: ReservedInstancePool.Update
 
 Updates the specified reserved instance pool.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > Вопросы и ответы > Изменение кластера
+
 # Изменение кластера Yandex MPP Analytics for PostgreSQL
 
 #### Как изменить вычислительные ресурсы и объем хранилища для кластера БД? {#resources-change}

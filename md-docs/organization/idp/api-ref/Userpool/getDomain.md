@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [Identity Provider API](../index.md) > [Userpool](index.md) > GetDomain
+
 # Identity Provider API, REST: Userpool.GetDomain
 
 Returns the specified domain for a userpool.

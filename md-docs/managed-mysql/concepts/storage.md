@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for MySQL®](../index.md) > [Концепции](index.md) > Хранилище в Managed Service for MySQL®
+
 # Хранилище в Managed Service for MySQL®
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > ChangeOrganizationMetrika
+
 # Yandex Wiki Audit Trails Events: ChangeOrganizationMetrika
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.ChangeOrganizationMetrika2-schema}

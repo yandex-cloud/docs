@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Управление доступом к кластеру
+
 # Управление доступом к кластеру Yandex MPP Analytics for PostgreSQL
 
 Вы можете предоставить пользователю или сервисному аккаунту [роль](../security/index.md) для доступа к конкретному [кластеру](../concepts/index.md).

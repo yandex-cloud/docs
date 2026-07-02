@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Концепции](index.md) > Задания Spark
+
 # Задания Spark
 
 Yandex Data Processing поддерживает выполнение заданий [Spark](https://spark.apache.org/docs/latest/sql-programming-guide.html) в рамках Spark-_приложений_ (applications). За распределение ресурсов при выполнении заданий отвечает [Apache Hadoop YARN](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html).

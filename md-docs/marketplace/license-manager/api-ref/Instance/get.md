@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Marketplace](../../../index.md) > Партнерам > Справочник License Manager API > [REST (англ.)](../index.md) > [Instance](index.md) > Get
+
 # Yandex Cloud Marketplace License Manager, REST: Instance.Get
 
 Returns the specified subscription instance.

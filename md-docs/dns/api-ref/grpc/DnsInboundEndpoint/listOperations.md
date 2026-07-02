@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud DNS](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DnsInboundEndpoint](index.md) > ListOperations
+
 # Cloud DNS API, gRPC: DnsInboundEndpointService.ListOperations
 
 Lists operations for the specified DNS inbound endpoint.

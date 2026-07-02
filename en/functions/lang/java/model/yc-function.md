@@ -1,6 +1,6 @@
-# Using the YcFunction interface for a Java handler
+# Using the YcFunction interface for a handler in Java
 
-To create a Java [handler](../handler.md), you can implement the [YcFunction](https://github.com/yandex-cloud/java-sdk/blob/master/java-sdk-functions/src/main/java/yandex/cloud/sdk/functions/YcFunction.java) interface. To do this, add the [SDK](../sdk.md) to the [dependencies](../dependencies.md).
+To create a [handler](../handler.md) in Java, you can implement the [YcFunction](https://github.com/yandex-cloud/java-sdk/blob/master/java-sdk-functions/src/main/java/yandex/cloud/sdk/functions/YcFunction.java) interface. To do this, add the [SDK](../sdk.md) to the [dependencies](../dependencies.md).
 
 Example of a valid handler:
 
@@ -18,7 +18,7 @@ public class Handler implements YcFunction<Integer, String> {
 
 {% note warning %}
 
-Specify two values for `YcFunction` type parameters: the first one represents the input argument type, the second one, the return value type. For the `handle` method, make sure to provide the [invocation context](../context.md) as its second argument.
+Specify two values for `YcFunction` type parameters: the first one being the input argument type and the second one, the return value type. For the `handle` method, make sure to provide the [invocation context](../context.md) as its second argument.
 
 {% endnote %}
 
@@ -27,8 +27,8 @@ Examples of invalid handlers:
 ```java
 import yandex.cloud.sdk.functions.YcFunction;
 import yandex.cloud.sdk.functions.Context;
-// YcFunction has only one parameter type specified
-// Handler should not have any type parameters (see the handler requirements)
+// YcFunction has only one parameter type specified.
+// Handler should not have any parameter types (see handler requirements).
 public class Handler<T> implements YcFunction<T, Integer> {
   @Override
   public Integer handle(T i, Context c) {
@@ -40,7 +40,7 @@ public class Handler<T> implements YcFunction<T, Integer> {
 ```java
 import yandex.cloud.sdk.functions.YcFunction;
 import yandex.cloud.sdk.functions.Context;
-// YcFunction has neither parameter types specified
+// YcFunction has neither parameter types specified.
 public class Handler implements YcFunction {
   @Override
   public Object apply(Object i, Context c) {
@@ -53,7 +53,7 @@ You can use any classes as input and return types.
 
 {% note info %}
 
-Fields of these classes may have any [access modifiers](https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html). For non-public fields, you do not have to write `getter`/`setter`.
+Fields of these classes can have any [access modifiers](https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html). For non-public fields, defining the `getter` or `setter` method is optional.
 
 {% endnote %}
 
@@ -67,7 +67,7 @@ To invoke the function, use the [{{ yandex-cloud }} CLI](../../../concepts/funct
 
 {% endnote %}
 
-`Handler.java` file:
+`Handler.java`:
 ```java
 import yandex.cloud.sdk.functions.YcFunction;
 import yandex.cloud.sdk.functions.Context;
@@ -82,7 +82,7 @@ public class Handler implements YcFunction<Integer, Boolean> {
   public Boolean handle(Integer number, Context c) {
     System.out.println(format("Function name: %s", c.getFunctionName()));
     System.out.println(format("Function version: %s", c.getFunctionVersion()));
-    // if no service account is selected, an empty line is printed
+    // If no service account is selected, the output will be an empty string.
     System.out.println(format("Service account token: %s", c.getTokenJson()));
     return number % 2 == 0;
   }

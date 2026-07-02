@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Расширения спецификации](index.md) > Жадные параметры
+
 # Жадные параметры
 
 [Спецификация OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) позволяет захватывать только один сегмент URL. Чтобы захватить несколько сегментов, добавьте `+` после имени параметра: `/prefix/{param+}/suffix`.

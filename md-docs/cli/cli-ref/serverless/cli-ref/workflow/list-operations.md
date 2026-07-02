@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [serverless](../index.md) > [workflow](index.md) > list-operations
+
 # yc serverless workflow list-operations
 
 List Workflow operations

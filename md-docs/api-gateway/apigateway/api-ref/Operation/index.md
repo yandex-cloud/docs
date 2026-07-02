@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex API Gateway](../../../index.md) > Справочник API > [REST (англ.)](../index.md) > Operation > Overview
+
 # API Gateway Service, REST: Operation
 
 A set of methods for managing operations for asynchronous API requests.

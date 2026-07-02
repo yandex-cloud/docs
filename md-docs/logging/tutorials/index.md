@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Logging](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Cloud Logging
 
 * [Передача логов кластера Yandex Managed Service for Kubernetes в Cloud Logging](k8s-fluent-bit-logging.md)

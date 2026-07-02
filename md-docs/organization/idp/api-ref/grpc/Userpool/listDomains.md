@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [Identity Provider API](../index.md) > [Userpool](index.md) > ListDomains
+
 # Identity Provider API, gRPC: UserpoolService.ListDomains
 
 Lists domains for the specified userpool.

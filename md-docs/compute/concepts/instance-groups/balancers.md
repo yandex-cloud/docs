@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Концепции](../index.md) > [Группы виртуальных машин](index.md) > Интеграция с сетевыми и L7-балансировщиками
+
 # Интеграция группы ВМ с Network Load Balancer или Application Load Balancer
 
 Сервисы [Yandex Network Load Balancer](https://yandex.cloud/ru/services/network-load-balancer) и [Yandex Application Load Balancer](https://yandex.cloud/ru/services/application-load-balancer) позволяют распределять входящую нагрузку между виртуальными машинами Yandex Compute Cloud. [Группу виртуальных машин](index.md) можно интегрировать с этими сервисами: Compute Cloud автоматически создаст из группы ВМ целевую группу Network Load Balancer или Application Load Balancer и будет следить, чтобы в группу не добавлялись «нездоровые» ВМ.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Концепции](index.md) > Устройство сети в Yandex Cloud
+
 # Устройство сети в Yandex Cloud
 
 Сеть в Yandex Cloud можно условно разделить на две большие части: 

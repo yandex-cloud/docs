@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > vpc > DeleteIpfix
+
 # Virtual Private Cloud Audit Trails Events: DeleteIpfix
 
 ## Event JSON schema {#yandex.cloud.audit.network.DeleteIpfix2-schema}

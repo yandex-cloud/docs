@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Инструменты Application Load Balancer](index.md) > Настройка групп безопасности
+
 # Настройка групп безопасности для инструментов Application Load Balancer в Yandex Managed Service for Kubernetes 
 
 {% note tip %}

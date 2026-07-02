@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Valkey™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [User](index.md) > Delete
+
 # Managed Service for Redis API, gRPC: UserService.Delete
 
 Deletes the specified Redis user.

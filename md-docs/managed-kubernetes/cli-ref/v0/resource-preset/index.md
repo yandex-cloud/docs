@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > resource-preset > Overview
+
 # yc managed-kubernetes v0 resource-preset
 
 Manage Kubernetes master resource presets.

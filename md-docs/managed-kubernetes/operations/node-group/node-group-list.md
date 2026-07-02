@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Управление группой узлов > Информация об имеющихся группах узлов
+
 # Информация об имеющихся группах узлов
 
 Чтобы узнать `ID` или `NAME` [группы узлов](../../concepts/index.md#node-group), получите [список групп узлов](#list) в [кластере Kubernetes](../../concepts/index.md#kubernetes-cluster) или [подробную информацию о группе узлов](#get).

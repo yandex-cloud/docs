@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Контейнерная инфраструктура](index.md) > Создать ВМ с Container Optimized Image и дополнительным томом для Docker-контейнера
+
 # Создание ВМ с Container Optimized Image и дополнительным томом для Docker-контейнера
 
 В этой инструкции вы создадите [виртуальную машину](../../compute/concepts/vm.md) из образа [Container Optimized Image](../../cos/concepts/index.md), в которой будет [Docker-контейнер](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers) с запущенным MongoDB и подключенным дополнительным [томом](../../container-registry/concepts/docker-volume.md) объемом 10 ГБ.

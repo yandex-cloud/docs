@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Billing](../../../index.md) > Справочник API > gRPC (англ.) > [Billing](../index.md) > BillingAccount > Overview
+
 # Billing API, gRPC: BillingAccountService
 
 A set of methods for managing BillingAccount resources.

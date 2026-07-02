@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [gpu-cluster](index.md) > remove-labels
+
 # yc compute gpu-cluster remove-labels
 
 Remove labels from specified GPU cluster

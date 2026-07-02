@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > smartwebsecurity > DeleteMatchList
+
 # Smart Web Security Audit Trails Events: DeleteMatchList
 
 ## Event JSON schema {#yandex.cloud.audit.smartwebsecurity.DeleteMatchList2-schema}

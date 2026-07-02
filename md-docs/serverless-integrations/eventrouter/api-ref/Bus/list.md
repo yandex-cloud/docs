@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > [Bus](index.md) > List
+
 # EventRouter Service, REST: Bus.List
 
 Retrieves the list of buses in the specified folder.

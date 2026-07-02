@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > [Прикладные решения](../index.md) > Создание сайта > [Статический сайт в Object Storage с доступом через Cloud CDN](index.md) > Консоль управления, CLI, API
+
 # Настройка хостинга статического сайта в бакете Yandex Object Storage с доступом через Yandex Cloud CDN
 
 

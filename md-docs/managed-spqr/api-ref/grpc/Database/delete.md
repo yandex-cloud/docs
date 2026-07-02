@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Database](index.md) > Delete
+
 # Managed Service for SPQR API, gRPC: DatabaseService.Delete
 
 Deletes the specified SPQR database.

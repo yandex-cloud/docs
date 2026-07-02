@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Пошаговые инструкции](index.md) > Статическая маршрутизация > Перенести NAT-шлюз между каталогами
+
 # Переместить NAT-шлюз в другой каталог
 
 {% note info %}

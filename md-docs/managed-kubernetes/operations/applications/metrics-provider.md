@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Установка приложений из Cloud Marketplace > Установка Metrics Provider
+
 # Установка Metrics Provider
 
 Metrics Provider транслирует метрики объектов [кластера Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster) в системы мониторинга и [системы автоматического масштабирования](../../concepts/autoscale.md). Метрики можно транслировать и в обратную сторону: например, объекты кластера могут получать метрики сервиса [Yandex Monitoring](../../../monitoring/concepts/index.md).

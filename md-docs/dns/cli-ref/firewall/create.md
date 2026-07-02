@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > [Справочник CLI (англ.)](../index.md) > [firewall](index.md) > create
+
 # yc dns firewall create
 
 Create a dns firewall in the specified folder.

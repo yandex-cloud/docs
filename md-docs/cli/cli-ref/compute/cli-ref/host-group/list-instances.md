@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [host-group](index.md) > list-instances
+
 # yc compute host-group list-instances
 
 List instances of the specified host group

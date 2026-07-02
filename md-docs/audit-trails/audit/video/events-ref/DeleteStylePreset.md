@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > video > DeleteStylePreset
+
 # Cloud Video Audit Trails Events: DeleteStylePreset
 
 ## Event JSON schema {#yandex.cloud.audit.video.DeleteStylePreset2-schema}

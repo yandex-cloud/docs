@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for OpenSearch](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Versions](index.md) > List
+
 # Managed Service for OpenSearch API, gRPC: VersionsService.List
 
 Returns list of available OpenSearch versions.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [AWS S3 REST](../../index.md) > [REST](../index.md) > Object > SelectObjectContent
+
 # Object Storage API, REST совместимый с Amazon S3: SelectObjectContent
 
 Фильтрует и возвращает содержимое объекта Object Storage на основе [запроса на языке S3 Select](../../../concepts/s3-select-language.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > Аутентификация в API
+
 # Аутентификация в Devices API Yandex IoT Core
 
 {% note warning %}

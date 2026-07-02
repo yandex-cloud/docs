@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > Restore
+
 # Managed Service for ClickHouse API, REST: Cluster.Restore
 
 Creates a new ClickHouse cluster using the specified backup.

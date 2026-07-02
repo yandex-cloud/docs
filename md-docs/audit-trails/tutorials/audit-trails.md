@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Audit Trails](../index.md) > [Практические руководства](index.md) > Обработка аудитных логов Audit Trails
+
 # Обработка аудитных логов Yandex Audit Trails
 
 Yandex Audit Trails — сервис для сбора и выгрузки аудитных логов ресурсов Yandex Cloud в различные принимающие системы, в том числе в Yandex Object Storage и в Yandex Data Streams. Audit Trails и Yandex Query интегрированы между собой, что позволяет решать задачи поиска в аудитных логах.

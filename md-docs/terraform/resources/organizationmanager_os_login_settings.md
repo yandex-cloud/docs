@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity Hub > Resources > organizationmanager_os_login_settings
+
 # yandex_organizationmanager_os_login_settings (Resource)
 
 Allows management of OsLogin Settings within an existing Yandex Cloud Organization.

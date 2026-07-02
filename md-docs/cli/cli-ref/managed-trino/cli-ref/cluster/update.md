@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-trino](../index.md) > [cluster](index.md) > update
+
 # yc managed-trino cluster update
 
 Update the specified Trino cluster

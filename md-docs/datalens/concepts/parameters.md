@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Вычисляемые поля > Параметры
+
 # Параметры в Yandex DataLens
 
 Параметр — это переменная, которая может заменять константные значения в вычисляемых полях. Параметры можно создавать [на уровне датасета](../dataset/create-dataset.md#add-parameters) и [на уровне чарта](../operations/chart/add-parameter-chart.md).

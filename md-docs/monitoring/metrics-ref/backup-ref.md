@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Cloud Backup
+
 # Метрики Yandex Cloud Backup
 
 В этом разделе описаны метрики сервиса [Cloud Backup](../../backup/index.md), поставляемые в Monitoring.

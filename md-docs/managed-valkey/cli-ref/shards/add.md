@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > [Справочник CLI (англ.)](../index.md) > [shards](index.md) > add
+
 # yc managed-redis shards add
 
 Create new shard for the cluster in the specified availability zones.

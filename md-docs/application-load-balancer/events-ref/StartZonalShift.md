@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Справочник аудитных логов > StartZonalShift
+
 # Application Load Balancer Audit Trails Events: StartZonalShift
 
 ## Event JSON schema {#yandex.cloud.audit.apploadbalancer.StartZonalShift2-schema}

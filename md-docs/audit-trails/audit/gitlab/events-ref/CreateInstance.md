@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > gitlab > CreateInstance
+
 # Managed Service for GitLab Audit Trails Events: CreateInstance
 
 ## Event JSON schema {#yandex.cloud.audit.gitlab.CreateInstance2-schema}

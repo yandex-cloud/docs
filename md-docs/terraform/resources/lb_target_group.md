@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Network Load Balancer > Resources > lb_target_group
+
 # yandex_lb_target_group (Resource)
 
 A TargetGroup resource. For more information, see [Target groups and resources](../../network-load-balancer/concepts/target-resources.md).

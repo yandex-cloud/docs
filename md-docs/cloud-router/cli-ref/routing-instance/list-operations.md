@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > [Справочник CLI (англ.)](../index.md) > [routing-instance](index.md) > list-operations
+
 # yc cloudrouter routing-instance list-operations
 
 Lists operations for the specified RoutingInstance.

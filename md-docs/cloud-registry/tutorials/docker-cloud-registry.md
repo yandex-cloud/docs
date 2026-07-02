@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Registry](../index.md) > Практические руководства > Запуск Docker-образа на виртуальной машине с помощью Cloud Registry
+
 # Запуск Docker-образа на виртуальной машине с помощью Yandex Cloud Registry
 
 В этом руководстве вы развернете [Docker-образ](../concepts/artifacts/docker.md) из [реестра](../concepts/registry.md) Yandex Cloud Registry и запустите контейнер на [виртуальной машине](../../compute/concepts/vm.md) Yandex Compute Cloud.

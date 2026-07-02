@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [target-group](index.md) > remove-targets
+
 # yc application-load-balancer v0 target-group remove-targets
 
 Remove targets from the specified target group

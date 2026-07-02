@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Хранение и восстановление данных](index.md) > Репликация логов в Object Storage с помощью Fluent Bit
+
 # Репликация логов в Yandex Object Storage с помощью Fluent Bit
 
 

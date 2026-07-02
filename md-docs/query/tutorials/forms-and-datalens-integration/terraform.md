@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Query](../../index.md) > [Практические руководства](../index.md) > [Поставка данных из Яндекс Формы в Yandex DataLens с использованием Yandex Cloud Functions и Yandex Query](index.md) > Terraform
+
 # Поставка данных из Яндекс Формы в Yandex DataLens с использованием Yandex Cloud Functions и Yandex Query при помощи Terraform
 
 # Поставка данных из Яндекс Формы в Yandex DataLens с использованием Yandex Cloud Functions и Yandex Query при помощи Terraform
@@ -28,11 +30,11 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за использование бакета Yandex Object Storage ([тарифы Object Storage](../../storage/pricing.md));
-* плата за хранение и запросы секретов Yandex Lockbox ([тарифы Yandex Lockbox](../../lockbox/pricing.md));
-* плата за вызовы функций и вычислительные ресурсы, выделенные для выполнения функций ([тарифы Cloud Functions](../../functions/pricing.md));
-* плата за объем считанных из источников данных при исполнении запросов Query ([тарифы Query](../../query/pricing.md));
-* плата за использование DataLens в соответствии с тарифным планом ([тарифы DataLens](../../datalens/pricing.md)).
+* плата за использование бакета Yandex Object Storage ([тарифы Object Storage](../../../storage/pricing.md));
+* плата за хранение и запросы секретов Yandex Lockbox ([тарифы Yandex Lockbox](../../../lockbox/pricing.md));
+* плата за вызовы функций и вычислительные ресурсы, выделенные для выполнения функций ([тарифы Cloud Functions](../../../functions/pricing.md));
+* плата за объем считанных из источников данных при исполнении запросов Query ([тарифы Query](../../pricing.md));
+* плата за использование DataLens в соответствии с тарифным планом ([тарифы DataLens](../../../datalens/pricing.md)).
 
 ## Подготовьте инфраструктуру {#prepare-infrastructure}
 

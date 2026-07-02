@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Video](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты Cloud Video
 
 В сервисе Cloud Video действуют следующие ограничения:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > Пошаговые инструкции > Удаление кластера
+
 # Удаление кластера Apache Hive™ Metastore
 
 Вы можете удалить кластер Apache Hive™ Metastore вместе со всеми хранимыми данными. Перед этим [отключите](cluster-update.md) защиту кластера от удаления, если она включена.

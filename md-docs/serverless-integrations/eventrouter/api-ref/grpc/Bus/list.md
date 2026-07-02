@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API EventRouter > [gRPC (англ.)](../index.md) > [Bus](index.md) > List
+
 # EventRouter Service, gRPC: BusService.List
 
 Retrieves the list of buses in the specified folder.

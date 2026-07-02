@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Практические руководства](../index.md) > Бэкенд на Serverless > [Сокращатель ссылок](index.md) > Консоль управления
+
 # Сокращатель ссылок с помощью консоли управления
 
 
@@ -28,7 +30,7 @@
 В стоимость поддержки инфраструктуры для сокращателя ссылок входят:
 * плата за хранение данных ([тарифы Yandex Object Storage](../../../storage/pricing.md));
 * плата за операции с [базой данных YDB](../../../ydb/concepts/resources.md#database) и хранение данных ([тарифы Managed Service for YDB](../../../ydb/pricing/serverless.md));
-* плата за количество вызовов [функции](../../concepts/function.md), вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы Cloud Functions](../../../functions/pricing.md));
+* плата за количество вызовов [функции](../../concepts/function.md), вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы Cloud Functions](../../pricing.md));
 * плата за количество запросов к [API-шлюзу](../../../api-gateway/concepts/index.md) и исходящий трафик ([тарифы API Gateway](../../../api-gateway/pricing.md)).
 
 ## Настройте хостинг страницы сокращателя {#object-storage}

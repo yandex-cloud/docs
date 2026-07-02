@@ -5,40 +5,40 @@ description: In this article, you will learn about the request handler for funct
 
 # Request handler for a function in Go
 
-A _request handler_ is a method used to process each Go function call. When creating a function version, you should specify the entry point that consists of the file name and the request handler name, e.g., `index.Handler`. The name of the handler file must not contain any `.` before the extension, e.g., `.handler.go`.
+A _request handler_ is a method used to process each Go function call. When creating a function version, you must specify the entry point that consists of the file name and the request handler name, e.g., `index.Handler`. The name of the handler file must not contain any `.` before the extension, e.g., `.handler.go`.
 
 * To work properly, the handler must reside in the `main` package.
-* To make the handler available outside the module (file), export it by typing the first letter of its name in uppercase.
+* To enable external access to the handler (file), export it by capitalizing the first letter of its name.
 
 {% note info %}
 
-At any given time, one function instance cannot handle more calls than specified in the [concurrency](../../concepts/function.md#concurrency) parameter. This allows you to use global variables without having to provide data integrity control.
+At any given time, one function instance cannot handle more calls than set in the [concurrency](../../concepts/function.md#concurrency) parameter. This allows you to use global variables without the need to ensure data integrity control.
 
 {% endnote %}
 
 ## Cloud Functions signature {#functions}
 
-When calling the handler, the runtime environment may pass the following arguments:
+When calling the handler, the runtime may provide the following arguments:
 1. Invocation context (the `context` parameter). 
 
-    The context contains the requred function version information. The structure of this object is described in [{#T}](context.md).
-    If the second argument (HTTP request body) is present, the invocation context must be the first in the list of arguments.
+    The context provides all required information about the function version. The structure of this object is described in [{#T}](context.md).
+    If there is a second argument (the HTTP request body), the invocation context must be the first in the list of arguments.
 1. HTTP request body (the `request` parameter). 
 
-    The body can be represented by an array of bytes, a string, a custom type, or a pointer to it. In the first two cases, it represents a pure HTTP request, either as a byte array or as a string.
-    If the handler argument has a custom type and the request body is a JSON document, it will be converted to an object of that type using the `json.Unmarshal` method.
+    The body can be a byte array, a string, a custom type, or a pointer to a custom type. In the first two cases, the data is a raw HTTP request, either as a byte array or a string.
+    If the handler argument is a custom type and the request body is a JSON document, the body will be converted into an object of that type using `json.Unmarshal`.
 
 All the above arguments are **optional**.
-If the argument responsible for the request body is missing, any function input data is **ignored**.
+If the request body argument is missing, any function input data is **ignored**.
 
-The runtime environment returns the function execution result as a data set:
+The runtime returns the function execution result as a data set:
 1. Response body (the `response` value).
 
-    The body can be represented by an array of bytes, a string, a custom type, or a pointer to it, as well as an [empty interface](https://go.dev/tour/methods/14). In the first two cases, to get the correct response, when invoking a function you should specify the `?integration=raw` request string parameter. Learn more about invoking functions in the [relevant section](../../concepts/function-invoke.md#http). In the other cases, the response value is converted to an object of the relevant type using the `json.Unmarshal` method and returned as a JSON document.
+    The body can be a byte array, a string, a custom type, a pointer to a custom type, or an [empty interface](https://go.dev/tour/methods/14). In the first two cases, call the function with the `?integration=raw` query parameter to get a valid response. Learn more about invoking functions [here](../../concepts/function-invoke.md#http). In other cases, the return value is converted to an object of the relevant type using `json.Unmarshal` and returned as a JSON document.
 
 1. Error (the `error` value).
 
-    If an error occurs when invoking a function, it is recommended to return an appropriate error message. If `error != nil`, the response body, if any, is ignored. **Important**: An error is a **required** return value. In other words, if the response body is missing, an error must be returned as the only return value of the function; otherwise, the error must be the last on the list of return values.
+    To report an error in function execution, we recommend returning an appropriate error. If `error != nil`, the response body, if any, is ignored. **Note** that an error is a **required** return value. In other words, if the response body is missing, the function must return an error as the only return value; otherwise, the error must be the last return value.
     
 ## Standard Go signature {#go}
 
@@ -46,7 +46,7 @@ The runtime environment returns the function execution result as a data set:
 * Functions with the `func (http.ResponseWriter, *http.Request)` signature.
 * Objects satisfying the [http.Handler](https://pkg.go.dev/net/http#Handler) interface.
 
-The function can take values passed in the request from the [http.Request](https://pkg.go.dev/net/http#Request) structure and return a response via the [http.ResponseWriter](https://pkg.go.dev/net/http#ResponseWriter) interface.
+A function can take values from the [http.Request](https://pkg.go.dev/net/http#Request) struct and send the response via the [http.ResponseWriter](https://pkg.go.dev/net/http#ResponseWriter) interface.
 
 {{ sf-name }} does not support paths in requests. For [http.ServeMux](https://pkg.go.dev/net/http#ServeMux) to work properly, [call the function via the API gateway](../../../api-gateway/quickstart/index.md#function).
 
@@ -73,7 +73,7 @@ func Handler(rw http.ResponseWriter, req *http.Request) {
 
 ### HTTP request structure output {#http-req}
 
-The following function receives a request with two fields (a string and a number) as an input, outputs the request structure and invocation context to the execution log, and returns a string entry of a JSON document containing information about the context and request.
+The following function accepts a request with two fields (a string and a number), outputs the request structure and invocation context to the execution log, and returns a JSON string with information about the context and the request.
 
 {% note warning %}
 
@@ -90,7 +90,7 @@ import (
   "fmt"
 )
 
-// The input JSON document is automatically converted to this type of object
+// The input JSON document will be automatically converted into an object of this type.
 type Request struct {
   Message string `json:"message"`
   Number  int    `json:"number"`
@@ -102,11 +102,11 @@ type ResponseBody struct {
 }
 
 func Handler(ctx context.Context, request *Request) ([]byte, error) {
-  // The function logs contain the values of the invocation context and request body
+  // The function logs will include the values of the invocation context and the request body.
   fmt.Println("context", ctx)
   fmt.Println("request", request)
   
-  // The object containing the response body is converted to an array of bytes
+  // The object containing the response body will be converted into a byte array.
   body, err := json.Marshal(&ResponseBody {
     Context: ctx,
     Request: request,
@@ -116,7 +116,7 @@ func Handler(ctx context.Context, request *Request) ([]byte, error) {
     return nil, err
   }
 
-  // The response body must be returned as an array of bytes
+  // The response body must be returned as a byte array.
   return body, nil
 }
 ```
@@ -150,9 +150,9 @@ JSON document returned:
 }
 ```
 
-### Output of the available response or an error
+### Returning a prepared response or an error
 
-The function generates a random number from 0 to 100 and returns an error if this number is greater than or equal to 50, otherwise it returns "Lucky one!":
+The function generates a random number between 0 and 100. If this number is greater than or equal to 50, the function returns an error; otherwise it returns "Lucky one!":
 
 ```golang
 package main
@@ -162,8 +162,8 @@ import (
   "math/rand"
 )
 
-// The response body is a string, hence to correctly output the
-// response, run the function with the `?integration=raw` parameter
+// The response body is a string, so to correctly output
+// the response, run the function with the `?integration=raw` query parameter.
 func Handler() (string, error) {
   if (rand.Int31n(100) >= 50) {
     return "", fmt.Errorf("not so lucky")
@@ -175,7 +175,7 @@ func Handler() (string, error) {
 
 JSON document returned:
 
-If a random number is greater than or equal to 50:
+If the random number is greater than or equal to 50:
 
 ```json
 {
@@ -192,11 +192,11 @@ Otherwise:
 
 ### Parsing an HTTP request
 
-The function is invoked using an HTTP request with the username, logs the request method and body, and returns a greeting.
+The function is invoked via an HTTP request with a username, logs the request method and body, and returns a greeting.
 
 {% note warning %}
 
-Do not use the `?integration=raw` parameter to invoke this function. If you do, the function will not get any data about the original request's methods, headers, or parameters.
+Do not use `?integration=raw` to invoke this function. If you do, the function will not get any data about the original request’s methods, headers, or parameters.
 
 {% endnote %}
 
@@ -210,13 +210,13 @@ import (
 )
 
 // Request body structure (see the paragraph after this example).
-// The other fields are not used anywhere in this example, so you can do without them
+// This example does not use the other fields, so you can skip them.
 type RequestBody struct {
   HttpMethod string `json:"httpMethod"`
   Body       []byte `json:"body"`
 }
 
-// We convert the body field of the RequestBody object
+// Converting the body field of the RequestBody object
 type Request struct {
   Name string `json:"name"`
 }
@@ -228,17 +228,17 @@ type Response struct {
 
 func Greet(ctx context.Context, request []byte) (*Response, error) {
   requestBody := &RequestBody{}
-  // The array of bytes containing the request body is converted to the relevant object
+  // The function converts the byte array that contains the request body into the relevant object.
   err := json.Unmarshal(request, &requestBody)
   if err != nil {
     return nil, fmt.Errorf("an error has occurred when parsing request: %v", err)
   }
 
-  // The log will show the name of the HTTP method used to make the request and the request body
+  // The log will show the name of the HTTP method used to make the request and the request body.
   fmt.Println(requestBody.HttpMethod, string(requestBody.Body))
 
   req := &Request{}
-  // The request's body field is converted into a Request type object to get the provided name
+  // The request's body field is converted into a Request type object to get the provided name.
   err = json.Unmarshal(requestBody.Body, &req)
   if err != nil {
     return nil, fmt.Errorf("an error has occurred when parsing body: %v", err)
@@ -246,7 +246,7 @@ func Greet(ctx context.Context, request []byte) (*Response, error) {
 
   name := req.Name
   // The response body must be returned as a structure that is automatically converted to a JSON document
-  // that will be displayed on the screen
+  // that appears on the screen.
   return &Response{
     StatusCode: 200,
     Body:       fmt.Sprintf("Hello, %s", name),
@@ -274,7 +274,7 @@ Response returned:
 Hello, Anonymous
 ```
 
-### Parsing an {{ api-gw-name }} HTTP request
+### Parsing an HTTP request via {{ api-gw-name }}
 
 The function is invoked by {{ api-gw-full-name }} with a service account, logs the request method and body, and returns a greeting.
 
@@ -330,12 +330,12 @@ type Request struct {
 func Greet(ctx context.Context, event *APIGatewayRequest) (*APIGatewayResponse, error) {
 	req := &Request{}
 
-	// The request’s event.Body field is converted into a Request type object to get the provided name
+	// The request’s event.Body field is converted into a Request type object to get the provided name.
 	if err := json.Unmarshal([]byte(event.Body), &req); err != nil {
 		return nil, fmt.Errorf("an error has occurred when parsing body: %v", err)
 	}
 
-	// The log will show the name of the HTTP method used to make the request as well as the path
+	// The log will show the name of the HTTP method used to make the request as well as the path.
 	fmt.Println(event.HTTPMethod, event.Path)
 
 	// Response body.
@@ -348,7 +348,7 @@ func Greet(ctx context.Context, event *APIGatewayRequest) (*APIGatewayResponse, 
 
 {% note warning %}
 
-Access the function via the API gateway.
+Make sure to access the function via the API gateway.
 
 {% endnote %}
 

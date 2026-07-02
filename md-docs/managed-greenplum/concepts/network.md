@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Концепции](overview.md) > Сеть в Yandex MPP Analytics for PostgreSQL
+
 # Сеть и кластеры БД в Yandex MPP Analytics for PostgreSQL
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [User](index.md) > GrantPermission
+
 # Managed Service for MongoDB API, gRPC: UserService.GrantPermission
 
 Grants permission to the specified MongoDB user.

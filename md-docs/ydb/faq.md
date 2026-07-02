@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for YDB](index.md) > Вопросы и ответы
+
 # Вопросы и ответы о Managed Service for YDB
 
 На этой странице собраны вопросы и ответы о работе Managed Service for YDB. Вопросы и ответы о YDB читайте в [документации](https://ydb.tech/docs/ru//faq/).

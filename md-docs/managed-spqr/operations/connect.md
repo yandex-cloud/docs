@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Подключение к базе данных
+
 # Подключение к кластеру Sharded PostgreSQL
 
 К хостам кластера Managed Service for Sharded PostgreSQL можно подключиться:

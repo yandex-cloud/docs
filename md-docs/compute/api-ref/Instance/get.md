@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Instance](index.md) > Get
+
 # Compute Cloud API, REST: Instance.Get
 
 Returns the specified Instance resource.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Пошаговые инструкции](index.md) > Управление пользователями
+
 # Управление пользователями Apache Kafka®
 
 Пользователи в Apache Kafka®:

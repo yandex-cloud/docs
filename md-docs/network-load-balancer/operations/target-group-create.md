@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Network Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > Целевые группы > Создать целевую группу
+
 # Создать целевую группу Network Load Balancer
 
 {% list tabs group=instructions %}

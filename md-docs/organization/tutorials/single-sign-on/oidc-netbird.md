@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Практические руководства](../index.md) > [Настройка единого входа в приложения (SSO)](index.md) > NetBird
+
 # Создать OIDC-приложение в Yandex Identity Hub для интеграции с NetBird
 
 
@@ -29,7 +31,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за использование [OIDC-приложения](../../concepts/applications/oidc.md) ([тарифы Yandex Identity Hub](../../../organization/pricing.md)).
+В стоимость поддержки инфраструктуры входит плата за использование [OIDC-приложения](../../concepts/applications/oidc.md) ([тарифы Yandex Identity Hub](../../pricing.md)).
 
 ### Перед началом работы {#check-to-begin}
 

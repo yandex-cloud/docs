@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Backup](index.md) > Get
+
 # Managed Service for MongoDB API, REST: Backup.Get
 
 Returns the specified MongoDB backup.

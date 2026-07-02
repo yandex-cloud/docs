@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Концепции](index.md) > Облачные сети и подсети
+
 # Облачные сети и подсети
 
 ## Облачные сети {#network}

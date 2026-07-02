@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for MySQL®](../index.md) > Вопросы и ответы > Настройки параметров MySQL
+
 # Настройки параметров MySQL®
 
 * [Как задать часовой пояс (time zone)?](#time-zone)

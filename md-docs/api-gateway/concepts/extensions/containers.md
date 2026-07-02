@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Расширения спецификации](index.md) > Интеграции > Serverless Containers
+
 # Расширение x-yc-apigateway-integration:serverless_containers
 
 Расширение `x-yc-apigateway-integration:serverless_containers` вызывает указанный [контейнер](../../../serverless-containers/concepts/container.md) и передает в него HTTP-запрос, адресованный к API-шлюзу. В заголовке `Host` при этом указывается хост, по которому пользователь обратился к API-шлюзу, а не хост контейнера.

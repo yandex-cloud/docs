@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity and Access Management](../../../../../index.md) > Справочник API > REST (англ.) > Workload Identity > [Federation](../index.md) > [Federation](index.md) > Delete
+
 # Federation, REST: Federation.Delete
 
 Deletes the specified OIDC workload identity federation.

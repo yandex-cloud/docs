@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > [Rule](index.md) > Create
+
 # EventRouter Service, REST: Rule.Create
 
 Creates a rule in the specified folder.

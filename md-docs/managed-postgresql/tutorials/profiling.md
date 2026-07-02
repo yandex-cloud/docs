@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Практические руководства](index.md) > Анализ производительности и оптимизация
+
 # Анализ производительности и оптимизация Managed Service for PostgreSQL
 
 Снижение производительности кластера Managed Service for PostgreSQL чаще всего происходит по одной из следующих причин:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-redis](../index.md) > [cluster](index.md) > enable-sharding
+
 # yc managed-redis cluster enable-sharding
 
 Enable sharding on specified Redis cluster

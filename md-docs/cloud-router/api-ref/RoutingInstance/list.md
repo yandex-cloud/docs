@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [RoutingInstance](index.md) > List
+
 # Cloud Router API, REST: RoutingInstance.List
 
 Retrieves the list of RoutingInstance resources in the specified folder.

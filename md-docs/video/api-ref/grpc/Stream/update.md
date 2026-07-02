@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Stream](index.md) > Update
+
 # Video API, gRPC: StreamService.Update
 
 Updates an existing stream's metadata and settings.

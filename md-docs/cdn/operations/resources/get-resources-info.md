@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > [Пошаговые инструкции](../index.md) > Ресурсы > Получить информацию о ресурсе
+
 # Получение информации о ресурсе
 
 {% list tabs group=instructions %}

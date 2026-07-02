@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [SAML Federation API](../index.md) > Federation > Overview
+
 # SAML Federation API, REST: Federation
 
 A set of methods for managing federations.

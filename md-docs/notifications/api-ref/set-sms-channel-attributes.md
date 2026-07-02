@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > [Справочник API](index.md) > SMS > SetAttributes
+
 # Действие SetSMSChannelAttributes
 
 Задать параметры [канала SMS-уведомлений](../concepts/sms.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Object Storage](../index.md) > Устранение ошибки 409 `BucketAlreadyExists`
+
 # Устранение ошибки 409 `BucketAlreadyExists`
 
 

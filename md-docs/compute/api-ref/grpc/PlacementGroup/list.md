@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [PlacementGroup](index.md) > List
+
 # Compute Cloud API, gRPC: PlacementGroupService.List
 
 Retrieves the list of placement groups in the specified folder.

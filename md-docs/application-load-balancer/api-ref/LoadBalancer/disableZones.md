@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [LoadBalancer](index.md) > DisableZones
+
 # Application Load Balancer API, REST: LoadBalancer.DisableZones
 
 Disable L7 traffic routing in zones for the specified load balancer.

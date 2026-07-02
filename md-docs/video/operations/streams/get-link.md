@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > [Пошаговые инструкции](../index.md) > Трансляции > Получить код вставки или ссылку
+
 # Получить код вставки или ссылку на трансляцию
 
 {% list tabs group=instructions %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Пошаговые инструкции](index.md) > Включить программно ускоренную сеть
+
 # Включить программно ускоренную сеть
 
 Вы можете включить [программно ускоренную сеть](../concepts/software-accelerated-network.md) при создании или изменении [виртуальной машины](../../glossary/vm.md).

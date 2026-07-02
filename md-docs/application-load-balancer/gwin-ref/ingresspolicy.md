@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Инструменты для Managed Service for Kubernetes > Gwin > Конфигурация ресурсов (англ.) > IngressPolicy
+
 # IngressPolicy
 
 IngressPolicy is a Gwin custom resource for configuring ingress-level policies in Yandex Application Load Balancer. It allows you to define ingress group settings, load balancer configuration, backend settings, and virtual host options that apply to Ingress resources.

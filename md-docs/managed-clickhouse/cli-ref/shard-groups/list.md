@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [shard-groups](index.md) > list
+
 # yc managed-clickhouse shard-groups list
 
 List shard groups for a ClickHouse cluster.

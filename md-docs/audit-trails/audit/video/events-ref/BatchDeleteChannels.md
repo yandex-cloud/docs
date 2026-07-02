@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > video > BatchDeleteChannels
+
 # Cloud Video Audit Trails Events: BatchDeleteChannels
 
 ## Event JSON schema {#yandex.cloud.audit.video.BatchDeleteChannels2-schema}

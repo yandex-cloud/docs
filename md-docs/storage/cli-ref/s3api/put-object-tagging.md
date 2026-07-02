@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Справочник YC CLI (англ.)](../index.md) > [s3api](index.md) > put-object-tagging
+
 # yc storage s3api put-object-tagging
 
 Adds labels to a bucket object. This overwrites any existing object labels

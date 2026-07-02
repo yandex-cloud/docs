@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [GpuCluster](index.md) > Update
+
 # Compute Cloud API, gRPC: GpuClusterService.Update
 
 Updates the specified GPU cluster.

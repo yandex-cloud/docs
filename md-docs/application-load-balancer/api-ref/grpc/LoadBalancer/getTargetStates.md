@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LoadBalancer](index.md) > GetTargetStates
+
 # Application Load Balancer API, gRPC: LoadBalancerService.GetTargetStates
 
 Returns the statuses of all targets of the specified backend group in all their availability zones.

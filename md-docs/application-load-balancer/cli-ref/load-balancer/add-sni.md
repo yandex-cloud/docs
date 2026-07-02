@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [load-balancer](index.md) > add-sni
+
 # yc application-load-balancer load-balancer add-sni
 
 Adds HTTP sni match to application load balancer's listener.

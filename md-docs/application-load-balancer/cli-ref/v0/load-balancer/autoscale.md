@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [load-balancer](index.md) > autoscale
+
 # yc application-load-balancer v0 load-balancer autoscale
 
 Modify scaling settings of the application load balancer.

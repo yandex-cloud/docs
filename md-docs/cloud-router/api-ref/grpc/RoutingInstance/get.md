@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Router](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [RoutingInstance](index.md) > Get
+
 # Cloud Router API, gRPC: RoutingInstanceService.Get
 
 Returns the specified RoutingInstance resource.

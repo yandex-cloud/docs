@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > lockbox > UpdateSecretAccessBindings
+
 # Lockbox Audit Trails Events: UpdateSecretAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.lockbox.UpdateSecretAccessBindings2-schema}

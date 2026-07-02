@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Instance](index.md) > AddOneToOneNat
+
 # Compute Cloud API, REST: Instance.AddOneToOneNat
 
 Enables One-to-one NAT on the network interface.

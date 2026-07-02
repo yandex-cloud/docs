@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Managed Service for ClickHouse®
+
 # Метрики Yandex Managed Service for ClickHouse®
 
 В этом разделе описаны метрики сервиса [Managed Service for ClickHouse®](../../managed-clickhouse/index.md), поставляемые в Monitoring.

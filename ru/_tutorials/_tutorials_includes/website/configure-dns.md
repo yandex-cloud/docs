@@ -1,8 +1,10 @@
+Перед установкой приложения вам необходимо создать публичную DNS-зону и делегировать на нее домен. Подробнее о делегировании домена читайте в [инструкции](../../../troubleshooting/dns/how-to/delegate-public-zone.md).
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Перейдите]({{ link-console-main }}/link/dns/) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}**.
   1. Задайте настройки зоны DNS:
      * **{{ ui-key.yacloud.dns.label_zone }}** — укажите ваш зарегистрированный домен, например `example.com.` (с точкой в конце).
@@ -27,13 +29,15 @@
 
 - {{ yandex-cloud }} CLI {#cli}
 
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
   1. Создайте публичную зону DNS:
 
      ```bash
      yc dns zone create \
        --name example-zone \
        --zone example.com. \
-       --public-visibility
+       --public-visibility=true
      ```
 
      Где `--zone` — имя вашего домена, например `example.com.`. Значение параметра `--zone` должно заканчиваться точкой.

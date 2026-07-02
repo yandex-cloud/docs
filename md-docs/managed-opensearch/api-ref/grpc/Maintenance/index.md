@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for OpenSearch](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Maintenance > Overview
+
 # Managed Service for OpenSearch API, gRPC: MaintenanceService
 
 A set of methods for managing maintenances in a service.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > DeleteGpuCluster
+
 # Compute Audit Trails Events: DeleteGpuCluster
 
 ## Event JSON schema {#yandex.cloud.audit.compute.DeleteGpuCluster2-schema}

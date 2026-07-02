@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Compute Cloud
+
 # Метрики Yandex Compute Cloud
 
 В этом разделе описаны метрики сервиса [Compute Cloud](../../compute/index.md), поставляемые в Monitoring.

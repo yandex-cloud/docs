@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity and Access Management > Data Sources > iam_oauth_client
+
 # yandex_iam_oauth_client (DataSource)
 
 An OauthClient resource.

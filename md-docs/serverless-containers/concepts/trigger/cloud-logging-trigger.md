@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Serverless Containers](../../index.md) > [Концепции](../index.md) > [Триггер](index.md) > Триггер для Yandex Cloud Logging
+
 # Триггер для Cloud Logging, который вызывает контейнер Serverless Containers
 
 [Триггер](index.md) для Cloud Logging запускает [контейнер](../container.md) Serverless Containers, когда в [лог-группу](../../../logging/concepts/log-group.md) добавляют записи.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > list-access-bindings
+
 # yc managed-kubernetes v0 cluster list-access-bindings
 
 List access bindings for the specified Kubernetes cluster.

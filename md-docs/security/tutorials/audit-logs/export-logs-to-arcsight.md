@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Безопасность в Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Сбор, мониторинг и анализ аудитных логов > Загрузка аудитных логов в SIEM ArcSight
+
 # Загрузка аудитных логов в SIEM ArcSight
 
 Создайте трейл, который будет загружать аудитные логи уровня конфигурации ресурсов отдельного каталога в бакет Yandex Object Storage с включенным шифрованием. Затем настройте непрерывную доставку логов в SIEM ArcSight.
@@ -46,10 +48,10 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* использование виртуальных машин ([тарифы Compute Cloud](../../compute/pricing.md));
-* плата за хранение данных в бакете ([тарифы Object Storage](../../storage/pricing.md#prices-storage));
-* плата за операции с данными ([тарифы Object Storage](../../storage/pricing.md#prices-operations));
-* плата за использование ключей KMS ([тарифы Key Management Service](../../kms/pricing.md#prices)).
+* использование виртуальных машин ([тарифы Compute Cloud](../../../compute/pricing.md));
+* плата за хранение данных в бакете ([тарифы Object Storage](../../../storage/pricing.md#prices-storage));
+* плата за операции с данными ([тарифы Object Storage](../../../storage/pricing.md#prices-operations));
+* плата за использование ключей KMS ([тарифы Key Management Service](../../../kms/pricing.md#prices)).
 
 ## Подготовьте окружение {#prepare-environment}
 

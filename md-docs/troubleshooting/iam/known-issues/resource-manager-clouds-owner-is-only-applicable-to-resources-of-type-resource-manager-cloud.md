@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Identity and Access Management](../index.md) > Устранение ошибок при назначении роли `resource-manager.clouds.owner` пользователю облака
+
 # Устранение ошибок при назначении роли `resource-manager.clouds.owner` пользователю облака
 
 

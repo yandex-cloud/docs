@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity and Access Management > Resources > iam_service_account_iam_member
+
 # yandex_iam_service_account_iam_member (Resource)
 
 Allows creation and management of a single binding within IAM policy for an existing `service_account`.

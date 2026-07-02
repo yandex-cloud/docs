@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция БД из Managed Service for PostgreSQL
+
 # Миграция базы данных из Managed Service for PostgreSQL
 
 Кластер Managed Service for PostgreSQL поддерживает [логическую репликацию](https://www.postgresql.org/docs/current/logical-replication.html). Это позволяет мигрировать базы данных встроенными средствами PostgreSQL между разными кластерами PostgreSQL версий 10 и выше. В том числе поддерживается миграция между разными версиями: например, можно перенести базы из PostgreSQL версии 15 в версию 17.

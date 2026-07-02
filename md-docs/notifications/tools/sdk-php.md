@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > [Инструменты](index.md) > AWS SDK для PHP
+
 # Как начать работать с AWS SDK для PHP в Yandex Cloud Notification Service
 
 

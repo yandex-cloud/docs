@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity and Access Management](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Identity and Access Management
 
 В сервисе Yandex Identity and Access Management действуют следующие ограничения:

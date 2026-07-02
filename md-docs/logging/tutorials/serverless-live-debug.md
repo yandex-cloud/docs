@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Logging](../index.md) > [Практические руководства](index.md) > Интерактивная отладка функций Cloud Functions
+
 # Интерактивная отладка функций Yandex Cloud Functions
 
 

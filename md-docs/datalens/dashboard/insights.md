@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Дашборды > Нейроаналитик на дашборде
+
 # Нейроаналитик на дашборде в Yandex DataLens
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > Концепции > Настройка и управление > Аудитные логи Audit Trails > Справочник аудитных логов > DeleteImage
+
 # BareMetal Audit Trails Events: DeleteImage
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.DeleteImage2-schema}

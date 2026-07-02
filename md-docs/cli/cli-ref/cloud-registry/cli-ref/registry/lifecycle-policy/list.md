@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cloud-registry](../../index.md) > [registry](../index.md) > [lifecycle-policy](index.md) > list
+
 # yc cloud-registry registry lifecycle-policy list
 
 List lifecycle policies.

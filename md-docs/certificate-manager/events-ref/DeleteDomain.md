@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Certificate Manager](../index.md) > Справочник аудитных логов > DeleteDomain
+
 # Certificate Manager Audit Trails Events: DeleteDomain
 
 ## Event JSON schema {#yandex.cloud.audit.certificatemanager.DeleteDomain2-schema}

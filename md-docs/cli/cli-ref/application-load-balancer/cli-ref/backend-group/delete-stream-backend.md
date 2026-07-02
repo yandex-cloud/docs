@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [application-load-balancer](../index.md) > [backend-group](index.md) > delete-stream-backend
+
 # yc application-load-balancer backend-group delete-stream-backend
 
 Delete Stream backend from the backend group

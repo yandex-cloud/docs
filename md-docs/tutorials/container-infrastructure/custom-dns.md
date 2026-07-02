@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Контейнерная инфраструктура](index.md) > Managed Service for Kubernetes > Работа с DNS > Интеграция с корпоративной зоной DNS
+
 # Интеграция Yandex Managed Service for Kubernetes с корпоративной зоной DNS
 
 # Интеграция с корпоративной зоной DNS

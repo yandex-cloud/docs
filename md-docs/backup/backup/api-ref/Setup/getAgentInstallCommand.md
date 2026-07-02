@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Backup](../../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Setup](index.md) > GetAgentInstallCommand
+
 # Cloud Backup API, REST: Setup.GetAgentInstallCommand
 
 ## HTTP request

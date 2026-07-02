@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > Вопросы и ответы > Пользователи и роли
+
 # Пользователи и роли в Managed Service for PostgreSQL
 
 

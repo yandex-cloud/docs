@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > add-access-binding
+
 # yc managed-postgresql v0 cluster add-access-binding
 
 Add access binding for the specified PostgreSQL cluster

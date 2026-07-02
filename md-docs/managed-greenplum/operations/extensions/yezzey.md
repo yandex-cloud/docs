@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > Расширения > Yezzey
+
 # Использование Yezzey в Yandex MPP Analytics for PostgreSQL
 
 Расширение Yezzey позволяет использовать гибридное хранилище в кластере Yandex MPP Analytics for PostgreSQL для хранения таблиц, [оптимизированных для добавления данных](../../concepts/tables.md) (append-optimized tables).

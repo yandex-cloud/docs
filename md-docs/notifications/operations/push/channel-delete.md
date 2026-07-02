@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Notification Service](../../index.md) > [Пошаговые инструкции](../index.md) > Мобильные Push-уведомления > Удалить канал push-уведомлений
+
 # Удалить канал push-уведомлений
 
 {% list tabs group=instructions %}

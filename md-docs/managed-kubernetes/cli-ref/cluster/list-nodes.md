@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > list-nodes
+
 # yc managed-kubernetes cluster list-nodes
 
 List nodes in all node groups of the specified Kubernetes cluster.

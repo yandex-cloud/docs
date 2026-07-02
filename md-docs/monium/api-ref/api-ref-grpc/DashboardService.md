@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Monium](../../index.md) > Справочник API > Метрики > [gRPC (англ.)](index.md) > DashboardService
+
 # Monitoring API, gRPC: DashboardService
 
 A set of methods for managing dashboards.

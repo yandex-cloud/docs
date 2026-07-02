@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Marketplace](../../../../index.md) > Партнерам > Справочник Cloud Apps Workload API > [gRPC (англ.)](../index.md) > [CloudApplication](index.md) > Get
+
 # Cloud Apps Workload API, gRPC: CloudApplicationService.Get
 
 Get Current Application

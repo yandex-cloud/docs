@@ -5,9 +5,9 @@ description: Authentication, connection, running queries, and getting results.
 
 # SDK
 
-{{ yq-full-name }} is based on [{{ ydb-short-name }} external tables]({{ ydb.docs }}/concepts/datamodel/external_table), hence, you need the [{{ ydb-short-name }} SDK]({{ ydb.docs }}/reference/ydb-sdk/) to work with the service.
+Since {{ yq-full-name }} is based on [{{ ydb-short-name }} external tables]({{ ydb.docs }}/concepts/datamodel/external_table), you need the [{{ ydb-short-name }} SDK]({{ ydb.docs }}/reference/ydb-sdk/) to work with it.
 
-The {{ ydb-short-name }} SDK enables you to use {{ yq-full-name }} in various programming languages:
+The {{ ydb-short-name }} SDK enables you to use {{ yq-full-name }} with various programming languages:
 * [Java SDK](https://github.com/ydb-platform/ydb-java-sdk)
 * [Python SDK](https://github.com/ydb-platform/ydb-python-sdk)
 * [Go SDK](https://github.com/ydb-platform/ydb-go-sdk)
@@ -15,13 +15,13 @@ The {{ ydb-short-name }} SDK enables you to use {{ yq-full-name }} in various pr
 * [.NET SDK](https://github.com/ydb-platform/ydb-dotnet-sdk)
 * [Rust SDK](https://github.com/ydb-platform/ydb-rs-sdk)
 
-For the full list of the YDB SDKs, see the [ydb-platform page on GitHub](https://github.com/orgs/ydb-platform/repositories?type=all&q=sdk).
+For the full list of YDB SDKs, see the [ydb-platform page on GitHub](https://github.com/orgs/ydb-platform/repositories?type=all&q=sdk).
 
-All examples below use the Python SDK. SDKs for other development languages work similarly, so you can apply all the approaches to them right down to the implementation of each individual SDK.
+All examples below use the Python SDK. SDKs for other languages work similarly, so you can use them to implement the same examples with minimal changes to account for their specifics.
 
 ## Authentication {#auth}
 
-{{ yq-full-name }} is a fully managed service that uses the [{{ iam-short-name }} mechanisms](../../iam/concepts/authorization/#authentication) for authentication.
+{{ yq-full-name }} is a fully managed service that uses [{{ iam-short-name }} authentication mechanisms](../../iam/concepts/authorization/index.md).
 
 You can authenticate using:
 * [Authorized keys](../../iam/concepts/authorization/key.md)
@@ -29,16 +29,16 @@ You can authenticate using:
 * [IAM token](../../iam/concepts/authorization/iam-token.md)
 * [VM metadata](../../compute/concepts/vm-metadata.md)
 
-For any of the above-listed authentication methods, you can use the [existing SDK methods](https://github.com/ydb-platform/ydb-python-sdk/blob/main/ydb/driver.py).
+Every authentication method listed above has an [SDK implementation](https://github.com/ydb-platform/ydb-python-sdk/blob/main/ydb/driver.py).
 
-In this example, we will use an authorized key. To create an authorized key, follow these steps:
+In our example, we authenticate using an authorized key. To create an authorized key, follow these steps:
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `yq.editor` [role](../security/#query-editor).
-1. [Create an authorized access key](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for the service account you created. Save the authorized access key to a JSON file.
+1. [Create an authorized key](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for the service account. Save the authorized key as a JSON file.
 
 ## Connection {#setup}
 
-To connect to {{ yq-full-name }}, you need to create an object named `ydb.Driver` specifying the connection parameters and authentication data:
+To connect to {{ yq-full-name }}, you need to create an `ydb.Driver` object with the connection settings and authentication details:
 
 ```python
 auth_key_file = "<path_to_auth_key_file>"
@@ -50,13 +50,13 @@ with ydb.Driver(endpoint="grpcs://grpc.yandex-query.cloud.yandex.net:2135",
 ```
 
 Where:
-* `endpoint`: Endpoint for connecting to the data source. {{ yq-full-name }} uses a fixed address, `grpcs://grpc.yandex-query.cloud.yandex.net:2135`.
-* `database`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) you want to run queries in. You must include the `/` prefix before the folder ID.
-* `credentials`: Credentials for authentication in {{ yandex-cloud }}.
+* `endpoint`: Data source connection endpoint. {{ yq-full-name }} uses a static address, `grpcs://grpc.yandex-query.cloud.yandex.net:2135`.
+* `database`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you want to run queries. Prefix the folder ID with `/`.
+* `credentials`: {{ yandex-cloud }} authentication credentials.
 
 ## Running a query {#query_execution}
 
-To run a query, you must open a session to {{ yq-full-name }} and run an SQL query in it:
+Open a {{ yq-full-name }} session and run the following SQL query within it:
 
 ```python
 with ydb.SessionPool(driver) as pool:
@@ -73,17 +73,17 @@ with ydb.SessionPool(driver) as pool:
     return pool.retry_operation_sync(callee)
 ```
 
-{{ ydb-short-name }} supports a number of query execution methods: normal, scripting request, [scan request]({{ ydb.docs }}/concepts/scan_query), and query request.
+{{ ydb-short-name }} supports multiple query types: normal, scripting, [scan]({{ ydb.docs }}/concepts/scan_query), and standard queries.
 
 {% note info %}
 
-Currently, {{ yq-full-name }} supports only scripting requests.
+Currently, {{ yq-full-name }} supports only scripting queries.
 
 {% endnote %}
 
 ## Getting query results {#get_query_results}
 
-You can get return values as follows:
+You can get query results as follows:
 
 ```python
 for row in result_sets[0].rows:
@@ -94,13 +94,13 @@ return result_sets[0]
 
 {% note info %}
 
-{{ yq-full-name }} supports [getting query results multiple times](../api/methods/get-query-results.md) by its ID. If you use the {{ ydb-short-name }} SDK, such feature is currently not available.
+{{ yq-full-name }} supports [multiple query result retrievals](../api/methods/get-query-results.md) using the query ID. {{ ydb-short-name }} SDK does not currently support this feature.
 
 {% endnote %}
 
 ## Full example {#full_example}
 
-Below is an example of how to use {{ yq-full-name }} with the {{ ydb-short-name }} Python SDK.
+Below is an example of working with {{ yq-full-name }} via the {{ ydb-short-name }} Python SDK.
 
 {% cut "Full example" %}
 
@@ -112,7 +112,7 @@ python3 -m pip install requests
 python3 -m pip install "ydb[yc]"
 ```
 
-Run the following example, specifying the required parameters:
+Run the following example, providing the required parameters:
 
 ```python
 import ydb

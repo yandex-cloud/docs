@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > Workflows > [Конструктор шагов рабочего процесса](index.md) > Интеграционные шаги > Telegram-бот
+
 # Обращение к Telegram Bot API
 
 {% list tabs %}

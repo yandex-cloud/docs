@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > StopInstanceGroup
+
 # Compute Audit Trails Events: StopInstanceGroup
 
 ## Event JSON schema {#yandex.cloud.audit.compute.instancegroup.StopInstanceGroup2-schema}

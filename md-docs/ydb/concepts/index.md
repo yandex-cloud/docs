@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > Концепции > Обзор
+
 # Обзор Yandex Managed Service for YDB
 
 Сервис Yandex Managed Service for YDB обеспечивает создание и управление базами данных YDB в Yandex Cloud.

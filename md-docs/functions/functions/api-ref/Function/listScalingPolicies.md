@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Functions](../../../index.md) > Справочник API Functions > [REST (англ.)](../index.md) > [Function](index.md) > ListScalingPolicies
+
 # Cloud Functions Service, REST: Function.ListScalingPolicies
 
 Lists existing scaling policies for specified function

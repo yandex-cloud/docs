@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > REST (англ.) > [Virtual Private Cloud API](../index.md) > PrivateEndpoint > Overview
+
 # Virtual Private Cloud API, REST: PrivateEndpoint
 
 A set of methods for managing PrivateEndpoint resources.

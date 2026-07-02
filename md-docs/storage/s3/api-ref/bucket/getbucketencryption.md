@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [AWS S3 REST](../../index.md) > [REST](../index.md) > Bucket > GetBucketEncryption
+
 # Object Storage API, REST совместимый с Amazon S3: GetBucketEncryption
 
 Возвращает информацию о шифровании бакета. Подробнее о шифровании бакета читайте в разделе [Шифрование в Object Storage](../../../concepts/encryption.md).

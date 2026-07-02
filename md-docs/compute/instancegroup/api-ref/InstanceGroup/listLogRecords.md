@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > REST (англ.) > [Compute Cloud Instance Groups API](../index.md) > [InstanceGroup](index.md) > ListLogRecords
+
 # Compute Cloud Instance Groups API, REST: InstanceGroup.ListLogRecords
 
 Lists logs for the specified instance group.

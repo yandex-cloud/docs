@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for MySQL®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > ListAccessBindings
+
 # Managed Service for MySQL API, gRPC: ClusterService.ListAccessBindings
 
 Retrieves a list of access bindings for the specified MySQL cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Solution](../index.md) > [Практические руководства](index.md) > Изменить ВМ с Container Optimized Image
+
 # Изменить ВМ с Container Optimized Image
 
 Измените параметры [Docker-контейнера](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers) на виртуальной машине, созданной из образа [Container Optimized Image](../concepts/index.md).

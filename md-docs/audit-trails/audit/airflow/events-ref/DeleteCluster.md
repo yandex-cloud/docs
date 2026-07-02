@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > airflow > DeleteCluster
+
 # Managed Service for Apache Airflow™ Audit Trails Events: DeleteCluster
 
 ## Event JSON schema {#yandex.cloud.audit.airflow.DeleteCluster2-schema}

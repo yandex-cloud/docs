@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Container Registry > Data Sources > container_registry_ip_permission
+
 # yandex_container_registry_ip_permission (DataSource)
 
 Get information about a Yandex Container Registry IP Permission. For more information, see [the official documentation](../../container-registry/operations/registry/registry-access.md).

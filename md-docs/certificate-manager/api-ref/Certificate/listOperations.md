@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Certificate Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Certificate](index.md) > ListOperations
+
 # Certificate Manager API, REST: Certificate.ListOperations
 
 Lists operations for the specified certificate.

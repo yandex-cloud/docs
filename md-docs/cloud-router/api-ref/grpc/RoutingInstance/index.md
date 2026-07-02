@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Router](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > RoutingInstance > Overview
+
 # Cloud Router API, gRPC: RoutingInstanceService
 
 A set of methods for managing RoutingInstance resources.

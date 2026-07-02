@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > Концепции > [Компоненты](overview.md) > Object Storage
+
 # Object Storage
 
 Object Storage — S3-совместимое объектное хранилище на базе Yandex Object Storage. Хранилище можно использовать для данных любого формата. Взаимодействовать с ним можно с помощью инструментов, поддерживающих S3 API.

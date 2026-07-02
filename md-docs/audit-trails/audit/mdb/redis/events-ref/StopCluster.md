@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.redis > StopCluster
+
 # Managed Service for ValKey Audit Trails Events: StopCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.redis.StopCluster2-schema}

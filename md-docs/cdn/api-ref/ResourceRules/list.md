@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ResourceRules](index.md) > List
+
 # Cloud CDN API, REST: ResourceRules.List
 
 List all rules for specified resource.

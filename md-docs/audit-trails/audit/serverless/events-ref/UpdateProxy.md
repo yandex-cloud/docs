@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > serverless > UpdateProxy
+
 # Cloud Functions Audit Trails Events: UpdateProxy
 
 ## Event JSON schema {#yandex.cloud.audit.serverless.mdbproxy.UpdateProxy2-schema}

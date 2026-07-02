@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Quota Manager](index.md) > История изменений
+
 # История изменений в Yandex Cloud Quota Manager
 
 ## IV квартал 2025 {#q4-2025}

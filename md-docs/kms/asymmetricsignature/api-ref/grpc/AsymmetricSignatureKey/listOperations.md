@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Key Management Service](../../../../index.md) > Справочник API > gRPC (англ.) > [Key Management Service API](../index.md) > [AsymmetricSignatureKey](index.md) > ListOperations
+
 # Key Management Service API, gRPC: AsymmetricSignatureKeyService.ListOperations
 
 Lists operations for the specified asymmetric KMS key.

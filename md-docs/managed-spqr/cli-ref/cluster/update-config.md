@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > update-config
+
 # yc managed-sharded-postgresql cluster update-config
 
 Update the specified Sharded PostgreSQL cluster config

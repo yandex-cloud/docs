@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Message Queue](../../index.md) > [Справочник API](../index.md) > Message > SendMessageBatch
+
 # SendMessageBatch
 
 Метод для одновременной отправки до десяти сообщений в указанную очередь. При отправке сообщений в очередь FIFO они будут поступать в порядке отправления.

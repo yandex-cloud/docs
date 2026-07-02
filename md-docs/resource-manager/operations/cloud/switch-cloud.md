@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > [Пошаговые инструкции](../index.md) > Облако > Переключение на другое облако
+
 # Переключение на другое облако
 
 {% list tabs group=instructions %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > serverless > CreateTrigger
+
 # Cloud Functions Audit Trails Events: CreateTrigger
 
 ## Event JSON schema {#yandex.cloud.audit.serverless.triggers.CreateTrigger2-schema}

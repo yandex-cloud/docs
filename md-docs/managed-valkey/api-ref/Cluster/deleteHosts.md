@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > DeleteHosts
+
 # Managed Service for Redis API, REST: Cluster.DeleteHosts
 
 Deletes the specified hosts for a cluster.

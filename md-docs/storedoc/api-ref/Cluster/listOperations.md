@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > ListOperations
+
 # Managed Service for MongoDB API, REST: Cluster.ListOperations
 
 Retrieves the list of Operation resources for the specified cluster.

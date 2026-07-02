@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Channel](index.md) > Get
+
 # Video API, gRPC: ChannelService.Get
 
 Retrieves detailed information about a specific channel by its ID.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > Справочник > [HTTP API](index.md) > Соответствие YQL и Json-типов
+
 # Соответствие YQL и Json-типов
 
 Ниже приведены правила преобразования YQL-типов в Json-результаты.

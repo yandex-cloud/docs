@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Access to table was denied
+
 # [Yandex DataLens] Access to table was denied
 
 `ERR.DS_API.DB.CHYT.TABLE_ACCESS_DENIED`

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API EventRouter > [gRPC (англ.)](../index.md) > [Rule](index.md) > Create
+
 # EventRouter Service, gRPC: RuleService.Create
 
 Creates a rule in the specified folder.

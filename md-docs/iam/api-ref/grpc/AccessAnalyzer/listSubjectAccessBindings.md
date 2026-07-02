@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [AccessAnalyzer](index.md) > ListSubjectAccessBindings
+
 # Identity and Access Management API, gRPC: AccessAnalyzerService.ListSubjectAccessBindings
 
 Returns the list of access bindings for the specified subject in chosen organization.

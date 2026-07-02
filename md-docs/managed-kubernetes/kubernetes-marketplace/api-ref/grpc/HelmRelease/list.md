@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../../index.md) > Справочник API > [Kubernetes Marketplace gRPC (англ.)](../index.md) > [HelmRelease](index.md) > List
+
 # Kubernetes Marketplace, gRPC: HelmReleaseService.List
 
 Retrieves the list of Helm releases in the specified Kubernetes Cluster.

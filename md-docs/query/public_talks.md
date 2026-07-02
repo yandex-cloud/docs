@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Query](index.md) > Публичные материалы
+
 # Публичные материалы
 
 ## Визуализация данных из Yandex Object Storage с помощью Yandex Query {#shorts3}

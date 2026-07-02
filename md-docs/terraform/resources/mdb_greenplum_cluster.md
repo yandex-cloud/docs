@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for Greenplum® > Resources > mdb_greenplum_cluster
+
 # yandex_mdb_greenplum_cluster (Resource)
 
 Manages a Greenplum cluster within the Yandex Cloud. For more information, see [the official documentation](../../managed-greenplum/index.md).

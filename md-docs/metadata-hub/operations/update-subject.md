@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Schema Registry > Пошаговые инструкции > Субъекты > Изменение субъекта
+
 # Изменение настроек субъекта
 
 

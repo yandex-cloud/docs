@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.opensearch > ComplianceWriteEvent
+
 # Managed Service for OpenSearch Audit Trails Events: ComplianceWriteEvent
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.opensearch.ComplianceWriteEvent2-schema}

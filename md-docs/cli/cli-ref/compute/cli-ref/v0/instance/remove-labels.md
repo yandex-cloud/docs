@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [compute](../../index.md) > [v0](../index.md) > [instance](index.md) > remove-labels
+
 # yc compute v0 instance remove-labels
 
 Remove labels from specified virtual machine instance

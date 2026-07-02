@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Практические руководства](index.md) > Перемещение данных из Apache Kafka® > Перенос данных между кластерами Managed Service for Apache Kafka® с помощью Yandex Data Transfer
+
 # Перенос данных между кластерами Managed Service for Apache Kafka® с помощью Yandex Data Transfer
 
 
@@ -31,7 +33,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластеры Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
+* Кластеры Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for Apache Kafka®](../pricing.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 * Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы Data Transfer](../../data-transfer/pricing.md)).
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > Вопросы и ответы > Лицензирование
+
 # Лицензирование Microsoft
 
 * [Что такое перемещение лицензий?](#license-mobility)

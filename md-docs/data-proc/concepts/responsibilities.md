@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Концепции](index.md) > Разграничение зон контроля в Yandex Data Processing
+
 # Разграничение зон контроля пользователей Yandex Data Processing и Yandex Cloud
 
 При работе с сервисом Yandex Data Processing необходимо учитывать, что контролирует [сервис Yandex Data Processing](#cloud-responsibilities), а что — [клиент Yandex Cloud](#customer-responsibilities). Понимание этих зон контроля помогает эффективно использовать облачные ресурсы и избегать возможных проблем при работе с кластерами.

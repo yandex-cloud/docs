@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [MlModel](index.md) > Get
+
 # Managed Service for ClickHouse API, gRPC: MlModelService.Get
 
 Returns the specified machine learning model.

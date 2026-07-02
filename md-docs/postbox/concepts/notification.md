@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Postbox](../index.md) > [Концепции](index.md) > Уведомления об операциях с письмами
+
 # Уведомления об операциях с письмами
 
 Чтобы получать уведомления об операциях с письмами, необходимо [создать конфигурацию](../operations/create-configuration.md) и [привязать ее к адресу](../operations/bind-configuration.md).

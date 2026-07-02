@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Справочник YC CLI (англ.)](../index.md) > [s3api](index.md) > list-objects
+
 # yc storage s3api list-objects
 
 Lists objects in a bucket using listObjectsV2 http method

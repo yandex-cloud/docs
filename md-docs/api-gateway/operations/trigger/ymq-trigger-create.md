@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Пошаговые инструкции](../index.md) > Создание триггера > Создать триггер для Message Queue
+
 # Создать триггер для Message Queue, который отправляет сообщения в WebSocket-соединения
 
 Создайте [триггер для очереди сообщений](../../concepts/trigger/ymq-trigger.md) сервиса Message Queue, который будет отправлять сообщения в [WebSocket-соединения](../../concepts/extensions/websocket.md).

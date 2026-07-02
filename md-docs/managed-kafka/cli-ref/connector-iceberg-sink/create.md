@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [connector-iceberg-sink](index.md) > create
+
 # yc managed-kafka connector-iceberg-sink create
 
 Create a Kafka Iceberg-Sink connector.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [container](../index.md) > [cluster](index.md) > reschedule-maintenance
+
 # yc container cluster reschedule-maintenance
 
 Reschedule mandatory maintenance for the specified Kubernetes cluster.

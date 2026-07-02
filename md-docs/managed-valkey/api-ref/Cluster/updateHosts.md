@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > UpdateHosts
+
 # Managed Service for Redis API, REST: Cluster.UpdateHosts
 
 Updates the specified hosts.

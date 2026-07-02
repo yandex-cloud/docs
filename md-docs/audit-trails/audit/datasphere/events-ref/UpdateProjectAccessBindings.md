@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > UpdateProjectAccessBindings
+
 # DataSphere Audit Trails Events: UpdateProjectAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.UpdateProjectAccessBindings2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > [Справочник CLI (англ.)](../index.md) > [asymmetric-signature-crypto](index.md) > sign-hash
+
 # yc kms asymmetric-signature-crypto sign-hash
 
 Sign hash value with specified asymmetric signature key

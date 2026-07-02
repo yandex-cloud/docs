@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Functions](../index.md) > [Практические руководства](index.md) > Интернет вещей > Мониторинг показаний датчиков и уведомления о событиях
+
 # Мониторинг показаний датчиков и уведомления о событиях
 
 {% note warning %}
@@ -35,7 +37,7 @@
 
 В стоимость поддержки описываемого решения входят:
 * плата за количество сообщений Yandex IoT Core ([тарифы Yandex IoT Core](../../iot-core/pricing.md));
-* плата за количество вызовов [функции](../concepts/function.md) Cloud Functions ([тарифы Yandex Cloud Functions](../../functions/pricing.md));
+* плата за количество вызовов [функции](../concepts/function.md) Cloud Functions ([тарифы Yandex Cloud Functions](../pricing.md));
 * плата за запись пользовательских [метрик](../../monitoring/concepts/data-model.md#metric) через API сервиса [Monitoring](../../monitoring/index.md) ([тарифы Yandex Monitoring](../../monitoring/pricing.md)).
 
 ### Создайте сервисные аккаунты {#create-sa}

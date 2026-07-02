@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Disk](index.md) > Delete
+
 # Compute Cloud API, REST: Disk.Delete
 
 Deletes the specified disk.

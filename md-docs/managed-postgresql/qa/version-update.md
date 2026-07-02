@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > Вопросы и ответы > Обновление мажорной версии PostgreSQL
+
 # Обновление мажорной версии PostgreSQL в Yandex Managed Service for PostgreSQL
 
 * [Нужно ли выполнять `ANALYZE`, `REINDEX` и обновлять статистические данные (`pg_stat_user_tables`, `pg_statistic`) вручную после обновления мажорной версии PostgreSQL?](#version-update-manual)

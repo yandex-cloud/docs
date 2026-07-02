@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Управление кластером Kubernetes > Управление доступом к кластеру Kubernetes
+
 # Управление доступом к кластеру Managed Service for Kubernetes
 
 Вы можете предоставить пользователю или сервисному аккаунту [роль для доступа к Kubernetes API](../../security/index.md#k8s-api) конкретного [кластера](../../concepts/index.md#kubernetes-cluster).

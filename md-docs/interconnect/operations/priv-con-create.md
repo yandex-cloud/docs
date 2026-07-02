@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Interconnect](../index.md) > [Пошаговые инструкции](index.md) > Создать приватное соединение
+
 # Создать приватное соединение
 
 {% note info %}

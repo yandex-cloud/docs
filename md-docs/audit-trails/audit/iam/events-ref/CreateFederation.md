@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > CreateFederation
+
 # Identity and Access Management Audit Trails Events: CreateFederation
 
 ## Event JSON schema {#yandex.cloud.audit.iam.CreateFederation2-schema}

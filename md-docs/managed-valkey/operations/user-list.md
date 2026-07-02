@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Valkey™](../index.md) > [Пошаговые инструкции](index.md) > Пользователи > Получение информации о пользователях
+
 # Получение информации о пользователях
 
 Yandex Managed Service for Valkey™ позволяет создавать пользователей Valkey™ и настраивать их разрешения на команды, ключи и каналы Pub/Sub кластера с помощью списков контроля доступа [Valkey™ ACL](https://valkey.io/topics/acl).

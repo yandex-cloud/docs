@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [serverless](../index.md) > [api-gateway](index.md) > set-access-bindings
+
 # yc serverless api-gateway set-access-bindings
 
 Set access bindings for the specified API Gateway and delete all existing access bindings if there were any

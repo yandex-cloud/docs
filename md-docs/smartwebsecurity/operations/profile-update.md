@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили безопасности > Изменить основные параметры профиля
+
 # Изменить основные параметры профиля безопасности
 
 {% list tabs group=instructions %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Справочник аудитных логов > AddLoadBalancerListener
+
 # Application Load Balancer Audit Trails Events: AddLoadBalancerListener
 
 ## Event JSON schema {#yandex.cloud.audit.apploadbalancer.AddLoadBalancerListener2-schema}

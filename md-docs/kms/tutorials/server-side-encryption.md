@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Key Management Service](../index.md) > [Практические руководства](index.md) > Шифрование для бакета Object Storage на стороне сервера
+
 # Шифрование для бакета Object Storage на стороне сервера
 
 
@@ -39,7 +41,7 @@
 
 * плата за хранение данных в бакете ([тарифы Object Storage](../../storage/pricing.md#prices-storage));
 * плата за операции с данными ([тарифы Object Storage](../../storage/pricing.md#prices-operations));
-* плата за использование ключей KMS ([тарифы Key Management Service](../../kms/pricing.md#prices)).
+* плата за использование ключей KMS ([тарифы Key Management Service](../pricing.md#prices)).
 
 
 ## Создайте бакет {#create-bucket}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Lockbox](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Secret](index.md) > ListOperations
+
 # Lockbox API, gRPC: SecretService.ListOperations
 
 Lists operations for the specified secret.

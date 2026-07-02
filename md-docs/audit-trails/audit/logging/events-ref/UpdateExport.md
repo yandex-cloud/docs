@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > logging > UpdateExport
+
 # Cloud Logging Audit Trails Events: UpdateExport
 
 ## Event JSON schema {#yandex.cloud.audit.logging.UpdateExport2-schema}

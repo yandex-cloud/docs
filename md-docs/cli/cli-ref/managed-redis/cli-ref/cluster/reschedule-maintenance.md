@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-redis](../index.md) > [cluster](index.md) > reschedule-maintenance
+
 # yc managed-redis cluster reschedule-maintenance
 
 Reschedule currently planned maintenance operation.

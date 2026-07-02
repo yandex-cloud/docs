@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Valkey™](../index.md) > [Пошаговые инструкции](index.md) > Пользователи > Удаление пользователя
+
 # Удаление пользователя
 
 {% list tabs group=instructions %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex MPP Analytics for PostgreSQL](index.md) > История изменений
+
 # История изменений в Yandex MPP Analytics for PostgreSQL
 
 ## Май 2026 {#may-2026}

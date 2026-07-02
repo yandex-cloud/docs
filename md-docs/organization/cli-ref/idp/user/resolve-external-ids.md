@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [idp](../index.md) > [user](index.md) > resolve-external-ids
+
 # yc organization-manager idp user resolve-external-ids
 
 Resolve external IDs to internal user IDs

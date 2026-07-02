@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [RefreshToken](index.md) > List
+
 # Identity and Access Management API, REST: RefreshToken.List
 
 List subjects Refresh Tokens.

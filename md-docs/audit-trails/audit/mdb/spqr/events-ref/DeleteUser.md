@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.spqr > DeleteUser
+
 # Managed Service for SPQR Audit Trails Events: DeleteUser
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.spqr.DeleteUser2-schema}

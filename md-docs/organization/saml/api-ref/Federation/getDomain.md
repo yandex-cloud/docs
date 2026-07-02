@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [SAML Federation API](../index.md) > [Federation](index.md) > GetDomain
+
 # SAML Federation API, REST: Federation.GetDomain
 
 Returns the specified domain in the federation.

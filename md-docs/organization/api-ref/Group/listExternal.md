@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Group](index.md) > ListExternal
+
 # Identity Hub API, REST: Group.ListExternal
 
 Retrieves the list of external group linked subject container

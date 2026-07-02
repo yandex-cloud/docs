@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Marketplace](../../../../index.md) > Партнерам > Справочник License Manager API > [gRPC (англ.)](../index.md) > [Lock](index.md) > Create
+
 # Yandex Cloud Marketplace License Manager, gRPC: LockService.Create
 
 Locks the specified subscription instance to the resource.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [image](index.md) > get-latest-from-family
+
 # yc compute image get-latest-from-family
 
 Show information about the latest image that is part of an image family

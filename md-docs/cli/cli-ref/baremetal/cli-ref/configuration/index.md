@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [baremetal](../index.md) > configuration > Overview
+
 # yc baremetal configuration
 
 A set of methods to retrieve information about Configuration resources.

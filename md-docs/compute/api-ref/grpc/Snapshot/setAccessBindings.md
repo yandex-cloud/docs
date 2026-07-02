@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Snapshot](index.md) > SetAccessBindings
+
 # Compute Cloud API, gRPC: SnapshotService.SetAccessBindings
 
 Sets access bindings for the snapshot.

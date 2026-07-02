@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Virtual Private Cloud > Resources > vpc_network
+
 # yandex_vpc_network (Resource)
 
 Manages a network within the Yandex Cloud. For more information, see [the official documentation](../../vpc/concepts/network.md#network).

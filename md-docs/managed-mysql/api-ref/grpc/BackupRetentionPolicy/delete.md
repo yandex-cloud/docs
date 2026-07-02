@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for MySQL®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [BackupRetentionPolicy](index.md) > Delete
+
 # Managed Service for MySQL API, gRPC: BackupRetentionPolicyService.Delete
 
 Delete retention policy.

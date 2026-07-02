@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > ai.tuning > StartTuning
+
 # AI Studio Tuning Audit Trails Events: StartTuning
 
 ## Event JSON schema {#yandex.cloud.audit.ai.tuning.StartTuning2-schema}

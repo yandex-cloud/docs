@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Trail](index.md) > Get
+
 # Audit Trails API, gRPC: TrailService.Get
 
 Returns the specified trail.

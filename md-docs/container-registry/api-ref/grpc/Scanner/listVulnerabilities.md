@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Scanner](index.md) > ListVulnerabilities
+
 # Container Registry API, gRPC: ScannerService.ListVulnerabilities
 
 Retrieves the list of vulnerabilities found in particular scan.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Stackland](index.md) > Управление доступом
+
 # Управление доступом
 
 В Stackland управление доступом включает аутентификацию и авторизацию. Платформа поддерживает два механизма авторизации: Kubernetes RBAC и IAM AccessBinding.

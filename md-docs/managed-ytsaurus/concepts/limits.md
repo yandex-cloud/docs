@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YTsaurus](../index.md) > Концепции > Квоты и лимиты
+
 # Квоты и лимиты в Managed Service for YTsaurus
 
 В сервисе Managed Service for YTsaurus действуют следующие ограничения:

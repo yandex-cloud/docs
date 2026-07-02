@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > dns > SetDnsFirewallAccessBindings
+
 # Cloud DNS Audit Trails Events: SetDnsFirewallAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.dns.SetDnsFirewallAccessBindings2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex StoreDoc](../index.md) > [Концепции](index.md) > Классы хостов > Использование устаревших классов хостов
+
 # Использование устаревших классов хостов в Yandex StoreDoc
 
 С 1 января 2024 года классы хостов `b1.nano`, `b1.micro`, `b1.small`, `b2.nano`, `b2.micro` и `b2.small` выведены из эксплуатации для Yandex StoreDoc.

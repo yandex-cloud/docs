@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Smart Web Security](../../index.md) > [Справочник CLI (англ.)](../index.md) > [security-profile](index.md) > get
+
 # yc smartwebsecurity security-profile get
 
 Returns the specified SecurityProfile resource.

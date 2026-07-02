@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Инструменты для Managed Service for Kubernetes > Gwin > Конфигурация ресурсов (англ.) > YCStorageBucket
+
 # YCStorageBucket
 
 YCStorageBucket is a Gwin custom resource for referencing S3 buckets from Yandex Object Storage. It allows you to use Object Storage buckets as backend targets in [HTTPRoute](httproute.md), [IngressBackendGroup](ingressbackendgroup.md), [Ingress](ingress.md) resources for serving static content or as part of traffic routing strategies.

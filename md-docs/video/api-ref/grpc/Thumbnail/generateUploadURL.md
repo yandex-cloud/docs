@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Thumbnail](index.md) > GenerateUploadURL
+
 # Video API, gRPC: ThumbnailService.GenerateUploadURL
 
 Generates a URL for uploading an image to an existing thumbnail record.

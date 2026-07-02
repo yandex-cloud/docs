@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DesktopGroup](index.md) > UpdateAccessBindings
+
 # Cloud Desktop API, REST: DesktopGroup.UpdateAccessBindings
 
 Updates access bindings of the specified desktop group.

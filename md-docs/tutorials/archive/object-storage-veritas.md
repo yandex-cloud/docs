@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Хранение и восстановление данных](index.md) > Резервное копирование в Object Storage > Резервное копирование в Object Storage с помощью Veritas Backup Exec
+
 # Резервное копирование в Yandex Object Storage с помощью Veritas Backup Exec
 
 Yandex Object Storage можно использовать для резервного копирования и восстановления данных с помощью утилиты Veritas Backup Exec.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Logging](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LogGroup](index.md) > List
+
 # Cloud Logging Service, gRPC: LogGroupService.List
 
 Retrieves the list of log groups in the specified folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Got no blocks with root placement
+
 # [Yandex DataLens] Got no blocks with root placement
 
 `ERR.DS_API.BLOCK.NO_ROOT`

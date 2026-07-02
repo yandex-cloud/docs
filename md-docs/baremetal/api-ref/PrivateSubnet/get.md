@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [PrivateSubnet](index.md) > Get
+
 # BareMetal API, REST: PrivateSubnet.Get
 
 Returns the specific PrivateSubnet resource.

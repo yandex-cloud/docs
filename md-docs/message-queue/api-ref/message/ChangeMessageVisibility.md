@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Message Queue](../../index.md) > [Справочник API](../index.md) > Message > ChangeMessageVisibility
+
 # ChangeMessageVisibility
 
 Метод для установки таймаута видимости сообщению, находящемуся в обработке. Суммарная длительность таймаута не может быть более 12 часов.

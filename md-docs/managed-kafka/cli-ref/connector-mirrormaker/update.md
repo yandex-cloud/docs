@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [connector-mirrormaker](index.md) > update
+
 # yc managed-kafka connector-mirrormaker update
 
 Modify attributes of a Kafka Mirrormaker connector.

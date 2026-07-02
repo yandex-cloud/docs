@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > [Справочник CLI (англ.)](../index.md) > private-connection > Overview
+
 # yc cic private-connection
 
 A set of methods for managing PrivateConnection resources.

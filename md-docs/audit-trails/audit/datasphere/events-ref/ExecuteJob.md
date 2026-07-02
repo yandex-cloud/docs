@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > ExecuteJob
+
 # DataSphere Audit Trails Events: ExecuteJob
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.ExecuteJob2-schema}

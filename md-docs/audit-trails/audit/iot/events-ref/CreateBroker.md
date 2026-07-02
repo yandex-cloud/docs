@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iot > CreateBroker
+
 # IoT Core Audit Trails Events: CreateBroker
 
 ## Event JSON schema {#yandex.cloud.audit.iot.broker.CreateBroker2-schema}

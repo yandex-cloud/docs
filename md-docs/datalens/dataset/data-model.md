@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > [Датасеты](index.md) > Модель данных
+
 # Модель данных в Yandex DataLens
 
 Набор данных датасета представлен в виде полей.

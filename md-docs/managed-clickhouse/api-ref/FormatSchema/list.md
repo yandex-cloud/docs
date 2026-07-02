@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [FormatSchema](index.md) > List
+
 # Managed Service for ClickHouse API, REST: FormatSchema.List
 
 Returns a list of format schemas in a cluster.

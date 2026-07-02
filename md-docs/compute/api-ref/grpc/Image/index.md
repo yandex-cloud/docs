@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Image > Overview
+
 # Compute Cloud API, gRPC: ImageService
 
 A set of methods for managing Image resources.

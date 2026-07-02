@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Пошаговые инструкции](../index.md) > Управление функцией > Передать секреты Yandex Lockbox
+
 # Передать секреты Yandex Lockbox в функцию
 
 {% note info %}

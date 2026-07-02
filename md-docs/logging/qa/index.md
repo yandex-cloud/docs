@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Logging](../index.md) > Вопросы и ответы
+
 # Общие вопросы про Cloud Logging
 
 #### Я могу получить логи моей работы в сервисах? {#logs}

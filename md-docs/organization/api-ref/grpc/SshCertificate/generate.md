@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SshCertificate](index.md) > Generate
+
 # Identity Hub API, gRPC: SshCertificateService.Generate
 
 Members of an organization can generate certificates for themselves

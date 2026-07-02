@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [node-group](index.md) > add-labels
+
 # yc container node-group add-labels
 
 Add labels to the specified node group.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Export](index.md) > Delete
+
 # Cloud Logging Service, REST: Export.Delete
 
 Deletes the specified export.

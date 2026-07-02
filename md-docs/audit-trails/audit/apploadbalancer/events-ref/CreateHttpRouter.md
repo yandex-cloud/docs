@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > apploadbalancer > CreateHttpRouter
+
 # Application Load Balancer Audit Trails Events: CreateHttpRouter
 
 ## Event JSON schema {#yandex.cloud.audit.apploadbalancer.CreateHttpRouter2-schema}

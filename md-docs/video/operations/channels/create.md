@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > [Пошаговые инструкции](../index.md) > Каналы > Создать канал
+
 # Создать канал
 
 {% list tabs group=instructions %}

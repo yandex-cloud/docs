@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Пошаговые инструкции](index.md) > Управление контейнером > Сделать ревизию активной
+
 # Сделать ревизию активной
 
 При вызове контейнера запускается [активная ревизия](../concepts/container.md#revision).

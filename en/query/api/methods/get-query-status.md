@@ -1,6 +1,6 @@
 # get-query-status
 
-The method returns the query execution status. Use the method to track the query progress to wait until it's executed and [get query results](get-query-results.md).
+This method returns the query status. You can use it to track query progress and [retrieve the results](get-query-results.md) once it is completed.
 
 {% include [!](../../_includes/api-common.md) %}
 
@@ -10,7 +10,7 @@ The method returns the query execution status. Use the method to track the query
 
 ## Response {#response}
 
-If successful, an HTTP response with code 200 and the query execution status (`RUNNING`, `COMPLETED`, or `FAILED`) is returned.
+If successful, the response returns an HTTP 200 status code and the query status, i.e., `RUNNING`, `COMPLETED`, or `FAILED`.
 
 ```json
 {
@@ -20,7 +20,7 @@ If successful, an HTTP response with code 200 and the query execution status (`R
 
 ## Example {#example}
 
-Request:
+Query:
 
 ```json
 curl \

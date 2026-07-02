@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [user](index.md) > delete
+
 # yc managed-kafka user delete
 
 Delete a Kafka user.

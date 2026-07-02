@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > loadtesting > StartAgent
+
 # Load Testing Audit Trails Events: StartAgent
 
 ## Event JSON schema {#yandex.cloud.audit.loadtesting.StartAgent2-schema}

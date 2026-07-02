@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex IoT Core](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [registry](../index.md) > [certificate](index.md) > list
+
 # yc iot v0 registry certificate list
 
 List certificates associated with specified registry

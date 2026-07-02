@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > [Пошаговые инструкции](../index.md) > Рабочие столы > Удалить рабочий стол
+
 # Удалить рабочий стол
 
 {% list tabs group=instructions %}

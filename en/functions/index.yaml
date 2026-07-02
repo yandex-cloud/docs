@@ -1,7 +1,7 @@
 title: '{{ sf-full-name }}'
 description:
   - >-
-    {{ sf-name }} allows you to run your applications in a secure,
+    {{ sf-name }} enables you to run your applications in a secure,
     fault-tolerant, and scalable environment without creating or maintaining
     VMs.
 meta:
@@ -73,10 +73,10 @@ links:
     description: Permissions required to use the service
     href: security/
   - title: Tutorials
-    description: Use actionable tutorials for working with functions
+    description: Use ready-made scenarios for working with functions
     href: tutorials/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Pricing and cost calculations
     href: pricing
   - title: FAQ
     description: Answers to frequently asked questions

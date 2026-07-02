@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > Работа с PXF > Изменение настроек PXF
+
 # Изменение настроек PXF
 
 Настройки [PXF](../external-tables.md), которые можно задать средствами Yandex Cloud, совпадают с настройками в конфигурационном файле [pxf-application.properties](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum-platform-extension-framework/6-11/gp-pxf/config_files.html#pxfappprops). Он описывает свойства протокола PXF. В кластере Yandex MPP Analytics for PostgreSQL для настроек PXF заданы значения по умолчанию. Чтобы оптимизировать работу с [внешними таблицами](../../concepts/external-tables.md), вы можете изменить настройки PXF с помощью интерфейсов Yandex Cloud вместо правки файла.

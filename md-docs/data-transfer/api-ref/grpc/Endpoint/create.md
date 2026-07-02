@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Transfer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Endpoint](index.md) > Create
+
 # Data Transfer API, gRPC: EndpointService.Create
 
 Creates an endpoint in the specified folder.

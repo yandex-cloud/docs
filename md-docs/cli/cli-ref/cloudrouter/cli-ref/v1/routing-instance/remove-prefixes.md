@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cloudrouter](../../index.md) > [v1](../index.md) > [routing-instance](index.md) > remove-prefixes
+
 # yc cloudrouter v1 routing-instance remove-prefixes
 
 Removes specified prefixes from a RoutingInstance resource.

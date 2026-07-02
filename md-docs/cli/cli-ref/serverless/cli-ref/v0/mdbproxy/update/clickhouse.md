@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [serverless](../../../index.md) > [v0](../../index.md) > [mdbproxy](../index.md) > [update](index.md) > clickhouse
+
 # yc serverless v0 mdbproxy update clickhouse
 
 Update the specified proxy

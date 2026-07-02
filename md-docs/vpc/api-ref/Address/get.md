@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Address](index.md) > Get
+
 # Virtual Private Cloud API, REST: Address.Get
 
 Returns the specified Address resource.

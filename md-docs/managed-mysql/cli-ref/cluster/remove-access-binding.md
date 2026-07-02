@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > remove-access-binding
+
 # yc managed-mysql cluster remove-access-binding
 
 Remove access binding for the specified MySQL cluster

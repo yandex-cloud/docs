@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Certificate Manager](../index.md) > Справочник аудитных логов > CreateCaUsageRestriction
+
 # Certificate Manager Audit Trails Events: CreateCaUsageRestriction
 
 ## Event JSON schema {#yandex.cloud.audit.certificatemanager.CreateCaUsageRestriction2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > REST (англ.) > [Certificate Manager Private CA API](../index.md) > PrivateCa > Overview
+
 # Certificate Manager Private CA API, REST: PrivateCa
 
 Service for managing Private Certificate Authorities (CAs).

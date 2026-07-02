@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Управление группой узлов > Изменение группы узлов
+
 # Изменение группы узлов Managed Service for Kubernetes
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Message Queue](../../index.md) > [Справочник API](../index.md) > Message > ReceiveMessage
+
 # ReceiveMessage
 
 Метод для приема от одного до десяти сообщений из указанной очереди. С помощью параметра `WaitTimeSeconds` выполняются long-polling запросы.

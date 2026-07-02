@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Lockbox](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Yandex Lockbox
 
 # Аутентификация в API

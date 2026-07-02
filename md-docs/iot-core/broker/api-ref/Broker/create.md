@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Broker > [REST (англ.)](../index.md) > [Broker](index.md) > Create
+
 # IoT Core Broker Service, REST: Broker.Create
 
 Creates a broker in the specified folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [repository](../index.md) > [lifecycle-policy](index.md) > create
+
 # yc container repository lifecycle-policy create
 
 Create a lifecycle policy.

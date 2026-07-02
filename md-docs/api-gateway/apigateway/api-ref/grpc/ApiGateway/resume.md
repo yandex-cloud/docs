@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex API Gateway](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ApiGateway](index.md) > Resume
+
 # API Gateway Service, gRPC: ApiGatewayService.Resume
 
 Resumes the specified API gateway.

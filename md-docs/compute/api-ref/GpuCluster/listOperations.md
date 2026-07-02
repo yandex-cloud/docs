@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [GpuCluster](index.md) > ListOperations
+
 # Compute Cloud API, REST: GpuCluster.ListOperations
 
 Lists operations for the specified GPU cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Публикация и встраивание > Встраивание через JWT
+
 # Встраивание через JWT
 
 Вы можете безопасно встроить непубличные [чарты](../concepts/chart/index.md) и [дашборды](../concepts/dashboard.md) на сайт или в приложение с помощью специальных ссылок с [JWT-токеном](https://ru.wikipedia.org/wiki/JSON_Web_Token).

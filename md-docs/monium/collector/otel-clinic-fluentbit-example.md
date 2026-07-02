@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Поставка данных](index.md) > Fluent Bit > Пример для демо-приложения Java с Fluent Bit
+
 # Настройка демо-приложения Java и сбор телеметрии
 
 ## Перед началом работы {#before-you-begin}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [eventrouter](../index.md) > [rule](index.md) > list-access-bindings
+
 # yc serverless eventrouter rule list-access-bindings
 
 List access bindings for the specified function

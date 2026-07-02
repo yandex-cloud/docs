@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Resource](index.md) > Create
+
 # Cloud CDN API, REST: Resource.Create
 
 Creates a CDN resource in the specified folder.

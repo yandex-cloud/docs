@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Processing](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > set-access-bindings
+
 # yc dataproc cluster set-access-bindings
 
 Set access bindings for the specified cluster and delete all existing access bindings if there were any

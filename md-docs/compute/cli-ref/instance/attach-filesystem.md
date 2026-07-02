@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [instance](index.md) > attach-filesystem
+
 # yc compute instance attach-filesystem
 
 Attach existing filesystem to the specified virtual machine instance

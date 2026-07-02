@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API EventRouter > [gRPC (англ.)](../index.md) > Connector > Overview
+
 # EventRouter Service, gRPC: ConnectorService
 
 A set of methods for managing connectors for serverless eventrouter.

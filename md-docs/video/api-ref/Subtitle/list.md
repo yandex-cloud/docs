@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Subtitle](index.md) > List
+
 # Video API, REST: Subtitle.List
 
 Lists all subtitles associated with a specific video with pagination support.

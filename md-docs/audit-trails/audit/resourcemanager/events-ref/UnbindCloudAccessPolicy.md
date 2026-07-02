@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > resourcemanager > UnbindCloudAccessPolicy
+
 # Resource Manager Audit Trails Events: UnbindCloudAccessPolicy
 
 ## Event JSON schema {#yandex.cloud.audit.resourcemanager.UnbindCloudAccessPolicy2-schema}

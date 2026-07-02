@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Безопасность в Yandex Cloud](index.md) > Разделение ответственности за обеспечение безопасности
+
 # Разделение ответственности за обеспечение безопасности
 
 Безопасность систем, использующих облачные сервисы, требует разделения ответственности между клиентом (владельцем конечной системы) и провайдером (владельцем облачной инфраструктуры). Это разделение зависит от модели облачных сервисов: [IaaS (Infrastructure as a Service)](https://yandex.cloud/ru/blog/posts/2022/01/iaas), [PaaS (Platform as a Service)](https://yandex.cloud/ru/blog/posts/2023/03/paas) или [SaaS (Software as a Service)](https://yandex.cloud/ru/blog/posts/2023/03/saas).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > [Практические руководства](../index.md) > [Шифрование данных](index.md) > Шифрование с помощью Google Tink
+
 # Шифрование данных с помощью Google Tink
 
 [Tink](https://github.com/google/tink) — это библиотека шифрования от Google, альтернатива [AWS Encryption](aws-encryption-sdk.md). Библиотека помогает сосредоточиться на задаче шифрования и расшифрования данных, не отвлекаясь на выбор правильного алгоритма и параметров шифрования.

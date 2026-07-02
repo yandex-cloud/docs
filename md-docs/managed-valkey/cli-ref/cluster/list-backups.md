@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > list-backups
+
 # yc managed-redis cluster list-backups
 
 List available backups for the specified Redis cluster

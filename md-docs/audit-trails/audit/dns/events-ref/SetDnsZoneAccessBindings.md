@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > dns > SetDnsZoneAccessBindings
+
 # Cloud DNS Audit Trails Events: SetDnsZoneAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.dns.SetDnsZoneAccessBindings2-schema}

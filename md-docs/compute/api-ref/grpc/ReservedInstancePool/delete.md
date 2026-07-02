@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ReservedInstancePool](index.md) > Delete
+
 # Compute Cloud API, gRPC: ReservedInstancePoolService.Delete
 
 Deletes the specified reserved instance pool.

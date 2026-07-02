@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Backup](../../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Policy](index.md) > Apply
+
 # Cloud Backup API, REST: Policy.Apply
 
 Apply policy to [Compute Cloud instance](../../../concepts/vm-connection.md#os).

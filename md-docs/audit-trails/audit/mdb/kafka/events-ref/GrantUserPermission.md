@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.kafka > GrantUserPermission
+
 # Managed Service for Apache Kafka® Audit Trails Events: GrantUserPermission
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.kafka.GrantUserPermission2-schema}

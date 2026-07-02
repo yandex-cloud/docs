@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Stream](index.md) > List
+
 # Video API, REST: Stream.List
 
 Lists all streams in a specific channel with pagination support.

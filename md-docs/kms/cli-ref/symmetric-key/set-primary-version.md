@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > [Справочник CLI (англ.)](../index.md) > [symmetric-key](index.md) > set-primary-version
+
 # yc kms symmetric-key set-primary-version
 
 Set primary version of the specified symmetric key

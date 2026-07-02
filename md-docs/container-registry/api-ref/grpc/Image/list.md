@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Image](index.md) > List
+
 # Container Registry API, gRPC: ImageService.List
 
 Retrieves the list of Image resources in the specified registry or repository.

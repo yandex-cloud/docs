@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Compute Cloud > Resources > compute_gpu_cluster
+
 # yandex_compute_gpu_cluster (Resource)
 
 A GPU cluster. For details about the concept, see [documentation](../../compute/concepts/gpus.md#gpu-clusters).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > kms > CreateSymmetricKey
+
 # Key Management Service Audit Trails Events: CreateSymmetricKey
 
 ## Event JSON schema {#yandex.cloud.audit.kms.CreateSymmetricKey2-schema}

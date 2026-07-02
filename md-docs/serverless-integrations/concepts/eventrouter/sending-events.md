@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Serverless Integrations](../../index.md) > [Концепции](../index.md) > EventRouter > Отправка событий в шину
+
 # Отправка событий в шину
 
 События могут отправляться в [шину](bus.md) следующими способами:

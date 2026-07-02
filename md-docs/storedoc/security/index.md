@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex StoreDoc](../index.md) > Управление доступом
+
 # Управление доступом в Yandex StoreDoc
 
 
@@ -334,6 +336,8 @@ flowchart BT
 Чтобы пользоваться сервисом, необходима роль [managed-mongodb.editor или выше](../../iam/concepts/access-control/roles.md) на каталог, в котором создается кластер. Роль `managed-mongodb.viewer` позволит только просматривать список кластеров.
 
 Чтобы создать кластер Yandex StoreDoc, нужна роль [vpc.user](../../vpc/security/index.md#vpc-user) и роль `managed-mongodb.editor` или выше.
+
+Чтобы просматривать кластеры управляемых баз данных (MDB) на дашборде в [консоли управления](https://console.yandex.cloud), нужна роль [mdb.viewer](../../iam/roles-reference.md#mdb-viewer).
 
 Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `managed-mongodb.admin` вместо `managed-mongodb.editor`.
 

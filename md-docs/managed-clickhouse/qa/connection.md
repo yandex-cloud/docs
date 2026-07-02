@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > Вопросы и ответы > Подключение
+
 # Подключение к ClickHouse®
 
 * [Можно ли подключаться к отдельным хостам ClickHouse®?](#connect-node)

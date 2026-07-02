@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Backup](../../index.md) > [Пошаговые инструкции](../index.md) > BareMetal в Cloud Backup > Восстановить работу агента Cloud Backup
+
 # Восстановить работоспособность агента Cloud Backup после обновления ядра Linux
 
 

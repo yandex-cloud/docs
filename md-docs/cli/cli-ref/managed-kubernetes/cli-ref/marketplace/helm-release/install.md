@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-kubernetes](../../index.md) > [marketplace](../index.md) > [helm-release](index.md) > install
+
 # yc managed-kubernetes marketplace helm-release install
 
 Install a Helm Release from Yandex Cloud Marketplace on the cluster.

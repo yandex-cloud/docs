@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [user](index.md) > grant-permission
+
 # yc managed-mysql user grant-permission
 
 Grant permission to the specified MySQL user

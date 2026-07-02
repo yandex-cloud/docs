@@ -9,14 +9,14 @@ _Invocation context_ is an object that is optionally accepted by the [request ha
 * `yFunctionFolderID`: Folder containing the function.
 * `lambdaRuntimeFunctionName`: Function ID (`string`).
 * `lambdaRuntimeFunctionVersion`: Function version ID (`string`).
-* `lambdaRuntimeMemoryLimit`: Amount of memory specified when creating the version, MB (`int`).
+* `lambdaRuntimeMemoryLimit`: Amount of memory specified when creating the version, in MB (`int`).
 * `lambdaRuntimeRequestID`: Request ID (`string`).
 
 To extract information from the invocation context, use its `Value(key)` method and provide to it as a string one of the keys described above as the `key` parameter.
 
-### Authentication in the {{ yandex-cloud }} API {#token}
+### Authentication with the {{ yandex-cloud }} APIs {#token}
 
-If a function has a specified service account, you can use the [SDK](sdk.md) to obtain information that is necessary for authentication on behalf of this service account. To get this information, use the following methods:
+If you specified a service account for the function, you can use the [SDK](sdk.md) to obtain authentication information for that service account. To get this information, use the following methods:
 
 ```golang
 creds := ycsdk.InstanceServiceAccount()
@@ -24,4 +24,4 @@ token, err := creds.IAMToken(ctx)
 ```
 
 The `token.IamToken` field contains the required [IAM token](../../../iam/concepts/authorization/iam-token.md).
-The code above works via the [metadata service](../../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) that is available in the function environment with the specified service account. 
+The code above works through the [metadata service](../../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) that is available in the function environment with the specified service account. 

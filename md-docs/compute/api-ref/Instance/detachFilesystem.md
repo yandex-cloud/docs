@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Instance](index.md) > DetachFilesystem
+
 # Compute Cloud API, REST: Instance.DetachFilesystem
 
 Detaches the filesystem from the instance.

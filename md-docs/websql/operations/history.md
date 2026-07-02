@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex WebSQL](../index.md) > [Пошаговые инструкции](index.md) > Работа с историей запросов
+
 # Работа с историей запросов
 
 В сервисе Yandex WebSQL доступна [история запросов](../concepts/index.md#query-log). Вы можете:

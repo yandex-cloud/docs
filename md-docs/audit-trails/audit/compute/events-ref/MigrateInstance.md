@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > MigrateInstance
+
 # Compute Audit Trails Events: MigrateInstance
 
 ## Event JSON schema {#yandex.cloud.audit.compute.MigrateInstance2-schema}

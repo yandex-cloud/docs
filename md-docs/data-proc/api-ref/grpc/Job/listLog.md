@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Processing](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Job](index.md) > ListLog
+
 # Yandex Data Processing API, gRPC: JobService.ListLog
 
 Returns a log for specified job.

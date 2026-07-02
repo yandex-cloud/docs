@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > [hosts](index.md) > delete
+
 # yc managed-mongodb hosts delete
 
 Remove specified hosts from the a cluster.

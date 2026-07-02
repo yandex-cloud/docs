@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-mongodb](../index.md) > [shards](index.md) > add
+
 # yc managed-mongodb shards add
 
 Create new shard for the cluster in the specified availability zones.

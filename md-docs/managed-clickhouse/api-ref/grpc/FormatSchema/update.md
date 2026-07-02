@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [FormatSchema](index.md) > Update
+
 # Managed Service for ClickHouse API, gRPC: FormatSchemaService.Update
 
 Changes a format schema.

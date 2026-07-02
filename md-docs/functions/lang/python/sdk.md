@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Разработка на Python](index.md) > Использование SDK
+
 # Использование SDK для функции на Python
 
 Чтобы работать с [API Yandex Cloud](../../../api-design-guide/index.md), можно использовать SDK-библиотеку. Для ее установки необходимо указать [зависимость](dependencies.md) в файле `requirements.txt`. В средах выполнения `python37` и `python38` SDK-библиотека установлена по умолчанию.

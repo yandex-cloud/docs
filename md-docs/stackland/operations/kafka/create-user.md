@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Брокер сообщений > Создать пользователя
+
 # Создать пользователя
 
 Если у вас есть ../projects/create-project.md, вы можете создать в нем пользователя [Apache Kafka®](../../concepts/components/kafka.md).

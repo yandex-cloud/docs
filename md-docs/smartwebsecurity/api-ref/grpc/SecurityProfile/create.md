@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SecurityProfile](index.md) > Create
+
 # SmartWebSecurity API, gRPC: SecurityProfileService.Create
 
 Creates a security profile in the specified folder using the data specified in the request.

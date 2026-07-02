@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Monium](../../index.md) > Метрики > [Поставка и экспорт метрик](../index.md) > Поставка метрик с хостов вне Yandex Cloud
+
 # Поставка метрик с хостов вне Yandex Cloud
 
 Для поставки в Monium Metrics метрик с хостов, расположенных за пределами Yandex Cloud:

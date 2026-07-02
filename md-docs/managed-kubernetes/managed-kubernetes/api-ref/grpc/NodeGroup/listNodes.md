@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../../index.md) > Справочник API > [Managed Service for Kubernetes gRPC (англ.)](../index.md) > [NodeGroup](index.md) > ListNodes
+
 # Managed Services for Kubernetes API, gRPC: NodeGroupService.ListNodes
 
 Retrieves the list of nodes in the specified Kubernetes cluster.

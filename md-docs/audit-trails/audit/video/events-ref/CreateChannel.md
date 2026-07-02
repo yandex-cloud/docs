@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > video > CreateChannel
+
 # Cloud Video Audit Trails Events: CreateChannel
 
 ## Event JSON schema {#yandex.cloud.audit.video.CreateChannel2-schema}

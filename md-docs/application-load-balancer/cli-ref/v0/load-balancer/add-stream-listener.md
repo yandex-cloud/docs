@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [load-balancer](index.md) > add-stream-listener
+
 # yc application-load-balancer v0 load-balancer add-stream-listener
 
 Adds a Stream listener to the specified application load balancer.

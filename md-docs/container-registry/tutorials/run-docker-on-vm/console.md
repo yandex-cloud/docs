@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Практические руководства](../index.md) > [Запуск Docker-образа на виртуальной машине](index.md) > Консоль управления, CLI и API
+
 # Запуск Docker-образа на виртуальной машине с помощью консоли управления, CLI и API
 
 Чтобы запустить [Docker-образ на ВМ](index.md) с использованием реестра [Yandex Container Registry](../../index.md), выполните следующие шаги:

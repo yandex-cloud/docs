@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Cloud Functions > Все решения для Cloud Functions
+
 # Решения для Cloud Functions
 
 ## Примеры конфигураций и сценариев Cloud Functions {#configuration-examples}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Key](index.md) > List
+
 # Identity and Access Management API, gRPC: KeyService.List
 
 Retrieves the list of Key resources for the specified service account.

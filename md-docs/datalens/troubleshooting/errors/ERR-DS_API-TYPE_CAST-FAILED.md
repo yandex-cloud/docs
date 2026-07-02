@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Ошибка преобразования типа данных
+
 # [Yandex DataLens] Ошибка преобразования типа данных
 
 `ERR.DS_API.TYPE_CAST.FAILED`

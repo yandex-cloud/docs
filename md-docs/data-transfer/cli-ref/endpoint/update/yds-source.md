@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Transfer](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [endpoint](../index.md) > [update](index.md) > yds-source
+
 # yc datatransfer endpoint update yds-source
 
 Update YDS source

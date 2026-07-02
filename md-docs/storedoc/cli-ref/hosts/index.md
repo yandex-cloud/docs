@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > hosts > Overview
+
 # yc managed-mongodb hosts
 
 Manage hosts of a MongoDB cluster.

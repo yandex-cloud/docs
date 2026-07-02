@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API EventRouter > [gRPC (англ.)](../index.md) > [Rule](index.md) > ListAccessBindings
+
 # EventRouter Service, gRPC: RuleService.ListAccessBindings
 
 Lists existing access bindings for the specified rule.

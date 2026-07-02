@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Backup](../index.md) > [Пошаговые инструкции](index.md) > ВМ в Cloud Backup > Создать и подключить ВМ на Linux
+
 # Создать виртуальную машину на Linux с подключением к Cloud Backup
 
 Вы можете создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) Compute Cloud c [поддерживаемыми операционными системами на базе Linux](../concepts/vm-connection.md#linux).

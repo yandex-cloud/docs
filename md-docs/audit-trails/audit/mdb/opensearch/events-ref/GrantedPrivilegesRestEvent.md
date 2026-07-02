@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.opensearch > GrantedPrivilegesRestEvent
+
 # Managed Service for OpenSearch Audit Trails Events: GrantedPrivilegesRestEvent
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.opensearch.GrantedPrivilegesRestEvent2-schema}

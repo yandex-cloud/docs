@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Базы данных > Managed Service for ClickHouse® > Восстановить кластер
+
 # Восстановить кластер
 
 Если вы утратили кластер [ClickHouse®](../../concepts/components/clickhouse.md) в [проекте](../projects/create-project.md)), вы можете восстановить его.

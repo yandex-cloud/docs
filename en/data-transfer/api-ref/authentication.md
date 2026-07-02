@@ -15,7 +15,7 @@ Before you can work with the API, you need to get an [IAM token](../../iam/conce
 
 {% include [iam-token-usage](../../_includes/iam-token-usage.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [{#T}](../../iam/concepts/users/accounts.md)
 

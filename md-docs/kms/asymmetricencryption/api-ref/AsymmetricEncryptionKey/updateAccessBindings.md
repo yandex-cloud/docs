@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Key Management Service API](../index.md) > [AsymmetricEncryptionKey](index.md) > UpdateAccessBindings
+
 # Key Management Service API, REST: AsymmetricEncryptionKey.UpdateAccessBindings
 
 Updates access bindings for the specified key.

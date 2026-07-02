@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Processing](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > list-ui-links
+
 # yc dataproc cluster list-ui-links
 
 Show URLs of proxied web user interfaces.

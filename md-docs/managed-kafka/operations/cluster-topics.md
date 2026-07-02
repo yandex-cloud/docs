@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Пошаговые инструкции](index.md) > Управление топиками
+
 # Управление топиками Apache Kafka®
 
 Кластер Managed Service for Apache Kafka® позволяет управлять топиками и разделами двумя способами (как отдельно, так и совместно):

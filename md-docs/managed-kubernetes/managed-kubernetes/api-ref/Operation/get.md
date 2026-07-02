@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../index.md) > Справочник API > [Managed Service for Kubernetes REST (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Managed Services for Kubernetes API, REST: Operation.Get
 
 Returns the specified Operation resource.

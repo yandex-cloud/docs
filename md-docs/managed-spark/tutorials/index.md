@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Spark™](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Yandex Managed Service for Apache Spark™
 
 ## Работа с кластерами {#clusters}

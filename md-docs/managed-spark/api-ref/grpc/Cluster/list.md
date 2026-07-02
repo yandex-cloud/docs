@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Spark™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > List
+
 # Managed Spark API, gRPC: ClusterService.List
 
 Retrieves a list of Spark clusters.

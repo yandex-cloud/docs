@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Video](index.md) > BatchDelete
+
 # Video API, REST: Video.BatchDelete
 
 Deletes multiple videos in a specific channel in a single request.

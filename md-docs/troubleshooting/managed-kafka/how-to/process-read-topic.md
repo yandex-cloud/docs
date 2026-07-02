@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Apache Kafka®](../index.md) > Как отслеживать процесс чтения топиков
+
 # Как отслеживать процесс чтения топиков в Managed Service for Apache Kafka®
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [resource-manager](../../index.md) > [v0](../index.md) > [cloud](index.md) > bind-access-policy
+
 # yc resource-manager v0 cloud bind-access-policy
 
 Bind access policy to the specified cloud

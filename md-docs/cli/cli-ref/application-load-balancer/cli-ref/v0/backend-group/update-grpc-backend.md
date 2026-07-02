@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [application-load-balancer](../../index.md) > [v0](../index.md) > [backend-group](index.md) > update-grpc-backend
+
 # yc application-load-balancer v0 backend-group update-grpc-backend
 
 Update gRPC backend to the backend group

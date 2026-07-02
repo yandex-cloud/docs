@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex StoreDoc](index.md) > История изменений
+
 # История изменений в Yandex StoreDoc
 
 ## Май 2026 {#may-2026}

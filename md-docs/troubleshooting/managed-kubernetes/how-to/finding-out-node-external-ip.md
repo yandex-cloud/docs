@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Kubernetes](../index.md) > Как узнать внешний IP-адрес узла Managed Service for Kubernetes
+
 # Как узнать внешний IP-адрес узла Managed Service for Kubernetes
 
 

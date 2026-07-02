@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MetaData Hub](../../../index.md) > Apache Hive™ Metastore > Справочник API > [gRPC (англ.)](../index.md) > Cluster > Overview
+
 # Managed Service for Hive Metastore™ API, gRPC: ClusterService
 
 A set of methods for managing Metastore Cluster resources.

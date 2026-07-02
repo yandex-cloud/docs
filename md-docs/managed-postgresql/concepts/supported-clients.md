@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Концепции](index.md) > Поддерживаемые клиенты
+
 # Рекомендуемые клиенты для СУБД Managed Service for PostgreSQL
 
 Для подключения к Managed Service for PostgreSQL рекомендуется использовать следующие клиенты:

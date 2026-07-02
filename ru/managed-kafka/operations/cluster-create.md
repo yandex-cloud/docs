@@ -24,9 +24,11 @@ description: Следуя данной инструкции, вы сможете
 
 1. Рассчитайте [минимальный размер хранилища](../concepts/storage.md#minimal-storage-size) для топиков.
 1. [Назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
-   * [{{ roles.mkf.editor }} или выше](../security/index.md#roles-list) — чтобы создать кластер;
-   * [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
-   * [kms.keys.user](../../kms/security/index.md#kms-keys-user) — чтобы управлять [шифрованием диска](../concepts/storage.md#disk-encryption).
+
+    * {% include [roles-mkf-editor](../../_includes/mdb/mkf/roles-mkf-editor.md) %}
+    * {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
+    * [kms.keys.user](../../kms/security/index.md#kms-keys-user) — чтобы управлять [шифрованием диска](../concepts/storage.md#disk-encryption);
+    * {% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
 
 Если вы указываете идентификаторы групп безопасности при создании кластера {{ mkf-name }}, для подключения к нему может понадобиться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups).
 

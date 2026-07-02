@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > ListLogs
+
 # Managed Service for Redis API, REST: Cluster.ListLogs
 
 Retrieves logs for the specified Redis cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > AccessRequestProcess
+
 # Yandex Wiki Audit Trails Events: AccessRequestProcess
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.AccessRequestProcess2-schema}

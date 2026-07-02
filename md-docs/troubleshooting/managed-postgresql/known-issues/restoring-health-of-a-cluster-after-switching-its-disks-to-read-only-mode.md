@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for PostgreSQL](../index.md) > Восстановление работоспособности кластера Managed Service for PostgreSQL после исчерпания свободного места в хранилище данных
+
 # Восстановление работоспособности кластера Managed Service for PostgreSQL после исчерпания свободного места в хранилище данных
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Virtual Private Cloud
 
 ## Yandex Virtual Private Cloud

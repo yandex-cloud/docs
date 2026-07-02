@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Audit Trails](../../../../../index.md) > Справочник аудитных логов (англ.) > ai.assistants.searchindex > CreateSearchIndex
+
 # AI Studio Assistants Audit Trails Events: CreateSearchIndex
 
 ## Event JSON schema {#yandex.cloud.audit.ai.assistants.searchindex.CreateSearchIndex2-schema}

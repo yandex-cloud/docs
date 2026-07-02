@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [IamToken](index.md) > Revoke
+
 # Identity and Access Management API, gRPC: IamTokenService.Revoke
 
 Revoke the IAM token.

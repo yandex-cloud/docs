@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [security-group](index.md) > update-rule-meta
+
 # yc vpc security-group update-rule-meta
 
 Update rule of a security group.

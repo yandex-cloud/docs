@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Video](index.md) > Transcode
+
 # Video API, gRPC: VideoService.Transcode
 
 Initiates or updates video transcoding with specified parameters.

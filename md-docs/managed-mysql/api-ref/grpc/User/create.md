@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for MySQL®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [User](index.md) > Create
+
 # Managed Service for MySQL API, gRPC: UserService.Create
 
 Creates a user in a cluster.

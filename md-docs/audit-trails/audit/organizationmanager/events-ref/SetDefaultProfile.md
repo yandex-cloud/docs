@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > SetDefaultProfile
+
 # Identity Hub Audit Trails Events: SetDefaultProfile
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.SetDefaultProfile2-schema}

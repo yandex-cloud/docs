@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Registry](../index.md) > [Концепции](index.md) > Резервное копирование
+
 # Резервное копирование Docker-образов в Container Registry
 
 Данные в Container Registry надежно хранятся и реплицируются в инфраструктуре Yandex Cloud, однако в любой момент вы можете сделать резервные копии [Docker-образов](docker-image.md).

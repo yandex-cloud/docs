@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Functions](../index.md) > [Практические руководства](index.md) > Рабочие процессы и автоматизация на Serverless > Разработка функций в Functions Framework и их развертывание в Yandex Serverless Containers
+
 # Разработка функций в Functions Framework и их развертывание в Yandex Serverless Containers
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > add-access-binding
+
 # yc managed-greenplum cluster add-access-binding
 
 Add access binding for the specified Greenplum cluster

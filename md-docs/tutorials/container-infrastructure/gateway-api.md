@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Контейнерная инфраструктура](index.md) > Managed Service for Kubernetes > Использование продуктов Cloud Marketplace > Настройка Gateway API
+
 # Настройка Gateway API в Yandex Managed Service for Kubernetes
 
 [Gateway API](https://github.com/kubernetes-sigs/gateway-api) — набор ресурсов [API](../../glossary/rest-api.md), моделирующих сетевое взаимодействие в [кластере Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > PerformanceDiagnostics > Overview
+
 # Managed Service for PostgreSQL API, gRPC: PerformanceDiagnosticsService
 
 A set of methods for PostgreSQL performance diagnostics.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > baremetal > UpdatePublicPrefixPool
+
 # BareMetal Audit Trails Events: UpdatePublicPrefixPool
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.UpdatePublicPrefixPool2-schema}

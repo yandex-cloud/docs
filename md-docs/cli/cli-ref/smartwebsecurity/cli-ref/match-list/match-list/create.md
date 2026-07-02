@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [smartwebsecurity](../../index.md) > [match-list](../index.md) > [match-list](index.md) > create
+
 # yc smartwebsecurity match-list match-list create
 
 Creates a MatchList resource in the specified folder.

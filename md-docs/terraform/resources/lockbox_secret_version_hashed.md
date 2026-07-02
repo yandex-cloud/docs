@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Lockbox > Resources > lockbox_secret_version_hashed
+
 # yandex_lockbox_secret_version_hashed (Resource)
 
 Yandex Cloud Lockbox secret version resource (with values hashed in state). For more information, see [the official documentation](../../lockbox/index.md).

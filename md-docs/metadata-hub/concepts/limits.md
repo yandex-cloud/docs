@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Квоты и лимиты
+
 # Квоты в Yandex MetaData Hub
 
 Для сервиса Yandex MetaData Hub действуют следующие ограничения:

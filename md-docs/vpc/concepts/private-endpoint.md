@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Концепции](index.md) > Сервисные подключения
+
 # Сервисные подключения в Yandex Virtual Private Cloud
 
 

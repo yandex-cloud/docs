@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [LoadBalancer](index.md) > StartZonalShift
+
 # Application Load Balancer API, REST: LoadBalancer.StartZonalShift
 
 Start ZonalShift for the specified load balancer.

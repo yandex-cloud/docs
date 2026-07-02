@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Установка приложений из Cloud Marketplace > Установка KEDA
+
 # Установка KEDA с поддержкой Yandex Monitoring
 
 [KEDA](https://keda.sh) — приложение, которое выполняет автомасштабирование ресурсов Kubernetes на основе мониторинга нагрузки.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > Управление доступом
+
 # Управление доступом в Yandex MPP Analytics for PostgreSQL
 
 
@@ -294,6 +296,8 @@ flowchart BT
 Чтобы пользоваться сервисом, необходима роль [managed-greenplum.editor или выше](../../iam/concepts/access-control/roles.md) на каталог, в котором создается кластер. Роль `managed-greenplum.viewer` позволит только просматривать список кластеров.
 
 Чтобы создать кластер Yandex MPP Analytics for PostgreSQL, нужна роль [vpc.user](../../vpc/security/index.md#vpc-user) и роль `managed-greenplum.editor` или выше.
+
+Чтобы просматривать кластеры управляемых баз данных (MDB) на дашборде в [консоли управления](https://console.yandex.cloud), нужна роль [mdb.viewer](../../iam/roles-reference.md#mdb-viewer).
 
 Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `managed-greenplum.admin` вместо `managed-greenplum.editor`.
 

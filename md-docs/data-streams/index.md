@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Data Streams > Data Streams
+
 # Yandex Data Streams
 
 Yandex Data Streams — масштабируемый сервис для управления потоками данных в режиме реального времени.  Data Streams непрерывно выполняет сбор данных из различных источников, например, истории посещений веб‑сайтов, логов работы приложений и системных журналов.  API сервиса совместим с Amazon Kinesis Data Streams API и Kafka API до версии <a href="https://kafka.apache.org/34/apis/">3.4.0</a> включительно.

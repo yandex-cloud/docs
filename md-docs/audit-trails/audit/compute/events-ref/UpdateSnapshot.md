@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > UpdateSnapshot
+
 # Compute Audit Trails Events: UpdateSnapshot
 
 ## Event JSON schema {#yandex.cloud.audit.compute.UpdateSnapshot2-schema}

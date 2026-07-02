@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Message Queue](../index.md) > Пошаговые инструкции > Обзор
+
 # Пошаговые инструкции для Message Queue
 
 В разделе приведены пошаговые инструкции по использованию Message Queue.

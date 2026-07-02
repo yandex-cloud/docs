@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Measure filter is unsupported for this type of query
+
 # [Yandex DataLens] Measure filter is unsupported for this type of query
 
 `ERR.DS_API.FILTER.MEASURE_UNSUPPORTED`

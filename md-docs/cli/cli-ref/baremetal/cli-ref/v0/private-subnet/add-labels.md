@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [baremetal](../../index.md) > [v0](../index.md) > [private-subnet](index.md) > add-labels
+
 # yc baremetal v0 private-subnet add-labels
 
 Add labels to specified private subnet

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [connector](index.md) > pause
+
 # yc managed-kafka connector pause
 
 Pause a Kafka connector.

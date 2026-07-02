@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > Workflows > Управление рабочим процессом > Управлять метками > Изменить метку
+
 # Изменить метку рабочего процесса
 
 {% list tabs group=instructions %}

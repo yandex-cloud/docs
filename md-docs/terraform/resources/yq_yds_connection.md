@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Yandex Query > Resources > yq_yds_connection
+
 # yandex_yq_yds_connection (Resource)
 
 Manages Yandex DataStreams connection in Yandex Query service. For more information, see [the official documentation](../../query/concepts/glossary.md#connection).

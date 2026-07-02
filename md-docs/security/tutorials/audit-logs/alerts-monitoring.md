@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Безопасность в Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Сбор, мониторинг и анализ аудитных логов > Настройка алертов и дашбордов в Monitoring
+
 # Настройка дашбордов и алертов в Yandex Monitoring
 
 Из руководства вы узнаете, как отслеживать состояние [трейлов](../../../audit-trails/concepts/trail.md) с помощью [дашбордов](../../../monitoring/concepts/visualization/dashboard.md) и [алертов](../../../monitoring/concepts/alerting.md#alert) [Yandex Monitoring](../../../monitoring/index.md).

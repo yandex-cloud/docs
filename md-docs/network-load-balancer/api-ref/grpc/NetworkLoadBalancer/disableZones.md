@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Network Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [NetworkLoadBalancer](index.md) > DisableZones
+
 # Network Load Balancer API, gRPC: NetworkLoadBalancerService.DisableZones
 
 Disable zones for the specified network load balancer.

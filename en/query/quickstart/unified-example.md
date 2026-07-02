@@ -1,22 +1,22 @@
 ---
-title: Unified analysis of streaming and analytical data using the example of calculating the cost of taxi rides
-description: "In this example, you will calculate the cost of taxi rides in specific locations\_using a single query against analytical and streaming data."
+title: 'Unified streaming and batch data analysis: a taxi fare calculation example'
+description: In this example, we will query analytical and streaming data to calculate taxi fares in specific locations.
 ---
 
-# Unified analysis of streaming and analytical data
+# Unified streaming and batch data analysis
 
-In this example, you will calculate the cost of taxi rides in specific locations using a single query against [analytical](../concepts/batch-processing.md) and [streaming](../concepts/stream-processing.md) data.
+In this example, we will query [analytical](../concepts/batch-processing.md) and [streaming](../concepts/stream-processing.md) data to calculate taxi fares in specific locations.
 
-The text of the SQL query used to process both data types is the same: only the [connections](../concepts/glossary.md#connection) and [data bindings](../concepts/glossary.md#binding) for the bucket and stream are different.
+We will use the same SQL query for both data types, with the only difference in bucket and stream [connections](../concepts/glossary.md#connection) and [data bindings](../concepts/glossary.md#binding).
 
-Data for analytical processing was placed in the [{{ objstorage-full-name }}](../../storage/index.yaml) bucket, in [Parquet](https://parquet.apache.org/docs/file-format/) files. Stream data will be written by a generator to a dedicated [{{ yds-full-name }}](../../data-streams/index.yaml) stream.
+The data for batch processing has been pre-loaded in the [{{ objstorage-full-name }}](../../storage/index.yaml) bucket in [Parquet](https://parquet.apache.org/docs/file-format/) files. Streaming data will be written to a dedicated [{{ yds-full-name }}](../../data-streams/index.yaml) stream by a generator.
 
-In both cases, we use a reference stored in {{ objstorage-name }} to filter our query data.
+In both cases, we will use a reference table stored in {{ objstorage-name }} to filter query data.
 
 To run this example:
 
-1. [Get ready](#before-you-begin).
-1. [Analyze the data from {{ objstorage-name }}](#batch).
+1. [Make the necessary preparations](#before-you-begin).
+1. [Analyze the {{ objstorage-name }} data](#batch).
 1. [Analyze the streaming data from {{ yds-name }}](#stream).
 
 {% note info %}
@@ -25,23 +25,23 @@ To run this example:
 
 {% endnote %}
 
-## Get started {#before-you-begin}
+## Make the necessary preparations {#before-you-begin}
 
-1. Log in or sign up to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the on-screen instructions.
-1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. Log in to the [management console]({{ link-console-main }}) or sign up if you have not already. If you have not signed up yet, navigate to the management console and follow the instructions.
+1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have an `ACTIVE` or `TRIAL_ACTIVE` [billing account](../../billing/concepts/billing-account.md). If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a folder yet, [create one](../../resource-manager/operations/folder/create.md).
-1. We will connect to our data stream using a [service account](../../iam/concepts/users/service-accounts.md). [Create](../../iam/operations/sa/create.md#create-sa) a service account named `datastream-connection-account` with the `ydb.editor` role.
+1. We will connect to the data stream using a [service account](../../iam/concepts/users/service-accounts.md). [Create](../../iam/operations/sa/create.md#create-sa) a service account named `datastream-connection-account` and assign it the `ydb.editor` role.
 1. Data streams use {{ ydb-full-name }}. You will need to [create](../../ydb/quickstart.md#serverless) a serverless database.
 
-## Analyze the data from {{ objstorage-name }} {#batch}
+## Analyze the data {{ objstorage-name }} {#batch}
 
-### Connect to analytical data {#batch-create-binding}
+### Connect to the analytical data source {#batch-create-binding}
 
 {% include [tutorial-batch](../_includes/create-tutorial-batch-infra.md) %}
 
-### Run a query {#batch-run-query}
+### Run the query {#batch-run-query}
 
-1. In the query editor in the {{ yq-name }} interface, click **{{ ui-key.yql.yq-ide-header.new-analytics-query.button-text }}**.
+1. In the query editor within the {{ yq-name }} interface, click **{{ ui-key.yql.yq-ide-header.new-analytics-query.button-text }}**.
 1. Enter the query text in the text field:
 
    ```sql
@@ -85,9 +85,9 @@ To run this example:
 
 1. Click **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 
-### Review the result {#batch-check-result}
+### Check the result {#batch-check-result}
 
-Once the analytical query is complete, you will see the result: distribution of taxi ride costs in specific locations.
+Once executed, the analytical query will return the distribution of taxi trip fares in specific locations.
 
 | #  | time | PULocationID | total_amount |
 | --- | --- | --- | --- |
@@ -100,7 +100,7 @@ Once the analytical query is complete, you will see the result: distribution of 
 | 7  | 2018-01-02T19:28:00.000000Z | 120 | 7.3   |
 | 8  | 2018-01-03T10:17:00.000000Z | 120 | 81.3  |
 
-## Analyze the {{ yds-name }} streaming data {#stream}
+## Analyze the streaming data from {{ yds-name }} {#stream}
 
 ### Create a data stream {#stream-create-datastream}
 
@@ -110,11 +110,11 @@ Once the analytical query is complete, you will see the result: distribution of 
 
 {% include [streaming-infra](../_includes/create-tutorial-streaming-infra.md) %}
 
-Data generation to the `yellow-taxi` stream will start. Use the **{{ ui-key.yql.yq-tutorial.stop-stream.button-label }}** and **{{ ui-key.yql.yq-tutorial.run-stream.button-label }}** buttons to control the data generator.
+The generator will start writing data to the `yellow-taxi` stream. You can control the generator using the **{{ ui-key.yql.yq-tutorial.stop-stream.button-label }}** and **{{ ui-key.yql.yq-tutorial.run-stream.button-label }}** buttons.
 
 ### Run the query {#stream-run-query}
 
-1. In the query editor in the {{ yq-name }} interface, click **{{ ui-key.yql.yq-ide-header.new-streaming-query.button-text }}**.
+1. In the query editor within the {{ yq-name }} interface, click **{{ ui-key.yql.yq-ide-header.new-streaming-query.button-text }}**.
 1. Enter the query text in the text field:
 
    ```sql
@@ -157,9 +157,9 @@ Data generation to the `yellow-taxi` stream will start. Use the **{{ ui-key.yql.
 
 1. Click **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 
-### Review the result {#stream-check-result}
+### Check the result {#stream-check-result}
 
-Once you run the query to the streaming data, you will see the result with the total cost of rides (`total_amount`) in specific `PULocationID` locations taken after running the query.
+Once launched, the query returns the total fare (`total_amount`) of the taxi rides taken in specific locations (`PULocationID`) after processing started.
 
 | #  | PULocationID | time | total_amount |
 | --- | --- | --- | --- |
@@ -173,8 +173,8 @@ Once you run the query to the streaming data, you will see the result with the t
 
 ## See also {#see-also}
 
-* [HOP. Window parameters in streamed data processing](../concepts/stream-processing-windows.md)
-* [Aggregate functions. YQL syntax]({{ ydb.docs }}/yql/reference/builtins/aggregation)
-* [SQL expression format](../sources-and-sinks/data-streams-binding.md#model-dannyh)
+* [HOP operator and window parameters in streaming data processing](../concepts/stream-processing-windows.md)
+* [Aggregate functions in YQL]({{ ydb.docs }}/yql/reference/builtins/aggregation)
+* [SQL syntax](../sources-and-sinks/data-streams-binding.md#model-dannyh)
 * [{#T}](../concepts/batch-processing.md)
 * [{#T}](../concepts/stream-processing.md)

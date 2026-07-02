@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Безопасность в Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Безопасная конфигурация виртуальной среды > Хранение подключений и переменных Apache Airflow™ в Yandex Lockbox
+
 # Хранение подключений и переменных Apache Airflow™ в Yandex Lockbox
 
 При работе с Yandex Managed Service for Apache Airflow™ вы можете использовать [Yandex Lockbox](../../../lockbox/index.md) для хранения артефактов, которые могут использоваться в DAG-файлах: подключений, переменных и конфигурационных данных. Yandex Lockbox интегрируется в Managed Service for Apache Airflow™ через провайдер [Yandex Lockbox Secret Backend](https://airflow.apache.org/docs/apache-airflow-providers-yandex/stable/secrets-backends/yandex-cloud-lockbox-secret-backend.html). В результате доступ к хранилищу секретов настраивается автоматически.
@@ -18,11 +20,11 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for PostgreSQL: вычислительные ресурсы и дисковое пространство ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
-* Плата за кластер Managed Service for Apache Airflow™: вычислительные ресурсы и дисковое пространство ([тарифы Apache Airflow™](../../managed-airflow/pricing.md)).
-* Плата за бакет Object Storage: хранение данных и выполнение операций с ними ([тарифы Object Storage](../../storage/pricing.md)).
-* Плата за использование секрета Yandex Lockbox: ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
-* Плата за использование публичных IP-адресов, если для хостов кластеров включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за кластер Managed Service for PostgreSQL: вычислительные ресурсы и дисковое пространство ([тарифы Managed Service for PostgreSQL](../../../managed-postgresql/pricing.md)).
+* Плата за кластер Managed Service for Apache Airflow™: вычислительные ресурсы и дисковое пространство ([тарифы Apache Airflow™](../../../managed-airflow/pricing.md)).
+* Плата за бакет Object Storage: хранение данных и выполнение операций с ними ([тарифы Object Storage](../../../storage/pricing.md)).
+* Плата за использование секрета Yandex Lockbox: ([тарифы Yandex Lockbox](../../../lockbox/pricing.md)).
+* Плата за использование публичных IP-адресов, если для хостов кластеров включен публичный доступ ([тарифы Virtual Private Cloud](../../../vpc/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#create-infrastracture}

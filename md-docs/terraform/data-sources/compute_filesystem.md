@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Compute Cloud > Data Sources > compute_filesystem
+
 # yandex_compute_filesystem (DataSource)
 
 Get information about a Yandex Compute filesystem. For more information, see [the official documentation](../../compute/concepts/filesystem.md).

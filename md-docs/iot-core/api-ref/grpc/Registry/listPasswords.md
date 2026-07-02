@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Devices > [gRPC (англ.)](../index.md) > [Registry](index.md) > ListPasswords
+
 # IoT Core Service, gRPC: RegistryService.ListPasswords
 
 Retrieves the list of passwords for the specified registry.

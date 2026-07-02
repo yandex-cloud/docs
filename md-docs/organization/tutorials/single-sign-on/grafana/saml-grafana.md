@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Практические руководства](../../index.md) > [Настройка единого входа в приложения (SSO)](../index.md) > Grafana Cloud > SAML
+
 # Создать SAML-приложение в Yandex Identity Hub для интеграции с Grafana Cloud
 
 [Grafana Cloud](https://grafana.com/products/cloud/) — это управляемая облачная платформа для мониторинга и наблюдаемости (observability), которая включает в себя Grafana, Prometheus, Loki и другие инструменты визуализации и анализа данных. Grafana Cloud поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.

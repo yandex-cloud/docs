@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Концепции](../index.md) > Группа узлов > Политика развертывания группы узлов
+
 # Политика развертывания группы узлов в Managed Service for Kubernetes
 
 При [изменении](../../operations/node-group/node-group-update.md) группы узлов (в том числе при [обновлении версии Kubernetes](../../operations/update-kubernetes.md#node-group-upgrade)) может потребоваться остановить, перезагрузить или удалить узлы в группе. При этом группа перейдет в статус `Reconciling`, а узлы станут недоступны.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > [Практические руководства](index.md) > Создание тестовых виртуальных машин через GitLab CI
+
 # Создание тестовых виртуальных машин через GitLab CI
 
 # Создание тестовых виртуальных машин через GitLab CI

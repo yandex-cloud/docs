@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Logging](index.md) > Правила тарификации
+
 # Правила тарификации для Cloud Logging
 
 {% note warning %}

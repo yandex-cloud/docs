@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > websql > PublishExecutedQuery
+
 # WebSQL Audit Trails Events: PublishExecutedQuery
 
 ## Event JSON schema {#yandex.cloud.audit.websql.PublishExecutedQuery2-schema}

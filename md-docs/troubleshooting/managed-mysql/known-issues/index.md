@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for MySQL®](../index.md) > Решения для известных проблем Managed Service for MySQL®
+
 ## Решения для известных проблем Managed Service for MySQL® {#known-issues-resolving}
 
 * [Кластер Managed Service for MySQL® переходит в режим `Read Only` из-за быстрого исчерпания свободного места временными файлами](free-space-in-cluster-storage-is-exhausted-with-temp-files.md)

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Devices > [gRPC (англ.)](../index.md) > [Device](index.md) > ListCertificates
+
 # IoT Core Service, gRPC: DeviceService.ListCertificates
 
 Retrieves the list of device certificates for the specified device.

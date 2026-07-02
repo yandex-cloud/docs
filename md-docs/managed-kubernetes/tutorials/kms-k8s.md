@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Практические руководства](index.md) > Шифрование секретов в Managed Service for Kubernetes
+
 # Шифрование секретов в Managed Service for Kubernetes
 
 # Шифрование секретов в Yandex Managed Service for Kubernetes

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Управление группой виртуальных машин > Изменить группу ВМ по YAML-спецификации
+
 # Изменить группу виртуальных машин по спецификации в формате YAML
 
 Чтобы изменить [группу виртуальных машин](../../concepts/instance-groups/index.md) по [спецификации](../../concepts/instance-groups/specification.md) в формате YAML:

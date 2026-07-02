@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Пошаговые инструкции](index.md) > Статическая маршрутизация > Создать и настроить NAT-шлюз
+
 # Настроить NAT-шлюз
 
 

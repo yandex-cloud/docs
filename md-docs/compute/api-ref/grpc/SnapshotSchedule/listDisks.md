@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SnapshotSchedule](index.md) > ListDisks
+
 # Compute Cloud API, gRPC: SnapshotScheduleService.ListDisks
 
 Retrieves the list of disks attached to the specified snapshot schedule.

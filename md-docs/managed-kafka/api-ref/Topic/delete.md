@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Topic](index.md) > Delete
+
 # Managed Service for Apache Kafka® API, REST: Topic.Delete
 
 Deletes the specified Kafka topic.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mongodb > EnableClusterSharding
+
 # Managed Service for MongoDB Audit Trails Events: EnableClusterSharding
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mongodb.EnableClusterSharding2-schema}

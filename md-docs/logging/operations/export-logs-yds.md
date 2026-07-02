@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Logging](../index.md) > [Пошаговые инструкции](index.md) > Выгрузка логов > Выгрузить логи > Data Streams
+
 # Выгрузить логи в Data Streams
 
 {% list tabs group=instructions %}

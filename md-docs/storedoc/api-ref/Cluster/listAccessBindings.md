@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > ListAccessBindings
+
 # Managed Service for MongoDB API, REST: Cluster.ListAccessBindings
 
 Retrieves a list of access bindings for the specified MongoDB cluster.

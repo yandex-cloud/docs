@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [gpu-cluster](index.md) > add-labels
+
 # yc compute gpu-cluster add-labels
 
 Add labels to specified GPU cluster

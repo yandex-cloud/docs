@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Transfer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Transfer](index.md) > Deactivate
+
 # Data Transfer API, gRPC: TransferService.Deactivate
 
 Deactivates the specified transfer.

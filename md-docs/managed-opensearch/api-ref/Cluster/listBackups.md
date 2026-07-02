@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for OpenSearch](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > ListBackups
+
 # Managed Service for OpenSearch API, REST: Cluster.ListBackups
 
 Returns a list of available backups for the specified OpenSearch cluster.

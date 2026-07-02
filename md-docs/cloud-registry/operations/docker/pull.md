@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > [Пошаговые инструкции](../index.md) > Управление артефактами > Docker-образ > Скачать Docker-образ из реестра
+
 # Скачать Docker-образ из реестра Cloud Registry
 
 Для скачивания [Docker-образа](../../concepts/artifacts/docker.md) необходима [роль](../../security/index.md#cloud-registry-artifacts-puller) `cloud-registry.artifacts.puller` или выше.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Network Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [NetworkLoadBalancer](index.md) > RemoveListener
+
 # Network Load Balancer API, gRPC: NetworkLoadBalancerService.RemoveListener
 
 Removes the listener from the specified network load balancer.

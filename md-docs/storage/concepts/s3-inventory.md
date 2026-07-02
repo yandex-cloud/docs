@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Концепции](index.md) > Выгрузка метаданных объектов
+
 # Выгрузка метаданных объектов (S3 Inventory)
 
 

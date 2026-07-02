@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Router](../index.md) > [Пошаговые инструкции](index.md) > Получить информацию о Routing Instance
+
 # Получить информацию о Routing Instance
 
 {% note info %}

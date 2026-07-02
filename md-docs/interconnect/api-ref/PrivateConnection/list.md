@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [PrivateConnection](index.md) > List
+
 # Cloud Interconnect API, REST: PrivateConnection.List
 
 Retrieves the list of PrivateConnection resources in the specified folder.

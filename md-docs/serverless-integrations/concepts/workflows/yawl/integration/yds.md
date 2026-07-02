@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > [Концепции](../../../index.md) > Workflows > [Спецификация YaWL](../index.md) > Интеграционные шаги > YDS
+
 # YDS
 
 Отправка сообщений в топик [Yandex Data Streams](../../../../../data-streams/index.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Message Queue](../../index.md) > [Справочник API](../index.md) > Queue > ListQueueTags
+
 # ListQueueTags
 
 Метод для получения [меток очереди](../../concepts/tags.md).

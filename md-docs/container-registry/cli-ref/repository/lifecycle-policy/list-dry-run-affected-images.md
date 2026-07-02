@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [repository](../index.md) > [lifecycle-policy](index.md) > list-dry-run-affected-images
+
 # yc container repository lifecycle-policy list-dry-run-affected-images
 
 List images affected by dry run for a lifecycle policy.

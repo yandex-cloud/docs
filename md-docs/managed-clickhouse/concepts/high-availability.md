@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Концепции](index.md) > Высокая доступность кластера
+
 # Высокая доступность кластера Yandex Managed Service for ClickHouse®
 
 [Высокая доступность кластера](../../architecture/fault-tolerance.md#mdb-ha) Managed Service for ClickHouse® определяется количеством и расположением его хостов, настройками репликации и шардирования, а также другими параметрами кластера.

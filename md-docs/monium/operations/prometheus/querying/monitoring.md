@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Monium](../../../index.md) > [Yandex Managed Service for Prometheus®](../index.md) > [Чтение метрик](index.md) > Визуализация
+
 # Чтение и визуализация метрик в Monium Metrics
 
 На основе метрик Prometheus можно построить графики:

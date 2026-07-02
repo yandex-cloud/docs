@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [service-account](index.md) > remove-labels
+
 # yc iam v0 service-account remove-labels
 
 Remove labels from specified service account

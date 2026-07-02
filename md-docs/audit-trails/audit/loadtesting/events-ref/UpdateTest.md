@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > loadtesting > UpdateTest
+
 # Load Testing Audit Trails Events: UpdateTest
 
 ## Event JSON schema {#yandex.cloud.audit.loadtesting.UpdateTest2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Desktop](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > DesktopImage > Overview
+
 # Cloud Desktop API, gRPC: DesktopImageService
 
 A service for managing desktop images.

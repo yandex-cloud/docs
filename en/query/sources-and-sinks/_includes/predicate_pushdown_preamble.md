@@ -1,3 +1,3 @@
-{{ yq-full-name }} can transfer processing of request parts to the data source system. This means that filter expressions are provided through {{ yq-full-name }} directly to the database for processing; these are typically the query conditions specified in `WHERE`. This kind of processing is called `filter pushdown`.
+{{ yq-full-name }} can push parts of query processing down to the source data system by sending filter expressions, e.g., `WHERE` conditions, directly to the database. This approach is known as `filter pushdown`.
 
 Filter pushdown is possible when using:

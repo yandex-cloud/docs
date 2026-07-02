@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Desktop](../index.md) > Концепции > Квоты и лимиты
+
 # Квоты и лимиты в Cloud Desktop
 
 В сервисе Cloud Desktop действуют следующие ограничения:

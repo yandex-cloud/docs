@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > reschedule-maintenance
+
 # yc managed-mongodb cluster reschedule-maintenance
 
 Reschedule currently planned maintenance operation.

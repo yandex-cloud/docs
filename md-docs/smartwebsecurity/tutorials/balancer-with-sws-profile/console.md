@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Smart Web Security](../../index.md) > [Практические руководства](../index.md) > [Создание L7-балансировщика с профилем безопасности](index.md) > Консоль управления
+
 # Создание L7-балансировщика Application Load Balancer с профилем безопасности Smart Web Security с помощью консоли управления
 
 Чтобы создать [L7-балансировщик с профилем безопасности Smart Web Security](index.md) с помощью консоли управления Yandex Cloud:
@@ -25,7 +27,7 @@
 В стоимость поддержки инфраструктуры для L7-балансировщика с профилем безопасности Smart Web Security входят:
 * плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
 * плата за использование вычислительных ресурсов [L7-балансировщика](../../../application-load-balancer/concepts/index.md) ([тарифы Application Load Balancer](../../../application-load-balancer/pricing.md));
-* плата за запросы, обработанные правилами [профиля безопасности](../../concepts/profiles.md) ([тарифы Yandex Smart Web Security](../../../smartwebsecurity/pricing.md)).
+* плата за запросы, обработанные правилами [профиля безопасности](../../concepts/profiles.md) ([тарифы Yandex Smart Web Security](../../pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infrastructure-prepare}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [GpuCluster](index.md) > Delete
+
 # Compute Cloud API, REST: GpuCluster.Delete
 
 Deletes the specified GPU cluster.

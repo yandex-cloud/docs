@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Artifact](index.md) > GetByPath
+
 # Yandex Cloud Registry API, gRPC: ArtifactService.GetByPath
 
 Returns the specified artifact resource by path within the registry.

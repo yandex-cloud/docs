@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YTsaurus](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > List
+
 # Ytsaurus API, gRPC: ClusterService.List
 
 Retrieves the list of clusters in the specified folder.

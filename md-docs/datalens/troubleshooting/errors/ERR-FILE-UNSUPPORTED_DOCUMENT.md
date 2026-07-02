@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > File check failed
+
 # [Yandex DataLens] File check failed
 
 `ERR.FILE.UNSUPPORTED_DOCUMENT`

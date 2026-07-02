@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > kms > RotateSymmetricKey
+
 # Key Management Service Audit Trails Events: RotateSymmetricKey
 
 ## Event JSON schema {#yandex.cloud.audit.kms.RotateSymmetricKey2-schema}

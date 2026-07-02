@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Пошаговые инструкции](index.md) > Кластеры Yandex Data Processing > Управление доступом к кластеру
+
 # Управление доступом к кластеру Yandex Data Processing
 
 Вы можете предоставить пользователю или сервисному аккаунту [роль](../security/index.md) для доступа к конкретному [кластеру](../concepts/index.md).

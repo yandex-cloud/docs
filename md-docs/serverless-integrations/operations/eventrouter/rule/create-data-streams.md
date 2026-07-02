@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > EventRouter > Управление правилом > Создать правило > Data Streams
+
 # Создать правило с приемником Yandex Data Streams
 
 {% list tabs group=instructions %}

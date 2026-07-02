@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > gitlab > StopInstance
+
 # Managed Service for GitLab Audit Trails Events: StopInstance
 
 ## Event JSON schema {#yandex.cloud.audit.gitlab.StopInstance2-schema}

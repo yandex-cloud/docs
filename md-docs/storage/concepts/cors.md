@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Концепции](index.md) > CORS
+
 # CORS в Object Storage
 
 Yandex Object Storage поддерживает [кросс-доменные запросы](../../glossary/cors.md) к объектам в бакете.

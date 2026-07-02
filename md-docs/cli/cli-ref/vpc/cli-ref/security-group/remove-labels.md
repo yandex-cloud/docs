@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [vpc](../index.md) > [security-group](index.md) > remove-labels
+
 # yc vpc security-group remove-labels
 
 Remove labels from a security group.

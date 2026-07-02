@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API Triggers > [gRPC (англ.)](../index.md) > [Trigger](index.md) > Resume
+
 # Cloud Functions Triggers Service, gRPC: TriggerService.Resume
 
 Restarts the specified trigger.

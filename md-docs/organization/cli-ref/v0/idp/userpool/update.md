@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [idp](../index.md) > [userpool](index.md) > update
+
 # yc organization-manager v0 idp userpool update
 
 Update the specified user pool

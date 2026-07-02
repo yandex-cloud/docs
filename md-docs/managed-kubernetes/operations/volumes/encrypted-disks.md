@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Работа с постоянными томами > Зашифрованные диски для постоянных томов
+
 # Использование зашифрованных дисков для постоянных томов
 
 В Managed Service for Kubernetes для постоянных томов поддерживается использование дисков Compute Cloud, [зашифрованных](../../../compute/concepts/encryption.md) с помощью пользовательских [симметричных ключей](../../../kms/concepts/key.md) Yandex Key Management Service.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > certificatemanager > UpdateCertificateAuthorityAccessBindings
+
 # Certificate Manager Audit Trails Events: UpdateCertificateAuthorityAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.certificatemanager.UpdateCertificateAuthorityAccessBindings2-schema}

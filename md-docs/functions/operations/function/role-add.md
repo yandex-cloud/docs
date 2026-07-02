@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Пошаговые инструкции](../index.md) > Управление правами доступа к функции > Назначить роли на функцию
+
 # Назначить роли на функцию
 
 {% list tabs group=instructions %}

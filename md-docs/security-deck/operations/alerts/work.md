@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Security Deck](../../index.md) > [Пошаговые инструкции](../index.md) > Алерты > Работа с алертами
+
 # Работа с алертами
 
 {% note tip %}

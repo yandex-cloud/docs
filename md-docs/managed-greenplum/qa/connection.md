@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > Вопросы и ответы > Подключение
+
 # Подключение к Yandex MPP Analytics for PostgreSQL
 
 #### Могу ли я подключиться к БД по SSH и получить права суперпользователя? {#super-user}

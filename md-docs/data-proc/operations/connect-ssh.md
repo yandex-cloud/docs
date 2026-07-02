@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Пошаговые инструкции](index.md) > Кластеры Yandex Data Processing > Подключение > Подключение к хосту по SSH
+
 # Подключение к хосту Yandex Data Processing по SSH
 
 Вы можете подключиться к кластеру Yandex Data Processing по [SSH](../../glossary/ssh-keygen.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [datatransfer](../../index.md) > [v0](../index.md) > [transfer](index.md) > deactivate
+
 # yc datatransfer v0 transfer deactivate
 
 Deactivate transfer

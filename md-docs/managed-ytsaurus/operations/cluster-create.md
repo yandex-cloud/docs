@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YTsaurus](../index.md) > [Пошаговые инструкции](index.md) > Создание кластера
+
 # Создание кластера YTsaurus
 
 Каждый [кластер](../../glossary/cluster.md) Managed Service for YTsaurus состоит из набора компонентов YTsaurus.
@@ -14,10 +16,11 @@
 
 ## Роли для создания кластера {#roles}
 
-Для создания кластера Managed Service for YTsaurus вашему аккаунту в Yandex Cloud нужны роли:
+Для создания кластера Managed Service for YTsaurus и работы с ним вашему аккаунту в Yandex Cloud нужны роли:
 
-* [managed-ytsaurus.editor](../security/index.md#managed-ytsaurus-editor) — чтобы создать кластер;
-* [vpc.user](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера.
+* [managed-ytsaurus.editor](../security/index.md#managed-ytsaurus-editor) или выше — чтобы создать кластер;
+* [vpc.user](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
+* [mdb.viewer](../../iam/roles-reference.md#mdb-viewer) — чтобы просматривать кластеры управляемых баз данных (MDB) на дашборде в [консоли управления](https://console.yandex.cloud).
 
 О назначении ролей читайте в [документации Yandex Identity and Access Management](../../iam/operations/roles/grant.md).
 

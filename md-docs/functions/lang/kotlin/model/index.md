@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Functions](../../../index.md) > [Разработка на Kotlin](../index.md) > Модель программирования > Обзор
+
 # Модель программирования на языке Kotlin
 
 Сервис Cloud Functions предоставляет две модели программирования на языке Kotlin — с помощью [функций верхнего уровня](top-level-function.md) и интерфейса [YcFunction](yc-function.md). Интерфейс `YcFunction` в отличие от функций верхнего уровня дает доступ к [контексту вызова](../context.md).

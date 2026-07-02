@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for OpenSearch](../../index.md) > [Справочник CLI (англ.)](../index.md) > plugin > Overview
+
 # yc managed-opensearch plugin
 
 Plugins of a managed OpenSearch cluster.

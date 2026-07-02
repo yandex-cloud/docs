@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud DNS](index.md) > История изменений
+
 # История изменений в Yandex Cloud DNS
 
 ## III квартал 2024 {#q3-2024}

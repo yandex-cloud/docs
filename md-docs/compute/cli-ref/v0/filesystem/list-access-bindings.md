@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [filesystem](index.md) > list-access-bindings
+
 # yc compute v0 filesystem list-access-bindings
 
 List access bindings for the specified filesystem

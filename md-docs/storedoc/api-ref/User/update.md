@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [User](index.md) > Update
+
 # Managed Service for MongoDB API, REST: User.Update
 
 Updates the specified MongoDB user.

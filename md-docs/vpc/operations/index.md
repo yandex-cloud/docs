@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Virtual Private Cloud
 
 ## Облачная сеть {#network}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [TargetGroup](index.md) > Delete
+
 # Application Load Balancer API, gRPC: TargetGroupService.Delete
 
 Deletes the specified target group.

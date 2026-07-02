@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex StoreDoc](../index.md) > [Концепции](index.md) > Политика поддержки версий Yandex StoreDoc
+
 # Политика поддержки версий Yandex StoreDoc
 
 Данный документ описывает жизненный цикл мажорных версий СУБД Yandex StoreDoc.

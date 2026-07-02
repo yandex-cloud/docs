@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Detection and Response](../index.md) > [Концепции](index.md) > Расследования
+
 # Расследования
 
 {% note info %}

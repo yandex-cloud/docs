@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SnapshotSchedule](index.md) > Update
+
 # Compute Cloud API, REST: SnapshotSchedule.Update
 
 Updates the specified snapshot schedule.

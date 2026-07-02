@@ -1,4 +1,4 @@
-
+[Документация Yandex Cloud](../index.md) > Yandex Managed Service for YTsaurus > Managed Service for YTsaurus
 
 # Yandex Managed Service for YTsaurus
 

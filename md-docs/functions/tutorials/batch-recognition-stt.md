@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Functions](../index.md) > [Практические руководства](index.md) > Рабочие процессы и автоматизация на Serverless > Регулярное асинхронное распознавание аудиофайлов из Object Storage
+
 # Регулярное распознавание аудиофайлов из Yandex Object Storage
 
 # Регулярное распознавание аудиофайлов из Yandex Object Storage

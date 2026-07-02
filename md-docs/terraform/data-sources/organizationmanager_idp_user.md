@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity Hub > Data Sources > organizationmanager_idp_user
+
 # yandex_organizationmanager_idp_user (DataSource)
 
 A user in the Identity Provider system.

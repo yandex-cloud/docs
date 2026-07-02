@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud DNS](../index.md) > [Пошаговые инструкции](index.md) > Зоны > Настроить права доступа к зоне DNS
+
 # Настроить права доступа к зоне DNS
 
 Чтобы предоставить пользователю, группе или [сервисному аккаунту](../../iam/concepts/users/service-accounts.md) доступ к [зоне DNS](../concepts/dns-zone.md), назначьте на нее [роль](../../iam/concepts/access-control/roles.md).

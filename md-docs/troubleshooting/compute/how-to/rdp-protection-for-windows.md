@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Compute Cloud](../index.md) > Как настроить защиту RDP-подключения на Microsoft Windows®
+
 # Как настроить защиту RDP-подключения на Microsoft Windows®
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > REST (англ.) > [Access Key](../index.md) > [AccessKey](index.md) > Update
+
 # Access Key, REST: AccessKey.Update
 
 Updates the specified access key.

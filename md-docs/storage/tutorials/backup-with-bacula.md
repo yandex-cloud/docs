@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Резервное копирование > Резервное копирование в Object Storage с помощью Bacula
+
 # Резервное копирование в Yandex Object Storage с помощью Bacula
 
 Yandex Object Storage можно использовать для резервного копирования и восстановления данных виртуальной машины с помощью утилиты [Bacula](https://www.bacula.org/).
@@ -37,7 +39,7 @@ Bacula состоит из нескольких компонентов:
 В стоимость поддержки резервного копирования и восстановления входит:
 
 * плата за вычислительные ресурсы и диски ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за хранение данных в бакете и операции с ними ([тарифы Yandex Object Storage](../../storage/pricing.md));
+* плата за хранение данных в бакете и операции с ними ([тарифы Yandex Object Storage](../pricing.md));
 * плата за использование динамического или статического внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ### Создайте бакет {#create-bucket}

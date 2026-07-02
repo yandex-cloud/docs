@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Got an unexpected response from an external API
+
 # [Yandex DataLens] Got an unexpected response from an external API
 
 `ERR.AUTH_API.UNEXPECTED_RESPONSE`

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Пошаговые инструкции](../index.md) > Управление функцией > Выделить память для директории /tmp
+
 # Выделить память для директории /tmp
 
 {% list tabs group=instructions %}

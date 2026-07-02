@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [PrivateConnection](index.md) > List
+
 # Cloud Interconnect API, gRPC: PrivateConnectionService.List
 
 Retrieves the list of PrivateConnection resources in the specified folder.

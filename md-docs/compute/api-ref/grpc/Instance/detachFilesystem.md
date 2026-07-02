@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Instance](index.md) > DetachFilesystem
+
 # Compute Cloud API, gRPC: InstanceService.DetachFilesystem
 
 Detaches the filesystem from the instance.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > add-access-binding
+
 # yc managed-redis cluster add-access-binding
 
 Add access binding for the specified Redis cluster

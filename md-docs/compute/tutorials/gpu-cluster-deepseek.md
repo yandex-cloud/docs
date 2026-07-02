@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Практические руководства](index.md) > Запуск языковой модели DeepSeek-R1 в кластере GPU
+
 # Запуск языковой модели DeepSeek-R1 в кластере GPU Yandex Compute Cloud
 
 
@@ -35,7 +37,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за вычислительные ресурсы ВМ и диски, а также кластер GPU ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+В стоимость поддержки инфраструктуры входит плата за вычислительные ресурсы ВМ и диски, а также кластер GPU ([тарифы Yandex Compute Cloud](../pricing.md)).
 
 ## Создайте кластер GPU из двух ВМ {#create-gpu-cluster}
 

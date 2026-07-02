@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > Вопросы и ответы > Безопасность
+
 # Безопасность в Managed Service for Sharded PostgreSQL
 
 * [Как обеспечивается безопасность данных?](#data-security)

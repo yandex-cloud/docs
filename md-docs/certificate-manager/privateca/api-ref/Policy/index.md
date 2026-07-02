@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > REST (англ.) > [Certificate Manager Private CA API](../index.md) > Policy > Overview
+
 # Certificate Manager Private CA API, REST: Policy
 
 A set of methods for managing policies.

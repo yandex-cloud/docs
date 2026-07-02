@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Key](index.md) > ListOperations
+
 # Identity and Access Management API, REST: Key.ListOperations
 
 Lists operations for the specified key.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Application Load Balancer > Application Load Balancer
+
 # Yandex Application Load Balancer
 
 Yandex Application Load Balancer служит для распределения запросов по бэкендам ваших сетевых приложений и терминирования TLS-шифрования.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cloud](index.md) > UpdateAccessPolicyBindingParameters
+
 # Resource Manager API, REST: Cloud.UpdateAccessPolicyBindingParameters
 
 Updates the access policy binding parameters for the cloud.

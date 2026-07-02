@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Концепции](index.md) > Dead Letter Queue
+
 # Dead Letter Queue в Serverless Containers
 
 _Dead Letter Queue (DLQ)_ — это [очередь](../../message-queue/concepts/queue.md), куда перенаправляются сообщения, которые не смог обработать вызываемый триггером [контейнер](container.md) Serverless Containers. Сообщение считается обработанным, если контейнер, который его получил, завершился без ошибок. Перенаправленные в DLQ сообщения хранятся в ней для дальнейшей диагностики.

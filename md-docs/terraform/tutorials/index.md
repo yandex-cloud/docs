@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Практические руководства > Все практические руководства
+
 # Руководства по работе с Terraform в Yandex Cloud
 
 * [Источники данных Terraform](terraform-data-sources.md)

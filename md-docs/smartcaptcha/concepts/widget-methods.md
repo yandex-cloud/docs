@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex SmartCaptcha](../index.md) > Концепции > Методы подключения виджета
+
 # Методы установки виджета Yandex SmartCaptcha
 
 Подключить виджет SmartCaptcha можно одним из двух методов:

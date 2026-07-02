@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [filesystem](index.md) > resize
+
 # yc compute filesystem resize
 
 Resize the specified filesystem

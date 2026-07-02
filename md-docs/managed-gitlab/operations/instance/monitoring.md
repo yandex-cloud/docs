@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for GitLab](../../index.md) > [Пошаговые инструкции](../index.md) > Мониторинг состояния инстанса
+
 # Мониторинг состояния инстанса Managed Service for GitLab
 
 {% note info %}

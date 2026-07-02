@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # BareMetal API, gRPC: OperationService.Cancel
 
 Cancels the specified operation.

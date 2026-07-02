@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > Искусственный интеллект > Создание AI-агента со стримингом ответа через веб-сокеты
+
 # Создание агента на OpenAI Agents SDK со стримингом ответа через веб-сокеты на Yandex Cloud Functions и Yandex API Gateway
 
 # Создание агента на OpenAI Agents SDK со стримингом ответа через веб-сокеты на Yandex Cloud Functions и API Gateway

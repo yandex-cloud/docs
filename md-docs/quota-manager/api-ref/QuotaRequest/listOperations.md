@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Quota Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [QuotaRequest](index.md) > ListOperations
+
 # Quota Manager API, REST: QuotaRequest.ListOperations
 
 Lists operations for the specified quota request.

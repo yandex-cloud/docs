@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Apache Hive™ Metastore > Решение проблем
+
 # Решение проблем в Apache Hive™ Metastore
 
 В этом разделе описаны проблемы, возникающие в сервисе, а также способы их устранения.

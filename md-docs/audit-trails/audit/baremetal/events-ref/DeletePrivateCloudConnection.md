@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > baremetal > DeletePrivateCloudConnection
+
 # BareMetal Audit Trails Events: DeletePrivateCloudConnection
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.DeletePrivateCloudConnection2-schema}

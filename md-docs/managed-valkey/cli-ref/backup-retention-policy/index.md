@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > [Справочник CLI (англ.)](../index.md) > backup-retention-policy > Overview
+
 # yc managed-redis backup-retention-policy
 
 Manage Redis backup long-term retention policies

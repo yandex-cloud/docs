@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Logging](../index.md) > [Пошаговые инструкции](index.md) > Получение информации о лог-группе > Получить информацию о лог-группе
+
 # Получить информацию о лог-группе
 
 {% list tabs group=instructions %}

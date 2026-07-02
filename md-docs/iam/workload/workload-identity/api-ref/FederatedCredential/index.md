@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity and Access Management](../../../../index.md) > Справочник API > REST (англ.) > [Workload Identity](../index.md) > FederatedCredential > Overview
+
 # Workload Identity, REST: FederatedCredential
 
 A set of methods for managing federated credentials.

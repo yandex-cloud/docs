@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > containerregistry > UpdateRegistryAccessBindings
+
 # Container Registry Audit Trails Events: UpdateRegistryAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.containerregistry.UpdateRegistryAccessBindings2-schema}

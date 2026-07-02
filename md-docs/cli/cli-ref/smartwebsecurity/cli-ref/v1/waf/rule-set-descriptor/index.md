@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [smartwebsecurity](../../../index.md) > [v1](../../index.md) > [waf](../index.md) > rule-set-descriptor > Overview
+
 # yc smartwebsecurity v1 waf rule-set-descriptor
 
 A set of methods for managing RuleSetDescriptor resources.

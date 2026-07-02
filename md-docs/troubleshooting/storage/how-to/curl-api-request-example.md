@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Object Storage](../index.md) > Как работать напрямую с API Object Storage без использования SDK
+
 # Как работать напрямую с API Object Storage без использования SDK
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Пошаговые инструкции](index.md) > Создание триггера > Создать триггер для Data Streams
+
 # Создать триггер для Data Streams, который вызывает контейнер Serverless Containers
 
  Создайте [триггер для Data Streams](../concepts/trigger/data-streams-trigger.md), который будет вызывать [контейнер](../concepts/container.md) Serverless Containers при отправке данных в [поток](../../data-streams/concepts/glossary.md#stream-concepts). 

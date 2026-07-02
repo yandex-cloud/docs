@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > loadtesting > CreateRegressionDashboard
+
 # Load Testing Audit Trails Events: CreateRegressionDashboard
 
 ## Event JSON schema {#yandex.cloud.audit.loadtesting.CreateRegressionDashboard2-schema}

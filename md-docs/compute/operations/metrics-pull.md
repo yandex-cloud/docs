@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Пошаговые инструкции](index.md) > Посмотреть метрики в Monitoring
+
 # Посмотреть метрики в Yandex Monitoring
 
 Чтобы выгрузить данные метрики, воспользуйтесь методом [read](../../monitoring/api-ref/MetricsData/read.md).

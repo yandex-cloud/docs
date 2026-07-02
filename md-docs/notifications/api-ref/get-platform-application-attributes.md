@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > [Справочник API](index.md) > PlatformApplication > GetAttributes
+
 # Действие GetPlatformApplicationAttributes
 
 Получает параметры [канала мобильных Push-уведомлений](../concepts/push.md) или [Push-уведомлений в браузере](../concepts/browser.md).

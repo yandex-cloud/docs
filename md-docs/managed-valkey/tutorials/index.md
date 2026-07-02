@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Valkey™](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Yandex Managed Service for Valkey™
 
 * [Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища сессий PHP](valkey-as-php-sessions-storage.md)

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Marketplace](../index.md) > Пользователям > [Практические руководства](index.md) > Использование продуктов Cloud Marketplace в Managed Service for Kubernetes > Редактирование изображений для сайтов с помощью Thumbor
+
 # Редактирование изображений для сайтов с помощью приложения Thumbor
 
 # Редактирование изображений для сайтов с помощью приложения Thumbor

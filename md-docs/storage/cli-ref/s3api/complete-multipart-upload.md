@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Справочник YC CLI (англ.)](../index.md) > [s3api](index.md) > complete-multipart-upload
+
 # yc storage s3api complete-multipart-upload
 
 Completes a multipart upload

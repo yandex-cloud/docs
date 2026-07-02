@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Трейсы](index.md) > Ограничения
+
 # Ограничения
 
 В Monium Traces действуют [настраиваемые квоты](../concepts/limits.md) и лимиты, которые нельзя изменить.

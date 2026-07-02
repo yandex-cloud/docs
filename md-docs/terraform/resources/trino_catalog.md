@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for Trino > Resources > trino_catalog
+
 # yandex_trino_catalog (Resource)
 
 Catalog for Manage Trino cluster.

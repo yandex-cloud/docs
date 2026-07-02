@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [registry](../index.md) > [lifecycle-policy](index.md) > update
+
 # yc cloud-registry registry lifecycle-policy update
 
 Updates the specified lifecycle policy

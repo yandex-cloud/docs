@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Audit Trails](../index.md) > [Пошаговые инструкции](index.md) > Получение информации о трейле > Получить информацию о трейле
+
 # Получить информацию о трейле
 
 {% list tabs group=instructions %}

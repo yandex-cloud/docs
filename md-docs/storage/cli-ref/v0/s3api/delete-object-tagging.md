@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > [Справочник YC CLI (англ.)](../../index.md) > [v0](../index.md) > [s3api](index.md) > delete-object-tagging
+
 # yc storage v0 s3api delete-object-tagging
 
 Deletes all objects labels from a bucket

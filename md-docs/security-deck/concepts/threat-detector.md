@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Security Deck](../index.md) > [Концепции](index.md) > Обнаружение угроз (TD)
+
 # Обнаружение угроз (TD)
 
 {% note info %}

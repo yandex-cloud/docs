@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Асинхронная репликация данных из Яндекс Метрика в ClickHouse® с помощью Data Transfer
+
 # Асинхронная репликация данных из Яндекс Метрика в ClickHouse® с помощью Yandex Data Transfer
 
 # Загрузка данных из Яндекс Метрика в витрину ClickHouse® с помощью Yandex Data Transfer

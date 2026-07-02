@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > Концепции > Настройка и управление > Аудитные логи Audit Trails > Справочник аудитных логов > UpdateImage
+
 # BareMetal Audit Trails Events: UpdateImage
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.UpdateImage2-schema}

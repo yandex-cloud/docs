@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Desktop](index.md) > Restart
+
 # Cloud Desktop API, REST: Desktop.Restart
 
 Restart the specified desktop.

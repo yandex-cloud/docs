@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Transfer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Endpoint](index.md) > Create
+
 # Data Transfer API, REST: Endpoint.Create
 
 Creates an endpoint in the specified folder.

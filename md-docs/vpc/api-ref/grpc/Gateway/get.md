@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Gateway](index.md) > Get
+
 # Virtual Private Cloud API, gRPC: GatewayService.Get
 
 Returns the specified Gateway resource.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex API Gateway](../../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ApiGateway](index.md) > List
+
 # API Gateway Service, REST: ApiGateway.List
 
 Retrieves the list of API gateways in the specified folder.

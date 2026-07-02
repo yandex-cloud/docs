@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Managed Service for YDB > Все решения для Managed Service for YDB
+
 # Решения для Managed Service for YDB
 
 

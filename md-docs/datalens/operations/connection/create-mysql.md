@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Подключения > Базы данных > Создание подключения к MySQL®
+
 # Создание подключения к MySQL® в Yandex DataLens
 
 

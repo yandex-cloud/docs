@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > apploadbalancer > RemoveVirtualHostRoute
+
 # Application Load Balancer Audit Trails Events: RemoveVirtualHostRoute
 
 ## Event JSON schema {#yandex.cloud.audit.apploadbalancer.RemoveVirtualHostRoute2-schema}

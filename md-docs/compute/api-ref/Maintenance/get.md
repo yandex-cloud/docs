@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Maintenance](index.md) > Get
+
 # Compute Cloud API, REST: Maintenance.Get
 
 Retrieves the specific Maintenance by ID.

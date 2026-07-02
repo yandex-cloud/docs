@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [iot](../../index.md) > [registry](../index.md) > [yds-export](index.md) > list
+
 # yc iot registry yds-export list
 
 List data stream exports associated with specified registry

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Создание кластера
+
 # Создание кластера Trino
 
 Каждый [кластер](../../glossary/cluster.md) Managed Service for Trino состоит из набора компонентов Trino: [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers), которые могут быть представлены в нескольких экземплярах.

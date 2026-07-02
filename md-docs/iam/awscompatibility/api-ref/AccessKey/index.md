@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > REST (англ.) > [Access Key](../index.md) > AccessKey > Overview
+
 # Access Key, REST: AccessKey
 
 A set of methods for managing access keys.

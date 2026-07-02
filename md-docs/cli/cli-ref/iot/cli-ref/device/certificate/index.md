@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [iot](../../index.md) > [device](../index.md) > certificate > Overview
+
 # yc iot device certificate
 
 Manage IoT device certificates

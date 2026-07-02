@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Quota Manager](../index.md) > [Пошаговые инструкции](index.md) > Посмотреть значение квоты
+
 # Посмотреть значение квоты
 
 {% list tabs group=instructions %}

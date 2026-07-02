@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > securitydeck.alerts > UpdateAlertSink
+
 # Security Deck Alerts Audit Trails Events: UpdateAlertSink
 
 ## Event JSON schema {#yandex.cloud.audit.securitydeck.alerts.UpdateAlertSink2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > video > CreateSubtitle
+
 # Cloud Video Audit Trails Events: CreateSubtitle
 
 ## Event JSON schema {#yandex.cloud.audit.video.CreateSubtitle2-schema}

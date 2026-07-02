@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Identity and Access Management](../index.md) > Устранение ошибки `Service account is not available`
+
 # Устранение ошибки `Service account is not available`
 
 

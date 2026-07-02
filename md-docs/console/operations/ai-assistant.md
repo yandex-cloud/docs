@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Console](../index.md) > Пошаговые инструкции > Управление ресурсами Yandex Cloud с помощью AI-ассистента
+
 # Управление ресурсами Yandex Cloud с помощью AI-ассистента
 
 Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).

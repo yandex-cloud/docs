@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for GitLab](../../index.md) > [Пошаговые инструкции](../index.md) > Миграция из пользовательской инсталляции GitLab
+
 # Миграция из GitLab в Managed Service for GitLab
 
 Существуют следующие способы перенести проекты в Managed Service for GitLab:

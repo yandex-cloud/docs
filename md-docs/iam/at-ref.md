@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Identity and Access Management](index.md) > Аудитные логи Audit Trails
+
 # Справочник аудитных логов Yandex Audit Trails
 
 В Audit Trails для Yandex Identity and Access Management поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).

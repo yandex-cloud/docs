@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Functions](../../../../index.md) > Справочник API Triggers > [gRPC (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Cloud Functions Triggers Service, gRPC: OperationService.Get
 
 Returns the specified Operation resource.

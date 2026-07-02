@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > smartwebsecurity > UpdateCustomPage
+
 # Smart Web Security Audit Trails Events: UpdateCustomPage
 
 ## Event JSON schema {#yandex.cloud.audit.smartwebsecurity.UpdateCustomPage2-schema}

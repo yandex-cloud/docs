@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [filesystem](index.md) > add-access-binding
+
 # yc compute filesystem add-access-binding
 
 Add access binding for the specified filesystem

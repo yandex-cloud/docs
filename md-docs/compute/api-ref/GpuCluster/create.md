@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [GpuCluster](index.md) > Create
+
 # Compute Cloud API, REST: GpuCluster.Create
 
 Creates a GPU cluster in the specified folder.

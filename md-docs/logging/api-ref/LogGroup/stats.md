@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [LogGroup](index.md) > Stats
+
 # Cloud Logging Service, REST: LogGroup.Stats
 
 Returns stats for the specified log group.

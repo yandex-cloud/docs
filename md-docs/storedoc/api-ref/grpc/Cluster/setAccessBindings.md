@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > SetAccessBindings
+
 # Managed Service for MongoDB API, gRPC: ClusterService.SetAccessBindings
 
 Sets access bindings for the specified MongoDB cluster.

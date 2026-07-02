@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > [Практические руководства](index.md) > Разработка > Обучение модели на данных из Yandex Object Storage
+
 # Использование данных из Yandex Object Storage для обучения модели в DataSphere
 
 # Использование данных из Yandex Object Storage для обучения модели в DataSphere
@@ -29,7 +31,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость реализации обучения модели с помощью данных из Object Storage входят:
-* Плата за использование [вычислительных ресурсов DataSphere](../../datasphere/pricing.md).
+* Плата за использование [вычислительных ресурсов DataSphere](../pricing.md).
 * Плата за хранение данных в бакете ([тарифы Object Storage](../../storage/pricing.md#prices-storage)).
 * Плата за операции с данными ([тарифы Object Storage](../../storage/pricing.md#prices-operations)).
 

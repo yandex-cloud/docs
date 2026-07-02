@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [v0](../index.md) > [function](index.md) > remove-scaling-policy
+
 # yc serverless v0 function remove-scaling-policy
 
 Remove scaling policy for specified function and tag

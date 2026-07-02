@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [VirtualHost](index.md) > RemoveRoute
+
 # Application Load Balancer API, gRPC: VirtualHostService.RemoveRoute
 
 Deletes the specified route from the specified virtual host.

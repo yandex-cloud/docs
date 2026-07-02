@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > loadbalancer > StartNetworkLoadBalancer
+
 # Network Load Balancer Audit Trails Events: StartNetworkLoadBalancer
 
 ## Event JSON schema {#yandex.cloud.audit.loadbalancer.StartNetworkLoadBalancer2-schema}

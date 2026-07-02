@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [GpuCluster](index.md) > Create
+
 # Compute Cloud API, gRPC: GpuClusterService.Create
 
 Creates a GPU cluster in the specified folder.

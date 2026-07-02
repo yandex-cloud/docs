@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [baremetal](../../index.md) > [v1alpha](../index.md) > [private-cloud-connection](index.md) > list
+
 # yc baremetal v1alpha private-cloud-connection list
 
 Retrieves the list of Private cloud connection resources in the specified folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Получение списка хостов кластера
+
 # Получение списка хостов кластера Apache Kafka®
 
 Вы можете получить список хостов-брокеров в кластере Apache Kafka®.

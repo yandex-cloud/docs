@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Практические руководства](index.md) > Примеры создания QL-чартов
+
 # Примеры создания QL-чартов
 
 

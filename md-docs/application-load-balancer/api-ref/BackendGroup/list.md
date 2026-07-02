@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [BackendGroup](index.md) > List
+
 # Application Load Balancer API, REST: BackendGroup.List
 
 Lists backend groups in the specified folder.

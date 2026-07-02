@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MetaData Hub](../../../index.md) > Connection Manager > Справочник API > [REST (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Connection Manager API, REST: Operation.Cancel
 
 Cancels the specified operation.

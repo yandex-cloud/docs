@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Group](index.md) > ListEffective
+
 # Identity Hub API, REST: Group.ListEffective
 
 Returns groups that the subject belongs to within a specific organization.

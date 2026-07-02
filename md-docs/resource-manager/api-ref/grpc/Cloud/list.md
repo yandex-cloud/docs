@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Resource Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cloud](index.md) > List
+
 # Resource Manager API, gRPC: CloudService.List
 
 Retrieves the list of Cloud resources.

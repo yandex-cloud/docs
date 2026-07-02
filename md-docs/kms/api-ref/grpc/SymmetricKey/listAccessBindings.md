@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SymmetricKey](index.md) > ListAccessBindings
+
 # Key Management Service API, gRPC: SymmetricKeyService.ListAccessBindings
 
 Lists existing access bindings for the specified key.

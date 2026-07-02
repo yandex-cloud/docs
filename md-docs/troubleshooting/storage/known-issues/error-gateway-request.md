@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Object Storage](../index.md) > Устранение ошибки `GATEWAY_REQUEST_ERROR`
+
 # Устранение ошибки `GATEWAY_REQUEST_ERROR`
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [OsLogin](index.md) > GetSettings
+
 # Identity Hub API, gRPC: OsLoginService.GetSettings
 
 OsLogin settings

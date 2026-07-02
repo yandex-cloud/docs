@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Видеоплеер > Шаблоны плеера > Создать шаблон
+
 # Создать шаблон плеера
 
 {% list tabs group=instructions %}

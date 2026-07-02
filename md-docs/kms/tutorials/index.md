@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Key Management Service](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Yandex Key Management Service
 
 * [Шифрование данных](encrypt/index.md)

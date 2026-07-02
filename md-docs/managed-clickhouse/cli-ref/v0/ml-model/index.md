@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > ml-model > Overview
+
 # yc managed-clickhouse v0 ml-model
 
 Manage ClickHouse machine learning models.

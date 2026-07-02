@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > ListOperations
+
 # Managed Service for Hive Metastore™ API, REST: Cluster.ListOperations
 
 Retrieves the list of Operation resources for the specified Hive Metastore Cluster.

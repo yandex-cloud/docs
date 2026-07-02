@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Backup](../index.md) > [Пошаговые инструкции](index.md) > ВМ в Cloud Backup > Подключить существующую ВМ к Cloud Backup > Подключить существующую ВМ на Windows
+
 # Подключить существующую виртуальную машину на Windows Server к Cloud Backup
 
 Вы можете создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) Compute Cloud c [поддерживаемыми операционными системами на базе Windows](../concepts/vm-connection.md#windows).

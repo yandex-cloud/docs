@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Резервное копирование > Резервное копирование ВМ с помощью Хайстекс Акура
+
 # Резервное копирование ВМ с помощью «Хайстекс Акура — Система резервного копирования»
 
 
@@ -47,7 +49,7 @@
 * Плата за вычислительные ресурсы ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md#prices-instance-resources)).
 * Плата за диски ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md#prices-storage)).
 * Плата за использование динамического или статического внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за хранение данных в бакете и операции с ними ([тарифы Yandex Object Storage](../../storage/pricing.md)).
+* Плата за хранение данных в бакете и операции с ними ([тарифы Yandex Object Storage](../pricing.md)).
 * Плата за использование «Хайстекс Акура — Система резервного копирования» (смотрите [описание продукта](https://yandex.cloud/ru/marketplace/products/hystax/hystax-acura-backup) в Cloud Marketplace).
 
 

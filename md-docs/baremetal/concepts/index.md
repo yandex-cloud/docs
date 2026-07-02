@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > Концепции > Обзор сервиса
+
 # Обзор сервиса Yandex BareMetal
 
 Yandex BareMetal предоставляет возможность [арендовать](../operations/servers/server-lease.md) физический сервер, все аппаратные ресурсы которого полностью предоставляются в ваше индивидуальное использование. 

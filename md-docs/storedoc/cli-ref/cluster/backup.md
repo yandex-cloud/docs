@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > backup
+
 # yc managed-mongodb cluster backup
 
 Create a backup for the specified MongoDB cluster.

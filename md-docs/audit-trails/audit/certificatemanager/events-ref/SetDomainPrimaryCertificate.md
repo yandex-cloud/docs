@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > certificatemanager > SetDomainPrimaryCertificate
+
 # Certificate Manager Audit Trails Events: SetDomainPrimaryCertificate
 
 ## Event JSON schema {#yandex.cloud.audit.certificatemanager.SetDomainPrimaryCertificate2-schema}

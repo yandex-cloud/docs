@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mongodb > MoveCluster
+
 # Managed Service for MongoDB Audit Trails Events: MoveCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mongodb.MoveCluster2-schema}

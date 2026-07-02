@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Identity and Access Management](../index.md) > Решения для известных проблем IAM
+
 ## Решения для известных проблем Identity and Access Management {#known-issues-resolving}
 
 * [Устранение ошибок при назначении роли `resource-manager.clouds.owner` пользователю облака](resource-manager-clouds-owner-is-only-applicable-to-resources-of-type-resource-manager-cloud.md)

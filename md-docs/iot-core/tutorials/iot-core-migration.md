@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex IoT Core](../index.md) > [Практические руководства](index.md) > Миграция с Yandex IoT Core на MQTT-решения с открытым исходным кодом
+
 # Миграция с Yandex IoT Core на MQTT-решения с открытым исходным кодом
 
 {% note warning %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Инструменты Application Load Balancer](index.md) > Gateway API > Конфигурация ресурсов > GatewayPolicy
+
 # Поля ресурса GatewayPolicy
 
 Ресурс `GatewayPolicy` предназначен для задания облачных политик, которые применяются к ресурсам `Gateway` в рамках одного пространства имен Kubernetes. Политика может быть применена к определенным ресурсам с помощью ссылок (`targetRefs`) или селектора (`selector`). Если ни одно из этих полей не указано, политика применяется ко всем ресурсам в пространстве имен.

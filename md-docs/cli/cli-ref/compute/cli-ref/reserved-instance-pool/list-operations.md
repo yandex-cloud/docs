@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [reserved-instance-pool](index.md) > list-operations
+
 # yc compute reserved-instance-pool list-operations
 
 List operations of the specified reserved instance pool

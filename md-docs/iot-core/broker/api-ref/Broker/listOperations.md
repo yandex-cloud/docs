@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Broker > [REST (англ.)](../index.md) > [Broker](index.md) > ListOperations
+
 # IoT Core Broker Service, REST: Broker.ListOperations
 
 Lists operations for the specified broker.

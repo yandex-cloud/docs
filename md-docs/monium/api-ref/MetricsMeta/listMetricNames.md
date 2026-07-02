@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Monium](../../index.md) > Справочник API > Метрики > [REST](../index.md) > [MetricsMeta](index.md) > listMetricNames
+
 # Метод listMetricNames
 Возвращает список имен метрик.
  

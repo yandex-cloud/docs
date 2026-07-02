@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Базовая инфраструктура](../infrastructure/index.md) > Инструменты > Источники данных Terraform
+
 # Источники данных Terraform
 
 [Источники данных (Data Sources)](https://developer.hashicorp.com/terraform/language/data-sources) Terraform позволяют получать актуальную информацию о существующих облачных ресурсах и использовать эти данные в конфигурации вашей инфраструктуры.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-mysql](../index.md) > [hosts](index.md) > add
+
 # yc managed-mysql hosts add
 
 Create new hosts for the cluster in the specified availability zones

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [container](../../../index.md) > [v0](../../index.md) > [repository](../index.md) > [lifecycle-policy](index.md) > create
+
 # yc container v0 repository lifecycle-policy create
 
 Create a lifecycle policy.

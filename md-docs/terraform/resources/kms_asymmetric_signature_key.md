@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Key Management Service > Resources > kms_asymmetric_signature_key
+
 # yandex_kms_asymmetric_signature_key (Resource)
 
 An asymmetric KMS key that may contain several versions of the cryptographic material.

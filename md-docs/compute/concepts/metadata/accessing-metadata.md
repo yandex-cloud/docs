@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Концепции](../index.md) > Метаданные виртуальных машин > Доступ к метаданным
+
 # Доступ к метаданным виртуальных машин
 
 [Сервис метаданных](../vm-metadata.md) позволяет [читать](../../operations/vm-metadata/get-vm-metadata.md) метаданные как [снаружи](#external-access), так и [изнутри](#internal-access) виртуальных машин.

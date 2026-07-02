@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > trino > StartCluster
+
 # Managed Service for Trino Audit Trails Events: StartCluster
 
 ## Event JSON schema {#yandex.cloud.audit.trino.StartCluster2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [PointOfPresence](index.md) > List
+
 # Cloud Interconnect API, gRPC: PointOfPresenceService.List
 
 Retrieves the list of PointOfPresence resources in the specified folder.

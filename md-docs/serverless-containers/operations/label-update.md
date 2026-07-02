@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Пошаговые инструкции](index.md) > Управление контейнером > Управлять метками > Изменить метку
+
 # Изменить метку контейнера
 
 {% list tabs group=instructions %}

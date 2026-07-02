@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > SubscriptionDelete
+
 # Yandex Wiki Audit Trails Events: SubscriptionDelete
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.SubscriptionDelete2-schema}

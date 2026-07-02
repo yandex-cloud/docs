@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity and Access Management](../../../../../index.md) > Справочник API > gRPC (англ.) > [Workload Identity](../index.md) > [FederatedCredential](index.md) > Delete
+
 # Workload Identity, gRPC: FederatedCredentialService.Delete
 
 Deletes the specified federated credential.

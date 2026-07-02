@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Практические руководства](index.md) > Интеграция Yandex Cloud Postbox с внешними системами через вебхуки
+
 # Интеграция Yandex Cloud Postbox с внешними системами с помощью вебхуков
 
 
@@ -34,7 +36,7 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за операции с YDB и хранение данных ([тарифы Yandex Managed Service for YDB](../../ydb/pricing/serverless.md));
+* плата за операции с YDB и хранение данных ([тарифы Yandex Managed Service for YDB](../pricing/serverless.md));
 * плата за хранение данных Data Streams ([тарифы Yandex Data Streams](../../data-streams/pricing.md));
 * плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы Cloud Functions](../../functions/pricing.md));
 * плата за использование Yandex Cloud Postbox ([тарифы Yandex Cloud Postbox](../../postbox/pricing.md)).

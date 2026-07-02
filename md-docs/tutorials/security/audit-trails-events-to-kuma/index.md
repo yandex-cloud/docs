@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > [Безопасность](../index.md) > Загрузка аудитных логов в SIEM KUMA > Обзор
+
 # Загрузка аудитных логов Yandex Audit Trails в SIEM KUMA
 
 В данном руководстве вы создадите [трейл](../../../audit-trails/concepts/trail.md) Audit Trails, который будет передавать аудитные логи в коллектор [KUMA](https://www.kaspersky.ru/enterprise-security/unified-monitoring-and-analysis-platform).

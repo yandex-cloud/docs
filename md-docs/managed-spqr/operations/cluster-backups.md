@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Управление резервными копиями
+
 # Управление резервными копиями в Yandex Managed Service for Sharded PostgreSQL
 
 Вы можете [создавать](#create-backup) резервные копии и [восстанавливать](#restore) кластеры из существующих резервных копий.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > UpdateApplicationAssignments
+
 # Identity Hub Audit Trails Events: UpdateApplicationAssignments
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.application.saml.UpdateApplicationAssignments2-schema}

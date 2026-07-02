@@ -5,13 +5,13 @@ Below you will find the data formats and compression algorithms supported in {{ 
 
 ### Supported data formats {#formats}
 {{ yql-full-name }} supports the following data formats:
-- [`csv_with_names`](#csv_with_names).
-- [`tsv_with_names`](#tsv_with_names).
-- [`json_list`](#json_list).
-- [`json_each_row`](#json_each_row).
-- [`raw`](#raw).
-- [`json_as_string`](#json_as_string).
-- [`parquet`](#parquet). 
+- [`csv_with_names`](#csv_with_names)
+- [`tsv_with_names`](#tsv_with_names)
+- [`json_list`](#json_list)
+- [`json_each_row`](#json_each_row)
+- [`raw`](#raw)
+- [`json_as_string`](#json_as_string)
+- [`parquet`](#parquet) 
 
 #### Csv_with_names {#csv_with_names}
 This format is based on the [CSV](https://ru.wikipedia.org/wiki/CSV) format. The data is arranged in comma-separated columns with the first row containing column names.

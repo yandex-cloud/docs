@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Справочник YC CLI (англ.)](../index.md) > [s3api](index.md) > get-bucket-acl
+
 # yc storage s3api get-bucket-acl
 
 Returns bucket access control list

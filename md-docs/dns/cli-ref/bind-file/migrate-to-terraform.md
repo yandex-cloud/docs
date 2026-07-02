@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > [Справочник CLI (англ.)](../index.md) > [bind-file](index.md) > migrate-to-terraform
+
 # yc dns bind-file migrate-to-terraform
 
 Writes terraform specification to stdout

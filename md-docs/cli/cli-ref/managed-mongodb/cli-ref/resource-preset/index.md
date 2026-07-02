@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-mongodb](../index.md) > resource-preset > Overview
+
 # yc managed-mongodb resource-preset
 
 Learn about MongoDB resource presets.

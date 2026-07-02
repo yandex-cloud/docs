@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for YTsaurus](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > Update
+
 # Ytsaurus API, REST: Cluster.Update
 
 Updates the specified cluster.

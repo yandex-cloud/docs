@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > CreateIamToken
+
 # Identity and Access Management Audit Trails Events: CreateIamToken
 
 ## Event JSON schema {#yandex.cloud.audit.iam.CreateIamToken2-schema}

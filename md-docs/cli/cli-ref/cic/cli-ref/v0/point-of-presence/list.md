@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cic](../../index.md) > [v0](../index.md) > [point-of-presence](index.md) > list
+
 # yc cic v0 point-of-presence list
 
 List point of presences in a folder.

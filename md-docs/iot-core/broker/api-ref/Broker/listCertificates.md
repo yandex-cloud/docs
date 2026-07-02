@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Broker > [REST (англ.)](../index.md) > [Broker](index.md) > ListCertificates
+
 # IoT Core Broker Service, REST: Broker.ListCertificates
 
 Retrieves the list of broker certificates for the specified broker.

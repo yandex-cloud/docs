@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [users](index.md) > get
+
 # yc managed-greenplum users get
 
 Get user for specified Greenplum cluster

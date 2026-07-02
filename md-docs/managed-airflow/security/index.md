@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > Управление доступом
+
 # Управление доступом в Managed Service for Apache Airflow™
 
 
@@ -168,6 +170,8 @@ flowchart BT
 Чтобы пользоваться сервисом, необходима роль [managed-airflow.editor или выше](../../iam/concepts/access-control/roles.md) на каталог, в котором создается кластер. Роль `managed-airflow.viewer` позволит только просматривать список кластеров.
 
 Чтобы создать кластер Managed Service for Apache Airflow™, нужна роль [vpc.user](../../vpc/security/index.md#vpc-user) и роль `managed-airflow.editor` или выше.
+
+Чтобы просматривать кластеры управляемых баз данных (MDB) на дашборде в [консоли управления](https://console.yandex.cloud), нужна роль [mdb.viewer](../../iam/roles-reference.md#mdb-viewer).
 
 Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `managed-airflow.admin` вместо `managed-airflow.editor`.
 

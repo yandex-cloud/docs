@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > postbox > CreateIdentity
+
 # Yandex Cloud Postbox Audit Trails Events: CreateIdentity
 
 ## Event JSON schema {#yandex.cloud.audit.postbox.CreateIdentity2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Практические руководства](index.md) > Организация VPN-подключений > Настройка защищенного туннеля GRE поверх IPsec
+
 # Настройка защищенного туннеля GRE поверх IPsec
 
 
@@ -43,7 +45,7 @@
 В стоимость поддержки инфраструктуры входит:
 
 * плата за диски и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* плата за использование внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../pricing.md#prices-public-ip)).
 
 ## Создайте пару ключей SSH {#create-ssh-keys}
 

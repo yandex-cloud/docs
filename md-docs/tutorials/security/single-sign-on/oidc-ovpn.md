@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > [Безопасность](../index.md) > Настройка единого входа в приложения (SSO) > OpenVPN > OpenVPN Community Edition
+
 # Настроить аутентификацию в OpenVPN Community Edition через Yandex Identity Hub по протоколу OIDC
 
 

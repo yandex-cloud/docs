@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-trino](../index.md) > [cluster](index.md) > set-resource-groups
+
 # yc managed-trino cluster set-resource-groups
 
 Set Trino cluster resource groups configuration from YAML file

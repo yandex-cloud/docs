@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [LifecyclePolicy](index.md) > Delete
+
 # Yandex Cloud Registry API, REST: LifecyclePolicy.Delete
 
 Deletes the specified lifecycle policy.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Compute Cloud > Data Sources > compute_instance_group
+
 # yandex_compute_instance_group (DataSource)
 
 Get information about a Yandex Compute instance group.

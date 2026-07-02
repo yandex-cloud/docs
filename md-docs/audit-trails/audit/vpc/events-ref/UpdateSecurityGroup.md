@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > vpc > UpdateSecurityGroup
+
 # Virtual Private Cloud Audit Trails Events: UpdateSecurityGroup
 
 ## Event JSON schema {#yandex.cloud.audit.network.UpdateSecurityGroup2-schema}

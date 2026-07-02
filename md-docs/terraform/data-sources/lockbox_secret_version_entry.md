@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Lockbox > Data Sources > lockbox_secret_version_entry
+
 # yandex_lockbox_secret_version_entry (DataSource)
 
 Get a single entry from a Yandex Cloud Lockbox secret version by key. For more information, see [the official documentation](../../lockbox/index.md).

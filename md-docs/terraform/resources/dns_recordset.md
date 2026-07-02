@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud DNS > Resources > dns_recordset
+
 # yandex_dns_recordset (Resource)
 
 Manages a DNS RecordSet within Yandex Cloud.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Registry](index.md) > ListAccessBindings
+
 # Container Registry API, gRPC: RegistryService.ListAccessBindings
 
 Lists access bindings for the specified registry.

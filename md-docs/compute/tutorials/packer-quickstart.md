@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Практические руководства](index.md) > Начало работы с Packer
+
 # Начало работы с Packer
 
 
@@ -44,8 +46,8 @@ Packer создаст и запустит виртуальную машину с
 
 В стоимость создания образа диска с помощью Packer входит:
 
-* плата за хранение созданных образов ([тарифы Yandex Compute Cloud](../../compute/pricing.md#prices-storage));
-* плата за вычислительные ресурсы ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md#prices-instance-resources)).
+* плата за хранение созданных образов ([тарифы Yandex Compute Cloud](../pricing.md#prices-storage));
+* плата за вычислительные ресурсы ВМ ([тарифы Yandex Compute Cloud](../pricing.md#prices-instance-resources)).
 
 
 ## Установите и настройте Packer {#install-packer}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [user](index.md) > grant-permission
+
 # yc managed-postgresql user grant-permission
 
 Grant permission to the specified PostgreSQL user

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [resource-preset](../index.md) > [list](index.md) > segment
+
 # yc managed-greenplum v0 resource-preset list segment
 
 List available Greenplum resource presets for segment hosts.

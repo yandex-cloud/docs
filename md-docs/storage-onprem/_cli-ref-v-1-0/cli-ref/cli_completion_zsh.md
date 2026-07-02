@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [storage-onprem/_cli-ref-v-1-0](../index.md) > completion > zsh
+
 # cli completion zsh
 
 Generate the autocompletion script for zsh

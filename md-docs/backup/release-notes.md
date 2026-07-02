@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Backup](index.md) > История изменений
+
 # История изменений в Yandex Cloud Backup
 
 ## I квартал 2026 {#q1-2026}

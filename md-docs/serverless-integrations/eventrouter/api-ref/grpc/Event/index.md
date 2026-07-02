@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API EventRouter > [gRPC (англ.)](../index.md) > Event > Overview
+
 # EventRouter Service, gRPC: EventService
 
 Service for put events to bus for serverless eventrouter.

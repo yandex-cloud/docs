@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../../index.md) > Справочник API > [Kubernetes Marketplace gRPC (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Kubernetes Marketplace, gRPC: OperationService.Get
 
 Returns the specified Operation resource.

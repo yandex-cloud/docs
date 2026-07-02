@@ -1,10 +1,10 @@
-# Using the Function interface to set a handler function in C#
+# Using the Function interface to set a handler in C#
 
-You can set a handler function in C# without needing to inherit from [SDK](https://github.com/yandex-cloud/dotnet-sdk) classes.
+You can set a handler in C# without inheriting from [SDK](https://github.com/yandex-cloud/dotnet-sdk) classes.
 
 {% note warning %}
 
-The handler method must be public, be named `FunctionHandler`, and have one input parameter.
+The handler method must be public, named `FunctionHandler`, and have a single input parameter.
 
 {% endnote %}
 
@@ -14,7 +14,7 @@ You can use any classes as input and return types.
 
 {% note info %}
 
-Fields of these classes may have any [access modifiers](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers). If a field is non-public, it requires a public `getter` method. Otherwise, the field won't be included in the response.
+Fields of these classes can have any [access modifiers](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers). If a field is non-public, it requires the `getter` public method. Otherwise, the field will not be included in the response.
 
 {% endnote %}
 

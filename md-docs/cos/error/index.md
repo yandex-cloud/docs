@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Solution](../index.md) > Решение проблем
+
 # Решение проблем
 
 Для просмотра логов запуска [Docker-образов](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers) используйте команду:

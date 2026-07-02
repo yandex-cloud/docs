@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Kubernetes](../index.md) > Устранение проблем с разрешением DNS-имен в Managed Service for Kubernetes
+
 # Устранение проблем с разрешением DNS-имен в Managed Service for Kubernetes
 
 

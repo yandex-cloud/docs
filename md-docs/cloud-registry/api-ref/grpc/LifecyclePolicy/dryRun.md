@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LifecyclePolicy](index.md) > DryRun
+
 # Yandex Cloud Registry API, gRPC: LifecyclePolicyService.DryRun
 
 Creates a request of a dry run of the lifecycle policy.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.redis > UpdateCluster
+
 # Managed Service for ValKey Audit Trails Events: UpdateCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.redis.UpdateCluster2-schema}

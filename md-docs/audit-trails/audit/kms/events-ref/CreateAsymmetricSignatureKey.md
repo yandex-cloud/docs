@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > kms > CreateAsymmetricSignatureKey
+
 # Key Management Service Audit Trails Events: CreateAsymmetricSignatureKey
 
 ## Event JSON schema {#yandex.cloud.audit.kms.asymmetricsignature.CreateAsymmetricSignatureKey2-schema}

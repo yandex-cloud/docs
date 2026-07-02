@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Cloud Quota Manager > Cloud Quota Manager
+
 # Yandex Cloud Quota Manager
 
 Yandex Cloud Quota Manager позволяет управлять квотами ваших ресурсов в облаке.

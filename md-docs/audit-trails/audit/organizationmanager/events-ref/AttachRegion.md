@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > AttachRegion
+
 # Identity Hub Audit Trails Events: AttachRegion
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.AttachRegion2-schema}

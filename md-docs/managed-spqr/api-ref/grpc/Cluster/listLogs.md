@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > ListLogs
+
 # Managed Service for SPQR API, gRPC: ClusterService.ListLogs
 
 Retrieves logs for the specified SPQR cluster.

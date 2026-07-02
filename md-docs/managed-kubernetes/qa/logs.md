@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > Вопросы и ответы > Мониторинг и логи
+
 # Мониторинг и логи
 
 * [Как я могу отслеживать состояние кластера Managed Service for Kubernetes?](#monitoring)

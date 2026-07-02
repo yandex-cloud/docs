@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Billing](../../../index.md) > Справочник API > gRPC (англ.) > [Billing](../index.md) > [BillingAccount](index.md) > BindBillableObject
+
 # Billing API, gRPC: BillingAccountService.BindBillableObject
 
 Binds billable object to the specified billing account.

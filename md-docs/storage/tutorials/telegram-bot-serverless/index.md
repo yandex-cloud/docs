@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > Разработка Telegram-бота > Обзор
+
 # Как создать бота в Telegram
 
 

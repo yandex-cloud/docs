@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [HostGroup](index.md) > ListHosts
+
 # Compute Cloud API, gRPC: HostGroupService.ListHosts
 
 Lists hosts that belongs to the specified host group.

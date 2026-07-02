@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Network Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > Сетевые балансировщики > Проверить состояние целевых ресурсов
+
 # Проверить состояние целевых ресурсов
 
 {% list tabs group=instructions %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [organization-manager](../index.md) > [organization](index.md) > leave
+
 # yc organization-manager organization leave
 
 Remove user accounts from the specified organization. Operation is performed by the account that wants to leave.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [application-load-balancer](../index.md) > [load-balancer](index.md) > disable-traffic
+
 # yc application-load-balancer load-balancer disable-traffic
 
 Disables traffic in specified zones for application load balancer.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Notification Service](../../index.md) > [Пошаговые инструкции](../index.md) > Мобильные Push-уведомления > Изменить эндпоинт
+
 # Изменить эндпоинт
 
 {% list tabs group=instructions %}

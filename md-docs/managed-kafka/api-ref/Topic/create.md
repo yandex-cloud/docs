@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Topic](index.md) > Create
+
 # Managed Service for Apache Kafka® API, REST: Topic.Create
 
 Creates a new Kafka topic in the specified cluster.

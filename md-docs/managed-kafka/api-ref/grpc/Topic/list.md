@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Topic](index.md) > List
+
 # Managed Service for Apache Kafka® API, gRPC: TopicService.List
 
 Retrieves the list of Kafka topics in the specified cluster.

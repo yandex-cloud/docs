@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Network Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [NetworkLoadBalancer](index.md) > Start
+
 # Network Load Balancer API, REST: NetworkLoadBalancer.Start
 
 Starts load balancing and health checking with the specified network load balancer with specified settings.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Cloud Logging > Все решения для Cloud Logging
+
 # Решения для Cloud Logging
 
 ## Примеры конфигураций и сценариев Cloud Logging {#configuration-examples}

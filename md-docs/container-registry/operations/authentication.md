@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Registry](../index.md) > [Пошаговые инструкции](index.md) > Аутентифицироваться в Container Registry
+
 # Аутентифицироваться в Container Registry
 
 Перед началом работы с Container Registry необходимо [настроить Docker](configure-docker.md) и аутентифицироваться для соответствующего интерфейса:

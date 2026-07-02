@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for PostgreSQL](../index.md) > Устранение ошибки `max_connections сonn_limit is too high`
+
 # Устранение ошибки `max_connections сonn_limit is too high`
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > Искусственный интеллект > Создание AI-агента с помощью Yandex Cloud Functions
+
 # Создание AI-агента с помощью функции Yandex Cloud Functions
 
 Узнайте, как с помощью [функции](../../functions/concepts/function.md) Cloud Functions с использованием [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) создать [AI-агента](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) — персонализированного помощника, реализующего сценарий генеративного ответа на основе [моделей генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio.

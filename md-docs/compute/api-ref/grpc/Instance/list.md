@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Instance](index.md) > List
+
 # Compute Cloud API, gRPC: InstanceService.List
 
 Retrieves the list of Instance resources in the specified folder.

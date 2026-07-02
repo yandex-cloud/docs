@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [iot](../../index.md) > [broker](../index.md) > [certificate](index.md) > add
+
 # yc iot broker certificate add
 
 Add new certificate to specified broker

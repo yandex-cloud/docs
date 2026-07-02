@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > Vrf > Overview
+
 # BareMetal API, gRPC: VrfService
 
 A set of methods for managing VRF resources.

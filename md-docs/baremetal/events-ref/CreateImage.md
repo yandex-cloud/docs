@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > Концепции > Настройка и управление > Аудитные логи Audit Trails > Справочник аудитных логов > CreateImage
+
 # BareMetal Audit Trails Events: CreateImage
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.CreateImage2-schema}

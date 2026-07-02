@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > DataLens > Data Sources > datalens_connection
+
 # yandex_datalens_connection (DataSource)
 
 Retrieves information about a DataLens connection. For more information, see [the official documentation](../../datalens/operations/api-start.md).

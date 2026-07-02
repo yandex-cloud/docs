@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > Логи > Миграция с Cloud Logging
+
 # Миграция с Cloud Logging на Monium
 
 {% note warning %}

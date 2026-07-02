@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for Greenplum® > Resources > mdb_greenplum_cluster_iam_binding
+
 # yandex_mdb_greenplum_cluster_iam_binding (Resource)
 
 Allows creation and management of a single binding within IAM policy for an existing `cluster`.

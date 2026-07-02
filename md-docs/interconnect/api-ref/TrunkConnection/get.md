@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [TrunkConnection](index.md) > Get
+
 # Cloud Interconnect API, REST: TrunkConnection.Get
 
 Returns the specified TrunkConnection resource.

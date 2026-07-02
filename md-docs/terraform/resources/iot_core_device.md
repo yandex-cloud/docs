@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > IoT Core Devices > Resources > iot_core_device
+
 # yandex_iot_core_device (Resource)
 
 Allows management of [Yandex Cloud IoT Device](../../iot-core/quickstart.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-sharded-postgresql](../../index.md) > [v0](../index.md) > [database](index.md) > get
+
 # yc managed-sharded-postgresql v0 database get
 
 Show information about the specified Sharded PostgreSQL database

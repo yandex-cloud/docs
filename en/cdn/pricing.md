@@ -21,6 +21,18 @@ blocks:
       sm: 4
     children:
       - type: basic-card
+        title: Price calculator
+        text: Calculate the cost of the service based on your needs
+        icon: _assets/icons/calculator.svg
+        urlTitle: Price calculator
+        url: https://yandex.cloud/en/prices?state=92a45574d7a3#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
         title: Price list
         text: Current prices of all our services
         icon: _assets/icons/circle-ruble.svg

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > UpdateCollectionAccessBindings
+
 # DataLens Audit Trails Events: UpdateCollectionAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.UpdateCollectionAccessBindings2-schema}

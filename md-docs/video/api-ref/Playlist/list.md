@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Playlist](index.md) > List
+
 # Video API, REST: Playlist.List
 
 Lists all playlists in a specific channel with pagination support.

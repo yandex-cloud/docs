@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex StoreDoc](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Yandex StoreDoc
 
 * [Шардирование коллекций Yandex StoreDoc](sharding.md)

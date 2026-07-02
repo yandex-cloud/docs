@@ -20,6 +20,10 @@ items:
           Создание сайта на Ghost CMS High Availability с помощью {{
           cloud-apps-name }}
         href: tutorials/ghost-cms-cloudapp.md
+      - name: Установка Gatsby с помощью {{ cloud-apps-name }}
+        href: tutorials/gatsby-static-site-cloudapp.md
+      - name: Установка Hugo с помощью {{ cloud-apps-name }}
+        href: tutorials/hugo-static-site-cloudapp.md
   - name: Управление доступом
     href: security/index.md
   - name: Аудитные логи {{ at-name }}

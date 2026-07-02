@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity and Access Management](../index.md) > [Справочник CLI (англ.)](index.md) > create-token
+
 # yc iam create-token
 
 Create IAM token and print to STDOUT

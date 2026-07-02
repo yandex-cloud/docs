@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Database](index.md) > Update
+
 # Managed Service for PostgreSQL API, gRPC: DatabaseService.Update
 
 Updates the specified PostgreSQL database.

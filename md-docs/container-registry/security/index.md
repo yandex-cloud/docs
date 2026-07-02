@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Registry](../index.md) > Управление доступом
+
 # Управление доступом в Container Registry
 
 В этом разделе вы узнаете:

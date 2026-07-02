@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex IoT Core](index.md) > Метрики Monitoring
+
 # Справочник метрик Yandex Monitoring
 
 {% note warning %}

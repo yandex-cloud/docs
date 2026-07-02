@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [Identity Provider API](../index.md) > [User](index.md) > SetPasswordHash
+
 # Identity Provider API, gRPC: UserService.SetPasswordHash
 
 Sets a password hash for the specified user.

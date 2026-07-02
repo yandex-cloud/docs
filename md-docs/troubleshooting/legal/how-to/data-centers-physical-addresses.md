@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Legal](../index.md) > Как узнать физический адрес ЦОД Yandex Cloud
+
 # Как узнать физический адрес ЦОД Yandex Cloud
 
 

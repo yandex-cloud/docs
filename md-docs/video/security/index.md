@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Video](../index.md) > Управление доступом
+
 # Управление доступом в Yandex Cloud Video
 
 В этом разделе вы узнаете:

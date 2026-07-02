@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Database](index.md) > List
+
 # Managed Service for MongoDB API, gRPC: DatabaseService.List
 
 Retrieves the list of MongoDB Database resources in the specified cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > Концепции > Обзор
+
 # Обзор сервиса Yandex Smart Web Security
 
 Smart Web Security позволяет защитить инфраструктуру от информационных угроз на прикладном уровне L7 модели OSI. Например, [DDoS-атак](../../glossary/ddos.md), ботов, SQL-инъекций. Дополнительно можно подключить защиту от DDoS-атак на уровнях L3 и L4 с помощью [Yandex DDoS Protection](../../vpc/ddos-protection/index.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Resource](index.md) > Get
+
 # Cloud CDN API, REST: Resource.Get
 
 Get client's CDN resource by resource id.

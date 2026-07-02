@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Cloud Notification Service > Cloud Notification Service
+
 # Yandex Cloud Notification Service
 
 Yandex Cloud Notification Service — сервис для мультиканальной отправки уведомлений пользователям. HTTP API сервиса совместим с <a href="https://docs.aws.amazon.com/sns/latest/api/welcome.html">Amazon SNS API</a>.

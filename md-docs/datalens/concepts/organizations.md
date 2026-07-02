@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Управление доступом > Организации в DataLens > Обзор
+
 # Организации в Yandex DataLens
 
 [Yandex Identity Hub](https://yandex.cloud/ru/services/organization) — это сервис Yandex Cloud, который позволяет управлять списком сотрудников, обеспечивает единую авторизацию в сервисах Yandex Cloud и предоставляет возможность назначения ролей. Подробнее о сервисе Yandex Identity Hub читайте в [документации](../../organization/index.md).

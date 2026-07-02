@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for MySQL®](../index.md) > [Практические руководства](index.md) > Перенос данных из Yandex Object Storage в Managed Service for MySQL®
+
 # Миграция данных из Yandex Object Storage в Managed Service for MySQL® с помощью Yandex Data Transfer
 
 # Миграция данных из Object Storage в кластер Yandex Managed Service for MySQL® с помощью Yandex Data Transfer
@@ -17,7 +19,7 @@
 ## Необходимые платные ресурсы {#paid-resources}
 
 * Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
-* Кластер Managed Service for MySQL®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for MySQL®](../../managed-mysql/pricing.md)).
+* Кластер Managed Service for MySQL®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for MySQL®](../pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 

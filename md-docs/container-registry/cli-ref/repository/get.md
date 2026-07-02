@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [repository](index.md) > get
+
 # yc container repository get
 
 Get information about a Docker image repository.

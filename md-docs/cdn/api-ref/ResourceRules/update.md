@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ResourceRules](index.md) > Update
+
 # Cloud CDN API, REST: ResourceRules.Update
 
 Update specified by id resource rule.

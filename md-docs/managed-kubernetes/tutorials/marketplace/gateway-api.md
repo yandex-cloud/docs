@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Практические руководства](../index.md) > Использование продуктов Cloud Marketplace > Настройка Gateway API
+
 # Настройка Gateway API
 
 # Настройка Gateway API в Yandex Managed Service for Kubernetes
@@ -20,11 +22,11 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за DNS-зону и DNS-запросы ([тарифы Cloud DNS](../../dns/pricing.md)).
+* Плата за DNS-зону и DNS-запросы ([тарифы Cloud DNS](../../../dns/pricing.md)).
 * Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Application Load Balancer](../../application-load-balancer/pricing.md)).
-* Плата за публичные IP-адреса ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../../compute/pricing.md)).
+* Плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Application Load Balancer](../../../application-load-balancer/pricing.md)).
+* Плата за публичные IP-адреса ([тарифы Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Перед началом работы {#before-you-begin}

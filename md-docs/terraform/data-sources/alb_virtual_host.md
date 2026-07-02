@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Application Load Balancer > Data Sources > alb_virtual_host
+
 # yandex_alb_virtual_host (DataSource)
 
 Get information about a Yandex ALB Virtual Host. For more information, see [Yandex Cloud Application Load Balancer](../../application-load-balancer/quickstart.md).

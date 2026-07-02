@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YDB](../../../index.md) > Document API, совместимый с Amazon DynamoDB > [Справочник Document API](../index.md) > Actions > BatchGetItem
+
 # Метод BatchGetItem
 
 Возвращает атрибуты одного или нескольких элементов из одной или нескольких таблиц. Запрашиваемые элементы нужно указать по первичному ключу.

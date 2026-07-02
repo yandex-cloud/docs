@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Практические руководства](index.md) > Создание проекта с помощью Terraform > Управление ресурсами Kubernetes с помощью провайдера Terraform
+
 # Управление ресурсами Kubernetes в кластере Managed Service for Kubernetes с помощью провайдера Terraform
 
 # Управление ресурсами Kubernetes в кластере Yandex Managed Service for Kubernetes с помощью провайдера Terraform

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ResourceGroup](index.md) > List
+
 # Managed Service for Greenplum® API, REST: ResourceGroup.List
 
 List all resource group

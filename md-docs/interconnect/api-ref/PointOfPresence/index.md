@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > Справочник API > [REST (англ.)](../index.md) > PointOfPresence > Overview
+
 # Cloud Interconnect API, REST: PointOfPresence
 
 A set of methods for managing PointOfPresence resources.

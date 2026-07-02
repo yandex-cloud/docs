@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > dns > UpdateDnsInboundEndpoint
+
 # Cloud DNS Audit Trails Events: UpdateDnsInboundEndpoint
 
 ## Event JSON schema {#yandex.cloud.audit.dns.UpdateDnsInboundEndpoint2-schema}

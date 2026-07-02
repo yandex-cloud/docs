@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Network Load Balancer
+
 # Метрики Yandex Network Load Balancer
 
 В этом разделе описаны метрики сервиса [Network Load Balancer](../../network-load-balancer/index.md), поставляемые в Monium Metrics.

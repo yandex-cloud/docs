@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Практические руководства](index.md) > Продукты Microsoft в Yandex Cloud > Развертывание Microsoft Exchange
+
 # Развертывание Microsoft Exchange
 
 
@@ -50,10 +52,10 @@
 
 В стоимость инсталляции Microsoft Exchange входят:
 
-* плата за постоянно запущенные виртуальные машины ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за постоянно запущенные виртуальные машины ([тарифы Yandex Compute Cloud](../pricing.md));
 * плата за балансировку трафика ([тарифы Yandex Network Load Balancer](../../network-load-balancer/pricing.md));
 * плата за использование динамических или статических публичных IP-адресов ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
-* стоимость исходящего трафика из Yandex Cloud в интернет ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* стоимость исходящего трафика из Yandex Cloud в интернет ([тарифы Yandex Compute Cloud](../pricing.md)).
 
 ## Создайте облачную сеть и подсети {#create-network}
 

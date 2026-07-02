@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud DNS](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [inbound-endpoint](index.md) > set-access-bindings
+
 # yc dns v0 inbound-endpoint set-access-bindings
 
 Set access bindings to the specified dns inbound endpoint and delete all existing access bindings if there are any.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YDB](../../../index.md) > Document API, совместимый с Amazon DynamoDB > Инструменты > [Работа с AWS SDK](index.md) > Управление записями в таблице > Создание записи
+
 # Добавление записи
 
 Чтобы добавить новую запись в таблицу `Series`:

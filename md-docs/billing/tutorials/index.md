@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Billing](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Yandex Cloud Billing
 
 * [Создание триггера для бюджетов, который вызывает функцию Cloud Functions для остановки ВМ](serverless-trigger-budget-vm.md)

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > Справочник API Websocket > Аутентификация в API
+
 # Аутентификация в Websocket API API Gateway
 
 # Аутентификация в API

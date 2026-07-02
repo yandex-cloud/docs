@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Group](index.md) > ListOperations
+
 # Identity Hub API, gRPC: GroupService.ListOperations
 
 Lists operations for the specified group.

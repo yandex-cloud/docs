@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Schema Registry > Сервисные роли для управления доступом
+
 # Сервисные роли для управления схемами данных с помощью Schema Registry
 
 

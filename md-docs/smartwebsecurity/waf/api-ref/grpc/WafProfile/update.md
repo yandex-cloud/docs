@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Smart Web Security](../../../../index.md) > Справочник API > gRPC (англ.) > [SmartWebSecurity WAF API](../index.md) > [WafProfile](index.md) > Update
+
 # SmartWebSecurity WAF API, gRPC: WafProfileService.Update
 
 Updates the specified WAF profile.

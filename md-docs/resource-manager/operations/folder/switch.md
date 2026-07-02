@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > [Пошаговые инструкции](../index.md) > Каталог > Навигация по каталогам
+
 # Переключиться на другой каталог
 
 {% list tabs group=instructions %}

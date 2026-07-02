@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Maintenance](index.md) > Reschedule
+
 # Managed Service for Greenplum® API, gRPC: MaintenanceService.Reschedule
 
 Allows user to reschedule Maintenance to another date and time.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [serverless](../../../index.md) > [eventrouter](../../index.md) > [connector](../index.md) > [create](index.md) > event-service
+
 # yc serverless eventrouter connector create event-service
 
 Create an event service connector

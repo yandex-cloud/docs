@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Пошаговые инструкции](index.md) > Сервисы Apache и другие сторонние сервисы > Настройка Apache Iceberg™
+
 # Настройка Apache Iceberg™ в кластере Yandex Data Processing
 
 Yandex Data Processing версии 2.0 и выше поддерживает использование таблиц Apache Iceberg™ совместно с движком Apache Spark™.

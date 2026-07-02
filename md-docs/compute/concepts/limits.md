@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Compute Cloud
 
 

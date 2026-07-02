@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Apache Spark™](index.md) > Начало работы
+
 # Как начать работать с Yandex Managed Service for Apache Spark™
 
 Чтобы начать работу с сервисом:

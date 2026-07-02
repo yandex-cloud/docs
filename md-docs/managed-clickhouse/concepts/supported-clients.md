@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Концепции](index.md) > Поддерживаемые клиенты
+
 # Рекомендуемые клиенты для СУБД Managed Service for ClickHouse®
 
 Для подключения к Managed Service for ClickHouse® рекомендуется использовать следующие клиенты:

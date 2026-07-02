@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Практические руководства](index.md) > Поставка данных из YDB в Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer
+
 # Поставка данных из YDB в Yandex Managed Service for Apache Kafka®
 
 # Поставка данных из Yandex Managed Service for YDB в Yandex Managed Service for Apache Kafka®

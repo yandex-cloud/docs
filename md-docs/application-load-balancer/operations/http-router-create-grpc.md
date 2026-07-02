@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > HTTP-роутеры > Создать HTTP-роутер для gRPC-трафика
+
 # Создать HTTP-роутер для gRPC-трафика
 
 Чтобы создать [HTTP-роутер](../concepts/http-router.md) и добавить в него [маршрут](../concepts/http-router.md#routes) для [gRPC-трафика](../../glossary/grpc.md):

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Quota Manager](../../index.md) > [Справочник CLI (англ.)](../index.md) > [quota-limit](index.md) > get
+
 # yc quota-manager quota-limit get
 
 Show information about the specified quota

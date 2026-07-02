@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex DataSphere](../../../index.md) > [Справочник API](../../overview.md) > [gRPC (англ.)](../index.md) > [S3](index.md) > Activate
+
 # DataSphere API v2, gRPC: S3Service.Activate
 
 Activates shared s3 for project

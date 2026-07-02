@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Видеоплеер > Шаблоны плеера > Удалить шаблон
+
 # Удалить шаблон плеера
 
 {% note warning %}

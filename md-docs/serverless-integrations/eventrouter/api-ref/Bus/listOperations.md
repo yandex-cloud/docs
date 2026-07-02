@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > [Bus](index.md) > ListOperations
+
 # EventRouter Service, REST: Bus.ListOperations
 
 Lists operations for the specified bus.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > [Концепции](index.md) > Сеть в Managed Service for Apache Airflow™
+
 # Сеть в Managed Service for Apache Airflow™
 
 При создании кластера вы можете задать следующие сетевые настройки:

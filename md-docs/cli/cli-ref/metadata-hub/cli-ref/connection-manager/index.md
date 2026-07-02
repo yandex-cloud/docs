@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > Connection Manager > Справочник CLI (англ.)
+
 # yc metadata-hub connection-manager
 
 Manage Connection Manager connections.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Справочник аудитных логов > UpdateBackendGroup
+
 # Application Load Balancer Audit Trails Events: UpdateBackendGroup
 
 ## Event JSON schema {#yandex.cloud.audit.apploadbalancer.UpdateBackendGroup2-schema}

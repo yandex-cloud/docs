@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > vpc > UpdateGateway
+
 # Virtual Private Cloud Audit Trails Events: UpdateGateway
 
 ## Event JSON schema {#yandex.cloud.audit.network.UpdateGateway2-schema}

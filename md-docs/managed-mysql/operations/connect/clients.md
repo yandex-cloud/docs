@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > [Пошаговые инструкции](../index.md) > [Подключение](index.md) > Подключение из приложений
+
 # Подключение к кластеру MySQL® из приложений
 
 В этом разделе представлены настройки для подключения к хостам кластера Managed Service for MySQL® с помощью [инструментов командной строки](#command-line-tools), из [графических IDE](#connection-ide), из [Yandex WebSQL](#websql) и [Docker-контейнера](#connection-docker). О подключении из кода вашего приложения читайте в разделе [Примеры кода](code-examples.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Monium Metrics
+
 # Метрики Monium Metrics
 
 В этом разделе описаны метрики сервиса Monium Metrics, поставляемые в него.

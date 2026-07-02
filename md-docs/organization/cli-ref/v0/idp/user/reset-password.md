@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [idp](../index.md) > [user](index.md) > reset-password
+
 # yc organization-manager v0 idp user reset-password
 
 Reset the password for the specified user

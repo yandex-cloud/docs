@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [waf](../index.md) > [waf-profile](index.md) > delete
+
 # yc smartwebsecurity waf waf-profile delete
 
 Deletes the specified WAF profile.

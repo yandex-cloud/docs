@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for PostgreSQL > Resources > mdb_postgresql_user
+
 # yandex_mdb_postgresql_user (Resource)
 
 Manages a PostgreSQL user within the Yandex Cloud. For more information, see [the official documentation](../../managed-postgresql/index.md).

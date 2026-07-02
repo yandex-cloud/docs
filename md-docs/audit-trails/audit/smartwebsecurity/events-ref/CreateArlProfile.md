@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > smartwebsecurity > CreateArlProfile
+
 # Smart Web Security Audit Trails Events: CreateArlProfile
 
 ## Event JSON schema {#yandex.cloud.audit.smartwebsecurity.CreateArlProfile2-schema}

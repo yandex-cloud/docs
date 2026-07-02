@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [managed-kubernetes](index.md) > create-token
+
 # yc managed-kubernetes create-token
 
 Create K8S token and print to STDOUT.

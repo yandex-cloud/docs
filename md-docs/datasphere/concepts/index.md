@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > Концепции > О сервисе DataSphere
+
 # О сервисе DataSphere
 
 Yandex DataSphere — среда для ML-разработки полного цикла. Yandex DataSphere предоставляет широкие возможности для простого взаимодействия с сервисами Yandex Cloud.

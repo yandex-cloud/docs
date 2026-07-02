@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Inconsistent aggregation among operands
+
 # [Yandex DataLens] Inconsistent aggregation among operands
 
 `ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT`

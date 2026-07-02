@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [DataSphere](../index.md) > Устранение ошибки `ConnectTimeoutError` при установке пакетов через pip
+
 # Устранение ошибки `ConnectTimeoutError` при установке пакетов через pip
 
 

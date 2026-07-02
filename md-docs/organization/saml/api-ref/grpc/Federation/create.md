@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [SAML Federation API](../index.md) > [Federation](index.md) > Create
+
 # SAML Federation API, gRPC: FederationService.Create
 
 Creates a federation in the specified organization.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Valkey™](../index.md) > Справочник CLI (англ.) > Overview
+
 # yc managed-redis
 
 Manage Redis clusters, hosts, databases, backups and users.

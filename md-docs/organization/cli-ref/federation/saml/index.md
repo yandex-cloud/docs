@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [federation](../index.md) > saml > Overview
+
 # yc organization-manager federation saml
 
 Manage SAML-compatible identity federations

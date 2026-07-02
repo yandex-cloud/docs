@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Streams](../../index.md) > [Пошаговые инструкции](../index.md) > Работа с AWS SDK > Создание потока данных
+
 # Создание потока данных в AWS SDK
 
 {% list tabs group=programming_language %}

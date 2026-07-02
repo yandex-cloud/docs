@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [StandardImage](index.md) > Get
+
 # BareMetal API, gRPC: StandardImageService.Get
 
 Returns the specific standard Image resource.

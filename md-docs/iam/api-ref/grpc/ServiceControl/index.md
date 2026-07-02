@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > ServiceControl > Overview
+
 # Identity and Access Management API, gRPC: ServiceControlService
 
 A set of methods for managing Service resources.

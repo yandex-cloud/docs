@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [baremetal](../index.md) > [public-subnet](index.md) > list
+
 # yc baremetal public-subnet list
 
 Retrieves the list of PublicSubnet resources in the specified folder.

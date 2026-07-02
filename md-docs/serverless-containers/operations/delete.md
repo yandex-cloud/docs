@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Пошаговые инструкции](index.md) > Управление контейнером > Удалить контейнер
+
 # Удалить контейнер
 
 {% list tabs group=instructions %}

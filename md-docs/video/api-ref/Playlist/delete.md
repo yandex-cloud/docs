@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Playlist](index.md) > Delete
+
 # Video API, REST: Playlist.Delete
 
 Deletes a specific playlist by its ID.

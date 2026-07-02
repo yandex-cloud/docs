@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Безопасность в Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Защита приложений > Невидимая SmartCaptcha в приложении на Android
+
 # Невидимая Yandex SmartCaptcha в приложении на Android
 
 Чтобы встроить [невидимую SmartCaptcha](../../../smartcaptcha/concepts/invisible-captcha.md) в приложение на Android:

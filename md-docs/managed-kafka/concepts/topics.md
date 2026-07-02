@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Концепции](index.md) > Топики и разделы
+
 # Топики и разделы
 
 ## Топики {#topics}

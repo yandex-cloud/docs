@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Devices > [gRPC (англ.)](../index.md) > [Device](index.md) > DeletePassword
+
 # IoT Core Service, gRPC: DeviceService.DeletePassword
 
 Deletes the specified password.

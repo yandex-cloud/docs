@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Управление кластером Kubernetes > Получение информации о кластере Kubernetes
+
 # Информация об имеющихся кластерах Managed Service for Kubernetes
 
 Чтобы узнать `ID` или `NAME` [кластера Kubernetes](../../concepts/index.md#kubernetes-cluster), получите список кластеров Kubernetes в каталоге или подробную информацию об кластере Kubernetes.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > Справочник YC CLI (англ.) > Overview
+
 # yc storage
 
 Manage Yandex Object Storage resources

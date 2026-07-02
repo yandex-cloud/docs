@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [dns](../../index.md) > [v0](../index.md) > [zone](index.md) > list-operations
+
 # yc dns v0 zone list-operations
 
 List operations of the specified dns zone.

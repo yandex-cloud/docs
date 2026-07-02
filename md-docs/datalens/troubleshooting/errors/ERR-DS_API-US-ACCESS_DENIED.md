@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Access denied
+
 # [Yandex DataLens] Access denied
 
 `ERR.DS_API.US.ACCESS_DENIED`

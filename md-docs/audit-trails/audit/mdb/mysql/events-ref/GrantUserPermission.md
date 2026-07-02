@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mysql > GrantUserPermission
+
 # Managed Service for MySQL Audit Trails Events: GrantUserPermission
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mysql.GrantUserPermission2-schema}

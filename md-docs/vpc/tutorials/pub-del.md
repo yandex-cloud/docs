@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Практические руководства](index.md) > Cloud Interconnect > Удаление публичного соединения
+
 ## Удаление публичного соединения {#pub-del}
 
 Чтобы удалить cуществующее публичное соединение из транка, создайте [новое обращение в поддержку](https://center.yandex.cloud/support).

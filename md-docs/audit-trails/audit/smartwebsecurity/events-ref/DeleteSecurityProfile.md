@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > smartwebsecurity > DeleteSecurityProfile
+
 # Smart Web Security Audit Trails Events: DeleteSecurityProfile
 
 ## Event JSON schema {#yandex.cloud.audit.smartwebsecurity.DeleteSecurityProfile2-schema}

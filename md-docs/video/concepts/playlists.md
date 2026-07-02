@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Video](../index.md) > [Концепции](index.md) > Плейлисты
+
 # Плейлисты
 
 В сервисе Cloud Video вы можете [группировать](../operations/playlists/create.md) видео и завершенные трансляции в плейлисты в определенной последовательности, а также [изменять](../operations/playlists/update.md) такую последовательность.

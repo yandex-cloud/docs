@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [node-group](index.md) > list-operations
+
 # yc container node-group list-operations
 
 List operations for the specified node group.

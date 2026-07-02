@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [LifecyclePolicy](index.md) > ListDryRunResultAffectedImages
+
 # Container Registry API, REST: LifecyclePolicy.ListDryRunResultAffectedImages
 
 Retrieves the list of the affected images.

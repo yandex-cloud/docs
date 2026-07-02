@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > DeleteColorPalette
+
 # DataLens Audit Trails Events: DeleteColorPalette
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.DeleteColorPalette2-schema}

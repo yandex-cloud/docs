@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Практические руководства](index.md) > Мониторинг > Передача логов кластера Managed Service for Kubernetes в Cloud Logging
+
 # Передача логов кластера Managed Service for Kubernetes в Yandex Cloud Logging
 
 # Передача логов кластера Yandex Managed Service for Kubernetes в Yandex Cloud Logging

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Router](../index.md) > [Концепции](index.md) > VPC Stitching
+
 # VPC Stitching
 
 {% note warning %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Практические руководства](index.md) > Доставка USB-устройств на виртуальную машину или сервер BareMetal
+
 # Доставка USB-устройств на виртуальную машину или сервер BareMetal
 
 В данном руководстве вы настроите доставку USB-устройств на [сервер](../../baremetal/concepts/servers.md) Yandex BareMetal через [VPN-подключение](../../glossary/vpn.md) поверх публичного сегмента сети интернет. Для этого вы используете технологию _USB over IP_ и свободно распространяемое программное обеспечение в составе дистрибутивов [Linux](https://ru.wikipedia.org/wiki/Linux).
@@ -65,7 +67,7 @@
 В стоимость предлагаемого решения входят:
 
 * плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) виртуальной машины ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за вычислительные ресурсы и диски [ВМ](../concepts/vm.md) ([тарифы Yandex Compute Cloud](../pricing.md));
 * плата за аренду сервера BareMetal ([тарифы Yandex BareMetal](../../baremetal/pricing.md)).
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [disk](index.md) > set-access-bindings
+
 # yc compute disk set-access-bindings
 
 Set access bindings for the specified disk and delete all existing access bindings if there were any

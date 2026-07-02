@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [SmartCaptcha](../index.md) > Устранение ошибки `Ключ не может использоваться на домене captcha-api.yandex.ru`
+
 # Устранение ошибки `Ключ не может использоваться на домене captcha-api.yandex.ru`
 
 

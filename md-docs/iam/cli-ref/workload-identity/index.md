@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Справочник CLI (англ.)](../index.md) > workload-identity > Overview
+
 # yc iam workload-identity
 
 Manage workload identity

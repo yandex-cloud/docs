@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [baremetal](../index.md) > [public-prefix-pool](index.md) > get
+
 # yc baremetal public-prefix-pool get
 
 Returns the specified public prefix pool.

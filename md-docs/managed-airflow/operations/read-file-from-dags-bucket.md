@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > [Пошаговые инструкции](index.md) > Работа с Yandex Object Storage > Чтение файла из Yandex Object Storage
+
 # Чтение файла из Yandex Object Storage
 
 Используйте [направленный ациклический граф (DAG)](../concepts/index.md#about-the-service) для чтения файлов из Yandex Object Storage сервисного аккаунта, который привязан к кластеру Apache Airflow™.

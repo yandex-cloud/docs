@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [application-load-balancer](../index.md) > [load-balancer](index.md) > enable-zones
+
 # yc application-load-balancer load-balancer enable-zones
 
 Enable traffic routing in zones for the specified load balancer

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Devices > [gRPC (англ.)](../index.md) > [RegistryData](index.md) > Publish
+
 # IoT Core Service, gRPC: RegistryDataService.Publish
 
 Publishes message on behalf of specified registry

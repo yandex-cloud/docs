@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Marketplace](../../../index.md) > Партнерам > Справочник License Manager API > [REST (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Yandex Cloud Marketplace License Manager, REST: Operation.Cancel
 
 Cancels the specified operation.

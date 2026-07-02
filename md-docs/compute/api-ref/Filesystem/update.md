@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Filesystem](index.md) > Update
+
 # Compute Cloud API, REST: Filesystem.Update
 
 Updates the specified filesystem.

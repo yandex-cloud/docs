@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [node-group](index.md) > remove-metadata
+
 # yc managed-kubernetes v0 node-group remove-metadata
 
 Remove keys from metadata of the node template of the specified node group.

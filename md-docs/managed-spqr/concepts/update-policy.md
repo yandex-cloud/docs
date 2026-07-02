@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > [Концепции](index.md) > Политика поддержки версий Sharded PostgreSQL
+
 # Политика поддержки версий PostgreSQL в Managed Service for Sharded PostgreSQL
 
 Документ описывает жизненный цикл Managed Service for Sharded PostgreSQL, основанный на [мажорных](#version-lifecycle) версиях PostgreSQL в Yandex Cloud. Политика основана на официальном цикле поддержки [сообщества](https://www.postgresql.org/) PostgreSQL и предназначена для обеспечения баланса между стабильностью работы кластеров (шардов) и поддержанием современной и безопасной инфраструктуры.

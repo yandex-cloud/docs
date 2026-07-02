@@ -1,9 +1,9 @@
 
 # Querying real-time data
 
-You can process data from both {{ objstorage-full-name }} storage systems and {{ yds-full-name }} data stream buses.
+You can process data from both {{ objstorage-full-name }} storage systems and {{ yds-full-name }} data streaming buses.
 
-The example below shows how to split input data into one-minute intervals and count the number of events and the total amount within each interval:
+The example below shows how to split input data into one-minute intervals, count the number of events within each interval, and calculate the totals per interval:
 
 ```sql
 SELECT

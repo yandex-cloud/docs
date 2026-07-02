@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > Вопросы и ответы > Устранение неполадок
+
 # Устранение неполадок в Managed Service for Sharded PostgreSQL
 
 * [Транзакция не применяется на всех шардах](#cross-shard-transaction-failure)

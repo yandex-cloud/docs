@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [RouteTable](index.md) > List
+
 # Virtual Private Cloud API, gRPC: RouteTableService.List
 
 Retrieves the list of RouteTable resources in the specified folder.

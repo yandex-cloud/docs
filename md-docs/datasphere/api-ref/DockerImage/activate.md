@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Справочник API](../overview.md) > [REST (англ.)](../index.md) > [DockerImage](index.md) > Activate
+
 # DataSphere API v2, REST: DockerImage.Activate
 
 Activates shared docker image in project

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex API Gateway](../index.md) > [Практические руководства](index.md) > Интеграция с сервисами Яндекса и Yandex Cloud > Использование API Gateway для настройки синтеза речи в Yandex SpeechKit
+
 # Использование Yandex API Gateway для настройки синтеза речи в Yandex SpeechKit
 
 
@@ -32,7 +34,7 @@
 
 В стоимость поддержки создаваемой инфраструктуры входит:
 
-* плата за количество запросов к API-шлюзу и исходящий трафик ([тарифы Yandex API Gateway](../../api-gateway/pricing.md));
+* плата за количество запросов к API-шлюзу и исходящий трафик ([тарифы Yandex API Gateway](../pricing.md));
 * плата за использование SpeechKit ([тарифы SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/pricing)).
 
 

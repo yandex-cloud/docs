@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > vpc > DeleteSubnet
+
 # Virtual Private Cloud Audit Trails Events: DeleteSubnet
 
 ## Event JSON schema {#yandex.cloud.audit.network.DeleteSubnet2-schema}

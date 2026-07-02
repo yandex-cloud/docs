@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Message Queue > Message Queue
+
 # Yandex Message Queue
 
 Yandex Message Queue — универсальное масштабируемое решение для обмена сообщениями между приложениями. Для работы с сервисом можно использовать популярные инструменты: API сервиса совместим с Amazon SQS API.

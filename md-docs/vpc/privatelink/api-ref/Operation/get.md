@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > REST (англ.) > [Virtual Private Cloud API](../index.md) > [Operation](index.md) > Get
+
 # Virtual Private Cloud API, REST: Operation.Get
 
 Returns the specified Operation resource.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Облачная терминология](index.md) > Сети и доставка контента > TCP/IP
+
 # Технология TCP/IP
 
 _TCP/IP (англ. Transmission Control Protocol / Internet Protocol)_ — это совокупность правил, позволяющих устройствам взаимодействовать по сети.

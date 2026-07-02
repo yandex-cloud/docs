@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > Справочник API > [REST (англ.)](../index.md) > SymmetricCrypto > Overview
+
 # Key Management Service API, REST: SymmetricCrypto
 
 Set of methods that perform symmetric encryption and decryption.

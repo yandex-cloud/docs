@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LifecyclePolicy](index.md) > Get
+
 # Container Registry API, gRPC: LifecyclePolicyService.Get
 
 Returns the specified lifecycle policy.

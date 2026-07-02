@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for YDB](../../index.md) > Document API, совместимый с Amazon DynamoDB > Справочник Document API > Все методы
+
 # Все методы
 
 Managed Service for YDB HTTP API предоставляет следующие методы:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Backup](../../index.md) > [Пошаговые инструкции](../index.md) > BareMetal в Cloud Backup > Подключить существующий сервер BareMetal к Cloud Backup
+
 # Подключить существующий сервер Yandex BareMetal к Yandex Cloud Backup
 
 # Подключить существующий сервер Yandex BareMetal к Yandex Cloud Backup
@@ -46,7 +48,7 @@
 
 В стоимость поддержки инфраструктуры входит:
 * плата за аренду сервера ([тарифы Yandex BareMetal](../../../baremetal/pricing.md));
-* плата за подключенный к сервису Cloud Backup сервер BareMetal и объем резервных копий ([тарифы Yandex Cloud Backup](../../backup/pricing.md)).
+* плата за подключенный к сервису Cloud Backup сервер BareMetal и объем резервных копий ([тарифы Yandex Cloud Backup](../../pricing.md)).
 
 Трафик, передаваемый между Yandex BareMetal и сервисом [Yandex Cloud Backup](../../index.md), не тарифицируется.
 

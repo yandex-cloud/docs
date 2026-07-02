@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Blocks have different column count
+
 # [Yandex DataLens] Blocks have different column count
 
 `ERR.DS_API.BLOCK.UNEVEN_COLUMN_COUNT`

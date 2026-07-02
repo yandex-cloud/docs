@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > storage > ObjectTagsDelete
+
 # Object Storage Audit Trails Events: ObjectTagsDelete
 
 ## Event JSON schema {#yandex.cloud.audit.storage.ObjectTagsDelete2-schema}

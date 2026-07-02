@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Logging](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Sink](index.md) > Update
+
 # Cloud Logging Service, gRPC: SinkService.Update
 
 Updates the specified sink.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SymmetricCrypto](index.md) > Decrypt
+
 # Key Management Service API, REST: SymmetricCrypto.Decrypt
 
 Decrypts the given ciphertext with the specified key.

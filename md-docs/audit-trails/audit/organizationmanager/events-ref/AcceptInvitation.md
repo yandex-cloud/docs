@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > AcceptInvitation
+
 # Identity Hub Audit Trails Events: AcceptInvitation
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.AcceptInvitation2-schema}

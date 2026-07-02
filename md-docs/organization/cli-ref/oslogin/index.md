@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Справочник CLI (англ.)](../index.md) > oslogin > Overview
+
 # yc organization-manager oslogin
 
 Setting up OS Login

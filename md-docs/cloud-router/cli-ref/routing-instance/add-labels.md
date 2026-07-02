@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > [Справочник CLI (англ.)](../index.md) > [routing-instance](index.md) > add-labels
+
 # yc cloudrouter routing-instance add-labels
 
 Assign labels to a RoutingInstance resource.

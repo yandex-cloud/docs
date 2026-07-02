@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Application Load Balancer > Resources > alb_virtual_host
+
 # yandex_alb_virtual_host (Resource)
 
 Creates a virtual host that belongs to specified HTTP router and adds the specified routes to it. For more information, see [the official documentation](../../application-load-balancer/concepts/http-router.md).

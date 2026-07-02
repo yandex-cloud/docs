@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [disk-placement-group](index.md) > add-labels
+
 # yc compute disk-placement-group add-labels
 
 Add labels to the specified disk placement group

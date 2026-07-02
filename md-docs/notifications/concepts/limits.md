@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты Yandex Cloud Notification Service
 
 В сервисе Cloud Notification Service действуют следующие ограничения:

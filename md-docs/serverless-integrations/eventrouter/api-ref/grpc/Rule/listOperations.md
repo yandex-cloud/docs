@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API EventRouter > [gRPC (англ.)](../index.md) > [Rule](index.md) > ListOperations
+
 # EventRouter Service, gRPC: RuleService.ListOperations
 
 Lists operations for the specified rule.

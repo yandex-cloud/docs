@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > StartFailover
+
 # Managed Service for PostgreSQL API, REST: Cluster.StartFailover
 
 Start a manual failover on the specified PostgreSQL cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v1](../index.md) > advanced-rate-limiter > Overview
+
 # yc smartwebsecurity v1 advanced-rate-limiter
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for OpenSearch](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > switch-master
+
 # yc managed-opensearch v0 cluster switch-master
 
 Switch current master or ensure that it is not on specified hosts.

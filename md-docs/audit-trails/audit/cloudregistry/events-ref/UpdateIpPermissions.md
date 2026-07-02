@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > cloudregistry > UpdateIpPermissions
+
 # Yandex Cloud Registry Audit Trails Events: UpdateIpPermissions
 
 ## Event JSON schema {#yandex.cloud.audit.cloudregistry.UpdateIpPermissions2-schema}

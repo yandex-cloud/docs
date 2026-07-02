@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex API Gateway](../../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ApiGateway](index.md) > AddDomain
+
 # API Gateway Service, REST: ApiGateway.AddDomain
 
 Attaches domain to the specified API gateway.

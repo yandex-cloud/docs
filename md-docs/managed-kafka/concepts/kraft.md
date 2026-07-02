@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Концепции](index.md) > Протокол KRaft
+
 # Протокол Apache Kafka® Raft в кластерах Managed Service for Apache Kafka®
 
 _[Apache Kafka® Raft](https://docs.confluent.io/platform/current/kafka-metadata/kraft.html)_ (сокращенно KRaft) — протокол согласования, который позволяет хранить метаданные и управлять ими внутри Apache Kafka®. KRaft устраняет зависимость Apache Kafka® от внешнего сервиса синхронизации метаданных ZooKeeper.

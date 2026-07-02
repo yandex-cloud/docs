@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > CreateEntry
+
 # DataLens Audit Trails Events: CreateEntry
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.CreateEntry2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Valkey™](../index.md) > [Концепции](index.md) > Шардирование
+
 # Шардирование в Yandex Managed Service for Valkey™
 
 [Шардирование](../../glossary/sharding.md) в Yandex Managed Service for Valkey™ реализовано с помощью [Valkey™ Cluster](https://valkey.io/topics/cluster-tutorial).
