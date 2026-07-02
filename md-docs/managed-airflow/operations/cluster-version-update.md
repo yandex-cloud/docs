@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Обновление версии Apache Airflow™ и Python
+
 # Обновление версии Apache Airflow™ и Python
 
 Со списком поддерживаемых версий можно ознакомиться в разделе [Версионирование](../concepts/versions.md).

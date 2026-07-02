@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Disk](index.md) > Relocate
+
 # Compute Cloud API, REST: Disk.Relocate
 
 Moves the specified disk to another availability zone

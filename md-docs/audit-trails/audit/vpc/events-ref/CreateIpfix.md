@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > vpc > CreateIpfix
+
 # Virtual Private Cloud Audit Trails Events: CreateIpfix
 
 ## Event JSON schema {#yandex.cloud.audit.network.CreateIpfix2-schema}

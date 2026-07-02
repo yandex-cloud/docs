@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ServiceAccount](index.md) > Reactivate
+
 # Identity and Access Management API, gRPC: ServiceAccountService.Reactivate
 
 Reactivates the specified service account.

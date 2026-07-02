@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Services for Kubernetes > Data Sources > kubernetes_node_group
+
 # yandex_kubernetes_node_group (DataSource)
 
 Get information about a Yandex Kubernetes Node Group. For more information, see [the official documentation](../../managed-kubernetes/concepts/index.md#node-group).

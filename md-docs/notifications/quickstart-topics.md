@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Notification Service](index.md) > Начало работы > Начало работы с топиками
+
 # Как начать работать с топиками в Yandex Cloud Notification Service
 
 

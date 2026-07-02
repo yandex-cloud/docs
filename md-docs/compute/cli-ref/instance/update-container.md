@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [instance](index.md) > update-container
+
 # yc compute instance update-container
 
 Update the specified virtual machine instance running Docker container

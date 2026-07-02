@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > DeleteHostGroup
+
 # Compute Audit Trails Events: DeleteHostGroup
 
 ## Event JSON schema {#yandex.cloud.audit.compute.DeleteHostGroup2-schema}

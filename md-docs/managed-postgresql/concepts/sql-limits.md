@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Концепции](index.md) > Ограничения для команд SQL
+
 # Ограничения для команд SQL
 
 В сервисе Managed Service for PostgreSQL существуют ограничения на действия владельца БД с помощью команд SQL:

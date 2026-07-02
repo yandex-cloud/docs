@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [certificate](index.md) > update
+
 # yc certificate-manager v0 certificate update
 
 Update the specified certificate

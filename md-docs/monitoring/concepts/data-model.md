@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Концепции](index.md) > Модель данных
+
 # Модель данных в Monitoring
 
 Данные в сервисе Yandex Monitoring хранятся в виде [временных рядов](https://en.wikipedia.org/wiki/Time_series).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Stream](index.md) > BatchDelete
+
 # Video API, REST: Stream.BatchDelete
 
 Deletes multiple streams in a specific channel in a single request.

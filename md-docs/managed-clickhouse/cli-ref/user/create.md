@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [user](index.md) > create
+
 # yc managed-clickhouse user create
 
 Create a ClickHouse user.

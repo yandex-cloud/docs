@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Subtitle](index.md) > Create
+
 # Video API, gRPC: SubtitleService.Create
 
 Creates a new subtitle record for a specific video.

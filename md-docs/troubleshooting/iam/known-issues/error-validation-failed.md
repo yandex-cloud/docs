@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Identity and Access Management](../index.md) > Устранение ошибки `Validation failed - access_binding_deltas Number of elements must be in the range of 1 to 1000`
+
 # Устранение ошибки `Validation failed: - access_binding_deltas: Number of elements must be in the range of 1 to 1000`
 
 

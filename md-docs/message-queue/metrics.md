@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Message Queue](index.md) > Метрики Monitoring
+
 # Справочник метрик Yandex Monitoring
 
 В этом разделе описаны метрики сервиса Message Queue, поставляемые в [Monitoring](../monitoring/index.md).

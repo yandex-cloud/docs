@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > k8s > ApiServerOptions
+
 # Managed Services for Kubernetes Audit Trails Events: ApiServerOptions
 
 ## Event JSON schema {#yandex.cloud.audit.k8s.apiserver.ApiServerOptions2-schema}

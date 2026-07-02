@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-gitlab](../../index.md) > [v0](../index.md) > [instance](index.md) > stop
+
 # yc managed-gitlab v0 instance stop
 
 Stop the specified Gitlab instance

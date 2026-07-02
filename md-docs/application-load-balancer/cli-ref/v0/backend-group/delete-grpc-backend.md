@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [backend-group](index.md) > delete-grpc-backend
+
 # yc application-load-balancer v0 backend-group delete-grpc-backend
 
 Delete gRPC backend from the backend group

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Поставка данных](index.md) > Fluent Bit > Настройка Fluent Bit
+
 # Передача данных через Fluent Bit
 
 Fluent Bit — агент для сбора, обработки и экспорта логов и метрик. Вы можете использовать Fluent Bit для передачи телеметрии в Monium в формате [OpenTelemetry (OTLP)](https://opentelemetry.io/docs/).

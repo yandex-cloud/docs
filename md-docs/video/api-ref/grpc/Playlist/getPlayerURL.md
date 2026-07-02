@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Playlist](index.md) > GetPlayerURL
+
 # Video API, gRPC: PlaylistService.GetPlayerURL
 
 Generates a player URL for watching the playlist.

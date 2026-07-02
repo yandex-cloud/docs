@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > DataSphere Notebook > Установить пакеты
+
 # Установить зависимости
 
 Популярные пакеты для [анализа данных](../../../glossary/data-analytics.md) и машинного обучения уже предустановлены и готовы к использованию, смотрите [список](../../concepts/preinstalled-packages.md).

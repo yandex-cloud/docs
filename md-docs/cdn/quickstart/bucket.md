@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud CDN](../index.md) > [Начало работы](index.md) > Создание CDN-ресурса с источником-бакетом
+
 # Создание CDN-ресурса с источником-бакетом Yandex Object Storage
 
 

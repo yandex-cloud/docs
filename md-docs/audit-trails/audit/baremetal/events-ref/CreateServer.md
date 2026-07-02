@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > baremetal > CreateServer
+
 # BareMetal Audit Trails Events: CreateServer
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.CreateServer2-schema}

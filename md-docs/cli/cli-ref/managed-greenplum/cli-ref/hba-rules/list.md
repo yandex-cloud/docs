@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-greenplum](../index.md) > [hba-rules](index.md) > list
+
 # yc managed-greenplum hba-rules list
 
 List hba-rules for specified Greenplum cluster

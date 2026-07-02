@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datatransfer > RestartTransfer
+
 # Data Transfer Audit Trails Events: RestartTransfer
 
 ## Event JSON schema {#yandex.cloud.audit.datatransfer.RestartTransfer2-schema}

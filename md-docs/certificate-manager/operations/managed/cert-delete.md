@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Certificate Manager](../../index.md) > [Пошаговые инструкции](../index.md) > Сертификат от Let's Encrypt > Удаление сертификата
+
 # Удалить сертификат от Let's Encrypt
 
 Чтобы удалить [сертификат от Let's Encrypt](../../concepts/managed-certificate.md):

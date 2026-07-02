@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-postgresql](../../index.md) > [v0](../index.md) > [cluster](index.md) > list-logs
+
 # yc managed-postgresql v0 cluster list-logs
 
 Retrieves logs for the specified PostgreSQL cluster

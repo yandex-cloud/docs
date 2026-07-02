@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > k8s > ApiServerDeleteCollection
+
 # Managed Services for Kubernetes Audit Trails Events: ApiServerDeleteCollection
 
 ## Event JSON schema {#yandex.cloud.audit.k8s.apiserver.ApiServerDeleteCollection2-schema}

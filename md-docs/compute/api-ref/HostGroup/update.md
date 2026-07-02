@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [HostGroup](index.md) > Update
+
 # Compute Cloud API, REST: HostGroup.Update
 
 Updates the specified host group.

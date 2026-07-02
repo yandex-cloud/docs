@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > ListExternalDictionaries
+
 # Managed Service for ClickHouse API, REST: Cluster.ListExternalDictionaries
 
 Retrieves a list of external dictionaries that belong to specified cluster.

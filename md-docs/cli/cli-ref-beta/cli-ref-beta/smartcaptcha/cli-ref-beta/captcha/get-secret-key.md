@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Beta-версия интерфейса командной строки](../../../../index.md) > [Справочник beta-версии CLI (англ.)](../../../index.md) > [smartcaptcha](../index.md) > [captcha](index.md) > get-secret-key
+
 # yc beta smartcaptcha captcha get-secret-key
 
 Returns the secret data of specified Captcha resource.

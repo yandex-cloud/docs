@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > User > Overview
+
 # Managed Service for MongoDB API, gRPC: UserService
 
 A set of methods for managing MongoDB User resources.

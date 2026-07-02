@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > Расширения и словари PostgreSQL > postgresql_anonymizer
+
 # Использование postgresql_anonymizer в Managed Service for PostgreSQL
 
 Расширение `postgresql_anonymizer` позволяет замаскировать или заменить в базе данных PostgreSQL персональные данные или информацию, составляющую коммерческую тайну.

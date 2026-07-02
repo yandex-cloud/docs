@@ -1,11 +1,11 @@
 ---
 title: Access management in {{ sf-name }}
-description: Access management in {{ sf-name }}, a service for running applications without creating and maintaining VMs. This section describes the resources for which you can assign a role and the roles existing in the service.
+description: Access management in {{ sf-name }}, a service for running applications without creating and maintaining VMs. This section describes the resources for which you can assign a role and the roles {{ sf-name }} has.
 ---
 
 # Access management in {{ sf-name }}
 
-In this section, you will learn about:
+In this section, you will learn about the following:
 
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).

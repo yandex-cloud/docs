@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-metastore](../index.md) > [cluster](index.md) > import-data
+
 # yc managed-metastore cluster import-data
 
 Import data to the specified Metastore cluster

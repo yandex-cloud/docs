@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Marketplace](../../../../index.md) > Партнерам > Справочник License Manager API > [gRPC (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Yandex Cloud Marketplace License Manager, gRPC: OperationService.Get
 
 Returns the specified Operation resource.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [config](../index.md) > [profile](index.md) > get
+
 # yc config profile get
 
 List values for the specified configuration profile

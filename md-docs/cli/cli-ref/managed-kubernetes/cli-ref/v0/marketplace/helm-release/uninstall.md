@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [managed-kubernetes](../../../index.md) > [v0](../../index.md) > [marketplace](../index.md) > [helm-release](index.md) > uninstall
+
 # yc managed-kubernetes v0 marketplace helm-release uninstall
 
 Uninstall a Helm Release from marketplace from the cluster.

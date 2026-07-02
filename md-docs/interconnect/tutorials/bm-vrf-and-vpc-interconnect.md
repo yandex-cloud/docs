@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Interconnect](../index.md) > [Практические руководства](index.md) > Настройка сетевой связности между подсетями BareMetal и Virtual Private Cloud
+
 # Настройка сетевой связности между подсетями Yandex BareMetal и Yandex Virtual Private Cloud с помощью Cloud Interconnect
 
 # Организация сетевой связности между подсетями Yandex BareMetal и Yandex Virtual Private Cloud с помощью Yandex Cloud Interconnect

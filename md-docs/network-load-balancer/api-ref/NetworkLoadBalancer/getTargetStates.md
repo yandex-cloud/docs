@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Network Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [NetworkLoadBalancer](index.md) > GetTargetStates
+
 # Network Load Balancer API, REST: NetworkLoadBalancer.GetTargetStates
 
 Gets states of target resources in the attached target group.

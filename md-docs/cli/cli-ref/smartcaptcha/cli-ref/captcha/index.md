@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [smartcaptcha](../index.md) > captcha > Overview
+
 # yc smartcaptcha captcha
 
 A set of methods for managing Captcha resources.

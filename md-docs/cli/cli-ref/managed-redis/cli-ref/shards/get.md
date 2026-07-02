@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-redis](../index.md) > [shards](index.md) > get
+
 # yc managed-redis shards get
 
 Get information about a shard in a Redis cluster.

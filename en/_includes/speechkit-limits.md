@@ -12,14 +12,14 @@ Recognition requests per hour | 500
 Operation status check requests via API v2 per hour | 2,500
 Operation status check requests via API v3 per second | 5
 Billable hours of audio per day^1^ | 10,000
-**Queries accessing an LLM** |
-Concurrent queries accessing generative text models | 2
+**Requests querying LLMs** |
+Concurrent requests querying generative text models | 2
 **Speech synthesis** |
 Requests per second | 40
 
 
 
-^1^ The first recognition request triggers the start of the time count.
+^1^ The first recognition request triggers the time count.
 
 
 #### Limits {#speechkit-limits}
@@ -27,7 +27,7 @@ Requests per second | 40
 Type of limit | Value
 ----- | -----
 **Streaming speech recognition** |
-Maximum duration of transmitted audio for entire session | {{ stt-streaming-audioLength }}
+Maximum duration of transmitted audio for the entire session | {{ stt-streaming-audioLength }}
 Maximum size of transmitted audio data | {{ stt-streaming-fileSize }}
 Maximum number of audio channels | {{ stt-short-channelsCount }}
 **Synchronous recognition** | |
@@ -45,5 +45,5 @@ Maximum request size for the API v1 | 5,000 characters
 Maximum request size for the API v3 | {{ tts-v3-count }} and {{ tts-v3-time }}
 Maximum request size for the API v3 in unsafe mode | 5,000 characters
 Maximum request size for the API v3 in streaming mode | 5,000 characters
-**Queries accessing an LLM** |
+**Requests querying LLMs** |
 Number of instructions for the generative text model per session | 16

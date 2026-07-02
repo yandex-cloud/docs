@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex IoT Core](index.md) > Начало работы > Брокер
+
 # Начало работы с брокерами Yandex IoT Core
 
 {% note warning %}

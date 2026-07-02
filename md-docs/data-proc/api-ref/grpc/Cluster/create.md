@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Processing](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Create
+
 # Yandex Data Processing API, gRPC: ClusterService.Create
 
 Creates a cluster in the specified folder.

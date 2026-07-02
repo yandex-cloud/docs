@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [Yandex Cloud gRPC (англ.)](../index.md) > [Bucket](index.md) > GetHTTPSConfig
+
 # Object Storage API, gRPC: BucketService.GetHTTPSConfig
 
 Returns the HTTPS configuration for the specified bucket.

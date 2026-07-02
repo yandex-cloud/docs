@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > [Подключение](index.md) > Подключение из приложений
+
 # Подключение к кластеру Yandex MPP Analytics for PostgreSQL из приложений
 
 В этом разделе представлены настройки для подключения к хостам кластера Yandex MPP Analytics for PostgreSQL с помощью [инструментов командной строки](#command-line-tools), из [графических IDE](#connection-ide), [pgAdmin 4](#connection-pgadmin) и [Docker-контейнера](#connection-docker). О подключении из кода вашего приложения читайте в разделе [Примеры кода](code-examples.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [PublicPrefixPool](index.md) > List
+
 # BareMetal API, REST: PublicPrefixPool.List
 
 Lists public prefix pools in the specified folder.

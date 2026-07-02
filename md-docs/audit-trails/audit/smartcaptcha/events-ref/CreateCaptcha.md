@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > smartcaptcha > CreateCaptcha
+
 # SmartCaptcha Audit Trails Events: CreateCaptcha
 
 ## Event JSON schema {#yandex.cloud.audit.smartcaptcha.CreateCaptcha2-schema}

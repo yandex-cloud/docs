@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Logging](../index.md) > [Пошаговые инструкции](index.md) > Управление лог-группой > Удалить лог-группу
+
 # Удалить лог-группу
 
 {% note info %}

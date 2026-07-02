@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > Вопросы и ответы > Мониторинг и логи
+
 # Мониторинг и логи в Yandex MPP Analytics for PostgreSQL
 
 #### За какими метриками и процессами можно следить с помощью мониторинга? {#monitoring}

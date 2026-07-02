@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex DataSphere](../../../index.md) > [Справочник API](../../overview.md) > [gRPC (англ.)](../index.md) > [Community](index.md) > AddResource
+
 # DataSphere API v2, gRPC: CommunityService.AddResource
 
 Adds shared resource to community

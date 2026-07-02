@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ yq-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources supported for {{ yq-name }}.
+description: This page is a reference for {{ TF }} provider resources supported for {{ yq-name }}.
 ---
 
 # {{ TF }} reference for {{ yq-full-name }}

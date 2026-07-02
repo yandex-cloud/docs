@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Концепции](overview.md) > Высокая доступность кластера
+
 # Высокая доступность кластера Yandex MPP Analytics for PostgreSQL
 
 Высокая доступность кластера Yandex MPP Analytics for PostgreSQL определяется настройками подключения клиентов, свободным местом в хранилище и другими параметрами.

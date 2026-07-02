@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [image](index.md) > get-scan-result
+
 # yc container image get-scan-result
 
 [PREVIEW] Get scan result.

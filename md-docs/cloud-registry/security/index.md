@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Registry](../index.md) > Управление доступом
+
 # Управление доступом в Yandex Cloud Registry
 
 Для управления правами доступа в Cloud Registry используются [роли](../../iam/concepts/access-control/roles.md).

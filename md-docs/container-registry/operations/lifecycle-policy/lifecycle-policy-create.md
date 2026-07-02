@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Пошаговые инструкции](../index.md) > Управление политиками автоматического удаления Docker-образов > Создать политику удаления
+
 # Создать политику удаления
 
 Задать [политику удаления](../../concepts/lifecycle-policy.md) можно только для [репозитория](../../concepts/repository.md). Чтобы узнать имя репозитория, получите [список репозиториев в реестре](../repository/repository-list.md#repository-get).

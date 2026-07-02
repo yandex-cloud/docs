@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [workflow](../index.md) > [execution](index.md) > start
+
 # yc serverless workflow execution start
 
 Start Execution

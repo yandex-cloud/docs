@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > backup > StartRecoverBackup
+
 # Cloud Backup Audit Trails Events: StartRecoverBackup
 
 ## Event JSON schema {#yandex.cloud.audit.backup.StartRecoverBackup2-schema}

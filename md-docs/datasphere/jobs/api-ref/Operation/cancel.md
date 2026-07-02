@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex DataSphere](../../../index.md) > Справочник API > REST (англ.) > [DataSphere Jobs API v2](../index.md) > [Operation](index.md) > Cancel
+
 # DataSphere Jobs API v2, REST: Operation.Cancel
 
 Cancels the specified operation.

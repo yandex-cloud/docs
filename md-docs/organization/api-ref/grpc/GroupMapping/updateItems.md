@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [GroupMapping](index.md) > UpdateItems
+
 # Identity Hub API, gRPC: GroupMappingService.UpdateItems
 
 Updates group mapping items for a specified federation

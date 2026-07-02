@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Пошаговые инструкции](index.md) > Подсеть > Изменить подсеть
+
 # Изменить подсеть
 
 После создания [подсети](../concepts/network.md#subnet) вы можете изменить ее имя, описание и настройки DCHP.

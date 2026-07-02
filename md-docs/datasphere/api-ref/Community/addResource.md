@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Справочник API](../overview.md) > [REST (англ.)](../index.md) > [Community](index.md) > AddResource
+
 # DataSphere API v2, REST: Community.AddResource
 
 Adds shared resource to community

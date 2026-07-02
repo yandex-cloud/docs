@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > Сервисные аккаунты > Создание сервисного аккаунта
+
 # Создание сервисного аккаунта
 
 {% note warning %}

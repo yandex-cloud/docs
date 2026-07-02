@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Video](../index.md) > Справочник API > Начало работы с API
+
 # Как начать работать с API Yandex Cloud Video
 
 В этом разделе вы научитесь создавать [каналы](../concepts/index.md#channels), загружать [видео](../concepts/videos.md) и получать для загруженных видео ссылки на [видеоплеер](../concepts/player.md) с помощью [REST API](index.md) и [gRPC API](grpc/index.md) Cloud Video.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v1](../index.md) > [security-profile](index.md) > create
+
 # yc smartwebsecurity v1 security-profile create
 
 Creates a security profile in the specified folder using the data specified in the request.

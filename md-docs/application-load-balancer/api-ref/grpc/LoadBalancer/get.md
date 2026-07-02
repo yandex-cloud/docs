@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LoadBalancer](index.md) > Get
+
 # Application Load Balancer API, gRPC: LoadBalancerService.Get
 
 Returns the specified application load balancer.

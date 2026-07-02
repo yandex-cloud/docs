@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Monitoring](../../index.md) > Справочник API > [REST](../index.md) > MetricsData > Обзор
+
 # MetricsData
 Набор методов для управления данными метрик.
 

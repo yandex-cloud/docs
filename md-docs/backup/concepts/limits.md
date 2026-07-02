@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Backup](../index.md) > [Концепции](index.md) > Квоты
+
 # Квоты в Cloud Backup
 
 В сервисе Cloud Backup действуют [_квоты_](https://console.yandex.cloud/cloud?section=quotas) — организационные ограничения, которые можно изменить по запросу в техническую поддержку.

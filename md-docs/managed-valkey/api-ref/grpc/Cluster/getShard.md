@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Valkey™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > GetShard
+
 # Managed Service for Redis API, gRPC: ClusterService.GetShard
 
 Returns the specified shard.

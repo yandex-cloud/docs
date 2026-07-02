@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Certificate Manager > Certificate Manager
+
 # Yandex Certificate Manager
 
 Yandex Certificate Manager — сервис для получения и обновления TLS-сертификатов от Let's Encrypt, а также для загрузки собственных сертификатов, которые можно использовать для доступа к сайтам, шлюзам API Gateway и ресурсам Cloud CDN по протоколу HTTPS, а также для обработки TLS-трафика в Application Load Balancer.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Filesystem](index.md) > SetAccessBindings
+
 # Compute Cloud API, gRPC: FilesystemService.SetAccessBindings
 
 Sets access bindings for the filesystem.

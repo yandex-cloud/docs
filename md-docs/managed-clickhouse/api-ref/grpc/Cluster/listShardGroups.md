@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > ListShardGroups
+
 # Managed Service for ClickHouse API, gRPC: ClusterService.ListShardGroups
 
 Retrieves a list of shard groups that belong to specified cluster.

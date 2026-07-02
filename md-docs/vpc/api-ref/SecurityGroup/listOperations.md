@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SecurityGroup](index.md) > ListOperations
+
 # Virtual Private Cloud API, REST: SecurityGroup.ListOperations
 
 Lists operations for the specified security groups.

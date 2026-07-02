@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Пошаговые инструкции](index.md) > Создание триггера > Создать триггер для Message Queue
+
 # Создать триггер для Message Queue, который передает сообщения в контейнер Serverless Containers
 
 Создайте [триггер для очереди сообщений](../concepts/trigger/ymq-trigger.md) сервиса Message Queue и обрабатывайте их с помощью [контейнера](../concepts/container.md) Serverless Containers.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Maintenance](index.md) > Get
+
 # Managed Service for Apache Kafka® API, gRPC: MaintenanceService.Get
 
 Retrieves the specific Maintenance by ID.

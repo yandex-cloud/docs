@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Functions](../index.md) > Начало работы > Обзор
+
 # Начало работы с Cloud Functions
 
 Выберите сценарий для знакомства:

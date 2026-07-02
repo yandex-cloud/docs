@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [cic](../index.md) > trunk-connection > Overview
+
 # yc cic trunk-connection
 
 A set of methods for managing TrunkConnection resources.

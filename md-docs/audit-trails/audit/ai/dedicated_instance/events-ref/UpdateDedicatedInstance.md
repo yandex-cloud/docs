@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > ai.dedicated_instance > UpdateDedicatedInstance
+
 # AI Studio Dedicated Instance Audit Trails Events: UpdateDedicatedInstance
 
 ## Event JSON schema {#yandex.cloud.audit.ai.dedicated_instance.UpdateDedicatedInstance2-schema}

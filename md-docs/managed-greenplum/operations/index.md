@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Yandex MPP Analytics for PostgreSQL
 
 ## Кластеры {#clusters}

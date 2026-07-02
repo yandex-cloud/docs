@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [PlacementGroup](index.md) > ListAccessBindings
+
 # Compute Cloud API, gRPC: PlacementGroupService.ListAccessBindings
 
 Lists access bindings for the placement group.

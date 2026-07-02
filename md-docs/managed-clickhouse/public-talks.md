@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for ClickHouse®](index.md) > Публичные материалы
+
 # Публичные материалы о Yandex Managed Service for ClickHouse®
 
 ## Статьи, анонсы и видео {#articles}

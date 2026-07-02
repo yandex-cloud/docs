@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ScanPolicy](index.md) > GetByRegistry
+
 # Yandex Cloud Registry API, REST: ScanPolicy.GetByRegistry
 
 Returns scan policy for the registry if any exists.

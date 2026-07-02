@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > Справочник API > [REST (англ.)](../index.md) > DnsInboundEndpoint > Overview
+
 # Cloud DNS API, REST: DnsInboundEndpoint
 
 ## Methods

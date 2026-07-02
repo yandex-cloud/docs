@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > Бэкенд на Serverless > Интерактивная отладка функций Cloud Functions
+
 # Интерактивная отладка функций Yandex Cloud Functions
 
 

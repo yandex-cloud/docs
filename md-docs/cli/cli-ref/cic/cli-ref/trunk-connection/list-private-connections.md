@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [cic](../index.md) > [trunk-connection](index.md) > list-private-connections
+
 # yc cic trunk-connection list-private-connections
 
 Retrieves the list of PrivateConnection resources associated with the specified TrunkConnection.

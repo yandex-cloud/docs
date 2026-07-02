@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > Справочник API > REST (англ.) > [SmartWebSecurity MatchList API](../index.md) > [MatchList](index.md) > Create
+
 # SmartWebSecurity MatchList API, REST: MatchList.Create
 
 Creates a MatchList resource in the specified folder.

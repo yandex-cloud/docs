@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > Справочник CLI (англ.) > Functions
+
 # yc serverless function
 
 Manage functions

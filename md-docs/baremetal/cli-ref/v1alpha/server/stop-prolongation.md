@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v1alpha](../index.md) > [server](index.md) > stop-prolongation
+
 # yc baremetal v1alpha server stop-prolongation
 
 Stops prolongation of the specified server.

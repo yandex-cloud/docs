@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [SAML Federation API](../index.md) > Operation > Overview
+
 # SAML Federation API, gRPC: OperationService
 
 A set of methods for managing operations for asynchronous API requests.

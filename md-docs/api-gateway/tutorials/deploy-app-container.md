@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex API Gateway](../index.md) > [Практические руководства](index.md) > Бэкенд на Serverless > Запуск контейнерного приложения в Yandex Serverless Containers
+
 # Запуск контейнерного приложения в Yandex Serverless Containers
 
 
@@ -41,7 +43,7 @@
 * плата за хранение секретов ([тарифы Yandex Lockbox](../../lockbox/pricing.md));
 * плата за хранение Docker-образа ([тарифы Yandex Container Registry](../../container-registry/pricing.md));
 * плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик ([тарифы Serverless Containers](../../serverless-containers/pricing.md));
-* плата за запросы к API-шлюзу ([тарифы Yandex API Gateway](../../api-gateway/pricing.md));
+* плата за запросы к API-шлюзу ([тарифы Yandex API Gateway](../pricing.md));
 * плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) ([тарифы Yandex Cloud Logging](../../logging/pricing.md)).
 
 

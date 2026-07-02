@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud Logging > Data Sources > api_gateway
+
 # yandex_api_gateway (DataSource)
 
 Get information about a Yandex Cloud API Gateway. For more information, see the official documentation [Yandex Cloud API Gateway](../../api-gateway/index.md).

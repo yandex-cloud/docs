@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Анализ и визуализация данных > Аналитика > Поиск событий Yandex Cloud в Object Storage
+
 # Поиск событий Yandex Cloud в Object Storage
 
 ## Перед началом работы {#before-you-begin}

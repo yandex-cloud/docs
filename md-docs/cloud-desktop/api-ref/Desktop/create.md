@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Desktop](index.md) > Create
+
 # Cloud Desktop API, REST: Desktop.Create
 
 Creates desktop in the specified folder.

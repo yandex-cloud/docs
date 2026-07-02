@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [kms](../../index.md) > [v0](../index.md) > [symmetric-key](index.md) > remove-access-binding
+
 # yc kms v0 symmetric-key remove-access-binding
 
 Remove access binding for the specified symmetric key

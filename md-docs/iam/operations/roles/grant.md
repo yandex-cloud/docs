@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > Роли > Назначение роли
+
 # Назначение роли
 
 Чтобы предоставить доступ к ресурсу, назначьте на него [роль](../../concepts/access-control/roles.md). Ее могут получить:

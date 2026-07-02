@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ServiceAccount](index.md) > ListAccessBindings
+
 # Identity and Access Management API, gRPC: ServiceAccountService.ListAccessBindings
 
 Lists access bindings for the specified service account.

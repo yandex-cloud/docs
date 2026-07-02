@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [StylePreset](index.md) > Update
+
 # Video API, gRPC: StylePresetService.Update
 
 Updates an existing style preset's properties and visual settings.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Настройка политики холодного хранилища в Managed Service for OpenSearch
+
 # Настройка политики холодного хранилища в Yandex Managed Service for OpenSearch
 
 # Настройка политики холодного хранилища в Yandex Managed Service for OpenSearch

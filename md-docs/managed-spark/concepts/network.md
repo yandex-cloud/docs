@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Spark™](../index.md) > [Концепции](index.md) > Сеть в Yandex Managed Service for Apache Spark™
+
 # Сеть в Yandex Managed Service for Apache Spark™
 
 При создании кластера вы можете задать следующие сетевые настройки:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Анализ производительности и оптимизация Managed Service for MySQL®
+
 # Анализ производительности и оптимизация Managed Service for MySQL®
 
 # Анализ производительности и оптимизация Managed Service for MySQL®

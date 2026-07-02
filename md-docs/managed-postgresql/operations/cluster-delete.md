@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Удаление кластера
+
 # Удаление кластера PostgreSQL
 
 ## Перед удалением кластера {#before-you-delete}

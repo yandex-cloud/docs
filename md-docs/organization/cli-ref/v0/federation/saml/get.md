@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [federation](../index.md) > [saml](index.md) > get
+
 # yc organization-manager v0 federation saml get
 
 Show information about the specified federation

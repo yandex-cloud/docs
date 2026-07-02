@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > postbox > CreateConfigurationSet
+
 # Yandex Cloud Postbox Audit Trails Events: CreateConfigurationSet
 
 ## Event JSON schema {#yandex.cloud.audit.postbox.CreateConfigurationSet2-schema}

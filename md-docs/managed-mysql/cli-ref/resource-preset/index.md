@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > [Справочник CLI (англ.)](../index.md) > resource-preset > Overview
+
 # yc managed-mysql resource-preset
 
 Manage MySQL resource presets

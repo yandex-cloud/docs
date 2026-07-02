@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [device](../index.md) > [password](index.md) > add
+
 # yc iot device password add
 
 Add new password to specified device

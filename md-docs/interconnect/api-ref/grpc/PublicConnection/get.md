@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [PublicConnection](index.md) > Get
+
 # Cloud Interconnect API, gRPC: PublicConnectionService.Get
 
 Returns the specified PublicConnection resource.

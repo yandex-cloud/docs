@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > [Пошаговые инструкции](../index.md) > Каталог > Настройка прав доступа
+
 # Настройка прав доступа к каталогу
 
 {% note warning %}

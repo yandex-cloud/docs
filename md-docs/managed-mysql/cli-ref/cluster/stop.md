@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > stop
+
 # yc managed-mysql cluster stop
 
 Stop the specified MySQL cluster

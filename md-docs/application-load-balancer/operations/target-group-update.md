@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > Целевые группы > Изменить целевую группу
+
 # Изменить целевую группу
 
 Вы можете добавлять или удалять [виртуальные машины](../../compute/concepts/vm.md) из [целевой группы](../concepts/target-group.md).

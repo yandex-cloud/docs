@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Detection and Response](../../index.md) > [Пошаговые инструкции](../index.md) > [Запросы](index.md) > История запросов
+
 # История запросов
 
 {% note info %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Organization](index.md) > BindAccessPolicy
+
 # Identity Hub API, gRPC: OrganizationService.BindAccessPolicy
 
 Binds the access policy template to the organization.

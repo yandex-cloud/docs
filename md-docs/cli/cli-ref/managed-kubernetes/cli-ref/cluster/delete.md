@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-kubernetes](../index.md) > [cluster](index.md) > delete
+
 # yc managed-kubernetes cluster delete
 
 Delete a Kubernetes cluster.

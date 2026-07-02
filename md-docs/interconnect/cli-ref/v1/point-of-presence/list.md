@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v1](../index.md) > [point-of-presence](index.md) > list
+
 # yc cic v1 point-of-presence list
 
 Retrieves the list of PointOfPresence resources in the specified folder.

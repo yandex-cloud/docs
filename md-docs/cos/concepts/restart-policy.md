@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Solution](../index.md) > [Концепции](index.md) > Политики перезапуска Docker-контейнера
+
 # Политики перезапуска Docker-контейнера
 
 В описании [Docker-контейнера](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers) можно указать политики перезапуска:

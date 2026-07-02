@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud DNS](../index.md) > [Пошаговые инструкции](index.md) > Записи > Удалить запись
+
 # Удалить ресурсную запись
 
 Чтобы удалить [ресурсную запись](../concepts/resource-record.md):

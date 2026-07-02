@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > [Пошаговые инструкции](index.md) > Управление группами пользователей > Создать группу
+
 # Создать группу
 
 Чтобы создать [группу](../concepts/groups.md), у вас должна быть _минимальная_ [роль](../security/index.md#organization-manager-editor) `organization-manager.groups.editor` на [организацию](../concepts/organization.md).

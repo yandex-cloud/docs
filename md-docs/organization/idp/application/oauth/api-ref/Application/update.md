@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity Hub](../../../../../index.md) > Справочник API > REST (англ.) > Identity Provider API > [OAUTH Application API](../index.md) > [Application](index.md) > Update
+
 # OAUTH Application API, REST: Application.Update
 
 Updates the specified OAuth application.

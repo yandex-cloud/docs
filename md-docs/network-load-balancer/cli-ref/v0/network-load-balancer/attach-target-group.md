@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Network Load Balancer](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [network-load-balancer](index.md) > attach-target-group
+
 # yc load-balancer v0 network-load-balancer attach-target-group
 
 Attaches a target group to the specified network load balancer.

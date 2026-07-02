@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Security Deck](../index.md) > Справочник API > Аутентификация
+
 # Security Deck API authentication
 
 # Аутентификация в API

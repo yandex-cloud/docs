@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Audit Trails](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Audit Trails
 
 * [Поиск событий Yandex Cloud в Object Storage](search-bucket.md)

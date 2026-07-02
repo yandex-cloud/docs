@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > [Справочник CLI (англ.)](../index.md) > [trunk-connection](index.md) > list-public-connections
+
 # yc cic trunk-connection list-public-connections
 
 Retrieves the list of PublicConnection resources associated with the specified TrunkConnection.

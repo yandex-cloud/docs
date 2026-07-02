@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex MetaData Hub](../../../../index.md) > Connection Manager > Справочник API > [gRPC (англ.)](../index.md) > Connection > Overview
+
 # Connection Manager API, gRPC: ConnectionService
 
 A set of methods for managing Connection resources.

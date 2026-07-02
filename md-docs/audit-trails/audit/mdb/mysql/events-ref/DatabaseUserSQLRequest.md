@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mysql > DatabaseUserSQLRequest
+
 # Managed Service for MySQL Audit Trails Events: DatabaseUserSQLRequest
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mysql.DatabaseUserSQLRequest2-schema}

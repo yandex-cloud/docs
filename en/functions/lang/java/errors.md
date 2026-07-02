@@ -1,6 +1,6 @@
 # Java function error handling
 
-If a [handler](handler.md) reports a Java function runtime or loading error, the [runtime environment](../../concepts/runtime/index.md) automatically captures the error and returns a JSON document with the error type in the response. For more information about the JSON document format, see [Calling a function](../../concepts/function-invoke.md#error). Error details are written to the [execution log](logging.md).
+If the [handler](handler.md) reports a function execution or loading error, the [runtime](../../concepts/runtime/index.md) automatically catches the error and returns a JSON document with information about the error type. For more information about the JSON document format, see [Invoking a function](../../concepts/function-invoke.md#error). Error details are written to the [execution log](logging.md).
 
 ## Examples of error handling {#examples}
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Message Queue](../index.md) > [Начало работы](index.md) > Примеры кода > Golang
+
 # Пример использования Yandex Message Queue на Golang
 
 С помощью [AWS SDK для Golang](https://aws.amazon.com/ru/sdk-for-go/) можно управлять очередями сообщений в Message Queue, отправлять и принимать сообщения.

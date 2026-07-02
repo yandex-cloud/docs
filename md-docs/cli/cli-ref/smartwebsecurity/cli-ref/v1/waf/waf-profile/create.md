@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [smartwebsecurity](../../../index.md) > [v1](../../index.md) > [waf](../index.md) > [waf-profile](index.md) > create
+
 # yc smartwebsecurity v1 waf waf-profile create
 
 Creates a WAF profile in the specified folder using the data specified in the request.

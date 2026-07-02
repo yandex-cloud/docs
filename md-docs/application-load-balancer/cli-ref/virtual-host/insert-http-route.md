@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [virtual-host](index.md) > insert-http-route
+
 # yc application-load-balancer virtual-host insert-http-route
 
 Inserts HTTP route into the specified virtual host of the HTTP router

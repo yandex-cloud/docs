@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Security Deck](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Alert > Overview
+
 # Security Deck Alerts API, gRPC: AlertService
 
 A set of methods for managing Security Deck alerts.

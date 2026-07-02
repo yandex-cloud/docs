@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > vpc > RelocateSubnet
+
 # Virtual Private Cloud Audit Trails Events: RelocateSubnet
 
 ## Event JSON schema {#yandex.cloud.audit.network.RelocateSubnet2-schema}

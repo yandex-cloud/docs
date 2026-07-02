@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity Hub](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [idp](../../../index.md) > [application](../../index.md) > [saml](../index.md) > [application](index.md) > remove-access-bindings
+
 # yc organization-manager idp application saml application remove-access-bindings
 
 Remove access bindings from the specified SAML application

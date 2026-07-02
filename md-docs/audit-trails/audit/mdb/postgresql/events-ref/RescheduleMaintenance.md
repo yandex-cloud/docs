@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.postgresql > RescheduleMaintenance
+
 # Managed Service for PostgreSQL Audit Trails Events: RescheduleMaintenance
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.postgresql.RescheduleMaintenance2-schema}

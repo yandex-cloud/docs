@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex WebSQL](../index.md) > [Пошаговые инструкции](index.md) > Управление подключениями > Просмотр информации о ресурсах
+
 # Просмотр информации о ресурсах
 
 В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**](https://websql.yandex.cloud) вы можете просмотреть информацию:

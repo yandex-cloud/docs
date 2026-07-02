@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [User](index.md) > List
+
 # Managed Service for MongoDB API, gRPC: UserService.List
 
 Retrieves the list of MongoDB User resources in the specified cluster.

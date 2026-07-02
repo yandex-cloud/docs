@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Resource](index.md) > Update
+
 # Cloud CDN API, REST: Resource.Update
 
 Updates the specified CDN resource.

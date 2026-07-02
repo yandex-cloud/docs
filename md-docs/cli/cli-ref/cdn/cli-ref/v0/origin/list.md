@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cdn](../../index.md) > [v0](../index.md) > [origin](index.md) > list
+
 # yc cdn v0 origin list
 
 List origins in the specified origin group

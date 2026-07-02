@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [PXFDatasource](index.md) > List
+
 # Managed Service for Greenplum® API, gRPC: PXFDatasourceService.List
 
 List all PXF datasources

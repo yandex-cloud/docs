@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Аутентификация в OpenSearch Dashboards кластера Managed Service for OpenSearch с помощью Keycloak
+
 # Аутентификация в OpenSearch Dashboards кластера Yandex Managed Service for OpenSearch с помощью Keycloak
 
 Вы можете использовать [Keycloak](https://www.keycloak.org/) для [аутентификации пользователей](../../managed-opensearch/operations/saml-authentication.md), которые работают с OpenSearch Dashboards в кластере Yandex Managed Service for OpenSearch.

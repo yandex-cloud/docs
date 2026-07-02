@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Пошаговые инструкции](index.md) > Управление правами доступа к контейнеру > Назначить роли на контейнер
+
 # Назначить роли на контейнер
 
 {% list tabs group=instructions %}

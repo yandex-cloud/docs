@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Logging](../index.md) > [Практические руководства](index.md) > Запись логов балансировщика в PostgreSQL
+
 # Запись логов балансировщика в PostgreSQL
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > Workflows > Получение информации о рабочем процессе > Получить информацию о рабочем процессе
+
 # Получить информацию о рабочем процессе
 
 {% list tabs group=instructions %}

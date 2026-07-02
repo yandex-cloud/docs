@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [trunk-connection](index.md) > batch-get
+
 # yc cic v0 trunk-connection batch-get
 
 Get information about several trunk connections in one request.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Managed Service for YDB
 
 * [Развертывание веб-приложения с использованием Java Servlet API и YDB](java-servlet-todo-list.md)

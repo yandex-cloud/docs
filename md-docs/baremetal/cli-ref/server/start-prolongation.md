@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../index.md) > [server](index.md) > start-prolongation
+
 # yc baremetal server start-prolongation
 
 Starts prolongation of the specified server.

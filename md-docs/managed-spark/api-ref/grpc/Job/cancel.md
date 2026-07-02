@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Spark™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Job](index.md) > Cancel
+
 # Managed Spark API, gRPC: JobService.Cancel
 
 Cancels the specified Spark job.

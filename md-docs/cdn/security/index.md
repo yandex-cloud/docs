@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud CDN](../index.md) > Управление доступом
+
 # Управление доступом в Cloud CDN
 
 Для управления правами доступа в Cloud CDN используются [роли](../../iam/concepts/access-control/roles.md).

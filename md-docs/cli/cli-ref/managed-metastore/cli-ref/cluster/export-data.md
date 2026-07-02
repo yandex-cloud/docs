@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-metastore](../index.md) > [cluster](index.md) > export-data
+
 # yc managed-metastore cluster export-data
 
 Export data from the specified Metastore cluster

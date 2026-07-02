@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [quota-manager](../index.md) > [quota-request](index.md) > create
+
 # yc quota-manager quota-request create
 
 Create a quota request

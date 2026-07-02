@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Подключения > Базы данных > Создание подключения к YDB
+
 # Создание подключения к YDB в Yandex DataLens
 
 {% note info %}

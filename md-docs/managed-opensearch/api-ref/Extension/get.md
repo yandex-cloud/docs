@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for OpenSearch](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Extension](index.md) > Get
+
 # Managed Service for OpenSearch API, REST: Extension.Get
 
 Returns the specified extension of OpenSearch cluster.

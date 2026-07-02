@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Subtitle](index.md) > Delete
+
 # Video API, REST: Subtitle.Delete
 
 Deletes a specific subtitle by its ID.

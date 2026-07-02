@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-redis](../../index.md) > [v0](../index.md) > [hosts](index.md) > update
+
 # yc managed-redis v0 hosts update
 
 Update the specified hosts

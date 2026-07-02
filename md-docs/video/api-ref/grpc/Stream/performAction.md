@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Stream](index.md) > PerformAction
+
 # Video API, gRPC: StreamService.PerformAction
 
 Performs a specific action on a stream, such as publishing or stopping.

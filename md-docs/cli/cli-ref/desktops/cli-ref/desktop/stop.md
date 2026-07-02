@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [desktops](../index.md) > [desktop](index.md) > stop
+
 # yc desktops desktop stop
 
 Stop the specified desktop

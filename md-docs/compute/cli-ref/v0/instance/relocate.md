@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [instance](index.md) > relocate
+
 # yc compute v0 instance relocate
 
 Relocate the specified virtual machine instance to the zone

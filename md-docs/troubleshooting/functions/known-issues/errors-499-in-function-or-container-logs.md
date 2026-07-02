@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Cloud Functions](../index.md) > Устранение ошибок с HTTP 499 при работе облачной функции или контейнера Serverless Containers
+
 # Устранение ошибок с HTTP 499 при работе облачной функции или контейнера Serverless Containers
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Архитектура, сетевое взаимодействие](index.md) > Настройка сетевых ресурсов и взаимодействие между ними > Настройка сети для Yandex Data Processing
+
 # Настройка сети для Yandex Data Processing
 
 # Настройка сети для Yandex Data Processing

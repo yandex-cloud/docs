@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Концепции](index.md) > Роли пользователей
+
 # Роли пользователей в Yandex Managed Service for Apache Kafka®
 
 Роль [выдается пользователю](../operations/cluster-accounts.md#grant-permission) и предоставляет список прав на управление ресурсами кластера Apache Kafka®.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Security Deck](../index.md) > [Справочник правил](index.md) > Все правила
+
 # Все правила Yandex Security Deck
 
 На этой странице представлен полный список правил безопасности, используемых в Security Deck.

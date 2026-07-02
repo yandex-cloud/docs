@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > ListAccessBindings
+
 # Managed Service for Greenplum® API, REST: Cluster.ListAccessBindings
 
 Retrieves a list of access bindings for the specified Greenplum® cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Transfer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [transfer](index.md) > delete
+
 # yc datatransfer transfer delete
 
 Delete transfer

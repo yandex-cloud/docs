@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Network Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > Сетевые балансировщики > Добавить обработчик
+
 # Добавить обработчик к сетевому балансировщику
 
 {% list tabs group=instructions %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Group](index.md) > Create
+
 # Identity Hub API, REST: Group.Create
 
 Creates a group in the specified organization.

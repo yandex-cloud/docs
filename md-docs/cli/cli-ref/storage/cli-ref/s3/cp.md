@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [storage](../index.md) > [s3](index.md) > cp
+
 # yc storage s3 cp
 
 Copies a local file or S3 object to another location locally or in S3

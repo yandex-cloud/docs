@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Organization](index.md) > UpdateAccessPolicyBindingParameters
+
 # Identity Hub API, gRPC: OrganizationService.UpdateAccessPolicyBindingParameters
 
 Updates the access policy binding parameters for the organization.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > Расширения > gp_url_tools
+
 # Использование gp_url_tools в Yandex MPP Analytics for PostgreSQL
 
 {% note warning %}

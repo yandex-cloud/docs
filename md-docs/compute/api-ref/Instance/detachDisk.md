@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Instance](index.md) > DetachDisk
+
 # Compute Cloud API, REST: Instance.DetachDisk
 
 Detaches the disk from the instance.

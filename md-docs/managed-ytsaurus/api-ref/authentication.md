@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YTsaurus](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Yandex Managed Service for YTsaurus
 
 # Аутентификация в API

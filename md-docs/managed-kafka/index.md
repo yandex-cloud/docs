@@ -1,4 +1,4 @@
-
+[Документация Yandex Cloud](../index.md) > Yandex Managed Service for Apache Kafka® > Managed Service for Apache Kafka®
 
 # Yandex Managed Service for Apache Kafka®
 

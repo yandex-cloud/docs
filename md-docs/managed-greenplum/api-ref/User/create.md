@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [User](index.md) > Create
+
 # Managed Service for Greenplum® API, REST: User.Create
 
 Creates user

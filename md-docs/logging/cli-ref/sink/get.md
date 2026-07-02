@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > [Справочник CLI (англ.)](../index.md) > [sink](index.md) > get
+
 # yc logging sink get
 
 Show information about the specified logging sink

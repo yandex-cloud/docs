@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > serverless > SetProxyAccessBindings
+
 # Cloud Functions Audit Trails Events: SetProxyAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.serverless.mdbproxy.SetProxyAccessBindings2-schema}

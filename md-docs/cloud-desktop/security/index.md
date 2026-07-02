@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Desktop](../index.md) > Управление доступом
+
 # Управление доступом в Yandex Cloud Desktop
 
 В Cloud Desktop управление доступом реализовано с помощью разграничения ролей Yandex Identity and Access Management и [списков управления доступом (ACL)](../concepts/acl.md). [Пример использования механизмов доступа](../concepts/acl.md#example).

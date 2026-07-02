@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Cloud Desktop > Cloud Desktop
+
 # Yandex Cloud Desktop
 
 <em>Сервис Yandex Cloud Desktop находится на <a href="../overview/concepts/launch-stages.md">стадии Preview</a></em>.

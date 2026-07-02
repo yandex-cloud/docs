@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Partner](index.md) > Get
+
 # Cloud Interconnect API, gRPC: PartnerService.Get
 
 Returns the specified Partner resource.

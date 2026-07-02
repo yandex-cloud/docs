@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > serverless > UpdateApiGateway
+
 # Cloud Functions Audit Trails Events: UpdateApiGateway
 
 ## Event JSON schema {#yandex.cloud.audit.serverless.apigateway.UpdateApiGateway2-schema}

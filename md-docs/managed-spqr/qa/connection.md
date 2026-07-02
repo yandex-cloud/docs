@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > Вопросы и ответы > Подключение
+
 # Подключение к кластеру Managed Service for Sharded PostgreSQL
 
 * [Как подключиться к роутеру?](#how-to-connect-to-router)

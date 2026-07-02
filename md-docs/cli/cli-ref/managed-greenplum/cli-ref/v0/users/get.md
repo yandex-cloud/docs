@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-greenplum](../../index.md) > [v0](../index.md) > [users](index.md) > get
+
 # yc managed-greenplum v0 users get
 
 Get user for specified Greenplum cluster

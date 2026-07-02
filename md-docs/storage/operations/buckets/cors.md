@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Бакеты > Управление конфигурацией CORS
+
 # Настройка CORS
 
 Object Storage позволяет управлять [конфигурацией CORS](../../concepts/cors.md) в бакете.

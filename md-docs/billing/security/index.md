@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Billing](../index.md) > Управление доступом
+
 # Управление доступом в сервисе Yandex Cloud Billing
 
 ## Доступ к платежному аккаунту {#billing-account}

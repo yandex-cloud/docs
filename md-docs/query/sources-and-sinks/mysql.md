@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > Источники и приемники данных > Работа с базами данных Managed Service for MySQL®
+
 # Работа с базами данных Managed Service for MySQL®
 
 В этом разделе описана основная информация про работу с [Managed Service for MySQL®](https://yandex.cloud/ru/services/managed-mysql).

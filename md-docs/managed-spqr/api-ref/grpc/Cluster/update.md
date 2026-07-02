@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Update
+
 # Managed Service for SPQR API, gRPC: ClusterService.Update
 
 Updates the specified SPQR cluster.

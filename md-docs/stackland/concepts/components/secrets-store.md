@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > Концепции > [Компоненты](overview.md) > Secrets Store
+
 # Secrets Store
 
 Stackland использует для безопасного хранения секретов и их подстановки два основных инструмента:

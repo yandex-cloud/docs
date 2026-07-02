@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Вычисляемые поля > Справочник функций > Функции для работы с массивами > CAST_ARR_STR
+
 # CAST_ARR_STR
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > websql > DeleteSavedQuery
+
 # WebSQL Audit Trails Events: DeleteSavedQuery
 
 ## Event JSON schema {#yandex.cloud.audit.websql.DeleteSavedQuery2-schema}

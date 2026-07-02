@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Network Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [network-load-balancer](index.md) > detach-target-group
+
 # yc load-balancer network-load-balancer detach-target-group
 
 Detaches the target group from the specified network load balancer.

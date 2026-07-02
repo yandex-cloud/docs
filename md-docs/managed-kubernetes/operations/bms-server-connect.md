@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Пошаговые инструкции](index.md) > Работа с внешними узлами > Подключение сервера BareMetal как внешнего узла
+
 # Подключение сервера Yandex BareMetal как внешнего узла к кластеру Yandex Managed Service for Kubernetes
 
 

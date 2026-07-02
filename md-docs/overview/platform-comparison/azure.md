@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Обзор платформы](../index.md) > [Сопоставление с другими платформами](index.md) > Сопоставление с Microsoft Azure
+
 # Сопоставление с Microsoft Azure
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Processing](../../index.md) > [Пошаговые инструкции](../index.md) > Сервисы Apache и другие сторонние сервисы > Delta Lake > Советы по настройке и применению Delta Lake
+
 # Советы по настройке и применению Delta Lake
 
 ## Оптимизация записи в S3-совместимые хранилища {#s3-algorithm}

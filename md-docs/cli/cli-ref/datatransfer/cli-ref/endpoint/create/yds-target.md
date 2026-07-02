@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [datatransfer](../../index.md) > [endpoint](../index.md) > [create](index.md) > yds-target
+
 # yc datatransfer endpoint create yds-target
 
 Create YDS target

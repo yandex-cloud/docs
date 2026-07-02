@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Контейнерная инфраструктура](index.md) > Managed Service for Kubernetes > Использование продуктов Cloud Marketplace > Интеграция с Crossplane
+
 # Интеграция Yandex Managed Service for Kubernetes с Crossplane
 
 # Интеграция с Crossplane

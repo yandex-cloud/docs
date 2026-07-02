@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Thumbnail](index.md) > BatchGenerateDownloadURLs
+
 # Video API, REST: Thumbnail.BatchGenerateDownloadURLs
 
 Generates download URLs for multiple thumbnails in a single request.

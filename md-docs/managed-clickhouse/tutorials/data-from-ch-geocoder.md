@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Практические руководства](index.md) > Геокодинг с помощью API Яндекс Карт для визуализации в DataLens
+
 # Геокодинг с помощью API Яндекс Карт для визуализации в DataLens
 
 

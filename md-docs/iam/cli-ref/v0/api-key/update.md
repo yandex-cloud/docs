@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [api-key](index.md) > update
+
 # yc iam v0 api-key update
 
 Update an API key for the specified service account

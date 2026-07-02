@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > [REST (англ.)](../index.md) > [Operation](index.md) > Get
+
 # IoT Core Service, REST: Operation.Get
 
 Returns the specified Operation resource.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Identity and Access Management](index.md) > Метрики Monitoring
+
 # Справочник метрик Yandex Monitoring
 
 В этом разделе описаны метрики сервиса Identity and Access Management, поставляемые в [Monitoring](../monitoring/index.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [storage](../index.md) > [s3](index.md) > presign
+
 # yc storage s3 presign
 
 Generate pre-signed URLs for S3 objects

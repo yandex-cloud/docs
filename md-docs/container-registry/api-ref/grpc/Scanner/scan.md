@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Scanner](index.md) > Scan
+
 # Container Registry API, gRPC: ScannerService.Scan
 
 Executes scanning of specified image.

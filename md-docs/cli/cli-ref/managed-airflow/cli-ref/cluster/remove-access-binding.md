@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-airflow](../index.md) > [cluster](index.md) > remove-access-binding
+
 # yc managed-airflow cluster remove-access-binding
 
 Remove access binding for the specified Airflow cluster

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v1](../index.md) > [security-profile](index.md) > delete
+
 # yc smartwebsecurity v1 security-profile delete
 
 Deletes the specified security profile.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Пошаговые инструкции](index.md) > Базы данных > Управление пользователями БД
+
 # Управление пользователями ClickHouse®
 
 Managed Service for ClickHouse® позволяет управлять пользователями и их индивидуальными настройками двумя способами:

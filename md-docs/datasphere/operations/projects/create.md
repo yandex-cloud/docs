@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > Управление проектом > Создать проект
+
 # Создать пустой проект
 
 1. Откройте [главную страницу](https://datasphere.yandex.cloud) DataSphere.

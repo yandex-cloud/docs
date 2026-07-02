@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for ClickHouse > Resources > mdb_clickhouse_cluster_v2
+
 # yandex_mdb_clickhouse_cluster_v2 (Resource)
 
 Manages a ClickHouse cluster within the Yandex Cloud. For more information, see [the official documentation](https://cloud.yandex.com/docs/managed-clickhouse/). [How to connect to the DB](../../managed-clickhouse/quickstart.md#connect). To connect, use port 9440. The port number is not configurable.

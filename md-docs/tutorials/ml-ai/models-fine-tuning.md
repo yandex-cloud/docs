@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Машинное обучение и искусственный интеллект](index.md) > Разработка с помощью DataSphere > Дообучение моделей в DataSphere
+
 # Дообучение моделей в DataSphere Notebooks
 
 Вы можете [дообучать](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/tuning/index) языковые модели Yandex AI Studio, чтобы они лучше понимали специфику ваших задач, через API или AI SDK. Дообучение удобно запускать в ноутбуках [Yandex DataSphere](../../datasphere/index.md).

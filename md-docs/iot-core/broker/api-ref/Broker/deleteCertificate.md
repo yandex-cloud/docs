@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Broker > [REST (англ.)](../index.md) > [Broker](index.md) > DeleteCertificate
+
 # IoT Core Broker Service, REST: Broker.DeleteCertificate
 
 Deletes the specified broker certificate.

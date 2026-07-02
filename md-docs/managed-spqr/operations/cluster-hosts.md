@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Управление хостами кластера
+
 # Управление хостами кластера Sharded PostgreSQL
 
 Вы можете управлять хостами кластера Managed Service for Sharded PostgreSQL, в том числе:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [snapshot-schedule](index.md) > list-disks
+
 # yc compute snapshot-schedule list-disks
 
 List disks attached to the specified snapshot schedule

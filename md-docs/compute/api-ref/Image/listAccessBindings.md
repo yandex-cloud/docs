@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Image](index.md) > ListAccessBindings
+
 # Compute Cloud API, REST: Image.ListAccessBindings
 
 Lists access bindings for the image.

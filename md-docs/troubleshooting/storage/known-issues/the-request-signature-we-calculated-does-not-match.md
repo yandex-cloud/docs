@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Object Storage](../index.md) > Устранение ошибки `The request signature we calculated does not match the signature you provided.`
+
 # Устранение ошибки `The request signature we calculated does not match the signature you provided.`
 
 

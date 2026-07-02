@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Безопасность в Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Безопасность Kubernetes > Создание L7-балансировщика с профилем безопасности Smart Web Security через Ingress-контроллер Application Load Balancer
+
 # Создание L7-балансировщика с профилем безопасности Yandex Smart Web Security через Ingress-контроллер Yandex Application Load Balancer
 
 Приложения в кластере Yandex Managed Service for Kubernetes можно защитить от DDoS-атак и ботов с помощью сервиса [Yandex Smart Web Security](../../../smartwebsecurity/concepts/index.md). Для этого опубликуйте приложения через ресурс Ingress, которому назначен [профиль безопасности](../../../smartwebsecurity/concepts/profiles.md) Smart Web Security и который использует [контроллер Gwin](../../../application-load-balancer/tools/gwin/index.md) или [Ingress-контроллер Application Load Balancer](../../../application-load-balancer/tools/k8s-ingress-controller/index.md).
@@ -26,12 +28,12 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за DNS-зону и DNS-запросы ([тарифы Cloud DNS](../../dns/pricing.md)).
+* Плата за DNS-зону и DNS-запросы ([тарифы Cloud DNS](../../../dns/pricing.md)).
 * Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Application Load Balancer](../../application-load-balancer/pricing.md)).
-* Плата за публичные IP-адреса для узлов кластера и L7-балансировщика ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за количество запросов в сервис Smart Web Security ([тарифы Smart Web Security](../../smartwebsecurity/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../../compute/pricing.md)).
+* Плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Application Load Balancer](../../../application-load-balancer/pricing.md)).
+* Плата за публичные IP-адреса для узлов кластера и L7-балансировщика ([тарифы Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
+* Плата за количество запросов в сервис Smart Web Security ([тарифы Smart Web Security](../../../smartwebsecurity/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

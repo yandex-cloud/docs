@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for GitLab](../../index.md) > [Справочник CLI (англ.)](../index.md) > [instance](index.md) > update
+
 # yc managed-gitlab instance update
 
 Update the specified Gitlab instance

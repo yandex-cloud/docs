@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Network](index.md) > Move
+
 # Virtual Private Cloud API, gRPC: NetworkService.Move
 
 Move network to another folder.

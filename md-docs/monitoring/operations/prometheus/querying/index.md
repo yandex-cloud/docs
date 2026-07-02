@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Monitoring](../../../index.md) > [Yandex Managed Service for Prometheus®](../index.md) > Чтение метрик > Обзор
+
 # Чтение метрик
 
 Читать метрики, записанные в Yandex Managed Service for Prometheus®, можно одним из следующих способов:

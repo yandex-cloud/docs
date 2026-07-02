@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Начало работы](../index.md) > Создание триггера > Обзор
+
 # Создание и запуск триггера в Cloud Functions
 
 Триггеры позволяют вызывать функции Cloud Functions при наступлении определенных событий. Например, [таймер](../../concepts/trigger/timer.md) вызывает [функцию](../../concepts/function.md) по заданному пользователем расписанию. [Пример создания таймера, который вызывает функцию Cloud Functions каждую минуту](timer-quickstart.md).

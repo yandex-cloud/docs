@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Управление кластером Kubernetes > Мониторинг состояния кластера Kubernetes
+
 # Мониторинг состояния кластера Managed Service for Kubernetes
 
 Managed Service for Kubernetes автоматически отправляет метрики кластеров в сервис [Yandex Monitoring](../../../monitoring/index.md). Доступны метрики следующих объектов Kubernetes:

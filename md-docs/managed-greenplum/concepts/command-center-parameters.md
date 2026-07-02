@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Концепции](overview.md) > Параметры командного центра
+
 # Параметры командного центра Yandex MPP Analytics for PostgreSQL
 
 В этом разделе описаны параметры сессий и запросов, доступные в [командном центре Yandex MPP Analytics for PostgreSQL](command-center.md).

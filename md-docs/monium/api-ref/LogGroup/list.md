@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Monium](../../index.md) > Справочник API > Логи > [REST (англ.)](../index.md) > [LogGroup](index.md) > List
+
 # Cloud Logging Service, REST: LogGroup.List
 
 Retrieves the list of log groups in the specified folder.

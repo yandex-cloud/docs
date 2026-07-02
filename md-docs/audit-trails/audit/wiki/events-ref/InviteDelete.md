@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > InviteDelete
+
 # Yandex Wiki Audit Trails Events: InviteDelete
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.InviteDelete2-schema}

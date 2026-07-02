@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > [Практические руководства](../index.md) > [Интеграция L7-балансировщика с CDN и Object Storage](index.md) > Консоль управления, CLI и API
+
 # Интеграция L7-балансировщика с Cloud CDN и Object Storage с помощью консоли управления
 
 

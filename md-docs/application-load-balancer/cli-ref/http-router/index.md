@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > http-router > Overview
+
 # yc application-load-balancer http-router
 
 Manage application load balancer http router

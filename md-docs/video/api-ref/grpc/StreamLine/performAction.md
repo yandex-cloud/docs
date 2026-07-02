@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [StreamLine](index.md) > PerformAction
+
 # Video API, gRPC: StreamLineService.PerformAction
 
 Performs a specific action on a stream line, such as activation or deactivation.

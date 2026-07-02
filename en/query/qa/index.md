@@ -1,6 +1,6 @@
 ---
 title: General questions about {{ yq-full-name }}
-description: How do I get logs of my activity in {{ yq-full-name }}? Find the answer to this and other questions in this article.
+description: How do I get my activity logs in {{ yq-full-name }}? Find answers to this and other questions in this article.
 ---
 
 # General questions about {{ yq-full-name }}

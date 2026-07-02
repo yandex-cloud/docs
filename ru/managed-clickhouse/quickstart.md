@@ -37,7 +37,11 @@ description: В этой инструкции вы научитесь созда
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и роль [{{ roles.mch.editor }} или выше](security.md#roles-list). Эти роли позволяют создать кластер.
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
+
+   * {% include [roles-mch-editor](../_includes/mdb/mch/roles-mch-editor.md) %}
+   * {% include [roles-vpc-user](../_includes/mdb/roles-vpc-user.md) %}
+   * {% include [roles-mdb-viewer](../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
 
    Для привязки сервисного аккаунта к кластеру (например, для [работы с {{ objstorage-full-name }}](operations/s3-access.md)) вашему аккаунту дополнительно нужна роль [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) или выше.
 

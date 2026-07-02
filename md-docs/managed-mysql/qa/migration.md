@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for MySQL®](../index.md) > Вопросы и ответы > Миграция/перенос
+
 # Миграция/перенос
 
 * [Как перенести данные в кластер?](#to-cluster)

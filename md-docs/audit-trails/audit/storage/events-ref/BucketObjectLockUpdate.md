@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > storage > BucketObjectLockUpdate
+
 # Object Storage Audit Trails Events: BucketObjectLockUpdate
 
 ## Event JSON schema {#yandex.cloud.audit.storage.BucketObjectLockUpdate2-schema}

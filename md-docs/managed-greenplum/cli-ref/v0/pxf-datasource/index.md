@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > pxf-datasource > Overview
+
 # yc managed-greenplum v0 pxf-datasource
 
 Manage Greenplum pxf datasources

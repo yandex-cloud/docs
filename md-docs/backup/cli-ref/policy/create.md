@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Backup](../../index.md) > [Справочник CLI (англ.)](../index.md) > [policy](index.md) > create
+
 # yc backup policy create
 
 Create policy

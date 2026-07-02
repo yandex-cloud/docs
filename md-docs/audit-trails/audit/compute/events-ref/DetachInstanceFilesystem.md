@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > DetachInstanceFilesystem
+
 # Compute Audit Trails Events: DetachInstanceFilesystem
 
 ## Event JSON schema {#yandex.cloud.audit.compute.DetachInstanceFilesystem2-schema}

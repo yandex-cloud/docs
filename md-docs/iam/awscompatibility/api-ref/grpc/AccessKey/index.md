@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity and Access Management](../../../../index.md) > Справочник API > gRPC (англ.) > [Access Key](../index.md) > AccessKey > Overview
+
 # Access Key, gRPC: AccessKeyService
 
 A set of methods for managing access keys.

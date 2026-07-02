@@ -81,7 +81,7 @@ The number of data rows transferred from {{ PG }} to {{ PG }} during the reporti
 {% include [usd-replication](../_pricing_examples/data-transfer/usd-replication.md) %}
 
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [How to optimize data delivery in {{ data-transfer-name }}](https://www.youtube.com/watch?v=1BJ9YEASOeU)
 

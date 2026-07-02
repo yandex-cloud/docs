@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > BackendGroup > Overview
+
 # Application Load Balancer API, REST: BackendGroup
 
 A set of methods for managing backend groups.

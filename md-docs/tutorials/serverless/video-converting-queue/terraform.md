@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > Прикладные решения > Прочее > [Конвертация видео в GIF на Python](index.md) > Terraform
+
 # Конвертация видео в GIF на Python с помощью Terraform
 
 

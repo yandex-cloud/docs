@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > Разработка на Python > Обзор
+
 # Разработка на Python. Обзор
 
 С помощью сервиса Cloud Functions вы можете запускать приложения, написанные на [Python](https://python.org/).

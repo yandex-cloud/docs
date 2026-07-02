@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-postgresql](../index.md) > [cluster](index.md) > list-operations
+
 # yc managed-postgresql cluster list-operations
 
 List operations for the specified PostgreSQL cluster

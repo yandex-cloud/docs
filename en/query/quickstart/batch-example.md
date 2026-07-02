@@ -1,15 +1,15 @@
 # Analytical processing of {{ objstorage-full-name }} data
 
-In this example, you will [analytically process](../concepts/batch-processing.md) a dataset on New York City taxi rides. Data for the example were placed in the [{{ objstorage-full-name }}](../../storage/index.yaml) bucket, in [Parquet](https://parquet.apache.org/docs/file-format/) files.
+In this example, you will run [analytical processing](../concepts/batch-processing.md) on New York City taxi ride data. The data for this example has been pre-loaded in the [{{ objstorage-full-name }}](../../storage/index.yaml) bucket in [Parquet](https://parquet.apache.org/docs/file-format/) files.
 
-As a result, you will build a frequency distribution of ride duration vs. ride count as a histogram.
+The output will be a histogram showing the frequency distribution of ride duration by number of rides.
 
 To run this example:
 
-1. [Get started](#before-you-begin).
-1. [Connect to the data](#create-binding).
+1. [Make the necessary preparations](#before-you-begin).
+1. [Connect to the data source](#create-binding).
 1. [Run the query](#run-query).
-1. [Review the result](#check-result).
+1. [Check the result](#check-result).
 
 {% note info %}
 
@@ -17,19 +17,19 @@ To run this example:
 
 {% endnote %}
 
-## Get started {#before-you-begin}
+## Make the necessary preparations {#before-you-begin}
 
-1. Log in or sign up to the [management console]({{ link-console-main }}). If not signed up yet, navigate to the management console and follow the on-screen instructions.
-1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. Log in to the [management console]({{ link-console-main }}) or sign up if you have not already. If you have not signed up yet, navigate to the management console and follow the instructions.
+1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have an `ACTIVE` or `TRIAL_ACTIVE` [billing account](../../billing/concepts/billing-account.md). If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a folder yet, [create one](../../resource-manager/operations/folder/create.md).
 
-## Connect to the data {#create-binding}
+## Connect to the data source {#create-binding}
 
  {% include [tutorial-batch](../_includes/create-tutorial-batch-infra.md) %}
 
 ## Run the query {#run-query}
 
-1. In the query editor in the {{ yq-name }} interface, click **{{ ui-key.yql.yq-ide-header.new-analytics-query.button-text }}**.
+1. In the query editor within the {{ yq-name }} interface, click **{{ ui-key.yql.yq-ide-header.new-analytics-query.button-text }}**.
 1. Enter the query text in the text field:
 
    ```sql
@@ -53,13 +53,13 @@ To run this example:
 
 1. Click **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 
-## Review the result {#check-result}
+## Check the result {#check-result}
 
-Once the query is completed, you'll see the following results: distribution of the taxi ride duration by the number of rides.
+Once executed, the query will return the distribution of taxi ride duration by number of rides.
 
 ```text
 Kind: AdaptiveWard Bins: 100 WeightsSum: 140151844.000 Min: -531231.000 Max: 43648.000
-░░░░░░░░░░░░░░░░░░░░░░░░░ P:   -5706.500 F:       4.000
+░░░░░░░░░░░░░░░░░░░░░░░░ P:   -5706.500 F:       4.000
 ░░░░░░░░░░░░░░░░░░░░░░░░░ P:   -4177.000 F:       3.000
 ░░░░░░░░░░░░░░░░░░░░░░░░░ P:   -2905.625 F:       8.000
 ░░░░░░░░░░░░░░░░░░░░░░░░░ P:   -1156.556 F:       9.000
@@ -104,7 +104,7 @@ Kind: AdaptiveWard Bins: 100 WeightsSum: 140151844.000 Min: -531231.000 Max: 436
 
 ## See also {#see-also}
 
-* [Named expressions. YQL syntax]({{ ydb.docs }}yql/reference/syntax/expressions#named-nodes)
+* [Named expressions in YQL]({{ ydb.docs }}yql/reference/syntax/expressions#named-nodes)
 * [HISTOGRAM. Built-in YQL functions]({{ ydb.docs }}yql/reference/builtins/aggregation#histogram)
-* [SQL expression format](../sources-and-sinks/object-storage-binding.md#model-dannyh)
+* [SQL syntax](../sources-and-sinks/object-storage-binding.md#model-dannyh)
 * [{#T}](../concepts/batch-processing.md)

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for OpenSearch](../../index.md) > Справочник API > [REST (англ.)](../index.md) > Backup > Overview
+
 # Managed Service for OpenSearch API, REST: Backup
 
 A set of methods for managing backups.

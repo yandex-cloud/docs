@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Video](index.md) > Начало работы > Хостинг видео
+
 # Как начать работать с хостингом видео в Yandex Cloud Video
 
 Чтобы загрузить [видео](concepts/videos.md) на [канал](concepts/index.md#channels) сервиса:

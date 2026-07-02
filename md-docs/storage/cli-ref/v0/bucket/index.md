@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > [Справочник YC CLI (англ.)](../../index.md) > [v0](../index.md) > bucket > Overview
+
 # yc storage v0 bucket
 
 Manage buckets

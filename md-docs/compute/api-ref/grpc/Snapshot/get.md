@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Snapshot](index.md) > Get
+
 # Compute Cloud API, gRPC: SnapshotService.Get
 
 Returns the specified Snapshot resource.

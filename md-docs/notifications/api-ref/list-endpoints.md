@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > [Справочник API](index.md) > Endpoint > List
+
 # Действие ListEndpointsByPlatformApplication
 
 Получает список [эндпоинтов для мобильных Push-уведомлений](../concepts/index.md#mobile-endpoints) или [Push-уведомлений в браузере](../concepts/browser.md).

@@ -114,6 +114,8 @@ description: Управление доступом в сервисе по соз
 
 Чтобы создать кластер {{ mmg-name }}, нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль `{{ roles.mmg.editor }}` или выше.
 
+{% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-access-control.md) %}
+
 Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `{{ roles.mmg.admin }}` вместо `{{ roles.mmg.editor }}`.
 
 ## Что дальше {#whats-next}

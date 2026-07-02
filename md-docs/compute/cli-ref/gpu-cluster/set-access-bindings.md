@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [gpu-cluster](index.md) > set-access-bindings
+
 # yc compute gpu-cluster set-access-bindings
 
 Set access bindings for the specified GPU cluster and delete all existing access bindings if there were any

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Monium](../../index.md) > Справочник API > Логи > [REST (англ.)](../index.md) > [LogGroup](index.md) > Create
+
 # Cloud Logging Service, REST: LogGroup.Create
 
 Creates a log group in the specified folder.

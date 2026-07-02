@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-postgresql](../index.md) > [cluster](index.md) > start-failover
+
 # yc managed-postgresql cluster start-failover
 
 Start manual failover for the specified PostgreSQL cluster

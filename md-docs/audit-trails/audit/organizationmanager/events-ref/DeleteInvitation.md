@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > DeleteInvitation
+
 # Identity Hub Audit Trails Events: DeleteInvitation
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.DeleteInvitation2-schema}

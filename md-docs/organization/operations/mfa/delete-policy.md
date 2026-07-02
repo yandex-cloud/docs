@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Пошаговые инструкции](../index.md) > Аутентификация > Управление MFA > Удалить политику MFA
+
 # Удалить политику MFA
 
 Чтобы удалить [политику MFA](../../concepts/mfa.md#mfa-policies):

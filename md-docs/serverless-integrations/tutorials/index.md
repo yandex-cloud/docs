@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Integrations](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Serverless Integrations
 
 * [Автоматическая загрузка данных в Yandex SpeechSense с помощью Yandex Workflows](auto-upload.md)

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [Yandex Cloud gRPC (англ.)](../index.md) > [Bucket](index.md) > List
+
 # Object Storage API, gRPC: BucketService.List
 
 Retrieves the list of buckets in the specified folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Trino](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Catalog](index.md) > Delete
+
 # Managed Service for Trino API, REST: Catalog.Delete
 
 Deletes the specified Trino Catalog.

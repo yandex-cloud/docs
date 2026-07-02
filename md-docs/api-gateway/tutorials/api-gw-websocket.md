@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex API Gateway](../index.md) > [Практические руководства](index.md) > Бэкенд на Serverless > Работа с API-шлюзом по протоколу WebSocket
+
 # Работа с API-шлюзом по протоколу WebSocket
 
 
@@ -21,7 +23,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость ресурсов входит плата за количество запросов к API-шлюзу и исходящий трафик ([тарифы Yandex API Gateway](../../api-gateway/pricing.md)).
+В стоимость ресурсов входит плата за количество запросов к API-шлюзу и исходящий трафик ([тарифы Yandex API Gateway](../pricing.md)).
 
 ## Создайте API-шлюз {#create}
 

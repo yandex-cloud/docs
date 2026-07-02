@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [DataLens](../index.md) > Устранение проблем при создании подключения к таблице Google Sheets из DataLens
+
 # Устранение проблем при создании подключения к таблице Google Sheets из DataLens
 
 

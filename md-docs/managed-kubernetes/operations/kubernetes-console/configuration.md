@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Работа с объектами Kubernetes из консоли управления > Управление ресурсами ConfigMap и Secret
+
 # Управление ресурсами ConfigMap и Secret
 
 Ресурсы `ConfigMap` и `Secret` в Kubernetes позволяют хранить и передавать данные для настройки подов. Консоль управления позволяет управлять этими ресурсами в Managed Service for Kubernetes без использования kubectl.

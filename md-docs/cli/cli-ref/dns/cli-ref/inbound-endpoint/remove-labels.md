@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [dns](../index.md) > [inbound-endpoint](index.md) > remove-labels
+
 # yc dns inbound-endpoint remove-labels
 
 Remove labels from the specified dns inbound endpoint

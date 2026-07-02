@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Group](index.md) > Delete
+
 # Identity Hub API, REST: Group.Delete
 
 Deletes the specified group.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > SetAccessBindings
+
 # Managed Service for Hive Metastore™ API, REST: Cluster.SetAccessBindings
 
 Sets access bindings for the specified Metastore cluster.

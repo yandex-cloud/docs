@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Registry](index.md) > ListIpPermissions
+
 # Yandex Cloud Registry API, REST: Registry.ListIpPermissions
 
 List ip permissions for the specified registry.

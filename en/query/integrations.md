@@ -1,14 +1,14 @@
 # Integrations
 
-This section provides the basic information about integrating {{ yq-full-name }} with various {{ yandex-cloud }} services and third party systems.
+This section covers the basics of {{ yq-full-name }} integration with {{ yandex-cloud }} services and third-party systems.
 
 ## Data sources {#data_sources}
 
-{{ yq-full-name }} supports analytical and streaming data sources.
+{{ yq-full-name }} supports both analytical and streaming data sources.
 
 ### Analytical sources {#analytics_data_sources}
 
-| Data source | Reads  | Writes | Description |
+| Data source | Read | Write | Description |
 | --- | :---: | :---: | --- |
 | [{{ objstorage-name }}](../storage/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![yes](../_assets/common/yes.svg) | [Description](./sources-and-sinks/object-storage-binding.md) |
 | [{{ mch-full-name }}](../managed-clickhouse/quickstart.md) | ![yes](../_assets/common/yes.svg) | ![no](../_assets/common/no.svg)  | [Description](./sources-and-sinks/clickhouse.md) |
@@ -20,7 +20,7 @@ This section provides the basic information about integrating {{ yq-full-name }}
 
 ### Streaming sources {#streaming_data_sources}
 
-| Data source | Reads  | Writes | Description |
+| Data source | Read | Write | Description |
 | --- | :---: | :---: | --- |
 | [{{ yds-full-name }}](../data-streams/quickstart/index.md) | ![yes](../_assets/common/yes.svg) | ![yes](../_assets/common/yes.svg) | [Description](./sources-and-sinks/data-streams-binding.md) |
 | [{{ monitoring-name }}](../monitoring/quickstart.md) | ![no](../_assets/common/no.svg) |  ![yes](../_assets/common/yes.svg) | [Description](./sources-and-sinks/monitoring.md) |
@@ -45,8 +45,8 @@ This section provides the basic information about integrating {{ yq-full-name }}
 
 {% note info %}
 
-* Currently, {{ yq-full-name }} supports only **scripting requests**.
-* All supported SDKs use the same approach to working with {{ yq-full-name }} and operate similarly. This is best demonstrated by the Python SDK [example](./SDK/SDK.md).
+* {{ yq-full-name }} currently supports only **scripting requests**.
+* All supported SDKs share a common approach to working with {{ yq-full-name }} and operate identically. This is best demonstrated by the following [example](./SDK/SDK.md) using the Python SDK.
 
 {% endnote %}
 
@@ -56,17 +56,17 @@ This section provides the basic information about integrating {{ yq-full-name }}
 |  Environment | Support level  | Guide | Description |
 | --- | :---: | --- | --- |
 | Yandex Query UI |  Full |  | |
-| [DBeaver](https://dbeaver.com)  |  [DML](#note) | [Guide](./operations/ide.md) | Using a [JDBC driver](https://github.com/ydb-platform/ydb-jdbc-driver/releases)|
-| JetBrains Database viewer |  [DML](#note) | [Guide](./operations/ide.md)  | Using a [JDBC driver](https://github.com/ydb-platform/ydb-jdbc-driver/releases)|
-| [DataGrip](https://www.jetbrains.com/ru-ru/datagrip/) |  [DML](#note) |  [Guide](./operations/ide.md) | Using a [JDBC driver](https://github.com/ydb-platform/ydb-jdbc-driver/releases)|
-| Other JDBC-compatible clients |  [DML](#note) |  [Guide](./operations/ide.md) | Using a [JDBC driver](https://github.com/ydb-platform/ydb-jdbc-driver/releases)|
+| [DBeaver](https://dbeaver.com)  |  [DML](#note) | [Guide](./operations/ide.md) | Via a [JDBC driver](https://github.com/ydb-platform/ydb-jdbc-driver/releases)|
+| JetBrains Database viewer |  [DML](#note) | [Guide](./operations/ide.md)  | Via a [JDBC driver](https://github.com/ydb-platform/ydb-jdbc-driver/releases)|
+| [DataGrip](https://www.jetbrains.com/ru-ru/datagrip/) |  [DML](#note) |  [Guide](./operations/ide.md) | Via a [JDBC driver](https://github.com/ydb-platform/ydb-jdbc-driver/releases)|
+| Other JDBC-compatible clients |  [DML](#note) |  [Guide](./operations/ide.md) | Via a [JDBC driver](https://github.com/ydb-platform/ydb-jdbc-driver/releases)|
 
 ## Interactive data analysis {#analytics}
 
 |  Environment | Support level  | Guide | Description |
 | --- | :---: | :---: | --- |
-| Jupyter Notebooks |  [DML](#note) |  [Guide](./tutorials/jupyter.md) | Using [yandex-query-magics](https://github.com/yandex-cloud/yandex-query-magics)|
-| [{{ ml-platform-short-name }}](../datasphere/quickstart.md) |  [DML](#note) |  [Guide](./tutorials/jupyter.md) | Using [yandex-query-magics](https://github.com/yandex-cloud/yandex-query-magics)|
+| Jupyter Notebooks |  [DML](#note) |  [Guide](./tutorials/jupyter.md) | Via [yandex-query-magics](https://github.com/yandex-cloud/yandex-query-magics)|
+| [{{ ml-platform-short-name }}](../datasphere/quickstart.md) |  [DML](#note) |  [Guide](./tutorials/jupyter.md) | Via [yandex-query-magics](https://github.com/yandex-cloud/yandex-query-magics)|
 
 
 ## Visualizing {#bi} data
@@ -85,4 +85,4 @@ This section provides the basic information about integrating {{ yq-full-name }}
 
 ## Note {#note}
 
-* [DML](https://ru.wikipedia.org/wiki/Data_Manipulation_Language): Data Manipulation Language. It allows you to read and write data, but not manage such entities as [bindings](./concepts/glossary.md#binding) or [connections](./concepts/glossary.md#connection).
+* [DML](https://ru.wikipedia.org/wiki/Data_Manipulation_Language): Data Manipulation Language. It allows reading and writing data, but does not allow managing [bindings](./concepts/glossary.md#binding) or [connections](./concepts/glossary.md#connection).

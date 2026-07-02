@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [dns](../../index.md) > [v0](../index.md) > [zone](index.md) > list
+
 # yc dns v0 zone list
 
 List dns zones in folder.

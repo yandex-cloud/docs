@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [vpc](../index.md) > [subnet](index.md) > remove-range
+
 # yc vpc subnet remove-range
 
 Remove CIDR range from a subnet.

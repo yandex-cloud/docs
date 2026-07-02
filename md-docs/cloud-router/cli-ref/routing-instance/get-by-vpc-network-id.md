@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > [Справочник CLI (англ.)](../index.md) > [routing-instance](index.md) > get-by-vpc-network-id
+
 # yc cloudrouter routing-instance get-by-vpc-network-id
 
 Returns the RoutingInstance resource by vpcNetworkId

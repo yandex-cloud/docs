@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [marketplace](index.md) > reset-password
+
 # yc marketplace reset-password
 
 Reset password via Yandex Cloud Guest Agent

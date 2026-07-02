@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > ResendInvitation
+
 # Identity Hub Audit Trails Events: ResendInvitation
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.ResendInvitation2-schema}

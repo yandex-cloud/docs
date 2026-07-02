@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YDB](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > storage-type > Overview
+
 # yc ydb v0 storage-type
 
 View YDB storage types.

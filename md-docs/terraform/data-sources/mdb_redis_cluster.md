@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for ValKey > Data Sources > mdb_redis_cluster
+
 # yandex_mdb_redis_cluster (DataSource)
 
 Get information about a Yandex Managed Redis cluster. For more information, see [the official documentation](../../managed-valkey/concepts/index.md).

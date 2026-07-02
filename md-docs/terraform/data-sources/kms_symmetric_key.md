@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Key Management Service > Data Sources > kms_symmetric_key
+
 # yandex_kms_symmetric_key (DataSource)
 
 Get data from Yandex KMS symmetric key.

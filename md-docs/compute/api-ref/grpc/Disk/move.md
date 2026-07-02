@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Disk](index.md) > Move
+
 # Compute Cloud API, gRPC: DiskService.Move
 
 Moves the specified disk to another folder of the same cloud.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > Справочник API > REST > Обзор
+
 # Yandex Cloud Monitoring API
 
 Методы справочника API сгруппированы по ресурсам. Чтобы выполнить операцию над ресурсом, отправьте HTTP-запрос к соответствующему URL. Подробнее об архитектуре API Yandex Cloud в [Концепциях API Yandex Cloud](../../api-design-guide/index.md).

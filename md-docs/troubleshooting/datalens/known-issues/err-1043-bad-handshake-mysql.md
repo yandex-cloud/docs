@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [DataLens](../index.md) > Устранение ошибки `1043 Bad handshake` при подключении к БД MySQL®
+
 # Устранение ошибки `1043 Bad handshake` при подключении к БД MySQL®
 
 

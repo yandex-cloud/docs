@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Airflow™](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > add-access-binding
+
 # yc managed-airflow v0 cluster add-access-binding
 
 Add access binding for the specified Airflow cluster

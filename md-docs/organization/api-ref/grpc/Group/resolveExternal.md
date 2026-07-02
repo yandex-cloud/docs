@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Group](index.md) > ResolveExternal
+
 # Identity Hub API, gRPC: GroupService.ResolveExternal
 
 Returns external group by subject container and external id

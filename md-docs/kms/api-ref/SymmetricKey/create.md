@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SymmetricKey](index.md) > Create
+
 # Key Management Service API, REST: SymmetricKey.Create
 
 Creates a symmetric KMS key in the specified folder.

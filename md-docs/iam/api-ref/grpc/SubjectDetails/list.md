@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SubjectDetails](index.md) > List
+
 # Identity and Access Management API, gRPC: SubjectDetailsService.List
 
 Retrieves the list of subjects that have access to the specified organization or folder.

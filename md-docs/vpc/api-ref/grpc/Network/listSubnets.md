@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Network](index.md) > ListSubnets
+
 # Virtual Private Cloud API, gRPC: NetworkService.ListSubnets
 
 Lists subnets from the specified network.

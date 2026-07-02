@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Valkey™](../index.md) > [Концепции](index.md) > Управление памятью
+
 # Управление памятью в Yandex Managed Service for Valkey™
 
 Для пользовательских данных на хостах кластера Yandex Managed Service for Valkey™ выделяется 75% от общего объема оперативной памяти. Оставшаяся память резервируется для служебных нужд процесса Valkey™. Объем памяти, доступной для пользовательских данных, можно понизить с помощью параметра [Maxmemory percent](settings-list.md#settings-maxmemory-percent) — это может быть полезно, если в кластере возникают ошибки Out of Memory.

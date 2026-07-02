@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > apploadbalancer > LoadBalancerHTTPAccessLog
+
 # Application Load Balancer Audit Trails Events: LoadBalancerHTTPAccessLog
 
 ## Event JSON schema {#yandex.cloud.audit.apploadbalancer.LoadBalancerHTTPAccessLog2-schema}

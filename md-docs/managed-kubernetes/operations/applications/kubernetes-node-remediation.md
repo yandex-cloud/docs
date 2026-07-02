@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Установка приложений из Cloud Marketplace > Установка Kubernetes Node Remediation
+
 # Установка Kubernetes Node Remediation
 
 [Kubernetes Node Remediation](https://www.medik8s.io/) — это набор операторов Kubernetes, которые обеспечивают автоматическое восстановление неисправных узлов кластера Managed Service for Kubernetes и высокую доступность для stateful-нагрузок.

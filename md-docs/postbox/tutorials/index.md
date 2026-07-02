@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Postbox](../index.md) > Практические руководства > Все практические руководства
+
 # Практические руководства Yandex Cloud Postbox
 
 * [Создание адреса Yandex Cloud Postbox и проверка владения доменом с помощью Terraform](domain-identity-creating.md)

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > serverless > DeleteContainer
+
 # Cloud Functions Audit Trails Events: DeleteContainer
 
 ## Event JSON schema {#yandex.cloud.audit.serverless.containers.DeleteContainer2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Marketplace](../index.md) > Пользователям > [Практические руководства](index.md) > Использование продуктов Cloud Marketplace в Managed Service for Kubernetes > Настройка Kyverno & Kyverno Policies
+
 # Настройка Kyverno & Kyverno Policies
 
 Приложение [Kyverno](https://kyverno.io) и его расширение [Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) используются для управления политиками безопасности Kubernetes. Они представлены в Kyverno как ресурсы Kubernetes.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [oslogin](../index.md) > [user-ssh-key](index.md) > get
+
 # yc organization-manager v0 oslogin user-ssh-key get
 
 Show information about the specified SSH key

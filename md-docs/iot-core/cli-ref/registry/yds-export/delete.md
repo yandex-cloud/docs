@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [registry](../index.md) > [yds-export](index.md) > delete
+
 # yc iot registry yds-export delete
 
 Delete specified data stream export from specified registry

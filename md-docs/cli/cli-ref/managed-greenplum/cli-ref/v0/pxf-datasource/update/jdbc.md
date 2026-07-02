@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [managed-greenplum](../../../index.md) > [v0](../../index.md) > [pxf-datasource](../index.md) > [update](index.md) > jdbc
+
 # yc managed-greenplum v0 pxf-datasource update jdbc
 
 Update jdbc pxf-datasource for specified Greenplum cluster

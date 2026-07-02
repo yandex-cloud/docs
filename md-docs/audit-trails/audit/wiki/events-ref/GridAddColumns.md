@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > GridAddColumns
+
 # Yandex Wiki Audit Trails Events: GridAddColumns
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.GridAddColumns2-schema}

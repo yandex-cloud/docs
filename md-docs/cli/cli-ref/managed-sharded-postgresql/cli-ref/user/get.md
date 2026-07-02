@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-sharded-postgresql](../index.md) > [user](index.md) > get
+
 # yc managed-sharded-postgresql user get
 
 Show information about the specified Sharded PostgreSQL user

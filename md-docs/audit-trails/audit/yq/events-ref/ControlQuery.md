@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > yq > ControlQuery
+
 # Yandex Query Audit Trails Events: ControlQuery
 
 ## Event JSON schema {#yandex.cloud.audit.yq.ControlQuery2-schema}

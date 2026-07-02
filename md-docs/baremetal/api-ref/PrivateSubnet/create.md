@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [PrivateSubnet](index.md) > Create
+
 # BareMetal API, REST: PrivateSubnet.Create
 
 Creates a private subnet in the specified folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Devices > [gRPC (англ.)](../index.md) > [Operation](index.md) > Get
+
 # IoT Core Service, gRPC: OperationService.Get
 
 Returns the specified Operation resource.

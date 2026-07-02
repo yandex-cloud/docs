@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [compute](../../index.md) > [v0](../index.md) > [instance](index.md) > add-one-to-one-nat
+
 # yc compute v0 instance add-one-to-one-nat
 
 Add one-to-one NAT to the specified network interface of virtual machine instance

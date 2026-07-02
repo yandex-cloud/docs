@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Анализ и визуализация данных > Аналитика > Поиск событий Yandex Cloud в Query
+
 # Поиск событий Yandex Cloud в Yandex Query
 
 

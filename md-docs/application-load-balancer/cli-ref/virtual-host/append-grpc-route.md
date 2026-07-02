@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [virtual-host](index.md) > append-grpc-route
+
 # yc application-load-balancer virtual-host append-grpc-route
 
 Appends grpc route to the specified virtual host of the http router

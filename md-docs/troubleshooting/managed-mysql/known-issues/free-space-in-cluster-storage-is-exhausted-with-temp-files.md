@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for MySQL®](../index.md) > Кластер Managed Service for MySQL® переходит в режим `Read Only` из-за быстрого исчерпания свободного места временными файлами
+
 # Кластер Managed Service for MySQL® переходит в режим `Read Only` из-за быстрого исчерпания свободного места временными файлами
 
 

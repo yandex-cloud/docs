@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Машинное обучение и искусственный интеллект](index.md) > Разработка с помощью DataSphere > Интеграция сервиса DataSphere с сервисом Yandex Data Processing
+
 # Интеграция сервиса Yandex DataSphere с сервисом Yandex Data Processing
 
 # Интеграция с сервисом Yandex Data Processing

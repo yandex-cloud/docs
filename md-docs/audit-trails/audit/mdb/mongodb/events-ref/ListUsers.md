@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mongodb > ListUsers
+
 # Managed Service for MongoDB Audit Trails Events: ListUsers
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mongodb.ListUsers2-schema}

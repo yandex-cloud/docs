@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [HardwarePool](index.md) > List
+
 # BareMetal API, gRPC: HardwarePoolService.List
 
 Retrieves the list of HardwarePool resources.

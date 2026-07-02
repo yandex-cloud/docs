@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Marketplace](index.md) > Партнерам > Начало работы
+
 # Как разместить свой продукт в Yandex Cloud Marketplace
 
 Cloud Marketplace дает возможность размещать свои продукты в каталоге готовых решений Yandex Cloud и зарабатывать на них. Вы можете разместить различные типы продуктов:

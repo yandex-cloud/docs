@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [subnet](index.md) > move
+
 # yc vpc v0 subnet move
 
 Move a subnet to another folder.

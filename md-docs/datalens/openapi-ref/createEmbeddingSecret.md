@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > DataLens Public API > [DataLens API (англ.)](index.md) > createEmbeddingSecret
+
 # DataLens API: Create embedding secret
 
 Creates the key for embedding.

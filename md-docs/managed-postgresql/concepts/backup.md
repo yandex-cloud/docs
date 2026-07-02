@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Концепции](index.md) > Резервные копии
+
 # Резервные копии в Managed Service for PostgreSQL
 
 Managed Service for PostgreSQL обеспечивает автоматическое и ручное резервное копирование баз данных.

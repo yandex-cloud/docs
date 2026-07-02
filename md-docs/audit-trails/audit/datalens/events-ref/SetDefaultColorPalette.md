@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > SetDefaultColorPalette
+
 # DataLens Audit Trails Events: SetDefaultColorPalette
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.SetDefaultColorPalette2-schema}

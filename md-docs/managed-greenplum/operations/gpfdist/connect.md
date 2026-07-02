@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > Подключение к внешнему файловому серверу (gpfdist)
+
 # Подключение к внешнему файловому серверу
 
 [Greenplum® Parallel File Server](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/utility_guide-ref-gpfdist.html) (`gpfdist`) — утилита для чтения и записи данных из файлов, расположенных на удаленных серверах. Она установлена на всех хостах-сегментах кластера Yandex MPP Analytics for PostgreSQL и обеспечивает параллельную загрузку данных, распределяя их между сегментами равномерно или согласно заданному [ключу дистрибуции](../../concepts/sharding.md#distribution-key). Это повышает производительность при работе с большими объемами внешних данных.

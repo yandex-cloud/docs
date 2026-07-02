@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity Hub > Resources > organizationmanager_group_membership
+
 # yandex_organizationmanager_group_membership (Resource)
 
 Allows members management of a single Yandex Cloud Organization Manager Group. For more information, see [the official documentation](../../organization/manage-groups#add-member).

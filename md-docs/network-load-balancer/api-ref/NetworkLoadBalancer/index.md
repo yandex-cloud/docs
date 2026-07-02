@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Network Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > NetworkLoadBalancer > Overview
+
 # Network Load Balancer API, REST: NetworkLoadBalancer
 
 A set of methods for managing NetworkLoadBalancer resources.

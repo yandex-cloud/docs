@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Certificate Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Certificate](index.md) > UpdateAccessBindings
+
 # Certificate Manager API, REST: Certificate.UpdateAccessBindings
 
 Updates access bindings for the specified certificate.

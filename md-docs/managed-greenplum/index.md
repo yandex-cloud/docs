@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex MPP Analytics for PostgreSQL > Yandex MPP Analytics for PostgreSQL
+
 # Yandex MPP Analytics for PostgreSQL
 
 Сервис Yandex MPP Analytics for PostgreSQL помогает разворачивать и поддерживать кластеры с СУБД Greenplum<sup>®</sup> версии 6 и выше и Apache Cloudberry<sup>™</sup> в инфраструктуре Yandex Cloud.

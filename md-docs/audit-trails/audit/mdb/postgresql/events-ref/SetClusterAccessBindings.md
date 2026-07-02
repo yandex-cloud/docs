@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.postgresql > SetClusterAccessBindings
+
 # Managed Service for PostgreSQL Audit Trails Events: SetClusterAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.postgresql.SetClusterAccessBindings2-schema}

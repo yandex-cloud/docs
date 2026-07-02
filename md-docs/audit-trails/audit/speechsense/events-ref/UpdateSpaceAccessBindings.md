@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > speechsense > UpdateSpaceAccessBindings
+
 # Talk Analytics Audit Trails Events: UpdateSpaceAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.speechsense.UpdateSpaceAccessBindings2-schema}

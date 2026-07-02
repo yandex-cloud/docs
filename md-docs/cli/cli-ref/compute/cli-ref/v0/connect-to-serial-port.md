@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [v0](index.md) > connect-to-serial-port
+
 # yc compute v0 connect-to-serial-port
 
 Connect to serial port

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Group](index.md) > Create
+
 # Identity Hub API, gRPC: GroupService.Create
 
 Creates a group in the specified organization.

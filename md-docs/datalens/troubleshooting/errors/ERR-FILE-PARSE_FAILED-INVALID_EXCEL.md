@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Неверный формат файла
+
 # [Yandex DataLens] Неверный формат файла
 
 `ERR.FILE.PARSE_FAILED.INVALID_EXCEL`

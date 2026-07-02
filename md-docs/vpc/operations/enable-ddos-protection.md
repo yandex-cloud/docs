@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Пошаговые инструкции](index.md) > Защита от DDoS-атак > Включить защиту от DDoS-атак
+
 # Включить защиту от DDoS-атак
 
 [Защита от DDoS-атак](../ddos-protection/index.md) включается при [создании](../../compute/quickstart/quick-create-linux.md) виртуальной машины и [резервировании](get-static-ip.md) публичных IP-адресов.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [instance](index.md) > simulate-maintenance-event
+
 # yc compute instance simulate-maintenance-event
 
 Simulate a maintenance event (maintenance policy must be set)

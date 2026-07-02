@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for YDB](index.md) > Аудитные логи Audit Trails
+
 # Справочник аудитных логов Yandex Audit Trails
 
 В Audit Trails для Yandex Managed Service for YDB поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane).

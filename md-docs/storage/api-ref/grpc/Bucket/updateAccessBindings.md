@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [Yandex Cloud gRPC (англ.)](../index.md) > [Bucket](index.md) > UpdateAccessBindings
+
 # Object Storage API, gRPC: BucketService.UpdateAccessBindings
 
 Updates access bindings for the specified bucket.

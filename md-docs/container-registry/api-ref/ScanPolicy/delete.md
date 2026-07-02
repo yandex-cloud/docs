@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ScanPolicy](index.md) > Delete
+
 # Container Registry API, REST: ScanPolicy.Delete
 
 Deletes the specified scan policy.

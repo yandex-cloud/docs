@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > [Пошаговые инструкции](../index.md) > Серверы > Изменить сервер
+
 # Изменить сервер
 
 {% list tabs group=instructions %}

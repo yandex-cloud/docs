@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > DiskType > Overview
+
 # Compute Cloud API, gRPC: DiskTypeService
 
 A set of methods to retrieve information about disk types.

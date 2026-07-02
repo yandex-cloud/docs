@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Application Load Balancer > Data Sources > alb_load_balancer
+
 # yandex_alb_load_balancer (DataSource)
 
 Get information about a Yandex Application Load Balancer. For more information, see [Yandex Cloud Application Load Balancer](../../application-load-balancer/quickstart.md).

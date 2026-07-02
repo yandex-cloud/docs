@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cic](../../index.md) > [v0](../index.md) > [public-connection](index.md) > list-operations
+
 # yc cic v0 public-connection list-operations
 
 List operations for a publicConnection.

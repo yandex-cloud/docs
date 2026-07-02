@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > Работа с YQL > Обзор
+
 # Работа с синтаксисом Yandex Query Language в Yandex Query
 
 Узнайте, как работать с синтаксисом Yandex Query Language, и научитесь выполнять операции с данными в Yandex Query на примере [аналитического](#analytical-query) и [потокового](#stream-query) запросов.

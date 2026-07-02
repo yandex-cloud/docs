@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > DataLens Public API > [DataLens API (англ.)](index.md) > listDirectory
+
 # DataLens API: List directory
 
 Lists entries from the specified directory.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Backup](../../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Backup](index.md) > StartRecovery
+
 # Cloud Backup API, REST: Backup.StartRecovery
 
 Start recovery process of specified backup to specific Compute Cloud instance.

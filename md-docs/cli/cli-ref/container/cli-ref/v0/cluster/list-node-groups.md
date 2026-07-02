@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [container](../../index.md) > [v0](../index.md) > [cluster](index.md) > list-node-groups
+
 # yc container v0 cluster list-node-groups
 
 List Kubernetes cluster node groups.

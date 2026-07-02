@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Пошаговые инструкции](index.md) > Защита от DDoS-атак > Настроить MTU при включении защиты от DDoS-атак
+
 # Настроить MTU при включении защиты от DDoS-атак
 
 При включении защиты [Yandex DDoS Protection](enable-ddos-protection.md) рекомендуется задавать значение MTU равным `1450` байт.

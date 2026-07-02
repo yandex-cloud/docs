@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Справочник API](../overview.md) > [REST (англ.)](../index.md) > [Project](index.md) > Create
+
 # DataSphere API v2, REST: Project.Create
 
 Creates a project in the specified folder.

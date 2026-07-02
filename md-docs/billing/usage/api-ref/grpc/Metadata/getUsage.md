@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Billing](../../../../index.md) > Справочник API > gRPC (англ.) > [Billing usage](../index.md) > [Metadata](index.md) > GetUsage
+
 # Billing Usage API, gRPC: MetadataService.GetUsage
 
 GetUsage returns usage metadata including available clouds, services, SKUs, label keys, and date ranges

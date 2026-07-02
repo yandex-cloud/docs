@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Yandex Data Processing](../index.md) > Решения для известных проблем Yandex Data Processing
+
 ## Решения для известных проблем Yandex Data Processing {#known-issues-resolving}
 
 * [Кластер Yandex Data Processing находится в состоянии `UNKNOWN` сразу после создания](hosts-of-data-processing-cluster-are-in-status-unknown-after-creation.md)

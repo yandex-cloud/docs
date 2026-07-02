@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > AddShards
+
 # Managed Service for ClickHouse API, REST: Cluster.AddShards
 
 Creates one or more shards in the specified cluster.

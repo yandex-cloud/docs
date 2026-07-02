@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Trino](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Create
+
 # Managed Service for Trino API, gRPC: ClusterService.Create
 
 Creates a Trino Cluster resource.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > [Концепции](index.md) > Имперсонация
+
 # Имперсонация в Managed Service for Trino
 
 _Имперсонацией_ в Managed Service for Trino называется выполнение кластером Trino действий с пользовательскими ресурсами от имени сервисного аккаунта.

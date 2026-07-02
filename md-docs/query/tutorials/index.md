@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Query
 
 * [Обработка логов Yandex Cloud Logging](cloud-logging.md)

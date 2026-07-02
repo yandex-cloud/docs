@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MetaData Hub](../../../index.md) > Connection Manager > Справочник API > [REST (англ.)](../index.md) > Connection > Overview
+
 # Connection Manager API, REST: Connection
 
 A set of methods for managing Connection resources.

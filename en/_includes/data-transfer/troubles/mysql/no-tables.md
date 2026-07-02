@@ -6,10 +6,10 @@ Error message:
 Unable to find any tables
 ```
 
-This error occurs when a source does not have any available tables or the specified user has no permissions for the schemas or tables.
+This error occurs when the source has no available tables or the specified user has no permissions for the schemas or tables.
 
 **Solution**:
 
-* Check the source for tables. Make sure you specified the correct source database and it actually has the tables you want to transfer.
+* Check if there are tables. Make sure you specified the source database correctly and that it actually has the tables you want to transfer.
 
-* Check user permissions. For more information about the required permissions and assigning them, see [{#T}](../../../../data-transfer/operations/endpoint/source/mysql.md#prepare).
+* Check user permissions. For more information about required permissions and how to assign them, see [{#T}](../../../../data-transfer/operations/endpoint/source/mysql.md#prepare).

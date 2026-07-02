@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > [Справочник API](index.md) > Endpoint > Create
+
 # Действие CreatePlatformEndpoint
 
 Создает [эндпоинт для Push-уведомлений](../concepts/index.md#mobile-endpoints) (подписывает пользователя на Push-уведомления).

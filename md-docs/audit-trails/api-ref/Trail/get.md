@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Audit Trails](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Trail](index.md) > Get
+
 # Audit Trails API, REST: Trail.Get
 
 Returns the specified trail.

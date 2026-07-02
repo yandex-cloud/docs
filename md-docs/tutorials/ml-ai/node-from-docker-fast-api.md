@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Машинное обучение и искусственный интеллект](index.md) > Эксплуатация DataSphere > Развертывание сервиса в DataSphere на основе Docker-образа с FastAPI
+
 # Развертывание сервиса в Yandex DataSphere на основе Docker-образа с FastAPI
 
 # Развертывание сервиса на основе Docker-образа с FastAPI

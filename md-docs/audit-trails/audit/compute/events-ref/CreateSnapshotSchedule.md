@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > CreateSnapshotSchedule
+
 # Compute Audit Trails Events: CreateSnapshotSchedule
 
 ## Event JSON schema {#yandex.cloud.audit.compute.CreateSnapshotSchedule2-schema}

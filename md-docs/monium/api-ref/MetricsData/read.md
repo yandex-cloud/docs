@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Monium](../../index.md) > Справочник API > Метрики > [REST](../index.md) > [MetricsData](index.md) > read
+
 # Метод read
 Возвращает данные метрик.
 

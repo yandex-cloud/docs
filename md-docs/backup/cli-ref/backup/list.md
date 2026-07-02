@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Backup](../../index.md) > [Справочник CLI (англ.)](../index.md) > [backup](index.md) > list
+
 # yc backup backup list
 
 Lists available backups

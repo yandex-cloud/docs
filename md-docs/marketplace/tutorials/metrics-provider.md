@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Marketplace](../index.md) > Пользователям > [Практические руководства](index.md) > Использование продуктов Cloud Marketplace в Managed Service for Kubernetes > Использование Metrics Provider для трансляции метрик
+
 # Использование Metrics Provider для трансляции метрик
 
 Metrics Provider транслирует метрики объектов [кластера](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) Managed Service for Kubernetes в системы мониторинга и [системы автоматического масштабирования](../../managed-kubernetes/concepts/autoscale.md).

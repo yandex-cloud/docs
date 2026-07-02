@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mongodb > AddClusterShard
+
 # Managed Service for MongoDB Audit Trails Events: AddClusterShard
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mongodb.AddClusterShard2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Virtual Private Cloud > Resources > vpc_private_endpoint
+
 # yandex_vpc_private_endpoint (Resource)
 
 Manages a VPC Private Endpoint within the Yandex Cloud. For more information, see [the official documentation](../../vpc/concepts/private-endpoint.md).

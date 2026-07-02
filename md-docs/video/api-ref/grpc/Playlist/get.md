@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Playlist](index.md) > Get
+
 # Video API, gRPC: PlaylistService.Get
 
 Retrieves detailed information about a specific playlist by its ID.

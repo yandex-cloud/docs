@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [RouteTable](index.md) > Update
+
 # Virtual Private Cloud API, gRPC: RouteTableService.Update
 
 Updates the specified route table.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > Отправка писем в Yandex Cloud Postbox с помощью AWS SDK > Go
+
 # Отправка писем с помощью AWS SDK для Go
 
 В этом руководстве вы научитесь отправлять электронные письма через Yandex Cloud Postbox с использованием [AWS SDK для Go](https://docs.aws.amazon.com/sdk-for-go/v2/developer-guide/getting-started).
@@ -27,8 +29,8 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за использование Yandex Cloud Postbox ([тарифы Yandex Cloud Postbox](../../../postbox/pricing.md));
-* плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы создаете ресурсную запись в Cloud DNS ([тарифы Cloud DNS](../../../dns/pricing.md)).
+* плата за использование Yandex Cloud Postbox ([тарифы Yandex Cloud Postbox](../../postbox/pricing.md));
+* плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы создаете ресурсную запись в Cloud DNS ([тарифы Cloud DNS](../../dns/pricing.md)).
 
 
 ### Подготовьте ресурсы {#infrastructure}

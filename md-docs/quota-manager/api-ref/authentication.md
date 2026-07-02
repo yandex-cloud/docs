@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Quota Manager](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Cloud Quota Manager
 
 # Аутентификация в API

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > [Практические руководства](../index.md) > [Шифрование данных](index.md) > Шифрование с помощью AWS Encryption SDK
+
 # Шифрование данных с помощью AWS Encryption SDK
 
 [AWS Encryption SDK](https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/introduction.html) — библиотека, упрощающая процесс шифрования и расшифрования данных. Используйте ее, если хотите безопасно зашифровать данные, не углубляясь в тонкости работы алгоритмов шифрования.

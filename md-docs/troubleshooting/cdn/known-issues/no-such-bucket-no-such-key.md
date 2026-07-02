@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Cloud CDN](../index.md) > Устранение ошибок `no such bucket` и `no such key` при загрузке объектов из Cloud CDN
+
 # Устранение ошибок `no such bucket` и `no such key` при загрузке объектов из Cloud CDN
 
 

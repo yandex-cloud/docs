@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex WebSQL](../index.md) > [Пошаговые инструкции](index.md) > Создание подключения
+
 # Создание подключения
 
 В сервисе Yandex WebSQL вы можете создать [подключение](../concepts/index.md#connection):

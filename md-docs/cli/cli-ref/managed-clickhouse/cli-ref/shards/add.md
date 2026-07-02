@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-clickhouse](../index.md) > [shards](index.md) > add
+
 # yc managed-clickhouse shards add
 
 Create new shard(s) for the cluster in the specified availability zones.

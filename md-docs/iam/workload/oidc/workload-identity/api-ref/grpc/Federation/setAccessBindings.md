@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Yandex Identity and Access Management](../../../../../../index.md) > Справочник API > gRPC (англ.) > Workload Identity > [Federation](../index.md) > [Federation](index.md) > SetAccessBindings
+
 # Federation, gRPC: FederationService.SetAccessBindings
 
 Sets access bindings for the specified OIDC workload identity federation.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Справочник CLI (англ.)](../index.md) > idp > Overview
+
 # yc organization-manager idp
 
 Manage Identity Provider

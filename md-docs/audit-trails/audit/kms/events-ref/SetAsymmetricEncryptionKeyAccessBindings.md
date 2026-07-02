@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > kms > SetAsymmetricEncryptionKeyAccessBindings
+
 # Key Management Service Audit Trails Events: SetAsymmetricEncryptionKeyAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.kms.asymmetricencryption.SetAsymmetricEncryptionKeyAccessBindings2-schema}

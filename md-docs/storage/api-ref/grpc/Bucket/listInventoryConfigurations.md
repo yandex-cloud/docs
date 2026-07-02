@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [Yandex Cloud gRPC (англ.)](../index.md) > [Bucket](index.md) > ListInventoryConfigurations
+
 # Object Storage API, gRPC: BucketService.ListInventoryConfigurations
 
 Listing inventory configurations

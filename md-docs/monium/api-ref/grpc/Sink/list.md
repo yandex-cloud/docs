@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Monium](../../../index.md) > Справочник API > Логи > [gRPC (англ.)](../index.md) > [Sink](index.md) > List
+
 # Cloud Logging Service, gRPC: SinkService.List
 
 Retrieves the list of sinks in the specified folder.

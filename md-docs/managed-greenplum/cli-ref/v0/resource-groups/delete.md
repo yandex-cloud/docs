@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [resource-groups](index.md) > delete
+
 # yc managed-greenplum v0 resource-groups delete
 
 Delete resource group for specified Greenplum cluster

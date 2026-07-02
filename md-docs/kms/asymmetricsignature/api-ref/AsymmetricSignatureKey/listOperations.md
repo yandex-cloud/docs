@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Key Management Service API](../index.md) > [AsymmetricSignatureKey](index.md) > ListOperations
+
 # Key Management Service API, REST: AsymmetricSignatureKey.ListOperations
 
 Lists operations for the specified asymmetric KMS key.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Yandex Cloud Postbox
+
 # Метрики Yandex Cloud Postbox
 
 В этом разделе описаны метрики сервиса [Yandex Cloud Postbox](../../postbox/index.md), поставляемые в Monitoring.

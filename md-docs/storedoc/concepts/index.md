@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex StoreDoc](../index.md) > Концепции > Взаимосвязь ресурсов сервиса
+
 # Взаимосвязь ресурсов в Yandex StoreDoc
 
 

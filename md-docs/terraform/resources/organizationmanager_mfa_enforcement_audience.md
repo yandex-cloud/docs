@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity Hub > Resources > organizationmanager_mfa_enforcement_audience
+
 # yandex_organizationmanager_mfa_enforcement_audience (Resource)
 
 MFA enforcement audience resource

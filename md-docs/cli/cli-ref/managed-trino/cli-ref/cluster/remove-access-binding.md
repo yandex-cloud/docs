@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-trino](../index.md) > [cluster](index.md) > remove-access-binding
+
 # yc managed-trino cluster remove-access-binding
 
 Remove access binding for the specified Trino cluster

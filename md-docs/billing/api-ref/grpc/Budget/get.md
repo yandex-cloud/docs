@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Billing](../../../index.md) > Справочник API > gRPC (англ.) > [Billing](../index.md) > [Budget](index.md) > Get
+
 # Billing API, gRPC: BudgetService.Get
 
 Returns the specified budget.

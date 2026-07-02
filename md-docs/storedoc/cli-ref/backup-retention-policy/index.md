@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > backup-retention-policy > Overview
+
 # yc managed-mongodb backup-retention-policy
 
 Manage MongoDB backup long-term retention policies

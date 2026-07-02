@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Logging](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Export](index.md) > UpdateAccessBindings
+
 # Cloud Logging Service, gRPC: ExportService.UpdateAccessBindings
 
 Updates access bindings for the specified export.

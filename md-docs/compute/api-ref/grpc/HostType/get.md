@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [HostType](index.md) > Get
+
 # Compute Cloud API, gRPC: HostTypeService.Get
 
 Returns information about specified host type.

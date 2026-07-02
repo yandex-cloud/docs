@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Message Queue
+
 # Метрики Yandex Message Queue
 
 В этом разделе описаны метрики сервиса [Message Queue](../../message-queue/index.md), поставляемые в Monium Metrics.

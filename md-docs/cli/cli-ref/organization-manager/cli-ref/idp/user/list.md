@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [organization-manager](../../index.md) > [idp](../index.md) > [user](index.md) > list
+
 # yc organization-manager idp user list
 
 List users in the specified user pool

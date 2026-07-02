@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > [REST (англ.)](../index.md) > [Registry](index.md) > Enable
+
 # IoT Core Service, REST: Registry.Enable
 
 Enables the specified registry.

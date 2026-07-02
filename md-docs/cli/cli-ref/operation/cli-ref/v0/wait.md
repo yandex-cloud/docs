@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [operation](../index.md) > [v0](index.md) > wait
+
 # yc operation v0 wait
 
 Wait for operation to complete

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Stackland](../index.md) > [Практические руководства](index.md) > Установить Stackland на Yandex BareMetal
+
 # Установка Stackland на Yandex BareMetal
 
 [Yandex BareMetal](https://yandex.cloud/ru/services/baremetal) — это сервис по аренде выделенных физических серверов, все ресурсы которых доступны для решения только ваших задач. Yandex Cloud Stackland поддерживает Yandex BareMetal как одно из окружений для развертывания.

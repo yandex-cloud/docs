@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > ydb > SetBackupAccessBindings
+
 # Managed Service for YDB Audit Trails Events: SetBackupAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.ydb.SetBackupAccessBindings2-schema}

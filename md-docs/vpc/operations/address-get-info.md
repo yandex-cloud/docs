@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Пошаговые инструкции](index.md) > IP-адрес > Получить информацию об IP-адресе
+
 # Получить информацию об IP-адресе
 
 {% list tabs group=instructions %}

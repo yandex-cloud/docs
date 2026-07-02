@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for GitLab](index.md) > Начало работы
+
 # Как начать работать с Managed Service for GitLab
 
 Чтобы начать работу с сервисом:
@@ -115,7 +117,7 @@
   
         {% note warning %}
         
-        За использование правил ревью кода в Managed Service for GitLab взимается плата в зависимости от используемой [конфигурации](concepts/approval-rules.md#packages). Подробнее читайте на странице [{#T}](../../managed-gitlab/pricing.md).
+        За использование правил ревью кода в Managed Service for GitLab взимается плата в зависимости от используемой [конфигурации](concepts/approval-rules.md#packages). Подробнее читайте на странице [Правила тарификации для Yandex Managed Service for GitLab](pricing.md).
         
         {% endnote %}
   
@@ -200,7 +202,7 @@
   
         {% note warning %}
         
-        За использование правил ревью кода в Managed Service for GitLab взимается плата в зависимости от используемой [конфигурации](concepts/approval-rules.md#packages). Подробнее читайте на странице [{#T}](../../managed-gitlab/pricing.md).
+        За использование правил ревью кода в Managed Service for GitLab взимается плата в зависимости от используемой [конфигурации](concepts/approval-rules.md#packages). Подробнее читайте на странице [Правила тарификации для Yandex Managed Service for GitLab](pricing.md).
         
         {% endnote %}
   

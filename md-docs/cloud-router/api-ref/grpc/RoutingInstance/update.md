@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Router](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [RoutingInstance](index.md) > Update
+
 # Cloud Router API, gRPC: RoutingInstanceService.Update
 
 Updates a RoutingInstance resource using the data specified in the request.

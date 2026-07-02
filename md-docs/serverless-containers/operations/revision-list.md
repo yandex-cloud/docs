@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Пошаговые инструкции](index.md) > Получение информации о контейнере > Получить список ревизий контейнера
+
 # Получить список ревизий контейнера
 
 {% list tabs group=instructions %}

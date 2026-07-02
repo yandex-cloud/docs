@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [desktops](../index.md) > [desktop](index.md) > list-operations
+
 # yc desktops desktop list-operations
 
 List operations for the specified desktop

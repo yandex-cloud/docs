@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Start
+
 # Managed Service for MongoDB API, gRPC: ClusterService.Start
 
 Start the specified MongoDB cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > [Пошаговые инструкции](index.md) > Синхронизировать пользователей и группы с Active Directory
+
 # Синхронизировать пользователей и группы с Microsoft Active Directory
 
 

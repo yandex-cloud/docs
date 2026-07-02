@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Address](index.md) > ListBySubnet
+
 # Virtual Private Cloud API, REST: Address.ListBySubnet
 
 Retrieves the list of Address resources in the specified subnet.

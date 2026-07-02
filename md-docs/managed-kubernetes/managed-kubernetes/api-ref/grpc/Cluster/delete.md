@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../../index.md) > Справочник API > [Managed Service for Kubernetes gRPC (англ.)](../index.md) > [Cluster](index.md) > Delete
+
 # Managed Services for Kubernetes API, gRPC: ClusterService.Delete
 
 Deletes the specified Kubernetes cluster.

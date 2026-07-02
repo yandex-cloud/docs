@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [PrivateConnection](index.md) > ListOperations
+
 # Cloud Interconnect API, gRPC: PrivateConnectionService.ListOperations
 
 Lists operations for the specified PrivateConnection.

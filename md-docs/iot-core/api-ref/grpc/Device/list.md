@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Devices > [gRPC (англ.)](../index.md) > [Device](index.md) > List
+
 # IoT Core Service, gRPC: DeviceService.List
 
 Retrieves the list of devices in the specified registry.

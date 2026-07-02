@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [vpc](../index.md) > [subnet](index.md) > list-used-addresses
+
 # yc vpc subnet list-used-addresses
 
 List used addresses in subnet.

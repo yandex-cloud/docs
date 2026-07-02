@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Пошаговые инструкции](../index.md) > Работа с ролями > Просмотреть назначенные роли
+
 # Просмотреть роли на ресурс
 
 {% list tabs group=instructions %}

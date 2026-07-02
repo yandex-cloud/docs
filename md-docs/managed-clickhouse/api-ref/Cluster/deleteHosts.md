@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > DeleteHosts
+
 # Managed Service for ClickHouse API, REST: Cluster.DeleteHosts
 
 Deletes the specified hosts for a cluster.

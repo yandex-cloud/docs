@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Синхронизация топиков Apache Kafka® в Object Storage без использования интернета
+
 # Синхронизация данных из топиков Apache Kafka® в бакет Object Storage без использования интернета
 
 # Синхронизация данных из топиков Apache Kafka® в бакет Yandex Object Storage без использования интернета

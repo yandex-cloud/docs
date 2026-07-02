@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Managed Service for GitLab
+
 # Метрики Yandex Managed Service for GitLab
 
 В этом разделе описаны метрики сервиса [Managed Service for GitLab](../../managed-gitlab/index.md), поставляемые в Monium Metrics.

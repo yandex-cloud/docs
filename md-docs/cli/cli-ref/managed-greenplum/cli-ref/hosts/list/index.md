@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-greenplum](../../index.md) > [hosts](../index.md) > list > Overview
+
 # yc managed-greenplum hosts list
 
 List hosts for the specified Greenplum cluster

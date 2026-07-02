@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for MySQL > Data Sources > mdb_mysql_database_v2
+
 # yandex_mdb_mysql_database_v2 (DataSource)
 
 Get information about a Yandex Managed MySQL database.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Kubernetes](../index.md) > Устранение ошибки `Multi-Attach error for volume`
+
 # Устранение ошибки `Multi-Attach error for volume`
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Logging](../index.md) > [Практические руководства](index.md) > Передача логов с ВМ в Cloud Logging
+
 # Передача логов с ВМ в Cloud Logging
 
 # Передача логов с ВМ в Yandex Cloud Logging

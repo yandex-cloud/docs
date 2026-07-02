@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Интеграция Yandex Managed Service for Apache Spark™ и Apache Hive™ Metastore
+
 # Интеграция Yandex Managed Service for Apache Spark™ и Apache Hive™ Metastore
 
 
@@ -27,9 +29,9 @@ Apache Hive™ Metastore обеспечивает:
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Бакеты Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../../storage/pricing.md)).
+* Бакеты Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
 * Сервис Yandex Cloud Logging: объем записываемых данных и время их хранения ([тарифы Cloud Logging](../../logging/pricing.md)).
-* Кластер Yandex Managed Service for Apache Spark™: вычислительные ресурсы компонентов кластера ([тарифы Yandex Managed Service for Apache Spark™](../../../managed-spark/pricing.md)).
+* Кластер Yandex Managed Service for Apache Spark™: вычислительные ресурсы компонентов кластера ([тарифы Yandex Managed Service for Apache Spark™](../../managed-spark/pricing.md)).
 * Кластер Apache Hive™ Metastore: вычислительные ресурсы компонентов кластера ([тарифы Yandex MetaData Hub](../../metadata-hub/pricing.md)).
 
 

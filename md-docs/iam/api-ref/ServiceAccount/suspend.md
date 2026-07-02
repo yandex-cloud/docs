@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ServiceAccount](index.md) > Suspend
+
 # Identity and Access Management API, REST: ServiceAccount.Suspend
 
 Suspends the specified service account.

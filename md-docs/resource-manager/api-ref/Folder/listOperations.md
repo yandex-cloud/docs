@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Folder](index.md) > ListOperations
+
 # Resource Manager API, REST: Folder.ListOperations
 
 Lists operations for the specified folder.

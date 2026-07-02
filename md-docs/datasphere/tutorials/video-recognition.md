@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > [Практические руководства](index.md) > Разработка > Классификация изображений на видеокадрах
+
 # Классификация изображений на видеокадрах
 
 Yandex DataSphere позволяет строить [модели машинного обучения](../../glossary/ml-models.md), используя интерфейс Jupyter Notebook.
@@ -31,7 +33,7 @@ Yandex DataSphere позволяет строить [модели машинно
 В стоимость работы модели входит:
 
 * плата за использование бакета ([тарифы Yandex Object Storage](../../storage/pricing.md)).
-* плата за использование вычислительных ресурсов ([тарифы Yandex DataSphere](../../datasphere/pricing.md)).
+* плата за использование вычислительных ресурсов ([тарифы Yandex DataSphere](../pricing.md)).
 
 ## Подготовьте инфраструктуру {#deploy-infrastructure}
 

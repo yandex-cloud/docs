@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [dns](../index.md) > [inbound-endpoint](index.md) > create
+
 # yc dns inbound-endpoint create
 
 Create a dns inbound endpoint in the specified folder.

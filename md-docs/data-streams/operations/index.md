@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Streams](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Data Streams
 
 * [Управление потоками данных](manage-streams.md)

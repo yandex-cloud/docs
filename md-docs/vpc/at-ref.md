@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Virtual Private Cloud](index.md) > Аудитные логи Audit Trails
+
 # Справочник аудитных логов Yandex Audit Trails
 
 В Audit Trails поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane). Подробнее в разделе [Аудитный лог событий уровня конфигурации](../audit-trails/concepts/format.md).

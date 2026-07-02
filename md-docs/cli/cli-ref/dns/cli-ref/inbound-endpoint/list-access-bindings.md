@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [dns](../index.md) > [inbound-endpoint](index.md) > list-access-bindings
+
 # yc dns inbound-endpoint list-access-bindings
 
 List access bindings of the specified dns inbound endpoint.

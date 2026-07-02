@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > ai.responses > CreateResponse
+
 # AI Studio Audit Trails Events: CreateResponse
 
 ## Event JSON schema {#yandex.cloud.audit.ai.responses.CreateResponse2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > [Концепции](index.md) > Классы хостов
+
 # Классы хостов Managed Service for Apache Airflow™
 
 Класс хостов определяет вычислительные мощности, выделяемые для каждого хоста в кластере.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-kafka](../../index.md) > [v0](../index.md) > [user](index.md) > list
+
 # yc managed-kafka v0 user list
 
 List users of a Kafka cluster.

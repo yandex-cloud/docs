@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Router](../index.md) > [Пошаговые инструкции](index.md) > Управлять сетями и IP-префиксами в Routing Instance
+
 # Управлять сетями и IP-префиксами в Routing Instance
 
 ## Изменить сети и IP-префиксы в Routing Instance {#update-networks}

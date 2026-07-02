@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SecurityGroup](index.md) > Move
+
 # Virtual Private Cloud API, gRPC: SecurityGroupService.Move
 
 Moves security groups to another folder.

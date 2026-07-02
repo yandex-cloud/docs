@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-opensearch](../index.md) > [node-group](index.md) > delete
+
 # yc managed-opensearch node-group delete
 
 Delete a node group in a managed OpenSearch cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-clickhouse](../../index.md) > [v0](../index.md) > [cluster](index.md) > list-external-dictionaries
+
 # yc managed-clickhouse v0 cluster list-external-dictionaries
 
 Retrieve a list of external dictionaries that belong to ClickHouse cluster.

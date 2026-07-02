@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Чарты > [Справочник визуализаций](index.md) > Сводная таблица
+
 # Сводная таблица ![](../../_assets/datalens/pivot-table.svg) в Yandex DataLens
 
 Таблица — это стандартный вид представления данных с максимальной детализацией.

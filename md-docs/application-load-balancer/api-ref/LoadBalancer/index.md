@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > LoadBalancer > Overview
+
 # Application Load Balancer API, REST: LoadBalancer
 
 A set of methods for managing application load balancers.

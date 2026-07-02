@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > [Концепции](index.md) > Интеграция с хранилищем Object Storage
+
 # Интеграция с хранилищем Yandex Object Storage
 
 GitLab поддерживает использование S3-хранилища для хранения различных типов данных. Интеграция с S3-хранилищем позволяет уменьшить объем данных на дисках [инстанса](index.md#instance) и предотвратить их переполнение. Подробнее о хранении данных в [документации GitLab](https://docs.gitlab.com/administration/object_storage/).

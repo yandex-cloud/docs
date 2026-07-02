@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [VPC](../index.md) > Как включить Egress NAT
+
 # Как включить Egress NAT
 
 

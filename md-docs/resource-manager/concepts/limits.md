@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Resource Manager](../index.md) > Концепции > Квоты и лимиты
+
 # Квоты и лимиты в Resource Manager
 
 В Resource Manager действуют следующие ограничения:

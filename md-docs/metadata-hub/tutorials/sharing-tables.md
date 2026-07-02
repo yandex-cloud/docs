@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Apache Hive™ Metastore > Практические руководства > Совместная работа с таблицами Yandex Data Processing с использованием Apache Hive™ Metastore
+
 # Совместная работа с таблицами Yandex Data Processing с использованием Apache Hive™ Metastore
 
 Вы можете сохранять данные из [кластера Yandex Data Processing](../../data-proc/concepts/index.md) в [бакет Yandex Object Storage](../../storage/concepts/bucket.md), используя отдельный [кластер Apache Hive™ Metastore](../concepts/metastore.md) для хранения метаданных таблиц. Это позволит затем работать с сохраненными данными другому кластеру Yandex Data Processing, имеющему доступ к бакету и подключенному к тому же кластеру Apache Hive™ Metastore.
@@ -33,10 +35,10 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластеры Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы Yandex Data Processing](../../../data-proc/pricing.md)).
+* Кластеры Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы Yandex Data Processing](../../data-proc/pricing.md)).
 * Кластер Apache Hive™ Metastore: вычислительные ресурсы компонентов кластера ([тарифы Yandex MetaData Hub](../pricing.md)).
-* Бакеты Yandex Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../../storage/pricing.md)).
-* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
+* Бакеты Yandex Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infra}

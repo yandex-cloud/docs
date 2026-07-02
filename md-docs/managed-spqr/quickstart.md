@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Sharded PostgreSQL](index.md) > Начало работы
+
 # Как начать работать с Managed Service for Sharded PostgreSQL
 
 Сервис Managed Service for Sharded PostgreSQL позволяет создавать и поддерживать кластеры шардированного PostgreSQL ([SPQR](https://pg-sharding.tech/welcome)) в инфраструктуре Yandex Cloud. Sharded PostgreSQL использует протокол PostgreSQL, поэтому настраивать правила шардирования и выполнять запросы к базе данных можно с помощью клиента `psql`. Настройка правил шардирования выполняется через консоль администратора (SPQR router admin console). При подключении к консоли администратора укажите имя пользователя `spqr-console` и имя базы данных `spqr-console`.
@@ -35,7 +37,11 @@
       ![create-folder2](../_assets/resource-manager/create-folder-2.png)
 
 
-1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роли [vpc.user](../vpc/security/index.md#vpc-user) и `managed-spqr.editor` на каталог. Эти роли позволяют создать кластер.
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роли:
+
+    * [managed-spqr.editor](security.md#managed-spqr-editor) или выше — чтобы создать кластер;
+    * [vpc.user](../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../vpc/concepts/network.md#network) кластера;
+    * [mdb.viewer](../iam/roles-reference.md#mdb-viewer) — чтобы просматривать кластеры управляемых баз данных (MDB) на дашборде в [консоли управления](https://console.yandex.cloud).
 
 
    {% note info %}

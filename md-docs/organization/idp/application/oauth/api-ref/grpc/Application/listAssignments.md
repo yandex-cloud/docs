@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Yandex Identity Hub](../../../../../../index.md) > Справочник API > gRPC (англ.) > Identity Provider API > [OAUTH Application API](../index.md) > [Application](index.md) > ListAssignments
+
 # OAUTH Application API, gRPC: ApplicationService.ListAssignments
 
 Lists assignmnents for the specified OAuth application.

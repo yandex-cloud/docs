@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Практические руководства](index.md) > Использование схем формата данных с Managed Service for Apache Kafka® > Использование Confluent Schema Registry с Managed Service for Apache Kafka®
+
 # Использование Confluent Schema Registry с Managed Service for Apache Kafka®
 
 В Managed Service for Apache Kafka® вы можете использовать интегрированный реестр схем формата данных [Managed Schema Registry](../concepts/managed-schema-registry.md#msr). Подробнее в разделе [Работа с управляемым реестром схем формата данных](managed-schema-registry.md). Если вам необходим реестр [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html), используйте информацию из этого руководства.
@@ -22,9 +24,9 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Apache Kafka®](../../../managed-kafka/pricing.md)).
-* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../../vpc/pricing.md)).
-* Плата за ВМ: использование вычислительных ресурсов, хранилища и публичного IP-адреса ([тарифы Compute Cloud](../../../compute/pricing.md)).
+* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Apache Kafka®](../pricing.md)).
+* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за ВМ: использование вычислительных ресурсов, хранилища и публичного IP-адреса ([тарифы Compute Cloud](../../compute/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

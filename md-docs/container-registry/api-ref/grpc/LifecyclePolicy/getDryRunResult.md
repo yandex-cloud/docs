@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LifecyclePolicy](index.md) > GetDryRunResult
+
 # Container Registry API, gRPC: LifecyclePolicyService.GetDryRunResult
 
 Returns the dry run result of the specified lifecycle policy.

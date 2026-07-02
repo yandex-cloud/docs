@@ -853,6 +853,10 @@ items:
             href: web/user-agent-statistics.md
           - name: Оформление контента из {{ video-name }} в IFrame
             href: web/video-iframe.md
+          - name: Установка Gatsby с помощью {{ cloud-apps-name }}
+            href: web/gatsby-static-site-cloudapp.md
+          - name: Установка Hugo с помощью {{ cloud-apps-name }}
+            href: web/hugo-static-site-cloudapp.md
       - name: 1С
         items:
           - name: Интернет-магазин на «1С-Битрикс»

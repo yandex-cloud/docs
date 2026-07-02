@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Data Transfer](../index.md) > Устранение ошибки `failed to connect to the destination cluster to get type information`
+
 # Устранение ошибки `failed to connect to the destination cluster to get type information`
 
 

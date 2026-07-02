@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex SmartCaptcha](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Captcha](index.md) > Create
+
 # SmartCaptcha API, REST: Captcha.Create
 
 Creates a captcha in the specified folder using the data specified in the request.

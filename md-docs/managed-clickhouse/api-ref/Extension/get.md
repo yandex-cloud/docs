@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Extension](index.md) > Get
+
 # Managed Service for ClickHouse API, REST: Extension.Get
 
 Returns the specified extension.

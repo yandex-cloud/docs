@@ -1,12 +1,12 @@
-# Using the SDK for Go functions
+# Using the SDK for a function in Go
 
-The runtime environment does not have a pre-installed library for accessing the [{{ yandex-cloud }} API](../../../api-design-guide/). To use the library, add a [dependency](dependencies.md) to your Go application. The library source code is available on [GitHub](https://github.com/yandex-cloud/go-sdk).
+The runtime does not have a pre-installed library for accessing the [{{ yandex-cloud }} API](../../../api-design-guide/). To use it, add a [dependency](dependencies.md) to your Go application. The library source code is available on [GitHub](https://github.com/yandex-cloud/go-sdk).
 
-The [SDK (Software Development Kit)](https://en.wikipedia.org/wiki/Software_development_kit) helps you manage {{ yandex-cloud }} resources on behalf of the [service account](../../operations/function-sa.md) specified in the function parameters.
+The [SDK (Software Development Kit)](https://en.wikipedia.org/wiki/Software_development_kit) helps you manage {{ yandex-cloud }} resources using the [service account](../../operations/function-sa.md) specified in the function parameters.
 
-### For example:
+### Example
 
-The following function receives a request with two fields (`FolderId` and `Tag`) as an input, gets authorized in the SDK, gets a list of all {{ compute-name }} instances in the specified folder, filters them by the specified tag, and restarts the stopped instances. As a result, it returns a message with the number of running instances.
+The following function receives a request with two fields (`FolderId` and `Tag`), gets authorized in the SDK, retrieves a list of all {{ compute-name }} VMs in the specified folder, filters them by the specified tag, and restarts those that are stopped. As a result, it returns a message with the number of running VMs.
 
 {% note warning %}
 
@@ -26,7 +26,7 @@ import (
 )
 
 func startComputeInstance(ctx context.Context, sdk *ycsdk.SDK, id string) (*operation.Operation, error) {
-  // Operation that runs the Compute Instance with the specified ID
+  // Operation that starts the compute instance with the specified ID
   return sdk.Compute().Instance().Start(ctx, &compute.StartInstanceRequest{
     InstanceId: id,
   })
@@ -45,14 +45,14 @@ type Response struct {
 func StartComputeInstances(ctx context.Context, request *Request) (*Response, error) {
   // Authorization in the SDK using a service account
   sdk, err := ycsdk.Build(ctx, ycsdk.Config{
-    // Calling the InstanceServiceAccount method automatically requests an IAM token and generates
-    // data required for authorization in the SDK using this token
+    // Calling the InstanceServiceAccount method automatically requests an IAM token and uses it to generate
+    // data required for authorization in the SDK.
     Credentials: ycsdk.InstanceServiceAccount(),
   })
   if err != nil {
     return nil, err
   }
-  // Getting the Compute Instance list by the FolderId specified in the request
+  // Getting the compute instance list by FolderId specified in the request
   listInstancesResponse, err := sdk.Compute().Instance().List(ctx, &compute.ListInstancesRequest{
     FolderId: request.FolderId,
   })
@@ -61,11 +61,11 @@ func StartComputeInstances(ctx context.Context, request *Request) (*Response, er
   }
   instances := listInstancesResponse.GetInstances()
   count := 0
-  // Filtering the Compute Instance list using the filter: disabled, tags contain the tag specified in the request
+  // Filtering the compute instance list: stopped instances containing the tag specified in the request.
   for _, i := range instances {
     labels := i.Labels
     if _, ok := labels[request.Tag]; ok && i.Status != compute.Instance_RUNNING {
-      // Running the Compute Instances that meet the filtering criteria
+      // Running the compute instances that meet the filter criteria
       _, err := startComputeInstance(ctx, sdk, i.GetId())
       if err != nil {
         return nil, err
@@ -80,7 +80,7 @@ func StartComputeInstances(ctx context.Context, request *Request) (*Response, er
 }
 ```
 
-`go.mod` file:
+`go.mod`:
 
 ```golang
 module example

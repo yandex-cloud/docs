@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > DataLens Public API > Как пользоваться Public API
+
 # Работа с Public API
 
 

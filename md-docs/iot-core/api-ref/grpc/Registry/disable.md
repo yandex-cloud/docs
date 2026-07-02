@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Devices > [gRPC (англ.)](../index.md) > [Registry](index.md) > Disable
+
 # IoT Core Service, gRPC: RegistryService.Disable
 
 Disables the specified registry.

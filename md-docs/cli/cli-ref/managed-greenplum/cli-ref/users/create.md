@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-greenplum](../index.md) > [users](index.md) > create
+
 # yc managed-greenplum users create
 
 Create user for specified Greenplum cluster

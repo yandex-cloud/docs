@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Backup](../../index.md) > [Справочник CLI (англ.)](../index.md) > [vm](index.md) > list-tasks
+
 # yc backup vm list-tasks
 
 Show information about tasks

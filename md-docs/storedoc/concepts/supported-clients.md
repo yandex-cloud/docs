@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex StoreDoc](../index.md) > [Концепции](index.md) > Поддерживаемые клиенты
+
 # Рекомендуемые клиенты для СУБД Yandex StoreDoc
 
 Для подключения к Yandex StoreDoc рекомендуется использовать следующие клиенты:

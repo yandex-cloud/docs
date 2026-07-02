@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex DataSphere](../../../../index.md) > Справочник API > gRPC (англ.) > [DataSphere Jobs API v2](../index.md) > ProjectJob > Overview
+
 # DataSphere Jobs API v2, gRPC: ProjectJobService
 
 A set of methods for managing Project Jobs. Do not use these methods manually.

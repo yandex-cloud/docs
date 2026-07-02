@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [ydb](../../index.md) > [v0](../index.md) > [database](index.md) > set-access-bindings
+
 # yc ydb v0 database set-access-bindings
 
 Set access bindings for the specified YDB database and delete all existing access bindings if there were any.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Backup](index.md) > Get
+
 # Managed Service for SPQR API, gRPC: BackupService.Get
 
 Returns the specified SPQR backup.

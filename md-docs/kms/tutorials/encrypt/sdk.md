@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > [Практические руководства](../index.md) > [Шифрование данных](index.md) > Шифрование с помощью SDK Yandex Cloud
+
 # Шифрование данных с помощью SDK Yandex Cloud
 
 С Yandex Key Management Service можно работать с помощью SDK Yandex Cloud. Реализация SDK есть на [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk) и [Node.js](https://github.com/yandex-cloud/nodejs-sdk).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Episode](index.md) > Update
+
 # Video API, REST: Episode.Update
 
 Updates an existing episode's metadata and settings.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Концепции](index.md) > Шифрование
+
 # Шифрование в Object Storage
 
 При использовании сервиса [Yandex Object Storage](../index.md) критичные данные должны быть зашифрованы.

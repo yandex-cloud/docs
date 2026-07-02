@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Yandex Data Processing](../index.md) > Кластер Yandex Data Processing находится в состоянии `UNKNOWN` сразу после создания
+
 # Кластер Yandex Data Processing находится в состоянии `UNKNOWN` сразу после создания
 
 

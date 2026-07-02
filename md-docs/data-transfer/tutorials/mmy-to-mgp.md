@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Миграция со сменой типа хранения данных > MySQL® в Greenplum®
+
 # Миграция данных из Yandex Managed Service for MySQL® в Yandex MPP Analytics for PostgreSQL
 
 # Миграция данных из Yandex Managed Service for MySQL® в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer

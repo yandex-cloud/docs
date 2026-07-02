@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Бакеты > Просмотр метрик бакета
+
 # Просмотр метрик бакета
 
 Object Storage автоматически отправляет метрики работы бакетов в сервис [Yandex Monitoring](../../../monitoring/index.md).

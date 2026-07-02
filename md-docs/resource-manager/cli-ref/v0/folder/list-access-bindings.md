@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Resource Manager](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [folder](index.md) > list-access-bindings
+
 # yc resource-manager v0 folder list-access-bindings
 
 List access bindings for the specified folder

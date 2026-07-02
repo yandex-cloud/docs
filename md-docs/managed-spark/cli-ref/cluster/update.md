@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Spark™](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > update
+
 # yc managed-spark cluster update
 
 Update the specified Spark cluster

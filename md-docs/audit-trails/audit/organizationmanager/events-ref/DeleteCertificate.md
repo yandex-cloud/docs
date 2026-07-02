@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > DeleteCertificate
+
 # Identity Hub Audit Trails Events: DeleteCertificate
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.saml.DeleteCertificate2-schema}

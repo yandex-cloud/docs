@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > Прикладные решения > Создание сайта > Сайт на LAMP- или LEMP-стеке > Обзор
+
 # Сайт на LAMP- или LEMP-стеке
 
 [LAMP](https://ru.wikipedia.org/wiki/LAMP) ([Linux](https://www.linux.org/), [Apache HTTP Server](https://httpd.apache.org/), [MySQL®](https://www.mysql.com/), [PHP](https://www.php.net/)) и его вариация LEMP (в которой веб-сервер Apache заменяется на [Nginx](https://www.nginx.com/)) — популярные наборы компонентов для развертывания веб-приложений и динамических сайтов.

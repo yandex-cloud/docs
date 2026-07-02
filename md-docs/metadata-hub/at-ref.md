@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex MetaData Hub](index.md) > Apache Hive™ Metastore > Аудитные логи Audit Trails
+
 # Справочник аудитных логов Yandex MetaData Hub
 
 В Audit Trails поддерживается отслеживание событий уровня конфигурации (Control Plane) для Apache Hive™ Metastore. Подробнее на странице [Аудитный лог событий уровня конфигурации](../audit-trails/concepts/format.md).

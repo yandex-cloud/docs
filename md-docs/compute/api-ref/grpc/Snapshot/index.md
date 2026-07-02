@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Snapshot > Overview
+
 # Compute Cloud API, gRPC: SnapshotService
 
 A set of methods for managing Snapshot resources.

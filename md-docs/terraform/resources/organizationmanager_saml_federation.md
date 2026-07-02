@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity Hub > Resources > organizationmanager_saml_federation
+
 # yandex_organizationmanager_saml_federation (Resource)
 
 Allows management of a single SAML Federation within an existing Yandex Cloud Organization.

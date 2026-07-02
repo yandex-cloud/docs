@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [dataproc](../../index.md) > [v0](../index.md) > [cluster](index.md) > list-hosts
+
 # yc dataproc v0 cluster list-hosts
 
 List hosts for a cluster.

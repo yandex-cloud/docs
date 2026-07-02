@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Object Storage
 
 В сервисе Yandex Object Storage действуют следующие ограничения:
@@ -17,7 +19,7 @@
 
 {% note tip %}
 
-В Object Storage есть нетарифицируемый порог использования сервиса, подробнее читайте в разделе [{#T}](../pricing.md#rules).
+В Object Storage есть нетарифицируемый порог использования сервиса, подробнее читайте в разделе [Из чего складывается стоимость использования Object Storage](../pricing.md#rules).
 
 {% endnote %}
 

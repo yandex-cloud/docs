@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > [Концепции](index.md) > Сеть в Managed Service for Trino
+
 # Сеть в Managed Service for Trino
 
 При создании кластера вы можете задать следующие сетевые настройки:

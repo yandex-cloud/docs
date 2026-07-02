@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > [Пошаговые инструкции](../index.md) > [Подключение](index.md) > Подключение из приложений
+
 # Подключение к кластеру Valkey™ из приложений
 
 К кластеру Valkey™ можно подключиться с помощью [инструментов командной строки](#command-line-tools), из [графических IDE](#connection-ide) и [Docker-контейнера](#connection-docker). О подключении из кода вашего приложения смотрите [Примеры кода](code-examples.md).

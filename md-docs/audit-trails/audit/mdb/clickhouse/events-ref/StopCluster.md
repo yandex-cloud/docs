@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.clickhouse > StopCluster
+
 # Managed Service for ClickHouse Audit Trails Events: StopCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.clickhouse.StopCluster2-schema}

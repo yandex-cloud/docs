@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex SmartCaptcha](../index.md) > [Пошаговые инструкции](index.md) > Удалить капчу
+
 # Удалить капчу
 
 В этом разделе вы узнаете, как удалить [капчу](../concepts/validation.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [http-router](index.md) > update
+
 # yc application-load-balancer http-router update
 
 Update the specified http router

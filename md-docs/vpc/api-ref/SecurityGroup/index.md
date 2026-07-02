@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > SecurityGroup > Overview
+
 # Virtual Private Cloud API, REST: SecurityGroup
 
 A set of methods for managing SecurityGroup resources.

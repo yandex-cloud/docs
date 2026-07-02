@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [storage-onprem/_cli-ref-v-1-0](../index.md) > completion > powershell
+
 # cli completion powershell
 
 Generate the autocompletion script for powershell

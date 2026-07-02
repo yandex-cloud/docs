@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Концепции](overview.md) > Хранилище в Yandex MPP Analytics for PostgreSQL > Гибридное хранилище
+
 # Гибридное хранилище в Yandex MPP Analytics for PostgreSQL
 
 

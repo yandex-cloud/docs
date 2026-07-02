@@ -8,3 +8,6 @@ description: Различные сценарии использования пр
 * [{#T}](wordpress-ha-cloudapp.md)
 * [{#T}](wordpress-cloudapp.md)
 * [{#T}](ghost-cms-cloudapp.md)
+* [{#T}](gatsby-static-site-cloudapp.md)
+* [{#T}](hugo-static-site-cloudapp.md)
+

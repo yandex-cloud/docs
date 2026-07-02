@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [address](index.md) > update
+
 # yc vpc v0 address update
 
 Modify configuration or attributes of the address.

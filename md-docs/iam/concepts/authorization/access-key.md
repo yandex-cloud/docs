@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Концепции](../index.md) > [Аутентификация](index.md) > Статический ключ доступа
+
 # Статические ключи доступа, совместимые с AWS API
 
 

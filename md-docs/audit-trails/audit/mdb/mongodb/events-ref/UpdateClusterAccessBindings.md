@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mongodb > UpdateClusterAccessBindings
+
 # Managed Service for MongoDB Audit Trails Events: UpdateClusterAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mongodb.UpdateClusterAccessBindings2-schema}

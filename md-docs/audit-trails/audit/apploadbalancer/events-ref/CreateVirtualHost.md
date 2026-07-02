@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > apploadbalancer > CreateVirtualHost
+
 # Application Load Balancer Audit Trails Events: CreateVirtualHost
 
 ## Event JSON schema {#yandex.cloud.audit.apploadbalancer.CreateVirtualHost2-schema}

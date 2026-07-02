@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > VerifyUserCredential
+
 # Identity and Access Management Audit Trails Events: VerifyUserCredential
 
 ## Event JSON schema {#yandex.cloud.audit.iam.mfa.VerifyUserCredential2-schema}

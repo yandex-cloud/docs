@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Пошаговые инструкции](index.md) > Управление таблицами и директориями
+
 # Управление таблицами и директориями
 
 В этом разделе описано, как с помощью облачной консоли управления или [Terraform](../../tutorials/infrastructure-management/terraform-quickstart.md) управлять строковыми и документными таблицами, а также директориями.

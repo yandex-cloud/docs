@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [DataSphere](../index.md) > Устранение ошибок при запуске проекта в DataSphere
+
 # Устранение ошибок при запуске проекта в DataSphere
 
 

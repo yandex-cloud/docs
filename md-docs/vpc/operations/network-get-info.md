@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Пошаговые инструкции](index.md) > Облачная сеть > Получить информацию об облачной сети
+
 # Получить информацию об облачной сети
 
 {% list tabs group=instructions %}

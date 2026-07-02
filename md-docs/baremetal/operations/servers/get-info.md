@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > [Пошаговые инструкции](../index.md) > Серверы > Получить информацию о сервере
+
 # Получить информацию о сервере
 
 {% list tabs group=instructions %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-greenplum](../../index.md) > [v0](../index.md) > resource-groups > Overview
+
 # yc managed-greenplum v0 resource-groups
 
 Manage Greenplum and Apache Cloudberry resource groups

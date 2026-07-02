@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Концепции](index.md) > Сетевые настройки и политики кластера
+
 # Сетевые политики кластера Kubernetes
 
 Сетевые политики Kubernetes позволяют настроить сетевое взаимодействие между группами [подов](index.md#pod) и узлами сети. Вы можете создать сетевые политики с помощью [Kubernetes Network Policy API](https://kubernetes.io/docs/concepts/services-networking/network-policies/), который задает правила фильтрации трафика на уровне подов. Правила определяют, какие поды и сервисы в кластере Kubernetes могут получить доступ друг к другу.

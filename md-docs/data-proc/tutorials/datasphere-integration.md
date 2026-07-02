@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Практические руководства](index.md) > Интеграция Yandex Data Processing с другими сервисами > Интеграция с сервисом DataSphere
+
 # Интеграция с сервисом Yandex DataSphere
 
 # Интеграция с сервисом Yandex Data Processing
@@ -33,7 +35,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы Yandex Data Processing](../../data-proc/pricing.md)).
+* Кластер Yandex Data Processing: использование вычислительных ресурсов с наценкой за сервис Yandex Data Processing, использование сетевых дисков, получение и хранение логов, объем исходящего трафика ([тарифы Yandex Data Processing](../pricing.md)).
 * NAT-шлюз: почасовое использование шлюза и исходящий через него трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 * Бакет Yandex Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
 
@@ -386,7 +388,7 @@ Yandex Data Processing запустит операцию создания кла
 
 {% note warning %}
 
-Используя кластер, развернутый в сервисе Yandex Data Processing, вы управляете его жизненным циклом самостоятельно. Кластер будет работать и [тарифицироваться](../../data-proc/pricing.md), пока вы его не выключите.
+Используя кластер, развернутый в сервисе Yandex Data Processing, вы управляете его жизненным циклом самостоятельно. Кластер будет работать и [тарифицироваться](../pricing.md), пока вы его не выключите.
 
 {% endnote %}
 

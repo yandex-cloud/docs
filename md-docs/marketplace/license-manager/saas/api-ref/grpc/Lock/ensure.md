@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Cloud Marketplace](../../../../../index.md) > Партнерам > Справочник License Manager SaaS API > [gRPC (англ.)](../index.md) > [Lock](index.md) > Ensure
+
 # Yandex Cloud Marketplace License Manager for SaaS, gRPC: LockService.Ensure
 
 Checks if the she specified subscription is already locked to the specified resource.

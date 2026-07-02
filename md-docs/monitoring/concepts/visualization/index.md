@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Monitoring](../../index.md) > [Концепции](../index.md) > Визуализация > Обзор
+
 # Визуализация
 
 Yandex Monitoring предоставляет инструменты визуализации:

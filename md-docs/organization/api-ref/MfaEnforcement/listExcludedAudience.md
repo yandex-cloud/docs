@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [MfaEnforcement](index.md) > ListExcludedAudience
+
 # Identity Hub API, REST: MfaEnforcement.ListExcludedAudience
 
 returns specified MFA enforcement's excluded audience

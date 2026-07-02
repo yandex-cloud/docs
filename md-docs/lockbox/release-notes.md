@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Lockbox](index.md) > История изменений
+
 # История изменений в Yandex Lockbox
 
 ## III квартал 2024 {#q3-2024}

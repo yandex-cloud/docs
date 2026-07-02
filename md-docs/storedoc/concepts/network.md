@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex StoreDoc](../index.md) > [Концепции](index.md) > Сеть в Yandex StoreDoc
+
 # Сеть в Yandex StoreDoc
 
 

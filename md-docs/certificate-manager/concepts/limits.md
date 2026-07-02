@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Certificate Manager](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Certificate Manager
 
 В сервисе Certificate Manager действуют следующие ограничения:

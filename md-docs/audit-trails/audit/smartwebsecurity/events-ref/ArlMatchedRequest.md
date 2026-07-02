@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > smartwebsecurity > ArlMatchedRequest
+
 # Smart Web Security Audit Trails Events: ArlMatchedRequest
 
 ## Event JSON schema {#yandex.cloud.audit.smartwebsecurity.ArlMatchedRequest2-schema}

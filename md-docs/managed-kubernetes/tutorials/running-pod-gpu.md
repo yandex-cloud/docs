@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Практические руководства](index.md) > Запуск рабочих нагрузок с GPU
+
 # Запуск рабочих нагрузок с GPU
 
 

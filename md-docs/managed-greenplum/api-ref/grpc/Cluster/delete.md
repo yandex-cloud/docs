@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Delete
+
 # Managed Service for Greenplum® API, gRPC: ClusterService.Delete
 
 Deletes the specified Greenplum® cluster.

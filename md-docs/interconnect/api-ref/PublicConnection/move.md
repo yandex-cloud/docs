@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [PublicConnection](index.md) > Move
+
 # Cloud Interconnect API, REST: PublicConnection.Move
 
 Moves the specified PublicConnection to another folder.

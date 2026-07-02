@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Пошаговые инструкции](index.md) > Создание триггера > Создать триггер для Container Registry
+
 # Создать триггер для Container Registry, который вызывает контейнер Serverless Containers
 
 Создайте [триггер для Container Registry](../concepts/trigger/cr-trigger.md), который будет вызывать [контейнер](../concepts/container.md) Serverless Containers при создании и удалении [Docker-образов](../../container-registry/concepts/docker-image.md) Container Registry или их тегов.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Streams](../index.md) > [Практические руководства](index.md) > Создание интерактивного serverless-приложения с использованием WebSocket
+
 # Создание интерактивного serverless-приложения с использованием WebSocket
 
 
@@ -45,7 +47,7 @@
 В стоимость поддержки инфраструктуры для данного руководства входят:
 
 * плата за операции с данными и за объем хранимых данных ([тарифы Yandex Managed Service for YDB](../../ydb/pricing/serverless.md));
-* плата за использование потока данных ([тарифы Yandex Data Streams](../../data-streams/pricing.md));
+* плата за использование потока данных ([тарифы Yandex Data Streams](../pricing.md));
 * плата за хранение секрета ([тарифы Yandex Lockbox](../../lockbox/pricing.md));
 * плата за хранение данных и операции с данными ([тарифы Yandex Object Storage](../../storage/pricing.md));
 * плата за запросы к созданным API-шлюзам и исходящий трафик ([тарифы Yandex API Gateway](../../api-gateway/pricing.md));

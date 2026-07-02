@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > [Концепции](index.md) > DataSphere Notebook > Вычисления на кластерах Apache Spark™ > Способы работы с кластерами Apache Spark™
+
 # Способы работы с кластерами Apache Spark™ в DataSphere
 
 Сервис [Yandex Data Processing](../../data-proc/index.md) позволяет разворачивать кластеры Apache Spark™. Вы можете использовать кластеры Yandex Data Processing, чтобы запускать распределенные обучения на кластерах.

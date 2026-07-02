@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > DeleteUserpoolDomain
+
 # Identity Hub Audit Trails Events: DeleteUserpoolDomain
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.idp.DeleteUserpoolDomain2-schema}

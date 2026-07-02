@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > [Подключение](index.md) > Примеры кода
+
 # Примеры кода для подключения к кластеру Yandex MPP Analytics for PostgreSQL
 
 **Примеры проверялись в следующем окружении:**

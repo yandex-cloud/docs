@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.kafka > CreateTopic
+
 # Managed Service for Apache Kafka® Audit Trails Events: CreateTopic
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.kafka.CreateTopic2-schema}

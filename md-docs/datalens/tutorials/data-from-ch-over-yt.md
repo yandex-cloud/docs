@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > [Практические руководства](index.md) > Аналитика сервисов > Визуализация данных из YTsaurus CHYT
+
 # Визуализация данных из CHYT
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [PrivateCloudConnection](index.md) > List
+
 # BareMetal API, gRPC: PrivateCloudConnectionService.List
 
 Retrieves the list of Private cloud connection resources in the specified folder.

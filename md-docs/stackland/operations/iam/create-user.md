@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Пользователи и группы > Создать пользователя
+
 # Создать пользователя
 
 Создайте локального пользователя в Identity and Access Management и назначьте ему нужную [роль](../../access-management.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > Workflows > Получение информации о запуске рабочего процесса > Получить список запусков рабочего процесса
+
 # Получить список запусков рабочего процесса
 
 {% list tabs group=instructions %}

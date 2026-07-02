@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [MfaEnforcement](index.md) > ListAudience
+
 # Identity Hub API, gRPC: MfaEnforcementService.ListAudience
 
 returns specified MFA enforcement's audience

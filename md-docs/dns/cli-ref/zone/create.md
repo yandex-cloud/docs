@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > [Справочник CLI (англ.)](../index.md) > [zone](index.md) > create
+
 # yc dns zone create
 
 Create a dns zone in the specified folder.

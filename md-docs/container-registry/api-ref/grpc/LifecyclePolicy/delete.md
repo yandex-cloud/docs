@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LifecyclePolicy](index.md) > Delete
+
 # Container Registry API, gRPC: LifecyclePolicyService.Delete
 
 Deletes the specified lifecycle policy.

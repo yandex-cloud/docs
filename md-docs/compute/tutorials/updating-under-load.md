@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Практические руководства](index.md) > Обновление группы ВМ под нагрузкой
+
 # Обновление группы виртуальных машин под нагрузкой
 
 
@@ -22,7 +24,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки группы ВМ Yandex Cloud входит плата за:
-* [Диски](../concepts/disk.md) и постоянно запущенные [ВМ](../concepts/vm.md) – [тарифы Yandex Compute Cloud](../../compute/pricing.md).
+* [Диски](../concepts/disk.md) и постоянно запущенные [ВМ](../concepts/vm.md) – [тарифы Yandex Compute Cloud](../pricing.md).
 * Использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md) – [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md).
 
 ## Подготовьте окружение {#create-environment}

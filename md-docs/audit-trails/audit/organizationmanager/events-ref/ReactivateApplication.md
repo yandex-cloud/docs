@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > ReactivateApplication
+
 # Identity Hub Audit Trails Events: ReactivateApplication
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.application.saml.ReactivateApplication2-schema}

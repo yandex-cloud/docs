@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > video > CreatePlaylist
+
 # Cloud Video Audit Trails Events: CreatePlaylist
 
 ## Event JSON schema {#yandex.cloud.audit.video.CreatePlaylist2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > update-config
+
 # yc managed-greenplum cluster update-config
 
 Update the specified Greenplum cluster config

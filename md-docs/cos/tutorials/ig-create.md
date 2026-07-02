@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Solution](../index.md) > [Практические руководства](index.md) > Создать группу ВМ с Container Optimized Image
+
 # Создать группу ВМ с Container Optimized Image
 
 

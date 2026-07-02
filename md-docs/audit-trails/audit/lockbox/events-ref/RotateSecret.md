@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > lockbox > RotateSecret
+
 # Lockbox Audit Trails Events: RotateSecret
 
 ## Event JSON schema {#yandex.cloud.audit.lockbox.RotateSecret2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Spark™](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Создание кластера
+
 # Создание кластера Apache Spark™
 
 Каждый [кластер](../../glossary/cluster.md) Apache Spark™ содержит вычислительные ресурсы, на которых запускаются Spark-приложения.

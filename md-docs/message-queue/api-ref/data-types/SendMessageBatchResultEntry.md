@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Message Queue](../../index.md) > [Справочник API](../index.md) > Типы данных > SendMessageBatchResultEntry
+
 # SendMessageBatchResultEntry
 
 Параметр `MessageId` для отправленного в очередь сообщения из группы в методе [SendMessageBatch](../message/SendMessageBatch.md).

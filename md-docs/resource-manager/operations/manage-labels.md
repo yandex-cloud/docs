@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Resource Manager](../index.md) > [Пошаговые инструкции](index.md) > Управление метками
+
 # Управление метками
 
 Вы можете добавить, удалить или изменить [метку](../concepts/labels.md#services) ресурса с помощью консоли управления, командной строки Yandex Cloud и Terraform.

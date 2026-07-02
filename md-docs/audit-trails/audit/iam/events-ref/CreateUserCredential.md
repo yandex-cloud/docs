@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > CreateUserCredential
+
 # Identity and Access Management Audit Trails Events: CreateUserCredential
 
 ## Event JSON schema {#yandex.cloud.audit.iam.mfa.CreateUserCredential2-schema}

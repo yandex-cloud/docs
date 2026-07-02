@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Разработка на Go](index.md) > Использование SDK
+
 # Использование SDK для функции на Go
 
 Среда выполнения не содержит предустановленной библиотеки для работы с [API Yandex Cloud](../../../api-design-guide/index.md). Для её использования требуется добавить [зависимость](dependencies.md) в приложение на Go. Исходный код библиотеки находится на [GitHub](https://github.com/yandex-cloud/go-sdk).

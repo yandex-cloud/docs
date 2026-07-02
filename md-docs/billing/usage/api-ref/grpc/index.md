@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Billing](../../../index.md) > Справочник API > gRPC (англ.) > Billing usage > Overview
+
 # Billing Usage API: gRPC reference
 
 This API reference is organized by resource. Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts](../../../../api-design-guide/index.md).

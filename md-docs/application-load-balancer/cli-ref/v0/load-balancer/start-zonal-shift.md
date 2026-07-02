@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [load-balancer](index.md) > start-zonal-shift
+
 # yc application-load-balancer v0 load-balancer start-zonal-shift
 
 Start zonal shift the specified load balancer

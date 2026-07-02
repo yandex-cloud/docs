@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [Yandex Cloud gRPC (англ.)](../index.md) > Presign > Overview
+
 # Object Storage API, gRPC: PresignService
 
 PresignService provides URL presigning functionality

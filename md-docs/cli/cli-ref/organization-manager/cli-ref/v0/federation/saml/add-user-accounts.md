@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [organization-manager](../../../index.md) > [v0](../../index.md) > [federation](../index.md) > [saml](index.md) > add-user-accounts
+
 # yc organization-manager v0 federation saml add-user-accounts
 
 Add user accounts to the specified federation

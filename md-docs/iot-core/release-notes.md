@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex IoT Core](index.md) > История изменений
+
 # История изменений в Yandex IoT Core
 
 {% note warning %}

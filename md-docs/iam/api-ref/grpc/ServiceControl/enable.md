@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ServiceControl](index.md) > Enable
+
 # Identity and Access Management API, gRPC: ServiceControlService.Enable
 
 Enable a service in the specified resource container.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [v0](../index.md) > [trigger](index.md) > add-labels
+
 # yc serverless v0 trigger add-labels
 
 Add labels to specified trigger

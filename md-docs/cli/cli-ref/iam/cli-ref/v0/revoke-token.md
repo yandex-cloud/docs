@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [iam](../index.md) > [v0](index.md) > revoke-token
+
 # yc iam v0 revoke-token
 
 Revoke IAM token

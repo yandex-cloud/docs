@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Marketplace](../index.md) > Партнерам > Пошаговые инструкции > Создание тарифа
+
 # Создание тарифа
 
 1. Авторизуйтесь в [кабинете партнера Marketplace](https://partners.yandex.cloud/).

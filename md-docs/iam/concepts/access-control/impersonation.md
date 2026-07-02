@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Концепции](../index.md) > [Как устроено управление доступом](index.md) > Имперсонация
+
 # Имперсонация
 
 _Имперсонация_ — это выполнение пользователем действий с ресурсами [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud) от имени [сервисного аккаунта](../users/service-accounts.md), которому назначены необходимые [права доступа](roles.md). Имперсонация чаще всего [применяется](../../operations/sa/impersonate-sa.md), чтобы временно расширить права пользователя, не прибегая к генерации [статических учетных данных](../authorization/index.md).

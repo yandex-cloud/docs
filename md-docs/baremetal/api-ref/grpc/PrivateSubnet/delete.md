@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [PrivateSubnet](index.md) > Delete
+
 # BareMetal API, gRPC: PrivateSubnetService.Delete
 
 Deletes the specified private subnet.

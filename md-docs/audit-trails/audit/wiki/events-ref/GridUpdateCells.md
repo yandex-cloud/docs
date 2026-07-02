@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > GridUpdateCells
+
 # Yandex Wiki Audit Trails Events: GridUpdateCells
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.GridUpdateCells2-schema}

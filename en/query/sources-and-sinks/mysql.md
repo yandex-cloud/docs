@@ -4,7 +4,7 @@ This section covers the basics of working with [{{ mmy-name }}](https://yandex.c
 
 To start working with a {{ mmy-name }} database, follow these steps:
 1. Create a [connection](../concepts/glossary.md#connection) containing your database access credentials.
-1. [Run a query](#query) to the database.
+1. [Run a query](#query) against the database.
 
 Query example for reading data from {{ mmy-name }}:
 
@@ -24,7 +24,7 @@ To create a connection to {{ mmy-name }}:
 1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, switch to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
 1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
-1. Specify the connection parameters:
+1. Specify the connection settings:
 
    1. Under **{{ ui-key.yql.yq-connection-form.general-parameters.section-title }}**:
 

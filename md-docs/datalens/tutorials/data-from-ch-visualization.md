@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > [Практические руководства](index.md) > Знакомство с DataLens > Дашборд сети магазинов из БД ClickHouse®
+
 # Дашборд сети магазинов из БД ClickHouse®
 
 

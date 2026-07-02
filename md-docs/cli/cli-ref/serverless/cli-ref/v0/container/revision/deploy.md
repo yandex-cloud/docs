@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [serverless](../../../index.md) > [v0](../../index.md) > [container](../index.md) > [revision](index.md) > deploy
+
 # yc serverless v0 container revision deploy
 
 Deploy new container revision

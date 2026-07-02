@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Serverless Integrations](../../index.md) > Справочник API EventRouter > Аутентификация в API
+
 # Аутентификация в API EventRouter
 
 # Аутентификация в API

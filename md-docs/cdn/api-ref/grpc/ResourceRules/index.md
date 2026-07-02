@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > ResourceRules > Overview
+
 # Cloud CDN API, gRPC: ResourceRulesService
 
 Rules management service.

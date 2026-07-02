@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [StandardImage](index.md) > Get
+
 # BareMetal API, REST: StandardImage.Get
 
 Returns the specific standard Image resource.

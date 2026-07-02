@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [oslogin](../index.md) > [profile](index.md) > delete
+
 # yc organization-manager v0 oslogin profile delete
 
 Delete the specified OS Login profile

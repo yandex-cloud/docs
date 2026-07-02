@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [trigger](../index.md) > [update](index.md) > yds
+
 # yc serverless trigger update yds
 
 Update YDS trigger

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Resource Manager > Resources > resourcemanager_folder_iam_policy
+
 # yandex_resourcemanager_folder_iam_policy (Resource)
 
 Allows creation and management of the IAM policy for an existing Yandex Resource Manager folder.

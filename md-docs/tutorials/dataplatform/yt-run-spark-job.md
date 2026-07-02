@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Запуск PySpark-задания в Yandex Managed Service for YTsaurus
+
 # Запуск PySpark-задания в Yandex Managed Service for YTsaurus
 
 # Запуск PySpark-задания
@@ -17,8 +19,8 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер YTsaurus: использование вычислительных ресурсов компонентов кластера и объем хранилища ([тарифы YTsaurus](../../../managed-ytsaurus/pricing.md)).
-* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Compute Cloud](../../../compute/pricing.md)).
+* Кластер YTsaurus: использование вычислительных ресурсов компонентов кластера и объем хранилища ([тарифы YTsaurus](../../managed-ytsaurus/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Compute Cloud](../../compute/pricing.md)).
 
 ## Перед началом работы {#before-you-begin}
 

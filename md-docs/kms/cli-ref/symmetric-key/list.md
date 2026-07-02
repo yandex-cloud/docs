@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > [Справочник CLI (англ.)](../index.md) > [symmetric-key](index.md) > list
+
 # yc kms symmetric-key list
 
 List symmetric keys of the specified folder

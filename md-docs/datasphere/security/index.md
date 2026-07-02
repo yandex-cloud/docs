@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > Управление доступом
+
 # Управление доступом в DataSphere
 
 Доступ к сервису Yandex DataSphere регулируется путем назначения прав в организации. Управление организациями осуществляется с помощью сервиса [Yandex Identity Hub](../../organization/index.md).

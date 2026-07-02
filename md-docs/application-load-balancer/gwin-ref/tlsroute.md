@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Инструменты для Managed Service for Kubernetes > Gwin > Конфигурация ресурсов (англ.) > TLSRoute
+
 # TLSRoute
 
 TLSRoute provides a way to route TLS requests. This includes the capability to match requests by hostname and route them to backend services. TLSRoute is used for TCP traffic that is encrypted with TLS.

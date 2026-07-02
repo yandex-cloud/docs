@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [instance](index.md) > remove-metadata
+
 # yc compute instance remove-metadata
 
 Remove keys from metadata for the specified virtual machine instance

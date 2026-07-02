@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Data Transfer](index.md) > Доступные трансферы
+
 # Доступные трансферы в Data Transfer
 
 Доступные комбинации источников и приемников:
@@ -36,7 +38,7 @@
 
 ^1^ — функциональность находится на стадии [Preview](../overview/concepts/launch-stages.md) и может предоставляться о запросу. Обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
 
-![GA](../_assets/console-icons/credit-card.svg) — трансфер находится на стадии [GA](../overview/concepts/launch-stages.md) и тарифицируется в соответствии с [правилами тарификации](../../data-transfer/pricing.md) сервиса.
+![GA](../_assets/console-icons/credit-card.svg) — трансфер находится на стадии [GA](../overview/concepts/launch-stages.md) и тарифицируется в соответствии с [правилами тарификации](pricing.md) сервиса.
 Остальные трансферы находятся на стадии [Preview](../overview/concepts/launch-stages.md) и активируются по запросу в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
 
 

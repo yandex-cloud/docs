@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Пошаговые инструкции](../index.md) > [Подключение](index.md) > FQDN хостов
+
 # FQDN хостов ClickHouse®
 
 Для подключения к хосту потребуется его [FQDN](../../concepts/network.md#hostname) — доменное имя. Вы можете использовать FQDN конкретного хоста в кластере или [особый FQDN](#auto), всегда указывающий на доступный хост.

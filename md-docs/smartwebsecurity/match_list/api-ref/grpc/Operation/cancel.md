@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Smart Web Security](../../../../index.md) > Справочник API > gRPC (англ.) > [SmartWebSecurity MatchList API](../index.md) > [Operation](index.md) > Cancel
+
 # SmartWebSecurity MatchList API, gRPC: OperationService.Cancel
 
 Cancels the specified operation.

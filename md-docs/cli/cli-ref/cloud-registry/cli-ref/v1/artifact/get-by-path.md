@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cloud-registry](../../index.md) > [v1](../index.md) > [artifact](index.md) > get-by-path
+
 # yc cloud-registry v1 artifact get-by-path
 
 Returns the specified artifact resource by path within the registry.

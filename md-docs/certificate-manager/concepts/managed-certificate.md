@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Certificate Manager](../index.md) > [Концепции](index.md) > Сертификат от Let's Encrypt
+
 # Сертификат от Let's Encrypt
 
 С помощью Certificate Manager вы можете создавать TLS-сертификаты от Let's Encrypt. Вы запрашиваете выпуск сертификата и проходите процедуру проверки прав на домены, после этого Certificate Manager управляет этим сертификатом, взаимодействуя с Let's Encrypt вместо вас.

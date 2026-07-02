@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex IoT Core](../index.md) > [Пошаговые инструкции](index.md) > Отправка сообщения
+
 # Отправка сообщения
 
 {% note warning %}

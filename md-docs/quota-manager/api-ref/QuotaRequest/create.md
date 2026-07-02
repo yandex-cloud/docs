@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Quota Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [QuotaRequest](index.md) > Create
+
 # Quota Manager API, REST: QuotaRequest.Create
 
 Creates a quota request in the specified resource.

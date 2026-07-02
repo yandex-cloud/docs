@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > Аутентификация > IAM-токены > Отзыв IAM-токена
+
 # Отзыв IAM-токена
 
 Полученный ранее [IAM-токен](../../concepts/authorization/iam-token.md) можно отозвать. Например, это может потребоваться при его [компрометации](../compromised-credentials.md) или при получении нового IAM-токена.

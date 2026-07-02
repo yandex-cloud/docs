@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Lockbox](../../index.md) > [Справочник CLI (англ.)](../index.md) > [secret](index.md) > add-version
+
 # yc lockbox secret add-version
 
 Add new payload version for the specified secret based on an existing one

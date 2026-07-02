@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Data Processing](index.md) > Публичные материалы
+
 # Публичные материалы о Yandex Data Processing
 
 ## Конференции и вебинары {#conf-and-webinars}

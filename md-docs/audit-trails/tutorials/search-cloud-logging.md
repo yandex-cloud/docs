@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Audit Trails](../index.md) > [Практические руководства](index.md) > Поиск событий Yandex Cloud в Cloud Logging
+
 # Поиск событий Yandex Cloud в Cloud Logging
 
 ## Кто удалил каталог {#delete-folder}

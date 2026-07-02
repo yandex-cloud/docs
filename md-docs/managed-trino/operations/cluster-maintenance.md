@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Техническое обслуживание
+
 # Техническое обслуживание кластера Trino
 
 Вы можете управлять [техническим обслуживанием](../concepts/maintenance.md) кластера Yandex Managed Service for Trino.

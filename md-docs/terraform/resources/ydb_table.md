@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for YDB > Resources > ydb_table
+
 # yandex_ydb_table (Resource)
 
 Yandex Database table.

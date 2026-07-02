@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Backup](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Resource](index.md) > Get
+
 # Cloud Backup API, gRPC: ResourceService.Get
 
 Get specific Compute Cloud instance.

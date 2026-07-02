@@ -1,12 +1,12 @@
 # .NET Core function error handling
 
-If a [handler](handler.md) reports a .NET Core function runtime or loading error, the [runtime environment](../../concepts/runtime/index.md) automatically intercepts the error and responds by returning a JSON document with the error type info. For more information about the JSON document format, see [Calling a function](../../concepts/function-invoke.md#error).
+If the [handler](handler.md) reports a .NET Core function execution or loading error, the [runtime](../../concepts/runtime/index.md) automatically catches the error and returns a JSON document with information about the error type. For more information about the JSON document format, see [Invoking a function](../../concepts/function-invoke.md#error).
 
 The error info is also written to the [execution log](logging.md). You can [view](../../operations/function/function-logs.md) the log via the [{{ yandex-cloud }} CLI](../../../cli/index.yaml) or the [management console]({{ link-console-main }}).
 
 #### Examples of error handling {#examples}
 
-Case 1: User code goes outside the array boundaries, resulting in `IndexOutOfRangeException`. The [runtime environment](../../concepts/runtime/index.md) intercepts the exception and generates a JSON document containing the error message (`errorMessage` field), error type (`errorType` field), and [stack trace](https://en.qwe.wiki/wiki/Stack_trace) (`stackTrace` field).
+Case 1: User code goes outside the array boundaries, causing the function to throw `IndexOutOfRangeException`. The [runtime](../../concepts/runtime/index.md) catches the exception and generates a JSON document containing the error message (the `errorMessage` field), error type (the `errorType` field), and [stack trace](https://en.qwe.wiki/wiki/Stack_trace) (the `stackTrace` field).
 
 Function code:
 
@@ -14,7 +14,7 @@ Function code:
 public class Handler {
   public int FunctionHandler(byte[] input) {
     readonly var array = new int[]{1, 2, 3, 4, 5};
-    // at this point, the function throws an IndexOutOfRangeException
+    // At this point, the function throws IndexOutOfRangeException.
     return array[15];
   }
 }

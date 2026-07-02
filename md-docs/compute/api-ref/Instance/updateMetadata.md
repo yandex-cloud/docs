@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Instance](index.md) > UpdateMetadata
+
 # Compute Cloud API, REST: Instance.UpdateMetadata
 
 Updates the metadata of the specified instance. For more information on metadata, see [VM metadata](../../concepts/vm-metadata.md).

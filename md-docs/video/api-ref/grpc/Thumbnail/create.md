@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Thumbnail](index.md) > Create
+
 # Video API, gRPC: ThumbnailService.Create
 
 Creates a new thumbnail record for a specific resource.

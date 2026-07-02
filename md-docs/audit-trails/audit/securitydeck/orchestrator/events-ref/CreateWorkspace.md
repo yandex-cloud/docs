@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > securitydeck.orchestrator > CreateWorkspace
+
 # Security Deck Orchestrator Audit Trails Events: CreateWorkspace
 
 ## Event JSON schema {#yandex.cloud.audit.securitydeck.orchestrator.CreateWorkspace2-schema}

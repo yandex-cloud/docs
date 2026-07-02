@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Interconnect](../index.md) > [Практические руководства](index.md) > Изменить IP-префиксы VPC в Routing Instance
+
 # Изменить набор IP-префиксов VPC в Routing Instance
 
 ## Изменение набора IP-префиксов VPC в Routing Instance {#ri-ip-change}

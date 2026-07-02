@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex WebSQL](index.md) > Правила тарификации
+
 # Правила тарификации для Yandex WebSQL
 
 

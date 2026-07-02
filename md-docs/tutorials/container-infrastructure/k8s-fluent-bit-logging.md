@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Контейнерная инфраструктура](index.md) > Managed Service for Kubernetes > Использование продуктов Cloud Marketplace > Передача логов кластера Managed Service for Kubernetes в Cloud Logging
+
 # Передача логов кластера Yandex Managed Service for Kubernetes в Yandex Cloud Logging
 
 

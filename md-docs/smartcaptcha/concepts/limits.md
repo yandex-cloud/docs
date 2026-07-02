@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex SmartCaptcha](../index.md) > Концепции > Квоты и лимиты
+
 # Квоты и лимиты SmartCaptcha
 
 В сервисе SmartCaptcha действуют следующие ограничения:

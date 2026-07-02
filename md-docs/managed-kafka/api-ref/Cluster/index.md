@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > Cluster > Overview
+
 # Managed Service for Apache Kafka® API, REST: Cluster
 
 A set of methods for managing Apache Kafka® clusters.

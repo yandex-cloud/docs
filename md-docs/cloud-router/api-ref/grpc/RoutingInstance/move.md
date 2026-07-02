@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Router](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [RoutingInstance](index.md) > Move
+
 # Cloud Router API, gRPC: RoutingInstanceService.Move
 
 Moves the specified RoutingInstance to another folder.

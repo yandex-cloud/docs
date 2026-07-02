@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Видеоплеер > SDK > JavaScript > Справочник API > Interfaces > PlayerSdkSourceParams
+
 # Interface: PlayerSdkSourceParams
 
 ## Hierarchy {#Hierarchy}

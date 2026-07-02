@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex SIEM](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Инструкции по работе с Yandex SIEM
 
 ## Расследования {#investigations}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ServiceAccount](index.md) > Reactivate
+
 # Identity and Access Management API, REST: ServiceAccount.Reactivate
 
 Reactivates the specified service account.

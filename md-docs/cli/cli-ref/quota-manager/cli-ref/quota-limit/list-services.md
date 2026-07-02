@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [quota-manager](../index.md) > [quota-limit](index.md) > list-services
+
 # yc quota-manager quota-limit list-services
 
 List quota services

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > list-operations
+
 # yc managed-mongodb cluster list-operations
 
 List operations for the specified MongoDB cluster.

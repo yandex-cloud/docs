@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Lockbox > Lockbox
+
 # Yandex Lockbox
 
 Yandex Lockbox — сервис для хранения секретов.

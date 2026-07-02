@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Kubernetes](../index.md) > Как создать внутренний Ingress-контроллер
+
 # Как создать внутренний Ingress-контроллер
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Backup](../../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Resource](index.md) > List
+
 # Cloud Backup API, REST: Resource.List
 
 List resources: Compute Cloud instances.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [BackupRetentionPolicy](index.md) > Create
+
 # Managed Service for PostgreSQL API, gRPC: BackupRetentionPolicyService.Create
 
 Add a new retention policy.

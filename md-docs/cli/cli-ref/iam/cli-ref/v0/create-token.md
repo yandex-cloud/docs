@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [iam](../index.md) > [v0](index.md) > create-token
+
 # yc iam v0 create-token
 
 Create IAM token and print to STDOUT

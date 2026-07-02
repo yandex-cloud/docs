@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [hardware-pool](index.md) > get
+
 # yc baremetal v0 hardware-pool get
 
 Show information about the specified hardware pool

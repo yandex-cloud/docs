@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex DataSphere](../../../../index.md) > Справочник API > gRPC (англ.) > [DataSphere Jobs API v2](../index.md) > Operation > Overview
+
 # DataSphere Jobs API v2, gRPC: OperationService
 
 A set of methods for managing operations for asynchronous API requests.

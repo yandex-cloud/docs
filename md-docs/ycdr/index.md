@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Cloud Detection and Response > Yandex Cloud Detection and Response
+
 # Yandex Cloud Detection and Response
 
 Сервис Yandex Cloud Detection and Response позволяет вести мониторинг и реагировать на инциденты в Yandex Cloud.  YCDR разработан на базе собственного центра мониторинга безопасности (SOC) платформы Yandex Cloud.  Сервис собирает данные с облачной инфраструктуры для выявления аномалий. При обнаружении аномалий YCDR создает <a href="../security-deck/concepts/alerts.md">алерты</a>, указывающие на потенциальный инцидент.

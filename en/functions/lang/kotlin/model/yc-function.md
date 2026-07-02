@@ -17,8 +17,8 @@ class Handler : YcFunction<Int, Int> {
 
 {% note warning %}
 
-Specify both values for `YcFunction` type parameters: the first one is for the input argument type, while the second one, for the return value type . For the `handle` method, make sure to provide the [invocation context](../context.md) as its second argument.
+Specify two values for `YcFunction` type parameters: the first one being the input argument type and the second one, the return value type. For the `handle` method, make sure to provide the [invocation context](../context.md) as its second argument.
 
 {% endnote %}
 
-You can use any classes as input and return types. Fields of these classes may have any [access modifiers](https://kotlinlang.org/docs/visibility-modifiers.html).
+You can use any classes as input and return types. Fields of these classes can have any [access modifiers](https://kotlinlang.org/docs/visibility-modifiers.html).

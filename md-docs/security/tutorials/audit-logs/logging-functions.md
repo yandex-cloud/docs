@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Безопасность в Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Сбор, мониторинг и анализ аудитных логов > Настройка реагирования в Cloud Logging и Cloud Functions
+
 # Настройка реагирования в Yandex Cloud Logging и Yandex Cloud Functions
 
 

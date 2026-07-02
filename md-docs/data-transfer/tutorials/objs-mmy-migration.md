@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Загрузка данных в витрины > Object Storage в MySQL®
+
 # Миграция данных из Yandex Object Storage в Yandex Managed Service for MySQL®
 
 # Миграция данных из Object Storage в кластер Yandex Managed Service for MySQL® с помощью Yandex Data Transfer

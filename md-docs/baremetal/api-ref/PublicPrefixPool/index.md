@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > PublicPrefixPool > Overview
+
 # BareMetal API, REST: PublicPrefixPool
 
 ## Methods

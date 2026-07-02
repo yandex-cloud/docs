@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > AddZookeeper
+
 # Managed Service for ClickHouse API, REST: Cluster.AddZookeeper
 
 Adds a ZooKeeper subcluster to the specified ClickHouse cluster.

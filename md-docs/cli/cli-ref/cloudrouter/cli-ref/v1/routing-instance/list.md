@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cloudrouter](../../index.md) > [v1](../index.md) > [routing-instance](index.md) > list
+
 # yc cloudrouter v1 routing-instance list
 
 Retrieves the list of RoutingInstance resources in the specified folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Безопасность в Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Защита приложений > Построение пайплайна CI/CD в GitLab с использованием serverless-продуктов
+
 # Построение пайплайна CI/CD в GitLab с использованием serverless-продуктов
 
 
@@ -28,13 +30,13 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* Плата за [диски](../../../compute/concepts/disk.md) и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за [диски](../../../compute/concepts/disk.md) и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
 * Плата за использование [мастера Yandex Managed Service for Kubernetes](../../../managed-kubernetes/concepts/index.md#master) ([тарифы Managed Service for Kubernetes](../../../managed-kubernetes/pricing.md)).
 * Плата за хранение созданных Docker-образов ([тарифы Container Registry](../../../container-registry/pricing.md)).
-* Плата за хранение секретов ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
-* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик ([тарифы Serverless Containers](../../serverless-containers/pricing.md)).
-* Плата за запросы к API-шлюзу ([тарифы API Gateway](../../api-gateway/pricing.md)).
-* Плата за использование [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за хранение секретов ([тарифы Yandex Lockbox](../../../lockbox/pricing.md)).
+* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик ([тарифы Serverless Containers](../../../serverless-containers/pricing.md)).
+* Плата за запросы к API-шлюзу ([тарифы API Gateway](../../../api-gateway/pricing.md)).
+* Плата за использование [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
 
 ## Перед началом работы {#before-begin}
 

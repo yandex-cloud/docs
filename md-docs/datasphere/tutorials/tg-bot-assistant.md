@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > [Практические руководства](index.md) > Эксплуатация > Создание интеллектуального ассистента для Telegram
+
 # Создание интеллектуального ассистента для Telegram
 
 <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/episode/vplezctzkblzqsa2f3wh?autoplay=0&mute=1" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
@@ -36,7 +38,7 @@
 
 В стоимость поддержки инфраструктуры для создания интеллектуального ассистента входит:
 
-* плата за использование [вычислительных ресурсов DataSphere](../../datasphere/pricing.md);
+* плата за использование [вычислительных ресурсов DataSphere](../pricing.md);
 * плата за [генерацию текста](https://aistudio.yandex.ru/docs/ru/pricing) моделью.
 
 ## Подготовьте инфраструктуру {#infra}

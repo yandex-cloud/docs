@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Backup](../../index.md) > [Справочник CLI (англ.)](../index.md) > [policy](index.md) > revoke
+
 # yc backup policy revoke
 
 Revoke policy from vm(-s)

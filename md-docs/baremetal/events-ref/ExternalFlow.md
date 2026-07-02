@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > Концепции > Настройка и управление > Аудитные логи Audit Trails > Справочник аудитных логов > ExternalFlow
+
 # BareMetal Audit Trails Events: ExternalFlow
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.flowlogs.ExternalFlow2-schema}

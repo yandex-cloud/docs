@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Security Deck](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Comment](index.md) > Create
+
 # Security Deck Alerts API, REST: Comment.Create
 
 Create a comment for a specified alert.

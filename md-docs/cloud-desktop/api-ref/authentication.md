@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Desktop](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Yandex Cloud Desktop
 
 # Аутентификация в API

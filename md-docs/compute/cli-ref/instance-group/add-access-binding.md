@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [instance-group](index.md) > add-access-binding
+
 # yc compute instance-group add-access-binding
 
 Add access binding for the specified instance group

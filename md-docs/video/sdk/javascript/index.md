@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Видеоплеер > [SDK](../index.md) > JavaScript > Начало работы
+
 # Начало работы с SDK видеоплеера для JavaScript
 
 Вы можете интегрировать [видеоплеер](../../concepts/player.md) с контентом из Cloud Video в ваш проект на языке [JavaScript](https://ru.wikipedia.org/wiki/JavaScript) с помощью Cloud Video Player SDK для JavaScript.

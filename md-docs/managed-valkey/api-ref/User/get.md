@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [User](index.md) > Get
+
 # Managed Service for Redis API, REST: User.Get
 
 Returns the specified Redis User resource.

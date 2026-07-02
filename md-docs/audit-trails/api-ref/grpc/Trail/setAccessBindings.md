@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Trail](index.md) > SetAccessBindings
+
 # Audit Trails API, gRPC: TrailService.SetAccessBindings
 
 Sets access bindings for the trail.

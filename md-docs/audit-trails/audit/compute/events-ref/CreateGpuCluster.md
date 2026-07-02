@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > CreateGpuCluster
+
 # Compute Audit Trails Events: CreateGpuCluster
 
 ## Event JSON schema {#yandex.cloud.audit.compute.CreateGpuCluster2-schema}

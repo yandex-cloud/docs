@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Network Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [NetworkLoadBalancer](index.md) > AttachTargetGroup
+
 # Network Load Balancer API, REST: NetworkLoadBalancer.AttachTargetGroup
 
 Attaches a target group to the specified network load balancer.

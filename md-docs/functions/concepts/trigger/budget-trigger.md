@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Концепции](../index.md) > [Триггер](index.md) > Триггер для бюджетов
+
 # Триггер для бюджетов, который вызывает функцию Cloud Functions
 
 [Триггер](index.md) для [бюджетов](../../../billing/concepts/budget.md) запускает [функцию](../function.md) Cloud Functions при превышении пороговых значений.

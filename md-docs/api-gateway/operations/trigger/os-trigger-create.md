@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Пошаговые инструкции](../index.md) > Создание триггера > Создать триггер для Object Storage
+
 # Создать триггер для Object Storage, который отправляет сообщения в WebSocket-соединения
 
 Создайте [триггер для Object Storage](../../concepts/trigger/os-trigger.md), который будет отправлять сообщения в [WebSocket-соединения](../../concepts/extensions/websocket.md) при создании, перемещении или удалении [объекта](../../../storage/concepts/object.md) в бакете.

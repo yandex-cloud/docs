@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > spark > StartCluster
+
 # Managed Spark Audit Trails Events: StartCluster
 
 ## Event JSON schema {#yandex.cloud.audit.spark.StartCluster2-schema}

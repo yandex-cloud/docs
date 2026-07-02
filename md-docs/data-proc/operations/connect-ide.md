@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Пошаговые инструкции](index.md) > Кластеры Yandex Data Processing > Подключение > Подключение к хосту из графических IDE
+
 # Подключение к хосту Yandex Data Processing из графических IDE
 
 Вы можете подключиться к кластеру Yandex Data Processing с помощью графических IDE.

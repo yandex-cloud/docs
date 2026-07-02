@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Serverless Integrations
+
 # Метрики Yandex Serverless Integrations
 
 В этом разделе описаны метрики сервиса [Serverless Integrations](../../serverless-integrations/index.md), поставляемые в Monitoring.

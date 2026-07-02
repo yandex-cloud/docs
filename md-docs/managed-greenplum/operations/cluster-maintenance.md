@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Техническое обслуживание
+
 # Техническое обслуживание кластера Yandex MPP Analytics for PostgreSQL
 
 Вы можете управлять [техническим обслуживанием](../concepts/maintenance.md) кластера Yandex MPP Analytics for PostgreSQL.

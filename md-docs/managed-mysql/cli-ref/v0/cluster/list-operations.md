@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for MySQL®](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > list-operations
+
 # yc managed-mysql v0 cluster list-operations
 
 List operations for the specified MySQL cluster

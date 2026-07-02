@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > k8s > InstallHelmRelease
+
 # Managed Services for Kubernetes Audit Trails Events: InstallHelmRelease
 
 ## Event JSON schema {#yandex.cloud.audit.k8s.InstallHelmRelease2-schema}

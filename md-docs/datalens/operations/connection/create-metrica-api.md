@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Подключения > Файлы и сервисы > Создание подключения к Metrica API
+
 # Создание подключения к Metrica в Yandex DataLens
 
 
@@ -50,7 +52,7 @@
 Подключение к Metrica API не поддерживает [публичный доступ](../../concepts/datalens-public.md) к объектам, созданным на его основе. Чтобы поделиться дашбордом или чартом, созданным на основе данного подключения, воспользуйтесь одним из способов:
 
 * [Добавьте](../../security/add-new-user.md) пользователя в организацию или облако и предоставьте ему доступ к дашборду или чарту.
-* [Выгрузите](../../qa/connections.md#uploading-data-logs-api) данные в кластер [Managed Service for ClickHouse®](../../../managed-clickhouse/index.md) и используйте подключение к БД ClickHouse® в качестве источника. С тарифами сервиса Managed Service for ClickHouse® можно ознакомиться в разделе [Правила тарификации](../../managed-clickhouse/pricing.md).
+* [Выгрузите](../../qa/connections.md#uploading-data-logs-api) данные в кластер [Managed Service for ClickHouse®](../../../managed-clickhouse/index.md) и используйте подключение к БД ClickHouse® в качестве источника. С тарифами сервиса Managed Service for ClickHouse® можно ознакомиться в разделе [Правила тарификации](../../../managed-clickhouse/pricing.md).
 
 
 ## Получение OAuth-токена {#get-oauth-token}

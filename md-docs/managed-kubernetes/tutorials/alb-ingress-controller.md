@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Практические руководства](index.md) > Использование продуктов Cloud Marketplace > Настройка L7-балансировщика Application Load Balancer с помощью Ingress-контроллера
+
 # Настройка L7-балансировщика Yandex Application Load Balancer с помощью Ingress-контроллера
 
 Сервис [Yandex Application Load Balancer](../../application-load-balancer/index.md) используется для балансировки нагрузки и распределения трафика между приложениями. Чтобы с его помощью управлять трафиком к приложениям, запущенным в [кластере Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster), необходим [Ingress-контроллер](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [kms](../../index.md) > [v0](../index.md) > [symmetric-key](index.md) > list-operations
+
 # yc kms v0 symmetric-key list-operations
 
 List operations for the specified symmetric key

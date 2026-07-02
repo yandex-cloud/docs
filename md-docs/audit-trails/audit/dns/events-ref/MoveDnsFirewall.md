@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > dns > MoveDnsFirewall
+
 # Cloud DNS Audit Trails Events: MoveDnsFirewall
 
 ## Event JSON schema {#yandex.cloud.audit.dns.MoveDnsFirewall2-schema}

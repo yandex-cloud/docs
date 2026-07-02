@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > logging > DeleteLogGroup
+
 # Cloud Logging Audit Trails Events: DeleteLogGroup
 
 ## Event JSON schema {#yandex.cloud.audit.logging.DeleteLogGroup2-schema}

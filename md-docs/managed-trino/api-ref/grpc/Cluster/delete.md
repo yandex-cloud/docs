@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Trino](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Delete
+
 # Managed Service for Trino API, gRPC: ClusterService.Delete
 
 Deletes the specified Trino Cluster resource.

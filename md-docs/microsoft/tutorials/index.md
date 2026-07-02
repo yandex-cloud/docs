@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Microsoft в Yandex Cloud](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства по использованию продуктов Microsoft в Yandex Cloud
 
 * [Использование своей лицензии для продуктов Microsoft](../byol.md)

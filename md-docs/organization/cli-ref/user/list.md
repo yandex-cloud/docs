@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Справочник CLI (англ.)](../index.md) > [user](index.md) > list
+
 # yc organization-manager user list
 
 List user accounts of the specified organization

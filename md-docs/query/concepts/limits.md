@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Query
 
 В сервисе Yandex Query действуют следующие ограничения:

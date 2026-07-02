@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [PrivateCloudConnection](index.md) > Delete
+
 # BareMetal API, REST: PrivateCloudConnection.Delete
 
 Removes a private cloud connection and all allocated network resouces

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Kubernetes](index.md) > Сопоставление с другими сервисами Yandex Cloud
+
 # Сопоставление Managed Service for Kubernetes с другими сервисами Yandex Cloud
 
 **Критерий \ Сервис** | **Container<br/>Solution** | **Managed<br/>Service for<br/>Kubernetes** | **Cloud<br/>Functions** | **Serverless<br/>Containers**

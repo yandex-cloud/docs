@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Billing](../../index.md) > Справочник API > REST (англ.) > [Billing](../index.md) > [Customer](index.md) > Suspend
+
 # Billing API, REST: Customer.Suspend
 
 Suspend specified customer. After customer is suspended, he can't use resources associated with his billing account.

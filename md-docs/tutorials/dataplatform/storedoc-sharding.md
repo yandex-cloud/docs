@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Шардирование коллекций Yandex StoreDoc
+
 # Шардирование коллекций Yandex StoreDoc
 
 # Шардирование коллекций Yandex StoreDoc

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Практические руководства](index.md) > Мониторинг > Мониторинг кластера с помощью Prometheus Operator с поддержкой Yandex Monitoring
+
 # Мониторинг кластера с помощью Prometheus Operator с поддержкой Yandex Monitoring
 
 Managed Service for Kubernetes позволяет выгружать метрики объектов кластера в системы мониторинга.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for MySQL®](../index.md) > [Концепции](index.md) > Права пользователей
+
 # Права пользователей в Managed Service for MySQL®
 
 Права пользователя в кластере Managed Service for MySQL® определяются одной или несколькими привилегиями, назначенными пользователю.

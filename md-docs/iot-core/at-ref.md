@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex IoT Core](index.md) > Аудитные логи Audit Trails
+
 # Справочник аудитных логов Yandex Audit Trails
 
 {% note warning %}

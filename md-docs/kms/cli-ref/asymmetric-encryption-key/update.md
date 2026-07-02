@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > [Справочник CLI (англ.)](../index.md) > [asymmetric-encryption-key](index.md) > update
+
 # yc kms asymmetric-encryption-key update
 
 Update the specified asymmetric encryption key

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > [Практические руководства](index.md) > Эксплуатация > Развертывание сервиса на основе Docker-образа с FastAPI
+
 # Развертывание сервиса на основе Docker-образа с FastAPI
 
 В этом практическом руководстве вы развернете сервис FastAPI на основе [Docker-образа](../concepts/deploy/index.md#docker-node). Сервис передает метрики в текстовом формате [Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format). Сервис будет запускаться на IP-адресе `0.0.0.0` и порте `9875`.
@@ -23,7 +25,7 @@
 
 В стоимость развертывания сервиса на основе Docker-образа входят:
 
-* плата за постоянно запущенные инстансы ноды ([тарифы DataSphere](../../datasphere/pricing.md));
+* плата за постоянно запущенные инстансы ноды ([тарифы DataSphere](../pricing.md));
 * плата за запуск ячеек с кодом для проверки работы развернутого сервиса;
 * объем хранилища, занятый данными Yandex Container Registry ([тарифы Container Registry](../../container-registry/pricing.md)).
 

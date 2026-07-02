@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [Server](index.md) > BatchCreate
+
 # BareMetal API, REST: Server.BatchCreate
 
 Creates multiple servers in the specified folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > CancelJob
+
 # DataSphere Audit Trails Events: CancelJob
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.CancelJob2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Подключения > Базы данных > Создание подключения к Snowflake
+
 # Создание подключения к Snowflake
 
 Чтобы создать подключение к Snowflake:

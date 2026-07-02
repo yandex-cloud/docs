@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > CertificateContent > Overview
+
 # Certificate Manager API, gRPC: CertificateContentService
 
 A set of methods for managing certificate content.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > UpdateGroup
+
 # Identity Hub Audit Trails Events: UpdateGroup
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.UpdateGroup2-schema}

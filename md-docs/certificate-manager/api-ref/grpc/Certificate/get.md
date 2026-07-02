@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Certificate](index.md) > Get
+
 # Certificate Manager API, gRPC: CertificateService.Get
 
 Returns the specified certificate.

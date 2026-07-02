@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Registry](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [registry](../index.md) > [lifecycle-policy](index.md) > dry-run
+
 # yc cloud-registry v0 registry lifecycle-policy dry-run
 
 Simulate the lifecycle policy execution and show the number of artifacts to be deleted

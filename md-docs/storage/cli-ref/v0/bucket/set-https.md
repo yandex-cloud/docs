@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > [Справочник YC CLI (англ.)](../../index.md) > [v0](../index.md) > [bucket](index.md) > set-https
+
 # yc storage v0 bucket set-https
 
 Sets bucket https settings

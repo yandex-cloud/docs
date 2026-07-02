@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > REST (англ.) > Compute Cloud Instance Groups API > Overview
+
 # Compute Cloud Instance Groups API: REST reference
 
 This API reference is organized by resource. All actions are performed by sending HTTP requests to resource URLs. For more information about the API architecture, see [API Concepts](../../../api-design-guide/index.md).

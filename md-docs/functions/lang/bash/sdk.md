@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Разработка на Bash](index.md) > Использование SDK
+
 # Использование SDK для функции на Bash
 
 В среду выполнения по умолчанию установлена утилита [Yandex Cloud CLI](../../../cli/index.md) для работы с API Yandex Cloud.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > DataLens Public API > [DataLens API (англ.)](index.md) > deleteEmbed
+
 # DataLens API: Delete embed
 
 Deletes the specified embedding.

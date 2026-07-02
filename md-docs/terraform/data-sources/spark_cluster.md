@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Spark > Data Sources > spark_cluster
+
 # yandex_spark_cluster (DataSource)
 
 Managed Spark cluster.

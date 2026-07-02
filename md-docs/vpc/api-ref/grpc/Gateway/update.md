@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Gateway](index.md) > Update
+
 # Virtual Private Cloud API, gRPC: GatewayService.Update
 
 Updates the specified gateway.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [workload-identity](../index.md) > [federated-credential](index.md) > delete
+
 # yc iam workload-identity federated-credential delete
 
 Delete the specified federated credential

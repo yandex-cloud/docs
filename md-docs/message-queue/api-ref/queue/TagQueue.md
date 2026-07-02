@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Message Queue](../../index.md) > [Справочник API](../index.md) > Queue > TagQueue
+
 # TagQueue
 
 Метод для задания [меток очереди](../../concepts/tags.md). Изменение меток может занять до 60 секунд.

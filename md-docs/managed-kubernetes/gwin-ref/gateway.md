@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > Инструменты Application Load Balancer > Gwin > Конфигурация ресурсов (англ.) > Gateway
+
 # Gateway
 
 Gateway represents an instance of a service-traffic handling infrastructure by binding Listeners to a set of IP addresses. Gwin use these rules to create [Load balancer](../../application-load-balancer/concepts/application-load-balancer.md).

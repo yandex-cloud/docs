@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Подключения > Базы данных > Создание подключения к Trino
+
 # Создание подключения к Trino в Yandex DataLens
 
 Чтобы создать подключение к Trino:

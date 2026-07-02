@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Практические руководства](../index.md) > Бэкенд на Serverless > Конвертация видео в GIF на Python > Обзор
+
 # Конвертация видео в GIF на Python
 
 

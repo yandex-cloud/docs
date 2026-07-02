@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [organization-manager](../index.md) > [organization](index.md) > list-access-policy-bindings
+
 # yc organization-manager organization list-access-policy-bindings
 
 List access policy bindings for the specified organization

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for Apache Kafka® > Data Sources > mdb_kafka_user
+
 # yandex_mdb_kafka_user (DataSource)
 
 Get information about a user of the Yandex Managed Kafka cluster. For more information, see [the official documentation](../../managed-kafka/concepts/index.md).

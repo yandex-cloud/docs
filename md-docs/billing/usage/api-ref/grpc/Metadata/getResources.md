@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Billing](../../../../index.md) > Справочник API > gRPC (англ.) > [Billing usage](../index.md) > [Metadata](index.md) > GetResources
+
 # Billing Usage API, gRPC: MetadataService.GetResources
 
 GetResources returns available resources for specified service instances within a billing account

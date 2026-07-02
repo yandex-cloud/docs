@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Network Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [TargetGroup](index.md) > Get
+
 # Network Load Balancer API, REST: TargetGroup.Get
 
 Returns the specified TargetGroup resource.

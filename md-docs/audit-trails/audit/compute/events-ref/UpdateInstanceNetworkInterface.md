@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > UpdateInstanceNetworkInterface
+
 # Compute Audit Trails Events: UpdateInstanceNetworkInterface
 
 ## Event JSON schema {#yandex.cloud.audit.compute.UpdateInstanceNetworkInterface2-schema}

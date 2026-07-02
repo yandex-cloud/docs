@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > add-labels
+
 # yc managed-mongodb cluster add-labels
 
 Assign labels to a MongoDB cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [instance-group](index.md) > list-access-bindings
+
 # yc compute instance-group list-access-bindings
 
 List access bindings for the specified instance group

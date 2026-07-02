@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > [Концепции](index.md) > Имперсонация
+
 # Имперсонация в Managed Service for Apache Airflow™
 
 _Имперсонацией_ в Managed Service for Apache Airflow™ называется выполнение кластером Apache Airflow™ действий с пользовательскими ресурсами от имени сервисного аккаунта.

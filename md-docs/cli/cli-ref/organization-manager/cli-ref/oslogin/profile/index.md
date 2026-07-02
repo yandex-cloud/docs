@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [organization-manager](../../index.md) > [oslogin](../index.md) > profile > Overview
+
 # yc organization-manager oslogin profile
 
 Manage OS Login profiles

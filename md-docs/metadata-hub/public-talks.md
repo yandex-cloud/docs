@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex MetaData Hub](index.md) > Публичные материалы
+
 # Публичные материалы о Yandex MetaData Hub
 
 ### 2024 {#2024}

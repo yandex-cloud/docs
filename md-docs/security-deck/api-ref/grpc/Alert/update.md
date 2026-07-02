@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Security Deck](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Alert](index.md) > Update
+
 # Security Deck Alerts API, gRPC: AlertService.Update
 
 Update alert.

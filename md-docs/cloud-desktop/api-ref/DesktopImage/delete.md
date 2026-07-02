@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DesktopImage](index.md) > Delete
+
 # Cloud Desktop API, REST: DesktopImage.Delete
 
 Deletes the specified desktop image.

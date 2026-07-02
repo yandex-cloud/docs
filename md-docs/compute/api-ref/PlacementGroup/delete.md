@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [PlacementGroup](index.md) > Delete
+
 # Compute Cloud API, REST: PlacementGroup.Delete
 
 Deletes the specified placement group.

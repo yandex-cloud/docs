@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > yq > DeleteQuery
+
 # Yandex Query Audit Trails Events: DeleteQuery
 
 ## Event JSON schema {#yandex.cloud.audit.yq.DeleteQuery2-schema}

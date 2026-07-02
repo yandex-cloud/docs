@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > CreateOrganization
+
 # Identity Hub Audit Trails Events: CreateOrganization
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.CreateOrganization2-schema}

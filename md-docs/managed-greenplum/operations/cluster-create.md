@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Создание кластера
+
 # Создание кластера Yandex MPP Analytics for PostgreSQL
 
 
@@ -6,11 +8,18 @@
 Подробнее читайте в разделе [Взаимосвязь ресурсов в Yandex MPP Analytics for PostgreSQL](../concepts/index.md).
 
 
+## Роли для создания кластера {#roles}
+
+Для создания кластера Yandex MPP Analytics for PostgreSQL и работы с ним вашему аккаунту в Yandex Cloud нужны роли:
+
+* [managed-greenplum.editor](../security/index.md#managed-greenplum-editor) или выше — чтобы создать кластер;
+* [vpc.user](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
+* [mdb.viewer](../../iam/roles-reference.md#mdb-viewer) — чтобы просматривать кластеры управляемых баз данных (MDB) на дашборде в [консоли управления](https://console.yandex.cloud).
+
+О назначении ролей читайте в [документации Yandex Identity and Access Management](../../iam/operations/roles/grant.md).
+
+
 ## Создать кластер {#create-cluster}
-
-
-Для создания кластера Yandex MPP Analytics for PostgreSQL нужна роль [vpc.user](../../vpc/security/index.md#vpc-user) и роль [managed-greenplum.editor или выше](../security/index.md#roles-list). О том, как назначить роль, читайте в [документации Identity and Access Management](../../iam/operations/roles/grant.md).
-
 
 {% list tabs group=instructions %}
 
@@ -35,7 +44,7 @@
 
         Эту настройку нельзя изменить после создания кластера. 
         
-        При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../../../managed-greenplum/pricing/index.md#dedicated-hosts).
+        При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#dedicated-hosts).
 
 
     1. В блоке **Сетевые настройки** выберите:
@@ -64,7 +73,7 @@
 
         Когда гибридное хранилище включено, с помощью [расширения Yezzey](extensions/yezzey.md) можно переместить часть [таблиц AO и AOCO](../concepts/tables.md) из хранилища кластера в холодное хранилище и наоборот.
         
-        Холодное хранилище удобно, если данные таблиц нужно хранить долго, а работать с ними планируется редко. Так хранение [будет дешевле](../../../managed-greenplum/pricing/index.md#rules-storage).
+        Холодное хранилище удобно, если данные таблиц нужно хранить долго, а работать с ними планируется редко. Так хранение [будет дешевле](../pricing/index.md#rules-storage).
 
         
         {% note info %}
@@ -283,7 +292,7 @@
 
         Эту настройку нельзя изменить после создания кластера. 
         
-        При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../../../managed-greenplum/pricing/index.md#dedicated-hosts).
+        При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#dedicated-hosts).
 
 
     1. Чтобы настроить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), передайте нужное значение в параметре `--maintenance-window` при создании кластера:
@@ -482,7 +491,7 @@
 
       Эту настройку нельзя изменить после создания кластера. 
       
-      При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../../../managed-greenplum/pricing/index.md#dedicated-hosts).
+      При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#dedicated-hosts).
 
   1. Чтобы включить [передачу логов в сервис Yandex Cloud Logging](mgp-to-cloud-logging.md), укажите параметры:
 
@@ -703,7 +712,7 @@
 
             Эту настройку нельзя изменить после создания кластера. 
             
-            При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../../../managed-greenplum/pricing/index.md#dedicated-hosts).
+            При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#dedicated-hosts).
 
         * `serviceAccountId` — идентификатор сервисного аккаунта.
         * `logging` — настройки [передачи логов в сервис Yandex Cloud Logging](mgp-to-cloud-logging.md):
@@ -897,7 +906,7 @@
 
             Эту настройку нельзя изменить после создания кластера. 
             
-            При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../../../managed-greenplum/pricing/index.md#dedicated-hosts).
+            При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#dedicated-hosts).
 
         * `service_account_id` — идентификатор сервисного аккаунта.
         * `logging` — настройки [передачи логов в сервис Yandex Cloud Logging](mgp-to-cloud-logging.md):

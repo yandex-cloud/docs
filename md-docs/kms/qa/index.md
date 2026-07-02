@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Key Management Service](../index.md) > Вопросы и ответы
+
 # Общие вопросы про Key Management Service
 
 #### Почему статус ключа не меняется на `Inactive`?

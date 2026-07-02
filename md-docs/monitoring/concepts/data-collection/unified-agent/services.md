@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Monitoring](../../../index.md) > [Агент сбора метрик](index.md) > Конфигурирование > Служебные
+
 # Служебные секции
 
 ## Секция status {#status}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > list
+
 # yc managed-sharded-postgresql cluster list
 
 List Sharded PostgreSQL clusters

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Практические руководства](../index.md) > Использование продуктов Cloud Marketplace > Интеграция с Crossplane
+
 # Интеграция с Crossplane
 
 [Crossplane](https://crossplane.io/) — надстройка для Kubernetes с открытым исходным кодом, которая позволяет собрать решения от разных поставщиков в единую инфраструктуру и предоставить разработчикам приложений доступ к ней через высокоуровневые [API](../../../glossary/rest-api.md). С помощью Crossplane пользователи могут управлять сторонними сервисами так же, как ресурсами Kubernetes.
@@ -16,9 +18,9 @@
 В стоимость поддержки описываемого решения входят:
 
 * Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичный IP-адрес, если он назначен узлам кластера ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за использование NAT-шлюза ([тарифы Virtual Private Cloud](../../vpc/pricing.md#nat-gateways)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../../compute/pricing.md)).
+* Плата за публичный IP-адрес, если он назначен узлам кластера ([тарифы Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
+* Плата за использование NAT-шлюза ([тарифы Virtual Private Cloud](../../../vpc/pricing.md#nat-gateways)).
 
 
 ## Подготовьте облако к работе {#before-you-begin}

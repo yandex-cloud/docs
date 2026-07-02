@@ -1,4 +1,4 @@
-
+[Документация Yandex Cloud](../index.md) > Yandex Identity and Access Management > Identity and Access Management
 
 # Yandex Identity and Access Management
 

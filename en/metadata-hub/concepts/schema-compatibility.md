@@ -16,6 +16,6 @@ For more information about compatibility types, see [this Confluent Schema Regis
 
 {{ schema-registry-name }} supports schema compatibility checks. You can specify the compatibility type for schema checks in the **Compatibility check level** parameter and set the check rules in the **Compatibility check policy for JSON** parameter. The compatibility type also affects how [data schemas evolve](schema-registry-content-model.md#schema-evolution-considerations). 
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 [Understanding JSON Schema Compatibility by Robert Yokota](https://yokota.blog/2021/03/29/understanding-json-schema-compatibility/)

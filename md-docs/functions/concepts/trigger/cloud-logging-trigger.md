@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Концепции](../index.md) > [Триггер](index.md) > Триггер для Cloud Logging
+
 # Триггер для Cloud Logging, который вызывает функцию Cloud Functions
 
 [Триггер](index.md) для Cloud Logging запускает [функцию](../function.md) Cloud Functions, когда в [лог-группу](../../../logging/concepts/log-group.md) добавляют записи.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > [Чарты](index.md) > QL-чарты > Обзор
+
 # QL-чарты в Yandex DataLens. Обзор
 
 

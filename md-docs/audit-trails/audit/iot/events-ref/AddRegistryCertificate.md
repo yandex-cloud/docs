@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iot > AddRegistryCertificate
+
 # IoT Core Audit Trails Events: AddRegistryCertificate
 
 ## Event JSON schema {#yandex.cloud.audit.iot.devices.AddRegistryCertificate2-schema}

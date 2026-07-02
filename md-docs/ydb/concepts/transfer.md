@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Концепции](index.md) > Трансфер
+
 # Трансфер данных
 
 Трансфер в YDB — асинхронный механизм переноса данных из [топика](https://ydb.tech/docs/ru//concepts/glossary#topic) в [таблицу](https://ydb.tech/docs/ru//concepts/glossary#table). [Создание](https://ydb.tech/docs/ru//yql/reference/syntax/create-transfer) экземпляра трансфера, его [изменение](https://ydb.tech/docs/ru//yql/reference/syntax/alter-transfer) и [удаление](https://ydb.tech/docs/ru//yql/reference/syntax/drop-transfer) осуществляется с использованием YQL. Трансфер запускается внутри базы данных и работает в фоновом режиме. Трансфер используется для решения задачи поставки данных из топика в таблицу.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > list-logs
+
 # yc managed-kafka v0 cluster list-logs
 
 Retrieve logs for a Kafka cluster.

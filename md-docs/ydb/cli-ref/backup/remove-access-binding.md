@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for YDB](../../index.md) > [Справочник CLI (англ.)](../index.md) > [backup](index.md) > remove-access-binding
+
 # yc ydb backup remove-access-binding
 
 Remove access binding for the specified YDB backup.

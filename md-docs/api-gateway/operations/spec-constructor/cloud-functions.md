@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Пошаговые инструкции](../index.md) > [Конструктор спецификаций](index.md) > Cloud Functions
+
 # Добавить расширение x-yc-apigateway-integration:cloud_functions
 
 {% list tabs %}

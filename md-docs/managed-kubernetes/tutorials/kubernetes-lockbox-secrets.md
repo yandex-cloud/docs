@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Практические руководства](index.md) > Использование продуктов Cloud Marketplace > Синхронизация с секретами Yandex Lockbox
+
 # Синхронизация с секретами Yandex Lockbox
 
 С помощью инструмента [External Secrets Operator](https://external-secrets.io/latest/provider/yandex-lockbox/) вы можете настроить синхронизацию [секретов](../../lockbox/concepts/secret.md) [Yandex Lockbox](../../lockbox/index.md) с [секретами](../concepts/encryption.md) [кластера Yandex Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster).

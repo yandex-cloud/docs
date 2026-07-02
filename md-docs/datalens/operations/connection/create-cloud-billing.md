@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Подключения > Файлы и сервисы > Создание подключения к Yandex Cloud Billing
+
 # Создание подключения к Yandex Cloud Billing
 
 Доступ к статистике можно получить только в тех платежных аккаунтах, где у вас есть роль `viewer`, `editor` или `admin`. Подробнее в разделе [Управление доступом](../../../billing/security/index.md#primitive-roles).

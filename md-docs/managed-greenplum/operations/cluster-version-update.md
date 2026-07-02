@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Обновление версии в Yandex MPP Analytics for PostgreSQL
+
 # Обновление версии в Yandex MPP Analytics for PostgreSQL
 
 Вы можете изменить версию базы данных, которую использует кластер в Yandex MPP Analytics for PostgreSQL.

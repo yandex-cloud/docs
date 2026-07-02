@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > Вопросы и ответы > Ограничения
+
 # Ограничения в Managed Service for Sharded PostgreSQL
 
 * [Какие типы данных доступны для шардирования?](#available-data-types)

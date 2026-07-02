@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud DNS](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DnsZone](index.md) > Move
+
 # Cloud DNS API, gRPC: DnsZoneService.Move
 
 Moves the specified DNS zone to another folder.

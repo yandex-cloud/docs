@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > [Пошаговые инструкции](index.md) > Аутентификация > Добавить SSH-ключ
+
 # Добавить SSH-ключ
 
 Загрузите SSH-ключи в профиль пользователя организации или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) в Yandex Identity Hub, чтобы с их помощью пользователь или сервисный аккаунт могли подключаться к [виртуальным машинам](../../compute/concepts/vm.md), [узлам](../../managed-kubernetes/concepts/index.md#node-group) кластеров Kubernetes и [серверам](../../baremetal/concepts/servers.md) Yandex BareMetal.

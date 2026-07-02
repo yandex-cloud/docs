@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [database](index.md) > update
+
 # yc managed-postgresql database update
 
 Update the specified PostgreSQL database

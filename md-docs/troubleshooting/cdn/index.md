@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Cloud CDN > Все решения для Cloud CDN
+
 # Решения для Cloud CDN
 
 ## Примеры конфигураций и сценариев Cloud CDN {#configuration-examples}

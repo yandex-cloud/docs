@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > Концепции > [Компоненты](overview.md) > DataLens
+
 # DataLens
 
 Yandex DataLens — платформа бизнес-аналитики и визуализации данных. Позволяет создавать интерактивные дашборды, графики и таблицы на основе различных источников данных. Компонент основан на [DataLens On-premises](https://datalens.ru/on-premises/docs/ru/).

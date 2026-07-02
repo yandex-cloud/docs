@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.opensearch > DeleteBackup
+
 # Managed Service for OpenSearch Audit Trails Events: DeleteBackup
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.opensearch.DeleteBackup2-schema}

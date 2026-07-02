@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Message Queue](../index.md) > [Начало работы](index.md) > Примеры кода > Celery
+
 # Пример использования Yandex Message Queue с Celery
 
 [Celery](https://docs.celeryproject.org/en/stable/) — это очередь задач для языка программирования Python, которую можно использовать в работе с Message Queue.

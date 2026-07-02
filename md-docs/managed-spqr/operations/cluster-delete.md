@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Удаление кластера
+
 # Удаление кластера Sharded PostgreSQL
 
 Вы можете удалить кластер Sharded PostgreSQL, если он вам больше не нужен.

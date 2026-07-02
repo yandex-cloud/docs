@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Kubernetes](../index.md) > Как настроить автоматическое удаление старых образов с узлов Managed Service for Kubernetes
+
 # Как настроить автоматическое удаление старых образов с узлов Managed Service for Kubernetes
 
 

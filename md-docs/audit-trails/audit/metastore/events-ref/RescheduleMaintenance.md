@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > metastore > RescheduleMaintenance
+
 # Managed Service for Hive Metastore™ Audit Trails Events: RescheduleMaintenance
 
 ## Event JSON schema {#yandex.cloud.audit.metastore.RescheduleMaintenance2-schema}

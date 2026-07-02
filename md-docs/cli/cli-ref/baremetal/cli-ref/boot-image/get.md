@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [baremetal](../index.md) > [boot-image](index.md) > get
+
 # yc baremetal boot-image get
 
 Returns the specific Image resource.

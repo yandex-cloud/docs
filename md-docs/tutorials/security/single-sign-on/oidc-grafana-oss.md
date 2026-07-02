@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > [Безопасность](../index.md) > Настройка единого входа в приложения (SSO) > Grafana OSS
+
 # Создать OIDC-приложение в Yandex Identity Hub для интеграции с Grafana OSS
 
 [Grafana Open Source Software (OSS)](https://grafana.com/oss/) — это бесплатная платформа с открытым исходным кодом для мониторинга и визуализации данных, которую можно развернуть на собственной инфраструктуре. Grafana OSS поддерживает [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) аутентификацию для обеспечения безопасного единого входа пользователей организации.

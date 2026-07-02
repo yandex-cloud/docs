@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > accesstransparency > MDBClusterAccess
+
 # Access Transparency Audit Trails Events: MDBClusterAccess
 
 ## Event JSON schema {#yandex.cloud.audit.accesstransparency.MDBClusterAccess2-schema}

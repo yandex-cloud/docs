@@ -20,7 +20,11 @@ description: В этой инструкции вы научитесь созда
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и роль [{{ roles.mmy.editor }} или выше](security/index.md#roles-list). Эти роли позволяют создать кластер.
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
+
+    * {% include [roles-mmy-editor](../_includes/mdb/mmy/roles-mmy-editor.md) %}
+    * {% include [roles-vpc-user](../_includes/mdb/roles-vpc-user.md) %}
+    * {% include [roles-mdb-viewer](../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 

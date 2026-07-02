@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex SmartCaptcha](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для SmartCaptcha
 
 * [Создать капчу](create-captcha.md)

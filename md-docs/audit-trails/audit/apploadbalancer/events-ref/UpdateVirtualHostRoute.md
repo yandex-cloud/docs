@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > apploadbalancer > UpdateVirtualHostRoute
+
 # Application Load Balancer Audit Trails Events: UpdateVirtualHostRoute
 
 ## Event JSON schema {#yandex.cloud.audit.apploadbalancer.UpdateVirtualHostRoute2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [desktops](../../index.md) > [v0](../index.md) > [group](index.md) > add-access-bindings
+
 # yc desktops v0 group add-access-bindings
 
 Add access binding for the specified desktop group

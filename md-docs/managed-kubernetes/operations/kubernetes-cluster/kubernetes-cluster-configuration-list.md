@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Управление кластером Kubernetes > Получение списка доступных конфигураций мастера в кластере Kubernetes
+
 # Получение списка доступных конфигураций мастера в кластере Kubernetes
 
 {% list tabs group=instructions %}

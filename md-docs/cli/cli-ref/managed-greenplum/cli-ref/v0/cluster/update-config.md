@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-greenplum](../../index.md) > [v0](../index.md) > [cluster](index.md) > update-config
+
 # yc managed-greenplum v0 cluster update-config
 
 Update the specified Greenplum cluster config

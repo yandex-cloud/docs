@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.clickhouse > RestartClusterHosts
+
 # Managed Service for ClickHouse Audit Trails Events: RestartClusterHosts
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.clickhouse.RestartClusterHosts2-schema}

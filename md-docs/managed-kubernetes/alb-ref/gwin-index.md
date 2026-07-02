@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Инструменты Application Load Balancer](index.md) > Gwin > Обзор
+
 # Контроллер Gwin для Yandex Managed Service for Kubernetes
 
 Yandex Application Load Balancer предоставляет инструмент для создания балансировщиков нагрузки и управления ими в [кластерах Yandex Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster) — Gwin.

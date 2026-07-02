@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [baremetal](../../index.md) > [v2](../index.md) > [public-subnet](index.md) > get
+
 # yc baremetal v2 public-subnet get
 
 Returns the specific PublicSubnet resource.

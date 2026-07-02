@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SnapshotSchedule](index.md) > UpdateAccessBindings
+
 # Compute Cloud API, REST: SnapshotSchedule.UpdateAccessBindings
 
 Updates access bindings for the snapshot schedule.

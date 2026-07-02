@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Yandex Data Processing > Resources > dataproc_cluster
+
 # yandex_dataproc_cluster (Resource)
 
 Manages a Yandex Data Processing cluster. For more information, see [the official documentation](../../data-proc/index.md).

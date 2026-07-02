@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Концепции](overview.md) > Взаимосвязь ресурсов сервиса
+
 # Взаимосвязь ресурсов в Yandex MPP Analytics for PostgreSQL
 
 

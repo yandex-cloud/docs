@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [VirtualHost](index.md) > UpdateRoute
+
 # Application Load Balancer API, gRPC: VirtualHostService.UpdateRoute
 
 Updates the specified route of the specified virtual host.

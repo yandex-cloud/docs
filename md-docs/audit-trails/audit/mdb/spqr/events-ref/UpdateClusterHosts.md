@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.spqr > UpdateClusterHosts
+
 # Managed Service for SPQR Audit Trails Events: UpdateClusterHosts
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.spqr.UpdateClusterHosts2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v1alpha](../index.md) > rental-period > Overview
+
 # yc baremetal v1alpha rental-period
 
 A set of methods to retrieve information about RentalPeriod resources.

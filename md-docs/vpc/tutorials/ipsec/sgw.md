@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > [Практические руководства](../index.md) > Организация VPN-подключений > [Организация сетевой связности с помощью IPsec-шлюзов](index.md) > Решение SGW от команды архитекторов Yandex Cloud
+
 # Решение Security GateWay от команды архитекторов Yandex Cloud
 
 Для организации защищенного соединения между ресурсами в Yandex Cloud и инфраструктурой клиента по схеме из [подраздела](index.md) можно воспользоваться решением от команды архитекторов Yandex Cloud — [Security GateWay (SGW)](https://github.com/yandex-cloud-examples/yc-site-to-site-vpn-with-ipsec-strongswan).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Marketplace](../index.md) > Пользователям > Практические руководства > Все руководства
+
 # Практические руководства Cloud Marketplace
 
 * [Развертывание S2S VPN с помощью strongSwan в Yandex Cloud](s2s-vpn.md)

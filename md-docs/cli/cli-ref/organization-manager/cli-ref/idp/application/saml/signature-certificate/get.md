@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../../index.md) > [organization-manager](../../../../index.md) > [idp](../../../index.md) > [application](../../index.md) > [saml](../index.md) > [signature-certificate](index.md) > get
+
 # yc organization-manager idp application saml signature-certificate get
 
 Show information about the specified SAML signature certificate

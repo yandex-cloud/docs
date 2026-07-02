@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Пошаговые инструкции](index.md) > Подкластеры Yandex Data Processing > Управление подкластерами
+
 # Управление подкластерами Yandex Data Processing
 
 Помимо [изменения настроек](subcluster-update.md) отдельного подкластера вы можете создавать новые и удалять имеющиеся подкластеры.

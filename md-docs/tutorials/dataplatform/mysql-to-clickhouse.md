@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Поставка данных из Managed Service for MySQL® в Managed Service for ClickHouse® с помощью Data Transfer
+
 # Миграция базы данных из MySQL® в ClickHouse® с помощью Yandex Data Transfer
 
 # Асинхронная репликация данных из Managed Service for MySQL® в Managed Service for ClickHouse® с помощью Yandex Data Transfer

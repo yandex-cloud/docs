@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-clickhouse](../index.md) > [ml-model](index.md) > update
+
 # yc managed-clickhouse ml-model update
 
 Modify configuration or attributes of a ClickHouse machine learning model.

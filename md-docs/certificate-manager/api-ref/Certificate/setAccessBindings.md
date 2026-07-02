@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Certificate Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Certificate](index.md) > SetAccessBindings
+
 # Certificate Manager API, REST: Certificate.SetAccessBindings
 
 Sets access bindings for the certificate.

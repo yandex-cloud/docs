@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud Logging > Resources > function_trigger
+
 # yandex_function_trigger (Resource)
 
 Allows management of [Yandex Cloud Functions Trigger](../../functions/index.md).

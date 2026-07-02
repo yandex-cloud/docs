@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Registry](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Container Registry
 
 Чтобы работать с Docker-образами, [настройте Docker](configure-docker.md) и [аутентифицируйтесь в Container Registry](authentication.md).

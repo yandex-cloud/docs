@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Key](index.md) > Create
+
 # Identity and Access Management API, gRPC: KeyService.Create
 
 Creates a key pair for the specified service account.

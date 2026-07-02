@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [VirtualHost](index.md) > List
+
 # Application Load Balancer API, gRPC: VirtualHostService.List
 
 Lists virtual hosts of the specified HTTP router.

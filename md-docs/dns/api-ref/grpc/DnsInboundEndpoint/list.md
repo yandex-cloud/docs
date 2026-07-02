@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud DNS](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DnsInboundEndpoint](index.md) > List
+
 # Cloud DNS API, gRPC: DnsInboundEndpointService.List
 
 Retrieves the list of DNS inbound endpoints in the specified folder.

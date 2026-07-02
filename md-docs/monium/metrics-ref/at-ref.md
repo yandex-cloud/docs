@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Audit Trails
+
 # Метрики Yandex Audit Trails
 
 В этом разделе описаны метрики сервиса [Audit Trails](../../audit-trails/index.md), поставляемые в Monium Metrics.

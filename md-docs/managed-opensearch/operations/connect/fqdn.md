@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for OpenSearch](../../index.md) > [Пошаговые инструкции](../index.md) > [Подключение](index.md) > FQDN хостов
+
 # FQDN хостов OpenSearch
 
 Для подключения к хосту потребуется его [FQDN](../../concepts/network.md#hostname) — доменное имя. Вы можете использовать FQDN конкретного хоста в кластере или [особый FQDN](#special-fqdns), всегда указывающий на доступный хост с ролью `DASHBOARDS`.

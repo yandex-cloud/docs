@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [Identity Provider API](../index.md) > [SynchronizationSession](index.md) > Heartbeat
+
 # Identity Provider API, REST: SynchronizationSession.Heartbeat
 
 Sends a heartbeat for a synchronization session.

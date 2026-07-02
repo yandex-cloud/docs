@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [registry](index.md) > set-access-bindings
+
 # yc container registry set-access-bindings
 
 Set access bindings for the specified registry and delete all existing access bindings if there were any

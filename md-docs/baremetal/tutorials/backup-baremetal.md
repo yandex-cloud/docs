@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > [Практические руководства](index.md) > Подключение существующего сервера BareMetal к Cloud Backup
+
 # Подключение сервера BareMetal к Yandex Cloud Backup
 
 # Подключить существующий сервер Yandex BareMetal к Yandex Cloud Backup

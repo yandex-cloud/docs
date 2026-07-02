@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > k8s > AutoUpgradeNodeGroup
+
 # Managed Services for Kubernetes Audit Trails Events: AutoUpgradeNodeGroup
 
 ## Event JSON schema {#yandex.cloud.audit.k8s.AutoUpgradeNodeGroup2-schema}

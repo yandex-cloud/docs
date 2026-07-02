@@ -6,7 +6,7 @@ resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
   maintenance_window {
     type = "<тип_технического_обслуживания>"
     day  = "<день_недели>"
-    hour = <час_дня>
+    hour = <порядковый_номер_часового_интервала>
   }
   ...
 }

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Пошаговые инструкции](../index.md) > Аутентификация > Управление MFA > Создать политику MFA
+
 # Создать политику MFA
 
 [Политики MFA](../../concepts/mfa.md#mfa-policies) позволяют настроить [многофакторную аутентификацию](https://ru.wikipedia.org/wiki/Многофакторная_аутентификация) (MFA) для [федеративных](../../../iam/concepts/users/accounts.md#saml-federation) и [локальных](../../../iam/concepts/users/accounts.md#local) аккаунтов пользователей.
@@ -37,7 +39,7 @@
          
                  {% note info %}
                  
-                 Функциональность SMS в качестве фактора аутентификации находится на стадии [Preview](../../../overview/concepts/launch-stages.md) и доступна только клиентам с [тарифицируемым лимитом](../../organization/pricing.md#prices) пользователей Yandex Identity Hub. Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+                 Функциональность SMS в качестве фактора аутентификации находится на стадии [Preview](../../../overview/concepts/launch-stages.md) и доступна только клиентам с [тарифицируемым лимитом](../../pricing.md#prices) пользователей Yandex Identity Hub. Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
                  
                  {% endnote %}
          
@@ -90,7 +92,7 @@
        
            {% note info %}
            
-           Функциональность SMS в качестве фактора аутентификации находится на стадии [Preview](../../../overview/concepts/launch-stages.md) и доступна только клиентам с [тарифицируемым лимитом](../../organization/pricing.md#prices) пользователей Yandex Identity Hub. Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+           Функциональность SMS в качестве фактора аутентификации находится на стадии [Preview](../../../overview/concepts/launch-stages.md) и доступна только клиентам с [тарифицируемым лимитом](../../pricing.md#prices) пользователей Yandex Identity Hub. Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
            
            {% endnote %}
        

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Практические руководства](index.md) > Защита от сбоев с помощью Хайстекс Акура
+
 # Защита от сбоев с помощью Хайстекс Акура
 
 
@@ -47,8 +49,8 @@
 {% endnote %}
 
 В стоимость ресурсов для использования «Хайстекс Акура — Аварийное восстановление» входят:
-* Плата за диски и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за хранение образов ([тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за диски и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../pricing.md)).
+* Плата за хранение образов ([тарифы Compute Cloud](../pricing.md)).
 * Плата за использование динамического или статического внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 * Плата за каждую защищаемую ВМ (смотрите [описание продукта](https://yandex.cloud/ru/marketplace/products/hystax/hystax-acura-disaster-recovery) в Cloud Marketplace).
 

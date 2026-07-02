@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [vpc](../index.md) > [gateway](index.md) > list-operations
+
 # yc vpc gateway list-operations
 
 List operations for a gateway.

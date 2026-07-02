@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Message Queue](../index.md) > Справочник API > Обзор
+
 # Yandex Message Queue API
 
 Yandex Message Queue предоставляет HTTP [API](../../glossary/rest-api.md), частично совместимый с Amazon SQS API.

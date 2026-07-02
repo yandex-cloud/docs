@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [User](index.md) > Delete
+
 # Managed Service for PostgreSQL API, gRPC: UserService.Delete
 
 Deletes the specified PostgreSQL user.

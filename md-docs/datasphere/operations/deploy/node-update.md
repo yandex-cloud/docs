@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > DataSphere Inference > Изменить ноду
+
 # Изменить ноду
 
 Чтобы изменить [ноду](../../concepts/deploy/index.md#node):

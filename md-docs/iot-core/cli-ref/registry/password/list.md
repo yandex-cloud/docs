@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [registry](../index.md) > [password](index.md) > list
+
 # yc iot registry password list
 
 List passwords associated with specified registry

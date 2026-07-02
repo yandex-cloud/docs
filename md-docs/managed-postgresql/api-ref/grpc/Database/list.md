@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Database](index.md) > List
+
 # Managed Service for PostgreSQL API, gRPC: DatabaseService.List
 
 Retrieves the list of PostgreSQL Database resources in the specified cluster.

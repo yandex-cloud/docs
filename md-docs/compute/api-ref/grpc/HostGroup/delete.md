@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [HostGroup](index.md) > Delete
+
 # Compute Cloud API, gRPC: HostGroupService.Delete
 
 Deletes the specified host group.

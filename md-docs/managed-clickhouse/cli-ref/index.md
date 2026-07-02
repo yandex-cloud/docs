@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > Справочник CLI (англ.) > Overview
+
 # yc managed-clickhouse
 
 Manage ClickHouse clusters, hosts, databases, backups, users and ml-models.

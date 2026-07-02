@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > [Пошаговые инструкции](index.md) > Аутентификация > Включить refresh-токены
+
 # Включить возможность использования refresh-токенов в Yandex Cloud CLI
 
 [Refresh-токен](../../iam/concepts/authorization/refresh-token.md) — это тип учетных данных, позволяющий OAuth-приложению по истечении срока действия [IAM-токена](../../iam/concepts/authorization/iam-token.md) пользователя автоматически получать новый IAM-токен.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Концепции](index.md) > Управление пользователями и правами доступа
+
 # Управление пользователями и правами доступа в Yandex Managed Service for ClickHouse®
 
 В Managed Service for ClickHouse® права доступа пользователя определяются назначенными ему привилегиями.

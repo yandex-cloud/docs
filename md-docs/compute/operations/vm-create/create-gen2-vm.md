@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Создание виртуальной машины > Создать ВМ с оборудованием поколения Gen 2
+
 # Создать виртуальную машину с оборудованием поколения Gen 2
 
 [Виртуальная машина](../../concepts/vm.md) работает на оборудовании того [поколения](../../concepts/hardware-generations.md), которое [закреплено](../../concepts/hardware-generations.md#locking-generations) за носителем, на основе которого создана эта ВМ — [образом](../../concepts/image.md), [снимком](../../concepts/snapshot.md) или [диском](../../concepts/disk.md).

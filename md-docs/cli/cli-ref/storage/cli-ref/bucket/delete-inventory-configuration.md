@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [storage](../index.md) > [bucket](index.md) > delete-inventory-configuration
+
 # yc storage bucket delete-inventory-configuration
 
 Delete bucket inventory configuration

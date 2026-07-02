@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > Логи Cloud Logging
+
 # Логи Cloud Logging
 
 Вы можете [настроить сохранение логов](../operations/configure-logging.md) создания эндпоинтов и отправки уведомлений в сервис [Cloud Logging](../../logging/index.md).

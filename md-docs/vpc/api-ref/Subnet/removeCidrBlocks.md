@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Subnet](index.md) > RemoveCidrBlocks
+
 # Virtual Private Cloud API, REST: Subnet.RemoveCidrBlocks
 
 Removes CIDR blocks from the specified subnet.

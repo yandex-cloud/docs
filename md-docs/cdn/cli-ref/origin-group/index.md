@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > [Справочник CLI (англ.)](../index.md) > origin-group > Overview
+
 # yc cdn origin-group
 
 Manage origin groups

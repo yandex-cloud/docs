@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Serverless Event Router > Data Sources > serverless_eventrouter_connector
+
 # yandex_serverless_eventrouter_connector (DataSource)
 
 

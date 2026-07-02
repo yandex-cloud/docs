@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > Управление сообществом > Создать сообщество
+
 # Создать сообщество
 
 1. Откройте [главную страницу](https://datasphere.yandex.cloud) DataSphere. На панели слева выберите ![community-panel](../../../_assets/console-icons/circles-concentric.svg) **Сообщества**.

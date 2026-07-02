@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex SmartCaptcha](../index.md) > Справочник CLI (англ.) > Overview
+
 # yc smartcaptcha
 
 Manage SmartCaptcha resources

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Инструменты Application Load Balancer](index.md) > Gwin > Механизм Attachment для интеграции Gwin с Application Load Balancer
+
 # Механизм Attachment для интеграции Yandex Cloud Gwin с существующей инфраструктурой Yandex Application Load Balancer
 
 _Attachment_ — это механизм, при котором инфраструктура [Application Load Balancer](../../application-load-balancer/concepts/index.md) создается в Terraform, а [Gwin](gwin-index.md) связывает ее с ресурсами Kubernetes на основе аннотаций. В этом случае Gwin отвечает только за обновление ресурсов балансировщика, а за их создание и удаление — Terraform.

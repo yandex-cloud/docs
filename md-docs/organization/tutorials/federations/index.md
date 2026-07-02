@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Практические руководства](../index.md) > Управление федерациями удостоверений > Обзор
+
 # Управление федерациями удостоверений в Yandex Identity Hub
 
 * [Аутентификация с помощью Active Directory](integration-adfs.md)

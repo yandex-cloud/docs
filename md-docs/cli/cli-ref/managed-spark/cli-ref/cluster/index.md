@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-spark](../index.md) > cluster > Overview
+
 # yc managed-spark cluster
 
 Manage Spark clusters

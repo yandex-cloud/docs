@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [Identity Provider API](../index.md) > [SynchronizationSession](index.md) > ListSessions
+
 # Identity Provider API, gRPC: SynchronizationSessionService.ListSessions
 
 Lists synchronization sessions for a subject container.

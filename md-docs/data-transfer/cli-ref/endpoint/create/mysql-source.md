@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Transfer](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [endpoint](../index.md) > [create](index.md) > mysql-source
+
 # yc datatransfer endpoint create mysql-source
 
 Create MySQL source

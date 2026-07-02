@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [GOST Gateway](index.md) > Правила тарификации
+
 # Правила тарификации GOST Gateway
 
 

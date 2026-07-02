@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > [Справочник CLI (англ.)](../index.md) > [hosts](index.md) > add
+
 # yc managed-redis hosts add
 
 Create new hosts for the cluster in the specified availability zones

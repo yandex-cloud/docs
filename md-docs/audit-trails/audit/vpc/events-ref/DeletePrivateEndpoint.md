@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > vpc > DeletePrivateEndpoint
+
 # Virtual Private Cloud Audit Trails Events: DeletePrivateEndpoint
 
 ## Event JSON schema {#yandex.cloud.audit.network.DeletePrivateEndpoint2-schema}

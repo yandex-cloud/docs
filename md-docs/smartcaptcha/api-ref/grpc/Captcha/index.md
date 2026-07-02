@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex SmartCaptcha](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Captcha > Overview
+
 # SmartCaptcha API, gRPC: CaptchaService
 
 A set of methods for managing Captcha resources.

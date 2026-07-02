@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../../index.md) > [organization-manager](../../../../index.md) > [idp](../../../index.md) > [application](../../index.md) > [oauth](../index.md) > [application](index.md) > remove-assignments
+
 # yc organization-manager idp application oauth application remove-assignments
 
 Remove user assignments from the specified OAuth application

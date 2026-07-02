@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [application-load-balancer](../index.md) > [load-balancer](index.md) > remove-sni
+
 # yc application-load-balancer load-balancer remove-sni
 
 Removes sni match from application load balancer's listener.

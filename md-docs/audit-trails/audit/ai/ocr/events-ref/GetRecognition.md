@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > ai.ocr > GetRecognition
+
 # AI Vision OCR Audit Trails Events: GetRecognition
 
 ## Event JSON schema {#yandex.cloud.audit.ai.ocr.GetRecognition2-schema}

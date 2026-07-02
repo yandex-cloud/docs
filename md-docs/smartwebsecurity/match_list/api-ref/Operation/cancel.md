@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > Справочник API > REST (англ.) > [SmartWebSecurity MatchList API](../index.md) > [Operation](index.md) > Cancel
+
 # SmartWebSecurity MatchList API, REST: Operation.Cancel
 
 Cancels the specified operation.

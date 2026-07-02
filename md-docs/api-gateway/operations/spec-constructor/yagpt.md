@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Пошаговые инструкции](../index.md) > [Конструктор спецификаций](index.md) > Yandex AI Studio
+
 # Добавить расширение x-yc-apigateway-integration:http для интеграции с API генерации текста Yandex AI Studio
 
 {% list tabs %}

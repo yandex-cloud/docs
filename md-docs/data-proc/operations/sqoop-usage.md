@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Пошаговые инструкции](index.md) > Сервисы Apache и другие сторонние сервисы > Использование Sqoop
+
 # Использование Sqoop
 
 Импорт баз данных в кластер Yandex Data Processing из внешних источников выполняется с помощью утилиты [Sqoop](https://sqoop.apache.org/). Раздел содержит:

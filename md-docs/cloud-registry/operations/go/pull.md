@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > [Пошаговые инструкции](../index.md) > Управление артефактами > Go-артефакт > Скачать Go-модуль из реестра
+
 # Скачать Go-модуль из реестра Cloud Registry
 
 Для скачивания [Go-модуля](../../concepts/artifacts/go.md) необходима [роль](../../security/index.md#cloud-registry-artifacts-puller) `cloud-registry.artifacts.puller` или выше.

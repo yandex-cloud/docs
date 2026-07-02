@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > ydb > MoveDatabase
+
 # Managed Service for YDB Audit Trails Events: MoveDatabase
 
 ## Event JSON schema {#yandex.cloud.audit.ydb.MoveDatabase2-schema}

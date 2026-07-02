@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > ai.assistants > DeleteSearchIndex
+
 # AI Studio Audit Trails Events: DeleteSearchIndex
 
 ## Event JSON schema {#yandex.cloud.audit.ai.assistants.searchindex.DeleteSearchIndex2-schema}

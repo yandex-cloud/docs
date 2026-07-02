@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > API Gateway
+
 # Метрики Yandex API Gateway
 
 В этом разделе описаны метрики сервиса [API Gateway](../../api-gateway/index.md), поставляемые в Monium Metrics.

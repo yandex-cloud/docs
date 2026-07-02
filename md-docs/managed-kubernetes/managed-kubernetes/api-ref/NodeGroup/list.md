@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../index.md) > Справочник API > [Managed Service for Kubernetes REST (англ.)](../index.md) > [NodeGroup](index.md) > List
+
 # Managed Services for Kubernetes API, REST: NodeGroup.List
 
 Retrieves the list of node group in the specified Kubernetes cluster.

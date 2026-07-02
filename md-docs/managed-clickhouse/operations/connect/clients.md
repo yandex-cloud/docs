@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Пошаговые инструкции](../index.md) > [Подключение](index.md) > Подключение из приложений
+
 # Подключение к кластеру ClickHouse® из приложений
 
 В этом разделе представлены настройки для подключения к хостам кластера Managed Service for ClickHouse® с помощью [инструментов командной строки](#command-line-tools), из [графических IDE](#ide), [браузера](#browser) и [Docker-контейнера](#docker). Как подключиться из кода приложения, описано в разделе [Примеры кода](code-examples.md).

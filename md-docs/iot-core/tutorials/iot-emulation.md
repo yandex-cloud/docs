@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex IoT Core](../index.md) > [Практические руководства](index.md) > Эмуляция множества IoT-устройств
+
 # Эмуляция множества IoT-устройств
 
 {% note warning %}

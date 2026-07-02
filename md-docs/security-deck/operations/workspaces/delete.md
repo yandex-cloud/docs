@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Security Deck](../../index.md) > [Пошаговые инструкции](../index.md) > [Окружения Security Deck](index.md) > Удалить окружение
+
 # Удалить окружение Security Deck
 
 Чтобы удалить [окружение](../../concepts/workspace.md) Security Deck:

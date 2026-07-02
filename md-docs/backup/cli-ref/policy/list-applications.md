@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Backup](../../index.md) > [Справочник CLI (англ.)](../index.md) > [policy](index.md) > list-applications
+
 # yc backup policy list-applications
 
 Lists policy applications. Applications are the policies applied to the vms.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Desktop](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DesktopGroup](index.md) > ListOperations
+
 # Cloud Desktop API, gRPC: DesktopGroupService.ListOperations
 
 Returns list of the operations for the specified desktop group.

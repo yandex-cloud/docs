@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Registry](../index.md) > Решение проблем
+
 # Решение проблем в Container Registry
 
 В списке ниже приведены часто возникающие ошибки и способы их решения:

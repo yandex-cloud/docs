@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Container Registry
+
 # Метрики Yandex Container Registry
 
 В этом разделе описаны метрики сервиса [Container Registry](../../container-registry/index.md), поставляемые в Monium Metrics.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for MySQL®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [User](index.md) > RevokePermission
+
 # Managed Service for MySQL API, gRPC: UserService.RevokePermission
 
 Revokes permission to access a database from a user in a cluster.

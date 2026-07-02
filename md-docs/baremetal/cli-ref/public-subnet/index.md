@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../index.md) > public-subnet > Overview
+
 # yc baremetal public-subnet
 
 A set of methods for managing PublicSubnet resources.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Backup](index.md) > List
+
 # Managed Service for MySQL API, REST: Backup.List
 
 Retrieves the list of backups in a folder.

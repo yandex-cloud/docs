@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Концепции](index.md) > Разграничение зон контроля в Managed Service for Kubernetes
+
 # Разграничение зон контроля пользователей Yandex Managed Service for Kubernetes и Yandex Cloud
 
 # Разграничение зон контроля пользователей Yandex Managed Service for Kubernetes и Yandex Cloud

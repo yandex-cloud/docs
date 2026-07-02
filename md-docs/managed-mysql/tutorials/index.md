@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for MySQL®](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Managed Service for MySQL®
 
 * [Анализ производительности и оптимизация Managed Service for MySQL®](profiling-mmy.md)

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [TrunkConnection](index.md) > Update
+
 # Cloud Interconnect API, gRPC: TrunkConnectionService.Update
 
 Updates a TrunkConnection resource using the data specified in the request.

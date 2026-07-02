@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > cloudregistry > SetupDelegation
+
 # Yandex Cloud Registry Audit Trails Events: SetupDelegation
 
 ## Event JSON schema {#yandex.cloud.audit.cloudregistry.SetupDelegation2-schema}

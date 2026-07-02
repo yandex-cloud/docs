@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.redis > RebalanceCluster
+
 # Managed Service for ValKey Audit Trails Events: RebalanceCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.redis.RebalanceCluster2-schema}

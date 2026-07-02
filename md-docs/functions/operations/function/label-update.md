@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Пошаговые инструкции](../index.md) > Управление функцией > Управлять метками > Изменить метку
+
 # Изменить метку функции
 
 {% list tabs group=instructions %}

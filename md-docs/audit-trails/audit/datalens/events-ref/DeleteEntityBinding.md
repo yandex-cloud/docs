@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > DeleteEntityBinding
+
 # DataLens Audit Trails Events: DeleteEntityBinding
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.DeleteEntityBinding2-schema}

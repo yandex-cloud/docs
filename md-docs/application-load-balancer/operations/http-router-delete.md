@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > HTTP-роутеры > Удалить HTTP-роутер
+
 # Удалить HTTP-роутер
 
 {% note warning %}

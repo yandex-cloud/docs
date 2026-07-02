@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Scanner](index.md) > List
+
 # Container Registry API, REST: Scanner.List
 
 Retrieves the list of ScanResults for specified Image.

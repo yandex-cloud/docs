@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Application Load Balancer
+
 # Метрики Yandex Application Load Balancer
 
 В этом разделе описаны метрики сервиса [Application Load Balancer](../../application-load-balancer/index.md), поставляемые в Monitoring.

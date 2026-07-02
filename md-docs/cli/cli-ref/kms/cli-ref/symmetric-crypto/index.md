@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [kms](../index.md) > symmetric-crypto > Overview
+
 # yc kms symmetric-crypto
 
 Perform symmetric crypto operations

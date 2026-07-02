@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Концепции > Приложения (SSO) > Обзор
+
 # Приложения в Yandex Identity Hub
 
 

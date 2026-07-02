@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > DataLens Public API > [DataLens API (англ.)](index.md) > deleteEmbeddingSecret
+
 # DataLens API: Delete embedding secret
 
 Deletes the specified key for embedding.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Logging](../index.md) > Справочник CLI (англ.) > Overview
+
 # yc logging
 
 Yandex Cloud Logging

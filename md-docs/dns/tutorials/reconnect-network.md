@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud DNS](../index.md) > [Практические руководства](index.md) > Переключение сетевого соединения при пересоздании кластера Yandex Data Processing
+
 # Переключение сетевого соединения при пересоздании кластера Yandex Data Processing
 
 # Переключение сетевого соединения при пересоздании кластера Yandex Data Processing

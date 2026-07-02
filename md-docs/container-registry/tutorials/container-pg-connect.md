@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Registry](../index.md) > [Практические руководства](index.md) > Настройка подключения к Managed Service for PostgreSQL из контейнера Serverless Containers
+
 # Настройка подключения к Yandex Managed Service for PostgreSQL из контейнера Serverless Containers
 
 Чтобы подключиться к кластеру Managed Service for PostgreSQL из контейнера Serverless Containers:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [storage-onprem/_cli-ref-v-1-0](../index.md) > buckets > update > object_lock
+
 # cli buckets update object_lock
 
 Update bucket object_lock

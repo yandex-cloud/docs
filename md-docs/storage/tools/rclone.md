@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Инструменты](index.md) > FUSE > rclone
+
 # rclone
 
 [rclone](https://rclone.org) — программа для монтирования бакетов Object Storage через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)) в системах Linux, macOS и Windows.
@@ -44,8 +46,8 @@
 
 В стоимость поддержки бакета входит:
 
-* плата за хранение данных в бакете ([тарифы Object Storage](../../storage/pricing.md#prices-storage));
-* плата за операции с данными ([тарифы Object Storage](../../storage/pricing.md#prices-operations)).
+* плата за хранение данных в бакете ([тарифы Object Storage](../pricing.md#prices-storage));
+* плата за операции с данными ([тарифы Object Storage](../pricing.md#prices-operations)).
 
 
 ## Подготовьте рабочее окружение {#environment-prepare}

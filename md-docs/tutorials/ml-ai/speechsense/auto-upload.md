@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > [Машинное обучение и искусственный интеллект](../index.md) > Речевая аналитика > Автоматическая загрузка данных в Yandex SpeechSense с помощью Yandex Workflows
+
 # Автоматическая загрузка данных в Yandex SpeechSense с помощью Yandex Workflows
 
 # Автоматическая загрузка данных в Yandex SpeechSense с помощью Yandex Workflows

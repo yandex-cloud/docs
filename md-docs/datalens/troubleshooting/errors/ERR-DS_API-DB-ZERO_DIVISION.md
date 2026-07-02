@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Division by zero
+
 # [Yandex DataLens] Division by zero
 
 `ERR.DS_API.DB.ZERO_DIVISION`

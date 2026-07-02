@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cloud](index.md) > UnbindAccessPolicy
+
 # Resource Manager API, REST: Cloud.UnbindAccessPolicy
 
 Unbinds the access policy template from the cloud.

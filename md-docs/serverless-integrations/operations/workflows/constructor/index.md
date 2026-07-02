@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > Workflows > Конструктор шагов рабочего процесса > Обзор
+
 # Обзор конструктора шагов рабочего процесса Workflows
 
 Для настройки интеграционных и управляющих шагов [рабочего процесса](../../../concepts/workflows/workflow.md) вы можете использовать конструктор. Конструктор доступен в [консоли управления](https://console.yandex.cloud) при [создании](../workflow/create-constructor.md) и [изменении](../workflow/update.md) рабочего процесса.

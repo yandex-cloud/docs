@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Transfer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Transfer](index.md) > Update
+
 # Data Transfer API, gRPC: TransferService.Update
 
 Updates the specified transfer.

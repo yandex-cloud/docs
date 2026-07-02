@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Database](index.md) > Create
+
 # Managed Service for ClickHouse API, gRPC: DatabaseService.Create
 
 Creates a new ClickHouse database in the specified cluster.

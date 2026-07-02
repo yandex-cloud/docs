@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [TargetGroup](index.md) > Update
+
 # Application Load Balancer API, REST: TargetGroup.Update
 
 Updates the specified target group.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [AWS S3 REST](../../index.md) > [REST](../index.md) > Object > PutObject
+
 # Object Storage API, REST совместимый с Amazon S3: PutObject
 
 Загружает объект и его метаданные в Yandex Object Storage.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex SmartCaptcha](../index.md) > Концепции > Варианты заданий
+
 # Варианты заданий
 
 {% note info %}

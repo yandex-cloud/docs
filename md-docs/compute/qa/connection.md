@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > Вопросы и ответы > Подключение
+
 # Подключение
 
 * [Как подключиться к ВМ с Linux](#conn-vm-linux)

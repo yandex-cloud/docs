@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Streams](../../index.md) > [Пошаговые инструкции](../index.md) > Работа с AWS CLI > Отправка данных в поток
+
 # Отправка данных в поток в AWS CLI
 
 {% note info %}

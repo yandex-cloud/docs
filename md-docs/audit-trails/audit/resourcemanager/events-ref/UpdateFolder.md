@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > resourcemanager > UpdateFolder
+
 # Resource Manager Audit Trails Events: UpdateFolder
 
 ## Event JSON schema {#yandex.cloud.audit.resourcemanager.UpdateFolder2-schema}

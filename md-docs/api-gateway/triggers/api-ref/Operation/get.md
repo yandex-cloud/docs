@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex API Gateway](../../../index.md) > Справочник API Triggers > [REST (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Cloud Functions Triggers Service, REST: Operation.Get
 
 Returns the specified Operation resource.

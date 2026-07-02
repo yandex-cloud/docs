@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > start-failover
+
 # yc managed-redis cluster start-failover
 
 Start manual failover for the specified Redis cluster

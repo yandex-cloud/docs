@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > StreamLogs
+
 # Managed Service for Greenplum® API, gRPC: ClusterService.StreamLogs
 
 Same as [ListLogs](listLogs.md#ListLogs) but using server-side streaming. Also allows for `tail -f` semantics.

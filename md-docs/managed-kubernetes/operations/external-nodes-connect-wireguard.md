@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Пошаговые инструкции](index.md) > Работа с внешними узлами > Настройка WireGuard-шлюзов для подключения внешних узлов к кластеру
+
 # Настройка WireGuard-шлюзов для подключения внешних узлов к кластеру
 
 Сервис Yandex Managed Service for Kubernetes позволяет подключать в качестве узлов [кластера Kubernetes](../concepts/index.md#kubernetes-cluster) серверы, расположенные вне Yandex Cloud. Для подключения необходимо организовать сетевую связность между удаленной сетью, в которой расположен внешний сервер, и [облачной сетью](../../vpc/concepts/network.md#network), в которой находится кластер Managed Service for Kubernetes. Это можно сделать с помощью [VPN](../../glossary/vpn.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [Vrf](index.md) > Update
+
 # BareMetal API, gRPC: VrfService.Update
 
 Updates the specified VRF resource.

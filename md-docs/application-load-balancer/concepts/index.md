@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Концепции > Обзор
+
 # Обзор Yandex Application Load Balancer
 
 Yandex Application Load Balancer (L7-балансировщик, балансировщик нагрузки уровня приложений) — это сервис для распределения нагрузки по сервисам и приложениям, развернутым в Yandex Cloud.

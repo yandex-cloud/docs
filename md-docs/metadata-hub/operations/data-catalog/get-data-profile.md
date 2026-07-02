@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Data Catalog > Пошаговые инструкции > Работа с данными > Получение профиля данных
+
 # Получение профиля данных
 
 {% note info %}

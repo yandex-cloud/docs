@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Построение Data Platform > Все руководства
+
 # Построение Data Platform на базе Yandex Cloud
 
 ## Apache Kafka® {#kafka}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Terraform в Yandex Cloud](index.md) > Настройка аутентификации Terraform-провайдера Yandex Cloud
+
 # Настройка аутентификации Terraform-провайдера Yandex Cloud
 
 Для аутентификации и управления инфраструктурой Yandex Cloud вы можете использовать Terraform от имени:

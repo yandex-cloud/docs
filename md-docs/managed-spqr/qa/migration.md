@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > Вопросы и ответы > Миграция
+
 # Миграция данных в Managed Service for Sharded PostgreSQL
 
 * [Можно ли шардировать по композитному ключу?](#composite-sharding-key)

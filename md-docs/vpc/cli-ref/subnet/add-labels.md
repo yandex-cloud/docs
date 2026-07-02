@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [subnet](index.md) > add-labels
+
 # yc vpc subnet add-labels
 
 Assign labels to a subnet.

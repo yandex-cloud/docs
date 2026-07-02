@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Streams](../index.md) > [HTTP API, совместимый с Amazon Kinesis Data Streams](index.md) > Все методы
+
 # Все методы
 
 Yandex Data Streams HTTP API, совместимый с [Amazon Kinesis Data Streams API](https://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html), предоставляет следующие методы:

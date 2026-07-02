@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > [Пошаговые инструкции](../index.md) > Образы > Создать образ Linux на основе ВМ Compute Cloud
+
 # Создать образ на основе ВМ Linux Compute Cloud
 
 В Cloud Desktop вы можете создавать рабочие столы из предустановленных [системных образов](../../concepts/images.md) или собственных [пользовательских образов](../../concepts/images.md#custom-images).

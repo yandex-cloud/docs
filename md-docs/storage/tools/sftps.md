@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Инструменты](index.md) > FTP > Docker-контейнер для (S)FTP(S)
+
 # Docker-контейнер для монтирования бакета Object Storage к (S)FTP(S)-серверу
 
 Для доступа к [бакету](../concepts/bucket.md) по протоколу FTP, [FTPS](https://ru.wikipedia.org/wiki/FTPS) или [SFTP](https://ru.wikipedia.org/wiki/SFTP) можно развернуть сервер с помощью публичного [Docker-контейнера](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers), предоставляемого Object Storage.

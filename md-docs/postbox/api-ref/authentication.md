@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Postbox](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Yandex Cloud Postbox
 
 Вы можете работать с Yandex Cloud Postbox с помощью [API Amazon](../aws-compatible-api/api-ref/index.md). Для аутентификации в нем используйте [статический ключ доступа](../../iam/concepts/authorization/access-key.md) или [IAM-токен](../../iam/concepts/authorization/iam-token.md). Все операции выполняются от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), которому выдан статический ключ или IAM-токен. Подробнее описано в разделе [Как пользоваться API](../aws-compatible-api/index.md).

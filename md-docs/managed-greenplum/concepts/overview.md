@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > Концепции > Обзор СУБД Greenplum® и Apache Cloudberry™ в сервисе Yandex MPP Analytics for PostgreSQL
+
 # Обзор СУБД Greenplum® и Apache Cloudberry™ в сервисе Yandex MPP Analytics for PostgreSQL
 
 Сервис Yandex MPP Analytics for PostgreSQL позволяет разворачивать в инфраструктуре Yandex Cloud [кластеры](index.md) аналитических колоночных массово-параллельных ([MPP](https://ru.wikipedia.org/wiki/Массово-параллельная_архитектура)) СУБД на основе PostgreSQL для работы с большими объемами данных. Каждая СУБД объединяет несколько баз данных PostgreSQL в кластер по принципу MPP и обеспечивает их взаимодействие через сеть Interconnect. Каждый узел кластера использует свою операционную систему, память и диски, благодаря чему данные хранятся и обрабатываются на множестве узлов параллельно. MPP-архитектура позволяет масштабировать систему горизонтально, гарантирует высокую доступность кластера и линейный рост производительности. 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > Справочник API > [REST (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Managed Service for Hive Metastore™ API, REST: Operation.Cancel
 
 Cancels the specified operation.

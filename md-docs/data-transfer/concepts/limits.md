@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Data Transfer
 
 В сервисе Yandex Data Transfer действуют следующие ограничения:

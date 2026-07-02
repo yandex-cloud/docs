@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Billing](../../index.md) > Справочник API > REST (англ.) > [Billing](../index.md) > [Sku](index.md) > Get
+
 # Billing API, REST: Sku.Get
 
 Returns the specified SKU.

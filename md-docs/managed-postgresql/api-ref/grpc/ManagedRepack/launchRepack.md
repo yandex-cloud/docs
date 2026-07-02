@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ManagedRepack](index.md) > LaunchRepack
+
 # Managed Service for PostgreSQL API, gRPC: ManagedRepackService.LaunchRepack
 
 Launches new Repack in given cluster

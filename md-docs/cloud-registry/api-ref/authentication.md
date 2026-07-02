@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Registry](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Cloud Registry
 
 # Аутентификация в API

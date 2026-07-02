@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Безопасность](index.md) > ViPNet Coordinator в Yandex Cloud
+
 # ViPNet Coordinator VA в Yandex Cloud
 
 Вы можете установить [ViPNet Coordinator VA](https://infotecs.ru/product/vipnet-coordinator-va.html#soft) в облаке и использовать его как VPN-шлюз для Site-to-site [VPN](../../glossary/vpn.md) между ресурсами облака и ресурсами удаленной площадки (on-premises).

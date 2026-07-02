@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Установка приложений из Cloud Marketplace > Установка Gatekeeper
+
 # Установка Gatekeeper
 
 [Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/) — настраиваемый контроллер и аудитор [политик](../../concepts/network-policy.md) для Kubernetes. Gatekeeper принимает поступающие в кластер запросы и в реальном времени проверяет их на соответствие предварительно настроенным политикам.

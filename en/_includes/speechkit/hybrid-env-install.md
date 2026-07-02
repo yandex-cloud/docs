@@ -19,4 +19,4 @@
 
 1. [Create a service account]({{ link-docs }}/iam/operations/sa/create) with the `{{ roles-editor }}` role for the selected folder.
 1. [Create an API key]({{ link-docs }}/iam/operations/authentication/manage-api-keys#create-api-key) for the service account.
-1. Notify the {{ speechkit-name }} team of the created registry ID. All required containers will appear in your registry, and you will get the `docker-compose.yaml` file with the deployment settings.
+1. Send the registry ID to the {{ speechkit-name }} team. All required containers will appear in your registry, and you will get the `docker-compose.yaml` file with the deployment settings.

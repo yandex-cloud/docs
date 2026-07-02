@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Image](index.md) > List
+
 # Compute Cloud API, REST: Image.List
 
 Retrieves the list of Image resources in the specified folder.

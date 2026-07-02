@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [BackupRetentionPolicy](index.md) > Create
+
 # Managed Service for MongoDB API, gRPC: BackupRetentionPolicyService.Create
 
 Add a new retention policy.

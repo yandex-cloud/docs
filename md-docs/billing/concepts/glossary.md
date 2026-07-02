@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Billing](../index.md) > [Концепции](index.md) > Глоссарий
+
 # Глоссарий
 
 {% note info %}

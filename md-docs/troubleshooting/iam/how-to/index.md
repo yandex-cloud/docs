@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Identity and Access Management](../index.md) > Примеры конфигураций и сценариев IAM
+
 ## Примеры конфигураций и сценариев Identity and Access Management {#configuration-examples}
 
 * [Как изменить владельца облака](change-cloud-owner.md)

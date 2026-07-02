@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Repository](index.md) > SetAccessBindings
+
 # Container Registry API, gRPC: RepositoryService.SetAccessBindings
 
 Sets access bindings for the specified repository.

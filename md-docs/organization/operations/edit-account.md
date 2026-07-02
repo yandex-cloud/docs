@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > [Пошаговые инструкции](index.md) > Управление пользователями > Удалить аккаунт пользователя
+
 # Удалить аккаунт пользователя
 
 Удалить аккаунт из организации может пользователь с ролью `organization-manager.admin` или `organization-manager.organizations.owner`. О том, как назначить пользователю роль, читайте в разделе [Назначить роль пользователю](../security/index.md#add-role).

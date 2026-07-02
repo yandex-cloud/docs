@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-redis](../index.md) > [cluster](index.md) > add-access-binding
+
 # yc managed-redis cluster add-access-binding
 
 Add access binding for the specified Redis cluster

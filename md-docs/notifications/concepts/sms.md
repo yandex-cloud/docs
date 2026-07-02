@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > [Концепции](index.md) > SMS
+
 # SMS в Yandex Cloud Notification Service
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Certificate Manager](../index.md) > Справочник аудитных логов > UpdateDomain
+
 # Certificate Manager Audit Trails Events: UpdateDomain
 
 ## Event JSON schema {#yandex.cloud.audit.certificatemanager.UpdateDomain2-schema}

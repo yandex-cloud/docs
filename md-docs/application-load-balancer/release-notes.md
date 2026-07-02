@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Application Load Balancer](index.md) > История изменений
+
 # История изменений в Yandex Application Load Balancer
 
 ## IV квартал 2025 {#q4-2025}

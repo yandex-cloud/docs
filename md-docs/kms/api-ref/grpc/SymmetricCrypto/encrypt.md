@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SymmetricCrypto](index.md) > Encrypt
+
 # Key Management Service API, gRPC: SymmetricCryptoService.Encrypt
 
 Encrypts given plaintext with the specified key.

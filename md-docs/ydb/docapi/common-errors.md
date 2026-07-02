@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > Document API, совместимый с Amazon DynamoDB > Общие ошибки при работе с Document API
+
 # Общие ошибки при работе с Document API
 
 Ошибки, которые являются общими для всех методов Document API:

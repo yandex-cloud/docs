@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity and Access Management > Resources > iam_service_account_key
+
 # yandex_iam_service_account_key (Resource)
 
 Allows management of [Yandex Cloud IAM service account authorized keys](../../iam/concepts/authorization/key.md). Generated pair of keys is used to create a [JSON Web Token](https://tools.ietf.org/html/rfc7519) which is necessary for requesting an [IAM Token](../../iam/concepts/authorization/iam-token.md) for a [service account](../../iam/concepts/users/service-accounts.md).

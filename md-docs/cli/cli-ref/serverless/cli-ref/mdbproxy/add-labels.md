@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [serverless](../index.md) > [mdbproxy](index.md) > add-labels
+
 # yc serverless mdbproxy add-labels
 
 Add labels to specified proxy

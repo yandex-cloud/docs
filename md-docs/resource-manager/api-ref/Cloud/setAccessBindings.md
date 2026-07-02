@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cloud](index.md) > SetAccessBindings
+
 # Resource Manager API, REST: Cloud.SetAccessBindings
 
 Sets access bindings for the specified cloud.

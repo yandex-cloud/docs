@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > SuspendNode
+
 # DataSphere Audit Trails Events: SuspendNode
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.SuspendNode2-schema}

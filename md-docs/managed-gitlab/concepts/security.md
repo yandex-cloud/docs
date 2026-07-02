@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > [Концепции](index.md) > Безопасность в GitLab
+
 # Безопасность в Managed Service for GitLab
 
 ## Обнаружение уязвимостей в CI/CD {#vulnerability-detection}

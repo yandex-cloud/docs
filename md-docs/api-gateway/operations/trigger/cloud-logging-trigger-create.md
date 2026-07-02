@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Пошаговые инструкции](../index.md) > Создание триггера > Создать триггер для Cloud Logging
+
 # Создать триггер для Cloud Logging, который отправляет сообщения в WebSocket-соединения
 
 Создайте [триггер для Cloud Logging](../../concepts/trigger/cloud-logging-trigger.md), который будет отправлять сообщения в [WebSocket-соединения](../../concepts/extensions/websocket.md) при добавлении записей в [лог-группу](../../../logging/concepts/log-group.md).

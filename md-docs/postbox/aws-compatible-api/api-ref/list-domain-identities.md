@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Postbox](../../index.md) > [Справочник API](../index.md) > [REST](index.md) > Адреса > Метод ListDomainIdentities
+
 # Метод ListDomainIdentities
 
 Возвращает список [адресов](../../concepts/glossary.md#adress) в каталоге. Нужный каталог определяется по сервисному аккаунту, от имени которого выполняется запрос.

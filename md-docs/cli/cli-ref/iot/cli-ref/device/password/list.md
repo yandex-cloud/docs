@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [iot](../../index.md) > [device](../index.md) > [password](index.md) > list
+
 # yc iot device password list
 
 List passwords associated with specified device

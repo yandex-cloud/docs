@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Подключения > Базы данных > Создание подключения к ClickHouse®
+
 # Создание подключения к ClickHouse® в Yandex DataLens
 
 {% note info %}

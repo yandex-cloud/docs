@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API Workflows > [REST (англ.)](../index.md) > [Workflow](index.md) > SetAccessBindings
+
 # Workflows Service, REST: Workflow.SetAccessBindings
 
 Sets access bindings for the Workflow.

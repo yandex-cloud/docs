@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API EventRouter > [gRPC (англ.)](../index.md) > [Connector](index.md) > List
+
 # EventRouter Service, gRPC: ConnectorService.List
 
 Retrieves the list of connectors in the specified folder.

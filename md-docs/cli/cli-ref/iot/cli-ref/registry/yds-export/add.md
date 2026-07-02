@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [iot](../../index.md) > [registry](../index.md) > [yds-export](index.md) > add
+
 # yc iot registry yds-export add
 
 Add new data stream export to specified registry

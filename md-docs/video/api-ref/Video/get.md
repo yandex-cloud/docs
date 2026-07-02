@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Video](index.md) > Get
+
 # Video API, REST: Video.Get
 
 Retrieves detailed information about a specific video by its ID.

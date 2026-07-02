@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [compute](../../index.md) > [v0](../index.md) > [gpu-cluster](index.md) > get
+
 # yc compute v0 gpu-cluster get
 
 Show information about the specified GPU cluster

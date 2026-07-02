@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Практические руководства](index.md) > Сборка образа ВМ с набором инфраструктурных инструментов с помощью Packer
+
 # Сборка образа ВМ с набором инфраструктурных инструментов с помощью Packer
 
 
@@ -42,8 +44,8 @@ Yandex Compute Cloud можно использовать для создания
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость сборки образа ВМ с последующим созданием ВМ входит: 
-* плата за хранение собранных образов ([тарифы Yandex Compute Cloud](../../compute/pricing.md#prices-storage));
-* плата за вычислительные ресурсы ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md#prices-instance-resources)).
+* плата за хранение собранных образов ([тарифы Yandex Compute Cloud](../pricing.md#prices-storage));
+* плата за вычислительные ресурсы ВМ ([тарифы Yandex Compute Cloud](../pricing.md#prices-instance-resources)).
 
 ## Подготовьте рабочее окружение {#environment-prepare}
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [FormatSchema](index.md) > Create
+
 # Managed Service for ClickHouse API, REST: FormatSchema.Create
 
 Adds a format schema to a cluster.

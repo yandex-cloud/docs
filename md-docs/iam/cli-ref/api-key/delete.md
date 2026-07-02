@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Справочник CLI (англ.)](../index.md) > [api-key](index.md) > delete
+
 # yc iam api-key delete
 
 Delete the specified API key

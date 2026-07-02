@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Managed Service for Kubernetes
+
 # Метрики Yandex Managed Service for Kubernetes
 
 В этом разделе описаны метрики сервиса [Managed Service for Kubernetes](../../managed-kubernetes/index.md), поставляемые в Monium Metrics.

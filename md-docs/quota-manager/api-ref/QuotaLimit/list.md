@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Quota Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [QuotaLimit](index.md) > List
+
 # Quota Manager API, REST: QuotaLimit.List
 
 Retrieves the list of quota limits for a given service.

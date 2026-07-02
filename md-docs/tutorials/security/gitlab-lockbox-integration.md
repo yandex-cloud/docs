@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Безопасность](index.md) > Безопасное хранение паролей для GitLab CI в виде секретов Yandex Lockbox
+
 # Безопасное хранение паролей для GitLab CI в виде секретов Yandex Lockbox
 
 # Безопасное хранение паролей для GitLab CI в виде секретов Yandex Lockbox

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Загрузка данных в Yandex Managed Service for YDB с помощью Yandex Data Transfer
+
 # Загрузка данных из Object Storage в Yandex Managed Service for YDB с помощью Yandex Data Transfer
 
 # Загрузка данных из Yandex Object Storage в Yandex Managed Service for YDB с помощью Yandex Data Transfer
@@ -14,7 +16,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
+* Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../pricing.md)).
 * База данных Managed Service for YDB ([тарифы Managed Service for YDB](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
 
 	* Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.

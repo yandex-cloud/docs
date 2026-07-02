@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Connection Manager > Resources > connectionmanager_connection
+
 # yandex_connectionmanager_connection (Resource)
 
 A Connection resource represents a configured connection to a database or service.

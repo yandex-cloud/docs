@@ -1,22 +1,22 @@
 ---
-title: Using the SDK for Java functions in {{ sf-full-name }}. Overview
+title: Using the SDK for a Java function in {{ sf-full-name }}. Overview
 description: You can manage Java functions in {{ sf-name }} using the SDK.
 ---
 
-# Using the SDK for Java functions
+# Using the SDK for a function in Java
 
-The [runtime environment](../../concepts/runtime/index.md) does not have a pre-installed library for accessing the [{{ yandex-cloud }} API](../../../api-design-guide/). To use the library, add a [dependency](dependencies.md) to your Java application. The library source code is available on [GitHub](https://github.com/yandex-cloud/java-sdk). The availability of library modules depends on the language version:
+The [runtime](../../concepts/runtime/index.md) does not have a pre-installed library for accessing the [{{ yandex-cloud }} API](../../../api-design-guide/). To use it, add a [dependency](dependencies.md) to your Java application. The library source code is available on [GitHub](https://github.com/yandex-cloud/java-sdk). The availability of library modules depends on your language version:
 
 * `java-sdk-functions`: Only for Java 11.
 * `java-sdk-serverless`: For Java 17 or higher.
 
-Other modules are available for any version of Java.
+Other modules are available for any Java version.
 
-The [SDK (Software Development Kit)](https://en.wikipedia.org/wiki/Software_development_kit) helps you manage {{ yandex-cloud }} resources on behalf of the [service account](../../operations/function-sa.md) specified in the function parameters.
+The [SDK (Software Development Kit)](https://en.wikipedia.org/wiki/Software_development_kit) helps you manage {{ yandex-cloud }} resources using the [service account](../../operations/function-sa.md) specified in the function parameters.
 
 ## Example {#example}
 
-The following function gets the folder ID (`folderId`) as an input, gets authorized in the SDK, retrieves a list of all {{ compute-name }} VMs in the specified folder, and restarts those that are stopped. As a result, it returns a message with the number of running instances.
+The following function gets the folder ID (`folderId`), gets authorized in the SDK, retrieves a list of all {{ compute-name }} VMs in the specified folder, and restarts those that are stopped. As a result, it returns a message with the number of running VMs.
 
 {% note warning %}
 
@@ -43,14 +43,14 @@ public class Handler implements Function<String, String> {
             .build();
     var instanceService = factory.create(InstanceServiceGrpc.InstanceServiceBlockingStub.class, InstanceServiceGrpc::newBlockingStub);
     var listInstancesRequest = InstanceServiceOuterClass.ListInstancesRequest.newBuilder().setFolderId(folderId).build();
-    // Getting a list of VMs based on `folderId` specified in the request
+    // Getting the list of VMs by `folderId` specified in the request
     var listInstancesResponse = instanceService.list(listInstancesRequest);
     var instances = listInstancesResponse.getInstancesList();
     var count = 0;
     for (var instance : instances) {
       if (instance.getStatus() != InstanceOuterClass.Instance.Status.RUNNING) {
         var startInstanceRequest = InstanceServiceOuterClass.StartInstanceRequest.newBuilder().setInstanceId(instance.getId()).build();
-        // Starting a VM with IDs specified in the request
+        // Starting VMs with IDs specified in the request
         var startInstanceResponse = instanceService.start(startInstanceRequest);
         if (!startInstanceResponse.hasError()) {
           count++;

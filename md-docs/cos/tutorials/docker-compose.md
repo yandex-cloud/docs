@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Solution](../index.md) > [Практические руководства](index.md) > Создать ВМ с Container Optimized Image и несколькими Docker-контейнерами
+
 # Создание ВМ с Container Optimized Image и несколькими Docker-контейнерами
 
 В этой инструкции вы создадите виртуальную машину из образа [Container Optimized Image](../concepts/index.md) с несколькими [Docker-контейнерами](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers) внутри. Для создания ВМ будет использована [Docker Compose спецификация](../concepts/coi-specifications.md#compose-spec).

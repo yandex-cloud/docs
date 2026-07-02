@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Решение проблем > [Вопросы и ответы](index.md) > Отчеты
+
 # Отчеты
 
 ### Поддерживает ли DataLens селекторы в отчетах? {#selector-in-report}

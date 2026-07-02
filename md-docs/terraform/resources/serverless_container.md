@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Serverless Containers > Resources > serverless_container
+
 # yandex_serverless_container (Resource)
 
 Allows management of a Yandex Cloud Serverless Container.

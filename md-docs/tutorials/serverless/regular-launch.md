@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > Рабочие процессы и автоматизация на Serverless > Запуск вычислений по расписанию в DataSphere
+
 # Запуск вычислений по расписанию в Yandex DataSphere
 
 Организовать сценарии регулярных запусков в [Yandex DataSphere](https://datasphere.yandex.cloud) можно с помощью API, вызывая исполнение ячеек ноутбука в [Yandex Cloud Functions](../../functions/index.md).

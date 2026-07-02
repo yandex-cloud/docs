@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Certificate Manager
+
 # Метрики Yandex Certificate Manager
 
 В этом разделе описаны метрики сервиса [Certificate Manager](../../certificate-manager/index.md), поставляемые в Monitoring.

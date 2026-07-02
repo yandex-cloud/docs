@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex IoT Core](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [broker](../index.md) > [password](index.md) > delete
+
 # yc iot v0 broker password delete
 
 Delete specified password from specified broker

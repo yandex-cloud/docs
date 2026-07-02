@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.postgresql > CreateUser
+
 # Managed Service for PostgreSQL Audit Trails Events: CreateUser
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.postgresql.CreateUser2-schema}

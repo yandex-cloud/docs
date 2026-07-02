@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Group](index.md) > UpdateMembers
+
 # Identity Hub API, gRPC: GroupService.UpdateMembers
 
 Update group members.

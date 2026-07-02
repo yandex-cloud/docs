@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > [Справочник CLI (англ.)](../index.md) > [routing-instance](index.md) > update
+
 # yc cloudrouter routing-instance update
 
 Updates a RoutingInstance resource using the data specified in the request.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Концепции](index.md) > Хранилище в Yandex Data Processing
+
 # Хранилище в Yandex Data Processing
 
 Yandex Data Processing позволяет использовать сетевые диски для организации хранилища подкластеров. Сетевые диски реализованы на базе сетевых блоков — виртуальных дисков в инфраструктуре Yandex Cloud.

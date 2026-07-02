@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ReservedInstancePool](index.md) > Get
+
 # Compute Cloud API, gRPC: ReservedInstancePoolService.Get
 
 Returns the specified reserved instance pool resource.

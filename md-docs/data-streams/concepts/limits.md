@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Streams](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Data Streams
 
 В сервисе Yandex Data Streams действуют следующие ограничения:

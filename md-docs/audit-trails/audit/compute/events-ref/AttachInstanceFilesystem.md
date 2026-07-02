@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > AttachInstanceFilesystem
+
 # Compute Audit Trails Events: AttachInstanceFilesystem
 
 ## Event JSON schema {#yandex.cloud.audit.compute.AttachInstanceFilesystem2-schema}

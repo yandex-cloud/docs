@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Restore
+
 # Managed Service for Greenplum® API, gRPC: ClusterService.Restore
 
 Creates a new Greenplum® cluster using the specified backup.

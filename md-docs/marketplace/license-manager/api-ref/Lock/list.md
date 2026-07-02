@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Marketplace](../../../index.md) > Партнерам > Справочник License Manager API > [REST (англ.)](../index.md) > [Lock](index.md) > List
+
 # Yandex Cloud Marketplace License Manager, REST: Lock.List
 
 Returns subscriptions locks for specified resource and folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Network Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [TargetGroup](index.md) > Create
+
 # Network Load Balancer API, REST: TargetGroup.Create
 
 Creates a target group in the specified folder and adds the specified targets to it.

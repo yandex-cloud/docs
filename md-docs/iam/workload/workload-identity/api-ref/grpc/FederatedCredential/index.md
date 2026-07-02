@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity and Access Management](../../../../../index.md) > Справочник API > gRPC (англ.) > [Workload Identity](../index.md) > FederatedCredential > Overview
+
 # Workload Identity, gRPC: FederatedCredentialService
 
 A set of methods for managing federated credentials.

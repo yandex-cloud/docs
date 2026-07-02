@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > ListBackups
+
 # Managed Service for PostgreSQL API, gRPC: ClusterService.ListBackups
 
 Retrieves the list of available backups for the specified PostgreSQL cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Key](index.md) > Delete
+
 # Identity and Access Management API, REST: Key.Delete
 
 Deletes the specified key pair.

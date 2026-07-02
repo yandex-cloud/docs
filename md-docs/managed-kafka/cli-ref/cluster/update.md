@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > update
+
 # yc managed-kafka cluster update
 
 Modify configuration or attributes of a Kafka cluster.

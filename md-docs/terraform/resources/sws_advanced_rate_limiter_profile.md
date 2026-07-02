@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Smart Web Security > Resources > sws_advanced_rate_limiter_profile
+
 # yandex_sws_advanced_rate_limiter_profile (Resource)
 
 A AdvancedRateLimiterProfile (ARL) resource.

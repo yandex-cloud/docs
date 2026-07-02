@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Router](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции Cloud Router
 
 - [Получить информацию о Routing Instance](ri-get-info.md)

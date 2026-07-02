@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Trino](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > ListAccessBindings
+
 # Managed Service for Trino API, REST: Cluster.ListAccessBindings
 
 Retrieves a list of access bindings for the specified Trino cluster.

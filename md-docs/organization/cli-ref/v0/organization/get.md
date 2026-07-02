@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [organization](index.md) > get
+
 # yc organization-manager v0 organization get
 
 Show information about the specified organization

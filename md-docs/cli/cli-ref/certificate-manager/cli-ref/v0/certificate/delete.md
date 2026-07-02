@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [certificate-manager](../../index.md) > [v0](../index.md) > [certificate](index.md) > delete
+
 # yc certificate-manager v0 certificate delete
 
 Delete the specified certificate

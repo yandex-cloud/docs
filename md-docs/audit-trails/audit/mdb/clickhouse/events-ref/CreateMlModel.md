@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.clickhouse > CreateMlModel
+
 # Managed Service for ClickHouse Audit Trails Events: CreateMlModel
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.clickhouse.CreateMlModel2-schema}

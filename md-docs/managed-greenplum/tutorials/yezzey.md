@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Практические руководства](index.md) > Выгрузка данных Greenplum® в холодное хранилище Object Storage
+
 # Выгрузка данных Greenplum® в холодное хранилище Yandex Object Storage
 
 # Выгрузка данных Greenplum® в холодное хранилище
@@ -5,7 +7,7 @@
 
 В кластере Greenplum® можно включить [гибридное хранилище](../concepts/hybrid-storage.md) для [таблиц типа AO и AOCO](../concepts/tables.md) (append-optimized storage). Тогда с помощью [расширения Yezzey](../operations/extensions/yezzey.md) данные этих таблиц можно перенести из хранилища кластера в холодное хранилище.
 
-Холодное хранилище удобно, если данные нужно хранить долго, а работать с ними планируется редко. Так хранение [будет дешевле](../../../managed-greenplum/pricing/index.md#rules-storage).
+Холодное хранилище удобно, если данные нужно хранить долго, а работать с ними планируется редко. Так хранение [будет дешевле](../pricing/index.md#rules-storage).
 
 
 {% note info %}
@@ -27,8 +29,8 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Yandex MPP Analytics for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Yandex MPP Analytics for PostgreSQL](../../../managed-greenplum/pricing/index.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
+* Кластер Yandex MPP Analytics for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Yandex MPP Analytics for PostgreSQL](../pricing/index.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

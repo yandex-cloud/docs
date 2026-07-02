@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > [Справочник CLI (англ.)](../index.md) > [device](index.md) > logs
+
 # yc iot device logs
 
 Show logs for the specified device

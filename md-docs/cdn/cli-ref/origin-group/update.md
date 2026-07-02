@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > [Справочник CLI (англ.)](../index.md) > [origin-group](index.md) > update
+
 # yc cdn origin-group update
 
 Update origin group

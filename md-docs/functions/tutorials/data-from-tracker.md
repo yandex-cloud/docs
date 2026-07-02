@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Functions](../index.md) > [Практические руководства](index.md) > ETL на Serverless > Яндекс Трекер: экспорт и визуализация данных
+
 # Яндекс Трекер: экспорт и визуализация данных
 
 
@@ -40,7 +42,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Постоянно запущенный кластер Managed Service for ClickHouse® ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md));
-* Использование функции Cloud Functions ([тарифы Cloud Functions](../../functions/pricing.md)).
+* Использование функции Cloud Functions ([тарифы Cloud Functions](../pricing.md)).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 

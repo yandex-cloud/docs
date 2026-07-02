@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > Справочник CLI (англ.) > MDB Proxy
+
 # yc serverless mdbproxy
 
 Manage proxies

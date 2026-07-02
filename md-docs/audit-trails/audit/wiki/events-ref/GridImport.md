@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > GridImport
+
 # Yandex Wiki Audit Trails Events: GridImport
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.GridImport2-schema}

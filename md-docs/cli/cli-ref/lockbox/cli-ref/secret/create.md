@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [lockbox](../index.md) > [secret](index.md) > create
+
 # yc lockbox secret create
 
 Create a secret

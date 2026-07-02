@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SnapshotSchedule](index.md) > ListOperations
+
 # Compute Cloud API, gRPC: SnapshotScheduleService.ListOperations
 
 Lists operations for the specified snapshot schedule.

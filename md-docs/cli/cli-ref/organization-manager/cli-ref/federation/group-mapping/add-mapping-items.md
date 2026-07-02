@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [organization-manager](../../index.md) > [federation](../index.md) > [group-mapping](index.md) > add-mapping-items
+
 # yc organization-manager federation group-mapping add-mapping-items
 
 Add group mapping items to the specified federation

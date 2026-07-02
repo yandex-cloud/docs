@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > Сервисные аккаунты > Получение ID-токена сервисного аккаунта
+
 # Получение ID-токена сервисного аккаунта
 
 {% note info %}

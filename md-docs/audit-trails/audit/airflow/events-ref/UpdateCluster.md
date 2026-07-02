@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > airflow > UpdateCluster
+
 # Managed Service for Apache Airflow™ Audit Trails Events: UpdateCluster
 
 ## Event JSON schema {#yandex.cloud.audit.airflow.UpdateCluster2-schema}

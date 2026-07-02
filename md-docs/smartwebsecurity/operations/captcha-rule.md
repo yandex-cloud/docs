@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Обязательные и рекомендуемые правила > Правило для капчи
+
 # Правило для Yandex SmartCaptcha
 
 Настройте правило, чтобы направлять запросы на проверку в [SmartCaptcha](../../smartcaptcha/index.md).

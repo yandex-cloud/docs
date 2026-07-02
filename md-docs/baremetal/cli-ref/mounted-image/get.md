@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../index.md) > [mounted-image](index.md) > get
+
 # yc baremetal mounted-image get
 
 Get mounted user image.

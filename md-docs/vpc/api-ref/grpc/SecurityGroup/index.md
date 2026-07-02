@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > SecurityGroup > Overview
+
 # Virtual Private Cloud API, gRPC: SecurityGroupService
 
 A set of methods for managing SecurityGroup resources.

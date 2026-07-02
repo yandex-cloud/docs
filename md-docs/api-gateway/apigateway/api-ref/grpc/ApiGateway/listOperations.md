@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex API Gateway](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ApiGateway](index.md) > ListOperations
+
 # API Gateway Service, gRPC: ApiGatewayService.ListOperations
 
 Lists operations for the specified API gateway.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.redis > AddClusterShard
+
 # Managed Service for ValKey Audit Trails Events: AddClusterShard
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.redis.AddClusterShard2-schema}

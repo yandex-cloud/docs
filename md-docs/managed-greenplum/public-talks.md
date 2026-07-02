@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex MPP Analytics for PostgreSQL](index.md) > Публичные материалы
+
 # Публичные материалы о Yandex MPP Analytics for PostgreSQL
 
 ## Конференции и вебинары {#conf-and-webinars}

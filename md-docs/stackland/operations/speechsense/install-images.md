@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > SpeechSense > Загрузить образы
+
 # Загрузить образы SpeechSense
 
 Образы компонента SpeechSense не входят в базовую поставку Stackland. Перед активацией компонента загрузите образы в кластер.

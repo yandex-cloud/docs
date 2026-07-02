@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > [Серийная консоль](index.md) > Подключиться к серийной консоли ВМ с ОС Windows
+
 # Подключиться к серийной консоли виртуальной машины с ОС Windows
 
 {% note warning %}

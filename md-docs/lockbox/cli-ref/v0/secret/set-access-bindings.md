@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Lockbox](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [secret](index.md) > set-access-bindings
+
 # yc lockbox v0 secret set-access-bindings
 
 Set access bindings for the specified secret and delete all existing access bindings if there were any

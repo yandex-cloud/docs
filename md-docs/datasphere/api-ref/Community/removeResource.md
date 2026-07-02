@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Справочник API](../overview.md) > [REST (англ.)](../index.md) > [Community](index.md) > RemoveResource
+
 # DataSphere API v2, REST: Community.RemoveResource
 
 Removes shared resource from community

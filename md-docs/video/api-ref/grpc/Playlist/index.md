@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Playlist > Overview
+
 # Video API, gRPC: PlaylistService
 
 Playlist management service.

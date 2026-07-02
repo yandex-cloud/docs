@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [trigger](../index.md) > [create](index.md) > iot-broker
+
 # yc serverless trigger create iot-broker
 
 Create IoT broker trigger

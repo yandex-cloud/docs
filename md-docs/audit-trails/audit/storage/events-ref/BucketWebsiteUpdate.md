@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > storage > BucketWebsiteUpdate
+
 # Object Storage Audit Trails Events: BucketWebsiteUpdate
 
 ## Event JSON schema {#yandex.cloud.audit.storage.BucketWebsiteUpdate2-schema}

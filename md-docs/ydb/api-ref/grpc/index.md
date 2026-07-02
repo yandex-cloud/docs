@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for YDB](../../index.md) > [Справочник API Yandex Cloud для Managed Service for YDB](../overview.md) > gRPC (англ.) > Overview
+
 # Managed Service for YDB API: gRPC reference
 
 Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts](../../../api-design-guide/index.md).

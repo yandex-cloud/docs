@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [TrunkConnection](index.md) > ListOperations
+
 # Cloud Interconnect API, gRPC: TrunkConnectionService.ListOperations
 
 Lists operations for the specified TrunkConnection.

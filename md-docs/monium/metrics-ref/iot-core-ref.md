@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Yandex IoT Core
+
 # Метрики Yandex IoT Core
 
 В этом разделе описаны метрики сервиса [Yandex IoT Core](../../iot-core/index.md), поставляемые в Monium Metrics.

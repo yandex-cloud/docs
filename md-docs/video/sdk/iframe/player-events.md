@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Видеоплеер > [SDK](../index.md) > [IFrame](index.md) > События плеера
+
 # События плеера
 
 С помощью механизма `postMessage` SDK для IFrame вы можете подписаться на события [видеоплеера](../../concepts/player.md) Cloud Video Player. События отправляются из iframe в родительское окно.

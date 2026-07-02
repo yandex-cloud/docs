@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Концепции](overview.md) > Расширение кластера
+
 # Расширение кластера Yandex MPP Analytics for PostgreSQL
 
 Кластер можно [расширить](../operations/cluster-expand.md), чтобы добавить в него дополнительные хосты-сегменты.

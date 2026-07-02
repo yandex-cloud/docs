@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Инструменты Application Load Balancer](index.md) > Gateway API > Конфигурация ресурсов > YCCertificate
+
 # Поля ресурса YCCertificate
 
 Ресурс `YCCertificate` содержит параметры сертификата Certificate Manager для настройки TLS-соединений в ресурсе `Gateway`.

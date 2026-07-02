@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [UserSshKey](index.md) > Create
+
 # Identity Hub API, REST: UserSshKey.Create
 
 ## HTTP request

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iot > DeleteBrokerCertificate
+
 # IoT Core Audit Trails Events: DeleteBrokerCertificate
 
 ## Event JSON schema {#yandex.cloud.audit.iot.broker.DeleteBrokerCertificate2-schema}

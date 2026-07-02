@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Расширения спецификации](index.md) > CORS
+
 # CORS
 
 Расширения `x-yc-apigateway-cors-rules` и `x-yc-apigateway-cors` позволяют настроить автоматическую обработку [preflight-запросов](https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request) в соответствии с механизмом [CORS](https://developer.mozilla.org/en-US/docs/Glossary/CORS).

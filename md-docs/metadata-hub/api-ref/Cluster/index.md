@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > Справочник API > [REST (англ.)](../index.md) > Cluster > Overview
+
 # Managed Service for Hive Metastore™ API, REST: Cluster
 
 A set of methods for managing Metastore Cluster resources.

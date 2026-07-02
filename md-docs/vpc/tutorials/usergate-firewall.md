@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Практические руководства](index.md) > Сетевая облачная инфраструктура на основе NGFW > Создание и настройка шлюза UserGate в режиме межсетевого экрана
+
 # Создание и настройка шлюза UserGate в режиме межсетевого экрана
 
 
@@ -33,7 +35,7 @@
 
 * плата за постоянно запущенную ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
 * плата за использование [UserGate NGFW](https://yandex.cloud/ru/marketplace/products/usergate/ngfw);
-* плата за использование публичного статического IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* плата за использование публичного статического IP-адреса ([тарифы Yandex Virtual Private Cloud](../pricing.md)).
 
 ## Создайте облачную сеть и подсеть {#create-network}
 

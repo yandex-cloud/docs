@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [idp](../../index.md) > [application](../index.md) > saml > Overview
+
 # yc organization-manager idp application saml
 
 Manage SAML applications and related resources

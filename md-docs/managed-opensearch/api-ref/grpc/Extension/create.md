@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for OpenSearch](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Extension](index.md) > Create
+
 # Managed Service for OpenSearch API, gRPC: ExtensionService.Create
 
 Creates new extension version.

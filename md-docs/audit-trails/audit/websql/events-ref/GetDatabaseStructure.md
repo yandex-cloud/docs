@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > websql > GetDatabaseStructure
+
 # WebSQL Audit Trails Events: GetDatabaseStructure
 
 ## Event JSON schema {#yandex.cloud.audit.websql.GetDatabaseStructure2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Информация об имеющихся кластерах
+
 # Информация об имеющихся кластерах в Managed Service for Apache Airflow™
 
 Вы можете запросить детальную информацию о каждом созданном вами кластере Managed Service for Apache Airflow™.

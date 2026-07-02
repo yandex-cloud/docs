@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > DeleteOsLoginProfile
+
 # Identity Hub Audit Trails Events: DeleteOsLoginProfile
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.DeleteOsLoginProfile2-schema}

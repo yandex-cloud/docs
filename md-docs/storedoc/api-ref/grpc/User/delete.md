@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [User](index.md) > Delete
+
 # Managed Service for MongoDB API, gRPC: UserService.Delete
 
 Deletes the specified MongoDB user.

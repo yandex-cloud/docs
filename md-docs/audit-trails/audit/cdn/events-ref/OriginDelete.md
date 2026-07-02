@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > cdn > OriginDelete
+
 # Cloud CDN Audit Trails Events: OriginDelete
 
 ## Event JSON schema {#yandex.cloud.audit.cdn.gcore.OriginDelete2-schema}

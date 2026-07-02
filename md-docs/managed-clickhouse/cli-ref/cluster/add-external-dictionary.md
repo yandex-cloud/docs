@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > add-external-dictionary
+
 # yc managed-clickhouse cluster add-external-dictionary
 
 Add an external dictionary to a ClickHouse cluster.

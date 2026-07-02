@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Снимки дисков > Настроить права доступа к снимку диска
+
 # Настроить права доступа к снимку диска
 
 Чтобы предоставить пользователю, группе или [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md) доступ к [снимку диска](../../concepts/snapshot.md), назначьте на него [роль](../../../iam/concepts/access-control/roles.md).

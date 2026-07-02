@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > ResourcePreset > Overview
+
 # Managed Service for ClickHouse API, gRPC: ResourcePresetService
 
 A set of methods for managing ResourcePreset resources.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [ydb](../../index.md) > [v0](../index.md) > [backup](index.md) > list-access-bindings
+
 # yc ydb v0 backup list-access-bindings
 
 List access bindings for the specified YDB backup.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Yandex MPP Analytics for PostgreSQL
+
 # Метрики Yandex MPP Analytics for PostgreSQL
 
 

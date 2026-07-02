@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Практические руководства](index.md) > Подключение к сервисам > Синхронизация топиков Apache Kafka® в Object Storage без использования интернета
+
 # Синхронизация данных из топиков Apache Kafka® в бакет Object Storage без использования интернета
 
 # Синхронизация данных из топиков Apache Kafka® в бакет Yandex Object Storage без использования интернета
@@ -18,7 +20,7 @@
 
 * Плата за бакет Object Storage: хранение данных и выполнение операций с ними ([тарифы Object Storage](../../storage/pricing.md)).
 * Плата за кластер Managed Service for Apache Kafka®: использование выделенных хостам вычислительных ресурсов и дискового пространства ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
-* Плата за использование публичных IP-адресов для хостов кластера ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за использование публичных IP-адресов для хостов кластера ([тарифы Virtual Private Cloud](../pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

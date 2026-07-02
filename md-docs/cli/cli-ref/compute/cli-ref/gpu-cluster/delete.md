@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [gpu-cluster](index.md) > delete
+
 # yc compute gpu-cluster delete
 
 Delete the specified GPU cluster

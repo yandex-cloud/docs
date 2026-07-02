@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud DNS](../index.md) > [Пошаговые инструкции](index.md) > DNS-подключения > Создать входящее DNS-подключение
+
 # Создать входящее DNS-подключение
 
 Чтобы создать [входящее DNS-подключение](../concepts/dns-connection.md):

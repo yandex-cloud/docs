@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Загрузка данных в Object Storage > MySQL® в Object Storage
+
 # Загрузка данных из MySQL® в Yandex Object Storage
 
 # Загрузка данных из MySQL® в Yandex Object Storage с помощью Yandex Data Transfer

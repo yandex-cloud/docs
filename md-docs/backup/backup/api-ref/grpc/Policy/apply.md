@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Backup](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Policy](index.md) > Apply
+
 # Cloud Backup API, gRPC: PolicyService.Apply
 
 Apply policy to [Compute Cloud instance](../../../../concepts/vm-connection.md#os).

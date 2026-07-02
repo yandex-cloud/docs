@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Машинное обучение и искусственный интеллект](index.md) > Разработка с помощью DataSphere > Использование данных из Object Storage для обучения модели в DataSphere
+
 # Использование данных из Yandex Object Storage для обучения модели в Yandex DataSphere
 
 # Использование данных из Yandex Object Storage для обучения модели в DataSphere

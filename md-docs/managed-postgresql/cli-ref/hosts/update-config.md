@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [hosts](index.md) > update-config
+
 # yc managed-postgresql hosts update-config
 
 Updates PostgreSQL config for the specified hosts

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Processing](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Job](index.md) > List
+
 # Yandex Data Processing API, REST: Job.List
 
 Retrieves a list of jobs for a cluster.

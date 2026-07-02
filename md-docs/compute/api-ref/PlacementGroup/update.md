@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [PlacementGroup](index.md) > Update
+
 # Compute Cloud API, REST: PlacementGroup.Update
 
 Updates the specified placement group.

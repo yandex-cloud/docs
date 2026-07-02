@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Managed Service for GitLab > Managed Service for GitLab
+
 # Yandex Managed Service for GitLab
 
 Сервис Managed Service for GitLab помогает разворачивать и поддерживать инстансы GitLab в инфраструктуре Yandex Cloud.

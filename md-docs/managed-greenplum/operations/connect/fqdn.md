@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > [Подключение](index.md) > FQDN хостов
+
 # FQDN хостов Yandex MPP Analytics for PostgreSQL
 
 Для подключения к хосту-мастеру потребуется его [FQDN](../../concepts/network.md#hostname) — доменное имя. Вы можете использовать FQDN конкретного хоста в кластере или [особый FQDN](#fqdn-master), всегда указывающий на первичный хост-мастер. При подключении через psql или с помощью JDBC-коннектора вы можете указать сразу два хоста-мастера.

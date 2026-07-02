@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Compute Cloud](../../../../index.md) > Справочник API > gRPC (англ.) > [Compute Cloud Instance Groups API](../index.md) > [InstanceGroup](index.md) > PauseProcesses
+
 # Compute Cloud Instance Groups API, gRPC: InstanceGroupService.PauseProcesses
 
 Pauses all processes regarding management of the specified instance group,

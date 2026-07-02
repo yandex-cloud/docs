@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for MySQL®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Database > Overview
+
 # Managed Service for MySQL API, gRPC: DatabaseService
 
 A set of methods for managing MySQL databases in a cluster.

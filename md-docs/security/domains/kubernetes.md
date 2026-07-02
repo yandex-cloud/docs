@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Безопасность в Yandex Cloud](../index.md) > [Рекомендации по защите облачной инфраструктуры](index.md) > Безопасность Kubernetes
+
 # Безопасность Kubernetes
 
 Раздел содержит рекомендации пользователям Yandex Cloud по настройкам безопасности в [Yandex Managed Service for Kubernetes](../../managed-kubernetes/index.md).

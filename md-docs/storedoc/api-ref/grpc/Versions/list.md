@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Versions](index.md) > List
+
 # Managed Service for MongoDB API, gRPC: VersionsService.List
 
 Returns list of available MongoDB versions.

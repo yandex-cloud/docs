@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > Концепции > Настройка и управление > Аудитные логи Audit Trails > Справочник аудитных логов > UpdatePublicSubnet
+
 # BareMetal Audit Trails Events: UpdatePublicSubnet
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.UpdatePublicSubnet2-schema}

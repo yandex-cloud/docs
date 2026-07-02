@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > loadbalancer > CreateTargetGroup
+
 # Network Load Balancer Audit Trails Events: CreateTargetGroup
 
 ## Event JSON schema {#yandex.cloud.audit.loadbalancer.CreateTargetGroup2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Group](index.md) > ConvertAllToBasic
+
 # Identity Hub API, REST: Group.ConvertAllToBasic
 
 Converts all groups that belongs to subject container from external to basic (not external).

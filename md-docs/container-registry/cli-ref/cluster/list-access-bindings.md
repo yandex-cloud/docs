@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > list-access-bindings
+
 # yc container cluster list-access-bindings
 
 List access bindings for the specified Kubernetes cluster.

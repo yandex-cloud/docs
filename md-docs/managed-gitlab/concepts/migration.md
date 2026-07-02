@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > [Концепции](index.md) > Порядок миграции из пользовательской инсталляции GitLab
+
 # Порядок предоставления услуги по миграции из GitLab в Managed Service for GitLab
 
 В ходе миграции из пользовательской инсталляции GitLab в сервис Managed Service for GitLab можно перенести такие сущности, как проекты, пользователи, [группы пользователей](https://docs.gitlab.com/ee/user/group/), настроенные права доступа, пайплайны. Также можно перенастроить [кастомизированное доменное имя](https://docs.gitlab.com/ee/user/project/pages/custom_domains_ssl_tls_certification/) на новый [инстанс GitLab](index.md#instance). В результате вы перенесете все необходимые данные и настройки в облако.

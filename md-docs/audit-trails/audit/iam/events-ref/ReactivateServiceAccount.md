@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > ReactivateServiceAccount
+
 # Identity and Access Management Audit Trails Events: ReactivateServiceAccount
 
 ## Event JSON schema {#yandex.cloud.audit.iam.ReactivateServiceAccount2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [application-load-balancer](../index.md) > [virtual-host](index.md) > get
+
 # yc application-load-balancer virtual-host get
 
 Show information about the specified virtual host

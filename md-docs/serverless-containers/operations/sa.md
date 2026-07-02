@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Пошаговые инструкции](index.md) > Получение IAM-токена сервисного аккаунта с помощью контейнера
+
 # Получение IAM-токена сервисного аккаунта с помощью контейнера
 
 Если ревизия контейнера создана с сервисным аккаунтом, вы можете получить [IAM-токен](../../iam/concepts/authorization/iam-token.md) из сервиса метаданных в формате [Google Compute Engine](../../compute/operations/vm-info/get-info.md#inside-instance) с помощью API.

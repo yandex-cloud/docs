@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YDB](../../../index.md) > Document API, совместимый с Amazon DynamoDB > [Справочник Document API](../index.md) > Actions > UpdateTimeToLive
+
 # Метод UpdateTimeToLive
 
 Включает или отключает TTL для указанной таблицы.

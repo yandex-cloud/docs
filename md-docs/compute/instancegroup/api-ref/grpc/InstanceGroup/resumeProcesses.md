@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Compute Cloud](../../../../index.md) > Справочник API > gRPC (англ.) > [Compute Cloud Instance Groups API](../index.md) > [InstanceGroup](index.md) > ResumeProcesses
+
 # Compute Cloud Instance Groups API, gRPC: InstanceGroupService.ResumeProcesses
 
 Resumes all processes regarding management of the specified instance group,

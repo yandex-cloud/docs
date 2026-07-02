@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [User](index.md) > List
+
 # Managed Service for ClickHouse API, REST: User.List
 
 Retrieves the list of ClickHouse User resources in the specified cluster.

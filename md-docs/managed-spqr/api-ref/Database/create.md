@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Database](index.md) > Create
+
 # Managed Service for SPQR API, REST: Database.Create
 
 Creates a new SPQR database in the specified cluster.

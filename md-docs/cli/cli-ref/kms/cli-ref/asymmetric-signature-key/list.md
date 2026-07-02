@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [kms](../index.md) > [asymmetric-signature-key](index.md) > list
+
 # yc kms asymmetric-signature-key list
 
 List asymmetric signature keys of the specified folder

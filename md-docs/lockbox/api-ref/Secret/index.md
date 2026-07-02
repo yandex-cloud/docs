@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Lockbox](../../index.md) > Справочник API > [REST (англ.)](../index.md) > Secret > Overview
+
 # Lockbox API, REST: Secret
 
 A set of methods for managing secrets.

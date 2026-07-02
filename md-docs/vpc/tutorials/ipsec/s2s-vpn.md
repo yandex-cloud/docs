@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > [Практические руководства](../index.md) > Организация VPN-подключений > [Организация сетевой связности с помощью IPsec-шлюзов](index.md) > Развертывание S2S VPN с помощью strongSwan в Yandex Cloud
+
 # Развертывание S2S VPN с помощью strongSwan в Yandex Cloud
 
 
@@ -32,8 +34,8 @@
 В стоимость развертывания инфраструктуры для данного решения входят:
 
 * Плата за постоянно запущенную виртуальную машину ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
-* Плата за использование статического внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
-* Плата за исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md))
+* Плата за использование статического внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../pricing.md)).
+* Плата за исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../pricing.md))
 
 
 ## Подготовьте облако к работе {#before-you-begin}

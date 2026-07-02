@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Security Deck](../index.md) > [Концепции](index.md) > Access Transparency
+
 # Access Transparency
 
 [Access Transparency](https://center.yandex.cloud/security/transparency/) — это автоматизированный инструмент, предназначенный для просмотра аналитической информации о действиях, производимых инженерами Yandex Cloud с ресурсами организации в ходе технического обслуживания, работы с [обращениями](../../support/overview.md) или решения задач безопасности. Этот инструмент позволяет обеспечить прозрачность работы и контроль над действиями инженеров Yandex Cloud.

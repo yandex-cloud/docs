@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Kubernetes](../index.md) > Не уменьшается количество нод в группе Managed Service for Kubernetes
+
 # Не уменьшается количество узлов в группе Managed Service for Kubernetes
 
 

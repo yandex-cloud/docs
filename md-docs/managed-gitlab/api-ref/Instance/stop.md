@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for GitLab](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Instance](index.md) > Stop
+
 # Managed Service for Gitlab API, REST: Instance.Stop
 
 Stops the specified GitLab instance.

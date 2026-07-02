@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [v0](../index.md) > [mdbproxy](index.md) > get
+
 # yc serverless v0 mdbproxy get
 
 Show information about the specified proxy

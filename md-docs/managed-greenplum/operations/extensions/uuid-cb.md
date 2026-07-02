@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > Расширения > uuid-cb
+
 # Использование uuid-cb в Yandex MPP Analytics for PostgreSQL
 
 {% note warning %}

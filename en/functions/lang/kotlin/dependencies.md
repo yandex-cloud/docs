@@ -1,14 +1,14 @@
 # Building and managing Kotlin function dependencies
 
-{{ sf-name }} supports two ways to manage Kotlin function dependencies: automatic installation from the source code using Gradle and adding dependencies manually to a project archive. However, you cannot configure dependencies using both methods at the same time.
+{{ sf-name }} supports two methods of managing Kotlin function dependencies: automatic installation from the source code using Gradle and adding dependencies manually to a project archive. However, you cannot configure dependencies using both methods at the same time.
 
-Installing dependencies has resource and execution time limits. For more information, see [{#T}](../../concepts/limits.md). You can view the dependency installation log using the link that appears in the list of operations.
+Installing dependencies has resource and execution time limits. For more information, see [{#T}](../../concepts/limits.md). You can view the dependency installation log via the link displayed in the list of operations.
 
 ## Gradle {#gradle}
 
-[Gradle](https://gradle.com/) is a system for managing dependencies in Kotlin. {{ sf-name }} uses Gradle 8.7 to build code.
+[Gradle](https://gradle.com/) is a dependency management system for Kotlin. {{ sf-name }} uses Gradle 8.7 to build code.
 
-To deliver dependencies, configure them in the `build.gradle` or `build.gradle.kts` file. No other actions, including project compilation, are required.
+To deliver dependencies, configure them in the `build.gradle` or `build.gradle.kts` file. No other steps, including project compilation, are required.
 
 If you want to use the [SDK](sdk.md) for your functions in Kotlin, configure the Gradle dependencies for the SDK.
 

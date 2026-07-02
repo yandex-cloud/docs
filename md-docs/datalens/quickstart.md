@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex DataLens](index.md) > Знакомство с сервисом > Начало работы
+
 # Как начать работать с Yandex DataLens
 
 

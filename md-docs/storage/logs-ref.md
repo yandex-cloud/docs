@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Object Storage](index.md) > Логи бакета
+
 # Справочник логов Object Storage
 
 

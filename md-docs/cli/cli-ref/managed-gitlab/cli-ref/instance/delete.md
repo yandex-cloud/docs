@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-gitlab](../index.md) > [instance](index.md) > delete
+
 # yc managed-gitlab instance delete
 
 Delete the specified Gitlab instance

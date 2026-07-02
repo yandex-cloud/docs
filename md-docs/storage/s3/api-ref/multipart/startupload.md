@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [AWS S3 REST](../../index.md) > [REST](../index.md) > Multipart upload > CreateMultipartUpload
+
 # Object Storage API, REST совместимый с Amazon S3: CreateMultipartUpload
 
 Возвращает идентификатор, который следует использовать во всех дальнейших операциях по загрузке объекта.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Разработка и тестирование > Автоматизация сборки образов с помощью Jenkins и Packer
+
 # Автоматизация сборки образов с помощью Jenkins и Packer
 
 На основе заданной конфигурации [Packer](https://www.packer.io/) создает [образы дисков виртуальной машины](../../compute/concepts/image.md) в сервисе [Yandex Compute Cloud](../../compute/index.md). [Jenkins](https://www.jenkins.io/) позволяет построить процесс [непрерывной интеграции (Continuous integration, CI)](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd).
@@ -32,7 +34,7 @@
 
 В стоимость поддержки инфраструктуры входят:
 * Плата за постоянно запущенные ВМ ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за хранение созданных образов ([тарифы Compute Cloud](../../compute/pricing#prices-storage)).
+* Плата за хранение созданных образов ([тарифы Compute Cloud](../../compute/pricing.md#prices-storage)).
 * Плата за использование динамических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Настройте окружение {#prepare}

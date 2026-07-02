@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Практические руководства](index.md) > Создание кластера Linux-серверов «1С:Предприятия» с кластером Managed Service for PostgreSQL
+
 # Создание кластера Linux-серверов «1С:Предприятия» с кластером Managed Service for PostgreSQL
 
 
@@ -42,7 +44,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
+* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../pricing.md)).
 
 
 ## Настройте VPN для доступа к облачной инфраструктуре {#setup-vpn}

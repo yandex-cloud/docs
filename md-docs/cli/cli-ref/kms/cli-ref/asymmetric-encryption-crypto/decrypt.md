@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [kms](../index.md) > [asymmetric-encryption-crypto](index.md) > decrypt
+
 # yc kms asymmetric-encryption-crypto decrypt
 
 Decrypt data with specified asymmetric encryption key

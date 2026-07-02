@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > [Пошаговые инструкции](index.md) > Правила доступа к объектам > Удаление правил доступа
+
 # Удаление правил доступа в Managed Service for Trino
 
 ## Удалить правило доступа {#rule}

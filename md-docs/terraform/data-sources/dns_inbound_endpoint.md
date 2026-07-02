@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud DNS > Data Sources > dns_inbound_endpoint
+
 # yandex_dns_inbound_endpoint (DataSource)
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [MfaEnforcement](index.md) > Deactivate
+
 # Identity Hub API, REST: MfaEnforcement.Deactivate
 
 deactivates the specified MFA enforcement

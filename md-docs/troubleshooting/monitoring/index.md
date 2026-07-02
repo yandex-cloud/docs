@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Monitoring > Все решения для Monitoring
+
 # Решения для Monitoring
 
 

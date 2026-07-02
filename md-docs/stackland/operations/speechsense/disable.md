@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > SpeechSense > Отключить
+
 # Отключить SpeechSense
 
 Вы можете отключить компонент SpeechSense в кластере Stackland. При отключении контроллер автоматически удалит все ресурсы компонента.

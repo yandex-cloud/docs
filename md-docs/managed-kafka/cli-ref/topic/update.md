@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [topic](index.md) > update
+
 # yc managed-kafka topic update
 
 Modify attributes of a Kafka topic.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > [Концепции](../../../index.md) > Workflows > [Спецификация YaWL](../index.md) > Интеграционные шаги > YDBDocument
+
 # YDBDocument
 
 Взаимодействие с документными таблицами в базе данных [Yandex Managed Service for YDB](../../../../../ydb/index.md). Поля `get`, `put`, `update` и `scan` — взаимоисключающие, можно использовать только одно из них.

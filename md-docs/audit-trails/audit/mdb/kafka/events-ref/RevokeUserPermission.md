@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.kafka > RevokeUserPermission
+
 # Managed Service for Apache Kafka® Audit Trails Events: RevokeUserPermission
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.kafka.RevokeUserPermission2-schema}

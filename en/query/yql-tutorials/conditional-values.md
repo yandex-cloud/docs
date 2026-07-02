@@ -1,4 +1,4 @@
-# Adding other aggregation criteria
+# Adding other aggregation conditions
 
 You can aggregate data by both column values and expressions.
 
@@ -6,7 +6,7 @@ For example:
 
 * Group taxi rides by long distance.
 * Group taxi rides by short distance.
-* Calculate the total number of grouped rides.
+* Calculate the sum of grouped rides.
 
 ```sql
 SELECT
@@ -14,20 +14,20 @@ SELECT
     COUNT(*)
 FROM
     `tutorial-analytics`
-GROUP BY                                -- CASE checks a list of conditions
-    CASE                                -- and returns one of several possible
-        WHEN trip_distance > 10         -- expressions or an expression with any operator
-        THEN "long"                     -- that supports the expression in question. For example, you can use CASE
-        ELSE "short"                    -- in SELECT expressions
-    END AS distance_type                -- and with operators IN, WHERE, and ORDER BY.
-                                        -- You can run GROUP BY
+GROUP BY                                -- CASE checks the list of conditions
+    CASE                                -- and returns one of possible
+        WHEN trip_distance > 10         -- expressions with any operator
+        THEN "long"                     -- that supports this expression. For example, you can use CASE
+        ELSE "short"                    -- in SELECT statements,
+    END AS distance_type                -- inside an IN operator, and in WHERE, and ORDER BY clauses.
+                                        -- You can use GROUP BY
                                         -- for any expression.
-                                        -- The result is available in SELECT
-                                        -- via an alias specified using AS.
+                                        -- The result will be available in the SELECT statement
+                                        -- under the alias specified with the AS operator.
 ```
 
-View the example in the right-hand section and click ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
-Query results are available in the **{{ ui-key.yql.yq-query-results.result.tab-text }}** tab as a table or schema.
+Check the example in the right-hand section and click ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
+The query result will appear in the **{{ ui-key.yql.yq-query-results.result.tab-text }}** tab as a table or chart.
 
 #### See also {#see-also}
 

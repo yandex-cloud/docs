@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [HttpRouter](index.md) > Update
+
 # Application Load Balancer API, gRPC: HttpRouterService.Update
 
 Updates the specified HTTP router.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Концепции](index.md) > Коннекторы
+
 # Коннекторы
 
 Коннекторы — это [встроенные в Managed Service for Apache Kafka®](#supported) компоненты инструмента Kafka Connect для передачи информации между Apache Kafka® и другими хранилищами данных. Коннектор можно использовать для непрерывной миграции данных в кластер Managed Service for Apache Kafka® или из него. Работа с данными в коннекторе выполняется в отдельных потоках *процесса-исполнителя* Kafka Connect (worker). Подробнее о Kafka Connect в [документации Apache Kafka®](https://kafka.apache.org/42/kafka-connect/overview/).

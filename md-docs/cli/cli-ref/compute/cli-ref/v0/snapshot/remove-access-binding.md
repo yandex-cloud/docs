@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [compute](../../index.md) > [v0](../index.md) > [snapshot](index.md) > remove-access-binding
+
 # yc compute v0 snapshot remove-access-binding
 
 Remove access binding for the specified snapshot

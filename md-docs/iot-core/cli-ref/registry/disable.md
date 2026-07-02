@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > [Справочник CLI (англ.)](../index.md) > [registry](index.md) > disable
+
 # yc iot registry disable
 
 Disable this registry

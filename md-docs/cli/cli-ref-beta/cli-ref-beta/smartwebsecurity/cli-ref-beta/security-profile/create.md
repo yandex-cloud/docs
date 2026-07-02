@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Beta-версия интерфейса командной строки](../../../../index.md) > [Справочник beta-версии CLI (англ.)](../../../index.md) > [smartwebsecurity](../index.md) > [security-profile](index.md) > create
+
 # yc beta smartwebsecurity security-profile create
 
 Creates a security profile in the specified folder using the data specified in the request.

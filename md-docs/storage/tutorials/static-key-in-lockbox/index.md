@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > Хранение статического ключа доступа в секрете Yandex Lockbox > Обзор
+
 # Использование секрета Yandex Lockbox для хранения статического ключа доступа
 
 Если вы часто используете сервисы с AWS-совместимым API, например [Yandex Object Storage](../../index.md), [Yandex Data Streams](../../../data-streams/index.md) или [Yandex Message Queue](../../../message-queue/index.md), вам приходится самостоятельно заботиться о безопасном хранении [статических ключей доступа](../../../iam/concepts/authorization/access-key.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Безопасность](index.md) > Управление федерациями удостоверений > Аутентификация с помощью Microsoft Entra ID
+
 # Аутентификация с помощью Microsoft Entra ID
 
 С помощью [федерации удостоверений](../../organization/concepts/add-federation.md) вы можете использовать [Microsoft Entra ID](https://azure.microsoft.com/ru-ru/services/active-directory/) (далее — Entra ID) для аутентификации пользователей в организации.

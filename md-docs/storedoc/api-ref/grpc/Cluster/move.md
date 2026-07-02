@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Move
+
 # Managed Service for MongoDB API, gRPC: ClusterService.Move
 
 Moves the specified MongoDB cluster to the specified folder.

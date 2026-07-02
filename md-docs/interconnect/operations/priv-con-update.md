@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Interconnect](../index.md) > [Пошаговые инструкции](index.md) > Изменить параметры приватного соединения
+
 # Изменить параметры приватного соединения
 
 {% note warning %}

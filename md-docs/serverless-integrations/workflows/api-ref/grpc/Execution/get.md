@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API Workflows > [gRPC (англ.)](../index.md) > [Execution](index.md) > Get
+
 # Workflows Service, gRPC: ExecutionService.Get
 
 Retrieves specified Workflow execution.

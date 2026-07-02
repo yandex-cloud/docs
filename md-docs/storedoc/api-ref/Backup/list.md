@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Backup](index.md) > List
+
 # Managed Service for MongoDB API, REST: Backup.List
 
 Retrieves the list of backups available for the specified folder.

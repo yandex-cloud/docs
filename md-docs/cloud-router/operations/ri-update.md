@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Router](../index.md) > [Пошаговые инструкции](index.md) > Изменить параметры Routing Instance
+
 # Изменить параметры Routing Instance
 
 В настоящее время доступно изменение следующих параметров Routing Instance:

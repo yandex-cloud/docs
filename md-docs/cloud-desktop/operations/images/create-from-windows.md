@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > [Пошаговые инструкции](../index.md) > Образы > Создать образ Windows
+
 # Создать образ на основе Windows
 
 В Cloud Desktop вы можете создавать рабочие столы из предустановленных [системных образов](../../concepts/images.md) или собственных [пользовательских образов](../../concepts/images.md#custom-images). Пользовательские образы могут быть с [ОС Linux](create-from-compute-linux.md) или Windows.

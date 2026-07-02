@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > gpu-cluster > Overview
+
 # yc compute v0 gpu-cluster
 
 Manage GPU clusters

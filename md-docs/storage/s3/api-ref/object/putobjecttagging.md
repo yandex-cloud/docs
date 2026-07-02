@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [AWS S3 REST](../../index.md) > [REST](../index.md) > Object > PutObjectTagging
+
 # Object Storage API, REST совместимый с Amazon S3: PutObjectTagging
 
 Добавляет [метки](../../../concepts/tags.md) объекту в бакете. При этом перезаписываются все имеющиеся у объекта метки.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Управление хостами > Управление хостами ClickHouse®
+
 # Управление хостами ClickHouse®
 
 Вы можете выполнить следующие действия над хостами ClickHouse®:

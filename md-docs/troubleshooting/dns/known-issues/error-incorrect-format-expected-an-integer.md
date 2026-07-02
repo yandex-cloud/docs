@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Cloud DNS](../index.md) > Устранение ошибки `Incorrect format expected an integer` при создании MX-записи
+
 # Устранение ошибки `Incorrect format: expected an integer` при создании MX-записи
 
 

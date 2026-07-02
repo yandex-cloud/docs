@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > Справочник CLI (англ.) > Workflows
+
 # yc serverless workflow
 
 Manage workflows

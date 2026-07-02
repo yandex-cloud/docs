@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Cloud Backup > Cloud Backup
+
 # Yandex Cloud Backup
 
 Сервис Yandex Cloud Backup позволяет настроить автоматическое резервное копирование виртуальных машин сервиса <a href="../compute/index.md">Yandex Compute Cloud</a>, а также серверов <a href="../baremetal/index.md">Yandex BareMetal</a>.

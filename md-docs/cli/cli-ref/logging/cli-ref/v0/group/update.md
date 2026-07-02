@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [logging](../../index.md) > [v0](../index.md) > [group](index.md) > update
+
 # yc logging v0 group update
 
 Update log group

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MetaData Hub](../../../index.md) > Connection Manager > Справочник API > [REST (англ.)](../index.md) > [Connection](index.md) > List
+
 # Connection Manager API, REST: Connection.List
 
 Retrieves the list of connections in the specified folder.

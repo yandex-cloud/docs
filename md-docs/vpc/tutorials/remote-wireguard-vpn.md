@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Практические руководства](index.md) > Организация VPN-подключений > Защищенный доступ пользователей к облачным ресурсам на основе WireGuard VPN
+
 # Защищенный доступ пользователей к облачным ресурсам на основе WireGuard VPN
 
 Для организации защищенного удаленного доступа пользователей через [VPN](https://ru.wikipedia.org/wiki/VPN) к вашим облачным ресурсам по протоколу [WireGuard VPN](https://www.wireguard.com/) воспользуйтесь решением [Firezone](https://www.firezone.dev/) на основе открытого кода. Для реализации сценариев [единого входа](../../glossary/sso.md) пользователей, решение поддерживает несколько сервисов аутентификации ([Identity Providers](https://www.firezone.dev/docs/authenticate)). В примере ниже используется решение по аутентификации [Keycloak](https://www.keycloak.org/).
@@ -44,7 +46,7 @@
 В стоимость поддержки инфраструктуры входят:
 
 * плата за постоянно работающие ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
+* плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../pricing.md));
 * плата за использование сервиса Managed Service for PostgreSQL ([тарифы Yandex Managed Service for PostgreSQL](../../managed-postgresql/pricing.md));
 * плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md) ([тарифы Cloud DNS](../../dns/pricing.md)).
 

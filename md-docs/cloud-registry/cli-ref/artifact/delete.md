@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [artifact](index.md) > delete
+
 # yc cloud-registry artifact delete
 
 Delete the specified registry artifact

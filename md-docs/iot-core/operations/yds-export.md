@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex IoT Core](../index.md) > [Пошаговые инструкции](index.md) > Экспорт сообщений в Data Streams
+
 # Экспорт сообщений в Data Streams
 
 {% note warning %}

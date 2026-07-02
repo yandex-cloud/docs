@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > [Справочник API](index.md) > SMS > GetSmsAttributes
+
 # Действие GetSMSAttributes
 
 Получает параметры для отправки SMS в [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud).

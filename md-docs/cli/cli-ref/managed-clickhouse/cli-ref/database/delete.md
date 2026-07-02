@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-clickhouse](../index.md) > [database](index.md) > delete
+
 # yc managed-clickhouse database delete
 
 Delete a ClickHouse database.

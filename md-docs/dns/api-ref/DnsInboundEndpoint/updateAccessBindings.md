@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DnsInboundEndpoint](index.md) > UpdateAccessBindings
+
 # Cloud DNS API, REST: DnsInboundEndpoint.UpdateAccessBindings
 
 Updates access bindings for the specified DNS inbound endpoint.

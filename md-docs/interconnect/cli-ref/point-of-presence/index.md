@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > [Справочник CLI (англ.)](../index.md) > point-of-presence > Overview
+
 # yc cic point-of-presence
 
 A set of methods for managing PointOfPresence resources.

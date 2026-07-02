@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > [Справочник CLI (англ.)](../index.md) > [routing-instance](index.md) > add-private-connection
+
 # yc cloudrouter routing-instance add-private-connection
 
 Adds specified PrivateConnection to a RoutingInstance resource.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Certificate](index.md) > UpdateAccessBindings
+
 # Certificate Manager API, gRPC: CertificateService.UpdateAccessBindings
 
 Updates access bindings for the specified certificate.

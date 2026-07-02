@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Resource Manager > Resources > resourcemanager_cloud
+
 # yandex_resourcemanager_cloud (Resource)
 
 A Cloud resource. For more information, see [Cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).

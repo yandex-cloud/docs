@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Smart Web Security > Data Sources > sws_waf_rule_set_descriptor
+
 # yandex_sws_waf_rule_set_descriptor (DataSource)
 
 

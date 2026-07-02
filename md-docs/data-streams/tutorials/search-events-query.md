@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Streams](../index.md) > [Практические руководства](index.md) > Поиск событий Yandex Cloud в Yandex Query
+
 # Поиск событий Yandex Cloud в Yandex Query
 
 

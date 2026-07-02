@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [cloud-registry](../index.md) > [registry](index.md) > list-artifacts
+
 # yc cloud-registry registry list-artifacts
 
 Retrieves the list of Registry artifact resources in the specified registry

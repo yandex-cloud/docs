@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Registry](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [registry](../index.md) > [lifecycle-policy](index.md) > delete
+
 # yc cloud-registry v0 registry lifecycle-policy delete
 
 Deletes the specified lifecycle policy

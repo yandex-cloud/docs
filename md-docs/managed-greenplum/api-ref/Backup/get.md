@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Backup](index.md) > Get
+
 # Managed Service for Greenplum® API, REST: Backup.Get
 
 Returns the specified backup of Greenplum® cluster.

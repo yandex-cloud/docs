@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud DNS](../index.md) > [Пошаговые инструкции](index.md) > Получение информации о зоне DNS > Получить информацию о зоне DNS
+
 # Получить информацию о зоне DNS
 
 {% list tabs group=instructions %}

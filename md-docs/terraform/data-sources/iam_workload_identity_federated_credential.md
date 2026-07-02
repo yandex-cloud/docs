@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity and Access Management > Data Sources > iam_workload_identity_federated_credential
+
 # yandex_iam_workload_identity_federated_credential (DataSource)
 
 A federated credential.

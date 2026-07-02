@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Backup](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Resource](index.md) > ListDirectory
+
 # Cloud Backup API, gRPC: ResourceService.ListDirectory
 
 ListDirectory returns all subdirectories found in requested directory identified

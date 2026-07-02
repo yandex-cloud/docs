@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Valkey™](../index.md) > [Концепции](index.md) > Модули Valkey™
+
 # Модули Valkey™
 
 В кластерах Yandex Managed Service for Valkey™ поддерживается подключение модулей, расширяющих функциональность ядра Valkey™. Доступны следующие модули:

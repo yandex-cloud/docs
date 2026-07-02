@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Processing](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > Create
+
 # Yandex Data Processing API, REST: Cluster.Create
 
 Creates a cluster in the specified folder.

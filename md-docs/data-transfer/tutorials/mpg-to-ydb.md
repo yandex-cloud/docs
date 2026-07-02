@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Миграция со сменой типа хранения данных > PostgreSQL в YDB
+
 # Миграция данных из PostgreSQL в YDB
 
 # Поставка данных из Yandex Managed Service for PostgreSQL в Yandex Managed Service for YDB

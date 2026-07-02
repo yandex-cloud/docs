@@ -57,7 +57,7 @@ Depending on fault recovery time requirements, two basic schemes are available:
    * It does not guarantee continuous availability of the service due to the long time it takes to switch to the standby infrastructure.
 
 1. **Load balancing (Active-Active)**:
-   * The load is distributed among multiple zones (see the scheme below). 
+   * The load is distributed across multiple zones (see the scheme below).
    * This scheme requires software adaptation and minimizing network delays between the zones (e.g., locality aware routing).
    * The scheme shows high fault tolerance and minimum recovery time.
 
@@ -77,7 +77,7 @@ For both reservation schemes described above, you can only minimize failover tim
 
 Also, note that the automatic mechanism of availability checks may not be triggered in case of partial faults in the availability zone. To recover a service in case of such faults, you must provide a mechanism for manual redistribution of load from the failed zone to healthy ones.
 
-To minimize fault handling time, especially in case of API faults, it is essential to make sure each zone has enough computing resources. If one availability zone fails, this will allow you to use the capacity of the remaining operational zones to support the estimated load. We recommend you to have at least a 50% reserve above the estimated load for resources in each zone (see the diagram below).
+To minimize fault handling time, especially in case of API faults, it is essential to make sure each zone has enough computing resources. If one availability zone fails, this will allow you to use the capacity of the remaining operational zones to support the estimated load. We recommend you to have at least +50% reserved resources above the estimated load in each zone (see the diagram below).
 ![image](../_assets/architecture/fault-tolerance-parameters.svg)
 
 
@@ -226,7 +226,7 @@ When designing a fault-tolerant cloud infrastructure, keep in mind that if one o
 
 {% endnote %}
 
-See also the [description of instance groups during a zonal incident and our mitigation guidelines](../compute/concepts/instance-groups/zonal-inc/overview.md).
+See also the [description of instance groups during a zonal incident and mitigation guidelines](../compute/concepts/instance-groups/zonal-inc/overview.md).
 
 
 ## Fault tolerance of client services {#client-service-ha}

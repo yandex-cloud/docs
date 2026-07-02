@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex IoT Core](../index.md) > Концепции > Взаимосвязь ресурсов сервиса
+
 # Взаимосвязь ресурсов в Yandex IoT Core
 
 {% note warning %}

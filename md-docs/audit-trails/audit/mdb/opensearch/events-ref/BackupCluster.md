@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.opensearch > BackupCluster
+
 # Managed Service for OpenSearch Audit Trails Events: BackupCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.opensearch.BackupCluster2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > [Пошаговые инструкции](../index.md) > Плейлисты > Создать плейлист
+
 # Создать плейлист
 
 {% list tabs group=instructions %}

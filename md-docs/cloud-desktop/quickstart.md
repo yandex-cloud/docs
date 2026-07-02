@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Desktop](index.md) > Начало работы > Для администраторов
+
 # Начало работы с Yandex Cloud Desktop для администраторов
 
 {% note info %}

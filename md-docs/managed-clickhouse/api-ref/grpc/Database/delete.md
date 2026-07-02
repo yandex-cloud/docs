@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Database](index.md) > Delete
+
 # Managed Service for ClickHouse API, gRPC: DatabaseService.Delete
 
 Deletes the specified ClickHouse database.

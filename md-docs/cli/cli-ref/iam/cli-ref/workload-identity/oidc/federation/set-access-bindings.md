@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [iam](../../../index.md) > [workload-identity](../../index.md) > [oidc](../index.md) > [federation](index.md) > set-access-bindings
+
 # yc iam workload-identity oidc federation set-access-bindings
 
 Set access bindings for accessing the specified workload identity federation and DELETE all other existing access bindings if there were any.

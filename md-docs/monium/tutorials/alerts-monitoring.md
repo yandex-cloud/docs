@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > Метрики > [Практические руководства](index.md) > Настройка дашбордов и алертов для Audit Trails
+
 # Настройка дашбордов и алертов в Monium Metrics
 
 Из руководства вы узнаете, как отслеживать состояние [трейлов](../../audit-trails/concepts/trail.md) с помощью [дашбордов](../../monitoring/concepts/visualization/dashboard.md) и [алертов](../../monitoring/concepts/alerting.md#alert) [Monium Metrics](../../monitoring/index.md).

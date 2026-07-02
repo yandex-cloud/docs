@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Data Transfer](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [endpoint](../index.md) > [create](index.md) > clickhouse-target
+
 # yc datatransfer v0 endpoint create clickhouse-target
 
 Create Clickhouse target

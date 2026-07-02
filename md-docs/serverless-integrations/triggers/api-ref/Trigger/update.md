@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API Triggers > [REST (англ.)](../index.md) > [Trigger](index.md) > Update
+
 # Cloud Functions Triggers Service, REST: Trigger.Update
 
 Updates the specified trigger.

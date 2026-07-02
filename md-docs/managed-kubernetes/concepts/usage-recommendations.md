@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Концепции](index.md) > Рекомендации по использованию Managed Service for Kubernetes
+
 # Рекомендации по использованию Managed Service for Kubernetes
 
 

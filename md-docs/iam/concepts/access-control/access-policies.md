@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Концепции](../index.md) > [Как устроено управление доступом](index.md) > Политики авторизации
+
 # Политики авторизации
 
 {% note info %}

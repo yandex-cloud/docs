@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [RawLogs](index.md) > Update
+
 # Cloud CDN API, REST: RawLogs.Update
 
 Update configuration of raw log export.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Stream](index.md) > Create
+
 # Video API, gRPC: StreamService.Create
 
 Creates a new stream in the specified channel.

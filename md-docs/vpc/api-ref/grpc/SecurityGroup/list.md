@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SecurityGroup](index.md) > List
+
 # Virtual Private Cloud API, gRPC: SecurityGroupService.List
 
 Retrieves the list of SecurityGroup resources in the specified folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Managed Service for PostgreSQL > Managed Service for PostgreSQL
+
 # Yandex Managed Service for PostgreSQL
 
 Managed Service for PostgreSQL помогает разворачивать и поддерживать кластеры серверов PostgreSQL в инфраструктуре Yandex Cloud. Сервис поддерживает PostgreSQL 14, 15, 16, 17 и 18, а также PostgreSQL 14, 15, 16, 17 и 18 для 1C.

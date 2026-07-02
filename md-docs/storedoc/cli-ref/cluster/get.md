@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > get
+
 # yc managed-mongodb cluster get
 
 Get information about the specified MongoDB cluster.

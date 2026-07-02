@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > Вопросы и ответы > Настройки параметров кластера
+
 # Настройки параметров кластера PostgreSQL
 
 * [Параметр autovacuum по умолчанию включен для всех таблиц?](#autovacuum)

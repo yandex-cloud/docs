@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../../index.md) > Справочник API > [Managed Service for Kubernetes gRPC (англ.)](../index.md) > [Cluster](index.md) > Stop
+
 # Managed Services for Kubernetes API, gRPC: ClusterService.Stop
 
 Stops the specified Kubernetes cluster.

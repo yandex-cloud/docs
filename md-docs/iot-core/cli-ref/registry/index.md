@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > [Справочник CLI (англ.)](../index.md) > registry > Overview
+
 # yc iot registry
 
 Manage IoT registries

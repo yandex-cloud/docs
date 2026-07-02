@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Notification Service](../../index.md) > [Пошаговые инструкции](../index.md) > Мобильные Push-уведомления > Отправить push-уведомление
+
 # Отправить push-уведомление
 
 {% list tabs group=instructions %}

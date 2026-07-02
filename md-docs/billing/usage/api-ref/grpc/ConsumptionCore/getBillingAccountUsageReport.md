@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Billing](../../../../index.md) > Справочник API > gRPC (англ.) > [Billing usage](../index.md) > [ConsumptionCore](index.md) > GetBillingAccountUsageReport
+
 # Billing Usage API, gRPC: ConsumptionCoreService.GetBillingAccountUsageReport
 
 Returns aggregated usage report for a single specified billing account,

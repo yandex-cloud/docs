@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Пошаговые инструкции](index.md) > Настройка автомасштабирования
+
 # Настройка автомасштабирования
 
 Для Managed Service for Kubernetes доступны следующие способы [автоматического масштабирования](../concepts/autoscale.md):

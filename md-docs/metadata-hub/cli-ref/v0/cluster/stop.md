@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MetaData Hub](../../../index.md) > Apache Hive™ Metastore > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > stop
+
 # yc managed-metastore v0 cluster stop
 
 Stop the specified Metastore cluster

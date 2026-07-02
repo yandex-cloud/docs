@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > ai.responses > DeleteResponse
+
 # AI Studio Audit Trails Events: DeleteResponse
 
 ## Event JSON schema {#yandex.cloud.audit.ai.responses.DeleteResponse2-schema}

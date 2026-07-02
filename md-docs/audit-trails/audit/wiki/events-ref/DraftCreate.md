@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > DraftCreate
+
 # Yandex Wiki Audit Trails Events: DraftCreate
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.DraftCreate2-schema}

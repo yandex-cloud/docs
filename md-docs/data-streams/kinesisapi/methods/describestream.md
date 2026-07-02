@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Streams](../../index.md) > [HTTP API, совместимый с Amazon Kinesis Data Streams](../index.md) > Методы > DescribeStream
+
 # DescribeStream
 
 Возвращает информацию о [потоке данных](../../concepts/glossary.md#stream-concepts).

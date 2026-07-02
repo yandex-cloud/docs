@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Compute Cloud](../../../../index.md) > Справочник API > gRPC (англ.) > [Compute Cloud Instance Groups API](../index.md) > [InstanceGroup](index.md) > UpdateFromYaml
+
 # Compute Cloud Instance Groups API, gRPC: InstanceGroupService.UpdateFromYaml
 
 Updates the specified instance group from a YAML file.

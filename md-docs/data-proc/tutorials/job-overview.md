@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Практические руководства](index.md) > Работа с заданиями > Обзор
+
 # Работа с заданиями
 
 ## Базовые примеры работы с заданиями {#jobs-basic-tutorials}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [iot](../../index.md) > [device](../index.md) > [certificate](index.md) > add
+
 # yc iot device certificate add
 
 Add new certificate to specified device

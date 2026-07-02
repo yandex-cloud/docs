@@ -1,4 +1,4 @@
-
+[Документация Yandex Cloud](../index.md) > Yandex Security Deck > Security Deck
 
 # Yandex Security Deck
 

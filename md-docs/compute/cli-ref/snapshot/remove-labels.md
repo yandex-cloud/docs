@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [snapshot](index.md) > remove-labels
+
 # yc compute snapshot remove-labels
 
 Remove labels from specified snapshot

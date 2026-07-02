@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DesktopGroup](index.md) > Update
+
 # Cloud Desktop API, REST: DesktopGroup.Update
 
 Updates desktop group properties

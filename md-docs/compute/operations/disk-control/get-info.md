@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Управление диском > Получить информацию о диске
+
 # Получить информацию о диске
 
 {% list tabs group=instructions %}

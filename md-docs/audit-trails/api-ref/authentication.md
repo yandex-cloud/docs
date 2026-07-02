@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Audit Trails](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Audit Trails
 
 # Аутентификация в API

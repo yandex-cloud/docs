@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [asymmetric-encryption-crypto](index.md) > get-public-key
+
 # yc kms v0 asymmetric-encryption-crypto get-public-key
 
 Get public key

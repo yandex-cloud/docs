@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for OpenSearch](../../index.md) > [Справочник CLI (англ.)](../index.md) > [auth-settings](index.md) > get
+
 # yc managed-opensearch auth-settings get
 
 Get authorization settings for a managed OpenSearch cluster.

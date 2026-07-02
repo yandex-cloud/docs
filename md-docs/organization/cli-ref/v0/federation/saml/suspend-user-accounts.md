@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [federation](../index.md) > [saml](index.md) > suspend-user-accounts
+
 # yc organization-manager v0 federation saml suspend-user-accounts
 
 Suspend specified user accounts

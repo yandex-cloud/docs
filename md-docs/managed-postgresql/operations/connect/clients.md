@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > [Подключение](index.md) > Подключение из приложений
+
 # Подключение к кластеру PostgreSQL из приложений
 
 К кластеру PostgreSQL можно подключиться с помощью [инструментов командной строки](#command-line-tools), из [графических IDE](#connection-ide), [Yandex WebSQL](#websql), [pgAdmin 4](#connection-pgadmin), [Looker Studio](#connection-google-looker) и [Docker-контейнера](#connection-docker). О подключении из кода вашего приложения читайте в разделе [Примеры кода](code-examples.md).

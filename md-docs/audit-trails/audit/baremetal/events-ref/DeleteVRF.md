@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > baremetal > DeleteVRF
+
 # BareMetal Audit Trails Events: DeleteVRF
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.DeleteVRF2-schema}

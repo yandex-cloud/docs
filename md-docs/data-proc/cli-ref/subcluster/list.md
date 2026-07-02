@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Processing](../../index.md) > [Справочник CLI (англ.)](../index.md) > [subcluster](index.md) > list
+
 # yc dataproc subcluster list
 
 List subclusters in a cluster.

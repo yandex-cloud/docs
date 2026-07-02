@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > ListLogs
+
 # Managed Service for Greenplum® API, REST: Cluster.ListLogs
 
 Retrieves logs for the specified Greenplum® cluster.

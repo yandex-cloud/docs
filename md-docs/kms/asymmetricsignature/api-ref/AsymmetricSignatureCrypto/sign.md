@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Key Management Service API](../index.md) > [AsymmetricSignatureCrypto](index.md) > Sign
+
 # Key Management Service API, REST: AsymmetricSignatureCrypto.Sign
 
 Signs data specified KMS key.

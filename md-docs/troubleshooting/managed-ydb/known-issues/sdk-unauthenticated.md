@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for YDB](../index.md) > Устранение ошибки `Unauthenticated`
+
 # Устранение ошибки `Unauthenticated`
 
 

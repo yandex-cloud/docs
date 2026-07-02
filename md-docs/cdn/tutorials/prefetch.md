@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud CDN](../index.md) > [Практические руководства](index.md) > Публикация обновлений для игр
+
 # Публикация обновлений для игр с помощью Yandex Cloud CDN
 
 

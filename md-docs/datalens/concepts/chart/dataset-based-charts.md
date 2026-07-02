@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > [Чарты](index.md) > Чарты в визарде > Обзор
+
 # Чарты в визарде Yandex DataLens
 
 

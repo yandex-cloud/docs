@@ -1,6 +1,6 @@
-# Node.js function runtime logging
+# Node.js function execution logging
 
-{{ sf-name }} automatically captures a Node.js application's standard output streams and sends them to the centralized logging system available in {{ yandex-cloud }}. In addition to the application run history, the system logs request execution events.
+{{ sf-name }} automatically captures the Node.js application's standard output streams and sends them to the centralized logging system in {{ yandex-cloud }}. In addition to the application execution logs, the system also logs request execution events.
 
 Additional messages are logged using standard language constructs:
 1. `console.log`: Outputs a message to the standard output stream, `stdout`.
@@ -9,6 +9,6 @@ Additional messages are logged using standard language constructs:
 
 {% include [multiline warning](../../../_includes/functions/multiline.md) %}
 
-For more information about the Console API specifications, see the [WHATWG Console](https://console.spec.whatwg.org/) standard.
+For more information about the Console API specifications, see [this WHATWG Console standard](https://console.spec.whatwg.org/).
 
 {% include [router-logging](../../../_includes/functions/router-logging.md) %}

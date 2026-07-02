@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity and Access Management](../index.md) > [Практические руководства](index.md) > Интеграции федераций удостоверений сервисных аккаунтов > Настройка CI/CD между Cloud Functions и GitHub
+
 # Настройка CI/CD между Yandex Cloud Functions и GitHub
 
 [GitHub](https://github.com/) дает возможность хранить код функции [Yandex Cloud Functions](../../functions/index.md) и развертывать новые версии [функции](../../functions/concepts/function.md) при изменениях в репозитории.

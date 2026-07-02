@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Logging](../index.md) > [Пошаговые инструкции](index.md) > Выгрузка логов > Выгрузить логи > Object Storage
+
 # Выгрузить логи в Object Storage
 
 {% note info %}

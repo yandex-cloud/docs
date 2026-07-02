@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Registry](index.md) > Create
+
 # Yandex Cloud Registry API, REST: Registry.Create
 
 Creates a registry in the specified folder.

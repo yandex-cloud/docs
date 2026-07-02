@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Управление кластером Kubernetes > Изменение кластера Kubernetes
+
 # Изменение кластера Managed Service for Kubernetes
 
 Для обращения к кластеру Kubernetes используйте его имя или уникальный идентификатор, которые можно узнать с помощью команды:

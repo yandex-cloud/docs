@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > [Справочник CLI (англ.)](../index.md) > [symmetric-key](index.md) > delete
+
 # yc kms symmetric-key delete
 
 Delete the specified symmetric key

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > Bus > Overview
+
 # EventRouter Service, REST: Bus
 
 A set of methods for managing buses for serverless eventrouter.

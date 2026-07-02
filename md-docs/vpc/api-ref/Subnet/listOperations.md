@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Subnet](index.md) > ListOperations
+
 # Virtual Private Cloud API, REST: Subnet.ListOperations
 
 List operations for the specified subnet.

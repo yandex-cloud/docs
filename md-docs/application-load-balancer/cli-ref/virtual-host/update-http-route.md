@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [virtual-host](index.md) > update-http-route
+
 # yc application-load-balancer virtual-host update-http-route
 
 Updates http route in the specified virtual host of the http router

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Billing](../../index.md) > Справочник API > REST (англ.) > [Billing](../index.md) > [Customer](index.md) > List
+
 # Billing API, REST: Customer.List
 
 Retrieves the list of customers associated with the specified reseller.

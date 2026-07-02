@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > UpdateServiceAccount
+
 # Identity and Access Management Audit Trails Events: UpdateServiceAccount
 
 ## Event JSON schema {#yandex.cloud.audit.iam.UpdateServiceAccount2-schema}

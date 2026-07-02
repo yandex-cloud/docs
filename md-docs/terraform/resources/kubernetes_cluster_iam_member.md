@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Services for Kubernetes > Resources > kubernetes_cluster_iam_member
+
 # yandex_kubernetes_cluster_iam_member (Resource)
 
 Allows creation and management of a single binding within IAM policy for an existing `cluster`.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Инструменты](index.md) > Файловые браузеры > WinSCP
+
 # WinSCP
 
 [WinSCP](https://winscp.net/eng/docs/lang:ru) — это графический клиент для работы с облачными хранилищами, в том числе совместимыми с [Amazon S3 API](../../glossary/s3.md), на Windows.

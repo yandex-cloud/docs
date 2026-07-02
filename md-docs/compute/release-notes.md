@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Compute Cloud](index.md) > История изменений
+
 # История изменений в Yandex Compute Cloud
 
 ## I квартал 2026 {#q1-2026}

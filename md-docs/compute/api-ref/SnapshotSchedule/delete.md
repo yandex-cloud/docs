@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SnapshotSchedule](index.md) > Delete
+
 # Compute Cloud API, REST: SnapshotSchedule.Delete
 
 Deletes the specified snapshot schedule.

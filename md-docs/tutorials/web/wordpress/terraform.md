@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > Прикладные решения > Создание сайта > Сайт на WordPress > [Сайт на WordPress с помощью Marketplace](index.md) > Terraform
+
 # Создание сайта на WordPress с помощью Terraform
 
 Чтобы создать и настроить [сайт на WordPress](index.md) с помощью Terraform:

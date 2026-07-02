@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > securitydeck.cspm > CreateScopeFilter
+
 # Security Deck CSPM Audit Trails Events: CreateScopeFilter
 
 ## Event JSON schema {#yandex.cloud.audit.securitydeck.cspm.CreateScopeFilter2-schema}

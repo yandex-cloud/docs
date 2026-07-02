@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Video](../index.md) > Справочник API > REST (англ.) > Overview
+
 # Video API: REST reference
 
 This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about API architecture, see [API Concepts](../../api-design-guide/index.md).

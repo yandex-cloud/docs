@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Справочник CLI (англ.)](index.md) > connect
+
 # yc managed-greenplum connect
 
 Connect to Greenplum cluster with iam-auth

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v1alpha](../index.md) > [public-subnet](index.md) > delete
+
 # yc baremetal v1alpha public-subnet delete
 
 Deletes the specified public subnet.

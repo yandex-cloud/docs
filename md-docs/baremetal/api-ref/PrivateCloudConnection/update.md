@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [PrivateCloudConnection](index.md) > Update
+
 # BareMetal API, REST: PrivateCloudConnection.Update
 
 Updates the routing_instance_id in a private cloud connection.

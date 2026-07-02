@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-redis](../../index.md) > [v0](../index.md) > [cluster](index.md) > get
+
 # yc managed-redis v0 cluster get
 
 Show information about the specified Redis cluster

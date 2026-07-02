@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Видеоплеер > SDK > JavaScript > Справочник API > Interfaces > PlayerSdkState
+
 # Interface: PlayerSdkState
 
 [Состояние PlayerSdk](../../../sdk/javascript/player-state.md).

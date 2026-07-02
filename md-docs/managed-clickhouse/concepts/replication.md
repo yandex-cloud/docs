@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Концепции](index.md) > Репликация
+
 # Репликация в Managed Service for ClickHouse®
 
 Репликация в ClickHouse® осуществляется, если в кластере одновременно выполняются следующие условия:

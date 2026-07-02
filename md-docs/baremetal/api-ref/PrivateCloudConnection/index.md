@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > PrivateCloudConnection > Overview
+
 # BareMetal API, REST: PrivateCloudConnection
 
 A set of methods for managing Private cloud connection resources.

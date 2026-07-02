@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Apache Airflow™](index.md) > История изменений
+
 # История изменений в Yandex Managed Service for Apache Airflow™
 
 ## Октябрь 2025 {#oct-2025}

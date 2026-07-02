@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > baremetal > StartServerProlongation
+
 # BareMetal Audit Trails Events: StartServerProlongation
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.StartServerProlongation2-schema}

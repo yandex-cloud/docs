@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > [Bus](index.md) > Delete
+
 # EventRouter Service, REST: Bus.Delete
 
 Deletes the specified bus.

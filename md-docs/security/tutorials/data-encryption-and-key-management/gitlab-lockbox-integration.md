@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Безопасность в Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Шифрование данных и управление ключами > Безопасное хранение паролей для GitLab CI в виде секретов Yandex Lockbox
+
 # Безопасное хранение паролей для GitLab CI в виде секретов Yandex Lockbox
 
 Вы можете безопасно хранить пароли в виде [секретов Yandex Lockbox](../../../lockbox/concepts/secret.md) и использовать их в своих сценариях CI в Yandex Managed Service for GitLab. Так вы можете защитить и скрыть пароли в CI-скриптах от пользователей GitLab, в том числе администраторов.
@@ -17,9 +19,9 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* Плата за [диски](../../../compute/concepts/disk.md) и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за хранение секрета и запросы к нему ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
-* Плата за использование [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за [диски](../../../compute/concepts/disk.md) и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
+* Плата за хранение секрета и запросы к нему ([тарифы Yandex Lockbox](../../../lockbox/pricing.md)).
+* Плата за использование [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infra}
 

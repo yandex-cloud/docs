@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Group](index.md) > UpdateAccessBindings
+
 # Identity Hub API, gRPC: GroupService.UpdateAccessBindings
 
 Updates access bindings for the specified group.

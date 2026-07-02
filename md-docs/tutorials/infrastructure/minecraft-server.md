@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Прикладные решения > Прочее > Развертывание сервера Minecraft в Yandex Cloud
+
 # Развертывание сервера Minecraft в Yandex Cloud
 
 С помощью руководства вы развернете сервер [Minecraft](https://www.minecraft.net/) [Java Edition](https://www.minecraft.net/en-us/download/server) или [Bedrock Edition](https://www.minecraft.net/en-us/download/server/bedrock) актуальной версии в Yandex Cloud на [виртуальной машине](../../compute/concepts/vm.md) с Ubuntu 24.04.

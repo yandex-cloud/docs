@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [virtual-host](index.md) > delete
+
 # yc application-load-balancer v0 virtual-host delete
 
 Delete the specified virtual host of the http router

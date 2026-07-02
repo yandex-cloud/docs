@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > Базовая инфраструктура > VPNs > [Организация сетевой связности с помощью IPsec-шлюзов](index.md) > Развертывание S2S VPN с помощью strongSwan в Yandex Cloud
+
 # Развертывание S2S VPN с помощью strongSwan в Yandex Cloud
 
 

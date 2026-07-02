@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Certificate Manager](../index.md) > Управление доступом
+
 # Управление доступом в Certificate Manager
 
 В этом разделе вы узнаете:

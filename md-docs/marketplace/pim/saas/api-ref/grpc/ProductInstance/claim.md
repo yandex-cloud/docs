@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Cloud Marketplace](../../../../../index.md) > Партнерам > Справочник Product Instance Management API > [gRPC (англ.)](../index.md) > [ProductInstance](index.md) > Claim
+
 # Yandex Cloud Marketplace Product Instance Management API, gRPC: ProductInstanceService.Claim
 
 Claims a product instance - activates it and optionally locks to subscription

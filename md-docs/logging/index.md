@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Cloud Logging > Cloud Logging
+
 # Yandex Cloud Logging
 
 Сервис Yandex Cloud Logging позволяет читать и записывать логи сервисов и пользовательских приложений, объединяя сообщения в лог-группы.

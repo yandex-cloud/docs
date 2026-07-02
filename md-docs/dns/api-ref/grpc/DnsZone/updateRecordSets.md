@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud DNS](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DnsZone](index.md) > UpdateRecordSets
+
 # Cloud DNS API, gRPC: DnsZoneService.UpdateRecordSets
 
 Method with strict control for changing zone state. Returns error when:

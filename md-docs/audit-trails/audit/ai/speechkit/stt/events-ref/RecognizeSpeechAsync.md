@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Audit Trails](../../../../../index.md) > Справочник аудитных логов (англ.) > ai.speechkit.stt > RecognizeSpeechAsync
+
 # SpeechKit Audit Trails Events: RecognizeSpeechAsync
 
 ## Event JSON schema {#yandex.cloud.audit.ai.speechkit.stt.RecognizeSpeechAsync2-schema}

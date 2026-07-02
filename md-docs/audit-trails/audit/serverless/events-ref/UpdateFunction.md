@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > serverless > UpdateFunction
+
 # Cloud Functions Audit Trails Events: UpdateFunction
 
 ## Event JSON schema {#yandex.cloud.audit.serverless.functions.UpdateFunction2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Бакеты > Доступ в бакет с помощью сервисного подключения из VPC
+
 # Доступ в бакет с помощью сервисного подключения из Yandex Virtual Private Cloud
 
 Вы можете организовать прямой доступ к бакетам Object Storage из облачных сетей VPC с помощью [сервисного подключения VPC](../../../vpc/concepts/private-endpoint.md). При таком подключении сервис Object Storage будет доступен по [внутренним IP-адресам](../../../vpc/concepts/address.md#internal-addresses) VPC без использования доступа в интернет.

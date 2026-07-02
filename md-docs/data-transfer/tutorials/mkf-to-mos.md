@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Поставка данных из очередей > Apache Kafka® в OpenSearch
+
 # Поставка данных из очереди Apache Kafka® в OpenSearch
 
 # Поставка данных очереди из Apache Kafka® в OpenSearch с помощью Yandex Data Transfer

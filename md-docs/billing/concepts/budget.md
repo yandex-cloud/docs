@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Billing](../index.md) > [Концепции](index.md) > Бюджет
+
 # Бюджет
 
 [_Бюджет_](../operations/budgets.md#create-budget) — это способ контролировать расходы на потребление ресурсов в Yandex Cloud.

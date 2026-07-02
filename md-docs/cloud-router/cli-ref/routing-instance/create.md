@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > [Справочник CLI (англ.)](../index.md) > [routing-instance](index.md) > create
+
 # yc cloudrouter routing-instance create
 
 Creates a RoutingInstance resource in the specified folder using the data specified in the request.

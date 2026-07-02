@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Postbox](../index.md) > [Справочник API](index.md) > Подписывание запросов
+
 # Подписывание запросов
 
 Многие запросы к Yandex Cloud Postbox аутентифицируются на стороне сервиса, поэтому запросы нужно подписывать при отправке. Yandex Cloud Postbox поддерживает подпись [Amazon Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html). Она используется в заголовке `Authorization`.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Postbox](../index.md) > [Пошаговые инструкции](index.md) > Создание адреса
+
 # Создание адреса
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать [адрес](../concepts/glossary.md#adress).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > loadtesting > CreateAgent
+
 # Load Testing Audit Trails Events: CreateAgent
 
 ## Event JSON schema {#yandex.cloud.audit.loadtesting.CreateAgent2-schema}

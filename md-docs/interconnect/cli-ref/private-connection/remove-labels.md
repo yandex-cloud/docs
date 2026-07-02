@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > [Справочник CLI (англ.)](../index.md) > [private-connection](index.md) > remove-labels
+
 # yc cic private-connection remove-labels
 
 Remove labels from a privateConnection.

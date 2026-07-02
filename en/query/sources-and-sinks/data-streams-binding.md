@@ -1,8 +1,8 @@
-# Reading data using {{ yq-name }} bindings
+# Reading data via {{ yq-name }} data bindings
 
-When working with {{ yds-full-name }}, bindings help you run regular queries to stored data with no need to specify all details of operations with this data.
+{{ yds-full-name }} data bindings simplify running recurrent queries on stored data by eliminating the need to specify all operation details.
 
-Example of reading data using bindings:
+Query example for reading data via bindings:
 
 ```sql
 SELECT
@@ -15,22 +15,22 @@ LIMIT 10;
 
 ## Setting up a data binding
 
-To read data from {{ yds-full-name }} using bindings:
+To read {{ yds-full-name }} data via bindings, complete the following steps:
 
 1. [Setting up a data connection](./data-streams.md#create_connection).
 1. In the **{{ ui-key.yql.yq-binding-form.connection-type.title }}** field, select `{{ ui-key.yql.yq-connection.action_datastreams }}`.
-1. In the drop-down list of the **{{ ui-key.yql.yq-binding-form.connection.title }}** field, select the connection you created in the first step.
-1. Specify a name for the data binding in the **{{ ui-key.yql.yq-binding-form.binding-name.title }}** field.
-1. Specify a name for a {{ yds-full-name }} stream in the **{{ ui-key.yql.yq-binding-form.binding-stream.title }}** field.
-1. Specify the [data compression](formats.md#compression) method in the **{{ ui-key.yql.yq-binding-info.compression.label-text }}** field.
-1. Specify the [format of transferred data](formats.md#formats) in the **{{ ui-key.yql.yq-binding-info.format.label-text }}** field.
-1. List data columns and their data types in the **{{ ui-key.yql.yq-binding-form.binding-fields.title }}** fields.
-1. To check the data, click **{{ ui-key.yql.yq-binding-form.binding-preview.button-text }}**.
-1. Click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}** to create a binding.
+1. In the **{{ ui-key.yql.yq-binding-form.connection.title }}** dropdown, select the connection you created in the first step.
+1. Specify the data binding name in the **{{ ui-key.yql.yq-binding-form.binding-name.title }}** field.
+1. Specify the {{ yds-full-name }} stream name in the **{{ ui-key.yql.yq-binding-form.binding-stream.title }}** field.
+1. Specify the [data compression method](formats.md#compression) in the **{{ ui-key.yql.yq-binding-info.compression.label-text }}** field.
+1. Specify the [data transfer format](formats.md#formats) in the **{{ ui-key.yql.yq-binding-info.format.label-text }}** field.
+1. Specify data columns and their data types in the **{{ ui-key.yql.yq-binding-form.binding-fields.title }}** fields.
+1. To validate the data, click **{{ ui-key.yql.yq-binding-form.binding-preview.button-text }}**.
+1. Click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}** to create a data binding.
 
 ## Data model
 
-Data is sent via {{ yds-full-name }} in binary form. Data is read using SQL statements.
+Data is transmitted via {{ yds-full-name }} in binary format and is read via SQL statements.
 
 ```sql
 SELECT
@@ -51,11 +51,11 @@ WHERE <filter>;
 Where:
 
 - `<connection>`: Name of the {{ yds-short-name }} data stream connection created in the previous step.
-- `<stream_name>`: Name of the data stream in {{ yds-short-name }}.
+- `<stream_name>`: {{ yds-short-name }} data stream name.
 
-## Example of reading data
+## Data reading example
 
-Sample query for reading data from {{ yds-full-name }} and writing the results to {{ yds-full-name }}
+Query example for reading data from {{ yds-full-name }} and writing the results to {{ yds-full-name }}:
 
 ```sql
 $data =
@@ -83,5 +83,5 @@ Where:
 
 |Field|Type|Description|
 |--|---|---|
-|`binding_name`| |Name of binding to source data stream in SQL query|
+|`binding_name`| |Name of the binding to the source data stream in the SQL query|
 |`host`|String|Query string parameter|

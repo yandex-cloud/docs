@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Audit Trails](../../../../../index.md) > Справочник аудитных логов (англ.) > ai.speechkit.stt > GetRecognition
+
 # SpeechKit Audit Trails Events: GetRecognition
 
 ## Event JSON schema {#yandex.cloud.audit.ai.speechkit.stt.GetRecognition2-schema}

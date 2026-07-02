@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Smart Web Security](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v1](../../index.md) > [advanced-rate-limiter](../index.md) > [advanced-rate-limiter-profile](index.md) > create
+
 # yc smartwebsecurity v1 advanced-rate-limiter advanced-rate-limiter-profile create
 
 Creates a ARL profile in the specified folder using the data specified in the request.

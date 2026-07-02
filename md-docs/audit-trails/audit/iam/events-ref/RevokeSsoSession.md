@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > RevokeSsoSession
+
 # Identity and Access Management Audit Trails Events: RevokeSsoSession
 
 ## Event JSON schema {#yandex.cloud.audit.iam.credential.RevokeSsoSession2-schema}

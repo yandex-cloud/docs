@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [container](../index.md) > [cluster](index.md) > set-access-bindings
+
 # yc container cluster set-access-bindings
 
 Set access bindings for the specified Kubernetes cluster and delete all existing access bindings if there were any

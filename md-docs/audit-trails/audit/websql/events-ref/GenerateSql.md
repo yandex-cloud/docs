@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > websql > GenerateSql
+
 # WebSQL Audit Trails Events: GenerateSql
 
 ## Event JSON schema {#yandex.cloud.audit.websql.GenerateSql2-schema}

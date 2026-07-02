@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > speechsense > CreateSpace
+
 # Talk Analytics Audit Trails Events: CreateSpace
 
 ## Event JSON schema {#yandex.cloud.audit.speechsense.CreateSpace2-schema}

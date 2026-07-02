@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > gitlab > DeleteInstance
+
 # Managed Service for GitLab Audit Trails Events: DeleteInstance
 
 ## Event JSON schema {#yandex.cloud.audit.gitlab.DeleteInstance2-schema}

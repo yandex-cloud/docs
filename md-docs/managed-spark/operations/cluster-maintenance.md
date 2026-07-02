@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Spark™](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Техническое обслуживание
+
 # Техническое обслуживание кластера Apache Spark™
 
 Вы можете управлять техническим обслуживанием кластера Apache Spark™, в том числе:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Object Storage
 
 

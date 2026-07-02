@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > yq > UpdateBinding
+
 # Yandex Query Audit Trails Events: UpdateBinding
 
 ## Event JSON schema {#yandex.cloud.audit.yq.UpdateBinding2-schema}

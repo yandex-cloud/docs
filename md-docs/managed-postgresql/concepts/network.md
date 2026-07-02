@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Концепции](index.md) > Сеть в Managed Service for PostgreSQL
+
 # Сеть в Managed Service for PostgreSQL
 
 

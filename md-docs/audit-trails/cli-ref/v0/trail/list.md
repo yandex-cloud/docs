@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [trail](index.md) > list
+
 # yc audit-trails v0 trail list
 
 List trails

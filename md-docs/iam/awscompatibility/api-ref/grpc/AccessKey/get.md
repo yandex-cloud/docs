@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity and Access Management](../../../../index.md) > Справочник API > gRPC (англ.) > [Access Key](../index.md) > [AccessKey](index.md) > Get
+
 # Access Key, gRPC: AccessKeyService.Get
 
 Returns the specified access key.

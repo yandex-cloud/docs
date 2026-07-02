@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Connection Manager > Справочник API > REST (англ.) > Overview
+
 # Connection Manager API: REST reference
 
 This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about API architecture, see [API Concepts](../../../api-design-guide/index.md).

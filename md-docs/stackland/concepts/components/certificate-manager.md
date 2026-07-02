@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > Концепции > [Компоненты](overview.md) > Certificate Manager
+
 # Certificate Manager
 
 Компонент Certificate Manager отвечает за управление сертификатами, используемыми при межсервисном взаимодействии. Для управления сертификатами доступны два глобальных эмитента (`kind: ClusterIssuer`): Default CA Issuer (`stackland-default`) и Let's Encrypt HTTP01 (`stackland-letsencrypt`). Оба эмитента построены на наработках открытого проекта [cert-manager](https://cert-manager.io/).

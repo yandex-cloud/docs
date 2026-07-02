@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Message Queue](../index.md) > [Пошаговые инструкции](index.md) > Настройка AWS CLI
+
 # Настройка AWS CLI
 
 Для управления очередями и сообщениями в Message Queue можно использовать [AWS CLI](https://aws.amazon.com/ru/cli/).

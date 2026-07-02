@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > [Сокращатель ссылок](index.md) > Terraform
+
 # Сокращатель ссылок с помощью Terraform
 
 
@@ -22,7 +24,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для сокращателя ссылок входят:
-* плата за хранение данных ([тарифы Yandex Object Storage](../../../storage/pricing.md));
+* плата за хранение данных ([тарифы Yandex Object Storage](../../pricing.md));
 * плата за операции с [базой данных YDB](../../../ydb/concepts/resources.md#database) и хранение данных ([тарифы Managed Service for YDB](../../../ydb/pricing/serverless.md));
 * плата за количество вызовов [функции](../../../functions/concepts/function.md), вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы Cloud Functions](../../../functions/pricing.md));
 * плата за количество запросов к [API-шлюзу](../../../api-gateway/concepts/index.md) и исходящий трафик ([тарифы API Gateway](../../../api-gateway/pricing.md)).

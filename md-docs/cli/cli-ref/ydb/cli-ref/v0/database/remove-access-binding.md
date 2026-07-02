@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [ydb](../../index.md) > [v0](../index.md) > [database](index.md) > remove-access-binding
+
 # yc ydb v0 database remove-access-binding
 
 Remove access binding for the specified YDB database.

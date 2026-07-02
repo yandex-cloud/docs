@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Cloud Functions](../index.md) > Решения для известных проблем Cloud Functions
+
 ## Решения для известных проблем Cloud Functions {#known-issues-resolving}
 
 * [Устранение ошибки `CORS` при обращении к API SpeechKit, Vision OCR или Translate из фронтенда веб-приложения](cors-error-when-querying-api-fron-webapp-frontend.md)

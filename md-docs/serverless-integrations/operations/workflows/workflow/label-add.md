@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > Workflows > Управление рабочим процессом > Управлять метками > Добавить метку
+
 # Добавить метку рабочему процессу
 
 {% list tabs group=instructions %}

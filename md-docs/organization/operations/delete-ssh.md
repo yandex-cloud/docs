@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > [Пошаговые инструкции](index.md) > Аутентификация > Удалить SSH-ключ
+
 # Удалить SSH-ключ
 
 {% list tabs group=instructions %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity and Access Management](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Identity and Access Management
 
 ## Секреты в открытом доступе {#credentials}

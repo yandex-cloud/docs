@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../index.md) > [hardware-pool](index.md) > get
+
 # yc baremetal hardware-pool get
 
 Returns the specific HardwarePool resource.

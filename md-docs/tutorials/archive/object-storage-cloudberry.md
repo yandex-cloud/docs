@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Хранение и восстановление данных](index.md) > Резервное копирование в Object Storage > Резервное копирование в Object Storage с помощью MSP360 Backup (CloudBerry Desktop Backup)
+
 # Резервное копирование в Yandex Object Storage с помощью MSP360 Backup (CloudBerry Desktop Backup)
 
 Yandex Object Storage можно использовать для резервного копирования и восстановления данных с помощью утилиты [MSP360 Backup](https://www.msp360.com/msp360-free-backup/).

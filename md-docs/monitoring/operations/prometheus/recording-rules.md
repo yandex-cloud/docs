@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Monitoring](../../index.md) > [Yandex Managed Service for Prometheus®](index.md) > Правила записи
+
 # Правила записи
 
 _Правила записи_ позволяют на основе полученных метрик вычислять новые значения и сохранять их во временных рядах. Это помогает настроить анализ данных под свою систему и оптимизировать работу Yandex Managed Service for Prometheus®.

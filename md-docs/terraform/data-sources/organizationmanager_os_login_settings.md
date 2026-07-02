@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity Hub > Data Sources > organizationmanager_os_login_settings
+
 # yandex_organizationmanager_os_login_settings (DataSource)
 
 Get information about a Yandex Cloud OS Login Settings.

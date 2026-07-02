@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > Концепции > [Компоненты](overview.md) > DNS
+
 # DNS
 
 Stackland позволяет обращаться к сервисам кластера (как к Kubernetes API, так и к собственным сервисам, запущенным в кластере) извне по доменным именам.

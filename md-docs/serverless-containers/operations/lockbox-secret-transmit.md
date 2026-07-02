@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Пошаговые инструкции](index.md) > Управление контейнером > Передать секреты Yandex Lockbox
+
 # Передать секреты Yandex Lockbox в контейнер
 
 {% note info %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [backup](../../index.md) > [v0](../index.md) > [backup](index.md) > batch-delete
+
 # yc backup v0 backup batch-delete
 
 Batch deletion of all backups from arhcive

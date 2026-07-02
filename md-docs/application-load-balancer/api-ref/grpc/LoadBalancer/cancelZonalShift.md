@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LoadBalancer](index.md) > CancelZonalShift
+
 # Application Load Balancer API, gRPC: LoadBalancerService.CancelZonalShift
 
 Cancel ZonalShift for the specified load balancer.

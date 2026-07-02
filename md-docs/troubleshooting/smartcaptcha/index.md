@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > SmartCaptcha > Все решения для SmartCaptcha
+
 # Решения для SmartCaptcha
 
 ## Примеры конфигураций и сценариев SmartCaptcha {#configuration-examples}

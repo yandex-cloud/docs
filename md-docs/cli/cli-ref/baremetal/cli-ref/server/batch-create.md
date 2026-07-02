@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [baremetal](../index.md) > [server](index.md) > batch-create
+
 # yc baremetal server batch-create
 
 Creates multiple servers in the specified folder.

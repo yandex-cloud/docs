@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Шардирование таблиц Managed Service for ClickHouse®
+
 # Шардирование таблиц Yandex Managed Service for ClickHouse®
 
 # Шардирование таблиц в ClickHouse®

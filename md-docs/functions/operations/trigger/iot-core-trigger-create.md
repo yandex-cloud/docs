@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Пошаговые инструкции](../index.md) > Создание триггера > Создать триггер для Yandex IoT Core > Устройство
+
 # Создать триггер, который передает сообщения в функцию Cloud Functions из топика реестра или устройства Yandex IoT Core
 
 Создайте [триггер](../../concepts/trigger/iot-core-trigger.md) для [топика](../../../iot-core/concepts/topic/index.md) [устройства](../../../iot-core/concepts/index.md#device) или [реестра](../../../iot-core/concepts/index.md#registry) [Yandex IoT Core](../../../iot-core/index.md) и обрабатывайте копии сообщений с помощью [функции](../../concepts/function.md) [Yandex Cloud Functions](../../index.md).

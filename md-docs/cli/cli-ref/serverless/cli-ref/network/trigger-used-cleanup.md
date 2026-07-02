@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [serverless](../index.md) > [network](index.md) > trigger-used-cleanup
+
 # yc serverless network trigger-used-cleanup
 
 Force obsolete used network to start cleanup process as soon as possible

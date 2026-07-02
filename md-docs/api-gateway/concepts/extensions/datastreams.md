@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Расширения спецификации](index.md) > Интеграции > Data Streams
+
 # Расширение x-yc-apigateway-integration:cloud_datastreams
 
 Расширение `x-yc-apigateway-integration:cloud_datastreams` позволяет обращаться к Yandex Data Streams для выполнения операции с [потоком](../../../data-streams/concepts/glossary.md#stream-concepts). На данный момент поддерживается только операция [PutRecord](../../../data-streams/kinesisapi/methods/putrecord.md). 

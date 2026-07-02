@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Snapshot](index.md) > Create
+
 # Compute Cloud API, gRPC: SnapshotService.Create
 
 Creates a snapshot of the specified disk.

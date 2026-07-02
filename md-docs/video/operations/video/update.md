@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > [Пошаговые инструкции](../index.md) > Видео > Изменить видео
+
 # Изменить видео
 
 {% list tabs group=instructions %}

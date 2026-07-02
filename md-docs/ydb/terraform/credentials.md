@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > Работа с YDB через Terraform > Получение данных для аутентификации
+
 # Получение данных для аутентификации
 
 Чтобы аутентифицироваться в Yandex Cloud и управлять базами данных YDB с помощью Terraform, можно использовать [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), [локальный](../../iam/concepts/users/accounts.md#local) или [федеративный](../../iam/concepts/users/accounts.md#saml-federation) аккаунт. Также для аутентификации и работы Terraform с YDB понадобится интерфейс командной строки Yandex Cloud. Если у вас еще нет CLI — установите его, следуя [инструкции](../../cli/quickstart.md#install).

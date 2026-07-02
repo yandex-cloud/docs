@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [hosts](index.md) > add
+
 # yc managed-postgresql v0 hosts add
 
 Create new hosts for the cluster in the specified availability zones

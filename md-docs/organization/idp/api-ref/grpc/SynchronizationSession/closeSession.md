@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [Identity Provider API](../index.md) > [SynchronizationSession](index.md) > CloseSession
+
 # Identity Provider API, gRPC: SynchronizationSessionService.CloseSession
 
 Closes a synchronization session.

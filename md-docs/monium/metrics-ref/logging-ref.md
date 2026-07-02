@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Cloud Logging
+
 # Метрики Yandex Cloud Logging
 
 В этом разделе описаны метрики сервиса [Cloud Logging](../../logging/index.md), поставляемые в Monium Metrics.

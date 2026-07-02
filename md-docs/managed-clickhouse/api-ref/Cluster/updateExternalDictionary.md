@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > UpdateExternalDictionary
+
 # Managed Service for ClickHouse API, REST: Cluster.UpdateExternalDictionary
 
 Updates an external dictionary for the specified ClickHouse cluster.

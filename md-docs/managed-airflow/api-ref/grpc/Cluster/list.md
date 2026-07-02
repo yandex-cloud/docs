@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Airflow™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > List
+
 # Managed Service for Apache Airflow™ API, gRPC: ClusterService.List
 
 Retrieves a list of Apache Airflow Cluster resources.

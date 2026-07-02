@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Key Management Service > Все решения для KMS
+
 # Решения для Key Management Service
 
 ## Примеры конфигураций и сценариев Key Management Service {#configuration-examples}

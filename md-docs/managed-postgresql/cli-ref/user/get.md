@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [user](index.md) > get
+
 # yc managed-postgresql user get
 
 Show information about the specified PostgreSQL user

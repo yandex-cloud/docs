@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Security Deck](../index.md) > [Концепции](index.md) > Диагностика доступов (CIEM)
+
 # Модуль диагностики доступов (CIEM)
 
 {% note info %}

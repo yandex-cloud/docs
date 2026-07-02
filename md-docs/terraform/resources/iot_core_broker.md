@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > IoT Core Broker > Resources > iot_core_broker
+
 # yandex_iot_core_broker (Resource)
 
 Allows management of [Yandex Cloud IoT Broker](../../iot-core/quickstart.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Functions](../../../index.md) > Справочник API Triggers > [REST (англ.)](../index.md) > [Trigger](index.md) > Create
+
 # Cloud Functions Triggers Service, REST: Trigger.Create
 
 Creates a trigger in the specified folder.

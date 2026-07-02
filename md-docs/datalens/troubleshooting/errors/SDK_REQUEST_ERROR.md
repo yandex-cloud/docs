@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Ошибка при обработке ответа
+
 # [Yandex DataLens] Ошибка при обработке ответа
 
 `SDK_REQUEST_ERROR`

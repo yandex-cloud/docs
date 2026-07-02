@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Kubernetes](../index.md) > Примеры конфигураций и сценариев Managed Service for Kubernetes
+
 ## Примеры конфигураций и сценариев Managed Service for Kubernetes {#configuration-examples}
 
 * [Как выдать узлам Kubernetes доступ в интернет](providing-internet-access-for-mk8s-nodes.md)

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Response processing timeout
+
 # [Yandex DataLens] Response processing timeout
 
 `ERR.CHARTS.RUNTIME_TIMEOUT`

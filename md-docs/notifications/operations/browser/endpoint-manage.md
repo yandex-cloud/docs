@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Notification Service](../../index.md) > [Пошаговые инструкции](../index.md) > Push-уведомления в браузере > Управлять эндпоинтом
+
 # Управлять эндпоинтом
 
 ## Изменить параметры эндпоинта {#endpoint-update}

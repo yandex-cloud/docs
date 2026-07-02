@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex MetaData Hub](../../../../index.md) > Connection Manager > Справочник API > [gRPC (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Connection Manager API, gRPC: OperationService.Get
 
 Returns the specified Operation resource.

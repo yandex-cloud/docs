@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mongodb > RevokeUserPermission
+
 # Managed Service for MongoDB Audit Trails Events: RevokeUserPermission
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mongodb.RevokeUserPermission2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Network Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [NetworkLoadBalancer](index.md) > Stop
+
 # Network Load Balancer API, gRPC: NetworkLoadBalancerService.Stop
 
 Stops load balancing and health checking with the specified network load balancer.

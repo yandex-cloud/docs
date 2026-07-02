@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > REST (англ.) > [Access Key](../index.md) > [AccessKey](index.md) > List
+
 # Access Key, REST: AccessKey.List
 
 Retrieves the list of access keys for the specified service account.

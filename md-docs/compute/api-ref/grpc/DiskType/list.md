@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DiskType](index.md) > List
+
 # Compute Cloud API, gRPC: DiskTypeService.List
 
 Retrieves the list of disk types for the specified folder.

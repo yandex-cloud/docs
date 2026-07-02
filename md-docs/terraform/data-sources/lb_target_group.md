@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Network Load Balancer > Data Sources > lb_target_group
+
 # yandex_lb_target_group (DataSource)
 
 Get information about a Yandex Load Balancer target group. For more information, see [the official documentation](../../load-balancer/quickstart).

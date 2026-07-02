@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Extension](index.md) > List
+
 # Managed Service for ClickHouse API, gRPC: ExtensionService.List
 
 Lists extensions available in the specified folder.

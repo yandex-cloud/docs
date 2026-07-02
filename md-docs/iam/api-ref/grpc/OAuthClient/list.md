@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [OAuthClient](index.md) > List
+
 # Identity and Access Management API, gRPC: OAuthClientService.List
 
 Retrieves the list of OAuthClient resources views in the specified folder

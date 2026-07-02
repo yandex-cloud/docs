@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [federation](../index.md) > [saml](index.md) > delete-domain
+
 # yc organization-manager federation saml delete-domain
 
 Delete a domain from the specified federation

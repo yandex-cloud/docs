@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Monium](../../../index.md) > Справочник API > Логи > [gRPC (англ.)](../index.md) > [LogGroup](index.md) > ListResources
+
 # Cloud Logging Service, gRPC: LogGroupService.ListResources
 
 Retrieves the resources (type and IDs) in the specified log group.

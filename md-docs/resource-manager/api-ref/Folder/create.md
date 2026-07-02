@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Folder](index.md) > Create
+
 # Resource Manager API, REST: Folder.Create
 
 Creates a folder in the specified cloud.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Instance](index.md) > Stop
+
 # Compute Cloud API, REST: Instance.Stop
 
 Stops the running instance.

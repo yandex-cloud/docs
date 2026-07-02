@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Message Queue](../../index.md) > [Справочник API](../index.md) > Queue > DeleteQueue
+
 # DeleteQueue
 
 Метод для удаления очереди. Если указанная очередь не существует, Message Queue сообщит об успешном выполнении запроса.

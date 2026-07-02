@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Virtual Private Cloud > Data Sources > vpc_address
+
 # yandex_vpc_address (DataSource)
 
 Get information about a Yandex VPC address. For more information, see [the official documentation](../../vpc/concepts/address.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > Вопросы и ответы > Решение проблем
+
 # Решение проблем в Managed Service for Kubernetes
 
 * [Ошибка при создании кластера в облачной сети другого каталога](#neighbour-catalog-permission-denied)

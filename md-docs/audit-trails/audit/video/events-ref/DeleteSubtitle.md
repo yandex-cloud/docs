@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > video > DeleteSubtitle
+
 # Cloud Video Audit Trails Events: DeleteSubtitle
 
 ## Event JSON schema {#yandex.cloud.audit.video.DeleteSubtitle2-schema}

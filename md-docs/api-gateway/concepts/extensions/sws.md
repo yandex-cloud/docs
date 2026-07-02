@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Расширения спецификации](index.md) > Интеграции > Smart Web Security
+
 # Расширение x-yc-apigateway:smartWebSecurity
 
 Расширение `x-yc-apigateway:smartWebSecurity` защищает [API-шлюз](../index.md) на основе правил, заданных в [профиле безопасности Yandex Smart Web Security](../../../smartwebsecurity/concepts/profiles.md). Например, с помощью [базовых правил](../../../smartwebsecurity/concepts/rules.md#base-rules) можно блокировать нежелательный трафик, а используя [Advanced Rate Limiter](../../../smartwebsecurity/concepts/arl.md) — устанавливать ограничения на количество запросов.

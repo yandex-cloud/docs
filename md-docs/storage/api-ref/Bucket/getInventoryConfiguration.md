@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > Справочник API > [Yandex Cloud REST (англ.)](../index.md) > [Bucket](index.md) > GetInventoryConfiguration
+
 # Object Storage API, REST: Bucket.GetInventoryConfiguration
 
 Get an inventory configuration with the corresponding ID

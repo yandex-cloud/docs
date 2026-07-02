@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Certificate](index.md) > ListOperations
+
 # Certificate Manager API, gRPC: CertificateService.ListOperations
 
 Lists operations for the specified certificate.

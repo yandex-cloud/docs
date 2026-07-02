@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Message Queue](../index.md) > [Начало работы](index.md) > Примеры кода > Laravel
+
 # Пример использования Yandex Message Queue на Laravel
 
 Для работы с очередями PHP-фреймворк [Laravel](https://laravel.com/) предоставляет примитив [Queue](https://laravel.com/docs/6.x/queues). В качестве брокера сообщений можно использовать Message Queue. 

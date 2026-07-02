@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Backup](../../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Provider](index.md) > Activate
+
 # Cloud Backup API, REST: Provider.Activate
 
 Activate provider for specified client.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for MySQL®](../index.md) > [Концепции](index.md) > Политика поддержки версий MySQL®
+
 # Политика поддержки версий MySQL®
 
 Данный документ описывает жизненный цикл мажорных версий MySQL® в сервисе Yandex Managed Service for MySQL®. Политика основывается на [официальном графике поддержки Oracle MySQL®](https://www.mysql.com/support/eol-notice.html) и графике поддержки [Extended Support от Percona](https://www.percona.com/release-lifecycle-overview/#lifecycle) и предназначена для обеспечения баланса между стабильностью работы [кластеров](index.md) и поддержанием современной и безопасной инфраструктуры.

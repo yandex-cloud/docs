@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [lockbox](../../index.md) > [v0](../index.md) > payload > Overview
+
 # yc lockbox v0 payload
 
 Access secret payload

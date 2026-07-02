@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Kubernetes](../index.md) > Как изменить часовой пояс на узлах кластера Managed Service for Kubernetes
+
 # Как изменить часовой пояс на узлах кластера Managed Service for Kubernetes
 
 

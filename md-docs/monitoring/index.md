@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Monitoring > Monitoring
+
 # Yandex Monitoring
 
 Yandex Monitoring позволяет собирать и хранить метрики, а также отображать их в виде графиков на дашбордах.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [origin](index.md) > update
+
 # yc cdn v0 origin update
 
 Update origin. PUT behaviour - specify all parameters

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > clouddesktop > UpdateDesktopProperties
+
 # Cloud Desktop Audit Trails Events: UpdateDesktopProperties
 
 ## Event JSON schema {#yandex.cloud.audit.clouddesktop.UpdateDesktopProperties2-schema}

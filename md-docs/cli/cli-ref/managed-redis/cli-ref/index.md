@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > managed-redis > Overview
+
 # yc managed-redis
 
 Manage Redis clusters, hosts, databases, backups and users.

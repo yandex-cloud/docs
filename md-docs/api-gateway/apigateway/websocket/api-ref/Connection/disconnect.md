@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex API Gateway](../../../../index.md) > Справочник API Websocket > [REST (англ.)](../index.md) > [Connection](index.md) > Disconnect
+
 # API Gateway WebSocket Connection Service, REST: Connection.Disconnect
 
 Disconnects the specified connection.

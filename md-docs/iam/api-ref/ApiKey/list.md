@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ApiKey](index.md) > List
+
 # Identity and Access Management API, REST: ApiKey.List
 
 Retrieves the list of API keys for the specified service account.

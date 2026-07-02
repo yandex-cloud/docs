@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Концепции](index.md) > Сеть в Managed Service for Kubernetes
+
 # Сеть в Managed Service for Kubernetes
 
 При [создании кластера Kubernetes](../operations/kubernetes-cluster/kubernetes-cluster-create.md) вы можете задать:

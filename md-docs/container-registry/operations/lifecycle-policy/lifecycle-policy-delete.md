@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Пошаговые инструкции](../index.md) > Управление политиками автоматического удаления Docker-образов > Удалить политику удаления
+
 # Удалить политику удаления
 
 {% list tabs group=instructions %}

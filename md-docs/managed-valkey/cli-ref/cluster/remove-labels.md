@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > remove-labels
+
 # yc managed-redis cluster remove-labels
 
 Remove labels from Redis cluster

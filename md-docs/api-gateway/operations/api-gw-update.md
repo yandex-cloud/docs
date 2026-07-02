@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex API Gateway](../index.md) > [Пошаговые инструкции](index.md) > Управление API-шлюзом > Изменить API-шлюз и его спецификацию
+
 # Изменить API-шлюз
 
 После создания [API-шлюза](../concepts/index.md) вы можете изменить любые его параметры и [спецификацию OpenAPI](https://ru.wikipedia.org/wiki/OpenAPI_(спецификация)).

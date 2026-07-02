@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Получение статистики запросов к объектам с использованием Yandex Query
+
 # Получение статистики запросов к объектам Object Storage с использованием Yandex Query
 
 # Получение статистики запросов к объектам Yandex Object Storage с использованием Yandex Query
@@ -29,7 +31,7 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за хранение данных ([тарифы Yandex Object Storage](../../storage/pricing.md));
+* плата за хранение данных ([тарифы Yandex Object Storage](../pricing.md));
 * плата за объем считанных данных ([тарифы Yandex Query](../../query/pricing.md)).
 
 ### Создайте сервисный аккаунт {#create-sa}

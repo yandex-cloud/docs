@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Connector](index.md) > Get
+
 # Managed Service for Apache Kafka® API, gRPC: ConnectorService.Get
 
 Returns information about an Apache Kafka® connector.

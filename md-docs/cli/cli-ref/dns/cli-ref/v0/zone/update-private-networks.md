@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [dns](../../index.md) > [v0](../index.md) > [zone](index.md) > update-private-networks
+
 # yc dns v0 zone update-private-networks
 
 Modify private networks of a dns zone.

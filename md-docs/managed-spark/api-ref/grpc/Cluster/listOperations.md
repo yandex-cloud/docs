@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Spark™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > ListOperations
+
 # Managed Spark API, gRPC: ClusterService.ListOperations
 
 Retrieves a list of all Spark clusters for Health service.

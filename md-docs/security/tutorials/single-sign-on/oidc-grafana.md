@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Безопасность в Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Настройка SSO > Grafana > Настройка единого входа в Grafana Cloud по стандарту OIDC
+
 # Создать OIDC-приложение в Yandex Identity Hub для интеграции с Grafana Cloud
 
 

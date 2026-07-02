@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [GOST Gateway](../index.md) > Концепции > О сервисе GOST Gateway
+
 # Обзор GOST Gateway
 
 {% note info %}

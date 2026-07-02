@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Broker > [REST (англ.)](../index.md) > [Broker](index.md) > List
+
 # IoT Core Broker Service, REST: Broker.List
 
 Retrieves the list of brokers in the specified folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [quota-manager](../index.md) > [quota-request](index.md) > list
+
 # yc quota-manager quota-request list
 
 List quota requests

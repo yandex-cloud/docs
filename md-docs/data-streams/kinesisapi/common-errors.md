@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Streams](../index.md) > [HTTP API, совместимый с Amazon Kinesis Data Streams](index.md) > Общие ошибки
+
 # Общие ошибки
 
 В случае ошибки возвращается HTTP-ответ с соответствующим кодом и данные в формате JSON:

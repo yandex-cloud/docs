@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > BackupRetentionPolicy > Overview
+
 # Managed Service for MySQL API, REST: BackupRetentionPolicy
 
 A set of methods for managing MySQL Cluster backup retention policies.

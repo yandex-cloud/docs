@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > EventRouter > Отправка событий в шину > Отправить события напрямую
+
 # Отправить события в шину напрямую
 
 {% note info %}

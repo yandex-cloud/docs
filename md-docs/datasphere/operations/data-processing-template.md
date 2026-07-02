@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > [Пошаговые инструкции](index.md) > Работа с ресурсами > Работа с шаблонами Yandex Data Processing
+
 # Работа с шаблонами Yandex Data Processing
 
 [Шаблоны Yandex Data Processing](../concepts/data-processing-template.md) позволяют заранее подготовить конфигурацию кластера для проекта и упростить развертывание временных кластеров. Список шаблонов доступен на странице проекта в блоке **Ресурсы проекта** → ![data-proc-template](../../_assets/data-processing/data-processing.svg) **Yandex Data&nbsp;Processing**, вкладка **Доступные**.

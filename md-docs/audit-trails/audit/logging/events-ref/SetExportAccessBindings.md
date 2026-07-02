@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > logging > SetExportAccessBindings
+
 # Cloud Logging Audit Trails Events: SetExportAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.logging.SetExportAccessBindings2-schema}

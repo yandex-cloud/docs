@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Resource Manager](index.md) > История изменений
+
 # История изменений в Yandex Resource Manager
 
 ## Март 2026 {#march-2026}

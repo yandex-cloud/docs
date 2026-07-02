@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > smartwebsecurity > DeleteCustomPage
+
 # Smart Web Security Audit Trails Events: DeleteCustomPage
 
 ## Event JSON schema {#yandex.cloud.audit.smartwebsecurity.DeleteCustomPage2-schema}

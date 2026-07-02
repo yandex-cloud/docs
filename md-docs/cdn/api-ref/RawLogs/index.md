@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > Справочник API > [REST (англ.)](../index.md) > RawLogs > Overview
+
 # Cloud CDN API, REST: RawLogs
 
 Raw logs management service.

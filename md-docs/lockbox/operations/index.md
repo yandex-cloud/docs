@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Lockbox](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Yandex Lockbox
 
 * [Создать секрет](secret-create.md)

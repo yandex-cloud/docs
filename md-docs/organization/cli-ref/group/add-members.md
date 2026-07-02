@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Справочник CLI (англ.)](../index.md) > [group](index.md) > add-members
+
 # yc organization-manager group add-members
 
 Add members to the specified group

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [RoutingInstance](index.md) > UpdateNetworks
+
 # Cloud Router API, REST: RoutingInstance.UpdateNetworks
 
 Updates multiple vpc using the data specified in the request.

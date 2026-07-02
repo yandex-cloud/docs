@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [RouteTable](index.md) > Move
+
 # Virtual Private Cloud API, gRPC: RouteTableService.Move
 
 Move route table to another folder.

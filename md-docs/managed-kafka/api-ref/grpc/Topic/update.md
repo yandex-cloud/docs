@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Topic](index.md) > Update
+
 # Managed Service for Apache Kafka® API, gRPC: TopicService.Update
 
 Updates the specified Kafka topic.

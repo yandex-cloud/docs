@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Инструменты Application Load Balancer](index.md) > Gwin > Миграция приложений с ALB Ingress-контроллера на Gwin
+
 # Миграция с ALB Ingress Controller на Gwin
 
 С помощью этой инструкции вы перенесете приложения Kubernetes с Ingress-контроллера Application Load Balancer на новый контроллер Gwin для Managed Service for Kubernetes.

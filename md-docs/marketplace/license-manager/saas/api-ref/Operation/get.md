@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Marketplace](../../../../index.md) > Партнерам > Справочник License Manager SaaS API > [REST (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Yandex Cloud Marketplace License Manager for SaaS, REST: Operation.Get
 
 Returns the specified Operation resource.

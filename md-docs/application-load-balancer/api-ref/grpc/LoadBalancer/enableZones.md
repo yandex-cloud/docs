@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LoadBalancer](index.md) > EnableZones
+
 # Application Load Balancer API, gRPC: LoadBalancerService.EnableZones
 
 Enable L7 traffic routing back in zones for the specified load balancer.

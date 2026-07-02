@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [baremetal](../index.md) > [private-subnet](index.md) > create
+
 # yc baremetal private-subnet create
 
 Creates a private subnet in the specified folder.

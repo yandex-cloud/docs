@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [subnet](index.md) > add-range
+
 # yc vpc subnet add-range
 
 Add CIDR range to a subnet.

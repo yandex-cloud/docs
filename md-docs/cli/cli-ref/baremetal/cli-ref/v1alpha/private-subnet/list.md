@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [baremetal](../../index.md) > [v1alpha](../index.md) > [private-subnet](index.md) > list
+
 # yc baremetal v1alpha private-subnet list
 
 Retrieves the list of PrivateSubnet resources in the specified folder.

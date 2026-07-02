@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > certificatemanager > CreateCertificate
+
 # Certificate Manager Audit Trails Events: CreateCertificate
 
 ## Event JSON schema {#yandex.cloud.audit.certificatemanager.CreateCertificate2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity Hub](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [idp](../../../index.md) > [application](../../index.md) > [oauth](../index.md) > [application](index.md) > list-access-bindings
+
 # yc organization-manager idp application oauth application list-access-bindings
 
 List access bindings for the specified OAuth application

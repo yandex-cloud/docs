@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [FormatSchema](index.md) > Delete
+
 # Managed Service for ClickHouse API, REST: FormatSchema.Delete
 
 Deletes a format schema from a cluster.

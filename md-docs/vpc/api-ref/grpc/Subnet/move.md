@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Subnet](index.md) > Move
+
 # Virtual Private Cloud API, gRPC: SubnetService.Move
 
 Move subnet to another folder.

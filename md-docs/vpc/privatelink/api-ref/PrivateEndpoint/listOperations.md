@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > REST (англ.) > [Virtual Private Cloud API](../index.md) > [PrivateEndpoint](index.md) > ListOperations
+
 # Virtual Private Cloud API, REST: PrivateEndpoint.ListOperations
 
 List operations for the specified private endpoint.

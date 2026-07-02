@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > containerregistry > CreateImage
+
 # Container Registry Audit Trails Events: CreateImage
 
 ## Event JSON schema {#yandex.cloud.audit.containerregistry.CreateImage2-schema}

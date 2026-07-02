@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Описание технической поддержки](index.md) > Оповещения от Yandex Cloud
+
 # Уведомления от Yandex Cloud
 
 Техническая поддержка Yandex Cloud уведомляет вас о событиях, которые касаются всех пользователей Yandex Cloud или непосредственно вашего аккаунта. Чтобы дополнительно получать уведомления о ваших ресурсах, подпишитесь на **Уведомления сервисов** в [облаке](../resource-manager/operations/cloud/notify.md) или в [каталоге](../resource-manager/operations/folder/notify.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-clickhouse](../index.md) > v0 > Overview
+
 # yc managed-clickhouse v0
 
 Manage ClickHouse clusters, hosts, databases, backups, users and ml-models.

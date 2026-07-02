@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > ydb > AlterTopic
+
 # Managed Service for YDB Audit Trails Events: AlterTopic
 
 ## Event JSON schema {#yandex.cloud.audit.ydb.topics.AlterTopic2-schema}

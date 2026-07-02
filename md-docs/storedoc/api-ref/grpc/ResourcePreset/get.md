@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ResourcePreset](index.md) > Get
+
 # Managed Service for MongoDB API, gRPC: ResourcePresetService.Get
 
 Returns the specified ResourcePreset resource.

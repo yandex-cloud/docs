@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex SmartCaptcha](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > captcha > Overview
+
 # yc smartcaptcha v0 captcha
 
 Manage captchas

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Logging](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Export](index.md) > Run
+
 # Cloud Logging Service, gRPC: ExportService.Run
 
 Run new logs export from log group to sink

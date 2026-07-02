@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for ValKey > Data Sources > mdb_redis_user
+
 # yandex_mdb_redis_user (DataSource)
 
 Manages a Redis user within the Yandex Cloud. For more information, see [the official documentation](../../managed-redis).

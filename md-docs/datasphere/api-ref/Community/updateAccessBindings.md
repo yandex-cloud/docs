@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Справочник API](../overview.md) > [REST (англ.)](../index.md) > [Community](index.md) > UpdateAccessBindings
+
 # DataSphere API v2, REST: Community.UpdateAccessBindings
 
 Updates access bindings for specified community.

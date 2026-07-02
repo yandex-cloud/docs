@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > logging > CreateRoutingRule
+
 # Cloud Logging Audit Trails Events: CreateRoutingRule
 
 ## Event JSON schema {#yandex.cloud.audit.logging.CreateRoutingRule2-schema}

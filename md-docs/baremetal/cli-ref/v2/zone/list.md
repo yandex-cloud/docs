@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v2](../index.md) > [zone](index.md) > list
+
 # yc baremetal v2 zone list
 
 Retrieves the list of Zone resources.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > [Концепции](index.md) > DataSphere Notebook > Доступные команды
+
 # Доступные команды
 
 DataSphere Notebook позволяет использовать «магические» команды (magic commands) IPython. С их помощью можно измерять время работы программы, запускать bash-команды в отдельных ячейках, определять типы переменных и многое другое. В ноутбуках доступно большинство стандартных команд из [документации IPython](https://ipython.readthedocs.io/en/stable/interactive/magics.html). Ограничения и дополнения представлены ниже.

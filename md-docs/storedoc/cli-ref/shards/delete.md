@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > [shards](index.md) > delete
+
 # yc managed-mongodb shards delete
 
 Delete a shard.

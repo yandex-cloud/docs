@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Контейнерная инфраструктура](index.md) > Managed Service for Kubernetes > Мониторинг > Мониторинг кластера Managed Service for Kubernetes с помощью Filebeat OSS
+
 # Мониторинг кластера Yandex Managed Service for Kubernetes с помощью Filebeat OSS
 
 # Мониторинг кластера с помощью Filebeat OSS

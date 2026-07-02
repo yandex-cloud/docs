@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Практические руководства](index.md) > Использование продуктов Cloud Marketplace > Проверка состояния приложений в кластере Managed Service for Kubernetes с помощью L7-балансировщика Application Load Balancer
+
 # Проверка состояния приложений в кластере Yandex Managed Service for Kubernetes с помощью L7-балансировщика Yandex Application Load Balancer
 
 Вы можете автоматически проверять работоспособность приложений, которые развернуты в кластере Managed Service for Kubernetes с помощью [Ingress-контроллера Application Load Balancer](../../application-load-balancer/tools/k8s-ingress-controller/index.md).

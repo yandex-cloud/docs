@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Инструменты Application Load Balancer](index.md) > Ingress-контроллер > Конфигурация ресурсов > Service для Ingress
+
 # Поля и аннотации ресурса Service для Ingress-контроллера
 
 Ресурс `Service` соответствует [сервису Kubernetes](../concepts/index.md#service). Для [Ingress-контроллера](ingress-controller/index.md) Application Load Balancer сервисы представляют собой бэкенды, между которыми распределяется входящий трафик в кластере Managed Service for Kubernetes. Сервисы, выступающие в роли бэкендов Application Load Balancer, могут быть указаны в ресурсе [Ingress](ingress.md) напрямую или в составе групп бэкендов [HttpBackendGroup](http-backend-group.md).

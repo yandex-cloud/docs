@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > [Справочник CLI (англ.)](../index.md) > [public-connection](index.md) > move
+
 # yc cic public-connection move
 
 Moves the specified PublicConnection to another folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for MySQL > Data Sources > mdb_mysql_database
+
 # yandex_mdb_mysql_database (DataSource)
 
 Get details from MySQL database at MySQL Cluster.

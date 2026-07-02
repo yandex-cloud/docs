@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Billing](../../../index.md) > Справочник API > gRPC (англ.) > [Billing](../index.md) > [Customer](index.md) > CreateResellerServed
+
 # Billing API, gRPC: CustomerService.CreateResellerServed
 
 Creates new reseller-served customer.

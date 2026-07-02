@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Transfer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Endpoint](index.md) > Delete
+
 # Data Transfer API, gRPC: EndpointService.Delete
 
 Deletes the specified endpoint.

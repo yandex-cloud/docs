@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Домены > Создать прокси-сервер
+
 # Создать прокси-сервер
 
 {% note info %}

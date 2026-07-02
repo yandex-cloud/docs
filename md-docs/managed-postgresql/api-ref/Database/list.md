@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Database](index.md) > List
+
 # Managed Service for PostgreSQL API, REST: Database.List
 
 Retrieves the list of PostgreSQL Database resources in the specified cluster.

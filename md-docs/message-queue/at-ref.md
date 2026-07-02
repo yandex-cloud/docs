@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Message Queue](index.md) > Аудитные логи Audit Trails
+
 # Справочник аудитных логов Yandex Audit Trails
 
 В Audit Trails для Yandex Message Queue поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane).

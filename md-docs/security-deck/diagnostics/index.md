@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Security Deck](../index.md) > Диагностика ошибок > Обзор
+
 # Диагностика ошибок в Yandex Security Deck
 
 В интерфейсе Security Deck собраны все ошибки в работе следующих модулей:

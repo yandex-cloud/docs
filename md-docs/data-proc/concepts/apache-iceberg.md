@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Концепции](index.md) > Apache Iceberg™ в Yandex Data Processing
+
 # Apache Iceberg™ в Yandex Data Processing
 
 [Apache Iceberg™](https://iceberg.apache.org/) — [открытый табличный формат](https://iceberg.apache.org/spec/) для хранения и обработки больших массивов данных. Он расширяет возможности платформы [Apache Spark™](https://spark.apache.org/):

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Transfer](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [endpoint](../index.md) > [update](index.md) > mysql-target
+
 # yc datatransfer endpoint update mysql-target
 
 Update MySQL target

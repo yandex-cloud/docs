@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > Workflows > [Конструктор шагов рабочего процесса](index.md) > Интеграционные шаги > Managed Service for YDB
+
 # Взаимодействие с документными таблицами в базе данных Yandex Managed Service for YDB
 
 {% list tabs %}

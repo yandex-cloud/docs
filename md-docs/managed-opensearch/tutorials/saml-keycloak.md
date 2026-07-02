@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > [Практические руководства](index.md) > Аутентификация в OpenSearch Dashboards с помощью Keycloak
+
 # Аутентификация в OpenSearch Dashboards с помощью Keycloak
 
 Вы можете использовать [Keycloak](https://www.keycloak.org/) для [аутентификации пользователей](../operations/saml-authentication.md), которые работают с OpenSearch Dashboards в кластере Yandex Managed Service for OpenSearch.
@@ -18,7 +20,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for OpenSearch: использование вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for OpenSearch](../../managed-opensearch/pricing.md)).
+* Кластер Managed Service for OpenSearch: использование вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for OpenSearch](../pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud DNS](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DnsZone](index.md) > Create
+
 # Cloud DNS API, gRPC: DnsZoneService.Create
 
 Creates a DNS zone in the specified folder.

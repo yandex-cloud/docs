@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v2](../index.md) > [public-subnet](index.md) > create
+
 # yc baremetal v2 public-subnet create
 
 Creates a public subnet in the specified folder.

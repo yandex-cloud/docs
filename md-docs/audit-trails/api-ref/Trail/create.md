@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Audit Trails](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Trail](index.md) > Create
+
 # Audit Trails API, REST: Trail.Create
 
 Creates a trail in the specified folder.

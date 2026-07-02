@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Object Storage](../index.md) > Как ограничить доступ к бакету Object Storage диапазоном IP-адресов, принадлежащих Cloud CDN
+
 # Как ограничить доступ к бакету Object Storage диапазоном IP-адресов, принадлежащих Cloud CDN
 
 

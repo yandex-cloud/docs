@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Integrations](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Serverless Integrations
 
 ## Workflows {#workflows}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../../index.md) > Справочник API > [Kubernetes Marketplace gRPC (англ.)](../index.md) > [HelmRelease](index.md) > Uninstall
+
 # Kubernetes Marketplace, gRPC: HelmReleaseService.Uninstall
 
 Uninstalls Helm release.

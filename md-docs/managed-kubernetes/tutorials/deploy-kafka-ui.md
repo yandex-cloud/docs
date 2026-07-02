@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Практические руководства](index.md) > Использование Managed Service for Apache Kafka® > Развертывание веб-интерфейса Apache Kafka®
+
 # Развертывание веб-интерфейса Apache Kafka®
 
 # Самостоятельное развертывание веб-интерфейса Apache Kafka®

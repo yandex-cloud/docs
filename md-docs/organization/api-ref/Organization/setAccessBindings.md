@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Organization](index.md) > SetAccessBindings
+
 # Identity Hub API, REST: Organization.SetAccessBindings
 
 Sets access bindings for the specified organization.

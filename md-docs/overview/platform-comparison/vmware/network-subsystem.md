@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Обзор платформы](../../index.md) > [Сопоставление с другими платформами](../index.md) > [Сопоставление с VMware](index.md) > Сетевая подсистема
+
 # Сетевая подсистема (Network)
 
 ## Общая архитектура VMware NSX {#architecture-vmware-nsx}

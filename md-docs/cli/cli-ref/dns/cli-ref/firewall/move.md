@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [dns](../index.md) > [firewall](index.md) > move
+
 # yc dns firewall move
 
 Move a dns firewall to the specified folder.

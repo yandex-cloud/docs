@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Migration](index.md) > StartCloud
+
 # Yandex Cloud Registry API, gRPC: MigrationService.StartCloud
 
 Starts migration for all registries in the specified cloud.

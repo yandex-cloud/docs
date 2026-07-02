@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [repository](index.md) > add-access-binding
+
 # yc container repository add-access-binding
 
 Add access binding for the specified repository

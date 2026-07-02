@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [host-group](index.md) > add-labels
+
 # yc compute host-group add-labels
 
 Add labels to the specified host group

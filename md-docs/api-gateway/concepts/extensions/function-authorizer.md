@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Расширения спецификации](index.md) > Авторизация с помощью функции Cloud Functions
+
 # Расширение x-yc-apigateway-authorizer:function
 
 Расширение `x-yc-apigateway-authorizer:function` используется внутри схем компонента [securityScheme](https://swagger.io/docs/specification/authentication/) с типами:

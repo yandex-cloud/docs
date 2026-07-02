@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > DisableTenantBilling
+
 # DataLens Audit Trails Events: DisableTenantBilling
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.DisableTenantBilling2-schema}

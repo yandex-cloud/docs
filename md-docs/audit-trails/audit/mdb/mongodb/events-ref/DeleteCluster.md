@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mongodb > DeleteCluster
+
 # Managed Service for MongoDB Audit Trails Events: DeleteCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mongodb.DeleteCluster2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SubjectDetails](index.md) > BatchGet
+
 # Identity and Access Management API, REST: SubjectDetails.BatchGet
 
 Returns the details of multiple subjects by their IDs.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > dataproc > CreateSubcluster
+
 # Yandex Data Processing Audit Trails Events: CreateSubcluster
 
 ## Event JSON schema {#yandex.cloud.audit.dataproc.CreateSubcluster2-schema}

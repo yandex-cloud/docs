@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Lockbox](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Secret](index.md) > Create
+
 # Lockbox API, gRPC: SecretService.Create
 
 Creates a secret in the specified folder.

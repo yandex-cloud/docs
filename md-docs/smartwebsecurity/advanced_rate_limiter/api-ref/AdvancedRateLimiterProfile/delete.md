@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > Справочник API > REST (англ.) > [SmartWebSecurity ARL API](../index.md) > [AdvancedRateLimiterProfile](index.md) > Delete
+
 # SmartWebSecurity ARL API, REST: AdvancedRateLimiterProfile.Delete
 
 Deletes the specified ARL profile.

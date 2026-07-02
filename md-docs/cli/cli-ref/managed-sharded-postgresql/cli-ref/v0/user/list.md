@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-sharded-postgresql](../../index.md) > [v0](../index.md) > [user](index.md) > list
+
 # yc managed-sharded-postgresql v0 user list
 
 List users for the specified Sharded PostgreSQL cluster

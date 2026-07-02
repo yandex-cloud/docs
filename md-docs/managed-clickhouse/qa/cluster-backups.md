@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > Вопросы и ответы > Перемещение и восстановление кластера
+
 # Перемещение и восстановление ClickHouse®-кластера
 
 * [Как проводится резервное копирование для БД ClickHouse®?](#backup-overview)

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Инструменты](index.md) > Консольные клиенты > AWS CLI
+
 # AWS Command Line Interface (AWS CLI)
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Security Deck](../../index.md) > [Пошаговые инструкции](../index.md) > [Диагностика доступов (CIEM)](index.md) > Отозвать доступ
+
 # Отозвать доступ у субъекта
 
 {% note info %}

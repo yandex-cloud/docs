@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Network](index.md) > ListRouteTables
+
 # Virtual Private Cloud API, REST: Network.ListRouteTables
 
 Lists route tables from the specified network.

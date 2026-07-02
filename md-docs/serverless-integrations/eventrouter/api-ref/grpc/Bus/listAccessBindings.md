@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API EventRouter > [gRPC (англ.)](../index.md) > [Bus](index.md) > ListAccessBindings
+
 # EventRouter Service, gRPC: BusService.ListAccessBindings
 
 Lists existing access bindings for the specified bus.

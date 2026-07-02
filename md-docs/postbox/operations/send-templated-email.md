@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Postbox](../index.md) > [Пошаговые инструкции](index.md) > Шаблонизация письма
+
 # Шаблонизация письма
 
 Чтобы отправлять письма с заполненным шаблоном, передайте шаблон и данные, которые нужно подставить в него, с помощью [AWS CLI](#aws-cli-send) или [API](../aws-compatible-api/api-ref/send-email.md).

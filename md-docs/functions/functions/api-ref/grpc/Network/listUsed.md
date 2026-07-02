@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Functions](../../../../index.md) > Справочник API Functions > [gRPC (англ.)](../index.md) > [Network](index.md) > ListUsed
+
 # Cloud Functions Service, gRPC: NetworkService.ListUsed
 
 Retrieves the list of networks in the specified scope that are used in serverless resources.

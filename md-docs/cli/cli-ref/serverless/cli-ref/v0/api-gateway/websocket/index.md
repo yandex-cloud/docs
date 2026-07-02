@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [serverless](../../../index.md) > [v0](../../index.md) > [api-gateway](../index.md) > websocket > Overview
+
 # yc serverless v0 api-gateway websocket
 
 Manage websocket connections

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [subnet](index.md) > create
+
 # yc vpc subnet create
 
 Create a subnet in the specified network.

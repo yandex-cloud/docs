@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex SmartCaptcha > SmartCaptcha
+
 # Yandex SmartCaptcha
 
 Yandex SmartCaptcha позволяет определить, кем является пользователь системы: человеком или компьютером.

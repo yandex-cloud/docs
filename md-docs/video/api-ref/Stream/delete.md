@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Stream](index.md) > Delete
+
 # Video API, REST: Stream.Delete
 
 Deletes a specific stream by its ID.

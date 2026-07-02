@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > vpc > CreateGateway
+
 # Virtual Private Cloud Audit Trails Events: CreateGateway
 
 ## Event JSON schema {#yandex.cloud.audit.network.CreateGateway2-schema}

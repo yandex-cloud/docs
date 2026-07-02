@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Безопасность в Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Безопасность Kubernetes > Получение значения секрета Yandex Lockbox на стороне пользовательской инсталляции Kubernetes
+
 # Получение значения секрета Yandex Lockbox на стороне пользовательской инсталляции Kubernetes
 
 [Федерации сервисных аккаунтов](../../../iam/concepts/workload-identity.md) (Workload Identity Federation) позволяют настроить связь между внешними системами и Yandex Cloud по протоколу [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC). За счет этого внешние системы могут выполнять действия с ресурсами Yandex Cloud от имени [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md) IAM без использования [авторизованных ключей](../../../iam/concepts/authorization/key.md). Это более безопасный способ, минимизирующий риск утечки учетных данных и возможность несанкционированного доступа.
@@ -134,8 +136,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-1. Плата за хранение [секрета](../../../lockbox/concepts/secret.md) и запросы к нему ([тарифы Yandex Lockbox](../../lockbox/pricing.md));
-1. Плата за хранение данных в бакете и операции с ними ([тарифы Object Storage](../../storage/pricing.md)).
+1. Плата за хранение [секрета](../../../lockbox/concepts/secret.md) и запросы к нему ([тарифы Yandex Lockbox](../../../lockbox/pricing.md));
+1. Плата за хранение данных в бакете и операции с ними ([тарифы Object Storage](../../../storage/pricing.md)).
 
 ### Загрузите файл с набором публичных ключей в публичный бакет
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [oslogin](../index.md) > [profile](index.md) > get
+
 # yc organization-manager oslogin profile get
 
 Show information about the specified OS Login profile

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > video > UpdateChannelAccessBindings
+
 # Cloud Video Audit Trails Events: UpdateChannelAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.video.UpdateChannelAccessBindings2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Message Queue](../../index.md) > [Справочник API](../index.md) > Queue > SetQueueAttributes
+
 # SetQueueAttributes
 
 Метод для задания атрибутов указанной очереди. Изменение атрибутов может занять до 60 секунд. Изменение атрибута `MessageRetentionPeriod` может занять до 15 минут.

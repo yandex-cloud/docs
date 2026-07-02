@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Network](index.md) > ListRouteTables
+
 # Virtual Private Cloud API, gRPC: NetworkService.ListRouteTables
 
 Lists route tables from the specified network.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Functions](../../../index.md) > [Разработка на Java](../index.md) > [Модель программирования](index.md) > Интерфейс Function
+
 # Использование интерфейса Function для задания функции-обработчика на Java
 
 Вы можете задать функцию-обработчик на Java, реализовав интерфейс [Function](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html).

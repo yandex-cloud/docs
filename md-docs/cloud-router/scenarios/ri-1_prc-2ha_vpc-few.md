@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Router](../index.md) > [Сценарии использования](index.md) > On-premises с резервированием и несколько облачных сетей
+
 # On-Prem с резервированием и несколько VPC
 
 Резервируемое подключение On-Prem через два [приватных соединения](../../interconnect/concepts/priv-con.md) Cloud Interconnect к одному `RI` с двумя (и более) [облачными сетями](../../vpc/concepts/network.md) без сетевой связности между ними.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > Справочник API > [REST (англ.)](../index.md) > Export > Overview
+
 # Cloud Logging Service, REST: Export
 
 A set of methods for managing log exports.

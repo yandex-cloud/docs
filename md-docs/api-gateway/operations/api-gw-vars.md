@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex API Gateway](../index.md) > [Пошаговые инструкции](index.md) > Управление API-шлюзом > Настроить переменные
+
 # Настроить переменные
 
 Сервис API Gateway поддерживает использование [переменных в спецификации OpenAPI](../concepts/extensions/parametrization.md).

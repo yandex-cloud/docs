@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [OsLogin](index.md) > ListProfiles
+
 # Identity Hub API, gRPC: OsLoginService.ListProfiles
 
 ## gRPC request

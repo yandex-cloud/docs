@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex API Gateway](../index.md) > Начало работы
+
 # Начало работы с API Gateway
 
 В этой инструкции вы создадите и протестируете работу разных типов расширений: сначала вы сконфигурируете [API-шлюз](../concepts/index.md) для получения [статического ответа](../concepts/extensions/dummy.md), а затем добавите интеграцию для [вызова функции](../concepts/extensions/cloud-functions.md). Для обращения к API-шлюзу потребуется [curl](https://curl.haxx.se).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [storage](../../index.md) > [v0](../index.md) > [s3](index.md) > mv
+
 # yc storage v0 s3 mv
 
 Moves a local file or S3 object to another location locally or in S3

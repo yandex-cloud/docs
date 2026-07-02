@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iot > AddBrokerCertificate
+
 # IoT Core Audit Trails Events: AddBrokerCertificate
 
 ## Event JSON schema {#yandex.cloud.audit.iot.broker.AddBrokerCertificate2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Spark™](../index.md) > [Пошаговые инструкции](index.md) > Логи и мониторинг > Мониторинг состояния Spark-приложений
+
 # Мониторинг состояния Spark-приложений
 
 Чтобы оценить работу Spark-приложений в кластере Yandex Managed Service for Apache Spark™, вы можете проверить:

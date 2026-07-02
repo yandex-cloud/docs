@@ -114,6 +114,13 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-additional-parameters }}**:
       1. Включите **{{ ui-key.yacloud.serverless-functions.item.editor.label_async }}**.
       1. Выберите **{{ ui-key.yacloud.forms.label_service-account-select }}** `sa-alert-webhook`.
+      
+      {% note info %}
+      
+      Для асинхронного вызова функции выбранный сервисный аккаунт должен иметь роли `{{ roles-functions-invoker }}` и `{{ roles-functions-viewer }}`. Без этих ролей вызов будет выполнен от имени анонимного пользователя и завершится ошибкой авторизации.
+      
+      {% endnote %}
+      
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}

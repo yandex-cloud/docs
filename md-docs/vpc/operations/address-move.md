@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Пошаговые инструкции](index.md) > IP-адрес > Перенести адрес между каталогами
+
 # Переместить публичный IP-адрес в другой каталог
 
 [Публичный адрес](../concepts/address.md) можно переносить между каталогами в пределах одного [облака](../../resource-manager/concepts/resources-hierarchy.md).

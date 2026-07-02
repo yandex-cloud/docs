@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cloud](index.md) > ListAccessPolicyBindings
+
 # Resource Manager API, REST: Cloud.ListAccessPolicyBindings
 
 Returns list of access policy bindings for the cloud.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > speechsense > UpdateProject
+
 # Talk Analytics Audit Trails Events: UpdateProject
 
 ## Event JSON schema {#yandex.cloud.audit.speechsense.UpdateProject2-schema}

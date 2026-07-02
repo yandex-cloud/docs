@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity and Access Management](../index.md) > Вопросы и ответы > Все вопросы на одной странице
+
 # Вопросы и ответы про Identity and Access Management
 
 ## Общие вопросы {#general-questions}

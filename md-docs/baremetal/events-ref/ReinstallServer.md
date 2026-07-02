@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > Концепции > Настройка и управление > Аудитные логи Audit Trails > Справочник аудитных логов > ReinstallServer
+
 # BareMetal Audit Trails Events: ReinstallServer
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.ReinstallServer2-schema}

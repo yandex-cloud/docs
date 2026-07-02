@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > websql > Execute
+
 # WebSQL Audit Trails Events: Execute
 
 ## Event JSON schema {#yandex.cloud.audit.websql.Execute2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Образы с предустановленным ПО > Настроить ПО
+
 # Настройка программного обеспечения
 
 Для [виртуальных машин](../../concepts/vm.md) с [LAMP](https://yandex.cloud/ru/marketplace/products/yc/lamp), [LEMP](https://yandex.cloud/ru/marketplace/products/yc/lemp) и [Node.js](https://yandex.cloud/ru/marketplace/products/yc/nodejs) первоначальную настройку выполнять не нужно. Предустановленное ПО готово к использованию.

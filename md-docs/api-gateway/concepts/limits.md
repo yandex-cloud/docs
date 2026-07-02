@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex API Gateway](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в API Gateway
 
 В сервисе API Gateway действуют следующие ограничения:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Концепции](../overview.md) > Отличия Apache Cloudberry™ от Greenplum®
+
 # Обратно несовместимые изменения в СУБД Apache Cloudberry™ по сравнению с Greenplum® в сервисе Yandex MPP Analytics for PostgreSQL
 
 Apache Cloudberry™ отличается от Greenplum® в ряде аспектов. Значительная часть отличий связана со сменой версии ядра PostgreSQL: Greenplum® основан на версии 9.4.26, а Apache Cloudberry™ — на версии 14.4. Кроме того, есть различия в функциональности, специфичной для каждой из систем.

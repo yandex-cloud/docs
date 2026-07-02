@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > [REST (англ.)](../index.md) > [Registry](index.md) > AddPassword
+
 # IoT Core Service, REST: Registry.AddPassword
 
 Adds password for the specified registry.

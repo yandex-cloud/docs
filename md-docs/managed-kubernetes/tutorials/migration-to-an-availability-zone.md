@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Практические руководства](index.md) > Миграция ресурсов в другую зону доступности
+
 # Миграция ресурсов Kubernetes в другую зону доступности
 
 

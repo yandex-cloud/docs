@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for MongoDB > Data Sources > mdb_mongodb_cluster
+
 # yandex_mdb_mongodb_cluster (DataSource)
 
 Get information about a Yandex Managed MongoDB cluster. For more information, see [the official documentation](../../storedoc/concepts/index.md).

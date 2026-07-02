@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Identity and Access Management](index.md) > Начало работы > Обзор
+
 # Начало работы с Identity and Access Management
 
 Сервис Yandex Identity and Access Management позволяет управлять доступом к ресурсам Yandex Cloud. Благодаря IAM операции над ресурсами могут выполнять только пользователи с нужными правами доступа.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [origin-group](index.md) > delete
+
 # yc cdn v0 origin-group delete
 
 Delete the specified origin group.

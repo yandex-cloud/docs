@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [organization-manager](../../index.md) > [idp](../index.md) > [user](index.md) > create
+
 # yc organization-manager idp user create
 
 Create a user in the specified user pool

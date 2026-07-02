@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v1alpha](../index.md) > [configuration](index.md) > list
+
 # yc baremetal v1alpha configuration list
 
 Retrieves the list of Configuration resources.

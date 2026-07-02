@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > [Operation](index.md) > Get
+
 # EventRouter Service, REST: Operation.Get
 
 Returns the specified Operation resource.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Концепции](../index.md) > DataSphere Inference > Ноды и алиасы
+
 # DataSphere Inference
 
 DataSphere предоставляет инструменты для релиза сервисов, доступных для сторонних ресурсов. Вы можете развернуть для эксплуатации не только модель, обученную в DataSphere, но и создать при помощи тех же инструментов полноценный работающий сервис на базе [Docker-образа](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Export](index.md) > Create
+
 # Cloud Logging Service, REST: Export.Create
 
 Creates a export in the specified folder.

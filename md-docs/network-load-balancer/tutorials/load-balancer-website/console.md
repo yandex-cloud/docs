@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Network Load Balancer](../../index.md) > [Практические руководства](../index.md) > [Отказоустойчивый сайт с балансировкой нагрузки через Network Load Balancer](index.md) > Консоль управления
+
 # Отказоустойчивый сайт с балансировкой нагрузки через Yandex Network Load Balancer с помощью консоли управления
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for YDB](../../index.md) > [Справочник CLI (англ.)](../index.md) > resource-preset > Overview
+
 # yc ydb resource-preset
 
 View YDB resource presets.

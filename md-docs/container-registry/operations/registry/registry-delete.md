@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Пошаговые инструкции](../index.md) > Управление реестром > Удалить реестр
+
 # Удалить реестр
 
 {% note info %}

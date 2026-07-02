@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Практические руководства](index.md) > Работа с DNS > Настройка NodeLocal DNS Cache
+
 # Настройка NodeLocal DNS
 
 {% note tip %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Group](index.md) > Get
+
 # Identity Hub API, REST: Group.Get
 
 Returns the specified Group resource.

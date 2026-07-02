@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > securitydeck.kspm > CreateException
+
 # Security Deck KSPM Audit Trails Events: CreateException
 
 ## Event JSON schema {#yandex.cloud.audit.securitydeck.kspm.CreateException2-schema}

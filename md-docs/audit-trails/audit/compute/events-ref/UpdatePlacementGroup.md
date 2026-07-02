@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > UpdatePlacementGroup
+
 # Compute Audit Trails Events: UpdatePlacementGroup
 
 ## Event JSON schema {#yandex.cloud.audit.compute.UpdatePlacementGroup2-schema}

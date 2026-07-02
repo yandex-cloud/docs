@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > Пошаговые инструкции > Подключение Yandex Data Processing к Apache Hive™ Metastore
+
 # Подключение Yandex Data Processing к Apache Hive™ Metastore
 
 {% note info %}

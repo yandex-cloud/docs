@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [broker](index.md) > add-labels
+
 # yc iot v0 broker add-labels
 
 Add labels to specified broker

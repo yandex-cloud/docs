@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > [Концепции](index.md) > Политика работы с версиями Apache Airflow™
+
 # Политика работы с версиями Apache Airflow™
 
 У каждой версии в инфраструктуре Yandex Cloud есть [этапы жизненного цикла](#version-lifecycle), которые присваиваются в зависимости от даты релиза в ядре. При устаревании используемая в кластере Managed Service for Apache Airflow™ версия Apache Airflow™ обновляется.

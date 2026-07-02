@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > [Безопасность](../index.md) > [Загрузка аудитных логов в SIEM KUMA](index.md) > Terraform
+
 # Загрузка аудитных логов Yandex Audit Trails в SIEM KUMA с помощью Terraform
 
 

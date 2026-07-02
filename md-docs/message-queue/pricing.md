@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Message Queue](index.md) > Правила тарификации
+
 # Правила тарификации для Message Queue
 
 

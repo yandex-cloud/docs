@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [AWS S3 REST](../../index.md) > [REST](../index.md) > Static Website Hosting > GetBucketWebsite
+
 # Object Storage API, REST совместимый с Amazon S3: GetBucketWebsite
 
 Возвращает конфигурацию хостинга статических сайтов для бакета.

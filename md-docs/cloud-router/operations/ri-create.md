@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Router](../index.md) > [Пошаговые инструкции](index.md) > Создать Routing Instance
+
 # Создать Routing Instance
 
 {% note info %}

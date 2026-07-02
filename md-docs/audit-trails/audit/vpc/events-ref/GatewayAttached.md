@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > vpc > GatewayAttached
+
 # Virtual Private Cloud Audit Trails Events: GatewayAttached
 
 ## Event JSON schema {#yandex.cloud.audit.network.GatewayAttached2-schema}

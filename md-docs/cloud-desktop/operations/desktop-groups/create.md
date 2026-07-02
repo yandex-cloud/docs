@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > [Пошаговые инструкции](../index.md) > Группы рабочих столов > Создать группу рабочих столов
+
 # Создать группу рабочих столов
 
 {% list tabs group=instructions %}

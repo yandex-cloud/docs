@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Message Queue](../index.md) > Вопросы и ответы
+
 # Общие вопросы про Message Queue
 
 #### Что означает ошибка «Cannot create queue: Too many queues» при создании новой очереди? {#to-many-queues-err}

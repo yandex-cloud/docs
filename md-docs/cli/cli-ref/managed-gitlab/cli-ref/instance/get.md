@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-gitlab](../index.md) > [instance](index.md) > get
+
 # yc managed-gitlab instance get
 
 Show information about the specified gitlab instance

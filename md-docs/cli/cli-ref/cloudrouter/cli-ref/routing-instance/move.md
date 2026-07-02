@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [cloudrouter](../index.md) > [routing-instance](index.md) > move
+
 # yc cloudrouter routing-instance move
 
 Moves the specified RoutingInstance to another folder.

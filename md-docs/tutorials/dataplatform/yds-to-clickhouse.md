@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Сохранение потока данных Data Streams в Managed Service for ClickHouse®
+
 # Сохранение потока данных Yandex Data Streams в Yandex Managed Service for ClickHouse®
 
 # Сохранение потока данных Yandex Data Streams в Yandex Managed Service for ClickHouse®

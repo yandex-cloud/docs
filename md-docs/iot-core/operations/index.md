@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex IoT Core](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Yandex IoT Core
 
 {% note warning %}

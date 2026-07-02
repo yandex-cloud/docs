@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Техническое обслуживание
+
 # Техническое обслуживание кластера Apache Kafka®
 
 Вы можете управлять [техническим обслуживанием](../concepts/maintenance.md) кластера Yandex Managed Service for Apache Kafka®.

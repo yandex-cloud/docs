@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [serverless](../index.md) > [container](index.md) > rollback
+
 # yc serverless container rollback
 
 Rollback the specified container to the specified revision

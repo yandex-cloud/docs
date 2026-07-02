@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DnsInboundEndpoint](index.md) > List
+
 # Cloud DNS API, REST: DnsInboundEndpoint.List
 
 Retrieves the list of DNS inbound endpoints in the specified folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [certificate-manager](../index.md) > [certificate](index.md) > get
+
 # yc certificate-manager certificate get
 
 Show information about the specified certificate

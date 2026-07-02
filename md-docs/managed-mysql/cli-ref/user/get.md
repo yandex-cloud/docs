@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [user](index.md) > get
+
 # yc managed-mysql user get
 
 Show information about the specified MySQL user

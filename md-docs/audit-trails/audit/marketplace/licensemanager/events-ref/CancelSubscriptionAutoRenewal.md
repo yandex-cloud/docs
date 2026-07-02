@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > marketplace.licensemanager > CancelSubscriptionAutoRenewal
+
 # Yandex Cloud Marketplace Audit Trails Events: CancelSubscriptionAutoRenewal
 
 ## Event JSON schema {#yandex.cloud.audit.marketplace.licensemanager.CancelSubscriptionAutoRenewal2-schema}

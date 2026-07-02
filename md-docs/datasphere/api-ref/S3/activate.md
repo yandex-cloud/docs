@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Справочник API](../overview.md) > [REST (англ.)](../index.md) > [S3](index.md) > Activate
+
 # DataSphere API v2, REST: S3.Activate
 
 Activates shared s3 for project

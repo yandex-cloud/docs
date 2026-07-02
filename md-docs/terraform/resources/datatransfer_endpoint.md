@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Data Transfer > Resources > datatransfer_endpoint
+
 # yandex_datatransfer_endpoint (Resource)
 
 Data Transfer endpoint. For more information, see [the official

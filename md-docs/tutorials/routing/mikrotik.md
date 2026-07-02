@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Базовая инфраструктура > Сеть > Установка виртуального роутера Mikrotik CHR
+
 # Установка виртуального роутера Mikrotik CHR
 
 В Yandex Cloud можно развернуть виртуальный роутер Mikrotik Cloud Hosted Router из готового образа ВМ. Чтобы установить Mikrotik Cloud Hosted Router и проверить его работу:

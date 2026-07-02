@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > CreateBranding
+
 # Identity Hub Audit Trails Events: CreateBranding
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.idp.branding.CreateBranding2-schema}

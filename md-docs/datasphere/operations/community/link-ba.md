@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > Управление сообществом > Привязать платежный аккаунт
+
 # Привязать платежный аккаунт
 
 [Платежный аккаунт](../../../billing/concepts/billing-account.md) используется для идентификации пользователя, оплачивающего вычисления, работу [нод](../../concepts/deploy/index.md#node) и хранение ресурсов всех проектов сообщества.
@@ -36,7 +38,7 @@
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](../../pricing.md)
+* [Правила тарификации для DataSphere](../../pricing.md)
 * [Сообщества в DataSphere](../../concepts/community.md)
 * [Платежный аккаунт](../../../billing/concepts/billing-account.md)
 * [Статусы платежного аккаунта](../../../billing/concepts/billing-account-statuses.md)

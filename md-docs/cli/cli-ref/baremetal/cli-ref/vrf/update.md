@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [baremetal](../index.md) > [vrf](index.md) > update
+
 # yc baremetal vrf update
 
 Updates the specified VRF resource.

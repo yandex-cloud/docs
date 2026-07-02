@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [provider](index.md) > list-activated
+
 # yc cdn v0 provider list-activated
 
 List activated CDN providers

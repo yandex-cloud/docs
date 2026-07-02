@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Концепции](../index.md) > [DataSphere Inference](index.md) > Метрики нод
+
 # Справочник метрик нод
 
 В этом разделе описаны метрики, поставляемые в [Monitoring](../../../monitoring/index.md). Помимо описанных метрик ноды могут поставлять в Monitoring метрики, указанные пользователем на  этапе создания ноды.

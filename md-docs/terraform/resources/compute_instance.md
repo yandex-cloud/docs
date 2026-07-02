@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Compute Cloud > Resources > compute_instance
+
 # yandex_compute_instance (Resource)
 
 A VM instance resource. For more information, see [the official documentation](../../compute/concepts/vm.md).

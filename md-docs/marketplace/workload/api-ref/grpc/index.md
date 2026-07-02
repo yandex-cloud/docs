@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Marketplace](../../../index.md) > Партнерам > Справочник Cloud Apps Workload API > gRPC (англ.) > Overview
+
 # Cloud Apps Workload API: gRPC reference
 
 This API reference is organized about resources to be used by Cloud Applications themself. For more information about API architecture, see [API Concepts](../../../../api-design-guide/index.md).

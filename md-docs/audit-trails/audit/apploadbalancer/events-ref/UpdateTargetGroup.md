@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > apploadbalancer > UpdateTargetGroup
+
 # Application Load Balancer Audit Trails Events: UpdateTargetGroup
 
 ## Event JSON schema {#yandex.cloud.audit.apploadbalancer.UpdateTargetGroup2-schema}

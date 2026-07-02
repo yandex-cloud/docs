@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [baremetal](../index.md) > [private-cloud-connection](index.md) > create
+
 # yc baremetal private-cloud-connection create
 
 Creates a private cloud connection in the specified folder.

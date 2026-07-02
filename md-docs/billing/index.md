@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Cloud Billing > Yandex Cloud Billing
+
 # Yandex Cloud Billing
 
 Yandex Cloud Billing позволяет получать информацию об объеме использованных ресурсов, проверять расходы денежных средств и оплачивать потребление ресурсов.

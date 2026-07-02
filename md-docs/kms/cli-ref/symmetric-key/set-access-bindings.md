@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > [Справочник CLI (англ.)](../index.md) > [symmetric-key](index.md) > set-access-bindings
+
 # yc kms symmetric-key set-access-bindings
 
 Set access bindings for the specified symmetric key and delete all existing access bindings if there were any

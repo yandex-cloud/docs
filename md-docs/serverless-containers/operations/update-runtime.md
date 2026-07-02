@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Пошаговые инструкции](index.md) > Управление контейнером > Изменить режим работы контейнера
+
 # Изменить режим работы контейнера
 
 {% list tabs group=instructions %}

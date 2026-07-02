@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [metadata-hub](../index.md) > v0 > Overview
+
 # yc metadata-hub v0
 
 Manage Metadata Hub resources.

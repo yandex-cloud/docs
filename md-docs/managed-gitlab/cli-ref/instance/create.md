@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for GitLab](../../index.md) > [Справочник CLI (англ.)](../index.md) > [instance](index.md) > create
+
 # yc managed-gitlab instance create
 
 Create Gitlab instance

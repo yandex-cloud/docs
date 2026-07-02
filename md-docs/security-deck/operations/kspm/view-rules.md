@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Security Deck](../../index.md) > [Пошаговые инструкции](../index.md) > [Контроль Kubernetes® (KSPM)](index.md) > Посмотреть правила контроля
+
 # Посмотреть правила контроля Kubernetes
 
 Для просмотра правил контроля Kubernetes необходима роль `security-deck.viewer` или выше на каталог, в котором находятся ресурсы модуля KSPM.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud CDN](../index.md) > [Концепции](index.md) > Обмен данными между клиентами и CDN > CORS
+
 # CORS в Cloud CDN
 
 Yandex Cloud CDN поддерживает [кросс-доменные запросы](../../glossary/cors.md) по механизму CORS (cross-origin resource sharing).

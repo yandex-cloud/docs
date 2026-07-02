@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Marketplace](../../../../index.md) > Партнерам > Справочник Metering API > [gRPC (англ.)](../index.md) > [ImageProductUsage](index.md) > Write
+
 # Marketplace Metering API, gRPC: ImageProductUsageService.Write
 
 Writes image product's usage. Authentication is by user's service account.

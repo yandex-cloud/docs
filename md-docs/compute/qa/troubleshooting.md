@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > Вопросы и ответы > Решение проблем
+
 # Решение проблем в Compute Cloud
 
 * [Не удается подключиться по SSH к вновь созданной ВМ с несколькими сетевыми интерфейсами](#unable-to-connect-to-new-multi-interface-vm)

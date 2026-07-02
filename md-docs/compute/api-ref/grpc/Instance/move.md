@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Instance](index.md) > Move
+
 # Compute Cloud API, gRPC: InstanceService.Move
 
 Moves the specified instance to another folder of the same cloud.

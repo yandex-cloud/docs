@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > kms > Overview
+
 # yc kms
 
 Manage Yandex Key Management Service resources

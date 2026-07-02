@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [OsLogin](index.md) > SetDefaultProfile
+
 # Identity Hub API, REST: OsLogin.SetDefaultProfile
 
 Sets a profile as a default for the subject assigned to this profile

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DiskPlacementGroup](index.md) > List
+
 # Compute Cloud API, REST: DiskPlacementGroup.List
 
 Retrieves the list of placement groups in the specified folder.

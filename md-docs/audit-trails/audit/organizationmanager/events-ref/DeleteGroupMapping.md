@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > DeleteGroupMapping
+
 # Identity Hub Audit Trails Events: DeleteGroupMapping
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.DeleteGroupMapping2-schema}

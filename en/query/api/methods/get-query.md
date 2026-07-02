@@ -1,6 +1,6 @@
 # get-query
 
-The method returns information about a query, including query metada, its execution status, and an array of results.
+This method returns query details, including its metadata, execution status, and result size.
 
 {% include [!](../../_includes/api-common.md) %}
 
@@ -10,7 +10,7 @@ The method returns information about a query, including query metada, its execut
 
 ## Response {#response}
 
-If successful, an HTTP response with code 200 and query information is returned.
+If successful, the response returns an HTTP 200 status code and query details.
 
 ```json
 {
@@ -59,16 +59,16 @@ If successful, an HTTP response with code 200 and query information is returned.
 
 Field | Description
 --- | ---
-`name` | Query name.
-`type` | Query type: `STREAMING` and `ANALYTICS`.
-`text` | Query text.
-`description` | Query description.
-`meta.started_at` | Query execution start time.
-`meta.finished_at` | Query execution end time.
-`issues` | If there are execution errors, contains an [`Issue`](../index.md#issue) object.
-`result_sets` | Array of query execution results.
-`result_sets[].rows` | Number of rows with query execution results.
-`result_sets[].truncated` | The number of rows with query execution results exceeded the limit and was truncated.
+`name` | Query name
+`type` | Query type: `STREAMING` or `ANALYTICS`
+`text` | Query text
+`description` | Query description
+`meta.started_at` | Query start time
+`meta.finished_at` | Query end time
+`issues` | When execution errors occur, this field contains an [`Issue`](../index.md#issue) object
+`result_sets` | Array of query results
+`result_sets[].rows` | Query result row count
+`result_sets[].truncated` | The query result row count exceeds the limit and has been truncated
 
 ## Example {#example}
 

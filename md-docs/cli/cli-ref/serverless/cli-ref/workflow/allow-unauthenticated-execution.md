@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [serverless](../index.md) > [workflow](index.md) > allow-unauthenticated-execution
+
 # yc serverless workflow allow-unauthenticated-execution
 
 Allow unauthenticated execution for the specified Workflow

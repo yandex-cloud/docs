@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > Справочник API > [REST (англ.)](../index.md) > DesktopImage > Overview
+
 # Cloud Desktop API, REST: DesktopImage
 
 A service for managing desktop images.

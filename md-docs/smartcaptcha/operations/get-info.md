@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex SmartCaptcha](../index.md) > [Пошаговые инструкции](index.md) > Получение информации о капче > Получить информацию о капче
+
 # Получить информацию о капче
 
 {% list tabs group=instructions %}

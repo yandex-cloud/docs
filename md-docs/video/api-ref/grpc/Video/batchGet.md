@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Video](index.md) > BatchGet
+
 # Video API, gRPC: VideoService.BatchGet
 
 Retrieves multiple videos by their IDs in a specific channel in a single request.

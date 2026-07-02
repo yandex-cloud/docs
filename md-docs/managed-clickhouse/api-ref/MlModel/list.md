@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [MlModel](index.md) > List
+
 # Managed Service for ClickHouse API, REST: MlModel.List
 
 Retrieves the list of machine learning models in the specified cluster.

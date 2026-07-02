@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > CreateAsset
+
 # Identity Hub Audit Trails Events: CreateAsset
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.idp.branding.CreateAsset2-schema}

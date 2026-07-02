@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > [Справочник CLI (англ.)](../index.md) > public-connection > Overview
+
 # yc cic public-connection
 
 A set of methods for managing PublicConnection resources.

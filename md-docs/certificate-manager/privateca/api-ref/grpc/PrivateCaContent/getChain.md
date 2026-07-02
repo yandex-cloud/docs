@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Certificate Manager](../../../../index.md) > Справочник API > gRPC (англ.) > [Certificate Manager Private CA API](../index.md) > [PrivateCaContent](index.md) > GetChain
+
 # Certificate Manager Private CA API, gRPC: PrivateCaContentService.GetChain
 
 Returns the certificate chain for the specified certificate authority.

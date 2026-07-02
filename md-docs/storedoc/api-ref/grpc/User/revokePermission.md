@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [User](index.md) > RevokePermission
+
 # Managed Service for MongoDB API, gRPC: UserService.RevokePermission
 
 Revokes permission from the specified MongoDB user.

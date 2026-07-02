@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cloud-registry](../../index.md) > [v1](../index.md) > [registry](index.md) > list-access-bindings
+
 # yc cloud-registry v1 registry list-access-bindings
 
 Lists access bindings for the specified registry.

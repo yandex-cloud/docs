@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Billing](index.md) > История изменений
+
 # История изменений в Yandex Cloud Billing
 
 {% note info %}

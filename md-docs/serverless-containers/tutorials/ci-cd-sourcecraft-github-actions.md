@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Практические руководства](index.md) > Рабочие процессы и автоматизация на Serverless > Настройка CI/CD в SourceCraft для развертывания Serverless Containers с помощью GitHub Actions
+
 # Настройка CI/CD в SourceCraft для развертывания приложения в Yandex Serverless Containers с помощью GitHub Actions
 
 # Настройка CI/CD для развертывания приложения в Yandex Serverless Containers с помощью GitHub Actions
@@ -26,7 +28,7 @@
 
 В стоимость поддержки инфраструктуры входит:
 * Плата за хранение созданных Docker-образов ([тарифы Container Registry](../../container-registry/pricing.md).
-* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик ([тарифы Serverless Containers](../../serverless-containers/pricing.md).
+* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик ([тарифы Serverless Containers](../pricing.md).
 
 ## Создайте сервисный аккаунт {#create-sa}
 

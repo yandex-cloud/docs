@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > Бэкенд на Serverless > Подключение к YDB из функции Cloud Functions на Python
+
 # Подключение к базе данных Managed Service for YDB из функции Yandex Cloud Functions на Python
 
 Создайте [функцию](../../functions/concepts/function.md) с приложением на [Python](https://python.org/), которое выполняет простой запрос к базе данных [Yandex Managed Service for YDB](../../ydb/index.md).

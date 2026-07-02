@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Загрузка данных из Managed Service for YDB в Managed Service for PostgreSQL с помощью Data Transfer
+
 # Загрузка данных из Yandex Managed Service for YDB в Yandex Managed Service for PostgreSQL с помощью Yandex Data Transfer
 
 # Загрузка данных из Yandex Managed Service for YDB в Yandex Managed Service for PostgreSQL с помощью Yandex Data Transfer
@@ -30,8 +32,8 @@
     * Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
     * Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервные копии.
 
-* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../../managed-postgresql/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../../vpc/pricing.md)).
+* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Подготовьте инфраструктуру {#deploy-infrastructure}
 

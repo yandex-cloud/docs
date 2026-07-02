@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Object Storage](../index.md) > Устранение ошибки `Bucket is not empty` при удалении бакета
+
 # Устранение ошибки `Bucket is not empty` при удалении бакета
 
 

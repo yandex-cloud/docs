@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Безопасность в Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Безопасность Kubernetes > Шифрование секретов в Managed Service for Kubernetes
+
 # Шифрование секретов в Yandex Managed Service for Kubernetes
 
 Используйте [ключ](../../../kms/concepts/key.md) Yandex Key Management Service для шифрования [секретов](../../../lockbox/concepts/secret.md) — конфиденциальной информации, такой как пароли и [SSH-ключи](../../../glossary/ssh-keygen.md), в [Yandex Managed Service for Kubernetes](../../../managed-kubernetes/index.md). Для этого при создании [кластера Managed Service for Kubernetes](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) укажите ключ Key Management Service, который будет использоваться при шифровании и расшифровании.
@@ -7,7 +9,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входит плата за сервис Key Management Service: количество активных версий ключа (в статусах `Active` и `Scheduled For Destruction`) и выполненных криптографических операций ([тарифы Key Management Service](../../kms/pricing.md)).
+В стоимость поддержки описываемого решения входит плата за сервис Key Management Service: количество активных версий ключа (в статусах `Active` и `Scheduled For Destruction`) и выполненных криптографических операций ([тарифы Key Management Service](../../../kms/pricing.md)).
 
 
 {% list tabs group=instructions %}

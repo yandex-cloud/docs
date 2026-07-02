@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex SmartCaptcha](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Yandex SmartCaptcha
 
 # Аутентификация в API

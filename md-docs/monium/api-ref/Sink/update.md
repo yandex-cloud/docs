@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Monium](../../index.md) > Справочник API > Логи > [REST (англ.)](../index.md) > [Sink](index.md) > Update
+
 # Cloud Logging Service, REST: Sink.Update
 
 Updates the specified sink.

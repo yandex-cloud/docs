@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > [Статический сайт в Yandex Object Storage](index.md) > Terraform
+
 # Статический сайт в Yandex Object Storage с помощью Terraform
 
 Чтобы разместить [статический сайт в Object Storage](index.md) с помощью Terraform:
@@ -21,10 +23,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки статического сайта входит:
-* плата за хранение данных статического сайта ([тарифы Object Storage](../../storage/pricing.md#prices-storage));
-* плата за операции с данными ([тарифы Object Storage](../../storage/pricing.md#prices-operations));
-* плата за исходящий трафик из Yandex Cloud в интернет ([тарифы Object Storage](../../storage/pricing.md#prices-traffic));
-* плата за публичные DNS-запросы и [зоны](../../../dns/concepts/dns-zone.md) ([тарифы Yandex Cloud DNS](../../dns/pricing.md)).
+* плата за хранение данных статического сайта ([тарифы Object Storage](../../pricing.md#prices-storage));
+* плата за операции с данными ([тарифы Object Storage](../../pricing.md#prices-operations));
+* плата за исходящий трафик из Yandex Cloud в интернет ([тарифы Object Storage](../../pricing.md#prices-traffic));
+* плата за публичные DNS-запросы и [зоны](../../../dns/concepts/dns-zone.md) ([тарифы Yandex Cloud DNS](../../../dns/pricing.md)).
 
 ## Создайте инфраструктуру {#deploy}
 

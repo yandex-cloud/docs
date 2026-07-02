@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Router](../index.md) > Сценарии использования > Все сценарии использования
+
 # Сценарии использования Cloud Interconnect и Cloud Router
 
 ## Сценарии с резервированием {#cr-ha}

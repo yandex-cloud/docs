@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > Концепции > Взаимосвязь ресурсов сервиса
+
 # Взаимосвязь ресурсов в Managed Service for Apache Airflow™
 
 Сервис Managed Service for Apache Airflow™ помогает разворачивать и поддерживать [кластеры](../../glossary/cluster.md) серверов [Apache Airflow™](https://airflow.apache.org/) в инфраструктуре Yandex Cloud.

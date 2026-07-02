@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > [Концепции](../index.md) > [Топик](index.md) > Топики реестра
+
 # Топики реестра
 
 {% note warning %}

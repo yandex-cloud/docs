@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Functions](index.md) > История изменений
+
 # История изменений в Yandex Cloud Functions
 
 ## Апрель 2026 {#april-2026}

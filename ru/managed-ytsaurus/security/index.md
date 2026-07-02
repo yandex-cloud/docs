@@ -65,6 +65,8 @@ description: Управление доступом в сервисе по соз
 
 Чтобы создать кластер {{ myt-name }}, нужны роли [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user), а также роль `managed-ytsaurus.admin` или выше.
 
+{% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-access-control.md) %}
+
 Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `managed-ytsaurus.admin` вместо `managed-ytsaurus.editor`.
 
 ## Что дальше {#whats-next}

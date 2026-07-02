@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex WebSQL](index.md) > Аудитные логи Audit Trails
+
 # Справочник аудитных логов Yandex WebSQL
 
 В Audit Trails для Yandex WebSQL поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).

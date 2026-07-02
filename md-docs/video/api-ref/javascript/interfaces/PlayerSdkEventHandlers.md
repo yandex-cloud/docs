@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Видеоплеер > SDK > JavaScript > Справочник API > Interfaces > PlayerSdkEventHandlers
+
 # Interface: PlayerSdkEventHandlers
 
 Обработчики [событий PlayerSdk](../../../sdk/javascript/player-events.md).

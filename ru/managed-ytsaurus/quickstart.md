@@ -20,8 +20,9 @@ description: Чтобы начать работать с {{ myt-full-name }}, с
 
 1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
 
-    * [managed-ytsaurus.editor](security/index.md#managed-ytsaurus-editor) — чтобы создать кластер;
-    * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../vpc/concepts/network.md#network) кластера.
+    * {% include [roles-ytsaurus-editor](../_includes/managed-ytsaurus/roles-ytsaurus-editor.md) %}
+    * {% include [roles-vpc-user](../_includes/mdb/roles-vpc-user.md) %}
+    * {% include [roles-mdb-viewer](../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 

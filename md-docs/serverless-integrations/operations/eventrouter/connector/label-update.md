@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > EventRouter > Управление коннектором > Управлять метками > Изменить метку
+
 # Изменить метку коннектора
 
 {% list tabs group=instructions %}

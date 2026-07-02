@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Trino](index.md) > Управление доступом
+
 # Управление доступом к Managed Service for Trino
 
 

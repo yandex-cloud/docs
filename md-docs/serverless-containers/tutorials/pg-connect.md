@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Практические руководства](index.md) > Бэкенд на Serverless > Настройка подключения к Yandex Managed Service for PostgreSQL из контейнера Serverless Containers
+
 # Настройка подключения к Yandex Managed Service for PostgreSQL из контейнера Serverless Containers
 
 Чтобы подключиться к кластеру Managed Service for PostgreSQL из контейнера Serverless Containers:
@@ -14,7 +16,7 @@
 * Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 * Реестр Container Registry: хранение созданных Docker-образов и использование сканера уязвимостей ([тарифы Container Registry](../../container-registry/pricing.md)).
-* Контейнер Serverless Containers: количество вызовов контейнера, время простоя подготовленных экземпляров и выделенные для выполнения приложения вычислительные ресурсы ([тарифы Container Registry](../../serverless-containers/pricing.md)).
+* Контейнер Serverless Containers: количество вызовов контейнера, время простоя подготовленных экземпляров и выделенные для выполнения приложения вычислительные ресурсы ([тарифы Container Registry](../pricing.md)).
 
 
 ## Перед началом работы {#before-begin}

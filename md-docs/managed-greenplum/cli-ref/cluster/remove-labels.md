@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > remove-labels
+
 # yc managed-greenplum cluster remove-labels
 
 Remove labels from Greenplum cluster

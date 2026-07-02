@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > [Практические руководства](index.md) > Разработка > Запуск вычислений по расписанию
+
 # Запуск вычислений по расписанию в DataSphere
 
 Организовать сценарии регулярных запусков в [Yandex DataSphere](https://datasphere.yandex.cloud) можно с помощью API, вызывая исполнение ячеек ноутбука в [Yandex Cloud Functions](../../functions/index.md).
@@ -28,7 +30,7 @@
 
 В стоимость реализации регулярных запусков входят:
 
-* плата за использование [вычислительных ресурсов DataSphere](../../datasphere/pricing.md);
+* плата за использование [вычислительных ресурсов DataSphere](../pricing.md);
 * плата за количество вызовов функции [Cloud Functions](../../functions/pricing.md).
 
 ## Подготовьте инфраструктуру {#infra}

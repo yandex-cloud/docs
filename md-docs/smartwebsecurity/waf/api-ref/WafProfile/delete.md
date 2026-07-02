@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > Справочник API > REST (англ.) > [SmartWebSecurity WAF API](../index.md) > [WafProfile](index.md) > Delete
+
 # SmartWebSecurity WAF API, REST: WafProfile.Delete
 
 Deletes the specified WAF profile.

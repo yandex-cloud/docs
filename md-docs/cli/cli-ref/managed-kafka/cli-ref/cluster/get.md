@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-kafka](../index.md) > [cluster](index.md) > get
+
 # yc managed-kafka cluster get
 
 Show information about the specified Kafka cluster

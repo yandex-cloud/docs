@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex API Gateway](index.md) > Метрики Monitoring
+
 # Справочник метрик Yandex Monitoring
 
 В этом разделе описаны метрики сервиса API Gateway, поставляемые в [Monitoring](../monitoring/index.md).

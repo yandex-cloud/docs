@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > [Справочник CLI (англ.)](../index.md) > [zone](index.md) > remove-access-binding
+
 # yc dns zone remove-access-binding
 
 Remove access binding from the specified dns zone

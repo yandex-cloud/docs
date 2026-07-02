@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.opensearch > UpdateDashboardsNodeGroup
+
 # Managed Service for OpenSearch Audit Trails Events: UpdateDashboardsNodeGroup
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.opensearch.UpdateDashboardsNodeGroup2-schema}

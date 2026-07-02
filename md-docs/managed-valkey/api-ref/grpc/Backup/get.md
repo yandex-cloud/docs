@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Valkey™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Backup](index.md) > Get
+
 # Managed Service for Redis API, gRPC: BackupService.Get
 
 Returns the specified Redis backup.

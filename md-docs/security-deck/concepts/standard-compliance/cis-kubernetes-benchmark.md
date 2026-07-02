@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Security Deck](../../index.md) > [Концепции](../index.md) > [Интерфейс соответствия требованиям](index.md) > Требования стандарта CIS Benchmark™ для Kubernetes
+
 # Требования стандарта CIS Benchmark™ для Kubernetes
 
 Этот набор правил содержит рекомендации стандарта [CIS Kubernetes Benchmark](https://www.cisecurity.org/benchmark/kubernetes), помогающие обеспечить безопасную работу компонентов, запущенных на узлах Kubernetes.

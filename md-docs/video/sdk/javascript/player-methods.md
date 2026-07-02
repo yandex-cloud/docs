@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Видеоплеер > [SDK](../index.md) > [JavaScript](index.md) > Методы плеера
+
 # Методы плеера
 
 Вы можете управлять [видеоплеером](../../concepts/player.md) Cloud Video Player с использованием методов SDK для JavaScript:

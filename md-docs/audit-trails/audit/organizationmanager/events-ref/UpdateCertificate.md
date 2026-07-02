@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > UpdateCertificate
+
 # Identity Hub Audit Trails Events: UpdateCertificate
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.saml.UpdateCertificate2-schema}

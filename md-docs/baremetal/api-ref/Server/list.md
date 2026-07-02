@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [Server](index.md) > List
+
 # BareMetal API, REST: Server.List
 
 Retrieves the list of Server resources in the specified folder.

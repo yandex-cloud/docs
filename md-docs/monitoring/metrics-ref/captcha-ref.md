@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > SmartCaptcha
+
 # Метрики Yandex SmartCaptcha
 
 

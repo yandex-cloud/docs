@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Serverless Containers](../../index.md) > [Концепции](../index.md) > [Триггер](index.md) > Триггер для Message Queue
+
 # Триггер для Message Queue, который передает сообщения в контейнер Serverless Containers
 
 [Триггер](index.md) для Message Queue предназначен для разгрузки [очереди сообщений](../../../message-queue/concepts/queue.md). Он принимает сообщения из очереди и передает их в [контейнер](../container.md) Serverless Containers для обработки. После успешной обработки триггер удаляет сообщения из очереди, а при ошибке — возвращает сообщения в очередь через [таймаут видимости](../../../message-queue/concepts/visibility-timeout.md). Если для очереди не настроена [Dead Letter Queue](../../../message-queue/concepts/dlq.md), сообщение будет повторно передаваться в контейнер, пока успешно не обработается или не закончится срок его хранения.

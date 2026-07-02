@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex IoT Core](../../../../index.md) > Справочник API Broker > [gRPC (англ.)](../index.md) > [Broker](index.md) > DeleteCertificate
+
 # IoT Core Broker Service, gRPC: BrokerService.DeleteCertificate
 
 Deletes the specified broker certificate.

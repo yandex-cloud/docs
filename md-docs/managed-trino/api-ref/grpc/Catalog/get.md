@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Trino](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Catalog](index.md) > Get
+
 # Managed Service for Trino API, gRPC: CatalogService.Get
 
 Returns the specified Trino Catalog resource.

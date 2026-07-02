@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Yandex Identity Hub](../../../../../../index.md) > Справочник API > gRPC (англ.) > Identity Provider API > [SAML Application API](../index.md) > [Application](index.md) > List
+
 # SAML Application API, gRPC: ApplicationService.List
 
 Retrieves the list of SAML applications in the specified organization.

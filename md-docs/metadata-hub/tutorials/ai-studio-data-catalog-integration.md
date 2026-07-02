@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Data Catalog > Практические руководства > Интеграция AI-аналитика данных с Data Catalog
+
 # Интеграция AI Studio с сервисом Data Catalog
 
 # Интеграция с Yandex Data Catalog

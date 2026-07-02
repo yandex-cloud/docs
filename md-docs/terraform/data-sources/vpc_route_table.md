@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Virtual Private Cloud > Data Sources > vpc_route_table
+
 # yandex_vpc_route_table (DataSource)
 
 Get information about a Yandex VPC route table. For more information, see [Yandex Cloud VPC](../../vpc/concepts/index.md).

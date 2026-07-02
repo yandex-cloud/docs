@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > logging > ChangeLogGroupAccessBindings
+
 # Cloud Logging Audit Trails Events: ChangeLogGroupAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.logging.ChangeLogGroupAccessBindings2-schema}

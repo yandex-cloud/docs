@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > ROUND with precision parameter is not supported for double precision data type in PostgreSQL
+
 # [Yandex DataLens] ROUND with precision parameter is not supported for double precision data type in PostgreSQL
 
 `ERR.DS_API.DB.INVALID_FUNCTION.PG_DOUBLE_PRECISION_ROUND`

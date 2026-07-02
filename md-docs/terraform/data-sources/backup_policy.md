@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud Backup > Data Sources > backup_policy
+
 # yandex_backup_policy (DataSource)
 
 Get information about a Yandex Backup Policy. For more information, see [the official documentation](../../backup/concepts/policy.md).

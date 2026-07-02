@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Практические руководства](index.md) > Миграция базы данных из Yandex Managed Service for MySQL® с помощью Yandex Data Transfer
+
 # Миграция базы данных из Yandex Managed Service for MySQL® в YDB с помощью Yandex Data Transfer
 
 # Миграция данных со сменой хранилища из MySQL® в YDB с помощью Yandex Data Transfer

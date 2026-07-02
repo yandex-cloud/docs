@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [iam](index.md) > whoami
+
 # yc iam whoami
 
 Print currently authenticated subject to STDOUT

@@ -1,12 +1,12 @@
 ---
 title: Getting started with {{ connection-manager-name }}
-description: Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, and {{ RD }}, and {{ TR }} data sources using {{ connection-manager-full-name }}.
+description: Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }}, {{ MG }}, {{ TR }}, {{ KF }}, and {{ SD }} data sources using {{ connection-manager-full-name }}.
 ---
 
 # Getting started with {{ connection-manager-name }}
 
 
-Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }}, {{ MG }}, {{ TR }}, and {{ KF }} data sources using {{ connection-manager-full-name }}.
+Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }}, {{ MG }}, {{ TR }}, {{ KF }}, and {{ SD }} data sources using {{ connection-manager-full-name }}.
 
 ## Integrating with managed database services {#mdb-integration}
 
@@ -29,7 +29,7 @@ Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Enter a name and database type for the connection.

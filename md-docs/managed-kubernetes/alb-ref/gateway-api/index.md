@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Инструменты Application Load Balancer](../index.md) > Gateway API > Обзор
+
 # Gateway API в Managed Service for Kubernetes
 
 {% note tip %}

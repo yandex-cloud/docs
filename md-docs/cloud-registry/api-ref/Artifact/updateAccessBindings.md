@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Artifact](index.md) > UpdateAccessBindings
+
 # Yandex Cloud Registry API, REST: Artifact.UpdateAccessBindings
 
 Updates access bindings for the specified artifact (folder, package, artifact, etc).

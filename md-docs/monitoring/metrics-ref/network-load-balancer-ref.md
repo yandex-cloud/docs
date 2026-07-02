@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Network Load Balancer
+
 # Метрики Yandex Network Load Balancer
 
 В этом разделе описаны метрики сервиса [Network Load Balancer](../../network-load-balancer/index.md), поставляемые в Monitoring.

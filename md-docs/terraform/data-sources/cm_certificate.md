@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Certificate Manager > Data Sources > cm_certificate
+
 # yandex_cm_certificate (DataSource)
 
 Get information about a Yandex Certificate Manager Certificate. For more information, see [the official documentation](../../certificate-manager/concepts/index.md).

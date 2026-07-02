@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [snapshot-schedule](index.md) > delete
+
 # yc compute snapshot-schedule delete
 
 Delete the specified snapshot schedule

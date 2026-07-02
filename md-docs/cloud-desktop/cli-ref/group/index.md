@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > [Справочник CLI (англ.)](../index.md) > group > Overview
+
 # yc desktops group
 
 [PREVIEW] Manage desktop groups

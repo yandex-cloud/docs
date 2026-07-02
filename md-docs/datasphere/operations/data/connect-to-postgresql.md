@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > Подключение к источникам данных > Подключение к базе данных PostgreSQL
+
 # Подключение к базе данных PostgreSQL
 
 В инфраструктуре Yandex Cloud разворачивать и поддерживать кластеры серверов [PostgreSQL](https://www.postgresql.org/) позволяет сервис Managed Service for PostgreSQL.

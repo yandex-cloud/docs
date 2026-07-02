@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Valkey™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [BackupRetentionPolicy](index.md) > ListByFolder
+
 # Managed Service for Redis API, gRPC: BackupRetentionPolicyService.ListByFolder
 
 List all retention policies for all clusters in a folder.

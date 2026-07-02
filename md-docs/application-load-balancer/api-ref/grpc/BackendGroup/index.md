@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > BackendGroup > Overview
+
 # Application Load Balancer API, gRPC: BackendGroupService
 
 A set of methods for managing backend groups.

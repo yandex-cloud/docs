@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > [Концепции](index.md) > Сеть > Ограничения в сетях BareMetal
+
 # Ограничения в сетях BareMetal
 
 В сетях BareMetal действует ряд ограничений.

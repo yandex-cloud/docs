@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [image](index.md) > list-operations
+
 # yc compute image list-operations
 
 List operations for the specified image

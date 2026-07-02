@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Работа с PXF > Обзор
+
 # Работа с PXF
 
 Протокол [Greenplum® Platform Extension Framework](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum-platform-extension-framework/6-11/gp-pxf/intro_pxf.html) (PXF) используется для доступа к данным во внешних СУБД.

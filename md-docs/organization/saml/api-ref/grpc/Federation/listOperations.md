@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [SAML Federation API](../index.md) > [Federation](index.md) > ListOperations
+
 # SAML Federation API, gRPC: FederationService.ListOperations
 
 Lists operations for the specified federation.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity and Access Management](../index.md) > [Практические руководства](index.md) > Разграничение прав доступа для групп пользователей
+
 # Разграничение прав доступа для групп пользователей с различными ролями в Yandex Identity Hub
 
 В настоящем руководстве приведен пример решения по использованию [групп пользователей](../../organization/concepts/groups.md) для разграничения [прав доступа](../concepts/access-control/index.md) к ресурсам в [организации Yandex Identity Hub](../../overview/roles-and-resources.md).

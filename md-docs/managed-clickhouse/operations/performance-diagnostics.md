@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Пошаговые инструкции](index.md) > Логи и мониторинг > Диагностика производительности
+
 # Диагностика производительности в Managed Service for ClickHouse®
 
 {% note info %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SymmetricKey](index.md) > Create
+
 # Key Management Service API, gRPC: SymmetricKeyService.Create
 
 Creates a symmetric KMS key in the specified folder.

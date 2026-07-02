@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Network](index.md) > ListOperations
+
 # Virtual Private Cloud API, gRPC: NetworkService.ListOperations
 
 Lists operations for the specified network.

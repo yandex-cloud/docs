@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [SAML Federation API](../index.md) > [Certificate](index.md) > Delete
+
 # SAML Federation API, REST: Certificate.Delete
 
 Deletes the specified certificate.

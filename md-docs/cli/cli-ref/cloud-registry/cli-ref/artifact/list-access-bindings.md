@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [cloud-registry](../index.md) > [artifact](index.md) > list-access-bindings
+
 # yc cloud-registry artifact list-access-bindings
 
 Lists access bindings for the specified artifact

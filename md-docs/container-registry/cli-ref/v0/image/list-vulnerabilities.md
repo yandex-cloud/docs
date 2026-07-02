@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [image](index.md) > list-vulnerabilities
+
 # yc container v0 image list-vulnerabilities
 
 [PREVIEW] List vulnerabilities found during scan.

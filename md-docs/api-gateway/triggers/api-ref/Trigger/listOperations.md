@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex API Gateway](../../../index.md) > Справочник API Triggers > [REST (англ.)](../index.md) > [Trigger](index.md) > ListOperations
+
 # Cloud Functions Triggers Service, REST: Trigger.ListOperations
 
 Lists operations for the specified trigger.

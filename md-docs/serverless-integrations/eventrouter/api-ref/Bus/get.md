@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > [Bus](index.md) > Get
+
 # EventRouter Service, REST: Bus.Get
 
 Returns the specified bus.

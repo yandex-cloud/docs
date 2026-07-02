@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Пошаговые инструкции](index.md) > Чтение и запись данных
+
 # Чтение и запись данных
 
 ## Предварительные требования {#prerequisite}

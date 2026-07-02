@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > [Практические руководства](../index.md) > Миграция базы данных из стороннего кластера MySQL® > Обзор
+
 # Миграция базы данных из стороннего кластера MySQL®
 
 {% note info %}

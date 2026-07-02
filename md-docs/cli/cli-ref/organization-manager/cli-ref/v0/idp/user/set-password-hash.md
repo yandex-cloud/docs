@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [organization-manager](../../../index.md) > [v0](../../index.md) > [idp](../index.md) > [user](index.md) > set-password-hash
+
 # yc organization-manager v0 idp user set-password-hash
 
 Set a password hash for the specified user

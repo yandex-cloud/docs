@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > [Концепции](index.md) > Политика работы с версиями OpenSearch
+
 # Политика работы с версиями OpenSearch
 
 ## Политика поддержки версий {#versioning-policy}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > AccessRequestCreate
+
 # Yandex Wiki Audit Trails Events: AccessRequestCreate
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.AccessRequestCreate2-schema}

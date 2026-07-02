@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > resource-groups > Overview
+
 # yc managed-greenplum resource-groups
 
 Manage Greenplum and Apache Cloudberry resource groups

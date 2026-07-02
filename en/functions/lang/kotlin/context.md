@@ -10,8 +10,8 @@ _Invocation context_ is an object that is optionally accepted by the [request ha
 * `getFunctionFolderId()`: Returns the folder containing the function.
 * `getFunctionId()`: Returns the string ID of the function.
 * `getFunctionVersionId()`: Returns the string ID of the function version.
-* `getMemoryLimitInMB()`: Returns the amount of memory specified when creating the version, MB.
+* `getMemoryLimitInMB()`: Returns the amount of memory specified when creating the version, in MB.
 * `getRequestId()`: Returns the request ID.
-* `getTokenJson()`: Returns the parameters for authentication in the {{ yandex-cloud }} API.
+* `getTokenJson()`: Returns the parameters for authentication with the {{ yandex-cloud }} APIs.
 
 To get information from the invocation context, use one of the above functions in the handler method.

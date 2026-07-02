@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Машинное обучение и искусственный интеллект](index.md) > Использование генеративных нейросетей Yandex AI Studio > Интеграция AI-аналитика данных с Data Catalog
+
 # Интеграция AI Studio с сервисом Yandex Data Catalog
 
 # Интеграция с Yandex Data Catalog

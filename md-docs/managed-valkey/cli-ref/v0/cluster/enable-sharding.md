@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Valkey™](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > enable-sharding
+
 # yc managed-redis v0 cluster enable-sharding
 
 Enable sharding on specified Redis cluster

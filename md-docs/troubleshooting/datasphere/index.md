@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > DataSphere > Все решения для DataSphere
+
 # Решения для DataSphere
 
 

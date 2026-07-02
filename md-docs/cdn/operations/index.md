@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud CDN](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Cloud CDN
 
 ## Ресурсы {#resources}

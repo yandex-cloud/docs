@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Анализ логов с использованием DataLens
+
 # Анализ логов Object Storage при помощи DataLens
 
 
@@ -33,7 +35,7 @@
 
 В стоимость входят:
 
-* плата за хранение данных в Object Storage, операции с ними и исходящий трафик ([тарифы Object Storage](../../storage/pricing.md));
+* плата за хранение данных в Object Storage, операции с ними и исходящий трафик ([тарифы Object Storage](../pricing.md));
 * плата за постоянно запущенный кластер Managed Service for ClickHouse® ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
 
 

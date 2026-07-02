@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Backup](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Backup](index.md) > StartFilesRecovery
+
 # Cloud Backup API, gRPC: BackupService.StartFilesRecovery
 
 StartFilesRecovery runs recovery process of selected files to specific Compute Cloud instance.

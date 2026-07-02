@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Концепции](overview.md) > Пользователи и роли
+
 # Пользователи и роли в Yandex MPP Analytics for PostgreSQL
 
 Yandex MPP Analytics for PostgreSQL управляет правами доступа к базе данных с помощью ролей. Роли могут владеть объектами базы данных (например, таблицами) и иметь [атрибуты](#attributes) и [привилегии](#privileges). От имени одной роли можно назначать привилегии другим ролям.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > DisableFolders
+
 # DataLens Audit Trails Events: DisableFolders
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.DisableFolders2-schema}

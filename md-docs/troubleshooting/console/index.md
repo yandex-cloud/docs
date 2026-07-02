@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Cloud Console > Все решения для Cloud Console
+
 # Решения для Cloud Console
 
 ## Примеры сценариев использования Cloud Console {#configuration-examples}

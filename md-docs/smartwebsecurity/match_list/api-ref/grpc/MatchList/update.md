@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Smart Web Security](../../../../index.md) > Справочник API > gRPC (англ.) > [SmartWebSecurity MatchList API](../index.md) > [MatchList](index.md) > Update
+
 # SmartWebSecurity MatchList API, gRPC: MatchListService.Update
 
 Updates the specified MatchList resource.

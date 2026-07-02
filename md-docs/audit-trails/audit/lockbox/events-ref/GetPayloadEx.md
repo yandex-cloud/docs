@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > lockbox > GetPayloadEx
+
 # Lockbox Audit Trails Events: GetPayloadEx
 
 ## Event JSON schema {#yandex.cloud.audit.lockbox.GetPayloadEx2-schema}

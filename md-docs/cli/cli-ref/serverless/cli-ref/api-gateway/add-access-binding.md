@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [serverless](../index.md) > [api-gateway](index.md) > add-access-binding
+
 # yc serverless api-gateway add-access-binding
 
 Add access binding for the specified API Gateway

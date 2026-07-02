@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [serverless](../index.md) > [function](index.md) > add-access-binding
+
 # yc serverless function add-access-binding
 
 Add access binding for the specified function

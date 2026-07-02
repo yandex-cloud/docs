@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > [Справочник CLI (англ.)](../index.md) > [desktop](index.md) > get-rdp-file
+
 # yc desktops desktop get-rdp-file
 
 Download desktop RDP file

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for SPQR > Resources > mdb_sharded_postgresql_shard
+
 # yandex_mdb_sharded_postgresql_shard (Resource)
 
 Manages a Sharded PostgreSQL shard within the Yandex.Cloud

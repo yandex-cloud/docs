@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Пошаговые инструкции](index.md) > Миграция базы данных в другую зону доступности
+
 # Миграция базы данных YDB в другую зону доступности
 
 Имеет смысл выполнять миграцию в другую зону доступности только для [Dedicated базы данных](../concepts/serverless-and-dedicated.md) YDB. К Serverless БД миграция не применяется.

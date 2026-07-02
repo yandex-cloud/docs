@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > [Практические руководства](index.md) > Блокировка состояний Terraform с помощью Yandex Managed Service for YDB
+
 # Блокировка состояний Terraform с помощью Yandex Managed Service for YDB
 
 

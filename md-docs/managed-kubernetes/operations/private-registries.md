@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Пошаговые инструкции](index.md) > Работа с приватными реестрами Docker-образов
+
 # Работа с приватными реестрами Docker-образов
 
 Managed Service for Kubernetes поддерживает интеграцию с приватными реестрами Docker-образов [Yandex Container Registry](../tutorials/container-registry.md) и [Yandex Cloud Registry](../../cloud-registry/concepts/index.md). Сервис авторизуется в этих реестрах от имени [облачного сервисного аккаунта](../concepts/index.md#service-accounts), назначенного группе узлов. Это предпочтительный и наиболее безопасный способ, поскольку авторизация происходит автоматически с помощью короткоживущих [IAM-токенов](../../iam/concepts/authorization/iam-token.md).

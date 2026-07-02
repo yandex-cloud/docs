@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > RevokeLeakedCredential
+
 # Identity and Access Management Audit Trails Events: RevokeLeakedCredential
 
 ## Event JSON schema {#yandex.cloud.audit.iam.RevokeLeakedCredential2-schema}

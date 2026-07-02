@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [dns](../index.md) > [zone](index.md) > add-labels
+
 # yc dns zone add-labels
 
 Assign labels to the specified dns zone.

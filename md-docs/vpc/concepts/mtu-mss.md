@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Концепции](index.md) > MTU и MSS
+
 # MTU и TCP MSS
 
 [MTU](https://ru.wikipedia.org/wiki/Maximum_transmission_unit) — это максимальный размер в байтах пакета данных, который может быть передан по участку [сети](network.md#network).

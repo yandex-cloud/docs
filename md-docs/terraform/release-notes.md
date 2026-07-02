@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Terraform в Yandex Cloud](index.md) > Справочник Terraform > История изменений (англ.)
+
 ## 0.213.0 (June 29, 2026)
 ##### FEATURES:
 * mdb_clickhouse: SSD cache dictionaries support

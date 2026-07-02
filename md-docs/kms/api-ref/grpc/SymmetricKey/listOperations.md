@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SymmetricKey](index.md) > ListOperations
+
 # Key Management Service API, gRPC: SymmetricKeyService.ListOperations
 
 Lists operations for the specified symmetric KMS key.

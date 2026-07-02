@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > [Инструменты](index.md) > AWS SDK для С++
+
 # Как начать работать с AWS SDK для С++ в Yandex Cloud Notification Service
 
 

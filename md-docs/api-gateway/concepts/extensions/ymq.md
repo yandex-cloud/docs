@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Расширения спецификации](index.md) > Интеграции > Message Queue
+
 # Расширение x-yc-apigateway-integration:cloud_ymq
 
 Расширение `x-yc-apigateway-integration:cloud_ymq` позволяет обращаться к Yandex Message Queue для работы с [очередями сообщений](../../../message-queue/concepts/queue.md). На данный момент поддерживаются только [стандартные очереди](../../../message-queue/concepts/queue.md#standard-queues) и операция [SendMessage](../../../message-queue/api-ref/message/SendMessage.md).

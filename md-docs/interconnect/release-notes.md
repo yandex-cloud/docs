@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Interconnect](index.md) > История изменений
+
 # История изменений в Yandex Cloud Interconnect
 
 ## I квартал 2025 {#q1-2025}
@@ -16,4 +18,4 @@
 
 ## I квартал 2024 {#q1-2024}
 
-* Добавлены [правила тарификации](./pricing.md).
+* Добавлены [правила тарификации](pricing.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > [Справочник CLI (англ.)](../index.md) > asymmetric-signature-crypto > Overview
+
 # yc kms asymmetric-signature-crypto
 
 Perform asymmetric signature crypto operations

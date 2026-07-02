@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Trino](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Catalog](index.md) > Create
+
 # Managed Service for Trino API, gRPC: CatalogService.Create
 
 Creates a new Trino Catalog.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex API Gateway](../../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ApiGateway](index.md) > UpdateAccessBindings
+
 # API Gateway Service, REST: ApiGateway.UpdateAccessBindings
 
 Updates access bindings for the specified API gateway.

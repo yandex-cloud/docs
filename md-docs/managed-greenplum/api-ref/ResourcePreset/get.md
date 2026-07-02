@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ResourcePreset](index.md) > Get
+
 # Managed Service for Greenplum® API, REST: ResourcePreset.Get
 
 Returns the specified resource preset.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud DNS > Resources > dns_firewall
+
 # yandex_dns_firewall (Resource)
 
 A DNS firewall. For details about the concept, see [DNS firewalls](../../dns/concepts/dns-firewall).

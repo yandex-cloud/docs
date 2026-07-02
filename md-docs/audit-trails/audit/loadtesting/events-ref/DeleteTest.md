@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > loadtesting > DeleteTest
+
 # Load Testing Audit Trails Events: DeleteTest
 
 ## Event JSON schema {#yandex.cloud.audit.loadtesting.DeleteTest2-schema}

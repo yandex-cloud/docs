@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Serverless Containers](../../index.md) > [Концепции](../index.md) > [Триггер](index.md) > Таймер
+
 # Таймер, который вызывает контейнер Serverless Containers
 
 _Таймер_ — это [триггер](index.md), который запускает [контейнер](../container.md) Serverless Containers по расписанию. Расписание задается в виде [cron-выражения](#cron-expression). Время в cron-выражении указывается по [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).

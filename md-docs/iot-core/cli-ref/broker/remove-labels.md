@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > [Справочник CLI (англ.)](../index.md) > [broker](index.md) > remove-labels
+
 # yc iot broker remove-labels
 
 Remove labels from specified broker

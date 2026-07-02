@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > Концепции > Обзор
+
 # Концепции Object Storage
 
 В сервисе Object Storage используются следующие основные понятия:

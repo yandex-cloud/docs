@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cache](index.md) > purge
+
 # yc cdn cache purge
 
 Purge CDN resource paths

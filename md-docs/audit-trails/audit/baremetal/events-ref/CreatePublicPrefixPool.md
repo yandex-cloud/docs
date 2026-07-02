@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > baremetal > CreatePublicPrefixPool
+
 # BareMetal Audit Trails Events: CreatePublicPrefixPool
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.CreatePublicPrefixPool2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [federation](../index.md) > [saml](index.md) > remove-labels
+
 # yc organization-manager federation saml remove-labels
 
 Remove labels from specified federation

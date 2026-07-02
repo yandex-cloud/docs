@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Devices > [gRPC (англ.)](../index.md) > [Registry](index.md) > Delete
+
 # IoT Core Service, gRPC: RegistryService.Delete
 
 Deletes the specified registry.

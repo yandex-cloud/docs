@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > storage > ObjectGetByPresignURL
+
 # Object Storage Audit Trails Events: ObjectGetByPresignURL
 
 ## Event JSON schema {#yandex.cloud.audit.storage.ObjectGetByPresignURL2-schema}

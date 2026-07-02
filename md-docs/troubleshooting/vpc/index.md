@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > VPC > Все решения для VPC
+
 # Решения для VPC
 
 ## Примеры конфигураций и сценариев VPC {#configuration-examples}

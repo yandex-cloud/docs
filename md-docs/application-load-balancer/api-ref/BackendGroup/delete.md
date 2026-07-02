@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [BackendGroup](index.md) > Delete
+
 # Application Load Balancer API, REST: BackendGroup.Delete
 
 Deletes the specified backend group.

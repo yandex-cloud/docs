@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Update
+
 # Managed Service for Greenplum® API, gRPC: ClusterService.Update
 
 Updates the specified Greenplum® cluster.

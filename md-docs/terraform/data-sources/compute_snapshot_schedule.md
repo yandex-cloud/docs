@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Compute Cloud > Data Sources > compute_snapshot_schedule
+
 # yandex_compute_snapshot_schedule (DataSource)
 
 Get information about a Yandex Compute snapshot schedule. For more information, see [the official documentation](../../compute/concepts/snapshot-schedule.md).

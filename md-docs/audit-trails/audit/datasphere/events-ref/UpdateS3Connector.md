@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > UpdateS3Connector
+
 # DataSphere Audit Trails Events: UpdateS3Connector
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.UpdateS3Connector2-schema}

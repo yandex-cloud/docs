@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > Справочник API > [REST (англ.)](../index.md) > RoutingInstance > Overview
+
 # Cloud Router API, REST: RoutingInstance
 
 A set of methods for managing RoutingInstance resources.

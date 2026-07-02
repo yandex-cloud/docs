@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > securitydeck.orchestrator > DeleteConnector
+
 # Security Deck Orchestrator Audit Trails Events: DeleteConnector
 
 ## Event JSON schema {#yandex.cloud.audit.securitydeck.orchestrator.DeleteConnector2-schema}

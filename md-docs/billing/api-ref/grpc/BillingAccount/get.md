@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Billing](../../../index.md) > Справочник API > gRPC (англ.) > [Billing](../index.md) > [BillingAccount](index.md) > Get
+
 # Billing API, gRPC: BillingAccountService.Get
 
 Returns the specified billing account.

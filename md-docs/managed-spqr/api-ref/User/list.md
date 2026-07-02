@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [User](index.md) > List
+
 # Managed Service for SPQR API, REST: User.List
 
 Retrieves the list of SPQR User resources in the specified cluster.

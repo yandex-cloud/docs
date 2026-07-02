@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > Концепции > Настройка и управление > Справочник API > Аутентификация в API
+
 # Аутентификация в API BareMetal
 
 # Аутентификация в API

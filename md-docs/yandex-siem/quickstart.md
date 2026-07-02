@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex SIEM](index.md) > Начало работы
+
 # Как начать работать с Yandex SIEM
 
 {% note info %}

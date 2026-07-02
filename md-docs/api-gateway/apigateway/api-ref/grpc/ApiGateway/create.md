@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex API Gateway](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ApiGateway](index.md) > Create
+
 # API Gateway Service, gRPC: ApiGatewayService.Create
 
 Creates an API gateway in the specified folder.

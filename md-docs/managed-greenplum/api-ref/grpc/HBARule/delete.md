@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [HBARule](index.md) > Delete
+
 # Managed Service for Greenplum® API, gRPC: HBARuleService.Delete
 
 Delete specified HBA rule for the specified Greenplum cluster.

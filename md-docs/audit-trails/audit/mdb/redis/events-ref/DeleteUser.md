@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.redis > DeleteUser
+
 # Managed Service for ValKey Audit Trails Events: DeleteUser
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.redis.DeleteUser2-schema}

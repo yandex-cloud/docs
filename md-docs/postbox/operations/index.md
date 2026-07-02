@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Postbox](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Yandex Cloud Postbox
 
 * [Создание адреса](create-address.md)

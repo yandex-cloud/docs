@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Apache Kafka®](index.md) > История изменений
+
 # История изменений в Yandex Managed Service for Apache Kafka®
 
 ## Июнь 2026 {#june-2026}

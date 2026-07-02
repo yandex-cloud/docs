@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Практические руководства](../index.md) > [Настройка единого входа в приложения (SSO)](index.md) > OpenVPN > OpenVPN Access Server
+
 # Создать SAML-приложение в Yandex Identity Hub для интеграции с OpenVPN Access Server
 
 Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться в OpenVPN Access Server с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../concepts/applications/saml.md) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне OpenVPN Access Server.

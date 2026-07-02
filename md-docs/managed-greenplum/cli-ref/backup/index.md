@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > backup > Overview
+
 # yc managed-greenplum backup
 
 Manage Greenplum cluster backups

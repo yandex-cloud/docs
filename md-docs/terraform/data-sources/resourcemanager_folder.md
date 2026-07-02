@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Resource Manager > Data Sources > resourcemanager_folder
+
 # yandex_resourcemanager_folder (DataSource)
 
 Use this data source to get information about a Yandex Resource Manager Folder. For more information, see [the official documentation](../../resource-manager/concepts/resources-hierarchy.md#folder).

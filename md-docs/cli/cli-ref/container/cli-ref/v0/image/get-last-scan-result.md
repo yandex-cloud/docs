@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [container](../../index.md) > [v0](../index.md) > [image](index.md) > get-last-scan-result
+
 # yc container v0 image get-last-scan-result
 
 [PREVIEW] Get recent scan result of Docker image.

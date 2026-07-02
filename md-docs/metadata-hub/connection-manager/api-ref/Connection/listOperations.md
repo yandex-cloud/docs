@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MetaData Hub](../../../index.md) > Connection Manager > Справочник API > [REST (англ.)](../index.md) > [Connection](index.md) > ListOperations
+
 # Connection Manager API, REST: Connection.ListOperations
 
 Lists operations for the specified connection.

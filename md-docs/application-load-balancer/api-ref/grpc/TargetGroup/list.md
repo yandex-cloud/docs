@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [TargetGroup](index.md) > List
+
 # Application Load Balancer API, gRPC: TargetGroupService.List
 
 Lists target groups in the specified folder.

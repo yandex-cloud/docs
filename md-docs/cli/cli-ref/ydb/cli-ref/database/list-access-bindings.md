@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [ydb](../index.md) > [database](index.md) > list-access-bindings
+
 # yc ydb database list-access-bindings
 
 List access bindings for the specified YDB database.

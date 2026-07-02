@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Практические руководства](index.md) > Использование схем формата данных с Managed Service for Apache Kafka® > Управление схемами данных в Managed Service for Apache Kafka®
+
 # Управление схемами данных в Managed Service for Apache Kafka®
 
 Сервис Managed Service for Apache Kafka® использует [схемы форматов данных](../concepts/managed-schema-registry.md) для описания форматов ввода и вывода данных. На основе схемы формата данных производитель формирует, а потребитель интерпретирует сообщения из топиков.

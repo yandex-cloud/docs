@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Управление диском > Перенести диск в другую зону доступности
+
 # Перенести диск в другую зону доступности
 
 Диск создается в одной [зоне доступности](../../../overview/concepts/geo-scope.md). Вы можете перенести его в другую зону с помощью [снимка](../../concepts/snapshot.md), а также с помощью специальной команды в [консоли управления](https://console.yandex.cloud) или [CLI](../../../cli/cli-ref/compute/cli-ref/disk/relocate.md)

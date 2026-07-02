@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Database](index.md) > List
+
 # Managed Service for SPQR API, gRPC: DatabaseService.List
 
 Retrieves the list of SPQR Database resources in the specified cluster.

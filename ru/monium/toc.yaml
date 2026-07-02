@@ -223,8 +223,12 @@ items:
             href: logs/write/converting-data.md
           - name: Fluent Bit
             href: logs/write/fluent-bit.md
-      - name: Поиск и анализ логов
-        href: logs/logs-explorer.md
+      - name: Работа с логами
+        items:
+          - name: Поиск и анализ логов
+            href: logs/logs-explorer.md
+          - name: Ошибки и статистика
+            href: logs/errors-and-stats.md
       - name: Концепции
         items:
           - name: Обзор и основные понятия

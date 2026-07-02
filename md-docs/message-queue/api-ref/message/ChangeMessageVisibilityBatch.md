@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Message Queue](../../index.md) > [Справочник API](../index.md) > Message > ChangeMessageVisibilityBatch
+
 # ChangeMessageVisibilityBatch
 
 Метод для установки таймаута видимости группе сообщений в указанной очереди. Можно отправить до 10 вызовов `ChangeMessageVisibility` в одном вызове `ChangeMessageVisibilityBatch`.

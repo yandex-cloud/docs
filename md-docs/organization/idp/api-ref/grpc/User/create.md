@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [Identity Provider API](../index.md) > [User](index.md) > Create
+
 # Identity Provider API, gRPC: UserService.Create
 
 Creates a user in the specified userpool.

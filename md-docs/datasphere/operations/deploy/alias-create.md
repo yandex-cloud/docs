@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > DataSphere Inference > Создать алиас
+
 # Создать алиас
 
 Вы можете распределять нагрузку между [нодами](../../concepts/deploy/index.md#node) и обновлять развернутые сервисы во время работы, используя [алиасы](../../concepts/resource-model.md#resources).

@@ -1,6 +1,6 @@
-# .NET Core function runtime logging
+# .NET Core function execution logging
 
-{{ sf-name }} automatically captures a .NET Core application's standard output streams and sends them to the centralized logging system available in {{ yandex-cloud }}. In addition to the application run history, the system logs request execution events.
+{{ sf-name }} automatically captures the .NET Core application's standard output streams and sends them to the centralized logging system in {{ yandex-cloud }}. In addition to the application execution logs, the system also logs request execution events.
 
 Additional messages are logged using standard language constructs:
 1. `Console.Write`: Outputs a message to the standard output stream, `stdout`.

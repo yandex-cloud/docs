@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Инструменты для Managed Service for Kubernetes > Gwin > Конфигурация ресурсов (англ.) > IngressBackendGroup
+
 # IngressBackendGroup
 
 IngressBackendGroup is a Gwin custom resource for configuring backend groups in Yandex Application Load Balancer. It allows you to define backend targets, health checks, load balancing settings, and session affinity for your applications. It used as [Ingress](ingress.md) backend.

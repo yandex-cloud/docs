@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Network](index.md) > Create
+
 # Virtual Private Cloud API, REST: Network.Create
 
 Creates a network in the specified folder using the data specified in the request.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [LifecyclePolicy](index.md) > Create
+
 # Container Registry API, REST: LifecyclePolicy.Create
 
 Creates a lifecycle policy in the specified repository.

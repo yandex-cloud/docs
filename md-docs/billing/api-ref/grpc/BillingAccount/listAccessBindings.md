@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Billing](../../../index.md) > Справочник API > gRPC (англ.) > [Billing](../index.md) > [BillingAccount](index.md) > ListAccessBindings
+
 # Billing API, gRPC: BillingAccountService.ListAccessBindings
 
 Lists access bindings for the specified billing account.

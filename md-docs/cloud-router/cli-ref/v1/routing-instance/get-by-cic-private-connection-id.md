@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Router](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v1](../index.md) > [routing-instance](index.md) > get-by-cic-private-connection-id
+
 # yc cloudrouter v1 routing-instance get-by-cic-private-connection-id
 
 Returns the RoutingInstance resource by cicPrivateConnectionId

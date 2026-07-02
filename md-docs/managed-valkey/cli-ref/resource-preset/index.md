@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > [Справочник CLI (англ.)](../index.md) > resource-preset > Overview
+
 # yc managed-redis resource-preset
 
 Manage Redis resource presets

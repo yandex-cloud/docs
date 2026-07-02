@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Devices > [gRPC (англ.)](../index.md) > [Device](index.md) > AddPassword
+
 # IoT Core Service, gRPC: DeviceService.AddPassword
 
 Adds password for the specified device.

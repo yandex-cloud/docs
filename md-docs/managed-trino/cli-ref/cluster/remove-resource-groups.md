@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Trino](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > remove-resource-groups
+
 # yc managed-trino cluster remove-resource-groups
 
 Remove resource groups from Trino cluster configuration

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Repository](index.md) > Delete
+
 # Container Registry API, gRPC: RepositoryService.Delete
 
 Deletes the specified repository.

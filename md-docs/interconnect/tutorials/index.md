@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Interconnect](../index.md) > Практические руководства > Все руководства
+
 # Руководства по применению Cloud Interconnect
 
 ## Создание {#create}

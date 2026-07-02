@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Monium](../../../index.md) > Поставка данных > [Unified Agent](index.md) > Удаление
+
 # Удаление Unified Agent
 
 Способ удаления Unified Agent зависит от способа установки.

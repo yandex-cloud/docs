@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [snapshot-schedule](index.md) > remove-disks
+
 # yc compute snapshot-schedule remove-disks
 
 Remove disks from the specified snapshot schedule

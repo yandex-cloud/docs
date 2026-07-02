@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Безопасность в Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Настройка SSO > Настройка единого входа с помощью NetBird по стандарту OIDC
+
 # Создать OIDC-приложение в Yandex Identity Hub для интеграции с NetBird
 
 

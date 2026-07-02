@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Практические руководства](index.md) > Репликация и миграция > Миграция базы данных из Managed Service for PostgreSQL
+
 # Миграция базы данных из Managed Service for PostgreSQL
 
 Кластер Managed Service for PostgreSQL поддерживает [логическую репликацию](https://www.postgresql.org/docs/current/logical-replication.html). Это позволяет мигрировать базы данных встроенными средствами PostgreSQL между разными кластерами PostgreSQL версий 10 и выше. В том числе поддерживается миграция между разными версиями: например, можно перенести базы из PostgreSQL версии 15 в версию 17.
@@ -23,7 +25,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
+* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../pricing.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 

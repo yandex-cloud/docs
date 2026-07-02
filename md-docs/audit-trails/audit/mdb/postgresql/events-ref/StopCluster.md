@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.postgresql > StopCluster
+
 # Managed Service for PostgreSQL Audit Trails Events: StopCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.postgresql.StopCluster2-schema}

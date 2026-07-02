@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [boot-image](index.md) > delete
+
 # yc baremetal v0 boot-image delete
 
 Delete the specified boot-image

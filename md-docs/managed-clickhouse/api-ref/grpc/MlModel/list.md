@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [MlModel](index.md) > List
+
 # Managed Service for ClickHouse API, gRPC: MlModelService.List
 
 Retrieves the list of machine learning models in the specified cluster.

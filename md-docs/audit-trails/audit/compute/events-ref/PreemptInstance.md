@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > PreemptInstance
+
 # Compute Audit Trails Events: PreemptInstance
 
 ## Event JSON schema {#yandex.cloud.audit.compute.PreemptInstance2-schema}

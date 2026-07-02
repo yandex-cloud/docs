@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > Справочник API > [REST (англ.)](../index.md) > Resource > Overview
+
 # Cloud CDN API, REST: Resource
 
 Provider's resources management service.

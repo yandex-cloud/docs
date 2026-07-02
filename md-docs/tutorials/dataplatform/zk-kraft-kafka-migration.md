@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Обновление кластера Managed Service for Apache Kafka® с ZooKeeper на KRaft
+
 # Обновление кластера Managed Service for Apache Kafka® с ZooKeeper на кластер с поддержкой KRaft
 
 # Обновление кластера Managed Service for Apache Kafka® с ZooKeeper на кластер с поддержкой KRaft

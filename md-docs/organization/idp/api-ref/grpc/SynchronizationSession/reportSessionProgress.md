@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [Identity Provider API](../index.md) > [SynchronizationSession](index.md) > ReportSessionProgress
+
 # Identity Provider API, gRPC: SynchronizationSessionService.ReportSessionProgress
 
 Reports progress for a synchronization session.

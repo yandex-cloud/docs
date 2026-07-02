@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Cloud Functions
+
 # Метрики Yandex Cloud Functions
 
 В этом разделе описаны метрики сервиса [Cloud Functions](../../functions/index.md), поставляемые в Monitoring.

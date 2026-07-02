@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [PublicPrefixPool](index.md) > ListOperations
+
 # BareMetal API, gRPC: PublicPrefixPoolService.ListOperations
 
 Lists operations for the specified public prefix pool.

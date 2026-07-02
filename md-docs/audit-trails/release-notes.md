@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Audit Trails](index.md) > История изменений
+
 # История изменений в Yandex Audit Trails
 
 ## I квартал 2026 {#q1-2026}

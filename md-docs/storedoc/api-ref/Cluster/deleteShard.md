@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > DeleteShard
+
 # Managed Service for MongoDB API, REST: Cluster.DeleteShard
 
 Deletes the specified shard.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > websql > UpdateSavedQueryAccessBindings
+
 # WebSQL Audit Trails Events: UpdateSavedQueryAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.websql.UpdateSavedQueryAccessBindings2-schema}

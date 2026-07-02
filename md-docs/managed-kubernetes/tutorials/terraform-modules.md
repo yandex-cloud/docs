@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Практические руководства](index.md) > Создание проекта с помощью Terraform > Использование модулей Yandex Cloud в Terraform
+
 # Использование модулей Yandex Cloud в Terraform
 
 

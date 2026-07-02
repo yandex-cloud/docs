@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > OAuthClientSecret > Overview
+
 # Identity and Access Management API, gRPC: OAuthClientSecretService
 
 A set of methods for managing OAuthClientSecret resources.

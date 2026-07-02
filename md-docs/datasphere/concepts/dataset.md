@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > [Концепции](index.md) > Ресурсы > Датасеты
+
 # Датасеты в DataSphere
 
 {% note warning %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [Operation](index.md) > Get
+
 # BareMetal API, gRPC: OperationService.Get
 
 Returns the specified Operation resource.

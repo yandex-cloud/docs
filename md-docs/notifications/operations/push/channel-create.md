@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Notification Service](../../index.md) > [Пошаговые инструкции](../index.md) > Мобильные Push-уведомления > Создать канал push-уведомлений
+
 # Создать канал push-уведомлений
 
 В Cloud Notification Service сообщения конечным пользователям отправляются через [каналы уведомлений](../../concepts/index.md#channels).

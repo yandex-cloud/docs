@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > [Справочник API](index.md) > SMS > GetAttributes
+
 # Действие GetSMSChannelAttributes
 
 Получает параметры [канала SMS-уведомлений](../concepts/sms.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Инструменты для Managed Service for Kubernetes > Обзор
+
 # Инструменты для Managed Service for Kubernetes
 
 Чтобы создавать балансировщики нагрузки и управлять ими в кластерах Managed Service for Kubernetes, сервис Application Load Balancer предоставляет следующие инструменты:

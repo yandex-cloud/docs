@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Airflow™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Stop
+
 # Managed Service for Apache Airflow™ API, gRPC: ClusterService.Stop
 
 Stops the specified Apache Airflow cluster.

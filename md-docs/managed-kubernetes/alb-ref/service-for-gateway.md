@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Инструменты Application Load Balancer](index.md) > Gateway API > Конфигурация ресурсов > Service для Gateway API
+
 # Поля и аннотации ресурса Service для Gateway API
 
 Ресурс `Service` соответствует [сервису Kubernetes](../concepts/index.md#service). Для [Gateway API](gateway-api/index.md) сервисы представляют собой бэкенды, между которыми распределяется входящий трафик в кластере Managed Service for Kubernetes. Сервисы, выступающие в роли бэкендов Application Load Balancer, указываются в ресурсе [HTTPRoute](http-route.md).

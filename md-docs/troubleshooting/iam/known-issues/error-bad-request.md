@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Identity and Access Management](../index.md) > Устранение ошибки `Response is invalid in a general way` при авторизации через SAML-провайдер
+
 # Устранение ошибки `Response is invalid in a general way` при авторизации через SAML-провайдер
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > DataSphere Inference > Изменить алиас
+
 # Изменить алиас
 
 Чтобы изменить [алиас](../../concepts/deploy/index.md#alias):

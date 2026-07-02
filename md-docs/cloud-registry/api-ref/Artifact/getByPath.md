@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Artifact](index.md) > GetByPath
+
 # Yandex Cloud Registry API, REST: Artifact.GetByPath
 
 Returns the specified artifact resource by path within the registry.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Identity and Access Management
+
 # Метрики Yandex Identity and Access Management
 
 В этом разделе описаны метрики сервиса [Identity and Access Management](../../iam/index.md), поставляемые в Monium Metrics.

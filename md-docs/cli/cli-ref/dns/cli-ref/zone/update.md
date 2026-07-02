@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [dns](../index.md) > [zone](index.md) > update
+
 # yc dns zone update
 
 Modify configuration or attributes of a dns zone.

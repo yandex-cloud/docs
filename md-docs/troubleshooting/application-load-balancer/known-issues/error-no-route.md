@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Application Load Balancer](../index.md) > Устранение ошибки `no_route` при открытии адреса
+
 # Устранение ошибки `no_route` при открытии адреса
 
 

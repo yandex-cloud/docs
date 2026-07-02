@@ -1,11 +1,11 @@
-Currently, the following data write formats are supported:
+The service currently supports the following formats for writing data:
 
 |Data format|Name in {{ yq-name }}|
 |--|--|
 |[CSV](https://en.wikipedia.org/wiki/Comma-separated_values)|[csv_with_names](../sources-and-sinks/formats.md#csv_with_names)|
 |[Parquet](https://en.wikipedia.org/wiki/Apache_Parquet)|[parquet](../sources-and-sinks/formats.md#parquet)|
 
-{{ yq-name }} supports the following compression algorithms for data writes:
+{{ yq-name }} supports the following compression algorithms for writing data:
 
 |Compression format|Name in {{ yq-name }}|
 |--|--|
@@ -16,8 +16,8 @@ Currently, the following data write formats are supported:
 |[Bzip2](https://en.wikipedia.org/wiki/Bzip2)|bzip2|
 |[Xz](https://en.wikipedia.org/wiki/Lempel–Ziv–Markov_chain_algorithm#xz_and_7z_formats)|xz|
 
-`Parquet` file format supports its own internal compression algorithms. {{ yq-name }} allows writing data in `parquet` format using the following compression algorithms:
+While the `parquet` format supports built-in compression algorithms, {{ yq-name }} also enables you to write `parquet` data using these:
 
 |Compression format|Name in {{ yq-name }}|
 |--|--|
-|[Snappy](https://en.wikipedia.org/wiki/Snappy_(compression))| No name, by default |
+|[Snappy](https://en.wikipedia.org/wiki/Snappy_(compression))| None (used by default) |

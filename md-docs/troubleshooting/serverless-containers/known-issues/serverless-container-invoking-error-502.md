@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Serverless Containers](../index.md) > Устранение ошибки `Code 502 Message Error during function invocation`
+
 # Устранение ошибки `Code 502 Message Error during function invocation`
 
 

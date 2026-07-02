@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > Вопросы и ответы > Ошибка Not enough resources
+
 # Ошибка Not enough resources
 
 Если в зоне доступности не хватает аппаратных ресурсов, создание ВМ может завершиться ошибкой `Not enough resources`.

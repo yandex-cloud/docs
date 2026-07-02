@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud Registry > Data Sources > cloudregistry_registry_ip_permission
+
 # yandex_cloudregistry_registry_ip_permission (DataSource)
 
 Creates a new Cloud Registry IP Permission. For more information, see [the official documentation](../../cloud-registry/operations/registry/registry-access)

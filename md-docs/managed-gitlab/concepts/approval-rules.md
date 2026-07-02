@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > [Концепции](index.md) > Правила ревью кода > Обзор
+
 # Правила ревью кода в Yandex Managed Service for GitLab
 
 Managed Service for GitLab позволяет гибко настраивать обязательные _правила ревью кода_, прежде чем код может быть добавлен в целевую [ветку проекта](../../glossary/vcs.md#branch). Функциональность является альтернативой встроенному в GitLab Enterprise Edition инструменту [Approval Rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html) и доступна вне зависимости от [версии](https://about.gitlab.com/pricing) GitLab.
@@ -6,7 +8,7 @@ Managed Service for GitLab позволяет гибко настраивать 
 
 {% note warning %}
 
-За использование правил ревью кода в Managed Service for GitLab взимается плата в зависимости от используемой [конфигурации](approval-rules.md#packages). Подробнее читайте на странице [{#T}](../../managed-gitlab/pricing.md).
+За использование правил ревью кода в Managed Service for GitLab взимается плата в зависимости от используемой [конфигурации](approval-rules.md#packages). Подробнее читайте на странице [Правила тарификации для Yandex Managed Service for GitLab](../pricing.md).
 
 {% endnote %}
 
@@ -28,7 +30,7 @@ Managed Service for GitLab позволяет гибко настраивать 
 
 ## Доступные конфигурации {#packages}
 
-Выбранная конфигурация влияет на [стоимость использования вычислительных ресурсов инстанса](../../managed-gitlab/pricing.md#prices).
+Выбранная конфигурация влияет на [стоимость использования вычислительных ресурсов инстанса](../pricing.md#prices).
 
 Вы можете выбрать нужную конфигурацию, исходя из задач команды:
 

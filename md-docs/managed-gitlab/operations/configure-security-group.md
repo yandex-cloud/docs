@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > [Пошаговые инструкции](index.md) > Настройка групп безопасности
+
 # Настройка групп безопасности
 
 ## Группы безопасности и ограничение доступа к инстансу Managed Service for GitLab {#sg-instance}

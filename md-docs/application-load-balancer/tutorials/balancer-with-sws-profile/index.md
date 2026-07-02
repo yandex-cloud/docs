@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Практические руководства](../index.md) > Создание L7-балансировщика Application Load Balancer с профилем безопасности Smart Web Security > Обзор
+
 # Создание L7-балансировщика Application Load Balancer с профилем безопасности Yandex Smart Web Security
 
 # Создание L7-балансировщика Yandex Application Load Balancer с профилем безопасности Yandex Smart Web Security

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > SpeechKit > Все решения для SpeechKit
+
 # Решения для SpeechKit
 
 ## Примеры конфигураций и сценариев SpeechKit {#configuration-examples}

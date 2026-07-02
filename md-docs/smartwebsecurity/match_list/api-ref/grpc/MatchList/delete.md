@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Smart Web Security](../../../../index.md) > Справочник API > gRPC (англ.) > [SmartWebSecurity MatchList API](../index.md) > [MatchList](index.md) > Delete
+
 # SmartWebSecurity MatchList API, gRPC: MatchListService.Delete
 
 Deletes the specified MatchList resource.

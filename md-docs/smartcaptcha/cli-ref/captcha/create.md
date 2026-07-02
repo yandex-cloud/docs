@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex SmartCaptcha](../../index.md) > [Справочник CLI (англ.)](../index.md) > [captcha](index.md) > create
+
 # yc smartcaptcha captcha create
 
 Creates a captcha in the specified folder using the data specified in the request.

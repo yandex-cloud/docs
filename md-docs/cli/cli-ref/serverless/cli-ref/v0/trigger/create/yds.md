@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [serverless](../../../index.md) > [v0](../../index.md) > [trigger](../index.md) > [create](index.md) > yds
+
 # yc serverless v0 trigger create yds
 
 Create YDS trigger

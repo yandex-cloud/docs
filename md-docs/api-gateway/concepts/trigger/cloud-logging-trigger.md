@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Триггер](index.md) > Триггер для Yandex Cloud Logging
+
 # Триггер для Cloud Logging, который отправляет сообщения в WebSocket-соединения
 
 [Триггер](index.md) для Cloud Logging отправляет сообщения в [WebSocket-соединения](../extensions/websocket.md), когда в [лог-группу](../../../logging/concepts/log-group.md) добавляют записи.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Image](index.md) > UpdateAccessBindings
+
 # Compute Cloud API, REST: Image.UpdateAccessBindings
 
 Updates access bindings for the image.

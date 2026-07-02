@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Практические руководства](index.md) > Бэкенд на Serverless > Разработка функций в Functions Framework и их развертывание в Yandex Serverless Containers
+
 # Разработка функций в Functions Framework и их развертывание в Yandex Serverless Containers
 
 
@@ -41,7 +43,7 @@
 В стоимость поддержки создаваемой инфраструктуры входят:
 
 * плата за объем хранилища, объем исходящего трафика и использование сканера уязвимостей Container Registry ([тарифы Yandex Container Registry](../../container-registry/pricing.md));
-* плата за использование сервиса Serverless Containers ([тарифы Yandex Serverless Containers](../../serverless-containers/pricing.md)).
+* плата за использование сервиса Serverless Containers ([тарифы Yandex Serverless Containers](../pricing.md)).
 
 ### Настройте окружение {#setup-runtime}
 

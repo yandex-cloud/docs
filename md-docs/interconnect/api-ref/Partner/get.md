@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Partner](index.md) > Get
+
 # Cloud Interconnect API, REST: Partner.Get
 
 Returns the specified Partner resource.

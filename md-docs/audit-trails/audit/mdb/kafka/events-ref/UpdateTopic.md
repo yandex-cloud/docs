@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.kafka > UpdateTopic
+
 # Managed Service for Apache Kafka® Audit Trails Events: UpdateTopic
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.kafka.UpdateTopic2-schema}

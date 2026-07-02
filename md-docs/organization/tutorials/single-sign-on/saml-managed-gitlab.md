@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Практические руководства](../index.md) > [Настройка единого входа в приложения (SSO)](index.md) > Managed Service for GitLab
+
 # Создать SAML-приложение в Yandex Identity Hub для интеграции с Managed Service for GitLab
 
 Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться в Yandex Managed Service for GitLab с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../concepts/applications/saml.md) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Managed Service for GitLab.

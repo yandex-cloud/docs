@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Smart Web Security](../../../../index.md) > Справочник API > gRPC (англ.) > [SmartWebSecurity ARL API](../index.md) > AdvancedRateLimiterProfile > Overview
+
 # SmartWebSecurity ARL API, gRPC: AdvancedRateLimiterProfileService
 
 A set of methods for managing AdvancedRateLimiterProfile resources.

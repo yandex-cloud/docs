@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for OpenSearch](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > UpdateDashboardsNodeGroup
+
 # Managed Service for OpenSearch API, REST: Cluster.UpdateDashboardsNodeGroup
 
 Updates a Dashboards type host group.

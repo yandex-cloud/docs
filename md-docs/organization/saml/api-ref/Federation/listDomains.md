@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [SAML Federation API](../index.md) > [Federation](index.md) > ListDomains
+
 # SAML Federation API, REST: Federation.ListDomains
 
 Retrieves the list of domains in the specified federation.

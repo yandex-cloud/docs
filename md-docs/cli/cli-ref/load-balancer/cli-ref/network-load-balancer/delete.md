@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [load-balancer](../index.md) > [network-load-balancer](index.md) > delete
+
 # yc load-balancer network-load-balancer delete
 
 Delete the specified load balancer

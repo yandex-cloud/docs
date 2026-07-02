@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > smartwebsecurity > UpdateLoadBalancer
+
 # Smart Web Security Audit Trails Events: UpdateLoadBalancer
 
 ## Event JSON schema {#yandex.cloud.audit.smartwebsecurity.UpdateLoadBalancer2-schema}

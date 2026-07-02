@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [RawLogs](index.md) > Update
+
 # Cloud CDN API, gRPC: RawLogsService.Update
 
 Update configuration of raw log export.

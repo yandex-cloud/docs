@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [organization-manager](../../index.md) > [v0](../index.md) > [mfa-enforcement](index.md) > deactivate
+
 # yc organization-manager v0 mfa-enforcement deactivate
 
 Deactivate the specified mfa enforcement

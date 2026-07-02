@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex SpeechKit Hybrid](../index.md) > Синтез речи > О технологии
+
 # Синтез речи
 
 ## Список доступных голосов {#voices}

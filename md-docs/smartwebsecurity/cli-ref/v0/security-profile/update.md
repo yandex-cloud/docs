@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [security-profile](index.md) > update
+
 # yc smartwebsecurity v0 security-profile update
 
 Update the specified security profile

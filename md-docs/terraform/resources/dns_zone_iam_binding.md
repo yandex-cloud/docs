@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud DNS > Resources > dns_zone_iam_binding
+
 # yandex_dns_zone_iam_binding (Resource)
 
 Allows creation and management of a single binding within IAM policy for an existing `dns_zone`.

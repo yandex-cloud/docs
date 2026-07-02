@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > smartwebsecurity > StartLoadBalancer
+
 # Smart Web Security Audit Trails Events: StartLoadBalancer
 
 ## Event JSON schema {#yandex.cloud.audit.smartwebsecurity.StartLoadBalancer2-schema}

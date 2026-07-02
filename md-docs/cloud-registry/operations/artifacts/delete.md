@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > [Пошаговые инструкции](../index.md) > Управление артефактами > Удалить артефакт из реестра
+
 # Удалить артефакт из реестра
 
 Вы можете удалить [артефакт](../../concepts/artifacts/index.md) из [реестра](../../concepts/registry.md) Cloud Registry.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cic](../../index.md) > [v1](../index.md) > [point-of-presence](index.md) > get
+
 # yc cic v1 point-of-presence get
 
 Returns the specified PointOfPresence resource.

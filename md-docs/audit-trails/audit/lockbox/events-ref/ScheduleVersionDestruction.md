@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > lockbox > ScheduleVersionDestruction
+
 # Lockbox Audit Trails Events: ScheduleVersionDestruction
 
 ## Event JSON schema {#yandex.cloud.audit.lockbox.ScheduleVersionDestruction2-schema}

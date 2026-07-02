@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Monitoring](../../../index.md) > [Агент сбора метрик](index.md) > Удаление
+
 # Удаление Yandex Unified Agent
 
 Способ удаления Unified Agent зависит от способа установки.

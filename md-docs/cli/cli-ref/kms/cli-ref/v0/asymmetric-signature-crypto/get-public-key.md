@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [kms](../../index.md) > [v0](../index.md) > [asymmetric-signature-crypto](index.md) > get-public-key
+
 # yc kms v0 asymmetric-signature-crypto get-public-key
 
 Get public key

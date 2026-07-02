@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > Управление доступом
+
 # Управление доступом в Query
 
 Для управления правами доступа в Query используются [роли](../../iam/concepts/access-control/roles.md).

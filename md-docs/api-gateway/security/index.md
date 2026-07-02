@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex API Gateway](../index.md) > Управление доступом
+
 # Управление доступом в API Gateway
 
 В этом разделе вы узнаете:

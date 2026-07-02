@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > [Пошаговые инструкции](index.md) > Хранение артефактов в Yandex Lockbox > Загрузка переменной из Yandex Lockbox
+
 # Загрузка переменной из Yandex Lockbox
 
 При работе с Yandex Managed Service for Apache Airflow™ вы можете использовать [Yandex Lockbox](../../lockbox/index.md) для хранения артефактов, которые могут использоваться в DAG-файлах: подключений, переменных и конфигурационных данных. Yandex Lockbox интегрируется в Managed Service for Apache Airflow™ через провайдер [Yandex Lockbox Secret Backend](https://airflow.apache.org/docs/apache-airflow-providers-yandex/stable/secrets-backends/yandex-cloud-lockbox-secret-backend.html). В результате доступ к хранилищу секретов настраивается автоматически.

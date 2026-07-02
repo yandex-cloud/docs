@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Network Load Balancer](../index.md) > Устранение ошибки `One of the targets already a part of the another target group`
+
 # Устранение ошибки `One of the targets already a part of the another target group`
 
 

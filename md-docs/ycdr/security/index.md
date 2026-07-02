@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Detection and Response](../index.md) > Управление доступом
+
 # Управление доступом в YCDR
 
 В этом разделе вы узнаете:

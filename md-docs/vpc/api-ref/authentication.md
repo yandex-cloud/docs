@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Virtual Private Cloud
 
 # Аутентификация в API

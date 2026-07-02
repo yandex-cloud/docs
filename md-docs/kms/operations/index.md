@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Key Management Service](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Key Management Service
 
 ## Симметричное шифрование {#symmetric-encryption}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Monitoring](../../../index.md) > [Yandex Managed Service for Prometheus®](../index.md) > [Запись метрик](index.md) > Диагностика и устранение проблем
+
 # Диагностика и устранение проблем при записи метрик через Remote API
 
 Наиболее распространенной проблемой является отставание данных, отправляемых в удаленное хранилище, от данных, записываемых в WAL. Обычно это происходит после перезапуска Prometheus или перезагрузки [конфигурации](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write).

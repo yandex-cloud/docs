@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > [Практические руководства](index.md) > Знакомство с DataLens > Простой дашборд из CSV-файла
+
 # Простой дашборд из CSV-файла
 
 

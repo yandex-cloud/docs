@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [RawLogs](index.md) > Get
+
 # Cloud CDN API, REST: RawLogs.Get
 
 Get configuration of raw log export.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > AddOAuthFederatedUserAccounts
+
 # Identity Hub Audit Trails Events: AddOAuthFederatedUserAccounts
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.oauth.AddOAuthFederatedUserAccounts2-schema}

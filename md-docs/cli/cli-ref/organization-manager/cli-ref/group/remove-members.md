@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [organization-manager](../index.md) > [group](index.md) > remove-members
+
 # yc organization-manager group remove-members
 
 Remove members from the specified group

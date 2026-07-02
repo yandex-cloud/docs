@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Managed Service for ClickHouse®
+
 # Метрики Yandex Managed Service for ClickHouse®
 
 В этом разделе описаны метрики сервиса [Managed Service for ClickHouse®](../../managed-clickhouse/index.md), поставляемые в Monium Metrics.

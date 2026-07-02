@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Connection Manager > Сервисные роли для управления доступом
+
 # Сервисные роли для управления подключениями с помощью Yandex Connection Manager
 
 

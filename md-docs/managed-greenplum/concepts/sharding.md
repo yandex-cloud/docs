@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Концепции](overview.md) > Шардирование
+
 # Шардирование в Yandex MPP Analytics for PostgreSQL
 
 [_Шардирование_](../../glossary/sharding.md) — это стратегия горизонтального масштабирования кластера Yandex MPP Analytics for PostgreSQL, при которой части каждой таблицы в базе данных размещаются на разных хостах-сегментах. Каждый запрос на запись или чтение в Yandex MPP Analytics for PostgreSQL утилизирует все сегменты кластера.

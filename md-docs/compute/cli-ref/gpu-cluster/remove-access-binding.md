@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [gpu-cluster](index.md) > remove-access-binding
+
 # yc compute gpu-cluster remove-access-binding
 
 Remove access binding for the specified GPU cluster

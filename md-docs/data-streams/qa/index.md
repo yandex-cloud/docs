@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Streams](../index.md) > Вопросы и ответы
+
 # Общие вопросы про Data Streams
 
 #### Я могу получить логи моей работы в сервисах? {#logs}

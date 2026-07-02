@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v1](../index.md) > [registry](index.md) > list
+
 # yc cloud-registry v1 registry list
 
 Retrieves the list of Registry resources in the specified folder.

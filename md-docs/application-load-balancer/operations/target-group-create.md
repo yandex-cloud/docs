@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > Целевые группы > Создать целевую группу
+
 # Создать целевую группу Application Load Balancer
 
 Создайте [виртуальные машины](../../compute/concepts/vm.md) в рабочем [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) по [инструкции](../../compute/operations/index.md#vm-create).

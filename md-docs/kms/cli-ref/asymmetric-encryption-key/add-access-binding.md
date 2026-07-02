@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > [Справочник CLI (англ.)](../index.md) > [asymmetric-encryption-key](index.md) > add-access-binding
+
 # yc kms asymmetric-encryption-key add-access-binding
 
 Add access binding for the specified asymmetric encryption key

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [hosts](index.md) > restart
+
 # yc managed-clickhouse hosts restart
 
 Restart specified hosts of the cluster.

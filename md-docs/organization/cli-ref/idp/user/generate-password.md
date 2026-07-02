@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [idp](../index.md) > [user](index.md) > generate-password
+
 # yc organization-manager idp user generate-password
 
 Generate a new password

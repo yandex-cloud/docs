@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Topic > Overview
+
 # Managed Service for Apache Kafka® API, gRPC: TopicService
 
 A set of methods for managing Kafka topics.

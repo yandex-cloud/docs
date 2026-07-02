@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > [Справочник CLI (англ.)](../index.md) > [sink](index.md) > list-operations
+
 # yc logging sink list-operations
 
 List sink operations

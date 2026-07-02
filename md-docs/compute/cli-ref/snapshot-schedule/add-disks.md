@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [snapshot-schedule](index.md) > add-disks
+
 # yc compute snapshot-schedule add-disks
 
 Add disks to the specified snapshot schedule

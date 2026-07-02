@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Audit Trails](../index.md) > [Пошаговые инструкции](index.md) > Управление правами доступа к трейлу > Назначить роли на трейл
+
 # Назначить роли на трейл
 
 {% list tabs group=instructions %}

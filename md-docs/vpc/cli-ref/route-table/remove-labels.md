@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [route-table](index.md) > remove-labels
+
 # yc vpc route-table remove-labels
 
 Remove labels from a route table.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Registry](index.md) > SetAccessBindings
+
 # Yandex Cloud Registry API, gRPC: RegistryService.SetAccessBindings
 
 Sets access bindings for the specified registry.

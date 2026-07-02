@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Инструменты для Managed Service for Kubernetes > Gateway API > Конфигурация ресурсов > Gateway
+
 # Поля ресурса Gateway
 
 В ресурсе `Gateway` определяются правила приема входящего трафика и выбора маршрутов (ресурсов [HTTPRoute](http-route.md), [GRPCRoute](grpc-route.md) и [TLSRoute](tls-route.md)) для этого трафика. По этим правилам [Gateway API Application Load Balancer](../tools/k8s-gateway-api/index.md) создает:

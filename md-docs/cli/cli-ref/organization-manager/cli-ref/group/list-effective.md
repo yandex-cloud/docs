@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [organization-manager](../index.md) > [group](index.md) > list-effective
+
 # yc organization-manager group list-effective
 
 List groups that the subject belongs to within a specific organization.

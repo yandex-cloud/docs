@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YDB](../../../index.md) > Document API, совместимый с Amazon DynamoDB > [Справочник Document API](../index.md) > Actions > TransactWriteItems
+
 # Метод TransactWriteItems
 
 Синхронная операция записи, которая группирует до 25 действий. Можно работать с элементами из разных таблиц, но с одним элементом за один запрос можно выполнять только одно действие.

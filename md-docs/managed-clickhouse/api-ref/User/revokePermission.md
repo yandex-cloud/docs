@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [User](index.md) > RevokePermission
+
 # Managed Service for ClickHouse API, REST: User.RevokePermission
 
 Revokes a permission from the specified ClickHouse user.

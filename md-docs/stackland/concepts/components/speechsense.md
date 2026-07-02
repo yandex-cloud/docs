@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > Концепции > [Компоненты](overview.md) > SpeechSense
+
 # SpeechSense
 
 Yandex SpeechSense — платформа анализа речи в составе Stackland. Платформа распознает и анализирует аудиозаписи разговоров, извлекает из них текст, классифицирует обращения и формирует аналитические отчеты.

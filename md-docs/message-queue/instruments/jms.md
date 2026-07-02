@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Message Queue](../index.md) > [Начало работы](index.md) > Примеры кода > JMS
+
 # Пример использования Yandex Message Queue на JMS
 
 [JMS](https://www.oracle.com/technetwork/java/jms/index.html) — это API для передачи сообщений между компонентами приложений. С помощью AWS SQS Java Messaging Library можно использовать Message Queue для отправки и получения сообщений через JMS. 

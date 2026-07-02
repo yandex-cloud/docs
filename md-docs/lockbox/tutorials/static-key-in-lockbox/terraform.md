@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Lockbox](../../index.md) > [Практические руководства](../index.md) > [Хранение статического ключа доступа в секрете Yandex Lockbox](index.md) > Terraform
+
 # Использование секрета Yandex Lockbox для хранения статического ключа доступа с помощью Terraform
 
 Чтобы [использовать статический ключ доступа](index.md), сохраненный в секрете Yandex Lockbox, с помощью Terraform:
@@ -24,7 +26,7 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за хранение одной версии секрета Yandex Lockbox ([тарифы Yandex Lockbox](../../../lockbox/pricing.md#secrets));
+* плата за хранение одной версии секрета Yandex Lockbox ([тарифы Yandex Lockbox](../../pricing.md#secrets));
 * плата за хранение данных в Object Storage, операции с ними и исходящий трафик (плата не будет взиматься, если в бакете не будут храниться данные, [тарифы Object Storage](../../../storage/pricing.md#rules)).
 
 

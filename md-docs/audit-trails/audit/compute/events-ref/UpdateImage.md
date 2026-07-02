@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > UpdateImage
+
 # Compute Audit Trails Events: UpdateImage
 
 ## Event JSON schema {#yandex.cloud.audit.compute.UpdateImage2-schema}

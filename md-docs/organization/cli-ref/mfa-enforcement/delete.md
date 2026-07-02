@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Справочник CLI (англ.)](../index.md) > [mfa-enforcement](index.md) > delete
+
 # yc organization-manager mfa-enforcement delete
 
 Delete the specified mfa enforcement

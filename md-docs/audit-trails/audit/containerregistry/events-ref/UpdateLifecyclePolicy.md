@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > containerregistry > UpdateLifecyclePolicy
+
 # Container Registry Audit Trails Events: UpdateLifecyclePolicy
 
 ## Event JSON schema {#yandex.cloud.audit.containerregistry.UpdateLifecyclePolicy2-schema}

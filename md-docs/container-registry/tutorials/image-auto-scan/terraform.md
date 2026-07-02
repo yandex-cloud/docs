@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Практические руководства](../index.md) > [Автоматическое сканирование Docker-образа при загрузке](index.md) > Terraform
+
 # Автоматическое сканирование Docker-образа при загрузке с помощью Terraform
 
 

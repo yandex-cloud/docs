@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Scanner > Overview
+
 # Container Registry API, gRPC: ScannerService
 
 A set of methods for scanning Docker images.

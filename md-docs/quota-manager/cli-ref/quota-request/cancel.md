@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Quota Manager](../../index.md) > [Справочник CLI (англ.)](../index.md) > [quota-request](index.md) > cancel
+
 # yc quota-manager quota-request cancel
 
 Cancel quotas in the specified quota request.

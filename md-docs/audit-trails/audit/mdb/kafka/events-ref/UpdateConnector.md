@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.kafka > UpdateConnector
+
 # Managed Service for Apache Kafka® Audit Trails Events: UpdateConnector
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.kafka.UpdateConnector2-schema}

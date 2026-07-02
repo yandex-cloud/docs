@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Sharded PostgreSQL](index.md) > История изменений
+
 # История изменений в Yandex Managed Service for Sharded PostgreSQL
 
 ## Июнь 2026 {#jun-2026}

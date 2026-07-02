@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Application Load Balancer](index.md) > Логи L7-балансировщика
+
 # Справочник логов Yandex Application Load Balancer
 
 В этом разделе описаны поля логов, поставляемых L7-балансировщиком. 

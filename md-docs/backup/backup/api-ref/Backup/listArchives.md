@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Backup](../../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Backup](index.md) > ListArchives
+
 # Cloud Backup API, REST: Backup.ListArchives
 
 List archives that holds backups for specified folder or

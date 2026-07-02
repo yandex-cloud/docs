@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v1](../index.md) > [public-connection](index.md) > list
+
 # yc cic v1 public-connection list
 
 Retrieves the list of PublicConnection resources in the specified folder.

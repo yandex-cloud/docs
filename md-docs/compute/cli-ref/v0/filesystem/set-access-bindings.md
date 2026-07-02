@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [filesystem](index.md) > set-access-bindings
+
 # yc compute v0 filesystem set-access-bindings
 
 Set access bindings for the specified filesystem and delete all existing access bindings if there were any

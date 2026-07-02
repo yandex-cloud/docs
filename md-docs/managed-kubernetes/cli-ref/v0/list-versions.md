@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Справочник CLI (англ.)](../index.md) > [v0](index.md) > list-versions
+
 # yc managed-kubernetes v0 list-versions
 
 List available kubernetes versions.

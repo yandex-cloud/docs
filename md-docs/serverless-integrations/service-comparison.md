@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Serverless Integrations](index.md) > Сопоставление с другими сервисами Yandex Cloud
+
 # Сравнение EventRouter, Workflows и Data Streams
 
 **Критерий \ Сервис** | **EventRouter** | **Workflows** | **Data Streams**

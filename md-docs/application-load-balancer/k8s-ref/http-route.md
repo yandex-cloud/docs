@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Инструменты для Managed Service for Kubernetes > Gateway API > Конфигурация ресурсов > HTTPRoute
+
 # Поля ресурса HTTPRoute
 
 В ресурсе `HTTPRoute` определяются правила маршрутизации трафика по бэкендам — сервисам Kubernetes (ресурсам [Service](service-for-gateway.md)) или перенаправления трафика. `HTTPRoute` получает входящий трафик от тех [ресурсов Gateway](gateway.md), требованиям которых он соответствует.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > [Справочник CLI (англ.)](../index.md) > [registry](index.md) > remove-labels
+
 # yc iot registry remove-labels
 
 Remove labels from specified registry

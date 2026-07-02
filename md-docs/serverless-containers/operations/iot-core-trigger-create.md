@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Пошаговые инструкции](index.md) > Создание триггера > Создать триггер для Yandex IoT Core > Устройство
+
 # Создать триггер, который передает сообщения в контейнер Serverless Containers из топика реестра или устройства Yandex IoT Core
 
 Создайте [триггер](../concepts/trigger/iot-core-trigger.md) для топика устройства или реестра Yandex IoT Core и обрабатывайте копии сообщений с помощью [контейнера](../concepts/container.md) Serverless Containers.

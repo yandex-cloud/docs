@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > Backup
+
 # Managed Service for SPQR API, REST: Cluster.Backup
 
 Creates a backup for the specified SPQR cluster.

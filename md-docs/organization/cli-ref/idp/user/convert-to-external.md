@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [idp](../index.md) > [user](index.md) > convert-to-external
+
 # yc organization-manager idp user convert-to-external
 
 Convert a user to use external authentication

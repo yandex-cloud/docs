@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > Концепции > Настройка и управление > Аудитные логи Audit Trails > Справочник аудитных логов > CreatePublicSubnet
+
 # BareMetal Audit Trails Events: CreatePublicSubnet
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.CreatePublicSubnet2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > loadtesting > DeleteRegressionDashboard
+
 # Load Testing Audit Trails Events: DeleteRegressionDashboard
 
 ## Event JSON schema {#yandex.cloud.audit.loadtesting.DeleteRegressionDashboard2-schema}

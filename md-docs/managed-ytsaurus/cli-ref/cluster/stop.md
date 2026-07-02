@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for YTsaurus](../../index.md) > [Справочник YC CLI (англ.)](../index.md) > [cluster](index.md) > stop
+
 # yc managed-ytsaurus cluster stop
 
 Stop the specified YTsaurus clusters.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.clickhouse > DeleteMlModel
+
 # Managed Service for ClickHouse Audit Trails Events: DeleteMlModel
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.clickhouse.DeleteMlModel2-schema}

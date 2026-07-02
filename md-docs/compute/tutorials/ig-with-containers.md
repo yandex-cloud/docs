@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Практические руководства](index.md) > Container Optimized Image > Создать группу ВМ с Container Optimized Image и несколькими Docker-контейнерами
+
 # Создание группы виртуальных машин с Container Optimized Image и несколькими Docker-контейнерами
 
 Вы можете создать [группу виртуальных машин](../concepts/instance-groups/index.md) на базе [образа](../concepts/image.md) [Container Optimized Image](../../cos/concepts/index.md) с несколькими [Docker-контейнерами](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers) внутри.

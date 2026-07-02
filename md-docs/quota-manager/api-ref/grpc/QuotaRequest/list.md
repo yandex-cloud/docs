@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Quota Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [QuotaRequest](index.md) > List
+
 # Quota Manager API, gRPC: QuotaRequestService.List
 
 Retrieves the list of quota requests in the specified resource.

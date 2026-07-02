@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YDB](../../../index.md) > [Справочник API Yandex Cloud для Managed Service for YDB](../../overview.md) > [gRPC (англ.)](../index.md) > [StorageType](index.md) > Get
+
 # Managed Service for YDB API, gRPC: StorageTypeService.Get
 
 Returns the specified storage types.

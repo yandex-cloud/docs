@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > DisableZones
+
 # Compute Audit Trails Events: DisableZones
 
 ## Event JSON schema {#yandex.cloud.audit.compute.instancegroup.DisableZones2-schema}

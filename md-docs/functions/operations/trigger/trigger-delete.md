@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Пошаговые инструкции](../index.md) > Управление триггером > Удалить триггер
+
 # Удалить триггер в Cloud Functions
 
 {% list tabs group=instructions %}

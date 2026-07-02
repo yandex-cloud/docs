@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [private-connection](index.md) > create
+
 # yc cic v0 private-connection create
 
 Create a privateConnection.

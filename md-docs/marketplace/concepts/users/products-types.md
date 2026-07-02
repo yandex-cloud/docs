@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Marketplace](../../index.md) > Пользователям > Концепции > Типы продуктов
+
 # Типы продуктов в Cloud Marketplace
 
 | **Тип продукта** | **Описание** |

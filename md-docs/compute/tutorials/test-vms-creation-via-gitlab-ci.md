@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Практические руководства](index.md) > Создание тестовых виртуальных машин через GitLab CI
+
 # Создание тестовых виртуальных машин через GitLab CI
 
 # Создание тестовых виртуальных машин через GitLab CI
@@ -35,8 +37,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* Плата за постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за хранение созданных образов ([тарифы Compute Cloud](../../compute/pricing.md#prices-storage)).
+* Плата за постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../pricing.md)).
+* Плата за хранение созданных образов ([тарифы Compute Cloud](../pricing.md#prices-storage)).
 * Плата за использование динамических публичных IP-адресов ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Создайте виртуальную машину для тестового приложения {#create-vm}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [Yandex Cloud gRPC (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Object Storage API, gRPC: OperationService.Cancel
 
 Cancels the specified operation.

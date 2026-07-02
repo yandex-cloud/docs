@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [GroupMapping](index.md) > Get
+
 # Identity Hub API, gRPC: GroupMappingService.Get
 
 Returns a group mapping configured for the specific federation

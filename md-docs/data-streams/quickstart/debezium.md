@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Streams](../index.md) > [Начало работы](index.md) > Обработка потока изменений из Debezium
+
 # Обработка потока изменений Debezium
 
 [Debezium](https://debezium.io) — это сервис для захвата изменений в базах данных (Change Data Capture) и отправки их на обработку в другие системы. С помощью Yandex Data Streams можно захватывать эти изменения и отправлять их в Cloud Functions.

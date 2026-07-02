@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Yandex Identity Hub
 
 * [Разграничение прав доступа для групп пользователей с различными ролями в Yandex Identity Hub](user-group-access-control.md)

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > public-connection > Overview
+
 # yc cic v0 public-connection
 
 [PREVIEW] Manage publicConnections.

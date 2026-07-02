@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Router](../index.md) > [Концепции](index.md) > Анонсы IP-префиксов
+
 ## Анонсы облачных подсетей и взаимодействие с VPC {#prc-announce}
 
 Для анонсирования IP-префиксов виртуальных сетей в `Routing Instance` необходимо знать:

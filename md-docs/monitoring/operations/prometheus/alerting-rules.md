@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Monitoring](../../index.md) > [Yandex Managed Service for Prometheus®](index.md) > Правила алертинга
+
 # Правила алертинга
 
 Yandex Managed Service for Prometheus® позволяет добавить правила вычисления алертов и отправлять уведомления об их срабатывании. 

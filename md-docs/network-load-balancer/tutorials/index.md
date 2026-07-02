@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Network Load Balancer](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Network Load Balancer
 
 * [Архитектура и защита базового интернет-сервиса](web-service.md)

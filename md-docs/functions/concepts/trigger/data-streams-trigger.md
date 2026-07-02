@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Концепции](../index.md) > [Триггер](index.md) > Триггер для Data Streams
+
 # Триггер для Data Streams, который вызывает функцию Cloud Functions
 
  [Триггер](index.md) для Data Streams запускает [функцию](../function.md) Cloud Functions при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts). 

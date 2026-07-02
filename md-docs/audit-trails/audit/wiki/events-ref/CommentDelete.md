@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > CommentDelete
+
 # Yandex Wiki Audit Trails Events: CommentDelete
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.CommentDelete2-schema}

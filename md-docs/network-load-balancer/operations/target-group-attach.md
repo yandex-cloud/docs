@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Network Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > Целевые группы > Подключить целевую группу к балансировщику
+
 # Подключить целевую группу к сетевому балансировщику
 
 {% list tabs group=instructions %}

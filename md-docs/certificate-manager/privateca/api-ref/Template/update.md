@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > REST (англ.) > [Certificate Manager Private CA API](../index.md) > [Template](index.md) > Update
+
 # Certificate Manager Private CA API, REST: Template.Update
 
 Updates an existing certificate template.

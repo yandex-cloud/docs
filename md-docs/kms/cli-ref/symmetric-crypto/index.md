@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > [Справочник CLI (англ.)](../index.md) > symmetric-crypto > Overview
+
 # yc kms symmetric-crypto
 
 Perform symmetric crypto operations

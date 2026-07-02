@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [baremetal](../../index.md) > [v2](../index.md) > [vrf](index.md) > create
+
 # yc baremetal v2 vrf create
 
 Creates a VRF in the specified folder.

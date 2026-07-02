@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Мониторинг состояния кластера и хостов
+
 # Мониторинг состояния кластера Sharded PostgreSQL и хостов
 
 Данные о состоянии кластера и его хостов доступны в [консоли управления](https://console.yandex.cloud). Их можно посмотреть на вкладке **Мониторинг** страницы управления кластером  или в сервисе [Yandex Monitoring](../../monitoring/concepts/index.md).

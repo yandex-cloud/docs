@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../../index.md) > Справочник API > [Managed Service for Kubernetes gRPC (англ.)](../index.md) > [NodeGroup](index.md) > Create
+
 # Managed Services for Kubernetes API, gRPC: NodeGroupService.Create
 
 Creates a node group in the specified Kubernetes cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > Вопросы и ответы > Подключение
+
 # Подключение к кластеру PostgreSQL
 
 * [Возможен ли доступ к кластеру изнутри Yandex Cloud?](#conn-from-yc)

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Resource Manager > Data Sources > resourcemanager_cloud
+
 # yandex_resourcemanager_cloud (DataSource)
 
 Use this data source to get cloud details. For more information, see [the official documentation](../../resource-manager/concepts/resources-hierarchy.md#cloud).

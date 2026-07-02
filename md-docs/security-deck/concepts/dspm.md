@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Security Deck](../index.md) > [Концепции](index.md) > Контроль данных (DSPM)
+
 # Модуль контроля данных (DSPM)
 
 [Модуль контроля данных](https://center.yandex.cloud/security/dspm/) или DSPM (Data Security Posture Management) — это инструмент, помогающий оперативно обнаруживать чувствительную информацию, сохраненную в [бакетах](../../storage/concepts/bucket.md) Yandex Object Storage и на дисках в Яндекс 360. Это позволит своевременно настраивать [политики доступа](../../storage/concepts/policy.md), обезличивать данные и принимать другие меры защиты.

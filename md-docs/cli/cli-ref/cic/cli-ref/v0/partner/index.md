@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cic](../../index.md) > [v0](../index.md) > partner > Overview
+
 # yc cic v0 partner
 
 [PREVIEW] Manage partners.

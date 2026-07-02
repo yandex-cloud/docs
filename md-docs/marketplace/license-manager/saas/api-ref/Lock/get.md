@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Marketplace](../../../../index.md) > Партнерам > Справочник License Manager SaaS API > [REST (англ.)](../index.md) > [Lock](index.md) > Get
+
 # Yandex Cloud Marketplace License Manager for SaaS, REST: Lock.Get
 
 Returns the specified subscription lock.

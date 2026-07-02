@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Пошаговые инструкции](index.md) > Управление правами доступа к контейнеру > Отозвать роли, назначенные на контейнер
+
 # Отозвать роли, назначенные на контейнер
 
 {% list tabs group=instructions %}

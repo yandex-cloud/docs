@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Практические руководства](../index.md) > [Запуск Docker-образа на виртуальной машине](index.md) > Terraform
+
 # Запуск Docker-образа на виртуальной машине с помощью Terraform
 
 Чтобы запустить [Docker-образ на ВМ](index.md) с использованием реестра [Yandex Container Registry](../../index.md) с помощью Terraform:

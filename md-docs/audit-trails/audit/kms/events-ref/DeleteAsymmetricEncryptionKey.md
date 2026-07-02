@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > kms > DeleteAsymmetricEncryptionKey
+
 # Key Management Service Audit Trails Events: DeleteAsymmetricEncryptionKey
 
 ## Event JSON schema {#yandex.cloud.audit.kms.asymmetricencryption.DeleteAsymmetricEncryptionKey2-schema}

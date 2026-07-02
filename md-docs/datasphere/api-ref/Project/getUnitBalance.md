@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Справочник API](../overview.md) > [REST (англ.)](../index.md) > [Project](index.md) > GetUnitBalance
+
 # DataSphere API v2, REST: Project.GetUnitBalance
 
 Returns the unit balance of the specified project.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Yandex Identity Hub](../../../../../../index.md) > Справочник API > gRPC (англ.) > Identity Provider API > [SAML Application API](../index.md) > [Application](index.md) > ListSupportedAttributeValues
+
 # SAML Application API, gRPC: ApplicationService.ListSupportedAttributeValues
 
 Returns the list of supported attribute values for SAML applications.

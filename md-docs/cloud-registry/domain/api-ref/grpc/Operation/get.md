@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Registry](../../../../index.md) > Справочник API > gRPC (англ.) > [Yandex Cloud Registry Domains API](../index.md) > [Operation](index.md) > Get
+
 # Yandex Cloud Registry Domains API, gRPC: OperationService.Get
 
 Returns the specified Operation resource.

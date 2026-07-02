@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > Вопросы и ответы > Все вопросы на одной странице
+
 # Вопросы и ответы про Managed Service for Kubernetes
 
 ### Общие вопросы {#toc-general}

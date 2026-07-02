@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cloud-registry](../../index.md) > [v0](../index.md) > [artifact](index.md) > set-access-bindings
+
 # yc cloud-registry v0 artifact set-access-bindings
 
 Set access bindings for the specified artifact and remove existing ones

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Пошаговые инструкции](../index.md) > Бакеты > Доступ в бакет с помощью Security Token Service
+
 # Доступ в бакет с помощью Security Token Service
 
 # Создать временный ключ доступа с помощью Security Token Service

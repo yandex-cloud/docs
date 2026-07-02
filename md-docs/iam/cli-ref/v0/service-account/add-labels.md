@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [service-account](index.md) > add-labels
+
 # yc iam v0 service-account add-labels
 
 Add labels to specified service account

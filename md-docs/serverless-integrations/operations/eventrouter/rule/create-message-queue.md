@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > EventRouter > Управление правилом > Создать правило > Message Queue
+
 # Создать правило с приемником Yandex Message Queue
 
 {% list tabs group=instructions %}

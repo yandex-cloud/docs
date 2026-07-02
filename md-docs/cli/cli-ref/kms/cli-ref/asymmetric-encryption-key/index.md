@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [kms](../index.md) > asymmetric-encryption-key > Overview
+
 # yc kms asymmetric-encryption-key
 
 Manage asymmetric encryption keys

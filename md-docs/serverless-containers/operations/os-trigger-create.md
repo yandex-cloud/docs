@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Пошаговые инструкции](index.md) > Создание триггера > Создать триггер для Object Storage
+
 # Создать триггер для Object Storage, который вызывает контейнер Serverless Containers
 
 Создайте [триггер для Object Storage](../concepts/trigger/os-trigger.md), который будет вызывать [контейнер](../concepts/container.md) Serverless Containers при создании, перемещении или удалении [объекта](../../storage/concepts/object.md) в бакете.

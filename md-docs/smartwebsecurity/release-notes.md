@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Smart Web Security](index.md) > История изменений
+
 # История изменений в Yandex Smart Web Security
 
 ## I квартал 2026 {#q1-2026}

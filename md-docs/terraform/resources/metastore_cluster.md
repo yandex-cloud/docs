@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for Hive Metastore™ > Resources > metastore_cluster
+
 # yandex_metastore_cluster (Resource)
 
 Managed Metastore cluster.

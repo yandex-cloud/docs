@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Streams](../../index.md) > [HTTP API, совместимый с Amazon Kinesis Data Streams](../index.md) > Методы > UpdateShardCount
+
 # UpdateShardCount
 
 Обновляет количество [сегментов](../../concepts/glossary.md#shard) указанного [потока данных](../../concepts/glossary.md#stream-concepts). Доступно только увеличение числа сегментов.

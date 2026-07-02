@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Message Queue](../index.md) > [Начало работы](index.md) > Примеры кода > Terraform
+
 # Terraform
 
 С помощью Terraform можно создавать очереди сообщений в Message Queue.

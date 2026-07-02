@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [service-account](index.md) > delete
+
 # yc iam v0 service-account delete
 
 Delete the specified service account

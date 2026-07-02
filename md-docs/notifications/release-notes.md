@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Notification Service](index.md) > История изменений
+
 # История изменений в Cloud Notification Service
 
 ## II квартал 2026 {#q2-2026}

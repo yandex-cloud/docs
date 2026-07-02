@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > ETL на Serverless > Интеграция Yandex Cloud Postbox с внешними системами через вебхуки
+
 # Интеграция Yandex Cloud Postbox с внешними системами с помощью вебхуков
 
 

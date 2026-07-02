@@ -1,4 +1,18 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Создание кластера
+
 # Создание кластера Sharded PostgreSQL
+
+
+
+## Роли для создания кластера {#roles}
+
+Для создания кластера Managed Service for Sharded PostgreSQL и работы с ним вашему аккаунту в Yandex Cloud нужны роли:
+
+* [managed-spqr.editor](../security.md#managed-spqr-editor) или выше — чтобы создать кластер;
+* [vpc.user](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
+* [mdb.viewer](../../iam/roles-reference.md#mdb-viewer) — чтобы просматривать кластеры управляемых баз данных (MDB) на дашборде в [консоли управления](https://console.yandex.cloud).
+
+О назначении ролей читайте в [документации Yandex Identity and Access Management](../../iam/operations/roles/grant.md).
 
 
 ## Создать кластер {#create-cluster}

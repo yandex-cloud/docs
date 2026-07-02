@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../index.md) > [private-cloud-connection](index.md) > get
+
 # yc baremetal private-cloud-connection get
 
 Returns the specific Private cloud connection resource.

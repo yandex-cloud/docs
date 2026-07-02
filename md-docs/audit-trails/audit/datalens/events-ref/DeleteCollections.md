@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > DeleteCollections
+
 # DataLens Audit Trails Events: DeleteCollections
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.DeleteCollections2-schema}

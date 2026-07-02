@@ -1,10 +1,10 @@
-# Reading data from {{ yds-name }} using {{ yq-name }} connections
+# Reading data from {{ yds-name }} via {{ yq-name }} connections
 
-When working with {{ yds-full-name }}, it is convenient to use connections for prototyping and initial setup of connections to data.
+Using {{ yds-full-name }} connections is convenient for prototyping and initial data access configuration.
 
-[{{ yds-full-name }}](../../data-streams/concepts/index.md) is a service that allows you to transfer data streams to multiple applications for processing, with each of them handling the data independently.
+[{{ yds-full-name }}](../../data-streams/concepts/index.md) enables you to transfer data streams to multiple applications for processing, with each handling the data independently of the others.
 
-Example of reading `JSON` data from {{ yds-full-name }}
+Query example for reading `Json`-formatted data from {{ yds-full-name }}:
 
 ```sql
 SELECT
@@ -30,7 +30,7 @@ To read data from {{ yds-full-name }}:
 
 ## Data model
 
-Data is sent via {{ yds-full-name }} in binary form. Data is read using SQL statements.
+Data is transmitted via {{ yds-full-name }} in binary format and is read via SQL statements.
 
 ```sql
 SELECT
@@ -51,11 +51,11 @@ WHERE <filter>;
 Where:
 
 - `<connection>`: Name of the {{ yds-short-name }} data stream connection created in the previous step.
-- `<stream_name>`: Name of the data stream in {{ yds-short-name }}.
+- `<stream_name>`: {{ yds-short-name }} data stream name.
 
-## Example of reading data
+## Data reading example
 
-Sample query for reading data from {{ yds-full-name }} and writing the results to {{ yds-full-name }}
+Query example for reading data from {{ yds-full-name }} and writing the results to {{ yds-full-name }}
 
 ```sql
 $data =
@@ -92,6 +92,6 @@ Where:
 |Field|Type|Description|
 |--|---|---|
 |`yds`| |{{ yds-full-name }} connection name|
-|`input_stream`| |Source stream name in the SQL query|
+|`input_stream`| |Name of the source data stream in the SQL query|
 |`host`|String|Query string parameter|
-|`raw`|String|Data format. Currently, the only supported format is `raw`|
+|`raw`|String|Data format. Support is currently limited to the `raw` format|

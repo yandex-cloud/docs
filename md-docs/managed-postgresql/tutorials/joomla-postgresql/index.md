@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Практические руководства](../index.md) > Создание сайта на CMS Joomla с базой данных PostgreSQL > Обзор
+
 # Создание сайта на CMS Joomla с базой данных PostgreSQL
 
 

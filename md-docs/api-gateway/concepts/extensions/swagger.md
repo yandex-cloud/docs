@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Расширения спецификации](index.md) > Интеграции > Swagger UI
+
 # Расширение x-yc-apigateway-integration:swagger
 
 Расширение Swagger UI позволяет пользователю получать интерактивную документацию, а также тестировать и отлаживать API в интерфейсе Swagger UI.

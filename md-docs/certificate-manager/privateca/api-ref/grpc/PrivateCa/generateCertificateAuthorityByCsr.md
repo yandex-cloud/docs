@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Certificate Manager](../../../../index.md) > Справочник API > gRPC (англ.) > [Certificate Manager Private CA API](../index.md) > [PrivateCa](index.md) > GenerateCertificateAuthorityByCsr
+
 # Certificate Manager Private CA API, gRPC: PrivateCaService.GenerateCertificateAuthorityByCsr
 
 Generates a Certificate Authority (CA) by using a Certificate Signing Request (CSR).

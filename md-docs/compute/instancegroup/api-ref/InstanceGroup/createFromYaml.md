@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > REST (англ.) > [Compute Cloud Instance Groups API](../index.md) > [InstanceGroup](index.md) > CreateFromYaml
+
 # Compute Cloud Instance Groups API, REST: InstanceGroup.CreateFromYaml
 
 Creates an instance group in the specified folder from a YAML file.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > PointOfPresence > Overview
+
 # Cloud Interconnect API, gRPC: PointOfPresenceService
 
 A set of methods for managing PointOfPresence resources.

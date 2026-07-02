@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [User](index.md) > Create
+
 # Managed Service for Redis API, REST: User.Create
 
 Creates a Redis user in the specified cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > Справочник API Triggers > Аутентификация в API
+
 # Аутентификация в Triggers API Yandex API Gateway
 
 # Аутентификация в API

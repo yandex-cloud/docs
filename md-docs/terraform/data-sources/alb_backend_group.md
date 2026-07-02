@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Application Load Balancer > Data Sources > alb_backend_group
+
 # yandex_alb_backend_group (DataSource)
 
 Get information about a Yandex Application Load Balancer Backend Group. For more information, see [official documentation](../../application-load-balancer/quickstart.md).

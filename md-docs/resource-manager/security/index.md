@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Resource Manager](../index.md) > Управление доступом
+
 # Управление доступом в Resource Manager
 
 В этом разделе вы узнаете:

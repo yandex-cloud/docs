@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [User](index.md) > GrantPermission
+
 # Managed Service for MySQL API, REST: User.GrantPermission
 
 Grants permission to access a database to a user in a cluster.

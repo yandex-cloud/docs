@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Обзор платформы](../index.md) > Платформа Yandex Cloud > Зоны доступности > Миграция ресурсов в другую зону
+
 # Миграция ресурсов в другую зону
 
 Ряду ресурсов Compute Cloud и Virtual Private Cloud в CLI добавлена команда `relocate`, которая позволяет переместить ресурс в другую зону. В случае переноса групп ВМ, ресурсов сервисов Network Load Balancer и Application Load Balancer, управляемых сервисов баз данных, инстансов Managed Service for GitLab, кластеров Managed Service for Kubernetes и сервисов Serverless воспользуйтесь существующими инструментами.

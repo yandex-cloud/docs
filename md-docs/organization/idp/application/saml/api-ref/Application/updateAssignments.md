@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity Hub](../../../../../index.md) > Справочник API > REST (англ.) > Identity Provider API > [SAML Application API](../index.md) > [Application](index.md) > UpdateAssignments
+
 # SAML Application API, REST: Application.UpdateAssignments
 
 Updates assignments for the specified SAML application.

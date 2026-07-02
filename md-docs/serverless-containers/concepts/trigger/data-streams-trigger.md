@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Serverless Containers](../../index.md) > [Концепции](../index.md) > [Триггер](index.md) > Триггер для Data Streams
+
 # Триггер для Data Streams, который вызывает контейнер Serverless Containers
 
  [Триггер](index.md) для Data Streams запускает [контейнер](../container.md) Serverless Containers при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts). 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [load-balancer](index.md) > remove-location
+
 # yc application-load-balancer load-balancer remove-location
 
 Removes locations from application load balancer.

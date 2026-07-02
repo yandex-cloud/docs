@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Пошаговые инструкции](index.md) > Создание триггера > Создать триггер для бюджетов
+
 # Создать триггер для бюджетов, который вызывает контейнер Serverless Containers
 
 Создайте [триггер для бюджетов](../concepts/trigger/budget-trigger.md), который будет вызывать [контейнер](../concepts/container.md) Serverless Containers при превышении пороговых значений.

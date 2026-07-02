@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [network](index.md) > list-subnets
+
 # yc vpc network list-subnets
 
 List subnets in a network.

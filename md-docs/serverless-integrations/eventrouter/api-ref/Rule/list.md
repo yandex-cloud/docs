@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > [Rule](index.md) > List
+
 # EventRouter Service, REST: Rule.List
 
 Retrieves the list of rules in the specified folder.

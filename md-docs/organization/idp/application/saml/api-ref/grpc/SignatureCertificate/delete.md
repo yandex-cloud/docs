@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Yandex Identity Hub](../../../../../../index.md) > Справочник API > gRPC (англ.) > Identity Provider API > [SAML Application API](../index.md) > [SignatureCertificate](index.md) > Delete
+
 # SAML Application API, gRPC: SignatureCertificateService.Delete
 
 Deletes the specified signature certificate.

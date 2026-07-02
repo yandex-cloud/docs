@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Processing](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > add-access-binding
+
 # yc dataproc v0 cluster add-access-binding
 
 Add access binding for the specified cluster

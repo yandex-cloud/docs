@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [HostType](index.md) > List
+
 # Compute Cloud API, gRPC: HostTypeService.List
 
 List avaliable host types.

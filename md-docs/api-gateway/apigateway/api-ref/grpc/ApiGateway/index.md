@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex API Gateway](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > ApiGateway > Overview
+
 # API Gateway Service, gRPC: ApiGatewayService
 
 A set of methods for managing API gateways.

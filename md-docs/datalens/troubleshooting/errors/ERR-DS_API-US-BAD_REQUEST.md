@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Ошибка в запросе к объекту
+
 # [Yandex DataLens] Ошибка в запросе к объекту
 
 `ERR.DS_API.US.BAD_REQUEST`

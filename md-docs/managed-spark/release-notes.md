@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Apache Spark™](index.md) > История изменений
+
 # История изменений в Yandex Managed Service for Apache Spark™
 
 ## Сентябрь 2025 {#september-2025}

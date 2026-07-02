@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > SubscriptionAdd
+
 # Yandex Wiki Audit Trails Events: SubscriptionAdd
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.SubscriptionAdd2-schema}

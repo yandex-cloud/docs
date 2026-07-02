@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Spark™](../../index.md) > [Справочник CLI (англ.)](../index.md) > [job](index.md) > create-pyspark
+
 # yc managed-spark job create-pyspark
 
 Create PySpark job.

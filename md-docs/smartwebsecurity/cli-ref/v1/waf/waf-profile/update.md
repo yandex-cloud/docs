@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Smart Web Security](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v1](../../index.md) > [waf](../index.md) > [waf-profile](index.md) > update
+
 # yc smartwebsecurity v1 waf waf-profile update
 
 Updates the specified WAF profile.

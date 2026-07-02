@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > Концепции > Политики аутентификации
+
 # Политики аутентификации в Yandex Identity Hub
 
 {% note info %}

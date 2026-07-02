@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Image](index.md) > List
+
 # Compute Cloud API, gRPC: ImageService.List
 
 Retrieves the list of Image resources in the specified folder.

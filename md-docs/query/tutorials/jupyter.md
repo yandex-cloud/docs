@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > [Практические руководства](index.md) > Анализ данных с помощью Jupyter
+
 # Анализ данных с помощью Jupyter
 
 Yandex Query поддерживает интеграцию с [Jupyter](https://jupyter.org) и [VSCode](https://code.visualstudio.com/docs/datascience/jupyter-notebooks) через магические команды Python `cell` (`%%yq`) и `line` (`%yq`). Интеграция позволяет упростить рабочие процессы сбора и анализа данных, делая их более эффективными и удобными.

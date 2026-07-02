@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Stream](index.md) > Get
+
 # Video API, gRPC: StreamService.Get
 
 Retrieves detailed information about a specific stream by its ID.

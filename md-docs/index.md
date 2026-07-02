@@ -1,3 +1,5 @@
+Документация Yandex Cloud > Все разделы
+
 # Документация Yandex Cloud
 
 # Документация Yandex Cloud

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > ydb > DeleteDatabase
+
 # Managed Service for YDB Audit Trails Events: DeleteDatabase
 
 ## Event JSON schema {#yandex.cloud.audit.ydb.DeleteDatabase2-schema}

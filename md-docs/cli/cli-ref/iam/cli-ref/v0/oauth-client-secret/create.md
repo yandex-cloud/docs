@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [iam](../../index.md) > [v0](../index.md) > [oauth-client-secret](index.md) > create
+
 # yc iam v0 oauth-client-secret create
 
 Create a secret for the specified oauth-client

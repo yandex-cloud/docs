@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Пошаговые инструкции](index.md) > Подключение к узлу через OS Login
+
 # Подключение к узлу через OS Login
 
 [OS Login](../../organization/concepts/os-login.md) используется вместо SSH-ключей для доступа к виртуальным машинам Yandex Cloud через SSH. С помощью OS Login вы можете подключиться к узлам Managed Service for Kubernetes.

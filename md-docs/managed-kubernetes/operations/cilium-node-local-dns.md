@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Пошаговые инструкции](index.md) > Сетевые сценарии > Настройка NodeLocal DNS для контроллера сетевых политик Cilium
+
 # Настройка NodeLocal DNS для контроллера сетевых политик Cilium
 
 Из этой статьи вы узнаете, как настроить локальный [DNS](../../glossary/dns.md) для [контроллера сетевых политик Cilium](../concepts/network-policy.md#cilium) с помощью [Local Redirect Policy](https://docs.cilium.io/en/v1.9/gettingstarted/local-redirect-policy/).

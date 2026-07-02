@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Cloud Router > Cloud Router
+
 # Yandex Cloud Router
 
 <em>Сервис Yandex Cloud Router находится на <a href="../overview/concepts/launch-stages.md">стадии Preview</a></em>.

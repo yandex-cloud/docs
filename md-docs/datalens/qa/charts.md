@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Решение проблем > [Вопросы и ответы](index.md) > Чарты
+
 # Чарты
 
 

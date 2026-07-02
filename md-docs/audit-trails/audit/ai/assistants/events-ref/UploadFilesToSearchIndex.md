@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > ai.assistants > UploadFilesToSearchIndex
+
 # AI Studio Audit Trails Events: UploadFilesToSearchIndex
 
 ## Event JSON schema {#yandex.cloud.audit.ai.assistants.searchindex.UploadFilesToSearchIndex2-schema}

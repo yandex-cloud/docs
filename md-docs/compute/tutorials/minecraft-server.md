@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Практические руководства](index.md) > Развертывание сервера Minecraft в Yandex Cloud
+
 # Развертывание сервера Minecraft в Yandex Cloud
 
 С помощью руководства вы развернете сервер [Minecraft](https://www.minecraft.net/) [Java Edition](https://www.minecraft.net/en-us/download/server) или [Bedrock Edition](https://www.minecraft.net/en-us/download/server/bedrock) актуальной версии в Yandex Cloud на [виртуальной машине](../concepts/vm.md) с Ubuntu 24.04.
@@ -26,7 +28,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-* плата за постоянно запущенную [ВМ](../concepts/vm.md) (смотрите [тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за постоянно запущенную [ВМ](../concepts/vm.md) (смотрите [тарифы Yandex Compute Cloud](../pricing.md));
 * плата за использование публичного IP-адреса и исходящий трафик (смотрите [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Создайте группу безопасности {#create-sg}

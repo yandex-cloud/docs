@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-greenplum](../index.md) > [cluster](index.md) > list-backups
+
 # yc managed-greenplum cluster list-backups
 
 List available backups for the specified Greenplum cluster

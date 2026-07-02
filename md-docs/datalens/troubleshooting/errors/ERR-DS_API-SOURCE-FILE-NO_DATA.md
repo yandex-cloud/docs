@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Empty document
+
 # [Yandex DataLens] Empty document
 
 `ERR.DS_API.SOURCE.FILE.NO_DATA`

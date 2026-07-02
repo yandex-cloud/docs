@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Загрузка данных в Object Storage > Репликация логов в Object Storage с помощью Fluent Bit
+
 # Репликация логов в Yandex Object Storage с помощью Fluent Bit
 
 

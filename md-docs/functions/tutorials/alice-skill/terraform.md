@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Практические руководства](../index.md) > Интеграция с сервисами Яндекса и Yandex Cloud > [Создание навыка Алисы](index.md) > Terraform
+
 # Создание навыка Алисы с помощью Terraform
 
 

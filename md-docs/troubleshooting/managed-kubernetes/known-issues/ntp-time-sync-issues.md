@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Kubernetes](../index.md) > Устранение ошибок с синхронизацией времени на узлах кластера Managed Service for Kubernetes
+
 # Устранение ошибок с синхронизацией времени на узлах кластера Managed Service for Kubernetes
 
 

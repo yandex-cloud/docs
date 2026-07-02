@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Desktop](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [group](index.md) > set-access-bindings
+
 # yc desktops v0 group set-access-bindings
 
 Set access bindings for the specified desktop group and delete all existing access bindings if there were any

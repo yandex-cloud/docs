@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > AttachmentCreate
+
 # Yandex Wiki Audit Trails Events: AttachmentCreate
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.AttachmentCreate2-schema}

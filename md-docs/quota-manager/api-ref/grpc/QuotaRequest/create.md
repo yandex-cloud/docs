@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Quota Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [QuotaRequest](index.md) > Create
+
 # Quota Manager API, gRPC: QuotaRequestService.Create
 
 Creates a quota request in the specified resource.

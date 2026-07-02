@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > [Справочник CLI (англ.)](../index.md) > backup-retention-policy > Overview
+
 # yc managed-mysql backup-retention-policy
 
 Manage MySQL backup retention policies

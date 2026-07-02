@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Desktop](index.md) > ListOperations
+
 # Cloud Desktop API, REST: Desktop.ListOperations
 
 Returns list of the operations for the specified desktop.

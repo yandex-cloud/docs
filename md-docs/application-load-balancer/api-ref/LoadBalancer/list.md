@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [LoadBalancer](index.md) > List
+
 # Application Load Balancer API, REST: LoadBalancer.List
 
 Lists application load balancers in the specified folder.

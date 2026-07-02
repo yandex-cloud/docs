@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud Desktop > Data Sources > cloud_desktops_image
+
 # yandex_cloud_desktops_image (DataSource)
 
 A desktop image resource.

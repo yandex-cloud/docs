@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Пошаговые инструкции](../index.md) > Управление триггером > Удалить триггер
+
 # Удалить триггер в Yandex API Gateway
 
 {% list tabs group=instructions %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity and Access Management](../../../../../index.md) > Справочник API > REST (англ.) > Workload Identity > [Federation](../index.md) > [Federation](index.md) > SetAccessBindings
+
 # Federation, REST: Federation.SetAccessBindings
 
 Sets access bindings for the specified OIDC workload identity federation.

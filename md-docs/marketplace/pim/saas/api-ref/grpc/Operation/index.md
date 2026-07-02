@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Cloud Marketplace](../../../../../index.md) > Партнерам > Справочник Product Instance Management API > [gRPC (англ.)](../index.md) > Operation > Overview
+
 # Yandex Cloud Marketplace Product Instance Management API, gRPC: OperationService
 
 A set of methods for managing operations for asynchronous API requests.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > [database](index.md) > get
+
 # yc managed-mongodb database get
 
 Get information about a MongoDB database.

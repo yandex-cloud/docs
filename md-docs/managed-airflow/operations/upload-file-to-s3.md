@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > [Пошаговые инструкции](index.md) > Работа с Yandex Object Storage > Загрузка файла в Yandex Object Storage
+
 # Загрузка файла в Yandex Object Storage
 
 Используйте [направленный ациклический граф (DAG)](../concepts/index.md#about-the-service) для загрузки файлов в Object Storage.

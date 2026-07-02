@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iot > AddRegistryPassword
+
 # IoT Core Audit Trails Events: AddRegistryPassword
 
 ## Event JSON schema {#yandex.cloud.audit.iot.devices.AddRegistryPassword2-schema}

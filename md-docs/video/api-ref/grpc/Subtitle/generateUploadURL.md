@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Subtitle](index.md) > GenerateUploadURL
+
 # Video API, gRPC: SubtitleService.GenerateUploadURL
 
 Generates a URL for uploading a subtitle file to an existing subtitle record.

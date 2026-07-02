@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > [Настройки сервиса](index.md) > Тарифы и оплата
+
 # Настройки тарифов и оплаты в Yandex DataLens
 
 

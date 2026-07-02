@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Cloud Functions
+
 # Метрики Yandex Cloud Functions
 
 В этом разделе описаны метрики сервиса [Cloud Functions](../../functions/index.md), поставляемые в Monium Metrics.

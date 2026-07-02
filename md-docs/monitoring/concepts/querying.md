@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Концепции](index.md) > Язык запросов
+
 # Язык запросов в Monitoring
 
 В этом разделе описан язык запросов Yandex Monitoring. Он используется для преобразования метрик при настройке [дашбордов](visualization/dashboard.md) и [алертов](alerting.md), а также в API-методе [MetricsData.read](../api-ref/MetricsData/read.md).

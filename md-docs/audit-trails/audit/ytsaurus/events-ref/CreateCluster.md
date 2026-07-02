@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > ytsaurus > CreateCluster
+
 # Ytsaurus Audit Trails Events: CreateCluster
 
 ## Event JSON schema {#yandex.cloud.audit.ytsaurus.CreateCluster2-schema}

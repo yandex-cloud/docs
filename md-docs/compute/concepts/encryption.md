@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Концепции](index.md) > Шифрование
+
 # Шифрование в Compute Cloud
 
 

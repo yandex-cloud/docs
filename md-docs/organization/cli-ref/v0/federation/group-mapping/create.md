@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [federation](../index.md) > [group-mapping](index.md) > create
+
 # yc organization-manager v0 federation group-mapping create
 
 Create a group mapping for specified federation

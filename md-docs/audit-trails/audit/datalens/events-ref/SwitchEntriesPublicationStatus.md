@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > SwitchEntriesPublicationStatus
+
 # DataLens Audit Trails Events: SwitchEntriesPublicationStatus
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.SwitchEntriesPublicationStatus2-schema}

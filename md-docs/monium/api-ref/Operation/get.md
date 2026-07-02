@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Monium](../../index.md) > Справочник API > Логи > [REST (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Cloud Logging Service, REST: Operation.Get
 
 Returns the specified Operation resource.

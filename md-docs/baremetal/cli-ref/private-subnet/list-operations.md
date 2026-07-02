@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../index.md) > [private-subnet](index.md) > list-operations
+
 # yc baremetal private-subnet list-operations
 
 Lists operations for the specified private subnet.

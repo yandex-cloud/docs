@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Пошаговые инструкции](index.md) > Управление контейнером > Управлять метками > Удалить метку
+
 # Удалить метку контейнера
 
 {% list tabs group=instructions %}

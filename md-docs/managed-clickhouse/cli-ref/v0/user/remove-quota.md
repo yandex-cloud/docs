@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [user](index.md) > remove-quota
+
 # yc managed-clickhouse v0 user remove-quota
 
 Remove quota from a ClickHouse user by interval.

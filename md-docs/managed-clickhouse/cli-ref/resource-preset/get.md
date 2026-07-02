@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [resource-preset](index.md) > get
+
 # yc managed-clickhouse resource-preset get
 
 Get information about a ClickHouse resource preset.

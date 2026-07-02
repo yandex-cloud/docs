@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex SmartCaptcha](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Captcha](index.md) > Update
+
 # SmartCaptcha API, REST: Captcha.Update
 
 Updates the specified captcha.

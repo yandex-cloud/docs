@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [Identity Provider API](../index.md) > [User](index.md) > GetSelfPasswordMetadata
+
 # Identity Provider API, gRPC: UserService.GetSelfPasswordMetadata
 
 Returns metadata about the authenticated user's password.

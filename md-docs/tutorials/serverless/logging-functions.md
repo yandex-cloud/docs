@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > Рабочие процессы и автоматизация на Serverless > Настройка реагирования в Cloud Logging и Yandex Cloud Functions
+
 # Настройка реагирования в Yandex Cloud Logging и Yandex Cloud Functions
 
 

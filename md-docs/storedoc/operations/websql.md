@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex StoreDoc](../index.md) > [Пошаговые инструкции](index.md) > Базы данных > SQL-запросы в Yandex WebSQL
+
 # SQL-запросы в Yandex WebSQL
 
 Вы можете отправлять SQL-запросы к базам данных в кластере Yandex StoreDoc с помощью сервиса [Yandex WebSQL](../../websql/index.md).

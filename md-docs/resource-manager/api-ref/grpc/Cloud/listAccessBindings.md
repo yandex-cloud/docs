@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Resource Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cloud](index.md) > ListAccessBindings
+
 # Resource Manager API, gRPC: CloudService.ListAccessBindings
 
 Lists access bindings for the specified cloud.

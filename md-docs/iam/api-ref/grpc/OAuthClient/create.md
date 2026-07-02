@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [OAuthClient](index.md) > Create
+
 # Identity and Access Management API, gRPC: OAuthClientService.Create
 
 Creates an oauth client in the specified folder.

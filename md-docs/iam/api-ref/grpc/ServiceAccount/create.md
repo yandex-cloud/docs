@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ServiceAccount](index.md) > Create
+
 # Identity and Access Management API, gRPC: ServiceAccountService.Create
 
 Creates a service account in the specified folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > CreateTemporaryAccessKey
+
 # Identity and Access Management Audit Trails Events: CreateTemporaryAccessKey
 
 ## Event JSON schema {#yandex.cloud.audit.iam.awscompatibility.CreateTemporaryAccessKey2-schema}

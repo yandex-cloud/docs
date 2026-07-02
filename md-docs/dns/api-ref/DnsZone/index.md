@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > Справочник API > [REST (англ.)](../index.md) > DnsZone > Overview
+
 # Cloud DNS API, REST: DnsZone
 
 A set of methods for managing DNS zones.

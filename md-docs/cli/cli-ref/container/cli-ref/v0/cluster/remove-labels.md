@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [container](../../index.md) > [v0](../index.md) > [cluster](index.md) > remove-labels
+
 # yc container v0 cluster remove-labels
 
 Remove labels from the specified Kubernetes cluster.

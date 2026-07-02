@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > DataLens Public API > [DataLens API (англ.)](index.md) > createEditorChart
+
 # DataLens API: 🚧 [Experimental] Create editor chart
 
 Creates the specified Editor chart.

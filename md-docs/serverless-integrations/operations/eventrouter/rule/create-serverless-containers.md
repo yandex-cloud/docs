@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > EventRouter > Управление правилом > Создать правило > Serverless Containers
+
 # Создать правило с приемником Yandex Serverless Containers
 
 {% list tabs group=instructions %}

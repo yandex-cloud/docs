@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ServiceControl](index.md) > ResolveAgent
+
 # Identity and Access Management API, gRPC: ServiceControlService.ResolveAgent
 
 Resolve agent service account for the service in the specified resource container.

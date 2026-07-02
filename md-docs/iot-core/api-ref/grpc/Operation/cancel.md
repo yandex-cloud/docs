@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Devices > [gRPC (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # IoT Core Service, gRPC: OperationService.Cancel
 
 Cancels the specified operation.

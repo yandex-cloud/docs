@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [snapshot-schedule](index.md) > set-access-bindings
+
 # yc compute snapshot-schedule set-access-bindings
 
 Set access bindings for the specified snapshot schedule and delete all existing access bindings if there were any

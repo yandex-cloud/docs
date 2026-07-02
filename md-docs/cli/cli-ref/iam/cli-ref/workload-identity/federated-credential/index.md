@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [iam](../../index.md) > [workload-identity](../index.md) > federated-credential > Overview
+
 # yc iam workload-identity federated-credential
 
 Manage federated credential

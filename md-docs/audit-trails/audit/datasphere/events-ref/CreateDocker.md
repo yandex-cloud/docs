@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > CreateDocker
+
 # DataSphere Audit Trails Events: CreateDocker
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.CreateDocker2-schema}

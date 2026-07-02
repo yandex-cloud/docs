@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > [Концепции](index.md) > Поиск с помощью OpenSearch
+
 # Поиск с помощью OpenSearch
 
 OpenSearch выступает как инструмент для поиска и [анализа данных](../../glossary/data-analytics.md) в документах с помощью:

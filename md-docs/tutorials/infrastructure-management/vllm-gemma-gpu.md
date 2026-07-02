@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Базовая инфраструктура](../infrastructure/index.md) > GPU > Запуск библиотеки vLLM с языковой моделью Gemma 3 на ВМ с GPU
+
 # Запуск библиотеки vLLM с языковой моделью Gemma 3 на виртуальной машине с GPU в Yandex Compute Cloud
 
 

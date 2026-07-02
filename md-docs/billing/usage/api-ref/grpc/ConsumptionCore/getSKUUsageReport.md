@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Billing](../../../../index.md) > Справочник API > gRPC (англ.) > [Billing usage](../index.md) > [ConsumptionCore](index.md) > GetSKUUsageReport
+
 # Billing Usage API, gRPC: ConsumptionCoreService.GetSKUUsageReport
 
 Returns aggregated usage report by SKU (Stock Keeping Unit)

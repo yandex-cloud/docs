@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Streams](../index.md) > Управление доступом
+
 # Управление доступом в Data Streams
 
 Для управления правами доступа в Data Streams используются [роли](../../iam/concepts/access-control/roles.md).

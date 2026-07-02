@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > [Концепции](index.md) > Коннектор Greenplum®
+
 # Коннектор Greenplum®/Cloudberry
 
 [Коннектор](index.md#connector) Greenplum®/Cloudberry, разработанный Яндексом на основе [коннектора PostgreSQL](https://trino.io/docs/current/connector/postgresql.html), позволяет Managed Service for Trino читать и записывать данные в кластер Greenplum®/Cloudberry.

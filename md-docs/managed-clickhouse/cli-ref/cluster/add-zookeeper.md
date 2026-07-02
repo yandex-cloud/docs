@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > add-zookeeper
+
 # yc managed-clickhouse cluster add-zookeeper
 
 Adds Zookeeper hosts for a ClickHouse cluster.

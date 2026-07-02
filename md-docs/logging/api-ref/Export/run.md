@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Export](index.md) > Run
+
 # Cloud Logging Service, REST: Export.Run
 
 Run new logs export from log group to sink

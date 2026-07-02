@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-opensearch](../index.md) > [cluster](index.md) > create
+
 # yc managed-opensearch cluster create
 
 Create an OpenSearch cluster

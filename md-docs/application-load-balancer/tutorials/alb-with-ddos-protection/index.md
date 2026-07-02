@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Практические руководства](../index.md) > Создание L7-балансировщика с защитой от DDoS > Обзор
+
 # Создание балансировщика с защитой от DDoS
 
 

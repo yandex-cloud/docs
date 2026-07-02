@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [SAML Federation API](../index.md) > [Certificate](index.md) > List
+
 # SAML Federation API, gRPC: CertificateService.List
 
 Retrieves the list of certificates in the specified federation.

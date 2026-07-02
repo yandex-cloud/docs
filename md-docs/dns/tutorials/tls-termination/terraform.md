@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > [Практические руководства](../index.md) > [Терминирование TLS-соединений](index.md) > Terraform
+
 # Терминирование TLS-соединений с помощью Terraform
 
 Чтобы создать инфраструктуру для [терминирования TLS-соединений](index.md) c помощью Terraform:
@@ -26,7 +28,7 @@
 * плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
 * плата за использование [публичного статического IP-адреса](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
 * плата за использование вычислительных ресурсов [L7-балансировщика](../../../application-load-balancer/concepts/index.md) ([тарифы Application Load Balancer](../../../application-load-balancer/pricing.md));
-* плата за публичные [DNS-запросы](../../../glossary/dns.md) и [зоны DNS](../../concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../index.md) ([тарифы Cloud DNS](../../../dns/pricing.md)).
+* плата за публичные [DNS-запросы](../../../glossary/dns.md) и [зоны DNS](../../concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../index.md) ([тарифы Cloud DNS](../../pricing.md)).
 
 ## Создайте инфраструктуру {#deploy}
 

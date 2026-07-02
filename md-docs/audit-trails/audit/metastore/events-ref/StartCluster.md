@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > metastore > StartCluster
+
 # Managed Service for Hive Metastore™ Audit Trails Events: StartCluster
 
 ## Event JSON schema {#yandex.cloud.audit.metastore.StartCluster2-schema}

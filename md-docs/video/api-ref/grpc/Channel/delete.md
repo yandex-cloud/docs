@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Channel](index.md) > Delete
+
 # Video API, gRPC: ChannelService.Delete
 
 Deletes a specific channel by its ID.

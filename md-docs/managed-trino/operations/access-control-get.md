@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > [Пошаговые инструкции](index.md) > Правила доступа к объектам > Получение правил доступа
+
 # Получение правил доступа в Managed Service for Trino
 
 {% list tabs group=instructions %}

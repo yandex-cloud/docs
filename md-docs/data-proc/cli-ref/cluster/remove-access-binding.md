@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Processing](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > remove-access-binding
+
 # yc dataproc cluster remove-access-binding
 
 Remove access binding for the specified cluster

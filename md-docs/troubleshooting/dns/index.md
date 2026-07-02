@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Cloud DNS > Все решения для Cloud DNS
+
 # Решения для Cloud DNS
 
 ## Примеры конфигураций и сценариев Cloud DNS {#configuration-examples}

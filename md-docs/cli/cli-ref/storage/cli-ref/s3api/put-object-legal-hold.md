@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [storage](../index.md) > [s3api](index.md) > put-object-legal-hold
+
 # yc storage s3api put-object-legal-hold
 
 Puts or removes legal hold for an object version

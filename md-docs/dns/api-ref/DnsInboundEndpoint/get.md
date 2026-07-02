@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DnsInboundEndpoint](index.md) > Get
+
 # Cloud DNS API, REST: DnsInboundEndpoint.Get
 
 Returns the specified DNS inbound endpoint.

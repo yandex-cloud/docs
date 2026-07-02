@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [match-list](../index.md) > match-list > Overview
+
 # yc smartwebsecurity match-list match-list
 
 A set of methods for managing MatchList resources.

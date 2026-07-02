@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Пошаговые инструкции](index.md) > Получение информации о триггере > Получить список триггеров
+
 # Получить список триггеров в Serverless Containers
 
 {% list tabs group=instructions %}

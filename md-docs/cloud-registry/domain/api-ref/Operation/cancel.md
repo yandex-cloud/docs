@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > Справочник API > REST (англ.) > [Yandex Cloud Registry Domains API](../index.md) > [Operation](index.md) > Cancel
+
 # Yandex Cloud Registry Domains API, REST: Operation.Cancel
 
 Cancels the specified operation.

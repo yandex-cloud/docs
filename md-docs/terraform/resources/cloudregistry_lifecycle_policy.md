@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud Registry > Resources > cloudregistry_lifecycle_policy
+
 # yandex_cloudregistry_lifecycle_policy (Resource)
 
 A LifecyclePolicy resource.

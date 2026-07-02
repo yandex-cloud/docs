@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Kubernetes](../index.md) > Как выдать узлам Kubernetes доступа в интернет
+
 # Как выдать узлам Kubernetes доступ в интернет
 
 

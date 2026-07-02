@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Certificate Manager](../../../../index.md) > Справочник API > gRPC (англ.) > [Certificate Manager Private CA API](../index.md) > [Policy](index.md) > Update
+
 # Certificate Manager Private CA API, gRPC: PolicyService.Update
 
 Updates the specified policy.

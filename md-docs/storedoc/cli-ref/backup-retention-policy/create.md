@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > [backup-retention-policy](index.md) > create
+
 # yc managed-mongodb backup-retention-policy create
 
 Create new backup retention policy

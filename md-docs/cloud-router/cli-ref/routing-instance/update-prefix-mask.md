@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > [Справочник CLI (англ.)](../index.md) > [routing-instance](index.md) > update-prefix-mask
+
 # yc cloudrouter routing-instance update-prefix-mask
 
 Removes specified PrivateConnection from a RoutingInstance resource.

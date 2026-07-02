@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [iot](../../../index.md) > [v0](../../index.md) > [broker](../index.md) > [certificate](index.md) > delete
+
 # yc iot v0 broker certificate delete
 
 Delete specified certificate from broker

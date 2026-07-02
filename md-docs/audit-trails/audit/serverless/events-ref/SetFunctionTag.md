@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > serverless > SetFunctionTag
+
 # Cloud Functions Audit Trails Events: SetFunctionTag
 
 ## Event JSON schema {#yandex.cloud.audit.serverless.functions.SetFunctionTag2-schema}

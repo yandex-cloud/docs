@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [gpu-cluster](index.md) > list-access-bindings
+
 # yc compute v0 gpu-cluster list-access-bindings
 
 List access bindings for the specified GPU cluster

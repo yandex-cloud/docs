@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > Группы бэкендов > Получить информацию о группе бэкендов
+
 # Получить информацию о группе бэкендов
 
 {% list tabs group=instructions %}

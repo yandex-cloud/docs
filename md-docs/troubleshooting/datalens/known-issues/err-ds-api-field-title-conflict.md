@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [DataLens](../index.md) > Устранение ошибки `ERR.DS_API.FIELD.TITLE.CONFLICT`
+
 # Устранение ошибки `ERR.DS_API.FIELD.TITLE.CONFLICT` в DataLens
 
 

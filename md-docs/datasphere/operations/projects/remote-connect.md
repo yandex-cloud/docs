@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > DataSphere Notebook > Подключиться к JupyterLab из локальной IDE
+
 # Подключение к JupyterLab проекта из локальной IDE
 
 DataSphere позволяет работать с проектом из любой локальной IDE, если она поддерживает работу с удаленными серверами Jupyter. По умолчанию эта возможность выключена, администратор сообщества может включить ее в [настройках сообщества](../community/manage-community-config.md).

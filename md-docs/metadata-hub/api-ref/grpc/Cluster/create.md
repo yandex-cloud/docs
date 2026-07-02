@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MetaData Hub](../../../index.md) > Apache Hive™ Metastore > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Create
+
 # Managed Service for Hive Metastore™ API, gRPC: ClusterService.Create
 
 Creates a Metastore Cluster.

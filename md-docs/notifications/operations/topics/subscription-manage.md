@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Notification Service](../../index.md) > [Пошаговые инструкции](../index.md) > Топики > Управлять подпиской
+
 # Управлять подпиской
 
 ## Изменить подписку {#subscribe-update}

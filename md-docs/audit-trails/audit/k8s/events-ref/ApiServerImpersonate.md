@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > k8s > ApiServerImpersonate
+
 # Managed Services for Kubernetes Audit Trails Events: ApiServerImpersonate
 
 ## Event JSON schema {#yandex.cloud.audit.k8s.apiserver.ApiServerImpersonate2-schema}

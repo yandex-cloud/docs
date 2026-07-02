@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > vpc > ExternalFlow
+
 # Virtual Private Cloud Audit Trails Events: ExternalFlow
 
 ## Event JSON schema {#yandex.cloud.audit.network.flowlogs.ExternalFlow2-schema}

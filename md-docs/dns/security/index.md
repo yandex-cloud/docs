@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud DNS](../index.md) > Управление доступом
+
 # Управление доступом в Cloud DNS
 
 В этом разделе вы узнаете:

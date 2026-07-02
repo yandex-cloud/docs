@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [registry](index.md) > list-ip-permissions
+
 # yc container registry list-ip-permissions
 
 List ip permissions for the specified registry

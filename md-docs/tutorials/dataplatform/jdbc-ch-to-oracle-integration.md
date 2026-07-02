@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Интеграция Yandex Managed Service for ClickHouse® с Oracle через ClickHouse® JDBC Bridge
+
 # Интеграция Yandex Managed Service for ClickHouse® с Oracle через ClickHouse® JDBC Bridge
 
 С помощью [ClickHouse® JDBC Bridge](https://clickhouse.com/docs/ru/integrations/jdbc/jdbc-with-clickhouse) вы можете:

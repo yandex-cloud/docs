@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > [REST (англ.)](../index.md) > [Registry](index.md) > List
+
 # IoT Core Service, REST: Registry.List
 
 Retrieves the list of registries in the specified folder.

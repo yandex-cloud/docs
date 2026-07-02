@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > [Справочник API](index.md) > PlatformApplication > Create
+
 # Действие CreatePlatformApplication
 
 Создает [канал мобильных Push-уведомлений](../concepts/push.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Security Deck](../index.md) > [Справочник правил](index.md) > KSPM
+
 ## KSPM Kubernetes® Security Posture Management
 
 Правила для проверки конфигурации кластеров Kubernetes.

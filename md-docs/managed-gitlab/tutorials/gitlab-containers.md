@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > [Практические руководства](index.md) > Непрерывное развертывание контейнеризованных приложений Managed Service for Kubernetes
+
 # Непрерывное развертывание контейнеризованных приложений Managed Service for Kubernetes
 
 [GitLab](https://about.gitlab.com/) — инструмент [непрерывной интеграции (Continuous integration, CI)](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd).

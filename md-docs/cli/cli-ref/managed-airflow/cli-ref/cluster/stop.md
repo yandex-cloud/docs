@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-airflow](../index.md) > [cluster](index.md) > stop
+
 # yc managed-airflow cluster stop
 
 Stop the specified Airflow cluster

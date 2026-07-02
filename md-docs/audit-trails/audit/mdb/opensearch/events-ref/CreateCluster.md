@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.opensearch > CreateCluster
+
 # Managed Service for OpenSearch Audit Trails Events: CreateCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.opensearch.CreateCluster2-schema}

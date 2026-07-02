@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex IoT Core](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Yandex IoT Core
 
 {% note warning %}

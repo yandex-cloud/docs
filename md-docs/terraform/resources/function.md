@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud Logging > Resources > function
+
 # yandex_function (Resource)
 
 Allows management of [Yandex Cloud Function](../../functions/index.md)

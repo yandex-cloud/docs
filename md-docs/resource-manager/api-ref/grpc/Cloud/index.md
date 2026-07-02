@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Resource Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Cloud > Overview
+
 # Resource Manager API, gRPC: CloudService
 
 A set of methods for managing Cloud resources.

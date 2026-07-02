@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-postgresql](../../index.md) > [v0](../index.md) > [user](index.md) > revoke-permission
+
 # yc managed-postgresql v0 user revoke-permission
 
 Revoke permission from the specified PostgreSQL user

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Subtitle](index.md) > Create
+
 # Video API, REST: Subtitle.Create
 
 Creates a new subtitle record for a specific video.

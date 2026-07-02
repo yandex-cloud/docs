@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [user](index.md) > revoke-permission
+
 # yc managed-clickhouse user revoke-permission
 
 Revoke a permission from a ClickHouse user.

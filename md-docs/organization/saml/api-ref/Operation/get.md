@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [SAML Federation API](../index.md) > [Operation](index.md) > Get
+
 # SAML Federation API, REST: Operation.Get
 
 Returns the specified Operation resource.

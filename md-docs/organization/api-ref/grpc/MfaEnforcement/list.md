@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [MfaEnforcement](index.md) > List
+
 # Identity Hub API, gRPC: MfaEnforcementService.List
 
 returns MFA enforcements for the specified organization

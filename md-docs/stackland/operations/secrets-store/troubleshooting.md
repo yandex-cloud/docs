@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Secrets Store > Диагностика Secrets Store
+
 # Диагностика Secrets Store
 
 В этом разделе описаны типичные проблемы при использовании Secrets Injector и способы их решения.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Resource](index.md) > Update
+
 # Cloud CDN API, gRPC: ResourceService.Update
 
 Updates the specified CDN resource.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Processing](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > remove-labels
+
 # yc dataproc cluster remove-labels
 
 Remove labels from a cluster.

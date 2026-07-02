@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Key Management Service > Resources > kms_secret_ciphertext
+
 # yandex_kms_secret_ciphertext (Resource)
 
 Encrypts given plaintext with the specified Yandex KMS key and provides access to the **CipherText**.

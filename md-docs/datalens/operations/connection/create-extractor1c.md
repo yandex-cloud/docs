@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Подключения > Партнерские подключения > Создание подключения к Экстрактору 1С
+
 # Создание подключения к Экстрактору 1С
 
 Перед созданием подключения [установите и настройте](https://docs.denvic.tech/extractor_docs/extractor_docs/ustanovka-2/ustanovka-installyatorom) расширение экстрактора в вашу версию 1С.

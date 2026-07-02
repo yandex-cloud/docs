@@ -66,7 +66,7 @@ description: This section contains the {{ sf-name }} release notes.
 
 * Added support for [setting up the function metadata service](operations/function/metadata-options.md).
 
-## September — October 2024 {#sept-oct-2024}
+## September – October 2024 {#sept-oct-2024}
 
 ### Updates {#updates}
 
@@ -111,7 +111,7 @@ description: This section contains the {{ sf-name }} release notes.
 
 ### Fixes and improvements {#fixes-improvements}
 
-* Increased the maximum batch size in a [{{ message-queue-full-name }}](concepts/trigger/ymq-trigger.md) trigger to 1,000 messages.
+* Increased the maximum batch size in a [{{ message-queue-full-name }} trigger](concepts/trigger/ymq-trigger.md) to 1,000 messages.
 
 ## January – February 2024 {#jan-feb-2024}
 

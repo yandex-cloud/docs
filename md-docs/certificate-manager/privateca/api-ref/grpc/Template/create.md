@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Certificate Manager](../../../../index.md) > Справочник API > gRPC (англ.) > [Certificate Manager Private CA API](../index.md) > [Template](index.md) > Create
+
 # Certificate Manager Private CA API, gRPC: TemplateService.Create
 
 Creates a new certificate template in the specified folder.

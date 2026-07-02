@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Thumbnail](index.md) > Get
+
 # Video API, REST: Thumbnail.Get
 
 Retrieves detailed information about a specific thumbnail by its ID.

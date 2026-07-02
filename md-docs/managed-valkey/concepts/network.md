@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Valkey™](../index.md) > [Концепции](index.md) > Сеть в Yandex Managed Service for Valkey™
+
 # Сеть и кластеры Yandex Managed Service for Valkey™
 
 

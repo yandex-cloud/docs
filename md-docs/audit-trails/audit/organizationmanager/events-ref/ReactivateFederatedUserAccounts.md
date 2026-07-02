@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > ReactivateFederatedUserAccounts
+
 # Identity Hub Audit Trails Events: ReactivateFederatedUserAccounts
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.saml.ReactivateFederatedUserAccounts2-schema}

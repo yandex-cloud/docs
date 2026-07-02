@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.clickhouse > UpdateClusterExtension
+
 # Managed Service for ClickHouse Audit Trails Events: UpdateClusterExtension
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.clickhouse.UpdateClusterExtension2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Beta-версия интерфейса командной строки](../../../../index.md) > [Справочник beta-версии CLI (англ.)](../../../index.md) > [smartwebsecurity](../index.md) > [security-profile](index.md) > delete
+
 # yc beta smartwebsecurity security-profile delete
 
 Deletes the specified security profile.

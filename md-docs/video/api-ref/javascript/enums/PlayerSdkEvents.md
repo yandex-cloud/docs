@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Видеоплеер > SDK > JavaScript > Справочник API > Enumerations > PlayerSdkEvents
+
 # Enumeration: PlayerSdkEvents
 
 [События плеера](../../../sdk/javascript/player-events.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > resourcemanager > CreateCloud
+
 # Resource Manager Audit Trails Events: CreateCloud
 
 ## Event JSON schema {#yandex.cloud.audit.resourcemanager.CreateCloud2-schema}

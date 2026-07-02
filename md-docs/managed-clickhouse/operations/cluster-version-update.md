@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Обновление версии ClickHouse®
+
 # Обновление версии ClickHouse®
 
 Вы можете изменить версию ClickHouse®, которую использует кластер, на любую из [поддерживаемых Managed Service for ClickHouse® версий](../concepts/update-policy.md#versioning-policy).

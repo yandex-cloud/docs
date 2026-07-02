@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [Identity Provider API](../index.md) > [User](index.md) > Reactivate
+
 # Identity Provider API, gRPC: UserService.Reactivate
 
 Reactivates a previously suspended user.

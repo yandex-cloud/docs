@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity Hub](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [v0](../../../index.md) > [idp](../../index.md) > [userpool](../index.md) > [domain](index.md) > list
+
 # yc organization-manager v0 idp userpool domain list
 
 List domains for the specified user pool

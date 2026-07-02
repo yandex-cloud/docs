@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Registry](../index.md) > [Практические руководства](index.md) > Развертывание gRPC-сервиса на основе Docker-образа
+
 # Развертывание gRPC-сервиса на основе Docker-образа
 
 В этом практическом руководстве вы развернете эхо-сервис, работающий по протоколу gRPC, на основе [Docker-образа](../../datasphere/concepts/deploy/index.md#docker-node). Сервис передает метрики в текстовом формате [Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format) и запускается на порте `9875`.

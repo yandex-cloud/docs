@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Desktop](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Desktop](index.md) > UpdateProperties
+
 # Cloud Desktop API, gRPC: DesktopService.UpdateProperties
 
 Updates desktop properties.

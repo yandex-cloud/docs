@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity and Access Management](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [v0](../../../index.md) > [workload-identity](../../index.md) > [oidc](../index.md) > federation > Overview
+
 # yc iam v0 workload-identity oidc federation
 
 Manage workload identity OIDC federation

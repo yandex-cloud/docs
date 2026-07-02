@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Безопасность в Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Безопасная конфигурация виртуальной среды > Хостинг статического сайта на фреймворке Gatsby в Object Storage
+
 # Хостинг статического сайта на фреймворке Gatsby в Yandex Object Storage
 
 С помощью этого руководства вы разместите свой статический сайт, созданный на фреймворке [Gatsby](https://www.gatsbyjs.com/docs), в сервисе [Object Storage](../../../storage/index.md) и настроите доступ к нему по протоколу HTTPS с помощью сервиса [Yandex Certificate Manager](../../../certificate-manager/index.md).
@@ -34,8 +36,8 @@
 
 В стоимость поддержки создаваемой инфраструктуры входят:
 
-* плата за использование публичной DNS-зоны и за публичные DNS-запросы ([тарифы Yandex Cloud DNS](../../dns/pricing.md));
-* плата за хранение данных в Object Storage, операции с ними и исходящий трафик ([тарифы Object Storage](../../storage/pricing.md)).
+* плата за использование публичной DNS-зоны и за публичные DNS-запросы ([тарифы Yandex Cloud DNS](../../../dns/pricing.md));
+* плата за хранение данных в Object Storage, операции с ними и исходящий трафик ([тарифы Object Storage](../../../storage/pricing.md)).
 
 ## Зарегистрируйте доменное имя {#register-domain}
 

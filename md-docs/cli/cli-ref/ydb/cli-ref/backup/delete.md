@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [ydb](../index.md) > [backup](index.md) > delete
+
 # yc ydb backup delete
 
 Delete the specified YDB backups.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Spark™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Job](index.md) > Get
+
 # Managed Spark API, gRPC: JobService.Get
 
 Returns the specified Spark job.

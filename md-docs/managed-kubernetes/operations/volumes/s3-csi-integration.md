@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Работа с постоянными томами > Интеграция с Object Storage
+
 # Интеграция с Object Storage
 
 Container Storage Interface позволяет динамически резервировать [бакеты](../../../storage/concepts/bucket.md) [Yandex Object Storage](../../../storage/index.md) и монтировать их к [подам](../../concepts/index.md#pod) [кластера Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster). При этом можно монтировать уже существующие бакеты или создавать новые.

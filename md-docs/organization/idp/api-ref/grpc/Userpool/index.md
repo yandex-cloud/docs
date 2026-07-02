@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [Identity Provider API](../index.md) > Userpool > Overview
+
 # Identity Provider API, gRPC: UserpoolService
 
 A set of methods for managing userpools.

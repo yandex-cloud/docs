@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Практические руководства](index.md) > Развертывание веб-приложения
+
 # Развертывание веб-приложения с использованием Java Servlet API и YDB
 
 # Развертывание веб-приложения с использованием Java Servlet API
@@ -32,7 +34,7 @@
 В стоимость ресурсов поддержки веб-приложения входят:
 
 * Плата за количество запросов к API-шлюзу и исходящий трафик ([тарифы Yandex API Gateway](../../api-gateway/pricing.md)).
-* Плата за операции с YDB и хранение данных ([тарифы Yandex Managed Service for YDB](../../ydb/pricing/serverless.md)).
+* Плата за операции с YDB и хранение данных ([тарифы Yandex Managed Service for YDB](../pricing/serverless.md)).
 * Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы Cloud Functions](../../functions/pricing.md)).
 
 ## Подготовьте окружение {#prepare}

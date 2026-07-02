@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Инструменты для Managed Service for Kubernetes > Создание и изменение ресурсов по конфигурации
+
 # Создать или изменить ресурсы Application Load Balancer по конфигурации для Managed Service for Kubernetes
 
 {% note tip %}

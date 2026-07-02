@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Message Queue](../../index.md) > [Справочник API](../index.md) > Queue > ListQueues
+
 # ListQueues
 
 Метод для получения списка очередей в каталоге. Максимальное количество очередей в ответе — 1000. Очереди можно отфильтровать с помощью параметра `QueueNamePrefix`.

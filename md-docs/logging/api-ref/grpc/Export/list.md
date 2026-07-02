@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Logging](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Export](index.md) > List
+
 # Cloud Logging Service, gRPC: ExportService.List
 
 Retrieves the list of exports in the specified folder.

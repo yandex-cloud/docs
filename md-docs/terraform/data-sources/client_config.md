@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Client Config > Data Sources > client_config
+
 # yandex_client_config (DataSource)
 
 Get attributes used by provider to configure client connection.

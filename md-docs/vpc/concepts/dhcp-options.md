@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Концепции](index.md) > Настройки DHCP
+
 # Настройки DHCP
 
 С помощью настроек DHCP вы можете использовать в [подсети](network.md#subnet) те же DNS- и NTP-серверы, что используются в вашей корпоративной сетевой инфраструктуре, доступной через [VPN](../../glossary/vpn.md) или [Yandex Cloud Interconnect](../../interconnect/concepts/index.md). Также настройки DHCP позволяют назначить используемое имя домена или DNS-суффикс, который будет разрешаться указанным DNS-сервером.

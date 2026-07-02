@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > Подключение к источникам данных > Подключение к базе данных ClickHouse®
+
 # Подключение к базе данных ClickHouse®
 
 В инфраструктуре Yandex Cloud разворачивать и поддерживать кластеры серверов [ClickHouse®](https://clickhouse.com/) позволяет сервис Managed Service for ClickHouse®.

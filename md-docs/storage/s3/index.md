@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > Справочник API > AWS S3 REST > Как пользоваться API
+
 # Как пользоваться S3 API
 
 ## Подготовка к работе {#before-you-start}

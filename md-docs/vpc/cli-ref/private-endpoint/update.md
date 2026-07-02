@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [private-endpoint](index.md) > update
+
 # yc vpc private-endpoint update
 
 Modify configuration or attributes of a private endpoint.

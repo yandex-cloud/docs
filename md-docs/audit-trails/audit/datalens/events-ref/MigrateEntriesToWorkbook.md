@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > MigrateEntriesToWorkbook
+
 # DataLens Audit Trails Events: MigrateEntriesToWorkbook
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.MigrateEntriesToWorkbook2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [metadata-hub](../../index.md) > [connection-manager](../index.md) > [connection](index.md) > get
+
 # yc metadata-hub connection-manager connection get
 
 Get connection

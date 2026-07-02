@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Получение патч-версии ClickHouse®
+
 # Получение патч-версии ClickHouse®
 
 Чтобы узнать патч-версию ClickHouse®, установленную в кластере Managed Service for ClickHouse®, выполните следующие действия:

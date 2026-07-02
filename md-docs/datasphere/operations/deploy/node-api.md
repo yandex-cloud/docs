@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > DataSphere Inference > Отправить запрос в ноду
+
 # Отправить запрос в ноду
 
 Указанные примеры отправки запроса работают только с [нодами из Docker-образа](../../concepts/deploy/index.md#docker-node). Чтобы отправить запрос в [ноду из модели](../../concepts/deploy/index.md#models-node), установите [Triton Client](https://github.com/triton-inference-server/client).

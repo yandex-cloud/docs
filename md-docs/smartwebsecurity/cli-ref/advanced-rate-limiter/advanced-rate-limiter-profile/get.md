@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [advanced-rate-limiter](../index.md) > [advanced-rate-limiter-profile](index.md) > get
+
 # yc smartwebsecurity advanced-rate-limiter advanced-rate-limiter-profile get
 
 Returns the specified AdvancedRateLimiterProfile resource.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [baremetal](../../index.md) > [v2](../index.md) > public-prefix-pool > Overview
+
 # yc baremetal v2 public-prefix-pool
 
 A set of methods for managing PublicPrefixPool resources.

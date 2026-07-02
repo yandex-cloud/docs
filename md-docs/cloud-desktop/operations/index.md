@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Desktop](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Cloud Desktop
 
 ## Группы рабочих столов {#desktop-groups}

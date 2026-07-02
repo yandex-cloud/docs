@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > Интеграция с сервисами Яндекса и Yandex Cloud > Защита API Gateway при помощи Smart Web Security
+
 # Защита API Gateway при помощи Smart Web Security
 
 # Защита API Gateway при помощи Smart Web Security

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > TrunkConnection > Overview
+
 # Cloud Interconnect API, gRPC: TrunkConnectionService
 
 A set of methods for managing TrunkConnection resources.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Billing](../../../index.md) > Справочник API > gRPC (англ.) > [Billing](../index.md) > [Customer](index.md) > Invite
+
 # Billing API, gRPC: CustomerService.Invite
 
 Invites customer to the specified reseller.

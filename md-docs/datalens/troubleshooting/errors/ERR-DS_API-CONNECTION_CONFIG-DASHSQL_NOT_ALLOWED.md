@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Использование QL-чартов запрещено на уровне подключения
+
 # [Yandex DataLens] Использование QL-чартов запрещено на уровне подключения
 
 `ERR.DS_API.CONNECTION_CONFIG.DASHSQL_NOT_ALLOWED`

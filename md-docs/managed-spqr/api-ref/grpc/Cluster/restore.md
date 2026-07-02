@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Restore
+
 # Managed Service for SPQR API, gRPC: ClusterService.Restore
 
 Creates a new SPQR cluster using the specified backup.

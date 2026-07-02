@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Monitoring](../../index.md) > Справочник API > [REST](../index.md) > [MetricsMeta](index.md) > listMetrics
+
 # Метод listMetrics
 Возвращает список метрик.
  

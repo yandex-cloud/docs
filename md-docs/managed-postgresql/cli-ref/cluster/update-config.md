@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > update-config
+
 # yc managed-postgresql cluster update-config
 
 Update the specified PostgreSQL cluster config

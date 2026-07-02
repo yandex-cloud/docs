@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > Концепции > Настройка и управление > Аудитные логи Audit Trails > Справочник аудитных логов > RegisterServerBackupAgent
+
 # BareMetal Audit Trails Events: RegisterServerBackupAgent
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.RegisterServerBackupAgent2-schema}

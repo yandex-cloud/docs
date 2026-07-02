@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Router](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [RoutingInstance](index.md) > Create
+
 # Cloud Router API, gRPC: RoutingInstanceService.Create
 
 Creates a RoutingInstance resource in the specified folder using the data specified in the request.

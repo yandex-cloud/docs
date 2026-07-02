@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > CreateCommunity
+
 # DataSphere Audit Trails Events: CreateCommunity
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.CreateCommunity2-schema}

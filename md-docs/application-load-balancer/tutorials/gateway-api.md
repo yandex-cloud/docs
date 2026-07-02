@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Практические руководства](index.md) > Настройка Gateway API в Yandex Managed Service for Kubernetes
+
 # Настройка Gateway API в Yandex Managed Service for Kubernetes
 
 [Gateway API](https://github.com/kubernetes-sigs/gateway-api) — набор ресурсов [API](../../glossary/rest-api.md), моделирующих сетевое взаимодействие в [кластере Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
@@ -21,7 +23,7 @@
 * Плата за DNS-зону и DNS-запросы ([тарифы Cloud DNS](../../dns/pricing.md)).
 * Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
 * Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Application Load Balancer](../../application-load-balancer/pricing.md)).
+* Плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Application Load Balancer](../pricing.md)).
 * Плата за публичные IP-адреса ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 

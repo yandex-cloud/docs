@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > Справочник CLI (англ.) > Overview
+
 # yc smartwebsecurity
 
 Manage SmartWebSecurity resources

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [FormatSchema](index.md) > Delete
+
 # Managed Service for ClickHouse API, gRPC: FormatSchemaService.Delete
 
 Deletes a format schema from a cluster.

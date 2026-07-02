@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Postbox](../index.md) > [Практические руководства](index.md) > Отправка писем с помощью AWS SDK > JavaScript
+
 # Отправка писем с помощью AWS SDK для JavaScript
 
 В этом руководстве вы научитесь отправлять электронные письма через Yandex Cloud Postbox с использованием [AWS SDK для JavaScript](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/welcome.html).
@@ -27,8 +29,8 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за использование Yandex Cloud Postbox ([тарифы Yandex Cloud Postbox](../../../postbox/pricing.md));
-* плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы создаете ресурсную запись в Cloud DNS ([тарифы Cloud DNS](../../../dns/pricing.md)).
+* плата за использование Yandex Cloud Postbox ([тарифы Yandex Cloud Postbox](../pricing.md));
+* плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы создаете ресурсную запись в Cloud DNS ([тарифы Cloud DNS](../../dns/pricing.md)).
 
 
 ### Подготовьте ресурсы {#infrastructure}

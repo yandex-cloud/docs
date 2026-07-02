@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Практические руководства](index.md) > Поиск проблем с производительностью кластера
+
 # Поиск проблем с производительностью кластера Managed Service for PostgreSQL
 
 # Поиск проблем с производительностью кластера Managed Service for PostgreSQL

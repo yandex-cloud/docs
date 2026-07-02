@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > ai.responses > FileSearchToolSearch
+
 # AI Studio Audit Trails Events: FileSearchToolSearch
 
 ## Event JSON schema {#yandex.cloud.audit.ai.responses.FileSearchToolSearch2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Marketplace](../../../index.md) > Партнерам > Справочник License Manager API > [REST (англ.)](../index.md) > [Instance](index.md) > List
+
 # Yandex Cloud Marketplace License Manager, REST: Instance.List
 
 Retrieves the list of subscription instances in the specified folder.

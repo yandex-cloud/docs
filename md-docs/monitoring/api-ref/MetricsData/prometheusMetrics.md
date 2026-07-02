@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Monitoring](../../index.md) > Справочник API > [REST](../index.md) > [MetricsData](index.md) > prometheusMetrics
+
 # Метод prometheusMetrics
 Экспортирует метрики сервиса в [формате Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/). Из каталога выгружаются все метрики сервиса.
 

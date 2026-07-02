@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [backup](index.md) > get
+
 # yc managed-sharded-postgresql backup get
 
 Show information about the specified Sharded PostgreSQL backup

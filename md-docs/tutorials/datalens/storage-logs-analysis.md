@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Анализ и визуализация данных](index.md) > DataLens > Аналитика сервисов > Анализ логов Object Storage при помощи DataLens
+
 # Анализ логов Object Storage при помощи DataLens
 
 

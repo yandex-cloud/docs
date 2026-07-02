@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Пошаговые инструкции](index.md) > Статическая маршрутизация > Удалить NAT-шлюз
+
 # Удалить NAT-шлюз
 
 Если [NAT-шлюз](../concepts/gateways.md) вам больше не нужен, вы можете [удалить его](#delete-nat-gateway). Перед удалением NAT-шлюза [отвяжите его](#unlink-nat-gateway) от всех таблиц маршрутизации, в которых он используется.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud CDN](../index.md) > [Концепции](index.md) > Выделенная IP-адресация
+
 # Выделенная IP-адресация CDN-ресурсов
 
 {% note warning %}

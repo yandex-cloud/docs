@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > Бэкенд на Serverless > Подключение к базе данных YDB из функции Cloud Functions на Node.js
+
 # Подключение к базе данных Yandex Managed Service for YDB из функции Yandex Cloud Functions на Node.js
 
 {% note info %}

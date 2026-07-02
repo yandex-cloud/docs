@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [gpu-cluster](index.md) > list-instances
+
 # yc compute gpu-cluster list-instances
 
 List instances created in the specified GPU cluster

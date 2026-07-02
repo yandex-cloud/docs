@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [broker](../index.md) > [password](index.md) > list
+
 # yc iot broker password list
 
 List passwords associated with specified broker

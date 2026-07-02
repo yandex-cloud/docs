@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > list-backups
+
 # yc managed-clickhouse v0 cluster list-backups
 
 List available backups for a ClickHouse cluster.

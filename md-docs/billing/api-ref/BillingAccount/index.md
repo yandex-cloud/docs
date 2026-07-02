@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Billing](../../index.md) > Справочник API > REST (англ.) > [Billing](../index.md) > BillingAccount > Overview
+
 # Billing API, REST: BillingAccount
 
 A set of methods for managing BillingAccount resources.

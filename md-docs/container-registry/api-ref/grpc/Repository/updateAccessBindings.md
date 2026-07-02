@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Repository](index.md) > UpdateAccessBindings
+
 # Container Registry API, gRPC: RepositoryService.UpdateAccessBindings
 
 Updates access bindings for the specified repository.

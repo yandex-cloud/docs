@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > [Справочник CLI (англ.)](../index.md) > [routing-instance](index.md) > remove-private-connection
+
 # yc cloudrouter routing-instance remove-private-connection
 
 Removes specified PrivateConnection from a RoutingInstance resource.

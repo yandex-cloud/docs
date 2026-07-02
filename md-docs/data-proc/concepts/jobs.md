@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Концепции](index.md) > Задания в Yandex Data Processing
+
 # Задания в Yandex Data Processing
 
 В кластере Yandex Data Processing можно создавать и выполнять задания (jobs). Это позволяет, например, на регулярной основе загружать набор данных из [бакета Object Storage](../../storage/concepts/bucket.md), использовать их в расчетах и формировать [аналитику](../../glossary/data-analytics.md).

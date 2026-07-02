@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > [Пошаговые инструкции](index.md) > Каталоги > Изменение каталога
+
 # Изменение каталога Trino
 
 {% list tabs group=instructions %}

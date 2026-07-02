@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Broker > [REST (англ.)](../index.md) > [Broker](index.md) > Update
+
 # IoT Core Broker Service, REST: Broker.Update
 
 Updates the specified broker.

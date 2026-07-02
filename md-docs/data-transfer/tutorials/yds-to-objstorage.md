@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Поставка данных из очередей > YDS в Object Storage
+
 # Поставка данных из очереди в Yandex Object Storage с помощью Yandex Data Transfer
 
 С помощью сервиса Data Transfer вы можете перенести данные из [потока Data Streams](../../data-streams/concepts/glossary.md#stream-concepts) в бакет Yandex Object Storage:

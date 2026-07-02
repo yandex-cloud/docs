@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [User](index.md) > RevokePermission
+
 # Managed Service for PostgreSQL API, REST: User.RevokePermission
 
 Revokes permission from the specified PostgreSQL user.

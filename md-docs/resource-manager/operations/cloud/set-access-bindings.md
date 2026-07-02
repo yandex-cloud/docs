@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > [Пошаговые инструкции](../index.md) > Облако > Настройка прав доступа
+
 # Настройка прав доступа к облаку
 
 {% note info %}

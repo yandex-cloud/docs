@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud DNS](../index.md) > Концепции > Обзор
+
 # Концепции Cloud DNS
 
 Yandex Cloud DNS — это сервис, который берет на себя обслуживание DNS-запросов и упрощает администрирование [DNS](../../glossary/dns.md).

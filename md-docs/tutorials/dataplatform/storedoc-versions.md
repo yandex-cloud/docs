@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция кластера Yandex StoreDoc с версии 4.4 на 6.0
+
 # Миграция кластера Yandex StoreDoc с версии 4.4 на 6.0 c помощью Yandex Data Transfer
 
 # Миграция кластера Yandex StoreDoc (Managed Service for MongoDB) с версии 4.4 на 6.0 c помощью Yandex Data Transfer
@@ -18,9 +20,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Yandex StoreDoc: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Yandex StoreDoc](../../../storedoc/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../../vpc/pricing.md)).
-* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы Data Transfer](../../../data-transfer/pricing.md)).
+* Кластер Yandex StoreDoc: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Yandex StoreDoc](../../storedoc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы Data Transfer](../../data-transfer/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

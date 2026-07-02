@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Registry](../index.md) > [Пошаговые инструкции](index.md) > Сканирование Docker-образа на наличие уязвимостей
+
 # Сканирование Docker-образа на наличие уязвимостей
 
 

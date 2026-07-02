@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Quota Manager](../index.md) > Управление доступом
+
 # Управление доступом в Cloud Quota Manager
 
 ## Об управлении доступом {#about-access-control}

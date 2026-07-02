@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > serverless > DeleteProxy
+
 # Cloud Functions Audit Trails Events: DeleteProxy
 
 ## Event JSON schema {#yandex.cloud.audit.serverless.mdbproxy.DeleteProxy2-schema}

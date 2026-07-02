@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Практические руководства](../index.md) > [Привязка доменного имени к ВМ с веб-сервером](index.md) > Terraform
+
 # Привязка доменного имени к ВМ с веб-сервером с помощью Terraform
 
 Чтобы создать инфраструктуру для [привязки доменного имени к ВМ с веб-сервером](index.md) с помощью Terraform:
@@ -24,7 +26,7 @@
 В стоимость поддержки создаваемого решения входят:
 
 * плата за использование [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за вычислительные ресурсы и диски [ВМ](../../concepts/vm.md) ([тарифы Yandex Compute Cloud](../../pricing.md));
 * плата за использование публичной [DNS-зоны](../../../dns/concepts/dns-zone.md) и публичные [DNS-запросы](../../../glossary/dns.md) ([тарифы Yandex Cloud DNS](../../../dns/pricing.md)).
 
 ## Делегируйте домен сервису Cloud DNS {#delegate-domain}

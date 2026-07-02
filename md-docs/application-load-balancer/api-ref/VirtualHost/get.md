@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [VirtualHost](index.md) > Get
+
 # Application Load Balancer API, REST: VirtualHost.Get
 
 Returns the specified virtual host.

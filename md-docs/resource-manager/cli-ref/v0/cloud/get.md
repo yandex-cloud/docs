@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Resource Manager](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cloud](index.md) > get
+
 # yc resource-manager v0 cloud get
 
 Show information about the specified cloud

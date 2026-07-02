@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Application Load Balancer > Resources > alb_backend_group
+
 # yandex_alb_backend_group (Resource)
 
 Creates a backend group in the specified folder and adds the specified backends to it. For more information, see [the official documentation](../../application-load-balancer/concepts/backend-group.md).

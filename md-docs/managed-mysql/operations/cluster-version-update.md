@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for MySQL®](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Обновление версии MySQL®
+
 # Обновление версии MySQL®
 
 Вы можете обновить кластер Managed Service for MySQL® до любой поддерживаемой версии: минорной или мажорной.

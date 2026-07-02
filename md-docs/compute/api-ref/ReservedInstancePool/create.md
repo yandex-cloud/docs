@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ReservedInstancePool](index.md) > Create
+
 # Compute Cloud API, REST: ReservedInstancePool.Create
 
 Creates an reserved instance pool in the specified folder.

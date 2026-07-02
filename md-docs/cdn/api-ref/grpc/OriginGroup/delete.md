@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [OriginGroup](index.md) > Delete
+
 # Cloud CDN API, gRPC: OriginGroupService.Delete
 
 Deletes origin group with specified origin group id.

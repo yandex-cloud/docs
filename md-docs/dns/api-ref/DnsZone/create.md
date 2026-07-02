@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DnsZone](index.md) > Create
+
 # Cloud DNS API, REST: DnsZone.Create
 
 Creates a DNS zone in the specified folder.

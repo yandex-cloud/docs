@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Message Queue](../index.md) > [Концепции](index.md) > Long Polling
+
 # Long Polling
 
 Технология Long Polling позволяет оптимизировать использование Yandex Message Queue за счет снижения количества отправляемых запросов [ReceiveMessage](../api-ref/message/ReceiveMessage.md) к пустым очередям. Вместо повторения запросов Yandex Message Queue позволяет получателям ожидать поступления сообщений в очередь и сразу читать их. Кроме того, за счет увеличенного времени опроса Long Polling позволяет избежать ложных пустых ответов.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [desktops](../index.md) > [group](index.md) > remove-access-bindings
+
 # yc desktops group remove-access-bindings
 
 Remove access binding for the specified desktop group

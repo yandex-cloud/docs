@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Регулярное распознавание изображений и PDF-документов из бакета Object Storage
+
 # Регулярное распознавание изображений и PDF-документов из бакета Object Storage
 
 В этом руководстве вы с помощью [Yandex Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/index) настроите автоматическое распознавание изображений в [поддерживаемых форматах](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr/index#image-requirements) и PDF-документов, регулярно загружаемых в [бакет](../concepts/bucket.md) [Yandex Object Storage](../index.md).
@@ -37,10 +39,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для регулярного распознавания изображений и документов входят:
-* плата за хранение данных в бакете и операции с ними ([тарифы Object Storage](../../storage/pricing));
+* плата за хранение данных в бакете и операции с ними ([тарифы Object Storage](../pricing.md));
 * плата за использование Vision OCR ([тарифы для Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/pricing));
-* плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик ([тарифы Serverless Containers](../../serverless-containers/pricing));
-* плата за хранение и операции с [секретом](../../lockbox/concepts/secret.md) ([тарифы Yandex Lockbox](../../lockbox/pricing)).
+* плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик ([тарифы Serverless Containers](../../serverless-containers/pricing.md));
+* плата за хранение и операции с [секретом](../../lockbox/concepts/secret.md) ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
 
 
 ## Создайте инфраструктуру {#deploy}

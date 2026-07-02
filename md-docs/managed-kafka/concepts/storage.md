@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Концепции](index.md) > Хранилище в Managed Service for Apache Kafka®
+
 # Хранилище в Managed Service for Apache Kafka®
 
 

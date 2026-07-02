@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > История изменений > Май 2026
+
 # История изменений в Yandex DataLens в мае 2026
 
 * [Изменения базовых возможностей](#base)

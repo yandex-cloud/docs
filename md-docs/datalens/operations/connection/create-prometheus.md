@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Подключения > Базы данных > Создание подключения к Prometheus
+
 # Создание подключения к Prometheus
 
 Чтобы создать подключение к Prometheus:

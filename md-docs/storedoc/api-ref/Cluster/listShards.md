@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > ListShards
+
 # Managed Service for MongoDB API, REST: Cluster.ListShards
 
 Retrieves a list of shards.

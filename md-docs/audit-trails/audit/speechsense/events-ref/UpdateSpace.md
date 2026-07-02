@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > speechsense > UpdateSpace
+
 # Talk Analytics Audit Trails Events: UpdateSpace
 
 ## Event JSON schema {#yandex.cloud.audit.speechsense.UpdateSpace2-schema}

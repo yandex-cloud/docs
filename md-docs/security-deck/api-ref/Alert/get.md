@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Security Deck](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Alert](index.md) > Get
+
 # Security Deck Alerts API, REST: Alert.Get
 
 Get alert by ID.

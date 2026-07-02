@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > Расширения и словари PostgreSQL > Словари от Hunspell для полнотекстового поиска
+
 # Словари от Hunspell для полнотекстового поиска
 
 [Словари](https://www.postgresql.org/docs/current/textsearch-dictionaries.html) используются для настройки полнотекстового поиска в документах, хранящихся в PostgreSQL. В кластерах Managed Service for PostgreSQL предустановлены словари от корректора орфографии [Hunspell](https://hunspell.github.io/) с поддержкой нескольких языков.

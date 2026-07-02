@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > L7-балансировщики > Посмотреть статистику L7-балансировщика
+
 # Посмотреть статистику L7-балансировщика
 
 Application Load Balancer автоматически отправляет метрики работы балансировщика в сервис [Yandex Monitoring](../../monitoring/index.md).

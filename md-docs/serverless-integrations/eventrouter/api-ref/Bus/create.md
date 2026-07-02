@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > [Bus](index.md) > Create
+
 # EventRouter Service, REST: Bus.Create
 
 Creates a bus in the specified folder.

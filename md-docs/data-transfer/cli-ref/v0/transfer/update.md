@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Transfer](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [transfer](index.md) > update
+
 # yc datatransfer v0 transfer update
 
 Update transfer

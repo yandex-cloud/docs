@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Logging](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Export](index.md) > ListOperations
+
 # Cloud Logging Service, gRPC: ExportService.ListOperations
 
 Lists operations for the specified export.

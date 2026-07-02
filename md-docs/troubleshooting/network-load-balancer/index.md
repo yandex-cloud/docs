@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Network Load Balancer > Все решения для Network Load Balancer
+
 # Решения для Network Load Balancer
 
 

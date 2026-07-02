@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [RoutingInstance](index.md) > AddPrivateConnection
+
 # Cloud Router API, REST: RoutingInstance.AddPrivateConnection
 
 Adds specified PrivateConnection to a RoutingInstance resource.

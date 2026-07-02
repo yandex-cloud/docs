@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Functions](../index.md) > [Концепции](index.md) > Логи функции
+
 # Логи функции
 
 Функция пишет логи в Yandex Cloud Logging, в [лог-группу по умолчанию](../../logging/concepts/log-group.md) для каталога, в котором находится функция.

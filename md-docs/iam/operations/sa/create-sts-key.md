@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > Аутентификация > Создание временного ключа доступа с помощью Security Token Service
+
 # Создать временный ключ доступа с помощью Security Token Service
 
 С помощью [Security Token Service](../../concepts/authorization/sts.md) вы можете получить временные ключи для ограниченного доступа в [бакеты](../../../storage/concepts/bucket.md) Yandex Object Storage.

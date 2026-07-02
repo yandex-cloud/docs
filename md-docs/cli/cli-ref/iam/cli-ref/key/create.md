@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [iam](../index.md) > [key](index.md) > create
+
 # yc iam key create
 
 Create an IAM key for for authenticated account or the specified service account.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > marketplace.licensemanager > LockLicenseInstance
+
 # Yandex Cloud Marketplace Audit Trails Events: LockLicenseInstance
 
 ## Event JSON schema {#yandex.cloud.audit.marketplace.licensemanager.LockLicenseInstance2-schema}

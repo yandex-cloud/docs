@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Концепции](index.md) > Мониторинг и логирование
+
 # Мониторинг и логирование
 
 ## Статистика {#stats}

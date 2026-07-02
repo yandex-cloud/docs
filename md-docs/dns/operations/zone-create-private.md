@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud DNS](../index.md) > [Пошаговые инструкции](index.md) > Зоны > Создать внутреннюю зону DNS
+
 # Создать внутреннюю зону DNS
 
 Чтобы создать внутреннюю [зону DNS](../concepts/dns-zone.md):

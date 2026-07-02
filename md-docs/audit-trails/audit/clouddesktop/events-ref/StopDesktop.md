@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > clouddesktop > StopDesktop
+
 # Cloud Desktop Audit Trails Events: StopDesktop
 
 ## Event JSON schema {#yandex.cloud.audit.clouddesktop.StopDesktop2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [logging](../../index.md) > [v0](../index.md) > sink > Overview
+
 # yc logging v0 sink
 
 Manage log groups

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for YDB](index.md) > Начало работы
+
 # Как начать работать с Managed Service for YDB
 
 В этой инструкции вы создадите базу данных [YDB](https://ydb.tech/ru) в Yandex Cloud и выполните простой запрос к ней с помощью [консоли управления](https://console.yandex.cloud) Yandex Cloud или инструментов командной строки.
@@ -136,7 +138,7 @@
 
         {% note warning %}
         
-        Потребление исходящего интернет-трафика для баз Managed Service for YDB с внешними IP-адресами учитывается по [действующим тарифам](../../vpc/pricing.md).
+        Потребление исходящего интернет-трафика для баз Managed Service for YDB с внешними IP-адресами учитывается по [действующим тарифам](../vpc/pricing.md).
         
         Начисления за исходящий интернет-трафик, возникшие в результате использования Managed Service for YDB, будут компенсированы грантами.
         

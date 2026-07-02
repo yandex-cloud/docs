@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Valkey™](../index.md) > Управление доступом
+
 # Управление доступом в Yandex Managed Service for Valkey™
 
 
@@ -333,6 +335,8 @@ flowchart BT
 Чтобы пользоваться сервисом, необходима роль [managed-redis.editor или выше](../../iam/concepts/access-control/roles.md) на каталог, в котором создается кластер. Роль `managed-redis.viewer` позволит только просматривать список кластеров.
 
 Чтобы создать кластер Yandex Managed Service for Valkey™, нужна роль [vpc.user](../../vpc/security/index.md#vpc-user) и роль `managed-redis.editor` или выше.
+
+Чтобы просматривать кластеры управляемых баз данных (MDB) на дашборде в [консоли управления](https://console.yandex.cloud), нужна роль [mdb.viewer](../../iam/roles-reference.md#mdb-viewer).
 
 Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `managed-redis.admin` вместо `managed-redis.editor`.
 

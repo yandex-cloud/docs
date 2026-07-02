@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Serverless Containers](../../index.md) > [Концепции](../index.md) > Триггер > Обзор
+
 # Триггеры в Serverless Containers. Обзор
 
 _Триггер_ — условие, при выполнении которого автоматически запускается [контейнер](../container.md) Serverless Containers. Триггеры позволяют автоматизировать работу с другими сервисами Yandex Cloud, например: Yandex Object Storage, Yandex Message Queue и Yandex Container Registry. 

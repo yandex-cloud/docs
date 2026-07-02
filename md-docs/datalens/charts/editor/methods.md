@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Чарты > [Чарты в Editor](index.md) > Доступные методы
+
 # Доступные методы в Editor
 
 Поддерживаются методы:

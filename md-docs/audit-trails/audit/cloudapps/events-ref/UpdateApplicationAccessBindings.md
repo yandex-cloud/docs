@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > cloudapps > UpdateApplicationAccessBindings
+
 # Cloud Apps Workload Audit Trails Events: UpdateApplicationAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.cloudapps.UpdateApplicationAccessBindings2-schema}

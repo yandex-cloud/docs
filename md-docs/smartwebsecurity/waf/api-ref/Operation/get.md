@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > Справочник API > REST (англ.) > [SmartWebSecurity WAF API](../index.md) > [Operation](index.md) > Get
+
 # SmartWebSecurity WAF API, REST: Operation.Get
 
 Returns the specified Operation resource.

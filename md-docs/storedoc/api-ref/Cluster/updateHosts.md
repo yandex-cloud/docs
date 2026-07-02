@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > UpdateHosts
+
 # Managed Service for MongoDB API, REST: Cluster.UpdateHosts
 
 Updates the specified parameters for the host.

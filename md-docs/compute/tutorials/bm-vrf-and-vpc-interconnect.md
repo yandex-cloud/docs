@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Практические руководства](index.md) > Настройка сетевой связности между подсетями BareMetal и Virtual Private Cloud
+
 # Организация сетевой связности между подсетями Yandex BareMetal и Yandex Virtual Private Cloud с помощью Yandex Cloud Interconnect
 
 
@@ -42,7 +44,7 @@
 В стоимость поддержки инфраструктуры для организации сетевой связности между подсетями BareMetal и VPC входят:
 
 * плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) виртуальной машины ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за вычислительные ресурсы и диски [ВМ](../concepts/vm.md) ([тарифы Yandex Compute Cloud](../pricing.md));
 * плата за аренду сервера BareMetal ([тарифы Yandex BareMetal](../../baremetal/pricing.md)).
 
 Трафик между приватными адресами Yandex BareMetal и Yandex Virtual Private Cloud, передаваемый в обоих направлениях через [Yandex Cloud Interconnect](../../interconnect/index.md), не тарифицируется.

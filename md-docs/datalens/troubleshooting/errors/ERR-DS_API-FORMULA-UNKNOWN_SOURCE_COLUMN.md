@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Unknown referenced source column
+
 # [Yandex DataLens] Unknown referenced source column
 
 `ERR.DS_API.FORMULA.UNKNOWN_SOURCE_COLUMN`

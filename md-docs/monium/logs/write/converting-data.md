@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Monium](../../index.md) > Логи > Поставка данных > Преобразование данных
+
 # Преобразование входных данных
 
 На данный момент Monium поддерживает прием данных только в формате [OpenTelemetry](https://opentelemetry.io/). Формат API и данных описан в [proto-спецификации](https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/collector/logs/v1/logs_service.proto#L33C14-L33C38).

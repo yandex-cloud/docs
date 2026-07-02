@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты Smart Web Security
 
 В сервисе Smart Web Security действуют следующие ограничения:

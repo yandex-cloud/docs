@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity and Access Management](../../../../index.md) > Справочник API > gRPC (англ.) > [Access Key](../index.md) > [AccessKey](index.md) > ListOperations
+
 # Access Key, gRPC: AccessKeyService.ListOperations
 
 Retrieves the list of operations for the specified access key.

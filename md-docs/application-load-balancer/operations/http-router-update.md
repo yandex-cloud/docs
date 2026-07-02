@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > HTTP-роутеры > Изменить HTTP-роутер
+
 # Изменить параметры HTTP-роутера
 
 Чтобы изменить параметры HTTP-роутера:

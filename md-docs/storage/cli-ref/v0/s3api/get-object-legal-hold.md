@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > [Справочник YC CLI (англ.)](../../index.md) > [v0](../index.md) > [s3api](index.md) > get-object-legal-hold
+
 # yc storage v0 s3api get-object-legal-hold
 
 Returns the settings of the legal hold placed on the object version

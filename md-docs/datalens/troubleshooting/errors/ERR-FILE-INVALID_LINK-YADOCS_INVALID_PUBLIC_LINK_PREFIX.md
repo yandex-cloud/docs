@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Неверный формат ссылки на Яндекс Документы
+
 # [Yandex DataLens] Неверный формат ссылки на Яндекс Документы
 
 `ERR.FILE.INVALID_LINK.YADOCS_INVALID_PUBLIC_LINK_PREFIX`

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for Greenplum® > Data Sources > mdb_greenplum_user
+
 # yandex_mdb_greenplum_user (DataSource)
 
 Get information about a greenplum user.

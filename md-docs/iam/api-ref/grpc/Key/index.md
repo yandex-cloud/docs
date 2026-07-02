@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Key > Overview
+
 # Identity and Access Management API, gRPC: KeyService
 
 A set of methods for managing Key resources.

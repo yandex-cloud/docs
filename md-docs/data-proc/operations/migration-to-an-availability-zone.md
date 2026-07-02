@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Пошаговые инструкции](index.md) > Кластеры Yandex Data Processing > Миграция легковесного кластера в другую зону доступности
+
 # Миграция легковесного кластера Yandex Data Processing в другую зону доступности
 
 Подкластеры каждого кластера Yandex Data Processing находятся в одной [облачной сети](../../vpc/concepts/network.md#network) и одной [зоне доступности](../../overview/concepts/geo-scope.md). Вы можете перенести кластер в другую зону доступности. Процесс переноса зависит от типа кластера:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Organization](index.md) > BindAccessPolicy
+
 # Identity Hub API, REST: Organization.BindAccessPolicy
 
 Binds the access policy template to the organization.

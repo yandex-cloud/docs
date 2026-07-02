@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > REST (англ.) > [Certificate Manager Private CA API](../index.md) > [Policy](index.md) > SetAccessBindings
+
 # Certificate Manager Private CA API, REST: Policy.SetAccessBindings
 
 Sets access bindings for the policy.

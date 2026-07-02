@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../index.md) > Справочник API > [Kubernetes Marketplace REST (англ.)](../index.md) > [HelmRelease](index.md) > Update
+
 # Kubernetes Marketplace, REST: HelmRelease.Update
 
 Updates Helm release.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Справочник CLI (англ.)](../index.md) > [mfa-enforcement](index.md) > list-excluded-audience
+
 # yc organization-manager mfa-enforcement list-excluded-audience
 
 List excluded audience for the specified mfa enforcement

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > [Пошаговые инструкции](index.md) > Работа с DAG-файлами > Получение IAM-токена
+
 # Получение IAM-токена
 
 С помощью [направленного ациклического графа (DAG)](../concepts/index.md#about-the-service) вы можете получить [IAM-токен](../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, который привязан к кластеру Apache Airflow™.

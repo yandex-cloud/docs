@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Logging](../index.md) > [Практические руководства](index.md) > Передача логов с COI в Cloud Logging
+
 # Передача логов с Container Optimized Image в Cloud Logging
 
 # Передача логов с Container Optimized Image в Yandex Cloud Logging

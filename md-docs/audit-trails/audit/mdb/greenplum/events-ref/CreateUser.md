@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.greenplum > CreateUser
+
 # Managed Service for Greenplum® Audit Trails Events: CreateUser
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.greenplum.CreateUser2-schema}

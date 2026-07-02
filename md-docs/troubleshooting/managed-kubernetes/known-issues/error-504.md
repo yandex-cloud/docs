@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Kubernetes](../index.md) > Устранение ошибки `DEADLINE_EXCEEDED`
+
 # Устранение ошибки `DEADLINE_EXCEEDED`
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Memory limit has been exceeded during query execution
+
 # [Yandex DataLens] Memory limit has been exceeded during query execution
 
 `ERR.DS_API.DB.MEMORY_LIMIT_EXCEEDED`

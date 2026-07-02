@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MetaData Hub](../../../index.md) > Apache Hive™ Metastore > Справочник API > [gRPC (англ.)](../index.md) > Operation > Overview
+
 # Managed Service for Hive Metastore™ API, gRPC: OperationService
 
 A set of methods for managing operations for asynchronous API requests.

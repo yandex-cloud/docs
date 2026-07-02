@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [IamToken](index.md) > Revoke
+
 # Identity and Access Management API, REST: IamToken.Revoke
 
 Revoke the IAM token.

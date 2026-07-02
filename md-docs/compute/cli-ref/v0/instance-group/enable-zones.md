@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [instance-group](index.md) > enable-zones
+
 # yc compute v0 instance-group enable-zones
 
 Enable zones for the specified instance group

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Пошаговые инструкции](index.md) > Кластеры Yandex Data Processing > Изменение кластера
+
 # Изменение кластера Yandex Data Processing
 
 После создания кластера вы можете изменить его основные и дополнительные настройки.

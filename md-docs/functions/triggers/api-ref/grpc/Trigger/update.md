@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Functions](../../../../index.md) > Справочник API Triggers > [gRPC (англ.)](../index.md) > [Trigger](index.md) > Update
+
 # Cloud Functions Triggers Service, gRPC: TriggerService.Update
 
 Updates the specified trigger.

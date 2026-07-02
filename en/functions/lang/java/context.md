@@ -16,11 +16,11 @@ If you are using the [YcFunction interface](model/yc-function.md) as your progra
 * `getFunctionFolderId()`: Returns the folder containing the function.
 * `getFunctionId()`: Returns the string ID of the function.
 * `getFunctionVersionId()`: Returns the string ID of the function version.
-* `getMemoryLimitInMB()`: Returns the amount of memory specified when creating the version, MB.
+* `getMemoryLimitInMB()`: Returns the amount of memory specified when creating the version, in MB.
 * `getRequestId()`: Returns the request ID.
-* `getTokenJson()`: Returns the parameters for authentication in the {{ yandex-cloud }} API.
+* `getTokenJson()`: Returns the parameters for authentication with the {{ yandex-cloud }} APIs.
 
-For more information, see [Using the YcFunction interface for a Java handler](./model/yc-function.md#http-info).
+For more information, see [Using the YcFunction interface for a handler in Java](./model/yc-function.md#http-info).
 
 ## HttpServlet class {#httpservlet}
 
@@ -28,8 +28,8 @@ If you are using the [HttpServlet class](./model/servlet-api.md) as your program
 
 * `Lambda-Runtime-Function-Name`: Function string ID.
 * `Lambda-Runtime-Function-Version`: Function version string ID.
-* `Lambda-Runtime-Memory-Limit`: Amount of memory specified when creating the version, MB.
+* `Lambda-Runtime-Memory-Limit`: Amount of memory specified when creating the version, in MB.
 * `Lambda-Runtime-Aws-Request-Id`: Request ID.
-* `Lambda-Runtime-Token-Json`: Parameters for authentication in the APIs of {{ yandex-cloud }} services.
+* `Lambda-Runtime-Token-Json`: Parameters for authentication with the {{ yandex-cloud }} APIs.
 
-For more information, see [Using the HttpServlet class to specify a Java handler](./model/servlet-api.md#get-context).
+For more information, see [Using the HttpServlet class to set a Java handler](./model/servlet-api.md#get-context).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Правила тарификации](index.md) > Режим Serverless > Стоимость запроса для YQL
+
 # Правила оценки стоимости YQL-запросов к YDB
 
 

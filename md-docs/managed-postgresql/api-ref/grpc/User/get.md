@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [User](index.md) > Get
+
 # Managed Service for PostgreSQL API, gRPC: UserService.Get
 
 Returns the specified PostgreSQL User resource.

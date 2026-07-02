@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [user](index.md) > update
+
 # yc managed-mysql user update
 
 Update the specified MySQL user

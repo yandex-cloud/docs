@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-redis](../index.md) > [cluster](index.md) > stop
+
 # yc managed-redis cluster stop
 
 Stop the specified Redis cluster

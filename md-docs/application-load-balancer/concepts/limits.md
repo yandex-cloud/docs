@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Application Load Balancer
 
 В сервисе Application Load Balancer действуют следующие ограничения:

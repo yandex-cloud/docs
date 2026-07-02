@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Хранение и восстановление данных](index.md) > Резервное копирование в Object Storage > Резервное копирование в Object Storage с помощью Duplicati
+
 # Резервное копирование в Yandex Object Storage с помощью Duplicati
 
 Yandex Object Storage можно использовать для резервного копирования и восстановления данных с помощью утилиты [Duplicati](https://www.duplicati.com/).

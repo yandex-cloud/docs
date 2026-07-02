@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > Сервисные аккаунты > Просмотр сервисных аккаунтов каталога
+
 # Получение списка сервисных аккаунтов каталога
 
 Вы можете получить список всех [сервисных аккаунтов](../../concepts/users/service-accounts.md), имеющихся в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder).

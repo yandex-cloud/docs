@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > quota-manager > Overview
+
 # yc quota-manager
 
 Manage Yandex Quota Manager resources

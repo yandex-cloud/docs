@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-mysql](../index.md) > [backup](index.md) > get
+
 # yc managed-mysql backup get
 
 Show information about the specified MySQL backup

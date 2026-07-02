@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [load-balancer](../index.md) > [network-load-balancer](index.md) > disable-zones
+
 # yc load-balancer network-load-balancer disable-zones
 
 Disable zones for the specified network load balancer

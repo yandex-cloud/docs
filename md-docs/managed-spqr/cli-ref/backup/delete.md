@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [backup](index.md) > delete
+
 # yc managed-sharded-postgresql backup delete
 
 Delete the specified Sharded PostgreSQL backup

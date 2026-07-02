@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Практические руководства > Все практические руководства
+
 # Практические руководства Application Load Balancer
 
 * [Тестирование отказоустойчивости в инфраструктуре Yandex Cloud на основе Yandex Application Load Balancer](testing-zone-failure-for-alb.md)

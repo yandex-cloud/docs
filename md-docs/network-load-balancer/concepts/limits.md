@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Network Load Balancer](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Network Load Balancer
 
 В сервисе Yandex Network Load Balancer действуют следующие ограничения:

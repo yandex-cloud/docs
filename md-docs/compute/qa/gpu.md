@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > Вопросы и ответы > Графические ускорители GPU
+
 # Вопросы и ответы про графические ускорители GPU в Compute Cloud
 
 * [Как проверить физическое состояние кластера GPU?](#test-physical-state)

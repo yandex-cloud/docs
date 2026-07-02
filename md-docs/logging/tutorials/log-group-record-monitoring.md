@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Logging](../index.md) > [Практические руководства](index.md) > Мониторинг записи событий в лог-группу
+
 # Настройка реагирования в Cloud Logging и Yandex Cloud Functions
 
 # Мониторинг записи событий в лог-группу

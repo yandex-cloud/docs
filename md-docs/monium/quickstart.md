@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Monium](index.md) > Начало работы
+
 # Как начать работать с Monium
 
 Monium — платформа для сбора [метрик](metrics/overview.md), [логов](logs/quickstart.md) и [трейсов](traces/index.md) из Yandex Cloud, других облаков или вашей инфраструктуры.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > L7-балансировщики > Получить идентификатор лог-группы L7-балансировщика
+
 # Получить идентификатор лог-группы L7-балансировщика
 
 Чтобы получить идентификатор [лог-группы](../../logging/concepts/log-group.md) Yandex Cloud Logging, в которую передаются [логи](../concepts/monitoring.md#logging) L7-балансировщика:

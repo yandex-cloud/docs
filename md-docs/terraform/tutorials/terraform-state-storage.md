@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > [Практические руководства](index.md) > Загрузка состояний Terraform в Yandex Object Storage
+
 # Загрузка состояний Terraform в Yandex Object Storage
 
 

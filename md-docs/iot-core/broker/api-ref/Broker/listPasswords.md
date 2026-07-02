@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Broker > [REST (англ.)](../index.md) > [Broker](index.md) > ListPasswords
+
 # IoT Core Broker Service, REST: Broker.ListPasswords
 
 Retrieves the list of passwords for the specified broker.

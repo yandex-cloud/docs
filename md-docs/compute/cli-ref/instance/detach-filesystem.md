@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [instance](index.md) > detach-filesystem
+
 # yc compute instance detach-filesystem
 
 Detach filesystem from the specified virtual machine instance

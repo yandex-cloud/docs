@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Compute Cloud](../index.md) > Решения для известных проблем Compute Cloud
+
 ## Решения для известных проблем Compute Cloud {#known-issues-resolving}
 
 * [Устранение ошибки `Permission denied` при подключении к виртуальной машине после ее создания средствами Terraform](permission-denied-error-when-connected-as-user-created-from-terraform-manifest.md)

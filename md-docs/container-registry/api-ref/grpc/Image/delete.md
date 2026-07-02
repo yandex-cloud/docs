@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Image](index.md) > Delete
+
 # Container Registry API, gRPC: ImageService.Delete
 
 Deletes the specified Docker image.

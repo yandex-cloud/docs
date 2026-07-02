@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Security Deck](../../index.md) > [Пошаговые инструкции](../index.md) > [Контроль данных (DSPM)](index.md) > Создать сканирование
+
 # Создать сканирование DSPM
 
 [Модуль контроля данных](../../concepts/dspm.md) (Data Security Posture Management) находит чувствительную информацию в хранилищах с помощью сканирования [бакетов](../../../storage/concepts/bucket.md) Yandex Object Storage и [Яндекс Дисков](https://yandex.ru/support/yandex-360/business/disk/web/ru/index.html) в Яндекс 360.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > Прикладные решения > Создание сайта > Сайт на WordPress > [Сайт на WordPress с БД MySQL®](index.md) > Terraform
+
 # Создание сайта на WordPress с кластером базы данных MySQL® с помощью Terraform
 
 Чтобы создать инфраструктуру для [сайта на WordPress с кластером базы данных MySQL®](index.md) c помощью Terraform:

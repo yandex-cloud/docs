@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cache](index.md) > prefetch
+
 # yc cdn v0 cache prefetch
 
 Prefetch CDN resource paths

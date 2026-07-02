@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DnsZone](index.md) > Update
+
 # Cloud DNS API, REST: DnsZone.Update
 
 Updates the specified DNS zone.

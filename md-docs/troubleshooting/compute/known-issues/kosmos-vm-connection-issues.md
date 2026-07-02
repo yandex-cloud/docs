@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Compute Cloud](../index.md) > Устранение проблем при подключении к Kosmos VM
+
 # Устранение проблем при подключении к Kosmos VM
 
 

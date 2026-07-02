@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API Workflows > [REST (англ.)](../index.md) > [Workflow](index.md) > Delete
+
 # Workflows Service, REST: Workflow.Delete
 
 Deletes specified Workflow.

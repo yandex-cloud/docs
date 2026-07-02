@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [OsLogin](index.md) > CreateProfile
+
 # Identity Hub API, REST: OsLogin.CreateProfile
 
 ## HTTP request

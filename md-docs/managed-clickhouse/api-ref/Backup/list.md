@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Backup](index.md) > List
+
 # Managed Service for ClickHouse API, REST: Backup.List
 
 Retrieves the list of Backup resources available for the specified folder.

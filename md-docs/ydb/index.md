@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Managed Service for YDB > Yandex Managed Service for YDB
+
 # Yandex Managed Service for YDB
 
 Yandex Managed Service for YDB помогает разворачивать и поддерживать базы данных YDB в инфраструктуре Yandex Cloud.

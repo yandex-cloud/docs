@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [MfaEnforcement](index.md) > Activate
+
 # Identity Hub API, REST: MfaEnforcement.Activate
 
 activates the specified MFA enforcement

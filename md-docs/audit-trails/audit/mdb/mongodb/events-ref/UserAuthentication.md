@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mongodb > UserAuthentication
+
 # Managed Service for MongoDB Audit Trails Events: UserAuthentication
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mongodb.UserAuthentication2-schema}

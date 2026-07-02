@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Архитектурные решения](index.md) > Отказоустойчивость > Тестирование отказоустойчивости в Yandex Cloud > Тестирование инфраструктуры на основе Application Load Balancer
+
 # Тестирование отказоустойчивости в инфраструктуре Yandex Cloud на основе Yandex Application Load Balancer
 
 

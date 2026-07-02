@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > [Работа с YQL](index.md) > Работа с JSON
+
 # Работа с JSON
 
 Формат данных [JSON](https://ru.wikipedia.org/wiki/JSON) используется для хранения и обработки данных.

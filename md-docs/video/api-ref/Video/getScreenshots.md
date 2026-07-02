@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Video](index.md) > GetScreenshots
+
 # Video API, REST: Video.GetScreenshots
 
 Retrieves screenshots taken during the video transcoding process.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Yandex Lockbox
+
 # Метрики Yandex Lockbox
 
 В этом разделе описаны метрики сервиса [Yandex Lockbox](../../lockbox/index.md), поставляемые в Monitoring.

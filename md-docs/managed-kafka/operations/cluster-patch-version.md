@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Получение патч-версии Apache Kafka®
+
 # Получение патч-версии Apache Kafka®
 
 Чтобы узнать патч-версию Apache Kafka®, установленную в кластере Managed Service for Apache Kafka®, выполните следующие действия:

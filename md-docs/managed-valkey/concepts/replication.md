@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Valkey™](../index.md) > [Концепции](index.md) > Репликация и персистентность
+
 # Репликация и персистентность в Yandex Managed Service for Valkey™
 
 Yandex Managed Service for Valkey™ использует стандартную репликацию Valkey™ совместно с агентом управления состоянием хоста [rdsync](https://github.com/yandex/rdsync), а также предустановленные настройки персистентности данных.

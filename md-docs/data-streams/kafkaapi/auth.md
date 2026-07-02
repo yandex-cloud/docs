@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Streams](../index.md) > [Kafka API](index.md) > Аутентификация и соединение с БД
+
 # Аутентификация и соединение с БД по Kafka API
 
 ## Эндпоинт {#endpoint}

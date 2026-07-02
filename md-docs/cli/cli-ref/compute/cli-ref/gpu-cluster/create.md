@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [gpu-cluster](index.md) > create
+
 # yc compute gpu-cluster create
 
 Create a GPU cluster

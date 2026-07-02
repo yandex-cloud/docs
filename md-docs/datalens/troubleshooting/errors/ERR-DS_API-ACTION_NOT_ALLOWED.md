@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Internal Server Error
+
 # [Yandex DataLens] Internal Server Error
 
 `ERR.DS_API.ACTION_NOT_ALLOWED`

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [load-balancer](index.md) > remove-listener
+
 # yc application-load-balancer load-balancer remove-listener
 
 Removes the listener from the specified application load balancer.

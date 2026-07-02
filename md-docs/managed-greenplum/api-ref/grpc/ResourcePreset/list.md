@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ResourcePreset](index.md) > List
+
 # Managed Service for Greenplum® API, gRPC: ResourcePresetService.List
 
 Retrieves the list of available resource presets.

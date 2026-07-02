@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > Концепции > [Компоненты](overview.md) > Managed Service for ClickHouse®
+
 # Managed Service for ClickHouse®
 
 Managed Service for ClickHouse® — это управляемый сервис для работы с открытой колоночной СУБД ClickHouse®. Сервис упрощает развертывание и обновление кластера баз данных, обеспечивает отказоустойчивость через репликацию и шардирование, а также предоставляет инструменты для резервного копирования и мониторинга.

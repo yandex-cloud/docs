@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Key Management Service](../index.md) > Начало работы
+
 # Как начать работать с Key Management Service
 
 В этой инструкции вы создадите свой первый [ключ](../concepts/index.md), а также зашифруете и расшифруете текст с помощью сервиса KMS. 

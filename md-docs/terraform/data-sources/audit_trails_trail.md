@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Audit Trails > Data Sources > audit_trails_trail
+
 # yandex_audit_trails_trail (DataSource)
 
 Get information about a trail. For information about the trail concept, see [official documentation](../../audit-trails/concepts/trail.md).

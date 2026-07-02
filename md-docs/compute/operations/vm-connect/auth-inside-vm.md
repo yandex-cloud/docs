@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Работа на виртуальной машине > Работа с Yandex Cloud изнутри ВМ
+
 # Работа с Yandex Cloud изнутри виртуальной машины
 
 В этом разделе описано, как работать с Yandex Cloud изнутри [ВМ](../../concepts/vm.md) через API или CLI.

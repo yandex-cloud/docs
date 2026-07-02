@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Инструменты](index.md) > FUSE > GeeseFS
+
 # GeeseFS
 
 [GeeseFS](https://github.com/yandex-cloud/geesefs) — программа для монтирования бакетов Object Storage через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)) в системах Linux, macOS и Windows. Разработана командой Yandex Cloud как ответвление от [goofys](goofys.md). Она обеспечивает высокую производительность и POSIX-совместимость.

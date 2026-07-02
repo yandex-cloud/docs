@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Managed Service for ClickHouse®
 
 # Аутентификация в API

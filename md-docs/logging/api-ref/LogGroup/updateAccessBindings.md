@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [LogGroup](index.md) > UpdateAccessBindings
+
 # Cloud Logging Service, REST: LogGroup.UpdateAccessBindings
 
 Updates access bindings for the specified log group.

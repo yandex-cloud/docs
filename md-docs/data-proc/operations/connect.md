@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Пошаговые инструкции](index.md) > Кластеры Yandex Data Processing > Подключение > Подключение к кластеру
+
 # Подключение к кластеру Yandex Data Processing
 
 После создания кластера Yandex Data Processing вы можете подключиться к хостам подкластеров:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > dns > DeleteDnsInboundEndpoint
+
 # Cloud DNS Audit Trails Events: DeleteDnsInboundEndpoint
 
 ## Event JSON schema {#yandex.cloud.audit.dns.DeleteDnsInboundEndpoint2-schema}

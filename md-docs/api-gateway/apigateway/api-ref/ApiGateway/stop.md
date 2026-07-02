@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex API Gateway](../../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ApiGateway](index.md) > Stop
+
 # API Gateway Service, REST: ApiGateway.Stop
 
 Stops the specified API gateway.

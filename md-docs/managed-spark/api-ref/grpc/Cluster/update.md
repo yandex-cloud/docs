@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Spark™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Update
+
 # Managed Spark API, gRPC: ClusterService.Update
 
 Updates configuration of the specified Spark cluster.

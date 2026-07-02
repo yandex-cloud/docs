@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Video](index.md) > Начало работы > Видеотрансляция
+
 # Как начать работать с видеотрансляцией в Yandex Cloud Video
 
 Чтобы провести [трансляцию](concepts/index.md#streams) на [канале](concepts/index.md#channels) сервиса:

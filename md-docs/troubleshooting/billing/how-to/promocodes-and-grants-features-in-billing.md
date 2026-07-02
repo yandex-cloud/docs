@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Yandex Cloud Billing](../index.md) > Как работают гранты и промокоды в Yandex Cloud Billing
+
 # Как работают гранты и промокоды в Yandex Cloud Billing
 
 

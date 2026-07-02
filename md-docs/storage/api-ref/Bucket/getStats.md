@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > Справочник API > [Yandex Cloud REST (англ.)](../index.md) > [Bucket](index.md) > GetStats
+
 # Object Storage API, REST: Bucket.GetStats
 
 Returns the statistics for the specified bucket.

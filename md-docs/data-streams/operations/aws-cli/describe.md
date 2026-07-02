@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Streams](../../index.md) > [Пошаговые инструкции](../index.md) > Работа с AWS CLI > Получение информации о потоке
+
 # Получение информации о потоке
 
 {% list tabs group=instructions %}

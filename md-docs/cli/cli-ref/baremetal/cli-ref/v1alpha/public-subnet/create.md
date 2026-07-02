@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [baremetal](../../index.md) > [v1alpha](../index.md) > [public-subnet](index.md) > create
+
 # yc baremetal v1alpha public-subnet create
 
 Creates a public subnet in the specified folder.

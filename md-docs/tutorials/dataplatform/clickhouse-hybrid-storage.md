@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Использование гибридного хранилища в Managed Service for ClickHouse®
+
 # Использование гибридного хранилища в Yandex Managed Service for ClickHouse®
 
 # Использование гибридного хранилища в Managed Service for ClickHouse®

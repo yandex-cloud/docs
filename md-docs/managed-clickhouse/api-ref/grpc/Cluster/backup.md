@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Backup
+
 # Managed Service for ClickHouse API, gRPC: ClusterService.Backup
 
 Creates a backup for the specified ClickHouse cluster.

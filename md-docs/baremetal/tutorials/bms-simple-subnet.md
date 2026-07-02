@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > [Практические руководства](index.md) > Организация сетевой связности в приватной подсети BareMetal
+
 # Организация сетевой связности в приватной подсети Yandex BareMetal
 
 Если для [приватной подсети](../concepts/private-network.md#private-subnet) настроена маршрутизация и назначен [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация), то сетевым интерфейсам [серверов BareMetal](../concepts/servers.md), подключенным к этой подсети, с помощью [DHCP](https://ru.wikipedia.org/wiki/DHCP) выдаются IP-адреса из заданного в настройках CIDR этой подсети диапазона.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Message Queue](../../index.md) > [Справочник API](../index.md) > Queue > CreateQueue
+
 # CreateQueue
 
 Метод для создания новой стандартной или FIFO очереди.

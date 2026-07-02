@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Serverless Integrations](../../index.md) > Справочник API Workflows > Аутентификация в API
+
 # Аутентификация в API Workflows
 
 Для выполнения операций через [API](../../../glossary/rest-api.md) можно использовать [IAM-токен](../../../iam/concepts/authorization/iam-token.md) или [API-ключ](../../../iam/concepts/authorization/api-key.md).

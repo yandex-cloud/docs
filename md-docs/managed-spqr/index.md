@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Managed Service for Sharded PostgreSQL > Managed Service for Sharded PostgreSQL
+
 # Yandex Managed Service for Sharded PostgreSQL
 
 Сервис Managed Service for Sharded PostgreSQL помогает разворачивать кластеры шардированного PostgreSQL (<a href="https://pg-sharding.tech/">SPQR</a>) в инфраструктуре Yandex Cloud.

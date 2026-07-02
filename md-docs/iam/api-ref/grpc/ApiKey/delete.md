@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ApiKey](index.md) > Delete
+
 # Identity and Access Management API, gRPC: ApiKeyService.Delete
 
 Deletes the specified API key.

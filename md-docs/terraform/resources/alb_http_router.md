@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Application Load Balancer > Resources > alb_http_router
+
 # yandex_alb_http_router (Resource)
 
 Creates an HTTP Router in the specified folder. For more information, see [the official documentation](../../application-load-balancer/concepts/http-router.md).
