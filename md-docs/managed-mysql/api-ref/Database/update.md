@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Database](index.md) > Update
+
 # Managed Service for MySQL API, REST: Database.Update
 
 Updates the specified database.

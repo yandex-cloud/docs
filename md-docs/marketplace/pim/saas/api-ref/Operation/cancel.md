@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Marketplace](../../../../index.md) > Партнерам > Справочник Product Instance Management API > [REST (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Yandex Cloud Marketplace Product Instance Management API, REST: Operation.Cancel
 
 Cancels the specified operation.

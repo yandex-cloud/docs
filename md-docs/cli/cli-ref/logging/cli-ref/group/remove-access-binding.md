@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [logging](../index.md) > [group](index.md) > remove-access-binding
+
 # yc logging group remove-access-binding
 
 Removes access binding from the specified log group

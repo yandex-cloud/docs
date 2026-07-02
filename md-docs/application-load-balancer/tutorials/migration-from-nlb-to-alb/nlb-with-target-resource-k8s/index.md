@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > [Практические руководства](../../index.md) > [Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для подключения защиты Smart Web Security](../index.md) > Балансировщик NLB с целевыми ресурсами из кластера Managed Service for Kubernetes > Обзор
+
 # Миграция сервисов с балансировщика NLB с целевыми ресурсами из кластера Yandex Managed Service for Kubernetes на L7-балансировщик ALB
 
 # Миграция сервисов с балансировщика NLB с целевыми ресурсами из кластера Yandex Managed Service for Kubernetes на L7-балансировщик ALB

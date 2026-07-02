@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex SpeechKit Hybrid](index.md) > Релизы SpeechKit Hybrid
+
 # Релизы Yandex SpeechKit Hybrid
 
 Здесь будет публиковаться информация об обновлениях версий образов SpeechKit Hybrid.

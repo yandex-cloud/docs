@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > Пошаговые инструкции > Получение информации о кластерах
+
 # Получение информации о кластерах Apache Hive™ Metastore
 
 ## Получение списка кластеров в каталоге {#list-clusters}

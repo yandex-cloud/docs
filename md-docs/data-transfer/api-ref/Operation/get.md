@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Transfer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Data Transfer API, REST: Operation.Get
 
 Returns the specified Operation resource.

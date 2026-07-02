@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [SAML Federation API](../index.md) > Certificate > Overview
+
 # SAML Federation API, REST: Certificate
 
 A set of methods for managing certificates.

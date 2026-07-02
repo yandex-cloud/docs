@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [SLO](index.md) > Добавление виджета SLO на дашборд
+
 # Добавление виджета SLO на дашборд
 
 ## Список SLO {#list}

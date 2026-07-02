@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Certificate Manager](../../../../index.md) > Справочник API > gRPC (англ.) > [Certificate Manager Private CA API](../index.md) > PrivateCaContent > Overview
+
 # Certificate Manager Private CA API, gRPC: PrivateCaContentService
 
 A set of methods for retrieving private certificate authority content.

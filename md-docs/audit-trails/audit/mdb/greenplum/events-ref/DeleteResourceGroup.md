@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.greenplum > DeleteResourceGroup
+
 # Managed Service for Greenplum® Audit Trails Events: DeleteResourceGroup
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.greenplum.DeleteResourceGroup2-schema}

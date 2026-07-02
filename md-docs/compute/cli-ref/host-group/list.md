@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [host-group](index.md) > list
+
 # yc compute host-group list
 
 List host groups

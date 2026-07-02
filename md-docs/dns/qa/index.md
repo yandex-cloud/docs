@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud DNS](../index.md) > Вопросы и ответы
+
 # Общие вопросы про Cloud DNS
 
 #### Почему списывается плата за Cloud DNS, если в моем облаке нет DNS-зон? {#dns-fee-without-usage}

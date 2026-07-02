@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Практические руководства](index.md) > Поставка данных с помощью Data Transfer > Поставка из Apache Kafka® в Yandex StoreDoc
+
 # Поставка данных в Yandex StoreDoc с помощью Yandex Data Transfer
 
 # Поставка данных из очереди Apache Kafka® в Yandex StoreDoc с помощью Yandex Data Transfer
@@ -16,7 +18,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
+* Кластер Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for Apache Kafka®](../pricing.md)).
 * Кластер Yandex StoreDoc: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Yandex StoreDoc](../../storedoc/pricing.md)).
 * Публичные IP-адреса, если для хостов кластеров включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 

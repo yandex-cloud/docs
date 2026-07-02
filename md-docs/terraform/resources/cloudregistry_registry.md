@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud Registry > Resources > cloudregistry_registry
+
 # yandex_cloudregistry_registry (Resource)
 
 A Registry resource. For more information, see the [Registry](../../cloud-registry/concepts/registry.md) section of the documentation.

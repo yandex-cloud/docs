@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [iam](../index.md) > api-key > Overview
+
 # yc iam api-key
 
 Manage service account API keys.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [GroupMapping](index.md) > Delete
+
 # Identity Hub API, gRPC: GroupMappingService.Delete
 
 Deletes a group mapping. This will remove all the mapping items

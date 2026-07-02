@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for YDB](../../index.md) > [Справочник CLI (англ.)](../index.md) > [backup](index.md) > get
+
 # yc ydb backup get
 
 Get information about the specified YDB backup.

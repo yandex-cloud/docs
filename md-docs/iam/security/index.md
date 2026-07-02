@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity and Access Management](../index.md) > Управление доступом
+
 # Управление доступом в сервисе Identity and Access Management
 
 В этом разделе вы узнаете:

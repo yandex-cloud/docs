@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ApiKey](index.md) > ListScopes
+
 # Identity and Access Management API, gRPC: ApiKeyService.ListScopes
 
 Retrieves the list of scopes.

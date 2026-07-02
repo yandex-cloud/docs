@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [iam](../../index.md) > [v0](../index.md) > [oauth-client](index.md) > update
+
 # yc iam v0 oauth-client update
 
 Update the specified oauth-client

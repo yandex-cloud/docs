@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Postbox](../index.md) > [Пошаговые инструкции](index.md) > Отправка письма
+
 # Отправка письма
 
 В Yandex Cloud Postbox можно отправить письмо:

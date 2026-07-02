@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Application Load Balancer > Resources > alb_load_balancer
+
 # yandex_alb_load_balancer (Resource)
 
 Creates an Application Load Balancer in the specified folder. For more information, see [the official documentation](../../application-load-balancer/concepts/application-load-balancer.md).

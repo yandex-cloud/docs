@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Group](index.md) > UpdateAccessBindings
+
 # Identity Hub API, REST: Group.UpdateAccessBindings
 
 Updates access bindings for the specified group.

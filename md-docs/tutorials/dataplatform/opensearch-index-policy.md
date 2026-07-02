@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Настройка политики индексов в Managed Service for OpenSearch
+
 # Настройка политики индексов в Yandex Managed Service for OpenSearch
 
 # Настройка политики индексов в Yandex Managed Service for OpenSearch

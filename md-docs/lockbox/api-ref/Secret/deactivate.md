@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Lockbox](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Secret](index.md) > Deactivate
+
 # Lockbox API, REST: Secret.Deactivate
 
 Deactivates the specified secret.

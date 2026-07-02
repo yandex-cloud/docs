@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Lockbox](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Secret](index.md) > ScheduleVersionDestruction
+
 # Lockbox API, REST: Secret.ScheduleVersionDestruction
 
 Schedules the specified version for destruction.

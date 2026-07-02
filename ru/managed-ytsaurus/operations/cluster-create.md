@@ -23,10 +23,11 @@ keywords:
 
 ## Роли для создания кластера {#roles}
 
-Для создания кластера {{ myt-name }} вашему аккаунту в {{ yandex-cloud }} нужны роли:
+Для создания кластера {{ myt-name }} и работы с ним вашему аккаунту в {{ yandex-cloud }} нужны роли:
 
-* [managed-ytsaurus.editor](../security/index.md#managed-ytsaurus-editor) — чтобы создать кластер;
-* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера.
+* {% include [roles-ytsaurus-editor](../../_includes/managed-ytsaurus/roles-ytsaurus-editor.md) %}
+* {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
+* {% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
 
 О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
 

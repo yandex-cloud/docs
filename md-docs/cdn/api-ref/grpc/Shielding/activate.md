@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Shielding](index.md) > Activate
+
 # Cloud CDN API, gRPC: ShieldingService.Activate
 
 Activate shielding for a resource.

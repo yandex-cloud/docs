@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > serverless > UpdateFunctionAccessBindings
+
 # Cloud Functions Audit Trails Events: UpdateFunctionAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.serverless.functions.UpdateFunctionAccessBindings2-schema}

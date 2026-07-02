@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [cic](../index.md) > [trunk-connection](index.md) > update
+
 # yc cic trunk-connection update
 
 Modify configuration or attributes of a trunk connection.

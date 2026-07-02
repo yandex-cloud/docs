@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Resource Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Folder](index.md) > UnbindAccessPolicy
+
 # Resource Manager API, gRPC: FolderService.UnbindAccessPolicy
 
 Unbinds the access policy template from the folder.

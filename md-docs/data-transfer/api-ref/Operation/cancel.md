@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Transfer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Data Transfer API, REST: Operation.Cancel
 
 Cancels the specified operation.

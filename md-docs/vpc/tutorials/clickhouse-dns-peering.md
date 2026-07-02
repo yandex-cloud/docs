@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Практические руководства](index.md) > Дополнительные настройки и инструменты > Настройка Cloud DNS для доступа к кластеру Managed Service for ClickHouse® из других облачных сетей
+
 # Настройка Yandex Cloud DNS для доступа к кластеру управляемых баз данных из других облачных сетей
 
 
@@ -17,9 +19,9 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for ClickHouse®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Managed Service for ClickHouse®](../../../managed-clickhouse/pricing.md)).
-* Плата за ВМ: использование вычислительных ресурсов, хранилища и публичного IP-адреса (опционально) ([тарифы Compute Cloud](../../../compute/pricing.md)).
-* Плата за DNS-зону и DNS-запросы ([тарифы Cloud DNS](../../../dns/pricing.md)).
+* Плата за кластер Managed Service for ClickHouse®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
+* Плата за ВМ: использование вычислительных ресурсов, хранилища и публичного IP-адреса (опционально) ([тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за DNS-зону и DNS-запросы ([тарифы Cloud DNS](../../dns/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

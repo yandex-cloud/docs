@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > EventRouter > Управление коннектором > Остановить коннектор
+
 # Остановить коннектор
 
 Когда [коннектор](../../../concepts/eventrouter/connector.md) остановлен, он перестает отправлять сообщения в [шину](../../../concepts/eventrouter/bus.md).

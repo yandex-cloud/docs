@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Logging](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Export](index.md) > Create
+
 # Cloud Logging Service, gRPC: ExportService.Create
 
 Creates a export in the specified folder.

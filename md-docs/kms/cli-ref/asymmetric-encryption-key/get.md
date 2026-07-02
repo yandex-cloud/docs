@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > [Справочник CLI (англ.)](../index.md) > [asymmetric-encryption-key](index.md) > get
+
 # yc kms asymmetric-encryption-key get
 
 Show information about the specified asymmetric encryption key

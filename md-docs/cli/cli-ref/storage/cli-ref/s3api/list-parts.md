@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [storage](../index.md) > [s3api](index.md) > list-parts
+
 # yc storage s3api list-parts
 
 Lists parts of a multipart upload

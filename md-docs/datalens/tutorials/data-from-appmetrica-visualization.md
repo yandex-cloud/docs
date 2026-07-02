@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > [Практические руководства](index.md) > Аналитика сервисов > AppMetrica: прямое подключение
+
 # AppMetrica: прямое подключение
 
 

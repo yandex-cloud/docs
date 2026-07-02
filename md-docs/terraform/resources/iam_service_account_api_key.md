@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity and Access Management > Resources > iam_service_account_api_key
+
 # yandex_iam_service_account_api_key (Resource)
 
 Allows management of a [Yandex Cloud IAM service account API key](../../iam/concepts/authorization/api-key.md). The API key is a private key used for simplified authorization in the Yandex Cloud API. API keys are only used for [service accounts](../../iam/concepts/users/service-accounts.md).

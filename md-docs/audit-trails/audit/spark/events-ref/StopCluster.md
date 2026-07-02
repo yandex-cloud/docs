@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > spark > StopCluster
+
 # Managed Spark Audit Trails Events: StopCluster
 
 ## Event JSON schema {#yandex.cloud.audit.spark.StopCluster2-schema}

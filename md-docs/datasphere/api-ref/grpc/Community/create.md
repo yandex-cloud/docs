@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex DataSphere](../../../index.md) > [Справочник API](../../overview.md) > [gRPC (англ.)](../index.md) > [Community](index.md) > Create
+
 # DataSphere API v2, gRPC: CommunityService.Create
 
 Creates community in specified organization.

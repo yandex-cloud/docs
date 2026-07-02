@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Логи и мониторинг > Подключение к DataLens
+
 # Подключение к кластеру PostgreSQL из DataLens
 
 [Yandex DataLens](../../datalens/concepts/index.md) — это сервис для [бизнес-аналитики](../../glossary/business-analytics.md). Сервис позволяет загружать и обрабатывать данные, визуализировать их для анализа и проверки гипотез. Он может помочь вам при принятии маркетинговых решений для вашего продукта.

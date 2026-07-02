@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [smartwebsecurity](../../index.md) > [v0](../index.md) > [security-profile](index.md) > get
+
 # yc smartwebsecurity v0 security-profile get
 
 Show information about the specified security profile

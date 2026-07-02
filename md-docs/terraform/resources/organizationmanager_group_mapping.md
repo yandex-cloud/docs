@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity Hub > Resources > organizationmanager_group_mapping
+
 # yandex_organizationmanager_group_mapping (Resource)
 
 Allows management of [Yandex Cloud Organization Manager Group Mapping](../../organization/concepts/add-federation.md#group-mapping). It supports the creation, updating(enabling/disabling), and deletion of group mapping.

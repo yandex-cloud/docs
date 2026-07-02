@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [v0](../index.md) > [container](index.md) > get
+
 # yc serverless v0 container get
 
 Show information about the specified container

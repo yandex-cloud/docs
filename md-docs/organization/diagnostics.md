@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Identity Hub](index.md) > Диагностика ошибок > Общие ошибки для федераций
+
 # Диагностика ошибок в федерациях
 
 ## Федерация не найдена {#federation-not-found}

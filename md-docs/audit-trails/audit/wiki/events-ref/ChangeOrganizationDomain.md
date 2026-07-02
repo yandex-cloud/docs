@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > ChangeOrganizationDomain
+
 # Yandex Wiki Audit Trails Events: ChangeOrganizationDomain
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.ChangeOrganizationDomain2-schema}

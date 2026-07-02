@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Пошаговые инструкции](../index.md) > Создание триггера > Создать триггер для Container Registry
+
 # Создать триггер для Container Registry, который вызывает функцию Cloud Functions
 
 Создайте [триггер для Container Registry](../../concepts/trigger/cr-trigger.md), который будет вызывать [функцию](../../concepts/function.md) Cloud Functions при создании и удалении [Docker-образов](../../../container-registry/concepts/docker-image.md) Container Registry или их [тегов](../../../container-registry/concepts/docker-image.md#version).

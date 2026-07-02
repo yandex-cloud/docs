@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [User](index.md) > DeleteMembership
+
 # Identity Hub API, gRPC: UserService.DeleteMembership
 
 Delete user membership.

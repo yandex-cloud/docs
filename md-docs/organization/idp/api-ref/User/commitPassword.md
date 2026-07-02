@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [Identity Provider API](../index.md) > [User](index.md) > CommitPassword
+
 # Identity Provider API, REST: User.CommitPassword
 
 Commits the result of a password writeback operation.

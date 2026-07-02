@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > update-config
+
 # yc managed-clickhouse v0 cluster update-config
 
 Update the configuration of a ClickHouse cluster.

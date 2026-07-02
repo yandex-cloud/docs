@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Cloud Marketplace](../../../../../index.md) > Партнерам > Справочник Product Instance Management API > [gRPC (англ.)](../index.md) > [ProductInstance](index.md) > Get
+
 # Yandex Cloud Marketplace Product Instance Management API, gRPC: ProductInstanceService.Get
 
 Returns the specified product instance.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Network Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > target-group > Overview
+
 # yc load-balancer target-group
 
 Manage target groups

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > PageUpdate
+
 # Yandex Wiki Audit Trails Events: PageUpdate
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.PageUpdate2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > Аутентификация > Управление авторизованными ключами
+
 # Управление авторизованными ключами
 
 [Авторизованный ключ](../../concepts/authorization/key.md) — это ключ с неограниченным сроком жизни, использующийся для [получения](../iam-token/create-for-sa.md#via-cli) [IAM-токена](../../concepts/authorization/iam-token.md) сервисного аккаунта: закрытая часть авторизованного ключа используется для формирования [JSON Web Token](https://tools.ietf.org/html/rfc7519) (JWT), который затем обменивается на [IAM-токен](../../concepts/authorization/iam-token.md).

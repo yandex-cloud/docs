@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Marketplace](../../../index.md) > Партнерам > Справочник Cloud Apps Workload API > [REST (англ.)](../index.md) > [CloudApplication](index.md) > ResolveByWorkload
+
 # Cloud Apps Workload API, REST: CloudApplication.ResolveByWorkload
 
 Resolve Cloud Application by workload

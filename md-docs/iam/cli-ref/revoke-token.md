@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity and Access Management](../index.md) > [Справочник CLI (англ.)](index.md) > revoke-token
+
 # yc iam revoke-token
 
 Revoke IAM token

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Lockbox](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Secret](index.md) > UpdateAccessBindings
+
 # Lockbox API, REST: Secret.UpdateAccessBindings
 
 Updates access bindings for the secret.

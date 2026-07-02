@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > AccessKeyLastUsed
+
 # Identity and Access Management Audit Trails Events: AccessKeyLastUsed
 
 ## Event JSON schema {#yandex.cloud.audit.iam.AccessKeyLastUsed2-schema}

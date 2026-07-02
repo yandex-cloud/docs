@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cloud](index.md) > list-access-policy-bindings
+
 # yc resource-manager cloud list-access-policy-bindings
 
 List access policy bindings for the specified cloud

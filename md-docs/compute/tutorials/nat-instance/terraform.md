@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Практические руководства](../index.md) > [Маршрутизация через NAT-инстанс](index.md) > Terraform
+
 # Маршрутизация через NAT-инстанс с помощью Terraform
 
 
@@ -24,7 +26,7 @@
 
 В стоимость поддержки NAT-инстанса входят:
 
-* плата за постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../pricing.md));
 * плата за использование динамического или статического внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
 
 

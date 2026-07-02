@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MetaData Hub](../../../index.md) > Apache Hive™ Metastore > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > get
+
 # yc managed-metastore v0 cluster get
 
 Show information about the specified Metastore cluster

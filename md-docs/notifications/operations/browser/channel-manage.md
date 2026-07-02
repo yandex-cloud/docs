@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Notification Service](../../index.md) > [Пошаговые инструкции](../index.md) > Push-уведомления в браузере > Управлять каналом
+
 # Управлять каналом push-уведомлений в браузере
 
 ## Изменить параметры канала {#channel-update}

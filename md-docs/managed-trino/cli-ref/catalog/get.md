@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Trino](../../index.md) > [Справочник CLI (англ.)](../index.md) > [catalog](index.md) > get
+
 # yc managed-trino catalog get
 
 Show information about the specified Trino catalog

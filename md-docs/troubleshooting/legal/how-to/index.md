@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Legal](../index.md) > Примеры конфигураций и сценариев Legal
+
 ## Примеры конфигураций и сценариев Legal {#configuration-examples}
 
 * [Как узнать физический адрес ЦОД Yandex Cloud](data-centers-physical-addresses.md)

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Yandex Cloud Billing](../index.md) > Устранение ошибки `balance.WRONG.ACCOUNT`
+
 # Устранение ошибки `balance.WRONG.ACCOUNT`
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > [Концепции](index.md) > Управление доступом
+
 # Управление доступом в Managed Service for Trino
 
 Managed Service for Trino предоставляет унифицированный доступ к данным из множества источников: хранилищ, баз данных и внешних сервисов. Один кластер Managed Service for Trino может обслуживать множество разных пользователей и рабочих нагрузок. Управление доступом в Managed Service for Trino позволяет:

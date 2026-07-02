@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.greenplum > DeleteCluster
+
 # Managed Service for Greenplum® Audit Trails Events: DeleteCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.greenplum.DeleteCluster2-schema}

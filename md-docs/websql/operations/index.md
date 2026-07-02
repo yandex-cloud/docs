@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex WebSQL](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Yandex WebSQL
 
 * [Создание подключения](create-connection.md)

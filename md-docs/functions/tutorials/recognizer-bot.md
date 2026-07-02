@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Functions](../index.md) > [Практические руководства](index.md) > Боты на Serverless > Разработка Telegram-бота для распознавания текста и аудио
+
 # Разработка Telegram-бота для распознавания текста на изображениях, синтеза и распознавания аудио
 
 
@@ -38,7 +40,7 @@
 
 * плата за использование SpeechKit ([тарифы SpeechKit](https://aistudio.yandex.ru/docs/ru/speechkit/pricing));
 * плата за использование Vision OCR ([тарифы для Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/pricing));
-* плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы для Cloud Functions](../../functions/pricing.md));
+* плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы для Cloud Functions](../pricing.md));
 * плата за количество запросов к созданному API-шлюзу и исходящий трафик ([тарифы API Gateway](../../api-gateway/pricing.md)).
 
 ## Подготовьте ресурсы {#prepare}

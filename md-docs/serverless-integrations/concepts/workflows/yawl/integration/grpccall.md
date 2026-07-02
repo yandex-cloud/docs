@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > [Концепции](../../../index.md) > Workflows > [Спецификация YaWL](../index.md) > Интеграционные шаги > GRPCCall
+
 # GRPCCall
 
 Только для сервисов, которые поддерживают [gRPC reflection](https://grpc.io/docs/guides/reflection/).

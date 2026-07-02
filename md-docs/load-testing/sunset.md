@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Load Testing](index.md) > Load Testing
+
 # Сервис Yandex Load Testing закрыт
 
 {% note warning %}

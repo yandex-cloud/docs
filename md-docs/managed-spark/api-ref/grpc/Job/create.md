@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Spark™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Job](index.md) > Create
+
 # Managed Spark API, gRPC: JobService.Create
 
 Creates a job for Spark cluster.

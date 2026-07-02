@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Yandex Cloud Billing](../index.md) > Устранение ошибки `INVALID_PERSON_TYPE` при регистрации платежного аккаунта
+
 # Устранение ошибки `INVALID_PERSON_TYPE` при регистрации платежного аккаунта
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Справочник CLI (англ.)](index.md) > connect
+
 # yc managed-postgresql connect
 
 Connect to Postgresql cluster with iam-auth

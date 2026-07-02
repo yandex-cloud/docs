@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > kms > AsymmetricDecrypt
+
 # Key Management Service Audit Trails Events: AsymmetricDecrypt
 
 ## Event JSON schema {#yandex.cloud.audit.kms.asymmetricencryption.AsymmetricDecrypt2-schema}

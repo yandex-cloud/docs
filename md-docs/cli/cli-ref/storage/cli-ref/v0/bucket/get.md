@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [storage](../../index.md) > [v0](../index.md) > [bucket](index.md) > get
+
 # yc storage v0 bucket get
 
 Show information about the specified bucket

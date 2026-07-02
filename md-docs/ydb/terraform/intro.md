@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > Работа с YDB через Terraform > Введение в работу с YDB через Terraform
+
 # Введение в работу с YDB через Terraform
 
 [Terraform](https://www.terraform.io) — это программное обеспечение с открытым исходным кодом от компании HashiCorp для управления облачной инфраструктурой по модели "инфраструктура как код" (Infrastructure as Code). Это значит, что желаемое состояние инфраструктуры описывается в конфигурационных файлах, а Terraform при помощи специальных вспомогательных программ (провайдеров) применяет эти изменения к инфраструктуре. Конфигурационные файлы пишутся на специальном [языке HCL](https://developer.hashicorp.com/terraform/language/syntax) (HashiCorp Configuration Language) и имеют расширение `tf`. HCL очень похож на JSON и оформляется в виде логических блоков в конфигурационных файлах.

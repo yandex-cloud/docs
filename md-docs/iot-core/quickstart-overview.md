@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex IoT Core](index.md) > Начало работы > Обзор
+
 # Начало работы с Yandex IoT Core
 
 {% note warning %}

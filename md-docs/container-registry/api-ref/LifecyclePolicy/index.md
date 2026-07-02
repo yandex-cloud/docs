@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > LifecyclePolicy > Overview
+
 # Container Registry API, REST: LifecyclePolicy
 
 A set of methods for managing Lifecycle policy resources.

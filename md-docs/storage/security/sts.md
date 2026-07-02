@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Управление доступом](overview.md) > Security Token Service
+
 # Security Token Service
 
 _Security Token Service_ — компонент сервиса Identity and Access Management для получения _временных ключей доступа_, совместимых с [AWS S3 API](../s3/index.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [iam](../../index.md) > [v0](../index.md) > [api-key](index.md) > get
+
 # yc iam v0 api-key get
 
 Show information about the specified API key

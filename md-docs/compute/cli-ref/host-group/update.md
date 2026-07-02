@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [host-group](index.md) > update
+
 # yc compute host-group update
 
 Update the specified host group

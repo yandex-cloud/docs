@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > dns > DeleteDnsFirewall
+
 # Cloud DNS Audit Trails Events: DeleteDnsFirewall
 
 ## Event JSON schema {#yandex.cloud.audit.dns.DeleteDnsFirewall2-schema}

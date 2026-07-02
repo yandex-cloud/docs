@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Billing](../../index.md) > Справочник API > REST (англ.) > [Billing](../index.md) > [Service](index.md) > Get
+
 # Billing API, REST: Service.Get
 
 Returns the specified service.

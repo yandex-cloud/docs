@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Yandex IoT Core
+
 # Метрики Yandex IoT Core
 
 В этом разделе описаны метрики сервиса [Yandex IoT Core](../../iot-core/index.md), поставляемые в Monitoring.

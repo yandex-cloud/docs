@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > Базовая инфраструктура > Отказоустойчивость и масштабирование > [Интеграция L7-балансировщика с Cloud CDN и Object Storage](index.md) > Terraform
+
 # Интеграция L7-балансировщика с Cloud CDN и Object Storage с помощью Terraform
 
 

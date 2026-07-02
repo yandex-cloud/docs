@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Apache Hive™ Metastore > Концепции > Кластеры Apache Hive™ Metastore
+
 # Кластеры Apache Hive™ Metastore
 
 В сервисе Yandex MetaData Hub вы можете [создавать кластеры Apache Hive™ Metastore](../operations/metastore/cluster-create.md).

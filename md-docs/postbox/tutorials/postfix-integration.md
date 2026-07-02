@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Postbox](../index.md) > [Практические руководства](index.md) > Интеграция с почтовыми серверами > Postfix
+
 # Настройка Postfix для отправки через Yandex Cloud Postbox
 
 В этом руководстве вы научитесь отправлять электронные письма через [Yandex Cloud Postbox](../index.md) с использованием [Postfix](https://ru.wikipedia.org/wiki/Postfix) на виртуальной машине [Yandex Compute Cloud](../../compute/index.md).
@@ -30,7 +32,7 @@
 
 * плата за постоянно запущенную ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
 * плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
-* плата за использование Yandex Cloud Postbox ([тарифы Yandex Cloud Postbox](../../postbox/pricing.md));
+* плата за использование Yandex Cloud Postbox ([тарифы Yandex Cloud Postbox](../pricing.md));
 * плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы создаете ресурсную запись в Cloud DNS ([тарифы Cloud DNS](../../dns/pricing.md)).
 
 

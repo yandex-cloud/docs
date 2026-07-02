@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [config](../index.md) > [profile](index.md) > delete
+
 # yc config profile delete
 
 Delete the specified configuration profile

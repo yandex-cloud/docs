@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > UpdateFilestore
+
 # DataSphere Audit Trails Events: UpdateFilestore
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.UpdateFilestore2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for OpenSearch](../../index.md) > [Справочник CLI (англ.)](../index.md) > [extension](index.md) > delete
+
 # yc managed-opensearch extension delete
 
 Delete an extension from a managed OpenSearch cluster.

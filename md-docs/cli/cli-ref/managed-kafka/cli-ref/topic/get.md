@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-kafka](../index.md) > [topic](index.md) > get
+
 # yc managed-kafka topic get
 
 Get information about a Kafka topic.

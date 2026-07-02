@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Пошаговые инструкции](index.md) > Сервисные подключения > Назначить политику доступа в Object Storage для сервисного подключения
+
 # Назначить политику доступа в Object Storage для сервисного подключения
 
 

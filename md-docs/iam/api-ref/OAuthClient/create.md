@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [OAuthClient](index.md) > Create
+
 # Identity and Access Management API, REST: OAuthClient.Create
 
 Creates an oauth client in the specified folder.

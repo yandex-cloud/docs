@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Базовая инфраструктура](../infrastructure/index.md) > Cloud DNS > Миграция DNS-зон из Яндекс 360 в Cloud DNS
+
 # Миграция DNS-зон из Яндекс 360 в Yandex Cloud DNS
 
 Если ваш домен делегирован Яндекс 360, а ваши сервисы находятся в Yandex Cloud, то вы можете передать управление доменом на DNS-серверы Yandex Cloud и перенести DNS-зоны в сервис Yandex Cloud DNS для большего удобства. Yandex Cloud DNS тесно интегрирован с другими сервисами Yandex Cloud (например, с [Yandex Compute Cloud](../../dns/concepts/compute-integration.md)).

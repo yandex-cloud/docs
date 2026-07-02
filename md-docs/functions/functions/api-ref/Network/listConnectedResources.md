@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Functions](../../../index.md) > Справочник API Functions > [REST (англ.)](../index.md) > [Network](index.md) > ListConnectedResources
+
 # Cloud Functions Service, REST: Network.ListConnectedResources
 
 Retrieves the list of serverless resources connected to any network from the specified scope.

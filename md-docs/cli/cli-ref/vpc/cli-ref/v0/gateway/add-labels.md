@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [vpc](../../index.md) > [v0](../index.md) > [gateway](index.md) > add-labels
+
 # yc vpc v0 gateway add-labels
 
 Assign labels to a gateway.

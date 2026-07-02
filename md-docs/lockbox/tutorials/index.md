@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Lockbox](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Yandex Lockbox
 
 * [Синхронизация с секретами Yandex Managed Service for Kubernetes](kubernetes-lockbox-secrets.md)

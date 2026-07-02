@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Provider](index.md) > ListActivated
+
 # Cloud CDN API, REST: Provider.ListActivated
 
 List activated providers for specified client.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Resource Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cloud](index.md) > UnbindAccessPolicy
+
 # Resource Manager API, gRPC: CloudService.UnbindAccessPolicy
 
 Unbinds the access policy template from the cloud.

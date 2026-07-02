@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [registry](index.md) > add-labels
+
 # yc container registry add-labels
 
 Add labels to a registry.

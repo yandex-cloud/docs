@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Maintenance](index.md) > Reschedule
+
 # Managed Service for SPQR API, gRPC: MaintenanceService.Reschedule
 
 Allows user to reschedule Maintenance to another date and time.

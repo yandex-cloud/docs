@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex API Gateway](index.md) > История изменений
+
 # История изменений в Yandex API Gateway
 
 ## Апрель 2026 {#april-2026}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Unknown dimension for window
+
 # [Yandex DataLens] Unknown dimension for window
 
 `ERR.DS_API.FORMULA.UNKNOWN_WINDOW_DIMENSION`

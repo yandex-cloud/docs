@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-mongodb](../../index.md) > [v0](../index.md) > [database](index.md) > create
+
 # yc managed-mongodb v0 database create
 
 Create a database in a MongoDB cluster.

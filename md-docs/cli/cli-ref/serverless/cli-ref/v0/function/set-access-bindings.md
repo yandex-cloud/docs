@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [v0](../index.md) > [function](index.md) > set-access-bindings
+
 # yc serverless v0 function set-access-bindings
 
 Set access bindings for the specified function and delete all existing access bindings if there were any

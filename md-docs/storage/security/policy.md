@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Управление доступом](overview.md) > Политика доступа (Bucket Policy)
+
 # Политика доступа (bucket policy)
 
 В Object Storage реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов приведен в [Обзор способов управления доступом в Object Storage](overview.md).

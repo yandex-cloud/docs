@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud DNS](index.md) > Начало работы
+
 # Как начать работать с Cloud DNS
 
 

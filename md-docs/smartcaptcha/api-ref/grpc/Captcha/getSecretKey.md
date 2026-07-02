@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex SmartCaptcha](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Captcha](index.md) > GetSecretKey
+
 # SmartCaptcha API, gRPC: CaptchaService.GetSecretKey
 
 Returns the secret data of specified Captcha resource.

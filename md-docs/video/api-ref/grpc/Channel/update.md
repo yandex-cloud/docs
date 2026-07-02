@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Channel](index.md) > Update
+
 # Video API, gRPC: ChannelService.Update
 
 Updates an existing channel's metadata and settings.

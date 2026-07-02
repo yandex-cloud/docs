@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [disk-placement-group](index.md) > list-disks
+
 # yc compute disk-placement-group list-disks
 
 List disks of the specified disk placement group

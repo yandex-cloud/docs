@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Stream](index.md) > PerformAction
+
 # Video API, REST: Stream.PerformAction
 
 Performs a specific action on a stream, such as publishing or stopping.

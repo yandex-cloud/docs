@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > start
+
 # yc managed-metastore cluster start
 
 Start the specified Metastore cluster

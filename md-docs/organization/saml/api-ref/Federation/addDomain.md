@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [SAML Federation API](../index.md) > [Federation](index.md) > AddDomain
+
 # SAML Federation API, REST: Federation.AddDomain
 
 Adds a domain to the specified federation.

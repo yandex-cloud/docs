@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > [Пошаговые инструкции](index.md) > Управление доступом > Обзор
+
 # Управление доступом в Yandex Identity Hub
 
 * [Назначить пользователя администратором организации](add-org-admin.md)

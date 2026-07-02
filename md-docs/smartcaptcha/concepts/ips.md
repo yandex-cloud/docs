@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex SmartCaptcha](../index.md) > Концепции > Публичные IP-адреса
+
 # Публичные IP-адреса сервиса SmartCaptcha
 
 Для корректной работы с сервисом SmartCaptcha необходимо разрешить доступ к следующим IP-адресам:

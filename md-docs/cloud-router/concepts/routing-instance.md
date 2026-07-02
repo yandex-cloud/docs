@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Router](../index.md) > [Концепции](index.md) > Routing Instance
+
 # Routing Instance
 
 Объект `Routing Instance` (RI) — это основной ресурс в ресурсной модели сервиса [Cloud Router](index.md), предназначенный для создания сетевых топологий, в рамках которых облачные ресурсы в разных [сетях](../../vpc/concepts/network.md) будут иметь сетевую связность между собой.

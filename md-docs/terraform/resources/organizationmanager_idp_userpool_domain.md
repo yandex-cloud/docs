@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity Hub > Resources > organizationmanager_idp_userpool_domain
+
 # yandex_organizationmanager_idp_userpool_domain (Resource)
 
 A domain associated with a userpool.

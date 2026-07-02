@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [baremetal](../index.md) > [configuration](index.md) > get
+
 # yc baremetal configuration get
 
 Returns the specific Configuration resource.

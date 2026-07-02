@@ -106,6 +106,8 @@ keywords:
 
 Чтобы создать кластер {{ mspqr-name }}, нужна роль [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и роль `managed-spqr.editor` или выше.
 
+{% include [roles-mdb-viewer](../_includes/mdb/roles-mdb-viewer-access-control.md) %}
+
 Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `managed-spqr.admin` вместо `managed-spqr.editor`.
 
 ## Что дальше {#whats-next}

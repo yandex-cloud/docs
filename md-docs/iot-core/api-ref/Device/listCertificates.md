@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > [REST (англ.)](../index.md) > [Device](index.md) > ListCertificates
+
 # IoT Core Service, REST: Device.ListCertificates
 
 Retrieves the list of device certificates for the specified device.

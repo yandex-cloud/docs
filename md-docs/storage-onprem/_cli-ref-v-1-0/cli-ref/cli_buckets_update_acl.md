@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [storage-onprem/_cli-ref-v-1-0](../index.md) > buckets > update > acl
+
 # cli buckets update acl
 
 Update bucket acl

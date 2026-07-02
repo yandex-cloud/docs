@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Managed Service for PostgreSQL
+
 # Метрики Yandex Managed Service for PostgreSQL
 
 В этом разделе описаны метрики сервиса [Managed Service for PostgreSQL](../../managed-postgresql/index.md), поставляемые в Monitoring.

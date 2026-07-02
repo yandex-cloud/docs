@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Smart Web Security](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SecurityProfile](index.md) > Update
+
 # SmartWebSecurity API, REST: SecurityProfile.Update
 
 Updates the specified security profile.

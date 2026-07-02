@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Compute Cloud
+
 # Метрики Yandex Compute Cloud
 
 В этом разделе описаны метрики сервиса [Compute Cloud](../../compute/index.md), поставляемые в Monium Metrics.

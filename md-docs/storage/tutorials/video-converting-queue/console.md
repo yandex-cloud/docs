@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > [Конвертация видео в GIF на Python](index.md) > Консоль управления
+
 # Конвертация видео в GIF на Python с помощью консоли управления
 
 Чтобы создать инфраструктуру для [конвертации видео в GIF на Python](index.md) с помощью консоли управления Yandex Cloud:
@@ -28,7 +30,7 @@
 В стоимость поддержки инфраструктуры входит:
 * плата за вызовы [функций](../../../functions/concepts/function.md) ([тарифы Yandex Cloud Functions](../../../functions/pricing.md));
 * плата за выполнение запросов к [базе данных](../../../ydb/concepts/serverless-and-dedicated.md) ([тарифы Yandex Managed Service for YDB](../../../ydb/pricing/serverless.md));
-* плата за хранение данных в [бакете](../../concepts/bucket.md) ([тарифы Yandex Object Storage](../../../storage/pricing.md)).
+* плата за хранение данных в [бакете](../../concepts/bucket.md) ([тарифы Yandex Object Storage](../../pricing.md)).
 
 
 ## Подготовьте ресурсы {#create-resources}

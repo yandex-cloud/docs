@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > list-logs
+
 # yc managed-mongodb cluster list-logs
 
 Retrieve logs for the specified MongoDB cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > Группы бэкендов > Создать группу бэкендов
+
 # Создать группу бэкендов
 
 Чтобы создать [группу бэкендов](../concepts/backend-group.md):

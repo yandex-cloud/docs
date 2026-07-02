@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity Hub](../../../../../index.md) > Справочник API > REST (англ.) > Identity Provider API > [SAML Application API](../index.md) > [Application](index.md) > Suspend
+
 # SAML Application API, REST: Application.Suspend
 
 Suspends the specified SAML application.

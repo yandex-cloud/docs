@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > [Справочник CLI (англ.)](../index.md) > zone > Overview
+
 # yc dns zone
 
 Manage dns zones

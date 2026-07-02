@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Folder](index.md) > UpdateAccessPolicyBindingParameters
+
 # Resource Manager API, REST: Folder.UpdateAccessPolicyBindingParameters
 
 Updates the access policy binding parameters for the folder.

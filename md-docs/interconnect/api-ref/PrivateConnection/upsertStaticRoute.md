@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [PrivateConnection](index.md) > UpsertStaticRoute
+
 # Cloud Interconnect API, REST: PrivateConnection.UpsertStaticRoute
 
 Upserts specified static routes to a PrivateConnection resource.

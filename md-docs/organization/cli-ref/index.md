@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > Справочник CLI (англ.) > Overview
+
 # yc organization-manager
 
 Manage Yandex Organization Manager resources

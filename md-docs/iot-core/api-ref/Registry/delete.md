@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > [REST (англ.)](../index.md) > [Registry](index.md) > Delete
+
 # IoT Core Service, REST: Registry.Delete
 
 Deletes the specified registry.

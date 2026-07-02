@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > DeleteDataset
+
 # DataSphere Audit Trails Events: DeleteDataset
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.DeleteDataset2-schema}

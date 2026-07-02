@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Key Management Service](../../../../index.md) > Справочник API > gRPC (англ.) > [Key Management Service API](../index.md) > [AsymmetricSignatureCrypto](index.md) > Sign
+
 # Key Management Service API, gRPC: AsymmetricSignatureCryptoService.Sign
 
 Signs data specified KMS key.

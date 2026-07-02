@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Справочник YC CLI (англ.)](../index.md) > [bucket](index.md) > stats
+
 # yc storage bucket stats
 
 Shows bucket stats

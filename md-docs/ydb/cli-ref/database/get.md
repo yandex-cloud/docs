@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for YDB](../../index.md) > [Справочник CLI (англ.)](../index.md) > [database](index.md) > get
+
 # yc ydb database get
 
 Get information about the specified YDB database.

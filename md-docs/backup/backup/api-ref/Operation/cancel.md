@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Backup](../../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Cloud Backup API, REST: Operation.Cancel
 
 Cancels the specified operation.

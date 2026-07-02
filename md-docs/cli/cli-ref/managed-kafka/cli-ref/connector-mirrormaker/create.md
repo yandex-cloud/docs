@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-kafka](../index.md) > [connector-mirrormaker](index.md) > create
+
 # yc managed-kafka connector-mirrormaker create
 
 Create a Kafka Mirrormaker connector.

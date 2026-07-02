@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [UserSshKey](index.md) > List
+
 # Identity Hub API, gRPC: UserSshKeyService.List
 
 ## gRPC request

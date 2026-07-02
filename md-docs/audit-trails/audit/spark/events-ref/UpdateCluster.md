@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > spark > UpdateCluster
+
 # Managed Spark Audit Trails Events: UpdateCluster
 
 ## Event JSON schema {#yandex.cloud.audit.spark.UpdateCluster2-schema}

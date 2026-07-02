@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > AuthorRoleRequestCreate
+
 # Yandex Wiki Audit Trails Events: AuthorRoleRequestCreate
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.AuthorRoleRequestCreate2-schema}

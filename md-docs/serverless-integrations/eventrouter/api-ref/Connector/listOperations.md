@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > [Connector](index.md) > ListOperations
+
 # EventRouter Service, REST: Connector.ListOperations
 
 Lists operations for the specified connector.

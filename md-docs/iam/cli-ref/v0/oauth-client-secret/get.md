@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [oauth-client-secret](index.md) > get
+
 # yc iam v0 oauth-client-secret get
 
 Show information about state of a specified oauth-client secret

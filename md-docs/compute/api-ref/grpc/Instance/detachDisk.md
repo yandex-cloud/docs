@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Instance](index.md) > DetachDisk
+
 # Compute Cloud API, gRPC: InstanceService.DetachDisk
 
 Detaches the disk from the instance.

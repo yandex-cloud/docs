@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Пошаговые инструкции](../index.md) > Создание триггера > Создать триггер для Yandex IoT Core > Брокер
+
 # Создать триггер, который передает сообщения в функцию Cloud Functions из топика брокера Yandex IoT Core
 
 Создайте [триггер](../../concepts/trigger/iot-core-trigger.md) для топика брокера Yandex IoT Core и обрабатывайте копии сообщений с помощью [функции](../../concepts/function.md) Cloud Functions.

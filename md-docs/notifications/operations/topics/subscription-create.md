@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Notification Service](../../index.md) > [Пошаговые инструкции](../index.md) > Топики > Создать подписку на топик
+
 # Создать подписку
 
 {% list tabs group=instructions %}

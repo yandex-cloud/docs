@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > Вопросы и ответы > Распределенные запросы
+
 # Распределенные запросы в Managed Service for Sharded PostgreSQL
 
 * [Как Sharded PostgreSQL обрабатывает SQL-запросы?](#sql-queries-parcing)

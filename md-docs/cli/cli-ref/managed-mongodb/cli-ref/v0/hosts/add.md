@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-mongodb](../../index.md) > [v0](../index.md) > [hosts](index.md) > add
+
 # yc managed-mongodb v0 hosts add
 
 Add new hosts to the cluster in specified availability zones.

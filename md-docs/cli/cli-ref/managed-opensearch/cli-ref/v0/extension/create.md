@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-opensearch](../../index.md) > [v0](../index.md) > [extension](index.md) > create
+
 # yc managed-opensearch v0 extension create
 
 Create a new extension for a managed OpenSearch cluster.

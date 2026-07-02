@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Концепции](../index.md) > Метаданные виртуальных машин > Передача метаданных в ВМ
+
 # Передача метаданных в виртуальные машины
 
 Вы можете передать [метаданные](../vm-metadata.md) в ВМ при ее [создании](../../operations/index.md#vm-create) и [изменении](../../operations/vm-control/vm-update.md#change-metadata). Данные для подключения к ВМ можно передать только при создании, причем в [ВМ с ОС Linux](../../operations/vm-create/create-linux-vm.md) для каждого пользователя необходимо также передавать открытый [SSH-ключ](../../../glossary/ssh-keygen.md).

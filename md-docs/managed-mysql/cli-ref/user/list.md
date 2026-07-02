@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [user](index.md) > list
+
 # yc managed-mysql user list
 
 List users for the specified MySQL cluster

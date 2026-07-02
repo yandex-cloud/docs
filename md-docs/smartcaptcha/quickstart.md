@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex SmartCaptcha](index.md) > Начало работы
+
 # Как начать работать с Yandex SmartCaptcha
 
 Yandex SmartCaptcha — сервис защиты от ботов и автоматизированных атак.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Security Deck](../index.md) > [Концепции](index.md) > Контроль Kubernetes® (KSPM)
+
 # Контроль Kubernetes® (KSPM)
 
 [Контроль Kubernetes (KSPM)](kspm.md) — это инструмент, позволяющий обеспечивать безопасность использования [контейнеризованных приложений](../../glossary/containerization.md).

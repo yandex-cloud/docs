@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > [Пошаговые инструкции](../index.md) > Каналы > Изменить канал
+
 # Изменить канал
 
 {% list tabs group=instructions %}

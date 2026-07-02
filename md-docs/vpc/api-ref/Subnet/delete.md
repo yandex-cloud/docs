@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Subnet](index.md) > Delete
+
 # Virtual Private Cloud API, REST: Subnet.Delete
 
 Deletes the specified subnet.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [organization-manager](../../index.md) > [idp](../index.md) > [userpool](index.md) > update-access-bindings
+
 # yc organization-manager idp userpool update-access-bindings
 
 Update access bindings for the specified user pool

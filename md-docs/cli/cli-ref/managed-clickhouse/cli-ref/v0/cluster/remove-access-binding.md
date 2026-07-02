@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-clickhouse](../../index.md) > [v0](../index.md) > [cluster](index.md) > remove-access-binding
+
 # yc managed-clickhouse v0 cluster remove-access-binding
 
 Remove access binding for the specified ClickHouse cluster

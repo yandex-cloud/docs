@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > cdn > OriginGroupUpdate
+
 # Cloud CDN Audit Trails Events: OriginGroupUpdate
 
 ## Event JSON schema {#yandex.cloud.audit.cdn.gcore.OriginGroupUpdate2-schema}

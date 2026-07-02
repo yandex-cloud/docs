@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Channel](index.md) > SetAccessBindings
+
 # Video API, REST: Channel.SetAccessBindings
 
 Sets all access bindings for a specific channel.

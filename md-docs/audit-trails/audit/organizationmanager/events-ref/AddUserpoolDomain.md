@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > AddUserpoolDomain
+
 # Identity Hub Audit Trails Events: AddUserpoolDomain
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.idp.AddUserpoolDomain2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [virtual-host](index.md) > list
+
 # yc application-load-balancer virtual-host list
 
 List http router virtual hosts

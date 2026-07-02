@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > [Справочник CLI (англ.)](../index.md) > [zone](index.md) > list-access-bindings
+
 # yc dns zone list-access-bindings
 
 List access bindings of the specified dns zone.

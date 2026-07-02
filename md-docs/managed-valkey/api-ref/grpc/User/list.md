@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Valkey™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [User](index.md) > List
+
 # Managed Service for Redis API, gRPC: UserService.List
 
 Retrieves the list of Redis User resources in the specified cluster.

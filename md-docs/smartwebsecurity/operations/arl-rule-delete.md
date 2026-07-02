@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили ARL > Удалить правило
+
 # Удалить правило из профиля ARL
 
 Базовые правила, а также правила Smart Protection и WAF [удаляются из профиля безопасности](rule-delete.md). 

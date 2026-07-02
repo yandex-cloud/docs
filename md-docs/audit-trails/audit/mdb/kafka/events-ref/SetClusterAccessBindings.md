@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.kafka > SetClusterAccessBindings
+
 # Managed Service for Apache Kafka® Audit Trails Events: SetClusterAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.kafka.SetClusterAccessBindings2-schema}

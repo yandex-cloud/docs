@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > DataSphere Inference > Остановить или возобновить ноду
+
 # Остановить или возобновить ноду
 
 ## Остановить ноду {#suspend}

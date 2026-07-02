@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > DataLens > Включить DataLens
+
 # Включить DataLens
 
 ## Перед началом работы {#before-you-begin}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [application-load-balancer](../index.md) > [load-balancer](index.md) > list
+
 # yc application-load-balancer load-balancer list
 
 List application load balancers

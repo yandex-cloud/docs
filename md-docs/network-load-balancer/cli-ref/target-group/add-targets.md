@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Network Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [target-group](index.md) > add-targets
+
 # yc load-balancer target-group add-targets
 
 Add targets to the specified target group

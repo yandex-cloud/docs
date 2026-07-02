@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > DeleteFederation
+
 # Identity and Access Management Audit Trails Events: DeleteFederation
 
 ## Event JSON schema {#yandex.cloud.audit.iam.workload.oidc.DeleteFederation2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > Источники и приемники данных > Работа с Yandex Object Storage > Запись данных
+
 # Запись данных в Yandex Object Storage
 
 В Yandex Query для записи данных в бакет Yandex Object Storage можно использовать [соединения](#connection-write) или [привязки к данным](#bindings-write).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for YTsaurus](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Ytsaurus API, REST: Operation.Get
 
 Returns the specified Operation resource.

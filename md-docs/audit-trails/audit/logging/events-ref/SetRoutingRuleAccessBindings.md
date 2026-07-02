@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > logging > SetRoutingRuleAccessBindings
+
 # Cloud Logging Audit Trails Events: SetRoutingRuleAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.logging.SetRoutingRuleAccessBindings2-schema}

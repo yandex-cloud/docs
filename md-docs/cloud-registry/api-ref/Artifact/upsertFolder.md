@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Artifact](index.md) > UpsertFolder
+
 # Yandex Cloud Registry API, REST: Artifact.UpsertFolder
 
 Upserts a folder at the specified path within the registry.

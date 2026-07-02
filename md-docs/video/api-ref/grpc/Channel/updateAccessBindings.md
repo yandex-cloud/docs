@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Channel](index.md) > UpdateAccessBindings
+
 # Video API, gRPC: ChannelService.UpdateAccessBindings
 
 Updates access bindings for a specific channel by adding or removing individual bindings.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > DeleteApplication
+
 # Identity Hub Audit Trails Events: DeleteApplication
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.application.saml.DeleteApplication2-schema}

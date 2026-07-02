@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex StoreDoc](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Yandex StoreDoc
 
 ## Кластеры {#clusters}

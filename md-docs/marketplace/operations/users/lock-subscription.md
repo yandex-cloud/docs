@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Marketplace](../../index.md) > Пользователям > Пошаговые инструкции > Управление подпиской > Привязка подписки
+
 # Привязка подписки
 
 Для привязки подписки необходима роль [license-manager.user](../../security/index.md#license-manager-user) на каталог.

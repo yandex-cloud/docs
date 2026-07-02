@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Managed Service for PostgreSQL
 
 # Аутентификация в API

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for OpenSearch](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Extension > Overview
+
 # Managed Service for OpenSearch API, gRPC: ExtensionService
 
 ## Methods

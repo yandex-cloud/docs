@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Практические руководства](index.md) > Непрерывная интеграция с GitLab > Построение пайплайна CI/CD в GitLab с использованием serverless-продуктов
+
 # Построение пайплайна CI/CD с использованием serverless-продуктов
 
 # Построение пайплайна CI/CD в GitLab с использованием serverless-продуктов

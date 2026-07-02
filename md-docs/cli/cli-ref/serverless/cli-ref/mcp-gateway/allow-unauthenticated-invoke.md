@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [serverless](../index.md) > [mcp-gateway](index.md) > allow-unauthenticated-invoke
+
 # yc serverless mcp-gateway allow-unauthenticated-invoke
 
 Allow unauthenticated invoke for the specified MCP Gateway

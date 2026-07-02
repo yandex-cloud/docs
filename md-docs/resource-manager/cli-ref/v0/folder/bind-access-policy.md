@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Resource Manager](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [folder](index.md) > bind-access-policy
+
 # yc resource-manager v0 folder bind-access-policy
 
 Bind access policy to the specified folder

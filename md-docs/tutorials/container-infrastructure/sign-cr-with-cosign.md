@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Контейнерная инфраструктура](index.md) > Managed Service for Kubernetes > Использование Container Registry > Подпись и проверка Docker-образов Container Registry
+
 # Подпись и проверка Docker-образов Yandex Container Registry в Yandex Managed Service for Kubernetes
 
 

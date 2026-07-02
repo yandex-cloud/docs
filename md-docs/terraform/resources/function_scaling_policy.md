@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Serverless Cloud Functions > Resources > function_scaling_policy
+
 # yandex_function_scaling_policy (Resource)
 
 Allows management of [Yandex Cloud Function Scaling Policies](../../functions/index.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Solution](../index.md) > [Концепции](index.md) > Docker-образ
+
 # Docker-образ
 
 При создании виртуальной машины на базе Container Optimized Image есть возможность указать [Docker-образ](../../container-registry/concepts/docker-image.md), на основе которого будет запущен [Docker-контейнер](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers).

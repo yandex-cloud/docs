@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex IoT Core](../index.md) > [Практические руководства](index.md) > Работа с Yandex IoT Core на языке Java
+
 # Работа с Yandex IoT Core на языке Java
 
 {% note warning %}

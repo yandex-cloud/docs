@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Message Queue](../../index.md) > [Справочник API](../index.md) > Queue > PurgeQueue
+
 # PurgeQueue
 
 Метод для очистки очереди сообщений. Удаление сообщений занимает некоторое время. Чтобы убедиться, что в очереди не осталось сообщений, приостановите отправку сообщений в очередь и вызовите метод [GetQueueAttributes](GetQueueAttributes.md).

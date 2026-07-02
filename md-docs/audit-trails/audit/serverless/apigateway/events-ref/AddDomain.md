@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > serverless > AddDomain
+
 # API Gateway Audit Trails Events: AddDomain
 
 ## Event JSON schema {#yandex.cloud.audit.serverless.apigateway.AddDomain2-schema}

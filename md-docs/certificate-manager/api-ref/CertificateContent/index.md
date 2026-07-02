@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Certificate Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > CertificateContent > Overview
+
 # Certificate Manager API, REST: CertificateContent
 
 A set of methods for managing certificate content.

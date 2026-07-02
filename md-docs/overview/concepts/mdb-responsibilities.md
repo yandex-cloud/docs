@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Обзор платформы](../index.md) > Платформа Yandex Cloud > Разграничение зон контроля в MDB
+
 # Разграничение зон контроля пользователей сервисов управляемых баз данных (MDB) и Yandex Cloud
 
 При работе с сервисами управляемых баз данных (MDB) Managed Service for PostgreSQL, Managed Service for ClickHouse®, Yandex MPP Analytics for PostgreSQL, Yandex StoreDoc, Yandex Managed Service for Valkey™, Managed Service for MySQL®, Managed Service for OpenSearch, Managed Service for Apache Kafka® и Managed Service for Sharded PostgreSQL необходимо учитывать, что контролирует [сервис MDB](#cloud-responsibilities), а что — [клиент Yandex Cloud](#customer-responsibilities). Понимание этих зон контроля помогает эффективно использовать облачные ресурсы и избегать возможных проблем при работе с базами данных.

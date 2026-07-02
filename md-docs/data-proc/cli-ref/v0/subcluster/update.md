@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Processing](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [subcluster](index.md) > update
+
 # yc dataproc v0 subcluster update
 
 Modify configuration or attributes of a subcluster.

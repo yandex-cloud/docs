@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Концепции](index.md) > Режимы работы Serverless и Dedicated
+
 # Режимы работы Serverless и Dedicated
 
 Вы можете создать и использовать множество баз данных YDB. Для каждой БД при создании выбирается один из двух режимов работы: Serverless или Dedicated. В дальнейшем он не может быть изменен.

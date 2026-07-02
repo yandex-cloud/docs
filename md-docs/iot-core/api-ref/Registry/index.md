@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > [REST (англ.)](../index.md) > Registry > Overview
+
 # IoT Core Service, REST: Registry
 
 A set of methods for managing registry.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../../index.md) > Справочник API > [Kubernetes Marketplace gRPC (англ.)](../index.md) > [HelmRelease](index.md) > Install
+
 # Kubernetes Marketplace, gRPC: HelmReleaseService.Install
 
 Installs Helm release into specified Kubernetes Cluster.

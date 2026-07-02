@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [registry](index.md) > get
+
 # yc container registry get
 
 Get information about a registry.

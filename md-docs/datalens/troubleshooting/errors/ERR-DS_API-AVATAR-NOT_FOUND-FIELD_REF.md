@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Field references an unknown source avatar
+
 # [Yandex DataLens] Field references an unknown source avatar
 
 `ERR.DS_API.AVATAR.NOT_FOUND.FIELD_REF`

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [network](index.md) > list-route-tables
+
 # yc vpc v0 network list-route-tables
 
 List route tables in a network.

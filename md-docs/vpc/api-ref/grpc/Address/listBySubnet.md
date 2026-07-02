@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Address](index.md) > ListBySubnet
+
 # Virtual Private Cloud API, gRPC: AddressService.ListBySubnet
 
 Retrieves the list of Address resources in the specified subnet.

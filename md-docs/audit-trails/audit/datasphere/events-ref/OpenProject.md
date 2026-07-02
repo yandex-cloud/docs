@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > OpenProject
+
 # DataSphere Audit Trails Events: OpenProject
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.OpenProject2-schema}

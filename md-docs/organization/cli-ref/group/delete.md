@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Справочник CLI (англ.)](../index.md) > [group](index.md) > delete
+
 # yc organization-manager group delete
 
 Delete the specified group

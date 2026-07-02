@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Folder](index.md) > SetAccessBindings
+
 # Resource Manager API, REST: Folder.SetAccessBindings
 
 Sets access bindings for the specified folder.

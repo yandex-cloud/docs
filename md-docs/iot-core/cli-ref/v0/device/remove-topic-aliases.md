@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [device](index.md) > remove-topic-aliases
+
 # yc iot v0 device remove-topic-aliases
 
 Remove aliases for topics of specified device

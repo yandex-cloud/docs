@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Yandex Cloud Billing](../index.md) > Платежный аккаунт находится в статусе `PAYMENT_NOT_CONFIRMED`
+
 # Платежный аккаунт находится в статусе `PAYMENT_NOT_CONFIRMED`
 
 

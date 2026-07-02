@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Valkey™](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Обновление версии Valkey™
+
 # Обновление версии Valkey™
 
 Вы можете обновить кластер Yandex Managed Service for Valkey™ до любой поддерживаемой версии.

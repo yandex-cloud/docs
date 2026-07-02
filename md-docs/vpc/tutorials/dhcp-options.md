@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Практические руководства](index.md) > Настройка сетевых ресурсов и взаимодействие между ними > Настройки DHCP для работы с корпоративным DNS-сервером
+
 # Настройки DHCP для работы с корпоративным DNS-сервером
 
 
@@ -42,7 +44,7 @@
 
 * плата за постоянно запущенные виртуальные машины ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
 * плата за объем дисков виртуальных машин ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование динамических или статических публичных IP-адресов ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
+* плата за использование динамических или статических публичных IP-адресов ([тарифы Yandex Virtual Private Cloud](../pricing.md));
 * стоимость исходящего трафика из Yandex Cloud в интернет ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 
 ## Создайте подсеть {#create-subnet}

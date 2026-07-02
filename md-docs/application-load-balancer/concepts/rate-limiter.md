@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Концепции](index.md) > Лимит на количество запросов
+
 # Настройка лимитов на количество запросов с помощью модуля Global RateLimit
 
 {% note info %}

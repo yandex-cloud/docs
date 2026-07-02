@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Kubernetes](../index.md) > Устранение ошибки `Timed out waiting for the condition` при монтировании тома с большим количеством файлов
+
 # Устранение ошибки `Timed out waiting for the condition` при монтировании тома с большим количеством файлов
 
 

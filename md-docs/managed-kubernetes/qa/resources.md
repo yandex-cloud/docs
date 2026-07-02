@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > Вопросы и ответы > Ресурсы
+
 # Ресурсы
 
 * [Какие ресурсы требуются для обслуживания кластера Kubernetes, в который входит группа, например, из трех узлов?](#required-resources)

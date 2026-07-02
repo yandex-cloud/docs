@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Quota Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [QuotaLimit](index.md) > Get
+
 # Quota Manager API, gRPC: QuotaLimitService.Get
 
 Returns the specified quota limit.

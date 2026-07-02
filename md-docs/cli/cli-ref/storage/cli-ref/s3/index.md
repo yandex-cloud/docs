@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [storage](../index.md) > s3 > Overview
+
 # yc storage s3
 
 [PREVIEW] An aws s3-like interface

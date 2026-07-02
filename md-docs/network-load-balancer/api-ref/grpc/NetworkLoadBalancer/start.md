@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Network Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [NetworkLoadBalancer](index.md) > Start
+
 # Network Load Balancer API, gRPC: NetworkLoadBalancerService.Start
 
 Starts load balancing and health checking with the specified network load balancer with specified settings.

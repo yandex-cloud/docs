@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Marketplace](../../../../index.md) > Партнерам > Справочник Product Instance Management API > gRPC (англ.) > Overview
+
 # Yandex Cloud Marketplace Product Instance Management API: gRPC reference
 
 Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts](../../../../../api-design-guide/index.md).

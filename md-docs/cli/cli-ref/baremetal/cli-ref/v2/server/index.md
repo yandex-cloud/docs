@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [baremetal](../../index.md) > [v2](../index.md) > server > Overview
+
 # yc baremetal v2 server
 
 A set of methods for managing Server resources.

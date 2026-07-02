@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > list-operations
+
 # yc managed-redis cluster list-operations
 
 List operations for the specified Redis cluster

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > cloudapps > CreateCloudApplication
+
 # Cloud Apps Workload Audit Trails Events: CreateCloudApplication
 
 ## Event JSON schema {#yandex.cloud.audit.cloudapps.CreateCloudApplication2-schema}

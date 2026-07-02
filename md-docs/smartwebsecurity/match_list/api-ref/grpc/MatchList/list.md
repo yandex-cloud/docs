@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Smart Web Security](../../../../index.md) > Справочник API > gRPC (англ.) > [SmartWebSecurity MatchList API](../index.md) > [MatchList](index.md) > List
+
 # SmartWebSecurity MatchList API, gRPC: MatchListService.List
 
 Retrieves the list of MatchList resources in the specified folder.

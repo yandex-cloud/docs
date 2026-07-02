@@ -1,11 +1,11 @@
-# Sorting and filtering data
+# Data sorting and filtering
 
-When selecting data, you can specify filter expressions that will limit the result. You can also set the order of values returned.
+When querying data, you can order the selection results and limit them using filters.
 
 For example:
 
 * Find 10 rides with the largest tips.
-* Exclude rides with a fare of over $1,000,000.
+* Filter out rides with a fare above $1,000,000.
 
 ```sql
 SELECT
@@ -13,15 +13,15 @@ SELECT
 FROM
     `tutorial-analytics`
 WHERE
-    tip_amount > 0          -- List of conditions for generation of the result.
-    AND                     -- `AND` operator for complex conditions.
+    tip_amount > 0          -- Result filtering conditions.
+    AND                     -- Combining conditions.
     total_amount < 1000000
-ORDER BY tip_amount DESC    -- Sort the results by the `tip_amount` field in descending order.
-LIMIT 10                    -- Use only 10 entries.
+ORDER BY tip_amount DESC    -- Sort results by `tip_amount` in descending order.
+LIMIT 10                    -- Retrieve only 10 rows.
 ```
 
-View the example in the right-hand section and click ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
-Query results are available in the **{{ ui-key.yql.yq-query-results.result.tab-text }}** tab as a table or schema.
+Check the example in the right-hand section and click ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
+The query result will appear in the **{{ ui-key.yql.yq-query-results.result.tab-text }}** tab as a table or chart.
 
 #### See also {#see-also}
 

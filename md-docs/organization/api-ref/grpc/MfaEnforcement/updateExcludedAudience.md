@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [MfaEnforcement](index.md) > UpdateExcludedAudience
+
 # Identity Hub API, gRPC: MfaEnforcementService.UpdateExcludedAudience
 
 updates specified MFA enforcement's excluded audience

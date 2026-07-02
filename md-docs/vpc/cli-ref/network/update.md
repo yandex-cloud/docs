@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [network](index.md) > update
+
 # yc vpc network update
 
 Modify configuration or attributes of a network.

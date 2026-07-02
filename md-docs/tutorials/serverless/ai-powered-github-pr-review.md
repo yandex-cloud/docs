@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > Искусственный интеллект > ИИ-ревью пул-реквестов на GitHub с помощью Workflows и GitHub Actions
+
 # ИИ-ревью пул-реквестов на GitHub с помощью Yandex Workflows и GitHub Actions
 
 В этом руководстве вы воспользуетесь возможностями [моделей генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio для реализации сценария автоматического [ревью](https://docs.github.com/en/get-started/learning-about-github/github-glossary#review) предлагаемых изменений в программном коде на [GitHub](https://github.com/).

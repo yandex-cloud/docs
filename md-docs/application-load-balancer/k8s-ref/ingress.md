@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Инструменты для Managed Service for Kubernetes > Ingress-контроллер > Конфигурация ресурсов > Ingress
+
 # Поля и аннотации ресурса Ingress
 
 В ресурсе `Ingress` определяются правила распределения входящего трафика между сервисами Kubernetes. По этим правилам [Ingress-контроллер Application Load Balancer](../tools/k8s-ingress-controller/index.md) создает [балансировщик](../concepts/application-load-balancer.md) с нужными обработчиками и [HTTP-роутерами](../concepts/http-router.md). [Сервисы](service-for-ingress.md), выступающие в роли бэкендов Application Load Balancer, могут быть указаны в `Ingress` напрямую или в составе [групп бэкендов `HttpBackendGroup`](http-backend-group.md).

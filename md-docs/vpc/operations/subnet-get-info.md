@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Пошаговые инструкции](index.md) > Подсеть > Получить информацию о подсети
+
 # Получить информацию о подсети
 
 {% list tabs group=instructions %}

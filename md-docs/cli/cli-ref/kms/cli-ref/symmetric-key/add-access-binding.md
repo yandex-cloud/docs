@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [kms](../index.md) > [symmetric-key](index.md) > add-access-binding
+
 # yc kms symmetric-key add-access-binding
 
 Add access binding for the specified symmetric key

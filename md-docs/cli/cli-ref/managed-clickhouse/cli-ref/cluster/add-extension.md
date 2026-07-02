@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-clickhouse](../index.md) > [cluster](index.md) > add-extension
+
 # yc managed-clickhouse cluster add-extension
 
 Add an extension to a ClickHouse cluster.

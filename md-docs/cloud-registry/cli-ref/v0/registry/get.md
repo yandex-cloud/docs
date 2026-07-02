@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [registry](index.md) > get
+
 # yc cloud-registry v0 registry get
 
 Returns the specified Registry

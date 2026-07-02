@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Перенос данных в Yandex Managed Service for PostgreSQL с использованием Yandex Data Transfer
+
 # Перенос данных в Yandex Managed Service for PostgreSQL с использованием Yandex Data Transfer
 
 
@@ -15,7 +17,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
+* Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../pricing.md)).
 * Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 

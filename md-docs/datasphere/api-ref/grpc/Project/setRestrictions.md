@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex DataSphere](../../../index.md) > [Справочник API](../../overview.md) > [gRPC (англ.)](../index.md) > [Project](index.md) > SetRestrictions
+
 # DataSphere API v2, gRPC: ProjectService.SetRestrictions
 
 Set project restrictions.

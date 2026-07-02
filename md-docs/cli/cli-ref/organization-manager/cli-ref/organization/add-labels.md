@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [organization-manager](../index.md) > [organization](index.md) > add-labels
+
 # yc organization-manager organization add-labels
 
 Add labels to specified organization

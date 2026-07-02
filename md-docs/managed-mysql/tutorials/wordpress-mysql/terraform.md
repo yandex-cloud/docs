@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > [Практические руководства](../index.md) > [Сайт на WordPress с БД MySQL®](index.md) > Terraform
+
 # Создание сайта на WordPress с кластером базы данных MySQL® с помощью Terraform
 
 Чтобы создать инфраструктуру для [сайта на WordPress с кластером базы данных MySQL®](index.md) с помощью Terraform:
@@ -26,7 +28,7 @@
 
 * Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Compute Cloud](../../../compute/pricing.md)).
 
-* Кластер Managed Service for MySQL®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for MySQL®](../../../managed-mysql/pricing.md)).
+* Кластер Managed Service for MySQL®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for MySQL®](../../pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../../vpc/pricing.md)).
 * Публичные [DNS-запросы](../../../glossary/dns.md) и [зоны DNS](../../../dns/concepts/dns-zone.md) ([тарифы Cloud DNS](../../../dns/pricing.md)).
 

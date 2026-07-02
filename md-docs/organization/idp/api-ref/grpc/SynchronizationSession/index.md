@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [Identity Provider API](../index.md) > SynchronizationSession > Overview
+
 # Identity Provider API, gRPC: SynchronizationSessionService
 
 A set of methods for managing synchronization sessions.

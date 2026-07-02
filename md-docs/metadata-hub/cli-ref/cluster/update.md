@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > update
+
 # yc managed-metastore cluster update
 
 Update the specified Metastore cluster

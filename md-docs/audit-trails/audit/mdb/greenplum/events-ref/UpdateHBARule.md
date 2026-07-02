@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.greenplum > UpdateHBARule
+
 # Managed Service for Greenplum® Audit Trails Events: UpdateHBARule
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.greenplum.UpdateHBARule2-schema}

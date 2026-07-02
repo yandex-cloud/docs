@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-kafka](../index.md) > [cluster](index.md) > move
+
 # yc managed-kafka cluster move
 
 Move the specified Kafka cluster into the folder

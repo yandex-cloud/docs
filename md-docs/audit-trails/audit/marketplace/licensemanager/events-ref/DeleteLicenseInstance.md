@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > marketplace.licensemanager > DeleteLicenseInstance
+
 # Yandex Cloud Marketplace Audit Trails Events: DeleteLicenseInstance
 
 ## Event JSON schema {#yandex.cloud.audit.marketplace.licensemanager.DeleteLicenseInstance2-schema}

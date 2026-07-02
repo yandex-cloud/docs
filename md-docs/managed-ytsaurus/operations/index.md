@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YTsaurus](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Managed Service for YTsaurus
 
 ## Кластеры {#clusters}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [baremetal](../index.md) > [hardware-pool](index.md) > list
+
 # yc baremetal hardware-pool list
 
 Retrieves the list of HardwarePool resources.

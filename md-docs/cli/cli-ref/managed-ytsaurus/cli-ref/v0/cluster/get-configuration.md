@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-ytsaurus](../../index.md) > [v0](../index.md) > [cluster](index.md) > get-configuration
+
 # yc managed-ytsaurus v0 cluster get-configuration
 
 Get configuration of the specified YTsaurus clusters.

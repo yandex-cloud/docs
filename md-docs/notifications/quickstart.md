@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Notification Service](index.md) > Начало работы > Обзор
+
 # Как начать работать с Yandex Cloud Notification Service
 
 

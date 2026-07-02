@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Functions](../../../../index.md) > Справочник API Functions > [gRPC (англ.)](../index.md) > [Function](index.md) > SetTag
+
 # Cloud Functions Service, gRPC: FunctionService.SetTag
 
 Set a tag for the specified version of a function.

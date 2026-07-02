@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > airflow > CreateCluster
+
 # Managed Service for Apache Airflow™ Audit Trails Events: CreateCluster
 
 ## Event JSON schema {#yandex.cloud.audit.airflow.CreateCluster2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cdn](../../index.md) > [v0](../index.md) > [resource](index.md) > update
+
 # yc cdn v0 resource update
 
 Update resource

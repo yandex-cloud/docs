@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Smart Web Security](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SecurityProfile](index.md) > List
+
 # SmartWebSecurity API, REST: SecurityProfile.List
 
 Retrieves the list of SecurityProfile resources in the specified folder.

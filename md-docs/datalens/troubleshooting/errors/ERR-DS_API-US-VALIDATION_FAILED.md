@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Invalid input data: validation failed
+
 # [Yandex DataLens] Invalid input data: validation failed
 
 `ERR.DS_API.US.VALIDATION_FAILED`

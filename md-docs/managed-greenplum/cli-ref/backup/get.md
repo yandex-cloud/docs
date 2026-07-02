@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [backup](index.md) > get
+
 # yc managed-greenplum backup get
 
 Show information about the specified Greenplum backup

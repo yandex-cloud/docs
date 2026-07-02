@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Notification Service](../../index.md) > [Пошаговые инструкции](../index.md) > Топики > Отправить уведомление в топик
+
 # Отправить уведомление в топик
 
 {% list tabs group=instructions %}

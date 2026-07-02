@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex BareMetal](index.md) > Концепции > Настройка и управление > Метрики Monitoring
+
 # Справочник метрик Yandex Monitoring
 
 В этом разделе описаны метрики сервиса BareMetal, поставляемые в [Monitoring](../monitoring/index.md).

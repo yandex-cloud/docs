@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [eventrouter](../index.md) > [rule](index.md) > create
+
 # yc serverless eventrouter rule create
 
 Create a rule

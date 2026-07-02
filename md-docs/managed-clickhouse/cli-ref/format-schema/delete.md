@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [format-schema](index.md) > delete
+
 # yc managed-clickhouse format-schema delete
 
 Delete ClickHouse format schema.

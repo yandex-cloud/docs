@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Kubernetes](../index.md) > Поды кластера слишком долго находятся в состоянии `PENDING`
+
 # Поды кластера слишком долго находятся в состоянии `PENDING`
 
 

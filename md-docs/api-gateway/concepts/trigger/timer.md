@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Триггер](index.md) > Таймер
+
 # Таймер, который отправляет сообщения в WebSocket-соединения
 
 _Таймер_ — это [триггер](index.md), который отправляет сообщения в [WebSocket-соединения](../extensions/websocket.md) по расписанию. Расписание задается в виде [cron-выражения](#cron-expression). Время в cron-выражении указывается по [UTC+0](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).

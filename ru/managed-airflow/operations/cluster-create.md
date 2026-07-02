@@ -14,11 +14,12 @@ keywords:
 
 ## Роли для создания кластера {#roles}
 
-Для создания кластера {{ maf-name }} вашему аккаунту в {{ yandex-cloud }} нужны роли:
+Для создания кластера {{ maf-name }} и работы с ним вашему аккаунту в {{ yandex-cloud }} нужны роли:
 
-* [{{ roles.maf.editor }}](../security/index.md#managed-airflow-editor) — чтобы создать кластер;
-* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
-* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать сервисный аккаунт к кластеру.
+* {% include [roles-maf-editor](../../_includes/mdb/maf/roles-maf-editor.md) %}
+* {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
+* {% include [roles-sa-user](../../_includes/mdb/roles-sa-user.md) %}
+* {% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
 
 Сервисному аккаунту кластера должна быть назначена роль `managed-airflow.integrationProvider`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее в разделе [Имперсонация](../concepts/impersonation.md).
 

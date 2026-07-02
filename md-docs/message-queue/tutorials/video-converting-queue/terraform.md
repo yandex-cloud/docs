@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Message Queue](../../index.md) > [Практические руководства](../index.md) > [Конвертация видео в GIF на Python](index.md) > Terraform
+
 # Конвертация видео в GIF на Python с помощью Terraform
 
 Чтобы создать инфраструктуру для [конвертации видео в GIF на Python](index.md) с помощью Terraform:

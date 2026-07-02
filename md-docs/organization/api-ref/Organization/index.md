@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > Organization > Overview
+
 # Identity Hub API, REST: Organization
 
 A set of methods for managing Organization resources.

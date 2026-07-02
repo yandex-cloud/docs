@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [baremetal](../../index.md) > [v0](../index.md) > [boot-image](index.md) > list-operations
+
 # yc baremetal v0 boot-image list-operations
 
 List operations for the specified boot-image

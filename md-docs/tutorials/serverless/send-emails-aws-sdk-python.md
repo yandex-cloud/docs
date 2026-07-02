@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > Отправка писем в Yandex Cloud Postbox с помощью AWS SDK > Python
+
 # Отправка писем с помощью AWS SDK для Python
 
 В этом руководстве вы научитесь отправлять электронные письма через Yandex Cloud Postbox с использованием [AWS SDK для Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html).
@@ -27,8 +29,8 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за использование Yandex Cloud Postbox ([тарифы Yandex Cloud Postbox](../../../postbox/pricing.md));
-* плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы создаете ресурсную запись в Cloud DNS ([тарифы Cloud DNS](../../../dns/pricing.md)).
+* плата за использование Yandex Cloud Postbox ([тарифы Yandex Cloud Postbox](../../postbox/pricing.md));
+* плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы создаете ресурсную запись в Cloud DNS ([тарифы Cloud DNS](../../dns/pricing.md)).
 
 
 ### Подготовьте ресурсы {#infrastructure}

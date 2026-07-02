@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-trino](../../index.md) > [catalog](../index.md) > [create](index.md) > clickhouse
+
 # yc managed-trino catalog create clickhouse
 
 Create ClickHouse catalog

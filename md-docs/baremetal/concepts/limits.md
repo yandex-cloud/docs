@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Yandex BareMetal
 
 В сервисе Yandex BareMetal действуют следующие ограничения:

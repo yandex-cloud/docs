@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > kms > AsymmetricGetPublicKey
+
 # Key Management Service Audit Trails Events: AsymmetricGetPublicKey
 
 ## Event JSON schema {#yandex.cloud.audit.kms.asymmetricencryption.AsymmetricGetPublicKey2-schema}

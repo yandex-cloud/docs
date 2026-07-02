@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../../index.md) > Справочник API > [Managed Service for Kubernetes gRPC (англ.)](../index.md) > [ResourcePreset](index.md) > Get
+
 # Managed Services for Kubernetes API, gRPC: ResourcePresetService.Get
 
 Returns the specified ResourcePreset resource.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Marketplace](../index.md) > Партнерам > Пошаговые инструкции > Создание конфигурации для продукта Cloud Apps
+
 # Создание конфигурации для продукта Cloud Apps
 
 ## Создать конфигурацию {#create}

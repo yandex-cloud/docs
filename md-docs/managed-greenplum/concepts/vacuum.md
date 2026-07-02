@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Концепции](overview.md) > Очистка таблиц и системного каталога
+
 # Очистка таблиц и системного каталога в Yandex MPP Analytics for PostgreSQL
 
 В Yandex MPP Analytics for PostgreSQL очистка пользовательских таблиц и системного каталога выполняется [автоматически](#autovacuum) в фоновом режиме. Если автоматическая очистка оказывается недостаточной, может потребоваться [самостоятельное проведение очистки](#vacuum-recomendation).

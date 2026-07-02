@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > [Пошаговые инструкции](../index.md) > Видео > Загрузить видео
+
 # Загрузить видео
 
 Поддерживается загрузка видео в различных форматах, например: [MP4](https://ru.wikipedia.org/wiki/MPEG-4_Part_14), [AVI](https://ru.wikipedia.org/wiki/Audio_Video_Interleave), [MKV](https://ru.wikipedia.org/wiki/Matroska), [FLV](https://ru.wikipedia.org/wiki/Flash_Video), [MOV](https://en.wikipedia.org/wiki/QuickTime_File_Format), [WebM](https://ru.wikipedia.org/wiki/WebM) и других. Вы можете [загружать](upload.md) видео как по одному файлу, так и по несколько файлов сразу.

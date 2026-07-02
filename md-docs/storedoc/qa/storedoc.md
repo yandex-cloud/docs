@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex StoreDoc](../index.md) > Вопросы и ответы > Вопросы о Yandex StoreDoc
+
 # Вопросы о Yandex StoreDoc
 
 * [Почему стоит использовать Yandex StoreDoc в Yandex StoreDoc, а не собственную установку на виртуальной машине?](#storedoc-advantages-vm)

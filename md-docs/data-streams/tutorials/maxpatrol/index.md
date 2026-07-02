@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Streams](../../index.md) > [Практические руководства](../index.md) > Загрузка аудитных логов в MaxPatrol SIEM > Обзор
+
 # Загрузка аудитных логов в MaxPatrol SIEM
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Connection Manager > Пошаговые инструкции > Отмена операции
+
 # Отмена операции
 
 {% list tabs group=instructions %}

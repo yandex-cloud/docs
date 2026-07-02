@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Apache Hive™ Metastore > Справочник API > Аутентификация в API
+
 # Аутентификация в API Apache Hive™ Metastore
 
 Для выполнения операций через [API](../../glossary/rest-api.md) необходимо получить [IAM-токен](../../iam/concepts/authorization/iam-token.md):

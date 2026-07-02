@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud Desktop > Data Sources > cloud_desktops_desktop
+
 # yandex_cloud_desktops_desktop (DataSource)
 
 Manages a Cloud Desktops Desktop. For more information see [the official documentation](../../cloud-desktop/concepts/desktops-and-groups.md)

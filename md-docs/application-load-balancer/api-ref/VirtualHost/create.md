@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [VirtualHost](index.md) > Create
+
 # Application Load Balancer API, REST: VirtualHost.Create
 
 Creates a virtual host in the specified HTTP router.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Начало работы](../index.md) > [Создание функции](index.md) > Python
+
 # Создание функции на Python
 
 Создайте и выполните [функцию](../../concepts/function.md) на Python, которая приветствует пользователя.

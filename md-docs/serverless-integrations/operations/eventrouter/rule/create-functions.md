@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > EventRouter > Управление правилом > Создать правило > Cloud Functions
+
 # Создать правило с приемником Yandex Cloud Functions
 
 {% list tabs group=instructions %}

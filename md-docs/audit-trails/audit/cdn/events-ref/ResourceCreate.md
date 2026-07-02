@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > cdn > ResourceCreate
+
 # Cloud CDN Audit Trails Events: ResourceCreate
 
 ## Event JSON schema {#yandex.cloud.audit.cdn.gcore.ResourceCreate2-schema}

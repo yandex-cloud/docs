@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Spark™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Maintenance](index.md) > Get
+
 # Managed Spark API, gRPC: MaintenanceService.Get
 
 Retrieves the specific Maintenance by ID.

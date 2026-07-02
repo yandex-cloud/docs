@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DnsFirewall](index.md) > Create
+
 # Cloud DNS API, REST: DnsFirewall.Create
 
 Creates a DNS firewall in the specified folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > [Пошаговые инструкции](index.md) > Сеть > Создать приватное соединение с облачными сетями
+
 # Создать приватное соединение с облачными сетями
 
 С помощью [Yandex Cloud Interconnect](../../interconnect/index.md) вы можете создать [приватное соединение](../concepts/private-network.md#private-connection-to-vpc) между [подсетями](../concepts/private-network.md#private-subnet) BareMetal и [подсетями](../../vpc/concepts/network.md#subnet) Yandex Virtual Private Cloud.

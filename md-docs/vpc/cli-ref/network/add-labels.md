@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [network](index.md) > add-labels
+
 # yc vpc network add-labels
 
 Assign labels to a network.

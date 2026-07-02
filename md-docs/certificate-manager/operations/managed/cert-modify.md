@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Certificate Manager](../../index.md) > [Пошаговые инструкции](../index.md) > Сертификат от Let's Encrypt > Изменение сертификата
+
 # Изменить сертификат от Let's Encrypt
 
 После выпуска и добавления в Certificate Manager [сертификата от Let's Encrypt](../../concepts/managed-certificate.md) вы можете изменить его название или описание. Чтобы изменить сертификат:

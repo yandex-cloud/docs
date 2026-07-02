@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Прикладные решения > Прочее > Развертывание мультиплеер-сервера для GTA V в Yandex Cloud
+
 # Развертывание мультиплеер-сервера для GTA V в Yandex Cloud
 
 Для организации многопользовательского режима в игре [Grand Theft Auto V](https://ru.wikipedia.org/wiki/Grand_Theft_Auto_V) от компании Rockstar Games вы можете развернуть мультиплеер-сервер на [виртуальной машине](../../compute/concepts/vm.md) в Yandex Cloud.

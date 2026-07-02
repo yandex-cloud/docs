@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Практические руководства](index.md) > Продукты Microsoft в Yandex Cloud > Развертывание группы доступности Always On с внутренним сетевым балансировщиком
+
 # Развертывание группы доступности Always On с внутренним сетевым балансировщиком
 
 
@@ -41,7 +43,7 @@
 
 В стоимость поддержки группы доступности входят:
 
-* плата за постоянно запущенную виртуальную машину ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за постоянно запущенную виртуальную машину ([тарифы Yandex Compute Cloud](../pricing.md));
 * плата за использование сетевого балансировщика ([тарифы Yandex Network Load Balancer](../../network-load-balancer/pricing.md));
 * плата за использование динамического или статического публичного IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 

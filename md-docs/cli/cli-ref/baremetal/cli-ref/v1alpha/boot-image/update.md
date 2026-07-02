@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [baremetal](../../index.md) > [v1alpha](../index.md) > [boot-image](index.md) > update
+
 # yc baremetal v1alpha boot-image update
 
 Updates the specified image.

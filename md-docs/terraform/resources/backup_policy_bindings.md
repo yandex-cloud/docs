@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud Backup > Resources > backup_policy_bindings
+
 # yandex_backup_policy_bindings (Resource)
 
 Allows management of [Yandex Cloud Attach and Detach VM](../../backup/operations/policy-vm/attach-and-detach-vm.md).

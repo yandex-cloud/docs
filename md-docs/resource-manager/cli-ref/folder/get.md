@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > [Справочник CLI (англ.)](../index.md) > [folder](index.md) > get
+
 # yc resource-manager folder get
 
 Show information about the specified folder

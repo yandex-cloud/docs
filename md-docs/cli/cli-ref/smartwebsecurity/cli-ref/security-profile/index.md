@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [smartwebsecurity](../index.md) > security-profile > Overview
+
 # yc smartwebsecurity security-profile
 
 A set of methods for managing SecurityProfile resources.

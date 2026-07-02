@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Virtual Private Cloud > Resources > vpc_security_group
+
 # yandex_vpc_security_group (Resource)
 
 Manages a Default Security Group within the Yandex Cloud. For more information, see the official documentation of [security group](../../vpc/concepts/security-groups.md) or [default security group](../../vpc/concepts/security-groups.md#default-security-group).

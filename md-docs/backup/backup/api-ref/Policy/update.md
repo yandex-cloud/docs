@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Backup](../../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Policy](index.md) > Update
+
 # Cloud Backup API, REST: Policy.Update
 
 Update specific policy.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Пошаговые инструкции](index.md) > Хранение и обработка данных > Управление расширениями
+
 # Управление расширениями в Managed Service for ClickHouse®
 
 В кластерах Managed Service for ClickHouse® доступны следующие расширения:

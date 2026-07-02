@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Certificate](index.md) > ListAccessBindings
+
 # Certificate Manager API, gRPC: CertificateService.ListAccessBindings
 
 Lists existing access bindings for the specified certificate.

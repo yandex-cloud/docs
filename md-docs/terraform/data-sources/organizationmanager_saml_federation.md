@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity Hub > Data Sources > organizationmanager_saml_federation
+
 # yandex_organizationmanager_saml_federation (DataSource)
 
 Get information about a Yandex SAML Federation. For more information, see [the official documentation](../../organization/add-federation).

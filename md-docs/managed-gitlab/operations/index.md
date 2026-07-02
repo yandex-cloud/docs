@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Managed Service for GitLab
 
 * [Получение информации об инстансах Yandex Managed Service for GitLab](instance/instance-list.md)

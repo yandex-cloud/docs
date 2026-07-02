@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [public-connection](index.md) > get
+
 # yc cic v0 public-connection get
 
 Get information about an publicConnection.

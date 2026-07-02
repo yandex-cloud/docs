@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.greenplum > UpdateResourceGroup
+
 # Managed Service for Greenplum® Audit Trails Events: UpdateResourceGroup
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.greenplum.UpdateResourceGroup2-schema}

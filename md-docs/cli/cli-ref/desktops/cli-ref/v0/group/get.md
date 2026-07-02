@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [desktops](../../index.md) > [v0](../index.md) > [group](index.md) > get
+
 # yc desktops v0 group get
 
 Get information about a desktop group

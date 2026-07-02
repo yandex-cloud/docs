@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > FormatSchema > Overview
+
 # Managed Service for ClickHouse API, REST: FormatSchema
 
 A set of methods for managing [format schemas](https://clickhouse.com/docs/en/interfaces/formats) for input and output data.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Логи и мониторинг > Передача логов кластера в Yandex Cloud Logging
+
 # Передача логов кластера Yandex MPP Analytics for PostgreSQL в Yandex Cloud Logging
 
 # Передача логов кластера Yandex MPP Analytics for PostgreSQL в Yandex Cloud Logging

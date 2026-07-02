@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > Как организовать работу в DataSphere > Интегрировать сервис Yandex Data Processing
+
 # Интеграция с сервисом Yandex Data Processing
 
 # Интеграция с сервисом Yandex Data Processing

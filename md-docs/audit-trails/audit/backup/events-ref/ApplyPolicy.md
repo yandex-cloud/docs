@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > backup > ApplyPolicy
+
 # Cloud Backup Audit Trails Events: ApplyPolicy
 
 ## Event JSON schema {#yandex.cloud.audit.backup.ApplyPolicy2-schema}

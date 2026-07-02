@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Zone](index.md) > Get
+
 # Compute Cloud API, gRPC: ZoneService.Get
 
 Returns the information about the specified availability zone.

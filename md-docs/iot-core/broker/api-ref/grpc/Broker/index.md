@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex IoT Core](../../../../index.md) > Справочник API Broker > [gRPC (англ.)](../index.md) > Broker > Overview
+
 # IoT Core Broker Service, gRPC: BrokerService
 
 A set of methods for managing broker.

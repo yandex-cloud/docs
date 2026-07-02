@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Практические руководства](index.md) > Создание SAP-программы в Yandex Cloud
+
 # Создание SAP-программы в Yandex Cloud
 
 Вы научитесь настраивать сервер с установленной средой SAP и напишете первую программу. В ней будет реализована выгрузка существующих в системе пользователей в виде таблицы.
@@ -26,7 +28,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость установки SAP входят:
-* Плата за постоянно запущенную [виртуальную машину](../concepts/vm.md) ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за постоянно запущенную [виртуальную машину](../concepts/vm.md) ([тарифы Yandex Compute Cloud](../pricing.md)).
 * Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Создайте ВМ для SAP {#vm-sap}

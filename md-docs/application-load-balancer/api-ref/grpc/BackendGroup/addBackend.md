@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [BackendGroup](index.md) > AddBackend
+
 # Application Load Balancer API, gRPC: BackendGroupService.AddBackend
 
 Adds backends to the specified backend group.

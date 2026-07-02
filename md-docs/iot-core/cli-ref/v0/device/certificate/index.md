@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex IoT Core](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [device](../index.md) > certificate > Overview
+
 # yc iot v0 device certificate
 
 Manage IoT device certificates

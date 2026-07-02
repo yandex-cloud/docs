@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > Server > Overview
+
 # BareMetal API, REST: Server
 
 A set of methods for managing Server resources.

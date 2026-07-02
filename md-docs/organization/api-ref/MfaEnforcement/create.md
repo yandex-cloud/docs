@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [MfaEnforcement](index.md) > Create
+
 # Identity Hub API, REST: MfaEnforcement.Create
 
 creates an MFA enforcement in the specified organization

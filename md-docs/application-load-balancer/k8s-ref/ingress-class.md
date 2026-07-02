@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Инструменты для Managed Service for Kubernetes > Ingress-контроллер > Конфигурация ресурсов > IngressClass
+
 # Поля и аннотации ресурса IngressClass
 
 Ресурс `IngressClass` — это класс ресурсов [Ingress](ingress.md), который позволяет использовать одновременно несколько Ingress-контроллеров, например Application Load Balancer и NGINX. Каждый ресурс `IngressClass` относится к отдельному Ingress-контроллеру. В результате можно маршрутизировать трафик через ресурсы `Ingress` разных контроллеров в рамках одного приложения в одном кластере Managed Service for Kubernetes.

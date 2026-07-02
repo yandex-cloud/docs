@@ -1,13 +1,13 @@
-# Tools for operations with functions in {{ sf-name }}
+# Tools for working with functions in {{ sf-name }}
 
 
 ## Serverless Framework: {{ yandex-cloud }} {#serverless-plugin}
 
-[Serverless Framework: {{ yandex-cloud }}](https://github.com/yandex-cloud/serverless-plugin) is a plugin for working with the [serverless.com](https://github.com/serverless/serverless) framework.
+[Serverless Framework: {{ yandex-cloud }}](https://github.com/yandex-cloud/serverless-plugin): Plugin for working with the [serverless.com](https://github.com/serverless/serverless) framework.
 
-## The terraform-yc-function module {#tf-yc-function}
+## terraform-yc-function {#tf-yc-function}
 
-The [terraform-yc-function](https://github.com/terraform-yc-modules/terraform-yc-function) module for {{ TF }}. See [{#T}](../tutorials/infrastructure-management/terraform-modules.md) for information on how to connect new modules.
+[terraform-yc-function](https://github.com/terraform-yc-modules/terraform-yc-function): Module for {{ TF }}. See [{#T}](../tutorials/infrastructure-management/terraform-modules.md) for information on how to connect new modules.
 
 ## {{ yandex-cloud }} SDK {#sdk}
 
@@ -20,7 +20,7 @@ The [terraform-yc-function](https://github.com/terraform-yc-modules/terraform-yc
 
 ## GitHub Actions {#github-actions}
 
-* [Yandex Serverless Action](https://github.com/marketplace/actions/yandex-serverless-action): Uploads the function code to [{{ objstorage-name }}](../storage/) and creates a new version of the function in {{ sf-name }}.
-* [YC Function deploy](https://github.com/marketplace/actions/yc-function-deploy): Finds or creates a function from {{ sf-name }} in a specified folder and creates a version of that function.
+* [Yandex Serverless Action](https://github.com/marketplace/actions/yandex-serverless-action): Uploads the function code to [{{ objstorage-name }}](../storage/) and creates a new function version in {{ sf-name }}.
+* [YC Function deploy](https://github.com/marketplace/actions/yc-function-deploy): Finds or creates a function in {{ sf-name }} in the specified folder and creates a version of that function.
 
 There is community support for GitHub Actions.

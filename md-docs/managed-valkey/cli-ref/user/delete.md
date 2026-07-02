@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > [Справочник CLI (англ.)](../index.md) > [user](index.md) > delete
+
 # yc managed-redis user delete
 
 Delete the specified Redis user

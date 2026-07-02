@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [HostGroup](index.md) > List
+
 # Compute Cloud API, gRPC: HostGroupService.List
 
 Retrieves the list of host groups in the specified folder.

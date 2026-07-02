@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Асинхронная репликация данных из PostgreSQL в ClickHouse®
+
 # Асинхронная репликация данных из PostgreSQL в ClickHouse®
 
 Вы можете перенести базу данных из PostgreSQL в ClickHouse® с помощью сервиса Yandex Data Transfer. Для этого:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > user > Overview
+
 # yc managed-postgresql user
 
 Manage PostgreSQL users

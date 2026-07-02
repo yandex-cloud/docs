@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Yandex MPP Analytics for PostgreSQL
 
 * [Миграция базы данных в Yandex MPP Analytics for PostgreSQL](data-migration.md)

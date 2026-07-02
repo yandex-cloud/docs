@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Cloud Interconnect > Cloud Interconnect
+
 # Yandex Cloud Interconnect
 
 Yandex Cloud Interconnect позволяет организовать выделенное физическое соединение между инфраструктурой клиента и облачными ресурсами в Yandex Cloud.

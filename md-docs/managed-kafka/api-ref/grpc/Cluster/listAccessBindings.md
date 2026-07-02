@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > ListAccessBindings
+
 # Managed Service for Apache Kafka® API, gRPC: ClusterService.ListAccessBindings
 
 Retrieves a list of access bindings for the specified Apache Kafka® cluster.

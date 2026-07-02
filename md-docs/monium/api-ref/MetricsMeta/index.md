@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Monium](../../index.md) > Справочник API > Метрики > [REST](../index.md) > MetricsMeta > Обзор
+
 # MetricsMeta
 Набор методов для получения информации о метаданных метрик.
 

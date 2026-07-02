@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [PrivateSubnet](index.md) > Update
+
 # BareMetal API, REST: PrivateSubnet.Update
 
 Updates the specified private subnet.

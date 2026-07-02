@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > AI Studio
+
 # Метрики Yandex AI Studio
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [disk-placement-group](index.md) > get
+
 # yc compute disk-placement-group get
 
 Show information about the specified disk placement group

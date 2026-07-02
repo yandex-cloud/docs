@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Key Management Service](../../../../index.md) > Справочник API > gRPC (англ.) > [Key Management Service API](../index.md) > AsymmetricSignatureKey > Overview
+
 # Key Management Service API, gRPC: AsymmetricSignatureKeyService
 
 Set of methods for managing asymmetric signature keys.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > [Пошаговые инструкции](../index.md) > [Подключение](index.md) > FQDN хостов
+
 # FQDN хостов MySQL®
 
 Для подключения к хосту потребуется его [FQDN](../../concepts/network.md#hostname) — доменное имя. Вы можете использовать [FQDN конкретного хоста](#get-fqdn) в кластере или один из особых FQDN, всегда указывающий на [текущий хост-мастер](#fqdn-master) или [наименее отстающую реплику](#fqdn-replica).

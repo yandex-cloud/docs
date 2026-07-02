@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > REST (англ.) > [Access Key](../index.md) > [TemporaryAccessKey](index.md) > CreateEphemeral
+
 # Access Key, REST: TemporaryAccessKey.CreateEphemeral
 
 Creates an ephemeral access key for the specified subject.

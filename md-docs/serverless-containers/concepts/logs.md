@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Концепции](index.md) > Логи контейнера
+
 # Логи контейнера
 
 Контейнер пишет логи в Yandex Cloud Logging, в [лог-группу по умолчанию](../../logging/concepts/log-group.md) для каталога, в котором находится контейнер.

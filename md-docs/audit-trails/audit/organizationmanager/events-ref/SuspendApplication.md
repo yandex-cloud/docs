@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > SuspendApplication
+
 # Identity Hub Audit Trails Events: SuspendApplication
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.application.saml.SuspendApplication2-schema}

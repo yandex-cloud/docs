@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Logging](../index.md) > [Пошаговые инструкции](index.md) > Управление лог-группой > Изменить лог-группу
+
 # Изменить лог-группу
 
 {% list tabs group=instructions %}

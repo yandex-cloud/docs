@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Source avatar not found
+
 # [Yandex DataLens] Source avatar not found
 
 `ERR.DS_API.AVATAR.NOT_FOUND`

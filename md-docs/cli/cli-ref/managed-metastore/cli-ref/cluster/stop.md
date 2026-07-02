@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-metastore](../index.md) > [cluster](index.md) > stop
+
 # yc managed-metastore cluster stop
 
 Stop the specified Metastore cluster

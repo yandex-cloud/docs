@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [v0](../index.md) > [api-gateway](index.md) > remove-domain
+
 # yc serverless v0 api-gateway remove-domain
 
 Detach domain from the specified API Gateway

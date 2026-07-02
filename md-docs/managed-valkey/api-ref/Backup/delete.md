@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Backup](index.md) > Delete
+
 # Managed Service for Redis API, REST: Backup.Delete
 
 Returns the list of available backups for the specified Redis cluster.

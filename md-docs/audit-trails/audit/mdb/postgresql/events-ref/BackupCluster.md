@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.postgresql > BackupCluster
+
 # Managed Service for PostgreSQL Audit Trails Events: BackupCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.postgresql.BackupCluster2-schema}

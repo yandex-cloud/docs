@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Ошибка при блокировке всплывающего окна
+
 # [Yandex DataLens] Ошибка при блокировке всплывающего окна
 
 `ERR.CLIENT.POPUP_BLOCKED`

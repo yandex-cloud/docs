@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Установка приложений из Cloud Marketplace > Установка Kyverno & Kyverno Policies
+
 # Установка Kyverno & Kyverno Policies
 
 [Kyverno](https://kyverno.io) — приложение для управления политиками безопасности Kubernetes. Политики безопасности представлены в Kyverno как ресурсы Kubernetes. Kyverno поддерживает инструменты `kubectl`, `git` и `kustomize`. Интерфейс командной строки Kyverno можно использовать для тестирования политик и проверки ресурсов как части конвейера [CI/CD](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd).

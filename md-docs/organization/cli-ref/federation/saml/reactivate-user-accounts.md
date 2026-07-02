@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [federation](../index.md) > [saml](index.md) > reactivate-user-accounts
+
 # yc organization-manager federation saml reactivate-user-accounts
 
 Reactivate specified user accounts

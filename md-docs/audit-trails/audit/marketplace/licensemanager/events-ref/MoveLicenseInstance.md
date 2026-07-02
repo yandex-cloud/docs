@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > marketplace.licensemanager > MoveLicenseInstance
+
 # Yandex Cloud Marketplace Audit Trails Events: MoveLicenseInstance
 
 ## Event JSON schema {#yandex.cloud.audit.marketplace.licensemanager.MoveLicenseInstance2-schema}

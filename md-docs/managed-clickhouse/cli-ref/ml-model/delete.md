@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [ml-model](index.md) > delete
+
 # yc managed-clickhouse ml-model delete
 
 Delete ClickHouse machine learning model.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for Gitlab > Data Sources > gitlab_instance
+
 # yandex_gitlab_instance (DataSource)
 
 Managed Gitlab instance.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [maintenance](index.md) > list
+
 # yc compute maintenance list
 
 List maintenances

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > create
+
 # yc managed-kafka cluster create
 
 Create Kafka cluster

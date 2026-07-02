@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Load Testing](../index.md) > Миграция нагрузочного тестирования на k6
+
 # Миграция нагрузочного тестирования с Load Testing на k6
 
 {% note warning %}

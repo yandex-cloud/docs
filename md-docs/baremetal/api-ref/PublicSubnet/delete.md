@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [PublicSubnet](index.md) > Delete
+
 # BareMetal API, REST: PublicSubnet.Delete
 
 Deletes the specified public subnet.

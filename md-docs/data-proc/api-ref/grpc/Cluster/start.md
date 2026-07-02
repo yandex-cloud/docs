@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Processing](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Start
+
 # Yandex Data Processing API, gRPC: ClusterService.Start
 
 Starts the specified cluster.

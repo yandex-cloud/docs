@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Ошибка в синтаксисе формулы
+
 # [Yandex DataLens] Ошибка в синтаксисе формулы
 
 `ERR.DS_API.FORMULA.PARSE.UNEXPECTED_TOKEN`

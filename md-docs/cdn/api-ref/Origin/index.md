@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > Справочник API > [REST (англ.)](../index.md) > Origin > Overview
+
 # Cloud CDN API, REST: Origin
 
 Origin management service.

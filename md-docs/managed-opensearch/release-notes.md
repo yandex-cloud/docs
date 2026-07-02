@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for OpenSearch](index.md) > История изменений
+
 # История изменений в Yandex Managed Service for OpenSearch
 
 ## Май 2026 {#may-2026}

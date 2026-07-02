@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Resource Manager](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [folder](index.md) > remove-access-binding
+
 # yc resource-manager v0 folder remove-access-binding
 
 Remove access binding for the specified folder

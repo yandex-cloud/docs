@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [v0](../index.md) > [container](index.md) > list-access-bindings
+
 # yc serverless v0 container list-access-bindings
 
 List access bindings for the specified container

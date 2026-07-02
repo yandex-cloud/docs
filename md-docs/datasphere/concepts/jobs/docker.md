@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Концепции](../index.md) > [DataSphere Jobs](index.md) > Docker-образы в заданиях
+
 # Docker-образы в заданиях
 
 По умолчанию [задания](index.md) DataSphere Jobs используют публичный образ `nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04` с предустановленным менеджером пакетов conda, Python 3.10 и другими дополнительными пакетами. Этот образ хранится в кеше DataSphere, поэтому запуск заданий в окружении по умолчанию будет самым быстрым.

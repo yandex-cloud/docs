@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex SpeechKit Hybrid](../index.md) > Администрирование SpeechKit Hybrid > Уровни логирования
+
 # Логирование работы SpeechKit Hybrid
 
 Вы можете контролировать, какие действия контейнеров SpeechKit Hybrid будут записываться в логи. Уровень логирования определяется параметром `LOGGING_LEVEL`. 

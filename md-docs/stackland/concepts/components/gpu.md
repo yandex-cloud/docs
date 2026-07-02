@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > Концепции > [Компоненты](overview.md) > Поддержка NVIDIA® GPU
+
 # «Поддержка NVIDIA® GPU»
 
 Stackland позволяет использовать GPU NVIDIA® в кластере Stackland с помощью компонента «Поддержка NVIDIA® GPU». Компонент автоматизирует управление GPU-ресурсами и обеспечивает их доступность для рабочих нагрузок. Компонент основан на [NVIDIA® GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html) и включает набор инструментов для полноценной работы с GPU в Kubernetes.

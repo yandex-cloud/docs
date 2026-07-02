@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Certificate Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [CertificateContent](index.md) > GetEx
+
 # Certificate Manager API, REST: CertificateContent.GetEx
 
 ## HTTP request

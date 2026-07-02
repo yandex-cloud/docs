@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Router](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [routing-instance](index.md) > update
+
 # yc cloudrouter v0 routing-instance update
 
 Modify configuration or attributes of a routingInstance.

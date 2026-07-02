@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Lockbox](../../index.md) > [Справочник CLI (англ.)](../index.md) > [secret](index.md) > update
+
 # yc lockbox secret update
 
 Update the specified secret

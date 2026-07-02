@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [Identity Provider API](../index.md) > User > Overview
+
 # Identity Provider API, gRPC: UserService
 
 A set of methods for managing users in the Identity Provider system.

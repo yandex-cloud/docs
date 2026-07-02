@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LifecyclePolicy](index.md) > ListDryRunResults
+
 # Container Registry API, gRPC: LifecyclePolicyService.ListDryRunResults
 
 Retrieves the list of the dry run results.

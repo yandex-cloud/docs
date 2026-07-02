@@ -16,10 +16,19 @@ In {{ baremetal-full-name }}, you install each [server](./servers.md) OS from an
 
 {{ marketplace-short-name }} images are public, preconfigured OS images available in a catalog for all {{ baremetal-name }} users to install on their {{ baremetal-name }} servers. Currently, the following {{ marketplace-short-name }} images for OS installation are available:
 
-* Ubuntu 20.04 LTS
 * Ubuntu 22.04 LTS
 * Ubuntu 24.04 LTS
+* Ubuntu 26.04 LTS
 * Debian 11
+* Debian 12
+* Debian 13
+* AlmaLinux 8
+* AlmaLinux 9
+* AlmaLinux 10
+* Rocky 8
+* Rocky 9
+* Rocky 10
+* Proxmox VE 9
 * CentOS 7
 
 {{ marketplace-short-name }} images include all hardware drivers and system settings required for the OS to run properly on a {{ baremetal-name }} server.

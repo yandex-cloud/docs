@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [organization-manager](../../../index.md) > [federation](../../index.md) > [saml](../index.md) > [certificate](index.md) > delete
+
 # yc organization-manager federation saml certificate delete
 
 Delete the specified certificate

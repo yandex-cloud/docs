@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Containers](../../../../index.md) > Справочник API Containers > [gRPC (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Serverless Containers Service, gRPC: OperationService.Cancel
 
 Cancels the specified operation.

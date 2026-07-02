@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Концепции](index.md) > Поддержка версий Kubernetes
+
 # Поддержка версий Kubernetes в Yandex Managed Service for Kubernetes
 
 В таблице ниже приведены поддерживаемые версии Kubernetes для различных [релизных каналов](release-channels-and-updates.md) Managed Service for Kubernetes, даты релизов и сроки прекращения поддержки.

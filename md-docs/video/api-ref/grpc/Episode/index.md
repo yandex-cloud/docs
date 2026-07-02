@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Episode > Overview
+
 # Video API, gRPC: EpisodeService
 
 Episode management service.

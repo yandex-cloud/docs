@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Концепции](index.md) > Брокеры
+
 # Брокеры
 
 Брокеры — это хосты в кластере Managed Service for Apache Kafka®, на которых располагаются [топики и разделы Apache Kafka®](topics.md).

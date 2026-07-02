@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Key Management Service API](../index.md) > [AsymmetricSignatureKey](index.md) > Create
+
 # Key Management Service API, REST: AsymmetricSignatureKey.Create
 
 control plane

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Начало работы](../index.md) > [Создание функции](index.md) > PHP
+
 # Создание функции на PHP
 
 Создайте и выполните [функцию](../../concepts/function.md) на PHP, которая приветствует пользователя.

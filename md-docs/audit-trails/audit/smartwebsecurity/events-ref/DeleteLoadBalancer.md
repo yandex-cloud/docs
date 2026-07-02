@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > smartwebsecurity > DeleteLoadBalancer
+
 # Smart Web Security Audit Trails Events: DeleteLoadBalancer
 
 ## Event JSON schema {#yandex.cloud.audit.smartwebsecurity.DeleteLoadBalancer2-schema}

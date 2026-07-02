@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [vpc](../index.md) > [subnet](index.md) > get
+
 # yc vpc subnet get
 
 Get information about a subnet.

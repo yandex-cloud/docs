@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Пошаговые инструкции](../index.md) > Создание триггера > Создать триггер для Cloud Logging
+
 # Создать триггер для Cloud Logging, который вызывает функцию Cloud Functions
 
 Создайте [триггер для Cloud Logging](../../concepts/trigger/cloud-logging-trigger.md), который будет вызывать [функцию](../../concepts/function.md) Cloud Functions при добавлении записей в [лог-группу](../../../logging/concepts/log-group.md).

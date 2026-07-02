@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > UpdateAccessKey
+
 # Identity and Access Management Audit Trails Events: UpdateAccessKey
 
 ## Event JSON schema {#yandex.cloud.audit.iam.UpdateAccessKey2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Cloud Router API, REST: Operation.Get
 
 Returns the specified Operation resource.

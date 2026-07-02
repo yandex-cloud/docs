@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [eventrouter](../index.md) > [connector](index.md) > delete
+
 # yc serverless eventrouter connector delete
 
 Delete the specified connector(s)

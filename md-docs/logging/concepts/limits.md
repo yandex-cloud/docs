@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Logging](../index.md) > Концепции > Квоты и лимиты
+
 # Квоты и лимиты Cloud Logging
 
 В сервисе Cloud Logging действуют следующие ограничения:

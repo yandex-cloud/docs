@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > List
+
 # Managed Service for Greenplum® API, gRPC: ClusterService.List
 
 Retrieves a list of Greenplum® clusters that belong to the specified folder.

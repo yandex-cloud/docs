@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ScanPolicy](index.md) > Create
+
 # Container Registry API, REST: ScanPolicy.Create
 
 Creates a scan policy for the specified registry.

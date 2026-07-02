@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > Расширения и словари PostgreSQL > Управление расширениями
+
 # Управление расширениями
 
 Managed Service for PostgreSQL поддерживает многие стандартные расширения PostgreSQL и некоторые нестандартные. Полный список доступных расширений и их версий в зависимости от версии PostgreSQL [приведен ниже](#postgresql).

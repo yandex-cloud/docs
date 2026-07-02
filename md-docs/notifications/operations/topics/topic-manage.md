@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Notification Service](../../index.md) > [Пошаговые инструкции](../index.md) > Топики > Управлять топиком
+
 # Управлять топиком
 
 ## Обновить топик {#topic-update}

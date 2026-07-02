@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity Hub](../../../../../index.md) > Справочник API > REST (англ.) > Identity Provider API > [SAML Application API](../index.md) > [Operation](index.md) > Cancel
+
 # SAML Application API, REST: Operation.Cancel
 
 Cancels the specified operation.

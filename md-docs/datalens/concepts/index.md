@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Знакомство с сервисом > Обзор сервиса
+
 # О Yandex DataLens
 
 

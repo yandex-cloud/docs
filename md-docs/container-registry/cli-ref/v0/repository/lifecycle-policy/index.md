@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Container Registry](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [repository](../index.md) > lifecycle-policy > Overview
+
 # yc container v0 repository lifecycle-policy
 
 Manage lifecycle policies for Docker image repositories.

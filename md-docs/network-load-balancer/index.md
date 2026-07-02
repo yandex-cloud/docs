@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Network Load Balancer > Network Load Balancer
+
 # Yandex Network Load Balancer
 
 Yandex Network Load Balancer (NLB) предназначен для построения отказоустойчивых и масштабируемых приложений и сервисов в Yandex Cloud. Отказоустойчивость и масштабируемость достигаются за счет распределения трафика, поступающего на балансировщик, по облачным ресурсам которые размещаются за ним.

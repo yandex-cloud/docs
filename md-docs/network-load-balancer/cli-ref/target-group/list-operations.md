@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Network Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [target-group](index.md) > list-operations
+
 # yc load-balancer target-group list-operations
 
 List operations for the specified target group

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > backup > InitResource
+
 # Cloud Backup Audit Trails Events: InitResource
 
 ## Event JSON schema {#yandex.cloud.audit.backup.InitResource2-schema}

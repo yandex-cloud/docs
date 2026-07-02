@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > gitlab > ReconfigureGitlab
+
 # Managed Service for GitLab Audit Trails Events: ReconfigureGitlab
 
 ## Event JSON schema {#yandex.cloud.audit.gitlab.ReconfigureGitlab2-schema}

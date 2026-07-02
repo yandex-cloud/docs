@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > [Концепции](index.md) > DataSphere Notebook > Список предустановленного ПО
+
 # Список предустановленного ПО
 
 В DataSphere уже предустановлены пакеты для [анализа данных](../../glossary/data-analytics.md) и машинного обучения. Если какого-то пакета вам не хватает, вы можете [установить его](../operations/projects/install-dependencies.md) прямо из ячейки ноутбука.

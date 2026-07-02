@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > add-labels
+
 # yc container v0 cluster add-labels
 
 Add labels to the specified Kubernetes cluster.

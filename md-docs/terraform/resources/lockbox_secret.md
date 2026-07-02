@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Lockbox > Resources > lockbox_secret
+
 # yandex_lockbox_secret (Resource)
 
 Yandex Cloud Lockbox secret resource. For more information, see [the official documentation](../../lockbox/index.md). The created secret will contain a version with the generated password. You can use `yandex_lockbox_secret_version` to create new versions.

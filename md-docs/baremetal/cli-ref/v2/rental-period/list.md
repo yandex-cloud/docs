@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v2](../index.md) > [rental-period](index.md) > list
+
 # yc baremetal v2 rental-period list
 
 Retrieves the list of RentalPeriod resources.

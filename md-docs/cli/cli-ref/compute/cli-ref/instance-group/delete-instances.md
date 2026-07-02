@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [instance-group](index.md) > delete-instances
+
 # yc compute instance-group delete-instances
 
 Delete instances of the specified instance group

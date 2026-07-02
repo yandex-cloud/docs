@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-mongodb](../index.md) > v0 > Overview
+
 # yc managed-mongodb v0
 
 Manage MongoDB clusters, hosts, databases, backups and users.

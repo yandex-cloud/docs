@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > Справочник API > [AWS S3 REST](../index.md) > [REST](index.md) > Общие заголовки ответов
+
 # Общие заголовки ответов
 
 Помимо [стандартных HTTP-заголовков](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) Yandex Object Storage использует дополнительные заголовки, которые могут присутствовать в ответах.

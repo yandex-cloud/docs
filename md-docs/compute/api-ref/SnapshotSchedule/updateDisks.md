@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SnapshotSchedule](index.md) > UpdateDisks
+
 # Compute Cloud API, REST: SnapshotSchedule.UpdateDisks
 
 Updates the list of disks attached to the specified schedule.

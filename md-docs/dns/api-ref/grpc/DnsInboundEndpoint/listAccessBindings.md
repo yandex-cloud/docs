@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud DNS](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DnsInboundEndpoint](index.md) > ListAccessBindings
+
 # Cloud DNS API, gRPC: DnsInboundEndpointService.ListAccessBindings
 
 Lists existing access bindings for the specified DNS inbound endpoint.

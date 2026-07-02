@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Streams](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Data Streams
 
 - [Обработка аудитных логов Yandex Audit Trails](audit-trails.md)

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datatransfer > FreezeTransferVersion
+
 # Data Transfer Audit Trails Events: FreezeTransferVersion
 
 ## Event JSON schema {#yandex.cloud.audit.datatransfer.FreezeTransferVersion2-schema}

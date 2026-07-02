@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Quota Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [QuotaLimit](index.md) > ListServices
+
 # Quota Manager API, gRPC: QuotaLimitService.ListServices
 
 Retrieves the list of services available for quota management.

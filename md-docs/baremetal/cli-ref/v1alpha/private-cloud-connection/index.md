@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v1alpha](../index.md) > private-cloud-connection > Overview
+
 # yc baremetal v1alpha private-cloud-connection
 
 A set of methods for managing Private cloud connection resources.

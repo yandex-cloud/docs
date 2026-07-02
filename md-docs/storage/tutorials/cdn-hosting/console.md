@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > [Настройка хостинга статического сайта в бакете Yandex Object Storage с доступом через Yandex Cloud CDN](index.md) > Консоль управления, CLI, API
+
 # Настройка хостинга статического сайта в бакете Yandex Object Storage с доступом через Yandex Cloud CDN
 
 
@@ -30,7 +32,7 @@
 
 В стоимость поддержки инфраструктуры для сайта в бакете с доступом через CDN входят:
 * плата за исходящий трафик с CDN-серверов ([тарифы Cloud CDN](../../../cdn/pricing.md));
-* плата за хранение данных в Object Storage, операции с ними и исходящий трафик ([тарифы Object Storage](../../../storage/pricing.md));
+* плата за хранение данных в Object Storage, операции с ними и исходящий трафик ([тарифы Object Storage](../../pricing.md));
 * плата за публичные DNS-запросы и [DNS-зоны](../../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../../dns/index.md) ([тарифы Cloud DNS](../../../dns/pricing.md)).
 
 

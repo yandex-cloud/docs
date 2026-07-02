@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Практические руководства](index.md) > Продукты Microsoft в Yandex Cloud > Развертывание GitLab Runner на виртуальной машине
+
 # Развертывание GitLab Runner на виртуальной машине Compute Cloud
 
 # Развертывание GitLab Runner на виртуальной машине Yandex Compute Cloud
@@ -27,7 +29,7 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* Плата за [диски](../concepts/disk.md) и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за [диски](../concepts/disk.md) и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../pricing.md)).
 * Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infra}
@@ -120,7 +122,7 @@
 
 {% note warning %}
 
-За использование виртуальных машин (воркеров) взимается плата ([тарифы Compute Cloud](../../compute/pricing.md)).
+За использование виртуальных машин (воркеров) взимается плата ([тарифы Compute Cloud](../pricing.md)).
 
 {% endnote %}
 

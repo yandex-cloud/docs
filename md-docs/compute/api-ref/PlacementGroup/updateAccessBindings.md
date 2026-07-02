@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [PlacementGroup](index.md) > UpdateAccessBindings
+
 # Compute Cloud API, REST: PlacementGroup.UpdateAccessBindings
 
 Updates access bindings for the placement group.

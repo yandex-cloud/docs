@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Serverless Containers](index.md) > История изменений
+
 # История изменений в Yandex Serverless Containers
 
 ## Апрель 2026 {#april-2026}

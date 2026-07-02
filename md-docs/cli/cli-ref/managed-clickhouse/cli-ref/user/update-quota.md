@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-clickhouse](../index.md) > [user](index.md) > update-quota
+
 # yc managed-clickhouse user update-quota
 
 Update ClickHouse user quota by the interval. Interval is used as key and can not be updated.User quota should be removed and recreated to update interval duration.

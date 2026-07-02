@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Пользователи и сессии > Управление ролями и пользователями
+
 # Управление ролями и пользователями
 
 Yandex MPP Analytics for PostgreSQL управляет правами доступа к базе данных с помощью двух типов ролей:

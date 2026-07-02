@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Streams](../../index.md) > [HTTP API, совместимый с Amazon Kinesis Data Streams](../index.md) > Методы > DeleteStream
+
 # DeleteStream
 
 Удаляет [поток](../../concepts/glossary.md#stream-concepts), все его [сегменты](../../concepts/glossary.md#shard) и данные.

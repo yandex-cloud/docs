@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Yandex Cloud Billing](../index.md) > Примеры конфигураций и сценариев Yandex Cloud Billing
+
 ## Примеры конфигураций и сценариев Yandex Cloud Billing {#configuration-examples}
 
 * [Как работают гранты и промокоды в Yandex Cloud Billing](promocodes-and-grants-features-in-billing.md)

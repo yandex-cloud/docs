@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > [Справочник CLI (англ.)](../index.md) > [private-connection](index.md) > update
+
 # yc cic private-connection update
 
 Modify configuration or attributes of a privateConnection.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [serverless](../../../index.md) > [v0](../../index.md) > [function](../index.md) > [version](index.md) > set-tag
+
 # yc serverless v0 function version set-tag
 
 Set a tag on the specified function version

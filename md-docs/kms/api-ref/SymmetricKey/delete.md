@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SymmetricKey](index.md) > Delete
+
 # Key Management Service API, REST: SymmetricKey.Delete
 
 Deletes the specified symmetric KMS key. This action also automatically schedules

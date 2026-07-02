@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Versions](index.md) > List
+
 # Managed Service for Apache Kafka® API, REST: Versions.List
 
 Returns list of available Kafka versions.

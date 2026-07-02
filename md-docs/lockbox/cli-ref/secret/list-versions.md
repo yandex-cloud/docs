@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Lockbox](../../index.md) > [Справочник CLI (англ.)](../index.md) > [secret](index.md) > list-versions
+
 # yc lockbox secret list-versions
 
 List versions for the specified secret

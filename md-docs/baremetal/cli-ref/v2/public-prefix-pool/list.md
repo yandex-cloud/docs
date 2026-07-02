@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v2](../index.md) > [public-prefix-pool](index.md) > list
+
 # yc baremetal v2 public-prefix-pool list
 
 Lists public prefix pools in the specified folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > Вопросы и ответы
+
 # Общие вопросы про Managed Service for GitLab
 
 * [В чем преимущества Managed Service for GitLab перед пользовательской инсталляцией GitLab Community Edition?](#advantages)

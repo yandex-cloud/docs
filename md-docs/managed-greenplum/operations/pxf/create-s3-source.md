@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > Работа с PXF > Создание внешних источников данных > S3
+
 # Создание внешнего источника данных S3
 
 В Yandex MPP Analytics for PostgreSQL в качестве [внешнего источника данных](../../concepts/external-tables.md#pxf-data-sources) с типом подключения S3 можно использовать сервис [Yandex Object Storage](../../../storage/index.md) в том числе, с подключением к Yandex Object Storage через [Private Endpoint](../../../storage/operations/buckets/access-via-vpc.md). Вы также можете использовать другие сторонние сервисы S3.

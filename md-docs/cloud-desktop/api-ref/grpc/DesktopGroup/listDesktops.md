@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Desktop](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DesktopGroup](index.md) > ListDesktops
+
 # Cloud Desktop API, gRPC: DesktopGroupService.ListDesktops
 
 Retrieves the list of desktops resources.

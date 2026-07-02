@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Certificate Manager](../index.md) > [Пошаговые инструкции](index.md) > Настроить права доступа к сертификату
+
 # Настроить права доступа к сертификату
 
 Чтобы предоставить пользователю, группе или [сервисному аккаунту](../../iam/concepts/users/service-accounts.md) доступ к [сертификату](../concepts/index.md#types), назначьте на него [роль](../../iam/concepts/access-control/roles.md).

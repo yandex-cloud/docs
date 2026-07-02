@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > ResourcePreset > Overview
+
 # Managed Service for SPQR API, gRPC: ResourcePresetService
 
 A set of methods for managing ResourcePreset resources.

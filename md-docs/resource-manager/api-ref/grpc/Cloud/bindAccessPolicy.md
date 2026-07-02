@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Resource Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cloud](index.md) > BindAccessPolicy
+
 # Resource Manager API, gRPC: CloudService.BindAccessPolicy
 
 Binds the access policy template to the cloud.

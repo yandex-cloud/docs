@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex MetaData Hub](index.md) > Правила тарификации
+
 # Правила тарификации для Yandex MetaData Hub
 
 Использование Connection Manager, Schema Registry и Data Catalog не тарифицируется. За потребление других ресурсов Yandex Cloud, которые вы используете в процессе работы с этими сервисами (например, сервисов управляемых баз данных или [Yandex Lockbox](../lockbox/pricing.md)), взимается плата в соответствии с их [тарифами](https://yandex.cloud/ru/prices#calculator).

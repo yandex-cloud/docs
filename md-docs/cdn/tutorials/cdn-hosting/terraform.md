@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > [Практические руководства](../index.md) > [Настройка хостинга статического сайта в бакете Yandex Object Storage с доступом через Yandex Cloud CDN](index.md) > Terraform
+
 # Настройка хостинга статического сайта в бакете Yandex Object Storage с доступом через Yandex Cloud CDN с помощью Terraform
 
 

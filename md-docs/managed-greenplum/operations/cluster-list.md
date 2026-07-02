@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Информация об имеющихся кластерах
+
 # Информация об имеющихся кластерах Yandex MPP Analytics for PostgreSQL
 
 Вы можете запросить детальную информацию о каждом созданном вами кластере Yandex MPP Analytics for PostgreSQL.

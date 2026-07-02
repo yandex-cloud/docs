@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [kms](../../index.md) > [v0](../index.md) > [asymmetric-encryption-key](index.md) > set-access-bindings
+
 # yc kms v0 asymmetric-encryption-key set-access-bindings
 
 Set access bindings for the specified asymmetric encryption key and delete all existing access bindings if there were any

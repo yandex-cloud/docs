@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Network Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [NetworkLoadBalancer](index.md) > GetTargetStates
+
 # Network Load Balancer API, gRPC: NetworkLoadBalancerService.GetTargetStates
 
 Gets states of target resources in the attached target group.

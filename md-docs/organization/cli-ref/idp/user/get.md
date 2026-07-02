@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [idp](../index.md) > [user](index.md) > get
+
 # yc organization-manager idp user get
 
 Show information about the specified user

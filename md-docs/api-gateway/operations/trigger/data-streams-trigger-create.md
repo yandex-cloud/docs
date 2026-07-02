@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Пошаговые инструкции](../index.md) > Создание триггера > Создать триггер для Data Streams
+
 # Создать триггер для Data Streams, который отправляет сообщения в WebSocket-соединения
 
  Создайте [триггер для Data Streams](../../concepts/trigger/data-streams-trigger.md), который будет отправлять сообщения в [WebSocket-соединения](../../concepts/extensions/websocket.md) при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts).

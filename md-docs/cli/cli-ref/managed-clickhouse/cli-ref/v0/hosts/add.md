@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-clickhouse](../../index.md) > [v0](../index.md) > [hosts](index.md) > add
+
 # yc managed-clickhouse v0 hosts add
 
 Add new hosts to the cluster in specified availability zones.

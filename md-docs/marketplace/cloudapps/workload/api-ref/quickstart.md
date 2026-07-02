@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Marketplace](../../../index.md) > Партнерам > Справочник Cloud Apps Workload API > Начало работы с Cloud Apps Workload API
+
 # Как начать работать с Marketplace Cloud Apps Workload API
 
 В данном разделе приведены примеры использования Marketplace Cloud Apps Workload [REST API](../../../workload/api-ref/index.md) и [gRPC API](../../../workload/api-ref/grpc/index.md) для получения информации о приложении (экземпляре продукта) Cloud Apps, а также о привязке приложения и виртуальной машины, на которой оно запущено, к сервису [Yandex Cloud Apps](../../../../cloud-apps/index.md).

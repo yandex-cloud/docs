@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [idp](../index.md) > [userpool](index.md) > set-access-bindings
+
 # yc organization-manager idp userpool set-access-bindings
 
 Set access bindings for the specified user pool

@@ -24,7 +24,11 @@ description: В этой инструкции вы научитесь созда
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и [{{ roles.mpg.editor }}](security/index.md#managed-postgresql-editor) на каталог. Эти роли позволяют создать кластер.
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
+
+    * {% include [roles-mpg-editor](../_includes/mdb/mpg/roles-mpg-editor.md) %}
+    * {% include [roles-vpc-user](../_includes/mdb/roles-vpc-user.md) %}
+    * {% include [roles-mdb-viewer](../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 

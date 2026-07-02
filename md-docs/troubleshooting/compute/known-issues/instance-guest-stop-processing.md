@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Compute Cloud](../index.md) > Виртуальная машина выключается операцией `Instance guest stop processing`
+
 # Виртуальная машина выключается операцией `Instance guest stop processing`
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > baremetal > UpdateVRF
+
 # BareMetal Audit Trails Events: UpdateVRF
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.UpdateVRF2-schema}

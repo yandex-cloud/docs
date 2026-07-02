@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > [Справочник YC CLI (англ.)](../../index.md) > [v0](../index.md) > [bucket](index.md) > create-inventory-configuration
+
 # yc storage v0 bucket create-inventory-configuration
 
 Creates bucket inventory configuration

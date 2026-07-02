@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Yandex Query > Resources > yq_object_storage_binding
+
 # yandex_yq_object_storage_binding (Resource)
 
 Manages Object Storage binding in Yandex Query service. For more information, see [the official documentation](../../query/concepts/glossary.md#Binding).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > Концепции > OS Login
+
 # OS Login
 
 OS Login упрощает процесс [SSH](../../glossary/ssh-keygen.md)-подключений к _виртуальным машинам_ в Yandex Cloud. Под виртуальными машинами (или ВМ) здесь и ниже подразумеваются собственно [виртуальные машины сервиса Yandex Compute Cloud](../../compute/concepts/vm.md#project), хосты [подкластеров Yandex Data Processing](../../data-proc/concepts/index.md#resources) и [отдельные узлы в группах узлов](../../managed-kubernetes/concepts/index.md#node-group) в составе [кластеров Yandex Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), на которых запускаются пользовательские контейнеры.

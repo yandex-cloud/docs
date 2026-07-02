@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../index.md) > [boot-image](index.md) > create
+
 # yc baremetal boot-image create
 
 Creates an image in the specified folder.

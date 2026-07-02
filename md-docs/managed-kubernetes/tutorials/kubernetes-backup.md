@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Практические руководства](index.md) > Резервное копирование > Резервное копирование в Object Storage
+
 # Резервное копирование кластера Managed Service for Kubernetes в Object Storage
 
 

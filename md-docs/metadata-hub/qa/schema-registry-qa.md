@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Schema Registry > Решение проблем
+
 # Решение проблем в Yandex Schema Registry
 
 

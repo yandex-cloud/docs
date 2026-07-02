@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > UpdateBranding
+
 # Identity Hub Audit Trails Events: UpdateBranding
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.idp.branding.UpdateBranding2-schema}

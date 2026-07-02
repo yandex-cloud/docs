@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Подключения > Файлы и сервисы > Создание подключения к Google Sheets
+
 # Создание подключения к Google Sheets
 
 {% note warning %}

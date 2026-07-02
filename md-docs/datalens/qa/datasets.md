@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Решение проблем > [Вопросы и ответы](index.md) > Датасеты
+
 # Датасеты
 
 ### Как с помощью DataLens изменить данные в источнике? {#how-to-change-source-data}

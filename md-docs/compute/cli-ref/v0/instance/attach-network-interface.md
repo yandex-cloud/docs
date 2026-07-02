@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [instance](index.md) > attach-network-interface
+
 # yc compute v0 instance attach-network-interface
 
 Attach the specified network interface to the virtual machine instance

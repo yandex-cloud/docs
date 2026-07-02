@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for MySQL®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Database](index.md) > Delete
+
 # Managed Service for MySQL API, gRPC: DatabaseService.Delete
 
 Deletes a database from a cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v1alpha](../index.md) > standard-image > Overview
+
 # yc baremetal v1alpha standard-image
 
 A set of methods to retrieve information about standard image .

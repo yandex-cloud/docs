@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Security Deck](../index.md) > [Диагностика ошибок](index.md) > Ошибки в работе TD
+
 # Диагностика ошибок в работе модуля Обнаружение угроз (TD)
 
 ## Service account does not have sufficient permissions for resources in scope {#account-permissions}

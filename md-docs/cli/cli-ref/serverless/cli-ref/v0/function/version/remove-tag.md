@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [serverless](../../../index.md) > [v0](../../index.md) > [function](../index.md) > [version](index.md) > remove-tag
+
 # yc serverless v0 function version remove-tag
 
 Remove a tag from the specified function version

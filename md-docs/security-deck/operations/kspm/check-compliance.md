@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Security Deck](../../index.md) > [Пошаговые инструкции](../index.md) > [Контроль Kubernetes® (KSPM)](index.md) > Проверить соответствие стандартам безопасности
+
 # Проверить соответствие инфраструктуры стандартам безопасности
 
 [Интерфейс соответствия требованиям](../../concepts/standard-compliance/index.md) позволяет просматривать, какие [наборы требований](../../concepts/standard-compliance/index.md#security-rule-sets) активированы в [окружении](../../concepts/workspace.md) в текущий момент, просматривать списки [правил контроля](../../concepts/standard-compliance/index.md#security-rule-sets), входящих в наборы требований, а также управлять исключениями.

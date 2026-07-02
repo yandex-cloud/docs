@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > ActivateDocker
+
 # DataSphere Audit Trails Events: ActivateDocker
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.ActivateDocker2-schema}

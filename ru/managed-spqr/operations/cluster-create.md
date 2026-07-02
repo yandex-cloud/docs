@@ -10,6 +10,18 @@ keywords:
 # Создание кластера {{ SPQR }}
 
 
+
+## Роли для создания кластера {#roles}
+
+Для создания кластера {{ mspqr-name }} и работы с ним вашему аккаунту в {{ yandex-cloud }} нужны роли:
+
+* {% include [roles-mspqr-editor](../../_includes/mdb/mspqr/roles-mspqr-editor.md) %}
+* {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
+* {% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
+
+О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
+
+
 ## Создать кластер {#create-cluster}
 
 {% list tabs group=instructions %}

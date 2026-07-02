@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > resourcemanager > DeleteFolder
+
 # Resource Manager Audit Trails Events: DeleteFolder
 
 ## Event JSON schema {#yandex.cloud.audit.resourcemanager.DeleteFolder2-schema}

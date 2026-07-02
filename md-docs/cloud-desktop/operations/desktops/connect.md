@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > [Пошаговые инструкции](../index.md) > Рабочие столы > Подключиться к рабочему столу
+
 # Подключиться к рабочему столу
 
 Для подключения к [рабочему столу](../../concepts/desktops-and-groups.md) используется [Remote Desktop Protocol](https://ru.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP).

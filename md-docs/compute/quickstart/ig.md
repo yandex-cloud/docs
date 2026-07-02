@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Начало работы](index.md) > Создание группы виртуальных машин
+
 # Создание группы виртуальных машин
 
 Создайте группу ВМ с помощью компонента [Instance Groups](../concepts/instance-groups/index.md) в консоли управления Yandex Cloud.

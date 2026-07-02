@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Инструменты для Managed Service for Kubernetes > Gwin > Конфигурация ресурсов (англ.) > GRPCRoute
+
 # GRPCRoute
 
 GRPCRoute provides a way to route gRPC requests. This includes the capability to match requests by hostname, gRPC service, or method. Requests are routed to backend services that support gRPC.

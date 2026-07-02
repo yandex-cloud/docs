@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > [Пошаговые инструкции](../index.md) > Создание политики жизненного цикла
+
 # Создание политики жизненного цикла
 
 {% list tabs group=instructions %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > Прикладные решения > Создание сайта > [Создание сайта на CMS Joomla с базой данных PostgreSQL](index.md) > Terraform
+
 # Создание сайта на CMS Joomla с базой данных PostgreSQL с помощью Terraform
 
 Чтобы создать инфраструктуру для [сайта на CMS Joomla с базой данных PostgreSQL](index.md) c помощью Terraform:

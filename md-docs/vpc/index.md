@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Virtual Private Cloud > Yandex Virtual Private Cloud
+
 # Yandex Virtual Private Cloud
 
 Yandex Virtual Private Cloud служит для управления облачными сетями и связи облачных ресурсов между собой и с интернетом. Virtual Private Cloud позволяет создавать <a href="concepts/network.md#network">сети</a>, <a href="concepts/network.md#subnet">подсети</a> в зонах доступности Yandex Cloud, назначать облачным ресурсам внутренние и публичные <a href="concepts/address.md">IP-адреса</a>,  а также предоставляет возможность защиты от DDoS-атак с помощью компонента <a href="ddos-protection/index.md">DDoS-Protection.</a>

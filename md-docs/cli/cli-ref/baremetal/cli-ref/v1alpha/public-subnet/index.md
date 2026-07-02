@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [baremetal](../../index.md) > [v1alpha](../index.md) > public-subnet > Overview
+
 # yc baremetal v1alpha public-subnet
 
 A set of methods for managing PublicSubnet resources.

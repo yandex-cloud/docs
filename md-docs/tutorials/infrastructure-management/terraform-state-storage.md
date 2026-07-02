@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Базовая инфраструктура](../infrastructure/index.md) > Инструменты > Загрузка состояний Terraform в Object Storage
+
 # Загрузка состояний Terraform в Yandex Object Storage
 
 

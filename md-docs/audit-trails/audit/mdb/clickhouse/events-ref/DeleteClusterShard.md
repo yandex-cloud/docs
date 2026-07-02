@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.clickhouse > DeleteClusterShard
+
 # Managed Service for ClickHouse Audit Trails Events: DeleteClusterShard
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.clickhouse.DeleteClusterShard2-schema}

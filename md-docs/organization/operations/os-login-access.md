@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > [Пошаговые инструкции](index.md) > Аутентификация > Работа с OS Login > Включить доступ по OS Login
+
 # Включить доступ по OS Login
 
 {% note info %}

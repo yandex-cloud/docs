@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Spark™](../index.md) > [Пошаговые инструкции](index.md) > Логи и мониторинг > Просмотр логов кластера
+
 # Просмотр логов кластера Apache Spark™
 
 Yandex Managed Service for Apache Spark™ позволяет [получить фрагмент логов кластера](#get-log) за выбранный период.

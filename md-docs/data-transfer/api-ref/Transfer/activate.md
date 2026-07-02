@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Transfer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Transfer](index.md) > Activate
+
 # Data Transfer API, REST: Transfer.Activate
 
 Activates the specified transfer.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Identity and Access Management > Все решения для IAM
+
 # Решения для Identity and Access Management
 
 ## Примеры конфигураций и сценариев Identity and Access Management {#configuration-examples}

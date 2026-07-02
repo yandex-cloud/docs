@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > ResourcePreset > Overview
+
 # Managed Service for MySQL API, REST: ResourcePreset
 
 A set of methods for managing MySQL resource presets.

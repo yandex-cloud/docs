@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [PlacementGroup](index.md) > Delete
+
 # Compute Cloud API, gRPC: PlacementGroupService.Delete
 
 Deletes the specified placement group.

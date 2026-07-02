@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [asymmetric-encryption-key](index.md) > list-operations
+
 # yc kms v0 asymmetric-encryption-key list-operations
 
 List operations for the specified asymmetric encryption key

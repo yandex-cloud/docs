@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API Workflows > [REST (англ.)](../index.md) > [Execution](index.md) > Get
+
 # Workflows Service, REST: Execution.Get
 
 Retrieves specified Workflow execution.

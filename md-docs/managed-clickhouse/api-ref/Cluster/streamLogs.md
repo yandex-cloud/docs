@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > StreamLogs
+
 # Managed Service for ClickHouse API, REST: Cluster.StreamLogs
 
 Same as ListLogs but using server-side streaming. Also allows for `tail -f` semantics.

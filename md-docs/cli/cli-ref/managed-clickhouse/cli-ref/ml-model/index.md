@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-clickhouse](../index.md) > ml-model > Overview
+
 # yc managed-clickhouse ml-model
 
 Manage ClickHouse machine learning models.

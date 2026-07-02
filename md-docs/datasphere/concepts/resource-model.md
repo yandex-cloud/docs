@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > [Концепции](index.md) > Взаимосвязь ресурсов в DataSphere
+
 # Взаимосвязь ресурсов в DataSphere
 
 DataSphere работает в рамках [организаций Yandex Cloud](../../organization/index.md). Все создаваемые сущности DataSphere являются ресурсами организации. Обмен ресурсами между организациями невозможен.

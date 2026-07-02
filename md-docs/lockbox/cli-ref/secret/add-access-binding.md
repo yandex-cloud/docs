@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Lockbox](../../index.md) > [Справочник CLI (англ.)](../index.md) > [secret](index.md) > add-access-binding
+
 # yc lockbox secret add-access-binding
 
 Add access binding for the specified secret

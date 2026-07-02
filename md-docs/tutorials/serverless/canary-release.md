@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > Бэкенд на Serverless > Канареечный релиз функции Cloud Functions
+
 # Канареечный релиз функции Cloud Functions
 
 

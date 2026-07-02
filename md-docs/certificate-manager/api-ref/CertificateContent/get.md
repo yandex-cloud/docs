@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Certificate Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [CertificateContent](index.md) > Get
+
 # Certificate Manager API, REST: CertificateContent.Get
 
 Returns chain and private key of the specified certificate.

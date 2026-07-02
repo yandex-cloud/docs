@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Cannot parse
+
 # [Yandex DataLens] Cannot parse
 
 `ERR.DS_API.DB.CANNOT_PARSE`

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Connection Manager > Пошаговые инструкции > Создание подключения
+
 # Создание подключения
 
 

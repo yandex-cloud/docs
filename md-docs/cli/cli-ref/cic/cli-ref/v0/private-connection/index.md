@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cic](../../index.md) > [v0](../index.md) > private-connection > Overview
+
 # yc cic v0 private-connection
 
 [PREVIEW] Manage privateConnections.

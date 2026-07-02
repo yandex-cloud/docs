@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud DNS](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DnsFirewall](index.md) > Create
+
 # Cloud DNS API, gRPC: DnsFirewallService.Create
 
 Creates a DNS firewall in the specified folder.

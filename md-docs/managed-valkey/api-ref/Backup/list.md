@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Backup](index.md) > List
+
 # Managed Service for Redis API, REST: Backup.List
 
 Retrieves the list of Redis backups available for the specified folder.

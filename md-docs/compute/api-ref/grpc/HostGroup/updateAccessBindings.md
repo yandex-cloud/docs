@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [HostGroup](index.md) > UpdateAccessBindings
+
 # Compute Cloud API, gRPC: HostGroupService.UpdateAccessBindings
 
 Updates access bindings for the host group.

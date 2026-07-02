@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Data Transfer
 
 - [Подготовка к трансферу](prepare.md)

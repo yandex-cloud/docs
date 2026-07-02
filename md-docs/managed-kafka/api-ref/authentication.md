@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Managed Service for Apache Kafka®
 
 # Аутентификация в API

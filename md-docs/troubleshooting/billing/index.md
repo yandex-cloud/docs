@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Yandex Cloud Billing > Все решения для Yandex Cloud Billing
+
 # Решения для Yandex Cloud Billing
 
 ## Примеры конфигураций и сценариев Yandex Cloud Billing {#configuration-examples}

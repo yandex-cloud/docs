@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex IoT Core](../index.md) > Справочник CLI (англ.) > Overview
+
 # yc iot
 
 Manage Yandex IoT Core resources

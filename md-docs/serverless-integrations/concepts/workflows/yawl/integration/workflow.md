@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > [Концепции](../../../index.md) > Workflows > [Спецификация YaWL](../index.md) > Интеграционные шаги > Workflow
+
 # Workflow
 
 Синхронный запуск рабочего процесса [Yandex Workflows](../../../index.md).

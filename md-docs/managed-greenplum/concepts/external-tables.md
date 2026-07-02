@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Концепции](overview.md) > Внешние таблицы
+
 # Внешние таблицы
 
 Yandex MPP Analytics for PostgreSQL позволяет работать с данными в источниках, внешних по отношению к кластеру Yandex MPP Analytics for PostgreSQL. Для этого используются _внешние таблицы_ — специальные объекты в базе данных, которые ссылаются на таблицы, бакеты или файлы внешних источников. Для доступа к данным во внешних СУБД используется протокол [Greenplum® Platform Extension Framework](../operations/external-tables.md) (PXF), а к файлам на внешних файловых серверах — утилита [Greenplum® Parallel File Server](../operations/gpfdist/connect.md) (`gpfdist`). Для СУБД Greenplum® и Apache Cloudberry™ используются разные утилиты `gpfdist`. Подробнее об утилитах в [документации Greenplum®](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/utility_guide-ref-gpfdist.html) и [Apache Cloudberry™](https://cloudberry.apache.org/docs/sys-utilities/gpfdist).

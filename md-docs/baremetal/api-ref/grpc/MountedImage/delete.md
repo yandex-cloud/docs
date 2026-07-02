@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [MountedImage](index.md) > Delete
+
 # BareMetal API, gRPC: MountedImageService.Delete
 
 Unmount user image.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > [Концепции](../../../index.md) > Workflows > [Спецификация YaWL](../index.md) > Интеграционные шаги > FoundationModelsCall
+
 # FoundationModelsCall
 
 Интеграция с [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/).

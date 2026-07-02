@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Functions](../index.md) > Практические руководства > Все практические руководства
+
 # Практические руководства Cloud Functions
 
 ## Бэкенд на Serverless {#backend}

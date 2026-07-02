@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > Управление доступом
+
 # Управление доступом в Managed Service for GitLab
 
 В этом разделе вы узнаете:

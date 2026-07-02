@@ -1,4 +1,4 @@
-
+[Документация Yandex Cloud](../index.md) > Yandex MetaData Hub > Yandex MetaData Hub
 
 # Yandex MetaData Hub
 

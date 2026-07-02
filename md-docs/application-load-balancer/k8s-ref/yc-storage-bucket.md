@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Инструменты для Managed Service for Kubernetes > Gateway API > Конфигурация ресурсов > YCStorageBucket
+
 # Поля ресурса YCStorageBucket
 
 Ресурс `YCStorageBucket` содержит параметры бакета Object Storage для настройки бэкенда в ресурсе `HTTPRoute`.

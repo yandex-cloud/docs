@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex API Gateway](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ApiGateway](index.md) > Delete
+
 # API Gateway Service, gRPC: ApiGatewayService.Delete
 
 Deletes the specified API gateway.

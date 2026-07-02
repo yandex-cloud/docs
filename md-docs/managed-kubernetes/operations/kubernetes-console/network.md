@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Работа с объектами Kubernetes из консоли управления > Управление ресурсами Service и Ingress
+
 # Управление ресурсами Service и Ingress
 
 Ресурсы `Service` и `Ingress` в Kubernetes обеспечивают взаимодействие между подами и доступ к приложениям снаружи кластера. Консоль управления позволяет управлять этими ресурсами в Kubernetes без использования kubectl.

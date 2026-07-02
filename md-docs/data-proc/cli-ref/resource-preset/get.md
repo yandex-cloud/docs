@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Processing](../../index.md) > [Справочник CLI (англ.)](../index.md) > [resource-preset](index.md) > get
+
 # yc dataproc resource-preset get
 
 Get information about a Data Proc resource preset.

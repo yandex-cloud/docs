@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v1alpha](../index.md) > [server](index.md) > reinstall
+
 # yc baremetal v1alpha server reinstall
 
 Reinstalls the specified server.

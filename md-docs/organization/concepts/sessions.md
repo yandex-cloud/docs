@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > Концепции > Сессии
+
 # Сессии
 
 После успешной аутентификации пользователя в Yandex Identity Hub через сервис аутентификации [auth.yandex.cloud](https://auth.yandex.cloud) для этого пользователя создается _сессия_, при этом для домена `auth.yandex.cloud` создается [cookie](../../iam/concepts/authorization/cookie.md) `yc_session`.

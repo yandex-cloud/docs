@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mysql > DatabaseUserLogout
+
 # Managed Service for MySQL Audit Trails Events: DatabaseUserLogout
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mysql.DatabaseUserLogout2-schema}

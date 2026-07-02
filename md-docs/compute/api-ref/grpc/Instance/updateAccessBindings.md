@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Instance](index.md) > UpdateAccessBindings
+
 # Compute Cloud API, gRPC: InstanceService.UpdateAccessBindings
 
 Updates access bindings for the instance.

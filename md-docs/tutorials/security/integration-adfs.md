@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Безопасность](index.md) > Управление федерациями удостоверений > Аутентификация с помощью Active Directory
+
 # Аутентификация с помощью Active Directory
 
 С помощью [федерации удостоверений](../../organization/concepts/add-federation.md) вы можете настроить систему единого входа (Single Sign-On, SSO) и использовать Microsoft Active Directory совместно с [Microsoft Active Directory Federation Services](https://docs.microsoft.com/ru-ru/windows-server/identity/active-directory-federation-services) (AD FS) для аутентификации в облаке.

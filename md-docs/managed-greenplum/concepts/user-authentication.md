@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Концепции](overview.md) > Аутентификация пользователей
+
 # Аутентификация пользователей
 
 Аутентификация пользователей в Yandex MPP Analytics for PostgreSQL настраивается с помощью [правил](../operations/user-auth-rules.md) в разделе **Аутентификация пользователей**. Этот раздел представляет собой интерфейс для управления конфигурационным файлом [pg_hba.conf](https://www.postgresql.org/docs/current/auth-pg-hba-conf.html) с некоторыми ограничениями:

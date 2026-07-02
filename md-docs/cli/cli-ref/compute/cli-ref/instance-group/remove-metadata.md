@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [instance-group](index.md) > remove-metadata
+
 # yc compute instance-group remove-metadata
 
 Remove keys from metadata for instance template of the specified instance group

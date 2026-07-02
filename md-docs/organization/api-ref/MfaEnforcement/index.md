@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > MfaEnforcement > Overview
+
 # Identity Hub API, REST: MfaEnforcement
 
 a set of methods for managing MFA enforcements

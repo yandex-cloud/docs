@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [load-balancer](../index.md) > [target-group](index.md) > delete
+
 # yc load-balancer target-group delete
 
 Delete the specified target group

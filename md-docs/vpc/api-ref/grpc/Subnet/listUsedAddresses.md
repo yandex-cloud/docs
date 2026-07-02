@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Subnet](index.md) > ListUsedAddresses
+
 # Virtual Private Cloud API, gRPC: SubnetService.ListUsedAddresses
 
 List used addresses in specified subnet.

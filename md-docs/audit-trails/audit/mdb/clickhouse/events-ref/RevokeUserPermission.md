@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.clickhouse > RevokeUserPermission
+
 # Managed Service for ClickHouse Audit Trails Events: RevokeUserPermission
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.clickhouse.RevokeUserPermission2-schema}

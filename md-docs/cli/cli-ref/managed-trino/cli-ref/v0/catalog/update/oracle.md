@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [managed-trino](../../../index.md) > [v0](../../index.md) > [catalog](../index.md) > [update](index.md) > oracle
+
 # yc managed-trino v0 catalog update oracle
 
 Update Oracle catalog

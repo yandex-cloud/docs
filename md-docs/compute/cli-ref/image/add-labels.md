@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [image](index.md) > add-labels
+
 # yc compute image add-labels
 
 Add labels to specified image

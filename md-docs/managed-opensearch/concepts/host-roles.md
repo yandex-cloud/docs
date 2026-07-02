@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > [Концепции](index.md) > Роли хостов
+
 # Роли хостов в Managed Service for OpenSearch
 
 Каждый кластер Managed Service for OpenSearch состоит из одной или нескольких групп хостов `OpenSearch` и `Dashboards` (опционально):

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YTsaurus](../index.md) > [Пошаговые инструкции](index.md) > Подключение к кластеру
+
 # Подключение к кластеру YTsaurus
 
 К кластеру YTsaurus можно подключиться:

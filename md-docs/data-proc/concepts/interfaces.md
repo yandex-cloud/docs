@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Концепции](index.md) > Интерфейсы и порты компонентов Yandex Data Processing
+
 # Интерфейсы и порты компонентов Yandex Data Processing
 
 Пользовательские веб-интерфейсы некоторых компонентов Yandex Data Processing, например Hadoop, Spark, Yarn и Zeppelin, доступны на хосте-мастере кластера. Эти интерфейсы могут быть использованы:

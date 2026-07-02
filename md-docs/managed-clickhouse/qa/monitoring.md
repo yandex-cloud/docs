@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > Вопросы и ответы > Мониторинг и логи
+
 # Мониторинг и логи
 
 * [За какими метриками и процессами можно следить с помощью мониторинга?](#monitoring-metrics)

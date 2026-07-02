@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Container Registry > Data Sources > container_repository
+
 # yandex_container_repository (DataSource)
 
 Get information about a Yandex Container Repository. For more information, see [the official documentation](../../container-registry/concepts/repository.md).

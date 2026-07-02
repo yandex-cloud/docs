@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SecurityGroup](index.md) > Delete
+
 # Virtual Private Cloud API, REST: SecurityGroup.Delete
 
 Deletes the specified security group.

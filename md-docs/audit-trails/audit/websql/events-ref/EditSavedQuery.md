@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > websql > EditSavedQuery
+
 # WebSQL Audit Trails Events: EditSavedQuery
 
 ## Event JSON schema {#yandex.cloud.audit.websql.EditSavedQuery2-schema}

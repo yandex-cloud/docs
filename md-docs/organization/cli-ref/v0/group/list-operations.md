@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [group](index.md) > list-operations
+
 # yc organization-manager v0 group list-operations
 
 List operations for the specified group

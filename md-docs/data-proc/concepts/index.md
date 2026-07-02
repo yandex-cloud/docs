@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > Концепции > Взаимосвязь ресурсов сервиса
+
 # Взаимосвязь ресурсов сервиса Yandex Data Processing
 
 Сервис Yandex Data Processing позволяет реализовать распределенное хранение и обработку данных с помощью сервисов из экосистемы [Apache Hadoop](http://hadoop.apache.org).

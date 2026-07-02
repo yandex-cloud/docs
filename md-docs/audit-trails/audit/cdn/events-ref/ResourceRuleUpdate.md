@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > cdn > ResourceRuleUpdate
+
 # Cloud CDN Audit Trails Events: ResourceRuleUpdate
 
 ## Event JSON schema {#yandex.cloud.audit.cdn.gcore.ResourceRuleUpdate2-schema}

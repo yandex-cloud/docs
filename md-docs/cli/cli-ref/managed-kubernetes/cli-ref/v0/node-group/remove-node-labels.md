@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-kubernetes](../../index.md) > [v0](../index.md) > [node-group](index.md) > remove-node-labels
+
 # yc managed-kubernetes v0 node-group remove-node-labels
 
 Remove NODE labels from the specified node group.

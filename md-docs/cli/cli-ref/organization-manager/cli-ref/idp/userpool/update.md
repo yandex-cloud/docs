@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [organization-manager](../../index.md) > [idp](../index.md) > [userpool](index.md) > update
+
 # yc organization-manager idp userpool update
 
 Update the specified user pool

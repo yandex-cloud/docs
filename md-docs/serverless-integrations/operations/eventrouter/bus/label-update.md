@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > EventRouter > Управление шиной > Управлять метками > Изменить метку
+
 # Изменить метку шины
 
 {% list tabs group=instructions %}

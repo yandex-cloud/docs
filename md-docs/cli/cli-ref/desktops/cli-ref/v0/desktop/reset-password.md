@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [desktops](../../index.md) > [v0](../index.md) > [desktop](index.md) > reset-password
+
 # yc desktops v0 desktop reset-password
 
 Reset desktop Password

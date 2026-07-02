@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Artifact](index.md) > List
+
 # Yandex Cloud Registry API, gRPC: ArtifactService.List
 
 Returns a list of artifacts.

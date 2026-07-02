@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Apache Airflow™](index.md) > Начало работы
+
 # Как начать работать с Managed Service for Apache Airflow™
 
 Чтобы начать работу с сервисом Managed Service for Apache Airflow™:
@@ -33,9 +35,10 @@
 
 1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роли:
 
-    * [managed-airflow.editor](security/index.md#managed-airflow-editor) — чтобы создать кластер;
+    * [managed-airflow.editor](security/index.md#managed-airflow-editor) или выше — чтобы создать кластер;
     * [vpc.user](../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../vpc/concepts/network.md#network) кластера;
-    * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать сервисный аккаунт к кластеру.
+    * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать сервисный аккаунт к кластеру;
+    * [mdb.viewer](../iam/roles-reference.md#mdb-viewer) — чтобы просматривать кластеры управляемых баз данных (MDB) на дашборде в [консоли управления](https://console.yandex.cloud).
 
     {% note info %}
     

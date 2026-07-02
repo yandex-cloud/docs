@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ScanPolicy](index.md) > Update
+
 # Yandex Cloud Registry API, gRPC: ScanPolicyService.Update
 
 Updates the specified scan policy.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Quota Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > QuotaLimit > Overview
+
 # Quota Manager API, gRPC: QuotaLimitService
 
 A set of methods for managing quota limits.

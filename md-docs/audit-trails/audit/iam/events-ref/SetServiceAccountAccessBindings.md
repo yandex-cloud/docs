@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > SetServiceAccountAccessBindings
+
 # Identity and Access Management Audit Trails Events: SetServiceAccountAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.iam.SetServiceAccountAccessBindings2-schema}

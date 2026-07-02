@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [resource-preset](index.md) > list
+
 # yc managed-postgresql resource-preset list
 
 List available PostgreSQL resource presets.

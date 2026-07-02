@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [private-connection](index.md) > remove-static-routes
+
 # yc cic v0 private-connection remove-static-routes
 
 Remove static routes from a privateConnection.

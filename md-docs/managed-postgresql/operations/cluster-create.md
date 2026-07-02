@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Создание кластера
+
 # Создание кластера PostgreSQL
 
 
@@ -21,10 +23,18 @@ Managed Service for PostgreSQL резервирует 15 подключений 
 {% endnote %}
 
 
+## Роли для создания кластера {#roles}
+
+Для создания кластера Managed Service for PostgreSQL и работы с ним вашему аккаунту в Yandex Cloud нужны роли:
+
+* [managed-postgresql.editor](../security/index.md#managed-postgresql-editor) или выше — чтобы создать кластер;
+* [vpc.user](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
+* [mdb.viewer](../../iam/roles-reference.md#mdb-viewer) — чтобы просматривать кластеры управляемых баз данных (MDB) на дашборде в [консоли управления](https://console.yandex.cloud).
+
+О назначении ролей читайте в [документации Yandex Identity and Access Management](../../iam/operations/roles/grant.md).
+
+
 ## Создать кластер {#create-cluster}
-
-
-Для создания кластера Managed Service for PostgreSQL нужна роль [vpc.user](../../vpc/security/index.md#vpc-user) и роль [managed-postgresql.editor или выше](../security/index.md#roles-list). О том, как назначить роль, читайте в [документации Identity and Access Management](../../iam/operations/roles/grant.md).
 
 
 Подключениями к БД кластера управляет сервис Connection Manager. Вместе с кластером автоматически создаются:
@@ -38,7 +48,6 @@ Managed Service for PostgreSQL резервирует 15 подключений 
 Для просмотра информации о подключении требуется роль `connection-manager.viewer`. Вы можете [настраивать доступ к подключениям в Connection Manager](../../metadata-hub/operations/connection-access.md).
 
 Использование сервиса Connection Manager и секретов, созданных с его помощью, не тарифицируется.
-
 
 
 {% list tabs group=instructions %}

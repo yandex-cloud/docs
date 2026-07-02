@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [instance-group](index.md) > get
+
 # yc compute v0 instance-group get
 
 Show information about the specified instance group

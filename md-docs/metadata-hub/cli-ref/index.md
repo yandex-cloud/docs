@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Apache Hive™ Metastore > Справочник CLI (англ.) > Overview
+
 # yc managed-metastore
 
 Manage Metastore clusters.

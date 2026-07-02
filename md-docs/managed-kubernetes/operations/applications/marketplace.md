@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Установка приложений из Cloud Marketplace > Основы работы с Cloud Marketplace
+
 # Основы работы с Cloud Marketplace
 
 Managed Service for Kubernetes позволяет использовать в кластерах приложения из [Yandex Cloud Marketplace](https://yandex.cloud/ru/marketplace).

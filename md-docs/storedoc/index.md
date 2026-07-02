@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex StoreDoc > Yandex StoreDoc
+
 # Yandex StoreDoc
 
 Сервис помогает разворачивать и поддерживать кластеры серверов Yandex StoreDoc 6.0 и 7.0 в инфраструктуре Yandex Cloud. Yandex StoreDoc — это совместимая с MongoDB высокопроизводительная NoSQL СУБД с открытым исходным кодом.

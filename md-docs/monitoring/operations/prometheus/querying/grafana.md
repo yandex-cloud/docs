@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Monitoring](../../../index.md) > [Yandex Managed Service for Prometheus®](../index.md) > [Чтение метрик](index.md) > Grafana
+
 # Чтение и визуализация метрик при помощи Grafana
 
 Yandex Managed Service for Prometheus® поддерживает [Prometheus data source](https://grafana.com/docs/grafana/latest/datasources/prometheus/) и позволяет работать с дашбордами, которые созданы вами или сообществом, в Grafana.

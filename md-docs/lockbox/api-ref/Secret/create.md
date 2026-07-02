@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Lockbox](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Secret](index.md) > Create
+
 # Lockbox API, REST: Secret.Create
 
 Creates a secret in the specified folder.

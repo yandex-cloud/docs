@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Network Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [network-load-balancer](index.md) > get
+
 # yc load-balancer network-load-balancer get
 
 Show information about the specified load balancer

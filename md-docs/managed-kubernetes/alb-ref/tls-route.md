@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Инструменты Application Load Balancer](index.md) > Gateway API > Конфигурация ресурсов > TLSRoute
+
 # Поля ресурса TLSRoute
 
 В ресурсе `TLSRoute` определяются правила маршрутизации трафика по бэкендам — сервисам Kubernetes (ресурсам [Service](service-for-gateway.md)). `TLSRoute` получает входящий трафик от тех ресурсов [Gateway](gateway.md), требованиям которых соответствует.

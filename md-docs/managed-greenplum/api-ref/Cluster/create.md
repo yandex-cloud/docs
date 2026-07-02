@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > Create
+
 # Managed Service for Greenplum® API, REST: Cluster.Create
 
 Creates a Greenplum® cluster in the specified folder.

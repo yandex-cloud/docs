@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex SmartCaptcha](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Captcha](index.md) > GetSecretKey
+
 # SmartCaptcha API, REST: Captcha.GetSecretKey
 
 Returns the secret data of specified Captcha resource.

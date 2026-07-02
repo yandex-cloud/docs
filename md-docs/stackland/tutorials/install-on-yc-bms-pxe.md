@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Stackland](../index.md) > [Практические руководства](index.md) > Установка Stackland на Yandex BareMetal через PXE
+
 # Установка Stackland на Yandex BareMetal через PXE
 
 В этом руководстве описана установка Yandex Cloud Stackland на серверы Yandex BareMetal с помощью сетевой загрузки PXE. При такой установке серверы загружают установочную среду по сети, поэтому не нужно вручную подключать ISO-образ к каждому серверу через KVM-консоль.

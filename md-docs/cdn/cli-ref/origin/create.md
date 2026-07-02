@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > [Справочник CLI (англ.)](../index.md) > [origin](index.md) > create
+
 # yc cdn origin create
 
 Create origin

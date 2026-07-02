@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > [Справочник CLI (англ.)](../index.md) > mqtt > Overview
+
 # yc iot mqtt
 
 Exchange MQTT messages

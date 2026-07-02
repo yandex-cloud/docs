@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Пошаговые инструкции](index.md) > IP-адрес > Удалить статический публичный IP-адрес
+
 # Удалить статический публичный IP-адрес
 
 {% note alert %}

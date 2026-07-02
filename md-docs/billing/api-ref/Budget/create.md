@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Billing](../../index.md) > Справочник API > REST (англ.) > [Billing](../index.md) > [Budget](index.md) > Create
+
 # Billing API, REST: Budget.Create
 
 Creates a budget for the specified billing account.

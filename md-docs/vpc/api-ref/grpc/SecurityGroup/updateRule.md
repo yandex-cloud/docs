@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SecurityGroup](index.md) > UpdateRule
+
 # Virtual Private Cloud API, gRPC: SecurityGroupService.UpdateRule
 
 Updates the specified rule.

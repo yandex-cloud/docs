@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Удаление кластера
+
 # Удаление кластера Apache Kafka®
 
 Вы можете удалить кластер Apache Kafka®, если он вам больше не нужен. Все данные в кластере будут удалены.

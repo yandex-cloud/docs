@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../index.md) > [private-subnet](index.md) > delete
+
 # yc baremetal private-subnet delete
 
 Deletes the specified private subnet.

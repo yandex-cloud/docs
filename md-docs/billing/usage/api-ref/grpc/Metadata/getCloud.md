@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Billing](../../../../index.md) > Справочник API > gRPC (англ.) > [Billing usage](../index.md) > [Metadata](index.md) > GetCloud
+
 # Billing Usage API, gRPC: MetadataService.GetCloud
 
 GetCloud returns available folders for specified clouds within a billing account

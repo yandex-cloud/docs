@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Key Management Service > Key Management Service
+
 # Yandex Key Management Service
 
 Yandex Key Management Service — сервис для создания и управления ключами шифрования, которые можно использовать для защиты данных в инфраструктуре Yandex Cloud, а также шифрования и расшифровки любых ваших данных.

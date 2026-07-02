@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for PostgreSQL](index.md) > История изменений
+
 <!-- Changelog begin -->
 
 {% changelog %}

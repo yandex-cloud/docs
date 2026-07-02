@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Справочник CLI (англ.)](../index.md) > [node-group](index.md) > create
+
 # yc managed-kubernetes node-group create
 
 Create a node group.

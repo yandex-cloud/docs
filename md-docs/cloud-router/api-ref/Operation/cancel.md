@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Cloud Router API, REST: Operation.Cancel
 
 Cancels the specified operation.

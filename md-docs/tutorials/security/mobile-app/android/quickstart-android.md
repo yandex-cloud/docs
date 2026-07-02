@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Практические руководства](../../../index.md) > [Безопасность](../../index.md) > Сценарии использования SmartCaptcha > Капча в приложении Android
+
 # Yandex SmartCaptcha в приложении на Android
 
 Чтобы встроить [SmartCaptcha](../../../../smartcaptcha/index.md) в приложение на Android:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [storage](../../index.md) > [v0](../index.md) > [s3api](index.md) > put-object-retention
+
 # yc storage v0 s3api put-object-retention
 
 Puts retention on the object version or enables/disables a previously set lock

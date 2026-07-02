@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > Концепции > Настройка и управление > Справочник CLI (англ.) > Overview
+
 # yc baremetal
 
 Manage Baremetal resources

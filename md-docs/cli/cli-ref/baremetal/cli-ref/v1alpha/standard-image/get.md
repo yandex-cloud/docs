@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [baremetal](../../index.md) > [v1alpha](../index.md) > [standard-image](index.md) > get
+
 # yc baremetal v1alpha standard-image get
 
 Returns the specific standard Image resource.

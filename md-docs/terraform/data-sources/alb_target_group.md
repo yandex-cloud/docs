@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Application Load Balancer > Data Sources > alb_target_group
+
 # yandex_alb_target_group (DataSource)
 
 Get information about a Yandex Application Load Balancer target group. For more information, see [Yandex Cloud Application Load Balancer](../../application-load-balancer/quickstart.md).

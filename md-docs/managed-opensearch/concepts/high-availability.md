@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > [Концепции](index.md) > Высокая доступность кластера
+
 # Высокая доступность кластера Managed Service for OpenSearch
 
 

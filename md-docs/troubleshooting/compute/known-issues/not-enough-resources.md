@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Compute Cloud](../index.md) > Устранение ошибки `Not enough resources` при запуске виртуальной машины
+
 # Устранение ошибки `Not enough resources` при запуске виртуальной машины
 
 

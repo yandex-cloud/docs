@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Видеоплеер > [SDK](../index.md) > [JavaScript](index.md) > Параметры инициализации плеера
+
 # Параметры инициализации плеера
 
 При [инициализации](index.md#initialize-player) видеоплеера [Cloud Video Player](../../concepts/player.md) вы можете передать в него исходные параметры.

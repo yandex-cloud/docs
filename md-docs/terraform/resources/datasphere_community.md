@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > DataSphere > Resources > datasphere_community
+
 # yandex_datasphere_community (Resource)
 
 Allows management of Yandex Cloud Datasphere Communities.

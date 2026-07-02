@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [StreamLine](index.md) > GetStreamKey
+
 # Video API, REST: StreamLine.GetStreamKey
 
 Retrieves the unique stream key for a push-type stream line.

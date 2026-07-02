@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [datatransfer](../../index.md) > [endpoint](../index.md) > [update](index.md) > postgres-target
+
 # yc datatransfer endpoint update postgres-target
 
 Update PostgreSQL target

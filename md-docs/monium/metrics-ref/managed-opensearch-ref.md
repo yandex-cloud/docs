@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Managed Service for OpenSearch
+
 # Метрики Yandex Managed Service for OpenSearch
 
 В этом разделе описаны метрики сервиса [Managed Service for OpenSearch](../../managed-opensearch/index.md), поставляемые в Monium Metrics.

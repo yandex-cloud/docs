@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Provider](index.md) > Activate
+
 # Cloud CDN API, REST: Provider.Activate
 
 Deprecated: This functionality is no longer supported - provider activation happens automatically.

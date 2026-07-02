@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > [Пошаговые инструкции](../index.md) > Каталог > Получение идентификатора каталога
+
 # Получение идентификатора каталога
 
 {% list tabs group=instructions %}

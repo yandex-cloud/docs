@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Apache Kafka®](index.md) > Публичные материалы
+
 # Публичные материалы о Yandex Managed Service for Apache Kafka®
 
 ## Конференции и вебинары {#conf-and-webinars}

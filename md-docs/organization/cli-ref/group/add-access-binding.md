@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Справочник CLI (англ.)](../index.md) > [group](index.md) > add-access-binding
+
 # yc organization-manager group add-access-binding
 
 Add access binding for the specified group

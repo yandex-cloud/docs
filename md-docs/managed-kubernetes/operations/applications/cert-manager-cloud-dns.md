@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Установка приложений из Cloud Marketplace > Установка cert-manager c плагином Cloud DNS ACME webhook
+
 # Установка cert-manager c плагином Yandex Cloud DNS ACME webhook
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YDB](../../../index.md) > Document API, совместимый с Amazon DynamoDB > Инструменты > [Работа с AWS SDK](index.md) > Управление записями в таблице > Чтение записи
+
 # Чтение записи
 
 Чтобы прочитать запись из таблицы `Series`:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [marketplace](../index.md) > [helm-release](index.md) > update
+
 # yc managed-kubernetes marketplace helm-release update
 
 Update a Helm Release from Yandex Cloud Marketplace on the cluster.

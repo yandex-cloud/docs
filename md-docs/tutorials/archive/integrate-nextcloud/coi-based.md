@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > [Хранение и восстановление данных](../index.md) > [Развертывание Nextcloud в интеграции с Object Storage](index.md) > Развертывание Nextcloud на ВМ из образа Container Optimized Image
+
 # Развертывание Nextcloud на виртуальной машине Yandex Compute Cloud из образа Container Optimized Image в интеграции с Yandex Object Storage
 
 В этом руководстве вы развернете решение Nextcloud на [виртуальной машине](../../../compute/concepts/vm.md) Compute Cloud с помощью образа [Container Optimized Image](../../../cos/concepts/index.md) и подключите к нему [бакет](../../../storage/concepts/bucket.md) Object Storage. Для реализации этого решения вам потребуется [доменное имя](https://ru.wikipedia.org/wiki/Доменное_имя), по которому будет осуществляться доступ к ресурсам в Nextcloud.

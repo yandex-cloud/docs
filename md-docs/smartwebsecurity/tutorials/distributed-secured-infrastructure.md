@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Практические руководства](index.md) > Создание распределенной инфраструктуры с защищенным доступом
+
 # Создание распределенной инфраструктуры с защищенным доступом
 
 # Создание распределенной инфраструктуры с защищенным доступом
@@ -74,7 +76,7 @@
 * плата за постоянно работающие ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
 * плата за использование Application Load Balancer ([тарифы Yandex Application Load Balancer](../../application-load-balancer/pricing.md));
 * плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
-* плата за количество запросов в сервис Smart Web Security ([тарифы Yandex Smart Web Security](../../smartwebsecurity/pricing.md)).
+* плата за количество запросов в сервис Smart Web Security ([тарифы Yandex Smart Web Security](../pricing.md)).
 
 
 ## Создайте каталог безопасности {#create-alb-folder}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [User](index.md) > Create
+
 # Managed Service for ClickHouse API, REST: User.Create
 
 Creates a ClickHouse user in the specified cluster.

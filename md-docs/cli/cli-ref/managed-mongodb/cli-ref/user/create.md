@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-mongodb](../index.md) > [user](index.md) > create
+
 # yc managed-mongodb user create
 
 Create a MongoDB user.

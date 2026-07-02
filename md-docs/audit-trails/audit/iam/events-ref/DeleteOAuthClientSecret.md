@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > DeleteOAuthClientSecret
+
 # Identity and Access Management Audit Trails Events: DeleteOAuthClientSecret
 
 ## Event JSON schema {#yandex.cloud.audit.iam.oauthclient.DeleteOAuthClientSecret2-schema}

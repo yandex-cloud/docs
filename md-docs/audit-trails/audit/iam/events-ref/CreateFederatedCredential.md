@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > CreateFederatedCredential
+
 # Identity and Access Management Audit Trails Events: CreateFederatedCredential
 
 ## Event JSON schema {#yandex.cloud.audit.iam.workload.CreateFederatedCredential2-schema}

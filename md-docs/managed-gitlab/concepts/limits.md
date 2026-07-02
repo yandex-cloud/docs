@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Managed Service for GitLab
 
 В сервисе Managed Service for GitLab действуют следующие ограничения:

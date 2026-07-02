@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datatransfer > PauseTransfer
+
 # Data Transfer Audit Trails Events: PauseTransfer
 
 ## Event JSON schema {#yandex.cloud.audit.datatransfer.PauseTransfer2-schema}

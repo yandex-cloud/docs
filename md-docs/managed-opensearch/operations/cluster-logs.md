@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > [Пошаговые инструкции](index.md) > Логи и мониторинг > Просмотр логов кластера
+
 # Просмотр логов кластера OpenSearch
 
 Managed Service for OpenSearch позволяет [получить фрагмент логов кластера](#list-logs) за выбранный период и [просматривать логи в реальном времени](#stream-logs).

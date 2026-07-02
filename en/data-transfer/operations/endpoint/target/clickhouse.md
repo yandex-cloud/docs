@@ -103,7 +103,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
     * Endpoint type: `clickhouse_target`.
 
-    {% include [Managed ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse-target.md) %}
+    {% include [Managed ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse-target.md) %}
 
     Here is an example of the configuration file structure:
 
@@ -161,7 +161,7 @@ Connection to the database with explicitly specified network addresses and ports
 
     * Endpoint type: `clickhouse_target`.
 
-    {% include [On premise ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse-target.md) %}
+    {% include [On premise ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse-target.md) %}
 
     Here is an example of the configuration file structure:
 

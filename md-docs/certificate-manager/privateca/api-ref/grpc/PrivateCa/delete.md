@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Certificate Manager](../../../../index.md) > Справочник API > gRPC (англ.) > [Certificate Manager Private CA API](../index.md) > [PrivateCa](index.md) > Delete
+
 # Certificate Manager Private CA API, gRPC: PrivateCaService.Delete
 
 Deletes an existing Certificate Authority (CA).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Functions](../../../../index.md) > Справочник API Functions > [gRPC (англ.)](../index.md) > Operation > Overview
+
 # Cloud Functions Service, gRPC: OperationService
 
 A set of methods for managing operations for asynchronous API requests.

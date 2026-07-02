@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > Move
+
 # Managed Service for MongoDB API, REST: Cluster.Move
 
 Moves the specified MongoDB cluster to the specified folder.

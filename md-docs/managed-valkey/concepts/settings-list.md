@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Valkey™](../index.md) > [Концепции](index.md) > Настройки Valkey™
+
 # Настройки Valkey™
 
 Для кластера Yandex Managed Service for Valkey™ можно задать настройки, которые относятся к Valkey™.

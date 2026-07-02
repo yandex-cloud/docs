@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Network Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [TargetGroup](index.md) > RemoveTargets
+
 # Network Load Balancer API, gRPC: TargetGroupService.RemoveTargets
 
 Removes targets from the target group.

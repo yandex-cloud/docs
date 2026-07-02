@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [iam](../index.md) > [api-key](index.md) > list-scopes
+
 # yc iam api-key list-scopes
 
 List of scopes

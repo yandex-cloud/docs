@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Security Deck](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Инструкции по работе с Yandex Security Deck
 
 ## Окружения Security Deck {#workspaces}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-airflow](../index.md) > [cluster](index.md) > list-operations
+
 # yc managed-airflow cluster list-operations
 
 List operations for the specified Airflow cluster

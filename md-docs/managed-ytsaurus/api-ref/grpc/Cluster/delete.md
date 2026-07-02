@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YTsaurus](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Delete
+
 # Ytsaurus API, gRPC: ClusterService.Delete
 
 Deletes the specified cluster.

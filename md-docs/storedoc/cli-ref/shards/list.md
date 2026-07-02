@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > [shards](index.md) > list
+
 # yc managed-mongodb shards list
 
 List shards for a MongoDB cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > CreateUserSshKey
+
 # Identity Hub Audit Trails Events: CreateUserSshKey
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.CreateUserSshKey2-schema}

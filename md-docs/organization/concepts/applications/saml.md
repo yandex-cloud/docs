@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Концепции > [Приложения (SSO)](index.md) > SAML-приложения
+
 # SAML-приложения
 
 

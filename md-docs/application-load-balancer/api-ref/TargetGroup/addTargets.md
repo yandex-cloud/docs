@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [TargetGroup](index.md) > AddTargets
+
 # Application Load Balancer API, REST: TargetGroup.AddTargets
 
 Adds targets to the specified target group.

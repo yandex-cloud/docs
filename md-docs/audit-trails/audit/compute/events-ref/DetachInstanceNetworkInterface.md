@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > DetachInstanceNetworkInterface
+
 # Compute Audit Trails Events: DetachInstanceNetworkInterface
 
 ## Event JSON schema {#yandex.cloud.audit.compute.DetachInstanceNetworkInterface2-schema}

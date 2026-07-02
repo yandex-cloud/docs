@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > Расширения > pgcrypto
+
 # Использование pgcrypto в Yandex MPP Analytics for PostgreSQL
 
 Расширение [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) предоставляет криптографические функции, которые позволяют администраторам баз данных хранить определенные столбцы данных в зашифрованном виде.

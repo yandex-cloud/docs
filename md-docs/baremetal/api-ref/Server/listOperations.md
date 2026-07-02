@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [Server](index.md) > ListOperations
+
 # BareMetal API, REST: Server.ListOperations
 
 Lists operations for the specified server.

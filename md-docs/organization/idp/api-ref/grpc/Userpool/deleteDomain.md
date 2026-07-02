@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [Identity Provider API](../index.md) > [Userpool](index.md) > DeleteDomain
+
 # Identity Provider API, gRPC: UserpoolService.DeleteDomain
 
 Deletes the specified domain from a userpool.

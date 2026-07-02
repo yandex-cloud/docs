@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [instance](index.md) > get-serial-port-output
+
 # yc compute instance get-serial-port-output
 
 Return the serial port output of the specified virtual machine instance

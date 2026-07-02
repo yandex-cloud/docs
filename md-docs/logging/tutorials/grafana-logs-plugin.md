@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Logging](../index.md) > [Практические руководства](index.md) > Визуализация логов в Grafana с помощью плагина Yandex Cloud Logging
+
 # Визуализация логов в Grafana с помощью плагина Cloud Logging
 
 # Визуализация логов в Grafana с помощью плагина Yandex Cloud Logging

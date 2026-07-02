@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [PrivateCloudConnection](index.md) > Update
+
 # BareMetal API, gRPC: PrivateCloudConnectionService.Update
 
 Updates the routing_instance_id in a private cloud connection.

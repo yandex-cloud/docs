@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > [REST (англ.)](../index.md) > Device > Overview
+
 # IoT Core Service, REST: Device
 
 A set of methods for managing devices.

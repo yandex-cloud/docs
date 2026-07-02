@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > video > DeleteStreamLine
+
 # Cloud Video Audit Trails Events: DeleteStreamLine
 
 ## Event JSON schema {#yandex.cloud.audit.video.DeleteStreamLine2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Repository](index.md) > Upsert
+
 # Container Registry API, REST: Repository.Upsert
 
 Upserts a repository in the specified registry.

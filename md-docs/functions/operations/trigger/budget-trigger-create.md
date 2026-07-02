@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Пошаговые инструкции](../index.md) > Создание триггера > Создать триггер для бюджетов
+
 # Создать триггер для бюджетов, который вызывает функцию Cloud Functions
 
 Создайте [триггер для бюджетов](../../concepts/trigger/budget-trigger.md), который будет вызывать [функцию](../../concepts/function.md) Cloud Functions при превышении пороговых значений.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Organization > Overview
+
 # Identity Hub API, gRPC: OrganizationService
 
 A set of methods for managing Organization resources.

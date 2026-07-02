@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex SmartCaptcha](index.md) > История изменений
+
 # История изменений в Yandex SmartCaptcha
 
 <!-- Changelog begin -->

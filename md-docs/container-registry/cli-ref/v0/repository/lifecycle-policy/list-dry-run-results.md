@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Container Registry](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [repository](../index.md) > [lifecycle-policy](index.md) > list-dry-run-results
+
 # yc container v0 repository lifecycle-policy list-dry-run-results
 
 Dry run results for a lifecycle policy.

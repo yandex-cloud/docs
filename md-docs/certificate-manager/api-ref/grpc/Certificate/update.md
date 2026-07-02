@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Certificate](index.md) > Update
+
 # Certificate Manager API, gRPC: CertificateService.Update
 
 Updates the specified certificate.

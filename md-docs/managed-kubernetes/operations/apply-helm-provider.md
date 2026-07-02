@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Пошаговые инструкции](index.md) > Установка приложений из Yandex Cloud Marketplace с помощью Terraform
+
 # Установка приложений из Yandex Cloud Marketplace с помощью Terraform
 
 [Terraform-провайдер Helm](https://github.com/hashicorp/terraform-provider-helm) позволяет устанавливать в кластер Yandex Managed Service for Kubernetes приложения из [Cloud Marketplace](https://yandex.cloud/ru/marketplace) и любые другие helm-чарты с помощью манифестов Terraform.

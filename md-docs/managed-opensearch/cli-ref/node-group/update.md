@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for OpenSearch](../../index.md) > [Справочник CLI (англ.)](../index.md) > [node-group](index.md) > update
+
 # yc managed-opensearch node-group update
 
 Update a node group configuration in a managed OpenSearch cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > REST (англ.) > [Certificate Manager Private CA API](../index.md) > [PrivateCa](index.md) > Delete
+
 # Certificate Manager Private CA API, REST: PrivateCa.Delete
 
 Deletes an existing Certificate Authority (CA).

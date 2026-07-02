@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Пошаговые инструкции](../index.md) > Создание триггера > Создать триггер для Object Storage
+
 # Создать триггер для Object Storage, который вызывает функцию Cloud Functions
 
 Создайте [триггер для Object Storage](../../concepts/trigger/os-trigger.md), который будет вызывать [функцию](../../concepts/function.md) Cloud Functions при создании, перемещении или удалении [объекта](../../../storage/concepts/object.md) в бакете.

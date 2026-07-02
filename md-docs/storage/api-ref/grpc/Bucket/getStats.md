@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [Yandex Cloud gRPC (англ.)](../index.md) > [Bucket](index.md) > GetStats
+
 # Object Storage API, gRPC: BucketService.GetStats
 
 Returns the statistics for the specified bucket.

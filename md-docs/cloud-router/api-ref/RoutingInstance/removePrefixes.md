@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [RoutingInstance](index.md) > RemovePrefixes
+
 # Cloud Router API, REST: RoutingInstance.RemovePrefixes
 
 Removes specified prefixes from a RoutingInstance resource.

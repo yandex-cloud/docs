@@ -1,23 +1,23 @@
 # get-query-results
 
-The method returns query results. If a query contains multiple `SELECT` statements, there will be multiple query results. In this case, you need to get the results by their index.
+This method returns query results. A query containing multiple `SELECT` statements returns multiple query results. If this is the case, you can access results by their index.
 
 {% include [!](../../_includes/api-common.md) %}
 
 ## Request {#request}
 
-`GET` request to `/queries/{query_id}/results/{<query_result_number_starting_from_0>}?project={folder_id}`, where `{folder_id}` is a folder ID and `{query_id}` is the query ID.
+`GET` request to `/queries/{query_id}/results/{<query_result_number_starting_from_0>}?project={folder_id}`, where `{folder_id}` is the folder ID and `{query_id}` is the query ID.
 
-Parameters are provided in URLs as query parameters.
+SQL query arguments are provided in the URL as query string variables.
 
-| Parameter | Description | Default value | Limitations |
+| Argument | Description | Default value | Limitations |
 | ----- | ----- | ----- | ----- |
-| `offset` | Number of the result array string to get query results from | 0 | Cannot be negative |
-| `limit` | Number of result rows | 100 | The value must be from 1 to 1,000. |
+| `offset` | The number of rows to skip before starting to return rows from the query result set | 0 | Cannot be negative |
+| `limit` | Number of result rows | 100 | This value must be between 1 and 1,000 |
 
 ## Response {#response}
 
-If successful, an HTTP response with code 200 and query execution results is returned.
+If successful, the response returns an HTTP 200 status code and query results.
 
 ```json
 {
@@ -46,12 +46,12 @@ If successful, an HTTP response with code 200 and query execution results is ret
 
 | Field | Description |
 | ----- | ----- |
-| `columns` | Array of returned value columns |
+| `columns` | Result column array |
 | `columns[].name` | Column name |
 | `columns[].type` | Column data type |
-| `rows` | Array of result rows with the returned value. The number of array elements in each row is the same as the number of columns from the `columns` parameter. |
+| `rows` | Result row array Each row array’s element count matches the number of columns in the `columns` field |
 
-The rules for converting YQL data types to JSON-compatible data types are described in the [Correspondence of YQL and JSON types](../yql-json-conversion-rules.md) section.
+Conversion rules from YQL data types to JSON-compatible data types are described in the [YQL to JSON type mapping](../yql-json-conversion-rules.md) section.
 
 ## Example {#example}
 

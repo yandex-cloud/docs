@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Безопасность](index.md) > Управление ключами KMS с HashiCorp Terraform
+
 # Управление ключами Yandex Key Management Service с HashiCorp Terraform
 
 [Terraform-провайдер](../../terraform/index.md) для Yandex Cloud поддерживает работу с ключами Yandex Key Management Service.

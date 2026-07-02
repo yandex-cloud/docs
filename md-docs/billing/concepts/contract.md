@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Billing](../index.md) > [Концепции](index.md) > Договор
+
 # Договор
 
 В Yandex Cloud все услуги предоставляются по договору. Заключение договора осуществляется путем принятия [оферты](https://yandex.ru/legal/cloud_oferta/?lang=ru) при создании [платежного аккаунта](billing-account.md) или напрямую с двусторонним подписанием.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-clickhouse](../index.md) > [cluster](index.md) > update-external-dictionary
+
 # yc managed-clickhouse cluster update-external-dictionary
 
 Update an external dictionary in a ClickHouse cluster.

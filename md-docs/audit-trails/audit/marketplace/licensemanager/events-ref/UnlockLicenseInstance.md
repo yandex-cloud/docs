@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > marketplace.licensemanager > UnlockLicenseInstance
+
 # Yandex Cloud Marketplace Audit Trails Events: UnlockLicenseInstance
 
 ## Event JSON schema {#yandex.cloud.audit.marketplace.licensemanager.UnlockLicenseInstance2-schema}

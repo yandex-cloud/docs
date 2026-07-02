@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [PrivateCloudConnection](index.md) > Delete
+
 # BareMetal API, gRPC: PrivateCloudConnectionService.Delete
 
 Removes a private cloud connection and all allocated network resouces

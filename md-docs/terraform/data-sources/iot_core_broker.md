@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > IoT Core Broker > Data Sources > iot_core_broker
+
 # yandex_iot_core_broker (DataSource)
 
 Get information about a Yandex IoT Core Broker. For more information IoT Core, see [Yandex Cloud IoT Broker](../../iot-core/quickstart.md).

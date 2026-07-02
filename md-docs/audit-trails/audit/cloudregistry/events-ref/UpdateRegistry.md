@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > cloudregistry > UpdateRegistry
+
 # Yandex Cloud Registry Audit Trails Events: UpdateRegistry
 
 ## Event JSON schema {#yandex.cloud.audit.cloudregistry.UpdateRegistry2-schema}

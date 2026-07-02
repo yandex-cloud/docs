@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > Вопросы и ответы > Общие вопросы
+
 # Общие вопросы про Managed Service for Sharded PostgreSQL
 
 * [Что такое Managed Service for Sharded PostgreSQL?](#what-is-mspqr)

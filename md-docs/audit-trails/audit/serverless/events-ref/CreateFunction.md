@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > serverless > CreateFunction
+
 # Cloud Functions Audit Trails Events: CreateFunction
 
 ## Event JSON schema {#yandex.cloud.audit.serverless.functions.CreateFunction2-schema}

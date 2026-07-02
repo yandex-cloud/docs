@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [baremetal](../index.md) > rental-period > Overview
+
 # yc baremetal rental-period
 
 A set of methods to retrieve information about RentalPeriod resources.

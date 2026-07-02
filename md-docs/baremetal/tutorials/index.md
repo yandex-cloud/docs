@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства BareMetal
 
 * [Подключение сервера BareMetal к Yandex Cloud Backup](backup-baremetal.md)

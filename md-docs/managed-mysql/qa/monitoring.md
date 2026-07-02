@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for MySQL®](../index.md) > Вопросы и ответы > Мониторинг и логи
+
 # Мониторинг и логи в Managed Service for MySQL®
 
 * [Как посмотреть графики кластера и хостов?](#charts)

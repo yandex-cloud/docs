@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Контейнерная инфраструктура](index.md) > Managed Service for Kubernetes > Работа с DNS > Проверка DNS Challenge для сертификатов Let's Encrypt®
+
 # Проверка DNS Challenge для сертификатов Let's Encrypt® в Yandex Managed Service for Kubernetes
 
 # Проверка DNS Challenge для сертификатов Let's Encrypt®

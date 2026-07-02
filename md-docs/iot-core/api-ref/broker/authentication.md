@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Broker > Аутентификация в API
+
 # Аутентификация в Broker API Yandex IoT Core
 
 {% note warning %}

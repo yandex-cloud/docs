@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Integrations](../index.md) > [Практические руководства](index.md) > Разработка Telegram-бота с поддержкой AI-агента
+
 # Как создать бота в Telegram с поддержкой AI-агента с помощью Workflows
 
 # Как создать бота в Telegram с поддержкой AI-агента с помощью Yandex Workflows

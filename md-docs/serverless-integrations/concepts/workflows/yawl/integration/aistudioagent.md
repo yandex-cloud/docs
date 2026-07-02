@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > [Концепции](../../../index.md) > Workflows > [Спецификация YaWL](../index.md) > Интеграционные шаги > AIStudioAgent
+
 # AIStudioAgent
 
 Взаимодействие с [агентами AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/index).

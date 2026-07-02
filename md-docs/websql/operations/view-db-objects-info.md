@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex WebSQL](../index.md) > [Пошаговые инструкции](index.md) > Управление подключениями > Просмотр информации об объектах в базе данных
+
 # Просмотр информации об объектах в базе данных
 
 В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**](https://websql.yandex.cloud) сервиса [Yandex WebSQL](https://websql.yandex.cloud) доступна информация об объектах в БД. Вы можете просмотреть информацию:

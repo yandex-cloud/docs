@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > REST (англ.) > [Virtual Private Cloud API](../index.md) > [PrivateEndpoint](index.md) > Delete
+
 # Virtual Private Cloud API, REST: PrivateEndpoint.Delete
 
 Deletes the specified private endpoint.

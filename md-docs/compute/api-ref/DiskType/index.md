@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > DiskType > Overview
+
 # Compute Cloud API, REST: DiskType
 
 A set of methods to retrieve information about disk types.

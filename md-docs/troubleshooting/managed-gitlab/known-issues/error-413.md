@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for GitLab](../index.md) > Устранение ошибки 413 при выполнении операции `git push`
+
 # Устранение ошибки 413 при выполнении операции `git push`
 
 

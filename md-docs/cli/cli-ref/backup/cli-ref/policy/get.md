@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [backup](../index.md) > [policy](index.md) > get
+
 # yc backup policy get
 
 Show policy by id

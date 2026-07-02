@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Streams](../../index.md) > [Пошаговые инструкции](../index.md) > Работа с AWS CLI > Чтение данных из потока
+
 # Чтение данных из потока в AWS CLI
 
 {% list tabs group=instructions %}

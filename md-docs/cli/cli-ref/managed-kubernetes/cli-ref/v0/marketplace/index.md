@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-kubernetes](../../index.md) > [v0](../index.md) > marketplace > Overview
+
 # yc managed-kubernetes v0 marketplace
 
 Manage Marketplace products.

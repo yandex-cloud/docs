@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [Identity Provider API](../index.md) > [Userpool](index.md) > UpdateAccessBindings
+
 # Identity Provider API, REST: Userpool.UpdateAccessBindings
 
 Updates access bindings for the specified userpool.

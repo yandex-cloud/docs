@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Cloud Notification Service
+
 # Метрики Yandex Cloud Notification Service
 
 В этом разделе описаны метрики сервиса [Cloud Notification Service](../../notifications/index.md), поставляемые в Monitoring.

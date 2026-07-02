@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Пошаговые инструкции](index.md) > Базы данных > Управление базами данных
+
 # Управление базами данных в Managed Service for ClickHouse®
 
 Managed Service for ClickHouse® позволяет управлять базами данных кластера двумя способами:

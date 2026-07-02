@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [LifecyclePolicy](index.md) > List
+
 # Yandex Cloud Registry API, REST: LifecyclePolicy.List
 
 Retrieves the list of lifecycle policies in the specified registry.

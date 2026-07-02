@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [lockbox](../../index.md) > [v0](../index.md) > [secret](index.md) > deactivate
+
 # yc lockbox v0 secret deactivate
 
 Deactivate the specified secret

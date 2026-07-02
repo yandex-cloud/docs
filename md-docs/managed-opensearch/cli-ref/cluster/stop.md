@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for OpenSearch](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > stop
+
 # yc managed-opensearch cluster stop
 
 Stop a managed OpenSearch cluster.

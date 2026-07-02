@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud CDN](../index.md) > [Концепции](index.md) > Перенаправление запросов
+
 # Перенаправление запросов
 
 Вы можете [настроить перенаправление](../operations/resources/setup-http-rewrite.md) запросов от [CDN-ресурса](resource.md) к источнику, изменив [URI](https://ru.wikipedia.org/wiki/URI) запроса с помощью [правила](#rewrite-rule) `Rewrite`.

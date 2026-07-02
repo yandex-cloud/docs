@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Certificate Manager
+
 # Метрики Yandex Certificate Manager
 
 В этом разделе описаны метрики сервиса [Certificate Manager](../../certificate-manager/index.md), поставляемые в Monium Metrics.

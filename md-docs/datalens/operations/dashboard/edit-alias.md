@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Дашборды > Пошаговые инструкции > Настройки связей > Удаление алиаса
+
 # Удаление алиаса в Yandex DataLens
 
 Чтобы удалить [алиас](../../dashboard/link.md#alias):

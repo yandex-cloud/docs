@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > [Концепции](index.md) > Плагины OpenSearch
+
 # Плагины OpenSearch
 
 Managed Service for OpenSearch содержит ряд [предустановленных плагинов](https://opensearch.org/docs/latest/install-and-configure/plugins/#bundled-plugins). Также при создании или изменении кластера в Managed Service for OpenSearch вы можете указать желаемый список [дополнительных плагинов](#opensearch), и они будут автоматически установлены в кластер.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Logging](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LogGroup](index.md) > Stats
+
 # Cloud Logging Service, gRPC: LogGroupService.Stats
 
 Returns stats for the specified log group.

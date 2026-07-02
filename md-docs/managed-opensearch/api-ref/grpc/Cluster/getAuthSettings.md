@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for OpenSearch](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > GetAuthSettings
+
 # Managed Service for OpenSearch API, gRPC: ClusterService.GetAuthSettings
 
 Retrieves auth settings for specified cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Subquery source is disallowed in the connection settings
+
 # [Yandex DataLens] Subquery source is disallowed in the connection settings
 
 `ERR.DS_API.CONNECTION_CONFIG.SUBSELECT_NOT_ALLOWED`

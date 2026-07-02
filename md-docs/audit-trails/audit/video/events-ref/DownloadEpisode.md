@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > video > DownloadEpisode
+
 # Cloud Video Audit Trails Events: DownloadEpisode
 
 ## Event JSON schema {#yandex.cloud.audit.video.DownloadEpisode2-schema}

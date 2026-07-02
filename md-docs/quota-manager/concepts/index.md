@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Quota Manager](../index.md) > Концепции
+
 # Концепции Cloud Quota Manager
 
 {% note info %}

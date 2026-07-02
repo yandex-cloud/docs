@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [application-load-balancer](../index.md) > [virtual-host](index.md) > update
+
 # yc application-load-balancer virtual-host update
 
 Update the specified virtual host

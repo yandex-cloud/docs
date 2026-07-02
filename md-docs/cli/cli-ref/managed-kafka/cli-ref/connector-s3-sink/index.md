@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-kafka](../index.md) > connector-s3-sink > Overview
+
 # yc managed-kafka connector-s3-sink
 
 Manage Kafka S3-Sink connector.

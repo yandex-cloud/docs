@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [User](index.md) > GrantPermission
+
 # Managed Service for ClickHouse API, gRPC: UserService.GrantPermission
 
 Grants a permission to the specified ClickHouse user.

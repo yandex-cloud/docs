@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Managed Service for Apache Kafka®
 
 ## Кластеры {#clusters}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-sharded-postgresql](../index.md) > [cluster](index.md) > delete
+
 # yc managed-sharded-postgresql cluster delete
 
 Delete the specified Sharded PostgreSQL cluster

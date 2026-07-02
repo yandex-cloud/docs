@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > [Rule](index.md) > ListAccessBindings
+
 # EventRouter Service, REST: Rule.ListAccessBindings
 
 Lists existing access bindings for the specified rule.

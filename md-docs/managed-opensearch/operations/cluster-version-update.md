@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Изменение параметров > Обновление версии OpenSearch
+
 # Обновление версии OpenSearch
 
 Вы можете обновить кластер Managed Service for OpenSearch до более новой версии OpenSearch.

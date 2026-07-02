@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > Разработка на .NET Core > Обзор
+
 # Разработка на .NET Core. Обзор
 
 С помощью сервиса Cloud Functions вы можете запускать приложения, написанные на [C#](https://docs.microsoft.com/ru-ru/dotnet/csharp/), для платформы [.NET Core](https://docs.microsoft.com/ru-ru/dotnet/core/about).

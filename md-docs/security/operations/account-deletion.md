@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Безопасность в Yandex Cloud](../index.md) > Инструкции > Удаление аккаунта на Яндексе из Yandex Identity Hub
+
 # Удаление аккаунта на Яндексе из организации
 
 Данная инструкция описывает, как удалить привилегированный [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport) с ролью `organization-manager.organizations.owner` из [организации](../../organization/index.md).

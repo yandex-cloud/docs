@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Практические руководства](index.md) > Настройка логирования для L7-балансировщика Application Load Balancer с помощью Ingress-контроллера
+
 # Настройка логирования для L7-балансировщика Yandex Application Load Balancer с помощью Ingress-контроллера
 
 Вы можете задать настройки логирования для [L7-балансировщиков](../concepts/application-load-balancer.md), созданных с помощью [Ingress-контроллеров](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) Application Load Balancer в кластере Managed Service for Kubernetes.
@@ -31,7 +33,7 @@
 * Плата за DNS-зону и DNS-запросы ([тарифы Cloud DNS](../../dns/pricing.md)).
 * Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
 * Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за использование вычислительных ресурсов каждого L7-балансировщика ([тарифы Application Load Balancer](../../application-load-balancer/pricing.md)).
+* Плата за использование вычислительных ресурсов каждого L7-балансировщика ([тарифы Application Load Balancer](../pricing.md)).
 * Плата за публичные IP-адреса для узлов кластера и L7-балансировщиков ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 * Плата за сервис Cloud Logging: запись и хранение данных ([тарифы Cloud Logging](../../logging/pricing.md)).
 

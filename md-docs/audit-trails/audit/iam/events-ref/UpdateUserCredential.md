@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > UpdateUserCredential
+
 # Identity and Access Management Audit Trails Events: UpdateUserCredential
 
 ## Event JSON schema {#yandex.cloud.audit.iam.mfa.UpdateUserCredential2-schema}

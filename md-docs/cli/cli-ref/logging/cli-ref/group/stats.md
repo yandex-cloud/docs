@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [logging](../index.md) > [group](index.md) > stats
+
 # yc logging group stats
 
 Show consumed resources for log group(s)

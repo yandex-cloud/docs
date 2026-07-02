@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ReservedInstancePool](index.md) > List
+
 # Compute Cloud API, REST: ReservedInstancePool.List
 
 Retrieves the list of reserved instance pool resources in the specified folder.

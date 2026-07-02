@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [backup-retention-policy](index.md) > list-by-folder
+
 # yc managed-mysql backup-retention-policy list-by-folder
 
 List backup retention policies for all clusters in the specified folder

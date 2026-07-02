@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [ydb](../../index.md) > [v0](../index.md) > [storage-type](index.md) > list
+
 # yc ydb v0 storage-type list
 
 List YDB storage types.

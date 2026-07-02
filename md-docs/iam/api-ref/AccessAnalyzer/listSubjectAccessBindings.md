@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [AccessAnalyzer](index.md) > ListSubjectAccessBindings
+
 # Identity and Access Management API, REST: AccessAnalyzer.ListSubjectAccessBindings
 
 Returns the list of access bindings for the specified subject in chosen organization.

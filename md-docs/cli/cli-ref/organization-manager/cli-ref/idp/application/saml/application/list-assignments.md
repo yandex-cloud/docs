@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../../index.md) > [organization-manager](../../../../index.md) > [idp](../../../index.md) > [application](../../index.md) > [saml](../index.md) > [application](index.md) > list-assignments
+
 # yc organization-manager idp application saml application list-assignments
 
 List user assignments for the specified SAML application

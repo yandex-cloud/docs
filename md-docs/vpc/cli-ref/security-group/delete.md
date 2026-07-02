@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [security-group](index.md) > delete
+
 # yc vpc security-group delete
 
 Delete a security group.

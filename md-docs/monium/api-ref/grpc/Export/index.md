@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Monium](../../../index.md) > Справочник API > Логи > [gRPC (англ.)](../index.md) > Export > Overview
+
 # Cloud Logging Service, gRPC: ExportService
 
 A set of methods for managing log exports.

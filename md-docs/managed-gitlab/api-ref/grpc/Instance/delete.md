@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for GitLab](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Instance](index.md) > Delete
+
 # Managed Service for Gitlab API, gRPC: InstanceService.Delete
 
 Deletes the specified GitLab instance.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > [Концепции](index.md) > Термины и определения
+
 # Термины и определения Query
 
 ## Соединение {#connection}

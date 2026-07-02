@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Quota Manager](index.md) > Справочник квот
+
 # Квоты для сервисов Yandex Cloud
 
 Сервис Cloud Quota Manager позволяет управлять квотами ваших сервисов Yandex Cloud с помощью различных интерфейсов. 

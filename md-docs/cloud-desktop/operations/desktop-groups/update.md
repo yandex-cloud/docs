@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > [Пошаговые инструкции](../index.md) > Группы рабочих столов > Изменить группу рабочих столов
+
 # Изменить группу рабочих столов
 
 Изменение [образа](../../concepts/images.md), размера [рабочего диска](../../concepts/disks.md#working-disk), vCPU, доли vCPU и RAM в параметрах [группы](../../concepts/desktops-and-groups.md) приводит к пересозданию [рабочих столов](../../concepts/desktops-and-groups.md).

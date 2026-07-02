@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [workflow](../index.md) > [execution](index.md) > get-history
+
 # yc serverless workflow execution get-history
 
 Get Execution history

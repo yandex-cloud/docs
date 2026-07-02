@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Lockbox](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Secret > Overview
+
 # Lockbox API, gRPC: SecretService
 
 A set of methods for managing secrets.

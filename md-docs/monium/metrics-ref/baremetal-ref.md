@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > BareMetal
+
 # Метрики Yandex BareMetal
 
 В этом разделе описаны метрики сервиса [BareMetal](../../baremetal/index.md), поставляемые в Monium Metrics.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-kafka](../index.md) > [cluster](index.md) > list-hosts
+
 # yc managed-kafka cluster list-hosts
 
 List hosts for a cluster.

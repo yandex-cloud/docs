@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > Метрики > [Практические руководства](index.md) > Поиск проблем с производительностью кластера Managed Service for PostgreSQL
+
 # Поиск проблем с производительностью кластера Managed Service for PostgreSQL
 
 # Поиск проблем с производительностью кластера Managed Service for PostgreSQL

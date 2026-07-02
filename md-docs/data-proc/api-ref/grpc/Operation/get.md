@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Processing](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Yandex Data Processing API, gRPC: OperationService.Get
 
 Returns the specified Operation resource.

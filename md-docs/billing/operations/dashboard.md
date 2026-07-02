@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Billing](../index.md) > [Пошаговые инструкции](index.md) > Анализ использования сервисов Yandex Cloud > Детализация расходов > Посмотреть детализацию в Yandex DataLens
+
 # Посмотреть детализацию использования сервисов в Yandex DataLens
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Начало работы](overview.md) > Начало работы с AWS CLI
+
 # Как начать работать с AWS CLI в Yandex Object Storage
 
 [AWS CLI](../tools/aws-cli.md) является одним из самых популярных инструментов для работы с Object Storage. В этом разделе вы научитесь работать с сервисом с помощью этого инструмента. Инструкцию о работе в консоли управления читайте в документе [Как начать работать с Yandex Object Storage](../quickstart.md).

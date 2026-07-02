@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [application-load-balancer](../index.md) > [backend-group](index.md) > update-stream-backend
+
 # yc application-load-balancer backend-group update-stream-backend
 
 Update Stream backend to the backend group

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > ai.batch_inference > StartBatchInference
+
 # AI Studio Batch Inference Audit Trails Events: StartBatchInference
 
 ## Event JSON schema {#yandex.cloud.audit.ai.batch_inference.StartBatchInference2-schema}

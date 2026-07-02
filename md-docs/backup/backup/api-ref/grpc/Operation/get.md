@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Backup](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Cloud Backup API, gRPC: OperationService.Get
 
 Returns the specified Operation resource.

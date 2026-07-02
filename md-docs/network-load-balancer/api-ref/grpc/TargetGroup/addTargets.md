@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Network Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [TargetGroup](index.md) > AddTargets
+
 # Network Load Balancer API, gRPC: TargetGroupService.AddTargets
 
 Adds targets to the target group.

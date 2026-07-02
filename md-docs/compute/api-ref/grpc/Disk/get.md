@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Disk](index.md) > Get
+
 # Compute Cloud API, gRPC: DiskService.Get
 
 Returns the specified Disk resource.

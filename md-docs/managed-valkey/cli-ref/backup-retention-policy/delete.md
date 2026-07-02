@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > [Справочник CLI (англ.)](../index.md) > [backup-retention-policy](index.md) > delete
+
 # yc managed-redis backup-retention-policy delete
 
 Delete specific backup retention policy

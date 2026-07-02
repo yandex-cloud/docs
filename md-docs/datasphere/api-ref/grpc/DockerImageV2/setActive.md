@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex DataSphere](../../../index.md) > [Справочник API](../../overview.md) > [gRPC (англ.)](../index.md) > [DockerImageV2](index.md) > SetActive
+
 # DataSphere API v2, gRPC: DockerImageV2Service.SetActive
 
 Activates available docker image v2 in project

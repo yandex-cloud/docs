@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Key Management Service](../index.md) > [Концепции](index.md) > Шифрование по схеме envelope encryption
+
 # Шифрование по схеме envelope encryption
 
 У шифрования методом [encrypt](../api-ref/SymmetricCrypto/encrypt.md) есть ограничение на максимальный размер данных для шифрования (32 КБ). Рост объема данных вызывает ряд проблем:

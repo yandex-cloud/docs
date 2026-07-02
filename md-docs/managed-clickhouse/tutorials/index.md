@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Managed Service for ClickHouse®
 
 * [Добавление данных в БД](insert.md)

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > Бэкенд на Serverless > Разработка функций в Functions Framework и их развертывание в Yandex Serverless Containers
+
 # Разработка функций в Functions Framework и их развертывание в Yandex Serverless Containers
 
 

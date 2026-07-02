@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [organization-manager](../../index.md) > [v0](../index.md) > [organization](index.md) > unbind-access-policy
+
 # yc organization-manager v0 organization unbind-access-policy
 
 Unbind access policy from the specified organization

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Certificate](index.md) > RequestNew
+
 # Certificate Manager API, gRPC: CertificateService.RequestNew
 
 Request a certificate in the specified folder.

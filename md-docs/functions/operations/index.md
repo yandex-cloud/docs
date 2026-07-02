@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Functions](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Cloud Functions
 
 * [Получение IAM-токена сервисного аккаунта с помощью функции](function-sa.md)

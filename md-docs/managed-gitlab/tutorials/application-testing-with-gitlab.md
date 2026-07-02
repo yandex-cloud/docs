@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > [Практические руководства](index.md) > Тестирование приложений с помощью GitLab
+
 # Тестирование приложений с помощью GitLab
 
 # Тестирование приложений с помощью GitLab

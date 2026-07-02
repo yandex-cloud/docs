@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > [REST (англ.)](../index.md) > [RegistryData](index.md) > Publish
+
 # IoT Core Service, REST: RegistryData.Publish
 
 Publishes message on behalf of specified registry

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > [Справочник CLI (англ.)](../index.md) > [sink](index.md) > add-access-binding
+
 # yc logging sink add-access-binding
 
 Add access binding for the specified sink

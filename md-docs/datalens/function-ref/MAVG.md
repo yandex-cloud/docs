@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Вычисляемые поля > Справочник функций > Оконные функции > MAVG
+
 # MAVG (оконная)
 
 

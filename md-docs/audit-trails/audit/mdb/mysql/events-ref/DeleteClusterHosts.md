@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mysql > DeleteClusterHosts
+
 # Managed Service for MySQL Audit Trails Events: DeleteClusterHosts
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mysql.DeleteClusterHosts2-schema}

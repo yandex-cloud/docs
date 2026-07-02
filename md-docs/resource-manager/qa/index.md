@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Resource Manager](../index.md) > Вопросы и ответы
+
 # Общие вопросы про Resource Manager
 
 #### Почему у меня не получается перенести облако в другую организацию? {#transfer-issue}

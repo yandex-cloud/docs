@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Serverless Integrations](../../index.md) > [Концепции](../index.md) > Workflows > Рабочий процесс
+
 # Рабочий процесс
 
 _Рабочий процесс_ — событийно-ориентированное приложение, состоящее из [интеграционных](yawl/index.md#integration-steps) и [управляющих](yawl/index.md#management-steps) _шагов_ и переходов между ними. Возможные атрибуты шага:

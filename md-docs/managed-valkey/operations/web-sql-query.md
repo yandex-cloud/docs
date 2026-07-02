@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Valkey™](../index.md) > [Пошаговые инструкции](index.md) > Базы данных > Запросы в Yandex WebSQL
+
 # Запросы в Yandex WebSQL
 
 Вы можете отправлять запросы к базам данных в кластере Yandex Managed Service for Valkey™ с помощью сервиса [Yandex WebSQL](../../websql/index.md).

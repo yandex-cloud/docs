@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Практические руководства](index.md) > Дополнительные настройки и инструменты > Использование модулей Yandex Cloud в Terraform
+
 # Использование модулей Yandex Cloud в Terraform
 
 
@@ -29,7 +31,7 @@ Yandex Cloud предоставляет ![](../../_assets/overview/solution-libr
 В стоимость поддержки инфраструктуры, разворачиваемой через Terraform в этом руководстве, входят:
 * Плата за [высокодоступный мастер Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#master) ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
 * Плата за постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) в [группе узлов Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#node-group) ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за использование динамических [публичных IP-адресов](../concepts/address.md#public-addresses) ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за использование динамических [публичных IP-адресов](../concepts/address.md#public-addresses) ([тарифы Virtual Private Cloud](../pricing.md#prices-public-ip)).
 
 ## Установите Terraform {#install-terraform}
 

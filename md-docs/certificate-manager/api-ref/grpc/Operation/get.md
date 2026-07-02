@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Certificate Manager API, gRPC: OperationService.Get
 
 Returns the specified Operation resource.

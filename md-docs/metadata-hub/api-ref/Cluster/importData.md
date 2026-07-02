@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > ImportData
+
 # Managed Service for Hive Metastore™ API, REST: Cluster.ImportData
 
 Imports data to the specified Metastore Cluster.

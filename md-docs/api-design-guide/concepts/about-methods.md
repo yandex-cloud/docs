@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Концепции API Yandex Cloud](../index.md) > Методы API > Обзор
+
 # Методы в API
 
 Для управления ресурсами в [API Yandex Cloud](https://github.com/yandex-cloud/cloudapi) определен набор методов. Каждому [gRPC-вызову](../../glossary/grpc.md) ставится в соответствие HTTP-метод. Например, вызову `List` соответствует метод `GET`,  а вызову `Create` — метод `POST`. Соответствия HTTP-запросам задаются в описании методов, в аннотации [google.api.http](https://github.com/googleapis/googleapis/blob/master/google/api/http.proto).

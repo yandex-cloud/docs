@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > yq > DeleteConnection
+
 # Yandex Query Audit Trails Events: DeleteConnection
 
 ## Event JSON schema {#yandex.cloud.audit.yq.DeleteConnection2-schema}

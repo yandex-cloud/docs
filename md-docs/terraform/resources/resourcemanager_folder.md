@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Resource Manager > Resources > resourcemanager_folder
+
 # yandex_resourcemanager_folder (Resource)
 
 A Folder resource. For more information, see [Folder](../../resource-manager/concepts/resources-hierarchy.md#folder).

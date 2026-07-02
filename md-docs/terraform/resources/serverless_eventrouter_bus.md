@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Serverless Event Router > Resources > serverless_eventrouter_bus
+
 # yandex_serverless_eventrouter_bus (Resource)
 
 

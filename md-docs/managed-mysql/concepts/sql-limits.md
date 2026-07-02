@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for MySQL®](../index.md) > [Концепции](index.md) > Ограничения для команд SQL
+
 # Ограничения для команд SQL
 
 В сервисе Managed Service for MySQL® существуют ограничения на действия владельца БД с помощью команд SQL:

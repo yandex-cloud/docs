@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [security-group](index.md) > get
+
 # yc vpc security-group get
 
 Get information about a security group.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [pxf-datasource](../index.md) > [create](index.md) > jdbc
+
 # yc managed-greenplum pxf-datasource create jdbc
 
 Create jdbc pxf-datasource for specified Greenplum cluster

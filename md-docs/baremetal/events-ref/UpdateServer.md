@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > Концепции > Настройка и управление > Аудитные логи Audit Trails > Справочник аудитных логов > UpdateServer
+
 # BareMetal Audit Trails Events: UpdateServer
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.UpdateServer2-schema}

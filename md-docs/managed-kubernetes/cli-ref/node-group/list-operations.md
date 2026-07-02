@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Справочник CLI (англ.)](../index.md) > [node-group](index.md) > list-operations
+
 # yc managed-kubernetes node-group list-operations
 
 List operations for the specified node group.

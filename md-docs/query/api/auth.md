@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > Справочник > [HTTP API](index.md) > Аутентификация
+
 # Аутентификация в API Yandex Query
 
 # Аутентификация в API

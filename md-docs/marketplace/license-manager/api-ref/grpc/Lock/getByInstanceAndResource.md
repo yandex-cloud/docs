@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Marketplace](../../../../index.md) > Партнерам > Справочник License Manager API > [gRPC (англ.)](../index.md) > [Lock](index.md) > GetByInstanceAndResource
+
 # Yandex Cloud Marketplace License Manager, gRPC: LockService.GetByInstanceAndResource
 
 Returns the subscription lock for specified subscription instance and resource.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Cloud DNS
+
 # Метрики Yandex Cloud DNS
 
 В этом разделе описаны метрики сервиса [Cloud DNS](../../dns/index.md), поставляемые в Monitoring.

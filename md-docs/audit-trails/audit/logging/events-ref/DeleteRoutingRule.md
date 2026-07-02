@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > logging > DeleteRoutingRule
+
 # Cloud Logging Audit Trails Events: DeleteRoutingRule
 
 ## Event JSON schema {#yandex.cloud.audit.logging.DeleteRoutingRule2-schema}

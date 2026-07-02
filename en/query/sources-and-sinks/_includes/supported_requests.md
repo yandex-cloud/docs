@@ -1,1 +1,1 @@
-External sources are only available for data reading through `SELECT` requests. {{ yq-full-name }} does not currently support requests that modify tables in external sources.
+External sources are available for read-only access via `SELECT` queries. {{ yq-full-name }} does not currently support data-modifying queries against external sources.

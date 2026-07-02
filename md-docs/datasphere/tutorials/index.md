@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Yandex DataSphere
 
 ## Настройка {#settings}

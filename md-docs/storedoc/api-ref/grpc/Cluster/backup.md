@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Backup
+
 # Managed Service for MongoDB API, gRPC: ClusterService.Backup
 
 Creates a backup for the specified MongoDB cluster.

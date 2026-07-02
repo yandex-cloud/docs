@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Lockbox](../index.md) > [Пошаговые инструкции](index.md) > Настроить права доступа к секрету
+
 # Настроить права доступа к секрету
 
 {% list tabs group=instructions %}

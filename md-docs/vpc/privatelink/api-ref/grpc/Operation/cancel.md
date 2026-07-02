@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Virtual Private Cloud](../../../../index.md) > Справочник API > gRPC (англ.) > [Virtual Private Cloud API](../index.md) > [Operation](index.md) > Cancel
+
 # Virtual Private Cloud API, gRPC: OperationService.Cancel
 
 Cancels the specified operation.

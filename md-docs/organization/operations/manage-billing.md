@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > [Пошаговые инструкции](index.md) > Управлять тарификацией Yandex Identity Hub
+
 # Управлять тарификацией Yandex Identity Hub
 
 Подключение пользователей Yandex Identity Hub к внешним приложениям [тарифицируется](../pricing.md#rules). [Управлять тарификацией](../pricing.md#pricing-management) сервиса Yandex Identity Hub вы можете через [интерфейс Cloud Center](https://center.yandex.cloud/organization).
@@ -117,4 +119,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](../pricing.md)
+* [Правила тарификации в Yandex Identity Hub](../pricing.md)

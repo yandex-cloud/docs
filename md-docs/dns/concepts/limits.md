@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud DNS](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Cloud DNS
 
 В сервисе Cloud DNS действуют следующие ограничения:

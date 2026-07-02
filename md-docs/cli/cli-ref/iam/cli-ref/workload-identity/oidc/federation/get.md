@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [iam](../../../index.md) > [workload-identity](../../index.md) > [oidc](../index.md) > [federation](index.md) > get
+
 # yc iam workload-identity oidc federation get
 
 Show information about the specified workload identity federation

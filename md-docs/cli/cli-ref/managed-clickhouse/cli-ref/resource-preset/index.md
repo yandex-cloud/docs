@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-clickhouse](../index.md) > resource-preset > Overview
+
 # yc managed-clickhouse resource-preset
 
 Learn about ClickHouse resource presets.

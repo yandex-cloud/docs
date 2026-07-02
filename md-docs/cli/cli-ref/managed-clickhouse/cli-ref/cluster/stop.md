@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-clickhouse](../index.md) > [cluster](index.md) > stop
+
 # yc managed-clickhouse cluster stop
 
 Stop the specified ClickHouse cluster

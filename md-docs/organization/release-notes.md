@@ -1,5 +1,12 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Identity Hub](index.md) > История изменений
+
 # История изменений в Yandex Identity Hub
 
+
+## Июнь 2026 {#june-2026}
+
+* Добавлены [политики аутентификации](concepts/authentication-policy.md).
+* Добавлены типы [OIDC-приложения](concepts/applications/oidc.md) `Web`, `SPA` и `Native`.
 
 ## Май 2026 {#may-2026}
 

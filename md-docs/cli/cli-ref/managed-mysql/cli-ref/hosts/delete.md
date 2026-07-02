@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-mysql](../index.md) > [hosts](index.md) > delete
+
 # yc managed-mysql hosts delete
 
 Delete the specified hosts

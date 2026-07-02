@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Справочник CLI (англ.)](../index.md) > [refresh-token](index.md) > list
+
 # yc iam refresh-token list
 
 List subjects Refresh Tokens

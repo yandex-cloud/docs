@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Smart Web Security > Resources > sws_security_profile
+
 # yandex_sws_security_profile (Resource)
 
 A SecurityProfile resource.

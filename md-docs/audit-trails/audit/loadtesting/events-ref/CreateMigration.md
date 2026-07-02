@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > loadtesting > CreateMigration
+
 # Load Testing Audit Trails Events: CreateMigration
 
 ## Event JSON schema {#yandex.cloud.audit.loadtesting.CreateMigration2-schema}

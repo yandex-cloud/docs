@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity and Access Management > Data Sources > iam_user
+
 # yandex_iam_user (DataSource)
 
 Get information about a Yandex IAM user account. For more information about accounts, see [Yandex Cloud IAM accounts](../../iam/concepts/index.md#accounts).

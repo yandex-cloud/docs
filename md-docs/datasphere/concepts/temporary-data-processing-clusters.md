@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > [Концепции](index.md) > DataSphere Notebook > Вычисления на кластерах Apache Spark™ > Особенности работы с временными кластерами Yandex Data Processing
+
 # Особенности работы с временными кластерами Yandex Data Processing
 
 Если у вас нет существующих кластеров Yandex Data Processing или кластер нужен на непродолжительное время, вы можете использовать временные кластеры Yandex Data Processing. Их можно создать с помощью:

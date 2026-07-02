@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > Move
+
 # Managed Service for SPQR API, REST: Cluster.Move
 
 Moves the specified SPQR cluster to the specified folder.

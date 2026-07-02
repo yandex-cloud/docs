@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > cdn > ProviderActivate
+
 # Cloud CDN Audit Trails Events: ProviderActivate
 
 ## Event JSON schema {#yandex.cloud.audit.cdn.gcore.ProviderActivate2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Backup](../index.md) > [Концепции](index.md) > Подключение ВМ и серверов BareMetal к сервису
+
 # Подключение виртуальных машин Compute Cloud и серверов Yandex BareMetal к Cloud Backup
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Resource](index.md) > GetProviderCName
+
 # Cloud CDN API, REST: Resource.GetProviderCName
 
 Deprecated: Provider-specific CNAME is now available in the `provider_cname` field of each Resource message.

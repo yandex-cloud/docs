@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > Источники и приемники данных > Работа с Yandex Monitoring > Чтение данных с помощью соединений
+
 # Чтение данных из Monitoring с помощью соединений в Query
 
 Эта функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).

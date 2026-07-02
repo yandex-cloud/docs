@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > ClusterExtension > Overview
+
 # Managed Service for ClickHouse API, gRPC: ClusterExtensionService
 
 ## Methods

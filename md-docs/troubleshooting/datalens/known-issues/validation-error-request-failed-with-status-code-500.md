@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [DataLens](../index.md) > Устранение ошибки `Validation error Request failed with status code 500` при сохранении дашборда в DataLens
+
 # Устранение ошибки `Validation error Request failed with status code 500` при сохранении дашборда
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [vpc](../../index.md) > [v0](../index.md) > [route-table](index.md) > add-labels
+
 # yc vpc v0 route-table add-labels
 
 Add labels to a route table.

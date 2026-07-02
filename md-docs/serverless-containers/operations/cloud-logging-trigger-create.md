@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Пошаговые инструкции](index.md) > Создание триггера > Создать триггер для Cloud Logging
+
 # Создать триггер для Cloud Logging, который вызывает контейнер Serverless Containers
 
 Создайте [триггер для Cloud Logging](../concepts/trigger/cloud-logging-trigger.md), который будет вызывать [контейнер](../concepts/container.md) Serverless Containers при добавлении записей в [лог-группу](../../logging/concepts/log-group.md).

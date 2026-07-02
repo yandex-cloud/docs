@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Пошаговые инструкции](index.md) > Кластеры Yandex Data Processing > Информация об имеющихся кластерах
+
 # Информация об имеющихся кластерах Yandex Data Processing
 
 Доступна детальная информация о каждом созданном кластере Yandex Data Processing.

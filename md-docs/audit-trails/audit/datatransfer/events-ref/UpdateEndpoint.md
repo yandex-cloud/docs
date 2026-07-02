@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datatransfer > UpdateEndpoint
+
 # Data Transfer Audit Trails Events: UpdateEndpoint
 
 ## Event JSON schema {#yandex.cloud.audit.datatransfer.UpdateEndpoint2-schema}

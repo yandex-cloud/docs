@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > Расширения и словари PostgreSQL > pgaudit
+
 # Использование pgaudit в Managed Service for PostgreSQL
 
 Расширение [pgaudit](https://www.pgaudit.org/) предоставляет дополнительные инструменты для логирования и повышает возможности аудита.

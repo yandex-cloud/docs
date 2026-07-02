@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [PublicSubnet](index.md) > List
+
 # BareMetal API, gRPC: PublicSubnetService.List
 
 Retrieves the list of PublicSubnet resources in the specified folder.

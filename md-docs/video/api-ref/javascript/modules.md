@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Видеоплеер > SDK > JavaScript > Справочник API > Modules
+
 # JS SDK Reference
 
 Плеер для воспроизведения видеоконтента.

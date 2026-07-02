@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Object Storage
 
 Вы можете работать с Object Storage с помощью следующих типов API:

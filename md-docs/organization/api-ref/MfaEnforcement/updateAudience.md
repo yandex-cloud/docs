@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [MfaEnforcement](index.md) > UpdateAudience
+
 # Identity Hub API, REST: MfaEnforcement.UpdateAudience
 
 updates specified MFA enforcement's audience

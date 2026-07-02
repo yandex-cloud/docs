@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Sharded PostgreSQL](index.md) > Правила тарификации
+
 # Правила тарификации для Managed Service for Sharded PostgreSQL
 
 

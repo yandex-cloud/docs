@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Smart Web Security](../../../../index.md) > Справочник API > gRPC (англ.) > [SmartWebSecurity ARL API](../index.md) > [AdvancedRateLimiterProfile](index.md) > List
+
 # SmartWebSecurity ARL API, gRPC: AdvancedRateLimiterProfileService.List
 
 Retrieves the list of AdvancedRateLimiterProfile resources in the specified folder.

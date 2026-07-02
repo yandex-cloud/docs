@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Справочник API](../overview.md) > [REST (англ.)](../index.md) > Project > Overview
+
 # DataSphere API v2, REST: Project
 
 A set of methods for managing Project resources.

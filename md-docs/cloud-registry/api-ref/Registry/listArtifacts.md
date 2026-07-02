@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Registry](index.md) > ListArtifacts
+
 # Yandex Cloud Registry API, REST: Registry.ListArtifacts
 
 Retrieves the list of registry artifact resources in the specified registry.

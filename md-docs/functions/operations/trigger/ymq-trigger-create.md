@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Пошаговые инструкции](../index.md) > Создание триггера > Создать триггер для Message Queue
+
 # Создать триггер для Message Queue, который передает сообщения в функцию Cloud Functions
 
 Создайте [триггер](../../concepts/trigger/ymq-trigger.md) для [очереди сообщений](../../../message-queue/concepts/queue.md) сервиса Message Queue и обрабатывайте их с помощью [функции](../../concepts/function.md) Cloud Functions.

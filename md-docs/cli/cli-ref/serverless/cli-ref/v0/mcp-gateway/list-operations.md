@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [v0](../index.md) > [mcp-gateway](index.md) > list-operations
+
 # yc serverless v0 mcp-gateway list-operations
 
 List MCP Gateway operations

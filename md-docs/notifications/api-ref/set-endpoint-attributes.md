@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > [Справочник API](index.md) > Endpoint > SetAttributes
+
 # Действие SetEndpointAttributes
 
 Задает атрибуты [эндпоинта для Push-уведомлений](../concepts/index.md#mobile-endpoints).

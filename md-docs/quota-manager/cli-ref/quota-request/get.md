@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Quota Manager](../../index.md) > [Справочник CLI (англ.)](../index.md) > [quota-request](index.md) > get
+
 # yc quota-manager quota-request get
 
 Show information about the specified quota request

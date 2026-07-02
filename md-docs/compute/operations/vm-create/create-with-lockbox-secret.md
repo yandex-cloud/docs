@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Создание виртуальной машины > Создать ВМ с доступом к секрету Yandex Lockbox
+
 # Создать ВМ с доступом к секрету Yandex Lockbox
 
 Через сервис [метаданных](../../concepts/vm-metadata.md) можно передать в [виртуальную машину](../../concepts/vm.md) идентификатор [секрета Yandex Lockbox](../../../lockbox/concepts/secret.md), чтобы затем изнутри ВМ получить значение этого секрета с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md) привязанного к ВМ [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).

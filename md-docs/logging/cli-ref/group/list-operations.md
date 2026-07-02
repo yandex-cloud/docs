@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > [Справочник CLI (англ.)](../index.md) > [group](index.md) > list-operations
+
 # yc logging group list-operations
 
 List log group operations

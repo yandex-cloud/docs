@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Partner > Overview
+
 # Cloud Interconnect API, gRPC: PartnerService
 
 A set of methods for managing Partner resources.

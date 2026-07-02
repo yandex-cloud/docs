@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Инструменты для Managed Service for Kubernetes > Gateway API > Конфигурация ресурсов > RoutePolicy
+
 # Поля ресурса RoutePolicy
 
 Ресурс `RoutePolicy` позволяет задавать облако-специфичные политики для ресурсов `HTTPRoute` и других маршрутов в Application Load Balancer. Политики применяются к маршрутам на основе селектора или явных ссылок.

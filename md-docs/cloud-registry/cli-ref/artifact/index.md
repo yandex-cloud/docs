@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > artifact > Overview
+
 # yc cloud-registry artifact
 
 Manage artifacts

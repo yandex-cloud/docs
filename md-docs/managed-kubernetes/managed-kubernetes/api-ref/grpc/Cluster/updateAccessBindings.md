@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../../index.md) > Справочник API > [Managed Service for Kubernetes gRPC (англ.)](../index.md) > [Cluster](index.md) > UpdateAccessBindings
+
 # Managed Services for Kubernetes API, gRPC: ClusterService.UpdateAccessBindings
 
 Updates cluster's access bindings

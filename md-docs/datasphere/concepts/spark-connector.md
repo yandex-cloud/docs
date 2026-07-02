@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > [Концепции](index.md) > Ресурсы > Коннекторы Spark
+
 # Коннектор Spark
 
 DataSphere позволяет обрабатывать большие объемы данных на кластерах [Yandex Data Processing](../../data-proc/index.md). С помощью коннектора Spark вы можете как [использовать уже имеющиеся кластеры Yandex Data Processing](data-processing.md#spark-with-existing-cluster), так и [создавать временные кластеры](data-processing.md#spark-with-temporary-cluster).

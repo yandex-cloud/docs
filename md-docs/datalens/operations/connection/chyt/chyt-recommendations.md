@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex DataLens](../../../index.md) > Подключения > Базы данных > Создание подключения к YTsaurus CHYT > Рекомендации
+
 # Рекомендации по созданию подключения к CHYT в Yandex DataLens
 
 

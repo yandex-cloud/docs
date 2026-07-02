@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [instance](index.md) > delete
+
 # yc compute instance delete
 
 Delete the specified virtual machine instance

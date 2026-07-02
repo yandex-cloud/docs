@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Разработка и тестирование > Получение количества запросов к объектам Object Storage
+
 # Получение количества запросов к объектам Yandex Object Storage
 
 Получите статистику запросов к объектам Object Storage с помощью языка запросов [S3 Select](../../storage/concepts/s3-select-language.md).

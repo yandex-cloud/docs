@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Desktop](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DesktopImage](index.md) > CopyFromDesktop
+
 # Cloud Desktop API, gRPC: DesktopImageService.CopyFromDesktop
 
 Copies the specified desktop image from the specified desktop.

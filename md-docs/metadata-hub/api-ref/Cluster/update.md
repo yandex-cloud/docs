@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > Update
+
 # Managed Service for Hive Metastore™ API, REST: Cluster.Update
 
 Updates the configuration of the specified Metastore Cluster.

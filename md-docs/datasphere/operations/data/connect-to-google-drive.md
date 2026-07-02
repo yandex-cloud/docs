@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > Подключение к источникам данных > Подключение к Google Drive
+
 # Подключение к Google Drive
 
 Вы можете подключиться к сервису хранения файлов [Google Drive](https://drive.google.com) из интерфейса DataSphere.

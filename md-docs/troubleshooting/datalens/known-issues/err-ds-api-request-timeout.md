@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [DataLens](../index.md) > Устранение ошибки `ERR.DS_API.REQUEST_TIMEOUT`
+
 # Устранение ошибки `ERR.DS_API.REQUEST_TIMEOUT`
 
 

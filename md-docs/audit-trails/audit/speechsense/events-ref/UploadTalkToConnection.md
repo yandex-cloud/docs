@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > speechsense > UploadTalkToConnection
+
 # Talk Analytics Audit Trails Events: UploadTalkToConnection
 
 ## Event JSON schema {#yandex.cloud.audit.speechsense.UploadTalkToConnection2-schema}

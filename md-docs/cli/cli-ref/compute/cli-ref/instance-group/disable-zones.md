@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [instance-group](index.md) > disable-zones
+
 # yc compute instance-group disable-zones
 
 Disable zones for the specified instance group

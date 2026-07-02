@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > clouddesktop > DeleteDesktopImage
+
 # Cloud Desktop Audit Trails Events: DeleteDesktopImage
 
 ## Event JSON schema {#yandex.cloud.audit.clouddesktop.DeleteDesktopImage2-schema}

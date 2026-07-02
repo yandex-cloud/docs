@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex SpeechKit Hybrid](index.md) > Архитектура сервиса
+
 # Архитектура сервиса SpeechKit Hybrid
 
 Сервис SpeechKit Hybrid состоит из следующих компонентов:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Data Processing](index.md) > Начало работы
+
 # Как начать работать с Yandex Data Processing
 
 Чтобы начать работу с сервисом:

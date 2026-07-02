@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Практические руководства](index.md) > Сетевая облачная инфраструктура на основе NGFW > Реализация защищенной высокодоступной сетевой инфраструктуры с выделением DMZ на основе Смарт-Софт NGFW
+
 # Реализация защищенной высокодоступной сетевой инфраструктуры с выделением DMZ на основе Смарт-Софт NGFW
 
 С помощью руководства вы развернете защищенную сетевую инфраструктуру на основе [Смарт-Софт Traffic Inspector Next Generation (TING)](https://www.smart-soft.ru/). Инфраструктура состоит из сегментов, каждый из которых содержит ресурсы одного назначения, обособленные от других ресурсов. Например, [DMZ](https://ru.wikipedia.org/wiki/DMZ_(компьютерные_сети)) сегмент предназначен для размещения общедоступных приложений, а сегмент `mgmt` содержит ресурсы для управления инфраструктурой. В облаке каждому сегменту соответствует свой каталог и своя [облачная сеть](../concepts/network.md#network) VPC. Связь между сегментами происходит через виртуальную машину [Next-Generation Firewall (NGFW)](https://en.wikipedia.org/wiki/Next-generation_firewall), обеспечивающую комплексную защиту сегментов и контроль трафика между сегментами.
@@ -58,7 +60,7 @@ NGFW используется для защиты и сегментации об
 * плата за постоянно работающие ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
 * плата за использование Application Load Balancer ([тарифы Yandex Application Load Balancer](../../application-load-balancer/pricing.md));
 * плата за использование Network Load Balancer ([тарифы Yandex Network Load Balancer](../../network-load-balancer/pricing.md));
-* плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
+* плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../pricing.md));
 * плата за использование функций ([тарифы Yandex Cloud Functions](../../functions/pricing.md)).
 
 ### Необходимые квоты {#required-quotes}

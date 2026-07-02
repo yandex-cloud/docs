@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-kubernetes](../../index.md) > [v0](../index.md) > [node-group](index.md) > delete
+
 # yc managed-kubernetes v0 node-group delete
 
 Delete a node group.

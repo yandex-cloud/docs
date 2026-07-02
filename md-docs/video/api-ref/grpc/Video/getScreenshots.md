@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Video](index.md) > GetScreenshots
+
 # Video API, gRPC: VideoService.GetScreenshots
 
 Retrieves screenshots taken during the video transcoding process.

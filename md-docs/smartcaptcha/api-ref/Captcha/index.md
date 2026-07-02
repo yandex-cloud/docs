@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex SmartCaptcha](../../index.md) > Справочник API > [REST (англ.)](../index.md) > Captcha > Overview
+
 # SmartCaptcha API, REST: Captcha
 
 A set of methods for managing Captcha resources.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [compute](../index.md) > [disk-placement-group](index.md) > add-access-binding
+
 # yc compute disk-placement-group add-access-binding
 
 Add access binding for the specified disk placement group

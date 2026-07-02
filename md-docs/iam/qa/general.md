@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity and Access Management](../index.md) > [Вопросы и ответы](index.md) > Общие вопросы
+
 # Общие вопросы про Identity and Access Management
 
 #### Для чего нужен сервис Yandex Identity and Access Management? {#usage}

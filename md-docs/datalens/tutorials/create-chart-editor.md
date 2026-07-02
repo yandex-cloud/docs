@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > [Практические руководства](index.md) > Функциональные > Примеры создания чартов в Editor
+
 # Создание чартов в Editor Yandex DataLens
 
 

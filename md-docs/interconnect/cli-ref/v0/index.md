@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > [Справочник CLI (англ.)](../index.md) > v0 > Overview
+
 # yc cic v0
 
 [PREVIEW] Manage Yandex Cloud Interconnect resources

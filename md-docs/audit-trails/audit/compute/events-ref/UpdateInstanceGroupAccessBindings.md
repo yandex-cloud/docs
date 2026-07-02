@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > UpdateInstanceGroupAccessBindings
+
 # Compute Audit Trails Events: UpdateInstanceGroupAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.compute.instancegroup.UpdateInstanceGroupAccessBindings2-schema}

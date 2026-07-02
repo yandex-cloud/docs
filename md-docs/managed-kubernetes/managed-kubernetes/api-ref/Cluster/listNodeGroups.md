@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../index.md) > Справочник API > [Managed Service for Kubernetes REST (англ.)](../index.md) > [Cluster](index.md) > ListNodeGroups
+
 # Managed Services for Kubernetes API, REST: Cluster.ListNodeGroups
 
 Lists nodegroup for the specified Kubernetes cluster.

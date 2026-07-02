@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [hba-rules](index.md) > get
+
 # yc managed-greenplum v0 hba-rules get
 
 Get hba-rule for specified Greenplum cluster

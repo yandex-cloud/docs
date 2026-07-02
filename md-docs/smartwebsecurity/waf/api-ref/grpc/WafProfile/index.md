@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Smart Web Security](../../../../index.md) > Справочник API > gRPC (англ.) > [SmartWebSecurity WAF API](../index.md) > WafProfile > Overview
+
 # SmartWebSecurity WAF API, gRPC: WafProfileService
 
 A set of methods for managing WafProfile resources.

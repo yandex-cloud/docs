@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [database](index.md) > get
+
 # yc managed-postgresql v0 database get
 
 Show information about the specified PostgreSQL database

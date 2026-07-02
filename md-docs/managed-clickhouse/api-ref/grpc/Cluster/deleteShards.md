@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > DeleteShards
+
 # Managed Service for ClickHouse API, gRPC: ClusterService.DeleteShards
 
 Deletes the specified shards (one or more).

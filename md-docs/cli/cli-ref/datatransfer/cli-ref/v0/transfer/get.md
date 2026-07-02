@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [datatransfer](../../index.md) > [v0](../index.md) > [transfer](index.md) > get
+
 # yc datatransfer v0 transfer get
 
 Get transfer

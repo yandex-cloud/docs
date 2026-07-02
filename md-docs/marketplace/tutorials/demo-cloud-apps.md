@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Marketplace](../index.md) > Партнерам > Практические руководства > Создание демонстрационного продукта Cloud Apps
+
 # Создание демонстрационного продукта Cloud Apps
 
 В этом руководстве вы создадите простой продукт Cloud Apps, состоящий из [кластера](../../managed-postgresql/concepts/index.md) Yandex Managed Service for PostgreSQL и [виртуальной машины](../../compute/concepts/vm.md) Yandex Compute Cloud с доступом к кластеру, установите _приложение_ (экземпляр продукта) и протестируете его работу.

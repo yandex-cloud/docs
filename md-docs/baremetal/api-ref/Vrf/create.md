@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [Vrf](index.md) > Create
+
 # BareMetal API, REST: Vrf.Create
 
 Creates a VRF in the specified folder.

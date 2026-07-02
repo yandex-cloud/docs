@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Key Management Service](../index.md) > [Практические руководства](index.md) > Управление ключами KMS с HashiCorp Terraform
+
 # Управление ключами KMS с HashiCorp Terraform
 
 # Управление ключами Yandex Key Management Service с HashiCorp Terraform

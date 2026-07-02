@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity Hub](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [idp](../../../index.md) > [application](../../index.md) > [saml](../index.md) > [application](index.md) > remove-assignments
+
 # yc organization-manager idp application saml application remove-assignments
 
 Remove user assignments from the specified SAML application

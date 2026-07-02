@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Compute Cloud > Resources > compute_snapshot_schedule
+
 # yandex_compute_snapshot_schedule (Resource)
 
 Creates a new snapshot schedule. For more information, see [the official documentation](../../compute/concepts/snapshot-schedule.md).

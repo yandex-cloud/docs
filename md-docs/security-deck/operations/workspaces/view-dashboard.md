@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Security Deck](../../index.md) > [Пошаговые инструкции](../index.md) > [Окружения Security Deck](index.md) > Посмотреть дашборд и операции с окружением
+
 # Посмотреть дашборд и операции с окружением Security Deck
 
 ## Посмотреть дашборд {#view-dashboard}

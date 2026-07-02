@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [compute](../../index.md) > [v0](../index.md) > [snapshot-schedule](index.md) > get
+
 # yc compute v0 snapshot-schedule get
 
 Show information about the specified snapshot schedule

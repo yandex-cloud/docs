@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Instance](index.md) > GetSerialPortOutput
+
 # Compute Cloud API, gRPC: InstanceService.GetSerialPortOutput
 
 Returns the serial port output of the specified Instance resource.

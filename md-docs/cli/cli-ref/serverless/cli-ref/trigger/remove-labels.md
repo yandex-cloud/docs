@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [serverless](../index.md) > [trigger](index.md) > remove-labels
+
 # yc serverless trigger remove-labels
 
 Remove labels from specified trigger

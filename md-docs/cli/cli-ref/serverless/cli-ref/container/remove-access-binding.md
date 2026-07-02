@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [serverless](../index.md) > [container](index.md) > remove-access-binding
+
 # yc serverless container remove-access-binding
 
 Remove access binding for the specified container

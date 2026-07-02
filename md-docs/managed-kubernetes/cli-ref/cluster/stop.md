@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > stop
+
 # yc managed-kubernetes cluster stop
 
 Stop a Kubernetes cluster and all its node groups.

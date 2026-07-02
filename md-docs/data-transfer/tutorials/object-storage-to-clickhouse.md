@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Загрузка данных в витрины > Object Storage в ClickHouse®
+
 # Загрузка данных из Yandex Object Storage в витрину ClickHouse®
 
 # Загрузка данных из Yandex Object Storage в Yandex Managed Service for ClickHouse® с помощью Yandex Data Transfer

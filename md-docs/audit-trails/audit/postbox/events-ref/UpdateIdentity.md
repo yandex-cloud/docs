@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > postbox > UpdateIdentity
+
 # Yandex Cloud Postbox Audit Trails Events: UpdateIdentity
 
 ## Event JSON schema {#yandex.cloud.audit.postbox.UpdateIdentity2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-mongodb](../index.md) > [user](index.md) > update
+
 # yc managed-mongodb user update
 
 Modify attributes of a MongoDB user.

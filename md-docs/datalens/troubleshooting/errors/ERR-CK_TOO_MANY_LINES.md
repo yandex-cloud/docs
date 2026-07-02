@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Too many series on the chart
+
 # [Yandex DataLens] Too many series on the chart
 
 `ERR.CK.TOO_MANY_LINES`

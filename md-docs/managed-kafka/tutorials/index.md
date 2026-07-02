@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Managed Service for Apache Kafka®
 
 Managed Service for Apache Kafka® можно использовать для передачи данных между базами данных. Источником или приемником может быть кластер Managed Service for Apache Kafka®, сторонний кластер Apache Kafka® или управляемая база данных Yandex Cloud.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Processing](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Subcluster](index.md) > Delete
+
 # Yandex Data Processing API, REST: Subcluster.Delete
 
 Deletes the specified subcluster.

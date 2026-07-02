@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for MySQL®](../index.md) > Справочник CLI (англ.) > Overview
+
 # yc managed-mysql
 
 Manage MySQL clusters, hosts, databases, backups and users.

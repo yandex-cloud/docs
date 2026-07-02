@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Functions](../../../index.md) > Справочник API Triggers > [REST (англ.)](../index.md) > [Trigger](index.md) > Delete
+
 # Cloud Functions Triggers Service, REST: Trigger.Delete
 
 Deletes the specified trigger.

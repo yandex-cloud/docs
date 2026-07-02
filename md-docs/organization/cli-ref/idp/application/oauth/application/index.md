@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity Hub](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [idp](../../../index.md) > [application](../../index.md) > [oauth](../index.md) > application > Overview
+
 # yc organization-manager idp application oauth application
 
 Manage OAuth applications

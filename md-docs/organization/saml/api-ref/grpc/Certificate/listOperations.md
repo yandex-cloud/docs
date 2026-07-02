@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [SAML Federation API](../index.md) > [Certificate](index.md) > ListOperations
+
 # SAML Federation API, gRPC: CertificateService.ListOperations
 
 Lists operations for the specified certificate.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > securitydeck.kspm > TriggerRuntimeControl
+
 # Security Deck KSPM Audit Trails Events: TriggerRuntimeControl
 
 ## Event JSON schema {#yandex.cloud.audit.securitydeck.kspm.TriggerRuntimeControl2-schema}

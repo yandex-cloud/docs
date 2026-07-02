@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Snapshot](index.md) > Update
+
 # Compute Cloud API, REST: Snapshot.Update
 
 Updates the specified snapshot.

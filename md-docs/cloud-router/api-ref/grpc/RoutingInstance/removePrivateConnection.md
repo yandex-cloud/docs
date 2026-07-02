@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Router](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [RoutingInstance](index.md) > RemovePrivateConnection
+
 # Cloud Router API, gRPC: RoutingInstanceService.RemovePrivateConnection
 
 Removes specified PrivateConnection from a RoutingInstance resource.

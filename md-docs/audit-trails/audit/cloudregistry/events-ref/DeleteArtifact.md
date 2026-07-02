@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > cloudregistry > DeleteArtifact
+
 # Yandex Cloud Registry Audit Trails Events: DeleteArtifact
 
 ## Event JSON schema {#yandex.cloud.audit.cloudregistry.DeleteArtifact2-schema}

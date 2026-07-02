@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Audit Trails](../../index.md) > [Справочник CLI (англ.)](../index.md) > [trail](index.md) > add-access-binding
+
 # yc audit-trails trail add-access-binding
 
 Add access binding for the specified trail

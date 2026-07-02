@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Lockbox](../index.md) > Управление доступом
+
 # Управление доступом в Yandex Lockbox
 
 В этом разделе вы узнаете:

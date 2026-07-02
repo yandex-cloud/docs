@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [vpc](../index.md) > [route-table](index.md) > list-operations
+
 # yc vpc route-table list-operations
 
 List operations for a route table.

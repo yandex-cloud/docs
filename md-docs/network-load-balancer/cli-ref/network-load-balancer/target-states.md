@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Network Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [network-load-balancer](index.md) > target-states
+
 # yc load-balancer network-load-balancer target-states
 
 Show states of target resources in the attached target group

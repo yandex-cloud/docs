@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [AccessPolicyTemplate](index.md) > List
+
 # Identity and Access Management API, gRPC: AccessPolicyTemplateService.List
 
 Returns list of available access policy templates.

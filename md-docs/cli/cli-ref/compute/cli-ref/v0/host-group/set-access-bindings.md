@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [compute](../../index.md) > [v0](../index.md) > [host-group](index.md) > set-access-bindings
+
 # yc compute v0 host-group set-access-bindings
 
 Set access bindings for the specified host group and delete all existing access bindings if there were any

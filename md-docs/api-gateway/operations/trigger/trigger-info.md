@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Пошаговые инструкции](../index.md) > Получение информации о триггере > Получить информацию о триггере
+
 # Получить информацию о триггере в API Gateway
 
 {% list tabs group=instructions %}

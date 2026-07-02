@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Контейнерная инфраструктура](index.md) > Создать ВМ с Container Optimized Image
+
 # Создание ВМ с Container Optimized Image
 
 Создайте виртуальную машину из образа [Container Optimized Image](../../cos/concepts/index.md) и запустите на ней [Docker-контейнер](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers).

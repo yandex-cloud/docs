@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Origin](index.md) > Create
+
 # Cloud CDN API, gRPC: OriginService.Create
 
 Creates origin inside origin group.

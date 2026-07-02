@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Концепции](overview.md) > Резервные копии
+
 # Резервные копии в Yandex MPP Analytics for PostgreSQL
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [DataSphere](../index.md) > Решения для известных проблем DataSphere
+
 ## Решения для известных проблем DataSphere {#known-issues-resolving}
 
 * [Устранение ошибок при запуске проекта в DataSphere](datasphere-projects-starting-issue.md)

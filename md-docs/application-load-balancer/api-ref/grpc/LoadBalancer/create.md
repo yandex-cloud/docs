@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LoadBalancer](index.md) > Create
+
 # Application Load Balancer API, gRPC: LoadBalancerService.Create
 
 Creates an application load balancer in the specified folder.

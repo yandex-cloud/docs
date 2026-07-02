@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for YTsaurus](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > Stop
+
 # Ytsaurus API, REST: Cluster.Stop
 
 Stops the specified cluster.

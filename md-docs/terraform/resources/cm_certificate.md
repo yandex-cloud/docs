@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Certificate Manager > Resources > cm_certificate
+
 # yandex_cm_certificate (Resource)
 
 Creates or requests a TLS certificate in the specified folder. For more information, see [the official documentation](../../certificate-manager/concepts/index.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Virtual Private Cloud](index.md) > История изменений
+
 # История изменений в Yandex Virtual Private Cloud
 
 ## I квартал 2025 {#q1-2025}

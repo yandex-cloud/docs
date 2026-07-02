@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Инструменты Application Load Balancer](index.md) > Работа с сервисными аккаунтами
+
 # Сервисный аккаунт для инструментов Application Load Balancer в Yandex Managed Service for Kubernetes
 
 {% note tip %}

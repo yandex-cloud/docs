@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-redis](../index.md) > [cluster](index.md) > set-access-bindings
+
 # yc managed-redis cluster set-access-bindings
 
 Set access bindings for the specified Redis cluster and delete all existing access bindings if there were any

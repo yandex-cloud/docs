@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > PrivateSubnet > Overview
+
 # BareMetal API, gRPC: PrivateSubnetService
 
 A set of methods for managing PrivateSubnet resources.

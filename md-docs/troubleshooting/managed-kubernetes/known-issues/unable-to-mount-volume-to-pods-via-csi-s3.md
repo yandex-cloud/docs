@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Kubernetes](../index.md) > Устранение проблем с монтированием томов к подам кластера Managed Service for Kubernetes средствами Container Storage Interface для S3
+
 # Устранение проблем с монтированием томов к подам кластера Managed Service for Kubernetes средствами Container Storage Interface для S3
 
 

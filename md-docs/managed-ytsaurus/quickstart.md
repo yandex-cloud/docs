@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for YTsaurus](index.md) > Начало работы
+
 # Как начать работать с Yandex Managed Service for YTsaurus
 
 Чтобы начать работу с сервисом Managed Service for YTsaurus:
@@ -31,8 +33,9 @@
 
 1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роли:
 
-    * [managed-ytsaurus.editor](security/index.md#managed-ytsaurus-editor) — чтобы создать кластер;
-    * [vpc.user](../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../vpc/concepts/network.md#network) кластера.
+    * [managed-ytsaurus.editor](security/index.md#managed-ytsaurus-editor) или выше — чтобы создать кластер;
+    * [vpc.user](../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../vpc/concepts/network.md#network) кластера;
+    * [mdb.viewer](../iam/roles-reference.md#mdb-viewer) — чтобы просматривать кластеры управляемых баз данных (MDB) на дашборде в [консоли управления](https://console.yandex.cloud).
 
     {% note info %}
     

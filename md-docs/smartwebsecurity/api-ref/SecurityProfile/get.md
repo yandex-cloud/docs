@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Smart Web Security](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SecurityProfile](index.md) > Get
+
 # SmartWebSecurity API, REST: SecurityProfile.Get
 
 Returns the specified SecurityProfile resource.

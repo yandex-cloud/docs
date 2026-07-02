@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Role > Overview
+
 # Identity and Access Management API, gRPC: RoleService
 
 A set of methods for managing Role resources.

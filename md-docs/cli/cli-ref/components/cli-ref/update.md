@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [components](index.md) > update
+
 # yc components update
 
 Ensure that the latest version of all installed components is installed

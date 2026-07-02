@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex DataLens](../../../index.md) > Чарты > [Чарты в Editor](../index.md) > [Типы визуализаций](index.md) > График (Gravity UI Charts)
+
 # График (Gravity UI Charts)
 
 Этот тип чарта служит для отрисовки различных типов графиков с помощью библиотеки [@gravity-ui/charts](https://github.com/gravity-ui/charts).

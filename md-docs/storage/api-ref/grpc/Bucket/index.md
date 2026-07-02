@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [Yandex Cloud gRPC (англ.)](../index.md) > Bucket > Overview
+
 # Object Storage API, gRPC: BucketService
 
 A set of methods for managing buckets.

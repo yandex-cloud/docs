@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > UpdateSubscriptionLimit
+
 # Identity Hub Audit Trails Events: UpdateSubscriptionLimit
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.idp.UpdateSubscriptionLimit2-schema}

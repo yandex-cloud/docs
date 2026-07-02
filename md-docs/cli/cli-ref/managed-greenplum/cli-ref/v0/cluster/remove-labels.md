@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-greenplum](../../index.md) > [v0](../index.md) > [cluster](index.md) > remove-labels
+
 # yc managed-greenplum v0 cluster remove-labels
 
 Remove labels from Greenplum cluster

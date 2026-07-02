@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > CreateCertificate
+
 # Identity and Access Management Audit Trails Events: CreateCertificate
 
 ## Event JSON schema {#yandex.cloud.audit.iam.CreateCertificate2-schema}

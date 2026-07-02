@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [registry](index.md) > update
+
 # yc cloud-registry registry update
 
 Updates the specified registry

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Security Deck](../../index.md) > [Пошаговые инструкции](../index.md) > Контроль данных (DSPM) > Обзор
+
 # Контроль данных (DSPM)
 
 * [Управление анализом данных DSPM](discovery-mode.md)

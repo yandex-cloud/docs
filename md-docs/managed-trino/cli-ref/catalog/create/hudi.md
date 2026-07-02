@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Trino](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [catalog](../index.md) > [create](index.md) > hudi
+
 # yc managed-trino catalog create hudi
 
 Create Hudi catalog

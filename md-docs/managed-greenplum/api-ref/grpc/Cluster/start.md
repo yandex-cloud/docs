@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Start
+
 # Managed Service for Greenplum® API, gRPC: ClusterService.Start
 
 Starts the specified Greenplum® cluster.

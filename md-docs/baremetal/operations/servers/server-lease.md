@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > [Пошаговые инструкции](../index.md) > Серверы > Арендовать сервер в стандартной конфигурации
+
 # Арендовать сервер в готовой конфигурации
 
 Вы можете арендовать [сервер BareMetal](../../concepts/servers.md) в одной из [готовых конфигураций](../../concepts/server-configurations.md#standard).

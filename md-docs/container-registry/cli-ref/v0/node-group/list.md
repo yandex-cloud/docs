@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [node-group](index.md) > list
+
 # yc container v0 node-group list
 
 List node groups available in a folder.

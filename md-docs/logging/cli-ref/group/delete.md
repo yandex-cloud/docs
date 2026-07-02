@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > [Справочник CLI (англ.)](../index.md) > [group](index.md) > delete
+
 # yc logging group delete
 
 Delete log group

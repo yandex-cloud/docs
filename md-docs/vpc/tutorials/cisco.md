@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Практические руководства](index.md) > Дополнительные настройки и инструменты > Установка виртуального роутера Cisco CSR 1000v
+
 # Установка виртуального роутера Cisco CSR 1000v
 
 
@@ -36,7 +38,7 @@
 В стоимость использования виртуального роутера входят:
 
 * плата за диск и постоянно запущенную ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование динамического или статического внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* плата за использование динамического или статического внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../pricing.md#prices-public-ip)).
 
 ## Создайте пару ключей SSH {#create-ssh-keys}
 

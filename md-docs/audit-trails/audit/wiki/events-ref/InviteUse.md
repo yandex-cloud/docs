@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > InviteUse
+
 # Yandex Wiki Audit Trails Events: InviteUse
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.InviteUse2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Инструменты для Managed Service for Kubernetes](../index.md) > [Gwin](index.md) > Установка Gwin
+
 # Установка контроллера Gwin
 
 Gwin — инструмент для управления балансировщиками нагрузки Yandex Application Load Balancer в кластерах Yandex Managed Service for Kubernetes.
@@ -22,7 +24,7 @@ Gwin — инструмент для управления балансировщ
 * Плата за мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../../managed-kubernetes/pricing.md)).
 * Плата за узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Compute Cloud](../../../compute/pricing.md)).
 * Плата за публичные IP-адреса для хостов кластера Managed Service for Kubernetes и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
-* Плата за использование вычислительных ресурсов балансировщика ([тарифы Application Load Balancer](../../../application-load-balancer/pricing.md)).
+* Плата за использование вычислительных ресурсов балансировщика ([тарифы Application Load Balancer](../../pricing.md)).
 
 ## Перед началом работы {#before-you-begin}
 

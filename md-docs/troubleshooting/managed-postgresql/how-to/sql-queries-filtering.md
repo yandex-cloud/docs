@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for PostgreSQL](../index.md) > Как настроить фильтрацию SQL-запросов
+
 # Как настроить фильтрацию SQL-запросов
 
 

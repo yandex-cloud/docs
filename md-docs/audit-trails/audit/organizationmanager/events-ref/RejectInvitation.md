@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > RejectInvitation
+
 # Identity Hub Audit Trails Events: RejectInvitation
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.RejectInvitation2-schema}

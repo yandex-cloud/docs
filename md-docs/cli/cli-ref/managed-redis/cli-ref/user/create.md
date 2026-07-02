@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-redis](../index.md) > [user](index.md) > create
+
 # yc managed-redis user create
 
 Create a Redis user

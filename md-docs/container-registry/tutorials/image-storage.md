@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Registry](../index.md) > [Практические руководства](index.md) > Хранение Docker-образов из проектов Yandex Managed Service for GitLab
+
 # Хранение Docker-образов из проектов Yandex Managed Service for GitLab
 
 # Хранение Docker-образов из Yandex Managed Service for GitLab в Yandex Container Registry

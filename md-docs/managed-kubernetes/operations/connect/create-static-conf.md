@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > [Подключение к кластеру](index.md) > Создание статического файла конфигурации
+
 # Создание статического файла конфигурации
 
 Статические файлы конфигурации позволяют получить доступ к [кластеру Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster) без использования [CLI](../../../glossary/cli.md), например из систем непрерывной интеграции.

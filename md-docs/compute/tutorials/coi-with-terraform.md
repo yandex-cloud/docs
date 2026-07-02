@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Практические руководства](index.md) > Container Optimized Image > Создать ВМ и группу ВМ с Container Optimized Image с помощью Terraform
+
 # Создание ВМ и группы ВМ с Container Optimized Image с помощью Terraform
 
 Чтобы с помощью Terraform создать конфигурации и запустить [виртуальную машину](../concepts/vm.md) или [группу виртуальных машин](../concepts/instance-groups/index.md) на базе образа [Container Optimized Image](../../cos/concepts/index.md), выполните следующие действия.

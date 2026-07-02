@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > [Чарты](index.md) > Чарты в визарде > Measure Values и Measure Names
+
 # Measure Names и Measure Values в Yandex DataLens
 
 После добавления показателя в одну из секций чарта в списке полей датасета появляется два технических поля — `Measure Names` и `Measure Values`. Они не входят в список исходных полей датасета — DataLens создает эти поля автоматически. Поля `Measure Names` и `Measure Values` применяются при создании чартов, в которых используется несколько показателей.

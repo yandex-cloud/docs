@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Автоматизация работы с помощью Yandex Managed Service for Apache Airflow™
+
 # Автоматизация работы с помощью Yandex Managed Service for Apache Airflow™
 
 # Автоматизация работы с Yandex Managed Service for Apache Spark™ с помощью Yandex Managed Service for Apache Airflow™
@@ -34,9 +36,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for Apache Airflow™: вычислительные ресурсы компонентов кластера ([тарифы Managed Service for Apache Airflow™](../../../managed-airflow/pricing.md)).
+* Кластер Managed Service for Apache Airflow™: вычислительные ресурсы компонентов кластера ([тарифы Managed Service for Apache Airflow™](../../managed-airflow/pricing.md)).
 * Кластер Apache Hive™ Metastore: вычислительные ресурсы компонентов кластера ([тарифы Yandex MetaData Hub](../../metadata-hub/pricing.md#metastore)).
-* Бакеты Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../../storage/pricing.md)).
+* Бакеты Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
 * Сервис Yandex Cloud Logging: объем записываемых данных и время их хранения ([тарифы Cloud Logging](../../logging/pricing.md)).
 
 

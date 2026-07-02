@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > DataSphere > Resources > datasphere_project
+
 # yandex_datasphere_project (Resource)
 
 Allows management of Yandex Cloud Datasphere Projects.

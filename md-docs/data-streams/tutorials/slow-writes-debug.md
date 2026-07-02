@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Streams](../index.md) > [Практические руководства](index.md) > Диагностика медленной записи в Yandex Data Streams
+
 # Диагностика медленной записи в Yandex Data Streams
 
 Если вы заметили, что скорость записи в Yandex Data Streams снизилась, то причиной чаще всего является достижение [лимита](../concepts/limits.md#yds-limits) на запись.

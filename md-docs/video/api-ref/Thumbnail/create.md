@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Thumbnail](index.md) > Create
+
 # Video API, REST: Thumbnail.Create
 
 Creates a new thumbnail record for a specific resource.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Безопасность](index.md) > Auto Unseal в HashiCorp Vault
+
 # Auto Unseal в HashiCorp Vault
 
 Сборка [HashiCorp Vault](https://www.vaultproject.io/) с поддержкой Yandex Key Management Service доступна в виде [образа ВМ](https://yandex.cloud/ru/marketplace/products/yc/vault-yckms) в Cloud Marketplace и docker-образа. Она отличается от [основной](https://hub.docker.com/_/vault) только одним из бинарных файлов Vault, в который добавлена поддержка Key Management Service.

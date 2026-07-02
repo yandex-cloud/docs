@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Изменение источника данных недоступно
+
 # [Yandex DataLens] Изменение источника данных недоступно
 
 `ERR.DS_API.PREVIEW_SOURCE_MODIFICATION_NOT_ALLOWED`

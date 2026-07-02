@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [MfaEnforcement](index.md) > Create
+
 # Identity Hub API, gRPC: MfaEnforcementService.Create
 
 creates an MFA enforcement in the specified organization

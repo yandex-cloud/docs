@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for Trino > Data Sources > trino_access_control
+
 # yandex_trino_access_control (DataSource)
 
 Access control configuration for Trino cluster.

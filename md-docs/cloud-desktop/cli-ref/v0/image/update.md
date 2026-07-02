@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Desktop](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [image](index.md) > update
+
 # yc desktops v0 image update
 
 Update the specified desktop image

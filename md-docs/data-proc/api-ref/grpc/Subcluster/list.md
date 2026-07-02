@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Processing](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Subcluster](index.md) > List
+
 # Yandex Data Processing API, gRPC: SubclusterService.List
 
 Retrieves a list of subclusters in the specified cluster.

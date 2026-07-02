@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LifecyclePolicy](index.md) > List
+
 # Yandex Cloud Registry API, gRPC: LifecyclePolicyService.List
 
 Retrieves the list of lifecycle policies in the specified registry.

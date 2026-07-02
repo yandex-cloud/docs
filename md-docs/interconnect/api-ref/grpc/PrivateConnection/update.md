@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [PrivateConnection](index.md) > Update
+
 # Cloud Interconnect API, gRPC: PrivateConnectionService.Update
 
 Updates a PrivateConnection resource using the data specified in the request.

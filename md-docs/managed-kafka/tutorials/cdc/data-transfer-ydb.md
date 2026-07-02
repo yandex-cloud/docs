@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../index.md) > [Практические руководства](../index.md) > Поставка данных с помощью Data Transfer > Поставка из YDB в Apache Kafka®
+
 # Поставка данных из Yandex Managed Service for YDB с помощью Yandex Data Transfer
 
 # Поставка данных из Yandex Managed Service for YDB в Yandex Managed Service for Apache Kafka®
@@ -27,9 +29,9 @@
 	* Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
   	* Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервные копии.
 
-* Кластер Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы Data Transfer](../../data-transfer/pricing.md)).
+* Кластер Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Managed Service for Apache Kafka®](../../pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы Data Transfer](../../../data-transfer/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

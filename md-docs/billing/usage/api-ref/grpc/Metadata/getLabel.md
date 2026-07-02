@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Billing](../../../../index.md) > Справочник API > gRPC (англ.) > [Billing usage](../index.md) > [Metadata](index.md) > GetLabel
+
 # Billing Usage API, gRPC: MetadataService.GetLabel
 
 GetLabel returns available label keys and values for a specific billing account

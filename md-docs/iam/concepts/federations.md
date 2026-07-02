@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity and Access Management](../index.md) > [Концепции](index.md) > Федерации удостоверений
+
 # Федерации удостоверений
 
 С помощью [Yandex Identity Hub](../../organization/index.md) вы можете настроить Single Sign-On аутентификацию в Yandex Cloud через ваш Identity Provider, например Active Directory или Google Workspace. 

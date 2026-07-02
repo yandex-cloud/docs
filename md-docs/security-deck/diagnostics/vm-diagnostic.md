@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Security Deck](../index.md) > [Диагностика ошибок](index.md) > Ошибки в работе VM
+
 # Диагностика ошибок в работе модуля Управление уязвимостями (VM)
 
 ## Access denied to resource `Id` {#account-permissions}

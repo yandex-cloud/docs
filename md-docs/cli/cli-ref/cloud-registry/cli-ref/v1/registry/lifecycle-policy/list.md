@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [cloud-registry](../../../index.md) > [v1](../../index.md) > [registry](../index.md) > [lifecycle-policy](index.md) > list
+
 # yc cloud-registry v1 registry lifecycle-policy list
 
 Retrieves the list of lifecycle policies in the specified registry.

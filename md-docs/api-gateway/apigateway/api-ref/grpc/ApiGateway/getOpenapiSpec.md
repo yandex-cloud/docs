@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex API Gateway](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ApiGateway](index.md) > GetOpenapiSpec
+
 # API Gateway Service, gRPC: ApiGatewayService.GetOpenapiSpec
 
 Returns the OpenAPI specification of specified API gateway.

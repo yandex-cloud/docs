@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Postbox](../index.md) > [Пошаговые инструкции](index.md) > Запись логов
+
 # Запись логов в журнал выполнения в Yandex Cloud Postbox
 
 {% note info %}

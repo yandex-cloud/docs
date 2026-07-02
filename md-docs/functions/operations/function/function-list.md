@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Пошаговые инструкции](../index.md) > Получение информации о функции > Получить список функций
+
 # Получить список функций
 
 {% list tabs group=instructions %}

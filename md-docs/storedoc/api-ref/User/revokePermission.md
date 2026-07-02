@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [User](index.md) > RevokePermission
+
 # Managed Service for MongoDB API, REST: User.RevokePermission
 
 Revokes permission from the specified MongoDB user.

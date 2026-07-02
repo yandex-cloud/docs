@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > [Connector](index.md) > Update
+
 # EventRouter Service, REST: Connector.Update
 
 Updates the specified connector.

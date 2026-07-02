@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Instance](index.md) > DetachNetworkInterface
+
 # Compute Cloud API, REST: Instance.DetachNetworkInterface
 
 Detaches the network-interface to the instance.

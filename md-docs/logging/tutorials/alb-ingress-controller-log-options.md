@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Logging](../index.md) > [Практические руководства](index.md) > Настройки логирования для Ingress-контроллеров Application Load Balancer
+
 # Настройка логирования для L7-балансировщика Yandex Application Load Balancer с помощью Ingress-контроллера
 
 Вы можете задать настройки логирования для [L7-балансировщиков](../../application-load-balancer/concepts/application-load-balancer.md), созданных с помощью [Ingress-контроллеров](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) Application Load Balancer в кластере Managed Service for Kubernetes.

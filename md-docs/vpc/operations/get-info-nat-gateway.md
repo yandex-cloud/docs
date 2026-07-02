@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Пошаговые инструкции](index.md) > Статическая маршрутизация > Получить информацию о NAT-шлюзе
+
 # Получить информацию о NAT-шлюзе
 
 {% list tabs group=instructions %}

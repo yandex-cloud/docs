@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [vpc](../../index.md) > [v0](../index.md) > [security-group](index.md) > update
+
 # yc vpc v0 security-group update
 
 Modify configuration or attributes of a security group.

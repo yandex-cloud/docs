@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cloud](index.md) > Delete
+
 # Resource Manager API, REST: Cloud.Delete
 
 Deletes the specified cloud.

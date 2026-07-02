@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Подготовка данных еще не завершилась
+
 # [Yandex DataLens] Подготовка данных еще не завершилась
 
 `ERR.DS_API.DB.MATERIALIZATION_NOT_FINISHED`

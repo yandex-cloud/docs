@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Прикладные решения > Создание сайта > Сайт на WordPress > Перенос WordPress-сайта с хостинга в Yandex Cloud
+
 # Перенос WordPress сайта с хостинга в Yandex Cloud
 
 [WordPress](https://wordpress.com) — система управления контентом с открытым исходным кодом.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex SIEM](../../index.md) > [Пошаговые инструкции](../index.md) > Запросы > Обзор
+
 # Работа с запросами
 
 {% note info %}

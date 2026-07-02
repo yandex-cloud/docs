@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Network Load Balancer](../index.md) > [Практические руководства](index.md) > Подключение к Container Registry из Virtual Private Cloud
+
 # Подключение к Container Registry из Virtual Private Cloud
 
 

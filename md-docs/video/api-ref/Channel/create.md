@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Channel](index.md) > Create
+
 # Video API, REST: Channel.Create
 
 Creates a new channel in the specified organization.

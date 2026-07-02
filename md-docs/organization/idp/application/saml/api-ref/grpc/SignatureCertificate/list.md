@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Yandex Identity Hub](../../../../../../index.md) > Справочник API > gRPC (англ.) > Identity Provider API > [SAML Application API](../index.md) > [SignatureCertificate](index.md) > List
+
 # SAML Application API, gRPC: SignatureCertificateService.List
 
 Retrieves the list of signature certificates for the specified SAML application.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex API Gateway > API Gateway
+
 # Yandex API Gateway
 
 Yandex API Gateway — сервис для управления API-шлюзами, поддерживающий <a href="https://github.com/OAI/OpenAPI-Specification">спецификацию OpenAPI 3.0</a> и набор расширений для взаимодействия с другими облачными сервисами.

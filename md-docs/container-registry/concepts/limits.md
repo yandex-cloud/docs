@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Registry](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Container Registry
 
 В сервисе Yandex Container Registry действуют следующие ограничения:

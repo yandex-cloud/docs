@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Valkey™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ResourcePreset](index.md) > Get
+
 # Managed Service for Redis API, gRPC: ResourcePresetService.Get
 
 Returns the specified resource preset.

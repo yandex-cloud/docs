@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for GitLab](../../index.md) > [Пошаговые инструкции](../index.md) > Миграция в другую зону доступности
+
 # Миграция инстанса в другую зону доступности
 
 {% note info %}

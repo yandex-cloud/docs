@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [YandexPassportUserAccount](index.md) > GetByLogin
+
 # Identity and Access Management API, REST: YandexPassportUserAccount.GetByLogin
 
 Returns the specified YandexPassportUserAccount resource.

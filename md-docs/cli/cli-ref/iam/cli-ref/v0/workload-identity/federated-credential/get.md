@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [iam](../../../index.md) > [v0](../../index.md) > [workload-identity](../index.md) > [federated-credential](index.md) > get
+
 # yc iam v0 workload-identity federated-credential get
 
 Show information about state of specified federated credential

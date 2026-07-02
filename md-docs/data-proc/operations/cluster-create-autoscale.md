@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Пошаговые инструкции](index.md) > Кластеры Yandex Data Processing > Создание кластера с автомасштабированием в сети другого каталога
+
 # Создание кластера Yandex Data Processing с автомасштабированием в сети другого каталога
 
 ## Роли для создания кластера {#roles}

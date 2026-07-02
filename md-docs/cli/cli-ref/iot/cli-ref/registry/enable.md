@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [iot](../index.md) > [registry](index.md) > enable
+
 # yc iot registry enable
 
 Enable this registry

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > SuspendFederatedUserAccounts
+
 # Identity Hub Audit Trails Events: SuspendFederatedUserAccounts
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.saml.SuspendFederatedUserAccounts2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > baremetal > DeleteServer
+
 # BareMetal Audit Trails Events: DeleteServer
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.DeleteServer2-schema}

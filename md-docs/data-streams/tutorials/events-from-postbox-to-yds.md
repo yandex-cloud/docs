@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Streams](../index.md) > [Практические руководства](index.md) > Передача событий Yandex Cloud Postbox в Yandex Data Streams и их анализ с помощью Yandex DataLens
+
 # Передача событий Yandex Cloud Postbox в Yandex Data Streams и их анализ с помощью Yandex DataLens
 
 
@@ -36,7 +38,7 @@
 В стоимость поддержки инфраструктуры входят:
 
 * плата за операции с YDB и хранение данных ([тарифы Yandex Managed Service for YDB](../../ydb/pricing/serverless.md));
-* плата за хранение данных Data Streams ([тарифы Yandex Data Streams](../../data-streams/pricing.md));
+* плата за хранение данных Data Streams ([тарифы Yandex Data Streams](../pricing.md));
 * плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы Cloud Functions](../../functions/pricing.md));
 * плата за использование Yandex Cloud Postbox ([тарифы Yandex Cloud Postbox](../../postbox/pricing.md));
 * плата за тариф DataLens ([тарифы Yandex DataLens](../../datalens/pricing.md)).

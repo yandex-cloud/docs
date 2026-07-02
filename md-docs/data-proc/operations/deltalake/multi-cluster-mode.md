@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Processing](../../index.md) > [Пошаговые инструкции](../index.md) > Сервисы Apache и другие сторонние сервисы > Delta Lake > Настройка Delta Lake в мультикластерном режиме
+
 # Настройка Delta Lake в мультикластерном режиме
 
 При работе в мультикластерном режиме Yandex Data Processing использует базу данных [Yandex Managed Service for YDB](../../../ydb/index.md) для координации доступа к таблицам Delta Lake из разных кластеров и заданий Apache Spark™.

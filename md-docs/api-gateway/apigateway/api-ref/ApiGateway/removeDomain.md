@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex API Gateway](../../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ApiGateway](index.md) > RemoveDomain
+
 # API Gateway Service, REST: ApiGateway.RemoveDomain
 
 Detaches domain from the specified API gateway.

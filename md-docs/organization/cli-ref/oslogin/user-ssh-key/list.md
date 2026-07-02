@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [oslogin](../index.md) > [user-ssh-key](index.md) > list
+
 # yc organization-manager oslogin user-ssh-key list
 
 List SSH keys

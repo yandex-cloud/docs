@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Cloud Notification Service
 
 ## Push-уведомления {#push}

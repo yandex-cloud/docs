@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Schema Registry > Начало работы
+
 # Начало работы со Schema Registry
 
 Управляйте версиями схем со Schema Registry.

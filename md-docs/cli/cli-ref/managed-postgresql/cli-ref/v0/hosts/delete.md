@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-postgresql](../../index.md) > [v0](../index.md) > [hosts](index.md) > delete
+
 # yc managed-postgresql v0 hosts delete
 
 Delete the specified hosts

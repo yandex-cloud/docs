@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Managed Service for YTsaurus
+
 # Метрики Yandex Managed Service for YTsaurus
 
 В этом разделе описаны метрики сервиса [Managed Service for YTsaurus](../../managed-ytsaurus/index.md), поставляемые в Monitoring.

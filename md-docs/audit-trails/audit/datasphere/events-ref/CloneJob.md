@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > CloneJob
+
 # DataSphere Audit Trails Events: CloneJob
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.CloneJob2-schema}

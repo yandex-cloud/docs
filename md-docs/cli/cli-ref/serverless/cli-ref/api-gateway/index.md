@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > Справочник CLI (англ.) > API Gateway
+
 # yc serverless api-gateway
 
 Manage API Gateways

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > Управление доступом
+
 # Управление доступом в Managed Service for Kubernetes
 
 В этом разделе вы узнаете:

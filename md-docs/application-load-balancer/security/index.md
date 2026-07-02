@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Управление доступом
+
 # Управление доступом в Application Load Balancer
 
 В этом разделе вы узнаете:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Interconnect](../index.md) > [Практические руководства](index.md) > Интеграция с корпоративным сервисом DNS
+
 # Интеграция Cloud DNS и корпоративного сервиса DNS
 
 Если у вас есть собственные корпоративные сети, связанные с внутренними [сетями](../../vpc/concepts/network.md#network) в вашем [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) Yandex Cloud с помощью сервиса [Yandex Cloud Interconnect](../index.md), то можно интегрировать корпоративный DNS с [Cloud DNS](../../dns/index.md). Это позволит обращаться к ресурсам и сервисам по имени независимо от их расположения: в корпоративной или облачной сетях.

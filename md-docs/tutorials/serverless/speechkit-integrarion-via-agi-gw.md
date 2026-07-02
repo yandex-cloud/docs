@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > Интеграция с сервисами Яндекса и Yandex Cloud > Использование API Gateway для настройки синтеза речи в SpeechKit
+
 # Использование Yandex API Gateway для настройки синтеза речи в Yandex SpeechKit
 
 

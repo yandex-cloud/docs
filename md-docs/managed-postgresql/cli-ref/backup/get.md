@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [backup](index.md) > get
+
 # yc managed-postgresql backup get
 
 Show information about the specified PostgreSQL backup

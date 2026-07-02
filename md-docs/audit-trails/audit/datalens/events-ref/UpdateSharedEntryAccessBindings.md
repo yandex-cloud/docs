@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > UpdateSharedEntryAccessBindings
+
 # DataLens Audit Trails Events: UpdateSharedEntryAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.UpdateSharedEntryAccessBindings2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > [Пошаговые инструкции](../index.md) > Каналы > Удалить канал
+
 # Удалить канал
 
 {% list tabs group=instructions %}

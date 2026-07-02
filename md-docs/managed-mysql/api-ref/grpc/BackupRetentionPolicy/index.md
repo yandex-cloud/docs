@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for MySQL®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > BackupRetentionPolicy > Overview
+
 # Managed Service for MySQL API, gRPC: BackupRetentionPolicyService
 
 A set of methods for managing MySQL Cluster backup retention policies.

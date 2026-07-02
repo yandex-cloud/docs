@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Контейнерная инфраструктура](index.md) > Managed Service for Kubernetes > Резервное копирование > Работа со снапшотами Compute Cloud
+
 # Работа со снапшотами Compute Cloud в Yandex Managed Service for Kubernetes
 
 # Работа со снапшотами

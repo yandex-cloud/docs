@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Get
+
 # Managed Service for MongoDB API, gRPC: ClusterService.Get
 
 Returns the specified MongoDB Cluster resource.

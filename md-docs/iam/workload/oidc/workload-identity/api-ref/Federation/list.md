@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity and Access Management](../../../../../index.md) > Справочник API > REST (англ.) > Workload Identity > [Federation](../index.md) > [Federation](index.md) > List
+
 # Federation, REST: Federation.List
 
 Retrieves the list of OIDC workload identity federations in the specified folder.

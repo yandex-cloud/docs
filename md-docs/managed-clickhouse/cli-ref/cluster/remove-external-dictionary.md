@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > remove-external-dictionary
+
 # yc managed-clickhouse cluster remove-external-dictionary
 
 Remove an external dictionary from a ClickHouse cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Containers](../../../index.md) > Справочник API Containers > [REST (англ.)](../index.md) > [Container](index.md) > SetAccessBindings
+
 # Serverless Containers Service, REST: Container.SetAccessBindings
 
 Sets access bindings for the container.

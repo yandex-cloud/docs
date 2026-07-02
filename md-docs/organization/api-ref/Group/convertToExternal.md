@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Group](index.md) > ConvertToExternal
+
 # Identity Hub API, REST: Group.ConvertToExternal
 
 Converts single basic (not external) group to external. Precondition: group must be basic.

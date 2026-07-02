@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API EventRouter > [gRPC (англ.)](../index.md) > [Rule](index.md) > Disable
+
 # EventRouter Service, gRPC: RuleService.Disable
 
 Disables the specified rule.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [PrivateCloudConnection](index.md) > List
+
 # BareMetal API, REST: PrivateCloudConnection.List
 
 Retrieves the list of Private cloud connection resources in the specified folder.

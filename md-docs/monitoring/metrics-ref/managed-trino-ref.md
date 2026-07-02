@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Managed Service for Trino
+
 # Метрики Yandex Managed Service for Trino
 
 В этом разделе описаны метрики сервиса [Managed Service for Trino](../../managed-trino/index.md), поставляемые в Monitoring.

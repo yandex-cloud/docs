@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для DataSphere
 
 ## Управление сообществом {#community}

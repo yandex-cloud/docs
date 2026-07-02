@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Yandex Identity Hub](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [v0](../../../../index.md) > [idp](../../../index.md) > [application](../../index.md) > [saml](../index.md) > [application](index.md) > add-access-bindings
+
 # yc organization-manager v0 idp application saml application add-access-bindings
 
 Add access bindings for the specified SAML application

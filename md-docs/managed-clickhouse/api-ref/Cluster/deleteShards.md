@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > DeleteShards
+
 # Managed Service for ClickHouse API, REST: Cluster.DeleteShards
 
 Deletes the specified shards (one or more).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Базы данных > Managed Service for ClickHouse® > Удалить кластер
+
 # Удалить кластер Managed Service for ClickHouse®
 
 Если у вас есть кластер [ClickHouse®](../../concepts/components/clickhouse.md) в [проекте](../projects/create-project.md), вы можете удалить его.

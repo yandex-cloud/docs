@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > storage > ObjectTagsUpdate
+
 # Object Storage Audit Trails Events: ObjectTagsUpdate
 
 ## Event JSON schema {#yandex.cloud.audit.storage.ObjectTagsUpdate2-schema}

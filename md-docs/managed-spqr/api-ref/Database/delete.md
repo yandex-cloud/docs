@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Database](index.md) > Delete
+
 # Managed Service for SPQR API, REST: Database.Delete
 
 Deletes the specified SPQR database.

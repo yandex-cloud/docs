@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [security-group](index.md) > move
+
 # yc vpc security-group move
 
 Move a security group to another folder.

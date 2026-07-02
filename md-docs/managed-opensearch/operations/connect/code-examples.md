@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for OpenSearch](../../index.md) > [Пошаговые инструкции](../index.md) > [Подключение](index.md) > Примеры кода
+
 # Примеры кода для подключения к кластеру OpenSearch
 
 Перед подключением [подготовьте сертификат](index.md#ssl-certificate).

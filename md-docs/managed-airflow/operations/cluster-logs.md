@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > [Пошаговые инструкции](index.md) > Логи и мониторинг > Просмотр логов кластера
+
 # Просмотр логов кластера Managed Service for Apache Airflow™
 
 Логи кластера хранятся в [лог-группе](../../logging/concepts/log-group.md) Yandex Cloud Logging, указанной в настройках кластера. Вы можете [изменить параметры лог-группы](../../logging/operations/retention-period.md), включая время хранения логов.

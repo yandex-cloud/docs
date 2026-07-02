@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Transfer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Endpoint](index.md) > Update
+
 # Data Transfer API, REST: Endpoint.Update
 
 Updates the specified endpoint.

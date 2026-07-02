@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Концепции](index.md) > Логи в Yandex Data Processing
+
 # Логи в Yandex Data Processing
 
 Сервис [Yandex Cloud Logging](../../logging/index.md) собирает и отображает логи кластера Yandex Data Processing. Они автоматически сохраняются в лог-группу, привязанную к кластеру при его [создании](../operations/cluster-create.md) или [изменении](../operations/cluster-update.md). Это может быть лог-группа, которая действует по умолчанию в каталоге, или заранее подготовленная лог-группа пользователя.

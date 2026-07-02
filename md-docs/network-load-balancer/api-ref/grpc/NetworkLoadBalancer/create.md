@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Network Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [NetworkLoadBalancer](index.md) > Create
+
 # Network Load Balancer API, gRPC: NetworkLoadBalancerService.Create
 
 Creates a network load balancer in the specified folder using the data specified in the request.

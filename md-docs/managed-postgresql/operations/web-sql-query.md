@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Базы данных > SQL-запросы в Yandex WebSQL
+
 # SQL-запросы в Yandex WebSQL
 
 Вы можете отправлять SQL-запросы к базам данных в кластере Managed Service for PostgreSQL с помощью сервиса [Yandex WebSQL](../../websql/index.md).

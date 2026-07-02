@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Processing](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Stop
+
 # Yandex Data Processing API, gRPC: ClusterService.Stop
 
 Stops the specified cluster.

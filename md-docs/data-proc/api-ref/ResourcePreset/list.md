@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Processing](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ResourcePreset](index.md) > List
+
 # Yandex Data Processing API, REST: ResourcePreset.List
 
 Retrieves the list of available ResourcePreset resources.

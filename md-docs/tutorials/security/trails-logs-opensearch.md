@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Безопасность](index.md) > Загрузка аудитных логов в Managed Service for OpenSearch
+
 # Загрузка аудитных логов в Yandex Managed Service for OpenSearch
 
 # Загрузка аудитных логов в Yandex Managed Service for OpenSearch

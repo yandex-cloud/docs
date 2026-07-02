@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > [Подключение к кластеру](index.md) > Настройка групп безопасности
+
 # Настройка групп безопасности
 
 

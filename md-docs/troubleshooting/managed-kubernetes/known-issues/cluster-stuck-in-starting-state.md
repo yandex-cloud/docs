@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Kubernetes](../index.md) > Кластер слишком долго находится в состоянии `STARTING`
+
 # Кластер слишком долго находится в состоянии `STARTING`
 
 

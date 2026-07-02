@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Концепции](../index.md) > DataSphere Jobs > Задания
+
 # DataSphere Jobs
 
 В DataSphere вы можете удаленно запускать задания (jobs) — вычисления на ВМ DataSphere за пределами JupyterLab. Это могут быть скрипты и проекты на Python, bash-скрипты и исполняемые бинарные файлы, скомпилированные под платформу Linux x86_64.

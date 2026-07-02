@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [TrunkConnection](index.md) > Delete
+
 # Cloud Interconnect API, gRPC: TrunkConnectionService.Delete
 
 Deletes a TrunkConnection resource.

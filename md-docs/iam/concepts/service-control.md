@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity and Access Management](../index.md) > [Концепции](index.md) > Доступ сервисов к ресурсам пользователя
+
 # Доступ сервисов к ресурсам пользователя
 
 

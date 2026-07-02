@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Certificate Manager](../../../../index.md) > Справочник API > gRPC (англ.) > [Certificate Manager Private CA API](../index.md) > [PrivateCaCertificate](index.md) > List
+
 # Certificate Manager Private CA API, gRPC: PrivateCaCertificateService.List
 
 Lists the certificates issued by a given Certificate Authority (CA).

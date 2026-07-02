@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Key Management Service API](../index.md) > [AsymmetricEncryptionCrypto](index.md) > Decrypt
+
 # Key Management Service API, REST: AsymmetricEncryptionCrypto.Decrypt
 
 Decrypts the given ciphertext with the specified key.

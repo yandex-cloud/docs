@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > [Проекты](index.md) > Создать квоту для проекта
+
 # Создать квоту
 
 После создания [проекта](create-project.md)) администратор может ограничить ресурсы с помощью [объекта](https://kubernetes.io/docs/concepts/policy/resource-quotas/) `ResourceQuota`.

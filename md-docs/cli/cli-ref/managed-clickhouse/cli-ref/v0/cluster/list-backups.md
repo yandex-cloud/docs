@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-clickhouse](../../index.md) > [v0](../index.md) > [cluster](index.md) > list-backups
+
 # yc managed-clickhouse v0 cluster list-backups
 
 List available backups for a ClickHouse cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Compute Cloud](../../../../index.md) > Справочник API > gRPC (англ.) > [Compute Cloud Instance Groups API](../index.md) > [InstanceGroup](index.md) > StopInstances
+
 # Compute Cloud Instance Groups API, gRPC: InstanceGroupService.StopInstances
 
 Stop instances from the instance group.

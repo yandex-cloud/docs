@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [snapshot-schedule](index.md) > list-snapshots
+
 # yc compute v0 snapshot-schedule list-snapshots
 
 List snapshots created by specified snapshot schedule

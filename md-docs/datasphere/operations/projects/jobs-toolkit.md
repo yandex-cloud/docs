@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > DataSphere Jobs > Работа с заданиями из Visual Studio Code
+
 # Работа с заданиями из Visual Studio Code
 
 Расширение DataSphere Jobs Toolkit позволяет работать с [заданиями](../../concepts/jobs/index.md) DataSphere из IDE [Visual Studio Code](https://code.visualstudio.com/). Для этого потребуется аккаунт Yandex Cloud и [проект](../../concepts/project.md) DataSphere.

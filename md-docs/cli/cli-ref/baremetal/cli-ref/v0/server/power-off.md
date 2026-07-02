@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [baremetal](../../index.md) > [v0](../index.md) > [server](index.md) > power-off
+
 # yc baremetal v0 server power-off
 
 Power Off the specified server

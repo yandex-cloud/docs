@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [LoadBalancer](index.md) > GetTargetStates
+
 # Application Load Balancer API, REST: LoadBalancer.GetTargetStates
 
 Returns the statuses of all targets of the specified backend group in all their availability zones.

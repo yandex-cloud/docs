@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Практические руководства](index.md) > Бэкенд на Serverless > Разработка пользовательской интеграции в API Gateway
+
 # Разработка пользовательской интеграции в API Gateway
 
 

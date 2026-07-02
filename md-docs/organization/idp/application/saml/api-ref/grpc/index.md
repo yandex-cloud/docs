@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity Hub](../../../../../index.md) > Справочник API > gRPC (англ.) > Identity Provider API > SAML Application API > Overview
+
 # SAML Application API: gRPC reference
 
 Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts](../../../../../../api-design-guide/index.md).

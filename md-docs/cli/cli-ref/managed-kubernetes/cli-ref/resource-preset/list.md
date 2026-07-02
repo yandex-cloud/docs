@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-kubernetes](../index.md) > [resource-preset](index.md) > list
+
 # yc managed-kubernetes resource-preset list
 
 List available master resource presets.

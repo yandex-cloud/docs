@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > DeleteCertificate
+
 # Identity and Access Management Audit Trails Events: DeleteCertificate
 
 ## Event JSON schema {#yandex.cloud.audit.iam.DeleteCertificate2-schema}

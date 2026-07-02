@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > CreateEmbed
+
 # DataLens Audit Trails Events: CreateEmbed
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.CreateEmbed2-schema}

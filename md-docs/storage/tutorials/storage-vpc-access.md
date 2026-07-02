@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Подключение к Object Storage из VPC
+
 # Подключение к Object Storage из Virtual Private Cloud
 
 
@@ -104,7 +106,7 @@ warp get \
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за использование Object Storage ([тарифы Yandex Object Storage](../../storage/pricing.md)).
+* плата за использование Object Storage ([тарифы Yandex Object Storage](../pricing.md)).
 * плата за использование сетевого балансировщика ([тарифы Network Load Balancer](../../network-load-balancer/pricing.md)).
 * плата за постоянно работающие ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 * плата за использование публичных IP-адресов и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).

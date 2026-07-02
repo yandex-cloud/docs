@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex API Gateway](../index.md) > [Пошаговые инструкции](index.md) > Управление API-шлюзом > Управлять логами > Записать логи
+
 # Записать логи в журнал выполнения в API Gateway
 
 {% note info %}

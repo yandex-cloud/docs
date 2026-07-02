@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Container Registry > Resources > container_repository_lifecycle_policy
+
 # yandex_container_repository_lifecycle_policy (Resource)
 
 Creates a new container repository lifecycle policy. For more information, see [the official documentation](../../container-registry/concepts/lifecycle-policy.md).

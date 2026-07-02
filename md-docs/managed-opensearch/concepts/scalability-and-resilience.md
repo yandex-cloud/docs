@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > [Концепции](index.md) > Шардирование и репликация
+
 # Шардирование и репликация в Managed Service for OpenSearch
 
 В кластере OpenSearch:

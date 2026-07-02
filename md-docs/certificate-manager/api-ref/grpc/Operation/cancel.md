@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Certificate Manager API, gRPC: OperationService.Cancel
 
 Cancels the specified operation.

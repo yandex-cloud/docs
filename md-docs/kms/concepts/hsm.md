@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Key Management Service](../index.md) > [Концепции](index.md) > Симметричное шифрование > Аппаратный модуль безопасности (HSM)
+
 # Аппаратный модуль безопасности (HSM)
 
 

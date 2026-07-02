@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > ETL на Serverless > Передача событий Yandex Cloud Postbox в Data Streams и их анализ с помощью DataLens
+
 # Передача событий Yandex Cloud Postbox в Yandex Data Streams и их анализ с помощью Yandex DataLens
 
 

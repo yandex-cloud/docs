@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [oslogin](../index.md) > [profile](index.md) > set-default
+
 # yc organization-manager oslogin profile set-default
 
 Set default OS Login profile

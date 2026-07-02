@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Message Queue](../index.md) > [Концепции](index.md) > Сравнение с Yandex Data Streams
+
 # Сравнение с Yandex Data Streams
 
 В Yandex Cloud для обмена данными используются сервисы Yandex Message Queue и Yandex Data Streams.

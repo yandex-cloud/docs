@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-mysql](../index.md) > [cluster](index.md) > update-config
+
 # yc managed-mysql cluster update-config
 
 Update the specified MySQL cluster config

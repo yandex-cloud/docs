@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Valkey™](../index.md) > [Практические руководства](index.md) > Хранение сессий PHP в Yandex Managed Service for Valkey™
+
 # Использование кластера Yandex Managed Service for Valkey™ в качестве хранилища сессий PHP
 
 
@@ -16,7 +18,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер-приемник Yandex Managed Service for Valkey™: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Valkey™](../../managed-valkey/pricing.md)).
+* Кластер-приемник Yandex Managed Service for Valkey™: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Valkey™](../pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 * Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Compute Cloud](../../compute/pricing.md)).
 

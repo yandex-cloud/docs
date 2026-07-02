@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > EventRouter > Управление правилом > Создать правило > Cloud Logging
+
 # Создать правило с приемником Yandex Cloud Logging
 
 {% list tabs group=instructions %}

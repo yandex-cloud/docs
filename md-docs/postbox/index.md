@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Cloud Postbox > Cloud Postbox
+
 # Yandex Cloud Postbox
 
 Yandex Cloud Postbox — сервис отправки почтовых сообщений.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Техническое обслуживание
+
 # Техническое обслуживание кластера Sharded PostgreSQL
 
 Вы можете управлять техническим обслуживанием кластера Managed Service for Sharded PostgreSQL, в том числе:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud DNS](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [zone](index.md) > move
+
 # yc dns v0 zone move
 
 Move a dns zone to the specified folder.

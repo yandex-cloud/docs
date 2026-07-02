@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v1alpha](../index.md) > [public-subnet](index.md) > list-operations
+
 # yc baremetal v1alpha public-subnet list-operations
 
 Lists operations for the specified public subnet.

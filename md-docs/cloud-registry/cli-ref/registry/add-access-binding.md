@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [registry](index.md) > add-access-binding
+
 # yc cloud-registry registry add-access-binding
 
 Add access binding for the specified registry

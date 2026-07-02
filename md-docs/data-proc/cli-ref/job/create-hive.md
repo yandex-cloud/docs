@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Processing](../../index.md) > [Справочник CLI (англ.)](../index.md) > [job](index.md) > create-hive
+
 # yc dataproc job create-hive
 
 Create a Dataproc Hive job.

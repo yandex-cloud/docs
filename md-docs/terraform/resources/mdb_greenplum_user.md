@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for Greenplum® > Resources > mdb_greenplum_user
+
 # yandex_mdb_greenplum_user (Resource)
 
 Manages a Greenplum user within the Yandex Cloud.

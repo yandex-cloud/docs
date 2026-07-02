@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Certificate Manager](../../index.md) > [Справочник CLI (англ.)](../index.md) > [certificate](index.md) > request
+
 # yc certificate-manager certificate request
 
 Request a managed certificate

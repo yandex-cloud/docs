@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Data Catalog > Пошаговые инструкции > Хранилище данных > Разметка хранилища данных
+
 # Разметка хранилища данных
 
 {% note info %}

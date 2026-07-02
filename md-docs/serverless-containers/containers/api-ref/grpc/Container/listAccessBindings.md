@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Containers](../../../../index.md) > Справочник API Containers > [gRPC (англ.)](../index.md) > [Container](index.md) > ListAccessBindings
+
 # Serverless Containers Service, gRPC: ContainerService.ListAccessBindings
 
 Lists existing access bindings for the specified container.

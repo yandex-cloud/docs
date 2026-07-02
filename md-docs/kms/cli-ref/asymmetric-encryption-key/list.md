@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > [Справочник CLI (англ.)](../index.md) > [asymmetric-encryption-key](index.md) > list
+
 # yc kms asymmetric-encryption-key list
 
 List asymmetric encryption keys of the specified folder

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > metastore > DeleteCluster
+
 # Managed Service for Hive Metastore™ Audit Trails Events: DeleteCluster
 
 ## Event JSON schema {#yandex.cloud.audit.metastore.DeleteCluster2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Yandex Cloud Postbox
+
 # Метрики Yandex Cloud Postbox
 
 В этом разделе описаны метрики сервиса [Yandex Cloud Postbox](../../postbox/index.md), поставляемые в Monium Metrics.

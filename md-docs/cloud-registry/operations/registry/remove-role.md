@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > [Пошаговые инструкции](../index.md) > Управление реестром > Управление правами доступа к реестру > Отозвать роль
+
 # Отозвать роль на реестр
 
 {% list tabs group=instructions %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > [Машинное обучение и искусственный интеллект](../index.md) > Речевая аналитика > Интеграция SpeechSense с amoCRM
+
 # Интеграция SpeechSense с amoCRM
 
 Чтобы настроить интеграцию SpeechSense с [amoCRM](https://www.amocrm.ru/):

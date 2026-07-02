@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Registry](index.md) > Update
+
 # Yandex Cloud Registry API, gRPC: RegistryService.Update
 
 Updates the specified registry.

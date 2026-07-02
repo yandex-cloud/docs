@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > DiskPlacementGroup > Overview
+
 # Compute Cloud API, REST: DiskPlacementGroup
 
 A set of methods for managing DiskPlacementGroup resources.

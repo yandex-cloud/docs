@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Certificate Manager](../../../../index.md) > Справочник API > gRPC (англ.) > [Certificate Manager Private CA API](../index.md) > [PrivateCaCertificateContent](index.md) > GetPrivateKey
+
 # Certificate Manager Private CA API, gRPC: PrivateCaCertificateContentService.GetPrivateKey
 
 Returns the private key for the specified certificate.

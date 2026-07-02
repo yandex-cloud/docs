@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MetaData Hub](../../../index.md) > Connection Manager > Справочник API > [REST (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Connection Manager API, REST: Operation.Get
 
 Returns the specified Operation resource.

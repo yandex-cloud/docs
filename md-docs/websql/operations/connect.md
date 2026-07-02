@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex WebSQL](../index.md) > [Пошаговые инструкции](index.md) > Управление подключениями > Все инструкции
+
 # Инструкции по управлению подключениями
 
 В разделе ![image](../../_assets/console-icons/folder-tree.svg) [**Подключения**](https://websql.yandex.cloud) сервиса Yandex WebSQL вы можете:

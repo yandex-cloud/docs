@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > Справочник API > [REST (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Managed Service for Hive Metastore™ API, REST: Operation.Get
 
 Returns the specified Operation resource.

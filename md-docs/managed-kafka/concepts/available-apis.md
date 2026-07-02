@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Концепции](index.md) > API в Managed Service for Apache Kafka®
+
 # API в Managed Service for Apache Kafka®
 
 В кластере доступно несколько видов API, позволяющих выполнять различные операции.

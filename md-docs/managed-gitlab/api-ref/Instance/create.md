@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for GitLab](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Instance](index.md) > Create
+
 # Managed Service for Gitlab API, REST: Instance.Create
 
 Creates a new GitLab instance in the specified folder.

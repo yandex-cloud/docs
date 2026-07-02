@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Триггер](index.md) > Триггер для Container Registry
+
 # Триггер для Container Registry, который отправляет сообщения в WebSocket-соединения
 
 [Триггер](index.md) для Container Registry отправляет сообщения в [WebSocket-соединения](../extensions/websocket.md), когда с [Docker-образом](../../../container-registry/concepts/docker-image.md) Container Registry происходят определенные события. Триггер должен находиться в одном облаке с [реестром](../../../container-registry/concepts/registry.md), на события которого он подписан.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Концепции](index.md) > Мониторинг сетевых соединений
+
 # Мониторинг сетевых соединений
 
 Для обеспечения работы [сетевого балансировщика](../../network-load-balancer/index.md) и [групп безопасности](security-groups.md) VPC использует мониторинг сетевых соединений.

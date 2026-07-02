@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > dns > CreateDnsZone
+
 # Cloud DNS Audit Trails Events: CreateDnsZone
 
 ## Event JSON schema {#yandex.cloud.audit.dns.CreateDnsZone2-schema}

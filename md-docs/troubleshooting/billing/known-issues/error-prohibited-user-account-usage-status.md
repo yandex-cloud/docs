@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Yandex Cloud Billing](../index.md) > Устранение ошибки `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS`
+
 # Устранение ошибки `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS`
 
 

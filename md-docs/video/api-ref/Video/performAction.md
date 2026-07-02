@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Video](index.md) > PerformAction
+
 # Video API, REST: Video.PerformAction
 
 Performs a specific action on a video, such as publishing or unpublishing.

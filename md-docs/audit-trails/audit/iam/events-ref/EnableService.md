@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > EnableService
+
 # Identity and Access Management Audit Trails Events: EnableService
 
 ## Event JSON schema {#yandex.cloud.audit.iam.EnableService2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-clickhouse](../index.md) > [cluster](index.md) > update
+
 # yc managed-clickhouse cluster update
 
 Modify configuration or attributes of a ClickHouse cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > GetShard
+
 # Managed Service for MongoDB API, REST: Cluster.GetShard
 
 Returns the specified shard.

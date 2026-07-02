@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > [Справочник CLI (англ.)](../index.md) > [private-connection](index.md) > move
+
 # yc cic private-connection move
 
 Moves the specified PrivateConnection to another folder.

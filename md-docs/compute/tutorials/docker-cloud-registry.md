@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Практические руководства](index.md) > Запуск Docker-образа на ВМ с помощью Cloud Registry
+
 # Запуск Docker-образа на виртуальной машине с помощью Yandex Cloud Registry
 
 В этом руководстве вы развернете [Docker-образ](../../cloud-registry/concepts/artifacts/docker.md) из [реестра](../../cloud-registry/concepts/registry.md) Yandex Cloud Registry и запустите контейнер на [виртуальной машине](../concepts/vm.md) Yandex Compute Cloud.
@@ -31,9 +33,9 @@
 
 В стоимость ресурсов для запуска Docker-образа входят:
 
-* Плата за постоянно запущенную ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за постоянно запущенную ВМ ([тарифы Yandex Compute Cloud](../pricing.md)).
 * Плата за хранение созданных образов ([тарифы Yandex Cloud Registry](../../cloud-registry/pricing.md)).
-* Плата за исходящий трафик из Yandex Cloud в интернет ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за исходящий трафик из Yandex Cloud в интернет ([тарифы Yandex Compute Cloud](../pricing.md)).
 
 
 ### Создайте пару ключей SSH {#create-ssh}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cloud-registry](../../index.md) > [v1](../index.md) > registry > Overview
+
 # yc cloud-registry v1 registry
 
 A set of methods for managing Registry resources.

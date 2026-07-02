@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Transfer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Endpoint > Overview
+
 # Data Transfer API, gRPC: EndpointService
 
 A set of methods for managing [endpoints]({{ api-url-prefix

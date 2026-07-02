@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-clickhouse](../../index.md) > [v0](../index.md) > [shard-groups](index.md) > create
+
 # yc managed-clickhouse v0 shard-groups create
 
 Create new shard group for the cluster in the specified availability zones.

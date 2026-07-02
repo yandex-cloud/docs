@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > DeleteFilesystem
+
 # Compute Audit Trails Events: DeleteFilesystem
 
 ## Event JSON schema {#yandex.cloud.audit.compute.DeleteFilesystem2-schema}

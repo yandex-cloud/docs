@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Пошаговые инструкции](index.md) > Группы безопасности > Перенести группу безопасности между каталогами
+
 # Переместить группу безопасности в другой каталог
 
 {% list tabs group=instructions %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [container](../index.md) > [image](index.md) > list
+
 # yc container image list
 
 List Docker images.

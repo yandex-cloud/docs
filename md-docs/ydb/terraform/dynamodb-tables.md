@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > Работа с YDB через Terraform > Создание документных таблиц в базе данных
+
 # Создание документных таблиц в базе данных
 
 {% note warning %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity and Access Management](../index.md) > [Практические руководства](index.md) > Интеграции федераций удостоверений сервисных аккаунтов > Пользовательская инсталляция Kubernetes
+
 # Получение значения секрета Yandex Lockbox на стороне пользовательской инсталляции Kubernetes
 
 [Федерации сервисных аккаунтов](../concepts/workload-identity.md) (Workload Identity Federation) позволяют настроить связь между внешними системами и Yandex Cloud по протоколу [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC). За счет этого внешние системы могут выполнять действия с ресурсами Yandex Cloud от имени [сервисных аккаунтов](../concepts/users/service-accounts.md) IAM без использования [авторизованных ключей](../concepts/authorization/key.md). Это более безопасный способ, минимизирующий риск утечки учетных данных и возможность несанкционированного доступа.

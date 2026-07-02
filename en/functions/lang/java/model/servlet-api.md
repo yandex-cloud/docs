@@ -1,12 +1,12 @@
 # Using the HttpServlet class to set a Java handler
 
-You can define a Java handler by overriding the selected methods of the [HttpServlet](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html) class.
+You can set a Java handler by overriding selected methods of the [HttpServlet](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html) class.
 
-{{ sf-name }} will automatically redirect each `HTTP` request to your handler depending on the `HTTP` method used to initiate the request. A `GET` request, for instance, will be redirected to your handler's `doGet` method, and `POST`, to `doPost`. For a redirect to be successful, these handler methods must exist, otherwise the function will return `HTTP method XXX is not supported by this URL` with code `405`.
+{{ sf-name }} will automatically route each `HTTP` request to your handler depending on the `HTTP` method used to initiate the request. For example, a `GET` request will be routed to your handler’s `doGet` method, and `POST`, to `doPost`. For successful routing, these handler methods must exist; otherwise the function will return `HTTP method XXX is not supported by this URL` with code `405`.
 
 ## Unsupported methods {#unsupported}
 
-When using this model, please note that certain [HttpServletRequest](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) and [HttpServletResponse](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html) methods are not supported by {{ sf-name }}.
+When using this model, note that {{ sf-name }} does not support some methods of the [HttpServletRequest](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) and [HttpServletResponse](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html) classes.
 
 `HttpServletRequest`:
 - getAuthType
@@ -39,11 +39,11 @@ When using this model, please note that certain [HttpServletRequest](https://doc
 - encodeUrl
 - encodeRedirectUrl
 
-## Example of modeling various function behaviors when invoked using different HTTP methods
+## Example of modeling how the function behaves for different HTTP methods
 
 {% note warning %}
 
-Do not use the `?integration=raw` parameter to invoke this function. If you do, the function will not get any data about the original request's methods, headers, or parameters.
+Do not use `?integration=raw` to invoke this function. If you do, the function will not get any data about the original request’s methods, headers, or parameters.
 
 {% endnote %}
 
@@ -54,7 +54,7 @@ To create a function:
 1. Add the `/src` directory and the `pom.xml` file to a ZIP archive.
 1. [Upload](../../../operations/function/version-manage.md#func-version-create) the ZIP archive to {{ sf-name }}.
 
-`pom.xml` file:
+`pom.xml`:
 
 ```xml
 <project>
@@ -80,7 +80,7 @@ To create a function:
 </project>
 ```
 
-`Handler.java` file:
+`Handler.java`:
 ```java
 import java.io.IOException;
 
@@ -91,9 +91,9 @@ import javax.servlet.http.HttpServletResponse;
 public class Handler extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    // by setting the Content-Type to text/html, we let the browser render the HTML code
+    // With Content-Type set to text/html, the browser renders the HTML code.
     response.setContentType("text/html");
-    // displayed in bold when the function is invoked from the browser
+    // It will be displayed in bold when the function is called from a browser.
     response.getOutputStream().print("<b>Hello, world. In bold.</b>");
   }
 
@@ -101,7 +101,7 @@ public class Handler extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     var name = request.getParameter("name");
     response.getWriter().println("Hello, " + name);
-    // the printWriter class returned by the getWriter method, make sure it's closed
+    // Make sure to close the PrintWriter returned by getWriter.
     response.getWriter().close();
   }
 }
@@ -117,7 +117,7 @@ Request examples:
 
 {% note info %}
 
-Running a `GET` request in a browser will display this string in bold without any tags because you had specified `Content-Type: text/html` in your handler's code.
+Running a `GET` request in a browser will display this string in bold without any tags since you specified `Content-Type: text/html` in your handler's code.
 
 {% endnote %}
 
@@ -135,9 +135,9 @@ HTTP method PUT is not supported by this URL
 
 ## Example of function information output {#get-context}
 
-The following function outputs its metadata based on the [call context](../context.md).
+The following function outputs its metadata based on the [invocation context](../context.md).
 
-`pom.xml` file:
+`pom.xml`:
 
 ```xml
 <project>
@@ -163,7 +163,7 @@ The following function outputs its metadata based on the [call context](../conte
 </project>
 ```
 
-`Handler.java` file:
+`Handler.java`:
 
 ```java
 import javax.servlet.http.HttpServlet;
@@ -207,7 +207,7 @@ Request example:
 }
 ```
 
-Here is a response example:
+Response example:
 
 ```json
 {

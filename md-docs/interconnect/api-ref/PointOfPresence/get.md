@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [PointOfPresence](index.md) > Get
+
 # Cloud Interconnect API, REST: PointOfPresence.Get
 
 Returns the specified PointOfPresence resource.

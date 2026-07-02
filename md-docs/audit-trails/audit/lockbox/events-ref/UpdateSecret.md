@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > lockbox > UpdateSecret
+
 # Lockbox Audit Trails Events: UpdateSecret
 
 ## Event JSON schema {#yandex.cloud.audit.lockbox.UpdateSecret2-schema}

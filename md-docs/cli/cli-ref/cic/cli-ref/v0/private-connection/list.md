@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cic](../../index.md) > [v0](../index.md) > [private-connection](index.md) > list
+
 # yc cic v0 private-connection list
 
 List privateConnections in a folder.

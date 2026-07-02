@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DesktopImage](index.md) > CopyFromDesktop
+
 # Cloud Desktop API, REST: DesktopImage.CopyFromDesktop
 
 Copies the specified desktop image from the specified desktop.

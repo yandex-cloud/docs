@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Концепции](../index.md) > [DataSphere Jobs](index.md) > Интеграция с Managed Service for Apache Airflow™
+
 # Интеграция с Yandex Managed Service for Apache Airflow™
 
 [Сервис Yandex Managed Service for Apache Airflow™](../../../managed-airflow/concepts/index.md#about-the-service) позволяет описывать и управлять автоматизированными процессами обработки данных — воркфлоу. Воркфлоу представляет собой направленный ациклический граф (Directed Acyclic Graph, _DAG_), который реализуется с помощью скрипта на Python. Файл с таким скриптом называется _DAG-файлом_. В нем содержатся задачи, расписание их запуска и зависимости между ними.

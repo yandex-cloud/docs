@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Valkey™](index.md) > История изменений
+
 # История изменений в Yandex Managed Service for Valkey™
 
 ## Май 2026 {#may-2026}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Partner](index.md) > List
+
 # Cloud Interconnect API, gRPC: PartnerService.List
 
 Retrieves the list of Partner resources in the specified folder.

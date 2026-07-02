@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [logging](../index.md) > [sink](index.md) > delete
+
 # yc logging sink delete
 
 Delete log sink

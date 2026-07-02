@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Maintenance](index.md) > List
+
 # Managed Service for MySQL API, REST: Maintenance.List
 
 Lists maintenances by conditions, specified in request.

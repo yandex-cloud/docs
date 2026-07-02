@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Концепции](../index.md) > [DataSphere Jobs](index.md) > Работа с коннекторами Spark
+
 # Работа с коннекторами Spark
 
 Интеграция DataSphere Jobs с [Yandex Data Processing](../../../data-proc/index.md) через [коннекторы Spark](../spark-connector.md) отличается от стандартной работы заданий. Кластеры Yandex Data Processing имеют строгие требования к окружению, поэтому для заданий есть ряд ограничений:

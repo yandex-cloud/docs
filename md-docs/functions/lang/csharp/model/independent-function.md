@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Functions](../../../index.md) > [Разработка на .NET Core](../index.md) > [Модель программирования](index.md) > Интерфейс Function
+
 # Использование интерфейса Function для задания функции-обработчика на С#
 
 Вы можете задать функцию-обработчик на C#, без необходимости наследования от классов [SDK](https://github.com/yandex-cloud/dotnet-sdk).

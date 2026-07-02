@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex SpeechKit Hybrid](index.md) > Системные требования
+
 # Системные требования
 
 Для установки SpeechKit Hybrid вам необходим сервер с ОС Linux, который поддерживает Docker Engine. Список поддерживаемых ОС приведен в [официальной документации Docker](https://docs.docker.com/engine/install/#server).

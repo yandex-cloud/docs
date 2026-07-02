@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [AWS S3 REST](../../index.md) > [REST](../index.md) > Bucket > PutBucketEncryption
+
 # Object Storage API, REST совместимый с Amazon S3: PutBucketEncryption
 
 Добавляет шифрование бакету. Объекты, добавляемые в этот бакет, будут по умолчанию шифроваться указанным [ключом KMS](../../../../kms/concepts/key.md). Подробнее о шифровании бакета читайте в разделе [Шифрование в Object Storage](../../../concepts/encryption.md).

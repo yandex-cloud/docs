@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Resource Manager](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [folder](index.md) > add-labels
+
 # yc resource-manager v0 folder add-labels
 
 Add labels to specified folder

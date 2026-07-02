@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > Начало работы > Обзор
+
 # Начало работы с Compute Cloud
 
 Сервис [Yandex Compute Cloud](../index.md) предоставляет масштабируемые вычислительные мощности для создания виртуальных машин и управления ими. Сервис поддерживает [прерываемые](../concepts/preemptible-vm.md) виртуальные машины, а также отказоустойчивые [группы виртуальных машин](../concepts/instance-groups/index.md).

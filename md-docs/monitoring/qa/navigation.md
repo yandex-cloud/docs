@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > Вопросы и ответы > Навигация
+
 # Навигация
 
 #### Где посмотреть график RAM на виртуальной машине? {#ram-graphs-overview}

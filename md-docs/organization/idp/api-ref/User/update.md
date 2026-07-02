@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [Identity Provider API](../index.md) > [User](index.md) > Update
+
 # Identity Provider API, REST: User.Update
 
 Updates the specified user.

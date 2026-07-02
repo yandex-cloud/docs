@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [registry](index.md) > configure-docker
+
 # yc container registry configure-docker
 
 Configure docker to use Yandex Cloud credential helper.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > [Справочник CLI (англ.)](../index.md) > [symmetric-crypto](index.md) > encrypt
+
 # yc kms symmetric-crypto encrypt
 
 Encrypt data with specified symmetric key

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [BackendGroup](index.md) > AddBackend
+
 # Application Load Balancer API, REST: BackendGroup.AddBackend
 
 Adds backends to the specified backend group.

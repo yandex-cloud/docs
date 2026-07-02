@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > [Connector](index.md) > Create
+
 # EventRouter Service, REST: Connector.Create
 
 Creates a connector in the specified folder.

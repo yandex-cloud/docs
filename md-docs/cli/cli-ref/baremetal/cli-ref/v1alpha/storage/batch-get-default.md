@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [baremetal](../../index.md) > [v1alpha](../index.md) > [storage](index.md) > batch-get-default
+
 # yc baremetal v1alpha storage batch-get-default
 
 Returns the default storages for the specified configurations.

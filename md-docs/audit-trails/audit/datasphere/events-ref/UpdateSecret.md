@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > UpdateSecret
+
 # DataSphere Audit Trails Events: UpdateSecret
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.UpdateSecret2-schema}

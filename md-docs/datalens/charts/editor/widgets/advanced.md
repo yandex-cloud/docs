@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex DataLens](../../../index.md) > Чарты > [Чарты в Editor](../index.md) > [Типы визуализаций](index.md) > Advanced-чарт
+
 # Advanced-чарт
 
 Этот тип визуализации позволяет создавать HTML с безопасной разметкой через функцию [Editor.generateHtml(args)](../methods.md#gen-html) и гибкие SVG-визуализации с использованием библиотек `d3`, `d3-chord` и `d3-sankey`.

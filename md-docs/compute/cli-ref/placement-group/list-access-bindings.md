@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [placement-group](index.md) > list-access-bindings
+
 # yc compute placement-group list-access-bindings
 
 List access bindings for the specified placement group

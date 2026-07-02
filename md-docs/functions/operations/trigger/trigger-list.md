@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Пошаговые инструкции](../index.md) > Получение информации о триггере > Получить список триггеров
+
 # Получить список триггеров в Cloud Functions
 
 {% list tabs group=instructions %}

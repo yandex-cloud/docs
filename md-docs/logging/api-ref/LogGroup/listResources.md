@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [LogGroup](index.md) > ListResources
+
 # Cloud Logging Service, REST: LogGroup.ListResources
 
 Retrieves the resources (type and IDs) in the specified log group.

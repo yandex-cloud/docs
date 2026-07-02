@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > SwitchWorkbookFileExportProhibition
+
 # DataLens Audit Trails Events: SwitchWorkbookFileExportProhibition
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.SwitchWorkbookFileExportProhibition2-schema}

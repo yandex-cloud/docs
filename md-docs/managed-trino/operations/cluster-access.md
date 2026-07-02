@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Управление доступом к кластеру
+
 # Управление доступом к кластеру Managed Service for Trino
 
 Вы можете предоставить пользователю или сервисному аккаунту [роль](../security.md) для доступа к конкретному [кластеру](../concepts/index.md).

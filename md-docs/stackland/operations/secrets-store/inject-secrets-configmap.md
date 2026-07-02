@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Secrets Store > Инъекция секретов через ConfigMap
+
 # Инъекция секретов через ConfigMap (ConfigMap mode)
 
 В этом руководстве описано, как настроить подстановку секретов из Secrets Store в файлы конфигурации с помощью ConfigMap mode Secrets Injector.

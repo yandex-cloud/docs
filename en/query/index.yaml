@@ -1,16 +1,16 @@
 title: Yandex Query
 description:
   - >-
-    Yandex Query is an interactive, fully managed service for data engineers and
-    analysts. The service enables real-time analytical and streaming queries to
-    structured and partially structured data using a common SQL dialect.
+    Yandex Query is a fully managed, interactive service for data engineers and
+    analysts. It allows you to run both analytical and real-time streaming
+    queries on structured or semi-structured data using a single SQL dialect.
 nav:
   title: Yandex Query
 meta:
   title: Yandex Query
   description: >-
-    Yandex Query enables real-time analytical and streaming queries to
-    structured and partially structured data using a common SQL dialect.
+    With Yandex Query, you can run analytical and real-time streaming queries on
+    structured or semi-structured data using a single SQL dialect.
   keywords:
     - keyword: '{{ yq-name }}'
     - keyword: '{{ yq-full-name }}'
@@ -30,14 +30,14 @@ links:
     description: Learn how to get started with Yandex Query
     href: quickstart/index
   - title: Concepts
-    description: Learn about service concepts and features
+    description: Learn about the service concepts and features
     href: concepts/index
   - title: Quotas and limits
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Configure access permissions to use the service
+    description: Configure access permissions for the service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing

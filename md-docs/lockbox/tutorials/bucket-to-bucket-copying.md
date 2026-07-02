@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Lockbox](../index.md) > [Практические руководства](index.md) > Автоматическое копирование объектов из одного бакета Object Storage в другой
+
 # Автоматическое копирование объектов из одного бакета Yandex Object Storage в другой
 
 
@@ -35,7 +37,7 @@
 
 * плата за хранение данных в бакете ([тарифы Yandex Object Storage](../../storage/pricing.md));
 * плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик ([тарифы Yandex Cloud Functions](../../functions/pricing.md));
-* плата за хранение секретов ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).
+* плата за хранение секретов ([тарифы Yandex Lockbox](../pricing.md)).
 
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > SuspendServiceAccount
+
 # Identity and Access Management Audit Trails Events: SuspendServiceAccount
 
 ## Event JSON schema {#yandex.cloud.audit.iam.SuspendServiceAccount2-schema}

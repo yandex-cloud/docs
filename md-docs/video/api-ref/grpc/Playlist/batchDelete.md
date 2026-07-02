@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Playlist](index.md) > BatchDelete
+
 # Video API, gRPC: PlaylistService.BatchDelete
 
 Deletes multiple playlists in a specific channel in a single request.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > ydb > CreateTopic
+
 # Managed Service for YDB Audit Trails Events: CreateTopic
 
 ## Event JSON schema {#yandex.cloud.audit.ydb.topics.CreateTopic2-schema}

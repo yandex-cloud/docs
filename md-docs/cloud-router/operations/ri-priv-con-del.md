@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Router](../index.md) > [Пошаговые инструкции](index.md) > Удалить приватное соединение из Routing Instance
+
 # Удалить приватное соединение из Routing Instance
 
 {% note info %}

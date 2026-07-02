@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > Вопросы и ответы
+
 # Вопросы и ответы о Managed Service for OpenSearch
 
 * [Как происходит обслуживание кластеров OpenSearch?](#service-window)

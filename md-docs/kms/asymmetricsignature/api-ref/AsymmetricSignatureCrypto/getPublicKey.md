@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Key Management Service API](../index.md) > [AsymmetricSignatureCrypto](index.md) > GetPublicKey
+
 # Key Management Service API, REST: AsymmetricSignatureCrypto.GetPublicKey
 
 Gets value of public key.

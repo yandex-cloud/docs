@@ -1,20 +1,20 @@
 # Building and managing Java function dependencies
 
-{{ sf-name }} supports two ways to manage Java function dependencies: automatic installation from the source code using Maven and adding dependencies manually to a project archive. However, you cannot configure dependencies using both methods at the same time.
+{{ sf-name }} supports two methods of managing Java function dependencies: automatic installation from the source code using Maven and adding dependencies manually to a project archive. However, you cannot configure dependencies using both methods at the same time.
 
-The process of installing dependencies has resource and execution time limits. For more information, see [{#T}](../../concepts/limits.md). You can view the dependency installation log using the link that appears in the list of operations.
+Dependency installation is limited in terms of resources and execution time. For more information, see [{#T}](../../concepts/limits.md). You can view the dependency installation log via the link displayed in the list of operations.
 
 ## Maven {#maven}
 
-[Maven](https://maven.apache.org/) is a system for managing dependencies in Java.
+[Maven](https://maven.apache.org/) is a dependency management system for Java.
 
-To deliver dependencies, configure them in the `pom.xml` file. No other actions, including project compilation, are required.
+To deliver dependencies, configure them in the `pom.xml` file. No other steps, including project compilation, are required.
 
-To set the loading order for dependencies, upload a file named `classpath.txt` to the project root. This file must list the dependencies line by line in the required order.
+To set the dependency loading order, upload a file named `classpath.txt` to the project root. This file must list the dependencies line by line in the required order.
 
 {% note warning %}
 
-Make sure the project archive root contains the `pom.xml` file.
+Make sure the project archive root contains `pom.xml`.
 
 {% endnote %}
 
@@ -41,6 +41,6 @@ build.zip
 
 {% note warning %}
 
-Functions are not guaranteed to work correctly with other versions of the libraries.
+Functions may not work correctly with other versions of the libraries.
 
 {% endnote %}

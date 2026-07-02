@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > CreateGroupMapping
+
 # Identity Hub Audit Trails Events: CreateGroupMapping
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.CreateGroupMapping2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > [Rule](index.md) > Enable
+
 # EventRouter Service, REST: Rule.Enable
 
 Enables the specified rule.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Backup](../index.md) > [Пошаговые инструкции](index.md) > ВМ в Cloud Backup > Посмотреть журнал резервного копирования
+
 # Посмотреть журнал резервного копирования
 
 {% list tabs group=instructions %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Network Load Balancer](../index.md) > Вопросы и ответы
+
 # Общие вопросы про Network Load Balancer
 
 #### Я могу получить логи моей работы в сервисах? {#logs}

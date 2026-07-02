@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [image](index.md) > list-scan-results
+
 # yc container image list-scan-results
 
 [PREVIEW] List scan results of Docker image.

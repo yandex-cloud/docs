@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Registry](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Cloud Registry
 
 ## Управление реестром {#registry}

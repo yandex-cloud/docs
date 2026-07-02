@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Object Storage > Resources > storage_bucket
+
 # yandex_storage_bucket (Resource)
 
 Allows management of [Yandex Cloud Storage Bucket](../../storage/concepts/bucket.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../index.md) > [standard-image](index.md) > list
+
 # yc baremetal standard-image list
 
 Retrieves the list of Image resources in the specified folder. Pass the "baremetal-standard-images" folder to get general images.

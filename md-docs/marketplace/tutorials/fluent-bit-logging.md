@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Marketplace](../index.md) > Пользователям > [Практические руководства](index.md) > Использование продуктов Cloud Marketplace в Managed Service for Kubernetes > Настройка Fluent Bit для работы с Cloud Logging
+
 # Настройка Fluent Bit для работы с Yandex Cloud Logging
 
 

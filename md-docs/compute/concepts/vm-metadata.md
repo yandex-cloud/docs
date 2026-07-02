@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Концепции](index.md) > Метаданные виртуальных машин > Обзор
+
 # Метаданные виртуальной машины
 
 {% note info %}

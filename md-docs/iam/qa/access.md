@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity and Access Management](../index.md) > [Вопросы и ответы](index.md) > Вход в систему и доступ к ресурсам
+
 # Вход в систему и доступ к ресурсам
 
 #### Как войти в консоль управления? {#console-log-in}

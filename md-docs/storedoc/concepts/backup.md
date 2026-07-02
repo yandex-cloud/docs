@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex StoreDoc](../index.md) > [Концепции](index.md) > Резервные копии
+
 # Резервные копии в Yandex StoreDoc
 
 Yandex StoreDoc обеспечивает автоматическое и ручное резервное копирование баз данных.

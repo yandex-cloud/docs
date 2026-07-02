@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Развертывание веб-приложения с JWT-авторизацией в API Gateway и аутентификацией в Firebase
+
 # Развертывание веб-приложения с JWT-авторизацией в Yandex API Gateway и аутентификацией в Firebase
 
 
@@ -31,7 +33,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для работы веб-приложения входят:
-* Плата за хранение данных в бакете и операции с ними ([тарифы Object Storage](../../storage/pricing.md)).
+* Плата за хранение данных в бакете и операции с ними ([тарифы Object Storage](../pricing.md)).
 * Плата за использование API-шлюза ([тарифы API Gateway](../../api-gateway/pricing.md)).
 
 ## Создайте проект и настройте Google OAuth в Google Cloud {#create-google-cloud-project}

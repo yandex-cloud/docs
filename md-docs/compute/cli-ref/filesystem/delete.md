@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [filesystem](index.md) > delete
+
 # yc compute filesystem delete
 
 Delete the specified filesystem

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > [Безопасность](../index.md) > Настройка единого входа в приложения (SSO) > Managed Service for OpenSearch
+
 # Создать SAML-приложение в Yandex Identity Hub для интеграции с Managed Service for OpenSearch
 
 [OpenSearch](https://opensearch.org/) — это легко масштабируемая система поисковых и аналитических инструментов с открытым исходным кодом. OpenSearch включает в себя пользовательский интерфейс визуализации данных [OpenSearch Dashboards](https://docs.opensearch.org/latest/dashboards/). [Yandex Managed Service for OpenSearch](../../../managed-opensearch/index.md) — сервис для управления кластерами OpenSearch в инфраструктуре Yandex Cloud. Managed Service for OpenSearch поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.

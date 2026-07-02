@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Профили безопасности > Добавить правило
+
 # Добавить правило в профиль безопасности
 
 В [профиле безопасности](../concepts/profiles.md) можно добавить базовые [правила](../concepts/rules.md), а также правила Smart Protection и WAF. Правила ARL [добавляются в профиле ARL](arl-rule-add.md).

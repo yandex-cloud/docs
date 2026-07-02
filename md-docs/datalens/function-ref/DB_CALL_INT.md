@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Вычисляемые поля > Справочник функций > Нативные функции > DB_CALL_INT
+
 # DB_CALL_INT
 
 

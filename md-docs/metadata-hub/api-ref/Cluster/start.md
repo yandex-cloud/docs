@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > Start
+
 # Managed Service for Hive Metastore™ API, REST: Cluster.Start
 
 Starts the specified Metastore Cluster.

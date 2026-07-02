@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > Концепции > Взаимосвязь ресурсов сервиса
+
 # Взаимосвязь ресурсов в Managed Service for Apache Kafka®
 
 

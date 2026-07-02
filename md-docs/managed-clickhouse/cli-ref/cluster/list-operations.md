@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > list-operations
+
 # yc managed-clickhouse cluster list-operations
 
 List operations for a ClickHouse cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > RawLogs > Overview
+
 # Cloud CDN API, gRPC: RawLogsService
 
 Raw logs management service.

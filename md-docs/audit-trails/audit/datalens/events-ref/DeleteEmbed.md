@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > DeleteEmbed
+
 # DataLens Audit Trails Events: DeleteEmbed
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.DeleteEmbed2-schema}

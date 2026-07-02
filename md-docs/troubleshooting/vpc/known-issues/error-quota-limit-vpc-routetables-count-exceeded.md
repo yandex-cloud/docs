@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [VPC](../index.md) > Устранение ошибки `Quota limit vpc.routeTables.count exceeded`
+
 # Устранение ошибки `Quota limit vpc.routeTables.count exceeded`
 
 

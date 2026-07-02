@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-postgresql](../index.md) > [database](index.md) > get
+
 # yc managed-postgresql database get
 
 Show information about the specified PostgreSQL database

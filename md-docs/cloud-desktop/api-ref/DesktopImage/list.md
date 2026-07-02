@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DesktopImage](index.md) > List
+
 # Cloud Desktop API, REST: DesktopImage.List
 
 Lists desktop images in the specified folder.

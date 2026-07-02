@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for MongoDB > Resources > mdb_mongodb_database
+
 # yandex_mdb_mongodb_database (Resource)
 
 Manages a MongoDB Database within the Yandex Cloud. For more information, see [the official documentation](../../managed-mongodb).

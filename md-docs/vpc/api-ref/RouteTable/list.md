@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [RouteTable](index.md) > List
+
 # Virtual Private Cloud API, REST: RouteTable.List
 
 Retrieves the list of RouteTable resources in the specified folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > Управление доступом
+
 # Управление доступом в Smart Web Security
 
 В этом разделе вы узнаете:

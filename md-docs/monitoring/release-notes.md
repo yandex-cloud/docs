@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Monitoring](index.md) > История изменений
+
 # История изменений в Yandex Monitoring
 
 

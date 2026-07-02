@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > resource > Overview
+
 # yc cdn v0 resource
 
 Manage CDN resources

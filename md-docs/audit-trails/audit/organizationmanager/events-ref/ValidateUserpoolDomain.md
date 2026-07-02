@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > ValidateUserpoolDomain
+
 # Identity Hub Audit Trails Events: ValidateUserpoolDomain
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.idp.ValidateUserpoolDomain2-schema}

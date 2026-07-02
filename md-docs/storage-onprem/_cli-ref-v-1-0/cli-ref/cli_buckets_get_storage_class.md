@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [storage-onprem/_cli-ref-v-1-0](../index.md) > buckets > get > storage_class
+
 # cli buckets get storage_class
 
 Get bucket storage_class

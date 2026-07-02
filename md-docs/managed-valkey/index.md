@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Managed Service for Valkey™ > Yandex Managed Service for Valkey™
+
 # Yandex Managed Service for Valkey™
 
 Сервис Yandex Managed Service for Valkey™ помогает разворачивать и поддерживать кластеры серверов <a href="https://valkey.io/">Valkey™</a> 7.2, 8.0, 8.1 и 9.0 в инфраструктуре Yandex Cloud. Valkey™ — это совместимая с Redis высокопроизводительная СУБД класса NoSQL с открытым исходным кодом, работающая с данными типа «ключ-значение».

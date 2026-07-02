@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Managed Service for ClickHouse® > Managed Service for ClickHouse®
+
 # Yandex Managed Service for ClickHouse<sup>®</sup>
 
 Сервис Managed Service for ClickHouse<sup>®</sup> помогает разворачивать и поддерживать кластеры серверов <a href="https://clickhouse.com">ClickHouse<sup>®</sup></a> в инфраструктуре Yandex Cloud. ClickHouse<sup>®</sup> — это высокопроизводительная колоночная СУБД с открытым исходным кодом.

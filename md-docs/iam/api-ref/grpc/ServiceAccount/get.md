@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ServiceAccount](index.md) > Get
+
 # Identity and Access Management API, gRPC: ServiceAccountService.Get
 
 Returns the specified ServiceAccount resource.

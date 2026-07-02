@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Практические руководства](index.md) > Подключение к YDB из функции Yandex Cloud Functions на Python
+
 # Подключение к базе данных Managed Service for YDB из функции Yandex Cloud Functions на Python
 
 Создайте [функцию](../../functions/concepts/function.md) с приложением на [Python](https://python.org/), которое выполняет простой запрос к базе данных [Yandex Managed Service for YDB](../index.md).
@@ -29,7 +31,7 @@
 
 В стоимость поддержки инфраструктуры для этого сценария входит:
 * Плата за использование функции ([тарифы Yandex Cloud Functions](../../functions/pricing.md)).
-* Плата за выполнение запросов к БД ([тарифы Managed Service for YDB](../../ydb/pricing/serverless.md)).
+* Плата за выполнение запросов к БД ([тарифы Managed Service for YDB](../pricing/serverless.md)).
 
 ## Создайте сервисный аккаунт {#create-sa}
 

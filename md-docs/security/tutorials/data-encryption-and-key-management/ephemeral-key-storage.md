@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Безопасность в Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Шифрование данных и управление ключами > Загрузка объектов в бакет Object Storage с помощью эфемерного ключа доступа
+
 # Загрузка объектов в бакет Yandex Object Storage с помощью эфемерного ключа доступа
 
 [Эфемерные ключи доступа](../../../iam/concepts/authorization/ephemeral-keys.md) — это временные ключи с ограниченным сроком действия, которые предоставляют безопасный способ доступа к ресурсам [Yandex Object Storage](../../../storage/index.md) без необходимости хранить [статические ключи](../../../iam/concepts/authorization/access-key.md). В этом руководстве вы научитесь создавать эфемерные ключи с помощью скрипта и использовать их для создания [бакетов](../../../storage/concepts/bucket.md) и загрузки [объектов](../../../storage/concepts/object.md) с помощью [AWS CLI](https://aws.amazon.com/ru/cli/).
@@ -30,8 +32,8 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за хранение данных в бакете ([тарифы Object Storage](../../storage/pricing.md#prices-storage));
-* плата за операции с данными ([тарифы Object Storage](../../storage/pricing.md#prices-operations)).
+* плата за хранение данных в бакете ([тарифы Object Storage](../../../storage/pricing.md#prices-storage));
+* плата за операции с данными ([тарифы Object Storage](../../../storage/pricing.md#prices-operations)).
 
 
 

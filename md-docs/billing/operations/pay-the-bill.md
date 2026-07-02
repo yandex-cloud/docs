@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Billing](../index.md) > [Пошаговые инструкции](index.md) > Оплата услуг > Пополнить счет
+
 # Пополнить лицевой счет
 
 Следить за балансом можно в сервисе [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts): 

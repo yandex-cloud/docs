@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Requested database column does not exist
+
 # [Yandex DataLens] Requested database column does not exist
 
 `ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST`

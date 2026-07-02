@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [AWS S3 REST](../../index.md) > [REST](../index.md) > Multipart upload > ListMultipartUploads
+
 # Object Storage API, REST совместимый с Amazon S3: ListMultipartUploads
 
 Возвращает список текущих составных загрузок.

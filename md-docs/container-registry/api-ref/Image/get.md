@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Image](index.md) > Get
+
 # Container Registry API, REST: Image.Get
 
 Returns the specified Image resource.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex StoreDoc](../index.md) > [Практические руководства](index.md) > Миграция коллекций из стороннего кластера Yandex StoreDoc
+
 # Миграция коллекций из MongoDB в Yandex StoreDoc
 
 # Миграция коллекций из MongoDB в Yandex StoreDoc
@@ -8,7 +10,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Yandex StoreDoc: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Yandex StoreDoc](../../storedoc/pricing.md)).
+* Кластер Yandex StoreDoc: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Yandex StoreDoc](../pricing.md)).
 * Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 * Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных ([тарифы Data Transfer](../../data-transfer/pricing.md)).
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Backup](../../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Policy](index.md) > ListApplications
+
 # Cloud Backup API, REST: Policy.ListApplications
 
 List applied policies using filters.

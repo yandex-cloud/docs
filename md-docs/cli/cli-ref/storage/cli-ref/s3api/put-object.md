@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [storage](../index.md) > [s3api](index.md) > put-object
+
 # yc storage s3api put-object
 
 Puts an object and its metadata to Object Storage

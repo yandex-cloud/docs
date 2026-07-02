@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Field title conflicts with another field
+
 # [Yandex DataLens] Field title conflicts with another field
 
 `ERR.DS_API.FIELD.TITLE.CONFLICT`

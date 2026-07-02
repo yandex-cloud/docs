@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LoadBalancer](index.md) > AddSniMatch
+
 # Application Load Balancer API, gRPC: LoadBalancerService.AddSniMatch
 
 Adds a SNI handler to the specified listener.

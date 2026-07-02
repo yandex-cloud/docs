@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Backup](index.md) > List
+
 # Managed Service for SPQR API, gRPC: BackupService.List
 
 Returns the list of available backups for the specified SPQR cluster.

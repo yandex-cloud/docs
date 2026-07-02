@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > UpdateEntityBinding
+
 # DataLens Audit Trails Events: UpdateEntityBinding
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.UpdateEntityBinding2-schema}

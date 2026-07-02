@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Notification Service](index.md) > Начало работы > Начало работы с Push-уведомлениями в браузере
+
 # Как начать работать с push-уведомлениями в браузере Yandex Cloud Notification Service
 
 

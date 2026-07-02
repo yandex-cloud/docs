@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > vpc > AddressAttached
+
 # Virtual Private Cloud Audit Trails Events: AddressAttached
 
 ## Event JSON schema {#yandex.cloud.audit.network.AddressAttached2-schema}

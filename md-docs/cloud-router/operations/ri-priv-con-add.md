@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Router](../index.md) > [Пошаговые инструкции](index.md) > Добавить приватное соединение в Routing Instance
+
 # Добавить приватное соединение в Routing Instance
 
 {% note info %}

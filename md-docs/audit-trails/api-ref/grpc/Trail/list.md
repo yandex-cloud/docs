@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Trail](index.md) > List
+
 # Audit Trails API, gRPC: TrailService.List
 
 Retrieves the list of trails in the specified folder.

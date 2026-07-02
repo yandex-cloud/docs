@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > CreateKey
+
 # Identity and Access Management Audit Trails Events: CreateKey
 
 ## Event JSON schema {#yandex.cloud.audit.iam.CreateKey2-schema}

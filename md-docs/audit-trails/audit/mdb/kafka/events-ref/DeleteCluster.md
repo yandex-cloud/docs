@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.kafka > DeleteCluster
+
 # Managed Service for Apache Kafka® Audit Trails Events: DeleteCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.kafka.DeleteCluster2-schema}

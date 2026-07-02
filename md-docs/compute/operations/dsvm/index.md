@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > DSVM > Обзор
+
 # Yandex Data Science Virtual Machine
 
 Yandex Data Science Virtual Machine (DSVM) — это виртуальная машина с предустановленными популярными библиотеками для [анализа данных](../../../glossary/data-analytics.md) и машинного обучения. DSVM можно использовать как среду для обучения моделей и экспериментов с данными.

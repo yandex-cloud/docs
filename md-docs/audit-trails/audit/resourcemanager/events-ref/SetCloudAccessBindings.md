@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > resourcemanager > SetCloudAccessBindings
+
 # Resource Manager Audit Trails Events: SetCloudAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.resourcemanager.SetCloudAccessBindings2-schema}

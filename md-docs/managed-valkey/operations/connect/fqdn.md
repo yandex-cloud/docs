@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > [Пошаговые инструкции](../index.md) > [Подключение](index.md) > FQDN хостов
+
 # FQDN хостов Valkey™
 
 Для подключения к хосту потребуется его [FQDN](../../concepts/network.md#hostname) — доменное имя. Его можно получить несколькими способами:

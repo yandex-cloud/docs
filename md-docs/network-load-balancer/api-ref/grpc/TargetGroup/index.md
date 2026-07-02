@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Network Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > TargetGroup > Overview
+
 # Network Load Balancer API, gRPC: TargetGroupService
 
 A set of methods for managing TargetGroup resources.

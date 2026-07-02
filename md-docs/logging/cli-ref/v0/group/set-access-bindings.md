@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Logging](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [group](index.md) > set-access-bindings
+
 # yc logging v0 group set-access-bindings
 
 Set access bindings for the specified log group and delete all existing access bindings if there were any

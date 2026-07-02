@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Object Storage > Все решения для Object Storage
+
 # Решения для Object Storage
 
 ## Примеры конфигураций и сценариев Object Storage {#configuration-examples}

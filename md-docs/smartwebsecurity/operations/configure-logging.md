@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Настроить логи через Smart Web Security
+
 # Настроить логирование через Smart Web Security
 
 Для записи логов Smart Web Security используются сервисы [Cloud Logging](../../logging/index.md) и [Audit Trails](../../audit-trails/index.md). Они решают разные задачи:

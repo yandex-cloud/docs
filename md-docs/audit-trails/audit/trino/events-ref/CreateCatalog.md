@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > trino > CreateCatalog
+
 # Managed Service for Trino Audit Trails Events: CreateCatalog
 
 ## Event JSON schema {#yandex.cloud.audit.trino.CreateCatalog2-schema}

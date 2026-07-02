@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Role](index.md) > Get
+
 # Identity and Access Management API, gRPC: RoleService.Get
 
 Returns the specified Role resource.

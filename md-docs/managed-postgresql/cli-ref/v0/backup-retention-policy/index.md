@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > backup-retention-policy > Overview
+
 # yc managed-postgresql v0 backup-retention-policy
 
 Manage PostgreSQL backup long-term retention policies

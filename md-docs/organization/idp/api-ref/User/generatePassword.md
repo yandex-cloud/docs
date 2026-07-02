@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [Identity Provider API](../index.md) > [User](index.md) > GeneratePassword
+
 # Identity Provider API, REST: User.GeneratePassword
 
 Generates a new password.

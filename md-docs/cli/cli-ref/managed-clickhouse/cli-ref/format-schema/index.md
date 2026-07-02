@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-clickhouse](../index.md) > format-schema > Overview
+
 # yc managed-clickhouse format-schema
 
 Manage ClickHouse format schemas.

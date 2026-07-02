@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Концепции](../index.md) > [Аутентификация](index.md) > IAM-токен
+
 # IAM-токен
 
 IAM-токен — уникальная последовательность символов, которая выдается пользователю после прохождения аутентификации. Это предпочтительный способ аутентификации как для пользователей, так и для программ (с помощью [сервисных аккаунтов](../users/service-accounts.md)). IAM-токен выдается для [аккаунтов на Яндексе](../../operations/iam-token/create.md), [сервисных аккаунтов](../../operations/iam-token/create-for-sa.md), [федеративных](../../operations/iam-token/create-for-federation.md) и [локальных](../../operations/iam-token/create-for-local.md) аккаунтов.

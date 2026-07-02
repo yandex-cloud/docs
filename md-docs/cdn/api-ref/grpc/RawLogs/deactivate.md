@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [RawLogs](index.md) > Deactivate
+
 # Cloud CDN API, gRPC: RawLogsService.Deactivate
 
 Deactivate raw log export.

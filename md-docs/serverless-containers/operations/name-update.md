@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Пошаговые инструкции](index.md) > Управление контейнером > Изменить контейнер > Изменить имя
+
 # Изменить имя контейнера
 
 {% list tabs group=instructions %}

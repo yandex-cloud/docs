@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Audit Trails](../index.md) > [Практические руководства](index.md) > Экспорт аудитных логов в SIEM > Загрузка аудитных логов в Yandex Managed Service for OpenSearch
+
 # Загрузка аудитных логов в Yandex Managed Service for OpenSearch
 
 # Загрузка аудитных логов в Yandex Managed Service for OpenSearch

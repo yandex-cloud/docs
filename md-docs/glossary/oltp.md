@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Облачная терминология](index.md) > Базы данных > OLTP
+
 # OLTP
 
 OLTP (OnLine Transaction Processing) — система обработки транзакций в реальном времени.

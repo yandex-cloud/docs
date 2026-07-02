@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex BareMetal](../../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../../index.md) > [v2](../../index.md) > [extend](../index.md) > [stackland-cluster](index.md) > delete
+
 # yc baremetal v2 extend stackland-cluster delete
 
 Deletes the specified Stackland cluster.

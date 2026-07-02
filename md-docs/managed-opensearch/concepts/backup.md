@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > [Концепции](index.md) > Резервные копии
+
 # Резервные копии в Managed Service for OpenSearch
 
 Managed Service for OpenSearch обеспечивает автоматическое и ручное резервное копирование [индексов](indexing.md).

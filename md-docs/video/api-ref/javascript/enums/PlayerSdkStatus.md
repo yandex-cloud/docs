@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Видеоплеер > SDK > JavaScript > Справочник API > Enumerations > PlayerSdkStatus
+
 # Enumeration: PlayerSdkStatus
 
 [Статус воспроизведения](../../../sdk/javascript/player-state.md#status-desc).

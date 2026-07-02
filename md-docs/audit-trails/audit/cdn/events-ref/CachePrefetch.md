@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > cdn > CachePrefetch
+
 # Cloud CDN Audit Trails Events: CachePrefetch
 
 ## Event JSON schema {#yandex.cloud.audit.cdn.gcore.CachePrefetch2-schema}

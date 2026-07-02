@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [asymmetric-signature-key](index.md) > list-access-bindings
+
 # yc kms v0 asymmetric-signature-key list-access-bindings
 
 List access bindings for the specified asymmetric signature key

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mysql > CreateCluster
+
 # Managed Service for MySQL Audit Trails Events: CreateCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mysql.CreateCluster2-schema}

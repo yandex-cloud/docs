@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Базовая инфраструктура](../infrastructure/index.md) > Инструменты > Управление ресурсами Kubernetes с помощью провайдера Terraform
+
 # Управление ресурсами Kubernetes в кластере Yandex Managed Service for Kubernetes с помощью провайдера Terraform
 
 # Управление ресурсами Kubernetes в кластере Yandex Managed Service for Kubernetes с помощью провайдера Terraform

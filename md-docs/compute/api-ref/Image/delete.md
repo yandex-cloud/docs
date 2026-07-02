@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Image](index.md) > Delete
+
 # Compute Cloud API, REST: Image.Delete
 
 Deletes the specified image.

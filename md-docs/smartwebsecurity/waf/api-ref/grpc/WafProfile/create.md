@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Smart Web Security](../../../../index.md) > Справочник API > gRPC (англ.) > [SmartWebSecurity WAF API](../index.md) > [WafProfile](index.md) > Create
+
 # SmartWebSecurity WAF API, gRPC: WafProfileService.Create
 
 Creates a WAF profile in the specified folder using the data specified in the request.

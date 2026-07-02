@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Episode](index.md) > Create
+
 # Video API, REST: Episode.Create
 
 Creates a new episode associated with a stream or stream line.

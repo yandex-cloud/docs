@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SymmetricKey](index.md) > UpdateAccessBindings
+
 # Key Management Service API, REST: SymmetricKey.UpdateAccessBindings
 
 Updates access bindings for the specified key.

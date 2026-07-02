@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Справочник CLI (англ.)](../index.md) > [service-account](index.md) > list-operations
+
 # yc iam service-account list-operations
 
 List operations for the specified service account

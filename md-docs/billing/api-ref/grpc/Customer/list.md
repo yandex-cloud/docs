@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Billing](../../../index.md) > Справочник API > gRPC (англ.) > [Billing](../index.md) > [Customer](index.md) > List
+
 # Billing API, gRPC: CustomerService.List
 
 Retrieves the list of customers associated with the specified reseller.

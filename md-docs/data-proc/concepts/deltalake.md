@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Концепции](index.md) > Delta Lake в Yandex Data Processing
+
 # Delta Lake в Yandex Data Processing
 
 [Delta Lake](https://delta.io/) — это программное обеспечение с открытым исходным кодом, которое расширяет возможности платформы [Apache Spark™](https://spark.apache.org/):

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Настройка доступа к Object Storage
+
 # Настройка доступа к Object Storage из кластера OpenSearch
 
 

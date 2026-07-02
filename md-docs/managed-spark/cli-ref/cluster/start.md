@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Spark™](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > start
+
 # yc managed-spark cluster start
 
 Start the specified Spark cluster

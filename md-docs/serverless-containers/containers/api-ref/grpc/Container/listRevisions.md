@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Containers](../../../../index.md) > Справочник API Containers > [gRPC (англ.)](../index.md) > [Container](index.md) > ListRevisions
+
 # Serverless Containers Service, gRPC: ContainerService.ListRevisions
 
 Retrieves the list of revisions for the specified container, or of all container revisions

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex API Gateway](../index.md) > [Пошаговые инструкции](index.md) > Управление API-шлюзом > Отключить домен
+
 # Отключить домен
 
 {% list tabs group=instructions %}

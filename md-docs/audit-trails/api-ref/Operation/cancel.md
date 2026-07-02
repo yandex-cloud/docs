@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Audit Trails](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Audit Trails API, REST: Operation.Cancel
 
 Cancels the specified operation.

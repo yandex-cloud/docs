@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > [Пошаговые инструкции](../index.md) > Управление артефактами > Helm-чарт > Удалить Helm-чарт из реестра
+
 # Удалить Helm-чарт из реестра
 
 Вы можете удалить [Helm-чарт](https://helm.sh/docs/topics/charts/) из [реестра](../../concepts/registry.md) Cloud Registry. В Cloud Registry Helm-чарты хранятся как [Docker-образы](../../concepts/artifacts/docker.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Network Load Balancer](../index.md) > Устранение проблем с доступом к подам Managed Service for Kubernetes через Network Load Balancer
+
 # Устранение проблем с доступом к подам Managed Service for Kubernetes через Network Load Balancer
 
 

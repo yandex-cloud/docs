@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Stream](index.md) > BatchDelete
+
 # Video API, gRPC: StreamService.BatchDelete
 
 Deletes multiple streams in a specific channel in a single request.

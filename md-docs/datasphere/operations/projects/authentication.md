@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > DataSphere Jobs > Аутентификация в DataSphere Jobs
+
 # Аутентификация в DataSphere Jobs
 
 Для работы с DataSphere Jobs вам необходимо аутентифицироваться от имени пользовательского аккаунта.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > REST (англ.) > [Compute Cloud Instance Groups API](../index.md) > [Operation](index.md) > Cancel
+
 # Compute Cloud Instance Groups API, REST: Operation.Cancel
 
 Cancels the specified operation.

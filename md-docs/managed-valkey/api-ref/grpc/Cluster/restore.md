@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Valkey™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Restore
+
 # Managed Service for Redis API, gRPC: ClusterService.Restore
 
 Creates a new Redis cluster using the specified backup.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > Пошаговые инструкции > Передача логов в Cloud Logging
+
 # Передача логов кластера Apache Hive™ Metastore в Yandex Cloud Logging
 
 Вы можете настроить регулярный сбор логов о работе кластера Apache Hive™ Metastore. Логи поставляются в [лог-группу](../../../logging/concepts/log-group.md) в сервисе Yandex Cloud Logging. Можно выбрать лог-группу одного из двух типов:

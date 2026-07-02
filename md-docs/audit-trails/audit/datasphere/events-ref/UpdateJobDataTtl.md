@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > UpdateJobDataTtl
+
 # DataSphere Audit Trails Events: UpdateJobDataTtl
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.UpdateJobDataTtl2-schema}

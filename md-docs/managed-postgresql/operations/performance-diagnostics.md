@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Логи и мониторинг > Диагностика производительности
+
 # Диагностика производительности в Managed Service for PostgreSQL
 
 Managed Service for PostgreSQL предоставляет встроенный инструмент для диагностики производительности кластера СУБД. Этот инструмент помогает анализировать метрики производительности PostgreSQL для [сессий](#get-sessions) и [запросов](#get-queries).

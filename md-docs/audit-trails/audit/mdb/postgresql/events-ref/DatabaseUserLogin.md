@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.postgresql > DatabaseUserLogin
+
 # Managed Service for PostgreSQL Audit Trails Events: DatabaseUserLogin
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.postgresql.DatabaseUserLogin2-schema}

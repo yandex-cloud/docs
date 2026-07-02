@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ClusterExtension](index.md) > Create
+
 # Managed Service for ClickHouse API, gRPC: ClusterExtensionService.Create
 
 Installs a new extension in the specified cluster.

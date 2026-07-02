@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Postbox](../index.md) > Вопросы и ответы
+
 # Общие вопросы про Yandex Cloud Postbox
 
 #### Поддерживаются ли кириллические домены? {#cyrillic-domains}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > PageRecover
+
 # Yandex Wiki Audit Trails Events: PageRecover
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.PageRecover2-schema}

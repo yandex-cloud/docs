@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > [Концепции](index.md) > Настройка и управление > Консоль управления
+
 # Консоль управления BareMetal
 
 [Консоль управления](../../console/index.md) представляет собой пользовательский [интерфейс](https://console.yandex.cloud), позволяющий управлять ресурсами сервиса Yandex BareMetal.

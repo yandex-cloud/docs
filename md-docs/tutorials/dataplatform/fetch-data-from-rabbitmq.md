@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Получение данных из RabbitMQ в Managed Service for ClickHouse®
+
 # Получение данных из RabbitMQ в Yandex Managed Service for ClickHouse®
 
 # Получение данных из RabbitMQ в Yandex Managed Service for ClickHouse®

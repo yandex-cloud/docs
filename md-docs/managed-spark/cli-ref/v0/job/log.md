@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Spark™](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [job](index.md) > log
+
 # yc managed-spark v0 job log
 
 List logs for Spark job.

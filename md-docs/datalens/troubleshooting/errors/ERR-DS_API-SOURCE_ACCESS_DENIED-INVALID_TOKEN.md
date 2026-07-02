@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Invalid user token
+
 # [Yandex DataLens] Invalid user token
 
 `ERR.DS_API.SOURCE_ACCESS_DENIED.INVALID_TOKEN`

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > [Справочник CLI (англ.)](../index.md) > asymmetric-encryption-crypto > Overview
+
 # yc kms asymmetric-encryption-crypto
 
 Perform asymmetric encryption crypto operations

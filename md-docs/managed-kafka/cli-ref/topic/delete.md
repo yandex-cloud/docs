@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [topic](index.md) > delete
+
 # yc managed-kafka topic delete
 
 Delete a Kafka topic.

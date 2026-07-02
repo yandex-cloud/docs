@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [HostGroup](index.md) > ListHosts
+
 # Compute Cloud API, REST: HostGroup.ListHosts
 
 Lists hosts that belongs to the specified host group.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Managed Service for Trino](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [catalog](../index.md) > [update](index.md) > delta-lake
+
 # yc managed-trino v0 catalog update delta-lake
 
 Update Delta Lake catalog

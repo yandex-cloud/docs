@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-trino](../../index.md) > [catalog](../index.md) > [update](index.md) > tpcds
+
 # yc managed-trino catalog update tpcds
 
 Update TPC-DS catalog

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > DeleteUser
+
 # Identity Hub Audit Trails Events: DeleteUser
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.idp.DeleteUser2-schema}

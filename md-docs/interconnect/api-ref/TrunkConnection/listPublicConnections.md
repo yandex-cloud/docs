@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [TrunkConnection](index.md) > ListPublicConnections
+
 # Cloud Interconnect API, REST: TrunkConnection.ListPublicConnections
 
 Retrieves the list of PublicConnection resources associated with the specified TrunkConnection.

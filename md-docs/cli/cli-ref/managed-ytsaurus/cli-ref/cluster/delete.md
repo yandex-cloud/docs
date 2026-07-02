@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-ytsaurus](../index.md) > [cluster](index.md) > delete
+
 # yc managed-ytsaurus cluster delete
 
 Delete the specified YTsaurus clusters.

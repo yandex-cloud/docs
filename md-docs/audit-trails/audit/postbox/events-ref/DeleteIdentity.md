@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > postbox > DeleteIdentity
+
 # Yandex Cloud Postbox Audit Trails Events: DeleteIdentity
 
 ## Event JSON schema {#yandex.cloud.audit.postbox.DeleteIdentity2-schema}

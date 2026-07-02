@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Managed Service for Kubernetes
+
 # Метрики Yandex Managed Service for Kubernetes
 
 В этом разделе описаны метрики сервиса [Managed Service for Kubernetes](../../managed-kubernetes/index.md), поставляемые в Monitoring.

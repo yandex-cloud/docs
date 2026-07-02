@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Практические руководства](index.md) > Поставка данных из Yandex Managed Service for PostgreSQL в Yandex Managed Service for YDB с помощью Yandex Data Transfer
+
 # Поставка данных из Yandex Managed Service for PostgreSQL в Managed Service for YDB с помощью Yandex Data Transfer
 
 # Поставка данных из Yandex Managed Service for PostgreSQL в Yandex Managed Service for YDB

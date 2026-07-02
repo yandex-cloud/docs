@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [smartcaptcha](../../index.md) > [v1](../index.md) > [captcha](index.md) > get
+
 # yc smartcaptcha v1 captcha get
 
 Returns the specified Captcha resource.

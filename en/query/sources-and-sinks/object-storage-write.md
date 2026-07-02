@@ -1,8 +1,8 @@
 # Writing data to {{ objstorage-full-name }}
 
-In {{ yq-full-name }}, to write data to {{ objstorage-full-name }} buckets, you can use [connections](#connection-write) or [bindings](#bindings-write).
+In {{ yq-full-name }}, you can use [connections](#connection-write) or [bindings](#bindings-write) to write data to {{ objstorage-full-name }} buckets.
 
-Example of writing `JSON` data using bindings:
+Query example for writing `JSON` data via a binding:
 
 ```sql
 INSERT INTO `my_binding`
@@ -12,11 +12,11 @@ FROM
     $data;
 ```
 
-For a list of supported formats and data compression algorithms, see [Supported write formats](#write-formats).
+For a list of supported data formats and compression algorithms, see [Supported write formats](#write-formats).
 
-## Writing data using connections {#connection-write}
+## Writing data via connections {#connection-write}
 
-It is convenient to write data using connections for prototyping and initial setup of data write operations. Before writing data to a bucket, create a [connection](object-storage.md#create_connection) to {{ objstorage-short-name }} and use the following SQL statement:
+Connections are a convenient way to write data when prototyping or initially configuring data writing. To write data to a bucket, create a [connection](object-storage.md#create_connection) to {{ objstorage-short-name }} and then use the following SQL statement:
 
 ```sql
 INSERT INTO <connection>.<path>
@@ -33,13 +33,13 @@ FROM
 
 Where:
 
-* `<connection>`: Name of the connection to {{ objstorage-short-name }}.
-* `<path>`: Path within the bucket to write data to.
-* `<query>`: {{ yq-name }} data source query.
+* `<connection>`: {{ objstorage-short-name }} connection name.
+* `<path>`: Target path within the bucket.
+* `<query>`: {{ yq-name }} source data query.
 
 ### Example {#connection-write-example}
 
-Sample query to write data to {{ objstorage-short-name }} using connections:
+Query example for writing data to {{ objstorage-short-name }} via connections:
 
 ```sql
 INSERT INTO `connection`.`test/`
@@ -53,12 +53,12 @@ SELECT
 
 Where:
 
-* `connection`: Name of the connection to {{ objstorage-short-name }}.
-* `test/`: Path within the bucket to write data to.
+* `connection`: {{ objstorage-short-name }} connection name.
+* `test/`: Target path within the bucket.
 
-## Writing data using bindings {#bindings-write}
+## Writing data via bindings {#bindings-write}
 
-If you need to make data writes on a regular basis, it is handy to use bindings. This helps avoid entering all the details of handling this data in each query. Before writing data to a bucket, create a [data binding](object-storage-binding.md) in {{ objstorage-short-name }} and use the following SQL statement:
+If you need to write data regularly, you can use bindings to avoid specifying all data operation details in each query. To write data to a bucket, create a [binding](object-storage-binding.md) in {{ objstorage-short-name }} and then use the following SQL statement:
 
 ```sql
 INSERT INTO `<binding>`
@@ -70,12 +70,12 @@ FROM
 
 Where:
 
-* `<binding>`: Name of a binding to {{ objstorage-short-name }} data.
-* `<query>`: {{ yq-name }} data source query.
+* `<binding>`: {{ objstorage-short-name }} data binding name.
+* `<query>`: {{ yq-name }} source data query.
 
 ### Example {#bindings-write-example}
 
-Sample query to write data to {{ objstorage-short-name }} using bindings:
+Query example for writing data to {{ objstorage-short-name }} via a binding:
 
 ```sql
 INSERT INTO `test`
@@ -85,7 +85,7 @@ SELECT
 
 Where:
 
-* `test`: Name of a binding to {{ objstorage-short-name }} data.
+* `test`: {{ objstorage-short-name }} data binding name.
 
 ## Supported write formats {#write-formats}
 

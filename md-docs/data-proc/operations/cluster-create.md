@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Пошаговые инструкции](index.md) > Кластеры Yandex Data Processing > Создание кластера
+
 # Создание кластера Yandex Data Processing
 
 ## Роли для создания кластера {#roles}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud DNS](../index.md) > [Пошаговые инструкции](index.md) > Получение информации о зоне DNS > Мониторинг зон DNS
+
 # Просмотр метрик зон
 
 Cloud DNS автоматически отправляет метрики зон и запросов в сервис [Yandex Monitoring](../../monitoring/index.md).

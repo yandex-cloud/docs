@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Broker > [REST (англ.)](../index.md) > [Broker](index.md) > AddCertificate
+
 # IoT Core Broker Service, REST: Broker.AddCertificate
 
 Adds a certificate.

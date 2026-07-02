@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Monium](../../../index.md) > Справочник API > Логи > [gRPC (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Cloud Logging Service, gRPC: OperationService.Get
 
 Returns the specified Operation resource.

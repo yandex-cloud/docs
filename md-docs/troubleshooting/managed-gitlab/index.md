@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Managed Service for GitLab > Все решения для Managed Service for GitLab
+
 # Решения для Managed Service for GitLab
 
 ## Примеры конфигураций и сценариев Managed Service for GitLab {#configuration-examples}

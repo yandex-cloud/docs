@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция коллекций из стороннего кластера MongoDB в Yandex StoreDoc
+
 # Перенос коллекций из MongoDB в Yandex StoreDoc
 
 # Миграция коллекций из MongoDB в Yandex StoreDoc

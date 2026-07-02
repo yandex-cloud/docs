@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > Группы бэкендов > Удалить группу бэкендов
+
 # Удалить группу бэкендов
 
 {% note warning %}

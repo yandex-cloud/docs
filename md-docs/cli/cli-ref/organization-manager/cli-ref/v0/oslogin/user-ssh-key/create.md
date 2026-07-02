@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [organization-manager](../../../index.md) > [v0](../../index.md) > [oslogin](../index.md) > [user-ssh-key](index.md) > create
+
 # yc organization-manager v0 oslogin user-ssh-key create
 
 Create a user SSH key

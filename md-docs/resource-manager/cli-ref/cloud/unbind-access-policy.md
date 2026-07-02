@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cloud](index.md) > unbind-access-policy
+
 # yc resource-manager cloud unbind-access-policy
 
 Unbind access policy from the specified cloud

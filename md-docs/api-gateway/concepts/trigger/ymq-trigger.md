@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Триггер](index.md) > Триггер для Message Queue
+
 # Триггер для Message Queue, который отправляет сообщения в WebSocket-соединения
 
 [Триггер](index.md) для Message Queue предназначен для разгрузки [очереди сообщений](../../../message-queue/concepts/queue.md). Он принимает сообщения из очереди и передает их в [WebSocket-соединения](../extensions/websocket.md).

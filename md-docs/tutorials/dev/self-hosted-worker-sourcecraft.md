@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Разработка и тестирование](index.md) > Развертывание воркера SourceCraft на виртуальной машине Compute Cloud
+
 # Развертывание пользовательского (self-hosted) воркера SourceCraft на виртуальной машине Yandex Compute Cloud
 
 [Пользовательские (self-hosted) воркеры](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/ci-cd#self-hosted-workers) — личные серверы пользователей, как виртуальные, так и физические, на которых выполняются [CI/CD-процессы](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/ci-cd) SourceCraft. В этом случае для процессов будет доступно окружение пользовательского сервера.

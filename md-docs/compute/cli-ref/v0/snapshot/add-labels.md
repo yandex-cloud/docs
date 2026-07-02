@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [snapshot](index.md) > add-labels
+
 # yc compute v0 snapshot add-labels
 
 Add labels to specified snapshot

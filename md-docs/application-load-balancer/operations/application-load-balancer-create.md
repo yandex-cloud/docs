@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > L7-балансировщики > Создать L7-балансировщик
+
 # Создать L7-балансировщик
 
 Чтобы создать [L7-балансировщик](../concepts/application-load-balancer.md):

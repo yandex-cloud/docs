@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex IoT Core](index.md) > Закрытие сервиса
+
 # Закрытие сервиса Yandex IoT Core
 
 {% note warning %}

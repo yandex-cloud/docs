@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > EventRouter > Управление шиной > Записать логи
+
 # Записать логи в журнал выполнения шины
 
 {% note info %}

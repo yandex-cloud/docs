@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [iam](../index.md) > [role](index.md) > get
+
 # yc iam role get
 
 Show information about the specified role

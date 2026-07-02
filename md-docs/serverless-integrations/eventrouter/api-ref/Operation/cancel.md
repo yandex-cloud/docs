@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # EventRouter Service, REST: Operation.Cancel
 
 Cancels the specified operation.

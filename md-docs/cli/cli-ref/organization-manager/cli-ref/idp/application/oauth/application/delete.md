@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../../index.md) > [organization-manager](../../../../index.md) > [idp](../../../index.md) > [application](../../index.md) > [oauth](../index.md) > [application](index.md) > delete
+
 # yc organization-manager idp application oauth application delete
 
 Delete the specified OAuth application

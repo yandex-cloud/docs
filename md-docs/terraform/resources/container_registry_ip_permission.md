@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Container Registry > Resources > container_registry_ip_permission
+
 # yandex_container_registry_ip_permission (Resource)
 
 Creates a new Container Registry IP Permission. For more information, see [the official documentation](../../container-registry/operations/registry/registry-access.md)

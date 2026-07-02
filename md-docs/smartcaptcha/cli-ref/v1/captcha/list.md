@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex SmartCaptcha](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v1](../index.md) > [captcha](index.md) > list
+
 # yc smartcaptcha v1 captcha list
 
 Retrieves the list of Captcha resources in the specified folder.

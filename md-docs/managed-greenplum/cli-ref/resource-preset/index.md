@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > resource-preset > Overview
+
 # yc managed-greenplum resource-preset
 
 Manage Greenplum resource presets

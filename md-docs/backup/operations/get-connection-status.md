@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Backup](../index.md) > [Пошаговые инструкции](index.md) > ВМ в Cloud Backup > Посмотреть статус подключения ВМ
+
 # Посмотреть статус подключения ВМ
 
 {% list tabs group=instructions %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > REST (англ.) > [Key Management Service API](../index.md) > AsymmetricEncryptionKey > Overview
+
 # Key Management Service API, REST: AsymmetricEncryptionKey
 
 Set of methods for managing asymmetric KMS keys.

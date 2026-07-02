@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [user](index.md) > grant-permission
+
 # yc managed-kafka user grant-permission
 
 Grant permission to the specified Kafka user.

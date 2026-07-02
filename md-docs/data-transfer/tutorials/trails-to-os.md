@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Поставка данных из очередей > YDS в OpenSearch
+
 # Загрузка логов из Yandex Audit Trails в OpenSearch
 
 [Audit Trails](../../audit-trails/index.md) — сервис сбора и выгрузки аудитных логов, который позволяет применять инструменты анализа и оперативного реагирования к событиям на уровне ресурсов Yandex Cloud. [OpenSearch](../../managed-opensearch/index.md) выступает в роли SIEM-системы для анализа логов и реагирования на события безопасности.

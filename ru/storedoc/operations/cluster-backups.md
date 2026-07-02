@@ -123,7 +123,7 @@ description: Вы можете создавать резервные копии 
                                 `mongod-emergency-usage-threshold=<процент_для_незамедлительного_увеличения> \
          --maintenance-window type=<тип_технического_обслуживания>,`
                              `day=<день_недели>,`
-                             `hour=<час_дня> \
+                             `hour=<порядковый_номер_часового_интервала> \
          --performance-diagnostics=<включить_диагностику>
       ```
 
@@ -163,7 +163,7 @@ description: Вы можете создавать резервные копии 
                                 `<тип_хоста>-emergency-usage-threshold=<процент_для_незамедлительного_увеличения> \
          --maintenance-window type=<тип_технического_обслуживания>,`
                              `day=<день_недели>,`
-                             `hour=<час_дня> \
+                             `hour=<порядковый_номер_часового_интервала> \
          --performance-diagnostics=<включить_диагностику>
       ```
 
@@ -236,7 +236,7 @@ description: Вы можете создавать резервные копии 
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<день_недели>",
-              "hour": "<час>"
+              "hour": "<порядковый_номер_часового_интервала>"
             }
           }
         }
@@ -324,7 +324,7 @@ description: Вы можете создавать резервные копии 
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<день_недели>",
-              "hour": "<час>"
+              "hour": "<порядковый_номер_часового_интервала>"
             }
           }
         }
@@ -384,7 +384,7 @@ description: Вы можете создавать резервные копии 
 
       {% include [partial-recovery](../../_includes/storedoc/partial-recovery.md) %}
 
-  1. Если в восстанавливаемом кластере включено автомасштабирование, задайте в настройке **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** время [технического обслуживания](../../storedoc/concepts/maintenance.md) (день недели и час дня по UTC).
+  1. Если в восстанавливаемом кластере включено автомасштабирование, задайте в настройке **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** время [технического обслуживания](../../storedoc/concepts/maintenance.md) (день недели и порядковый номер часового интервала по UTC).
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
@@ -414,7 +414,7 @@ description: Вы можете создавать резервные копии 
 
       {% include [partial-recovery](../../_includes/storedoc/partial-recovery.md) %}
 
-  1. Если в восстанавливаемом кластере включено автомасштабирование, задайте в настройке **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** время [технического обслуживания](../../storedoc/concepts/maintenance.md) (день недели и час дня по UTC).
+  1. Если в восстанавливаемом кластере включено автомасштабирование, задайте в настройке **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** время [технического обслуживания](../../storedoc/concepts/maintenance.md) (день недели и порядковый номер часового интервала по UTC).
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
@@ -476,7 +476,7 @@ description: Вы можете создавать резервные копии 
                                 `mongod-emergency-usage-threshold=<процент_для_незамедлительного_увеличения> \
          --maintenance-window type=<тип_технического_обслуживания>,`
                              `day=<день_недели>,`
-                             `hour=<час_дня> \
+                             `hour=<порядковый_номер_часового_интервала> \
          --performance-diagnostics=<включить_диагностику> \
          --whitelist <список_баз_и_коллекций_для_восстановления> \
          --blacklist <список_баз_и_коллекций_для_исключения_из_восстановления>
@@ -518,7 +518,7 @@ description: Вы можете создавать резервные копии 
                                 `<тип_хоста>-emergency-usage-threshold=<процент_для_незамедлительного_увеличения> \
          --maintenance-window type=<тип_технического_обслуживания>,`
                              `day=<день_недели>,`
-                             `hour=<час_дня> \
+                             `hour=<порядковый_номер_часового_интервала> \
          --performance-diagnostics=<включить_диагностику>
          --whitelist <список_баз_и_коллекций_для_восстановления> \
          --blacklist <список_баз_и_коллекций_для_исключения_из_восстановления>
@@ -601,7 +601,7 @@ description: Вы можете создавать резервные копии 
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<день_недели>",
-              "hour": "<час>"
+              "hour": "<порядковый_номер_часового_интервала>"
             }
           },
           "partialRestoreSpec": {
@@ -701,7 +701,7 @@ description: Вы можете создавать резервные копии 
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<день_недели>",
-              "hour": "<час>"
+              "hour": "<порядковый_номер_часового_интервала>"
             }
           },
           "partial_restore_spec": {

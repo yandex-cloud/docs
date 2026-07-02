@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [iam](../index.md) > [oauth-client-secret](index.md) > list
+
 # yc iam oauth-client-secret list
 
 List secrets of the specified oauth-client

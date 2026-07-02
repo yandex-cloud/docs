@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex SpeechKit Hybrid](index.md) > Создание демонстрационного стенда > Создание стенда SpeechKit Hybrid
+
 # Создание демонстрационного стенда SpeechKit Hybrid
 
 SpeechKit Hybrid предоставляет возможности сервиса Yandex SpeechKit для [распознавания](stt/testing.md) и [синтеза](tts/testing.md) речи. Вы можете развернуть демонстрационный стенд SpeechKit Hybrid с помощью сервисов Yandex Cloud через Terraform. Так можно потестировать приложения распознавания и синтеза, размещаемые в [Docker-контейнерах](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers).

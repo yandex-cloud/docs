@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Episode](index.md) > List
+
 # Video API, gRPC: EpisodeService.List
 
 Lists all episodes associated with a specific stream or stream line with pagination support.

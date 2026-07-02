@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex API Gateway](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ApiGateway](index.md) > List
+
 # API Gateway Service, gRPC: ApiGatewayService.List
 
 Retrieves the list of API gateways in the specified folder.

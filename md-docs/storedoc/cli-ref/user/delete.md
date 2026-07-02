@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > [user](index.md) > delete
+
 # yc managed-mongodb user delete
 
 Delete a MongoDB user.

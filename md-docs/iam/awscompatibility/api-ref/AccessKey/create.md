@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > REST (англ.) > [Access Key](../index.md) > [AccessKey](index.md) > Create
+
 # Access Key, REST: AccessKey.Create
 
 Creates an access key for the specified service account.

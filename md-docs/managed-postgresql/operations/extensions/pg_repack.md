@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > Расширения и словари PostgreSQL > pg_repack
+
 # Использование pg_repack в Managed Service for PostgreSQL
 
 Таблицы и индексы PostgreSQL могут быть подвержены _раздуванию_ (bloating). При выполнении транзакций, которые изменяют данные в таблицах и индексах, старая версия данных сохраняется, чтобы можно было откатить транзакции, если это потребуется (rollback). Это приводит к тому, что таблицы и индексы раздуваются в размере при массовом изменении данных. Оценить степень раздувания можно, например, с помощью расширения [pgstattuple](cluster-extensions.md#postgresql) или набора запросов [pgsql-bloat-estimation](https://github.com/ioguix/pgsql-bloat-estimation).

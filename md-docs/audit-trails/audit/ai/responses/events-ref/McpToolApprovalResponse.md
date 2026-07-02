@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > ai.responses > McpToolApprovalResponse
+
 # AI Studio Audit Trails Events: McpToolApprovalResponse
 
 ## Event JSON schema {#yandex.cloud.audit.ai.responses.McpToolApprovalResponse2-schema}

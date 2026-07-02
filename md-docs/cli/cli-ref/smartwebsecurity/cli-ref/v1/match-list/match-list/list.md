@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [smartwebsecurity](../../../index.md) > [v1](../../index.md) > [match-list](../index.md) > [match-list](index.md) > list
+
 # yc smartwebsecurity v1 match-list match-list list
 
 Retrieves the list of MatchList resources in the specified folder.

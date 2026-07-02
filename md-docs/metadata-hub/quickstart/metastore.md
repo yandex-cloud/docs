@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Apache Hive™ Metastore > Начало работы
+
 # Начало работы с Apache Hive™ Metastore
 
 В сервисе Yandex MetaData Hub вы можете [создавать кластеры Apache Hive™ Metastore](#create-metastore-cluster) и [использовать их](#connect-metastore-to-dataproc) для работы с кластерами Yandex Data Processing.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Valkey™](../index.md) > [Пошаговые инструкции](index.md) > Логи и мониторинг > Просмотр логов кластера
+
 # Просмотр логов кластера Valkey™
 
 Yandex Managed Service for Valkey™ позволяет [получить фрагмент логов кластера](#get-log) за выбранный период и [просматривать логи в реальном времени](#get-log-stream).

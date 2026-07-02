@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Lockbox](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Secret](index.md) > ScheduleVersionDestruction
+
 # Lockbox API, gRPC: SecretService.ScheduleVersionDestruction
 
 Schedules the specified version for destruction.

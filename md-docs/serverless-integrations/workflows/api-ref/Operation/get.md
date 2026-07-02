@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API Workflows > [REST (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Workflows Service, REST: Operation.Get
 
 Returns the specified Operation resource.

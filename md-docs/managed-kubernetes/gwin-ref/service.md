@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > Инструменты Application Load Balancer > Gwin > Конфигурация ресурсов (англ.) > Service
+
 # Service
 
 Service represents a Kubernetes service that acts as a backend for Gwin resources. Services are used as backend targets in [HTTPRoute](httproute.md), [GRPCRoute](grpcroute.md), [TLSRoute](tlsroute.md), and [Ingress](ingress.md) resources to distribute incoming traffic within a Kubernetes cluster.

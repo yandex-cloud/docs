@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > reschedule-maintenance
+
 # yc managed-kubernetes v0 cluster reschedule-maintenance
 
 Reschedule mandatory maintenance for the specified Kubernetes cluster.

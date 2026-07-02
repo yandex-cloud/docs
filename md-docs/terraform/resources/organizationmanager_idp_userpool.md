@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity Hub > Resources > organizationmanager_idp_userpool
+
 # yandex_organizationmanager_idp_userpool (Resource)
 
 A userpool is a container for users in the Identity Provider system.

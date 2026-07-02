@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Database authentication failed
+
 # [Yandex DataLens] Database authentication failed
 
 `ERR.DS_API.DB.AUTHENTICATION_FAILED`

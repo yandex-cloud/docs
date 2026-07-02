@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > HTTP-роутеры > Управлять маршрутами
+
 # Управлять маршрутами
 
 [Маршруты](../concepts/http-router.md) состоят из набора условий (предиката), на основании которых [балансировщик](../concepts/application-load-balancer.md) выбирает дальнейшее направление для запроса, и действия над ним. Доступные условия и действия зависят от [типа маршрута](../concepts/http-router.md#routes-types).

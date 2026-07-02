@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > This API does not support multiple query blocks
+
 # [Yandex DataLens] This API does not support multiple query blocks
 
 `ERR.DS_API.BLOCK.MULTIPLE_UNSUPPORTED`

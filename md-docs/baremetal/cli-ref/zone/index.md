@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../index.md) > zone > Overview
+
 # yc baremetal zone
 
 A set of methods to retrieve information about availability zones.

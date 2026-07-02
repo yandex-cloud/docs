@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Справочник CLI (англ.)](../index.md) > [user-account](index.md) > get
+
 # yc iam user-account get
 
 Show information about the specified user account

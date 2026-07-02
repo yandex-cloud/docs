@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [StreamLine](index.md) > List
+
 # Video API, gRPC: StreamLineService.List
 
 Lists all stream lines in a specific channel with pagination support.

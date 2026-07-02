@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > Справочник API > [REST (англ.)](../index.md) > ServiceAccount > Overview
+
 # Identity and Access Management API, REST: ServiceAccount
 
 A set of methods for managing ServiceAccount resources.

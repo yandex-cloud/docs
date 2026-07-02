@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Поставка данных](index.md) > Otel Collector > Пример мониторинга Nginx в Kubernetes
+
 # Настройка сбора телеметрии Nginx в Kubernetes
 
 Вы настроите веб-сервер Nginx в кластере Kubernetes и передадите его метрики и логи в Monium. В инструкции для разворачивания кластера используется сервис Managed Service for Kubernetes, но вы можете использовать любой ваш кластер Kubernetes.

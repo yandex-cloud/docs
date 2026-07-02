@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Практические руководства](../index.md) > [Настройка единого входа в приложения (SSO)](index.md) > MWS
+
 # Создать OIDC-приложение в Yandex Identity Hub для интеграции с MWS
 
 

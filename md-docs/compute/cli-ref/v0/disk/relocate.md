@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [disk](index.md) > relocate
+
 # yc compute v0 disk relocate
 
 Relocate the specified disk to the zone

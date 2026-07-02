@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mysql > UpdateClusterHosts
+
 # Managed Service for MySQL Audit Trails Events: UpdateClusterHosts
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mysql.UpdateClusterHosts2-schema}

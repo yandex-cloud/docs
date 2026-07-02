@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [user](index.md) > list
+
 # yc managed-mongodb v0 user list
 
 List users for a MongoDB cluster.

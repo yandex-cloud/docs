@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > video > CreateThumbnail
+
 # Cloud Video Audit Trails Events: CreateThumbnail
 
 ## Event JSON schema {#yandex.cloud.audit.video.CreateThumbnail2-schema}

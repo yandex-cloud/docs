@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Lockbox](../../index.md) > [Справочник CLI (англ.)](../index.md) > [secret](index.md) > remove-access-binding
+
 # yc lockbox secret remove-access-binding
 
 Remove access binding for the specified secret

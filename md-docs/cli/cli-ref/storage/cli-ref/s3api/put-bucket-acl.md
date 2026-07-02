@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [storage](../index.md) > [s3api](index.md) > put-bucket-acl
+
 # yc storage s3api put-bucket-acl
 
 Sets bucket access control list

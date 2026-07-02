@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > Справочник API > [REST (англ.)](../index.md) > Sink > Overview
+
 # Cloud Logging Service, REST: Sink
 
 A set of methods for managing log sinks.

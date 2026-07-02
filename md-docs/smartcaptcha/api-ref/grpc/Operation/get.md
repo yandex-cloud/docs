@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex SmartCaptcha](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Operation](index.md) > Get
+
 # SmartCaptcha API, gRPC: OperationService.Get
 
 Returns the specified Operation resource.

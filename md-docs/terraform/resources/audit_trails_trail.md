@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Audit Trails > Resources > audit_trails_trail
+
 # yandex_audit_trails_trail (Resource)
 
 Allows management of [trail](../../audit-trails/concepts/trail.md).

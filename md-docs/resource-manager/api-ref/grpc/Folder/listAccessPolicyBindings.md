@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Resource Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Folder](index.md) > ListAccessPolicyBindings
+
 # Resource Manager API, gRPC: FolderService.ListAccessPolicyBindings
 
 Returns list of access policy bindings for the folder.

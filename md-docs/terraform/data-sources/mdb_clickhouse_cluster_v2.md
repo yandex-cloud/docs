@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for ClickHouse > Data Sources > mdb_clickhouse_cluster_v2
+
 # yandex_mdb_clickhouse_cluster_v2 (DataSource)
 
 Get information about a Yandex Managed ClickHouse cluster. For more information, see [the official documentation](../../managed-clickhouse/concepts/index.md).

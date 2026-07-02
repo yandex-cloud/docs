@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Расширения спецификации](index.md) > Интеграции > DataSphere
+
 # Расширение x-yc-apigateway-integration:cloud_datasphere
 
 Расширение `x-yc-apigateway-integration:cloud_datasphere` вызывает ноду DataSphere, развернутую в виде отдельного микросервиса. В запросе к API Gateway должен быть JSON-объект, который содержит входные переменные, указанные при создании ноды, и их значения. В ответе от API Gateway будет JSON-объект, который содержит выходные переменные, указанные при создании ноды, и их значения, полученные после ее выполнения.

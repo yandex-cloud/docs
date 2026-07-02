@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-mongodb](../index.md) > [cluster](index.md) > delete
+
 # yc managed-mongodb cluster delete
 
 Delete the specified MongoDB cluster.

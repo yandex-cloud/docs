@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Virtual Private Cloud > Resources > vpc_address
+
 # yandex_vpc_address (Resource)
 
 Manages a address within the Yandex Cloud. You can only create a reserved (static) address via this resource. An ephemeral address could be obtained via implicit creation at a compute instance creation only. For more information, see [the official documentation](../../vpc/concepts/address.md).

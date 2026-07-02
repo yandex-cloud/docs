@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Пошаговые инструкции](../index.md) > Аутентификация > Управление API-ключами
+
 # Управление API-ключами
 
 [API-ключ](../../concepts/authorization/api-key.md) — секретный ключ, используемый для упрощенной аутентификации [сервисного аккаунта](../../concepts/users/service-accounts.md) в [API Yandex Cloud](../../../api-design-guide/index.md).

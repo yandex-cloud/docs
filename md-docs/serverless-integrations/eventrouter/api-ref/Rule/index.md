@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > Rule > Overview
+
 # EventRouter Service, REST: Rule
 
 A set of methods for managing rules for serverless eventrouter.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > Вопросы и ответы > Мониторинг и логи
+
 # Мониторинг и логи в Managed Service for PostgreSQL
 
 * [Где я могу отслеживать использование дискового пространства, чтобы не превысить лимит в 95% для перехода в read-only?](#disk-space)

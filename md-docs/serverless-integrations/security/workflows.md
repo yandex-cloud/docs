@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Integrations](../index.md) > [Управление доступом](index.md) > Роли Workflows
+
 # Сервисные роли для Workflows
 
 С помощью сервисных ролей [Workflows](../concepts/index.md#workflows) вы можете управлять доступом пользователей к [рабочим процессам](../concepts/workflows/workflow.md) Workflows.

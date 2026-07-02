@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud DNS](../index.md) > [Пошаговые инструкции](index.md) > Записи > Создать запись
+
 # Создать ресурсную запись
 
 Значение [TXT-записи](../concepts/resource-record.md#txt) должно быть не более 1024 знаков.

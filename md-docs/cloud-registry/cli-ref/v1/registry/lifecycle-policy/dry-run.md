@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Registry](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v1](../../index.md) > [registry](../index.md) > [lifecycle-policy](index.md) > dry-run
+
 # yc cloud-registry v1 registry lifecycle-policy dry-run
 
 Creates a request of a dry run of the lifecycle policy.

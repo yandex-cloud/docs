@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Практические руководства](index.md) > Загрузка данных в витрины > Яндекс Метрика в ClickHouse®
+
 # Загрузка данных из Яндекс Метрика в витрину ClickHouse®
 
 # Загрузка данных из Яндекс Метрика в витрину ClickHouse® с помощью Yandex Data Transfer

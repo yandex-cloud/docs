@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > [Пошаговые инструкции](../index.md) > Плейлисты > Получить код вставки или ссылку
+
 # Получить код вставки или ссылку на плейлист
 
 {% list tabs group=instructions %}

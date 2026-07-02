@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Концепции](index.md) > Автоматическое масштабирование
+
 # Автоматическое масштабирование
 
 {% note info %}

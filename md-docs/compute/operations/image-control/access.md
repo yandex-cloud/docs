@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Управление образом > Настроить права доступа к образу
+
 # Настроить права доступа к образу
 
 Чтобы предоставить пользователю, группе или [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md) доступ к [образу](../../concepts/image.md), назначьте на него [роль](../../../iam/concepts/access-control/roles.md).

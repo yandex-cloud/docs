@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DnsFirewall](index.md) > List
+
 # Cloud DNS API, REST: DnsFirewall.List
 
 Retrieves the list of DNS firewalls in the specified folder.

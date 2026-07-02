@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.kafka > AlterConfigAdminApi
+
 # Managed Service for Apache Kafka® Audit Trails Events: AlterConfigAdminApi
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.kafka.AlterConfigAdminApi2-schema}

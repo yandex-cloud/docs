@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [Server](index.md) > StopProlongation
+
 # BareMetal API, REST: Server.StopProlongation
 
 Stops prolongation of the specified server.

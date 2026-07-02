@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Lockbox](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Payload](index.md) > Get
+
 # Lockbox API, REST: Payload.Get
 
 Returns the payload of the specified secret.

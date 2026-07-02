@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YDB](../../../index.md) > Document API, совместимый с Amazon DynamoDB > Инструменты > [Работа с AWS CLI](index.md) > Добавление данных в таблицу
+
 # Добавление данных в таблицу
 
 Чтобы добавить две записи в таблицу `series`:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Router](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [RoutingInstance](index.md) > MovePrefix
+
 # Cloud Router API, gRPC: RoutingInstanceService.MovePrefix
 
 Moves the specified prefix between availability zones of the RoutingInstance.

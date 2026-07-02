@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Valkey™](index.md) > Метрики Monitoring
+
 # Справочник метрик Yandex Monitoring
 
 В этом разделе описаны метрики сервиса Yandex Managed Service for Valkey™, поставляемые в [Monitoring](../monitoring/concepts/index.md).

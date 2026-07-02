@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Правила тарификации](index.md) > Режим Dedicated > Правила тарификации для режима Dedicated
+
 # Правила тарификации для режима Dedicated в Managed Service for YDB
 
 

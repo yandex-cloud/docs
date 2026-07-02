@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > Вопросы и ответы
+
 # Вопросы и ответы про Virtual Private Cloud
 
 #### Что такое VPC? {#what-is-vpc}

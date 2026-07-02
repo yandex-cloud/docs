@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Практические руководства](../index.md) > Использование продуктов Cloud Marketplace > Редактирование изображений для сайтов с помощью Thumbor
+
 # Редактирование изображений для сайтов с помощью приложения Thumbor
 
 # Редактирование изображений для сайтов с помощью приложения Thumbor
@@ -24,9 +26,9 @@ Thumbor удобно использовать для подготовки изо
 В стоимость поддержки описываемого решения входят:
 
 * Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик ([тарифы Managed Service for Kubernetes](../../pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичный IP-адрес, если он назначен узлам кластера ([тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за бакет Object Storage: хранение данных и выполнение операций с ними ([тарифы Object Storage](../../storage/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища ([тарифы Compute Cloud](../../../compute/pricing.md)).
+* Плата за публичный IP-адрес, если он назначен узлам кластера ([тарифы Virtual Private Cloud](../../../vpc/pricing.md#prices-public-ip)).
+* Плата за бакет Object Storage: хранение данных и выполнение операций с ними ([тарифы Object Storage](../../../storage/pricing.md)).
 * Плата за сервис Cloud CDN: исходящий трафик ([тарифы Object Storage](../../../cdn/pricing.md)).
 
 

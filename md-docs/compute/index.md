@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Compute Cloud > Compute Cloud
+
 # Yandex Compute Cloud
 
 Сервис Yandex Compute Cloud предоставляет масштабируемые вычислительные мощности для создания виртуальных машин и управления ими.  Сервис поддерживает <a href="concepts/preemptible-vm.md">прерываемые</a> виртуальные машины, а также отказоустойчивые <a href="concepts/instance-groups/index.md">группы виртуальных машин</a>.

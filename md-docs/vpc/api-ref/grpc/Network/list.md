@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Network](index.md) > List
+
 # Virtual Private Cloud API, gRPC: NetworkService.List
 
 Retrieves the list of Network resources in the specified folder.

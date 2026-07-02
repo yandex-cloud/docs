@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > [Безопасность](../index.md) > [Создание L7-балансировщика Application Load Balancer с профилем безопасности Smart Web Security](index.md) > Консоль управления
+
 # Создание L7-балансировщика Application Load Balancer с профилем безопасности Smart Web Security с помощью консоли управления
 
 Чтобы создать [L7-балансировщик с профилем безопасности Smart Web Security](index.md) с помощью консоли управления Yandex Cloud:

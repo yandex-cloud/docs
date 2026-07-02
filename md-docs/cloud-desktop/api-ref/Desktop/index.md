@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > Справочник API > [REST (англ.)](../index.md) > Desktop > Overview
+
 # Cloud Desktop API, REST: Desktop
 
 A set of methods for managing desktop resources.

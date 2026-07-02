@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Репликация логов в Object Storage с помощью Data Streams
+
 # Репликация логов в Object Storage с помощью Yandex Data Streams
 
 # Репликация логов в Yandex Object Storage с помощью Yandex Data Streams
@@ -40,7 +42,7 @@
     * [По фактическому использованию](../../data-streams/pricing.md#on-demand) (On-demand) — оплачиваются выполненные операции записи и чтения данных, объем считанных/записанных данных, а также объем фактически используемого хранилища для сообщений, по которым не истек срок хранения.
 
 * База данных Managed Service for YDB, работающая в бессерверном режиме: операции с данными, объем хранимых данных и резервных копий ([тарифы Managed Service for YDB](../../ydb/pricing/index.md)).
-* Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
+* Бакет Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../pricing.md)).
 
 
 ## Настройте окружение {#prepare-environment}

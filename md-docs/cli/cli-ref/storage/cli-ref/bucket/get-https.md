@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [storage](../index.md) > [bucket](index.md) > get-https
+
 # yc storage bucket get-https
 
 Shows bucket https settings

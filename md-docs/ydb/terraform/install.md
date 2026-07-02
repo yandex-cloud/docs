@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > Работа с YDB через Terraform > Установка и настройка Terraform и провайдера для подключения к YDB
+
 # Установка и настройка Terraform и провайдера для подключения к YDB
 
 Terraform можно скачать с официального сайта [HashiCorp](https://developer.hashicorp.com/terraform/downloads), но если сайт недоступен — воспользуйтесь нашим специально созданным [зеркалом](https://hashicorp-releases.yandexcloud.net/terraform/). Скачайте дистрибутив Terraform для вашей платформы и добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH: export PATH=$PATH:/path/to/terraform`.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [User](index.md) > GrantPermission
+
 # Managed Service for PostgreSQL API, REST: User.GrantPermission
 
 Grants permission to the specified PostgreSQL user.

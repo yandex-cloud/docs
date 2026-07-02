@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex DataSphere](../../../../index.md) > Справочник API > gRPC (англ.) > [DataSphere Jobs API v2](../index.md) > [ProjectJob](index.md) > Get
+
 # DataSphere Jobs API v2, gRPC: ProjectJobService.Get
 
 Returns job by id.

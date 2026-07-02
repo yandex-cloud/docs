@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Services for Kubernetes > Resources > kubernetes_cluster
+
 # yandex_kubernetes_cluster (Resource)
 
 Creates a Yandex Cloud Managed Kubernetes Cluster. For more information, see [the official documentation](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).

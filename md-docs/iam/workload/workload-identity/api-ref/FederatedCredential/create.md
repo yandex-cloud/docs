@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity and Access Management](../../../../index.md) > Справочник API > REST (англ.) > [Workload Identity](../index.md) > [FederatedCredential](index.md) > Create
+
 # Workload Identity, REST: FederatedCredential.Create
 
 Creates a federated credential for the specified service account.

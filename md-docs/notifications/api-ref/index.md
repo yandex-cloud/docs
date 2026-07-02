@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > Справочник API > Обзор
+
 # Обзор HTTP API Yandex Cloud Notification Service
 
 HTTP API сервиса Cloud Notification Service совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html). 

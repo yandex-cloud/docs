@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-redis](../../index.md) > [v0](../index.md) > [user](index.md) > update
+
 # yc managed-redis v0 user update
 
 Update the specified Redis user

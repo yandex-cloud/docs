@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > kms > GenerateDataKey
+
 # Key Management Service Audit Trails Events: GenerateDataKey
 
 ## Event JSON schema {#yandex.cloud.audit.kms.GenerateDataKey2-schema}

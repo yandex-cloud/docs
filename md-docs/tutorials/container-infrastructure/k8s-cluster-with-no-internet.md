@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Контейнерная инфраструктура](index.md) > Managed Service for Kubernetes > Создание кластера Kubernetes без доступа в интернет
+
 # Создание и настройка кластера Managed Service for Kubernetes без доступа в интернет
 
 # Создание и настройка кластера Kubernetes без доступа в интернет

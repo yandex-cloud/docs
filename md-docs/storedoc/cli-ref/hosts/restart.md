@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > [hosts](index.md) > restart
+
 # yc managed-mongodb hosts restart
 
 Restart specified MongoD hosts.

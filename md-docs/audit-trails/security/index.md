@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Audit Trails](../index.md) > Управление доступом
+
 # Управление доступом Audit Trails
 
 В этом разделе вы узнаете:

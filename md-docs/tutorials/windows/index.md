@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Продукты Microsoft в Yandex Cloud > Все руководства
+
 # Руководства по работе с Windows в Yandex Cloud
 
 * [Безопасная передача пароля в скрипт инициализации](secure-password-script/index.md)

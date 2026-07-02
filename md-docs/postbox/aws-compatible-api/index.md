@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Postbox](../index.md) > Справочник API > Как пользоваться API
+
 # Как пользоваться API Amazon для работы с Yandex Cloud Postbox
 
 ## Подготовка к работе {#before-you-begin}

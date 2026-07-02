@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Router](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [RoutingInstance](index.md) > GetByCicPrivateConnectionId
+
 # Cloud Router API, gRPC: RoutingInstanceService.GetByCicPrivateConnectionId
 
 Returns the RoutingInstance resource by cicPrivateConnectionId

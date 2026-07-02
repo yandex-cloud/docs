@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Key Management Service](../index.md) > [Концепции](index.md) > Консистентность ключей
+
 # Консистентность ключей
 
 Некоторые операции являются [eventually consistent](https://en.wikipedia.org/wiki/Eventual_consistency). Изменения, которые они производят, проявляются с задержкой **до трех часов**. К таким операциям относятся:

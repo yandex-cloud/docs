@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-postgresql](../index.md) > [backup](index.md) > delete
+
 # yc managed-postgresql backup delete
 
 Delete the specified PostgreSQL backup

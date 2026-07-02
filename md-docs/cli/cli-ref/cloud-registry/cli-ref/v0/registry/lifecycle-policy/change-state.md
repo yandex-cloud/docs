@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [cloud-registry](../../../index.md) > [v0](../../index.md) > [registry](../index.md) > [lifecycle-policy](index.md) > change-state
+
 # yc cloud-registry v0 registry lifecycle-policy change-state
 
 Changes the state of the specified lifecycle policy

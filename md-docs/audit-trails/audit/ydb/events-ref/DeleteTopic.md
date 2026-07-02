@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > ydb > DeleteTopic
+
 # Managed Service for YDB Audit Trails Events: DeleteTopic
 
 ## Event JSON schema {#yandex.cloud.audit.ydb.topics.DeleteTopic2-schema}

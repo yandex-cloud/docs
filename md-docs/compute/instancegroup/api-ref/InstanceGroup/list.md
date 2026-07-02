@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > REST (англ.) > [Compute Cloud Instance Groups API](../index.md) > [InstanceGroup](index.md) > List
+
 # Compute Cloud Instance Groups API, REST: InstanceGroup.List
 
 Retrieves the list of InstanceGroup resources in the specified folder.

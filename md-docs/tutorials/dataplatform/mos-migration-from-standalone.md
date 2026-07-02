@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция данных в Managed Service for OpenSearch из стороннего кластера OpenSearch с помощью Data Transfer
+
 # Миграция данных в Yandex Managed Service for OpenSearch из стороннего кластера OpenSearch с помощью Yandex Data Transfer
 
 # Миграция данных из OpenSearch в Yandex Managed Service for OpenSearch с помощью Yandex Data Transfer
@@ -16,8 +18,8 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for OpenSearch: использование вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for OpenSearch](../../../managed-opensearch/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
+* Кластер Managed Service for OpenSearch: использование вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for OpenSearch](../../managed-opensearch/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

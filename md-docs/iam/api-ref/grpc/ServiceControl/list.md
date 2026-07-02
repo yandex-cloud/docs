@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ServiceControl](index.md) > List
+
 # Identity and Access Management API, gRPC: ServiceControlService.List
 
 Retrieves the list of Service in the specified resource container.

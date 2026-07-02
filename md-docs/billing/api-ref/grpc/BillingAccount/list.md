@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Billing](../../../index.md) > Справочник API > gRPC (англ.) > [Billing](../index.md) > [BillingAccount](index.md) > List
+
 # Billing API, gRPC: BillingAccountService.List
 
 Retrieves the list of billing accounts available for current user.

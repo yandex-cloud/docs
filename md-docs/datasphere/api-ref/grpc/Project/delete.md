@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex DataSphere](../../../index.md) > [Справочник API](../../overview.md) > [gRPC (англ.)](../index.md) > [Project](index.md) > Delete
+
 # DataSphere API v2, gRPC: ProjectService.Delete
 
 Deletes the specified project.

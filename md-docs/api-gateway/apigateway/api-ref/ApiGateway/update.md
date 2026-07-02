@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex API Gateway](../../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ApiGateway](index.md) > Update
+
 # API Gateway Service, REST: ApiGateway.Update
 
 Updates the specified API gateway.

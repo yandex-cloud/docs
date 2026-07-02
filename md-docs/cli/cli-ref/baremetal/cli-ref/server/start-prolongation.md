@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [baremetal](../index.md) > [server](index.md) > start-prolongation
+
 # yc baremetal server start-prolongation
 
 Starts prolongation of the specified server.

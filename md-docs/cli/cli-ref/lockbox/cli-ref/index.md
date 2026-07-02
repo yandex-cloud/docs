@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > lockbox > Overview
+
 # yc lockbox
 
 Manage Yandex Lockbox resources

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for SPQR > Resources > mdb_sharded_postgresql_user
+
 # yandex_mdb_sharded_postgresql_user (Resource)
 
 Manages a Sharded PostgreSQL user within the Yandex.Cloud

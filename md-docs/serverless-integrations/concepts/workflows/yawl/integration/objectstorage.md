@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > [Концепции](../../../index.md) > Workflows > [Спецификация YaWL](../index.md) > Интеграционные шаги > ObjectStorage
+
 # ObjectStorage
 
 Взаимодействие с объектами Yandex Object Storage. Поля `put` и `get` — взаимоисключающие, можно выполнить только одно действие над объектом.

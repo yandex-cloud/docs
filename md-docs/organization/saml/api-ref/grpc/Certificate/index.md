@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [SAML Federation API](../index.md) > Certificate > Overview
+
 # SAML Federation API, gRPC: CertificateService
 
 A set of methods for managing certificates.

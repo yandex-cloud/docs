@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v1alpha](../index.md) > [vrf](index.md) > list
+
 # yc baremetal v1alpha vrf list
 
 Retrieves the list of VRF resources in the specified folder.

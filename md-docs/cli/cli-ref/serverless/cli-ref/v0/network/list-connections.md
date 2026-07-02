@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [v0](../index.md) > [network](index.md) > list-connections
+
 # yc serverless v0 network list-connections
 
 List serverless resources connected to any network from specified scope (network, folder or cloud)

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > DataSphere Notebook > Примеры кода в ноутбуке
+
 # Примеры кода в ноутбуке
 
 {% note warning %}

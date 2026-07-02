@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [workload-identity](../index.md) > [federated-credential](index.md) > create
+
 # yc iam workload-identity federated-credential create
 
 Create a federated credential for the specified service account

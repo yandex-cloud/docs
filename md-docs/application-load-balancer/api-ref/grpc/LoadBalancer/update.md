@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LoadBalancer](index.md) > Update
+
 # Application Load Balancer API, gRPC: LoadBalancerService.Update
 
 Updates the specified application load balancer.

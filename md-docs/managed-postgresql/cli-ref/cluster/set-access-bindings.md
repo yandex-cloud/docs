@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > set-access-bindings
+
 # yc managed-postgresql cluster set-access-bindings
 
 Set access bindings for the specified PostgreSQL cluster and delete all existing access bindings if there were any

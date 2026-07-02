@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [resource-groups](index.md) > create
+
 # yc managed-greenplum resource-groups create
 
 Create resource group for specified Greenplum cluster

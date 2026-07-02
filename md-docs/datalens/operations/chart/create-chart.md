@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Чарты > Чарты в визарде > Пошаговые инструкции > Создание чарта
+
 # Создание чарта в Yandex DataLens
 
 ## Создать чарт {#create-chart}

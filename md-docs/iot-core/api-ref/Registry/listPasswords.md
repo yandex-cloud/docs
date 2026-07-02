@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > [REST (англ.)](../index.md) > [Registry](index.md) > ListPasswords
+
 # IoT Core Service, REST: Registry.ListPasswords
 
 Retrieves the list of passwords for the specified registry.

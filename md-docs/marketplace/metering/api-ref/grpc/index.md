@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Marketplace](../../../index.md) > Партнерам > Справочник Metering API > gRPC (англ.) > Overview
+
 # Marketplace Metering API: gRPC reference
 
 This reference provides descriptions of the Marketplace Metering API.

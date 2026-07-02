@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex SmartCaptcha](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Captcha](index.md) > Create
+
 # SmartCaptcha API, gRPC: CaptchaService.Create
 
 Creates a captcha in the specified folder using the data specified in the request.

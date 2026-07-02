@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Registry](index.md) > ForceDelete
+
 # Yandex Cloud Registry API, REST: Registry.ForceDelete
 
 Forcefully deletes the specified registry along with all its repositories and data.

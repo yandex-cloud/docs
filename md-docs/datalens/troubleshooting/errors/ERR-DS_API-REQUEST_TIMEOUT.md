@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Backend app request timeout exceeded
+
 # [Yandex DataLens] Backend app request timeout exceeded
 
 `ERR.DS_API.REQUEST_TIMEOUT`

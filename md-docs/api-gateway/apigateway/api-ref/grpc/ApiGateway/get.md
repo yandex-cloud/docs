@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex API Gateway](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ApiGateway](index.md) > Get
+
 # API Gateway Service, gRPC: ApiGatewayService.Get
 
 Returns the specified API gateway. Note that only API gateway basic attributes are returned.

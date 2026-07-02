@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-mongodb](../index.md) > [cluster](index.md) > restore
+
 # yc managed-mongodb cluster restore
 
 Restore a MongoDB cluster from a backup.

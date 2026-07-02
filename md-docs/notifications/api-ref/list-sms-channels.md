@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > [Справочник API](index.md) > SMS > List
+
 # Действие ListSMSChannels
 
 Получает список [каналов SMS-уведомлений](../concepts/sms.md) в каталоге.

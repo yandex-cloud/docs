@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Управление резервными копиями
+
 # Управление резервными копиями в Managed Service for ClickHouse®
 
 

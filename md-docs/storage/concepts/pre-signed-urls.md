@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Концепции](index.md) > Подписанные (pre-signed) URL
+
 # Подписанные (pre-signed) URL
 
 В Object Storage реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов приведен в [Обзор способов управления доступом в Object Storage](../security/overview.md).

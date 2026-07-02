@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > Управление доступом
+
 # Управление доступом в Compute Cloud
 
 

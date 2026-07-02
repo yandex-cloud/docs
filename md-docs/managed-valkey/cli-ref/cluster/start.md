@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > start
+
 # yc managed-redis cluster start
 
 Start the specified Redis cluster

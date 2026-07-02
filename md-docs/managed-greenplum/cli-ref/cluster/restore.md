@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > restore
+
 # yc managed-greenplum cluster restore
 
 Restore Greenplum cluster

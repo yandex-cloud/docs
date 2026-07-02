@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [cloud-registry](../index.md) > v1 > Overview
+
 # yc cloud-registry v1
 
 [PREVIEW] Manage Cloud Registry resources

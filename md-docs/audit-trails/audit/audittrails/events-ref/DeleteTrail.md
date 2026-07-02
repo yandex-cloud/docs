@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > audittrails > DeleteTrail
+
 # Audit Trails Events: DeleteTrail
 
 ## Event JSON schema {#yandex.cloud.audit.audittrails.DeleteTrail2-schema}

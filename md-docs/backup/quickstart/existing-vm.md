@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Backup](../index.md) > [Начало работы](index.md) > Начать работать с Cloud Backup на существующей ВМ
+
 # Как начать работать с Yandex Cloud Backup на существующей ВМ
 
 
@@ -8,7 +10,7 @@
 {% cut "В стоимость ресурсов для резервного копирования ВМ входят:" %}
 
 * плата за [вычислительные ресурсы](../../compute/concepts/vm-platforms.md) и [диски](../../compute/concepts/disk.md) ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за защищенные ВМ и хранение резервных копий ([тарифы Yandex Cloud Backup](../../backup/pricing.md)).
+* плата за защищенные ВМ и хранение резервных копий ([тарифы Yandex Cloud Backup](../pricing.md)).
 
 {% endcut %}
 

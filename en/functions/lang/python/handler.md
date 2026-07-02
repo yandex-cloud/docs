@@ -3,48 +3,48 @@
 A _request handler_ is a method used to process each Python function call. When creating a function [version](../../concepts/function.md#version), you must set up an _entry point_ for it, i.e., a path to the request handler in `<file>`.`<function>` format, where:
 
 * `<file>`: Name of the file with the function code (without `.py`), e.g., `index`. The code file must reside in the root directory. The file name must not contain any dots.
-* `<function>`: Name of the callable object, as defined in `<file>`, e.g., `handler`. When a function is initialized, the runtime environment imports `<file>` and finds a callable object named `<function>` in that file, which object is launched each time the function is called.
+* `<function>`: Name of the callable object in `<file>`, e.g., `handler`. When initializing the function, the runtime imports `<file>` and finds the callable object named `<function>` which runs on every function invocation.
 
 Example of an entry point for a Python function: `index.handler`.
 
 {% note info %}
 
-At any given time, a single function instance processes only one request. This allows you to use global variables without having to provide data integrity control.
+At any given time, a single function instance processes only one request. This allows you to use global variables without the need to ensure data integrity control.
 
 {% endnote %}
 
-When invoking the handler, the runtime provides the following arguments:
+When calling the handler, the runtime provides the following arguments:
 1. Request body (the `event` parameter):
-    * If the request body is a [JSON document](../../concepts/function-invoke.md#request), it will be converted to `dict` using the `json.loads` method.
-    * If a function was invoked with the `?integration=raw` request string parameter, the HTTP request body is provided to the function as is (unprocessed).
+    * If the request body is a [JSON document](../../concepts/function-invoke.md#request), it will be converted into `dict` using the `json.loads` method.
+    * If the function was invoked with the `?integration=raw` query parameter, the HTTP request body is provided to the function as is, i.e., unprocessed.
 1. [Invocation context](context.md) (the `context` parameter). 
 
-    The context contains the requred function version information. The structure of this object is described in [{#T}](context.md).
+    The context provides all required information about the function version. The structure of this object is described in [{#T}](context.md).
     
 ## Handler types {#type}
 
-A function can use both synchronous and asynchronous request handlers.
+A function supports both synchronous and asynchronous handlers.
 
 ## Synchronous handler {#sync}
 
-To have the execution result returned, use the `return` statement or throw an exception using the `raise` statement. A synchronous function must return a result or throw an exception.
+To return the execution result, use the `return` statement or raise an exception using the `raise` statement. A synchronous function must return a result or raise an exception.
 
 ## Asynchronous handler {#async}
 
 A handler can be an `async def` asynchronous function. In this case, you can use the following statements: 
 * `return`: Returns the function response.
-* `raise`: Reports an error to the runtime environment.
+* `raise`: Reports an error to the runtime.
 * `await`: Tracks the execution of asynchronous function invocations.
 
 {% note info %}
 
-Only the `asyncio` library is supported as a runtime environment for asynchronous functions. 
+The `asyncio` library is the only supported runtime for asynchronous functions. 
 
 In Python 3.14 and higher, `asyncio.get_event_loop()` no longer automatically creates an [event loop](https://docs.python.org/3/library/asyncio-eventloop.html), but results in `RuntimeError`. Use `asyncio.get_running_loop()` to manage asynchronous handlers. See [this example](#async-python314-example).
 
 {% endnote %}
 
-For more information about the development process using `async/await`, see the [relevant documentation section](https://docs.python.org/3.14/library/asyncio.html).
+For more information about the development process using `async/await`, see [this article](https://docs.python.org/3.14/library/asyncio.html).
 
 ## Examples {#examples}
 

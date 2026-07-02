@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [dataproc](../../index.md) > [v0](../index.md) > [job](index.md) > log
+
 # yc dataproc v0 job log
 
 List logs for Dataproc job.

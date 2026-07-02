@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Практические руководства](../index.md) > [Интеграция L7-балансировщика с CDN и Object Storage](index.md) > Terraform
+
 # Интеграция L7-балансировщика с Cloud CDN и Object Storage с помощью Terraform
 
 
@@ -29,7 +31,7 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за хранение данных в Object Storage, операции с ними и исходящий трафик ([тарифы Object Storage](../../../storage/pricing.md));
+* плата за хранение данных в Object Storage, операции с ними и исходящий трафик ([тарифы Object Storage](../../pricing.md));
 * плата за использование вычислительных ресурсов L7-балансировщика ([тарифы Application Load Balancer](../../../application-load-balancer/pricing.md));
 * плата за исходящий трафик с CDN-серверов ([тарифы Cloud CDN](../../../cdn/pricing.md));
 * плата за публичные DNS-запросы и DNS-зоны, если вы используете Yandex Cloud DNS ([тарифы Cloud DNS](../../../dns/pricing.md)).

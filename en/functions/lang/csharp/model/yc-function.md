@@ -1,10 +1,10 @@
-# Using the YcFunction interface to set a handler function in C#
+# Using the YcFunction interface to set a handler in C#
 
-You can set a handler function in C# by implementing the [YcFunction](https://github.com/yandex-cloud/dotnet-sdk/blob/master/Yandex.Cloud.SDK/Functions/YcFunction.cs) interface. To do this, add an [SDK](../sdk.md) to the [dependencies](../dependencies.md).
+You can set a handler in C# by implementing the [YcFunction](https://github.com/yandex-cloud/dotnet-sdk/blob/master/Yandex.Cloud.SDK/Functions/YcFunction.cs) interface. To do this, add an [SDK](../sdk.md) to the [dependencies](../dependencies.md).
 
 {% note warning %}
 
-You should specify both values for the `YcFunction` type parameters: the first one being the input argument type and the second one, the type of the returned value. The `handle` method also has [invocation context](../context.md) as its second argument.
+You must specify both values for the `YcFunction` type parameters: the first one being the input argument type and the second one, the return value type. The `handle` method also has [invocation context](../context.md) as its second argument.
 
 {% endnote %}
 
@@ -19,8 +19,8 @@ public class Handler : YcFunction<int, String> {
 
 Examples of invalid handlers:
 ```C#
-// YcFunction has only one parameter type specified
-// Handler should not have any type parameters
+// YcFunction has only one parameter type specified.
+// Handler should not have any type parameters.
 public class Handler<T> : YcFunction<T, int> {
   public int FunctionHandler(T i, Context c) {
     return 2;
@@ -29,7 +29,7 @@ public class Handler<T> : YcFunction<T, int> {
 ```
 
 ```C#
-// YcFunction has neither of the parameter types specified
+// YcFunction has neither parameter types specified.
 public class Handler : YcFunction {
   public Object FunctionHandler(Object i, Context c) {
     return i;
@@ -43,7 +43,7 @@ You can use any classes as input and return types.
 
 {% note info %}
 
-Fields of these classes may have any [access modifiers](https://docs.microsoft.com/ru-ru/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers). If a field is non-public, it requires the `getter` public method. Otherwise, the field will not be included in the response.
+Fields of these classes can have any [access modifiers](https://docs.microsoft.com/ru-ru/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers). If a field is non-public, it requires the `getter` public method. Otherwise, the field will not be included in the response.
 
 {% endnote %}
 
@@ -62,7 +62,7 @@ To invoke the function, use the [{{ yandex-cloud }} CLI](../../../concepts/funct
 
 {% endnote %}
 
-The Handler.cs file:
+`Handler.cs`:
 
 ```C#
 using Yandex.Cloud.Functions;

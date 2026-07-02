@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Практические руководства](index.md) > Дашборд сети магазинов из БД ClickHouse®
+
 # Дашборд сети магазинов из БД ClickHouse®
 
 

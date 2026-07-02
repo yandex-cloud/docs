@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > Концепции > Синхронизация с Active Directory
+
 # Синхронизация пользователей и групп с Microsoft Active Directory
 
 

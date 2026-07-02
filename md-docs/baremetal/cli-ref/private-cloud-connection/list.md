@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../index.md) > [private-cloud-connection](index.md) > list
+
 # yc baremetal private-cloud-connection list
 
 Retrieves the list of Private cloud connection resources in the specified folder.

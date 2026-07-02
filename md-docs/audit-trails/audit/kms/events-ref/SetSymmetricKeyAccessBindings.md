@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > kms > SetSymmetricKeyAccessBindings
+
 # Key Management Service Audit Trails Events: SetSymmetricKeyAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.kms.SetSymmetricKeyAccessBindings2-schema}

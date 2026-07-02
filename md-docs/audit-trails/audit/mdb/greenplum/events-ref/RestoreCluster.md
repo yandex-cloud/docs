@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.greenplum > RestoreCluster
+
 # Managed Service for Greenplum® Audit Trails Events: RestoreCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.greenplum.RestoreCluster2-schema}

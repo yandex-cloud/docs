@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Resource Manager](../index.md) > Концепции > Иерархия ресурсов Yandex Cloud
+
 # Иерархия ресурсов Yandex Cloud
 
 Ресурсная модель Resource Manager представлена на диаграмме. Этой модели следует большинство сервисов Yandex Cloud.

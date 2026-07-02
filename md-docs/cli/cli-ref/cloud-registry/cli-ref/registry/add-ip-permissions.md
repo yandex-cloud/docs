@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [cloud-registry](../index.md) > [registry](index.md) > add-ip-permissions
+
 # yc cloud-registry registry add-ip-permissions
 
 Add ip permissions for the specified registry

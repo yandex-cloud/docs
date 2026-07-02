@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > Концепции > Взаимосвязь ресурсов сервиса
+
 # Взаимосвязь ресурсов в Managed Service for GitLab
 
 [GitLab](https://about.gitlab.com/) — это веб-инструмент жизненного цикла [DevOps](https://yandex.cloud/ru/blog/posts/2022/03/what-is-devops) с открытым исходным кодом. Он представляет собой систему управления репозиториями кода для [Git](https://git-scm.com/) с системой отслеживания ошибок, [CI/CD](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd) пайплайном, собственной Wiki и другими функциями.

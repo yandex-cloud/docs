@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [hosts](index.md) > list
+
 # yc managed-mysql hosts list
 
 List hosts for the specified MySQL cluster

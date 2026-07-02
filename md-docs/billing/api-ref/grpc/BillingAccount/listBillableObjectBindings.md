@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Billing](../../../index.md) > Справочник API > gRPC (англ.) > [Billing](../index.md) > [BillingAccount](index.md) > ListBillableObjectBindings
+
 # Billing API, gRPC: BillingAccountService.ListBillableObjectBindings
 
 Retrieves the list of billable object bindings associated with the specified billing account.

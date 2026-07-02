@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [HttpRouter](index.md) > ListOperations
+
 # Application Load Balancer API, REST: HttpRouter.ListOperations
 
 Lists operations for the specified HTTP router.

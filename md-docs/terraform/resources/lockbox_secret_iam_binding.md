@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Lockbox > Resources > lockbox_secret_iam_binding
+
 # yandex_lockbox_secret_iam_binding (Resource)
 
 Allows creation and management of a single binding within IAM policy for an existing `secret`.

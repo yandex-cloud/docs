@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cloud](index.md) > list-operations
+
 # yc resource-manager cloud list-operations
 
 List operations for the specified cloud

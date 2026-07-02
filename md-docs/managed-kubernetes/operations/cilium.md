@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Пошаговые инструкции](index.md) > Сетевые сценарии > Настройка контроллера сетевых политик Cilium
+
 # Настройка контроллера сетевых политик Cilium
 
 В этом сценарии демонстрируется [работа сетевых политик уровней L3/L4 и L7](https://docs.cilium.io/en/v1.10/gettingstarted/http/), которыми управляет [контроллер сетевых политик Cilium](../concepts/network-policy.md#cilium).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [storage-onprem/_cli-ref-v-1-0](../index.md) > access-keys > create
+
 # cli access-keys create
 
 Create access key for service account

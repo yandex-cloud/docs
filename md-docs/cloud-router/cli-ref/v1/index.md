@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > [Справочник CLI (англ.)](../index.md) > v1 > Overview
+
 # yc cloudrouter v1
 
 Manage Cloud Router resources

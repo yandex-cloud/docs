@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SnapshotSchedule](index.md) > ListSnapshots
+
 # Compute Cloud API, REST: SnapshotSchedule.ListSnapshots
 
 Retrieves the list of snapshots created by the specified snapshot schedule.

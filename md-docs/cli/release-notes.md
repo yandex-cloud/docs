@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Интерфейс командной строки](index.md) > Релизы CLI
+
 # Релизы CLI
 
 ## Текущая версия {#latest-release}

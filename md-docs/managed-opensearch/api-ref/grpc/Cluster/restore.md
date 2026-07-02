@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for OpenSearch](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Restore
+
 # Managed Service for OpenSearch API, gRPC: ClusterService.Restore
 
 Creates a new OpenSearch cluster using the specified backup.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v1alpha](../index.md) > [private-cloud-connection](index.md) > update
+
 # yc baremetal v1alpha private-cloud-connection update
 
 Updates the routing_instance_id in a private cloud connection.

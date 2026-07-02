@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Certificate Manager](../../index.md) > [Концепции](../index.md) > Домен > Обзор
+
 # Домен
 
 Домены находятся на стадии [Preview](../../../overview/concepts/launch-stages.md).

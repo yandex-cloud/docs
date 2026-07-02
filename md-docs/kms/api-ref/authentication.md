@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Key Management Service](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Key Management Service
 
 # Аутентификация в API

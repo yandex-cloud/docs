@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > ai.responses > GetResponse
+
 # AI Studio Audit Trails Events: GetResponse
 
 ## Event JSON schema {#yandex.cloud.audit.ai.responses.GetResponse2-schema}

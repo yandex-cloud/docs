@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Пошаговые инструкции](index.md) > Хранение и обработка данных > Управление моделями машинного обучения
+
 # Управление моделями машинного обучения в Managed Service for ClickHouse®
 
 Managed Service for ClickHouse® позволяет анализировать данные с помощью моделей машинного обучения [CatBoost](https://catboost.ai/) без использования дополнительных инструментов.

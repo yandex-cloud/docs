@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > ai.guardrails > UnsetBinding
+
 # AI Studio Guardrails Audit Trails Events: UnsetBinding
 
 ## Event JSON schema {#yandex.cloud.audit.ai.guardrails.UnsetBinding2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > [Справочник CLI (англ.)](../index.md) > [firewall](index.md) > delete
+
 # yc dns firewall delete
 
 Delete a dns firewall.

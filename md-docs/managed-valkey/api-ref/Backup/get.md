@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Backup](index.md) > Get
+
 # Managed Service for Redis API, REST: Backup.Get
 
 Returns the specified Redis backup.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Справочник API](../overview.md) > [REST (англ.)](../index.md) > [Community](index.md) > GetRestrictionsMeta
+
 # DataSphere API v2, REST: Community.GetRestrictionsMeta
 
 Get meta information about available restrictions.

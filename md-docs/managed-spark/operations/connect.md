@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Spark™](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Подключение к кластеру
+
 # Подключение к кластеру Apache Spark™
 
 В этом разделе представлены настройки для подключения к кластеру Yandex Managed Service for Apache Spark™ с помощью [Spark Connect](https://spark.apache.org/docs/3.5.6/spark-connect-overview.html).

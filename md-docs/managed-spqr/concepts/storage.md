@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > [Концепции](index.md) > Хранилище в Sharded PostgreSQL
+
 # Хранилище в Yandex Managed Service for Sharded PostgreSQL
 
 Managed Service for Sharded PostgreSQL позволяет использовать сетевые и локальные диски для организации хранилища кластера. Сетевые диски реализованы на базе сетевых блоков — виртуальных дисков в инфраструктуре Yandex Cloud.

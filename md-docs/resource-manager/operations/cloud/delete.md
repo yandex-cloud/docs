@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > [Пошаговые инструкции](../index.md) > Облако > Удаление облака
+
 # Удаление облака
 
 Чтобы удалить облако, у вас должна быть роль [resource-manager.editor](../../security/index.md#resource-manager-editor) или выше на это облако. Если вы не можете выполнить эту операцию, обратитесь к [владельцу облака](../../concepts/resources-hierarchy.md#owner).

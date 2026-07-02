@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > metastore > UpdateCluster
+
 # Managed Service for Hive Metastore™ Audit Trails Events: UpdateCluster
 
 ## Event JSON schema {#yandex.cloud.audit.metastore.UpdateCluster2-schema}

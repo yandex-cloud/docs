@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-mongodb](../index.md) > [cluster](index.md) > list-backups
+
 # yc managed-mongodb cluster list-backups
 
 List available backups for the specified MongoDB cluster.

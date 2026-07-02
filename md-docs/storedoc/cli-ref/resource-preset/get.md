@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > [resource-preset](index.md) > get
+
 # yc managed-mongodb resource-preset get
 
 Get information about a MongoDB resource preset.

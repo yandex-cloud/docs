@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > GridDelete
+
 # Yandex Wiki Audit Trails Events: GridDelete
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.GridDelete2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Compute Cloud](../index.md) > Устранение ошибки `WARNING REMOTE HOST IDENTIFICATION HAS CHANGED`
+
 # Устранение ошибки `WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED`
 
 

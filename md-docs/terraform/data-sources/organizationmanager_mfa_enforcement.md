@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity Hub > Data Sources > organizationmanager_mfa_enforcement
+
 # yandex_organizationmanager_mfa_enforcement (DataSource)
 
 MFA enforcement resource

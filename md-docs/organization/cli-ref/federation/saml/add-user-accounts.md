@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [federation](../index.md) > [saml](index.md) > add-user-accounts
+
 # yc organization-manager federation saml add-user-accounts
 
 Add user accounts to the specified federation

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Key Management Service](../../../../index.md) > Справочник API > gRPC (англ.) > [Key Management Service API](../index.md) > [AsymmetricSignatureKey](index.md) > Delete
+
 # Key Management Service API, gRPC: AsymmetricSignatureKeyService.Delete
 
 Deletes the specified asymmetric KMS key. This action also automatically schedules

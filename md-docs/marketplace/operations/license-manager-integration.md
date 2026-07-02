@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Marketplace](../index.md) > Партнерам > Пошаговые инструкции > Интеграция с License Manager API
+
 # Интеграция с License Manager API
 
 Если вы создали [подписку](../concepts/subscription.md) внутри тарифа:

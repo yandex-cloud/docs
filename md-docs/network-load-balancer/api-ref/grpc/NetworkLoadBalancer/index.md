@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Network Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > NetworkLoadBalancer > Overview
+
 # Network Load Balancer API, gRPC: NetworkLoadBalancerService
 
 A set of methods for managing NetworkLoadBalancer resources.

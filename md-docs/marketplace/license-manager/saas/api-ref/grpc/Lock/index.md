@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Cloud Marketplace](../../../../../index.md) > Партнерам > Справочник License Manager SaaS API > [gRPC (англ.)](../index.md) > Lock > Overview
+
 # Yandex Cloud Marketplace License Manager for SaaS, gRPC: LockService
 
 A set of methods for managing subscription locks.

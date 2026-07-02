@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API EventRouter > [gRPC (англ.)](../index.md) > [Connector](index.md) > Delete
+
 # EventRouter Service, gRPC: ConnectorService.Delete
 
 Deletes the specified connector.

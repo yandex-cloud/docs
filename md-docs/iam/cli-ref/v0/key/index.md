@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > key > Overview
+
 # yc iam v0 key
 
 Manage IAM keys.

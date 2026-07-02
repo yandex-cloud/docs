@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > dns > DeleteDnsZone
+
 # Cloud DNS Audit Trails Events: DeleteDnsZone
 
 ## Event JSON schema {#yandex.cloud.audit.dns.DeleteDnsZone2-schema}

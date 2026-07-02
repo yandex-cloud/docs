@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Identity and Access Management](../index.md) > Устранение ошибки `Forbidden` при работе от имени сервисного аккаунта
+
 # Устранение ошибки `Forbidden` при работе от имени сервисного аккаунта
 
 

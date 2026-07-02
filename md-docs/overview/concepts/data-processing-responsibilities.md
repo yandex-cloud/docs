@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Обзор платформы](../index.md) > Платформа Yandex Cloud > Разграничение зон контроля в Yandex Data Processing
+
 # Разграничение зон контроля пользователей Yandex Data Processing и Yandex Cloud
 
 # Разграничение зон контроля пользователей Yandex Data Processing и Yandex Cloud

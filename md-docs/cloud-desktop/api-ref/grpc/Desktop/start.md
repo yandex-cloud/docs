@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Desktop](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Desktop](index.md) > Start
+
 # Cloud Desktop API, gRPC: DesktopService.Start
 
 Start the specified desktop.

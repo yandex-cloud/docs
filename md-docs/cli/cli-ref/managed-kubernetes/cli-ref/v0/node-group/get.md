@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-kubernetes](../../index.md) > [v0](../index.md) > [node-group](index.md) > get
+
 # yc managed-kubernetes v0 node-group get
 
 Get information about a node group.

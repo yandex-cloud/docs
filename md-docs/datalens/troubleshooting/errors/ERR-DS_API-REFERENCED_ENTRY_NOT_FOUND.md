@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Обращение к несуществующему объекту
+
 # [Yandex DataLens] Обращение к несуществующему объекту
 
 `ERR.DS_API.REFERENCED_ENTRY_NOT_FOUND`

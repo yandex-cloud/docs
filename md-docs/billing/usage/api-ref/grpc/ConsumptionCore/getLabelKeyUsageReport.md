@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Billing](../../../../index.md) > Справочник API > gRPC (англ.) > [Billing usage](../index.md) > [ConsumptionCore](index.md) > GetLabelKeyUsageReport
+
 # Billing Usage API, gRPC: ConsumptionCoreService.GetLabelKeyUsageReport
 
 Returns aggregated usage report by label keys and values

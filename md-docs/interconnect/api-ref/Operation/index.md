@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > Справочник API > [REST (англ.)](../index.md) > Operation > Overview
+
 # Cloud Interconnect API, REST: Operation
 
 A set of methods for managing operations for asynchronous API requests.

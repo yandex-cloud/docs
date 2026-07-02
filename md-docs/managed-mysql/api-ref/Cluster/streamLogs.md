@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > StreamLogs
+
 # Managed Service for MySQL API, REST: Cluster.StreamLogs
 
 Retrieves a log stream for a cluster.

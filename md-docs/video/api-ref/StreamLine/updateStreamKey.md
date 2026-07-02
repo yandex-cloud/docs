@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [StreamLine](index.md) > UpdateStreamKey
+
 # Video API, REST: StreamLine.UpdateStreamKey
 
 Regenerates and updates the stream key for a push-type stream line.

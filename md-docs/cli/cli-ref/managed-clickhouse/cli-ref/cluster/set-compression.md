@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-clickhouse](../index.md) > [cluster](index.md) > set-compression
+
 # yc managed-clickhouse cluster set-compression
 
 Set compression settings for a ClickHouse cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-spark](../index.md) > [cluster](index.md) > stop
+
 # yc managed-spark cluster stop
 
 Stop the specified Spark cluster

@@ -23,11 +23,18 @@ description: Следуя данной инструкции, вы сможете
 
 
 
+## Роли для создания кластера {#roles}
+
+Для создания кластера {{ mmg-name }} и работы с ним вашему аккаунту в {{ yandex-cloud }} нужны роли:
+
+* {% include [roles-mmg-editor](../../_includes/mdb/mmg/roles-mmg-editor.md) %}
+* {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
+* {% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
+
+О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
+
+
 ## Создать кластер {#create-cluster}
-
-
-Для создания кластера {{ mmg-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mmg.editor }} или выше](../security/index.md#roles-list). Инструкция по назначению роли приведена в [документации {{ iam-name }}](../../iam/operations/roles/grant.md).
-
 
 {% list tabs group=instructions %}
 
@@ -334,6 +341,21 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+      Чтобы настроить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), передайте нужное значение в параметре `--maintenance-window` при создании кластера:
+
+      ```bash
+      {{ yc-mdb-mg }} cluster create \
+         ...
+         --maintenance-window type=<тип_технического_обслуживания>,`
+                             `day=<день_недели>,`
+                             `hour=<порядковый_номер_часового_интервала> \
+         ...
+      ```
+
+      Где `type` — тип технического обслуживания:
+
+      {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
       Чтобы настроить [автоматическое увеличение](../concepts/storage.md#auto-rescale) размера хранилища, укажите параметр `--disk-size-autoscaling`:
 
       ```bash
@@ -366,12 +388,6 @@ description: Следуя данной инструкции, вы сможете
         {% endnote %}
 
       * `<тип_хоста>-disk-size-limit` — максимальный размер хранилища в гигабайтах после увеличения.
-
-      {% note info %}
-
-      По умолчанию при создании кластера устанавливается режим [технического обслуживания](../concepts/maintenance.md) `anytime` — в любое время. Вы можете установить конкретное время обслуживания при [изменении настроек кластера](update.md#change-additional-settings).
-
-      {% endnote %}
 
 
 - {{ TF }} {#tf}
@@ -757,7 +773,7 @@ description: Следуя данной инструкции, вы сможете
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<день_недели>",
-              "hour": "<час>"
+              "hour": "<порядковый_номер_часового_интервала>"
             }
           },
           "configSpec": {
@@ -852,7 +868,7 @@ description: Следуя данной инструкции, вы сможете
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<день_недели>",
-              "hour": "<час>"
+              "hour": "<порядковый_номер_часового_интервала>"
             }
           },
           "configSpec": {
@@ -966,7 +982,7 @@ description: Следуя данной инструкции, вы сможете
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<день_недели>",
-              "hour": "<час>"
+              "hour": "<порядковый_номер_часового_интервала>"
             }
           },
           "configSpec": {
@@ -1099,8 +1115,10 @@ description: Следуя данной инструкции, вы сможете
           * `anytime` — техническое обслуживание происходит в любое время.
           * `weeklyMaintenanceWindow` — техническое обслуживание происходит раз в неделю, в указанное время:
 
-            * `day` — день недели в формате `DDD`.
-            * `hour` — час в формате `HH`. Возможные значения: от `1` до `24` часов.
+            * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+            * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+
+              > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
         * `configSpec` — настройки кластера:
 
@@ -1223,7 +1241,7 @@ description: Следуя данной инструкции, вы сможете
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<день_недели>",
-              "hour": "<час>"
+              "hour": "<порядковый_номер_часового_интервала>"
             }
           },
           "config_spec": {
@@ -1318,7 +1336,7 @@ description: Следуя данной инструкции, вы сможете
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<день_недели>",
-              "hour": "<час>"
+              "hour": "<порядковый_номер_часового_интервала>"
             }
           },
           "config_spec": {
@@ -1432,7 +1450,7 @@ description: Следуя данной инструкции, вы сможете
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<день_недели>",
-              "hour": "<час>"
+              "hour": "<порядковый_номер_часового_интервала>"
             }
           },
           "config_spec": {
@@ -1565,8 +1583,10 @@ description: Следуя данной инструкции, вы сможете
           * `anytime` — техническое обслуживание происходит в любое время.
           * `weekly_maintenance_window` — техническое обслуживание происходит раз в неделю, в указанное время:
 
-            * `day` — день недели в формате `DDD`.
-            * `hour` — час в формате `HH`. Возможные значения: от `1` до `24` часов.
+            * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+            * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+
+              > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
         * `config_spec` — настройки кластера:
 

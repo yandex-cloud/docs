@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Functions](index.md) > Сопоставление с другими сервисами Yandex Cloud
+
 # Сопоставление Cloud Functions с другими сервисами Yandex Cloud
 
 **Критерий \ Сервис** | **Container<br/>Solution** | **Managed<br/>Service for<br/>Kubernetes** | **Cloud<br/>Functions** | **Serverless<br/>Containers**

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Настройки сервиса > Обзор
+
 # Настройки сервиса в Yandex DataLens
 
 В DataLens используются настройки двух видов:

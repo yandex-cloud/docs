@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [HostGroup](index.md) > Create
+
 # Compute Cloud API, gRPC: HostGroupService.Create
 
 Creates a host group in the specified folder.

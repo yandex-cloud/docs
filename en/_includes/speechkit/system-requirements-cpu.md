@@ -1,6 +1,6 @@
 ## Hardware requirements {#hardware}
 
-Recommended hardware configurations to run {{ sk-hybrid-name }} containers:
+Here are the recommended hardware configurations for running {{ sk-hybrid-name }} containers:
 
 {% list tabs %}
 

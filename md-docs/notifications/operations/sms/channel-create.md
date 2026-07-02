@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Notification Service](../../index.md) > [Пошаговые инструкции](../index.md) > SMS-уведомления > Создать канал SMS-уведомлений
+
 # Создать канал SMS-уведомлений
 
 В Cloud Notification Service сообщения конечным пользователям отправляются через [каналы уведомлений](../../concepts/index.md#channels) с [общим](../../concepts/sms.md#common-sender) или [индивидуальным](../../concepts/sms.md#individual-sender) отправителем.

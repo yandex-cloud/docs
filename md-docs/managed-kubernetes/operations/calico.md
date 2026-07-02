@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Пошаговые инструкции](index.md) > Сетевые сценарии > Настройка контроллера сетевых политик Calico
+
 # Настройка контроллера сетевых политик Calico
 
 [Calico](https://www.projectcalico.org/) — это плагин для Kubernetes с открытым исходным кодом, с помощью которого можно управлять сетевыми политиками Kubernetes. Calico расширяет стандартные возможности [сетевых политик](../concepts/network-policy.md) Kubernetes, что позволяет:

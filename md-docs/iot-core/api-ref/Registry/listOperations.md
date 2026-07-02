@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > [REST (англ.)](../index.md) > [Registry](index.md) > ListOperations
+
 # IoT Core Service, REST: Registry.ListOperations
 
 Lists operations for the specified registry.

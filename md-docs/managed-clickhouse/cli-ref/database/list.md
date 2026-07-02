@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [database](index.md) > list
+
 # yc managed-clickhouse database list
 
 List databases for a ClickHouse cluster.

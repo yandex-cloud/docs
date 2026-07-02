@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [iot](../index.md) > [registry](index.md) > list-device-topic-aliases
+
 # yc iot registry list-device-topic-aliases
 
 List all topic aliases set for devices in this registry

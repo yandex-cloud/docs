@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Network Load Balancer](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [target-group](index.md) > create
+
 # yc load-balancer v0 target-group create
 
 Create a target group

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Monium](../../../index.md) > Справочник API > Логи > [gRPC (англ.)](../index.md) > [LogGroup](index.md) > Get
+
 # Cloud Logging Service, gRPC: LogGroupService.Get
 
 Returns the specified log group.

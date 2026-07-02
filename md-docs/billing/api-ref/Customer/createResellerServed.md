@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Billing](../../index.md) > Справочник API > REST (англ.) > [Billing](../index.md) > [Customer](index.md) > CreateResellerServed
+
 # Billing API, REST: Customer.CreateResellerServed
 
 Creates new reseller-served customer.

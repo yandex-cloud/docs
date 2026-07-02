@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex API Gateway](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ApiGateway](index.md) > SetAccessBindings
+
 # API Gateway Service, gRPC: ApiGatewayService.SetAccessBindings
 
 Sets access bindings for the specified API gateway.

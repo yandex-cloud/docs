@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity and Access Management](../index.md) > [Практические руководства](index.md) > Интеграции федераций удостоверений сервисных аккаунтов > Managed Service for Kubernetes
+
 # Доступ к API Yandex Cloud из кластера Managed Service for Kubernetes с помощью федерации сервисных аккаунтов Identity and Access Management
 
 В Managed Service for Kubernetes реализована интеграция с _федерациями сервисных аккаунтов_ Identity and Access Management.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > UpdateCommunityAccessBindings
+
 # DataSphere Audit Trails Events: UpdateCommunityAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.UpdateCommunityAccessBindings2-schema}

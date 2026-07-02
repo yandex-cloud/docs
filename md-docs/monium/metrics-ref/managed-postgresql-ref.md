@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Managed Service for PostgreSQL
+
 # Метрики Yandex Managed Service for PostgreSQL
 
 В этом разделе описаны метрики сервиса [Managed Service for PostgreSQL](../../managed-postgresql/index.md), поставляемые в Monium Metrics.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Обновление версии Apache Kafka®
+
 # Обновление версии Apache Kafka®
 
 {% note info %}

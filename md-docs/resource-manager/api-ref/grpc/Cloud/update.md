@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Resource Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cloud](index.md) > Update
+
 # Resource Manager API, gRPC: CloudService.Update
 
 Updates the specified cloud.

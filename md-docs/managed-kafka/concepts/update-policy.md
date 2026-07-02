@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Концепции](index.md) > Политика работы с версиями Apache Kafka®
+
 # Политика работы с версиями Apache Kafka®
 
 {% note warning %}

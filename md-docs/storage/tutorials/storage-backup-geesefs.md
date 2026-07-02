@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Резервное копирование > Резервное копирование в Object Storage с помощью GeeseFS
+
 # Резервное копирование в Yandex Object Storage с помощью GeeseFS
 
 В этом практическом руководстве вы настроите резервное копирование файлов из локальной системы в облачное хранилище [Yandex Object Storage](../index.md) с помощью [GeeseFS](../tools/geesefs.md).
@@ -30,7 +32,7 @@ GeeseFS позволяет монтировать [бакет](../concepts/bucke
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки бакета входит плата за хранение данных в бакете и операции с ними ([тарифы Yandex Object Storage](../../../storage/pricing.md)).
+В стоимость поддержки бакета входит плата за хранение данных в бакете и операции с ними ([тарифы Yandex Object Storage](../pricing.md)).
 
 
 ## Создайте бакет {#create-bucket}

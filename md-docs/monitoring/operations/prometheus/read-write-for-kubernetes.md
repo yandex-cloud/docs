@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Monitoring](../../index.md) > [Yandex Managed Service for Prometheus®](index.md) > Чтение и запись метрик кластера Kubernetes
+
 # Чтение и запись метрик кластера Yandex Managed Service for Kubernetes с помощью Prometheus Operator
 
 

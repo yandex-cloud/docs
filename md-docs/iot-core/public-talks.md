@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex IoT Core](index.md) > Публичные материалы
+
 # Публичные материалы о Serverless в Yandex Cloud
 
   * Визуальный конструктор Yandex Workflows: оркестрация процессов без написания кода, 2025 — [Статья](https://yandex.cloud/ru/blog/posts/2025/03/yandex-workflows).

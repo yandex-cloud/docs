@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в DataSphere
 
 В сервисе Yandex DataSphere действуют следующие ограничения:

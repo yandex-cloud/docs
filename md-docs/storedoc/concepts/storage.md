@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex StoreDoc](../index.md) > [Концепции](index.md) > Хранилище в Yandex StoreDoc
+
 # Хранилище в Yandex StoreDoc
 
 

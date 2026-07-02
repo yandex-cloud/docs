@@ -109,6 +109,8 @@ description: Управление доступом в сервисе по соз
 
 Чтобы создать кластер {{ mos-name }}, нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль `{{ roles.mos.editor }}` или выше.
 
+{% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-access-control.md) %}
+
 Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `{{ roles.mos.admin }}` вместо `{{ roles.mos.editor }}`.
 
 ## Что дальше {#whats-next}

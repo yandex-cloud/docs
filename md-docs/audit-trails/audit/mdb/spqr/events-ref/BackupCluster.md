@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.spqr > BackupCluster
+
 # Managed Service for SPQR Audit Trails Events: BackupCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.spqr.BackupCluster2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Справочник CLI (англ.)](../index.md) > [mfa-enforcement](index.md) > update-audience
+
 # yc organization-manager mfa-enforcement update-audience
 
 Update audience for the specified mfa enforcement

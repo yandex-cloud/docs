@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > [Справочник API](index.md) > Sandbox > Create
+
 # Действие CreateSMSSandboxPhoneNumber
 
 Добавляет тестовый телефонный номер для канала SMS-уведомлений в [песочнице](../concepts/sms.md#sandbox) и отправляет на него код подтверждения.

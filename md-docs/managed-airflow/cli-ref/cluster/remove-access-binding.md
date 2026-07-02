@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Airflow™](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > remove-access-binding
+
 # yc managed-airflow cluster remove-access-binding
 
 Remove access binding for the specified Airflow cluster

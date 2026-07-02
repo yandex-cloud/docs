@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Установка приложений из Cloud Marketplace > Установка External Secrets Operator
+
 # Установка External Secrets Operator с поддержкой Yandex Lockbox
 
 

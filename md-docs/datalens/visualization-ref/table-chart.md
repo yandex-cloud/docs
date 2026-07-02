@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Чарты > [Справочник визуализаций](index.md) > Таблица
+
 # Таблица ![](../../_assets/datalens/table-chart.svg) в Yandex DataLens
 
 Таблица — это стандартный вид представления данных с наибольшей детализацией. 

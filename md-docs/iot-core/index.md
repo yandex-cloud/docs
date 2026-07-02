@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex IoT Core > IoT Core
+
 # Yandex IoT Core
 
 Сервис Yandex IoT Core больше не доступен для новых пользователей.

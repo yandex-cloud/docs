@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [StylePreset](index.md) > Create
+
 # Video API, REST: StylePreset.Create
 
 Creates a new style preset in the specified channel with the provided visual settings.

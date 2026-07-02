@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > RescheduleMaintenance
+
 # Managed Service for PostgreSQL API, gRPC: ClusterService.RescheduleMaintenance
 
 Reschedules planned maintenance operation.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Virtual Private Cloud
 
 ## Организация VPN-подключений {#sec-vpn}

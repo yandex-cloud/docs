@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex SmartCaptcha](../index.md) > Концепции > Ограниченный режим
+
 # Ограниченный режим SmartCaptcha
 
 SmartCaptcha будет работать в ограниченном режиме, если ваш платежный аккаунт не находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`.

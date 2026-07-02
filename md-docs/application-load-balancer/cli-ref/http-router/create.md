@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [http-router](index.md) > create
+
 # yc application-load-balancer http-router create
 
 Create an http router

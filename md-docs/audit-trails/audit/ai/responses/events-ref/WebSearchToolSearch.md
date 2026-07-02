@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > ai.responses > WebSearchToolSearch
+
 # AI Studio Audit Trails Events: WebSearchToolSearch
 
 ## Event JSON schema {#yandex.cloud.audit.ai.responses.WebSearchToolSearch2-schema}

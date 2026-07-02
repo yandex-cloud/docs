@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > GenerateSshCertificate
+
 # Identity and Access Management Audit Trails Events: GenerateSshCertificate
 
 ## Event JSON schema {#yandex.cloud.audit.iam.oslogin.GenerateSshCertificate2-schema}

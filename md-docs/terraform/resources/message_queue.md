@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Message Queue > Resources > message_queue
+
 # yandex_message_queue (Resource)
 
 Allows management of [Yandex Cloud Message Queue](../../message-queue/index.md).

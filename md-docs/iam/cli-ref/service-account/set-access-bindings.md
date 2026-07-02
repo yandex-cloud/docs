@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Справочник CLI (англ.)](../index.md) > [service-account](index.md) > set-access-bindings
+
 # yc iam service-account set-access-bindings
 
 Set access bindings for ACCESSING the specified service account and DELETE all existing access bindings for all accounts if there were any. To configure service account access to a resource use set-access-bindings command for the corresponding resource

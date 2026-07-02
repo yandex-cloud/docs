@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Backup](index.md) > List
+
 # Managed Service for PostgreSQL API, gRPC: BackupService.List
 
 Retrieves the list of Backup resources available for the specified folder.

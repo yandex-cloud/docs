@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Functions](../index.md) > [Концепции](index.md) > Резервное копирование
+
 # Резервное копирование в Cloud Functions
 
 Данные в сервисе Cloud Functions надежно хранятся и реплицируются в инфраструктуре Yandex Cloud. Вы можете получить:

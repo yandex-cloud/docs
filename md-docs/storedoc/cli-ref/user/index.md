@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > user > Overview
+
 # yc managed-mongodb user
 
 Manage MongoDB users.

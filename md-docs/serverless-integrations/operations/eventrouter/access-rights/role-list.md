@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > EventRouter > Управление правами доступа к ресурсам > Посмотреть роли, назначенные на ресурс
+
 # Посмотреть роли, назначенные на ресурс EventRouter
 
 {% note info %}

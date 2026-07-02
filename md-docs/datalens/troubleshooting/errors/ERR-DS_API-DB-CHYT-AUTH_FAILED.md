@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Authentication failed
+
 # [Yandex DataLens] Authentication failed
 
 `ERR.DS_API.DB.CHYT.AUTH_FAILED`

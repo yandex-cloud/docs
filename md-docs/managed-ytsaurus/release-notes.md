@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for YTsaurus](index.md) > История изменений
+
 # История изменений в Yandex Managed Service for YTsaurus
 
 ## Декабрь 2025 {#december-2025}

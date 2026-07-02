@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > История изменений
+
 <!-- Changelog begin -->
 
 {% changelog %}

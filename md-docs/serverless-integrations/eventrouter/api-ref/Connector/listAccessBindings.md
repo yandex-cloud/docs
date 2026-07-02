@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > [Connector](index.md) > ListAccessBindings
+
 # EventRouter Service, REST: Connector.ListAccessBindings
 
 Lists existing access bindings for the specified bus.

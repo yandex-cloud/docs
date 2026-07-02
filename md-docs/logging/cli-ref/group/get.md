@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > [Справочник CLI (англ.)](../index.md) > [group](index.md) > get
+
 # yc logging group get
 
 Show information about the specified log group

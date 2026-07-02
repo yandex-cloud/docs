@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Security Deck](../index.md) > [Концепции](index.md) > AI-ассистент
+
 # AI-ассистент в Security Deck
 
 {% note info %}

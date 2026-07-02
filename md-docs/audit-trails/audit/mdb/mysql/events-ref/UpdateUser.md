@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mysql > UpdateUser
+
 # Managed Service for MySQL Audit Trails Events: UpdateUser
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mysql.UpdateUser2-schema}

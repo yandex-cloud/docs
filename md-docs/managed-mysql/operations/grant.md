@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for MySQL®](../index.md) > [Пошаговые инструкции](index.md) > Пользователи MySQL® > Управление правами пользователей
+
 # Управление правами пользователей
 
 Вы можете управлять [правами пользователей](../concepts/user-rights.md) на уровне всего кластера или отдельной базы данных, [изменяя их привилегии](#grant-privilege). При этом [административные привилегии](../concepts/settings-list.md#setting-administrative-privileges) задаются на уровне кластера.

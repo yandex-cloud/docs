@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Изменение настроек кластера
+
 # Изменение настроек кластера PostgreSQL
 
 После создания кластера вы можете:

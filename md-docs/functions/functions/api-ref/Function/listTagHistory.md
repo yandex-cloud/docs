@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Functions](../../../index.md) > Справочник API Functions > [REST (англ.)](../index.md) > [Function](index.md) > ListTagHistory
+
 # Cloud Functions Service, REST: Function.ListTagHistory
 
 Returns the log of tags assigned to versions of the specified function.

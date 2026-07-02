@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [GroupMapping](index.md) > ListItems
+
 # Identity Hub API, gRPC: GroupMappingService.ListItems
 
 Returns all the group mappings items

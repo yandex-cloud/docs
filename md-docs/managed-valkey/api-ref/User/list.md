@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [User](index.md) > List
+
 # Managed Service for Redis API, REST: User.List
 
 Retrieves the list of Redis User resources in the specified cluster.

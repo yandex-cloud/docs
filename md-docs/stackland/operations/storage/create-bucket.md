@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Бакеты > Создать бакет
+
 # Создать бакет
 
 Если у вас есть [проект](../projects/create-project.md), вы можете создать в нем [бакет](../../concepts/components/storage.md).

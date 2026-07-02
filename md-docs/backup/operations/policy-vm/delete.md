@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Backup](../../index.md) > [Пошаговые инструкции](../index.md) > Политики резервного копирования > Удалить политику
+
 # Удалить политику резервного копирования
 
 {% list tabs group=instructions %}

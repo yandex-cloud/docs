@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Managed Service for Trino
 
 # Аутентификация в API

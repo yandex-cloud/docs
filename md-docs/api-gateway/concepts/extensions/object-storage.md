@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Расширения спецификации](index.md) > Интеграции > Object Storage
+
 # Расширение x-yc-apigateway-integration:object_storage
 
 Расширение `x-yc-apigateway-integration:object_storage` передает управление обработки запроса в Object Storage с целью раздачи статических файлов.

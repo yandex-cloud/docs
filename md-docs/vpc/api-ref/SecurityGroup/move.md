@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SecurityGroup](index.md) > Move
+
 # Virtual Private Cloud API, REST: SecurityGroup.Move
 
 Moves security groups to another folder.

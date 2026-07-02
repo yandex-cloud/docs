@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > Stop
+
 # Managed Service for Redis API, REST: Cluster.Stop
 
 Stop the specified Redis cluster.

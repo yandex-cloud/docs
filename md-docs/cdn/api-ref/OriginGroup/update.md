@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [OriginGroup](index.md) > Update
+
 # Cloud CDN API, REST: OriginGroup.Update
 
 Updates the specified origin group.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Functions](../../../../index.md) > Справочник API Functions > [gRPC (англ.)](../index.md) > [Function](index.md) > ListOperations
+
 # Cloud Functions Service, gRPC: FunctionService.ListOperations
 
 Lists operations for the specified function.

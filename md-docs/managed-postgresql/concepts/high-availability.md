@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Концепции](index.md) > Высокая доступность кластера
+
 # Высокая доступность кластера Managed Service for PostgreSQL
 
 [Высокая доступность кластера Managed Service for PostgreSQL](../../architecture/fault-tolerance.md#mdb-ha) определяется количеством и расположением его хостов, настройками репликации и другими параметрами кластера.

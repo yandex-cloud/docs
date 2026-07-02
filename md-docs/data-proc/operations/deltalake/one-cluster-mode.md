@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Processing](../../index.md) > [Пошаговые инструкции](../index.md) > Сервисы Apache и другие сторонние сервисы > Delta Lake > Настройка Delta Lake в однокластерном режиме
+
 # Настройка Delta Lake в однокластерном режиме
 
 Yandex Data Processing версии 2.0 и выше поддерживает использование Delta Lake в однокластерном режиме.

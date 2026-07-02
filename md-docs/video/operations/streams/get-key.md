@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > [Пошаговые инструкции](../index.md) > Трансляции > Получить адрес сервера и ключ трансляции
+
 # Получить адрес сервера и ключ трансляции
 
 {% list tabs group=instructions %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Расширения спецификации](index.md) > Поддержка протокола WebSocket
+
 # Поддержка протокола WebSocket
 
 {% note info %}

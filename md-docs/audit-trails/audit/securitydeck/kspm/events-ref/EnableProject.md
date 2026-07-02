@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > securitydeck.kspm > EnableProject
+
 # Security Deck KSPM Audit Trails Events: EnableProject
 
 ## Event JSON schema {#yandex.cloud.audit.securitydeck.kspm.EnableProject2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Подключения > Файлы и сервисы > Создание подключения API Connector
+
 # Создание подключения API Connector
 
 

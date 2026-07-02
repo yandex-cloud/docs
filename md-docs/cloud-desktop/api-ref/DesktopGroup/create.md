@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DesktopGroup](index.md) > Create
+
 # Cloud Desktop API, REST: DesktopGroup.Create
 
 Creates desktop group in the specified folder.

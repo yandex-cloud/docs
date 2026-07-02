@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [placement-group](index.md) > set-access-bindings
+
 # yc compute v0 placement-group set-access-bindings
 
 Set access bindings for the specified placement group and delete all existing access bindings if there were any

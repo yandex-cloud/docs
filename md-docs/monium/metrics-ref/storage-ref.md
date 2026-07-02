@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Object Storage
+
 # Метрики Yandex Object Storage
 
 В этом разделе описаны метрики сервиса [Object Storage](../../storage/index.md), поставляемые в Monium Metrics.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Video](index.md) > List
+
 # Video API, REST: Video.List
 
 Lists all videos in a specific channel with pagination support.

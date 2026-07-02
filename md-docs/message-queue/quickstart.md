@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Message Queue](index.md) > Начало работы > Быстрый старт
+
 # Начало работы с Message Queue
 
 Выполним основные действия с использованием [AWS CLI](https://aws.amazon.com/ru/cli/) — одного из [инструментов](instruments/index.md) для работы с Message Queue.

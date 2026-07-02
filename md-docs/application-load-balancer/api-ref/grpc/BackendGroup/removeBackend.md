@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [BackendGroup](index.md) > RemoveBackend
+
 # Application Load Balancer API, gRPC: BackendGroupService.RemoveBackend
 
 Removes backends from the specified backend group.

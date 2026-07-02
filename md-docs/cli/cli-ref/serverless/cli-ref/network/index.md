@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > Справочник CLI (англ.) > Network
+
 # yc serverless network
 
 Manage networks used in serverless resources

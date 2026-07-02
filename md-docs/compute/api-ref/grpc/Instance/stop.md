@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Instance](index.md) > Stop
+
 # Compute Cloud API, gRPC: InstanceService.Stop
 
 Stops the running instance.

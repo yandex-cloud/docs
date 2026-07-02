@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Message Queue](../index.md) > [Начало работы](index.md) > Примеры кода > Symfony
+
 # Пример использования Yandex Message Queue на Symfony
 
 PHP-фреймворк [Symfony](https://symfony.com/) содержит компонент [Messenger](https://symfony.com/doc/current/messenger.html) для работы с очередями. В качестве брокера сообщений можно использовать Message Queue.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > [Концепции](index.md) > Резервные копии
+
 # Резервные копии в Managed Service for GitLab
 
 Managed Service for GitLab обеспечивает автоматическое и ручное резервное копирование [инстанса](index.md#instance).

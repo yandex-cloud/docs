@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [MountedImage](index.md) > Get
+
 # BareMetal API, REST: MountedImage.Get
 
 Get mounted user image.

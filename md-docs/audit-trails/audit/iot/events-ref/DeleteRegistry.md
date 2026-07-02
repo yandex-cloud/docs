@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iot > DeleteRegistry
+
 # IoT Core Audit Trails Events: DeleteRegistry
 
 ## Event JSON schema {#yandex.cloud.audit.iot.devices.DeleteRegistry2-schema}

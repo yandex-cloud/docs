@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Yandex Data Processing](../index.md) > Нет логов в YARN Resource Manager Web UI после выполнения заданий
+
 # Нет логов в YARN Resource Manager Web UI после выполнения заданий
 
 

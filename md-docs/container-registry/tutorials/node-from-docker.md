@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Registry](../index.md) > [Практические руководства](index.md) > Развертывание сервиса в DataSphere на основе Docker-образа
+
 # Развертывание сервиса в Yandex DataSphere на основе Docker-образа
 
 # Развертывание сервиса на основе Docker-образа

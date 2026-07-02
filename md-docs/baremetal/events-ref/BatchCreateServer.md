@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > Концепции > Настройка и управление > Аудитные логи Audit Trails > Справочник аудитных логов > BatchCreateServer
+
 # BareMetal Audit Trails Events: BatchCreateServer
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.BatchCreateServer2-schema}

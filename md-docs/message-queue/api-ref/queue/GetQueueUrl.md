@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Message Queue](../../index.md) > [Справочник API](../index.md) > Queue > GetQueueUrl
+
 # Метод GetQueueUrl
 
 Метод для получения URL указанной очереди. Укажите имя очереди, чтобы получить ее URL.

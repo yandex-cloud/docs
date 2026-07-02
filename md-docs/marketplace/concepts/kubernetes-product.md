@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Marketplace](../index.md) > Партнерам > Концепции > Требования к продуктам Marketplace > Создание продукта для Managed Service for Kubernetes
+
 # Создание продукта для Managed Service for Kubernetes
 
 Чтобы добавить программный продукт для Managed Service for Kubernetes в Marketplace, его пакеты необходимо загрузить в [реестр](../../container-registry/concepts/registry.md) Yandex Cloud. Этот раздел поможет подготовить продукт Marketplace для Yandex Managed Service for Kubernetes.

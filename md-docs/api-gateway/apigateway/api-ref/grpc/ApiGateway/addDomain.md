@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex API Gateway](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ApiGateway](index.md) > AddDomain
+
 # API Gateway Service, gRPC: ApiGatewayService.AddDomain
 
 Attaches domain to the specified API gateway.

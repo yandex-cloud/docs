@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Managed Service for Apache Airflow™
+
 # Метрики Yandex Managed Service for Apache Airflow™
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Чарты > [Справочник визуализаций](index.md) > Карта > Точечная карта
+
 # Точечная карта ![](../../_assets/datalens/heatmap.svg) в Yandex DataLens
 
 Каждая точка откладывается по своим географическим координатам.

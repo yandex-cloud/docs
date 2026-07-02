@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cloud](index.md) > remove-labels
+
 # yc resource-manager cloud remove-labels
 
 Remove labels from specified cloud

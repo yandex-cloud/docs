@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Resource Manager > Resources > yq_monitoring_connection
+
 # yandex_yq_monitoring_connection (Resource)
 
 Manages Monitoring connection in Yandex Query service. For more information, see [the official documentation](../../query/concepts/glossary.md#connection).

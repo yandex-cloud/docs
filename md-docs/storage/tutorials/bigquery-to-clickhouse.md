@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Миграция базы данных из Google BigQuery в Managed Service for ClickHouse®
+
 # Миграция базы данных из Google BigQuery в Yandex Managed Service for ClickHouse®
 
 
@@ -27,7 +29,7 @@
 
 * Плата за кластер Managed Service for ClickHouse®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
 * Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за бакет Object Storage: хранение данных и выполнение операций с ними ([тарифы Object Storage](../../storage/pricing.md)).
+* Плата за бакет Object Storage: хранение данных и выполнение операций с ними ([тарифы Object Storage](../pricing.md)).
 * Плата за использование сервиса Yandex DataLens ([тарифы DataLens](../../datalens/pricing.md)).
 
 

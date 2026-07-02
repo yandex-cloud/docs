@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Видеоплеер > SDK > JavaScript > Справочник API > Interfaces > PlayerSdkInitConfig
+
 # Interface: PlayerSdkInitConfig
 
 [Параметры инициализации](../../../sdk/javascript/initialization.md) PlayerSdk.

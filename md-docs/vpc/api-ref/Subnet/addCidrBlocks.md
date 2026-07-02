@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Subnet](index.md) > AddCidrBlocks
+
 # Virtual Private Cloud API, REST: Subnet.AddCidrBlocks
 
 Adds CIDR blocks to the specified subnet.

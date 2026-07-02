@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > trino > DeleteCatalog
+
 # Managed Service for Trino Audit Trails Events: DeleteCatalog
 
 ## Event JSON schema {#yandex.cloud.audit.trino.DeleteCatalog2-schema}

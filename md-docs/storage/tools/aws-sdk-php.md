@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Инструменты](index.md) > SDK > AWS SDK для PHP
+
 # AWS SDK для PHP
 
 

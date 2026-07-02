@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../index.md) > [server](index.md) > power-off
+
 # yc baremetal server power-off
 
 Powers off the specified server.

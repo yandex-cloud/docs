@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > [Справочник CLI (англ.)](../index.md) > [origin](index.md) > get
+
 # yc cdn origin get
 
 Show information about the specified origin

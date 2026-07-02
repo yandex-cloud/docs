@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Cloud Apps](../index.md) > Пошаговые инструкции > Установка приложения
+
 # Установка приложения Cloud Apps
 
 {% list tabs group=instructions %}

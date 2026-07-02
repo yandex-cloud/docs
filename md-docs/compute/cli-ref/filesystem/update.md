@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [filesystem](index.md) > update
+
 # yc compute filesystem update
 
 Update the specified filesystem

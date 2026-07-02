@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Audit Trails](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Trail](index.md) > UpdateAccessBindings
+
 # Audit Trails API, REST: Trail.UpdateAccessBindings
 
 Updates access bindings for the trail.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > Управление сообществом > Посмотреть детализацию расходов
+
 # Посмотреть детализацию расходов DataSphere
 
 Вы можете получить подробные сведения о расходах в DataSphere в интерфейсе [Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts) :

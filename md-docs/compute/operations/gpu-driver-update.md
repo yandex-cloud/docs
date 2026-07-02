@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Пошаговые инструкции](index.md) > Рекомендации по обновлению драйверов NVIDIA
+
 # Рекомендации по обновлению драйверов NVIDIA
 
 

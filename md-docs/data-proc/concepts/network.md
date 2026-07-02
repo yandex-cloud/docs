@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Концепции](index.md) > Сеть в Yandex Data Processing
+
 # Сеть в Yandex Data Processing
 
 Все подкластеры кластера находятся в одной [облачной сети](../../vpc/concepts/network.md), все хосты каждого подкластера — в определенной подсети этой сети.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Stream](index.md) > List
+
 # Video API, gRPC: StreamService.List
 
 Lists all streams in a specific channel with pagination support.

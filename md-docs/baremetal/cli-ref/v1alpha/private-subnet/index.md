@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v1alpha](../index.md) > private-subnet > Overview
+
 # yc baremetal v1alpha private-subnet
 
 A set of methods for managing PrivateSubnet resources.

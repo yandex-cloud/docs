@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > lockbox > CreateSecret
+
 # Lockbox Audit Trails Events: CreateSecret
 
 ## Event JSON schema {#yandex.cloud.audit.lockbox.CreateSecret2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Создание образа > Загрузить свой образ
+
 # Загрузить свой образ диска в Yandex Cloud
 
 Эта инструкция описывает, как загрузить в [Yandex Object Storage](../../../storage/index.md) файл образа с операционной системой Linux, а также создать из него [образ](../../concepts/image.md) и [виртуальную машину](../../concepts/vm.md) в сервисе Compute Cloud.
@@ -872,4 +874,4 @@ datasource:
 * [Подготовить свой образ диска](custom-image.md)
 * [Подключиться к виртуальной машине Linux по SSH](../vm-connect/ssh.md)
 
-О стоимости использования Object Storage читайте в разделе [{#T}](../../../storage/pricing.md).
+О стоимости использования Object Storage читайте в разделе [Правила тарификации для Object Storage](../../../storage/pricing.md).

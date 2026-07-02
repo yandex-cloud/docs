@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Практические руководства](index.md) > Яндекс Трекер: экспорт и визуализация данных
+
 # Яндекс Трекер: экспорт и визуализация данных
 
 
@@ -39,7 +41,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Постоянно запущенный кластер Managed Service for ClickHouse® ([тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md));
+* Постоянно запущенный кластер Managed Service for ClickHouse® ([тарифы Managed Service for ClickHouse®](../pricing.md));
 * Использование функции Cloud Functions ([тарифы Cloud Functions](../../functions/pricing.md)).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > managed-opensearch > Overview
+
 # yc managed-opensearch
 
 Managed OpenSearch clusters, hosts, indexes and backups.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > rebalance
+
 # yc managed-redis cluster rebalance
 
 Rebalance the specified Redis cluster

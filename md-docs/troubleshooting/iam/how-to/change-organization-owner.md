@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Identity and Access Management](../index.md) > Как изменить владельца организации
+
 # Как изменить владельца организации
 
 

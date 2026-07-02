@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Identity and Access Management API, gRPC: OperationService.Cancel
 
 Cancels the specified operation.

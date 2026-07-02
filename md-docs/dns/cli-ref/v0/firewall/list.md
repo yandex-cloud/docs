@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud DNS](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [firewall](index.md) > list
+
 # yc dns v0 firewall list
 
 List dns firewalls in folder.

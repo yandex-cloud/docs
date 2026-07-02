@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Концепции](index.md) > Настройки Apache Kafka®
+
 # Настройки Apache Kafka®
 
 Для кластера Managed Service for Apache Kafka® можно задать настройки, которые относятся к Apache Kafka®. Часть настроек задается [на уровне кластера](#cluster-settings), часть — [на уровне топиков](#topic-settings).

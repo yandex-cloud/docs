@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Router](../index.md) > [Сценарии использования](index.md) > Приоритизация трафика из on-premises по направлению (Active-Standby)
+
 # Приоритизация трафика из On-Prem по направлению (Active-Standby)
 
 Для приоритизации трафика по направлению в рамках услуги Cloud Interconnect можно использовать методы:

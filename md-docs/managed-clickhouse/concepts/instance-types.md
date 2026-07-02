@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Концепции](index.md) > Классы хостов
+
 # Классы хостов в Managed Service for ClickHouse®
 
 

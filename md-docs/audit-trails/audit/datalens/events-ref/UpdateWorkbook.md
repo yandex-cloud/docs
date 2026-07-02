@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > UpdateWorkbook
+
 # DataLens Audit Trails Events: UpdateWorkbook
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.UpdateWorkbook2-schema}

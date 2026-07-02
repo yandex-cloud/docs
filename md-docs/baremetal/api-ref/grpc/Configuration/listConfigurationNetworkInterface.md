@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [Configuration](index.md) > ListConfigurationNetworkInterface
+
 # BareMetal API, gRPC: ConfigurationService.ListConfigurationNetworkInterface
 
 

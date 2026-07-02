@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-ytsaurus](../index.md) > [cluster](index.md) > get
+
 # yc managed-ytsaurus cluster get
 
 Show information about the specified YTsaurus clusters.

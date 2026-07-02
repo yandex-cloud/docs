@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity Hub > Data Sources > organizationmanager_idp_application_saml_signature_certificate
+
 # yandex_organizationmanager_idp_application_saml_signature_certificate (DataSource)
 
 A signature certificate for SAML applications.

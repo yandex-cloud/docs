@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Справочник CLI (англ.)](../index.md) > v0 > Overview
+
 # yc managed-kubernetes v0
 
 Manage Kubernetes clusters.

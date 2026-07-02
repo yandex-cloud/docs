@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > Концепции > [Компоненты](overview.md) > Monitoring
+
 # Monitoring
 
 Stackland позволяет организовать мониторинг кластера и платформенных компонентов с помощью [Prometheus](https://prometheus.io), [Loki](https://grafana.com/oss/loki/), [Fluent Bit](https://fluentbit.io/) и [Grafana](https://grafana.com).

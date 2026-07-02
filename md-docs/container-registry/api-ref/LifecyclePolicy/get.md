@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [LifecyclePolicy](index.md) > Get
+
 # Container Registry API, REST: LifecyclePolicy.Get
 
 Returns the specified lifecycle policy.

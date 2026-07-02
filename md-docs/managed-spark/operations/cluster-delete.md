@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Spark™](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Удаление кластера
+
 # Удаление кластера Apache Spark™
 
 Вы можете удалить кластер Apache Spark™, если он вам больше не нужен.

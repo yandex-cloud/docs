@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [serverless](../../../index.md) > [v0](../../index.md) > [eventrouter](../index.md) > [bus](index.md) > update
+
 # yc serverless v0 eventrouter bus update
 
 Update the specified bus

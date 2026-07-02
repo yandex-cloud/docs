@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > CreateApiKey
+
 # Identity and Access Management Audit Trails Events: CreateApiKey
 
 ## Event JSON schema {#yandex.cloud.audit.iam.CreateApiKey2-schema}

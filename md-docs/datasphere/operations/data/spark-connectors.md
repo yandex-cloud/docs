@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > Работа с ресурсами > Работа с коннекторами Spark
+
 # Работа с коннекторами Spark
 
 В DataSphere вы можете использовать [коннекторы Spark](../../concepts/spark-connector.md), чтобы работать с уже существующими или автоматически создаваемыми кластерами [Yandex Data Processing](../../../data-proc/index.md).

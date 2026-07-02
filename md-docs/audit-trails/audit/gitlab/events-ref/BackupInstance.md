@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > gitlab > BackupInstance
+
 # Managed Service for GitLab Audit Trails Events: BackupInstance
 
 ## Event JSON schema {#yandex.cloud.audit.gitlab.BackupInstance2-schema}

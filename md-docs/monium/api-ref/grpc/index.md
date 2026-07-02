@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Monium](../../index.md) > Справочник API > Логи > gRPC (англ.) > Overview
+
 # Cloud Logging Service: gRPC reference
 
 Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts](../../../api-design-guide/index.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for GitLab](../index.md) > [Пошаговые инструкции](index.md) > Настройка правил ревью кода
+
 # Настройка правил ревью кода в Yandex Managed Service for GitLab
 
 Managed Service for GitLab позволяет гибко настраивать обязательные правила ревью кода, прежде чем код может быть добавлен в целевую ветку проекта. Подробнее о механизме работы правил в разделе [Правила ревью кода](../concepts/approval-rules.md). Примеры конфигурации для типовых сценариев в разделе [Рекомендации по использованию правил ревью кода в Yandex Managed Service for GitLab](../concepts/approval-rules-scenarios.md).
@@ -66,7 +68,7 @@ Managed Service for GitLab позволяет гибко настраивать 
 
         {% note warning %}
         
-        За использование правил ревью кода в Managed Service for GitLab взимается плата в зависимости от используемой [конфигурации](../concepts/approval-rules.md#packages). Подробнее читайте на странице [{#T}](../../managed-gitlab/pricing.md).
+        За использование правил ревью кода в Managed Service for GitLab взимается плата в зависимости от используемой [конфигурации](../concepts/approval-rules.md#packages). Подробнее читайте на странице [Правила тарификации для Yandex Managed Service for GitLab](../pricing.md).
         
         {% endnote %}
 

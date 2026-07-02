@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > [Знакомство с сервисом](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Yandex DataLens
 
 

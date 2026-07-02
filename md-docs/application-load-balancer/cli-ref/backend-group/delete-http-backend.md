@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [backend-group](index.md) > delete-http-backend
+
 # yc application-load-balancer backend-group delete-http-backend
 
 Delete HTTP backend from the backend group

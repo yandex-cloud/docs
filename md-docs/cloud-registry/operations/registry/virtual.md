@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > [Пошаговые инструкции](../index.md) > Управление реестром > Создание реестра > Виртуальный
+
 # Создать виртуальный реестр
 
 {% list tabs group=instructions %}

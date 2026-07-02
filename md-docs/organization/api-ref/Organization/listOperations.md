@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Organization](index.md) > ListOperations
+
 # Identity Hub API, REST: Organization.ListOperations
 
 Lists operations for the specified organization.

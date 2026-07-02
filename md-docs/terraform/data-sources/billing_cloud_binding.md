@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Billing > Data Sources > billing_cloud_binding
+
 # yandex_billing_cloud_binding (DataSource)
 
 

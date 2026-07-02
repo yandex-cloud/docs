@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > REST (англ.) > [Certificate Manager Private CA API](../index.md) > [Operation](index.md) > Get
+
 # Certificate Manager Private CA API, REST: Operation.Get
 
 Returns the specified Operation resource.

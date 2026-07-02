@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex API Gateway](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для API Gateway
 
 * [Создание API-шлюза](api-gw-create.md)

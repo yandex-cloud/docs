@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > [Пошаговые инструкции](../index.md) > Ресурсы > Настроить имя сервера для SNI
+
 # Настройка пользовательского имени сервера для SNI
 
 Вы можете настроить пользовательское имя сервера для [SNI (Server Name Indication)](https://ru.wikipedia.org/wiki/Server_Name_Indication) при установке HTTPS-соединения [CDN-серверов с источником](../../concepts/servers-to-origins.md).

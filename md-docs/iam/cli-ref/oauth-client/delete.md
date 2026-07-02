@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Справочник CLI (англ.)](../index.md) > [oauth-client](index.md) > delete
+
 # yc iam oauth-client delete
 
 Delete the specified oauth-client

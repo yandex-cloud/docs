@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Пошаговые инструкции](index.md) > Веб-интерфейс Kafka UI для Apache Kafka®
+
 # Веб-интерфейс Kafka UI для работы с Apache Kafka®
 
 Для работы с кластерами Managed Service for Apache Kafka® можно использовать веб-интерфейс Kafka UI. Он помогает отслеживать потоки данных, находить и устранять неисправности, управлять [брокерами](../concepts/brokers.md), кластером, [производителями и потребителями](../concepts/producers-consumers.md). Подробнее о возможностях в разделе [Веб-интерфейс Kafka UI для Apache Kafka®](../concepts/kafka-ui.md).

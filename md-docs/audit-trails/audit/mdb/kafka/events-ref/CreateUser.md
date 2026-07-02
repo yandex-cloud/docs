@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.kafka > CreateUser
+
 # Managed Service for Apache Kafka® Audit Trails Events: CreateUser
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.kafka.CreateUser2-schema}

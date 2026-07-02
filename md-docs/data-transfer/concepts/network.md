@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Концепции](index.md) > Сеть в Yandex Data Transfer
+
 # Сеть в Yandex Data Transfer
 
 

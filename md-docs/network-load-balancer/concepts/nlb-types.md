@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Network Load Balancer](../index.md) > [Концепции](index.md) > Типы сетевых балансировщиков
+
 # Типы сетевых балансировщиков
 
 {% note info %}

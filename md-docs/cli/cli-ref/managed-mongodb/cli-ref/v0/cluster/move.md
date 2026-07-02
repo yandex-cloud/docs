@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-mongodb](../../index.md) > [v0](../index.md) > [cluster](index.md) > move
+
 # yc managed-mongodb v0 cluster move
 
 Move the specified MongoDB cluster into the folder

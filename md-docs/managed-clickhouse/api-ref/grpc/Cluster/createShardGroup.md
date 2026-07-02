@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > CreateShardGroup
+
 # Managed Service for ClickHouse API, gRPC: ClusterService.CreateShardGroup
 
 Creates a new shard group in the specified cluster.

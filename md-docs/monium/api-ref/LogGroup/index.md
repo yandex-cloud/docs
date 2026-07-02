@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Monium](../../index.md) > Справочник API > Логи > [REST (англ.)](../index.md) > LogGroup > Overview
+
 # Cloud Logging Service, REST: LogGroup
 
 A set of methods for managing log groups.

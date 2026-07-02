@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex DataSphere](../../../index.md) > [Справочник API](../../overview.md) > [gRPC (англ.)](../index.md) > [Dataset](index.md) > Activate
+
 # DataSphere API v2, gRPC: DatasetService.Activate
 
 Activates shared dataset for project

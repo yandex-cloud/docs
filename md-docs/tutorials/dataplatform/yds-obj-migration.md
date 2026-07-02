@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Миграция данных в Object Storage с помощью Data Transfer
+
 # Миграция данных в Yandex Object Storage с помощью Yandex Data Transfer
 
 С помощью сервиса Data Transfer вы можете перенести данные из [потока Data Streams](../../data-streams/concepts/glossary.md#stream-concepts) в бакет Yandex Object Storage:

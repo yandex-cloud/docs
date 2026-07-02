@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Inconsistent aggregation status among SELECT items
+
 # [Yandex DataLens] Inconsistent aggregation status among SELECT items
 
 `ERR.DS_API.INVALID_QUERY_STRUCTURE.INCONSISTENT_AGGREGATION`

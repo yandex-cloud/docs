@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Certificate](index.md) > Create
+
 # Certificate Manager API, gRPC: CertificateService.Create
 
 Creates a certificate in the specified folder.

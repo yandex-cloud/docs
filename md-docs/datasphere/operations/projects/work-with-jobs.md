@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Пошаговые инструкции](../index.md) > DataSphere Jobs > Запустить задание DataSphere Jobs
+
 # Запуск заданий DataSphere Jobs
 
 Вы можете удаленно запускать [задания](../../concepts/jobs/index.md) (jobs) — Python- и bash-скрипты и исполняемые бинарные файлы, которые будут выполняться на ВМ Yandex DataSphere.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Managed Service for Kubernetes
 
 C помощью Managed Service for Kubernetes вы можете работать с [контейнеризованными приложениями](../../glossary/containerization.md) в инфраструктуре Yandex Cloud: разворачивать, масштабировать и управлять приложениями в контейнерах.

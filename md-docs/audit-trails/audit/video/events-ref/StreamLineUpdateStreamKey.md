@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > video > StreamLineUpdateStreamKey
+
 # Cloud Video Audit Trails Events: StreamLineUpdateStreamKey
 
 ## Event JSON schema {#yandex.cloud.audit.video.StreamLineUpdateStreamKey2-schema}

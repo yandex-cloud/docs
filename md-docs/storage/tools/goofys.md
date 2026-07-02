@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Инструменты](index.md) > FUSE > goofys
+
 # goofys
 
 [goofys](https://github.com/kahing/goofys) — программа для Linux и macOS, позволяющая монтировать бакеты Object Storage через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)).

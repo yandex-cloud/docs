@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex SmartCaptcha](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Captcha](index.md) > List
+
 # SmartCaptcha API, REST: Captcha.List
 
 Retrieves the list of Captcha resources in the specified folder.

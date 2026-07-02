@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for OpenSearch > Resources > mdb_opensearch_cluster
+
 # yandex_mdb_opensearch_cluster (Resource)
 
 Manages a OpenSearch cluster within the Yandex Cloud. For more information, see [the official documentation](../../managed-opensearch/concepts/index.md).

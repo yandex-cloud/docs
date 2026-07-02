@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Resource Manager](../index.md) > Концепции > Метки ресурсов сервисов
+
 # Метки ресурсов сервисов
 
 

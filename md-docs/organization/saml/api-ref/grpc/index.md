@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > gRPC (англ.) > SAML Federation API > Overview
+
 # SAML Federation API: gRPC reference
 
 Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts](../../../../api-design-guide/index.md).

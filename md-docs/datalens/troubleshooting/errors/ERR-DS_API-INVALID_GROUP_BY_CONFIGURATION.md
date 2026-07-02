@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Invalid grouping configuration
+
 # [Yandex DataLens] Invalid grouping configuration
 
 `ERR.DS_API.INVALID_GROUP_BY_CONFIGURATION`

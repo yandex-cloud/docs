@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Поставка данных из Managed Service for Apache Kafka® в Managed Service for ClickHouse® с помощью Data Transfer
+
 # Поставка данных из Yandex Managed Service for Apache Kafka® в Yandex Managed Service for ClickHouse® с помощью Yandex Data Transfer
 
 # Поставка данных из очереди Apache Kafka® в ClickHouse® с помощью Yandex Data Transfer

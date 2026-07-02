@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [cloud-registry](../index.md) > [registry](index.md) > create
+
 # yc cloud-registry registry create
 
 Creates a registry in the specified folder

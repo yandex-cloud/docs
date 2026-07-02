@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Certificate Manager](../../../../index.md) > Справочник API > gRPC (англ.) > [Certificate Manager Private CA API](../index.md) > [Policy](index.md) > SetAccessBindings
+
 # Certificate Manager Private CA API, gRPC: PolicyService.SetAccessBindings
 
 Sets access bindings for the policy.

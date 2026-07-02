@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-mongodb](../index.md) > [hosts](index.md) > update
+
 # yc managed-mongodb hosts update
 
 Update specified hosts in the cluster.

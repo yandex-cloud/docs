@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Backup](../../index.md) > [Пошаговые инструкции](../index.md) > BareMetal в Cloud Backup > Арендовать сервер BareMetal с подключением к Cloud Backup
+
 # Арендовать сервер Yandex BareMetal с подключением к Cloud Backup
 
 

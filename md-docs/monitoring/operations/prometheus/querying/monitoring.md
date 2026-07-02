@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Monitoring](../../../index.md) > [Yandex Managed Service for Prometheus®](../index.md) > [Чтение метрик](index.md) > Визуализация
+
 # Чтение и визуализация метрик в Monitoring
 
 На основе метрик Prometheus можно построить графики:

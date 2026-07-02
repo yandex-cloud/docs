@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [PublicPrefixPool](index.md) > Get
+
 # BareMetal API, REST: PublicPrefixPool.Get
 
 Returns the specified public prefix pool.

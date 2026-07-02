@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [Identity Provider API](../index.md) > [Userpool](index.md) > SetAccessBindings
+
 # Identity Provider API, gRPC: UserpoolService.SetAccessBindings
 
 Sets access bindings for the specified userpool.

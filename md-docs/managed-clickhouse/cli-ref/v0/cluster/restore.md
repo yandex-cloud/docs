@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > restore
+
 # yc managed-clickhouse v0 cluster restore
 
 Restore a ClickHouse cluster from a backup.

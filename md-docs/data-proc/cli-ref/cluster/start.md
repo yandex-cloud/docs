@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Processing](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > start
+
 # yc dataproc cluster start
 
 Start a cluster.

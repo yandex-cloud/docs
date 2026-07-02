@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Концепции](../index.md) > Триггер > Обзор
+
 # Триггеры в Cloud Functions. Обзор
 
 _Триггер_ — условие, при выполнении которого автоматически запускается [функция](../function.md) Cloud Functions. Триггеры позволяют автоматизировать работу с другими сервисами Yandex Cloud, например: Yandex Object Storage, Yandex Message Queue и Yandex Container Registry. 

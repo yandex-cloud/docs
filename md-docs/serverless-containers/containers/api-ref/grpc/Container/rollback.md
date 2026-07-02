@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Containers](../../../../index.md) > Справочник API Containers > [gRPC (англ.)](../index.md) > [Container](index.md) > Rollback
+
 # Serverless Containers Service, gRPC: ContainerService.Rollback
 
 Rollback the specified container to an old revision.

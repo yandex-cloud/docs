@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > REST (англ.) > [Access Key](../index.md) > [AccessKey](index.md) > Delete
+
 # Access Key, REST: AccessKey.Delete
 
 Deletes the specified access key.

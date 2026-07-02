@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [load-balancer](index.md) > list-operations
+
 # yc application-load-balancer v0 load-balancer list-operations
 
 List operations for the specified application load balancer

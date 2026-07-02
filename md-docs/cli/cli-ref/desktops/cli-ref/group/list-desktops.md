@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [desktops](../index.md) > [group](index.md) > list-desktops
+
 # yc desktops group list-desktops
 
 List desktops of the specified desktop group

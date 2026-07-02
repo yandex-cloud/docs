@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [gpu-cluster](index.md) > update
+
 # yc compute v0 gpu-cluster update
 
 Update the specified GPU cluster

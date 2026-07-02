@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Identity and Access Management](../index.md) > Устранение ошибки `OAuth token is invalid or expired`
+
 # Устранение ошибки `OAuth token is invalid or expired`
 
 

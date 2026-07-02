@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-opensearch](../../index.md) > [v0](../index.md) > [extension](index.md) > update
+
 # yc managed-opensearch v0 extension update
 
 Update an extension in a managed OpenSearch cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > dns > SetDnsInboundEndpointAccessBindings
+
 # Cloud DNS Audit Trails Events: SetDnsInboundEndpointAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.dns.SetDnsInboundEndpointAccessBindings2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [cloudrouter](../index.md) > routing-instance > Overview
+
 # yc cloudrouter routing-instance
 
 A set of methods for managing RoutingInstance resources.

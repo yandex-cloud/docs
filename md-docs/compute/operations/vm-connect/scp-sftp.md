@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Работа на виртуальной машине > Обмен файлами с ВМ
+
 # Обмен файлами с виртуальной машиной Linux
 
 Для обмена файлами с виртуальной машиной Linux рекомендуется использовать протоколы [SCP](https://ru.wikipedia.org/wiki/SCP) и [SFTP](https://ru.wikipedia.org/wiki/SFTP).

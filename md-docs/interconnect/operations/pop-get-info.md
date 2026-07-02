@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Interconnect](../index.md) > [Пошаговые инструкции](index.md) > Получить информацию о точках присутствия Cloud Interconnect
+
 # Получить информацию о точках присутствия
 
 {% note info %}

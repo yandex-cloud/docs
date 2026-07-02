@@ -1,13 +1,3 @@
-title: Yandex Resource Manager
-description:
-  - >-
-    Сервис Yandex Resource Manager определяет ресурсную модель Yandex Cloud и
-    позволяет структурировать ресурсы с помощью каталогов.
-  - >-
-    Инфраструктура Yandex Cloud <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
-    в соответствии с Федеральным законом Российской Федерации «О персональных
-    данных» № 152-ФЗ.
 meta:
   title: Yandex Resource Manager
   description: >-
@@ -25,25 +15,86 @@ meta:
     - keyword: управление облачными ресурсами
     - keyword: управление облаком
     - keyword: ресурсная модель облака
-links:
-  - title: Начало работы
-    description: Создайте первый каталог
-    href: quickstart
-  - title: Пошаговые инструкции
-    description: Инструкции по выполнению рутинных операций
-    href: operations/
-  - title: Концепции
-    description: Узнайте про ресурсную модель Yandex Cloud
-    href: concepts/resources-hierarchy
-  - title: Справочник API (англ.)
-    description: Описание методов HTTP API
-    href: api-ref/
-  - title: Квоты и лимиты
-    description: Технические и организационные ограничения сервиса
-    href: concepts/limits
-  - title: Управление доступом
-    description: Настройте права доступа для работы с сервисом
-    href: security/
-  - title: Обучающие курсы
-    description: Информация о доступных программах обучения
-    href: training
+blocks:
+  - type: card-layout-block
+    title: "Yandex\_Identity\_and\_Access\_Management"
+    description: "Сервис Yandex Resource Manager определяет ресурсную модель Yandex Cloud и позволяет структурировать ресурсы с помощью каталогов.\n\nИнфраструктура Yandex Cloud [защищена](https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf) в соответствии с Федеральным законом Российской Федерации «О персональных данных» №\_152-ФЗ."
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 3
+    children:
+      - type: basic-card
+        title: Начало работы
+        text: Создайте первый каталог
+        size: s
+        urlTitle: "Как создать первый каталог в Yandex\_Cloud"
+        url: quickstart
+        icon: ../_assets/console-icons/rocket.svg
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Пошаговые инструкции
+        text: Следуйте инструкциям для выполнения рутинных операций
+        size: s
+        urlTitle: "Пошаговые инструкции для Resource\_Manager"
+        url: operations/index
+        icon: ../_assets/console-icons/list-ol.svg
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Концепции
+        text: Изучите основные термины и понятия, используемые в сервисе
+        size: s
+        urlTitle: "Иерархия ресурсов Yandex\_Cloud"
+        url: concepts/index
+        icon: ../_assets/console-icons/bookmark.svg
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Справочник API (англ.)
+        text: "Используйте методы HTTP\_API для управления ресурсами в Yandex\_Cloud"
+        size: s
+        urlTitle: "Описание методов HTTP\_API"
+        icon: ../_assets/console-icons/code.svg
+        url: api-ref/
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Квоты и лимиты
+        text: Технические и организационные ограничения сервиса
+        size: s
+        urlTitle: "Квоты и лимиты в Resource\_Manager"
+        url: concepts/limits
+        icon: ../_assets/console-icons/sliders.svg
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Управление доступом
+        text: "Права доступа для работы с сервисом Resource\_Managert"
+        size: s
+        urlTitle: "Управление доступом в сервисе Resource\_Manager"
+        url: security/index
+        icon: ../_assets/console-icons/persons-lock.svg
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Обучающие курсы
+        text: Информация о доступных программах обучения
+        size: s
+        urlTitle: "Обучающие курсы по Yandex\_Resource\_Manager"
+        url: training
+        icon: ../_assets/console-icons/graduation-cap.svg
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: История изменений
+        text: Перечень обновлений сервиса
+        size: s
+        urlTitle: "История изменений в Yandex\_Resource\_Manager"
+        url: release-notes
+        icon: ../_assets/console-icons/timeline.svg
+        controlPosition: content
+        animated: false
+links: []

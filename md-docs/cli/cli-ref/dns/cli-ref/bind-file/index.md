@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [dns](../index.md) > bind-file > Overview
+
 # yc dns bind-file
 
 Manage bind file

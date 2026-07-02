@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [maintenance](index.md) > get
+
 # yc compute maintenance get
 
 Show information about the specified maintenance

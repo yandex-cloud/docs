@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Integrations](../index.md) > [Управление доступом](index.md) > Роли EventRouter
+
 # Сервисные роли для EventRouter
 
 С помощью сервисных ролей [EventRouter](../concepts/index.md#eventrouter) вы можете управлять доступом пользователей к ресурсам EventRouter — [шинам](../concepts/eventrouter/bus.md), [коннекторам](../concepts/eventrouter/connector.md) и [правилам](../concepts/eventrouter/rule.md).

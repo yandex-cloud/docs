@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [certificate-manager](../../index.md) > [v0](../index.md) > [certificate](index.md) > remove-access-binding
+
 # yc certificate-manager v0 certificate remove-access-binding
 
 Remove access binding for the specified certificate

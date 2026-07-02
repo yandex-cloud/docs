@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Установка Ghost CMS High Availability с помощью Cloud Apps
+
 # Установка Ghost CMS High Availability с помощью Cloud Apps
 
 
@@ -35,7 +37,7 @@
 * Плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) и исходящий трафик ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 * Плата за использование публичной [DNS-зоны](../../dns/concepts/dns-zone.md) и за публичные DNS-запросы ([тарифы Yandex Cloud DNS](../../dns/pricing.md)).
 * Плата за выделенные [хостам](../../managed-mysql/concepts/index.md) MySQL® вычислительные ресурсы, объем хранилища и резервных копий ([тарифы Yandex Managed Service for MySQL®](../../managed-mysql/pricing.md)).
-* Плата за использование [бакета](../concepts/bucket.md) для хранения медиафайлов ([тарифы Yandex Object Storage](../../storage/pricing.md)).
+* Плата за использование [бакета](../concepts/bucket.md) для хранения медиафайлов ([тарифы Yandex Object Storage](../pricing.md)).
 * Плата за хранение [секретов](../../lockbox/concepts/secret.md) и операции с ними (тарифы [Yandex Lockbox](../../lockbox/pricing.md)).
 * Плата за исходящие письма (тарифы [Yandex Cloud Postbox](../../postbox/pricing.md)).
 
@@ -134,11 +136,13 @@
 
 Создайте [публичную DNS-зону](../../dns/concepts/dns-zone.md#public-zones) и делегируйте на нее домен. Подробнее о делегировании домена читайте в [инструкции](../../troubleshooting/dns/how-to/delegate-public-zone.md).
 
+Перед установкой приложения вам необходимо создать публичную DNS-зону и делегировать на нее домен. Подробнее о делегировании домена читайте в [инструкции](../../troubleshooting/dns/how-to/delegate-public-zone.md).
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Cloud DNS**.
+  1. [Перейдите](https://console.yandex.cloud/link/dns/) в сервис **Cloud DNS**.
   1. Нажмите кнопку **Создать зону**.
   1. Задайте настройки зоны DNS:
      * **Зона** — укажите ваш зарегистрированный домен, например `example.com.` (с точкой в конце).
@@ -163,13 +167,15 @@
 
 - Yandex Cloud CLI {#cli}
 
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
   1. Создайте публичную зону DNS:
 
      ```bash
      yc dns zone create \
        --name example-zone \
        --zone example.com. \
-       --public-visibility
+       --public-visibility=true
      ```
 
      Где `--zone` — имя вашего домена, например `example.com.`. Значение параметра `--zone` должно заканчиваться точкой.

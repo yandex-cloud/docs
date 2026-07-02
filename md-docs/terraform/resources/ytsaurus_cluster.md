@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Ytsaurus > Resources > ytsaurus_cluster
+
 # yandex_ytsaurus_cluster (Resource)
 
 

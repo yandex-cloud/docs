@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Пошаговые инструкции](index.md) > Задания (jobs) > Все задания
+
 # Управление заданиями
 
 В кластере Yandex Data Processing можно управлять [заданиями (jobs)](../concepts/jobs.md), а также получать логи их выполнения. Примеры заданий описаны в разделе [Работа с заданиями](../tutorials/job-overview.md).

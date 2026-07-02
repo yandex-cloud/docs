@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for MySQL®](../index.md) > [Концепции](index.md) > Репликация
+
 # Репликация в Managed Service for MySQL®
 
 В кластерах Managed Service for MySQL® используется [полусинхронная репликация](https://dev.mysql.com/doc/refman/5.7/en/replication-semisync.html): по умолчанию мастер ожидает завершения транзакции хотя бы на одной реплике.

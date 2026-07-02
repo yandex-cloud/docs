@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > smartwebsecurity > WafMatchedExclusionRule
+
 # Smart Web Security Audit Trails Events: WafMatchedExclusionRule
 
 ## Event JSON schema {#yandex.cloud.audit.smartwebsecurity.WafMatchedExclusionRule2-schema}

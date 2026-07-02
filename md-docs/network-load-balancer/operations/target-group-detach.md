@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Network Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > Целевые группы > Отключить целевую группу от балансировщика
+
 # Отключить целевую группу от сетевого балансировщика
 
 {% list tabs group=instructions %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cache](index.md) > Purge
+
 # Cloud CDN API, gRPC: CacheService.Purge
 
 Removes specified files from the cache of the specified resource. For details about purging, see [documentation](../../../concepts/caching.md#purge).

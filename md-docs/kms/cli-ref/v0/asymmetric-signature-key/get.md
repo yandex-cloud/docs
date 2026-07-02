@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [asymmetric-signature-key](index.md) > get
+
 # yc kms v0 asymmetric-signature-key get
 
 Show information about the specified asymmetric signature key

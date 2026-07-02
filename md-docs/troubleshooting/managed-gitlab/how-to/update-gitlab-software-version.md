@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for GitLab](../index.md) > Как обновить ПО на инстансе Managed Service for GitLab
+
 # Как обновить ПО на инстансе Managed Service for GitLab
 
 

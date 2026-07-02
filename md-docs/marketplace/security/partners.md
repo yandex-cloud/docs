@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Marketplace](../index.md) > Партнерам > Управление доступом
+
 # Управление доступом партнера в Marketplace
 
 В этом разделе вы узнаете:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > enable-sharding
+
 # yc managed-mongodb cluster enable-sharding
 
 Enable sharding for MongoDB cluster.

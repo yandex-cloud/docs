@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [v0](index.md) > tools
+
 # yc cloud-registry v0 tools
 
 Tools for specific artifact kinds

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Subnet](index.md) > Relocate
+
 # Virtual Private Cloud API, REST: Subnet.Relocate
 
 ## HTTP request

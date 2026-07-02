@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.opensearch > StopCluster
+
 # Managed Service for OpenSearch Audit Trails Events: StopCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.opensearch.StopCluster2-schema}

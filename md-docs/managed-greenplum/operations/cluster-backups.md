@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Управление резервными копиями
+
 # Управление резервными копиями в Yandex MPP Analytics for PostgreSQL
 
 Вы можете просматривать имеющиеся [резервные копии](../concepts/backup.md) и восстанавливать из них кластеры.
@@ -342,7 +344,7 @@
 
         Эту настройку нельзя изменить после создания кластера. 
         
-        При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../../../managed-greenplum/pricing/index.md#dedicated-hosts).
+        При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#dedicated-hosts).
 
 
     1. Если в кластере были созданы внешние источники данных, выберите опцию **Источники данных (PXF)** для их восстановления. Выбор отдельных источников недоступен.
@@ -379,7 +381,7 @@
 
         Эту настройку нельзя изменить после создания кластера. 
         
-        При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../../../managed-greenplum/pricing/index.md#dedicated-hosts).
+        При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#dedicated-hosts).
 
 
     1. Если в кластере были созданы внешние источники данных, выберите опцию **Источники данных (PXF)** для их восстановления. Выбор отдельных источников недоступен.
@@ -464,7 +466,7 @@
 
             Эту настройку нельзя изменить после создания кластера. 
             
-            При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../../../managed-greenplum/pricing/index.md#dedicated-hosts).
+            При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#dedicated-hosts).
 
         * `--subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
         * `--assign-public-ip` — флаг, который указывается, если кластеру требуется доступ из интернета.
@@ -569,7 +571,7 @@
 
             Эту настройку нельзя изменить после создания кластера. 
             
-            При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../../../managed-greenplum/pricing/index.md#dedicated-hosts).
+            При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#dedicated-hosts).
 
         * `serviceAccountId` — идентификатор сервисного аккаунта.
         * `logging` — настройки [передачи логов в сервис Yandex Cloud Logging](mgp-to-cloud-logging.md):
@@ -696,7 +698,7 @@
 
             Эту настройку нельзя изменить после создания кластера. 
             
-            При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../../../managed-greenplum/pricing/index.md#dedicated-hosts).
+            При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#dedicated-hosts).
 
         * `service_account_id` — идентификатор сервисного аккаунта.
 

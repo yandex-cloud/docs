@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Message Queue](../../index.md) > [Справочник API](../index.md) > Типы данных > ChangeMessageVisibilityBatchRequestEntry
+
 # ChangeMessageVisibilityBatchRequestEntry
 
 Структура данных для возврата параметров `ReceiptHandle` и идентификаторов для сообщений из запроса [ChangeMessageVisibilityBatch](../message/ChangeMessageVisibilityBatch.md).

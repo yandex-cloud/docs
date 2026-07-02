@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > [Пошаговые инструкции](../index.md) > Серверы > Настроить дополнительную приватную подсеть
+
 # Настроить на сервере дополнительную приватную подсеть с тегированным VLAN
 
 К [сетевому интерфейсу](../../concepts/servers.md#network-interfaces) (или группе агрегирования [MC-LAG](../../concepts/mc-lag.md)) сервера, которые подключены к [приватной сети](../../concepts/private-network.md), помимо [основной](../../concepts/private-network.md#native-vlan-subnet) приватной подсети можно привязать несколько [дополнительных](../../concepts/private-network.md#tagged-vlan-subnet) приватных подсетей.

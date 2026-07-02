@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > backup > RevokePolicy
+
 # Cloud Backup Audit Trails Events: RevokePolicy
 
 ## Event JSON schema {#yandex.cloud.audit.backup.RevokePolicy2-schema}

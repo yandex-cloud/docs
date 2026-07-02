@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DiskPlacementGroup](index.md) > ListDisks
+
 # Compute Cloud API, gRPC: DiskPlacementGroupService.ListDisks
 
 Lists disks for the specified placement group.

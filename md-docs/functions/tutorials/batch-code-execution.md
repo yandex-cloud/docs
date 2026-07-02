@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Functions](../index.md) > [Практические руководства](index.md) > Рабочие процессы и автоматизация на Serverless > Запуск вычислений в DataSphere с помощью API
+
 # Запуск вычислений в Yandex DataSphere с помощью API
 
 
@@ -28,7 +30,7 @@
 В стоимость реализации регулярных запусков входят:
 
 * плата за использование [вычислительных ресурсов DataSphere](../../datasphere/pricing.md);
-* плата за количество вызовов функции [Cloud Functions](../../functions/pricing.md).
+* плата за количество вызовов функции [Cloud Functions](../pricing.md).
 
 ## Подготовьте инфраструктуру {#infra}
 

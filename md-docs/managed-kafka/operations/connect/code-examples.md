@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../index.md) > [Пошаговые инструкции](../index.md) > [Подключение](index.md) > Примеры кода
+
 # Примеры кода для подключения к кластеру Apache Kafka®
 
 Вы можете подключаться к хостам кластера Apache Kafka® в публичном доступе только с использованием [SSL-сертификата](index.md#get-ssl-cert). В примерах ниже предполагается, что сертификат `YandexInternalRootCA.crt` расположен в директории:

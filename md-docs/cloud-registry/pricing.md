@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Registry](index.md) > Правила тарификации
+
 # Правила тарификации для Cloud Registry
 
 

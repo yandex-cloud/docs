@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > CreateOAuthClient
+
 # Identity and Access Management Audit Trails Events: CreateOAuthClient
 
 ## Event JSON schema {#yandex.cloud.audit.iam.oauthclient.CreateOAuthClient2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Пошаговые инструкции](index.md) > Работа с YDB через ydb-mcp сервер на примере IDE Cursor
+
 # Как использовать LLM для работы с Yandex Managed Service for YDB через MCP-сервер: пример на IDE Cursor
 
 Из этой статьи вы узнаете, как можно применять языковые модели (LLM) для работы с базой данных YDB. Это позволит работать с базой на человеческом языке: исправлять ошибки, оптимизировать, проводить анализ данных.
@@ -37,7 +39,7 @@
 ### Ресурсы, требующие оплаты {#paid-resources}
 
 1. Учетная запись в [IDE Cursor](https://cursor.com/) (можно использовать пробную версию).
-1. Оплата за использование YDB — операции с базой и хранение данных ([тарифы Yandex Managed Service for YDB](../../ydb/pricing/serverless.md)).
+1. Оплата за использование YDB — операции с базой и хранение данных ([тарифы Yandex Managed Service for YDB](../pricing/serverless.md)).
 
 {% note info %}
 

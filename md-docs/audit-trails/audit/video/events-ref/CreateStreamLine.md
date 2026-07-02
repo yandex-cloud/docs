@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > video > CreateStreamLine
+
 # Cloud Video Audit Trails Events: CreateStreamLine
 
 ## Event JSON schema {#yandex.cloud.audit.video.CreateStreamLine2-schema}

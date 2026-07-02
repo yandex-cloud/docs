@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Концепции](../index.md) > [Аутентификация](index.md) > Cookie
+
 # Cookie
 
 В веб-интерфейсах Yandex Cloud для аутентификации пользователя используются cookie `yc_session`.

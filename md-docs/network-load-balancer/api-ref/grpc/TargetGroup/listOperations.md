@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Network Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [TargetGroup](index.md) > ListOperations
+
 # Network Load Balancer API, gRPC: TargetGroupService.ListOperations
 
 Lists operations for the specified target group.

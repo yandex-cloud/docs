@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Построение Data Platform](index.md) > Умная обработка логов
+
 # Умная обработка логов
 
 Для диагностики приложения пишут журналы работы. Но для анализа недостаточно просто иметь такие журналы, их нужно хранить и удобно обрабатывать. Для этого журналы отправляют в системы хранения: [Hadoop](https://yandex.cloud/ru/services/data-proc), [ClickHouse®](https://yandex.cloud/ru/services/managed-clickhouse) или в специализированные облачные системы типа [Cloud Logging](../../logging/index.md).

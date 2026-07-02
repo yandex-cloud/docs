@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [instance-group](index.md) > list-operations
+
 # yc compute instance-group list-operations
 
 List operations for the specified instance group

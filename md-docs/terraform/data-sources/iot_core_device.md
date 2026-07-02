@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > IoT Core Devices > Data Sources > iot_core_device
+
 # yandex_iot_core_device (DataSource)
 
 Get information about a Yandex IoT Core device. For more information about IoT Core, see [Yandex Cloud IoT Device](../../iot-core/quickstart.md).

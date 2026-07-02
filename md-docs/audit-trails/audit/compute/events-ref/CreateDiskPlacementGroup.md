@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > CreateDiskPlacementGroup
+
 # Compute Audit Trails Events: CreateDiskPlacementGroup
 
 ## Event JSON schema {#yandex.cloud.audit.compute.CreateDiskPlacementGroup2-schema}

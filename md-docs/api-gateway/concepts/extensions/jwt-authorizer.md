@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Расширения спецификации](index.md) > Авторизация с помощью JWT
+
 # Расширение x-yc-apigateway-authorizer:jwt
 
 Расширение `x-yc-apigateway-authorizer:jwt` используется внутри схем компонента [securityScheme](https://swagger.io/docs/specification/authentication/) с типом [OpenId Connect](https://swagger.io/docs/specification/authentication/openid-connect-discovery/). Для авторизации HTTP-запроса API Gateway валидирует токен, а также проверяет его подпись при помощи публичных ключей, ссылка на которые указывается в расширении. Подробнее о [стандарте JWT](https://www.rfc-editor.org/rfc/rfc7519).

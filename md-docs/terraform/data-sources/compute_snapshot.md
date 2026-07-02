@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Compute Cloud > Data Sources > compute_snapshot
+
 # yandex_compute_snapshot (DataSource)
 
 Get information about a Yandex Compute snapshot. For more information, see [the official documentation](../../compute/concepts/snapshot.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Kubernetes](../index.md) > Хосты группы узлов Managed Service for Kubernetes долго находятся в статусе `RECONCILING`
+
 # Хосты группы узлов Managed Service for Kubernetes долго находятся в статусе `RECONCILING`
 
 

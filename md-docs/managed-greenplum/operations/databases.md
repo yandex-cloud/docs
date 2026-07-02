@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Базы данных > Управление базами данных
+
 # Управление базами данных в Yandex MPP Analytics for PostgreSQL
 
 Yandex MPP Analytics for PostgreSQL позволяет управлять базами данных кластера только с помощью SQL-запросов.

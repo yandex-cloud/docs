@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > hosts > Overview
+
 # yc managed-postgresql v0 hosts
 
 Manage PostgreSQL cluster hosts

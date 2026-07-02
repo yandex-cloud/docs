@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Удаление кластера
+
 # Удаление кластера Trino
 
 Вы можете удалить кластер Trino, если он вам больше не нужен.

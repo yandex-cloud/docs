@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Certificate Manager](../../../../index.md) > Справочник API > gRPC (англ.) > [Certificate Manager Private CA API](../index.md) > [PrivateCa](index.md) > Update
+
 # Certificate Manager Private CA API, gRPC: PrivateCaService.Update
 
 Updates the specified Certificate Authority (CA).

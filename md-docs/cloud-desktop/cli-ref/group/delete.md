@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > [Справочник CLI (англ.)](../index.md) > [group](index.md) > delete
+
 # yc desktops group delete
 
 Delete the specified desktop group

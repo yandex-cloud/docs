@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex SmartCaptcha](../../index.md) > [Практические руководства](../index.md) > Добавление HTML-страницы для работы Yandex SmartCaptcha
+
 # Добавление HTML-страницы для работы SmartCaptcha
 
 # Добавление HTML-страницы для работы Yandex SmartCaptcha

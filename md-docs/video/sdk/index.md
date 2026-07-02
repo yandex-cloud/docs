@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Video](../index.md) > Видеоплеер > SDK > Обзор
+
 # SDK видеоплеера
 
 Для встраивания [видеоплеера](../concepts/player.md) с контентом из Cloud Video на сайт или в приложение предусмотрены следующие SDK:

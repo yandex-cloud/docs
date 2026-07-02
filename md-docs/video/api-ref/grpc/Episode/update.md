@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Episode](index.md) > Update
+
 # Video API, gRPC: EpisodeService.Update
 
 Updates an existing episode's metadata and settings.

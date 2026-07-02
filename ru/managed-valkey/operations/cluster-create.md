@@ -24,11 +24,19 @@ description: Следуя данной инструкции, вы сможете
 
 
 
+
+## Роли для создания кластера {#roles}
+
+Для создания кластера {{ mrd-name }} и работы с ним вашему аккаунту в {{ yandex-cloud }} нужны роли:
+
+* {% include [roles-mrd-editor](../../_includes/mdb/mvk/roles-mrd-editor.md) %}
+* {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
+* {% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
+
+О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
+
+
 ## Создать кластер {#create-cluster}
-
-
-Для создания кластера {{ mrd-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mrd.editor }} или выше](../security/index.md#roles-list). Как назначить роль, читайте в [документации {{ iam-name }}](../../iam/operations/roles/grant.md).
-
 
 {% note info %}
 
@@ -271,6 +279,10 @@ description: Следуя данной инструкции, вы сможете
 
          {% include [modules-warn](../../_includes/mdb/mvk/enable-modules-note.md) %}
 
+      Чтобы настроить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), передайте параметр `--maintenance-window type=<тип_технического_обслуживания>`, где `type` принимает следующие значения:
+
+      {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
       
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
 
@@ -278,12 +290,6 @@ description: Следуя данной инструкции, вы сможете
       {% include [requirements-to-password](../../_includes/mdb/mvk/requirements-to-password.md) %}
 
       Если вы создаёте шардированный кластер с типом диска **local-ssd**, укажите в команде не менее двух хостов на шард.
-
-      {% note info %}
-
-      По умолчанию при создании кластера устанавливается режим [технического обслуживания](../concepts/maintenance.md) `anytime` — в любое время. Вы можете установить конкретное время обслуживания при [изменении настроек кластера](update.md#change-additional-settings).
-
-      {% endnote %}
 
 
 - {{ TF }} {#tf}
@@ -508,7 +514,13 @@ description: Следуя данной инструкции, вы сможете
           "tlsEnabled": <поддержка_шифрованных_TLS-соединений>,
           "deletionProtection": <защита_кластера_от_удаления>,
           "announceHostnames": <использование_FQDN_вместо_IP-адресов>,
-          "persistenceMode": "<режим_персистентности>"
+          "persistenceMode": "<режим_персистентности>",
+          "maintenanceWindow": {
+            "weeklyMaintenanceWindow": {
+              "day": "<день_недели>",
+              "hour": "<порядковый_номер_часового_интервала>"
+            }
+          }
         }
         ```
 
@@ -590,6 +602,16 @@ description: Следуя данной инструкции, вы сможете
         * `persistenceMode` — режим [персистентности данных](../concepts/replication.md#persistence).
 
             {% include [persistence-modes](../../_includes/mdb/mvk/persistence-modes.md) %}
+
+        * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
+
+            * `anytime` — техническое обслуживание происходит в любое время.
+            * `weeklyMaintenanceWindow` — техническое обслуживание происходит раз в неделю, в указанное время:
+
+                * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+                * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+
+                > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
     1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
@@ -675,7 +697,13 @@ description: Следуя данной инструкции, вы сможете
           "tls_enabled": <поддержка_шифрованных_TLS-соединений>,
           "deletion_protection": <защита_кластера_от_удаления>,
           "announce_hostnames": <использование_FQDN_вместо_IP-адресов>,
-          "persistence_mode": "<режим_персистентности>"
+          "persistence_mode": "<режим_персистентности>",
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<день_недели>",
+              "hour": "<порядковый_номер_часового_интервала>"
+            }
+          }
         }
         ```
 
@@ -757,6 +785,16 @@ description: Следуя данной инструкции, вы сможете
         * `persistence_mode` — режим [персистентности данных](../concepts/replication.md#persistence).
 
             {% include [persistence-modes](../../_includes/mdb/mvk/persistence-modes.md) %}
+
+        * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
+
+            * `anytime` — техническое обслуживание проводится в любое время.
+            * `weekly_maintenance_window` — техническое обслуживание происходит раз в неделю, в указанное время:
+
+                * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+                * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+
+                > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
     1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 

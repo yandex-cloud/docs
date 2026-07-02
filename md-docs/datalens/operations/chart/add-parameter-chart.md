@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Чарты > Параметры в чартах > Добавление параметра в чарт
+
 # Добавление параметра в чарт Yandex DataLens
 
 {% note info %}

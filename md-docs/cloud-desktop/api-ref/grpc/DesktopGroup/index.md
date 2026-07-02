@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Desktop](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > DesktopGroup > Overview
+
 # Cloud Desktop API, gRPC: DesktopGroupService
 
 A set of methods for managing desktop group resources.

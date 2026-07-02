@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > Работа с YDB через Terraform > Создание конфигурационных файлов и подключение к YDB
+
 # Создание конфигурационных файлов и подключение к YDB
 
 {% note warning %}

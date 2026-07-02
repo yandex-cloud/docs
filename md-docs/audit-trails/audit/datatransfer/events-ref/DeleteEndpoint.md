@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datatransfer > DeleteEndpoint
+
 # Data Transfer Audit Trails Events: DeleteEndpoint
 
 ## Event JSON schema {#yandex.cloud.audit.datatransfer.DeleteEndpoint2-schema}

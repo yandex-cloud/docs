@@ -1,4 +1,40 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Identity and Access Management](index.md) > История изменений
+
 # История изменений в Yandex Identity and Access Management
+
+## Июнь 2026 {#june-2026}
+
+### Изменения в сервисе Identity and Access Management {#iam-june-2026}
+
+* Добавлен шаблон [политики авторизации](concepts/access-control/access-policies.md#resourceManager-denyCloudRemoval) `resourceManager.denyCloudRemoval`, который позволяет запретить удаление облаков.
+
+### Новые роли {#roles-june-2026}
+
+{% cut "Apache Hive™ Metastore" %}
+
+   Роль | Описание
+   --- | ---
+   `managed-metastore.maintenanceTask.editor` | Позволяет просматривать информацию о заданиях на техническое обслуживание кластеров Apache Hive™ Metastore и изменять такие задания, просматривать информацию о кластерах и назначенных правах доступа к ним, а также о квотах сервисов управляемых баз данных Yandex Cloud.
+   `managed-metastore.maintenanceTask.viewer` | Позволяет просматривать информацию о кластерах Apache Hive™ Metastore и назначенных правах доступа к ним, о заданиях на техническое обслуживание таких кластеров, а также о квотах сервисов управляемых баз данных Yandex Cloud.
+
+{% endcut %}
+
+{% cut "Yandex DataLens" %}
+
+   Роль | Описание
+   --- | ---
+   `datalens.collections.creator` | Позволяет просматривать коллекцию и создавать объекты внутри нее без доступа к другим объектам, существующим внутри коллекции.
+   `datalens.collections.entryBindingCreator` | Позволяет переиспользовать общие объекты из этой коллекции как без делегации прав доступа, так и с делегацией.
+   `datalens.collections.limitedEntryBindingCreator` | Позволяет переиспользовать общие объекты из этой коллекции без делегации прав доступа.
+   `datalens.collections.visitor` | Позволяет просматривать информацию о текущей коллекции без доступа ко вложенным в нее объектам.
+   `datalens.sharedEntries.admin` | Позволяет просматривать общий объект и полностью управлять им: редактировать, перемещать, удалять и настраивать права доступа к нему.
+   `datalens.sharedEntries.editor` | Позволяет редактировать общий объект, а также просматривать его и назначенные права доступа к нему.
+   `datalens.sharedEntries.entryBindingCreator` | Позволяет переиспользовать общий объект в воркбуках как без делегации прав доступа, так и с делегацией.
+   `datalens.sharedEntries.limitedEntryBindingCreator` | Позволяет переиспользовать общий объект в воркбуках без делегации прав доступа.
+   `datalens.sharedEntries.limitedViewer` | Позволяет просматривать [чарты](../datalens/concepts/chart/index.md) и [дашборды](../datalens/concepts/dashboard.md), которые используют общий объект, без прямого доступа к самому объекту.
+   `datalens.sharedEntries.viewer` | Позволяет просматривать общий объект, а также назначенные права доступа к нему.
+
+{% endcut %}
 
 ## Май 2026 {#may-2026}
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Monium](../../index.md) > Метрики > [Поставка и экспорт метрик](../index.md) > Экспорт метрик в формате Prometheus
+
 # Экспорт метрик в формате Prometheus
 
 Чтобы выгрузить метрики в формате Prometheus, воспользуйтесь методом [prometheusMetrics](../../api-ref/MetricsData/prometheusMetrics.md). Для загрузки метрик в Prometheus необходимо предварительно настроить сбор метрик в Prometheus.

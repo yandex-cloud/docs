@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Практические руководства](index.md) > Построение пайплайна CI/CD в GitLab с использованием serverless-продуктов
+
 # Построение пайплайна CI/CD с использованием serverless-продуктов
 
 # Построение пайплайна CI/CD в GitLab с использованием serverless-продуктов
@@ -30,7 +32,7 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* Плата за [диски](../concepts/disk.md) и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за [диски](../concepts/disk.md) и постоянно запущенные ВМ ([тарифы Yandex Compute Cloud](../pricing.md)).
 * Плата за использование [мастера Yandex Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#master) ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
 * Плата за хранение созданных Docker-образов ([тарифы Container Registry](../../container-registry/pricing.md)).
 * Плата за хранение секретов ([тарифы Yandex Lockbox](../../lockbox/pricing.md)).

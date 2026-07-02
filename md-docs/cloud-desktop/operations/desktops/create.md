@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > [Пошаговые инструкции](../index.md) > Рабочие столы > Создать рабочий стол
+
 # Создать рабочий стол
 
 {% list tabs group=instructions %}

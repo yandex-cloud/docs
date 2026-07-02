@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Backup](index.md) > Delete
+
 # Managed Service for PostgreSQL API, gRPC: BackupService.Delete
 
 Deletes the specified PostgreSQL cluster backup.

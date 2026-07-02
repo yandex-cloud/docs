@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > Вопросы и ответы > Общие вопросы
+
 # Общие вопросы про Managed Service for Kubernetes
 
 * [Какие сервисы доступны по умолчанию в кластерах Managed Service for Kubernetes?](#defaults)

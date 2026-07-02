@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Backup](index.md) > Delete
+
 # Managed Service for ClickHouse API, REST: Backup.Delete
 
 Deletes the specified ClickHouse Backup.

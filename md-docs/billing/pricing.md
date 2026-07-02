@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Billing](index.md) > Правила тарификации
+
 # Правила тарификации Yandex Cloud
 
 {% note info %}

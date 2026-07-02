@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [Server](index.md) > StartProlongation
+
 # BareMetal API, gRPC: ServerService.StartProlongation
 
 Starts prolongation of the specified server.

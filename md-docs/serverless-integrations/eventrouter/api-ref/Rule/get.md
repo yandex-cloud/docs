@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API EventRouter > [REST (англ.)](../index.md) > [Rule](index.md) > Get
+
 # EventRouter Service, REST: Rule.Get
 
 Returns the specified rules.

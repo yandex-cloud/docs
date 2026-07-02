@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > Работа с PXF > Создание внешней таблицы
+
 # Создание внешней таблицы по протоколу PXF
 
 Yandex MPP Analytics for PostgreSQL позволяет [создавать external-таблицы](#sql-statement) для доступа к данным во внешних СУБД. В кластерах с СУБД [Apache Cloudberry™](https://cloudberry.apache.org) кроме external-таблиц также можно [создавать foreign-таблицы](#sql-statement-fdw) с использованием механизма FDW. Такие таблицы предоставляют доступ к тем же внешним СУБД, что и external-таблицы. При этом foreign-таблицы поддерживают чтение и запись в рамках одной таблицы, тогда как external-таблицы — либо чтение, либо запись.

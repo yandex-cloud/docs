@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [load-balancer](index.md) > enable-traffic
+
 # yc application-load-balancer load-balancer enable-traffic
 
 Enables traffic in specified zones for application load balancer.

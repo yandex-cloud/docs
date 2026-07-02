@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Создание кластера
+
 # Создание кластера Apache Kafka®
 
 
@@ -53,9 +55,11 @@
 
 1. Рассчитайте [минимальный размер хранилища](../concepts/storage.md#minimal-storage-size) для топиков.
 1. [Назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роли:
-   * [managed-kafka.editor или выше](../security/index.md#roles-list) — чтобы создать кластер;
-   * [vpc.user](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
-   * [kms.keys.user](../../kms/security/index.md#kms-keys-user) — чтобы управлять [шифрованием диска](../concepts/storage.md#disk-encryption).
+
+    * [managed-kafka.editor](../security/index.md#roles-list) или выше — чтобы создать кластер;
+    * [vpc.user](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
+    * [kms.keys.user](../../kms/security/index.md#kms-keys-user) — чтобы управлять [шифрованием диска](../concepts/storage.md#disk-encryption);
+    * [mdb.viewer](../../iam/roles-reference.md#mdb-viewer) — чтобы просматривать кластеры управляемых баз данных (MDB) на дашборде в [консоли управления](https://console.yandex.cloud).
 
 Если вы указываете идентификаторы групп безопасности при создании кластера Managed Service for Apache Kafka®, для подключения к нему может понадобиться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups).
 

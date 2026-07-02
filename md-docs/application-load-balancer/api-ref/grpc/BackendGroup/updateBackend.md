@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [BackendGroup](index.md) > UpdateBackend
+
 # Application Load Balancer API, gRPC: BackendGroupService.UpdateBackend
 
 Updates the specified backend.

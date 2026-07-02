@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for MySQL®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > ListOperations
+
 # Managed Service for MySQL API, gRPC: ClusterService.ListOperations
 
 Retrieves a list of operations for a cluster.

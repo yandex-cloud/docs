@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > [Справочник CLI (англ.)](../index.md) > [routing-instance](index.md) > get
+
 # yc cloudrouter routing-instance get
 
 Returns the specified RoutingInstance resource.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Processing](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > ListHosts
+
 # Yandex Data Processing API, REST: Cluster.ListHosts
 
 Retrieves the list of hosts in the specified cluster.

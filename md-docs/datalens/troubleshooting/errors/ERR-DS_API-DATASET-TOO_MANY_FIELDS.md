@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > There are too many fields in the dataset
+
 # [Yandex DataLens] There are too many fields in the dataset
 
 `ERR.DS_API.DATASET.TOO_MANY_FIELDS`

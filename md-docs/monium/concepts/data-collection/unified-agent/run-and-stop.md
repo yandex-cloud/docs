@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Monium](../../../index.md) > Поставка данных > [Unified Agent](index.md) > Запуск и остановка
+
 # Запуск и остановка Unified Agent
 
 ## Запуск {#run}

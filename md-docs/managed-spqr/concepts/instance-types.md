@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > [Концепции](index.md) > Классы хостов
+
 # Классы хостов Yandex Managed Service for Sharded PostgreSQL
 
 Класс хостов определяет вычислительные мощности, которые выделяются для каждого хоста в кластере Managed Service for Sharded PostgreSQL. 

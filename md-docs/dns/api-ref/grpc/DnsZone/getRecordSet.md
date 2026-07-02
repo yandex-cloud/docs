@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud DNS](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DnsZone](index.md) > GetRecordSet
+
 # Cloud DNS API, gRPC: DnsZoneService.GetRecordSet
 
 Returns the specified record set.

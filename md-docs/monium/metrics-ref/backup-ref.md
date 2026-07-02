@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Метрики](../metrics/overview.md) > [Справочник метрик](index.md) > Cloud Backup
+
 # Метрики Yandex Cloud Backup
 
 В этом разделе описаны метрики сервиса [Cloud Backup](../../backup/index.md), поставляемые в Monium Metrics.

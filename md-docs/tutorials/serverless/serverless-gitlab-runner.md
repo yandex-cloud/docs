@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Бессерверные технологии](index.md) > Рабочие процессы и автоматизация на Serverless > Запуск GitLab Runner в Serverless Containers
+
 # Запуск GitLab Runner в Yandex Serverless Containers
 
 

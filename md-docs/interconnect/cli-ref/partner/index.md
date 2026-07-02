@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > [Справочник CLI (англ.)](../index.md) > partner > Overview
+
 # yc cic partner
 
 A set of methods for managing Partner resources.

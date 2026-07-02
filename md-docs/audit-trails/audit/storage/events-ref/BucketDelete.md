@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > storage > BucketDelete
+
 # Object Storage Audit Trails Events: BucketDelete
 
 ## Event JSON schema {#yandex.cloud.audit.storage.BucketDelete2-schema}

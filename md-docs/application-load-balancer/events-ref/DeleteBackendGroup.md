@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Справочник аудитных логов > DeleteBackendGroup
+
 # Application Load Balancer Audit Trails Events: DeleteBackendGroup
 
 ## Event JSON schema {#yandex.cloud.audit.apploadbalancer.DeleteBackendGroup2-schema}

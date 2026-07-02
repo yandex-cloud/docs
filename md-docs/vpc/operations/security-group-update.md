@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Пошаговые инструкции](index.md) > Группы безопасности > Изменить имя и описание
+
 # Изменить имя и описание
 
 После создания [группы безопасности](../concepts/security-groups.md) вы можете изменить ее имя и описание, а также [добавить](security-group-add-rule.md) или [удалить](security-group-delete-rule.md) правила.

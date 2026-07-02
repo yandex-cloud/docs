@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Backup](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [vm](index.md) > list-policies
+
 # yc backup v0 vm list-policies
 
 Shows policies applied to the instance

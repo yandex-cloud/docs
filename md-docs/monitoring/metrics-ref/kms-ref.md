@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Key Management Service
+
 # Метрики Yandex Key Management Service
 
 В этом разделе описаны метрики сервиса [Key Management Service](../../kms/index.md), поставляемые в Monitoring.

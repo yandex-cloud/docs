@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Integrations](../index.md) > [Практические руководства](index.md) > Настройка интеграций Workflows с Яндекс Трекер, Yandex AI Studio и Yandex Cloud Postbox
+
 # Настройка рабочего процесса Workflows с интеграцией с Яндекс Трекер, Yandex AI Studio и Yandex Cloud Postbox
 
 

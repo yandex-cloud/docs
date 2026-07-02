@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [TrunkConnection](index.md) > List
+
 # Cloud Interconnect API, gRPC: TrunkConnectionService.List
 
 Retrieves the list of TrunkConnection resources in the specified folder.

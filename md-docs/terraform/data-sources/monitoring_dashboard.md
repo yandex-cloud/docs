@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Monitoring > Data Sources > monitoring_dashboard
+
 # yandex_monitoring_dashboard (DataSource)
 
 Get information about a Yandex Monitoring dashboard.

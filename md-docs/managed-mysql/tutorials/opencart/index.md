@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > [Практические руководства](../index.md) > Интернет-магазин на платформе OpenCart > Обзор
+
 # Создание интернет-магазина на платформе OpenCart
 
 

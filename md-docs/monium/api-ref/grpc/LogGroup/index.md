@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Monium](../../../index.md) > Справочник API > Логи > [gRPC (англ.)](../index.md) > LogGroup > Overview
+
 # Cloud Logging Service, gRPC: LogGroupService
 
 A set of methods for managing log groups.

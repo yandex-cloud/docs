@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.greenplum > StopCluster
+
 # Managed Service for Greenplum® Audit Trails Events: StopCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.greenplum.StopCluster2-schema}

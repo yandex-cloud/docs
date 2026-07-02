@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Trail](index.md) > Update
+
 # Audit Trails API, gRPC: TrailService.Update
 
 Updates the specified trail.

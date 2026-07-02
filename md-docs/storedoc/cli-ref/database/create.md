@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > [database](index.md) > create
+
 # yc managed-mongodb database create
 
 Create a database in a MongoDB cluster.

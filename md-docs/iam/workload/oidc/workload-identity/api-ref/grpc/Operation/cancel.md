@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Yandex Identity and Access Management](../../../../../../index.md) > Справочник API > gRPC (англ.) > Workload Identity > [Federation](../index.md) > [Operation](index.md) > Cancel
+
 # Federation, gRPC: OperationService.Cancel
 
 Cancels the specified operation.

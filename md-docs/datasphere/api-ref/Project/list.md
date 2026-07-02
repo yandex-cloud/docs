@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Справочник API](../overview.md) > [REST (англ.)](../index.md) > [Project](index.md) > List
+
 # DataSphere API v2, REST: Project.List
 
 Lists projects for the specified community.

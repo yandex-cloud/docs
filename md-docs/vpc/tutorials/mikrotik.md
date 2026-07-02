@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Virtual Private Cloud](../index.md) > [Практические руководства](index.md) > Дополнительные настройки и инструменты > Установка виртуального роутера Mikrotik CHR
+
 # Установка виртуального роутера Mikrotik CHR
 
 В Yandex Cloud можно развернуть виртуальный роутер Mikrotik Cloud Hosted Router из готового образа ВМ. Чтобы установить Mikrotik Cloud Hosted Router и проверить его работу:
@@ -33,7 +35,7 @@
 В стоимость использования виртуального роутера и тестовой ВМ входят:
 
 * плата за диски и постоянно запущенные виртуальные машины ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за использование публичного IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
+* плата за использование публичного IP-адреса ([тарифы Yandex Virtual Private Cloud](../pricing.md));
 
 
 ## Создайте ВМ с Mikrotik Cloud Hosted Router {#create-router}

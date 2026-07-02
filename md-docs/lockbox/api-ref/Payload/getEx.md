@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Lockbox](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Payload](index.md) > GetEx
+
 # Lockbox API, REST: Payload.GetEx
 
 ## HTTP request

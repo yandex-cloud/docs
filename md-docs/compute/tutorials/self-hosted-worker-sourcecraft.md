@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Практические руководства](index.md) > Развертывание воркера SourceCraft на ВМ
+
 # Развертывание пользовательского (self-hosted) воркера SourceCraft на виртуальной машине Yandex Compute Cloud
 
 [Пользовательские (self-hosted) воркеры](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/ci-cd#self-hosted-workers) — личные серверы пользователей, как виртуальные, так и физические, на которых выполняются [CI/CD-процессы](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/ci-cd) SourceCraft. В этом случае для процессов будет доступно окружение пользовательского сервера.
@@ -64,7 +66,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры пользовательского воркера входят:
-* плата за диск и запущенную ВМ ([тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за диск и запущенную ВМ ([тарифы Yandex Compute Cloud](../pricing.md));
 * плата за использование внешнего IP-адреса ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Разверните инфраструктуру {#infra}

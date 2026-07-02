@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Playlist](index.md) > GetPlayerURL
+
 # Video API, REST: Playlist.GetPlayerURL
 
 Generates a player URL for watching the playlist.

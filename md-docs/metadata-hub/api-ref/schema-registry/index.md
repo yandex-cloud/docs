@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Schema Registry > Справочник API > Schema Registry
+
 # API Schema Registry
 
 

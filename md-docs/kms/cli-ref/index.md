@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Key Management Service](../index.md) > Справочник CLI (англ.) > Overview
+
 # yc kms
 
 Manage Yandex Key Management Service resources

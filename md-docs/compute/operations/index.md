@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Compute Cloud
 
 ## Создание виртуальной машины {#vm-create}

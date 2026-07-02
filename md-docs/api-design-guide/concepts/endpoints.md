@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Концепции API Yandex Cloud](../index.md) > Методы API > Эндпоинты API
+
 # Эндпоинты API сервисов Yandex Cloud
 
 У каждого из сервисов Yandex Cloud есть эндпоинт, к которому следует отправлять HTTP-запросы. Полный список эндпоинтов можно запросить с помощью вызова [endpoints](https://api.cloud.yandex.net/endpoints) к URL `https://api.cloud.yandex.net`.

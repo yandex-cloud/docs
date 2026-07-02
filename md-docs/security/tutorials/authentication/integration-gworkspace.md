@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Безопасность в Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Аутентификация и управление доступом > Аутентификация с помощью Google Workspace
+
 # Аутентификация с помощью Google Workspace
 
 С помощью [федерации удостоверений](../../../organization/concepts/add-federation.md) вы можете использовать [Google Workspace](https://workspace.google.com/) для аутентификации пользователей в организации.

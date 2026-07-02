@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [StylePreset](index.md) > Get
+
 # Video API, gRPC: StylePresetService.Get
 
 Retrieves detailed information about a specific style preset by its ID.

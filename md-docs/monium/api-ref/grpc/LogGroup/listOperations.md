@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Monium](../../../index.md) > Справочник API > Логи > [gRPC (англ.)](../index.md) > [LogGroup](index.md) > ListOperations
+
 # Cloud Logging Service, gRPC: LogGroupService.ListOperations
 
 Lists operations for the specified log group.

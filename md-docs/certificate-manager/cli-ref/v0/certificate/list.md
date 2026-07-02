@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [certificate](index.md) > list
+
 # yc certificate-manager v0 certificate list
 
 List certificates in the specified folder

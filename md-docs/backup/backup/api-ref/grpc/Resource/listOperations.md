@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Backup](../../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Resource](index.md) > ListOperations
+
 # Cloud Backup API, gRPC: ResourceService.ListOperations
 
 ListOperations return all operations in backup service for given instance

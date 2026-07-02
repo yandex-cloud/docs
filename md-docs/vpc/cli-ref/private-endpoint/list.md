@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [private-endpoint](index.md) > list
+
 # yc vpc private-endpoint list
 
 List private endpoints in a folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Application Load Balancer](index.md) > Пошаговые инструкции > Создать инфраструктуру Application Load Balancer c помощью визарда
+
 # Создание инфраструктуры Application Load Balancer с помощью визарда
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Start
+
 # Managed Service for Apache Kafka® API, gRPC: ClusterService.Start
 
 Starts the specified Apache Kafka® cluster.

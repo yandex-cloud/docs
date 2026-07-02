@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Solution](../index.md) > [Концепции](index.md) > Особенности работы с дисками
+
 # Особенности работы с дисками
 
 ## Работа с загрузочным диском {#boot-disk}

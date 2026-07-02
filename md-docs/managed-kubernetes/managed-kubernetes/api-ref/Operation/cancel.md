@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../index.md) > Справочник API > [Managed Service for Kubernetes REST (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Managed Services for Kubernetes API, REST: Operation.Cancel
 
 Cancels the specified operation.

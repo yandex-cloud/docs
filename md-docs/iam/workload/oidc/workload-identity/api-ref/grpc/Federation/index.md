@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Yandex Identity and Access Management](../../../../../../index.md) > Справочник API > gRPC (англ.) > Workload Identity > [Federation](../index.md) > Federation > Overview
+
 # Federation, gRPC: FederationService
 
 A set of methods for managing OIDC workload identity federations.

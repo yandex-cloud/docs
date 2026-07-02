@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MetaData Hub](../../../index.md) > Apache Hive™ Metastore > Справочник API > [gRPC (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Managed Service for Hive Metastore™ API, gRPC: OperationService.Cancel
 
 Cancels the specified operation.

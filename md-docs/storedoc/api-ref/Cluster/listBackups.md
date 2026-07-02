@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > ListBackups
+
 # Managed Service for MongoDB API, REST: Cluster.ListBackups
 
 Retrieves the list of available backups for the specified MongoDB cluster.

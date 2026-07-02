@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex API Gateway](../../../../index.md) > Справочник API Websocket > [REST (англ.)](../index.md) > [Connection](index.md) > Get
+
 # API Gateway WebSocket Connection Service, REST: Connection.Get
 
 Returns the specified connection info.

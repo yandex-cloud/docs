@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DnsZone](index.md) > List
+
 # Cloud DNS API, REST: DnsZone.List
 
 Retrieves the list of DNS zones in the specified folder.

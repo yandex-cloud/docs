@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-clickhouse](../index.md) > [shard-groups](index.md) > update
+
 # yc managed-clickhouse shard-groups update
 
 Modify configuration or attributes of a ClickHouse shard group.

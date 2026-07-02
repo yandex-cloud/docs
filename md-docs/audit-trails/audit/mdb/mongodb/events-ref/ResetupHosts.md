@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mongodb > ResetupHosts
+
 # Managed Service for MongoDB Audit Trails Events: ResetupHosts
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mongodb.ResetupHosts2-schema}

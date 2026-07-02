@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > AddFederatedUserAccounts
+
 # Identity and Access Management Audit Trails Events: AddFederatedUserAccounts
 
 ## Event JSON schema {#yandex.cloud.audit.iam.AddFederatedUserAccounts2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [snapshot](index.md) > create
+
 # yc compute snapshot create
 
 Create a snapshot of the specified disk

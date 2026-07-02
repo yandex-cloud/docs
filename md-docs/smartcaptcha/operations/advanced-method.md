@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex SmartCaptcha](../index.md) > [Пошаговые инструкции](index.md) > Добавить виджет расширенным методом
+
 # Добавить виджет SmartCaptcha
 
 ## Добавить виджет SmartCaptcha расширенным методом {#advanced}

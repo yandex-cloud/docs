@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Serverless Containers](../../index.md) > Справочник API Triggers > Аутентификация в API
+
 # Аутентификация в API Serverless Containers (Триггеры)
 
 # Аутентификация в API

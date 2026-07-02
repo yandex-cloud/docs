@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [load-balancer](index.md) > create
+
 # yc application-load-balancer v0 load-balancer create
 
 Create an application load balancer

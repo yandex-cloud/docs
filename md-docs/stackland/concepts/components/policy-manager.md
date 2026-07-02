@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > Концепции > [Компоненты](overview.md) > Policy Manager
+
 # Policy Manager
 
 Policy Manager объединяет инструменты, которые проверяют ресурсы Kubernetes на соответствие политикам и генерируют отчеты в формате [OpenReports](https://openreports.io/docs/api/). За уведомлениями Policy Manager можно следить в консоли управления в разделе **Система > События**. Текущая реализация проверки политик основана на [Kyverno](https://kyverno.io/).

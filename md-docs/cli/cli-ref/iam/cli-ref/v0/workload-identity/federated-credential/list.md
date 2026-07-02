@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [iam](../../../index.md) > [v0](../../index.md) > [workload-identity](../index.md) > [federated-credential](index.md) > list
+
 # yc iam v0 workload-identity federated-credential list
 
 List federated credentials for the specified service account

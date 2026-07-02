@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > clouddesktop > SetDesktopGroupAccessBindings
+
 # Cloud Desktop Audit Trails Events: SetDesktopGroupAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.clouddesktop.SetDesktopGroupAccessBindings2-schema}

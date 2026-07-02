@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Триггер](index.md) > Триггер для бюджетов
+
 # Триггер для бюджетов, который отправляет сообщения в WebSocket-соединения
 
 [Триггер](index.md) для [бюджетов](../../../billing/concepts/budget.md) отправляет сообщения в [WebSocket-соединения](../extensions/websocket.md) при превышении пороговых значений.

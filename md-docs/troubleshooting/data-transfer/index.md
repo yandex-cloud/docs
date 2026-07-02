@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Data Transfer > Все решения для Data Transfer
+
 # Решения для Data Transfer
 
 

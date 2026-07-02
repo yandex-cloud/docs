@@ -1,27 +1,27 @@
-# Selecting data from specific columns
+# Selecting specific columns
 
-You can fetch data from all columns as well as from their their subsets. You can also rename existing columns and create new ones.
+You can select all or only specific columns. You can also rename existing columns and create new ones.
 
 For example:
 
-* Select data from the `age`, `last_visit_time`, and `region` columns.
+* Select columns `age`, `last_visit_time`, and `region`.
 * Rename `region` to `area`.
-* Change the `release_date` column type from `Int32` to `DateTime`.
+* Change `release_date` data type from `Int32` to `DateTime`.
 
 ```sql
 SELECT
-    VendorID,                           -- List column names (VendorID, trip_distance)
+    VendorID,                           -- Column names
     trip_distance,                      -- separated by commas.
-    fare_amount AS fare,                -- You can use AS to rename columns
-    (total_amount/1000) AS total_amount_thousand_dollars, -- or give a name to any expression.
-    CAST(VendorID as Uint32) AS vendorID -- You can change data type using CAST.
+    fare_amount AS fare,                -- You can use AS to rename columns.
+    (total_amount/1000) AS total_amount_thousand_dollars, -- You can use AS to name any expression.
+    CAST(VendorID as Uint32) AS vendorID -- You can convert data types using CAST.
 FROM
     `tutorial-analytics`
 LIMIT 10
 ```
 
-View the example in the right-hand section and click ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
-Query results are available in the **{{ ui-key.yql.yq-query-results.result.tab-text }}** tab as a table or schema.
+Check the example in the right-hand section and click ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
+The query result will appear in the **{{ ui-key.yql.yq-query-results.result.tab-text }}** tab as a table or chart.
 
 #### See also {#see-also}
 

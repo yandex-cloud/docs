@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Devices > [gRPC (англ.)](../index.md) > Registry > Overview
+
 # IoT Core Service, gRPC: RegistryService
 
 A set of methods for managing registry.

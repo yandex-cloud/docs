@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [RoutingInstance](index.md) > Move
+
 # Cloud Router API, REST: RoutingInstance.Move
 
 Moves the specified RoutingInstance to another folder.

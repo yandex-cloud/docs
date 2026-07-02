@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [User](index.md) > Get
+
 # Managed Service for PostgreSQL API, REST: User.Get
 
 Returns the specified PostgreSQL User resource.

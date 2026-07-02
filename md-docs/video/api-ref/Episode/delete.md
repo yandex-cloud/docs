@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Episode](index.md) > Delete
+
 # Video API, REST: Episode.Delete
 
 Deletes a specific episode by its ID.

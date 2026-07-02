@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > [Пошаговые инструкции](index.md) > Аутентификация > Работа с OS Login > Создать профиль OS Login
+
 # Создать профиль OS Login
 
 [Профили OS Login по умолчанию](../concepts/os-login.md#os-login-profiles) автоматически создаются для всех пользователей организации Yandex Identity Hub при [включении доступа по OS Login](os-login-access.md). При этом у каждого пользователя или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) может быть одновременно несколько профилей OS Login — вы можете создавать такие профили вручную. Разные профили позволяют подключаться к [ВМ](../../compute/concepts/vm.md) или узлам [кластеров](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) Kubernetes от имени разных локальных пользователей этих ВМ или узлов Kubernetes.

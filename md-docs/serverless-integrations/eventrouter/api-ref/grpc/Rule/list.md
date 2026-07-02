@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API EventRouter > [gRPC (англ.)](../index.md) > [Rule](index.md) > List
+
 # EventRouter Service, gRPC: RuleService.List
 
 Retrieves the list of rules in the specified folder.

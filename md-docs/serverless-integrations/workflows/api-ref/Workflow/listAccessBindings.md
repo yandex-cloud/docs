@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > Справочник API Workflows > [REST (англ.)](../index.md) > [Workflow](index.md) > ListAccessBindings
+
 # Workflows Service, REST: Workflow.ListAccessBindings
 
 Lists existing access bindings for the specified Workflow.

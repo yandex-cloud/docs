@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > Create
+
 # Managed Service for ClickHouse API, REST: Cluster.Create
 
 Creates a ClickHouse cluster in the specified folder.

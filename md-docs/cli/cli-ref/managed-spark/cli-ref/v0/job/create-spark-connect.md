@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-spark](../../index.md) > [v0](../index.md) > [job](index.md) > create-spark-connect
+
 # yc managed-spark v0 job create-spark-connect
 
 Create Spark Connect job.

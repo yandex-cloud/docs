@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex SpeechKit Hybrid](index.md) > Администрирование SpeechKit Hybrid > Мониторинг Envoy
+
 # Мониторинг сервисов Envoy
 
 Сервисы Envoy – это собирательное название компонентов SpeechKit Hybrid Envoy и License server. Подробнее о компонентах SpeechKit Hybrid читайте в [Архитектура сервиса SpeechKit Hybrid](architecture.md).

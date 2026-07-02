@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [trunk-connection](index.md) > move
+
 # yc cic v0 trunk-connection move
 
 Move the specified trunk connection into the folder

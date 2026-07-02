@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Network Load Balancer](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Network Load Balancer
 
 ## Сетевой балансировщик {#load-balancer}

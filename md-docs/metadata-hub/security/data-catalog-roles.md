@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Data Catalog > Сервисные роли для управления доступом
+
 # Сервисные роли для работы с метаданными в Yandex Data Catalog
 
 

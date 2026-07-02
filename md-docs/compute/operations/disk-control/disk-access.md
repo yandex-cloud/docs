@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Управление диском > Настроить права доступа к диску
+
 # Настроить права доступа к диску
 
 Чтобы предоставить пользователю, группе или [сервисному аккаунту](../../../iam/concepts/users/service-accounts.md) доступ к [диску](../../concepts/disk.md), назначьте на него [роль](../../../iam/concepts/access-control/roles.md).

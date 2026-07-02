@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > list-logs
+
 # yc managed-clickhouse cluster list-logs
 
 Retrieve logs for a ClickHouse cluster.

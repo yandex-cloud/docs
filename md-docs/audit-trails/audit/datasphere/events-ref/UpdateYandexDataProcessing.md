@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > UpdateYandexDataProcessing
+
 # DataSphere Audit Trails Events: UpdateYandexDataProcessing
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.UpdateYandexDataProcessing2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [node-group](index.md) > get
+
 # yc container node-group get
 
 Get information about a node group.

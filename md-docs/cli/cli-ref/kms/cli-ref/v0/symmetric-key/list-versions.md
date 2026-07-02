@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [kms](../../index.md) > [v0](../index.md) > [symmetric-key](index.md) > list-versions
+
 # yc kms v0 symmetric-key list-versions
 
 List versions of the specified symmetric key

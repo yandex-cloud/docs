@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Концепции](index.md) > Управление памятью
+
 # Управление памятью в Managed Service for ClickHouse®
 
 За объем оперативной памяти, доступной для использования ClickHouse®, отвечает настройка [Max server memory usage](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#max_server_memory_usage).

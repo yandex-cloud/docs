@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Marketplace](../../../../index.md) > Партнерам > Справочник Metering API > [gRPC (англ.)](../index.md) > [ProductUsage](index.md) > Write
+
 # Marketplace Metering API, gRPC: ProductUsageService.Write
 
 Writes product's usage (authenticated by publisher's service account)

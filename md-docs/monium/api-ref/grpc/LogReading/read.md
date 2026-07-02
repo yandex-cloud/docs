@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Monium](../../../index.md) > Справочник API > Логи > [gRPC (англ.)](../index.md) > [LogReading](index.md) > Read
+
 # Cloud Logging Service, gRPC: LogReadingService.Read
 
 Read log entries from the specified log group.

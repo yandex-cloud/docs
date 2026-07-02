@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [GpuCluster](index.md) > ListInstances
+
 # Compute Cloud API, REST: GpuCluster.ListInstances
 
 List instances created in this GPU cluster.

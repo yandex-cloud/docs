@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Справочник API](../overview.md) > [REST (англ.)](../index.md) > [S3](index.md) > Deactivate
+
 # DataSphere API v2, REST: S3.Deactivate
 
 Deactivates shared s3 for project

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-trino](../../index.md) > [v0](../index.md) > [cluster](index.md) > delete
+
 # yc managed-trino v0 cluster delete
 
 Delete the specified Trino cluster

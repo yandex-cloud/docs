@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Yandex Data Processing > Все решения для Yandex Data Processing
+
 # Решения для Yandex Data Processing
 
 

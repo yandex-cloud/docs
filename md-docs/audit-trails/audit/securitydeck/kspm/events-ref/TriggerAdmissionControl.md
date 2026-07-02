@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > securitydeck.kspm > TriggerAdmissionControl
+
 # Security Deck KSPM Audit Trails Events: TriggerAdmissionControl
 
 ## Event JSON schema {#yandex.cloud.audit.securitydeck.kspm.TriggerAdmissionControl2-schema}

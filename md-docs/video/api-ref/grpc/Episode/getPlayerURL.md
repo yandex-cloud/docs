@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Episode](index.md) > GetPlayerURL
+
 # Video API, gRPC: EpisodeService.GetPlayerURL
 
 Generates a player URL for watching the episode.

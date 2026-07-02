@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [registry](index.md) > create
+
 # yc iot v0 registry create
 
 Create new device registry

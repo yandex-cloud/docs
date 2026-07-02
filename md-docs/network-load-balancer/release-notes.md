@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Network Load Balancer](index.md) > История изменений
+
 # История изменений в Yandex Network Load Balancer
 
 ## I квартал 2025 {#q1-2025}

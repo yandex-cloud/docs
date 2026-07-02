@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [container](../index.md) > [node-group](index.md) > add-metadata
+
 # yc container node-group add-metadata
 
 Add or update metadata of the node template of the specified node group.

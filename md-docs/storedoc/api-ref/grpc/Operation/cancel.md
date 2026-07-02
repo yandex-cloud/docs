@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Managed Service for MongoDB API, gRPC: OperationService.Cancel
 
 Cancels the specified operation.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v0](../../index.md) > [idp](../index.md) > [user](index.md) > set-own-password
+
 # yc organization-manager v0 idp user set-own-password
 
 Set the password for the authenticated user

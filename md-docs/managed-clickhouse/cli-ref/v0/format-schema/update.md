@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [format-schema](index.md) > update
+
 # yc managed-clickhouse v0 format-schema update
 
 Modify configuration or attributes of a ClickHouse format schema.

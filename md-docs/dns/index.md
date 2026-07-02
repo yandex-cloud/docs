@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Cloud DNS > Cloud DNS
+
 # Yandex Cloud DNS
 
 Yandex Cloud DNS служит для управления зонами DNS и доменными именами ваших ресурсов.

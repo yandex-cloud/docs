@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-kafka](../../index.md) > [v0](../index.md) > [cluster](index.md) > update
+
 # yc managed-kafka v0 cluster update
 
 Modify configuration or attributes of a Kafka cluster.

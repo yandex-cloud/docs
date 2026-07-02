@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Audit Trails](index.md) > Начало работы
+
 # Как начать работать с Audit Trails
 
 Audit Trails собирает [аудитные логи](concepts/format.md) ресурсов Yandex Cloud для контроля действий с ресурсами и событий доступа. Логи можно загружать в [бакет](../storage/concepts/bucket.md) Yandex Object Storage, [лог-группу](../logging/concepts/log-group.md) Yandex Cloud Logging или [поток данных](../data-streams/concepts/glossary.md#stream-concepts) Yandex Data Streams.
@@ -70,7 +72,7 @@ Audit Trails собирает [аудитные логи](concepts/format.md) р
      
        {% note warning %}
        
-       В консоли управления сбор некоторых событий [уровня сервисов](concepts/control-plane-vs-data-plane.md#data-plane-events) включен [по умолчанию](concepts/trail.md#default). Их доставка оплачивается в соответствии с [правилами тарификации](../../audit-trails/pricing.md). Если события уровня сервисов вам не нужны, отключите их сбор.
+       В консоли управления сбор некоторых событий [уровня сервисов](concepts/control-plane-vs-data-plane.md#data-plane-events) включен [по умолчанию](concepts/trail.md#default). Их доставка оплачивается в соответствии с [правилами тарификации](pricing.md). Если события уровня сервисов вам не нужны, отключите их сбор.
        
        {% endnote %}
      
@@ -109,7 +111,7 @@ Audit Trails собирает [аудитные логи](concepts/format.md) р
      
        {% note warning %}
        
-       В консоли управления сбор некоторых событий [уровня сервисов](concepts/control-plane-vs-data-plane.md#data-plane-events) включен [по умолчанию](concepts/trail.md#default). Их доставка оплачивается в соответствии с [правилами тарификации](../../audit-trails/pricing.md). Если события уровня сервисов вам не нужны, отключите их сбор.
+       В консоли управления сбор некоторых событий [уровня сервисов](concepts/control-plane-vs-data-plane.md#data-plane-events) включен [по умолчанию](concepts/trail.md#default). Их доставка оплачивается в соответствии с [правилами тарификации](pricing.md). Если события уровня сервисов вам не нужны, отключите их сбор.
        
        {% endnote %}
      

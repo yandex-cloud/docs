@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Certificate Manager](../index.md) > [Практические руководства](index.md) > Хостинг статического сайта на фреймворке Gatsby в Object Storage
+
 # Хостинг статического сайта на фреймворке Gatsby в Yandex Object Storage
 
 С помощью этого руководства вы разместите свой статический сайт, созданный на фреймворке [Gatsby](https://www.gatsbyjs.com/docs), в сервисе [Object Storage](../../storage/index.md) и настроите доступ к нему по протоколу HTTPS с помощью сервиса [Yandex Certificate Manager](../index.md).

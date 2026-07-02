@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Создание кластера
+
 # Создание кластера OpenSearch
 
 
@@ -11,7 +13,11 @@
 
 ## Роли для создания кластера {#roles}
 
-Для создания кластера Managed Service for OpenSearch нужна роль [vpc.user](../../vpc/security/index.md#vpc-user) и роль [managed-opensearch.editor](../security/index.md#managed-opensearch-editor) или выше.
+Для создания кластера Managed Service for OpenSearch и работы с ним вашему аккаунту в Yandex Cloud нужны роли:
+
+* [managed-opensearch.editor](../security/index.md#managed-opensearch-editor) или выше — чтобы создать кластер;
+* [vpc.user](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
+* [mdb.viewer](../../iam/roles-reference.md#mdb-viewer) — чтобы просматривать кластеры управляемых баз данных (MDB) на дашборде в [консоли управления](https://console.yandex.cloud).
 
 Если вы хотите привязать сервисный аккаунт к кластеру (например, для [работы с Yandex Object Storage](s3-access.md)), вашему аккаунту в Yandex Cloud нужна роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 

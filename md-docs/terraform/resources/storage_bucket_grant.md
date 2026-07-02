@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Object Storage > Resources > storage_bucket_grant
+
 # yandex_storage_bucket_grant (Resource)
 
 Allows management of grants on an existing [Yandex Cloud Storage Bucket](../../storage/concepts/bucket.md).

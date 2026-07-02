@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > baremetal > UpdateServer
+
 # BareMetal Audit Trails Events: UpdateServer
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.UpdateServer2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LoadBalancer](index.md) > Delete
+
 # Application Load Balancer API, gRPC: LoadBalancerService.Delete
 
 Deletes the specified application load balancer.

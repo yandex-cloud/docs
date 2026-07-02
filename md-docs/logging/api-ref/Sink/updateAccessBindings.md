@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Sink](index.md) > UpdateAccessBindings
+
 # Cloud Logging Service, REST: Sink.UpdateAccessBindings
 
 Updates access bindings for the specified sink.

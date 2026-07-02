@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [Identity Provider API](../index.md) > [User](index.md) > Reactivate
+
 # Identity Provider API, REST: User.Reactivate
 
 Reactivates a previously suspended user.

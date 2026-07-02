@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity and Access Management](../../../../index.md) > Справочник API > REST (англ.) > [Workload Identity](../index.md) > [FederatedCredential](index.md) > List
+
 # Workload Identity, REST: FederatedCredential.List
 
 Retrieves the list of federated credentials for the specified service account.

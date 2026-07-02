@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > [Справочник CLI (англ.)](../index.md) > [routing-instance](index.md) > remove-labels
+
 # yc cloudrouter routing-instance remove-labels
 
 Remove labels from a RoutingInstance resource.

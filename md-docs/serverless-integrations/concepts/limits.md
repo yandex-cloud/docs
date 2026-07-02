@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Integrations](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Serverless Integrations
 
 В сервисе Serverless Integrations действуют следующие ограничения:

@@ -1,4 +1,4 @@
-# Creating and executing functions
+# Creating and running functions
 
 You can create a function for any of the supported runtime environments.
 

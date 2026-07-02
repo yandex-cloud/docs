@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > StandardImage > Overview
+
 # BareMetal API, REST: StandardImage
 
 A set of methods to retrieve information about standard image .

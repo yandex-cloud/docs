@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for MySQL®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Restore
+
 # Managed Service for MySQL API, gRPC: ClusterService.Restore
 
 Restores a backup to a new cluster.

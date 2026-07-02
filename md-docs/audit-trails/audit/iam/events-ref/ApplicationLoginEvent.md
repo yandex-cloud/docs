@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > ApplicationLoginEvent
+
 # Identity and Access Management Audit Trails Events: ApplicationLoginEvent
 
 ## Event JSON schema {#yandex.cloud.audit.iam.credential.ApplicationLoginEvent2-schema}

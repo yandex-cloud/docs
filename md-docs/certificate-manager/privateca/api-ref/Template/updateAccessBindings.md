@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Certificate Manager](../../../index.md) > Справочник API > REST (англ.) > [Certificate Manager Private CA API](../index.md) > [Template](index.md) > UpdateAccessBindings
+
 # Certificate Manager Private CA API, REST: Template.UpdateAccessBindings
 
 Updates existing access bindings for a certificate template.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-kubernetes](../index.md) > [node-group](index.md) > add-labels
+
 # yc managed-kubernetes node-group add-labels
 
 Add labels to the specified node group.

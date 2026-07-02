@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API EventRouter > [gRPC (англ.)](../index.md) > [Connector](index.md) > UpdateAccessBindings
+
 # EventRouter Service, gRPC: ConnectorService.UpdateAccessBindings
 
 Updates access bindings for the specified connector.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [waf](../index.md) > [waf-profile](index.md) > list
+
 # yc smartwebsecurity waf waf-profile list
 
 Retrieves the list of WafProfile resources in the specified folder.

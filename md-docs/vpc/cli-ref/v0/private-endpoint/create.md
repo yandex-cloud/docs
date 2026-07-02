@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [private-endpoint](index.md) > create
+
 # yc vpc v0 private-endpoint create
 
 Create a private endpoint.

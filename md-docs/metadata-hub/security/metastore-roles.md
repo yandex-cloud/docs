@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Apache Hive™ Metastore > Сервисные роли для управления доступом
+
 # Сервисные роли для работы с метаданными в кластере Apache Hive™ Metastore
 
 С помощью сервисных ролей Apache Hive™ Metastore вы можете просматривать информацию о кластерах Apache Hive™ Metastore и управлять ими.

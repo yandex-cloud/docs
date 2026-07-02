@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [dataproc](../index.md) > [cluster](index.md) > delete
+
 # yc dataproc cluster delete
 
 Delete a cluster.

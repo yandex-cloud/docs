@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [placement-group](index.md) > update
+
 # yc compute placement-group update
 
 Update the specified placement group

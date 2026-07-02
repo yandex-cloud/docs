@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [AWS S3 REST](../../index.md) > [REST](../index.md) > Bucket > PutBucketVersioning
+
 # Object Storage API, REST совместимый с Amazon S3: PutBucketVersioning
 
 Включает или приостанавливает версионирование бакета.

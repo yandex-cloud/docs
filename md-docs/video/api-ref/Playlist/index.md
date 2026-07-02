@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > Playlist > Overview
+
 # Video API, REST: Playlist
 
 Playlist management service.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Spark™](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Обновление версии Apache Spark™
+
 # Обновление версии Apache Spark™
 
 Вы можете изменить версию Apache Spark™ на любую из [поддерживаемых](#available-versions) в Managed Service for Apache Spark™. Версию можно только повысить.

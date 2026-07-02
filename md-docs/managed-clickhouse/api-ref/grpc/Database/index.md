@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Database > Overview
+
 # Managed Service for ClickHouse API, gRPC: DatabaseService
 
 A set of methods for managing ClickHouse Database resources.

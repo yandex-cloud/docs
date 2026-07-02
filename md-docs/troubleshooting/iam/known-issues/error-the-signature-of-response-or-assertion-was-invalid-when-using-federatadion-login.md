@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Identity and Access Management](../index.md) > Устранение ошибки `The signature of response or assertion was invalid` при авторизации федеративным аккаунтом
+
 # Устранение ошибки `The signature of response or assertion was invalid` при аутентификации через федеративный аккаунт
 
 

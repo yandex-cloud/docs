@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > Workflows > [Конструктор шагов рабочего процесса](index.md) > Интеграционные шаги > Database Query
+
 # Выполнение SQL-запросов к базам данных
 
 {% list tabs %}

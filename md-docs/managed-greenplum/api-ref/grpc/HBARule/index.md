@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > HBARule > Overview
+
 # Managed Service for Greenplum® API, gRPC: HBARuleService
 
 A set of methods for managing Greenplum clusters.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > [Практические руководства](index.md) > Эксплуатация > Развертывание gRPC-сервиса на основе Docker-образа
+
 # Развертывание gRPC-сервиса на основе Docker-образа
 
 В этом практическом руководстве вы развернете эхо-сервис, работающий по протоколу gRPC, на основе [Docker-образа](../concepts/deploy/index.md#docker-node). Сервис передает метрики в текстовом формате [Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format) и запускается на порте `9875`.
@@ -24,7 +26,7 @@
 
 В стоимость развертывания сервиса на основе Docker-образа входят:
 
-* плата за постоянно запущенные инстансы ноды ([тарифы DataSphere](../../datasphere/pricing.md));
+* плата за постоянно запущенные инстансы ноды ([тарифы DataSphere](../pricing.md));
 * плата за запуск ячеек с кодом для проверки работы развернутого сервиса;
 * объем хранилища, занятый данными Yandex Container Registry ([тарифы Container Registry](../../container-registry/pricing.md)).
 

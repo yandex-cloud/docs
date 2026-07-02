@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity and Access Management](../../../../../index.md) > Справочник API > gRPC (англ.) > [Workload Identity](../index.md) > [FederatedCredential](index.md) > Create
+
 # Workload Identity, gRPC: FederatedCredentialService.Create
 
 Creates a federated credential for the specified service account.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Начало работы](../index.md) > [Создание функции](index.md) > Go
+
 # Создание функции на Go
 
 Создайте и выполните [функцию](../../concepts/function.md) на Go, которая приветствует пользователя.

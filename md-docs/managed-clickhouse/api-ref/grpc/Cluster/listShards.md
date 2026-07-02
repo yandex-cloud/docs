@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > ListShards
+
 # Managed Service for ClickHouse API, gRPC: ClusterService.ListShards
 
 Retrieves a list of shards that belong to the specified cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Разработка и тестирование](index.md) > Развертывание GitLab Runner на виртуальной машине Compute Cloud
+
 # Развертывание GitLab Runner на виртуальной машине Yandex Compute Cloud
 
 [GitLab Runner](https://docs.gitlab.com/runner/) — приложение с открытым исходным кодом, которое выполняет задания конвейерной обработки GitLab [CI/CD](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd) по инструкциям из специального файла `.gitlab-ci.yml`. GitLab Runner можно развернуть не только в [кластере Yandex Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), но и на виртуальной машине Compute Cloud — это проще и дешевле.

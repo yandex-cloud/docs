@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > DeleteBranding
+
 # Identity Hub Audit Trails Events: DeleteBranding
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.idp.branding.DeleteBranding2-schema}

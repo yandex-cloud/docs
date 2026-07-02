@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.kafka > DeleteUser
+
 # Managed Service for Apache Kafka® Audit Trails Events: DeleteUser
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.kafka.DeleteUser2-schema}

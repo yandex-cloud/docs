@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [marketplace](../index.md) > [helm-release](index.md) > get
+
 # yc managed-kubernetes marketplace helm-release get
 
 Get information about an installed Helm Release.

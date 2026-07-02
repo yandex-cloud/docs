@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [role](index.md) > list
+
 # yc iam v0 role list
 
 List roles

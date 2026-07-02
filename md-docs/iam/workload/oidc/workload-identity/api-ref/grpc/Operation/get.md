@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Yandex Identity and Access Management](../../../../../../index.md) > Справочник API > gRPC (англ.) > Workload Identity > [Federation](../index.md) > [Operation](index.md) > Get
+
 # Federation, gRPC: OperationService.Get
 
 Returns the specified Operation resource.

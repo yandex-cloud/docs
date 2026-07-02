@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Trail](index.md) > ListOperations
+
 # Audit Trails API, gRPC: TrailService.ListOperations
 
 Lists operations for the specified trail.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [registry](index.md) > remove-ip-permissions
+
 # yc container registry remove-ip-permissions
 
 Remove ip permissions for the specified registry

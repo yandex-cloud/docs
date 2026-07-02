@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Пошаговые инструкции](../index.md) > Управление Helm-чартом > Получить информацию об имеющихся Helm-чартах
+
 # Получить информацию об имеющихся Helm-чартах
 
 Вы можете получить список [Helm-чартов](https://helm.sh/docs/topics/charts/) в репозитории Container Registry. В Container Registry Helm-чарты хранятся так же, как и обычные [Docker-образы](../../concepts/docker-image.md).

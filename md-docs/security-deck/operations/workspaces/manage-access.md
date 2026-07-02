@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Security Deck](../../index.md) > [Пошаговые инструкции](../index.md) > [Окружения Security Deck](index.md) > Настроить права доступа к окружению
+
 # Настроить права доступа к окружению Security Deck
 
 Чтобы настроить доступ к [окружению](../../concepts/workspace.md) Security Deck для других пользователей:

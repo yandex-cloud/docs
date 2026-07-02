@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Functions](../../../index.md) > [Разработка на Java](../index.md) > [Модель программирования](index.md) > Класс HttpServlet
+
 # Использование класса HttpServlet для задания обработчика на Java
 
 Вы можете задать обработчик на Java, переопределив выбранные методы класса [HttpServlet](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [database](index.md) > delete
+
 # yc managed-mongodb v0 database delete
 
 Delete a MongoDB database.

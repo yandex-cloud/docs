@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Serverless Integrations](../../../index.md) > [Пошаговые инструкции](../../index.md) > Workflows > Управление правами доступа к рабочему процессу > Назначить роли на рабочий процесс
+
 # Назначить роли на рабочий процесс
 
 {% list tabs group=instructions %}

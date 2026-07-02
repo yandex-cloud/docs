@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Connection Manager > Пошаговые инструкции > Настройка прав доступа к подключению
+
 # Настроить права доступа к подключению
 
 

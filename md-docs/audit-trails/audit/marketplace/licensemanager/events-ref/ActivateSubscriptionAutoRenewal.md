@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > marketplace.licensemanager > ActivateSubscriptionAutoRenewal
+
 # Yandex Cloud Marketplace Audit Trails Events: ActivateSubscriptionAutoRenewal
 
 ## Event JSON schema {#yandex.cloud.audit.marketplace.licensemanager.ActivateSubscriptionAutoRenewal2-schema}

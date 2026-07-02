@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex DataLens](index.md) > Аудитные логи Audit Trails
+
 # Справочник аудитных логов Yandex Audit Trails
 
 В Audit Trails для Yandex DataLens поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane).
@@ -60,4 +62,4 @@ yandex.cloud.audit.datalens.<имя_события>
 `UpdateWorkbook` | Изменение воркбука
 `UpdateWorkbookAccessBindings` | Изменение настроек доступа к воркбуку
 
-^1^ С 1 декабря 2025 года события больше не передаются в связи с прекращением действия [тарифа Business](../../../datalens/pricing-changes.md).
+^1^ С 1 декабря 2025 года события больше не передаются в связи с прекращением действия [тарифа Business](pricing-changes.md).

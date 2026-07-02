@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Certificate Manager](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Certificate](index.md) > ListAccessBindings
+
 # Certificate Manager API, REST: Certificate.ListAccessBindings
 
 Lists existing access bindings for the specified certificate.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Group](index.md) > CreateExternal
+
 # Identity Hub API, REST: Group.CreateExternal
 
 Creates an external group.

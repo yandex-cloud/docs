@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Postbox](../../index.md) > [Справочник API](../index.md) > [REST](index.md) > Адреса > Метод PutDomainIdentityDkimAttributes
+
 # Метод PutDomainIdentityDkimAttributes
 
 Включает или отключает [DKIM-подпись](https://ru.wikipedia.org/wiki/DomainKeys_Identified_Mail) для [адреса](../../concepts/glossary.md#adress). Позволяет получателю убедиться, что письмо действительно было отправлено с заявленного домена. Применяется для борьбы с фишинговыми письмами и спамом.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Backup](index.md) > Delete
+
 # Managed Service for MongoDB API, REST: Backup.Delete
 
 Returns the list of available backups for the specified MongoDB cluster.

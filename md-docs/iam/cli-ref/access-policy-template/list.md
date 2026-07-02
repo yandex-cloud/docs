@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Справочник CLI (англ.)](../index.md) > [access-policy-template](index.md) > list
+
 # yc iam access-policy-template list
 
 List available access policy templates

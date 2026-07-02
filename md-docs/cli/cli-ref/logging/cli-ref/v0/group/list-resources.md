@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [logging](../../index.md) > [v0](../index.md) > [group](index.md) > list-resources
+
 # yc logging v0 group list-resources
 
 List log group resources

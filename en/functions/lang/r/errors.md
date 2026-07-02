@@ -1,12 +1,12 @@
 # R function error handling
 
-If a [handler](handler.md) reports a R function runtime or loading error, the [runtime environment](../../concepts/runtime/index.md) automatically captures the error and returns a JSON document with the error type in the response. For more information about the JSON document format, see [Calling a function](../../concepts/function-invoke.md#error).
+If the [handler](handler.md) reports an R function execution or loading error, the [runtime](../../concepts/runtime/index.md) automatically catches the error and returns a JSON document with information about the error type. For more information about the JSON document format, see [Invoking a function](../../concepts/function-invoke.md#error).
 
 The error info is also written to the [execution log](logging.md). You can [view](../../operations/function/function-logs.md) the log via the [{{ yandex-cloud }} CLI](../../../cli/index.yaml) or the [management console]({{ link-console-main }}).
 
 #### Examples of error handling {#examples}
 
-Case 1: User code goes outside the array boundaries, resulting in `non-numeric argument to binary operator`. The [runtime environment](../../concepts/runtime/index.md) intercepts the exception and generates a JSON document stating the error message (`errorMessage` field) and error type (`errorType` field).
+Case 1: User code goes outside the array boundaries, causing the function to throw `non-numeric argument to binary operator`. The [runtime](../../concepts/runtime/index.md) catches the exception and generates a JSON document containing the error message (the `errorMessage` field) and error type (the `errorType` field).
 
 Function code:
 

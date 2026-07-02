@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.redis > CreateCluster
+
 # Managed Service for ValKey Audit Trails Events: CreateCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.redis.CreateCluster2-schema}

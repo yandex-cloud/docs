@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Message Queue](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Message Queue
 
 В сервисе Yandex Message Queue действуют следующие ограничения:

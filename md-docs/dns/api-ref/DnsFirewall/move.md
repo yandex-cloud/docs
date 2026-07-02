@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DnsFirewall](index.md) > Move
+
 # Cloud DNS API, REST: DnsFirewall.Move
 
 Moves the specified DNS firewall to another folder.

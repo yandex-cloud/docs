@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > [user](index.md) > revoke-permission
+
 # yc managed-mongodb user revoke-permission
 
 Revoke a permission from the specified MongoDB user.

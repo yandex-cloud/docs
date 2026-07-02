@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [config](../index.md) > v0 > Overview
+
 # yc config v0
 
 The 'yc config' command group lets you set, view and unset properties used by Yandex Cloud CLI.

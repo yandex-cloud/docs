@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Пошаговые инструкции](index.md) > Управление коннекторами
+
 # Управление коннекторами
 
 [Коннектор](../concepts/connectors.md) управляет процессом переноса топиков Apache Kafka® в другой кластер или другую систему хранения данных.

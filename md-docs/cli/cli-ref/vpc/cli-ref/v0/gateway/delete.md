@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [vpc](../../index.md) > [v0](../index.md) > [gateway](index.md) > delete
+
 # yc vpc v0 gateway delete
 
 Delete a gateway.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > add-labels
+
 # yc managed-postgresql cluster add-labels
 
 Add labels to PostgreSQL cluster

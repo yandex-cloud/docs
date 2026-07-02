@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MetaData Hub](../../../index.md) > Apache Hive™ Metastore > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > import-data
+
 # yc managed-metastore v0 cluster import-data
 
 Import data to the specified Metastore cluster

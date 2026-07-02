@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Trino](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Managed Service for Trino API, gRPC: OperationService.Cancel
 
 Cancels the specified operation.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex SpeechKit Hybrid](../index.md) > Распознавание речи > О технологии
+
 # Распознавание речи
 
 ## Перед началом работы {#before-you-begin}

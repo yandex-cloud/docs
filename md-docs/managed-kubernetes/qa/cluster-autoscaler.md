@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > Вопросы и ответы > Автоматическое масштабирование
+
 # Вопросы и ответы про автоматическое масштабирование группы узлов в Managed Service for Kubernetes
 
 * [Почему в моем кластере стало N узлов и он не уменьшается?](#not-scaling-down)

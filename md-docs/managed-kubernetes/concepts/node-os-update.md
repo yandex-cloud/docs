@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Концепции](index.md) > Обновление операционной системы в группе узлов
+
 # Обновление операционной системы в группе узлов
 
 Начиная с Kubernetes версии 1.30 во всех [релизных каналах](release-channels-and-updates.md) операционная система узлов кластера Managed Service for Kubernetes изменилась с Ubuntu 20.04 на Ubuntu 22.04.

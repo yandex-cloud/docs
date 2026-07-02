@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > Инструменты > Все инструменты
+
 # Поддерживаемые инструменты
 
 Object Storage поддерживает некоторые методы HTTP API Amazon S3. Это позволяет использовать при работе с Object Storage не только инструменты Yandex Cloud, но и популярные инструменты для работы с Amazon S3.

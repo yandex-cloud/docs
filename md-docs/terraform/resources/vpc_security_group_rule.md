@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Virtual Private Cloud > Resources > vpc_security_group_rule
+
 # yandex_vpc_security_group_rule (Resource)
 
 Manages `Security Group Rule` within the Yandex Cloud. For more information, see [Documentation](../../vpc/concepts/security-groups.md).

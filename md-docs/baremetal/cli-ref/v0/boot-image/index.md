@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > boot-image > Overview
+
 # yc baremetal v0 boot-image
 
 Manage images

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex IoT Core](../../../../index.md) > Справочник API Broker > [gRPC (англ.)](../index.md) > [Operation](index.md) > Get
+
 # IoT Core Broker Service, gRPC: OperationService.Get
 
 Returns the specified Operation resource.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Концепции](overview.md) > Квоты и лимиты
+
 # Квоты и лимиты в Yandex MPP Analytics for PostgreSQL
 
 

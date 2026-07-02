@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > [Справочник CLI (англ.)](../index.md) > [private-connection](index.md) > batch-get
+
 # yc cic private-connection batch-get
 
 Get list of PrivateConnections by their IDs

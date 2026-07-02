@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Чарты > QL-чарты > Создание QL-чарта
+
 # Создание QL-чарта в Yandex DataLens
 
 

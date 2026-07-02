@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Инструменты Application Load Balancer](index.md) > Gwin > Миграция приложений с Ingress NGINX на Gwin
+
 # Миграция приложений с Ingress NGINX на Gwin
 
 Yandex Application Load Balancer позволяет создавать балансировщики нагрузки и управлять ими в [кластерах Yandex Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster) с помощью контроллера [Gwin](gwin-index.md). Контроллер Gwin, установленный в кластере, автоматически разворачивает [L7-балансировщики](../../application-load-balancer/concepts/application-load-balancer.md) на основе конфигурации ваших ресурсов Kubernetes.

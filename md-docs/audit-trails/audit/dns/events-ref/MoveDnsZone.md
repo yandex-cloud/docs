@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > dns > MoveDnsZone
+
 # Cloud DNS Audit Trails Events: MoveDnsZone
 
 ## Event JSON schema {#yandex.cloud.audit.dns.MoveDnsZone2-schema}

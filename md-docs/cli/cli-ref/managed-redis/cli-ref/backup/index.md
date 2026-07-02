@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-redis](../index.md) > backup > Overview
+
 # yc managed-redis backup
 
 Manage Redis backups

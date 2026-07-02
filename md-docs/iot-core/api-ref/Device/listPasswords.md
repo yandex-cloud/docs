@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > [REST (англ.)](../index.md) > [Device](index.md) > ListPasswords
+
 # IoT Core Service, REST: Device.ListPasswords
 
 Retrieves the list of passwords for the specified device.

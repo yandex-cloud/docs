@@ -1,8 +1,8 @@
-# Reading data from {{ objstorage-name }} using {{ yq-name }} connections
+# Reading data from {{ objstorage-name }} via {{ yq-name }} connections
 
-When working with {{ objstorage-full-name }}, it is convenient to use connections for prototyping and initial setup of connections to data.
+Using {{ objstorage-full-name }} connections is convenient for prototyping and initial data access configuration.
 
-Sample query for reading data:
+Query example for reading data:
 
 ```sql
 SELECT
@@ -45,31 +45,31 @@ WHERE
 
 Where:
 
-* `<connection>`: Name of the storage [connection](#create_connection).
-* `<path>`: Path to a file or files in the bucket. Wildcard characters (`*`) are supported.
-* `<data_format>`: [Data format](formats.md#formats) in the files.
+* `<connection>`: Storage [connection](#create_connection) name.
+* `<path>`: Path to file(s) within the bucket. Supports the `*` wildcard.
+* `<data_format>`: File [data format](formats.md#formats).
 * `<compression_format>`: File [compression format](formats.md#compression_formats).
-* `<schema_description>`: [Data schema description](#schema) in the files.
+* `<data_schema>`: [Description of data](#schema) stored in files.
 
-### Data schema description {#schema}
+### Data schema {#schema}
 
-Data schema description includes the following fields:
+The data schema includes the following fields:
 
 - Field name
 - Field type
-- Attribute indicating a required field
+- Required flag
 
-For example, the below data schema describes a required schema field named `Year` of the `Int32` type:
+For example, the schema below describes a required field `Year` of type `Int32`:
 
 ```text
 Year Int32 NOT NULL
 ```
 
-If a field is marked as required (`NOT NULL`) but it is missing from the file being processed, this operation will fail with an error. If a field is marked as optional (`NULL`), no error will occur if that field is missing from the file being processed but the field will take the `NULL` value. The `NULL` keyword in optional fields is optional.
+If a `NOT NULL` field is missing from the file being processed, the operation will terminate with an error. If a nullable field is missing from the file being processed, no error will occur, and the field will be set to `NULL`. The `NULL` keyword may be omitted in nullable fields.
 
-### Automatic output of a data schema {#inferring}
+### Automatic schema inference {#inferring}
 
-Automatic output of a schema is available for all [data formats](formats.md#formats) except `raw` and `json_as_string`. This is convenient when a schema contains a large number of fields. To avoid entering these fields manually, use the `WITH_INFER` parameter:
+Automatic schema inference is supported for all [data formats](formats.md#formats) except `raw` and `json_as_string`. It is convenient when a schema has many fields. Instead of entering them manually, you can use the `WITH_INFER` hint:
 
 ```sql
 SELECT
@@ -86,23 +86,23 @@ WHERE
 
 Where:
 
-* `<connection>`: Name of the storage [connection](#create_connection).
-* `<path>`: Path to a file or files in the bucket. Wildcard characters (`*`) are supported.
-* `<data_format>`: [Data format](formats.md#formats) in the files.
+* `<connection>`: Storage [connection](#create_connection) name.
+* `<path>`: Path to file(s) within the bucket. Supports the `*` wildcard.
+* `<data_format>`: File [data format](formats.md#formats).
 * `<compression_format>`: File [compression format](formats.md#compression_formats).
 
 
-This request will automatically output field names and types.
+This query will automatically infer field names and types.
 
 ### Data path formats {#path_format}
 
-{{ yq-full-name }} supports the following paths to data:
+{{ yq-full-name }} supports the following data path formats:
 
 {% include [!](../_includes/object-storage-path-format.md) %}
 
-## Example of reading data using connections {#read_example}
+## Example of reading data via connections {#read_example}
 
-Sample query for reading data from {{ objstorage-short-name }}:
+Query example for reading data from {{ objstorage-short-name }}:
 
 ```sql
 SELECT
@@ -123,6 +123,6 @@ WITH(
 
 Where:
 
-* `connection`: Name of the connection to {{ objstorage-short-name }}.
-* `folder/filename.csv`: Path to the file in the {{ objstorage-short-name }} bucket.
-* `SCHEMA`: Data schema description in the file.
+* `connection`: {{ objstorage-short-name }} connection name.
+* `folder/filename.csv`: File path within the {{ objstorage-short-name }} bucket.
+* `SCHEMA`: Data schema described in the file.

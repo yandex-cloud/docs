@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Кластеры GPU > Проверить пропускную способность InfiniBand
+
 # Проверить пропускную способность InfiniBand
 
 1. [Подключитесь](../vm-connect/ssh.md) к ВМ по SSH.

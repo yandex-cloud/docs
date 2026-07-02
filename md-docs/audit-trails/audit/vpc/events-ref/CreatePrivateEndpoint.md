@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > vpc > CreatePrivateEndpoint
+
 # Virtual Private Cloud Audit Trails Events: CreatePrivateEndpoint
 
 ## Event JSON schema {#yandex.cloud.audit.network.CreatePrivateEndpoint2-schema}

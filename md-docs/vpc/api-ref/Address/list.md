@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Address](index.md) > List
+
 # Virtual Private Cloud API, REST: Address.List
 
 Retrieves the list of Address resources in the specified folder.

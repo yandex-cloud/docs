@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [SAML Federation API](../index.md) > [Certificate](index.md) > Update
+
 # SAML Federation API, gRPC: CertificateService.Update
 
 Updates the specified certificate.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Пошаговые инструкции](../index.md) > Создание триггера > Создать триггер для Container Registry
+
 # Создать триггер для Container Registry, который отправляет сообщения в WebSocket-соединения
 
 Создайте [триггер для Container Registry](../../concepts/trigger/cr-trigger.md), который будет отправлять сообщения в [WebSocket-соединения](../../concepts/extensions/websocket.md) при создании и удалении [Docker-образов](../../../container-registry/concepts/docker-image.md) Container Registry или их тегов.

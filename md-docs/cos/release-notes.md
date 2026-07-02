@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Container Solution](index.md) > Релизы Container Optimized Image
+
 # Релизы COI
 
 {% cut "Как узнать свою версию COI" %}

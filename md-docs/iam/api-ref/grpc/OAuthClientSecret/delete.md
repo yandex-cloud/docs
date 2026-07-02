@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [OAuthClientSecret](index.md) > Delete
+
 # Identity and Access Management API, gRPC: OAuthClientSecretService.Delete
 
 Deletes the specified OAuthClientSecret resource.

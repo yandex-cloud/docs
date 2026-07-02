@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > gitlab > PrepareBackupUpload
+
 # Managed Service for GitLab Audit Trails Events: PrepareBackupUpload
 
 ## Event JSON schema {#yandex.cloud.audit.gitlab.PrepareBackupUpload2-schema}

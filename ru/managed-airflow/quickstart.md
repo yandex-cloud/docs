@@ -5,7 +5,7 @@ keywords:
   - keyword: airflow
   - keyword: кластер airflow
   - keyword: кластер {{ AF }}
-  - keywrod: кластер Apache Airflow
+  - keyword: кластер Apache Airflow
   - keyword: '{{ AF }}'
   - keyword: Apache Airflow
   - keyword: создание кластера {{ AF }}
@@ -37,9 +37,10 @@ keywords:
 
 1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
 
-    * [{{ roles.maf.editor }}](security/index.md#managed-airflow-editor) — чтобы создать кластер;
-    * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../vpc/concepts/network.md#network) кластера;
-    * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать сервисный аккаунт к кластеру.
+    * {% include [roles-maf-editor](../_includes/mdb/maf/roles-maf-editor.md) %}
+    * {% include [roles-vpc-user](../_includes/mdb/roles-vpc-user.md) %}
+    * {% include [roles-sa-user](../_includes/mdb/roles-sa-user.md) %}
+    * {% include [roles-mdb-viewer](../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 

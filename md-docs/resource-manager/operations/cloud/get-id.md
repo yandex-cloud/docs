@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Resource Manager](../../index.md) > [Пошаговые инструкции](../index.md) > Облако > Получение идентификатора облака
+
 # Получение идентификатора облака
 
 {% list tabs group=instructions %}

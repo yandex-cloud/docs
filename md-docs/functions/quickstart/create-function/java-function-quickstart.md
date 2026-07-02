@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Начало работы](../index.md) > [Создание функции](index.md) > Java
+
 # Создание функции на Java
 
 Создайте и выполните [функцию](../../concepts/function.md) на Java, которая приветствует пользователя.

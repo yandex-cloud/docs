@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > RescheduleMaintenance
+
 # Managed Service for MongoDB API, gRPC: ClusterService.RescheduleMaintenance
 
 Reschedules planned maintenance operation.

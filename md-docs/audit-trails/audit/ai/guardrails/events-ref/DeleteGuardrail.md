@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > ai.guardrails > DeleteGuardrail
+
 # AI Studio Guardrails Audit Trails Events: DeleteGuardrail
 
 ## Event JSON schema {#yandex.cloud.audit.ai.guardrails.DeleteGuardrail2-schema}

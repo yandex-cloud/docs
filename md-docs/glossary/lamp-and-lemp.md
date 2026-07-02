@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Облачная терминология](index.md) > Облачные вычисления и сервера > LAMP и LEMP
+
 # Стеки LAMP и LEMP
 
 LAMP и LEMP — это наборы технологий с открытым исходным кодом для разработки сайтов. LAMP включает в себя ОС [Linux](https://www.linux.org/), [HTTP-сервер Apache®](https://httpd.apache.org/), систему управления базами данных (СУБД) [MySQL®](https://www.mysql.com/) и язык программирования [PHP](https://www.php.net/), [Perl](https://www.perl.org/) или [Python](https://www.python.org/). Стек LEMP отличается тем, что вместо сервера Apache® используется сервер [Nginx](https://nginx.org/) (Engine-X).

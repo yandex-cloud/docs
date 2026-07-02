@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Базовая инфраструктура](../infrastructure/index.md) > Инструменты > Передача логов через HTTP-вход Unified Agent в Cloud Logging
+
 # Передача логов через HTTP-вход Unified Agent в Yandex Cloud Logging
 
 Приложение [Yandex Unified Agent](../../monitoring/concepts/data-collection/unified-agent/index.md) позволяет принимать и передавать логи пользовательских приложений в сервис [Yandex Cloud Logging](../../logging/index.md).

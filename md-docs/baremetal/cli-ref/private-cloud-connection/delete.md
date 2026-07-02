@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../index.md) > [private-cloud-connection](index.md) > delete
+
 # yc baremetal private-cloud-connection delete
 
 Removes a private cloud connection and all allocated network resouces

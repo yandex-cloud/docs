@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Концепции](../index.md) > [Аутентификация](index.md) > Эфемерные ключи
+
 # Эфемерные ключи доступа, совместимые с AWS API
 
 Эфемерные ключи доступа — это временные учетные данные для аутентификации [аккаунтов на Яндексе](../users/accounts.md#passport), [федеративных аккаунтов](../users/accounts.md#saml-federation), [локальных пользователей](../users/accounts.md#local) и [сервисных аккаунтов](../users/service-accounts.md).

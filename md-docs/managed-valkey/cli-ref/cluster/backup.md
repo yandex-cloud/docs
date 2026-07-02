@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > backup
+
 # yc managed-redis cluster backup
 
 Create a backup for the specified Redis cluster

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > organizationmanager > AddUserBlock
+
 # Identity Hub Audit Trails Events: AddUserBlock
 
 ## Event JSON schema {#yandex.cloud.audit.organizationmanager.idp.AddUserBlock2-schema}

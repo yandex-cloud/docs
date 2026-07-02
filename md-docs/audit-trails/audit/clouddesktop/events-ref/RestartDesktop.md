@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > clouddesktop > RestartDesktop
+
 # Cloud Desktop Audit Trails Events: RestartDesktop
 
 ## Event JSON schema {#yandex.cloud.audit.clouddesktop.RestartDesktop2-schema}

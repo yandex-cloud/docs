@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > logging > UpdateSink
+
 # Cloud Logging Audit Trails Events: UpdateSink
 
 ## Event JSON schema {#yandex.cloud.audit.logging.UpdateSink2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Certificate Manager](../../index.md) > [Практические руководства](../index.md) > [Терминирование TLS-соединений](index.md) > Terraform
+
 # Терминирование TLS-соединений с помощью Terraform
 
 

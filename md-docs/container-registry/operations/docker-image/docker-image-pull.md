@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Пошаговые инструкции](../index.md) > Управление Docker-образом > Скачать Docker-образ из реестра
+
 # Скачать Docker-образ из реестра
 
 Для скачивания [Docker-образа](../../concepts/docker-image.md) необходима [роль](../../security/index.md#container-registry-images-puller) `container-registry.images.puller` или выше. Кроме того, вам нужно знать, в каком [репозитории](../../concepts/repository.md) хранится Docker-образ, а также его [тег или хеш](../../concepts/docker-image.md#version).

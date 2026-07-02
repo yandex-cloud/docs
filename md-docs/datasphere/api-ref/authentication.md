@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataSphere](../index.md) > [Справочник API](overview.md) > Аутентификация в API
+
 # Аутентификация в API DataSphere
 
 # Аутентификация в API

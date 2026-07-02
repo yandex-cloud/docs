@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > Концепции > [Компоненты](overview.md) > Logging Stack
+
 # Logging Stack
 
 Stackland позволяет собирать логи кластера с помощью опенсорс-инструментов:

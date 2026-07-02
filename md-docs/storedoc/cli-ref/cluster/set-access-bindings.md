@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > set-access-bindings
+
 # yc managed-mongodb cluster set-access-bindings
 
 Set access bindings for the specified MongoDB cluster and delete all existing access bindings if there were any

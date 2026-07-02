@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > [Концепции](index.md) > Сетевое взаимодействие
+
 # Сетевое взаимодействие в Serverless Containers
 
 По умолчанию контейнер запускается в изолированной IPv4-сети с включенным [NAT-шлюзом](../../vpc/concepts/gateways.md). Поэтому из контейнера доступны только публичные IPv4-адреса.

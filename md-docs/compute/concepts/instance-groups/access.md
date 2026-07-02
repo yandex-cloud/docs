@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Концепции](../index.md) > [Группы виртуальных машин](index.md) > Доступ
+
 # Доступ
 
 По умолчанию все операции в Instance Groups выполняются от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).

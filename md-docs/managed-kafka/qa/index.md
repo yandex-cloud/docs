@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > Вопросы и ответы
+
 # Общие вопросы про Managed Service for Apache Kafka®
 
 * [Как обеспечить высокую доступность кластера?](#cluster-fault-tolerance)

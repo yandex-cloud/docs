@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Devices > [gRPC (англ.)](../index.md) > RegistryData > Overview
+
 # IoT Core Service, gRPC: RegistryDataService
 
 A set of methods to work with IoT Core messages on behalf of registry

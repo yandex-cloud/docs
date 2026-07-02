@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > serverless > SetScalingPolicy
+
 # Cloud Functions Audit Trails Events: SetScalingPolicy
 
 ## Event JSON schema {#yandex.cloud.audit.serverless.functions.SetScalingPolicy2-schema}

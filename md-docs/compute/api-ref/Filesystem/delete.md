@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Filesystem](index.md) > Delete
+
 # Compute Cloud API, REST: Filesystem.Delete
 
 Deletes the specified filesystem.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [image](index.md) > delete
+
 # yc container image delete
 
 Delete a Docker image.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Справочник API](../overview.md) > [REST (англ.)](../index.md) > [Community](index.md) > SetRestrictions
+
 # DataSphere API v2, REST: Community.SetRestrictions
 
 Set community restrictions.

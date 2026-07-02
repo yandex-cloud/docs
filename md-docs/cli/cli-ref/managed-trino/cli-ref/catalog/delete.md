@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-trino](../index.md) > [catalog](index.md) > delete
+
 # yc managed-trino catalog delete
 
 Delete the specified Trino catalog

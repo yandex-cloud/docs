@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Расширения спецификации](index.md) > Интеграции > Обращение по HTTP
+
 # Расширение x-yc-apigateway-integration:http
 
 Расширение `x-yc-apigateway-integration:http` перенаправляет запрос в указанный URL.

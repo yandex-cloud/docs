@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Чарты > Чарты в визарде > Пошаговые инструкции > Добавление иерархии
+
 # Добавление иерархии в чартах Yandex DataLens
 
 {% note info %}

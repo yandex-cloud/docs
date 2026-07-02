@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Marketplace](../index.md) > Пользователям > Управление доступом
+
 # Управление доступом пользователя в Marketplace
 
 В этом разделе вы узнаете:

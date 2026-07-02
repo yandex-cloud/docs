@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > [Пошаговые инструкции](../index.md) > Управление артефактами > Python-артефакт > Загрузить Python-пакет в реестр
+
 # Загрузить Python-пакет в локальный реестр Cloud Registry
 
 Инструкция описывает, как загрузить [Python-пакет](../../concepts/artifacts/python.md) в [локальный реестр](../../concepts/registry.md#local-registry).

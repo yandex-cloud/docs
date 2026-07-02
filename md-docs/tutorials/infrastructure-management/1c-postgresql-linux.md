@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Прикладные решения > 1С > Создание кластера Linux-серверов «1С:Предприятия» с кластером Managed Service for PostgreSQL
+
 # Создание кластера Linux-серверов «1С:Предприятия» с кластером Managed Service for PostgreSQL
 
 

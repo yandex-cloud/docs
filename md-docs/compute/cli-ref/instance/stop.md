@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [instance](index.md) > stop
+
 # yc compute instance stop
 
 Stop the specified virtual machine instance

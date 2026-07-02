@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Практические руководства](index.md) > Анализ продаж и локаций пиццерий на данных из БД ClickHouse® и Marketplace
+
 # Анализ продаж и локаций пиццерий на данных из БД ClickHouse® и Галереи DataLens
 
 

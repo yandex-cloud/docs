@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [registry](index.md) > logs
+
 # yc iot v0 registry logs
 
 Show logs for the specified registry

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Пошаговые инструкции](../index.md) > Управление триггером > Управлять метками > Добавить метку
+
 # Добавить метку триггеру в Cloud Functions
 
 {% list tabs group=instructions %}

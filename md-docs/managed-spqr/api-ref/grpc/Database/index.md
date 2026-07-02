@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > Database > Overview
+
 # Managed Service for SPQR API, gRPC: DatabaseService
 
 A set of methods for managing SPQR Database resources.

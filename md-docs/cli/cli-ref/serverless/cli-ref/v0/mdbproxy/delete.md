@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [v0](../index.md) > [mdbproxy](index.md) > delete
+
 # yc serverless v0 mdbproxy delete
 
 Delete the specified proxy

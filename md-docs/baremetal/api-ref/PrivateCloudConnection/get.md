@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [PrivateCloudConnection](index.md) > Get
+
 # BareMetal API, REST: PrivateCloudConnection.Get
 
 Returns the specific Private cloud connection resource.

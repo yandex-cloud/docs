@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [StandardImage](index.md) > List
+
 # BareMetal API, REST: StandardImage.List
 
 Retrieves the list of Image resources in the specified folder. Pass the "baremetal-standard-images" folder to get general images.

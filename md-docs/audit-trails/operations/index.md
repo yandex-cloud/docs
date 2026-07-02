@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Audit Trails](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Yandex Audit Trails
 
 * [Создание трейла для загрузки аудитных логов](create-trail.md)

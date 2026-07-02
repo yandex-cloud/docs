@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > [Справочник CLI (англ.)](../index.md) > [shards](index.md) > list
+
 # yc managed-redis shards list
 
 List shards for a Redis cluster.

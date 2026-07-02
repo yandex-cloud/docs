@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Postbox](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Yandex Cloud Postbox
 
 В сервисе Yandex Cloud Postbox действуют следующие ограничения:

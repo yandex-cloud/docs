@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [api-gateway](../index.md) > [websocket](index.md) > send
+
 # yc serverless api-gateway websocket send
 
 Send data to connection

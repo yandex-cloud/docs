@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > Концепции > Настройка и управление > Аудитные логи Audit Trails > Справочник аудитных логов > PowerOffServer
+
 # BareMetal Audit Trails Events: PowerOffServer
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.PowerOffServer2-schema}

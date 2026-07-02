@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Scanner](index.md) > GetLast
+
 # Container Registry API, gRPC: ScannerService.GetLast
 
 Returns the last finished ScanResult for the specified Image.

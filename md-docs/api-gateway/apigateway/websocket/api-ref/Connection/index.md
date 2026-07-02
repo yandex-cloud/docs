@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex API Gateway](../../../../index.md) > Справочник API Websocket > [REST (англ.)](../index.md) > Connection > Overview
+
 # API Gateway WebSocket Connection Service, REST: Connection
 
 A set of methods for managing API Gateway WebSocket connections.

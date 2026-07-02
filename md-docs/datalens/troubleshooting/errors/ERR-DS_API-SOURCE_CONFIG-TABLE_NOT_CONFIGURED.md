@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Нарушена конфигурация таблицы
+
 # [Yandex DataLens] Нарушена конфигурация таблицы
 
 `ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED`

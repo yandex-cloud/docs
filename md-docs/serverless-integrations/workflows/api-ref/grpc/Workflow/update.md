@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API Workflows > [gRPC (англ.)](../index.md) > [Workflow](index.md) > Update
+
 # Workflows Service, gRPC: WorkflowService.Update
 
 Updates specified Workflow.

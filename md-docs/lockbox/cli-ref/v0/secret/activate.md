@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Lockbox](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [secret](index.md) > activate
+
 # yc lockbox v0 secret activate
 
 Activate the specified secret

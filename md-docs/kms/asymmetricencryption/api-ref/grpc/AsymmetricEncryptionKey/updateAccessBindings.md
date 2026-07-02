@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Key Management Service](../../../../index.md) > Справочник API > gRPC (англ.) > [Key Management Service API](../index.md) > [AsymmetricEncryptionKey](index.md) > UpdateAccessBindings
+
 # Key Management Service API, gRPC: AsymmetricEncryptionKeyService.UpdateAccessBindings
 
 Updates access bindings for the specified key.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > serverless > ResumeTrigger
+
 # Cloud Functions Audit Trails Events: ResumeTrigger
 
 ## Event JSON schema {#yandex.cloud.audit.serverless.triggers.ResumeTrigger2-schema}

@@ -1,4 +1,4 @@
-- **Catchup timeout**{#setting-catchup-timeout} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
+- **Catchup timeout**{#setting-catchup-timeout} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
     Максимально допустимое время отставания реплики от мастера (в секундах).
 
@@ -12,7 +12,7 @@
 
     Минимальное значение и значение по умолчанию — `0` (можно подключиться к любым репликам вне зависимости от того, насколько они отстают от мастера).
 
-- **Conn limit**{#setting-conn-limit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+- **Conn limit**{#setting-conn-limit} {{ tag-all }}
 
   В транзакционном пулинге (transaction pooling) настройка ограничивает количество одновременных активных соединений для пользователя. При использовании этого типа пулинга пользователь может открыть тысячи соединений, но одновременно работать смогут только `N` соединений, где `N` — значение настройки.
 
@@ -29,19 +29,27 @@
 
   Эта настройка [зависит от выбранного класса хостов](#settings-instance-dependent).
 
-- **Default transaction isolation**{#setting-user-default-transaction-isolation} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+- **Default transaction isolation**{#setting-user-default-transaction-isolation} {{ tag-all }}
 
   Описание настройки уровня кластера [Default transaction isolation](#setting-default-transaction-isolation).
 
-- **Grants**{#setting-user-grants} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
+- **Grants**{#setting-user-grants} {{ tag-all }}
 
   Набор [ролей](../../managed-postgresql/concepts/roles.md), выданных пользователю.
 
-- **Lock timeout**{#setting-user-lock-timeout} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+- **Idle in transaction session timeout**{#setting-user-idle-transaction-timeout} {{ tag-all }}
+
+  Описание настройки уровня кластера [Idle in transaction session timeout](#setting-idle-transaction-timeout).
+
+- **Idle session timeout**{#setting-user-idle-session-timeout} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
+
+  Описание настройки уровня кластера [Idle session timeout](#setting-idle-session-timeout).
+
+- **Lock timeout**{#setting-user-lock-timeout} {{ tag-all }}
 
   Описание настройки уровня кластера [Lock timeout](#setting-lock-timeout).
 
-- **Log min duration statement**{#setting-user-log-min-duration-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+- **Log min duration statement**{#setting-user-log-min-duration-statement} {{ tag-all }}
 
   Описание настройки уровня кластера [Log min duration statement](#setting-log-min-duration-statement).
 
@@ -49,17 +57,17 @@
 
   Подробнее [в документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
-- **Log statement**{#setting-user-log-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+- **Log statement**{#setting-user-log-statement} {{ tag-all }}
 
   Описание настройки уровня кластера [Log statement](#setting-log-statement).
 
-- **Login**{#setting-user-login} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+- **Login**{#setting-user-login} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Определяет, может ли пользователь подключаться к кластеру {{ PG }}.
 
   Значение по умолчанию — `true` (пользователь может подключаться к кластеру).
 
-- **Pg audit log**{#setting-pg-audit-log} {{ tag-con }}
+- **Pg audit log**{#setting-pg-audit-log} {{ tag-all }}
 
   Определяет, какие запросы пользователя попадут в лог для аудита.
 
@@ -70,26 +78,45 @@
 
   Возможные значения:
 
-  * `read` — в лог попадут запросы `SELECT` и `COPY`, когда источником данных выступает отношение или запрос.
-  * `write` — в лог попадут запросы `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE` и `COPY`, когда приемником данных выступает отношение.
-  * `function` — в лог попадут вызовы функций и блоки `DO`.
-  * `role` — в лог попадут выражения, связанные с управлением ролями и привилегиями: `GRANT`, `REVOKE`, `CREATE/ALTER/DROP ROLE`.
-  * `ddl` — в лог попадут все `DDL`, которые не входят в класс `ROLE`.
-  * `misc` — в лог попадут вспомогательные команды: `DISCARD`, `FETCH`, `CHECKPOINT`, `VACUUM`, `SET`.
-  * `misc_set` — в лог попадут вспомогательные команды `SET`, например, `SET ROLE`.
+  {% list tabs group=instructions %}
+
+  - Консоль управления/CLI {#console}
+
+    - `read` — в лог попадут запросы `SELECT` и `COPY`, когда источником данных выступает отношение или запрос.
+    - `write` — в лог попадут запросы `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE` и `COPY`, когда приемником данных выступает отношение.
+    - `function` — в лог попадут вызовы функций и блоки `DO`.
+    - `role` — в лог попадут выражения, связанные с управлением ролями и привилегиями: `GRANT`, `REVOKE`, `CREATE/ALTER/DROP ROLE`.
+    - `ddl` — в лог попадут все `DDL`, которые не входят в класс `ROLE`.
+    - `misc` — в лог попадут вспомогательные команды: `DISCARD`, `FETCH`, `CHECKPOINT`, `VACUUM`, `SET`.
+    - `misc_set` — в лог попадут вспомогательные команды `SET`, например, `SET ROLE`.
+
+  - {{ TF }} {#tf}
+
+    - `READ` — в лог попадут запросы `SELECT` и `COPY`, когда источником данных выступает отношение или запрос.
+    - `WRITE` — в лог попадут запросы `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE` и `COPY`, когда приемником данных выступает отношение.
+    - `FUNCTION` — в лог попадут вызовы функций и блоки `DO`.
+    - `ROLE` — в лог попадут выражения, связанные с управлением ролями и привилегиями: `GRANT`, `REVOKE`, `CREATE/ALTER/DROP ROLE`.
+    - `DDL` — в лог попадут все `DDL`, которые не входят в класс `ROLE`.
+    - `MISC` — в лог попадут вспомогательные команды: `DISCARD`, `FETCH`, `CHECKPOINT`, `VACUUM`, `SET`.
+    - `MISC_SET` — в лог попадут вспомогательные команды `SET`, например, `SET ROLE`.
+
+  - API {#api}
+
+    - `PG_AUDIT_SETTINGS_LOG_READ` — в лог попадут запросы `SELECT` и `COPY`, когда источником данных выступает отношение или запрос.
+    - `PG_AUDIT_SETTINGS_LOG_WRITE` — в лог попадут запросы `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE` и `COPY`, когда приемником данных выступает отношение.
+    - `PG_AUDIT_SETTINGS_LOG_FUNCTION` — в лог попадут вызовы функций и блоки `DO`.
+    - `PG_AUDIT_SETTINGS_LOG_ROLE` — в лог попадут выражения, связанные с управлением ролями и привилегиями: `GRANT`, `REVOKE`, `CREATE/ALTER/DROP ROLE`.
+    - `PG_AUDIT_SETTINGS_LOG_DDL` — в лог попадут все `DDL`, которые не входят в класс `ROLE`.
+    - `PG_AUDIT_SETTINGS_LOG_MISC` — в лог попадут вспомогательные команды: `DISCARD`, `FETCH`, `CHECKPOINT`, `VACUUM`, `SET`.
+    - `PG_AUDIT_SETTINGS_LOG_MISC_SET` — в лог попадут вспомогательные команды `SET`, например, `SET ROLE`.
+
+  {% endlist %}
 
   Можно выбрать несколько значений. По умолчанию логи аудита для пользователя отключены.
 
   Подробнее о настройке логов для аудита читайте в разделе [Использование pgaudit](../../managed-postgresql/operations/extensions/pgaudit.md).
 
-- **Pooling mode**{#setting-pooling-mode} {{ tag-con }} {{ tag-tf }} {{ tag-api }}
-
-    {% note info %}
-
-    * В {{ TF }} и gRPC API используется имя настройки `pool_mode`.
-    * В REST API используется имя настройки `poolMode`.
-
-    {% endnote %}
+- **Pool mode**{#setting-pool-mode} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
     [Режим управления соединениями](../../managed-postgresql/concepts/pooling.md), который использует менеджер соединений Odyssey.
 
@@ -103,19 +130,25 @@
     Значение по умолчанию — `SESSION`.
 
 
-- **Prepared statements pooling**{#setting-prepared-statements-pooling} {{ tag-con }}
+- **Prepared statements pooling**{#setting-prepared-statements-pooling} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-  Разрешает использовать подготовленные инструкции с объединением транзакций.
+  Позволяет использовать подготовленные операторы ([prepared statements](https://www.postgresql.org/docs/current/sql-prepare.html)) для транзакционного режима [менеджера соединений](../../managed-postgresql/concepts/pooling.md).
 
-- **Synchronous commit**{#setting-user-synchronous-commit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+  Настройка доступна только для значения **Pool mode** `TRANSACTION`.
+
+- **Statement timeout**{#setting-user-statement-timeout} {{ tag-all }}
+
+  Описание настройки уровня кластера [Statement timeout](#setting-statement-timeout).
+
+- **Synchronous commit**{#setting-user-synchronous-commit} {{ tag-all }}
 
   Описание настройки уровня кластера [Synchronous commit](#setting-synchronous-commit).
 
-- **Temp file limit**{#setting-temp-file-limit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
+- **Temp file limit**{#setting-temp-file-limit} {{ tag-all }}
 
   Описание настройки уровня кластера [Temp file limit](#setting-temp-file-limit).
 
-- **Wal sender timeout**{#setting-wal-sender-timeout} {{ tag-con }}
+- **Wal sender timeout**{#setting-wal-sender-timeout} {{ tag-all }}
 
   Время (в миллисекундах), по истечении которого прерываются неактивные соединения репликации.
 

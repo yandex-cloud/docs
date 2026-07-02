@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Yandex Data Processing
 
 ## Сетевые настройки и обслуживание кластера {#network-settings}

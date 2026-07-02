@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > [Справочник CLI (англ.)](../index.md) > [partner](index.md) > list
+
 # yc cic partner list
 
 Retrieves the list of Partner resources in the specified folder.

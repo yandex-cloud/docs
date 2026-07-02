@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-redis](../../index.md) > [v0](../index.md) > [shards](index.md) > list
+
 # yc managed-redis v0 shards list
 
 List shards for a Redis cluster.

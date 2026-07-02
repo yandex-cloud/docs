@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Концепции](index.md) > Политика аудита
+
 # Политика аудита в Managed Service for Kubernetes
 
 Политика аудита ([audit policy](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/#audit-policy)) определяет [правила](#rules-audit-policy) о том, какие события должны записываться в [журнал аудита](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/) и какие данные они должны содержать. События аудита генерируются запросами на сервер API Kubernetes на каждой [стадии](#stages) их выполнения. Правила политики аудита применяются по порядку. Первое правило, соответствующее событию, устанавливает [уровень](#levels) аудита события.

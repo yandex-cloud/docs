@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-postgresql](../index.md) > [cluster](index.md) > create
+
 # yc managed-postgresql cluster create
 
 Create PostgreSQL cluster

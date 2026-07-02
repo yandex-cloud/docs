@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > История изменений > Изменения сервиса
+
 # История изменений в Yandex Data Processing
 
 ## IV квартал 2025 {#q4-2025}

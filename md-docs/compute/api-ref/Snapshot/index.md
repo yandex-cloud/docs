@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > Snapshot > Overview
+
 # Compute Cloud API, REST: Snapshot
 
 A set of methods for managing Snapshot resources.

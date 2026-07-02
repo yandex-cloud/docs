@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [YandexPassportUserAccount](index.md) > GetByLogin
+
 # Identity and Access Management API, gRPC: YandexPassportUserAccountService.GetByLogin
 
 Returns the specified YandexPassportUserAccount resource.

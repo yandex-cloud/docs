@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [iot](../../../index.md) > [v0](../../index.md) > [device](../index.md) > [certificate](index.md) > list
+
 # yc iot v0 device certificate list
 
 List certificates associated with specified device

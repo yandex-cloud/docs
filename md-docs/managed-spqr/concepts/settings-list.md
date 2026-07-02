@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > [Концепции](index.md) > Настройки Sharded PostgreSQL
+
 # Настройки Sharded PostgreSQL
 
 Для кластера Managed Service for Sharded PostgreSQL можно задать настройки, которые относятся к Sharded PostgreSQL.

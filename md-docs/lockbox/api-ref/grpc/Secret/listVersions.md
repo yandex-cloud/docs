@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Lockbox](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Secret](index.md) > ListVersions
+
 # Lockbox API, gRPC: SecretService.ListVersions
 
 Retrieves the list of versions of the specified secret.

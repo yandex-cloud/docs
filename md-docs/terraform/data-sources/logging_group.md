@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud Logging > Data Sources > logging_group
+
 # yandex_logging_group (DataSource)
 
 Get information about a Yandex Cloud Logging group. For more information, see [the official documentation](../../logging/concepts/log-group.md).

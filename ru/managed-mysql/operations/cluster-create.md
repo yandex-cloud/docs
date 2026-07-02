@@ -19,11 +19,18 @@ description: Следуя данной инструкции, вы сможете
 {% endnote %}
 
 
+## Роли для создания кластера {#roles}
+
+Для создания кластера {{ mmy-name }} и работы с ним вашему аккаунту в {{ yandex-cloud }} нужны роли:
+
+* {% include [roles-mmy-editor](../../_includes/mdb/mmy/roles-mmy-editor.md) %}
+* {% include [roles-vpc-user](../../_includes/mdb/roles-vpc-user.md) %}
+* {% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-create-cluster.md) %}
+
+О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
+
+
 ## Создать кластер {#create-cluster}
-
-
-Для создания кластера {{ mmy-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mmy.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, читайте в [документации {{ iam-name }}](../../iam/operations/roles/grant.md).
-
 
 
 {% include [Connection Manager](../../_includes/mdb/connman-cluster-create.md) %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Audit Trails](../index.md) > [Концепции](index.md) > Экспорт в SIEM
+
 # Экспорт аудитных логов в SIEM
 
 

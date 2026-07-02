@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for MySQL®](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Maintenance](index.md) > Reschedule
+
 # Managed Service for MySQL API, gRPC: MaintenanceService.Reschedule
 
 Allows user to reschedule Maintenance to another date and time.

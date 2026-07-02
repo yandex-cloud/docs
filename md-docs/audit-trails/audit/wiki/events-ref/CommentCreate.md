@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > CommentCreate
+
 # Yandex Wiki Audit Trails Events: CommentCreate
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.CommentCreate2-schema}

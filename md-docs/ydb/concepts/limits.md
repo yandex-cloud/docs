@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Managed Service for YDB
 
 В сервисе Yandex Managed Service for YDB действуют следующие ограничения:

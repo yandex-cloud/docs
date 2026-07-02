@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Airflow™](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > list
+
 # yc managed-airflow cluster list
 
 List Airflow clusters

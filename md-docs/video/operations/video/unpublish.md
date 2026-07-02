@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > [Пошаговые инструкции](../index.md) > Видео > Снять видео с публикации
+
 # Снять видео с публикации
 
 {% list tabs group=instructions %}

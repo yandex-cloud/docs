@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Billing](../../index.md) > Справочник API > REST (англ.) > [Billing](../index.md) > [Customer](index.md) > Invite
+
 # Billing API, REST: Customer.Invite
 
 Invites customer to the specified reseller.

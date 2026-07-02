@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Message Queue](../../index.md) > [Справочник API](../index.md) > Типы данных > DeleteMessageBatchRequestEntry
+
 # DeleteMessageBatchRequestEntry
 
 Параметр `ReceiptHandle` и его идентификатор.

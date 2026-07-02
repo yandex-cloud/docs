@@ -59,7 +59,7 @@ The test ML model deployed in this guide simulates the development and versionin
 To deploy the model's development environment in the {{ yandex-cloud }} environment:
 
 1. [Get your cloud ready](#before-you-begin).
-1. [Create your infrastructure](#deploy).
+1. [Create the infrastructure](#deploy).
 1. [Create a project and configure the environment](#project).
 1. [Create an experiment and a model version](#experiment).
 
@@ -75,7 +75,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * VMs: use of computing resources, storage, public IP address, and the OS (see [{{ compute-name }} pricing](../compute/pricing.md)).
 * {{ objstorage-name }}: storage of {{ mgl-name }} backups (see [{{ objstorage-name }} pricing](../storage/pricing.md)).
 
-## Create your infrastructure {#deploy}
+## Create the infrastructure {#deploy}
 
 {% note info %}
 
@@ -235,7 +235,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Machine Learning Model Experiments]({{ gl.docs }}/user/project/ml/experiment_tracking/)
 * [Model Registry]({{ gl.docs }}/user/project/ml/model_registry/)

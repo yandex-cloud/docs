@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Functions](../../../index.md) > Справочник API Functions > [REST (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Cloud Functions Service, REST: Operation.Get
 
 Returns the specified Operation resource.

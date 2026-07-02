@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Certificate Manager](../index.md) > Справочник аудитных логов > DeleteCaUsageRestriction
+
 # Certificate Manager Audit Trails Events: DeleteCaUsageRestriction
 
 ## Event JSON schema {#yandex.cloud.audit.certificatemanager.DeleteCaUsageRestriction2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > UpdateCommunity
+
 # DataSphere Audit Trails Events: UpdateCommunity
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.UpdateCommunity2-schema}

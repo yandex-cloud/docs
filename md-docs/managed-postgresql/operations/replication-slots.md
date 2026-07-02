@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Управление слотами репликации
+
 # Управление слотами репликации
 
 Кластер Managed Service for PostgreSQL может содержать физические и логические слоты репликации:

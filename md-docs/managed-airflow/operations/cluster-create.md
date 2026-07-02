@@ -1,14 +1,17 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Создание кластера
+
 # Создание кластера Apache Airflow™
 
 Каждый [кластер](../../glossary/cluster.md) Managed Service for Apache Airflow™ состоит из набора компонентов Apache Airflow™, каждый из которых может быть представлен в нескольких экземплярах. Экземпляры могут находиться в разных зонах доступности.
 
 ## Роли для создания кластера {#roles}
 
-Для создания кластера Managed Service for Apache Airflow™ вашему аккаунту в Yandex Cloud нужны роли:
+Для создания кластера Managed Service for Apache Airflow™ и работы с ним вашему аккаунту в Yandex Cloud нужны роли:
 
-* [managed-airflow.editor](../security/index.md#managed-airflow-editor) — чтобы создать кластер;
+* [managed-airflow.editor](../security/index.md#managed-airflow-editor) или выше — чтобы создать кластер;
 * [vpc.user](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
-* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать сервисный аккаунт к кластеру.
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать сервисный аккаунт к кластеру;
+* [mdb.viewer](../../iam/roles-reference.md#mdb-viewer) — чтобы просматривать кластеры управляемых баз данных (MDB) на дашборде в [консоли управления](https://console.yandex.cloud).
 
 Сервисному аккаунту кластера должна быть назначена роль `managed-airflow.integrationProvider`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее в разделе [Имперсонация](../concepts/impersonation.md).
 

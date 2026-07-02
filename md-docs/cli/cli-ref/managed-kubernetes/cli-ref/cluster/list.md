@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-kubernetes](../index.md) > [cluster](index.md) > list
+
 # yc managed-kubernetes cluster list
 
 List Kubernetes clusters available in a folder.

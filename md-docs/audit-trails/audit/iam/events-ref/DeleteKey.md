@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > DeleteKey
+
 # Identity and Access Management Audit Trails Events: DeleteKey
 
 ## Event JSON schema {#yandex.cloud.audit.iam.DeleteKey2-schema}

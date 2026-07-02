@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Registry](index.md) > UpdateIpPermissions
+
 # Yandex Cloud Registry API, REST: Registry.UpdateIpPermissions
 
 Update ip permissions for the specified registry.

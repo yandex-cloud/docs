@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Управление кластером Kubernetes > Посмотреть операции с кластером Kubernetes
+
 # Посмотреть операции с кластером Managed Service for Kubernetes
 
 Все действия с ресурсами сервиса Managed Service for Kubernetes сохраняются в виде списка операций. Каждой операции присваивается уникальный [идентификатор](../../../api-design-guide/concepts/about-async.md).

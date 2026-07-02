@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Terraform-провайдер Yandex Cloud](../index.md) > Устранение ошибки `Failed to query available provider packages при использовании` Terraform
+
 # Устранение ошибки `Failed to query available provider packages` при использовании Terraform
 
 

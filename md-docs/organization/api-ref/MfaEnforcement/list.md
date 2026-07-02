@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [MfaEnforcement](index.md) > List
+
 # Identity Hub API, REST: MfaEnforcement.List
 
 returns MFA enforcements for the specified organization

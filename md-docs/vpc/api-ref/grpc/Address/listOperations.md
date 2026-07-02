@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Address](index.md) > ListOperations
+
 # Virtual Private Cloud API, gRPC: AddressService.ListOperations
 
 List operations for the specified address.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > BookmarkUpdate
+
 # Yandex Wiki Audit Trails Events: BookmarkUpdate
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.BookmarkUpdate2-schema}

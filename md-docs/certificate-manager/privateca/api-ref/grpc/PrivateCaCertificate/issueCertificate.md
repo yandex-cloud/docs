@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Certificate Manager](../../../../index.md) > Справочник API > gRPC (англ.) > [Certificate Manager Private CA API](../index.md) > [PrivateCaCertificate](index.md) > IssueCertificate
+
 # Certificate Manager Private CA API, gRPC: PrivateCaCertificateService.IssueCertificate
 
 Issues a new certificate for a given Certificate Authority (CA).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > ymq > UpdateMessageQueue
+
 # Message Queue Audit Trails Events: UpdateMessageQueue
 
 ## Event JSON schema {#yandex.cloud.audit.ymq.UpdateMessageQueue2-schema}

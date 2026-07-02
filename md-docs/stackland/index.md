@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex Cloud Stackland > Yandex Cloud Stackland
+
 # Yandex Cloud Stackland
 
 Платформа контейнеризации с интегрированными PaaS‑сервисами Yandex Cloud. Объединяет все необходимые компоненты для централизованного управления микросервисными и ИИ‑приложениями.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > speechsense > DeleteSpace
+
 # Talk Analytics Audit Trails Events: DeleteSpace
 
 ## Event JSON schema {#yandex.cloud.audit.speechsense.DeleteSpace2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Scanner](index.md) > GetLast
+
 # Container Registry API, REST: Scanner.GetLast
 
 Returns the last finished ScanResult for the specified Image.

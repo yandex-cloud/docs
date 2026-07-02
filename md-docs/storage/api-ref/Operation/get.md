@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > Справочник API > [Yandex Cloud REST (англ.)](../index.md) > [Operation](index.md) > Get
+
 # Object Storage API, REST: Operation.Get
 
 Returns the specified Operation resource.

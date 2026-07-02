@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > [Пошаговые инструкции](../index.md) > Трансляции > Создать трансляцию
+
 # Создать трансляцию
 
 {% list tabs group=instructions %}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-opensearch](../index.md) > [cluster](index.md) > restore
+
 # yc managed-opensearch cluster restore
 
 Restore a managed OpenSearch cluster from a backup.

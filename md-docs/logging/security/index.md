@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Logging](../index.md) > Управление доступом
+
 # Управление доступом в Cloud Logging
 
 Для управления правами доступа в Cloud Logging используются [роли](../../iam/concepts/access-control/roles.md).

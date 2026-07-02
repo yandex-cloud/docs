@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Valkey™](../index.md) > [Концепции](index.md) > Высокая доступность кластера
+
 # Высокая доступность кластера Yandex Managed Service for Valkey™
 
 [Высокая доступность](../../architecture/fault-tolerance.md#mdb-ha) — это способность системы быстро восстанавливать работоспособность при отказах, обеспечивая непрерывность сервиса для клиентов.

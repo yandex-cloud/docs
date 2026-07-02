@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MetaData Hub](../index.md) > Apache Hive™ Metastore > Концепции > Имперсонация в Apache Hive™ Metastore
+
 # Имперсонация в Apache Hive™ Metastore
 
 _Имперсонация_ позволяет [кластеру Apache Hive™ Metastore](metastore.md) взаимодействовать с ресурсами в облаке от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).

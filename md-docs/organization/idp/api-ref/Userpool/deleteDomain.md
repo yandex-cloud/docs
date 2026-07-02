@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [Identity Provider API](../index.md) > [Userpool](index.md) > DeleteDomain
+
 # Identity Provider API, REST: Userpool.DeleteDomain
 
 Deletes the specified domain from a userpool.

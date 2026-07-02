@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for Kubernetes](../index.md) > Как выяснить размер эфемерного хранилища узла Managed Service for Kubernetes
+
 # Как выяснить размер эфемерного хранилища узла Managed Service for Kubernetes
 
 

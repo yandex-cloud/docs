@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > Справочник API > [Yandex Cloud REST (англ.)](../index.md) > [Bucket](index.md) > SetAccessBindings
+
 # Object Storage API, REST: Bucket.SetAccessBindings
 
 Sets access bindings for the specified bucket.

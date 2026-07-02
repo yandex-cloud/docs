@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Apache Hive™ Metastore > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > ExportData
+
 # Managed Service for Hive Metastore™ API, REST: Cluster.ExportData
 
 Exports data from the specified Metastore Cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex WebSQL](../index.md) > История изменений > Все изменения
+
 # История изменений Yandex WebSQL в 2026 году
 
 ## Февраль {#feb-2026}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Registry](../index.md) > [Пошаговые инструкции](index.md) > Установить и настроить Docker
+
 # Установить и настроить Docker
 
 Перед началом работы с Container Registry необходимо установить и настроить [Docker](https://www.docker.com/) на локальном компьютере.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > [Практические руководства](index.md) > Настройка межсетевого экрана OPNsense в режиме кластера высокой доступности
+
 # Настройка межсетевого экрана OPNsense в режиме кластера высокой доступности на серверах Yandex BareMetal
 
 Предлагаемое решение позволяет настроить на [серверах](../concepts/servers.md) BareMetal периметральный межсетевой экран [OPNsense](https://opnsense.org/), который будет выступать не только основным шлюзом и [Stateful Firewall](https://en.wikipedia.org/wiki/Stateful_firewall), но и [DHCP](https://ru.wikipedia.org/wiki/DHCP)-сервером в высокодоступной конфигурации.

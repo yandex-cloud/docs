@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Object Storage](../../index.md) > [Справочник YC CLI (англ.)](../index.md) > [s3api](index.md) > put-object-acl
+
 # yc storage s3api put-object-acl
 
 Sets bucket object access control list

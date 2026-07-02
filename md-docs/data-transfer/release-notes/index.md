@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > История изменений > Все изменения
+
 <!-- Changelog begin -->
 
 {% changelog %}

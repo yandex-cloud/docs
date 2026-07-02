@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Integrations](../index.md) > Управление доступом > Обзор
+
 # Управление доступом в Serverless Integrations
 
 ## Об управлении доступом {#about-access-control}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YDB](../../../index.md) > Document API, совместимый с Amazon DynamoDB > [Справочник Document API](../index.md) > Actions > PutItem
+
 # Метод PutItem
 
 Заменяет элемент в таблице или создает новый. Если элемент с указанным первичным ключом уже существует, то метод заменит его новым элементом. Если элемента не существовало, то он будет создан.

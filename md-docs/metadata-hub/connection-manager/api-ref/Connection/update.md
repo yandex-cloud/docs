@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MetaData Hub](../../../index.md) > Connection Manager > Справочник API > [REST (англ.)](../index.md) > [Connection](index.md) > Update
+
 # Connection Manager API, REST: Connection.Update
 
 Updates the specified connection.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for MySQL®](../index.md) > [Справочник CLI (англ.)](index.md) > connect
+
 # yc managed-mysql connect
 
 Connect to MySQL cluster with iam-auth

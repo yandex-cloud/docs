@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Virtual Private Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Address](index.md) > Delete
+
 # Virtual Private Cloud API, gRPC: AddressService.Delete
 
 Deletes the specified address.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [DnsFirewall](index.md) > Update
+
 # Cloud DNS API, REST: DnsFirewall.Update
 
 Updates the specified DNS firewall.

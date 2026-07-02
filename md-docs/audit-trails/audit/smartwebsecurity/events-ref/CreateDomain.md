@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > smartwebsecurity > CreateDomain
+
 # Smart Web Security Audit Trails Events: CreateDomain
 
 ## Event JSON schema {#yandex.cloud.audit.smartwebsecurity.CreateDomain2-schema}

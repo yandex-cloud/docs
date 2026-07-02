@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > [REST (англ.)](../index.md) > [Registry](index.md) > ListDeviceTopicAliases
+
 # IoT Core Service, REST: Registry.ListDeviceTopicAliases
 
 Retrieves the list of device topic aliases for the specified registry.

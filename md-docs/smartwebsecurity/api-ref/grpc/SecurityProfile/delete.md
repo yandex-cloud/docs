@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SecurityProfile](index.md) > Delete
+
 # SmartWebSecurity API, gRPC: SecurityProfileService.Delete
 
 Deletes the specified security profile.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for OpenSearch](../../index.md) > [Справочник CLI (англ.)](../index.md) > node-group > Overview
+
 # yc managed-opensearch node-group
 
 Node groups of a managed OpenSearch cluster.

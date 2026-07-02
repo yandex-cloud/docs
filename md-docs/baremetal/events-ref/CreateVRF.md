@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex BareMetal](../index.md) > Концепции > Настройка и управление > Аудитные логи Audit Trails > Справочник аудитных логов > CreateVRF
+
 # BareMetal Audit Trails Events: CreateVRF
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.CreateVRF2-schema}

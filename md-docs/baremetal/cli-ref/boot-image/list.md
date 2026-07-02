@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../index.md) > [boot-image](index.md) > list
+
 # yc baremetal boot-image list
 
 Retrieves the list of Image resources in the specified folder.

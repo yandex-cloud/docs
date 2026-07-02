@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > ytsaurus > StopCluster
+
 # Ytsaurus Audit Trails Events: StopCluster
 
 ## Event JSON schema {#yandex.cloud.audit.ytsaurus.StopCluster2-schema}

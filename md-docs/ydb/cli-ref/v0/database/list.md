@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YDB](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [database](index.md) > list
+
 # yc ydb v0 database list
 
 List YDB databases in a folder.

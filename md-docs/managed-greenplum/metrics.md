@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex MPP Analytics for PostgreSQL](index.md) > Метрики Monitoring
+
 # Справочник метрик сервиса Yandex Monitoring
 
 В этом разделе описаны метрики сервиса Yandex MPP Analytics for PostgreSQL, поставляемые в [Monitoring](../monitoring/concepts/index.md).

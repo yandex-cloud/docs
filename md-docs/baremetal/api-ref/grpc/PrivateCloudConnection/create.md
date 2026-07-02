@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [PrivateCloudConnection](index.md) > Create
+
 # BareMetal API, gRPC: PrivateCloudConnectionService.Create
 
 Creates a private cloud connection in the specified folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud DNS](../../index.md) > [Справочник CLI (англ.)](../index.md) > [inbound-endpoint](index.md) > list
+
 # yc dns inbound-endpoint list
 
 List dns inbound endpoints in folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > OsLogin > Overview
+
 # Identity Hub API, gRPC: OsLoginService
 
 ## Methods

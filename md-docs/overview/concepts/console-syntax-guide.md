@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Обзор платформы](../index.md) > Интерфейсы для работы с сервисами > Работа с Yandex Cloud CLI и API в Microsoft Windows
+
 # Работа с Yandex Cloud CLI и API в Microsoft Windows
 
 Сервисы Yandex Cloud предоставляют различные интерфейсы для решения ваших задач. Как правило, сервисы Yandex Cloud имеют веб-интерфейс в [консоли управления](https://console.yandex.cloud) или в собственной инсталляции, как [Yandex DataLens](https://datalens.ru/promo) и [Yandex DataSphere](https://datasphere.yandex.cloud). Кроме того, сервисы имеют интерфейсы для автоматизации процессов: [API](../../api-design-guide/index.md), [CLI](../../cli/index.md), Terraform и SDK для различных языков программирования. Информация о предоставляемых интерфейсах доступна в документации интересующего вас сервиса. 

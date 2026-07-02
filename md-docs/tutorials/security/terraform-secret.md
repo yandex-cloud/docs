@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Безопасность](index.md) > Шифрование секретов в HashiCorp Terraform
+
 # Шифрование секретов в HashiCorp Terraform
 
 Чтобы зашифровать данные:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > [Справочник API](index.md) > Sandbox > Delete
+
 # Действие DeleteSMSSandboxPhoneNumber
 
 Удаляет подтвержденный тестовый телефонный номер для канала SMS-уведомлений в [песочнице](../concepts/sms.md#sandbox).

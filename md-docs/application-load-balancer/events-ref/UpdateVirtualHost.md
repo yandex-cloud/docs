@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Справочник аудитных логов > UpdateVirtualHost
+
 # Application Load Balancer Audit Trails Events: UpdateVirtualHost
 
 ## Event JSON schema {#yandex.cloud.audit.apploadbalancer.UpdateVirtualHost2-schema}

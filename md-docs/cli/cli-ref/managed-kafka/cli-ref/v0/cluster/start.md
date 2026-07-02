@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-kafka](../../index.md) > [v0](../index.md) > [cluster](index.md) > start
+
 # yc managed-kafka v0 cluster start
 
 Start the specified Kafka cluster

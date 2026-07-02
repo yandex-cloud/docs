@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [vpc](../index.md) > [subnet](index.md) > remove-labels
+
 # yc vpc subnet remove-labels
 
 Remove labels from a subnet.

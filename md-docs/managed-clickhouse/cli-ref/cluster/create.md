@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > create
+
 # yc managed-clickhouse cluster create
 
 Create a ClickHouse cluster.

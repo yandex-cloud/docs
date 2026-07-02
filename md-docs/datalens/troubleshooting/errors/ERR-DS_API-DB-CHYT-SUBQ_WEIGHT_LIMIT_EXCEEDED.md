@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Subquery exceeds data weight limit
+
 # [Yandex DataLens] Subquery exceeds data weight limit
 
 `ERR.DS_API.DB.CHYT.SUBQ_WEIGHT_LIMIT_EXCEEDED`

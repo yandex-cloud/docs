@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ManagedRepack](index.md) > TerminateRepack
+
 # Managed Service for PostgreSQL API, REST: ManagedRepack.TerminateRepack
 
 Terminates currently running Repack in given cluster

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > Практические руководства > Все руководства
+
 # Практические руководства Managed Service for Apache Airflow™
 
 ## Работа с кластерами {#clusters}

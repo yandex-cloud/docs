@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Processing](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > ListOperations
+
 # Yandex Data Processing API, REST: Cluster.ListOperations
 
 Lists operations for the specified cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Пошаговые инструкции](../index.md) > Управление приложениями (SSO) > SAML-приложения > Изменить приложение
+
 # Изменить SAML-приложение в Yandex Identity Hub
 
 

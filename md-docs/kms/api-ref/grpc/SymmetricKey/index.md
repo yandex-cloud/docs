@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Key Management Service](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > SymmetricKey > Overview
+
 # Key Management Service API, gRPC: SymmetricKeyService
 
 Set of methods for managing symmetric KMS keys.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [Yandex Cloud gRPC (англ.)](../index.md) > [Presign](index.md) > Create
+
 # Object Storage API, gRPC: PresignService.Create
 
 Create generates presigned URLs for the specified objects

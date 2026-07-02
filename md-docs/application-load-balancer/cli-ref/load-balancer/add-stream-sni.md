@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Application Load Balancer](../../index.md) > [Справочник CLI (англ.)](../index.md) > [load-balancer](index.md) > add-stream-sni
+
 # yc application-load-balancer load-balancer add-stream-sni
 
 Adds Stream sni match to application load balancer's listener.

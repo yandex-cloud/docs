@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Managed Service for Sharded PostgreSQL](index.md) > Публичные материалы
+
 # Публичные материалы о Yandex Managed Service for Sharded PostgreSQL
 
 ## Документация {#docs}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Monitoring](../../../index.md) > [Агент сбора метрик](index.md) > Запуск и остановка
+
 # Запуск и остановка Yandex Unified Agent
 
 ## Запуск {#run}

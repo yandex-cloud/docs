@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../index.md) > [mounted-image](index.md) > create
+
 # yc baremetal mounted-image create
 
 Mount user image.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [placement-group](index.md) > list-operations
+
 # yc compute placement-group list-operations
 
 List operations for the specified placement group

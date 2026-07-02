@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [user](index.md) > create
+
 # yc managed-mysql user create
 
 Create a MySQL user

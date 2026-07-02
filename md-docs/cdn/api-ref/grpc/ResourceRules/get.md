@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud CDN](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ResourceRules](index.md) > Get
+
 # Cloud CDN API, gRPC: ResourceRulesService.Get
 
 Get specified by id resource rule.

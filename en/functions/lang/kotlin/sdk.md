@@ -44,14 +44,14 @@ fun handle(folderId: String): String {
     )
     val listInstancesRequest =
         InstanceServiceOuterClass.ListInstancesRequest.newBuilder().setFolderId(folderId).build()
-    // Getting a list of VMs based on `folderId` specified in the request
+    // Getting the list of VMs by `folderId` specified in the request
     val instances = instanceService.list(listInstancesRequest).instancesList
     var count = 0
     for (instance in instances) {
         if (instance.status != InstanceOuterClass.Instance.Status.RUNNING) {
             val startInstanceRequest =
                 InstanceServiceOuterClass.StartInstanceRequest.newBuilder().setInstanceId(instance.id).build()
-            // Starting a VM with IDs specified in the request
+            // Starting VMs with IDs specified in the request
             val startInstanceResponse = instanceService.start(startInstanceRequest)
             if (!startInstanceResponse.hasError()) {
                 count++

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Справочник API](../overview.md) > [REST (англ.)](../index.md) > [Project](index.md) > Update
+
 # DataSphere API v2, REST: Project.Update
 
 Updates the specified project.

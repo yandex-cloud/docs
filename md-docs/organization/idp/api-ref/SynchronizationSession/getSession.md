@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [Identity Provider API](../index.md) > [SynchronizationSession](index.md) > GetSession
+
 # Identity Provider API, REST: SynchronizationSession.GetSession
 
 Returns the specified synchronization session.

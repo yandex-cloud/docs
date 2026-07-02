@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [metadata-hub](../../../index.md) > [connection-manager](../../index.md) > [connection](../index.md) > [create](index.md) > postgresql
+
 # yc metadata-hub connection-manager connection create postgresql
 
 Create PostgreSQL connection

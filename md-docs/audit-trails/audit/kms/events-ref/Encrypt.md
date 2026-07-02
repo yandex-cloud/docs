@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > kms > Encrypt
+
 # Key Management Service Audit Trails Events: Encrypt
 
 ## Event JSON schema {#yandex.cloud.audit.kms.Encrypt2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Apache Spark™](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > list-access-bindings
+
 # yc managed-spark v0 cluster list-access-bindings
 
 List access bindings for the specified Spark cluster

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [cloudrouter](../index.md) > [routing-instance](index.md) > update-networks
+
 # yc cloudrouter routing-instance update-networks
 
 Updates multiple vpc using the data specified in the request.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Yandex Identity Hub](../../../../../index.md) > Справочник API > REST (англ.) > Identity Provider API > [OAUTH Application API](../index.md) > [Application](index.md) > Suspend
+
 # OAUTH Application API, REST: Application.Suspend
 
 Sets status to SUSPENDED for the specified OAuth application.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity and Access Management](../../index.md) > [Справочник CLI (англ.)](../index.md) > access-analyzer > Overview
+
 # yc iam access-analyzer
 
 Manage access analyzer.

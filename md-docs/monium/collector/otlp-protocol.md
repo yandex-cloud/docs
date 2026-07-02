@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Monium](../index.md) > [Поставка данных](index.md) > Особенности OTLP в Monium
+
 # Особенности OTLP в Monium
 
 Monium поддерживает прием телеметрии по протоколу [OTLP](https://opentelemetry.io/docs/specs/otlp/) (OpenTelemetry Protocol), что позволяет напрямую отправлять данные из приложений с OpenTelemetry SDK или через OpenTelemetry Collector.

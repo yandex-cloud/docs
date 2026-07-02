@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Billing](../index.md) > Вопросы и ответы > Общие вопросы
+
 # Общие вопросы про сервис Yandex Cloud Billing
 
 #### Могу ли я использовать свою лицензию ОС на виртуальных машинах в Yandex Cloud? {#os-license}

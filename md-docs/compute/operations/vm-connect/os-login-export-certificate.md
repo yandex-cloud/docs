@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Работа на виртуальной машине > OS Login > Экспортировать SSH-сертификат
+
 # Экспортировать SSH-сертификат
 
 Чтобы пользователь или (с помощью [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md)) сторонний инструмент, такой как [Terraform](https://www.terraform.io/) или [Ansible](https://www.ansible.com/), мог подключиться по протоколу SSH к [виртуальным машинам Compute Cloud](../../concepts/vm.md#project), [хостам кластера Yandex Data Processing](../../../data-proc/operations/connect-oslogin.md) или [отдельным узлам в группе узлов Kubernetes](../../../managed-kubernetes/concepts/index.md#node-group) с включенным доступом по OS Login, можно использовать SSH-сертификат [пользователя организации](../../../organization/concepts/membership.md) или сервисного аккаунта. Для этого необходимо локально экспортировать SSH-сертификат и использовать его для доступа к ВМ или узлу Kubernetes с помощью стандартного SSH-клиента. Экспортированный сертификат действителен один час.

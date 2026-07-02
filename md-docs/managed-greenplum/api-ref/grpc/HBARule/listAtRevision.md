@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [HBARule](index.md) > ListAtRevision
+
 # Managed Service for Greenplum® API, gRPC: HBARuleService.ListAtRevision
 
 Retrieves a list of HBA rules for Greenplum clusters for particular revision.

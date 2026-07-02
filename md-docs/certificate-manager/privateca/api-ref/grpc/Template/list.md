@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Certificate Manager](../../../../index.md) > Справочник API > gRPC (англ.) > [Certificate Manager Private CA API](../index.md) > [Template](index.md) > List
+
 # Certificate Manager Private CA API, gRPC: TemplateService.List
 
 Lists all certificate templates in a specified folder.

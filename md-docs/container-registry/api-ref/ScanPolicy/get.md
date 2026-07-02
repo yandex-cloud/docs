@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ScanPolicy](index.md) > Get
+
 # Container Registry API, REST: ScanPolicy.Get
 
 Returns the specified scan policy.

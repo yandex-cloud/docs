@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Инструменты Network Load Balancer](index.md) > NetworkPolicy
+
 # Поля и аннотации ресурса NetworkPolicy
 
 Ресурс `NetworkPolicy` используется для подключения к сервисам, опубликованным через Network Load Balancer, с определенных IP-адресов.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../index.md) > Справочник API > [Managed Service for Kubernetes REST (англ.)](../index.md) > [Cluster](index.md) > Get
+
 # Managed Services for Kubernetes API, REST: Cluster.Get
 
 Returns the specified Kubernetes cluster.

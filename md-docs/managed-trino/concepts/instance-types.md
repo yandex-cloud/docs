@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > [Концепции](index.md) > Классы хостов
+
 # Классы хостов Managed Service for Trino
 
 Класс хостов определяет вычислительные мощности, выделяемые для каждого хоста в кластере.

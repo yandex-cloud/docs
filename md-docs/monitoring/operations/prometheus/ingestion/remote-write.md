@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Monitoring](../../../index.md) > [Yandex Managed Service for Prometheus®](../index.md) > [Запись метрик](index.md) > Remote Write
+
 # Запись метрик через Remote API
 
 Чтобы настроить запись метрик через Remote API, используя Prometheus в качестве агента для сбора метрик:

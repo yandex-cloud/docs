@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Audit Trails](../../index.md) > [Справочник CLI (англ.)](../index.md) > [trail](index.md) > remove-access-binding
+
 # yc audit-trails trail remove-access-binding
 
 Remove access binding for the specified trail

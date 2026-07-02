@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > Концепции > Квоты и лимиты
+
 # Квоты и лимиты в Yandex Identity Hub
 
 В сервисе Yandex Identity Hub действуют следующие ограничения:

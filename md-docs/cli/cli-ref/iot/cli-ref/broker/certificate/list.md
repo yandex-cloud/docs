@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [iot](../../index.md) > [broker](../index.md) > [certificate](index.md) > list
+
 # yc iot broker certificate list
 
 List certificates associated with specified broker

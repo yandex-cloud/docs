@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Практические руководства](../index.md) > [Развертывание Nextcloud в интеграции с Object Storage](index.md) > Развертывание Nextcloud на ВМ или в группе ВМ с помощью Terraform
+
 # Развертывание Nextcloud на виртуальной машине или в группе виртуальных машин Compute Cloud в интеграции с Yandex Object Storage с помощью Terraform
 
 В этом руководстве вы подключите [бакет](../../../storage/concepts/bucket.md) Object Storage к решению Nextcloud, развернутому на [виртуальной машине](../../concepts/vm.md) Compute Cloud с базой данных в [кластере](../../../managed-mysql/concepts/index.md) Yandex Managed Service for MySQL®. Для обеспечения отказоустойчивости и избыточности создаваемой под Nextcloud инфраструктуры вы масштабируете Nextcloud на [группу виртуальных машин](../../concepts/instance-groups/index.md) с распределением нагрузки при помощи [L7-балансировщика](../../../application-load-balancer/concepts/application-load-balancer.md) Yandex Application Load Balancer. В отказоустойчивой конфигурации Nextcloud будет доступен по доменному имени, для которого в Yandex Certificate Manager будет выпущен [TLS-сертификат](../../../certificate-manager/concepts/managed-certificate.md).
@@ -46,7 +48,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость предлагаемого решения входят: 
-* плата за [диски](../../concepts/disk.md), [снимки дисков](../../concepts/snapshot.md) и постоянно запущенные [ВМ](../../concepts/vm.md) ([тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за [диски](../../concepts/disk.md), [снимки дисков](../../concepts/snapshot.md) и постоянно запущенные [ВМ](../../concepts/vm.md) ([тарифы Yandex Compute Cloud](../../pricing.md));
 * плата за использование [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) и [NAT-шлюзов](../../../vpc/concepts/gateways.md#nat-gateway) ([тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
 * плата за [хранение данных](../../../storage/concepts/bucket.md) в Object Storage и [операции](../../../storage/operations/index.md) с ними ([тарифы Yandex Object Storage](../../../storage/pricing.md));
 * плата за использование управляемой БД MySQL® ([тарифы Managed Service for MySQL®](../../../managed-mysql/pricing.md));

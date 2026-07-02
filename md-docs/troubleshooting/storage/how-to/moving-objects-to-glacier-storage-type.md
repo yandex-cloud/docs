@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Object Storage](../index.md) > Как перенести данные из бакета Object Storage в ледяное хранилище
+
 # Как перенести данные из бакета Object Storage в ледяное хранилище
 
 

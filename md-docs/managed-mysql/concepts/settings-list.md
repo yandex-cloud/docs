@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for MySQL®](../index.md) > [Концепции](index.md) > Настройки MySQL
+
 # Настройки MySQL®
 
 Для кластера Managed Service for MySQL® можно задать настройки, которые относятся к MySQL®. Часть настроек задается [на уровне кластера](#dbms-cluster-settings), часть — [на уровне пользователя](#dbms-user-settings).

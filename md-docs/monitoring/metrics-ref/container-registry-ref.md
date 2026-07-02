@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Container Registry
+
 # Метрики Yandex Container Registry
 
 В этом разделе описаны метрики сервиса [Container Registry](../../container-registry/index.md), поставляемые в Monitoring.

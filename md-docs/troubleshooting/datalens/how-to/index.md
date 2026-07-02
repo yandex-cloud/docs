@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [DataLens](../index.md) > Примеры конфигураций и сценариев DataLens
+
 ## Примеры конфигураций и сценариев DataLens {#configuration-examples}
 
 * [Как подключиться к Яндекс Директ из DataLens](access-yandex-direct-data.md)

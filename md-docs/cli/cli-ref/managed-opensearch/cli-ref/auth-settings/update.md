@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-opensearch](../index.md) > [auth-settings](index.md) > update
+
 # yc managed-opensearch auth-settings update
 
 Update authorization settings for a managed OpenSearch cluster.

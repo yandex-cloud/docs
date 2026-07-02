@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Monium](../../../index.md) > Справочник API > Логи > [gRPC (англ.)](../index.md) > [Export](index.md) > Update
+
 # Cloud Logging Service, gRPC: ExportService.Update
 
 Updates the specified export.

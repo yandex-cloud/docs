@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > MlModel > Overview
+
 # Managed Service for ClickHouse API, REST: MlModel
 
 A set of methods for managing machine learning models.

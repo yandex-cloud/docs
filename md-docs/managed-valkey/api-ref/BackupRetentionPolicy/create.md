@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [BackupRetentionPolicy](index.md) > Create
+
 # Managed Service for Redis API, REST: BackupRetentionPolicy.Create
 
 Add a new retention policy.

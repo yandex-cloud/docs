@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Marketplace](../../../index.md) > Партнерам > Справочник License Manager API > [REST (англ.)](../index.md) > [Lock](index.md) > Delete
+
 # Yandex Cloud Marketplace License Manager, REST: Lock.Delete
 
 Unlocks the specified subscription lock.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud DNS > Data Sources > dns_zone
+
 # yandex_dns_zone (DataSource)
 
 Get information about a DNS Zone.

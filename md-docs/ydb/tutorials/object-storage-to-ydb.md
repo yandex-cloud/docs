@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Практические руководства](index.md) > Загрузка данных из Yandex Object Storage в YDB с помощью Yandex Data Transfer
+
 # Загрузка данных из Yandex Object Storage в Managed Service for YDB с помощью Yandex Data Transfer
 
 # Загрузка данных из Yandex Object Storage в Yandex Managed Service for YDB с помощью Yandex Data Transfer

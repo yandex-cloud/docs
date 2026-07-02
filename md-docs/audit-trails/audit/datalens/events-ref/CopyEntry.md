@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datalens > CopyEntry
+
 # DataLens Audit Trails Events: CopyEntry
 
 ## Event JSON schema {#yandex.cloud.audit.datalens.CopyEntry2-schema}

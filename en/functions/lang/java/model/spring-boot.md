@@ -1,10 +1,10 @@
 # Using SpringBootApplication annotation to set a handler in Java
 
-You can set a Java handler by loading a `Spring Boot` application with an entry point as a class with the [SpringBootApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html) annotation.
+You can set a handler in Java by running a `Spring Boot` application with an entry point as a class annotated with [SpringBootApplication](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/autoconfigure/SpringBootApplication.html).
 
-When being executed, the {{ sf-name }} function has no data about the path that was used to invoke it. In other words, if there is an `/api/v1/list` endpoint in your `Spring Boot` application, you will not be able to invoke the function at `https://{{ sf-url }}/function-id/api/v1/list`. Instead, you will have to provide path data in the request body (`url` parameter) or use [API Gateway](../../../../api-gateway/quickstart/index.md) integration. We recommend the second option because `API Gateway` is the simplest you can use with a `Spring Boot` application and enables you to address application endpoints the usual way.
+While running, a function in {{ sf-name }} has no data about the path used to invoke it. In other words, if your `Spring Boot` application has an `/api/v1/list` endpoint, you will not be able to invoke a function at `https://{{ sf-url }}/function-id/api/v1/list`. Instead, you will have to provide path data in the request body (the `url` parameter) or use [API Gateway](../../../../api-gateway/quickstart/index.md) integration. We recommend the second option, since `API Gateway` works best with `Spring Boot` applications and enables you to access application endpoints in the usual way.
 
-In case your application logic uses the [HttpServletRequest](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) and [HttpServletResponse](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html) classes, please note that {{ sf-name }} does not support some methods of these classes. You can review the list of unsupported methods [here](servlet-api.md#unsupported).
+In case your application’s logic uses the [HttpServletRequest](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletRequest.html) and [HttpServletResponse](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServletResponse.html) classes, note that {{ sf-name }} does not support some methods of these classes. You can check the list of unsupported methods [here](servlet-api.md#unsupported).
 
 {{ sf-name }} does not support Spring Boot Loader.
 
@@ -14,7 +14,7 @@ The following application has a single endpoint: `GET: /get/{name}`. In response
 
 1. [Create a function](../../../operations/function/function-create.md).
 
-1. Create a ZIP archive with the following hierarchy:
+1. Create a ZIP archive with the following structure:
 
     ```text
     src
@@ -27,7 +27,7 @@ The following application has a single endpoint: `GET: /get/{name}`. In response
     pom.xml
     ```
 
-    * `Application.java` file:
+    * `Application.java`:
 
       ```java
       package util;
@@ -43,7 +43,7 @@ The following application has a single endpoint: `GET: /get/{name}`. In response
       }
       ```
 
-    * `TestController.java` file:
+    * `TestController.java`:
 
       ```java
       package util.controller;
@@ -59,7 +59,7 @@ The following application has a single endpoint: `GET: /get/{name}`. In response
       }
       ```
 
-    * `pom.xml` file:
+    * `pom.xml`:
 
       ```xml
       <?xml version="1.0" encoding="UTF-8"?>
@@ -125,7 +125,7 @@ The following application has a single endpoint: `GET: /get/{name}`. In response
     * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
     * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `util.Application`.
 
-1. [Create](../../../../api-gateway/operations/api-gw-create.md) an {{ api-gw-name }} API gateway and add the following specification:
+1. [Create](../../../../api-gateway/operations/api-gw-create.md) an {{ api-gw-name }} and add the following specification to it:
 
     ```yaml
     openapi: 3.0.0
@@ -171,7 +171,7 @@ The following application has a single endpoint: `GET: /get/{name}`. In response
     Hello, Anonymous
     ```
 
-Sample direct request where {{ api-gw-name }} is not used to invoke the function:
+Example of a direct request that does not use {{ api-gw-name }} to invoke the function:
 
 ```
 {

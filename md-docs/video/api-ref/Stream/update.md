@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Video](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Stream](index.md) > Update
+
 # Video API, REST: Stream.Update
 
 Updates an existing stream's metadata and settings.

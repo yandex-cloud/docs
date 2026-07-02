@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for YDB > Data Sources > ydb_database_dedicated
+
 # yandex_ydb_database_dedicated (DataSource)
 
 Get information about a Yandex Database (dedicated) cluster. For more information, see [the official documentation](../../ydb/concepts/serverless_and_dedicated).

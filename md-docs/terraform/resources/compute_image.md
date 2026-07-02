@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Compute Cloud > Resources > compute_image
+
 # yandex_compute_image (Resource)
 
 Creates a virtual machine image resource for the Yandex Compute Cloud service from an existing tarball. For more information, see [the official documentation](../../compute/concepts/image.md).

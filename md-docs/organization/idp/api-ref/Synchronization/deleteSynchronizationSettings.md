@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [Identity Provider API](../index.md) > [Synchronization](index.md) > DeleteSynchronizationSettings
+
 # Identity Provider API, REST: Synchronization.DeleteSynchronizationSettings
 
 Deletes synchronization settings for a subject container.

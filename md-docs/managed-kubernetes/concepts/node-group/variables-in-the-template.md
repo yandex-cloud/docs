@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Концепции](../index.md) > Группа узлов > Переменные в шаблоне узла
+
 # Переменные в шаблоне узла Yandex Managed Service for Kubernetes
 
 В Managed Service for Kubernetes создаются [группы однотипных узлов](../index.md#node-group) кластера из шаблона. Чтобы такие узлы имели разные характеристики, используйте механизм подстановок переменных в шаблоне.

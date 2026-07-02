@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Концепции](index.md) > Режимы работы OLTP или OLAP
+
 # Режимы работы OLTP или OLAP
 
 При работе с базами данных выделяют два основных сценария: On-line Transaction Processing (Онлайн обработка транзакций, [OLTP](../../glossary/oltp.md)) и On-line Analytical Processing (Онлайн аналитическая обработка, [OLAP](../../glossary/olap.md)).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [database](index.md) > delete
+
 # yc managed-mysql database delete
 
 Delete the specified MySQL database

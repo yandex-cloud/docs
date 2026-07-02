@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Query](../index.md) > [Практические руководства](index.md) > Визуализация данных из Object Storage в DataLens
+
 # Визуализация данных из Yandex Object Storage в Yandex DataLens
 
 

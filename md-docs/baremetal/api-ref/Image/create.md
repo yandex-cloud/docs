@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > [Image](index.md) > Create
+
 # BareMetal API, REST: Image.Create
 
 Creates an image in the specified folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [RentalPeriod](index.md) > List
+
 # BareMetal API, gRPC: RentalPeriodService.List
 
 Retrieves the list of RentalPeriod resources.

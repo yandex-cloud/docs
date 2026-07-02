@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Практические руководства](index.md) > AppMetrica: экспорт, постобработка и визуализация данных
+
 # AppMetrica: экспорт, постобработка и визуализация данных
 
 

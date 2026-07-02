@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Transfer](../index.md) > [Концепции](index.md) > Какие задачи решает сервис
+
 # Какие задачи решает сервис Yandex Data Transfer
 
 ## Тестирование Yandex Cloud {#testing}

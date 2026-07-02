@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [dataproc](../index.md) > [cluster](index.md) > update
+
 # yc dataproc cluster update
 
 Modify attributes of a cluster.

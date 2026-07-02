@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Processing](../index.md) > [Пошаговые инструкции](index.md) > Логи и мониторинг > Работа с логами
+
 # Работа с логами
 
 Собирает и отображает логи кластера Yandex Data Processing сервис [Yandex Cloud Logging](../../logging/index.md). 

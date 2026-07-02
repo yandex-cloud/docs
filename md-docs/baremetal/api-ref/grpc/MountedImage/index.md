@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > MountedImage > Overview
+
 # BareMetal API, gRPC: MountedImageService
 
 A set of methods for managing Image mounting.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Processing](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Job](index.md) > Cancel
+
 # Yandex Data Processing API, gRPC: JobService.Cancel
 
 Cancels the specified Yandex Data Processing job.

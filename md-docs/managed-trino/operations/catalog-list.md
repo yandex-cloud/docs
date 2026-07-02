@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > [Пошаговые инструкции](index.md) > Каталоги > Получение информации об имеющихся каталогах
+
 # Получение информации о каталогах в кластере Managed Service for Trino
 
 ## Получить список каталогов в кластере {#list-catalogs}

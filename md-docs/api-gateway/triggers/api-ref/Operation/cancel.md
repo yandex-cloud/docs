@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex API Gateway](../../../index.md) > Справочник API Triggers > [REST (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Cloud Functions Triggers Service, REST: Operation.Cancel
 
 Cancels the specified operation.

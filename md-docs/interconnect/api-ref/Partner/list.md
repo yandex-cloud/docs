@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Partner](index.md) > List
+
 # Cloud Interconnect API, REST: Partner.List
 
 Retrieves the list of Partner resources in the specified folder.

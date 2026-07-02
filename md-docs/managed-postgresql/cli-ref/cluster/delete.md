@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > delete
+
 # yc managed-postgresql cluster delete
 
 Delete the specified PostgreSQL cluster

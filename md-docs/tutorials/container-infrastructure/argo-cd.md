@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Контейнерная инфраструктура](index.md) > Managed Service for Kubernetes > Использование продуктов Cloud Marketplace > Интеграция с Argo CD
+
 # Интеграция Yandex Managed Service for Kubernetes с Argo CD
 
 # Интеграция с Argo CD
@@ -29,7 +31,7 @@
 * Плата за [использование хранилища](../../container-registry/pricing.md) Container Registry.
 * Плата за инстанс GitLab. Она зависит от способа создания инстанса:
 
-   * Managed Service for GitLab: оплачиваются ресурсы ВМ, хранение данных и резервных копий, объем исходящего трафика ([тарифы Managed Service for GitLab](../../managed-gitlab/pricing)).
+   * Managed Service for GitLab: оплачиваются ресурсы ВМ, хранение данных и резервных копий, объем исходящего трафика ([тарифы Managed Service for GitLab](../../managed-gitlab/pricing.md)).
    * ВМ с образом GitLab: оплачиваются ресурсы ВМ, образ GitLab, публичный IP-адрес для ВМ ([тарифы Compute Cloud](../../compute/pricing.md) и [Virtual Private Cloud](../../vpc/pricing.md#nat-gateways)).
 
 

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iot > UpdateDevice
+
 # IoT Core Audit Trails Events: UpdateDevice
 
 ## Event JSON schema {#yandex.cloud.audit.iot.devices.UpdateDevice2-schema}

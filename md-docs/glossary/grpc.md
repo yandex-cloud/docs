@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Облачная терминология](index.md) > Сети и доставка контента > gRPC
+
 # gRPC
 
 gRPC (Google Remote Procedure Calling) — система удаленного вызова процедур, разработанная компанией Google.

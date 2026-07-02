@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [private-endpoint](index.md) > get
+
 # yc vpc private-endpoint get
 
 Get information about a private endpoint.

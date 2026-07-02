@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Instance](index.md) > Create
+
 # Compute Cloud API, REST: Instance.Create
 
 Creates an instance in the specified folder.

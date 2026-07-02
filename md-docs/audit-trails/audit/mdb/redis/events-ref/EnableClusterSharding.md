@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.redis > EnableClusterSharding
+
 # Managed Service for ValKey Audit Trails Events: EnableClusterSharding
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.redis.EnableClusterSharding2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Концепции](index.md) > Загрузка файла через HTML-форму
+
 # Загрузка файла с помощью HTML формы
 
 

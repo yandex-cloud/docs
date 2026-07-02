@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [hosts](index.md) > update
+
 # yc managed-mongodb v0 hosts update
 
 Update specified hosts in the cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Cloud Logging > Resources > api_gateway
+
 # yandex_api_gateway (Resource)
 
 Allows management of [Yandex Cloud API Gateway](../../api-gateway/index.md).

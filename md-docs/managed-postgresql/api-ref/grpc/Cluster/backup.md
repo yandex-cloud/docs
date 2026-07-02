@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Backup
+
 # Managed Service for PostgreSQL API, gRPC: ClusterService.Backup
 
 Creates a backup for the specified PostgreSQL cluster.

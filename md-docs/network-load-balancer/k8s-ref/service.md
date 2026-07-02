@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Network Load Balancer](../index.md) > [Справочник инструментов для Managed Service for Kubernetes](index.md) > Service
+
 # Поля и аннотации ресурса Service
 
 Ресурс `Service` определяет [сервис Kubernetes](../../managed-kubernetes/concepts/index.md#service). Для Network Load Balancer для Managed Service for Kubernetes сервисы представляют собой балансировщики входящего трафика.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > ScanPolicy > Overview
+
 # Yandex Cloud Registry API, REST: ScanPolicy
 
 A set of methods for managing scan policy resources.

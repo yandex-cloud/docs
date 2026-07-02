@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > vpc > MoveGateway
+
 # Virtual Private Cloud Audit Trails Events: MoveGateway
 
 ## Event JSON schema {#yandex.cloud.audit.network.MoveGateway2-schema}

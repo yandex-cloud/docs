@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Справочник метрик](index.md) > Cloud Logging
+
 # Метрики Yandex Cloud Logging
 
 В этом разделе описаны метрики сервиса [Cloud Logging](../../logging/index.md), поставляемые в Monitoring.

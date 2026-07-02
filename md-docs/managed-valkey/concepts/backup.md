@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Valkey™](../index.md) > [Концепции](index.md) > Резервные копии
+
 # Резервные копии в Yandex Managed Service for Valkey™
 
 Yandex Managed Service for Valkey™ обеспечивает автоматическое и ручное резервное копирование баз данных.

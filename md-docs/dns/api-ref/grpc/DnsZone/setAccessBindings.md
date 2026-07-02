@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud DNS](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DnsZone](index.md) > SetAccessBindings
+
 # Cloud DNS API, gRPC: DnsZoneService.SetAccessBindings
 
 Sets access bindings for the specified DNS zone.

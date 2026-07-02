@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Marketplace](../index.md) > Партнерам > Справочник Metering API > Начало работы с API
+
 # Как начать работать с Marketplace Metering API
 
 В этом разделе вы научитесь отправлять [метрики потребления](../concepts/api-usage.md) вашего [продукта](../concepts/product.md) в Marketplace Metering API.

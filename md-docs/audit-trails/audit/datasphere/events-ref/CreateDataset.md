@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > CreateDataset
+
 # DataSphere Audit Trails Events: CreateDataset
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.CreateDataset2-schema}

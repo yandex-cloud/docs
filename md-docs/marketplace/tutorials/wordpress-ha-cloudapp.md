@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Marketplace](../index.md) > Пользователям > [Практические руководства](index.md) > Установка WordPress High Availability с помощью Cloud Apps
+
 # Установка WordPress High Availability с помощью Cloud Apps
 
 С помощью этого руководства вы установите и настроите [WordPress](https://wordpress.org/) — систему управления контентом, подходящую как для личных блогов, так и для крупных медиа и коммерческих проектов. Приложение [Cloud Apps](../../cloud-apps/index.md) будет развернуто на виртуальной машине с автоматической настройкой всех необходимых ресурсов, включая базу данных [Yandex Managed Service for MySQL®](../../managed-mysql/index.md), веб-сервер и интеграцию с сервисом [Yandex Cloud Postbox](../../postbox/index.md).
@@ -132,11 +134,13 @@
 
 Создайте [публичную DNS-зону](../../dns/concepts/dns-zone.md#public-zones) и делегируйте на нее домен. Подробнее о делегировании домена читайте в [инструкции](../../troubleshooting/dns/how-to/delegate-public-zone.md). В DNS-зоне будут размещаться домены WordPress.
 
+Перед установкой приложения вам необходимо создать публичную DNS-зону и делегировать на нее домен. Подробнее о делегировании домена читайте в [инструкции](../../troubleshooting/dns/how-to/delegate-public-zone.md).
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Cloud DNS**.
+  1. [Перейдите](https://console.yandex.cloud/link/dns/) в сервис **Cloud DNS**.
   1. Нажмите кнопку **Создать зону**.
   1. Задайте настройки зоны DNS:
      * **Зона** — укажите ваш зарегистрированный домен, например `example.com.` (с точкой в конце).
@@ -161,13 +165,15 @@
 
 - Yandex Cloud CLI {#cli}
 
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
   1. Создайте публичную зону DNS:
 
      ```bash
      yc dns zone create \
        --name example-zone \
        --zone example.com. \
-       --public-visibility
+       --public-visibility=true
      ```
 
      Где `--zone` — имя вашего домена, например `example.com.`. Значение параметра `--zone` должно заканчиваться точкой.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../index.md) > mounted-image > Overview
+
 # yc baremetal mounted-image
 
 A set of methods for managing Image mounting.

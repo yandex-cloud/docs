@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Audit Trails](../../index.md) > [Справочник CLI (англ.)](../index.md) > [trail](index.md) > delete
+
 # yc audit-trails trail delete
 
 Delete the specified trail

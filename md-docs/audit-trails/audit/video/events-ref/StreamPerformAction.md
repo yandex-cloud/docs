@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > video > StreamPerformAction
+
 # Cloud Video Audit Trails Events: StreamPerformAction
 
 ## Event JSON schema {#yandex.cloud.audit.video.StreamPerformAction2-schema}

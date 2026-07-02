@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [waf](../index.md) > waf-profile > Overview
+
 # yc smartwebsecurity waf waf-profile
 
 A set of methods for managing WafProfile resources.

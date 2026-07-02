@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > [Справочник CLI (англ.)](../../index.md) > [v2](../index.md) > [server](index.md) > renew-rental
+
 # yc baremetal v2 server renew-rental
 
 Enable prolongation after rental period end

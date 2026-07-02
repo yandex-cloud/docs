@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > wiki > GridMoveRows
+
 # Yandex Wiki Audit Trails Events: GridMoveRows
 
 ## Event JSON schema {#yandex.cloud.audit.wiki.GridMoveRows2-schema}

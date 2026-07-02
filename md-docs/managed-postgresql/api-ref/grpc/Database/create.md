@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Database](index.md) > Create
+
 # Managed Service for PostgreSQL API, gRPC: DatabaseService.Create
 
 Creates a new PostgreSQL database in the specified cluster.

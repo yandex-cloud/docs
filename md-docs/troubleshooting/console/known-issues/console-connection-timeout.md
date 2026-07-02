@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Cloud Console](../index.md) > Устранение ошибки подключения к Cloud Console
+
 # Устранение ошибки подключения к Cloud Console
 
 

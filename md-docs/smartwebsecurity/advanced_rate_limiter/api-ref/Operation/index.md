@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > Справочник API > REST (англ.) > [SmartWebSecurity ARL API](../index.md) > Operation > Overview
+
 # SmartWebSecurity ARL API, REST: Operation
 
 A set of methods for managing operations for asynchronous API requests.

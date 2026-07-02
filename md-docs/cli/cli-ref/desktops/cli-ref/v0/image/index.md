@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [desktops](../../index.md) > [v0](../index.md) > image > Overview
+
 # yc desktops v0 image
 
 [PREVIEW] Manage desktop images

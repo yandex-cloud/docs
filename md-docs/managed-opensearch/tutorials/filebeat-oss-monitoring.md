@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for OpenSearch](../index.md) > [Практические руководства](index.md) > Мониторинг кластера Managed Service for Kubernetes с помощью Filebeat OSS
+
 # Мониторинг кластера Yandex Managed Service for Kubernetes с помощью Filebeat OSS
 
 # Мониторинг кластера с помощью Filebeat OSS
@@ -16,7 +18,7 @@
 
 * Мастер Managed Service for Kubernetes ([тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
 * Узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Кластер Managed Service for OpenSearch: использование вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for OpenSearch](../../managed-opensearch/pricing.md)).
+* Кластер Managed Service for OpenSearch: использование вычислительных ресурсов, объем хранилища и резервных копий ([тарифы Managed Service for OpenSearch](../pricing.md)).
 * Публичные IP-адреса для хостов кластера Managed Service for OpenSearch и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ ([тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 ## Перед началом работы {#before-you-begin}

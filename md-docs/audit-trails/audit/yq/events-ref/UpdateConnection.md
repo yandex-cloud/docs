@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > yq > UpdateConnection
+
 # Yandex Query Audit Trails Events: UpdateConnection
 
 ## Event JSON schema {#yandex.cloud.audit.yq.UpdateConnection2-schema}

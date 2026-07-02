@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-mysql](../../index.md) > [v0](../index.md) > [backup-retention-policy](index.md) > create
+
 # yc managed-mysql v0 backup-retention-policy create
 
 Create backup retention policy for the specified MySQL cluster

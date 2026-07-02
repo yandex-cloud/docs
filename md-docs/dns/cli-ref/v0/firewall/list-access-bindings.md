@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud DNS](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [firewall](index.md) > list-access-bindings
+
 # yc dns v0 firewall list-access-bindings
 
 List access bindings of the specified dns firewall.

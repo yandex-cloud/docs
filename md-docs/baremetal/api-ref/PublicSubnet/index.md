@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex BareMetal](../../index.md) > Концепции > Настройка и управление > Справочник API > [REST (англ.)](../index.md) > PublicSubnet > Overview
+
 # BareMetal API, REST: PublicSubnet
 
 A set of methods for managing PublicSubnet resources.

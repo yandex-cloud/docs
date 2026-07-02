@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MetaData Hub](../../index.md) > Data Catalog > Пошаговые инструкции > Работа с данными > Разметка метаданных
+
 # Разметка метаданных
 
 {% note info %}

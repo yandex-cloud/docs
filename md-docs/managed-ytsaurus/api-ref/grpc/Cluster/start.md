@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YTsaurus](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > Start
+
 # Ytsaurus API, gRPC: ClusterService.Start
 
 Starts the specified cluster.

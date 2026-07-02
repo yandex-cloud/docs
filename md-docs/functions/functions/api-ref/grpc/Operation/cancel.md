@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Functions](../../../../index.md) > Справочник API Functions > [gRPC (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # Cloud Functions Service, gRPC: OperationService.Cancel
 
 Cancels the specified operation.

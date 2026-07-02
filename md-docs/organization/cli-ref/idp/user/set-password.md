@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [idp](../index.md) > [user](index.md) > set-password
+
 # yc organization-manager idp user set-password
 
 Set the password for the specified user

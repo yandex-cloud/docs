@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > list-logs
+
 # yc managed-greenplum cluster list-logs
 
 Retrieves logs for the specified Greenplum cluster

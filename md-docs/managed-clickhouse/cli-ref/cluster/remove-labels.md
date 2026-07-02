@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > remove-labels
+
 # yc managed-clickhouse cluster remove-labels
 
 Remove labels from a ClickHouse cluster.

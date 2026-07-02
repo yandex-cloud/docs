@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > securitydeck.orchestrator > DeleteWorkspace
+
 # Security Deck Orchestrator Audit Trails Events: DeleteWorkspace
 
 ## Event JSON schema {#yandex.cloud.audit.securitydeck.orchestrator.DeleteWorkspace2-schema}

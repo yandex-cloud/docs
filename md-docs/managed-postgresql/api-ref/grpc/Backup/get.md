@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Backup](index.md) > Get
+
 # Managed Service for PostgreSQL API, gRPC: BackupService.Get
 
 Returns the specified PostgreSQL Backup resource.

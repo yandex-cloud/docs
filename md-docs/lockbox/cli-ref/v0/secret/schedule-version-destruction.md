@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Lockbox](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [secret](index.md) > schedule-version-destruction
+
 # yc lockbox v0 secret schedule-version-destruction
 
 Schedule destruction of the specified secret version

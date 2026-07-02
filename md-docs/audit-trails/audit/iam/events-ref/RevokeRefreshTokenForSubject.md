@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > RevokeRefreshTokenForSubject
+
 # Identity and Access Management Audit Trails Events: RevokeRefreshTokenForSubject
 
 ## Event JSON schema {#yandex.cloud.audit.iam.credential.RevokeRefreshTokenForSubject2-schema}

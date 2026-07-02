@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [kms](../index.md) > [symmetric-key](index.md) > update
+
 # yc kms symmetric-key update
 
 Update the specified symmetric key

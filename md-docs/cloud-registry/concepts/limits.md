@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Registry](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Yandex Cloud Registry
 
 В сервисе Yandex Cloud Registry действуют следующие ограничения:

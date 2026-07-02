@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Smart Web Security](../../../../index.md) > Справочник API > gRPC (англ.) > [SmartWebSecurity MatchList API](../index.md) > MatchList > Overview
+
 # SmartWebSecurity MatchList API, gRPC: MatchListService
 
 A set of methods for managing MatchList resources.

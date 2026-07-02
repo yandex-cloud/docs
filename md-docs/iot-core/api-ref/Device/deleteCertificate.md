@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > [REST (англ.)](../index.md) > [Device](index.md) > DeleteCertificate
+
 # IoT Core Service, REST: Device.DeleteCertificate
 
 Deletes the specified device certificate.

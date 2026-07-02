@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Message Queue](../../index.md) > [Справочник API](../index.md) > Message > DeleteMessageBatch
+
 # DeleteMessageBatch
 
 Метод для удаления нескольких сообщений из очереди. Удалять можно не более 10 сообщений одновременно.

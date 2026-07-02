@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Billing](../../index.md) > Справочник API > REST (англ.) > [Billing](../index.md) > [Customer](index.md) > Activate
+
 # Billing API, REST: Customer.Activate
 
 Activates specified customer. After customer is activated, he can use resources associated with his billing account.

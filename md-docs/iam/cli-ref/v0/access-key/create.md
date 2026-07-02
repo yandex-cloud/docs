@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [access-key](index.md) > create
+
 # yc iam v0 access-key create
 
 Create an access key for the specified service account

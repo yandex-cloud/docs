@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [baremetal](../../index.md) > [v0](../index.md) > [image](index.md) > list
+
 # yc baremetal v0 image list
 
 List images. Pass the  '--folder-id = baremetal-standard-images' flag to get general images

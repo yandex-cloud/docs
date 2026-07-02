@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for OpenSearch](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > delete
+
 # yc managed-opensearch cluster delete
 
 Delete Opensearch clusters.

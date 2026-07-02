@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Message Queue](../../index.md) > [Справочник API](../index.md) > Queue > UntagQueue
+
 # UntagQueue
 
 Метод для удаления [меток очереди](../../concepts/tags.md). Изменение меток может занять до 60 секунд.

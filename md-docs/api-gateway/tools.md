@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex API Gateway](index.md) > Инструменты
+
 # Инструменты для работы с API-шлюзами API Gateway
 
 ## Провайдер Terraform {#tf-provider}

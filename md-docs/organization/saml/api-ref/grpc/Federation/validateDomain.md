@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > Справочник API > gRPC (англ.) > [SAML Federation API](../index.md) > [Federation](index.md) > ValidateDomain
+
 # SAML Federation API, gRPC: FederationService.ValidateDomain
 
 Validates a domain in the specified federation.

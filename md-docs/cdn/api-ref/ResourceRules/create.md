@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [ResourceRules](index.md) > Create
+
 # Cloud CDN API, REST: ResourceRules.Create
 
 Create new resource rule with specified unique name and rule pattern.

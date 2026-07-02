@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [managed-greenplum](../../index.md) > [v0](../index.md) > [pxf-datasource](index.md) > delete
+
 # yc managed-greenplum v0 pxf-datasource delete
 
 Delete pxf-datasource for specified Greenplum cluster

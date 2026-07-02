@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Пошаговые инструкции](../index.md) > [Конструктор спецификаций](index.md) > Yandex Workflows
+
 # Добавить расширение x-yc-apigateway-integration:http для интеграции с Yandex Workflows
 
 {% list tabs %}

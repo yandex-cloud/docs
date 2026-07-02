@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [instance](index.md) > set-access-bindings
+
 # yc compute instance set-access-bindings
 
 Set access bindings for the specified instance and delete all existing access bindings if there were any

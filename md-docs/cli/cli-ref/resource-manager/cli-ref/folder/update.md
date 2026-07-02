@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [resource-manager](../index.md) > [folder](index.md) > update
+
 # yc resource-manager folder update
 
 Update the specified folder

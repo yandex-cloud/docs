@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex API Gateway](../../../../index.md) > Справочник API Websocket > gRPC (англ.) > Overview
+
 # API Gateway WebSocket Connection Service: gRPC reference
 
 Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts](../../../../../api-design-guide/index.md).

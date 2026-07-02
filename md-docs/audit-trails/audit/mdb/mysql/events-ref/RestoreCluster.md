@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mysql > RestoreCluster
+
 # Managed Service for MySQL Audit Trails Events: RestoreCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mysql.RestoreCluster2-schema}

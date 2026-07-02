@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > Yandex SIEM > Yandex SIEM
+
 # Yandex SIEM
 
 Сервис Yandex SIEM — это собственная SIEM-система Yandex Cloud для мониторинга и анализа событий безопасности в облачной инфраструктуре. Yandex SIEM собирает данные с облачной инфраструктуры для выявления аномалий. При обнаружении аномалий Yandex SIEM создает <a href="../security-deck/concepts/alerts.md">алерты</a>, указывающие на потенциальный инцидент.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Resource Manager > Resources > resourcemanager_cloud_iam_binding
+
 # yandex_resourcemanager_cloud_iam_binding (Resource)
 
 Allows creation and management of a single binding within IAM policy for an existing `cloud`.

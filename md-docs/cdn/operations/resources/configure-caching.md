@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud CDN](../../index.md) > [Пошаговые инструкции](../index.md) > Ресурсы > Настроить кеширование ресурса
+
 # Настройка кеширования ресурса
 
 В настройках [CDN-ресурса](../../concepts/resource.md) вы можете включить [кеширование контента](../../concepts/caching.md) — временное хранение копий файлов из [источников](../../concepts/origins.md) на [CDN-серверах](../../concepts/points-of-presence.md).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Valkey™](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > stop
+
 # yc managed-redis cluster stop
 
 Stop the specified Redis cluster

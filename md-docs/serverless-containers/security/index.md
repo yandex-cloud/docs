@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Serverless Containers](../index.md) > Управление доступом
+
 # Управление доступом в Serverless Containers
 
 Для управления правами доступа в Serverless Containers используются [роли](../../iam/concepts/access-control/roles.md).

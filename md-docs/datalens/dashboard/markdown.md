@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Дашборды > Markdown
+
 # Markdown в Yandex DataLens
 
 DataLens позволяет использовать язык разметки Markdown в виджете [Текст](widget.md#text) на дашборде.
@@ -427,7 +429,7 @@ val a: Int = 1
 
 
 
-В виджет можно добавлять изображения, размещенные в хранилище [Yandex Object Storage](../../storage/quickstart.md). С тарифами сервиса можно ознакомиться в разделе [{#T}](../../storage/pricing.md). Изображения из внешних источников не поддерживаются.
+В виджет можно добавлять изображения, размещенные в хранилище [Yandex Object Storage](../../storage/quickstart.md). С тарифами сервиса можно ознакомиться в разделе [Правила тарификации для Object Storage](../../storage/pricing.md). Изображения из внешних источников не поддерживаются.
 
 
 

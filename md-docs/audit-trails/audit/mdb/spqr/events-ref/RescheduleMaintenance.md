@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.spqr > RescheduleMaintenance
+
 # Managed Service for SPQR Audit Trails Events: RescheduleMaintenance
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.spqr.RescheduleMaintenance2-schema}

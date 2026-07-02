@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > baremetal > DeletePrivateSubnet
+
 # BareMetal Audit Trails Events: DeletePrivateSubnet
 
 ## Event JSON schema {#yandex.cloud.audit.baremetal.DeletePrivateSubnet2-schema}

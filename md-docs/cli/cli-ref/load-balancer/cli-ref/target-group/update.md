@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [load-balancer](../index.md) > [target-group](index.md) > update
+
 # yc load-balancer target-group update
 
 Update the specified target group

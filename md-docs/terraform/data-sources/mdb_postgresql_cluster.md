@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for PostgreSQL > Data Sources > mdb_postgresql_cluster
+
 # yandex_mdb_postgresql_cluster (DataSource)
 
 Get information about a Yandex Managed PostgreSQL cluster. For more information, see [the official documentation](../../managed-postgresql/index.md). [How to connect to the DB](../../managed-postgresql/quickstart.md#connect). To connect, use port 6432. The port number is not configurable.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > set-access-bindings
+
 # yc managed-greenplum v0 cluster set-access-bindings
 
 Set access bindings for the specified Greenplum cluster and delete all existing access bindings if there were any

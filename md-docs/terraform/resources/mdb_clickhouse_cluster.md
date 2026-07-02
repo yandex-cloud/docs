@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for ClickHouse > Resources > mdb_clickhouse_cluster
+
 # yandex_mdb_clickhouse_cluster (Resource)
 
 Manages a ClickHouse cluster within the Yandex Cloud. For more information, see [the official documentation](../../managed-clickhouse/concepts/index.md).

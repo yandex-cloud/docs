@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > [Пошаговые инструкции](../index.md) > Управление артефактами > Docker-образ > Установить и настроить Docker
+
 # Установить и настроить Docker в Cloud Registry
 
 Перед началом работы с Cloud Registry необходимо установить и настроить [Docker](https://www.docker.com/) на локальном компьютере.

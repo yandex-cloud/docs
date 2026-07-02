@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > [Концепции](../../../index.md) > Workflows > [Спецификация YaWL](../index.md) > Интеграционные шаги > Disk
+
 # Disk
 
 Взаимодействие с файлами на Яндекс Диске. Поля `upload` и `download` — взаимоисключающие, можно использовать только одно из них.

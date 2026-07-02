@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Дашборды > Рассылки
+
 # Рассылки
 
 

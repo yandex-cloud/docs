@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Расширения спецификации](index.md) > Интеграции > Managed Service for YDB
+
 # Расширение x-yc-apigateway-integration:cloud_ydb
 
 Расширение `x-yc-apigateway-integration:cloud_ydb` позволяет выполнять операции с [документными таблицами](../../../ydb/concepts/dynamodb-tables.md) в базе данных Yandex Managed Service for YDB. Чтобы взаимодействовать с YDB, используется [Document API](../../../ydb/docapi/api-ref/index.md), который совместим с Amazon DynamoDB.

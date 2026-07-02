@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Хранение журналов работы приложения
+
 # Хранение журналов работы приложения
 
 
@@ -38,7 +40,7 @@
 
 * плата за обслуживание потока данных ([тарифы Yandex Data Streams](../../data-streams/pricing.md));
 * плата за перенос данных между источниками и приемниками ([тарифы Yandex Data Transfer](../../data-transfer/pricing.md));
-* плата за хранение данных ([тарифы Yandex Object Storage](../../storage/pricing.md)).
+* плата за хранение данных ([тарифы Yandex Object Storage](../pricing.md)).
 
 ## Настройте окружение {#setup}
 

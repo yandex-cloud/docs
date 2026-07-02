@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > vpc > MoveRouteTable
+
 # Virtual Private Cloud Audit Trails Events: MoveRouteTable
 
 ## Event JSON schema {#yandex.cloud.audit.network.MoveRouteTable2-schema}

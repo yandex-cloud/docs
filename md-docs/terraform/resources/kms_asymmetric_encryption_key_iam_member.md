@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Key Management Service > Resources > kms_asymmetric_encryption_key_iam_member
+
 # yandex_kms_asymmetric_encryption_key_iam_member (Resource)
 
 Allows creation and management of a single binding within IAM policy for an existing `asymmetric_encryption_key`.

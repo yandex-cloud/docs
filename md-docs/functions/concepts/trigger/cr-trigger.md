@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Концепции](../index.md) > [Триггер](index.md) > Триггер для Container Registry
+
 # Триггер для Container Registry, который вызывает функцию Cloud Functions
 
 [Триггер](index.md) Cloud Functions запускает [функцию](../function.md), когда с [Docker-образом](../../../container-registry/concepts/docker-image.md) Container Registry происходят определенные события. Триггер должен находиться в одном облаке с [реестром](../../../container-registry/concepts/registry.md), на события которого он подписан.

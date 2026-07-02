@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Managed Service for GitLab](../index.md) > Устранение ошибки HTTP 500 в Managed Service for GitLab
+
 # Устранение ошибки HTTP 500 в Managed Service for GitLab
 
 

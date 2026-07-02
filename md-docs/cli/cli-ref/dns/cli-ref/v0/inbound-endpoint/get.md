@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [dns](../../index.md) > [v0](../index.md) > [inbound-endpoint](index.md) > get
+
 # yc dns v0 inbound-endpoint get
 
 Get information about a dns inbound endpoint.

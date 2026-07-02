@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Database](index.md) > Get
+
 # Managed Service for MongoDB API, REST: Database.Get
 
 Returns the specified MongoDB Database resource.

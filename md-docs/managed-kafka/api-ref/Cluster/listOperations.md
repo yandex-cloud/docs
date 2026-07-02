@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Apache Kafka®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > ListOperations
+
 # Managed Service for Apache Kafka® API, REST: Cluster.ListOperations
 
 Retrieves the list of operations for the specified Apache Kafka® cluster.

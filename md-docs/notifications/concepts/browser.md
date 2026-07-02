@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Notification Service](../index.md) > [Концепции](index.md) > Push-уведомления в браузере
+
 # Push-уведомления в браузере
 
 _Push-уведомления в браузере_ — это сообщения, всплывающие в браузере.

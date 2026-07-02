@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [PXFDatasource](index.md) > Delete
+
 # Managed Service for Greenplum® API, REST: PXFDatasource.Delete
 
 Delete PXF datasource

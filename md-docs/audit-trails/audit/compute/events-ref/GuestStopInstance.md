@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > compute > GuestStopInstance
+
 # Compute Audit Trails Events: GuestStopInstance
 
 ## Event JSON schema {#yandex.cloud.audit.compute.GuestStopInstance2-schema}

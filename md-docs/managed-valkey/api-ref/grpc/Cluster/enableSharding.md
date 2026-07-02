@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Valkey™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > EnableSharding
+
 # Managed Service for Redis API, gRPC: ClusterService.EnableSharding
 
 Enable Sharding on non sharded cluster

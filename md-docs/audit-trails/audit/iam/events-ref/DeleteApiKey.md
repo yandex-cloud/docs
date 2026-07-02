@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > DeleteApiKey
+
 # Identity and Access Management Audit Trails Events: DeleteApiKey
 
 ## Event JSON schema {#yandex.cloud.audit.iam.DeleteApiKey2-schema}

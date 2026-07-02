@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-kubernetes](../index.md) > [cluster](index.md) > create
+
 # yc managed-kubernetes cluster create
 
 Create a Kubernetes cluster.

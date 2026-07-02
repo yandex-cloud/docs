@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Marketplace](../../../index.md) > Партнерам > Справочник Metering API > [REST (англ.)](../index.md) > [ImageProductUsage](index.md) > Write
+
 # Marketplace Metering API, REST: ImageProductUsage.Write
 
 Writes image product's usage. Authentication is by user's service account.

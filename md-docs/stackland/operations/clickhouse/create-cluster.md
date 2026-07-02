@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Базы данных > Managed Service for ClickHouse® > Создать кластер ClickHouse®
+
 # Создать кластер Managed Service for ClickHouse®
 
 Если у вас есть [проект](../projects/create-project.md), вы можете создать в нем кластер [ClickHouse®](../../concepts/components/clickhouse.md).

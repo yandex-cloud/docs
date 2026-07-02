@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > ListHosts
+
 # Managed Service for MongoDB API, gRPC: ClusterService.ListHosts
 
 Retrieves a list of hosts for the specified cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > [Пошаговые инструкции](../index.md) > Расширения и словари PostgreSQL > pg_cron
+
 # Использование pg_cron в Managed Service for PostgreSQL
 
 Расширение [pg_cron](https://github.com/citusdata/pg_cron) — это планировщик задач, который позволяет добавлять в базу данных задачи по расписанию и выполнять SQL-запросы прямо из задачи.

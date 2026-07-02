@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Video](index.md) > GetManifests
+
 # Video API, gRPC: VideoService.GetManifests
 
 Retrieves the manifest URLs for a specific video.

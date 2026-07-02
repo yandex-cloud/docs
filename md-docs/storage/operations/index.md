@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Пошаговые инструкции для Object Storage
 
 ## Бакеты {#buckets}

@@ -153,4 +153,4 @@ description: Следуя данной инструкции, вы сможете
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](activate-user.md)
+[{#T}](activate-user.md)

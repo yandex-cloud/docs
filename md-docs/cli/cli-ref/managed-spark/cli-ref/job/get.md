@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-spark](../index.md) > [job](index.md) > get
+
 # yc managed-spark job get
 
 Get information about a Spark job.

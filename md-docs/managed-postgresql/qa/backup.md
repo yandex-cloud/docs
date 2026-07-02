@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > Вопросы и ответы > Перемещение и восстановление кластера
+
 # Перемещение и восстановление кластера PostgreSQL
 
 * [Можно ли восстановить резервную копию кластера в работающий экземпляр Managed Service for PostgreSQL в другой облачной сети?](#diff-network)

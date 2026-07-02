@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [RoutingInstance](index.md) > UpsertPrefixes
+
 # Cloud Router API, REST: RoutingInstance.UpsertPrefixes
 
 Upserts specified prefixes to a RoutingInstance resource.

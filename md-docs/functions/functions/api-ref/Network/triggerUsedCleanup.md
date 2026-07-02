@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Functions](../../../index.md) > Справочник API Functions > [REST (англ.)](../index.md) > [Network](index.md) > TriggerUsedCleanup
+
 # Cloud Functions Service, REST: Network.TriggerUsedCleanup
 
 Forces obsolete used network to start cleanup process as soon as possible.

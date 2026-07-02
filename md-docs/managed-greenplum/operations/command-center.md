@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex MPP Analytics for PostgreSQL](../index.md) > [Пошаговые инструкции](index.md) > Пользователи и сессии > Работа с командным центром
+
 # Работа с командным центром Yandex MPP Analytics for PostgreSQL
 
 В командном центре Yandex MPP Analytics for PostgreSQL вы можете:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [organization-manager](../index.md) > [user](index.md) > remove
+
 # yc organization-manager user remove
 
 Remove user accounts from the specified organization

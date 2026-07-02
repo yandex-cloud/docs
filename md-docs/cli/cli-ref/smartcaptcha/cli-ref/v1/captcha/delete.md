@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [smartcaptcha](../../index.md) > [v1](../index.md) > [captcha](index.md) > delete
+
 # yc smartcaptcha v1 captcha delete
 
 Deletes the specified captcha.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API EventRouter > [gRPC (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # EventRouter Service, gRPC: OperationService.Cancel
 
 Cancels the specified operation.

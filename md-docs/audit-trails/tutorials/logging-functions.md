@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Audit Trails](../index.md) > [Практические руководства](index.md) > Настройка реагирования в Cloud Functions
+
 # Настройка реагирования в Yandex Cloud Logging и Yandex Cloud Functions
 
 

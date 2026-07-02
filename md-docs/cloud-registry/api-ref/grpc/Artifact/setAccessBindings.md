@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Artifact](index.md) > SetAccessBindings
+
 # Yandex Cloud Registry API, gRPC: ArtifactService.SetAccessBindings
 
 Sets access bindings for the specified artifact (folder, package, artifact, etc).

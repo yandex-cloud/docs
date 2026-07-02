@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > remove-labels
+
 # yc managed-mongodb v0 cluster remove-labels
 
 Remove labels from specified MongoDB cluster

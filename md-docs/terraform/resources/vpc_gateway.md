@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Virtual Private Cloud > Resources > vpc_gateway
+
 # yandex_vpc_gateway (Resource)
 
 Manages a gateway within the Yandex Cloud. For more information, see [the official documentation](../../vpc/concepts/gateways.md).

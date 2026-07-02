@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Registry](index.md) > SetIpPermission
+
 # Container Registry API, gRPC: RegistryService.SetIpPermission
 
 Set ip permissions for the specified registry.

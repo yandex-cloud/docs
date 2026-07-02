@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > Справочник API > REST (англ.) > [SmartWebSecurity ARL API](../index.md) > [Operation](index.md) > Get
+
 # SmartWebSecurity ARL API, REST: Operation.Get
 
 Returns the specified Operation resource.

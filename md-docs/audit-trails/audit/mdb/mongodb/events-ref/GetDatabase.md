@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mongodb > GetDatabase
+
 # Managed Service for MongoDB Audit Trails Events: GetDatabase
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mongodb.GetDatabase2-schema}

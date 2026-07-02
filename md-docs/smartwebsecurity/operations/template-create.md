@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > [Пошаговые инструкции](index.md) > Шаблоны ответов > Создать шаблон
+
 # Создать шаблон страницы ответа
 
 {% list tabs group=instructions %}

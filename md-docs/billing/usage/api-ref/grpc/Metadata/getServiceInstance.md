@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Cloud Billing](../../../../index.md) > Справочник API > gRPC (англ.) > [Billing usage](../index.md) > [Metadata](index.md) > GetServiceInstance
+
 # Billing Usage API, gRPC: MetadataService.GetServiceInstance
 
 GetServiceInstance returns service instance usage metadata for a specific billing account and date range.

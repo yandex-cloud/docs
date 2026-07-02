@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for ClickHouse®](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [shard-groups](index.md) > delete
+
 # yc managed-clickhouse v0 shard-groups delete
 
 Delete a shard group.

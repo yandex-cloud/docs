@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Organization](index.md) > Update
+
 # Identity Hub API, gRPC: OrganizationService.Update
 
 Updates the specified organization.

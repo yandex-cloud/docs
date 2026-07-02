@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity Hub](../../../index.md) > Справочник API > REST (англ.) > [Identity Provider API](../index.md) > [SynchronizationSession](index.md) > CloseSession
+
 # Identity Provider API, REST: SynchronizationSession.CloseSession
 
 Closes a synchronization session.

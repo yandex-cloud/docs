@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Key Management Service](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [SymmetricKey](index.md) > Update
+
 # Key Management Service API, REST: SymmetricKey.Update
 
 Updates the specified symmetric KMS key.

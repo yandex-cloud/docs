@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Compute Cloud > Data Sources > compute_gpu_cluster
+
 # yandex_compute_gpu_cluster (DataSource)
 
 Get information about a Yandex Compute GPU cluster. For more information, see [the official documentation](../../compute/concepts/gpu-cluster).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for MongoDB > Data Sources > mdb_mongodb_user
+
 # yandex_mdb_mongodb_user (DataSource)
 
 Manages a MongoDB user within the Yandex Cloud. For more information, see [the official documentation](../../managed-mongodb).

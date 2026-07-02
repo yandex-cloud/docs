@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [container](../index.md) > [cluster](index.md) > stop
+
 # yc container cluster stop
 
 Stop a Kubernetes cluster and all its node groups.

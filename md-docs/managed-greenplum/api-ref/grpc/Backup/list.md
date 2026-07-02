@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex MPP Analytics for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Backup](index.md) > List
+
 # Managed Service for Greenplum® API, gRPC: BackupService.List
 
 Returns the list of available backups for the specified Greenplum® cluster.

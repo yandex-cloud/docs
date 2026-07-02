@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > yq > UpdateQuery
+
 # Yandex Query Audit Trails Events: UpdateQuery
 
 ## Event JSON schema {#yandex.cloud.audit.yq.UpdateQuery2-schema}

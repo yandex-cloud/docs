@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > update
+
 # yc managed-mongodb v0 cluster update
 
 Modify configuration or attributes of a MongoDB cluster.

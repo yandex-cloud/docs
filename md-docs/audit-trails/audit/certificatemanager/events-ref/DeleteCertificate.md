@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > certificatemanager > DeleteCertificate
+
 # Certificate Manager Audit Trails Events: DeleteCertificate
 
 ## Event JSON schema {#yandex.cloud.audit.certificatemanager.DeleteCertificate2-schema}

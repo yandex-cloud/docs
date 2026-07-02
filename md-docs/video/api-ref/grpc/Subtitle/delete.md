@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Subtitle](index.md) > Delete
+
 # Video API, gRPC: SubtitleService.Delete
 
 Deletes a specific subtitle by its ID.

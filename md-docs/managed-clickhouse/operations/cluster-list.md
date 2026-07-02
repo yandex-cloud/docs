@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Информация об имеющихся кластерах
+
 # Информация об имеющихся кластерах ClickHouse®
 
 Вы можете запросить детальную информацию о каждом созданном вами кластере Managed Service for ClickHouse®.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [GpuCluster](index.md) > ListInstances
+
 # Compute Cloud API, gRPC: GpuClusterService.ListInstances
 
 List instances created in this GPU cluster.

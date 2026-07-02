@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Data Streams](../index.md) > [Концепции](index.md) > Термины и определения
+
 # Термины и определения в Data Streams
 
 ## Поток данных {#stream-concepts}

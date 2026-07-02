@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Detection and Response](index.md) > Начало работы
+
 # Как начать работать с расследованиями
 
 {% note info %}

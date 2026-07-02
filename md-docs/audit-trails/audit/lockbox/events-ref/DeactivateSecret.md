@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > lockbox > DeactivateSecret
+
 # Lockbox Audit Trails Events: DeactivateSecret
 
 ## Event JSON schema {#yandex.cloud.audit.lockbox.DeactivateSecret2-schema}

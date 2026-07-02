@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [audit-trails](../index.md) > [trail](index.md) > create
+
 # yc audit-trails trail create
 
 Create the specified trail

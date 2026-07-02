@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud DNS](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DnsFirewall](index.md) > ListAccessBindings
+
 # Cloud DNS API, gRPC: DnsFirewallService.ListAccessBindings
 
 Lists existing access bindings for the specified DNS firewall.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Object Storage](../index.md) > Примеры конфигураций и сценариев Object Storage
+
 ## Примеры конфигураций и сценариев Object Storage {#configuration-examples}
 
 * [Как ограничить доступ к бакету Object Storage диапазоном IP-адресов, принадлежащих Cloud CDN](permit-bucket-access-only-to-cdn-networks.md)

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Repository](index.md) > SetAccessBindings
+
 # Container Registry API, REST: Repository.SetAccessBindings
 
 Sets access bindings for the specified repository.

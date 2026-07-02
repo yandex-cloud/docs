@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Transfer](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [transfer](index.md) > list
+
 # yc datatransfer v0 transfer list
 
 List transfers in folder

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Базы данных > Managed Service for PostgreSQL > Создать кластер PostgreSQL
+
 # Создать кластер PostgreSQL
 
 Если у вас есть [проект](../projects/create-project.md), создайте в нем кластер [PostgreSQL](../../concepts/components/postgresql.md).

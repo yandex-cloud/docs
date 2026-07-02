@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Smart Web Security](../index.md) > Практические руководства > Все практические руководства
+
 # Практические руководства Smart Web Security
 
 * [Базовая настройка защиты в Smart Web Security](sws-basic-protection.md)

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Identity and Access Management > Resources > iam_service_account
+
 # yandex_iam_service_account (Resource)
 
 A ServiceAccount resource. For more information, see [Service accounts](../../iam/concepts/users/service-accounts.md).

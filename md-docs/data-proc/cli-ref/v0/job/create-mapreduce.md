@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Processing](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [job](index.md) > create-mapreduce
+
 # yc dataproc v0 job create-mapreduce
 
 Create a Dataproc MapReduce job.

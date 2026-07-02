@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > [REST (англ.)](../index.md) > [Registry](index.md) > ListCertificates
+
 # IoT Core Service, REST: Registry.ListCertificates
 
 Retrieves the list of registry certificates for the specified registry.

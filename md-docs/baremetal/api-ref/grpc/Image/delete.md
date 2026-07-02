@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex BareMetal](../../../index.md) > Концепции > Настройка и управление > Справочник API > [gRPC (англ.)](../index.md) > [Image](index.md) > Delete
+
 # BareMetal API, gRPC: ImageService.Delete
 
 Deletes the specified image.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mysql > DeleteUser
+
 # Managed Service for MySQL Audit Trails Events: DeleteUser
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mysql.DeleteUser2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Compute Cloud > Data Sources > compute_disk_placement_group
+
 # yandex_compute_disk_placement_group (DataSource)
 
 Get information about a Yandex Compute Disk Placement group. For more information, see [the official documentation](../../compute/concepts/disk.md#nr-disks).

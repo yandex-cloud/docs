@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.spqr > StopCluster
+
 # Managed Service for SPQR Audit Trails Events: StopCluster
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.spqr.StopCluster2-schema}

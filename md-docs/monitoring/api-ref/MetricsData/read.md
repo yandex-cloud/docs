@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Monitoring](../../index.md) > Справочник API > [REST](../index.md) > [MetricsData](index.md) > read
+
 # Метод read
 Возвращает данные метрик.
 

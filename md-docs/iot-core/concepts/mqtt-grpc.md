@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex IoT Core](../index.md) > [Концепции](index.md) > Отправка сообщений MQTT-серверу через gRPC
+
 # Отправка сообщений MQTT-серверу через gRPC
 
 {% note warning %}

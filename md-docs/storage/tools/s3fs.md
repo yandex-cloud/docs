@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Инструменты](index.md) > FUSE > s3fs
+
 # s3fs
 
 [s3fs](https://github.com/s3fs-fuse/s3fs-fuse) — программа для Linux и macOS, позволяющая монтировать бакеты Object Storage через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)).

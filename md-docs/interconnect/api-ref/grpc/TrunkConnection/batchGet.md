@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Interconnect](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [TrunkConnection](index.md) > BatchGet
+
 # Cloud Interconnect API, gRPC: TrunkConnectionService.BatchGet
 
 ## gRPC request

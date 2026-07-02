@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Data Transfer](../../../index.md) > [Пошаговые инструкции](../../index.md) > [Настройка эндпоинтов](../index.md) > MongoDB/Yandex StoreDoc > Источник
+
 # Передача данных из эндпоинта-источника MongoDB/Yandex StoreDoc (Managed Service for MongoDB)
 
 

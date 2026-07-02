@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-mysql](../index.md) > [cluster](index.md) > remove-labels
+
 # yc managed-mysql cluster remove-labels
 
 Remove labels from MySQL cluster

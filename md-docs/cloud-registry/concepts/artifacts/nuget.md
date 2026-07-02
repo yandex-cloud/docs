@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > [Концепции](../index.md) > [Артефакты](index.md) > NuGet-артефакт
+
 # NuGet-артефакт
 
 _Артефакт [NuGet](https://ru.wikipedia.org/wiki/NuGet)_ — это файл пакета `*.nupkg`, содержащий скомпилированный код на платформе [.NET](https://ru.wikipedia.org/wiki/.NET) (например, DLL), метаданные, зависимости и другие ресурсы.

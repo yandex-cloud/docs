@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Compute Cloud](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DiskPlacementGroup](index.md) > ListOperations
+
 # Compute Cloud API, gRPC: DiskPlacementGroupService.ListOperations
 
 Lists operations for the specified placement group.

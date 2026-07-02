@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [load-balancer](../index.md) > [network-load-balancer](index.md) > start
+
 # yc load-balancer network-load-balancer start
 
 Starts load balancing and health checking with the specified network load balancer.

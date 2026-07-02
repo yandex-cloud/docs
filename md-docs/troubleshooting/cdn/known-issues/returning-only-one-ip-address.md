@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [Cloud CDN](../index.md) > Сервис Cloud CDN возвращает только один IP-адрес
+
 # Сервис Cloud CDN возвращает только один IP-адрес
 
 

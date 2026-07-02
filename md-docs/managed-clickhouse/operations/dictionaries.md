@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Пошаговые инструкции](index.md) > Хранение и обработка данных > Подключение внешних словарей
+
 # Подключение внешних словарей в Managed Service for ClickHouse®
 
 Вы можете подключать к кластеру [внешние словари](../concepts/dictionaries.md#external-dicts) и отключать их. Подробнее о словарях читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/statements/create/dictionary).

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Lockbox](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [payload](index.md) > get
+
 # yc lockbox v0 payload get
 
 Get payload of the specified secret

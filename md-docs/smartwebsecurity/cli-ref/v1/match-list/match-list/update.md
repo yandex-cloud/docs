@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Smart Web Security](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [v1](../../index.md) > [match-list](../index.md) > [match-list](index.md) > update
+
 # yc smartwebsecurity v1 match-list match-list update
 
 Updates the specified MatchList resource.

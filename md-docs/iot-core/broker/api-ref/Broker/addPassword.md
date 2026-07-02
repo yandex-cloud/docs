@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex IoT Core](../../../index.md) > Справочник API Broker > [REST (англ.)](../index.md) > [Broker](index.md) > AddPassword
+
 # IoT Core Broker Service, REST: Broker.AddPassword
 
 Adds password for the specified broker.

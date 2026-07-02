@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex API Gateway](../../index.md) > [Концепции](../index.md) > [Расширения спецификации](index.md) > Обобщенный HTTP-метод
+
 # Расширение x-yc-apigateway-any-method
 
 Расширение `x-yc-apigateway-any-method` определяет операции, которые выполняют все HTTP-методы, не определенные в спецификации.

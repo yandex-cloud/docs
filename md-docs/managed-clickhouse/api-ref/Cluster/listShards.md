@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > ListShards
+
 # Managed Service for ClickHouse API, REST: Cluster.ListShards
 
 Retrieves a list of shards that belong to the specified cluster.

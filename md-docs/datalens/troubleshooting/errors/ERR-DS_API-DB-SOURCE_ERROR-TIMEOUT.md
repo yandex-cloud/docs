@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Решение проблем > Data source timed out
+
 # [Yandex DataLens] Data source timed out
 
 `ERR.DS_API.DB.SOURCE_ERROR.TIMEOUT`

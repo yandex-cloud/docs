@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [SpeechKit](../index.md) > Устранение ошибки `audio duration should be less than 30s`
+
 # Устранение ошибки `audio duration should be less than 30s`
 
 

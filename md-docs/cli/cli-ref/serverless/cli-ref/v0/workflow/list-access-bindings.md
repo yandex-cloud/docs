@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [serverless](../../index.md) > [v0](../index.md) > [workflow](index.md) > list-access-bindings
+
 # yc serverless v0 workflow list-access-bindings
 
 List access bindings for the specified Workflow

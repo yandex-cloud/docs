@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Partner > Все решения для Partner
+
 # Решения для Partner
 
 

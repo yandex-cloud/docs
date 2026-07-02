@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Container Registry](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Repository](index.md) > List
+
 # Container Registry API, gRPC: RepositoryService.List
 
 Retrieves the list of Repository resources in the specified registry.

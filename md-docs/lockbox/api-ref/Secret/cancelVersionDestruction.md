@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Lockbox](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Secret](index.md) > CancelVersionDestruction
+
 # Lockbox API, REST: Secret.CancelVersionDestruction
 
 Cancels previously scheduled version destruction, if the version hasn't been destroyed yet.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [cic](../../index.md) > [v0](../index.md) > point-of-presence > Overview
+
 # yc cic v0 point-of-presence
 
 [PREVIEW] Manage point of presences.

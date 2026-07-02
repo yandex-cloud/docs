@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataSphere](../../index.md) > [Справочник API](../overview.md) > [REST (англ.)](../index.md) > [Dataset](index.md) > Deactivate
+
 # DataSphere API v2, REST: Dataset.Deactivate
 
 Deactivates shared dataset for project

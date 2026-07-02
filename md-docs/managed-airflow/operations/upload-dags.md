@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > [Пошаговые инструкции](index.md) > Работа с DAG-файлами > Загрузка DAG-файлов в кластер
+
 # Загрузка DAG-файлов в кластер Managed Service for Apache Airflow™
 
 Чтобы реализовать автоматизацию, обработку данных или запуск задач по расписанию, используются _[DAG-файлы](../concepts/index.md#about-the-service)_. Они представляют собой скрипты на Python 3, которые запускаются внутри Apache Airflow™. Пример DAG-файла в [документации Apache Airflow™](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).

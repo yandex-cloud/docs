@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Identity Hub](../../index.md) > [Справочник CLI (англ.)](../index.md) > [organization](index.md) > remove-access-binding
+
 # yc organization-manager organization remove-access-binding
 
 Remove access binding for the specified organization

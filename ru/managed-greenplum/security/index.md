@@ -123,6 +123,8 @@ keywords:
 
 Чтобы создать кластер {{ mgp-name }}, нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль `{{ roles.mgp.editor }}` или выше.
 
+{% include [roles-mdb-viewer](../../_includes/mdb/roles-mdb-viewer-access-control.md) %}
+
 Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `{{ roles.mgp.admin }}` вместо `{{ roles.mgp.editor }}`.
 
 ## Что дальше {#whats-next}

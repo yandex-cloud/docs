@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Обновление версии Trino
+
 # Обновление версии Trino
 
 Вы можете изменить версию Trino на любую из [поддерживаемых](#available-versions) в Managed Service for Trino. Версию можно как повысить, так и понизить.

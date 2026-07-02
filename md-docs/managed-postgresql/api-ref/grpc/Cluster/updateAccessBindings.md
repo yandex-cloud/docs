@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for PostgreSQL](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > UpdateAccessBindings
+
 # Managed Service for PostgreSQL API, gRPC: ClusterService.UpdateAccessBindings
 
 Updates access bindings for the specified PostgreSQL cluster.

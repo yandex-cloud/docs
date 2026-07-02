@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for MySQL®](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Cluster](index.md) > List
+
 # Managed Service for MySQL API, REST: Cluster.List
 
 Retrieves the list of clusters in a folder.

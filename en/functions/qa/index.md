@@ -1,6 +1,6 @@
 ---
 title: '{{ sf-full-name }}. FAQ'
-description: How do I get my activity logs in {{ sf-full-name }}? Find answers to this and other questions in this article.
+description: How do I get my activity logs in {{ sf-full-name }}? Find the answer to this and other questions in this article.
 ---
 
 # General questions about {{ sf-name }}

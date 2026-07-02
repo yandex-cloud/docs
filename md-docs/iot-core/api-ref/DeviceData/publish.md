@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > [REST (англ.)](../index.md) > [DeviceData](index.md) > Publish
+
 # IoT Core Service, REST: DeviceData.Publish
 
 Publishes message on behalf of specified device

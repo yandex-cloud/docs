@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > Справочник API > [AWS S3 REST](../../index.md) > [REST](../index.md) > Object > patch
+
 # Object Storage API, REST совместимый с Amazon S3: patch
 
 [Частично изменяет и дозаписывает данные объекта](../../../concepts/object-patch.md) в Yandex Object Storage.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Streams](../../index.md) > [HTTP API, совместимый с Amazon Kinesis Data Streams](../index.md) > Методы > GetRecords
+
 # GetRecords
 
 Получает [сообщения](../../concepts/glossary.md#message) из [сегмента](../../concepts/glossary.md#shard) потока данных.

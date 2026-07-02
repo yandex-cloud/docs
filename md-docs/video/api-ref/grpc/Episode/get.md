@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Video](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Episode](index.md) > Get
+
 # Video API, gRPC: EpisodeService.Get
 
 Retrieves detailed information about a specific episode by its ID.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Monium](../../../index.md) > [Yandex Managed Service for Prometheus®](../index.md) > [Чтение метрик](index.md) > Remote Read
+
 # Чтение метрик через Remote API
 
 1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хранятся данные.

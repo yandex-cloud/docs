@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Инструменты для Managed Service for Kubernetes > Ingress-контроллер > Конфигурация ресурсов > GrpcBackendGroup
+
 # Поля ресурса GrpcBackendGroup
 
 Ресурс `GrpcBackendGroup` позволяет объединять бэкенды — сервисы Kubernetes, между которыми распределяется gRPC-трафик, — в группу. По таким ресурсам [Ingress-контроллер Application Load Balancer](../tools/k8s-ingress-controller/index.md) создает [группы бэкендов](../concepts/backend-group.md).

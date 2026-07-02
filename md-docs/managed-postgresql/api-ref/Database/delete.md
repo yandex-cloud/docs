@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Database](index.md) > Delete
+
 # Managed Service for PostgreSQL API, REST: Database.Delete
 
 Deletes the specified PostgreSQL database.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Backup](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [vm](index.md) > delete
+
 # yc backup v0 vm delete
 
 Delete the resource

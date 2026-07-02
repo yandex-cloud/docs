@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Logging](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Export](index.md) > Update
+
 # Cloud Logging Service, REST: Export.Update
 
 Updates the specified export.

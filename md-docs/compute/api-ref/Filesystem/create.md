@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Filesystem](index.md) > Create
+
 # Compute Cloud API, REST: Filesystem.Create
 
 Creates a filesystem in the specified folder.

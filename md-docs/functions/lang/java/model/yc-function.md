@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Functions](../../../index.md) > [Разработка на Java](../index.md) > [Модель программирования](index.md) > Интерфейс YcFunction
+
 # Использование интерфейса YcFunction для обработчика на Java
 
 Чтобы создать [обработчик](../handler.md) на Java, вы можете реализовать интерфейс [YcFunction](https://github.com/yandex-cloud/java-sdk/blob/master/java-sdk-functions/src/main/java/yandex/cloud/sdk/functions/YcFunction.java). Для этого дополнительно добавьте [SDK](../sdk.md) в [зависимости](../dependencies.md).

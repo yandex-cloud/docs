@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > [Практические руководства](index.md) > Подключение к базе данных YDB из функции Yandex Cloud Functions на Node.js
+
 # Подключение к базе данных Managed Service for YDB из функции Yandex Cloud Functions на Node.js
 
 {% note info %}
@@ -37,7 +39,7 @@
 
 В стоимость поддержки инфраструктуры для этого сценария входит:
 * Плата за использование функции ([тарифы Yandex Cloud Functions](../../functions/pricing.md)).
-* Плата за выполнение запросов к БД ([тарифы Yandex Managed Service for YDB](../../ydb/pricing/serverless.md)).
+* Плата за выполнение запросов к БД ([тарифы Yandex Managed Service for YDB](../pricing/serverless.md)).
 
 ## Подготовьте окружение {#prepare-environment}
 

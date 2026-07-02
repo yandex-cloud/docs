@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for Apache Kafka® > Data Sources > mdb_kafka_connector
+
 # yandex_mdb_kafka_connector (DataSource)
 
 Get information about a connector of the Yandex Managed Kafka cluster. For more information, see [the official documentation](../../managed-kafka/concepts/index.md).

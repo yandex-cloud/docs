@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Пошаговые инструкции](index.md) > Логи и мониторинг > Мониторинг состояния кластера и хостов
+
 # Мониторинг состояния кластера ClickHouse® и его хостов
 
 Данные о состоянии кластера и его хостов доступны в [консоли управления](https://console.yandex.cloud). Их можно посмотреть на вкладке **Мониторинг** страницы управления кластером  или в сервисе [Yandex Monitoring](../../monitoring/concepts/index.md).
@@ -97,7 +99,7 @@
     
     * **Disk space usage per host, bytes** — занятое дисковое пространство для каждого хоста в подкластере ClickHouse®.
     * **Disk space usage per host, %** — процент использования дискового пространства для каждого хоста в подкластере ClickHouse®.
-    * **Inode usage, %** — процент использованния inode для каждого хоста в подкластере ClickHouse®.
+    * **Inode usage, %** — процент использования inode для каждого хоста в подкластере ClickHouse®.
     * **Databases** — количество баз данных для каждого хоста в кластере.
     * **Tables** — количество таблиц для каждого хоста в кластере.
     * **Rows of MergeTree tables** — количество строк в таблицах семейства [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree) для каждого хоста в кластере.

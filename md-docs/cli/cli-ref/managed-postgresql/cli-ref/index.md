@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Интерфейс командной строки](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > managed-postgresql > Overview
+
 # yc managed-postgresql
 
 Manage PostgreSQL clusters, hosts, databases, backups and users.

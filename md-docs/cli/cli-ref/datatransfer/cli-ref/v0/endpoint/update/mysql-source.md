@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [datatransfer](../../../index.md) > [v0](../../index.md) > [endpoint](../index.md) > [update](index.md) > mysql-source
+
 # yc datatransfer v0 endpoint update mysql-source
 
 Update MySQL source

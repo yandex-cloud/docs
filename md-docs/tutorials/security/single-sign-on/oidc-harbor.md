@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Практические руководства](../../index.md) > [Безопасность](../index.md) > Настройка единого входа в приложения (SSO) > Harbor
+
 # Создать OIDC-приложение в Yandex Identity Hub для интеграции с Harbor
 
 [Harbor](https://goharbor.io/) — open source-реестр артефактов контейнерной разработки: образов контейнеров, Helm-чартов и других типов данных. Harbor поддерживает аутентификацию по [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC), что позволяет использовать внешний поставщик удостоверений для единого входа пользователей.

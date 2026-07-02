@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Identity Hub](../index.md) > Справочник API > Аутентификация
+
 # Аутентификация в API Yandex Identity Hub
 
 # Аутентификация в API

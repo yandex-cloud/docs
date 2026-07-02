@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > postbox > DeleteConfigurationSet
+
 # Yandex Cloud Postbox Audit Trails Events: DeleteConfigurationSet
 
 ## Event JSON schema {#yandex.cloud.audit.postbox.DeleteConfigurationSet2-schema}

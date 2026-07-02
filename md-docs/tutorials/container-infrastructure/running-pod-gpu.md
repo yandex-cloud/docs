@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Контейнерная инфраструктура](index.md) > Managed Service for Kubernetes > Запуск рабочих нагрузок с GPU
+
 # Запуск рабочих нагрузок с GPU в Yandex Managed Service for Kubernetes
 
 # Запуск рабочих нагрузок с GPU

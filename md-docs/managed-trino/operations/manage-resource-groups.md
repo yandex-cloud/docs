@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Trino](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Управление ресурсными группами
+
 # Управление ресурсными группами в Managed Service for Trino
 
 В Managed Service for Trino вы можете управлять конфигурацией [ресурсных групп](../concepts/resource-groups.md):

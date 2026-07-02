@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex DataLens](../index.md) > Практические руководства > Обзор
+
 # Практические руководства DataLens
 
 Ниже описаны руководства по работе с сервисом Yandex DataLens:

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > CreateEphemeralAccessKey
+
 # Identity and Access Management Audit Trails Events: CreateEphemeralAccessKey
 
 ## Event JSON schema {#yandex.cloud.audit.iam.awscompatibility.CreateEphemeralAccessKey2-schema}

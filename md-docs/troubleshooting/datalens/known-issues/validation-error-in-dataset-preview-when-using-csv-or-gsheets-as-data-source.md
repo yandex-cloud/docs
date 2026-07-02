@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Все решения](../../index.md) > [DataLens](../index.md) > Устранение ошибки `ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED`
+
 # Устранение ошибки `ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED`
 
 

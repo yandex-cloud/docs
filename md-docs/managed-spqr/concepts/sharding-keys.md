@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > [Концепции](index.md) > Ключи шардирования
+
 # Ключи шардирования
 
 Шардирование — это принцип горизонтального масштабирования распределенных баз данных, при котором база данных разбивается на части — [шарды](index.md). В Managed Service for Sharded PostgreSQL каждый шард является отдельным кластером Managed Service for PostgreSQL, который хранит часть данных всей системы.

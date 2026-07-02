@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud DNS](../index.md) > [Пошаговые инструкции](index.md) > Зоны > Удалить зону DNS
+
 # Удалить зону
 
 Чтобы удалить [зону DNS](../concepts/dns-zone.md):

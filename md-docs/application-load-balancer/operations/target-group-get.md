@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > Целевые группы > Получить информацию о целевой группе
+
 # Получить информацию о целевой группе
 
 {% list tabs group=instructions %}

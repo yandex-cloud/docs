@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../../index.md) > [Интерфейс командной строки](../../../../../../index.md) > [Справочник CLI (англ.)](../../../../../index.md) > [managed-greenplum](../../../index.md) > [v0](../../index.md) > [resource-preset](../index.md) > [get](index.md) > master
+
 # yc managed-greenplum v0 resource-preset get master
 
 Show information about the specified Greenplum resource preset for master.

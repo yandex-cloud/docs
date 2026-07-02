@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > audittrails > CreateTrail
+
 # Audit Trails Events: CreateTrail
 
 ## Event JSON schema {#yandex.cloud.audit.audittrails.CreateTrail2-schema}

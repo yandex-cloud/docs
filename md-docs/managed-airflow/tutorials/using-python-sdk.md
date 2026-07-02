@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Airflow™](../index.md) > [Практические руководства](index.md) > Другие руководства > Отправка запросов к API Yandex Cloud через Yandex Cloud Python SDK
+
 # Отправка запросов к API Yandex Cloud через Yandex Cloud Python SDK
 
 # Отправка запросов к API Yandex Cloud через Yandex Cloud Python SDK
@@ -23,7 +25,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for Apache Airflow™: вычислительные ресурсы компонентов кластера ([тарифы Managed Service for Apache Airflow™](../../managed-airflow/pricing.md)).
+* Кластер Managed Service for Apache Airflow™: вычислительные ресурсы компонентов кластера ([тарифы Managed Service for Apache Airflow™](../pricing.md)).
 * Бакет Yandex Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
 * Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы ([тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 

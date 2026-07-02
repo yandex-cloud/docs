@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > ydb > RestoreBackup
+
 # Managed Service for YDB Audit Trails Events: RestoreBackup
 
 ## Event JSON schema {#yandex.cloud.audit.ydb.RestoreBackup2-schema}

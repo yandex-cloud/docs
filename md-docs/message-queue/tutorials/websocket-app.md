@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Message Queue](../index.md) > [Практические руководства](index.md) > Создание интерактивного serverless-приложения с использованием WebSocket
+
 # Создание интерактивного serverless-приложения с использованием WebSocket
 
 

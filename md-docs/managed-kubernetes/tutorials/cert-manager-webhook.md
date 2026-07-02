@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Kubernetes](../index.md) > [Практические руководства](index.md) > Работа с DNS > Создание веб-хука резолвера ACME для ответов на DNS01-проверки
+
 # Создание веб-хука резолвера ACME для ответов на DNS01-проверки
 
 

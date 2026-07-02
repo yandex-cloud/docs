@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > dataproc > StartCluster
+
 # Yandex Data Processing Audit Trails Events: StartCluster
 
 ## Event JSON schema {#yandex.cloud.audit.dataproc.StartCluster2-schema}

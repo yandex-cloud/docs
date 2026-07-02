@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Object Storage](../../../index.md) > [Справочник YC CLI (англ.)](../../index.md) > [v0](../index.md) > [bucket](index.md) > get-inventory-configuration
+
 # yc storage v0 bucket get-inventory-configuration
 
 Get bucket inventory configuration

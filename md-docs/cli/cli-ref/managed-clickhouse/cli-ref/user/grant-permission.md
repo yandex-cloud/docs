@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [managed-clickhouse](../index.md) > [user](index.md) > grant-permission
+
 # yc managed-clickhouse user grant-permission
 
 Grant a permission to a ClickHouse user.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex DataLens](../../../index.md) > Чарты > [Чарты в Editor](../index.md) > [Быстрый старт в Editor](index.md) > Создание таблицы на основе SQL-запроса
+
 # Создание таблицы на основе SQL-запроса
 
 

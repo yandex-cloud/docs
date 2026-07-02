@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > lockbox > AddVersion
+
 # Lockbox Audit Trails Events: AddVersion
 
 ## Event JSON schema {#yandex.cloud.audit.lockbox.AddVersion2-schema}

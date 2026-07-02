@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [instance-group](index.md) > start
+
 # yc compute instance-group start
 
 Start the specified instance group

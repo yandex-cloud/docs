@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../index.md) > Справочник API > [Managed Service for Kubernetes REST (англ.)](../index.md) > [Version](index.md) > List
+
 # Managed Services for Kubernetes API, REST: Version.List
 
 Retrieves the list of versions in the specified release channel.

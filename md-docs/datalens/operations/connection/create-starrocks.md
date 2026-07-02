@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > Подключения > Базы данных > Создание подключения к StarRocks
+
 # Создание подключения к StarRocks в Yandex DataLens
 
 

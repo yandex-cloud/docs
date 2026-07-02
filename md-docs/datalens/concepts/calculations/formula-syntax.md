@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex DataLens](../../index.md) > [Вычисляемые поля](index.md) > Синтаксис формул
+
 # Синтаксис формул в Yandex DataLens
 
 Вычисляемые выражения в Yandex DataLens имеют синтаксис, похожий на SQL.

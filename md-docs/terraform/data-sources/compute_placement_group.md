@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Compute Cloud > Data Sources > compute_placement_group
+
 # yandex_compute_placement_group (DataSource)
 
 Get information about a Yandex Compute Placement group. For more information, see [the official documentation](../../compute/concepts/placement-groups.md).

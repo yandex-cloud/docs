@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > [DSVM](index.md) > Создать ВМ из публичного образа DSVM
+
 # Создание виртуальной машины из публичного образа DSVM
 
 Создайте ВМ DSVM с помощью сервиса Compute Cloud в консоли управления Yandex Cloud и подключитесь к ней по протоколу [SSH](../../../glossary/ssh-keygen.md).

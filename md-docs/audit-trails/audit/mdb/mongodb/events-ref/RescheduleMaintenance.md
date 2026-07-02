@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > mdb.mongodb > RescheduleMaintenance
+
 # Managed Service for MongoDB Audit Trails Events: RescheduleMaintenance
 
 ## Event JSON schema {#yandex.cloud.audit.mdb.mongodb.RescheduleMaintenance2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Container Registry > Resources > container_repository
+
 # yandex_container_repository (Resource)
 
 A Repository resource. For more information, see [Repository](../../container-registry/concepts/repository.md).

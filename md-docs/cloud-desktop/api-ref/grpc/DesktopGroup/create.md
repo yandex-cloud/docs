@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Desktop](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [DesktopGroup](index.md) > Create
+
 # Cloud Desktop API, gRPC: DesktopGroupService.Create
 
 Creates desktop group in the specified folder.

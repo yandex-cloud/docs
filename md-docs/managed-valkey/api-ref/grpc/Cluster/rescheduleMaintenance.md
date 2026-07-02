@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Valkey™](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > RescheduleMaintenance
+
 # Managed Service for Redis API, gRPC: ClusterService.RescheduleMaintenance
 
 Reschedules planned maintenance operation.

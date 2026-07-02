@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > [Пошаговые инструкции](index.md) > HTTP-роутеры > Управлять виртуальными хостами
+
 # Управлять виртуальными хостами
 
 [Виртуальные хосты](../concepts/http-router.md#virtual-host) внутри [HTTP-роутеров](../concepts/http-router.md) объединяют [маршруты](../concepts/http-router.md#routes), относящиеся к одному набору доменов — значений заголовков `Host` (`:authority`) HTTP-запроса. При получении входящего запроса [балансировщик](../concepts/application-load-balancer.md) по очереди проверяет предикаты маршрутов и выбирает первый, который удовлетворяет запросу.

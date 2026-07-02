@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Desktop](../../index.md) > [Справочник CLI (англ.)](../index.md) > [desktop](index.md) > start
+
 # yc desktops desktop start
 
 Start the specified desktop

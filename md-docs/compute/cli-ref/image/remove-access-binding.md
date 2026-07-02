@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [image](index.md) > remove-access-binding
+
 # yc compute image remove-access-binding
 
 Remove access binding for the specified image

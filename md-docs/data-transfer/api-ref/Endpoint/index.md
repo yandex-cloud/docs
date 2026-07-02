@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Data Transfer](../../index.md) > Справочник API > [REST (англ.)](../index.md) > Endpoint > Overview
+
 # Data Transfer API, REST: Endpoint
 
 A set of methods for managing [endpoints]({{ api-url-prefix

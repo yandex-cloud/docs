@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > [Контейнерная инфраструктура](index.md) > Managed Service for Kubernetes > Установка Time-Slicing GPUs
+
 # Установка Time-Slicing GPUs в Yandex Managed Service for Kubernetes
 
 # Установка Time-Slicing GPUs

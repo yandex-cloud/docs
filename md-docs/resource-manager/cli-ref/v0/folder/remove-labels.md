@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Resource Manager](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [folder](index.md) > remove-labels
+
 # yc resource-manager v0 folder remove-labels
 
 Remove labels from specified folder

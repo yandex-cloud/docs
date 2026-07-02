@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > securitydeck.cspm > AssetRuleCheckCouldNotBeExecuted
+
 # Security Deck CSPM Audit Trails Events: AssetRuleCheckCouldNotBeExecuted
 
 ## Event JSON schema {#yandex.cloud.audit.securitydeck.cspm.AssetRuleCheckCouldNotBeExecuted2-schema}

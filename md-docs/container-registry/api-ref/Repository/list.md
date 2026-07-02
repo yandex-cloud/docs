@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Repository](index.md) > List
+
 # Container Registry API, REST: Repository.List
 
 Retrieves the list of Repository resources in the specified registry.

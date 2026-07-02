@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for OpenSearch](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Cluster](index.md) > UpdateAuthSettings
+
 # Managed Service for OpenSearch API, gRPC: ClusterService.UpdateAuthSettings
 
 Updates auth settings for specified cluster.

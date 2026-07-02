@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Registry](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Registry](index.md) > ListAccessBindings
+
 # Yandex Cloud Registry API, REST: Registry.ListAccessBindings
 
 Lists access bindings for the specified registry.

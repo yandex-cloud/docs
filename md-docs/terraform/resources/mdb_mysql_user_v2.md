@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for MySQL > Resources > mdb_mysql_user_v2
+
 # yandex_mdb_mysql_user_v2 (Resource)
 
 Manages a MySQL user within the Yandex Cloud. For more information, see [the official documentation](../../managed-mysql/operations/cluster-users.md).

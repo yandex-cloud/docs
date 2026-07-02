@@ -1,8 +1,10 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for YDB](../index.md) > Правила тарификации > Обзор
+
 # Правила тарификации для Yandex Managed Service for YDB
 
 
 
 Тарификация Yandex Managed Service for YDB отличается в зависимости от режимов использования:
 
-* [{#T}](serverless.md).
+* [Правила тарификации для режима Serverless в Managed Service for YDB](serverless.md).
 * [Правила тарификации для режима Dedicated в Managed Service for YDB](dedicated.md).

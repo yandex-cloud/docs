@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex API Gateway](../index.md) > [Пошаговые инструкции](index.md) > Управление API-шлюзом > Управлять метками > Добавить метку
+
 # Добавить метку API-шлюзу
 
 {% list tabs group=instructions %}

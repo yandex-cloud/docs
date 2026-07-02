@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex API Gateway](../index.md) > Практические руководства > Все практические руководства
+
 # Практические руководства API Gateway
 
 ## Бэкенд на Serverless {#backend}

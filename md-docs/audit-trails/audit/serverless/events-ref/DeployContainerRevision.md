@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > serverless > DeployContainerRevision
+
 # Cloud Functions Audit Trails Events: DeployContainerRevision
 
 ## Event JSON schema {#yandex.cloud.audit.serverless.containers.DeployContainerRevision2-schema}

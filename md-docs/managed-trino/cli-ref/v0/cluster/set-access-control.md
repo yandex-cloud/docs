@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Trino](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > set-access-control
+
 # yc managed-trino v0 cluster set-access-control
 
 Set Trino cluster access control configuration

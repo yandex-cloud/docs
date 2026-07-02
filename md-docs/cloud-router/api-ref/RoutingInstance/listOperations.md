@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [RoutingInstance](index.md) > ListOperations
+
 # Cloud Router API, REST: RoutingInstance.ListOperations
 
 Lists operations for the specified RoutingInstance.

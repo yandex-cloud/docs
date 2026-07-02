@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Functions](../../index.md) > [Пошаговые инструкции](../index.md) > Управление функцией > Изменить функцию > Изменить описание
+
 # Изменить описание функции
 
 {% list tabs group=instructions %}

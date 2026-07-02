@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Container Registry](../index.md) > [Практические руководства](index.md) > Подпись и проверка Docker-образов в Managed Service for Kubernetes
+
 # Подпись и проверка Docker-образов Container Registry в Yandex Managed Service for Kubernetes
 
 # Подпись и проверка Docker-образов Yandex Container Registry в Yandex Managed Service for Kubernetes

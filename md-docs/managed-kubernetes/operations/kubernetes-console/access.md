@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for Kubernetes](../../index.md) > [Пошаговые инструкции](../index.md) > Работа с объектами Kubernetes из консоли управления > Управление сервисными аккаунтами Kubernetes
+
 # Управление сервисными аккаунтами Kubernetes
 
 Сервисные аккаунты Kubernetes — это учетные записи для приложений и процессов, работающих в подах. Консоль управления позволяет создавать и удалять сервисные аккаунты Kubernetes в Managed Service for Kubernetes без использования kubectl.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Spark™](../index.md) > [Концепции](index.md) > Квоты и лимиты
+
 # Квоты и лимиты в Yandex Managed Service for Apache Spark™
 
 В сервисе Yandex Managed Service for Apache Spark™ действуют следующие ограничения:

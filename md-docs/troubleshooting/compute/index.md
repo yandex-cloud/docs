@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Все решения](../index.md) > Compute Cloud > Все решения для Compute Cloud
+
 # Решения для Compute Cloud
 
 ## Примеры конфигураций и сценариев Compute Cloud {#configuration-examples}

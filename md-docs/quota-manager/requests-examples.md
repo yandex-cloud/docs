@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Cloud Quota Manager](index.md) > Примеры запросов
+
 # Примеры запросов для работы с квотами
 
 {% note info %}

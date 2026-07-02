@@ -185,7 +185,7 @@ In this scenario, only the producer data schema is registered. The consumer sche
 
 You can also use this solution to maintain JSON schema compatibility when delivering data to [{{ mkf-full-name }}](../../managed-kafka) via [{{ yds-full-name }}](../../data-streams/) [{{ data-transfer-full-name }}](../../data-transfer/). For more information about required {{ data-transfer-name }} endpoint settings, see [this guide](../../data-transfer/operations/endpoint/target/kafka.md#serializer).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Understanding JSON Schema Compatibility by Robert Yokota](https://yokota.blog/2021/03/29/understanding-json-schema-compatibility/)
 * [Evolving JSON Schemas - Part I by Andy Coates](https://www.creekservice.org/articles/2024/01/08/json-schema-evolution-part-1.html)

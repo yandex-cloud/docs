@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Virtual Private Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Gateway](index.md) > Move
+
 # Virtual Private Cloud API, REST: Gateway.Move
 
 Move a gateway to another folder

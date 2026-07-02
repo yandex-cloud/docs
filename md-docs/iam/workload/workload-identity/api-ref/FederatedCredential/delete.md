@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity and Access Management](../../../../index.md) > Справочник API > REST (англ.) > [Workload Identity](../index.md) > [FederatedCredential](index.md) > Delete
+
 # Workload Identity, REST: FederatedCredential.Delete
 
 Deletes the specified federated credential.

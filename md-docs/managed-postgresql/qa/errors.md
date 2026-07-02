@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for PostgreSQL](../index.md) > Вопросы и ответы > Сообщения об ошибках
+
 # Сообщения об ошибках в Managed Service for PostgreSQL
 
 * [Почему при использовании расширения TimescaleDB возникает ошибка?](#timescale)

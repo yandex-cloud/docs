@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Концепции](index.md) > Настройки ClickHouse®
+
 # Настройки ClickHouse®
 
 Для кластера Managed Service for ClickHouse® можно задать настройки, которые относятся к ClickHouse®:
@@ -59,7 +61,7 @@
 
 * **Asynchronous insert log retention time**{#setting-asynchronous-insert-log-retention-time} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
-    Время (в миллисекундах) от внесения записи в таблицу `system.asynchronous_insert_log` до удаления этой записи. Значение должно быть кратно 1000.
+    Время (в миллисекундах) от внесения записи в таблицу `system.asynchronous_insert_log` до удаления этой записи. Значение должно быть кратно `86400000` (одному дню).
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
@@ -79,7 +81,7 @@
 
 * **Asynchronous metric log retention time**{#setting-asynchronous-metric-log-retention-time} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
-    Время (в миллисекундах) от внесения записи в таблицу `system.asynchronous_metric_log` до удаления этой записи. Значение должно быть кратно 1000.
+    Время (в миллисекундах) от внесения записи в таблицу `system.asynchronous_metric_log` до удаления этой записи. Значение должно быть кратно `86400000` (одному дню).
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
@@ -537,7 +539,7 @@
 
 * **Metric log retention time**{#setting-metric-log-retention-time} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
-    Время (в миллисекундах) от внесения записи в таблицу `system.metric_log` до удаления этой записи. Значение должно быть кратно 1000.
+    Время (в миллисекундах) от внесения записи в таблицу `system.metric_log` до удаления этой записи. Значение должно быть кратно `86400000` (одному дню).
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
@@ -557,7 +559,7 @@
 
 * **Opentelemetry span log retention time**{#setting-opentelemetry-span-log-retention-time} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
-    Время (в миллисекундах) от внесения записи в таблицу `system.opentelemetry_span_log` до удаления этой записи. Значение должно быть кратно 1000.
+    Время (в миллисекундах) от внесения записи в таблицу `system.opentelemetry_span_log` до удаления этой записи. Значение должно быть кратно `86400000` (одному дню).
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
@@ -569,7 +571,7 @@
 
 * **Part log retention time**{#setting-part-log-retention-time} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
-    Время (в миллисекундах) от внесения записи в таблицу `system.part_log` до удаления этой записи. Значение должно быть кратно 1000.
+    Время (в миллисекундах) от внесения записи в таблицу `system.part_log` до удаления этой записи. Значение должно быть кратно `86400000` (одному дню).
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
@@ -592,7 +594,7 @@
 
 * **Processors profile log retention time**{#setting-processors-profile-log-retention-time} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code>
 
-    Время (в миллисекундах) от внесения записи в таблицу `system.processors_profile_log` до удаления этой записи. Значение должно быть кратно 1000.
+    Время (в миллисекундах) от внесения записи в таблицу `system.processors_profile_log` до удаления этой записи. Значение должно быть кратно `86400000` (одному дню).
 
     Значение по умолчанию — `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
@@ -617,7 +619,7 @@
 
 * **Query log retention time**{#setting-query-log-retention-time} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
-    Время (в миллисекундах) от внесения записи в таблицу `system.query_log` до удаления этой записи. Значение должно быть кратно 1000.
+    Время (в миллисекундах) от внесения записи в таблицу `system.query_log` до удаления этой записи. Значение должно быть кратно `86400000` (одному дню).
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
@@ -647,7 +649,7 @@
 
 * **Query thread log retention time**{#setting-query-thread-log-retention-time} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
-    Время (в миллисекундах) от внесения записи в таблицу `system.query_thread_log` до удаления этой записи. Значение должно быть кратно 1000.
+    Время (в миллисекундах) от внесения записи в таблицу `system.query_thread_log` до удаления этой записи. Значение должно быть кратно `86400000` (одному дню).
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
@@ -667,7 +669,7 @@
 
 * **Query views log retention time**{#setting-query-views-log-retention-time} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
-    Время (в миллисекундах) от внесения записи в таблицу `system.query_views_log` до удаления этой записи. Значение должно быть кратно 1000.
+    Время (в миллисекундах) от внесения записи в таблицу `system.query_views_log` до удаления этой записи. Значение должно быть кратно `86400000` (одному дню).
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
@@ -697,7 +699,7 @@
 
 * **Session log retention time**{#setting-session-log-retention-time} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
-    Время (в миллисекундах) от внесения записи в таблицу `system.session_log` до удаления этой записи. Значение должно быть кратно 1000.
+    Время (в миллисекундах) от внесения записи в таблицу `system.session_log` до удаления этой записи. Значение должно быть кратно `86400000` (одному дню).
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
@@ -727,7 +729,7 @@
 
 * **Text log retention time**{#setting-text-log-retention-time} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
-    Время (в миллисекундах) от внесения записи в таблицу `system.text_log` до удаления этой записи. Значение должно быть кратно 1000.
+    Время (в миллисекундах) от внесения записи в таблицу `system.text_log` до удаления этой записи. Значение должно быть кратно `86400000` (одному дню).
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
@@ -769,7 +771,7 @@
 
 * **Trace log retention time**{#setting-trace-log-retention-time} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>Terraform</small></b></code>
 
-    Время (в миллисекундах) от внесения записи в таблицу `system.trace_log` до удаления этой записи. Значение должно быть кратно 1000.
+    Время (в миллисекундах) от внесения записи в таблицу `system.trace_log` до удаления этой записи. Значение должно быть кратно `86400000` (одному дню).
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 
@@ -795,7 +797,7 @@
 
 * **Zookeeper log retention time**{#setting-zookeeper-log-retention-time} <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
-    Время (в миллисекундах) от внесения записи в таблицу `system.zookeeper_log` до удаления этой записи. Значение должно быть кратно 1000.
+    Время (в миллисекундах) от внесения записи в таблицу `system.zookeeper_log` до удаления этой записи. Значение должно быть кратно `86400000` (одному дню).
 
     По умолчанию выбрано значение `2592000000` (30 дней). При значении `0` записи хранятся бессрочно.
 

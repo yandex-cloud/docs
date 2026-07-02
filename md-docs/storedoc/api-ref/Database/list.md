@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [Database](index.md) > List
+
 # Managed Service for MongoDB API, REST: Database.List
 
 Retrieves the list of MongoDB Database resources in the specified cluster.

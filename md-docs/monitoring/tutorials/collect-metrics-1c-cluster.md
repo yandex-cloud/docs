@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Monitoring](../index.md) > [Практические руководства](index.md) > Сбор метрик кластера «1С:Предприятие» на базе Linux
+
 # Сбор метрик кластера «1С:Предприятие» на базе Linux
 
 В этом руководстве вы настроите сбор метрик кластера «1С:Предприятие» на базе Linux в формате Prometheus и их визуализацию в сервисе [Yandex Monitoring](../concepts/visualization/metric-explorer.md). Помимо визуализации, Monitoring позволяет настраивать алерты, гибридные дашборды с метриками различных сервисов Yandex Cloud и обладает большими возможностями по масштабированию.
@@ -20,7 +22,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-Плата за передачу метрик в Monitoring ([тарифы Monitoring](../../monitoring/pricing.md)).
+Плата за передачу метрик в Monitoring ([тарифы Monitoring](../pricing.md)).
 
 ## Установите и настройте Prometheus 1C Exporter {#configure-exporter}
 

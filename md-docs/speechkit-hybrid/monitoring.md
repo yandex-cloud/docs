@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex SpeechKit Hybrid](index.md) > Администрирование SpeechKit Hybrid > Мониторинг сервисов SpeechKit Hybrid
+
 # Мониторинг сервисов SpeechKit Hybrid
 
 SpeechKit Hybrid собирает и хранит метрики в формате [Prometheus](https://prometheus.io). Подробнее о типах метрик читайте в [документации Prometheus](https://prometheus.io/docs/concepts/metric_types/).

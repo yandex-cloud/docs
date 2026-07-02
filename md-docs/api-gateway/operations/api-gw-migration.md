@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex API Gateway](../index.md) > [Пошаговые инструкции](index.md) > Управление API-шлюзом > Миграция в зону ru-central1-d
+
 # Миграция API-шлюзов в зону ru-central1-d
 
 # Миграция между зонами

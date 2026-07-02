@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for ClickHouse®](../index.md) > [Пошаговые инструкции](index.md) > Кластеры > Управление хостами > Управление хостами ZooKeeper
+
 # Управление хостами ZooKeeper
 
 

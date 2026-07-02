@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Logging](../index.md) > [Практические руководства](index.md) > Передача логов через HTTP-вход Unified Agent в Cloud Logging
+
 # Передача логов через HTTP-вход Unified Agent в Cloud Logging
 
 # Передача логов через HTTP-вход Unified Agent в Yandex Cloud Logging

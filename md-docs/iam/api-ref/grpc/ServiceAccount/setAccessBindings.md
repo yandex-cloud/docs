@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Identity and Access Management](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [ServiceAccount](index.md) > SetAccessBindings
+
 # Identity and Access Management API, gRPC: ServiceAccountService.SetAccessBindings
 
 Sets access bindings for the service account.

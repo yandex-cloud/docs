@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for PostgreSQL](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [BackupRetentionPolicy](index.md) > Delete
+
 # Managed Service for PostgreSQL API, REST: BackupRetentionPolicy.Delete
 
 Delete retention policy.

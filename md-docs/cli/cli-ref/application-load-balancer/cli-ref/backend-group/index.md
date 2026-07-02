@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [application-load-balancer](../index.md) > backend-group > Overview
+
 # yc application-load-balancer backend-group
 
 Manage application load balancer backend groups

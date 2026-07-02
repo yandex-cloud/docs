@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iot > CreateDevice
+
 # IoT Core Audit Trails Events: CreateDevice
 
 ## Event JSON schema {#yandex.cloud.audit.iot.devices.CreateDevice2-schema}

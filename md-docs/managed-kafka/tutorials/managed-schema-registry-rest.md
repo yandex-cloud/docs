@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Kafka®](../index.md) > [Практические руководства](index.md) > Использование схем формата данных с Managed Service for Apache Kafka® > Работа с управляемым реестром схем формата данных с помощью REST API
+
 # Работа с управляемым реестром схем формата данных с помощью REST API
 
 В кластерах Managed Service for Apache Kafka® можно работать с [Managed Schema Registry](../concepts/managed-schema-registry.md#msr) либо [с помощью клиентов Apache Kafka®](managed-schema-registry.md) для различных языков программирования, либо с помощью [REST API](../concepts/available-apis.md#managed-kafka-api).
@@ -16,8 +18,8 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Apache Kafka®](../../../managed-kafka/pricing.md)).
-* Плата за использование публичных IP-адресов ([тарифы Virtual Private Cloud](../../../vpc/pricing.md)).
+* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства ([тарифы Apache Kafka®](../pricing.md)).
+* Плата за использование публичных IP-адресов ([тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}

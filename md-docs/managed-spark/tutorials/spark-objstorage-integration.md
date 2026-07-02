@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Apache Spark™](../index.md) > [Практические руководства](index.md) > Работа с Yandex Object Storage с использованием локального каталога Hive
+
 # Работа с Yandex Object Storage из PySpark-задания с использованием локального каталога Hive
 
 # Использование Yandex Object Storage в сервисе Yandex Managed Service for Apache Spark™

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > datasphere > DeleteAllJobData
+
 # DataSphere Audit Trails Events: DeleteAllJobData
 
 ## Event JSON schema {#yandex.cloud.audit.datasphere.DeleteAllJobData2-schema}

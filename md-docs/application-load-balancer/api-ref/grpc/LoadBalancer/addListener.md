@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Application Load Balancer](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [LoadBalancer](index.md) > AddListener
+
 # Application Load Balancer API, gRPC: LoadBalancerService.AddListener
 
 Adds a listener to the specified application load balancer.

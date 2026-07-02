@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Trino](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [cluster](index.md) > get-resource-groups
+
 # yc managed-trino v0 cluster get-resource-groups
 
 Get Trino cluster resource groups configuration

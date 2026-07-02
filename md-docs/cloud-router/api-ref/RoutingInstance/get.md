@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Router](../../index.md) > Справочник API > [REST (англ.)](../index.md) > [RoutingInstance](index.md) > Get
+
 # Cloud Router API, REST: RoutingInstance.Get
 
 Returns the specified RoutingInstance resource.

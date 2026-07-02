@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../../index.md) > [Интерфейс командной строки](../../../../../index.md) > [Справочник CLI (англ.)](../../../../index.md) > [backup](../../index.md) > [v0](../index.md) > [backup](index.md) > get
+
 # yc backup v0 backup get
 
 Get full information about backup

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YDB](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [backup](index.md) > set-access-bindings
+
 # yc ydb v0 backup set-access-bindings
 
 Set access bindings for the specified YDB backup and delete all existing access bindings if there were any.

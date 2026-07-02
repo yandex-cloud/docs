@@ -73,7 +73,7 @@ Create and run a user welcome [function](../../concepts/function.md) in Bash.
     1. Select the `bash-function` function.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
     1. Select the `{{ bash-full-ver }}` runtime.
-    1. Disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+    1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Configure the version:
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Attach `hello-sh.zip`.

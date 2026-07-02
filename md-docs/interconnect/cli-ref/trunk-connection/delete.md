@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Interconnect](../../index.md) > [Справочник CLI (англ.)](../index.md) > [trunk-connection](index.md) > delete
+
 # yc cic trunk-connection delete
 
 Deletes a TrunkConnection resource.

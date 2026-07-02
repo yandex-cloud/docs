@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Интерфейс командной строки](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [organization-manager](../index.md) > [mfa-enforcement](index.md) > update-excluded-audience
+
 # yc organization-manager mfa-enforcement update-excluded-audience
 
 Update excluded audience for the specified mfa enforcement

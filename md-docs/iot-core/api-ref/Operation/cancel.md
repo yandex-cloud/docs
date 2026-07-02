@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex IoT Core](../../index.md) > Справочник API Devices > [REST (англ.)](../index.md) > [Operation](index.md) > Cancel
+
 # IoT Core Service, REST: Operation.Cancel
 
 Cancels the specified operation.

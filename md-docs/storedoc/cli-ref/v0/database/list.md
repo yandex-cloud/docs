@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [database](index.md) > list
+
 # yc managed-mongodb v0 database list
 
 List databases for a MongoDB cluster.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Концепции](index.md) > Бакет
+
 # Бакет в Object Storage
 
 _Бакет_ — это выделенная часть хранилища Object Storage для пользовательских данных. Каждый бакет в Yandex Cloud имеет [уникальное название](#naming), по которому выполняются запросы к Object Storage.

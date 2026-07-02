@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > iam > CreateIamCookieForSubject
+
 # Identity and Access Management Audit Trails Events: CreateIamCookieForSubject
 
 ## Event JSON schema {#yandex.cloud.audit.iam.CreateIamCookieForSubject2-schema}

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Quota Manager](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > QuotaRequest > Overview
+
 # Quota Manager API, gRPC: QuotaRequestService
 
 A set of methods for managing quota requests.

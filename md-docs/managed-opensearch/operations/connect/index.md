@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for OpenSearch](../../index.md) > [Пошаговые инструкции](../index.md) > Подключение > Предварительная настройка
+
 # Предварительная настройка для подключения к кластеру OpenSearch
 
 

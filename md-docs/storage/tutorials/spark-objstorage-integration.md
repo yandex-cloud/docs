@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Object Storage](../index.md) > [Практические руководства](index.md) > Использование Object Storage в Yandex Managed Service for Apache Spark™
+
 # Использование Object Storage в сервисе Yandex Managed Service for Apache Spark™
 
 # Использование Yandex Object Storage в сервисе Yandex Managed Service for Apache Spark™
@@ -28,7 +30,7 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Бакеты Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../../storage/pricing.md)).
+* Бакеты Object Storage: использование хранилища и выполнение операций с данными ([тарифы Object Storage](../pricing.md)).
 * Сервис Yandex Cloud Logging: объем записываемых данных и время их хранения ([тарифы Cloud Logging](../../logging/pricing.md)).
 
 

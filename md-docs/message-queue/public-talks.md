@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../index.md) > [Yandex Message Queue](index.md) > Публичные материалы
+
 # Публичные материалы 
 
 ## Конференции и вебинары {#conf-and-webinars}

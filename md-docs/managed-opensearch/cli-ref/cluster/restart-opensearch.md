@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for OpenSearch](../../index.md) > [Справочник CLI (англ.)](../index.md) > [cluster](index.md) > restart-opensearch
+
 # yc managed-opensearch cluster restart-opensearch
 
 Restart OpenSearch on host.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Registry](../../../index.md) > [Справочник CLI (англ.)](../../index.md) > [v0](../index.md) > [registry](index.md) > set-ip-permissions
+
 # yc cloud-registry v0 registry set-ip-permissions
 
 Set ip permissions for the specified registry and delete all existing ip permission if there were any

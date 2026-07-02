@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Serverless Integrations](../../../../index.md) > Справочник API EventRouter > [gRPC (англ.)](../index.md) > [Connector](index.md) > Create
+
 # EventRouter Service, gRPC: ConnectorService.Create
 
 Creates a connector in the specified folder.

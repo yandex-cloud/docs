@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex StoreDoc](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Backup](index.md) > List
+
 # Managed Service for MongoDB API, gRPC: BackupService.List
 
 Retrieves the list of backups available for the specified folder.

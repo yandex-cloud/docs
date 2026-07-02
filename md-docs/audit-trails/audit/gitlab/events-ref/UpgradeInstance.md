@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Audit Trails](../../../index.md) > Справочник аудитных логов (англ.) > gitlab > UpgradeInstance
+
 # Managed Service for GitLab Audit Trails Events: UpgradeInstance
 
 ## Event JSON schema {#yandex.cloud.audit.gitlab.UpgradeInstance2-schema}

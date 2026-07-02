@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Application Load Balancer](../index.md) > Справочник API > Аутентификация в API
+
 # Аутентификация в API Application Load Balancer
 
 # Аутентификация в API

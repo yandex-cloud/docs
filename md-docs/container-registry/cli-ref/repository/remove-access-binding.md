@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Container Registry](../../index.md) > [Справочник CLI (англ.)](../index.md) > [repository](index.md) > remove-access-binding
+
 # yc container repository remove-access-binding
 
 Remove access binding for the specified repository

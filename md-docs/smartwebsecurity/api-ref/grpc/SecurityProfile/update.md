@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Smart Web Security](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [SecurityProfile](index.md) > Update
+
 # SmartWebSecurity API, gRPC: SecurityProfileService.Update
 
 Updates the specified security profile.

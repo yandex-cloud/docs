@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for Kubernetes](../../../index.md) > Справочник API > [Managed Service for Kubernetes REST (англ.)](../index.md) > [NodeGroup](index.md) > Update
+
 # Managed Services for Kubernetes API, REST: NodeGroup.Update
 
 Updates the specified node group.

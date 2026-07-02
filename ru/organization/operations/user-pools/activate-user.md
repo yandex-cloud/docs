@@ -149,4 +149,4 @@ description: Следуя данной инструкции, вы сможете
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](deactivate-user.md)
+[{#T}](deactivate-user.md)

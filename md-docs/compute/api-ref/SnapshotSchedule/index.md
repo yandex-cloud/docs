@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > Справочник API > [REST (англ.)](../index.md) > SnapshotSchedule > Overview
+
 # Compute Cloud API, REST: SnapshotSchedule
 
 A set of methods for managing snapshot schedules.

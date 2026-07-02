@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Справочник CLI (англ.)](../index.md) > [zone](index.md) > get
+
 # yc compute zone get
 
 Show information about the specified availability zone.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Audit Trails](../../../../index.md) > Справочник аудитных логов (англ.) > securitydeck.cspm > CreateScanJob
+
 # Security Deck CSPM Audit Trails Events: CreateScanJob
 
 ## Event JSON schema {#yandex.cloud.audit.securitydeck.cspm.CreateScanJob2-schema}

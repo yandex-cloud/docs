@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Managed Service for Sharded PostgreSQL](../index.md) > [Справочник CLI (англ.)](index.md) > resource-preset
+
 # yc managed-sharded-postgresql resource-preset
 
 Manage Sharded PostgreSQL resource presets

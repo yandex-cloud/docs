@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Lockbox](../../index.md) > [Справочник CLI (англ.)](../index.md) > [secret](index.md) > cancel-version-destruction
+
 # yc lockbox secret cancel-version-destruction
 
 Cancel destruction of the specified secret version

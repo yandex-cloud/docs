@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Identity Hub](../../../../index.md) > [Справочник CLI (англ.)](../../../index.md) > [idp](../../index.md) > [userpool](../index.md) > [domain](index.md) > delete
+
 # yc organization-manager idp userpool domain delete
 
 Delete the specified domain from a user pool

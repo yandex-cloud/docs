@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Managed Service for ClickHouse®](../../index.md) > [Справочник CLI (англ.)](../index.md) > [format-schema](index.md) > create
+
 # yc managed-clickhouse format-schema create
 
 Create format schema in a ClickHouse cluster.

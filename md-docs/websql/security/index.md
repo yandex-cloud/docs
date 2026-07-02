@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex WebSQL](../index.md) > Управление доступом
+
 # Управление доступом в WebSQL
 
 

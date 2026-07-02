@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Terraform в Yandex Cloud](../index.md) > Справочник Terraform > Ресурсы (англ.) > Managed Service for Trino > Data Sources > trino_cluster
+
 # yandex_trino_cluster (DataSource)
 
 Managed Trino cluster.

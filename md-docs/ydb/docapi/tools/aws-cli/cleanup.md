@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Managed Service for YDB](../../../index.md) > Document API, совместимый с Amazon DynamoDB > Инструменты > [Работа с AWS CLI](index.md) > Удаление созданных ресурсов
+
 # Удаление созданных ресурсов
 
 Если вам больше не нужна таблица `series`, удалите ее:

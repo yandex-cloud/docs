@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex StoreDoc](../../index.md) > [Справочник CLI (англ.)](../index.md) > [backup](index.md) > list
+
 # yc managed-mongodb backup list
 
 List MongoDB backups available in a folder.

@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../index.md) > [Yandex Cloud Logging](../../../index.md) > Справочник API > [gRPC (англ.)](../index.md) > [Sink](index.md) > ListAccessBindings
+
 # Cloud Logging Service, gRPC: SinkService.ListAccessBindings
 
 Lists existing access bindings for the specified sink.

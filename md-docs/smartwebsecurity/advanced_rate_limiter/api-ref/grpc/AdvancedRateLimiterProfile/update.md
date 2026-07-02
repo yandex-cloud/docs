@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../../../../index.md) > [Yandex Smart Web Security](../../../../index.md) > Справочник API > gRPC (англ.) > [SmartWebSecurity ARL API](../index.md) > [AdvancedRateLimiterProfile](index.md) > Update
+
 # SmartWebSecurity ARL API, gRPC: AdvancedRateLimiterProfileService.Update
 
 Updates the specified ARL profile.

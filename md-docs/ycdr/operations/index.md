@@ -1,3 +1,5 @@
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Detection and Response](../index.md) > Пошаговые инструкции > Все инструкции
+
 # Инструкции по работе с Yandex Cloud Detection and Response
 
 ## Расследования {#investigations}
