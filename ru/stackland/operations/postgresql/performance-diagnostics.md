@@ -160,7 +160,7 @@ kubectl patch ManagedPostgresConfigs main --type='merge' -p='{"spec":{"settings"
 
 {% endnote %}
 
-## Полезные ссылки {#see-also}
+## См. также {#see-also}
 
 * [{#T}](../../concepts/components/postgresql.md)
 * [{#T}](create-cluster.md)

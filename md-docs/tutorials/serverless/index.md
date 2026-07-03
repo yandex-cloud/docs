@@ -25,7 +25,6 @@
 
 ## Боты на Serverless {#bots}
 
-* [Как создать чат-бот для Slack](slack-bot-serverless.md)
 * [Как создать бота в Telegram](telegram-bot-serverless/index.md)
 * [Разработка Telegram-бота для распознавания текста на изображениях, синтеза и распознавания аудио](recognizer-bot.md)
 

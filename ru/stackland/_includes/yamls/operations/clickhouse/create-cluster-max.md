@@ -53,6 +53,12 @@ spec:
     storage:
 #      storageClass: "your-storage-class"
       size: 2Gi
+    autoScaling:
+      enabled: false # включение автоскейлинга
+      maxSize: 300Gi # максимальный размер хранилища
+      standardIncreasePercent: 20 # процент увеличения размера хранилища
+      resizeTriggerPercent: 80 # процент использования, после которого будет запущено увеличение размера хранилища
+    readOnlyTriggerPercent: 95 # процент использования диска для перевода в режим только для чтения (по умолчанию 95)
     resources:
       requests:
         cpu: "500m"
@@ -66,7 +72,7 @@ spec:
   keeper:
     instances: 3
     storage:
-#      storageClass: "your-storage-classs"
+#      storageClass: "your-storage-class"
       size: 1Gi
     resources:
       requests:

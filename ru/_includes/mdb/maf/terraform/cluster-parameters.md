@@ -51,7 +51,7 @@ resource "yandex_airflow_cluster" "<имя_кластера>" {
   maintenance_window = {
     type = "<тип_технического_обслуживания>"
     day  = "<день_недели>"
-    hour = <час_дня>
+    hour = <порядковый_номер_часового_интервала>
   }
 
   deletion_protection = <защита_от_удаления>

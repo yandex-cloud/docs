@@ -150,8 +150,6 @@ Yandex API Gateway — сервис для управления API-шлюзам
 
 ### Боты на Serverless
 
- - [Разработка Slack-бота](tutorials/slack-bot-serverless.md)
-
 #### Разработка Telegram-бота
 
  - [Обзор](tutorials/telegram-bot-serverless/index.md)

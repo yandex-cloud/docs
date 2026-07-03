@@ -17,10 +17,16 @@ items:
         href: operations/cloud-shell-options.md
       - name: Поиск в консоли управления
         href: operations/search.md
+      - name: Анализ карты инфраструктуры
+        href: operations/view-infrastructure-map.md
       - name: Управление ресурсами {{ yandex-cloud }} с помощью AI-ассистента
         href: operations/ai-assistant.md
-  - name: Лимиты в {{ cloud-shell-name }}
-    href: concepts/cloud-shell/limits.md
+  - name: Концепции
+    items:
+      - name: Карта инфраструктуры
+        href: concepts/infrastructure-map.md
+      - name: Лимиты в {{ cloud-shell-name }}
+        href: concepts/cloud-shell/limits.md
   - name: Правила тарификации
     href: pricing.md
 path: ru/console/toc.yaml

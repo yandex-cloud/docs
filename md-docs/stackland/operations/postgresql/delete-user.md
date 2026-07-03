@@ -1,0 +1,12 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Базы данных > Managed Service for PostgreSQL > Удалить пользователя
+
+# Удалить пользователя PostgreSQL
+
+Если у вас есть пользователь PostgreSQL в [кластере](../../concepts/components/postgresql.md), вы можете удалить его.
+
+## Через CLI {#cli}
+
+1. Найдите название нужного ресурса в списке пользователей проекта: `kubectl get PostgresqlRole -n <название_проекта>`.
+1. Удалите ресурс: `kubectl delete PostgresqlRole <название_ресурса> -n <название_проекта>`.
+
+После удаления роль больше не сможет подключаться к PostgreSQL и использовать выданные права. Если Kubernetes Secret с паролем пользователя связан с ресурсом `PostgresqlRole` через `ownerReferences`, он удаляется автоматически вместе с ресурсом. Если Secret был создан отдельно, удалите его командой `kubectl delete Secret <имя_секрета> -n <название_проекта>`.

@@ -17,8 +17,6 @@ items:
             href: operations/network-update.md
           - name: Получить информацию об облачной сети
             href: operations/network-get-info.md
-          - name: Изучить карту облачной сети
-            href: operations/network-map.md
           - name: Перенести облачную сеть между каталогами
             href: operations/network-move.md
       - name: Подсеть

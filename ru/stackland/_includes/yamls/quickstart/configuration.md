@@ -4,7 +4,7 @@
 # Это сделано для наглядности, при реальном развертывании рекомендуется разнести документы по файлам.
 
 # Конфигурация кластера
-apiVersion: v1alpha1
+apiVersion: stackland.yandex.cloud/v1alpha1
 kind: StacklandClusterConfig
 metadata:
   name: main
@@ -58,7 +58,7 @@ spec:
 #      combined: {...}
 ---
 # Конфигурация control-plane хостов
-apiVersion: v1alpha1
+apiVersion: stackland.yandex.cloud/v1alpha1
 kind: StacklandHostsList
 metadata:
   name: control-plane
@@ -78,7 +78,7 @@ spec:
 #           dhcp: true                           # Назначать адрес интерфейсу по DHCP. Имеет приоритет над ip: выше.
 ---
 #  Настройки хостов, на которых будет размещаться полезная нагрузка
-apiVersion: v1alpha1
+apiVersion: stackland.yandex.cloud/v1alpha1
 kind: StacklandHostsList
 metadata:
   name: workers
@@ -103,7 +103,7 @@ spec:
         - nvlink                                 # На хосте нужно включить поддержку NVLink
 ---
 # Секреты (управление происходит через команду sladm secrets)
-apiVersion: v1alpha1
+apiVersion: stackland.yandex.cloud/v1alpha1
 kind: StacklandSecretsConfig
 metadata:
   name: main

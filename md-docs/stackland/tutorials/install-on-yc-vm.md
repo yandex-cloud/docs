@@ -22,7 +22,7 @@
 * На каждой виртуальной машине: один загрузочный диск из пользовательского образа и один отдельный диск для данных.
 * Сервисный аккаунт с правами на управление Network Load Balancer и использование облачной сети.
 
-Рекомендуемые ресурсы для узлов кластера в разделе [Инфраструктура](../quickstart.md#infrastructure).
+Рекомендуемые ресурсы для узлов кластера см. в разделе [Инфраструктура](../quickstart.md#infrastructure).
 
 {% note info "Note" %}
 
@@ -281,7 +281,7 @@ yc dns zone add-records $DNS_ZONE_NAME \
 Пример конфигурации кластера:
 
 ```yaml
-apiVersion: v1alpha1
+apiVersion: stackland.yandex.cloud/v1alpha1
 kind: StacklandClusterConfig
 metadata:
   name: main
@@ -329,7 +329,7 @@ spec:
 Пример конфигурации хостов:
 
 ```yaml
-apiVersion: v1alpha1
+apiVersion: stackland.yandex.cloud/v1alpha1
 kind: StacklandHostsList
 metadata:
   name: main
@@ -410,7 +410,7 @@ chmod +x sladm
 
 {% endnote %}
 
-Если установка не завершилась за отведенное время или остановилась с ошибкой, обратитесь к разделу [Устранение неполадок](#troubleshooting).
+Если установка не завершилась за отведенное время или остановилась с ошибкой, см. раздел [Устранение неполадок](#troubleshooting).
 
 ## Проверьте установку {#check-installation}
 
@@ -573,7 +573,7 @@ curl -I --max-time 10 -H "Host: console.sys.$BASE_DOMAIN" \
 
 ## Устранение неполадок {#troubleshooting}
 
-В этом разделе приведены проблемы, характерные для установки Stackland на виртуальные машины в Yandex Cloud. Общие проблемы установки в разделе [Диагностика и устранение неполадок](../operations/troubleshooting.md).
+В этом разделе приведены проблемы, характерные для установки Stackland на виртуальные машины в Yandex Cloud. Общие проблемы установки см. в разделе [Диагностика и устранение неполадок](../operations/troubleshooting.md).
 
 ### `yandexcloud-lb` перезапускается с ошибкой metadata-сервиса {#yandexcloud-lb-metadata}
 
@@ -616,7 +616,7 @@ storage:
 
 Если PVC уже созданы с `stackland-ssd`, измените конфигурацию и перезапустите установку. На тестовом стенде без пользовательских данных можно удалить только те PVC, которые находятся в состоянии `Pending`, чтобы операторы пересоздали их с правильным Storage Class.
 
-## Полезные ссылки {#see-also}
+## См. также {#see-also}
 
 * [Руководство по установке](../quickstart.md)
 * [Установка Stackland на Yandex BareMetal](install-on-yc-bms.md)

@@ -688,6 +688,12 @@
 
  - [Перенос WordPress-сайта с хостинга в Yandex Cloud](web/wordpress-transfer.md)
 
+ - [Создание сайта на Gatsby с помощью Cloud Apps](web/gatsby-static-site-cloudapp.md)
+
+ - [Создание сайта на Hugo с помощью Cloud Apps](web/hugo-static-site-cloudapp.md)
+
+ - [Создание сайта на Ghost CMS High Availability с помощью Cloud Apps](web/ghost-cms-cloudapp.md)
+
 #### Сайт на LAMP- или LEMP-стеке
 
  - [Обзор](web/lamp-lemp/index.md)
@@ -734,17 +740,11 @@
 
  - [Хостинг статического сайта на фреймворке Gatsby](web/gatsby-static-website.md)
 
- - [Установка Ghost CMS High Availability с помощью Cloud Apps](web/ghost-cms-cloudapp.md)
-
  - [Миграция в Cloud CDN из стороннего CDN-провайдера](web/migrate-to-yc-cdn.md)
 
  - [Получение статистики посещения сайта с использованием S3 Select](web/user-agent-statistics.md)
 
  - [Оформление контента из Cloud Video в IFrame](web/video-iframe.md)
-
- - [Установка Gatsby с помощью Cloud Apps](web/gatsby-static-site-cloudapp.md)
-
- - [Установка Hugo с помощью Cloud Apps](web/hugo-static-site-cloudapp.md)
 
 ### 1С
 
@@ -1373,8 +1373,6 @@
  - [Настройка Postfix для отправки через Yandex Cloud Postbox](serverless/postfix-integration.md)
 
 ### Боты на Serverless
-
- - [Разработка Slack-бота](serverless/slack-bot-serverless.md)
 
 #### Разработка Telegram-бота
 

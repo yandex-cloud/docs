@@ -29,6 +29,44 @@ Managed PostgreSQL — это управляемый сервис для раб�
 
 Все блоки в `settings` опциональны; можно задать только нужные.
 
+## Пользователи и базы данных {#users-and-databases}
+
+Managed PostgreSQL позволяет декларативно управлять пользователями и базами данных кластера через кастомные ресурсы Kubernetes:
+
+* `PostgresqlRole` — роль PostgreSQL и ее права. Подробнее см. в разделах [{#T}](../../operations/postgresql/create-user.md), [{#T}](../../operations/postgresql/edit-user.md), [{#T}](../../operations/postgresql/delete-user.md).
+* `PostgresqlDatabase` — база данных и ее схемы. Подробнее см. в разделах [{#T}](../../operations/postgresql/create-database.md), [{#T}](../../operations/postgresql/edit-database.md), [{#T}](../../operations/postgresql/delete-database.md).
+
+Оба ресурса входят в группу `postgresql.stackland.yandex.cloud/v1alpha1` и связаны с кластером через поле `spec.cluster`.
+
+### Аутентификация пользователя {#authentication}
+
+Пароль пользователя хранится в Kubernetes Secret. Возможны два варианта:
+
+* Если в ресурсе `PostgresqlRole` не задан блок `spec.authentication`, оператор автоматически создает Secret с тем же именем, что и у ресурса `PostgresqlRole`, и записывает в него сгенерированный пароль.
+* Если в `spec.authentication.secretName` указано имя существующего Secret и тип аутентификации `password`, оператор использует учетные данные из этого Secret. Secret должен содержать ключи `username` с именем пользователя и `password` с паролем.
+
+Чтобы изменить пароль, обновите значение ключа `password` в связанном Secret.
+
+### Иммутабельные поля базы данных {#immutable-database-fields}
+
+После создания базы данных нельзя изменить:
+
+* `name` — имя базы данных в PostgreSQL.
+* `template` — шаблон, на основе которого создается база данных.
+* `encoding` — кодировка символов.
+* `localeProvider`, `locale`, `localeCollate`, `localeCType`, `icuLocale`, `icuRules`, `builtinLocale` — провайдер и параметры локали.
+* `collationVersion` — версия collation.
+
+### Схемы {#schemas}
+
+Список `spec.schemas` ресурса `PostgresqlDatabase` описывает управляемые схемы PostgreSQL. У каждого элемента есть поле `state`: `present` — создать или поддерживать, `absent` — удалить. Текущее состояние оператор записывает в `status.schemas`.
+
+### Статус ресурсов {#status}
+
+* `PostgresqlRole.status.ready` — `true`, если роль успешно применена в кластере.
+* `PostgresqlDatabase.status.applied` — `true`, если база данных успешно применена в кластере.
+* `status.conditions` — стандартные условия Kubernetes (`type`, `status`, `reason`, `message`, `lastTransitionTime`), описывающие ход реконсиляции ресурса.
+
 ## Диагностика производительности {#performance-diagnostics}
 
 Performance Diagnostics — это функция сбора и визуализации статистики производительности PostgreSQL кластеров. Она позволяет анализировать производительность SQL-запросов и активность сессий для выявления узких мест и оптимизации работы базы данных.
@@ -78,4 +116,4 @@ Performance Diagnostics собирает следующие типы метри�
      enablePerfDiagStatsCollect: true
    ```
 
-Подробнее в разделе [{#T}](../../operations/postgresql/performance-diagnostics.md).
+Подробнее см. в разделе [{#T}](../../operations/postgresql/performance-diagnostics.md).

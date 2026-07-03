@@ -70,7 +70,7 @@ spec:
 * `settings.s3.accessKeyID` — идентификатор ключа доступа к хранилищу.
 * `settings.s3.secretAccessKey` — секретный ключ доступа к хранилищу.
 
-## Полезные ссылки {#see-also}
+## См. также {#see-also}
 
 * [Загрузить образы SpeechSense](../../operations/speechsense/install-images.md) — загрузка образов SpeechSense.
 * [Настроить и активировать SpeechSense](../../operations/speechsense/configure.md) — настройка и активация SpeechSense.

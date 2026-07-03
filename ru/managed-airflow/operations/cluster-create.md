@@ -200,7 +200,7 @@ keywords:
                      `ssh-key-path=<путь_к_файлу_приватного_SSH-ключа> \
            --maintenance-window type=<тип_технического_обслуживания>,`
                                 `day=<день_недели>,`
-                                `hour=<час_дня> \
+                                `hour=<порядковый_номер_часового_интервала> \
            --deletion-protection \                   
            --lockbox-secrets-backend \
            --airflow-config <список_свойств> \
@@ -330,7 +330,7 @@ keywords:
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<день_недели>",
-              "hour": "<час>"
+              "hour": "<порядковый_номер_часового_интервала>"
             }
           },
           "deletionProtection": <защита_от_удаления>,
@@ -546,7 +546,7 @@ keywords:
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<день_недели>",
-              "hour": "<час>"
+              "hour": "<порядковый_номер_часового_интервала>"
             }
           },
           "deletion_protection": <защита_от_удаления>,

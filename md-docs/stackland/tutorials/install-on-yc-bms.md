@@ -6,7 +6,7 @@
 
 В данном руководстве вы узнаете, как арендовать сервера Yandex BareMetal и подготовить их к развертыванию Stackland, как подготовить конфигурационный файл для установки Stackland на арендованные сервера. Прочитать, как развернуть кластер Yandex Cloud Stackland на уже подготовленной инфраструктуре, можно в [Руководстве по установке](../quickstart.md).
 
-Если вместо ручной загрузки ISO-образа через KVM-консоль вы хотите использовать сетевую загрузку, обратитесь к руководству [Установка Stackland на Yandex BareMetal через PXE](install-on-yc-bms-pxe.md).
+Если вместо ручной загрузки ISO-образа через KVM-консоль вы хотите использовать сетевую загрузку, см. руководство [Установка Stackland на Yandex BareMetal через PXE](install-on-yc-bms-pxe.md).
 
 Для настройки окружения в данном руководстве используется [Консоль управления Yandex Cloud](http://console.yandex.cloud). Чтобы воспользоваться другим интерфейсом Yandex BareMetal, обратитесь к [документации сервисa](https://yandex.cloud/ru/services/baremetal).
 
@@ -46,7 +46,7 @@
 
 {% note warning %}
 
-IP-адреса, назначенные серверам по DHCP, могут изменяться. Описание работы DHCP в [документации сервиса Yandex BareMetal](../../baremetal/concepts/dhcp.md#dhcp-private).
+IP-адреса, назначенные серверам по DHCP, могут изменяться. Описание работы DHCP см. в [документации сервиса Yandex BareMetal](../../baremetal/concepts/dhcp.md#dhcp-private).
 
 Перед началом установки лучше проверить, что адреса, назначенные серверам по DHCP, актуальны и совпадают с адресами, указанными в DNS-конфигурации на Шаге 5.
 
@@ -313,7 +313,7 @@ IP-адреса, назначенные серверам по DHCP, могут �
 
 ```yaml
 # Конфигурация кластера
-apiVersion: v1alpha1
+apiVersion: stackland.yandex.cloud/v1alpha1
 kind: StacklandClusterConfig
 metadata:
   name: main
@@ -361,7 +361,7 @@ spec:
 
 ---
 # Конфигурация хостов
-apiVersion: v1alpha1
+apiVersion: stackland.yandex.cloud/v1alpha1
 kind: StacklandHostsList
 metadata:
   name: main

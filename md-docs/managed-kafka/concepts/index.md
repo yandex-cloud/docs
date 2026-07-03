@@ -105,7 +105,7 @@ yc managed-kafka cluster create \
 ...
 --maintenance-window type=<тип_технического_обслуживания>,`
                     `day=<день_недели>,`
-                    `hour=<час_дня> \
+                    `hour=<порядковый_номер_часового_интервала> \
 ...
 ```
 

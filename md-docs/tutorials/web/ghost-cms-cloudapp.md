@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Прикладные решения > Создание сайта > Установка Ghost CMS High Availability с помощью Cloud Apps
+[Документация Yandex Cloud](../../index.md) > [Практические руководства](../index.md) > Прикладные решения > Создание сайта > Создание сайта на Ghost CMS High Availability с помощью Cloud Apps
 
 # Установка Ghost CMS High Availability с помощью Cloud Apps
 

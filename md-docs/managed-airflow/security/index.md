@@ -34,6 +34,11 @@
 ## Какие роли действуют в сервисе {#roles-list}
 
 ```mermaid
+%%{
+  init: {
+    "flowchart": { "defaultRenderer": "elk" }
+  }
+}%%
 flowchart BT
     managed-airflow.auditor --> managed-airflow.viewer 
     managed-airflow.viewer --> managed-airflow.user 

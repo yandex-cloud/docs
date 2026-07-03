@@ -50,6 +50,18 @@ Stackland базируется на Kubernetes®, что позволяет ра
 
  - [Изменить настройки кластера](operations/postgresql/edit-cluster.md)
 
+ - [Создать пользователя](operations/postgresql/create-user.md)
+
+ - [Изменить пользователя](operations/postgresql/edit-user.md)
+
+ - [Удалить пользователя](operations/postgresql/delete-user.md)
+
+ - [Создать базу данных](operations/postgresql/create-database.md)
+
+ - [Изменить базу данных](operations/postgresql/edit-database.md)
+
+ - [Удалить базу данных](operations/postgresql/delete-database.md)
+
  - [Диагностика производительности](operations/postgresql/performance-diagnostics.md)
 
  - [Создать резервную копию](operations/postgresql/new-copy.md)
@@ -69,6 +81,64 @@ Stackland базируется на Kubernetes®, что позволяет ра
  - [Восстановить кластер](operations/clickhouse/recover-copy.md)
 
  - [Удалить кластер](operations/clickhouse/delete-cluster.md)
+
+ - [Создать базу данных](operations/clickhouse/create-database.md)
+
+ - [Изменить базу данных](operations/clickhouse/edit-database.md)
+
+ - [Удалить базу данных](operations/clickhouse/delete-database.md)
+
+ - [Создать роль](operations/clickhouse/create-role.md)
+
+ - [Изменить роль](operations/clickhouse/edit-role.md)
+
+ - [Удалить роль](operations/clickhouse/delete-role.md)
+
+ - [Создать пользователя](operations/clickhouse/create-user.md)
+
+ - [Изменить пользователя](operations/clickhouse/edit-user.md)
+
+ - [Удалить пользователя](operations/clickhouse/delete-user.md)
+
+#### Iceberg REST Catalog
+
+ - [Создать каталог](operations/rest-catalog/create-catalog.md)
+
+ - [Изменить каталог](operations/rest-catalog/edit-catalog.md)
+
+ - [Создать пользователя каталога](operations/rest-catalog/create-principal.md)
+
+ - [Удалить пользователя каталога](operations/rest-catalog/delete-principal.md)
+
+ - [Удалить каталог](operations/rest-catalog/delete-catalog.md)
+
+#### Managed Service for Trino
+
+ - [Создать кластер Trino](operations/trino/create-cluster.md)
+
+ - [Изменить настройки кластера](operations/trino/edit-cluster.md)
+
+ - [Удалить кластер](operations/trino/delete-cluster.md)
+
+ - [Создать каталог](operations/trino/create-catalog.md)
+
+ - [Изменить настройки каталога](operations/trino/edit-catalog.md)
+
+ - [Удалить каталог](operations/trino/delete-catalog.md)
+
+#### YTsaurus
+
+ - [Включить YTsaurus](operations/ytsaurus/enable.md)
+
+ - [Изменить настройки кластера](operations/ytsaurus/edit-cluster.md)
+
+ - [Получить пароль и токен администратора](operations/ytsaurus/get-admin-credentials.md)
+
+ - [Открыть веб-интерфейс](operations/ytsaurus/connect-ui.md)
+
+ - [Подключиться к HTTP-прокси](operations/ytsaurus/connect-api.md)
+
+ - [Отключить YTsaurus](operations/ytsaurus/disable.md)
 
 ### Бакеты
 
@@ -99,6 +169,8 @@ Stackland базируется на Kubernetes®, что позволяет ра
 ### Логирование
 
  - [Посмотреть логи](operations/logging/logs-view.md)
+
+ - [Восстановить Loki в standalone-режиме при заполнении PVC](operations/logging/loki-recovery.md)
 
 ### Мониторинг
 
@@ -168,13 +240,17 @@ Stackland базируется на Kubernetes®, что позволяет ра
 
 ### Управление кластером
 
- - [Обновить кластер](operations/cluster-upgrade.md)
+ - [Обновить кластер](operations/cluster/upgrade-cluster.md)
+
+ - [Масштабирование кластера](operations/cluster/scale-cluster.md)
 
 ## Концепции
 
  - [Проекты](concepts/projects.md)
 
  - [Ресурсная модель](concepts/resource-model.md)
+
+ - [Масштабирование кластера](concepts/cluster-scaling.md)
 
 ### Компоненты
 
@@ -193,6 +269,12 @@ Stackland базируется на Kubernetes®, что позволяет ра
  - [Managed Service for PostgreSQL](concepts/components/postgresql.md)
 
  - [Managed Service for ClickHouse®](concepts/components/clickhouse.md)
+
+ - [Iceberg REST Catalog](concepts/components/rest-catalog.md)
+
+ - [Managed Service for Trino](concepts/components/trino.md)
+
+ - [YTsaurus](concepts/components/ytsaurus.md)
 
  - [DataLens](concepts/components/datalens.md)
 

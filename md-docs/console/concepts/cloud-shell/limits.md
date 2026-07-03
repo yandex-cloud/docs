@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Console](../../index.md) > Лимиты в Cloud Shell
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Console](../../index.md) > Концепции > Лимиты в Cloud Shell
 
 # Квоты и лимиты в Yandex Cloud Shell
 

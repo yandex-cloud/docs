@@ -24,9 +24,9 @@ Yandex Cloud Apps — сервис, который позволяет в оди�
 
  - [Создание сайта на Ghost CMS High Availability с помощью Cloud Apps](tutorials/ghost-cms-cloudapp.md)
 
- - [Установка Gatsby с помощью Cloud Apps](tutorials/gatsby-static-site-cloudapp.md)
+ - [Создание сайта на Gatsby с помощью Cloud Apps](tutorials/gatsby-static-site-cloudapp.md)
 
- - [Установка Hugo с помощью Cloud Apps](tutorials/hugo-static-site-cloudapp.md)
+ - [Создание сайта на Hugo с помощью Cloud Apps](tutorials/hugo-static-site-cloudapp.md)
 
  - [Управление доступом](security/index.md)
 

@@ -44,4 +44,3 @@ x-yc-apigateway-integration:
 
 * [Защита API Gateway при помощи интеграции с Smart Web Security](../../tutorials/api-gw-sws-integration.md)
 * [Работа с API-шлюзом по протоколу WebSocket](../../tutorials/api-gw-websocket.md)
-* [Как создать чат-бот для Slack](../../tutorials/slack-bot-serverless.md)
