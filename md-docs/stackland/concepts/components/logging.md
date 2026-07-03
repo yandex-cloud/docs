@@ -52,10 +52,11 @@ spec:
         size: 50Gi
       retentionPeriod: 7d
       loki:
+        mode: standalone
         limitsConfig:
+          retentionPeriod: 7d
           maxLabelNamesPerSeries: 20
         compactor:
-          retentionEnabled: true
           retentionDeleteDelay: 24h
     logSender: # Настройки поставки
       backend: fluent-bit
@@ -70,7 +71,6 @@ spec:
           memory: 100Mi
       fluentBit:
         logLevel: info
-        tenantId: prod-team
         defaultOutput: true
     status: ... # Блок генерируется автоматически
 ```
@@ -99,7 +99,6 @@ logStorage:
     limitsConfig:
       maxLabelNamesPerSeries: 20
     compactor:
-      retentionEnabled: true
       retentionDeleteDelay: 24h
 ```
 
@@ -128,7 +127,6 @@ logSender:
       cpu: 100m
   fluentBit:
     logLevel: info
-    tenantId: prod-team
     defaultOutput: true
 ```
 
@@ -136,4 +134,4 @@ logSender:
 * `flushInterval` — задает интервал в секундах, с которым Fluent Bit отправляет собранные логи в хранилище (например, Loki).
 * `bufferSize` — определяет максимальный объем памяти, выделяемый Fluent Bit для буферизации логов перед отправкой.
 * `resources` — ограничивает ресурсы (CPU и память) для пода.
-* `fluentBit` — определяет расширенные настройки для Fluent Bit.
+* `fluentBit` — определяет расширенные настройки для Fluent Bit. По умолчанию в Loki отправляются только audit-логи Kubernetes API и логи из namespace-ов `stackland-*`.

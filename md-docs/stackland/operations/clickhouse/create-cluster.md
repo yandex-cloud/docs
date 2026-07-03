@@ -101,6 +101,12 @@
             storage:
         #      storageClass: "your-storage-class"
               size: 2Gi
+            autoScaling:
+              enabled: false # включение автоскейлинга
+              maxSize: 300Gi # максимальный размер хранилища
+              standardIncreasePercent: 20 # процент увеличения размера хранилища
+              resizeTriggerPercent: 80 # процент использования, после которого будет запущено увеличение размера хранилища
+            readOnlyTriggerPercent: 95 # процент использования диска для перевода в режим только для чтения (по умолчанию 95)
             resources:
               requests:
                 cpu: "500m"
@@ -114,7 +120,7 @@
           keeper:
             instances: 3
             storage:
-        #      storageClass: "your-storage-classs"
+        #      storageClass: "your-storage-class"
               size: 1Gi
             resources:
               requests:
@@ -202,6 +208,12 @@
             storage:
         #      storageClass: "your-storage-class"
               size: 2Gi
+            autoScaling:
+              enabled: false # включение автоскейлинга
+              maxSize: 300Gi # максимальный размер хранилища
+              standardIncreasePercent: 20 # процент увеличения размера хранилища
+              resizeTriggerPercent: 80 # процент использования, после которого будет запущено увеличение размера хранилища
+            readOnlyTriggerPercent: 95 # процент использования диска для перевода в режим только для чтения (по умолчанию 95)
             resources:
               requests:
                 cpu: "500m"
@@ -226,10 +238,10 @@
                 memory: "2Gi"
           backup:
             storage:
+              type: s3
               s3:
                 bucket: on-prem-quantum
                 endpointUrl: "https://storage.yandexcloud.net"
-                backupsToKeepRemote: 14
                 region: "ru-central1"
                 forcePathStyle: false
         #        storageClass: "STANDARD"
@@ -239,11 +251,21 @@
                   secretAccessKeyPath: secret
             # schedule: "0 0 * * * *"
             deltaMaxSteps: 5
+            retention:
+              ignoreForManualBackups: true
+              minBackupsToKeep: 5
+              deleteBackupsAfter: 7d
         ```
 
     {% endlist %}
 
 1. Примените манифест: `kubectl apply -f clickhousecluster.yaml -n <название проекта>`. При необходимости можно прописать название проекта в параметр ресурса `metadata.namespace` и не использовать в команде.
+
+{% note info %}
+
+Имя ресурса `metadata.name` и идентификаторы шардов `spec.clickhouse.shards[].id` не должны быть длиннее **15 символов**. Допустимы строчные буквы, цифры и дефисы.
+
+{% endnote %}
 
 ## Через консоль управления {#console}
 
@@ -254,14 +276,18 @@
 
     **Основные параметры**
 
-    * **Имя кластера** — название кластера. Только строчные буквы, цифры и дефисы.
+    * **Имя кластера** — название кластера. Только строчные буквы, цифры и дефисы, не более **15 символов**.
     * **Версия** — версия ClickHouse®. Выберите из списка доступных версий.
     * **Тип сервиса кластера** — тип сервиса для доступа ко всему кластеру. Доступные значения: `ClusterIP` (доступ только внутри кластера, по умолчанию) или `LoadBalancer` (доступ извне).
 
     **Хранилище**
 
-    * **Класс хранилища** — Storage Class (`stackland-nvme`, `stackland-ssd`, `stackland-hdd`, `stackland-other`). Подробнее о Storage Classes в разделе [Дисковая подсистема](../../concepts/components/disk-storage.md#storage-classes).
+    * **Класс хранилища** — Storage Class (`stackland-nvme`, `stackland-ssd`, `stackland-hdd`, `stackland-other`). Подробнее о Storage Classes см. в разделе [Дисковая подсистема](../../concepts/components/disk-storage.md#storage-classes).
     * **Размер хранилища** — размер диска для хранения данных. После создания размер диска можно только увеличить.
+    * **Автоматическое увеличение размера хранилища** — переключатель для включения автоскейлинга диска. При включении задайте:
+        * **Максимальный размер хранилища** — верхний предел, до которого может увеличиваться диск.
+        * **Процент увеличения размера хранилища** — шаг увеличения в процентах от текущего размера (по умолчанию 20).
+        * **Процент использования хранилища для увеличения** — порог использования, после которого запускается увеличение размера (по умолчанию 80).
 
     **Настройки** (раскрывающийся раздел)
 
@@ -278,7 +304,7 @@
 
     Для каждого шарда можно настроить:
 
-    * **ID шарда** — идентификатор шарда.
+    * **ID шарда** — идентификатор шарда. Не более **15 символов**, строчные буквы, цифры и дефисы.
     * **Вес шарда** — вес шарда для распределения данных.
     * **Количество реплик** — количество реплик в шарде.
     * **Тип сервиса шарда** — тип сервиса для доступа к шарду. Доступные значения: `Не создавать сервис` (эндпоинт не создается, по умолчанию), `ClusterIP` (доступ только внутри кластера) или `LoadBalancer` (доступ извне).
@@ -390,6 +416,6 @@ kubectl get clickhousecluster <название_кластера> -n <назва
 
 Внутренние FQDN имеют формат `<название_ресурса>.<название_проекта>.svc.<домен кластера>` и доступны только внутри кластера Kubernetes.
 
-Внешние FQDN создаются автоматически для сервисов типа `LoadBalancer` и доступны извне кластера. Подробнее о DNS в разделе [DNS](../../concepts/components/dns.md).
+Внешние FQDN создаются автоматически для сервисов типа `LoadBalancer` и доступны извне кластера. Подробнее о DNS см. в разделе [DNS](../../concepts/components/dns.md).
 
 {% endnote %}

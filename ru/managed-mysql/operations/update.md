@@ -601,7 +601,7 @@ description: Из статьи вы узнаете, как изменить на
                                  `emergency-usage-threshold=<порог_для_незамедлительного_увеличения_в_процентах> \
           --maintenance-window type=<тип_технического_обслуживания>,`
                               `day=<день_недели>,`
-                              `hour=<час_дня> \
+                              `hour=<порядковый_номер_часового_интервала> \
           --deletion-protection \
           --performance-diagnostics enabled=true,`
                                    `sessions-sampling-interval=<интервал_сбора_сессий>,`
@@ -760,7 +760,7 @@ description: Из статьи вы узнаете, как изменить на
           "maintenanceWindow": {
               "weeklyMaintenanceWindow": {
                   "day": "<день_недели>",
-                  "hour": "<час_дня>"
+                  "hour": "<порядковый_номер_часового_интервала>"
               }
           },
           "deletionProtection": <защитить_кластер_от_удаления>
@@ -874,7 +874,7 @@ description: Из статьи вы узнаете, как изменить на
           "maintenance_window": {
               "weekly_maintenance_window": {
                   "day": "<день_недели>",
-                  "hour": "<час_дня>"
+                  "hour": "<порядковый_номер_часового_интервала>"
               }
           },
           "deletion_protection": <защитить_кластер_от_удаления>

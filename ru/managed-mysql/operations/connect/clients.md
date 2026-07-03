@@ -89,7 +89,7 @@ sudo apt update && sudo apt install --yes mysql-client
 
 ### Подключение с аутентификацией через IAM {#iam}
 
-К базе данных {{ mmy-name }} можно подключиться с помощью [интерфейса командной строки {{ yandex-cloud }} (CLI)](../../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation) и [локальных пользователей](../../../iam/concepts/users/accounts.md#local). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера.
+К базе данных {{ mmy-name }} можно подключиться с помощью [интерфейса командной строки {{ yandex-cloud }} (CLI)](../../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation), [локальных пользователей](../../../iam/concepts/users/accounts.md#local) и [сервисных аккаунтов](../../../iam/concepts/users/accounts.md#sa) (далее — аккаунты). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера.
 
 Перед подключением:
 
@@ -116,9 +116,9 @@ sudo apt update && sudo apt install --yes mysql-client
      1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке первого хоста и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
      1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
      1. Повторите операцию для остальных хостов кластера.
-  1. Назначьте роль `managed-mysql.clusters.connector` аккаунту пользователя, который будет подключаться к БД:
+  1. Назначьте роль `managed-mysql.clusters.connector` аккаунту, который будет подключаться к БД:
      1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-     1. Введите электронную почту пользователя, к которой привязан аккаунт.
+     1. Если роль выдается аккаунту на Яндексе, федеративному аккаунту или локальному пользователю, введите имя пользователя или электронную почту, к которой привязан аккаунт. Если роль выдается сервисному аккаунту, введите его имя или идентификатор. В результатах поиска выберите найденный аккаунт.
      1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `managed-mysql.clusters.connector`.
      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
   1. Создайте пользователя {{ MY }}:

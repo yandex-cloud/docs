@@ -151,8 +151,6 @@ items:
             href: tutorials/serverless-live-debug.md
       - name: Боты на Serverless
         items:
-          - name: Разработка Slack-бота
-            href: tutorials/slack-bot-serverless.md
           - name: Разработка Telegram-бота
             items:
               - name: Обзор

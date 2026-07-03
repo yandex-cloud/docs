@@ -2,6 +2,40 @@
 
 # Правила тарификации в Yandex Identity Hub
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 6
+    children:
+      - type: basic-card
+        title: Калькулятор цен
+        text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
+        icon: ../_assets/console-icons/calculator.svg
+        urlTitle: Калькулятор цен
+        url: https://yandex.cloud/ru/prices?state=4e2cc7de21e6#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Прайс-лист
+        text: Актуальные тарифы на все наши услуги
+        icon: ../_assets/console-icons/circle-ruble.svg
+        urlTitle: Прайс-лист
+        url: https://yandex.cloud/ru/price-list?services=dn2rbtyqhowkmimgqc5u
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
+
+
 
 
 Стоимость использования сервиса Yandex Identity Hub входит в стоимость оплачиваемых сервисов. Дополнительно тарифицируется только подключение к внешним приложениям.
@@ -35,7 +69,6 @@
 | Лимит пользователей Identity Hub, использующих SSO для внешних приложений (3001-5000)  | 274 ₽             | Пользователь × месяц | 31 декабря 2025 | —            |
 | Лимит пользователей Identity Hub, использующих SSO для внешних приложений (5001-10000) | 213 ₽             | Пользователь × месяц | 31 декабря 2025 | —            |
 | Лимит пользователей Identity Hub, использующих SSO для внешних приложений (10001+)     | 183 ₽             | Пользователь × месяц | 31 декабря 2025 | —            |
-
 
 
 

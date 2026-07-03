@@ -106,7 +106,7 @@ kubectl label nodes my-node nvidia.com/mig.config=all-1g.5gb --overwrite
 kubectl -n stackland-nvidia-gpu get cm default-mig-parted-config -o jsonpath='{.data.config\.yaml}'
 ```
 
-## Полезные ссылки {#see-also}
+## См. также {#see-also}
 
 * [Monitoring](monitoring.md) — мониторинг кластера и компонентов.
 * [Документация GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html).

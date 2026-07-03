@@ -30,7 +30,7 @@ CNI (Container Network Interface) — стандартизированный и�
 
 ### Ingress {#ingress}
 
-Обратный прокси, используемый как L7-балансировщик над подами, реализующими бэкенд приложений, развернутых в Kubernetes. Также терминирует входящие HTTPS-соединения (подробнее в разделе [Certificate Manager](#certificate-manager)). Реализация, включенная в состав Stackland, использует [ingress-nginx](https://kubernetes.github.io/ingress-nginx/), популярный и проверенный временем Ingress-контроллер для веб-сервера nginx.
+Обратный прокси, используемый как L7-балансировщик над подами, реализующими бэкенд приложений, развернутых в Kubernetes. Также терминирует входящие HTTPS-соединения (см. [Certificate Manager](#certificate-manager)). Реализация, включенная в состав Stackland, использует [ingress-nginx](https://kubernetes.github.io/ingress-nginx/), популярный и проверенный временем Ingress-контроллер для веб-сервера nginx.
 
 ### Certificate Manager {#certificate-manager}
 
@@ -48,7 +48,7 @@ CNI (Container Network Interface) — стандартизированный и�
 
 Volumes — компонент управления блочным хранилищем на основе [TopoLVM](https://github.com/topolvm/topolvm), драйвера CSI (Container Storage Interface) для Kubernetes. Использует LVM на узлах кластера для создания томов и управления ими. Компонент может динамически увеличивать размер томов и учитывает свободное место на дисках перед размещением подов.
 
-Подробнее о дисковой подсистеме, Storage Classes и мониторинге в разделе [Дисковая подсистема](disk-storage.md).
+Подробнее о дисковой подсистеме, Storage Classes и мониторинге см. в разделе [Дисковая подсистема](disk-storage.md).
 
 ### Object Storage {#object-storage}
 
@@ -81,6 +81,18 @@ Stackland предоставляет готовый набор дашбордо�
 ### Managed Service for ClickHouse® {#clickhouse}
 
 [Managed Service for ClickHouse®](clickhouse.md) — столбцовая аналитическая СУБД. Компонент упрощает развертывание и управление кластерами ClickHouse®, обеспечивает мониторинг и масштабирование.
+
+### Iceberg REST Catalog {#rest-catalog}
+
+[Iceberg REST Catalog](rest-catalog.md) — каталог метаданных для таблиц Apache Iceberg по протоколу Iceberg REST Catalog. Компонент позволяет создавать каталоги и пользователей с доступом по OAuth2 с помощью кастомных ресурсов `RestCatalog` и `RestCatalogPrincipal`.
+
+### Managed Service for Trino {#trino}
+
+[Managed Service for Trino](trino.md) — распределенный SQL-движок для аналитических запросов к различным источникам данных. Компонент упрощает развертывание кластеров Trino, управление каталогами источников данных (PostgreSQL, ClickHouse®, Apache Iceberg™) и настройку правил доступа.
+
+### YTsaurus {#ytsaurus}
+
+[YTsaurus](ytsaurus.md) — распределенная платформа для хранения и обработки больших данных. Компонент разворачивает один общий кластер YTsaurus на платформу: MapReduce-движок, динамические таблицы, движок запросов YQL, веб-интерфейс и интеграцию с Identity and Access Management. Состав подкомпонентов и ресурсы задаются через кастомный ресурс `YTsaurusConfig`.
 
 ## Модули {#modules}
 

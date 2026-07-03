@@ -11,7 +11,6 @@ description: На странице представлен список поша�
 - [{#T}](network-delete.md)
 - [{#T}](network-update.md)
 - [{#T}](network-get-info.md)
-- [{#T}](network-map.md)
 - [{#T}](network-move.md)
 
 ## Подсеть {#subnet}

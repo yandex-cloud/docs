@@ -1,4 +1,9 @@
 ```mermaid
+%%{
+  init: {
+    "flowchart": { "defaultRenderer": "elk" }
+  }
+}%%
 flowchart BT
     managed-spark.auditor --> managed-spark.viewer
     managed-spark.viewer --> managed-spark.user

@@ -80,6 +80,7 @@ default:
   pgadmin: "pgAdmin\_4"
   prometheus-name: Prometheus
   RD: Redis
+  rest-catalog-name: Iceberg REST Catalog
   RMQ: RabbitMQ
   speechsense-full-name: Yandex SpeechSense
   speechsense-name: SpeechSense
@@ -90,9 +91,11 @@ default:
   TF: Terraform
   TF-full: HashiCorp Terraform
   TR: Trino
-  version: 26.1
+  version: 26.2
   VLK: Valkey™
   ya-360: Яндекс 360 для бизнеса
   yandex-cloud: Yandex Cloud
+  YT: YTsaurus
+  yt-name: YTsaurus
   YZ: Yezzey
   ZK: ZooKeeper

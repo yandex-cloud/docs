@@ -42,4 +42,3 @@ x-yc-apigateway-integration:
 
 * [{#T}](../../tutorials/api-gw-sws-integration.md)
 * [{#T}](../../tutorials/api-gw-websocket.md)
-* [{#T}](../../tutorials/slack-bot-serverless.md)

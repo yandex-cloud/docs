@@ -1,0 +1,228 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > Концепции > [Компоненты](overview.md) > YTsaurus
+
+# YTsaurus
+
+YTsaurus — это распределенная платформа для хранения и обработки больших данных. В составе Stackland компонент разворачивает один общий кластер YTsaurus на платформу. Кластер включает MapReduce-движок, динамические таблицы, движок запросов YQL, веб-интерфейс и интеграцию с Identity and Access Management.
+
+С помощью YTsaurus можно:
+
+* развернуть и сопровождать кластер YTsaurus в составе Stackland;
+* настроить состав подкомпонентов кластера (`UI`, `CHYT`, `SPYT`, `Tutorial`, `Task Proxy`, `Odin`) и размеры групп узлов через кастомный ресурс `YTsaurusConfig`;
+* получать доступ к кластеру через UI и HTTP-прокси, опубликованные через Stackland Ingress.
+
+Документация описывает Stackland-обёртку. Подробности об архитектуре YTsaurus, формате данных, командах CLI и SDK см. в [официальной документации YTsaurus](https://ytsaurus.tech/docs/ru/).
+
+## Конфигурация компонента {#ytsaurusconfig}
+
+Параметры компонента задаются ресурсом `YTsaurusConfig`. Ресурс работает на уровне кластера; имя ресурса должно быть `main`. На платформе допустим только один экземпляр.
+
+Пример минимальной конфигурации с включенным компонентом:
+
+```yaml
+apiVersion: stackland.yandex.cloud/v1alpha1
+kind: YTsaurusConfig
+metadata:
+  name: main  # Обязательно, имя ресурса должно быть main
+spec:
+  enabled: true
+  clusterName: cluster
+  cluster:
+    discovery:
+      instanceCount: 1
+      resources:
+        cpu: "100m"
+        memory: "256Mi"
+
+    primaryMasters:
+      instanceCount: 1
+      storage:
+        size: "5Gi"
+      resources:
+        cpu: "300m"
+        memory: "512Mi"
+
+    httpProxies:
+      instanceCount: 1
+      resources:
+        cpu: "300m"
+        memory: "512Mi"
+
+    dataNodes:
+      - name: ssd
+        instanceCount: 3
+        storage:
+          size: "20Gi"
+        resources:
+          cpu: "200m"
+          memory: "512Mi"
+
+    execNodes:
+      - name: default
+        instanceCount: 1
+        storage:
+          size: "10Gi"
+        resources:
+          cpu: "3000m"
+          memory: "3Gi"
+
+    schedulers:
+      instanceCount: 1
+      resources:
+        cpu: "200m"
+        memory: "256Mi"
+
+    controllerAgents:
+      instanceCount: 1
+      resources:
+        cpu: "200m"
+        memory: "256Mi"
+
+    bundleController:
+      enabled: true
+
+    queryTrackers:
+      instanceCount: 1
+      resources:
+        cpu: "100m"
+        memory: "256Mi"
+
+    queueAgents:
+      instanceCount: 1
+      resources:
+        cpu: "100m"
+        memory: "256Mi"
+
+    rpcProxies:
+      instanceCount: 1
+      resources:
+        cpu: "100m"
+        memory: "256Mi"
+
+    strawberry:
+      enabled: true
+      resources:
+        cpu: "100m"
+        memory: "256Mi"
+
+    tabletNodes:
+      - name: default
+        instanceCount: 1
+        resources:
+          cpu: "500m"
+          memory: "1Gi"
+
+    yqlAgents:
+      instanceCount: 1
+      resources:
+        cpu: "200m"
+        memory: "1Gi"
+
+    ui:
+      enabled: true
+      ingressEnabled: true
+      resources:
+        cpu: "100m"
+        memory: "256Mi"
+```
+
+Где:
+
+* `spec.enabled` — включает или отключает компонент. По умолчанию `false`.
+* `spec.clusterName` — название кластера YTsaurus, которое используется при подключении и отображается в UI.
+* `spec.cluster` — состав и размеры подкомпонентов кластера (см. ниже).
+
+Все ресурсы Kubernetes, относящиеся к кластеру YTsaurus (поды, PVC, секреты, ингрессы), создаются в системном пространстве имен `stackland-ytsaurus`.
+
+## Состав кластера {#cluster-components}
+
+Параметр `spec.cluster` ресурса `YTsaurusConfig` описывает обязательные подкомпоненты кластера YTsaurus. Для каждой группы можно задать количество подов `instanceCount`, ресурсы `resources` (CPU и память) и при наличии — параметры дискового хранилища `storage` (`storageClass` и `size`).
+
+Список подкомпонентов:
+
+* `discovery` — сервис обнаружения, координирует компоненты кластера. Диапазон `instanceCount`: 1–50.
+* `primaryMasters` — главные мастера кластера, хранят метаданные. Требует поле `storage`. Диапазон `instanceCount`: 1–50.
+* `httpProxies` — HTTP-прокси для пользовательских запросов и доступа к UI. Диапазон `instanceCount`: 1–3.
+* `dataNodes[]` — узлы хранения данных. Список, минимум одна группа. Требует поле `storage`. Имя группы — строчные латинские буквы, цифры и дефис. Диапазон `instanceCount` в каждой группе: 3–10.
+* `execNodes[]` — узлы исполнения задач MapReduce. Список, должен содержать группу `default`. Требует поле `storage`. Поддерживает поле `resources.gpu`. Диапазон `instanceCount` в каждой группе: 1–50.
+* `schedulers` — планировщики операций MapReduce. Диапазон `instanceCount`: 1–10.
+* `controllerAgents` — агенты контроллеров операций. Диапазон `instanceCount`: 1–10.
+* `bundleController` — контроллер тэблет-бандлов. Включается флагом `enabled`.
+* `queryTrackers` — трекеры запросов YQL и CHYT. Диапазон `instanceCount`: 1–10.
+* `queueAgents` — агенты очередей. Диапазон `instanceCount`: 1–10.
+* `rpcProxies` — RPC-прокси для клиентских SDK. Диапазон `instanceCount`: 1–3.
+* `tabletNodes[]` — узлы динамических таблиц. Опциональный список групп. Диапазон `instanceCount` в каждой группе: 1–50.
+* `yqlAgents` — агенты языка запросов YQL. Диапазон `instanceCount`: 1–3.
+
+Минимальные и максимальные значения `instanceCount` определяются валидационной схемой ресурса `YTsaurusConfig`. Превышение лимита оператор отклонит при создании или обновлении ресурса.
+
+## Дополнительные подкомпоненты {#extras}
+
+Дополнительные подкомпоненты включаются через флаг `enabled` в соответствующем поле `spec.cluster`:
+
+* `ui` — веб-интерфейс YTsaurus. При `ingressEnabled: true` создает Ingress на адрес `ytsaurus.<домен_системы>`. Аутентификация — через Identity and Access Management по OAuth.
+* `strawberry` — Strawberry-контроллер, управляющий жизненным циклом CHYT- и SPYT-кликов.
+* `chyt` — CHYT, движок ClickHouse® поверх YTsaurus. Требует включенного `strawberry`.
+* `spyt` — SPYT, движок Apache Spark™ поверх YTsaurus. Требует включенного `strawberry`.
+* `taskProxy` — Task Proxy для запуска внешних задач в YTsaurus. Поле `instanceCount` — 1–10.
+* `tutorial` — встроенный туториал по YTsaurus, создает каталог `//home/tutorial` с примерами.
+* `odin` — служба мониторинга `Odin`, проверяющая состояние ключевых компонентов кластера.
+* `cron.clear_tmp` — регулярная очистка временных данных. Поле `interval` принимает значения в формате `<число>h`, `<число>m` или `<число>s`. По умолчанию `15m`.
+
+## Сетевой доступ к кластеру {#network-access}
+
+После включения компонента создаются два внешних эндпоинта:
+
+* `ytsaurus.<домен_системы>` — веб-интерфейс YTsaurus. Доступен только при `spec.cluster.ui.enabled: true` и `spec.cluster.ui.ingressEnabled: true`.
+* `api.ytsaurus.<домен_системы>` — HTTP-прокси для запросов через YTsaurus CLI, SDK и сторонние клиенты.
+
+Оба ингресса публикуются через класс `stackland-system` с принудительным редиректом на HTTPS. TLS-сертификат выпускается через Certificate Manager.
+
+RPC-прокси доступны внутри кластера Kubernetes; внешний доступ через сетевой балансировщик не предусмотрен.
+
+## Аутентификация и секреты {#auth}
+
+Учетные данные администратора кластера YTsaurus хранятся в Secret `ytadminsec` в пространстве имен `stackland-ytsaurus`. Secret создается при включении компонента и содержит ключи:
+
+* `login` — логин администратора, `admin`.
+* `password` — пароль администратора.
+* `token` — токен администратора для доступа к API через `yt` CLI и SDK.
+
+Подробнее о получении значений см. в инструкции [Получить пароль и токен администратора](../../operations/ytsaurus/get-admin-credentials.md).
+
+В веб-интерфейсе YTsaurus аутентификация выполняется через Identity and Access Management по OAuth. Параметры OAuth-клиента (`stackland.ytsaurus`) и адрес сервера авторизации (`auth.<домен_системы>`) настраиваются компонентом автоматически.
+
+## Ресурсы и хранилище {#resources}
+
+Минимальные ресурсы для запуска компонента по умолчанию:
+
+* CPU — 8 ядер;
+* память — 16 ГиБ;
+* диск — 100 ГиБ.
+
+Кластер YTsaurus интенсивно использует диск; рекомендуется хранилище класса SSD. Класс хранилища можно задать в `storage.storageClass` для `primaryMasters`, каждой группы `dataNodes` и каждой группы `execNodes`. Если поле не задано, используется класс хранилища по умолчанию, выбранный при установке компонента. Подробнее см. в разделе [Дисковая подсистема](disk-storage.md).
+
+Размер дисков подкомпонентов после создания можно только увеличивать. Подробнее об изменении параметров кластера см. в инструкции [Изменить настройки кластера YTsaurus](../../operations/ytsaurus/edit-cluster.md).
+
+## Мониторинг и алерты {#observability}
+
+Компонент устанавливает в кластер набор готовых дашбордов и правил алертинга для YTsaurus. Дашборды публикуются в Grafana компонентом [Monitoring](monitoring.md) и охватывают:
+
+* состояние кластера и ресурсы (`cluster-resources`);
+* HTTP-прокси и RPC-прокси;
+* мастера: глобальные и локальные метрики, аккаунты;
+* планировщик: операции, пулы, внутренние метрики;
+* очереди и потребители;
+* тэблет-бандлы: CPU, память, сеть, диск, нагрузка пользователей.
+
+Алерты, доступные после включения компонента:
+
+* `cluster-alerts` — ключевые показатели работоспособности кластера;
+* `odin-alerts` — проверки `Odin`, активные при `spec.cluster.odin.enabled: true`.
+
+## Ограничения {#limits}
+
+* На платформе допускается один кластер YTsaurus. Ресурс `YTsaurusConfig` должен иметь имя `main`.
+* Имена групп `dataNodes`, `execNodes` и `tabletNodes` должны начинаться со строчной латинской буквы и содержать только строчные буквы, цифры и дефис.
+* Группа `execNodes` должна содержать запись с именем `default`.
+* Размер диска у узлов после создания можно только увеличить. Уменьшить размер нельзя.
+* Отключение компонента (`spec.enabled: false`) приводит к удалению кластера YTsaurus вместе с данными. Подробнее см. в инструкции [Отключить YTsaurus](../../operations/ytsaurus/disable.md).

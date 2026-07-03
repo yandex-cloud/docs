@@ -426,7 +426,7 @@
 
 ### Бэкенд на Serverless
 
- - [Развертывание веб-приложения](tutorials/java-servlet-todo-list.md)
+ - [Развертывание веб-приложения с использованием Java Servlet API](tutorials/java-servlet-todo-list.md)
 
 #### Конвертация видео в GIF на Python
 
@@ -459,8 +459,6 @@
  - [Интерактивная отладка функций](tutorials/serverless-live-debug.md)
 
 ### Боты на Serverless
-
- - [Разработка Slack-бота](tutorials/slack-bot-serverless.md)
 
 #### Разработка Telegram-бота
 

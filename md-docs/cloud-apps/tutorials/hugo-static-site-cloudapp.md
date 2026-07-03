@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Cloud Apps](../index.md) > [Практические руководства](index.md) > Установка Hugo с помощью Cloud Apps
+[Документация Yandex Cloud](../../index.md) > [Cloud Apps](../index.md) > [Практические руководства](index.md) > Создание сайта на Hugo с помощью Cloud Apps
 
 # Установка Hugo с помощью Cloud Apps
 

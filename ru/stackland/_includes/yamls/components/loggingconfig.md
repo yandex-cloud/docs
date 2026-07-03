@@ -22,10 +22,11 @@ spec:
         size: 50Gi
       retentionPeriod: 7d
       loki:
+        mode: standalone
         limitsConfig:
+          retentionPeriod: 7d
           maxLabelNamesPerSeries: 20
         compactor:
-          retentionEnabled: true
           retentionDeleteDelay: 24h
     logSender: # Настройки поставки
       backend: fluent-bit
@@ -40,7 +41,6 @@ spec:
           memory: 100Mi
       fluentBit:
         logLevel: info
-        tenantId: prod-team
         defaultOutput: true
     status: ... # Блок генерируется автоматически
 ```

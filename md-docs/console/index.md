@@ -24,7 +24,13 @@
 
  - [Поиск в консоли управления](operations/search.md)
 
+ - [Анализ карты инфраструктуры](operations/view-infrastructure-map.md)
+
  - [Управление ресурсами Yandex Cloud с помощью AI-ассистента](operations/ai-assistant.md)
+
+## Концепции
+
+ - [Карта инфраструктуры](concepts/infrastructure-map.md)
 
  - [Лимиты в Cloud Shell](concepts/cloud-shell/limits.md)
 
