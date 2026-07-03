@@ -37,36 +37,37 @@
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
 ```mermaid
+%%{
+  init: {
+    "flowchart": { "defaultRenderer": "elk" },
+    "elk": { "nodePlacementStrategy": "NETWORK_SIMPLEX" }
+  }
+}%%
 flowchart BT
+    vpc.publicAdmin
     managed-mysql.clusters.connector["`managed-mysql.
-    clusters.connector`"] ~~~ mdb.auditor
-    vpc.publicAdmin ~~~ mdb.admin
-    managed-mysql.auditor --> mdb.auditor
-    mdb.auditor --> mdb.maintenanceTask.viewer
-    mdb.auditor --> mdb.viewer
-    mdb.viewer --> mdb.admin
-    managed-mysql.restorer --> mdb.restorer
-    mdb.viewer --> mdb.restorer
-    managed-mysql.viewer --> mdb.viewer
-    managed-mysql.viewer --> managed-mysql.restorer
-    managed-mysql.maintenanceTask.viewer --> mdb.maintenanceTask.viewer["`mdb.maintenanceTask.
-    viewer`"]
-    managed-mysql.maintenanceTask.viewer --> managed-mysql.maintenanceTask.editor["`managed-mysql.
-    maintenanceTask.editor`"]
-    mdb.maintenanceTask.viewer --> mdb.maintenanceTask.editor
-    managed-mysql.maintenanceTask.editor --> mdb.maintenanceTask.editor["`mdb.maintenanceTask.
-    editor`"]
-    managed-mysql.switcher --> managed-mysql.editor
-    managed-mysql.restorer --> managed-mysql.editor
-    managed-mysql.maintenanceTask.editor --> managed-mysql.editor
-    managed-mysql.auditor --> managed-mysql.maintenanceTask.viewer["`managed-mysql.
-    maintenanceTask.viewer`"]
+    clusters.connector`"]
     managed-mysql.user --> managed-mysql.editor
-    managed-mysql.editor --> managed-mysql.admin
-    managed-mysql.admin --> mdb.admin
+    managed-mysql.switcher --> managed-mysql.editor
     managed-mysql.switcher --> mdb.switcher
-    managed-mysql.viewer --> managed-mysql.switcher
-    managed-mysql.maintenanceTask.viewer --> managed-mysql.viewer
+    mdb.viewer --> mdb.restorer
+    managed-mysql.restorer --> managed-mysql.editor
+    managed-mysql.restorer --> mdb.restorer
+    managed-mysql.auditor --> managed-mysql.maintenanceTask.viewer["`managed-mysql.
+    maintenanceTask.viewer`"] --> managed-mysql.viewer --> managed-mysql.switcher
+    managed-mysql.viewer --> managed-mysql.restorer
+    managed-mysql.restorer --> mdb.viewer
+    managed-mysql.auditor --> managed-mysql.viewer --> managed-mysql.editor
+    managed-mysql.auditor --> mdb.auditor --> mdb.maintenanceTask.viewer["`mdb.maintenanceTask.
+    viewer`"] --> mdb.maintenanceTask.editor["`mdb.maintenanceTask.
+    editor`"] --> managed-mysql.editor --> managed-mysql.admin --> mdb.admin
+    managed-mysql.maintenanceTask.viewer["`managed-mysql.
+    maintenanceTask.viewer`"] -->  managed-mysql.maintenanceTask.editor["`managed-mysql.
+    maintenanceTask.editor`"] --> managed-mysql.editor
+    managed-mysql.maintenanceTask.viewer["`managed-mysql.
+    maintenanceTask.viewer`"] --> mdb.maintenanceTask.viewer["`mdb.maintenanceTask.
+    viewer`"]
+    mdb.auditor --> mdb.viewer --> mdb.admin
 ```
 
 ### Сервисные роли {#service-roles}

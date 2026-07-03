@@ -29,29 +29,10 @@ _Подсеть_ — это диапазон IP-адресов в облачно
 
 Сеть и подсеть можно [перемещать](../operations/network-move.md) между каталогами в пределах одного [облака](../../resource-manager/concepts/resources-hierarchy.md). Перемещать подсети между сетями или зонами доступности нельзя.
 
-## Карта облачной сети {#map}
-
-Карта облачной сети отображает взаимосвязи между ресурсами в каталоге, сетями и подсетями, куда входят ресурсы. Пример карты:
-
-![image](../../_assets/vpc/network-map.png)
-
-Карту можно использовать, чтобы получить визуальное представление о сетях. Например, с помощью карты можно узнать, какие подсети наиболее нагружены или для каких подсетей настроены таблицы маршрутизации. Из ресурсов на карте отображаются:
-
-* [группы виртуальных машин](../../compute/concepts/instance-groups/index.md);
-* [виртуальные машины](../../compute/concepts/vm.md);
-* кластеры [Yandex Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster);
-* [группы узлов Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#node-group);
-* узлы Managed Service for Kubernetes;
-* [облачные сети](#network);
-* [подсети](#subnet);
-* [таблицы маршрутизации](routing.md).
-
-На карте можно отобразить взаимосвязи с сетями только нужных ресурсов. Это удобно, если настроена обширная сеть с множеством ресурсов. Также из карты можно перейти на страницу ресурса за один клик. Подробнее о работе с картой в [инструкции](../operations/network-map.md).
-
 #### Полезные ссылки {#see-also} 
 
 * [Программно ускоренная сеть в Virtual Private Cloud](software-accelerated-network.md)
-
+* [Карта инфраструктуры](../../console/concepts/infrastructure-map.md)
 
 ## Примеры использования {#examples}
 

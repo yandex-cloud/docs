@@ -1,0 +1,195 @@
+[Документация Yandex Cloud](../../../index.md) > [Yandex Cloud Stackland](../../index.md) > [Пошаговые инструкции](../index.md) > Базы данных > Managed Service for Trino > Создать кластер Trino
+
+# Создать кластер Managed Service for Trino
+
+Кластер [Trino](../../concepts/components/trino.md) создается в пространстве имен внутри [проекта](../projects/create-project.md). Если у вас уже есть проект и пространство имен в нем, в этом пространстве имен вы можете создать кластер.
+
+## Через CLI {#cli}
+
+1. Убедитесь, что в проекте создано пространство имен. Если нет, [создайте его](../projects/manage-namespaces.md#create-namespace).
+1. Создайте файл ресурса `TrinoCluster`. Например, с помощью команды `touch trinocluster.yaml`.
+1. Откройте файл и вставьте конфигурацию ниже:
+
+    {% list tabs %}
+
+    - Минимальная конфигурация
+
+        ```yaml
+        apiVersion: trino.stackland.yandex.cloud/v1alpha1
+        kind: TrinoCluster
+        metadata:
+          name: trino-min
+        spec:
+          version: "480"
+          coordinator:
+            resources:
+              requests:
+                cpu: 500m
+                memory: 1Gi
+              limits:
+                cpu: "1"
+                memory: 2Gi
+          worker:
+            replicas: 1
+            resources:
+              requests:
+                cpu: 500m
+                memory: 1Gi
+              limits:
+                cpu: "1"
+                memory: 2Gi
+        ```
+
+    - Конфигурация с настройками и правилами доступа
+
+        Пример с настройками логирования (`spec.config`) и правилами доступа к каталогам, схемам и таблицам (`spec.accessControl`). Подробнее о правилах доступа см. в разделе [Управление доступом](../../concepts/components/trino.md#access-control).
+
+        ```yaml
+        apiVersion: trino.stackland.yandex.cloud/v1alpha1
+        kind: TrinoCluster
+        metadata:
+          name: trino-full
+        spec:
+          version: "480"
+          deletionProtection: false
+          coordinator:
+            resources:
+              requests:
+                cpu: 500m
+                memory: 1Gi
+              limits:
+                cpu: "1"
+                memory: 2Gi
+          worker:
+            replicas: 3
+            resources:
+              requests:
+                cpu: 500m
+                memory: 1Gi
+              limits:
+                cpu: "1"
+                memory: 2Gi
+          config:
+            io.trino: INFO
+            io.trino.plugin.iceberg: DEBUG
+          accessControl:
+            catalogs:
+              - user: admin@stackland
+                catalog: ".*"
+                privileges: all
+            schemas:
+              - user: analyst@stackland
+                catalog: ".*"
+                schema: ".*"
+                owner: false
+            tables:
+              - user: analyst@stackland
+                catalog: ".*"
+                schema: public
+                table: ".*"
+                privileges:
+                  - SELECT
+        ```
+
+    {% endlist %}
+
+1. Примените манифест: `kubectl apply -f trinocluster.yaml -n <пространство_имен>`. При необходимости можно прописать пространство имен в параметр ресурса `metadata.namespace` и не использовать его в команде.
+
+## Через консоль управления {#console}
+
+1. Если вы еще не открыли проект, выберите проект.
+1. Выберите пространство имен, в котором нужно создать кластер.
+1. В левом меню выберите **Trino** → **Кластеры**.
+1. Нажмите **Создать кластер**.
+1. Заполните поля:
+
+    **Основные параметры**
+
+    * **Имя** — название кластера. Записывается в `metadata.name`.
+    * **Версия Trino** — версия Trino. Список значений формируется из `TrinoImageCatalog` оператора.
+    * **Защита от удаления** — переключатель защиты от случайного удаления кластера. По умолчанию выключена.
+
+    **Конфигурация координатора**
+
+    * **Запрошенный CPU** — гарантированное количество CPU для пода координатора.
+    * **Запрошенная память** — гарантированный объем памяти для пода координатора.
+    * **Лимит CPU** — максимальное количество CPU для пода координатора.
+    * **Лимит памяти** — максимальный объем памяти для пода координатора.
+
+    **Конфигурация воркеров**
+
+    * **Количество воркеров** — число подов воркеров. Минимум `1`.
+    * **Запрошенный CPU** — гарантированное количество CPU для пода воркера.
+    * **Запрошенная память** — гарантированный объем памяти для пода воркера.
+    * **Лимит CPU** — максимальное количество CPU для пода воркера.
+    * **Лимит памяти** — максимальный объем памяти для пода воркера.
+
+    **Дополнительные настройки** (необязательно)
+
+    Раздел для добавления настроек Trino в формате «Ключ–Значение». Каждый ключ можно добавить только один раз.
+
+    **Настройки доступа** (необязательно)
+
+    Раздел для правил доступа к ресурсам Trino. Подсекции:
+
+    * **Правила каталогов** — `user`, `catalog`, `privileges` (`all`, `read-only`, `none`).
+    * **Правила схем** — `user`, `catalog`, `schema`, `owner`.
+    * **Правила таблиц** — `user`, `catalog`, `schema`, `table`, `privileges` (`SELECT`, `INSERT`, `DELETE`, `UPDATE`, `OWNERSHIP`, `GRANT_SELECT`), а также фильтр строк и ограничения по столбцам.
+    * **Правила функций** — `user`, `catalog`, `schema`, `function`, `privileges` (`EXECUTE`, `GRANT_EXECUTE`, `OWNERSHIP`).
+    * **Правила процедур** — `user`, `catalog`, `schema`, `procedure`, `privileges` (`EXECUTE`, `GRANT_EXECUTE`).
+    * **Правила запросов** — `user`, `queryOwner`, `privileges` (`execute`, `view`, `kill`). Если задан `queryOwner`, привилегия `execute` недоступна.
+
+    В поле «Пользователь» значение можно ввести как регулярное выражение или выбрать из Identity and Access Management. Если поле сопоставления (например, «Каталог», «Схема» или «Таблица») оставлено пустым, Trino подставляет `.*`.
+
+1. Нажмите **Создать**.
+
+Готово, кластер появился в списке **Кластеры**. После создания статус кластера отображается в колонке **Статус**. Перейдите в карточку кластера, чтобы увидеть подробную информацию.
+
+## Подключение к кластеру {#connect}
+
+После того как кластер перешел в состояние `Running`, к нему можно подключиться по адресу координатора.
+
+### Получение адресов для подключения {#get-connection-addresses}
+
+{% list tabs %}
+
+- CLI
+
+    Выполните команду:
+
+    ```bash
+    kubectl get trinocluster <имя_кластера> -n <пространство_имен> -o jsonpath='{.status.fqdn}'
+    ```
+
+    Структура ответа:
+
+    * `external` — FQDN координатора для подключения через клиенты Trino (CLI, JDBC).
+    * `webUI` — FQDN Trino UI.
+
+- Консоль управления
+
+    1. Откройте проект.
+    1. В левом меню выберите **Trino** → **Кластеры**.
+    1. Выберите кластер.
+    1. На вкладке **Обзор** найдите адреса для подключения. Чтобы посмотреть подробную информацию о подключении, нажмите **Подключиться**.
+
+{% endlist %}
+
+### Trino CLI {#trino-cli}
+
+1. Установите Trino CLI согласно [официальной инструкции](https://trino.io/docs/current/client/cli.html).
+1. Подключитесь к кластеру по адресу координатора из `status.fqdn.external`:
+
+    ```bash
+    trino --server https://<FQDN_координатора> --user <имя_пользователя>
+    ```
+
+### JDBC {#jdbc}
+
+Используйте JDBC-драйвер Trino с URL вида:
+
+```
+jdbc:trino://<FQDN_координатора>:443
+```
+
+Значение `<FQDN_координатора>` получите из `status.fqdn.external`.

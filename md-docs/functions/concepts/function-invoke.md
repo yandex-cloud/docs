@@ -455,7 +455,6 @@ Flags:
 * [Канареечный релиз функции Cloud Functions](../tutorials/canary-release.md)
 * [Развертывание веб-приложения с использованием Java Servlet API](../tutorials/java-servlet-todo-list.md)
 * [Сокращатель ссылок](../tutorials/serverless-url-shortener/index.md)
-* [Как создать чат-бот для Slack](../tutorials/slack-bot-serverless.md)
 * [Как создать бота в Telegram](../tutorials/telegram-bot-serverless/index.md)
 * [Создание интерактивного serverless-приложения с использованием WebSocket](../tutorials/websocket-app.md)
 

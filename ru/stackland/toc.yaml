@@ -17,7 +17,6 @@ items:
         href: tutorials/install-on-yc-bms.md
       - name: Установка {{ stackland-name }} на {{ baremetal-full-name }} через PXE
         href: tutorials/install-on-yc-bms-pxe.md
-        hidden: true
       - name: >-
           Установка {{ stackland-name }} на виртуальные машины в {{ yandex-cloud
           }}
@@ -47,6 +46,18 @@ items:
                 href: operations/postgresql/create-cluster.md
               - name: Изменить настройки кластера
                 href: operations/postgresql/edit-cluster.md
+              - name: Создать пользователя
+                href: operations/postgresql/create-user.md
+              - name: Изменить пользователя
+                href: operations/postgresql/edit-user.md
+              - name: Удалить пользователя
+                href: operations/postgresql/delete-user.md
+              - name: Создать базу данных
+                href: operations/postgresql/create-database.md
+              - name: Изменить базу данных
+                href: operations/postgresql/edit-database.md
+              - name: Удалить базу данных
+                href: operations/postgresql/delete-database.md
               - name: Диагностика производительности
                 href: operations/postgresql/performance-diagnostics.md
               - name: Создать резервную копию
@@ -67,6 +78,64 @@ items:
                 href: operations/clickhouse/recover-copy.md
               - name: Удалить кластер
                 href: operations/clickhouse/delete-cluster.md
+              - name: Создать базу данных
+                href: operations/clickhouse/create-database.md
+              - name: Изменить базу данных
+                href: operations/clickhouse/edit-database.md
+              - name: Удалить базу данных
+                href: operations/clickhouse/delete-database.md
+              - name: Создать роль
+                href: operations/clickhouse/create-role.md
+              - name: Изменить роль
+                href: operations/clickhouse/edit-role.md
+              - name: Удалить роль
+                href: operations/clickhouse/delete-role.md
+              - name: Создать пользователя
+                href: operations/clickhouse/create-user.md
+              - name: Изменить пользователя
+                href: operations/clickhouse/edit-user.md
+              - name: Удалить пользователя
+                href: operations/clickhouse/delete-user.md
+          - name: '{{ rest-catalog-name }}'
+            items:
+              - name: Создать каталог
+                href: operations/rest-catalog/create-catalog.md
+              - name: Изменить каталог
+                href: operations/rest-catalog/edit-catalog.md
+              - name: Создать пользователя каталога
+                href: operations/rest-catalog/create-principal.md
+              - name: Удалить пользователя каталога
+                href: operations/rest-catalog/delete-principal.md
+              - name: Удалить каталог
+                href: operations/rest-catalog/delete-catalog.md
+          - name: Managed Service for Trino
+            items:
+              - name: Создать кластер {{ TR }}
+                href: operations/trino/create-cluster.md
+              - name: Изменить настройки кластера
+                href: operations/trino/edit-cluster.md
+              - name: Удалить кластер
+                href: operations/trino/delete-cluster.md
+              - name: Создать каталог
+                href: operations/trino/create-catalog.md
+              - name: Изменить настройки каталога
+                href: operations/trino/edit-catalog.md
+              - name: Удалить каталог
+                href: operations/trino/delete-catalog.md
+          - name: '{{ yt-name }}'
+            items:
+              - name: Включить {{ yt-name }}
+                href: operations/ytsaurus/enable.md
+              - name: Изменить настройки кластера
+                href: operations/ytsaurus/edit-cluster.md
+              - name: Получить пароль и токен администратора
+                href: operations/ytsaurus/get-admin-credentials.md
+              - name: Открыть веб-интерфейс
+                href: operations/ytsaurus/connect-ui.md
+              - name: Подключиться к HTTP-прокси
+                href: operations/ytsaurus/connect-api.md
+              - name: Отключить {{ yt-name }}
+                href: operations/ytsaurus/disable.md
       - name: Бакеты
         items:
           - name: Создать бакет
@@ -97,6 +166,8 @@ items:
         items:
           - name: Посмотреть логи
             href: operations/logging/logs-view.md
+          - name: Восстановить Loki в standalone-режиме при заполнении PVC
+            href: operations/logging/loki-recovery.md
       - name: Мониторинг
         items:
           - name: Создать дашборд
@@ -166,7 +237,9 @@ items:
       - name: Управление кластером
         items:
           - name: Обновить кластер
-            href: operations/cluster-upgrade.md
+            href: operations/cluster/upgrade-cluster.md
+          - name: Масштабирование кластера
+            href: operations/cluster/scale-cluster.md
   - name: Концепции
     expanded: true
     items:
@@ -174,6 +247,8 @@ items:
         href: concepts/projects.md
       - name: Ресурсная модель
         href: concepts/resource-model.md
+      - name: Масштабирование кластера
+        href: concepts/cluster-scaling.md
       - name: Компоненты
         items:
           - name: Обзор
@@ -192,6 +267,12 @@ items:
             href: concepts/components/postgresql.md
           - name: Managed Service for ClickHouse®
             href: concepts/components/clickhouse.md
+          - name: '{{ rest-catalog-name }}'
+            href: concepts/components/rest-catalog.md
+          - name: Managed Service for Trino
+            href: concepts/components/trino.md
+          - name: '{{ yt-name }}'
+            href: concepts/components/ytsaurus.md
           - name: '{{ datalens-name }}'
             href: concepts/components/datalens.md
           - name: Monitoring

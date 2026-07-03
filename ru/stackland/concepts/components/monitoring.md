@@ -122,10 +122,11 @@ prometheus:
     requests:
       cpu: 100m
       memory: 400Mi
-  retention: 10d
+  storage:
+    size: 100Gi
 ```
 
 * `enabled` — включает Prometheus.
 * `ingressEnabled` — открывает веб-интерфейс Prometheus через Ingress.
 * `resources` — требования к ресурсам.
-* `retention` — время хранения данных перед удалением.
+* `storage.size` — размер PVC; локальная глубина истории ограничивается автоматически как 80% от размера PVC.

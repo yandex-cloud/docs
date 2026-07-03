@@ -39,6 +39,11 @@
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе.
 
 ```mermaid
+%%{
+  init: {
+    "flowchart": { "defaultRenderer": "elk" }
+  }
+}%%
 flowchart BT
     managed-trino.viewer --> managed-trino.user
     managed-trino.user --> managed-trino.editor

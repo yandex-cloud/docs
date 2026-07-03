@@ -56,7 +56,7 @@ TA-services работают без GPU, но требуют достаточн�
 * `settings.s3.accessKeyID` — идентификатор ключа доступа к хранилищу.
 * `settings.s3.secretAccessKey` — секретный ключ доступа к хранилищу.
 
-## Полезные ссылки {#see-also}
+## См. также {#see-also}
 
 * [{#T}](../../operations/speechsense/install-images.md) — загрузка образов {{ speechsense-name }}.
 * [{#T}](../../operations/speechsense/configure.md) — настройка и активация {{ speechsense-name }}.

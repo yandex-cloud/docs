@@ -6324,8 +6324,14 @@ default:
             folder-id_6KQJv: Идентификатор каталога
           FolderInfoTooltip:
             title_folder-info-dialog_c4F7i: Информация о каталоге
+        InfrastructureMapPage:
+          networks_d8mWN: Облачные сети
+          NodeSelect:
+            label_search-by-name-or-id_9Hd59: Искать по имени или ID
+          subnetworks_mBZgS: Подсети
         label_access_2bch9: Права доступа
         label_create-resource_4KN3M: Создать ресурс
+        label_infrastructure-map_1jB82: Карта инфраструктуры
         label_notifications_uWDue: Уведомления
         label_quotas_gAtoT: Квоты
         TogglCloudTreeButton:
@@ -7904,7 +7910,6 @@ default:
           overview:
             label_domain: Служебный домен
             label_wss_domain: Служебный домен для WebSocket
-            section_spec: Спецификация
         item:
           editor:
             button_action-continue: Продолжить
@@ -8709,7 +8714,6 @@ default:
         switch_networks: Подсети
         switch_private-endpoints: Сервисные подключения
         switch_route-tables: Таблицы маршрутизации
-        title_network-map-page: Карта облачной сети
       ydb:
         browse:
           button_create: Создать
@@ -10851,6 +10855,7 @@ default:
     document-api-endpoint: https://docapi.serverless.yandexcloud.net
     ep-dedicated: grpcs://lb.etnk1u65e4sh********.ydb.mdb.yandexcloud.net:2135
     ep-serverless: grpcs://ydb.serverless.yandexcloud.net:2135
+    host-serverless: ydb.serverless.yandexcloud.net
     id-dedicated: etnk1u65e4sh********
     id-serverless: etnudu2n9ri3********
     name-dedicated: ydb-dedicated

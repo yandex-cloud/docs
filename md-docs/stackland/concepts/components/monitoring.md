@@ -59,6 +59,11 @@ spec:
     alertmanager:
       enabled: true
       ingressEnabled: true
+      replicas: 2
+      retention: 120h
+      storage:
+        storageClass: topolvm
+        size: 1Gi
       resources:
         requests:
           cpu: 50m
@@ -84,13 +89,20 @@ spec:
     prometheus:
       enabled: true
       ingressEnabled: true
+      replicas: 2
       resources:
         limits:
           memory: 2Gi
         requests:
           cpu: 100m
           memory: 400Mi
-      retention: 10d
+      storage:
+        storageClass: topolvm
+        size: 100Gi
+      # Optional: extend the default HA read path with S3-backed long-term storage.
+      # thanos:
+      #   longTermStorage:
+      #     stackland: {}
 ```
 
 #### Состояние компонента мониторинга {#status}
@@ -171,10 +183,11 @@ prometheus:
     requests:
       cpu: 100m
       memory: 400Mi
-  retention: 10d
+  storage:
+    size: 100Gi
 ```
 
 * `enabled` — включает Prometheus.
 * `ingressEnabled` — открывает веб-интерфейс Prometheus через Ingress.
 * `resources` — требования к ресурсам.
-* `retention` — время хранения данных перед удалением.
+* `storage.size` — размер PVC; локальная глубина истории ограничивается автоматически как 80% от размера PVC.

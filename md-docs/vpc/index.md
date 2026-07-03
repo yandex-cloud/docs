@@ -26,8 +26,6 @@ Yandex Virtual Private Cloud служит для управления облач
 
  - [Получить информацию об облачной сети](operations/network-get-info.md)
 
- - [Изучить карту облачной сети](operations/network-map.md)
-
  - [Перенести облачную сеть между каталогами](operations/network-move.md)
 
 ### Подсеть

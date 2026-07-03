@@ -421,7 +421,7 @@ items:
         href: tutorials/index.md
       - name: Бэкенд на Serverless
         items:
-          - name: Развертывание веб-приложения
+          - name: Развертывание веб-приложения с использованием Java Servlet API
             href: tutorials/java-servlet-todo-list.md
           - name: Конвертация видео в GIF на Python
             items:
@@ -457,8 +457,6 @@ items:
             href: tutorials/serverless-live-debug.md
       - name: Боты на Serverless
         items:
-          - name: Разработка Slack-бота
-            href: tutorials/slack-bot-serverless.md
           - name: Разработка Telegram-бота
             items:
               - name: Обзор

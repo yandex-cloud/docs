@@ -9,11 +9,53 @@
 
 ## Базы данных {#databases}
 
+{{ mpg-name }}:
+
 * [Создать кластер PostgreSQL](postgresql/create-cluster.md)
 * [Изменить настройки кластера](postgresql/edit-cluster.md)
+* [Создать пользователя](postgresql/create-user.md)
+* [Изменить пользователя](postgresql/edit-user.md)
+* [Удалить пользователя](postgresql/delete-user.md)
+* [Создать базу данных](postgresql/create-database.md)
+* [Изменить базу данных](postgresql/edit-database.md)
+* [Удалить базу данных](postgresql/delete-database.md)
 * [Создать резервную копию](postgresql/new-copy.md)
 * [Восстановить кластер](postgresql/recover-copy.md)
 * [Удалить кластер](postgresql/delete-cluster.md)
+
+{{ mch-name }}:
+
+* [Создать кластер {{ CH }}](clickhouse/create-cluster.md)
+* [Изменить настройки кластера](clickhouse/edit-cluster.md)
+* [Создать резервную копию](clickhouse/new-copy.md)
+* [Восстановить кластер](clickhouse/recover-copy.md)
+* [Удалить кластер](clickhouse/delete-cluster.md)
+* [Создать базу данных](clickhouse/create-database.md)
+* [Изменить базу данных](clickhouse/edit-database.md)
+* [Удалить базу данных](clickhouse/delete-database.md)
+* [Создать роль](clickhouse/create-role.md)
+* [Изменить роль](clickhouse/edit-role.md)
+* [Удалить роль](clickhouse/delete-role.md)
+* [Создать пользователя](clickhouse/create-user.md)
+* [Изменить пользователя](clickhouse/edit-user.md)
+* [Удалить пользователя](clickhouse/delete-user.md)
+
+{{ yt-name }}:
+
+* [Включить {{ yt-name }}](ytsaurus/enable.md)
+* [Изменить настройки кластера](ytsaurus/edit-cluster.md)
+* [Получить пароль и токен администратора](ytsaurus/get-admin-credentials.md)
+* [Открыть веб-интерфейс](ytsaurus/connect-ui.md)
+* [Подключиться к HTTP-прокси](ytsaurus/connect-api.md)
+* [Отключить {{ yt-name }}](ytsaurus/disable.md)
+
+## {{ rest-catalog-name }} {#rest-catalog}
+
+* [Создать каталог](rest-catalog/create-catalog.md)
+* [Изменить каталог](rest-catalog/edit-catalog.md)
+* [Создать пользователя каталога](rest-catalog/create-principal.md)
+* [Удалить пользователя каталога](rest-catalog/delete-principal.md)
+* [Удалить каталог](rest-catalog/delete-catalog.md)
 
 ## Бакеты {#buckets}
 
@@ -35,6 +77,7 @@
 ## Логирование {#logging}
 
 * [Посмотреть логи](logging/logs-view.md)
+* [Восстановить Loki в standalone-режиме при заполнении PVC](logging/loki-recovery.md)
 
 ## Мониторинг {#monitoring}
 
@@ -77,4 +120,5 @@
 
 ## Управление кластером {#cluster-management}
 
-* [Обновить кластер](cluster-upgrade.md)
+* [Обновить кластер](cluster/upgrade-cluster.md)
+* [Масштабирование кластера](cluster/scale-cluster.md)
