@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/yandex-cloud-docs-badge.png)](https://mseep.ai/app/yandex-cloud-docs)
+
 # Документация Yandex Cloud
 
 Приветствуем в репозитории yandex-cloud/docs. Здесь вы можете предложить дополнения и правки для [документации](https://yandex.cloud/ru/docs) Yandex Cloud или сделать их самостоятельно и получить грант в рамках контент-программы.
