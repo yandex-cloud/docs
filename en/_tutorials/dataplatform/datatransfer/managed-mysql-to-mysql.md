@@ -1,4 +1,4 @@
-# Transferring data using {{ data-transfer-full-name }} {#data-transfer}
+# Migrating data via {{ data-transfer-full-name }} {#data-transfer}
 
 1. [Set up the source cluster database](../../../data-transfer/operations/prepare.md#source-my).
 1. [Set up the target cluster database](../../../data-transfer/operations/prepare.md#target-my).
@@ -22,7 +22,7 @@
                 
                 Configure the target cluster connection settings.
 
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy-repl }}_-type that will use the endpoints you created.
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy-repl }}_-type that will use the new endpoints.
 
         1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate).
 
@@ -40,13 +40,13 @@
             * [Source endpoint parameters](../../../data-transfer/operations/endpoint/source/mysql.md#managed-service).
             * [Target endpoint parameters](../../../data-transfer/operations/endpoint/target/mysql.md#on-premise).
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -54,7 +54,7 @@
 
             {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
-            The transfer will activate automatically upon creation.
+            The transfer will be activated automatically as soon as it is created.
 
     {% endlist %}
 
@@ -71,7 +71,7 @@
 
     For more information about transfer statuses, see [Transfer lifecycle](../../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
-1. Delete the endpoints and transfer you created:
+1. To minimize resource consumption, delete the resources you no longer need:
 
     {% list tabs group=instructions %}
 

@@ -146,6 +146,6 @@ The connector's basic settings and their corresponding session properties match 
 | `greenplum.max-read-parallelism`           | <p>Maximum parallelism for data reads from {{ GP }}.</p><p>Matches the `max_read_parallelism` session property</p>                                                                                                                                                                                                                                                                                  | `1` (no parallelism) |
 | `greenplum.segment-fetch-required`         | <p>Decides the connector's behavior if it fails to get informed about the number of {{ GP }} segments:</p><p><ul><li>If `true`, the {{ TR }} query will fail.</li><li>If `false`, the level of parallelism will be equal to the `max_read_parallelism` session property value.</li></ul></p><p>Matches the `segment_fetch_required` session property</p>                             | `true`                        |
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/catalog-create.md)

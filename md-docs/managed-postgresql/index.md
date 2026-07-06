@@ -508,6 +508,8 @@ Managed Service for PostgreSQL помогает разворачивать и п
 
  - [Overview](api-ref/grpc/BackupRetentionPolicy/index.md)
 
+ - [Get](api-ref/grpc/BackupRetentionPolicy/get.md)
+
  - [List](api-ref/grpc/BackupRetentionPolicy/list.md)
 
  - [Create](api-ref/grpc/BackupRetentionPolicy/create.md)
@@ -653,6 +655,8 @@ Managed Service for PostgreSQL помогает разворачивать и п
 #### BackupRetentionPolicy
 
  - [Overview](api-ref/BackupRetentionPolicy/index.md)
+
+ - [Get](api-ref/BackupRetentionPolicy/get.md)
 
  - [List](api-ref/BackupRetentionPolicy/list.md)
 

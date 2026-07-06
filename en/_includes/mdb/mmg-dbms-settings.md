@@ -71,7 +71,7 @@
 
     The number of slow operations to profile or log. If enabled, this parameter affects diagnostic logging and the profiler.
 
-    Minimum value: `0`; maximum value: `1`; default: `1`.
+    The valid values range from `0` to `1`. The default value is `1`.
 
 
   - **Slow op threshold**{#setting-slow-op-threshold}
@@ -91,13 +91,13 @@
 
     The minimum value is `10`. The maximum value [depends on the selected host class](#settings-instance-dependent) and is equal to the host's RAM volume in MB, with a maximum of `16384`. The default value is `1024`.
 
-    For more information, see [Connection limits](../../storedoc/operations/connect/index.md#connection-limits).
+    For more information, see [Limits on the number of connections](../../storedoc/operations/connect/index.md#connection-limits).
 
   - **Compression → Compressors**{#setting-compressors}
 
     Lists the compression methods that a host with the `MONGOD` or `MONGOS` role can use to compress network messages. The order of the listing is important.
 
-    The `disabled` value disables compression. Default value: `snappy,zstd,zlib`.
+    The `disabled` value disables compression. The default value is `snappy,zstd,zlib`.
 
 
 - **Audit Log**{#setting-audit-log} {{ tag-all }}

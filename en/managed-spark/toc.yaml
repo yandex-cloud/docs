@@ -73,6 +73,8 @@ items:
     items:
       - name: Resource relationships
         href: concepts/index.md
+      - name: Networking in {{ msp-full-name }}
+        href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Host classes
@@ -87,7 +89,7 @@ items:
     href: security.md
   - name: Pricing policy
     href: pricing.md
-  - name: '{{ monitoring-full-name }} metrics'
+  - name: Metrics {{ monitoring-full-name }}
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md

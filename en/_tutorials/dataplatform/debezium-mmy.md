@@ -7,8 +7,8 @@ In this tutorial, you will learn how to create a virtual machine in {{ yandex-cl
 
 ## Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* {{ mmy-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ mkf-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mmy-name }} cluster: computing resources allocated to hosts along with storage and backup capacity (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 

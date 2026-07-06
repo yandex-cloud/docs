@@ -35,6 +35,44 @@ Description of the registry. 0-1024 characters long. ||
 || `--properties` | `map<string><string>`
 
 Property names and values. ||
+|| `--pattern-filter` | `shorthand/json`
+
+Pattern filter for artifacts in the registry.
+
+{% cut "Description" %}
+
+> - include-patterns ([]string)\
+List of patterns for artifacts to include.
+> - exclude-patterns ([]string)\
+List of patterns for artifacts to exclude.
+
+{% endcut %}
+
+{% cut "Shorthand Syntax" %}
+
+```hcl
+{
+  exclude-patterns = string,...,
+  include-patterns = string,...
+}
+```
+
+{% endcut %}
+
+{% cut "JSON Syntax" %}
+
+```json
+{
+  "exclude-patterns": [
+    "string", ...
+  ],
+  "include-patterns": [
+    "string", ...
+  ]
+}
+```
+
+{% endcut %} ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `-r`, `--request-file` | `string`
 

@@ -26,7 +26,7 @@ A {{ SD }} cluster consists of one or multiple database hosts, with the option t
 ## Creating a cluster {#create-cluster}
 
 
-To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mmg.editor }} role or higher](../security/index.md#roles-list). For information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
+To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mmg.editor }} role or higher](../security/index.md#roles-list). For information on how to assign roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
 
 
 {% list tabs group=instructions %}
@@ -119,7 +119,15 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
       * Username.
-      * Password. It must be at least 8 characters long. 
+
+      
+      * User password:
+
+        * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Select this option to set your own password. It must be from 8 to 128 characters long.
+        * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Select this option to generate a password using {{ connection-manager-name }}.
+
+            To view the generated password after creating a cluster, select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
+
 
   1. If needed, configure the advanced cluster settings:
 
@@ -140,13 +148,13 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   To create a {{ mmg-name }} cluster:
 
   
-  1. Verify that your folder has subnets for cluster host placement:
+  1. Check whether the folder has any subnets for cluster hosts:
 
      ```bash
      yc vpc subnet list
      ```
 
-     If your folder contains no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+     If there are no subnets in the folder, [create the right ones](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
   1. View the description of the CLI command for creating a cluster:
@@ -612,7 +620,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mmg }}).
 
-  1. Validate your settings.
+  1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -959,7 +967,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. In `maintenanceWindow`, provide one of the two values:
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. In `maintenanceWindow`, provide one of these two parameters:
 
           * `anytime`: Maintenance takes place at any time.
           * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
@@ -1003,7 +1011,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           * `permissions`: User permissions:
 
             * `databaseName`: Name of the database the user can access.
-            * `roles`: Array of user roles. Each role is provided as a separate string in the array. For a list of possible values, see [Users and roles](../concepts/users-and-roles.md).
+            * `roles`: Array of user roles. Each role is provided as a separate string in the array. For the list of possible values, see [Users and roles](../concepts/users-and-roles.md).
 
             In the `permissions` array, add a separate element with permission settings for each database.
 
@@ -1042,7 +1050,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1375,7 +1383,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. In `maintenance_window`, provide one of the two values:
+        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. In `maintenance_window`, provide one of these two parameters:
 
           * `anytime`: Maintenance takes place at any time.
           * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
@@ -1419,7 +1427,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           * `permissions`: User permissions:
 
             * `database_name`: Name of the database the user can access.
-            * `roles`: Array of user roles. Each role is provided as a separate string in the array. For a list of possible values, see [Users and roles](../concepts/users-and-roles.md).
+            * `roles`: Array of user roles. Each role is provided as a separate string in the array. For the list of possible values, see [Users and roles](../concepts/users-and-roles.md).
 
             In the `permissions` array, add a separate element with permission settings for each database.
 

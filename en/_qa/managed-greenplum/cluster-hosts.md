@@ -25,7 +25,7 @@ Maintenance in {{ mgp-short-name }} includes:
 
 * Automatic installation of DBMS updates and fixes for your database hosts.
 * Changes in the host class and storage size.
-* Other {{ mgp-short-name }} maintenance activities.
+* Other {{ mgp-short-name }} maintenance tasks.
 
 For more information, see [Maintenance](../../managed-greenplum/concepts/maintenance.md).
 

@@ -12,7 +12,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
+* {{ mkf-name }} cluster, which includes computing resources allocated to hosts, as well as the storage and backup size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
 * {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
@@ -54,6 +54,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * [Security groups](../../../vpc/concepts/security-groups.md) for cluster access.
             * {{ mkf-name }} source cluster.
             * {{ mpg-name }} target cluster.
+            * Source endpoint.
             * Target endpoint.
             * Transfer.
 
@@ -139,97 +140,93 @@ On your local machine, create a `sample.json` file with the following test data:
 
 {% endcut %}
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
-1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/kafka.md) of the `{{ KF }}` type and specify the following for it:
+{% list tabs group=instructions %}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}**: `sensors`.
-    * `json` conversion rules. In the **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** field, select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`, copy the following field specification, and paste it into the form that opens:
+- Manually {#manual}
 
-    {% cut "sensors-specification" %}
+    1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/kafka.md) of the `{{ KF }}` type and specify the following for it:
 
-    ```json
-    [
-        {
-            "name": "device_id",
-            "type": "utf8",
-            "key": true
-        },
-        {
-            "name": "datetime",
-            "type": "utf8"
-        },
-        {
-            "name": "latitude",
-            "type": "double"
-        },
-        {
-            "name": "longitude",
-            "type": "double"
-        },
-        {
-            "name": "altitude",
-            "type": "double"
-        },
-        {
-            "name": "speed",
-            "type": "double"
-        },
-        {
-            "name": "battery_voltage",
-            "type": "double"
-        },
-        {
-            "name": "cabin_temperature",
-            "type": "uint16"
-        },
-        {
-            "name": "fuel_level",
-            "type": "uint16"
-        }
-    ]
-    ```
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}**: `sensors`.
+        * `json` conversion rules. In the **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** field, select `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`, copy the following field specification, and paste it into the form that opens:
 
-    {% endcut %}
+        {% cut "sensors-specification" %}
 
-1. Create a target endpoint and a transfer:
+        ```json
+        [
+            {
+                "name": "device_id",
+                "type": "utf8",
+                "key": true
+            },
+            {
+                "name": "datetime",
+                "type": "utf8"
+            },
+            {
+                "name": "latitude",
+                "type": "double"
+            },
+            {
+                "name": "longitude",
+                "type": "double"
+            },
+            {
+                "name": "altitude",
+                "type": "double"
+            },
+            {
+                "name": "speed",
+                "type": "double"
+            },
+            {
+                "name": "battery_voltage",
+                "type": "double"
+            },
+            {
+                "name": "cabin_temperature",
+                "type": "uint16"
+            },
+            {
+                "name": "fuel_level",
+                "type": "uint16"
+            }
+        ]
+        ```
 
-    {% list tabs group=instructions %}
+        {% endcut %}
 
-    - Manually {#manual}
+    1. [Create a `{{ PG }}` target endpoint](../../../data-transfer/operations/endpoint/target/postgresql.md) with these cluster connection settings:
 
-        1. [Create a `{{ PG }}` target endpoint](../../../data-transfer/operations/endpoint/target/postgresql.md) with these cluster connection settings:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<target_{{ PG }}_cluster_name>` from the drop-down list.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: `db1`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<target_{{ PG }}_cluster_name>` from the drop-down list.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: `db1`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
-        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
-        1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+    1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type that will use the endpoints you created.
+    1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-    - {{ TF }} {#tf}
+- {{ TF }} {#tf}
 
-        1. In the `kafka-postgresql.tf` file, specify the following variables:
+    1. In the `kafka-postgresql.tf` file, set the `transfer_enabled` variable to `1` to create your endpoints and transfer.
 
-            * `kf_source_endpoint_id`: Source endpoint ID.
-            * `transfer_enabled`: Set to `1` to create a target endpoint and a transfer.
+    1. Validate your {{ TF }} configuration files using this command:
 
-        1. Validate your {{ TF }} configuration files using this command:
+        ```bash
+        terraform validate
+        ```
 
-            ```bash
-            terraform validate
-            ```
+        {{ TF }} will display any configuration errors detected in your files.
 
-            {{ TF }} will display any configuration errors detected in your files.
+    1. Create the required infrastructure:
 
-        1. Create the required infrastructure:
+        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+    1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-        1. The transfer will be activated automatically. Wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
-
-    {% endlist %}
+{% endlist %}
 
 ## Test the transfer {#verify-transfer}
 
@@ -270,20 +267,17 @@ Before deleting any resources, [deactivate the transfer](../../../data-transfer/
 
 To reduce the consumption of resources, delete those you do not need:
 
-1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
-1. [Delete the source endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete other resources, applying the same method used for their creation:
+{% list tabs group=instructions %}
 
-    {% list tabs group=instructions %}
+- Manually {#manual}
 
-    - Manually {#manual}
+    1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
+    1. [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
+    1. [Delete the {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-delete.md).
+    1. [Delete the {{ mpg-name }} cluster](../../../managed-postgresql/operations/cluster-delete.md).
 
-        1. [Delete the target endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
-        1. [Delete the {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-delete.md).
-        1. [Delete the {{ mpg-name }} cluster](../../../managed-postgresql/operations/cluster-delete.md).
+- {{ TF }} {#tf}
 
-    - {{ TF }} {#tf}
+    {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
-        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
-
-    {% endlist %}
+{% endlist %}

@@ -221,7 +221,7 @@ Value must be greater than 0. ||
   // end of the list of possible fields
   "originsGroupId": "string",
   "originProtocol": "string",
-  "fieldMask": "string"
+  "updateMask": "string"
 }
 ```
 
@@ -266,7 +266,7 @@ Required if enabling origins_group_id.
 - `HTTPS`: CDN servers will connect to your origin via HTTPS.
 - `MATCH`: Connection protocol will be chosen automatically (content on the
 origin source should be available for the CDN both through HTTP and HTTPS). ||
-|| fieldMask | **string** (field-mask)
+|| updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.

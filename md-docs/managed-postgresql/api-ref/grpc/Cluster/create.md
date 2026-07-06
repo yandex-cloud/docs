@@ -254,7 +254,7 @@ Host groups hosting VMs of the cluster. ||
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow)**
 
 Window of maintenance operations. ||
-|| retention_policies[] | **[BackupRetentionPolicySpec](#yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicySpec)**
+|| retention_policies[] | **[BackupRetentionPolicySpec](#yandex.cloud.mdb.v1.BackupRetentionPolicySpec)**
 
 Backup long-term retention policies setting. ||
 || disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
@@ -1025,7 +1025,7 @@ Hour of the day in UTC (in `HH` format).
 Acceptable values are 1 to 24, inclusive. ||
 |#
 
-## BackupRetentionPolicySpec {#yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicySpec}
+## BackupRetentionPolicySpec {#yandex.cloud.mdb.v1.BackupRetentionPolicySpec}
 
 Message to describe a new retention policy for cluster backups.
 
@@ -1034,7 +1034,7 @@ Message to describe a new retention policy for cluster backups.
 || policy_name | **string**
 
 Required field. Required. Policy name. ||
-|| cron | **[CronTab](#yandex.cloud.mdb.postgresql.v1.CronTab)**
+|| cron | **[CronTab](#yandex.cloud.mdb.v1.CronTab)**
 
 CronTab schedule. ||
 || retain_for_days | **int64**
@@ -1045,7 +1045,7 @@ Retention duration. ||
 Human-readable description. ||
 |#
 
-## CronTab {#yandex.cloud.mdb.postgresql.v1.CronTab}
+## CronTab {#yandex.cloud.mdb.v1.CronTab}
 
 Message to describe a crontab schedule.
 

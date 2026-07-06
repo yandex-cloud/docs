@@ -7,6 +7,8 @@
 }%%
 flowchart BT
     vpc.publicAdmin
+    managed-mongodb.clusters.connector["`managed-mongodb.
+    clusters.connector`"]
     managed-mongodb.viewer --> managed-mongodb.switcher
     managed-mongodb.maintenanceTask.viewer --> managed-mongodb.viewer
     managed-mongodb.switcher --> managed-mongodb.editor

@@ -10,6 +10,6 @@ You can add connection parameters to the command, if required, for example:
 * `authSource`: Name of the database storing the user credentials. By default, it is the same as `<DB_name>`.
 * `appName`: App name to display in logs.
 
-For more information about available connection parameters, see [this reference](https://mongodb.prakticum-team.ru/docs/manual/reference/connection-string-options/).
+For more information about available connection parameters, see [this official guide](https://mongodb.prakticum-team.ru/docs/manual/reference/connection-string-options/).
 
 The parameter string begins with the `?` character, and `&` is the separator.

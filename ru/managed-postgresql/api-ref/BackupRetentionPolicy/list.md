@@ -108,9 +108,9 @@ The maximum string length in characters is 100. ||
 
 #|
 ||Field | Description ||
-|| policies[] | **[BackupRetentionPolicy](#yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicy)**
+|| policies[] | **[BackupRetentionPolicy](#yandex.cloud.mdb.v1.BackupRetentionPolicy)**
 
-List of [BackupRetentionPolicy](#yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicy) associated with the cluster. ||
+List of [BackupRetentionPolicy](#yandex.cloud.mdb.v1.BackupRetentionPolicy) associated with the cluster. ||
 || nextPageToken | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
@@ -119,7 +119,7 @@ for the [ListBackupRetentionPoliciesRequest.pageToken](#yandex.cloud.mdb.postgre
 Each subsequent list request will have its own `nextPageToken` to continue paging through the results. ||
 |#
 
-## BackupRetentionPolicy {#yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicy}
+## BackupRetentionPolicy {#yandex.cloud.mdb.v1.BackupRetentionPolicy}
 
 Message to describe a retention policy for cluster backups.
 
@@ -130,7 +130,7 @@ Message to describe a retention policy for cluster backups.
 Required field. Required. Policy ID. ||
 || clusterId | **string**
 
-Required field. PostgreSQL cluster ID.
+Required field. Cluster ID.
 
 The maximum string length in characters is 50. ||
 || policyName | **string**
@@ -146,7 +146,7 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| cron | **[CronTab](#yandex.cloud.mdb.postgresql.v1.CronTab)**
+|| cron | **[CronTab](#yandex.cloud.mdb.v1.CronTab)**
 
 CronTab schedule. ||
 || retainForDays | **string** (int64)
@@ -157,7 +157,7 @@ Retention duration. ||
 Human-readable description. ||
 |#
 
-## CronTab {#yandex.cloud.mdb.postgresql.v1.CronTab}
+## CronTab {#yandex.cloud.mdb.v1.CronTab}
 
 Message to describe a crontab schedule.
 

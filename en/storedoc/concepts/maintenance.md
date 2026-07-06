@@ -10,7 +10,7 @@ Maintenance includes:
 * Automatic installation of DBMS updates and patches for hosts (including for stopped clusters).
 * Other maintenance activities.
 
-A major DBMS version update is not part of maintenance. For more information about version changes, see [{#T}](../operations/cluster-version-update.md).
+A major DBMS version update is not part of maintenance. For more information about migrating between versions, see [{#T}](../operations/cluster-version-update.md).
 
 ## Maintenance window {#maintenance-window}
 

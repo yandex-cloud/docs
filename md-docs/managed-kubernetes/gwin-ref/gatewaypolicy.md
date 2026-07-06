@@ -123,6 +123,11 @@ spec:
         albListenerName: "my-http-listener"  # custom name for specific listener
         albHTTPRouterName: "my-http-router"  # custom HTTP router name for specific listener
 
+        # Virtual host attachment
+        attach:
+          virtualHosts:
+            httpRouterID: "http-router-id"  # manage virtual hosts in an existing HTTP router
+
     albBalancerName: "my-balancer"  # custom balancer name
 status:
   conditions:
@@ -262,6 +267,25 @@ Gateway listener configuration that combines listener and HTTP router settings.
 | rbac | **[RBAC](#rbac)** <br> RBAC access control configuration. |
 | albHTTPRouterName | **string** <br> Custom name for the ALB HTTP router. By default, the controller generates the name automatically. <br> Example: `my-http-router` |
 | albListenerName | **string** <br> Custom name for the ALB listener. By default, the controller generates the name automatically. <br> Example: `my-http-listener` |
+| attach | **[HTTPRouterAttach](#httprouterattach)** <br> Make the controller manage virtual hosts inside an existing ALB HTTP router instead of creating its own. |
+
+### HTTPRouterAttach
+
+Attachment to an existing cloud HTTP router.
+
+*Appears in*: [GatewayListener](#gatewaylistener)
+
+| Field | Description |
+|-------|-------------|
+| virtualHosts | **[VirtualHostsAttach](#virtualhostsattach)** <br> Virtual hosts attachment configuration. |
+
+### VirtualHostsAttach
+
+*Appears in*: [HTTPRouterAttach](#httprouterattach)
+
+| Field | Description |
+|-------|-------------|
+| httpRouterID | **string** <br> Cloud HTTP router ID whose virtual hosts are managed by this listener. The controller manages the full lifecycle (create, update, delete) of those virtual hosts. <br> Example: `http-router-id` |
 
 ### Listener
 

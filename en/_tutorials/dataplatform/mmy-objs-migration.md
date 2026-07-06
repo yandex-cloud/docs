@@ -63,7 +63,7 @@ Set up your infrastructure:
             * `source_user` and `source_password`: Database owner username and password.
         * `transfer_enabled`: Set to `0` to ensure that no transfer is created before you [manually create the target endpoint](#prepare-transfer).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
@@ -112,7 +112,7 @@ Set up your infrastructure:
         ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
     ```
 
-## Prepare and activate your transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -158,7 +158,7 @@ Set up your infrastructure:
             * `transfer_enabled`: `1` to create a transfer.
             * `include_tables_regex`, `exclude_tables_regex`: Regular expressions for the tables you want to transfer and for those you want to ignore. These variables are optional.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate

@@ -41,7 +41,7 @@ You can get detailed information about each {{ maf-name }} cluster you created.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -179,7 +179,7 @@ All actions with {{ maf-name }} clusters are logged as a list of operations. Eac
     1. Select the cluster.
     1. Navigate to the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
-        You will see the list of operations with the cluster.
+        This will open the list of operations with the cluster.
 
 - CLI {#cli}
 
@@ -326,6 +326,6 @@ All actions with {{ maf-name }} clusters are logged as a list of operations. Eac
 
     {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../api-design-guide/concepts/about-async.md)

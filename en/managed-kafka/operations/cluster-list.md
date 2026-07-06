@@ -183,7 +183,7 @@ All actions with {{ mkf-name }} clusters are logged as a list of operations. Eac
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
   1. Select the cluster and open the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
-     You will see the list of operations with the cluster.
+     This will open the list of operations with the cluster.
 
 - CLI {#cli}
 
@@ -209,7 +209,7 @@ All actions with {{ mkf-name }} clusters are logged as a list of operations. Eac
 
   You can get the cluster ID and name with the [list of clusters in the folder](#list-clusters).
 
-  By default, information about operations is output as text. To get more details, specify `yaml` or `json` for the output data using the `--format` argument:
+  By default, information about operations is output as text. To get more details, use `--format` to specify the `yaml` or `json` output format:
 
   ```bash
   yc managed-kafka cluster list-operations c9qk2926qqu9******** --format yaml
@@ -362,6 +362,6 @@ All actions with {{ mkf-name }} clusters are logged as a list of operations. Eac
 
    {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../api-design-guide/concepts/about-async.md)

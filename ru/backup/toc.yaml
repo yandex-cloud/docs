@@ -142,6 +142,8 @@ items:
             href: cli-ref/agent/debug-info.md
           - name: install
             href: cli-ref/agent/install.md
+          - name: install-external
+            href: cli-ref/agent/install-external.md
           - name: reinstall
             href: cli-ref/agent/reinstall.md
       - name: backup
@@ -200,6 +202,8 @@ items:
                 href: cli-ref/v0/agent/debug-info.md
               - name: install
                 href: cli-ref/v0/agent/install.md
+              - name: install-external
+                href: cli-ref/v0/agent/install-external.md
               - name: reinstall
                 href: cli-ref/v0/agent/reinstall.md
           - name: backup

@@ -423,6 +423,8 @@ items:
             items:
               - name: Overview
                 href: api-ref/grpc/BackupRetentionPolicy/index.md
+              - name: Get
+                href: api-ref/grpc/BackupRetentionPolicy/get.md
               - name: List
                 href: api-ref/grpc/BackupRetentionPolicy/list.md
               - name: ListByFolder
@@ -577,6 +579,8 @@ items:
             items:
               - name: Overview
                 href: api-ref/BackupRetentionPolicy/index.md
+              - name: Get
+                href: api-ref/BackupRetentionPolicy/get.md
               - name: List
                 href: api-ref/BackupRetentionPolicy/list.md
               - name: ListByFolder

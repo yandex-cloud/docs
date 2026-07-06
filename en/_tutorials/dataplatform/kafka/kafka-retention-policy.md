@@ -27,8 +27,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* {{ KF }} cluster fee, which covers the use of computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
-* Fee for public IP addresses assigned to cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ KF }} cluster fee: use of computing resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
+* Fee for the use of public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 ## Getting started {#before-you-begin}
 

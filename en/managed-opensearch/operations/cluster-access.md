@@ -125,7 +125,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
   
   1. Open the current configuration file with the {{ mos-name }} cluster description.
   
-      For more on how to create this file, see [{#T}](cluster-create.md).
+      To learn how to create this file, refer to [{#T}](cluster-create.md).
   
   1. Add a resource description:
     
@@ -306,9 +306,9 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
 
   1. Add resource descriptions:
     
@@ -524,9 +524,9 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
 - {{ TF }} {#tf}
   
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
   
   1. Find the description of the resource with the role you want to revoke and delete this description:
       
@@ -675,9 +675,9 @@ For a service account to be able to view the info of all {{ mos-name }} clusters
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
 
   1. Add resource descriptions:
 

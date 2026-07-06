@@ -25,10 +25,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* {{ mch-name }} cluster fee, which covers the use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ mch-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricin](../../managed-clickhouse/pricing.md)g).
 * Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket fee, which covers data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* Fee for using {{ datalens-full-name }} (see [{{ datalens-name }} pricing](../../datalens/pricing.md)).
+* {{ objstorage-name }} bucket fee: data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ datalens-full-name }} fee (see [{{ datalens-name }} pricing](../../datalens/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -42,7 +42,7 @@ To migrate your database, first create the following Google Cloud and {{ yandex-
 1. [Create a Google Cloud service account](https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating) with the `BigQuery Data Editor` and `Storage Object Admin` roles.
 1. [Create an access key for the service account](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating) and save it as a `.json` file.
 
-1. [Download and install the `google-cloud-sdk` CLI utilities](https://cloud.google.com/sdk/docs/install).
+1. [Download and install the `google-cloud-sdk` CLI tools](https://cloud.google.com/sdk/docs/install).
 1. [Authenticate in gcloud CLI](https://cloud.google.com/sdk/docs/authorizing#authorizing_with_a_service_account).
 1. [Install the Google BigQuery Python SDK](https://github.com/googleapis/python-bigquery). This package requires Python version 3.7 or higher.
 1. Prepare a dataset for Google BigQuery. For this example, we use a Google BigQuery’s [public dataset](https://cloud.google.com/bigquery/public-data) `google_trends`, which includes the `international_top_terms` table with the following columns:
@@ -198,7 +198,7 @@ To migrate your database, first create the following Google Cloud and {{ yandex-
 
     {% endcut %}
 
-1. Run the `main.py` script to migrate data from Google BigQuery to the Google Storage, with subsequent transfer to the {{ objstorage-full-name }} bucket:
+1. Run the `main.py` script to migrate data from Google BigQuery to Google Cloud Storage, with subsequent transfer to the {{ objstorage-full-name }} bucket:
 
     ```bash
     python main.py \
@@ -247,7 +247,7 @@ To migrate your database, first create the following Google Cloud and {{ yandex-
     * `db1`: Name of the database in the {{ mch-name }} cluster where you want to create a view.
     * `v$google_top_rising_terms`: Name of the view for the imported data.
     * `<cluster_ID>`: {{ mch-name }} cluster ID. You can get it from your [folder’s cluster list](../../managed-clickhouse/operations/cluster-list.md).
-    * `top_terms-*`: Naming prefix for {{ objstorage-name }} bucket objects. For example, if you migrate a Google Cloud table containing rows named `top_terms`, the corresponding objects in the {{ objstorage-name }} bucket will have the following names: `top_terms-000000000001`, `top_terms-000000000002`, etc. To include all table entries with this name in the view, use the `top_terms-*` pattern in your SQL query .
+    * `top_terms-*`: Naming prefix for {{ objstorage-name }} bucket objects. For example, if you migrate a Google Cloud table containing rows named `top_terms`, the corresponding objects in the {{ objstorage-name }} bucket will have the following names: `top_terms-000000000001`, `top_terms-000000000002`, etc. To include all table entries with this name in the view, use the `top_terms-*` pattern in your SQL query.
 
 1. To retrieve the first 100 records from the view, run the following SQL query (in our example, we use database `db1` and its view `v$google_top_rising_terms`):
 

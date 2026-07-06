@@ -62,18 +62,6 @@ Initiates a deferred execution of the model with the provided messages.
 || Return type | [*AsyncOperation*](../../types/operation.md#yandex_ai_studio_sdk._types.operation.AsyncOperation)[[*GPTModelResult*](../../types/model_results.md#yandex_ai_studio_sdk._models.completions.result.GPTModelResult)[[*AsyncToolCall*](../tools.md#yandex_ai_studio_sdk._tools.tool_call.AsyncToolCall)]] ||
 |#
 
-*async* **attach\_deferred**(*operation\_id*, *timeout=60*){#yandex_ai_studio_sdk._models.completions.model.AsyncGPTModel.attach_deferred}
-
-Attaches to an ongoing deferred operation using its operation id.
-
-#|
-|| Parameters | 
-
-- **operation\_id** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the id of the deferred operation to attach to.
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
-|| Return type | [*AsyncOperation*](../../types/operation.md#yandex_ai_studio_sdk._types.operation.AsyncOperation)[[*GPTModelResult*](../../types/model_results.md#yandex_ai_studio_sdk._models.completions.result.GPTModelResult)[[*AsyncToolCall*](../tools.md#yandex_ai_studio_sdk._tools.tool_call.AsyncToolCall)]] ||
-|#
-
 *async* **tokenize**(*messages*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=60*){#yandex_ai_studio_sdk._models.completions.model.AsyncGPTModel.tokenize}
 
 Tokenizes the provided messages into a tuple of tokens.
@@ -144,6 +132,18 @@ Attach a deferred tuning task using its task id.
 - **task\_id** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the id of the deferred tuning task to attach to.
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
 || Return type | [*AsyncTuningTask*](../../types/tuning.md#yandex_ai_studio_sdk._tuning.tuning_task.AsyncTuningTask)[[*AsyncGPTModel*](#yandex_ai_studio_sdk._models.completions.model.AsyncGPTModel)] ||
+|#
+
+*async* **attach\_deferred**(*operation\_id*, *timeout=60*){#yandex_ai_studio_sdk._models.completions.model.AsyncGPTModel.attach_deferred}
+
+Attaches to an ongoing deferred operation using its operation id.
+
+#|
+|| Parameters | 
+
+- **operation\_id** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the id of the deferred operation to attach to.
+- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
+|| Return type | *OperationTypeT* ||
 |#
 
 *property* **batch**\: *[BatchSubdomainTypeT](../../types/other.md#yandex_ai_studio_sdk._types.batch.domain.BatchSubdomainTypeT)*{#yandex_ai_studio_sdk._models.completions.model.AsyncGPTModel.batch}

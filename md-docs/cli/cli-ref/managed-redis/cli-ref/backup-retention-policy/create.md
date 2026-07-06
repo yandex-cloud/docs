@@ -20,6 +20,7 @@ Redis cluster id. ||
 || `--cluster-name` | `string`
 
 Redis cluster name. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--policy-name` | `string`
 
 Backup retention policy name. ||

@@ -14,7 +14,7 @@ For more information, see [{#T}](../concepts/index.md).
 ## Creating a cluster {#create-cluster}
 
 
-To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mgp.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
+To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mgp.editor }} role or higher](../security/index.md#roles-list). For information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
 
 
 {% list tabs group=instructions %}
@@ -153,13 +153,13 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
     To create a {{ mgp-name }} cluster:
 
     
-    1. Check whether the folder has any subnets for the cluster hosts:
+    1. Check whether the folder has any subnets for cluster hosts:
 
         ```bash
         yc vpc subnet list
         ```
 
-        If your folder contains no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+        If there are no subnets in the folder, [create the right ones](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
     1. View the description of the CLI command for creating a cluster:
@@ -653,7 +653,7 @@ To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -921,21 +921,21 @@ To create a {{ mgp-name }} cluster copy:
     Create a {{ mgp-name }} cluster with the following test specifications:
 
     
-    * Name: `gp-cluster`
-    * Version: `{{ versions-gp.cli.latest }}`
-    * Environment: `PRODUCTION`
-    * Network: `{{ network-name }}`
-    * User: `user1`
-    * Password: `user1user1`
+    * Name: `gp-cluster`.
+    * Version: `{{ versions-gp.cli.latest }}`.
+    * Environment: `PRODUCTION`.
+    * Network: `{{ network-name }}`.
+    * User: `user1`.
+    * Password: `user1user1`.
     * Master and segment hosts:
 
-        * Class: `s2.medium`
-        * With 100 GB of local SSD (`local-ssd`) storage
+        * Class: `s2.medium`.
+        * With 100 GB of local SSD (`local-ssd`) storage.
 
-    * Availability zone: `{{ region-id }}-a`, subnet: `{{ subnet-id }}`
-    * With public access to hosts
-    * Security group: `{{ security-group }}`
-    * Deletion protection: Enabled
+    * Availability zone: `{{ region-id }}-a`, subnet: `{{ subnet-id }}`.
+    * With public access to hosts.
+    * Security group: `{{ security-group }}`.
+    * Deletion protection: Enabled.
 
 
     Run this command:

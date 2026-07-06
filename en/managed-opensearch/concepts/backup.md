@@ -22,7 +22,7 @@ Storing backups in {{ mos-name }}:
 
 * Backups are stored in object storage as binaries.
 
-* After a backup is created, it is compressed for storage.
+* Once created, a backup is compressed for storage.
 
 * Automatic backups are stored for two weeks, and you cannot change that period. Manual backups are stored until the user deletes them.
 
@@ -34,6 +34,10 @@ Storing backups in {{ mos-name }}:
     For more information, see the [{{ mos-name }} pricing policy](../pricing.md#rules-storage).
 
 
-## Testing recovery from a backup {#capabilities}
+## Recovery from a backup {#capabilities}
 
-To test how backup works, you can [restore a cluster from a backup](../operations/cluster-backups.md#restore) and check the integrity of your data.
+Restoring a cluster from a backup creates a new cluster with that backup’s data. You need to specify all the cluster's settings, just as when creating a new cluster. If your folder lacks [resources](../concepts/limits.md) to create such a cluster, you will not be able to recover it from a backup.
+
+To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md).
+
+{% include [advice-backup](../../_includes/mdb/advice-backup.md) %}

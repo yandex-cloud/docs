@@ -6,8 +6,8 @@
 To transfer data:
 
 1. [Prepare your test data](#prepare-data).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -98,7 +98,7 @@ Set up your infrastructure:
 
 1. [Upload](../../storage/operations/objects/upload.md#simple) the file to the {{ objstorage-name }} bucket you created earlier.
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create) with the following settings:
 
@@ -136,7 +136,7 @@ Set up your infrastructure:
         * `cabin_temperature`: `DOUBLE`
         * `fuel_level`: `DOUBLE`
 
-    Keep the default values for all other settings.
+    Leave the other settings at their defaults.
 
 1. Create a target endpoint and transfer:
 
@@ -180,7 +180,7 @@ Set up your infrastructure:
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. [Connect to the {{ mmy-name }} target cluster database](../../managed-mysql/operations/connect/index.md).
@@ -219,15 +219,15 @@ Set up your infrastructure:
 
 {% note info %}
 
-Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting any resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the other resources depending on how you created them:
+1. Delete the rest of the resources depending on how you created them:
 
    {% list tabs group=resources %}
 

@@ -66,9 +66,9 @@ The maximum string length in characters is 100. ||
 
 #|
 ||Field | Description ||
-|| policies[] | **[BackupRetentionPolicy](#yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicy)**
+|| policies[] | **[BackupRetentionPolicy](#yandex.cloud.mdb.v1.BackupRetentionPolicy)**
 
-List of [BackupRetentionPolicy](#yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicy) associated with the cluster. ||
+List of [BackupRetentionPolicy](#yandex.cloud.mdb.v1.BackupRetentionPolicy) associated with the cluster. ||
 || next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
@@ -77,7 +77,7 @@ for the [ListBackupRetentionPoliciesRequest.page_token](#yandex.cloud.mdb.postgr
 Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
 |#
 
-## BackupRetentionPolicy {#yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicy}
+## BackupRetentionPolicy {#yandex.cloud.mdb.v1.BackupRetentionPolicy}
 
 Message to describe a retention policy for cluster backups.
 
@@ -88,7 +88,7 @@ Message to describe a retention policy for cluster backups.
 Required field. Required. Policy ID. ||
 || cluster_id | **string**
 
-Required field. PostgreSQL cluster ID.
+Required field. Cluster ID.
 
 The maximum string length in characters is 50. ||
 || policy_name | **string**
@@ -97,7 +97,7 @@ Required field. Required. Policy name. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| cron | **[CronTab](#yandex.cloud.mdb.postgresql.v1.CronTab)**
+|| cron | **[CronTab](#yandex.cloud.mdb.v1.CronTab)**
 
 CronTab schedule. ||
 || retain_for_days | **int64**
@@ -108,7 +108,7 @@ Retention duration. ||
 Human-readable description. ||
 |#
 
-## CronTab {#yandex.cloud.mdb.postgresql.v1.CronTab}
+## CronTab {#yandex.cloud.mdb.v1.CronTab}
 
 Message to describe a crontab schedule.
 

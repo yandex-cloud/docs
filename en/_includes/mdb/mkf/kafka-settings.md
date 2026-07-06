@@ -4,7 +4,7 @@
 
     This option is disabled by default (`false`).
 
-    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_auto.create.topics.enable).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_auto.create.topics.enable).
 
 * **Compression type** {{ tag-all }} {#settings-compression-type}    
 
@@ -23,7 +23,7 @@
 
     This is a global cluster-level setting. You can override it at the [topic level](#settings-topic-compression-type). In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_topic-compression-type }}**.
 
-    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_compression.type).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_compression.type).
 
 * **Default replication factor** {{ tag-all }} {#settings-default-replication-factor}
 
@@ -33,9 +33,9 @@
 
     The minimum and default value is `1`. The maximum value is equal to the number of broker hosts in the cluster.
 
-    See also the [Replication factor](#settings-topic-replication-factor) topic-level setting.
+    See also the description of the [Replication factor](#settings-topic-replication-factor) topic-level setting.
 
-    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_default.replication.factor).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_default.replication.factor).
 
 * **Log flush interval messages** {{ tag-all }} {#settings-log-flush-interval-messages}
 
@@ -45,7 +45,7 @@
 
     This is a global cluster-level setting. You can override it at the [topic level](#settings-topic-flush-messages). In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_topic-flush-messages }}**.
 
-    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.flush.interval.messages).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.flush.interval.messages).
 
 * **Log flush interval ms** {{ tag-all }} {#settings-log-flush-interval-ms}
 
@@ -55,7 +55,7 @@
 
     This is a global cluster-level setting. You can override it at the [topic level](#settings-topic-flush-ms).
 
-    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.flush.interval.ms).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.flush.interval.ms).
 
 * **Log flush scheduler interval ms** {{ tag-all }} {#settings-log-flush-scheduler-interval-ms}
 
@@ -63,7 +63,7 @@
 
     The maximum and default value is `9223372036854775807`.
 
-    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.flush.scheduler.interval.ms).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.flush.scheduler.interval.ms).
 
 * **Log preallocate** {{ tag-all }} {#settings-log-preallocate}
 
@@ -73,7 +73,7 @@
 
     This is a global cluster-level setting. You can override it at the [topic level](#settings-topic-preallocate).
 
-    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.preallocate).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.preallocate).
 
 * **Log retention bytes** {{ tag-all }} {#settings-log-retention-bytes}    
 
@@ -85,7 +85,7 @@
 
     This is a global cluster-level setting. You can override it at the [topic level](#settings-topic-retention-bytes). In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_topic-retention-bytes }}**.
 
-    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.retention.bytes).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.retention.bytes).
 
     See also the [Log retention ms](#settings-log-retention-ms) setting.
 
@@ -95,7 +95,7 @@
 
     The default value is `168`.
 
-    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.retention.hours).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.retention.hours).
 
 * **Log retention minutes** {{ tag-all }} {#settings-log-retention-minutes}
 
@@ -103,7 +103,7 @@
 
     The maximum value is `2147483647`. If no value is specified, the [Log retention hours](#settings-log-retention-hours) value is used.
 
-    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.retention.minutes).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.retention.minutes).
 
 * **Log retention ms** {{ tag-all }} {#settings-log-retention-ms}    
 
@@ -119,7 +119,7 @@
 
     This is a global cluster-level setting. You can override it at the [topic level](#settings-topic-log-retention-ms). In the management console, this setting appears as **{{ ui-key.yacloud.kafka.label_topic-retention-ms }}**.
 
-    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.retention.ms).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.retention.ms).
 
     See also the [Log retention bytes](#settings-log-retention-bytes) setting.
 
@@ -129,7 +129,7 @@
 
     Segment files are saved and cleared file-by-file. A smaller segment size results in more log files but offers more flexible storage management. 
 
-    The valid values range from `14` to `2147483647`. The default value is `1073741824` (1 GB).
+    The minimum value is `14`; the maximum value is `2147483647`. The default value is `1073741824` (1 GB).
 
     This is a global cluster-level setting. You can override it at the [topic level](#settings-topic-segment-bytes).
 
@@ -144,7 +144,7 @@
 
     This is a global cluster-level setting.
 
-    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_message.max.bytes).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_message.max.bytes).
 
 * **Num partitions** {{ tag-all }} {#settings-num-partitions}
 
@@ -154,7 +154,7 @@
 
     The minimum and default value is `1`.
 
-    See also the [Num partitions](#settings-topic-num-partitions) topic-level setting.
+    See also the description of the [Num partitions](#settings-topic-num-partitions) topic-level setting.
 
     For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_num.partitions).
 
@@ -166,7 +166,7 @@
 
     This is a global cluster-level setting.
 
-    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_offsets.retention.minutes).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_offsets.retention.minutes).
 
 * **Replica fetch max bytes** {{ tag-all }} {#settings-replica-fetch-max-bytes}
 
@@ -177,7 +177,7 @@
 
     This is a global cluster-level setting.
 
-    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_replica.fetch.max.bytes).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_replica.fetch.max.bytes).
 
 * **Sasl enabled mechanisms** {{ tag-all }} {#settings-sasl-enabled-mechanisms}
 
@@ -192,7 +192,7 @@
 
     If the setting is not defined by the user, `SCRAM-SHA-512` is only used.
 
-    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_sasl.enabled.mechanisms).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_sasl.enabled.mechanisms).
 
 * **Socket receive buffer bytes** {{ tag-con }} {{ tag-tf }} {{ tag-api }}{#settings-socket-receive-buffer-bytes}
 
@@ -200,7 +200,7 @@
 
     The minimum and default value is `-1`, which means the OS settings apply. The maximum value is `2147483647`.
 
-    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_socket.receive.buffer.bytes).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_socket.receive.buffer.bytes).
 
 * **Socket send buffer bytes** {{ tag-con }} {{ tag-tf }} {{ tag-api }}{#settings-socket-send-buffer-bytes}
 
@@ -208,7 +208,7 @@
 
     The minimum and default value is `-1`, which means the OS settings apply. The maximum value is `2147483647`.
 
-    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_socket.send.buffer.bytes).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_socket.send.buffer.bytes).
 
 * **Ssl cipher suites** {{ tag-all }} {#settings-ssl-cipher-suites}
 
@@ -218,4 +218,4 @@
 
     This is a global cluster-level setting.
 
-    For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_ssl.cipher.suites).
+    For a full description of this setting, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_ssl.cipher.suites).

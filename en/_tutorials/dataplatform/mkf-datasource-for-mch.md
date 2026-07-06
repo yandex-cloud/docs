@@ -39,7 +39,7 @@ The support cost for this solution includes:
 
     1. [Create the required number of {{ mkf-name }} clusters](../../managed-kafka/operations/cluster-create.md) of any suitable [configuration](../../managed-kafka/concepts/instance-types.md). To be able to connect to the clusters not only from within the {{ yandex-cloud }} network but also from a local machine, enable public access when creating them.
 
-    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with a single shard and a database named `db1`. To be able to connect to the cluster not only from within the {{ yandex-cloud }} network but also from your local machine, enable public access when creating it.
+    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with a single shard and a database named `db1`. For connections to the cluster from the user's local machine, rather than the {{ yandex-cloud }} network, enable public access to the cluster when creating it.
 
         {% note info %}
 
@@ -186,7 +186,7 @@ Configuration depends on how many {{ mkf-name }} clusters you have:
 
            {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-       1. Confirm resource changes.
+       1. Confirm updating the resources.
 
            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -369,7 +369,7 @@ To create a materialized view:
 To get all data from the materialized view:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database on your {{ mch-name }} cluster via `clickhouse-client`.
-1. Run this request:
+1. Run this query:
 
     ```sql
     SELECT * FROM db1.<view_name>;
@@ -377,7 +377,7 @@ To get all data from the materialized view:
 
 This query will return a table with data sent to the respective {{ mkf-name }} topic.
 
-To learn more about working with data received from {{ KF }}, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
+To learn more about working with data supplied from {{ KF }}, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
 
 ## Delete the resources you created {#clear-out}
 

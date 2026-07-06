@@ -89,7 +89,7 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
    1. [Get the authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
    1. In the same directory, [configure and initialize the provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
    1. Move the configuration file to the `imported-cluster` directory and [specify the arguments](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate
@@ -178,7 +178,7 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
 
    As a result, all directories and files specified in `srclist` will be copied to the `/user/copy` directory.
 
-   If you need to copy a large amount of data, use the `-m <maximum_simultaneous_copies>` flag in the command to limit network bandwidth consumption. For more information, see [this DistCp article](https://hadoop.apache.org/docs/r3.2.2/hadoop-distcp/DistCp.html#Command_Line_Options).
+   If you need to copy a large amount of data, use the `-m <maximum_simultaneous_copies>` flag in the command to limit network bandwidth consumption. For more information, see [this DistCp guide](https://hadoop.apache.org/docs/r3.2.2/hadoop-distcp/DistCp.html#Command_Line_Options).
 
    You can check the data amount you copy in the HDFS web UI. To open it:
 

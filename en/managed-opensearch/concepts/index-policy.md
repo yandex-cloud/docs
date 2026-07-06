@@ -17,7 +17,7 @@ Each policy must have at least one state. Actions and transitions are optional. 
 
 Once a [policy is created and linked to the index](../tutorials/opensearch-index-policy.md), the ISM plugin creates a job that checks the index transition conditions and performs the policy actions. By default, the job is performed every 5 minutes.
 
-For more information about policies, see the [{{ OS }} documentation]({{ os.docs }}/im-plugin/ism/policies/).
+Learn more about policies in [this {{ OS }} guide]({{ os.docs }}/im-plugin/ism/policies/).
 
 ## Use cases {#examples}
 

@@ -45,7 +45,7 @@ To create a database cluster in {{ mgp-short-name }}, you need to define its set
 * Network your cluster will be connected to.
 * Number of hosts for a cluster and the cluster's availability zone.
 
-For a detailed guide, see [Creating a cluster](../../managed-greenplum/operations/cluster-create.md).
+For detailed instructions, see [Creating a cluster](../../managed-greenplum/operations/cluster-create.md).
 
 #### What happens when a new DBMS version is released? {#new-version}
 

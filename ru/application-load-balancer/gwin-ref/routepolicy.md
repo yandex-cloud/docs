@@ -213,7 +213,7 @@ spec:
 
     # Common hosts settings (applies to all hosts)
     hosts:
-      securityProfileID: "host-security-profile-1"  # WAF profile for hosts
+      securityProfileID: "host-security-profile-1"  # Yandex Smart Web Security profile for hosts
       rateLimit:
         allRequests:
           perSecond: 100  # global rate limit

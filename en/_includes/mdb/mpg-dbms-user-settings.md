@@ -4,26 +4,26 @@
 
     When this setting has a non-zero value, the [Odyssey connection pooler](../../managed-postgresql/concepts/pooling.md) will block connections to severely lagging replicas. This mechanism prevents reading stale data from such replicas.
 
-    Odyssey regularly polls the cluster for lagging replicas and terminates connection attempts to replicas with the lag exceeding the configured threshold, throwing the following error:
+    Odyssey regularly polls the cluster for lagging replicas and terminates connection attempts to replicas with the lag exceeding the configured threshold, Odyssey will return the following message:
 
     ```text
     remote server read/write error: failed to wait replica for catchup
     ```
 
-    The minimum and default value is `0`, which permits connections to any replica, no matter how far it lags behind the master.
+    The minimum and default value is `0` (allows connecting to any replica regardless of its lag behind the master).
 
 - **Conn limit**{#setting-conn-limit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   In transaction pooling mode, this setting limits the number of concurrent active connections per user. This pooling mode allows a user to open thousands of connections, meanwhile, limiting the number of concurrently active connections to the configured value `N`.
 
-  In session pooling mode, this setting limits the number of connections per host a user can make in a {{ PG }} cluster. When using this pooling mode, make sure the setting value is no less than the total number of connections that can be opened by the user service backends. Each open server connection slightly slows down the {{ PG }} OLTP performance.
+  In session pooling mode, this setting limits the number of connections per host a user can make in a {{ PG }} cluster. When using this pooling mode, make sure the setting value is no less than the total number of connections that can be opened by the user service backends. Each open server connection slightly slows down the {{ PG }}OLTP performance.
 
   Session pooling operates as follows:
 
   - By default, {{ mpg-name }} reserves 50 connections per host for each new {{ PG }} cluster user. The minimum number of connections per user is 1.
-  - The total number of connections reserved for users must not exceed the [Max connections](../../managed-postgresql/concepts/settings-list.md#setting-max-connections) value. Note that {{ mpg-name }} reserves 15 service connections per host.
+  - The total number of connections reserved for users must not exceed the value of the [Max connections](../../managed-postgresql/concepts/settings-list.md#setting-max-connections) parameter. {{ mpg-name }} reserves 15 service connections per host.
 
-    For example, for `"max_connections": 100`, you can reserve no more than 85 user connections per cluster host.
+    For example, if the cluster is set to `"max_connections": 100`, you can reserve a maximum of 85 connections per cluster host for users.
 
   - We recommend isolating different {{ PG }} services with separate users, each with their own configured connection limit. If a failing service creates a connection storm, other services will remain unaffected and retain {{ PG }} connectivity.
 
@@ -31,7 +31,7 @@
 
 - **Default transaction isolation**{#setting-user-default-transaction-isolation} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  Refer to the [Default transaction isolation](#setting-default-transaction-isolation) cluster-level setting description.
+  [Default transaction isolation](#setting-default-transaction-isolation) cluster-level setting description.
 
 - **Grants**{#setting-user-grants} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
@@ -39,11 +39,11 @@
 
 - **Lock timeout**{#setting-user-lock-timeout} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  Refer to the [Lock timeout](#setting-lock-timeout) cluster-level setting description.
+  [Lock timeout](#setting-lock-timeout) cluster-level setting description.
 
 - **Log min duration statement**{#setting-user-log-min-duration-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  Refer to the [Log min duration statement](#setting-log-min-duration-statement) cluster-level setting description.
+  [Log min duration statement](#setting-log-min-duration-statement) cluster-level setting description.
 
   We recommend defining a slow query threshold for each service and its user and logging only those queries that exceed it. For example, a query running longer than one second might be considered slow for a web service, whereas for a reporting service the slow query threshold might be 10 minutes.
 
@@ -51,7 +51,7 @@
 
 - **Log statement**{#setting-user-log-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  Refer to the [Log statement](#setting-log-statement) cluster-level setting description.
+  [Log statement](#setting-log-statement) cluster-level setting description.
 
 - **Login**{#setting-user-login} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
@@ -72,11 +72,11 @@
 
   * `read`: System logs `SELECT` and `COPY` queries if the data source is a relation or a query.
   * `write`: System logs `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY` queries when the destination is a relation.
-  * `function`: System logs function calls and `DO` blocks.
-  * `role`: System logs the statements related to roles and privileges, e.g., `GRANT`, `REVOKE`, `CREATE/ALTER/DROP ROLE`.
-  * `ddl`: System logs all `DDL` statements not included in the `ROLE` class.
-  * `misc`: System logs miscellaneous commands, e.g., `DISCARD`, `FETCH`, `CHECKPOINT`, `VACUUM`, `SET`.
-  * `misc_set`: System logs miscellaneous `SET` commands, e.g., `SET ROLE`.
+  * `function`: Function invocations and `DO` sections are logged.
+  * `role`: Statements related to role and privilege management, such as `GRANT`, `REVOKE`, or `CREATE/ALTER/DROP ROLE`, are logged.
+  * `ddl`: All `DDL` statements not belonging to the `ROLE` class are logged.
+  * `misc`: Auxiliary commands, such as `DISCARD`, `FETCH`, `CHECKPOINT`, `VACUUM`, and `SET`, are logged.
+  * `misc_set`: The `SET` auxiliary commands, such as `SET ROLE`, are logged.
 
   You can specify multiple values. By default, user audit logs are disabled.
 
@@ -109,11 +109,11 @@
 
 - **Synchronous commit**{#setting-user-synchronous-commit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  Refer to the [Synchronous commit](#setting-synchronous-commit) cluster-level setting description.
+  [Synchronous commit](#setting-synchronous-commit) cluster-level setting description.
 
 - **Temp file limit**{#setting-temp-file-limit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-  Refer to the [Temp file limit](#setting-temp-file-limit) cluster-level setting description.
+  [Temp file limit](#setting-temp-file-limit) cluster-level setting description.
 
 - **Wal sender timeout**{#setting-wal-sender-timeout} {{ tag-con }}
 

@@ -4,7 +4,7 @@ Maintenance in {{ mos-short-name }} includes:
 
 * Automatic installation of {{ OS }} updates and fixes for your hosts.
 * Changes in the host class and storage size.
-* Other {{ mos-short-name }} maintenance activities.
+* Other {{ mos-short-name }} maintenance tasks.
 
 For more information, see [Maintenance](../../managed-opensearch/concepts/maintenance.md).
 
@@ -117,5 +117,5 @@ Use one of these methods:
 
 #### What restrictions apply when creating or deleting host groups? {#host-group-limits}
 
-* If you add a host group with the `MANAGER` role to a cluster where this role is assigned to hosts with the `DATA` role, you will be unable to delete that group. The only way to revert to the previous host configuration is to [restore the cluster from a backup](../../managed-opensearch/operations/cluster-backups.md#restore).
+* If you add a host group with the `MANAGER` role to a cluster where that role is assigned to hosts with the `DATA` role, that group cannot be removed. The only way to revert to the previous host configuration is to [restore the cluster from a backup](../../managed-opensearch/operations/cluster-backups.md#restore).
 * When deleting a host group, you cannot delete a single host group with the `DATA` role.

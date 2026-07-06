@@ -24,6 +24,6 @@ To manage maintenance tasks, you need the `managed-airflow.maintenanceTask.edito
 
 {% endnote %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Managing maintenance in a {{ maf-name }} cluster](../operations/cluster-maintenance.md)

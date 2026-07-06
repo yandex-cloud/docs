@@ -5,6 +5,8 @@ description: Follow this guide to use the `gp_url_tools` extension in {{ mgp-nam
 
 # Using `gp_url_tools` in {{ mgp-name }}
 
+{% include [not-supported-in-cb](../../../_includes/mdb/mgp/not-supported-in-cb.md) %}
+
 The `gp_url_tools` extension enables you to encode URLs/URIs into a format supported by web browsers and to decode them back to the original format:
 
 * `encode_url(text)`: Encoding a URL.
@@ -77,3 +79,5 @@ The `gp_url_tools` extension enables you to encode URLs/URIs into a format suppo
     ```sql
     SELECT name, site, contact FROM companies;
     ```
+
+{% include [cloudberry-trademark](../../../_includes/mdb/mgp/trademark-cloudberry.md) %}

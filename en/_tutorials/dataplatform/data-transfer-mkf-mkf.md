@@ -28,7 +28,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mkf-name }} clusters: Computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mkf-name }} clusters: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
@@ -65,7 +65,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
            * [Network](../../vpc/concepts/network.md#network).
            * [Subnet](../../vpc/concepts/network.md#subnet).
-           * [Security group](../../vpc/concepts/security-groups.md) and rule required for connection to the {{ mkf-name }} cluster.
+           * [Security group](../../vpc/concepts/security-groups.md) and the rule required for connecting to the {{ mkf-name }} cluster.
            * {{ mkf-name }} source cluster with public access from the internet.
            * {{ KF }} topic for the source cluster.
            * {{ KF }} user for the source cluster.
@@ -85,7 +85,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
            * `target_user_password`: Password.
            * `transfer_enabled = 0`: Disables the creation of endpoints and transfers. They will be created during the [preparation of the transfer](#prepare-transfer).
 
-       1. Make sure the {{ TF }} configuration files are correct using this command:
+       1. Validate your {{ TF }} configuration files using this command:
 
            ```bash
            terraform validate
@@ -134,7 +134,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         sudo apt update && sudo apt-get install --yes jq
         ```
 
-## Prepare and activate your transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 {% list tabs group=instructions %}
 
@@ -170,7 +170,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   1. Specify `transfer_enabled = 1` in the `data-transfer-mkf-mkf.tf` file.
 
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate

@@ -43,7 +43,7 @@ You can add or remove [cluster hosts](../concepts/index.md), restart host synchr
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -56,7 +56,7 @@ You can add or remove [cluster hosts](../concepts/index.md), restart host synchr
             --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<cluster_ID>/hosts'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.mongodb.v1.ListClusterHostsResponse) to make sure your request was successful.
 
@@ -265,7 +265,7 @@ You can add hosts of different types to your {{ mmg-name }} cluster. Their numbe
   
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -276,7 +276,7 @@ You can add hosts of different types to your {{ mmg-name }} cluster. Their numbe
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -325,7 +325,7 @@ You can add hosts of different types to your {{ mmg-name }} cluster. Their numbe
       * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
       * `tags`: Host tags.
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -444,7 +444,7 @@ If you cannot [connect](connect/index.md) to the new host, check the {{ mmg-name
 
         To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of configurable {{ mpg-name }} cluster fields, refer to the [{{ TF }} provider guides]({{ tf-provider-mpg }}).
+        For the complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
     1. In the {{ mpg-name }} cluster description, change the attributes of the `host` section referring to the host you want to update.
 
@@ -633,7 +633,7 @@ In a [sharded {{ mmg-name }} cluster](../operations/shards.md#enable), you can r
   To remove a host from a {{ mmg-name }} cluster:
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
   1. Delete the relevant `host` section from the {{ mmg-name }} cluster description.
   1. Make sure the settings are correct.
 

@@ -862,18 +862,6 @@ To change initial stt settings use **.configure** method:
 || Return type | [*Operation*](../../types/operation.md#yandex_ai_studio_sdk._types.operation.Operation)[[*DeferredSpeechToTextResult*](../../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult)] ||
 |#
 
-**attach\_deferred**(*operation\_id*, *timeout=60*){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.SpeechToText.attach_deferred}
-
-Attaches to an ongoing deferred operation using its operation id.
-
-#|
-|| Parameters | 
-
-- **operation\_id** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the id of the deferred operation to attach to.
-- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
-|| Return type | [*Operation*](../../types/operation.md#yandex_ai_studio_sdk._types.operation.Operation)[[*DeferredSpeechToTextResult*](../../types/speechkit.md#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult)] ||
-|#
-
 #### *class* **AudioFormat**{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.SpeechToText.AudioFormat}
 
 *classmethod* **Unknown**(*name*, *value*){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.SpeechToText.AudioFormat.Unknown}
@@ -1622,6 +1610,18 @@ Profanity filter
 - **uri** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
 - **config** ([*ConfigTypeT*](../../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT) *\| None*)
 - **owner** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\| None*) ||
+|#
+
+**attach\_deferred**(*operation\_id*, *timeout=60*){#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.SpeechToText.attach_deferred}
+
+Attaches to an ongoing deferred operation using its operation id.
+
+#|
+|| Parameters | 
+
+- **operation\_id** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the id of the deferred operation to attach to.
+- **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
+|| Return type | *OperationTypeT* ||
 |#
 
 *property* **config**\: *[ConfigTypeT](../../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.SpeechToText.config}

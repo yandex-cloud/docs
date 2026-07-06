@@ -79,7 +79,7 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
   1. Select the cluster and open the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.dataproc.switch_operations }}** tab.
 
-     You will see the list of operations with the cluster.
+     This will open the list of operations with the cluster.
 
 - CLI {#cli}
 
@@ -105,7 +105,7 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
 
   You can get the cluster ID and name with the [list of clusters in the folder](#list).
 
-  By default, information about transactions is displayed in text format. To get more details, specify `yaml` or `json` for the output data using the `--format` argument:
+  By default, information about transactions is displayed in text format. To get more details, use `--format` to specify the `yaml` or `json` output format:
 
   ```bash
   yc dataproc cluster list-operations epdplu8jn7sr******** --format yaml
@@ -179,6 +179,6 @@ All actions with {{ dataproc-name }} clusters are logged as a list of operations
 
    {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../api-design-guide/concepts/about-async.md)

@@ -171,7 +171,7 @@ ORDER BY cnt DESC
 LIMIT 10;
 ```
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 - [{#T}](cluster-logs.md)
 - [{#T}](mgp-to-cloud-logging.md)

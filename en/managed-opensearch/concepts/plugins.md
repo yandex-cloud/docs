@@ -76,7 +76,7 @@ All supported additional plugins are listed here:
 
     Adds the [yandex-lemmer](#yandex-lemmer) filter that improves text search in Russian across {{ OS }} documents.
 
-For more information, see [this {{ OS }} article]({{ os.docs }}/install-and-configure/plugins/#additional-plugins).
+For more information, see [this {{ OS }} guide]({{ os.docs }}/install-and-configure/plugins/#additional-plugins).
 
 ### Why use the yandex-lemmer plugin {#yandex-lemmer}
 

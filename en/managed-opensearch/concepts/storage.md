@@ -7,7 +7,7 @@ description: In this article, you will learn about disk types in {{ mos-name }} 
 
 
 
-{{ mos-name }} allows you to use network and local storage drives for database clusters. Network disks are based on network blocks, i.e., virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the cluster servers.
+{{ mos-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, i.e., virtual drives in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the cluster servers.
 
 {% include [storage-type](../../_includes/mdb/mos/storage-type.md) %}
 
@@ -60,7 +60,7 @@ To monitor the cluster storage usage, set up alerts in {{ monitoring-full-name }
       * **{{ ui-key.yacloud_monitoring.alert.status_warn }}**: `90` (90 % of storage size).
       * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}**: `95` (95 % of storage size).
       * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**: Preferred metric update period.
-      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}**: Preferred time shift backward, in seconds. It allows to keep the alert from triggering when multiple metrics are specified and collected at different intervals. To learn more about the calculation delay, see this [{{ monitoring-full-name }} guide](../../monitoring/concepts/alerting/alert.md#evaluation-delay).
+      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}**: Preferred time shift backward, in seconds. It allows to keep the alert from triggering when multiple metrics are specified and collected at different intervals. To learn more about the calculation delay, see [this {{ monitoring-full-name }} guide](../../monitoring/concepts/alerting/alert.md#evaluation-delay).
 
    1. **Notifications**: Add the notification channel you created earlier.
 

@@ -7,7 +7,7 @@ To transfer data:
 
 1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Prepare the source cluster](#prepare-source).
-1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 1. [Query data in {{ CH }}](#working-with-data-ch).
 
@@ -21,9 +21,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 * {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
-* {{ mch-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ mch-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer, which includes the use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Set up your infrastructure {#prepare-infrastructure}
@@ -34,13 +34,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) with your preferred configuration. Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
+    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) with your preferred configuration. For connections to the cluster from the user's local machine, rather than the {{ yandex-cloud }} network, enable public access to the cluster when creating it.
 
     1. [Create a target {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with the following settings:
 
         * Number of {{ CH }} hosts: Minimum of 2 to enable replication within the cluster.
         * Database name: Must be identical to the database name in the source cluster.
-        * Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
+        * For connections to the cluster from the user's local machine, rather than the {{ yandex-cloud }} network, enable public access to the cluster when creating it.
 
     
     1. If using security groups, configure them to allow internet access to your clusters:
@@ -128,7 +128,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         (44, 'User5');
     ```
 
-## Prepare and activate your transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 {% list tabs group=instructions %}
 
@@ -155,7 +155,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     1. In the `data-transfer-mmy-mch.tf` file, set the `transfer_enabled` variable to `1`.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate

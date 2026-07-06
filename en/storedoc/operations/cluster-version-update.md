@@ -85,7 +85,7 @@ After the upgrade, it is impossible to revert the cluster to a previous version.
   
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
   
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -249,7 +249,7 @@ Updating the cluster compatibility version is irreversible.
   
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
   
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   

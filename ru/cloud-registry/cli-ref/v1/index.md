@@ -29,6 +29,8 @@ Syntax:
 
   - [yc cloud-registry v1 artifact get-by-path](artifact/get-by-path.md) — Returns the specified artifact resource by path within the registry.
 
+  - [yc cloud-registry v1 artifact list](artifact/list.md) — List artifacts with filtering by kind, registry kind/type, node path
+
   - [yc cloud-registry v1 artifact list-access-bindings](artifact/list-access-bindings.md) — access bindings
 
   - [yc cloud-registry v1 artifact remove-access-binding](artifact/remove-access-binding.md) — Remove access binding for the specified artifact.

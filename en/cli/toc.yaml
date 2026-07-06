@@ -588,6 +588,8 @@ items:
                 href: cli-ref/backup/cli-ref/agent/debug-info.md
               - name: install
                 href: cli-ref/backup/cli-ref/agent/install.md
+              - name: install-external
+                href: cli-ref/backup/cli-ref/agent/install-external.md
               - name: reinstall
                 href: cli-ref/backup/cli-ref/agent/reinstall.md
           - name: backup
@@ -646,6 +648,8 @@ items:
                     href: cli-ref/backup/cli-ref/v0/agent/debug-info.md
                   - name: install
                     href: cli-ref/backup/cli-ref/v0/agent/install.md
+                  - name: install-external
+                    href: cli-ref/backup/cli-ref/v0/agent/install-external.md
                   - name: reinstall
                     href: cli-ref/backup/cli-ref/v0/agent/reinstall.md
               - name: backup
@@ -1919,12 +1923,32 @@ items:
                 href: cli-ref/cloud-registry/cli-ref/artifact/get.md
               - name: get-by-path
                 href: cli-ref/cloud-registry/cli-ref/artifact/get-by-path.md
+              - name: list
+                href: cli-ref/cloud-registry/cli-ref/artifact/list.md
               - name: list-access-bindings
                 href: >-
                   cli-ref/cloud-registry/cli-ref/artifact/list-access-bindings.md
               - name: remove-access-binding
                 href: >-
                   cli-ref/cloud-registry/cli-ref/artifact/remove-access-binding.md
+              - name: scanner
+                items:
+                  - name: Overview
+                    href: cli-ref/cloud-registry/cli-ref/artifact/scanner/index.md
+                  - name: get-last-scan-result
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/artifact/scanner/get-last-scan-result.md
+                  - name: get-scan-result
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/artifact/scanner/get-scan-result.md
+                  - name: list-scan-results
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/artifact/scanner/list-scan-results.md
+                  - name: list-vulnerabilities
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/artifact/scanner/list-vulnerabilities.md
+                  - name: scan
+                    href: cli-ref/cloud-registry/cli-ref/artifact/scanner/scan.md
               - name: set-access-bindings
                 href: cli-ref/cloud-registry/cli-ref/artifact/set-access-bindings.md
               - name: upsert
@@ -1988,6 +2012,25 @@ items:
               - name: remove-ip-permissions
                 href: >-
                   cli-ref/cloud-registry/cli-ref/registry/remove-ip-permissions.md
+              - name: scan-policy
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/registry/scan-policy/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/registry/scan-policy/create.md
+                  - name: delete
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/registry/scan-policy/delete.md
+                  - name: get
+                    href: cli-ref/cloud-registry/cli-ref/registry/scan-policy/get.md
+                  - name: get-by-registry
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/registry/scan-policy/get-by-registry.md
+                  - name: update
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/registry/scan-policy/update.md
               - name: set-access-bindings
                 href: cli-ref/cloud-registry/cli-ref/registry/set-access-bindings.md
               - name: set-ip-permissions
@@ -2013,12 +2056,34 @@ items:
                     href: cli-ref/cloud-registry/cli-ref/v0/artifact/get.md
                   - name: get-by-path
                     href: cli-ref/cloud-registry/cli-ref/v0/artifact/get-by-path.md
+                  - name: list
+                    href: cli-ref/cloud-registry/cli-ref/v0/artifact/list.md
                   - name: list-access-bindings
                     href: >-
                       cli-ref/cloud-registry/cli-ref/v0/artifact/list-access-bindings.md
                   - name: remove-access-binding
                     href: >-
                       cli-ref/cloud-registry/cli-ref/v0/artifact/remove-access-binding.md
+                  - name: scanner
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v0/artifact/scanner/index.md
+                      - name: get-last-scan-result
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v0/artifact/scanner/get-last-scan-result.md
+                      - name: get-scan-result
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v0/artifact/scanner/get-scan-result.md
+                      - name: list-scan-results
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v0/artifact/scanner/list-scan-results.md
+                      - name: list-vulnerabilities
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v0/artifact/scanner/list-vulnerabilities.md
+                      - name: scan
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v0/artifact/scanner/scan.md
                   - name: set-access-bindings
                     href: >-
                       cli-ref/cloud-registry/cli-ref/v0/artifact/set-access-bindings.md
@@ -2087,6 +2152,26 @@ items:
                   - name: remove-ip-permissions
                     href: >-
                       cli-ref/cloud-registry/cli-ref/v0/registry/remove-ip-permissions.md
+                  - name: scan-policy
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v0/registry/scan-policy/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v0/registry/scan-policy/create.md
+                      - name: delete
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v0/registry/scan-policy/delete.md
+                      - name: get
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v0/registry/scan-policy/get.md
+                      - name: get-by-registry
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v0/registry/scan-policy/get-by-registry.md
+                      - name: update
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v0/registry/scan-policy/update.md
                   - name: set-access-bindings
                     href: >-
                       cli-ref/cloud-registry/cli-ref/v0/registry/set-access-bindings.md
@@ -2114,6 +2199,8 @@ items:
                     href: cli-ref/cloud-registry/cli-ref/v1/artifact/get.md
                   - name: get-by-path
                     href: cli-ref/cloud-registry/cli-ref/v1/artifact/get-by-path.md
+                  - name: list
+                    href: cli-ref/cloud-registry/cli-ref/v1/artifact/list.md
                   - name: list-access-bindings
                     href: >-
                       cli-ref/cloud-registry/cli-ref/v1/artifact/list-access-bindings.md

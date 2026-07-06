@@ -2238,6 +2238,22 @@ default:
         text:
           v1|number: 3.8399993856
           v1|string: $3.8399993856
+      t1_5:
+        subscription:
+          monthly_usage:
+            v1|string: $983.6064
+      t11:
+        subscription:
+          monthly_usage:
+            v1|string: $6885.2448
+      t3:
+        subscription:
+          monthly_usage:
+            v1|string: $1475.4096
+      t5_5:
+        subscription:
+          monthly_usage:
+            v1|string: $2950.8192
     kspm:
       nodes|pricingRate:
         2|string: $66.66392376
@@ -2420,6 +2436,7 @@ default:
         v3|number: 0.0113114736
       ram:
         v3|number: 0.0030245897
+  spark-service-address: 10.248.0.0/13
   speechkit-full-name: Yandex SpeechKit
   speechkit-name: SpeechKit
   speechkit-short-name: SpeechKit

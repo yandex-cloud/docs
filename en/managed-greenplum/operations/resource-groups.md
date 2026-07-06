@@ -14,7 +14,7 @@ To perform operations using SQL queries, [connect to the cluster](connect/index.
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To view a list of resource groups and their [parameter](../concepts/resource-groups.md#rg-params) values, run the command:
+    To view a list of resource groups and their [parameter](../concepts/resource-groups.md#parameters) values, run the command:
 
     ```bash
     {{ yc-mdb-gp }} resource-groups list --cluster-id=<cluster_ID> 
@@ -31,7 +31,7 @@ To perform operations using SQL queries, [connect to the cluster](connect/index.
 
 - SQL {#sql}
 
-    To view a list of resource groups and their [parameter](../concepts/resource-groups.md#rg-params) values, run the command:
+    To view a list of resource groups and their [parameter](../concepts/resource-groups.md#parameters) values, run the command:
 
     ```sql
     SELECT * FROM gp_toolkit.gp_resgroup_config;
@@ -55,17 +55,31 @@ To perform operations using SQL queries, [connect to the cluster](connect/index.
     {% include [cli-install](../../_includes/cli-install.md) %}
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-    Provide the name of the resource group and the values of its [parameters](../concepts/resource-groups.md#rg-params) in the command:
+    
+    To create a resource group in an {{ CB }} cluster, provide the name of the resource group and the values of its [parameters](../concepts/resource-groups.md#parameters) in this command:
 
     ```bash
     {{ yc-mdb-gp }} resource-groups create <resource_group_name> \
-       --cluster-id=<cluster_ID> \
-       --concurrency=<CONCURRENCY_parameter_value> \
-       --cpu-rate-limit=<CPU_RATE_LIMIT_parameter_value> \
-       --memory-limit=<MEMORY_LIMIT_parameter_value> \
-       --memory-shared-quota=<MEMORY_SHARED_QUOTA_parameter_value> \
-       --memory-spill-ratio=<MEMORY_SPILL_RATIO_parameter_value>
+       --cluster-id <cluster_ID> \
+       --concurrency <CONCURRENCY_parameter_value> \
+       --cpu-max-percent <CPU_MAX_PERCENT_parameter_value> \
+       --cpu-weight <CPU_WEIGHT_parameter_value> \
+       --memory-quota <MEMORY_QUOTA_parameter_value> \
+       --min-cost <MIN_COST_parameter_value>
+    ```
+
+    When creating a resource group, just specify the value of the `CPU_MAX_PERCENT` parameter. The other parameters will be set to defaults.
+
+    To create a resource group in a {{ GP }} cluster, provide the name of the resource group and the values of its [parameters](../concepts/resource-groups.md#parameters) in this command:
+   
+    ```bash
+    {{ yc-mdb-gp }} resource-groups create <resource_group_name> \
+       --cluster-id <cluster_ID> \
+       --concurrency <CONCURRENCY_parameter_value> \
+       --cpu-rate-limit <CPU_RATE_LIMIT_parameter_value> \
+       --memory-limit <MEMORY_LIMIT_parameter_value> \
+       --memory-shared-quota <MEMORY_SHARED_QUOTA_parameter_value> \
+       --memory-spill-ratio <MEMORY_SPILL_RATIO_parameter_value>
     ```
 
     When creating a resource group, just specify the value of the `CPU_RATE_LIMIT` parameter. The other parameters will be set to defaults.
@@ -74,7 +88,7 @@ To perform operations using SQL queries, [connect to the cluster](connect/index.
 
 - SQL {#sql}
 
-    Provide the name of the resource group and its [parameters](../concepts/resource-groups.md#rg-params) in the command:
+    Provide the name of the resource group and its [parameters](../concepts/resource-groups.md#parameters) in the command:
 
     ```sql
     CREATE RESOURCE GROUP <resource_group_name> WITH (<parameter_1>, <parameter_2>, ...);
@@ -99,7 +113,9 @@ To perform operations using SQL queries, [connect to the cluster](connect/index.
 
     {% note info %}
 
-    By default, new roles are assigned to `default_group`.
+    * If no resource group is specified when creating a role, the role is assigned to `default_group`.
+
+    * In {{ CB }}, roles with the [SUPERUSER attribute](../concepts/cluster-users.md#attributes) are assigned to `admin_group`.
 
     {% endnote %}
 
@@ -162,31 +178,41 @@ To perform operations using SQL queries, [connect to the cluster](connect/index.
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Provide the name of the resource group and the new values for its [settings](../concepts/resource-groups.md#rg-params) you want to edit in this command:
+    To change the [parameters](../concepts/resource-groups.md#parameters) of a resource group in an {{ CB }} cluster, run the following command:
 
     ```bash
     {{ yc-mdb-gp }} resource-groups update <resource_group_name> \
-       --cluster-id=<cluster_ID> \
-       --concurrency=<new_CONCURRENCY_value> \
-       --cpu-rate-limit=<new_CPU_RATE_LIMIT_value> \
-       --memory-limit=<new_MEMORY_LIMIT_value> \
-       --memory-shared-quota=<new_MEMORY_SHARED_QUOTA_value> \
-       --memory-spill-ratio=<new_MEMORY_SPILL_RATIO_value>
+       --cluster-id <cluster_ID> \
+       --concurrency <new_CONCURRENCY_value> \
+       --cpu-max-percent <new_CPU_MAX_PERCENT_parameter_value> \
+       --cpu-weight <new_CPU_WEIGHT_parameter_value> \
+       --memory-quota <new_MEMORY_QUOTA_parameter_value> \
+       --min-cost <new_MIN_COST_parameter_value>
+    ```
+
+    To change the [parameters](../concepts/resource-groups.md#parameters) of a resource group in a {{ GP }} cluster, run the following command:
+
+    ```bash
+    {{ yc-mdb-gp }} resource-groups update <resource_group_name> \
+       --cluster-id <cluster_ID> \
+       --concurrency <new_CONCURRENCY_value> \
+       --cpu-rate-limit <new_CPU_RATE_LIMIT_value> \
+       --memory-limit <new_MEMORY_LIMIT_value> \
+       --memory-shared-quota <new_MEMORY_SHARED_QUOTA_value> \
+       --memory-spill-ratio <new_MEMORY_SPILL_RATIO_value>
     ```
 
     {% include [cluster-name-as-id](../../_includes/mdb/mgp/cluster-name-as-id.md) %}
 
 - SQL {#sql}
 
-    Provide the name of the resource group and the new values of its [parameters](../concepts/resource-groups.md#rg-params) you want to change in the command:
+    Provide the name of the resource group and the new values of its [parameters](../concepts/resource-groups.md#parameters) you want to change in the command:
 
     ```sql
     ALTER RESOURCE GROUP <resource_group_name> SET <setting_name> <new_setting_value>;
     ```
 
 {% endlist %}
-
-If you do not provide new values for certain resource group settings, they will not change.
 
 ## Delete a resource group {#delete}
 
@@ -274,3 +300,7 @@ Create a resource group with test specifications:
 
 {% endlist %}
 
+
+{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [cloudberry-trademark](../../_includes/mdb/mgp/trademark-cloudberry.md) %}

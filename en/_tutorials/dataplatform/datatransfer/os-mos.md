@@ -1,7 +1,7 @@
 # Migrating data from {{ OS }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 
 
-With {{ data-transfer-name }}, you can transfer data from a third-party {{ OS }} source cluster's indexes to {{ mos-name }} indexes. To do this:
+With {{ data-transfer-name }}, you can transfer data from a third-party {{ OS }} source cluster's indexes to {{ mos-name }} indexes. Proceed as follows:
 
 1. [Configure the source cluster](#configure-source).
 1. [Prepare your test data](#prepare-data).
@@ -160,7 +160,7 @@ You can deliver data from the {{ OS }} cluster as `admin` with the `superuser` r
 
     1. [Create a user](../../../managed-opensearch/operations/cluster-users.md) and assign this role to them.
 
-## Prepare and activate your transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 1. [Create an endpoint](../../../data-transfer/operations/endpoint/index.md#create) for the [{{ OS }} source cluster](../../../data-transfer/operations/endpoint/source/opensearch.md#on-premise).
 

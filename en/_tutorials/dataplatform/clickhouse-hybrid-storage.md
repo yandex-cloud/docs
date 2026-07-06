@@ -18,7 +18,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost for this solution includes:
 
 * {{ mch-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -60,7 +60,7 @@ The support cost for this solution includes:
 
     1. In the `clickhouse-hybrid-storage.tf` file, specify the username and password you will use to access the {{ mch-name }} cluster.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
@@ -135,7 +135,7 @@ The TTL expression in our example is complex because the test dataset we use req
 
 Data is moved between the network disk storage and object storage in [parts]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes), rather than per row. For optimal performance, align your TTL expression with your [partitioning key]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/custom-partitioning-key) to ensure that all rows within a part share the same expiration time. This prevents situations where a data part contains a mix of rows destined for different storage tiers, which can block expired data from moving to the object storage. At a minimum, the TTL expression should use the same columns as the partitioning key, e.g., `EventDate` in the example above.
 
-For more details on configuring TTL, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-ttl).
+Read more about configuring TTL in [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-ttl).
 
 ## Populate the table with data {#fill-table-with-data}
 

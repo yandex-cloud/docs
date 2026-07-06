@@ -54,7 +54,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    | `smtp.smtp_ssl` | `True` |
    | `smtp.smtp_mail_from` | `user@yandex.ru` |
 
-   Fill in the fields manually or import the settings from a configuration file (see [a configuration file example](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
+   Fill in the fields manually or import the settings from a configuration file (see a [configuration file example](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
 
 ## Create a {{ lockbox-name }} secret {#create-lockbox-secret}
 

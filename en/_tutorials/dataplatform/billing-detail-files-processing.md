@@ -41,7 +41,7 @@ You can do the following with data processing results:
 <!-- * [Visualize them](../../query/tutorials/datalens.md) in {{ datalens-full-name }}. -->
 * Get and process them via the [{{ yq-name }} HTTP API](../../query/api/index.md).
 
-## See also {#see-also}
+#### Useful links {#see-also}
 
 * [{{ objstorage-full-name }}](../../storage/)
 * [{{ datalens-full-name }}](../../datalens/)

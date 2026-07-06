@@ -134,7 +134,7 @@
 
     Changes do not affect an already running script.
 
-    For more information, see [this {{ VLK }} article](https://github.com/valkey-io/valkey/blob/9.0/valkey.conf#L1732).
+    For more information, see [this {{ VLK }} guide](https://github.com/valkey-io/valkey/blob/9.0/valkey.conf#L1732).
 
 * **Maxmemory percent**{#settings-maxmemory-percent} {{ tag-all }}
 
@@ -169,13 +169,13 @@
 
     The setting value is a string of modifiers that manage notification behavior. The default value is an empty string, i.e., notification is disabled.
 
-    For a complete list of modifiers, see [this {{ VLK }} article](https://valkey.io/topics/notifications).
+    For a complete list of modifiers, see [this {{ VLK }} guide](https://valkey.io/topics/notifications).
 
 * **Repl backlog size percent**{#settings-repl-backlog-size} {{ tag-all }}
 
     Size of the replication log on the master, as a percentage of disk size. The larger the log size, the longer the replica can remain operational if the master is unavailable over the network.
 
-    For more information, see [this {{ VLK }} article](https://github.com/valkey-io/valkey/blob/8.0/valkey.conf#L740).
+    For more information, see [this {{ VLK }} guide](https://github.com/valkey-io/valkey/blob/8.0/valkey.conf#L740).
 
 * **Slowlog log slower than**{#settings-slowlog-slower-than} {{ tag-all }}
 

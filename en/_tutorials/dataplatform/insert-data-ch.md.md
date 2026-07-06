@@ -8,7 +8,7 @@ INSERT INTO db_name.table_name VALUES (v11, v12, v13), (v21, v22, v23), ...
 
 We recommend sending insert queries no more than once per second. You can use [buffering](#buffer-insert) to combine multiple small queries into a single large one.
 
-Learn more about `INSERT INTO` from this [{{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/insert-into#insert).
+Learn more about the `INSERT INTO` request in [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/insert-into#insert).
 
 ## Inserting data from a file {#file-insert}
 
@@ -45,7 +45,7 @@ To enable asynchronous data inserts, [set](../../managed-clickhouse/operations/c
 
 Note that asynchronous inserts do not support [row deduplication]({{ ch.docs }}{{ lang }}/guides/developer/deduplication).
 
-For more details about asynchronous data inserts, see this [{{ CH }} guide]({{ ch.docs }}{{ lang }}/best-practices/use-materialized-views).
+For more details about asynchronous data inserts, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/best-practices/use-materialized-views).
 
 ### Using a buffer table for inserts {#buffer-table}
 
@@ -66,7 +66,7 @@ Where:
 
 Flushing occurs when all minimum conditions are satisfied, or when any one of the maximum limits is reached. If the size of incoming data batch exceeds the `max_rows` or `max_bytes` settings, the system writes it directly to the target table, bypassing the buffer.
 
-For details on additional `Buffer` engine parameters and table limitations, see this [{{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/special/buffer).
+For details on additional `Buffer` engine parameters and table limitations, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/special/buffer).
 
 #### Example {#buffer-table-example}
 
@@ -174,7 +174,7 @@ pip3 install protobuf varint pycapnp
      }
      ```
 
-     For file format details, see this [Cap'n Proto guide](https://capnproto.org/language.html).
+     For file format details, see [this Cap'n Proto guide](https://capnproto.org/language.html).
 
    - Protobuf {#protobuf}
 
@@ -188,7 +188,7 @@ pip3 install protobuf varint pycapnp
      };
      ```
 
-     For file format detials, see this [Protobuf guide](https://developers.google.com/protocol-buffers/docs/overview).
+     For file format details, see [this Protobuf guide](https://developers.google.com/protocol-buffers/docs/overview).
 
    {% endlist %}
 

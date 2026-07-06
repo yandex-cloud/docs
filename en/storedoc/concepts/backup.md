@@ -17,19 +17,7 @@ keywords:
 
 {{ mmg-short-name }} supports automatic and manual database backups.
 
-{{ mmg-name }} allows you to restore your cluster _to any state_ (Point-in-Time-Recovery, PITR) in the time interval between the oldest backup and the archiving of the most recent `oplog` collection. For this purpose, the backup selected as the starting point of recovery is updated with entries from the cluster oplog.
-
-When creating backups and restoring data from them to a given point in time, keep the following in mind:
-
-* The oplog is archived in a running cluster a few times a minute, and then uploaded to object storage.
-
-* It takes some time to create and upload an oplog archive to object storage. This is why the cluster state stored in the object storage may differ from the actual one.
-
-To use PITR, you must disable the [sharding](../tutorials/sharding.md) mechanism in the cluster: PITR works only for a cluster with a single replica set.
-
 {% include [deprecated-note](../../_includes/mdb/backups/deprecated-note.md) %}
-
-To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md#restore).
 
 ## Creating a backup {#size}
 
@@ -41,14 +29,14 @@ For sharded clusters, two backups are created: a sharded one and a non-sharded o
 
 You can restore only a non-sharded cluster from a non-sharded backup. From a sharded backup, you can restore a cluster with standard or advanced sharding, no matter what sharding type was used in the original cluster. The restored cluster's shards must match the original cluster's shards at the time of creating the backup.
 
-All cluster data is automatically backed up every day. You cannot disable automatic backups. However, when [creating](../operations/cluster-create.md) or [editing](../operations/update.md#change-additional-settings) a cluster, you can set the following parameters for automatic backups:
+All cluster data is automatically backed up once a day. You cannot disable automatic backups. However, when [creating](../operations/cluster-create.md) or [editing](../operations/update.md#change-additional-settings) a cluster, you can set the following parameters for automatic backups:
 
 * [Retention time](#storage).
 * Time interval during which the backup starts. The default value is `22:00 - 23:00` UTC (Coordinated Universal Time).
 
-After a backup is created, it is compressed for storage. To find out its exact size, request a [list of backups](../operations/cluster-backups.md#list-backups).
+Once created, a backup is compressed for storage. To find out its exact size, request a [list of backups](../operations/cluster-backups.md#list-backups).
 
-Backups are only created on running clusters. If not using your {{ mmg-short-name }} cluster 24/7, look up the [settings](../operations/update.md#change-additional-settings) to make sure the backup is taking place when the cluster is running.
+Backups are only created on running clusters. If not using your {{ mmg-short-name }} cluster 24/7, check the [settings](../operations/update.md#change-additional-settings) to make sure that backups take place during the cluster's active hours.
 
 Learn about creating manual backups in [Managing backups](../operations/cluster-backups.md).
 
@@ -69,8 +57,35 @@ Storing backups in {{ mmg-name }}:
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-    For more information, see the [pricing policy](../pricing.md#rules-storage).
+    For more information, see [Pricing policy](../pricing.md#rules-storage).
 
-## Testing recovery from a backup {#capabilities}
+## Recovery from a backup {#capabilities}
 
-To test how backup works, [restore a cluster from a backup](../operations/cluster-backups.md) and check your data for integrity.
+Restoring a cluster from a backup creates a new cluster with that backup’s data. You need to specify all the cluster's settings (except the cluster type), just as when creating a new cluster. If your folder lacks [resources](../concepts/limits.md) to create such a cluster, you will not be able to recover it from a backup. The average restore speed is 10 MBps.
+
+To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md).
+
+{% include [advice-backup](../../_includes/mdb/advice-backup.md) %}
+
+## PITR in {{ mmg-name }} {#pitr-details}
+
+{{ mmg-name }} allows you to restore your cluster _to any state_ (Point-in-Time-Recovery, PITR) in the time interval between the oldest backup and the archiving of the most recent `oplog` collection. For this purpose, the backup selected as the starting point of recovery is updated with entries from the cluster `oplog`.
+
+> For example, if a backup operation completed on August 10, 2020, at 12:00:00 UTC, it is now August 15, 2020, 19:00:00 UTC, and the latest `oplog` was saved on August 15, 2020, at 18:50:00 UTC, the cluster can be restored to any of its states starting from August 10, 2020, 12:00:01 UTC through August 15, 2020, 18:50:00 UTC.
+
+The `oplog` is archived in a running cluster a few times a minute and then uploaded to object storage.
+
+It takes some time to create and upload an `oplog` archive to object storage. This is why the cluster state stored in the object storage may differ from the actual one.
+
+{% note warning %}
+
+PITR is not supported for clusters with [sharding](../tutorials/sharding.md) enabled. These clusters can only be restored to the point in time when the chosen backup was created.
+
+{% endnote %}
+
+PITR only works for clusters with a single replica set. Therefore, to use PITR, you must disable the [sharding](../tutorials/sharding.md) mechanism in the cluster.
+
+When restored to the current point in time, the new cluster will reflect the state of:
+
+* Existing cluster at the time of recovery.
+* Deleted cluster at the time of archiving the last `oplog`.

@@ -4640,6 +4640,20 @@ apiPlayground:
               Acceptable values are 0 to 2147483647000, inclusive.
             type: string
             format: int64
+          autovacuumVacuumThreshold:
+            description: |-
+              **string** (int64)
+              Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
+          autovacuumAnalyzeThreshold:
+            description: |-
+              **string** (int64)
+              Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
       PostgresqlConfig14_1C:
         type: object
         properties:
@@ -5618,6 +5632,20 @@ apiPlayground:
               **string** (int64)
               in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
               Acceptable values are 0 to 2147483647000, inclusive.
+            type: string
+            format: int64
+          autovacuumVacuumThreshold:
+            description: |-
+              **string** (int64)
+              Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
+          autovacuumAnalyzeThreshold:
+            description: |-
+              **string** (int64)
+              Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
       PostgresqlConfig15:
@@ -6609,6 +6637,20 @@ apiPlayground:
               **boolean**
               If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false.
             type: boolean
+          autovacuumVacuumThreshold:
+            description: |-
+              **string** (int64)
+              Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
+          autovacuumAnalyzeThreshold:
+            description: |-
+              **string** (int64)
+              Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
       PostgresqlConfig15_1C:
         type: object
         properties:
@@ -7604,6 +7646,20 @@ apiPlayground:
               **boolean**
               If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false.
             type: boolean
+          autovacuumVacuumThreshold:
+            description: |-
+              **string** (int64)
+              Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
+          autovacuumAnalyzeThreshold:
+            description: |-
+              **string** (int64)
+              Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
       PostgresqlConfig16:
         type: object
         properties:
@@ -8593,6 +8649,20 @@ apiPlayground:
               **boolean**
               If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false.
             type: boolean
+          autovacuumVacuumThreshold:
+            description: |-
+              **string** (int64)
+              Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
+          autovacuumAnalyzeThreshold:
+            description: |-
+              **string** (int64)
+              Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
       PostgresqlConfig16_1C:
         type: object
         properties:
@@ -9588,6 +9658,20 @@ apiPlayground:
               **boolean**
               If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false.
             type: boolean
+          autovacuumVacuumThreshold:
+            description: |-
+              **string** (int64)
+              Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
+          autovacuumAnalyzeThreshold:
+            description: |-
+              **string** (int64)
+              Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
       PostgresqlConfig17:
         type: object
         properties:
@@ -10587,6 +10671,20 @@ apiPlayground:
               **string** (int64)
               in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
               Acceptable values are 0 to 2147483647000, inclusive.
+            type: string
+            format: int64
+          autovacuumVacuumThreshold:
+            description: |-
+              **string** (int64)
+              Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
+          autovacuumAnalyzeThreshold:
+            description: |-
+              **string** (int64)
+              Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+              Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
       PostgresqlConfig17_1C:
@@ -11596,6 +11694,20 @@ apiPlayground:
               Acceptable values are 0 to 2147483647000, inclusive.
             type: string
             format: int64
+          autovacuumVacuumThreshold:
+            description: |-
+              **string** (int64)
+              Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
+          autovacuumAnalyzeThreshold:
+            description: |-
+              **string** (int64)
+              Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
       PostgresqlConfig18:
         type: object
         properties:
@@ -12602,6 +12714,27 @@ apiPlayground:
               **boolean**
               Enables or disables vacuum to try to truncate off any empty pages at the end of the table. Default is true.
             type: boolean
+          autovacuumVacuumThreshold:
+            description: |-
+              **string** (int64)
+              Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
+          autovacuumAnalyzeThreshold:
+            description: |-
+              **string** (int64)
+              Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
+          maxActiveReplicationOrigins:
+            description: |-
+              **string** (int64)
+              Maximum number of replication origins that can be tracked simultaneously, effectively limiting the number of logical replication subscriptions that can be created on the server. Changing this parameter requires a server restart.
+              Acceptable values are 20 to 100, inclusive.
+            type: string
+            format: int64
       PostgresqlConfig18_1C:
         type: object
         properties:
@@ -13614,6 +13747,27 @@ apiPlayground:
               **boolean**
               Enables or disables vacuum to try to truncate off any empty pages at the end of the table. Default is true.
             type: boolean
+          autovacuumVacuumThreshold:
+            description: |-
+              **string** (int64)
+              Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
+          autovacuumAnalyzeThreshold:
+            description: |-
+              **string** (int64)
+              Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
+          maxActiveReplicationOrigins:
+            description: |-
+              **string** (int64)
+              Maximum number of replication origins that can be tracked simultaneously, effectively limiting the number of logical replication subscriptions that can be created on the server. Changing this parameter requires a server restart.
+              Acceptable values are 20 to 100, inclusive.
+            type: string
+            format: int64
       ConnectionPoolerConfig:
         type: object
         properties:
@@ -14844,7 +14998,9 @@ The maximum string length in characters is 50. ||
       "passwordEncryption": "string",
       "autoExplainLogFormat": "string",
       "idleSessionTimeout": "string",
-      "checkpointWarning": "string"
+      "checkpointWarning": "string",
+      "autovacuumVacuumThreshold": "string",
+      "autovacuumAnalyzeThreshold": "string"
     },
     "postgresqlConfig_14_1c": {
       "maxConnections": "string",
@@ -15011,7 +15167,9 @@ The maximum string length in characters is 50. ||
       "passwordEncryption": "string",
       "autoExplainLogFormat": "string",
       "idleSessionTimeout": "string",
-      "checkpointWarning": "string"
+      "checkpointWarning": "string",
+      "autovacuumVacuumThreshold": "string",
+      "autovacuumAnalyzeThreshold": "string"
     },
     "postgresqlConfig_15": {
       "maxConnections": "string",
@@ -15179,7 +15337,9 @@ The maximum string length in characters is 50. ||
       "autoExplainLogFormat": "string",
       "idleSessionTimeout": "string",
       "checkpointWarning": "string",
-      "pgHintPlanHintsAnywhere": "boolean"
+      "pgHintPlanHintsAnywhere": "boolean",
+      "autovacuumVacuumThreshold": "string",
+      "autovacuumAnalyzeThreshold": "string"
     },
     "postgresqlConfig_15_1c": {
       "maxConnections": "string",
@@ -15349,7 +15509,9 @@ The maximum string length in characters is 50. ||
       "autoExplainLogFormat": "string",
       "idleSessionTimeout": "string",
       "checkpointWarning": "string",
-      "pgHintPlanHintsAnywhere": "boolean"
+      "pgHintPlanHintsAnywhere": "boolean",
+      "autovacuumVacuumThreshold": "string",
+      "autovacuumAnalyzeThreshold": "string"
     },
     "postgresqlConfig_16": {
       "maxConnections": "string",
@@ -15517,7 +15679,9 @@ The maximum string length in characters is 50. ||
       "autoExplainLogFormat": "string",
       "idleSessionTimeout": "string",
       "checkpointWarning": "string",
-      "pgHintPlanHintsAnywhere": "boolean"
+      "pgHintPlanHintsAnywhere": "boolean",
+      "autovacuumVacuumThreshold": "string",
+      "autovacuumAnalyzeThreshold": "string"
     },
     "postgresqlConfig_16_1c": {
       "maxConnections": "string",
@@ -15687,7 +15851,9 @@ The maximum string length in characters is 50. ||
       "autoExplainLogFormat": "string",
       "idleSessionTimeout": "string",
       "checkpointWarning": "string",
-      "pgHintPlanHintsAnywhere": "boolean"
+      "pgHintPlanHintsAnywhere": "boolean",
+      "autovacuumVacuumThreshold": "string",
+      "autovacuumAnalyzeThreshold": "string"
     },
     "postgresqlConfig_17": {
       "maxConnections": "string",
@@ -15857,7 +16023,9 @@ The maximum string length in characters is 50. ||
       "maxWalSenders": "string",
       "maxReplicationSlots": "string",
       "idleSessionTimeout": "string",
-      "checkpointWarning": "string"
+      "checkpointWarning": "string",
+      "autovacuumVacuumThreshold": "string",
+      "autovacuumAnalyzeThreshold": "string"
     },
     "postgresqlConfig_17_1c": {
       "maxConnections": "string",
@@ -16029,7 +16197,9 @@ The maximum string length in characters is 50. ||
       "maxWalSenders": "string",
       "maxReplicationSlots": "string",
       "idleSessionTimeout": "string",
-      "checkpointWarning": "string"
+      "checkpointWarning": "string",
+      "autovacuumVacuumThreshold": "string",
+      "autovacuumAnalyzeThreshold": "string"
     },
     "postgresqlConfig_18": {
       "maxConnections": "string",
@@ -16200,7 +16370,10 @@ The maximum string length in characters is 50. ||
       "maxReplicationSlots": "string",
       "idleSessionTimeout": "string",
       "checkpointWarning": "string",
-      "vacuumTruncate": "boolean"
+      "vacuumTruncate": "boolean",
+      "autovacuumVacuumThreshold": "string",
+      "autovacuumAnalyzeThreshold": "string",
+      "maxActiveReplicationOrigins": "string"
     },
     "postgresqlConfig_18_1c": {
       "maxConnections": "string",
@@ -16373,7 +16546,10 @@ The maximum string length in characters is 50. ||
       "maxReplicationSlots": "string",
       "idleSessionTimeout": "string",
       "checkpointWarning": "string",
-      "vacuumTruncate": "boolean"
+      "vacuumTruncate": "boolean",
+      "autovacuumVacuumThreshold": "string",
+      "autovacuumAnalyzeThreshold": "string",
+      "maxActiveReplicationOrigins": "string"
     },
     // end of the list of possible fields
     "poolerConfig": {
@@ -18697,6 +18873,16 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfig14_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig14_1C}
@@ -19147,6 +19333,16 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfig15 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig15}
@@ -19605,6 +19801,16 @@ Acceptable values are 0 to 2147483647000, inclusive. ||
 || pgHintPlanHintsAnywhere | **boolean**
 
 If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfig15_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig15_1C}
@@ -20065,6 +20271,16 @@ Acceptable values are 0 to 2147483647000, inclusive. ||
 || pgHintPlanHintsAnywhere | **boolean**
 
 If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfig16 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig16}
@@ -20528,6 +20744,16 @@ Acceptable values are 0 to 2147483647000, inclusive. ||
 || pgHintPlanHintsAnywhere | **boolean**
 
 If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfig16_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig16_1C}
@@ -20993,6 +21219,16 @@ Acceptable values are 0 to 2147483647000, inclusive. ||
 || pgHintPlanHintsAnywhere | **boolean**
 
 If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfig17 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig17}
@@ -21462,6 +21698,16 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfig17_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig17_1C}
@@ -21933,6 +22179,16 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfig18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18}
@@ -22405,6 +22661,21 @@ Acceptable values are 0 to 2147483647000, inclusive. ||
 || vacuumTruncate | **boolean**
 
 Enables or disables vacuum to try to truncate off any empty pages at the end of the table. Default is true. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| maxActiveReplicationOrigins | **string** (int64)
+
+Maximum number of replication origins that can be tracked simultaneously, effectively limiting the number of logical replication subscriptions that can be created on the server. Changing this parameter requires a server restart.
+
+Acceptable values are 20 to 100, inclusive. ||
 |#
 
 ## PostgresqlConfig18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig18_1C}
@@ -22879,6 +23150,21 @@ Acceptable values are 0 to 2147483647000, inclusive. ||
 || vacuumTruncate | **boolean**
 
 Enables or disables vacuum to try to truncate off any empty pages at the end of the table. Default is true. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| maxActiveReplicationOrigins | **string** (int64)
+
+Maximum number of replication origins that can be tracked simultaneously, effectively limiting the number of logical replication subscriptions that can be created on the server. Changing this parameter requires a server restart.
+
+Acceptable values are 20 to 100, inclusive. ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig}
@@ -25133,7 +25419,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -25299,7 +25587,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -25465,7 +25755,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         }
       },
       "postgresqlConfig_14_1c": {
@@ -25634,7 +25926,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -25801,7 +26095,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -25968,7 +26264,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         }
       },
       "postgresqlConfig_15": {
@@ -26138,7 +26436,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -26306,7 +26606,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -26474,7 +26776,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         }
       },
       "postgresqlConfig_15_1c": {
@@ -26646,7 +26950,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -26816,7 +27122,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -26986,7 +27294,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         }
       },
       "postgresqlConfig_16": {
@@ -27156,7 +27466,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -27324,7 +27636,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -27492,7 +27806,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         }
       },
       "postgresqlConfig_16_1c": {
@@ -27664,7 +27980,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -27834,7 +28152,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -28004,7 +28324,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         }
       },
       "postgresqlConfig_17": {
@@ -28176,7 +28498,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -28346,7 +28670,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -28516,7 +28842,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         }
       },
       "postgresqlConfig_17_1c": {
@@ -28690,7 +29018,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -28862,7 +29192,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -29034,7 +29366,9 @@ Acceptable values are 1 to 24, inclusive. ||
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         }
       },
       "postgresqlConfig_18": {
@@ -29207,7 +29541,10 @@ Acceptable values are 1 to 24, inclusive. ||
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "vacuumTruncate": "boolean"
+          "vacuumTruncate": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string",
+          "maxActiveReplicationOrigins": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -29378,7 +29715,10 @@ Acceptable values are 1 to 24, inclusive. ||
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "vacuumTruncate": "boolean"
+          "vacuumTruncate": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string",
+          "maxActiveReplicationOrigins": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -29549,7 +29889,10 @@ Acceptable values are 1 to 24, inclusive. ||
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "vacuumTruncate": "boolean"
+          "vacuumTruncate": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string",
+          "maxActiveReplicationOrigins": "string"
         }
       },
       "postgresqlConfig_18_1c": {
@@ -29724,7 +30067,10 @@ Acceptable values are 1 to 24, inclusive. ||
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "vacuumTruncate": "boolean"
+          "vacuumTruncate": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string",
+          "maxActiveReplicationOrigins": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -29897,7 +30243,10 @@ Acceptable values are 1 to 24, inclusive. ||
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "vacuumTruncate": "boolean"
+          "vacuumTruncate": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string",
+          "maxActiveReplicationOrigins": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -30070,7 +30419,10 @@ Acceptable values are 1 to 24, inclusive. ||
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "vacuumTruncate": "boolean"
+          "vacuumTruncate": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string",
+          "maxActiveReplicationOrigins": "string"
         }
       },
       // end of the list of possible fields
@@ -32686,6 +33038,16 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet14_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet14_1C}
@@ -33152,6 +33514,16 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet15 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15}
@@ -33626,6 +33998,16 @@ Acceptable values are 0 to 2147483647000, inclusive. ||
 || pgHintPlanHintsAnywhere | **boolean**
 
 If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet15_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15_1C}
@@ -34102,6 +34484,16 @@ Acceptable values are 0 to 2147483647000, inclusive. ||
 || pgHintPlanHintsAnywhere | **boolean**
 
 If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet16 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16}
@@ -34581,6 +34973,16 @@ Acceptable values are 0 to 2147483647000, inclusive. ||
 || pgHintPlanHintsAnywhere | **boolean**
 
 If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet16_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16_1C}
@@ -35062,6 +35464,16 @@ Acceptable values are 0 to 2147483647000, inclusive. ||
 || pgHintPlanHintsAnywhere | **boolean**
 
 If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet17 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17}
@@ -35547,6 +35959,16 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet17_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17_1C}
@@ -36034,6 +36456,16 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18}
@@ -36522,6 +36954,21 @@ Acceptable values are 0 to 2147483647000, inclusive. ||
 || vacuumTruncate | **boolean**
 
 Enables or disables vacuum to try to truncate off any empty pages at the end of the table. Default is true. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| maxActiveReplicationOrigins | **string** (int64)
+
+Maximum number of replication origins that can be tracked simultaneously, effectively limiting the number of logical replication subscriptions that can be created on the server. Changing this parameter requires a server restart.
+
+Acceptable values are 20 to 100, inclusive. ||
 |#
 
 ## PostgresqlConfigSet18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18_1C}
@@ -37012,6 +37459,21 @@ Acceptable values are 0 to 2147483647000, inclusive. ||
 || vacuumTruncate | **boolean**
 
 Enables or disables vacuum to try to truncate off any empty pages at the end of the table. Default is true. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| maxActiveReplicationOrigins | **string** (int64)
+
+Maximum number of replication origins that can be tracked simultaneously, effectively limiting the number of logical replication subscriptions that can be created on the server. Changing this parameter requires a server restart.
+
+Acceptable values are 20 to 100, inclusive. ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig2}

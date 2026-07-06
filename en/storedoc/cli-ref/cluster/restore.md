@@ -134,6 +134,16 @@ Start time for the daily backup in UTC timezone. Format: HH:MM:SS ||
 
 Retain period of automatically created backup in days. ||
 || `--performance-diagnostics` | Enable or disable performance diagnostics ||
+|| `--autocompact` | Enable or disable autocompact ||
+|| `--autocompact-bloat-percent` | `float`
+
+Percent of free space required before autocompact is triggered ||
+|| `--autocompact-target-free-space` | `int`
+
+Target free space in megabytes ||
+|| `--autocompact-compaction-type` | `string`
+
+Compaction type Values: 'compaction-type-ignore-primary', 'compaction-type-switch-primary' ||
 || `--datalens-access` | Allow access for DataLens ||
 || `--websql-access` | Allow access for Web SQL ||
 || `--datatransfer-access` | Allow access for DataTransfer ||

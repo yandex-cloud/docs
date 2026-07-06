@@ -5,7 +5,7 @@ description: Follow this guide to manage {{ CK }} hosts.
 
 # Managing {{ CK }} hosts
 
-After creating a cluster with separate {{ CK }} hosts, you can:
+When managing {{ CK }} hosts, you can do the following:
 
 * [Get a list of hosts](#list-hosts).
 * [Create a host](#add-ck).
@@ -55,7 +55,42 @@ For more information about {{ CK }} hosts, see [{#T}](../concepts/coordination-s
 
 ## Converting non-replicated tables to replicated ones {#replicated-tables}
 
-To automatically convert non-replicated [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) tables to [replicated](../concepts/replication.md#replicated-tables) [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication) tables, enable the **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}** setting when [activating the coordination service](update.md#enable-coordination).
+You can convert MergeTree-based non-replicated tables to ReplicatedMergeTree-based [replicated](../concepts/replication.md#replicated-tables) ones:
+
+* Automatically, when the coordination service gets activated.
+* Using SQL, after the coordination service gets activated.
+
+For more on table engines, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family). 
+
+{% list tabs group=instructions %}
+
+- Automatically {#auto}
+
+  To automatically convert non-replicated tables to replicated ones, enable table conversion when [activating the coordination service](update.md#enable-coordination).
+
+- SQL {#sql}
+
+  To convert a non-replicated table to a replicated one:
+
+  1. Make the table unusable:
+    
+      ```sql
+      DETACH TABLE <table_name>;
+      ```
+
+  1. Convert the table to a replicated one:
+
+      ```sql
+      ATTACH TABLE <table_name> AS REPLICATED;
+      ```
+
+  1. Restore and synchronize the state of your table replica in {{ CK }}:
+
+      ```sql
+      SYSTEM RESTORE REPLICA <table_name>;
+      ```
+
+{% endlist %}
 
 ## Deleting a {{ CK }} host {#delete-host}
 

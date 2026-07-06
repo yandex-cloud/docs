@@ -111,8 +111,6 @@ For clusters running an unsupported [DBMS version](../concepts/update-policy.md#
 
 {% endnote %}
 
-Restoring a cluster from a backup creates a new cluster with that backup’s data. If your cloud lacks [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore your data from the backup. The average backup recovery speed is 10 MBps per database core.
-
 You can restore an individual [shard](../concepts/sharding.md) or the whole cluster.
 
 

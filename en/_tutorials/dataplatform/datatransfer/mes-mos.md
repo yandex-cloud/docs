@@ -1,7 +1,7 @@
 # Migrating data from {{ ES }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 
 
-You can set up data transfer from {{ ES }} to {{ mos-name }} indexes using {{ data-transfer-name }}. Follow these steps:
+You can set up data transfer from {{ ES }} to {{ mos-name }} indexes using {{ data-transfer-name }}. Proceed as follows:
 
 1. [Configure the source cluster](#configure-source).
 1. [Prepare your test data](#prepare-data).
@@ -100,7 +100,7 @@ You can deliver data from the {{ ES }} cluster as `admin` with the `superuser` r
     curl --user <username_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
          --request PUT 'https://<address_of_{{ ES }}_host_with_Data_role>:{{ port-mes }}/people' && \
-    curl --user <username_in_source_cluster>:<user_password_in_source_cluster> \
+    curl --user <user_name_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
          --request PUT 'https://<address_of_{{ ES }}_host_with_Data_role>:{{ port-mes }}/people/_mapping?pretty' \
          --data'
@@ -116,7 +116,7 @@ You can deliver data from the {{ ES }} cluster as `admin` with the `superuser` r
 1. Populate the test index with data:
 
     ```bash
-    curl --user <username_in_source_cluster>:<user_password_in_source_cluster> \
+    curl --user <user_name_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
          --request POST 'https://<address_of_{{ ES }}_host_with_Data_role>:{{ port-mes }}/people/_doc/?pretty' \
          --data'
@@ -156,7 +156,7 @@ You can deliver data from the {{ ES }} cluster as `admin` with the `superuser` r
 
     1. [Create a user](../../../managed-opensearch/operations/cluster-users.md) and assign this role to them.
 
-## Prepare and activate your transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 1. [Create an endpoint](../../../data-transfer/operations/endpoint/index.md#create) for the [{{ ES }} source](../../../data-transfer/operations/endpoint/source/elasticsearch.md).
 

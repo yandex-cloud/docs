@@ -1,5 +1,5 @@
 ---
-title: How to use {{ YZ }} in {{ mgp-full-name }}
+title: How to use the {{ YZ }} extension in {{ mgp-full-name }}
 description: This guide describes how to use hybrid storage in {{ mgp-name }}.
 ---
 
@@ -9,7 +9,7 @@ The {{ YZ }} extension allows you to use hybrid storage in a {{ mgp-name }} clus
 
 You can [export](#offload-relation) rarely used tables of this type to cold storage and continue working with them as with ordinary tables. You can [upload tables back](#load-relation) to the cluster storage if you need to.
 
-For more information about {{ YZ }} and storage types, see [Hybrid storage](../../concepts/hybrid-storage.md).
+For more information about storage types and the {{ YZ }} extension, see [Hybrid storage](../../concepts/hybrid-storage.md).
 
 ## Installing {{ YZ }} in a {{ mgp-name }} cluster {#install-extension}
 

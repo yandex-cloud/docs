@@ -41,7 +41,7 @@ The solution also provides self-service tools for managing clusters:
 * General-purpose database replacement: {{ mgp-name }} can be used as a drop-in alternative to Oracle DB, Microsoft SQL Server, or IBM DB2. It handles not only analytical workloads but also numerous short [OLTP queries](https://en.wikipedia.org/wiki/Point-in-time_recovery) typical of {{ PG }}.
 * High-performance alternative to {{ PG }}: Because databases available in {{ mgp-name }} are based on {{ PG }}, it supports many familiar {{ PG }} tools, such as JDBC and ODBC drivers, and conforms to the ANSI SQL:2008 standard.
 
-## See also {see-also}
+## Useful links {see-also}
 
 * [{{ GP }} official guides](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/landing-index.html)
 * [{{ CB }} official guides](https://cloudberry.apache.org/docs/)

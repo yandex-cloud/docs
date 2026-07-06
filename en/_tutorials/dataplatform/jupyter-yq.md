@@ -60,14 +60,14 @@ To configure the `yandex_query_magic` package, you can use the `yq_settings` lin
 
 Available parameters:
 
-* `--folder-id <folder_id>`: ID of the folder used to run {{ yq-name }} queries. The folder hosting a VM instance with {{ jlab }} is used by default.
+* `--folder-id <folder_id>`: ID of the folder to run {{ yq-name }} queries. The folder hosting a VM instance with {{ jlab }} is used by default.
 * `--vm-auth`: Authentication with the VM account key. For more information, see [{#T}](../../compute/operations/vm-connect/auth-inside-vm.md).
 * `--env-auth <environment_variable>`: Authentication with the authorized key kept in the environment variable. Use this mode when you cannot access the file system of the computer running {{ jlab }}. For example, in [{{ ml-platform-full-name }}](../../datasphere/concepts/index.md). In which case create a [{{ ml-platform-name }} secret](../../datasphere/operations/data/secrets.md) and specify its name in the `--env-auth` parameter.
 * `--sa-file-auth <authorized_key>`: Authentication with authorized keys. For more information, see [{#T}](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key).
 
 ### Testing the package {#check-installation}
 
-You can use the `%yq line magic` command with a single-line SQL query. In this case, the `%yq` keyword is used to execute the query.
+You can use the `%yq line magic` command with a single-line SQL query. In this case, the `%yq` keyword is used to run the query.
 
 If {{ jlab }} is running on a VM with an [attached service account](../../compute/operations/vm-connect/auth-inside-vm), upload the extension to {{ jlab }}:
 
@@ -79,7 +79,7 @@ If {{ jlab }} is running on a VM with an [attached service account](../../comput
 Where:
 
 * `%yq`: {{ jlab }} magic name.
-* `SELECT "Hello, world!"`: Text of query to {{ yq-name }}.
+* `SELECT "Hello, world!"`: Text of the query to {{ yq-name }}.
 
 If the VM does not have any attached service accounts:
 
@@ -119,7 +119,7 @@ GROUP BY col1
 
 Where:
 
-* `--folder-id`: ID of the folder used to run {{ yq-name }} queries. The default folder is the one specified earlier through `%yq_settings`. If not specified, it defaults to the folder in which the VM is running.
+* `--folder-id`: ID of the folder to run {{ yq-name }} queries. The default folder is the one specified earlier through `%yq_settings`. If not specified, the folder in which the VM is running is used.
 * `--name`: Query name.
 * `--description`: Query description.
 * `--raw-results`: Returns the unprocessed results of a query run in {{ yq-name }}. For the format specification, refer to [{#T}](../../query/api/yql-json-conversion-rules.md).

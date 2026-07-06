@@ -14,7 +14,7 @@ For DB hosts, you can monitor metrics specific to their DBMS type. For example, 
 
 You can monitor metrics with a minimum granularity of five seconds.
 
-For more information, see [Monitoring the cluster and host state](../../managed-greenplum/operations/monitoring.md).
+For more information, see [Cluster and host state monitoring](../../managed-greenplum/operations/monitoring.md).
 
 #### Which charts reflect the state of hybrid storage? {#hybrid-storage-monitoring}
 

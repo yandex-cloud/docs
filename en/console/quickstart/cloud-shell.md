@@ -9,7 +9,7 @@ With {{ cloud-shell-name }}, you can use [{{ yandex-cloud }} CLI](../../cli/) an
 
 To get started with {{ cloud-shell-name }}:
 
-1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }}, or sign up if you have not already.
 
 1. On the **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** page, make sure you have a billing account linked and it has the `ACTIVE` or `TRIAL_ACTIVE` [status](../../billing/concepts/billing-account-statuses.md). If you do not have a billing account, [create one](../../billing/quickstart/index.md) and [link](../../billing/operations/pin-cloud.md) a cloud to it.
 
@@ -46,7 +46,7 @@ To get started with {{ cloud-shell-name }}:
     {% endnote %}
 
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Managing {{ cloud-shell-name }}](../operations/cloud-shell-options.md)
 * [{{ cloud-shell-name }} limits](../concepts/cloud-shell/limits.md)

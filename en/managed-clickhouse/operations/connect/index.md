@@ -97,7 +97,7 @@ To use an encrypted connection, get an SSL certificate:
 * [Connect](clients.md) to the cluster using a browser, graphical IDE, or CLI.
 * [Integrate](code-examples.md) the cluster connection into your application code.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{{ CH }} connection FAQ](../../qa/connection.md)
 

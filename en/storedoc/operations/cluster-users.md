@@ -93,7 +93,7 @@ You can add and remove users, manage individual user settings, and change databa
 
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
 
-  1. Enter the database user’s name and password.
+  1. Enter the database user name and password.
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
 
@@ -137,7 +137,7 @@ You can add and remove users, manage individual user settings, and change databa
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Add the `yandex_mdb_mongodb_user` resource:
 
@@ -207,7 +207,7 @@ You can add and remove users, manage individual user settings, and change databa
      * `permissions`: User permissions:
 
        * `databaseName`: Name of the database the user can access.
-       * `roles`: Array of user roles. Each role is provided as a separate string in the array. For a list of possible values, see [Users and roles](../concepts/users-and-roles.md).
+       * `roles`: Array of user roles. Each role is provided as a separate string in the array. For the list of possible values, see [Users and roles](../concepts/users-and-roles.md).
 
        In the `permissions` array, add a separate element with permission settings for each database.
 
@@ -260,7 +260,7 @@ You can add and remove users, manage individual user settings, and change databa
      * `permissions`: User permissions:
 
        * `database_name`: Name of the database the user can access.
-       * `roles`: Array of user roles. Each role is provided as a separate string in the array. For a list of possible values, see [Users and roles](../concepts/users-and-roles.md).
+       * `roles`: Array of user roles. Each role is provided as a separate string in the array. For the list of possible values, see [Users and roles](../concepts/users-and-roles.md).
 
        In the `permissions` array, add a separate element with permission settings for each database.
 
@@ -270,7 +270,7 @@ You can add and remove users, manage individual user settings, and change databa
 
 {% endlist %}
 
-## Updating user settings {#updateuser}
+## Changing the user password and role {#updateuser}
 
 {% list tabs group=instructions %}
 
@@ -281,9 +281,16 @@ You can add and remove users, manage individual user settings, and change databa
 
   1. Click the cluster name and open the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}** tab.
 
+  
   1. To change a user’s password, locate the user in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in their row, and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
+  
+     * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Set your own password. It must be from 8 to 128 characters long.
+     * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Generate a password using [{{ connection-manager-name }}](cluster-create.md#conn-man).
 
-     {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+        To view the new password, navigate to the cluster page, select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
+
+     To view passwords, you need the `lockbox.payloadViewer` role.
+
 
   1. To change the user's [roles](../concepts/users-and-roles.md):
 
@@ -428,7 +435,7 @@ You can add and remove users, manage individual user settings, and change databa
      * `permissions`: User permissions:
 
        * `database_name`: Name of the database the user can access.
-       * `roles`: Array of user roles. Each role is provided as a separate string in the array. Possible values are listed in [Users and roles](../concepts/users-and-roles.md).
+       * `roles`: Array of user roles. Each role is provided as a separate string in the array. For the list of possible values, see [Users and roles](../concepts/users-and-roles.md).
  
      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the username from the [list of cluster users](#list-users).
 
@@ -486,7 +493,7 @@ You can add and remove users, manage individual user settings, and change databa
      * `permissions`: User permissions:
 
        * `database_name`: Name of the database the user can access.
-       * `roles`: Array of user roles. Each role is provided as a separate string in the array. Possible values are listed in [Users and roles](../concepts/users-and-roles.md).
+       * `roles`: Array of user roles. Each role is provided as a separate string in the array. For the list of possible values, see [Users and roles](../concepts/users-and-roles.md).
 
      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the username from the [list of cluster users](#list-users).
 
@@ -524,7 +531,7 @@ You can add and remove users, manage individual user settings, and change databa
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Delete the `yandex_mdb_mongodb_user` resource with the target user’s description.
 

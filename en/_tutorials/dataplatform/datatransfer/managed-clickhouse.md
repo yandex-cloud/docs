@@ -18,9 +18,9 @@ For more information, see [{#T}](../../../data-transfer/concepts/use-cases.md).
 
 ### Required paid resources {#paid-resources}
 
-* {{ mch-name }} cluster: Use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../../managed-clickhouse/pricing.md)).
+* {{ mch-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../../managed-clickhouse/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
 ## Transferring data {#data-transfer}
@@ -34,7 +34,7 @@ For more information, see [{#T}](../../../data-transfer/concepts/use-cases.md).
 
         1. [Create a security group](../../../vpc/operations/security-group-create.md) and [configure it](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
-        1. [Create a {{ mch-name }} target cluster](../../../managed-clickhouse/operations/cluster-create.md) with the computing and storage capacity matching the source database’s environment.
+        1. [Create a {{ mch-name }} target cluster](../../../managed-clickhouse/operations/cluster-create.md) whose computing and storage capacity match those of the source database environment.
 
             When creating a cluster, specify the security group you created earlier.
 
@@ -105,13 +105,13 @@ For more information, see [{#T}](../../../data-transfer/concepts/use-cases.md).
             }
             ```
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -119,14 +119,14 @@ For more information, see [{#T}](../../../data-transfer/concepts/use-cases.md).
 
             {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
-            Once created, your transfer will be activated automatically.
+            The transfer will be activated automatically upon creation.
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-1. Check that the data has been transferred from the source {{ CH }} cluster to the {{ mch-name }} database:
+1. Make sure the data from the {{ CH }} source cluster has been transferred to the {{ mch-name }} database:
 
     {% list tabs group=instructions %}
     
@@ -167,7 +167,7 @@ For more information, see [{#T}](../../../data-transfer/concepts/use-cases.md).
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+To minimize resource consumption, delete the resources you no longer need:
 
 {% list tabs group=instructions %}
 

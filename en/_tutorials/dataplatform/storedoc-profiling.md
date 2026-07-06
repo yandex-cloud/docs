@@ -1,4 +1,4 @@
-# {{ MG }} performance analysis and tuning
+# {{ MG }} performance analysis and optimization
 
 
 In this tutorial, you will learn how to:
@@ -17,9 +17,9 @@ The following are tips for diagnosing and resolving these issues.
 
 ## Getting started {#before-start}
 
-1. Install the `mongostat` and `mongotop` [utilities](../../storedoc/operations/tools.md#monitoring-tools) on an external host with network access to your {{ MG }} host (see [{#T}](../../storedoc/operations/connect/index.md)) to receive {{ MG }} performance data.
+1. Install the {{ MG }}, `mongostat`, and `mongotop` performance [tools](../../storedoc/operations/tools.md#monitoring-tools) on an external host that has network access to your {{ MG }} host. For more details, see [this guide](../../storedoc/operations/connect/index.md).
 1. Determine which databases need to be checked for issues.
-1. To use `mongostat` and `mongotop`, [create a {{ MG }} user](../../storedoc/operations/cluster-users.md#adduser) with the [`mdbMonitor`](../../storedoc/concepts/users-and-roles.md#mdbMonitor) role for these databases.
+1. [Create a {{ MG }} user](../../storedoc/operations/cluster-users.md#adduser) with the [`mdbMonitor`](../../storedoc/concepts/users-and-roles.md#mdbMonitor) role for these databases. You need to do this in order to use `mongostat` and `mongotop`.
 
 ## Diagnosing resource shortages {#cpu-io-deficit}
 
@@ -169,7 +169,7 @@ The detected locks indicate unoptimized queries. Try [optimizing the problematic
 
 If a cluster shows poor performance when its free disk space is limited, one or more cluster hosts may have [switched to "read-only" mode](../../storedoc/concepts/storage.md#manage-storage-space).
 
-The amount of used disk space is displayed on the **Disk space usage per host, top 5 hosts** graphs on the [cluster monitoring](../../storedoc/operations/monitoring.md#cluster) page.
+You can check the amount of used storage space on the [cluster monitoring](../../storedoc/operations/monitoring.md#cluster) page, in the **Disk space usage per host** and **top 5 hosts** graphs.
 
 [Configure an alert](../../storedoc/operations/monitoring.md#read-only-alert) to track storage use on cluster hosts.
 

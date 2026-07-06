@@ -45,6 +45,8 @@
 }%%
 flowchart BT
     vpc.publicAdmin
+    managed-mongodb.clusters.connector["`managed-mongodb.
+    clusters.connector`"]
     managed-mongodb.viewer --> managed-mongodb.switcher
     managed-mongodb.maintenanceTask.viewer --> managed-mongodb.viewer
     managed-mongodb.switcher --> managed-mongodb.editor
@@ -69,6 +71,10 @@ flowchart BT
 ```
 
 ### Сервисные роли {#service-roles}
+
+#### managed-mongodb.clusters.connector {#managed-mongodb-clusters-connector}
+
+Роль `managed-mongodb.clusters.connector` позволяет [пользователям](../../iam/concepts/users/accounts.md) Yandex Cloud подключаться к базам данных в [кластерах Yandex StoreDoc](../concepts/index.md) с помощью механизмов сервиса [Yandex Identity and Access Management](../../iam/index.md).
 
 #### managed-mongodb.auditor {#managed-mongodb-auditor}
 

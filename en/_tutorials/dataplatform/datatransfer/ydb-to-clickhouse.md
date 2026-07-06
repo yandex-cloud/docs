@@ -6,8 +6,8 @@
 To transfer data:
 
 1. [Prepare your test data](#prepare-data).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -19,7 +19,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * In serverless mode, you pay for data operations as well as the amount of stored data and backups.
     * In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
-* {{ mch-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../../managed-clickhouse/pricing.md)).
+* {{ mch-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../../managed-clickhouse/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
@@ -39,7 +39,7 @@ Set up your infrastructure:
 
         {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
-    1. If using security groups, make sure they are configured correctly and allow connections to your [{{ mch-name }} cluster](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
+    1. If there are security groups in your cluster, make sure they are configured correctly and allow connections to the [{{ mch-name }} cluster](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
     
     1. [Create a service account](../../../iam/operations/sa/create.md#create-sa) named `ydb-account` with the `ydb.editor` role. The transfer will use it to access the database.
@@ -118,7 +118,7 @@ Set up your infrastructure:
         (5, "Viktor");
     ```
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 {% list tabs group=instructions %}
 
@@ -167,7 +167,7 @@ Set up your infrastructure:
 
 {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 Make sure the transfer works correctly by testing copying and replication.
 
@@ -238,7 +238,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
 {% note info %}
 
-Before deleting the resources, [deactivate the transfer](../../../data-transfer/operations/transfer.md#deactivate).
+Before deleting any resources, [deactivate the transfer](../../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 

@@ -8,6 +8,7 @@ A set of methods for managing PostgreSQL Cluster backup retention policies.
 
 #|
 ||Method | Description ||
+|| [Get](get.md) | Get a retention policy by ID. ||
 || [List](list.md) | List all retention policies. ||
 || [Create](create.md) | Add a new retention policy. ||
 || [Delete](delete.md) | Delete retention policy. ||

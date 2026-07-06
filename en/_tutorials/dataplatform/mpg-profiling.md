@@ -1,4 +1,4 @@
-# {{ mpg-name }} performance analysis and tuning
+# {{ mpg-name }} performance analysis and optimization
 
 {{ mpg-name }} cluster performance decline most often stems from one of the following causes:
 
@@ -41,7 +41,7 @@ You can identify problematic queries using the following two methods:
 
     You will see a list of queries running on the server. Look for the queries with a high `duration` value.
 
-    To learn more about this output, see [this {{ PG }} article](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
+    To learn more about the output, see [this {{ PG }} article](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
 
 * [Retrieve and analyze query statistics](../../managed-postgresql/operations/performance-diagnostics.md#get-queries) using the {{ mpg-name }} built-in diagnostics tool.
 
@@ -75,7 +75,7 @@ There are several ways to optimize problematic queries:
 
     If needed, increase `default_statistics_target` in the [DBMS settings](../../managed-postgresql/operations/update.md#change-postgresql-config), then run `ANALYZE` again.
 
-    To learn more about `default_statistics_target`, see [{{ PG }} settings](../../managed-postgresql/concepts/settings-list.md#setting-default-statistics-target).
+    To learn more about `default_statistics_target`, see the [{{ PG }} settings](../../managed-postgresql/concepts/settings-list.md#setting-default-statistics-target).
 
 * Create extended statistics objects.
 
@@ -113,7 +113,7 @@ To detect locks using the [performance diagnostics tool](../../managed-postgresq
     * Review the **Lock** chart showing the number of queries locked during the selected time frame.
     * For detailed information on queries that ran during the selected time period, switch to the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}** tab.
 
-    To learn what statistics you can get, see the [{{ PG }} guides](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.6).
+    To learn more about the displayed statistics, see [this {{ PG }} guide](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.6).
 
 To identify locks using {{ PG }} built-in tools, run the following query:
 
