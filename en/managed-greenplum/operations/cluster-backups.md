@@ -60,7 +60,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
                 --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>/backups'
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         1. Check the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
@@ -108,7 +108,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
                 yandex.cloud.mdb.greenplum.v1.ClusterService.ListBackups
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         1. Check the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
@@ -259,7 +259,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
             yandex.cloud.mdb.greenplum.v1.ClusterService.Backup
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -275,24 +275,6 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 {% include [deprecated-note](../../_includes/mdb/backups/deprecated-note.md) %}
 
 {% endnote %}
-
-The point-in-time recovery (PITR) technology enables you to revert a cluster's state to any restore point created after saving a backup. For more information, see [Backups](../concepts/backup.md).
-
-When you restore a cluster from a backup, you create a new cluster with the backup data. If your folder lacks [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
-
-When creating a cluster, configure all the required settings.
-
-To migrate the hosts of a {{ mgp-name }} cluster to a different availability zone, restore your cluster from a backup. When restoring a cluster from a backup, specify a new availability zone. If your cluster operates as a [{{ data-transfer-full-name }} endpoint](../../data-transfer/concepts/index.md#endpoint), create the [endpoint](../../data-transfer/operations/endpoint/index.md#create) and [transfer](../../data-transfer/operations/transfer.md#create) again after restoring the cluster from a backup.
-
-{% note warning %}
-
-When restoring a cluster from a backup, there will be restrictions on the new cluster's configuration:
-
-{% include [limits](../../_includes/mdb/mgp/restore-limits.md) %}
-
-{% endnote %}
-
-If you set the current time as the restore time, the new cluster will match the state of the latest available restore point.
 
 
 Before you begin, [assign](../../iam/operations/roles/grant.md) your {{ yandex-cloud }} account the [managed-greenplum.restorer](../../iam/roles-reference.md#managed-greenplum-restorer) role or higher for the backup folder and the new cluster folder.
@@ -577,7 +559,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) your {{ yandex-c
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

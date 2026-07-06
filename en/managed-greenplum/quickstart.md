@@ -80,7 +80,7 @@ To create a cluster:
 
 1. Wait until the cluster is ready: its status on the {{ mgp-short-name }} dashboard will change to **Running** and its state, to **Alive**. This may take a while.
 
-For more information about creating a cluster, see [{#T}](./operations/cluster-create.md).
+For more information on creating a cluster, see [{#T}](./operations/cluster-create.md).
 
 ## Get the cluster ID {#get-cluster-id}
 

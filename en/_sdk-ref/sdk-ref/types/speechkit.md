@@ -420,6 +420,15 @@ Result of llm post\_process, may be also known as *Summarization* at some old do
 
 **count**(*value*) → integer -- return number of occurrences of value{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.count}
 
+**delete**(*timeout=60*){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.delete}
+
+Deletes results of asynchronous recognition.
+
+#|
+|| Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) ||
+|| Return type | None ||
+|#
+
 *property* **final\_refinement\_text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.final_refinement_text}
 
 Return final text of first channel.
@@ -486,15 +495,6 @@ Conversation statistics
 **llm\_post\_process\_result**\: *[LLMPostProcessResult](#yandex_ai_studio_sdk._speechkit.speech_to_text.result.llm_post_process_result.LLMPostProcessResult) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.llm_post_process_result}
 
 Result of llm post\_process, may be also known as *Summarization* at some old documentation.
-
-**delete**(*timeout=60*){#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResult.delete}
-
-Deletes results of asynchronous recognition.
-
-#|
-|| Parameters | **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) ||
-|| Return type | None ||
-|#
 
 yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.result.top\_containers.**DeferredSpeechToTextResultTypeT** = *TypeVar(DeferredSpeechToTextResultTypeT, bound=DeferredSpeechToTextBaseResult)*{#yandex_ai_studio_sdk._speechkit.speech_to_text.result.top_containers.DeferredSpeechToTextResultTypeT}
 

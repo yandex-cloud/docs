@@ -12,7 +12,7 @@
 
 _Connectors_ move data while running in separate threads of a worker.
 
-To learn more about Kafka Connect, see [this {{ KF }} article](https://kafka.apache.org/42/kafka-connect/overview/).
+Learn more about Kafka Connect in [this {{ KF }} guide](https://kafka.apache.org/42/kafka-connect/overview/).
 
 Next, we describe how to configure {{ KFC }} to work with a {{ mkf-name }} cluster. You will deploy {{ KFC }} on a [{{ yandex-cloud }} VM](../../compute/concepts/vm.md) as a separate installation. To protect the connection, you will use SSL encryption.
 
@@ -39,9 +39,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* {{ mkf-name }} cluster fee, which covers the use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* {{ mkf-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
 * Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* VM fee, which covers the use of computing resources, storage, and public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* VM fee: use of computing resources, storage, and public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
 ## Getting started {#before-you-begin}

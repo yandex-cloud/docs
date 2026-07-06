@@ -5,4 +5,4 @@
    * Login: `admin`.
    * Password: `admin` user password you set when creating the cluster.
 
-For more information about how to use the web interface, see the [{{ AF }} documentation](https://airflow.apache.org/docs/apache-airflow/stable/ui.html).
+For more on the web UI, see [this {{ AF }} guide](https://airflow.apache.org/docs/apache-airflow/stable/ui.html).

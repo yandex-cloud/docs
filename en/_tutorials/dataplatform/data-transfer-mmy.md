@@ -6,8 +6,8 @@ To set up CDC using {{ data-transfer-name }}:
 
 1. [Prepare the source cluster](#prepare-source).
 1. [Set up the target cluster](#prepare-target).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -15,9 +15,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Required paid resources {#paid-resources}
 
 * {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
-* {{ mkf-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mkf-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer, which includes the use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -45,7 +45,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     sudo apt update && sudo apt install kafkacat mysql-client --yes
     ```
 
-    Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+    Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
 ## Prepare the source cluster {#prepare-source}
 
@@ -80,7 +80,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
     ```
 
-## Set up the target cluster {#prepare-target}
+## Prepare the target cluster {#prepare-target}
 
 The settings vary depending on the [topic management method](../../managed-kafka/concepts/topics.md#management) used. Data topic names follow the `<topic_prefix>.<schema_name>.<table_name>` convention. In this tutorial, we will use the `cdc` prefix.
 
@@ -108,7 +108,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
 {% endlist %}
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 1. [Create](../../data-transfer/operations/endpoint/index.md#create) a {{ MY }} source endpoint with the following [settings](../../data-transfer/operations/endpoint/source/mysql.md):
 
@@ -140,7 +140,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the previously created source and target endpoints.
 1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 1. In a separate terminal, run `kafkacat` in consumer mode:
 
@@ -290,7 +290,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) and [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
 

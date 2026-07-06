@@ -31,16 +31,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
 * {{ mkf-name }} cluster fee: use of computing resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* VM fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* VM fee: use of computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for public IP addresses for VMs and cluster hosts if public access is enabled for them (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
 ### Getting started {#before-you-begin-to-work-with-docker}
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -76,13 +76,13 @@ Set up the infrastructure:
       * {{ KF }} user.
 
    1. In the `kafka-ui-via-docker.tf` file, specify the values of variables.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate
       ```
 
-      {{ TF }} will show any errors found in your configuration files.
+      {{ TF }} will display any configuration errors detected in your files.
 
    1. Create the required infrastructure:
 
@@ -188,17 +188,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
 * {{ mkf-name }} cluster fee: use of computing resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* Fee for {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using computing resources, OS, and storage in {{ managed-k8s-name }} cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for public IP addresses for {{ mkf-name }} cluster hosts and {{ managed-k8s-name }} cluster nodes if public access is enabled for them (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Fee for public IP addresses for {{ mkf-name }} cluster hosts and {{ managed-k8s-name }} cluster nodes with public access enabled (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ### Getting started {#before-you-begin-to-work-with-kubernetes}
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -238,13 +238,13 @@ Set up the infrastructure:
       * {{ managed-k8s-name }} node group.
 
    1. Specify the values of variables in the `kafka-ui-via-kubernetes.tf` file.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate
       ```
 
-      {{ TF }} will show any errors found in your configuration files.
+      {{ TF }} will display any configuration errors detected in your files.
 
    1. Create the required infrastructure:
 
@@ -395,7 +395,7 @@ When deploying {{ KF }} in a {{ managed-k8s-name }} cluster, TrustStore commands
    kubectl --namespace default port-forward kafka-ui-pod 8080:8080
    ```
 
-1. In the browser, go to `http://127.0.0.1:8080/`. The UI for {{ KF }} with {{ mkf-name }} cluster data will open.
+1. In your browser, go to `http://127.0.0.1:8080/`. The UI for {{ KF }} with {{ mkf-name }} cluster data will open.
 
 
 ## Delete the resources you created {#clear-out}

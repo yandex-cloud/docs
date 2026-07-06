@@ -4,6 +4,37 @@
 
 YCStorageBucket is a Gwin custom resource for referencing S3 buckets from Yandex Object Storage. It allows you to use Object Storage buckets as backend targets in [HTTPRoute](httproute.md), [IngressBackendGroup](ingressbackendgroup.md), [Ingress](ingress.md) resources for serving static content or as part of traffic routing strategies.
 
+When a request is routed to a YCStorageBucket backend, the load balancer forwards the request to the bucket using the URL path from the incoming request. For example, a request for `/robots.txt` will fetch the object at key `robots.txt` from the bucket.
+
+## Controlling browser behavior
+
+Whether a browser displays or downloads a file depends on the Content-Type and Content-Disposition response headers. To make the browser display the content instead of downloading it, ensure the object is served with the correct Content-Type and no Content-Disposition: attachment.
+
+Option 1 (recommended): Upload objects with explicit content type metadata:
+
+aws s3 cp index.html s3://my-bucket/index.html \
+  --content-type "text/html; charset=utf-8" \
+  --endpoint-url https://storage.yandexcloud.net
+
+Option 2: Override headers at the routing layer without changing objects in storage.
+
+For HTTPRoute, use a ResponseHeaderModifier filter on the rule:
+
+filters:
+  - type: ResponseHeaderModifier
+    responseHeaderModifier:
+      set:
+        - name: Content-Type
+          value: text/html; charset=utf-8
+      remove:
+        - Content-Disposition
+
+For Ingress, use annotations on the rule:
+
+annotations:
+  gwin.yandex.cloud/rules.modifyResponseHeaders.replace.Content-Type: "text/html; charset=utf-8"
+  gwin.yandex.cloud/rules.modifyResponseHeaders.remove: "Content-Disposition"
+
 * [Cheatsheet](#cheatsheet)
 * [YCStorageBucketSpec](#ycstoragebucketspec)
   * [YCStorageBucketReference](#ycstoragebucketreference)

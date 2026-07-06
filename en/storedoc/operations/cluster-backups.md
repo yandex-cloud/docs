@@ -17,25 +17,6 @@ You can [back up](../concepts/backup.md) your clusters and restore them using ex
 
 {% endnote %}
 
-Point-in-Time Recovery (PITR) allows you to restore your cluster’s state to any point in time within the interval from the creation of the oldest backup to the archiving of the most recent oplog. For more information, see [Backups](../concepts/backup.md).
-
-For example, if a backup operation completed on August 10, 2020 at 12:00:00 UTC, it is now August 15, 2020, 19:00:00 UTC, and the latest oplog was saved on August 15, 2020, at 18:50:00 UTC, the cluster can be restored to any of its states within the time interval from August 10, 2020, 12:00:01 UTC to August 15, 2020, 18:50:00 UTC, inclusive.
-
-{% note warning %}
-
-PITR is not supported for clusters with [sharding](../tutorials/sharding.md) enabled. These clusters can only be restored to the point in time when the chosen backup was created.
-
-{% endnote %}
-
-Restoring a cluster from a backup creates a new cluster with that backup’s data. If your folder lacks [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average restore speed is 10 MBps.
-
-For a new cluster, you must specify all settings required during creation, except for the cluster type, i.e., you cannot restore a {{ SD }} backup as a {{ PG }} cluster.
-
-When restored to the current point in time, the new cluster will reflect the state of:
-
-* Existing cluster at the time of recovery.
-* Deleted cluster at the time of archiving the last oplog.
-
 
 Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mongodb.restorer](../../iam/roles-reference.md#managed-mongodb-restorer) or higher role to your {{ yandex-cloud }} account for both the backup folder and the new cluster folder.
 
@@ -280,7 +261,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -550,8 +531,8 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
       * Settings for restoring individual databases and collections:
 
-          * `--whitelist`: List of databases and collections to restore. Here is an example: `"db1","db2.collection1"`.
-          * `--blacklist`: List of databases and collections to exclude from restoring. Here is an example: `"db1.collection1"`.
+          * `--whitelist`: List of databases and collections to restore, e.g., `"db1","db2.collection1"`.
+          * `--blacklist`: List of databases and collections to exclude from restoring, e.g., `"db1.collection1"`.
 
           If you specify databases under `--whitelist`, you can use `--blacklist` to exclude specific collections within those databases.
           If the `--whitelist` parameter is not specified, all databases and collections will be restored except those specified under `--blacklist`.
@@ -637,7 +618,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
         * `partialRestoreSpec`: Settings for restoring individual databases and collections:
 
             * `whitelist`: List of databases and collections to restore. For example: `["db1", "db2.collection1"]`.
-            * `blacklist`: List of databases and collections to exclude from restoring. Here is an example: `["db1.collection1"]`.
+            * `blacklist`: List of databases and collections to exclude from restoring, e.g., `["db1.collection1"]`.
 
             If you specify databases under `whitelist`, you can use `blacklist` to exclude specific collections within those databases.
             If the `whitelist` parameter is not specified, all databases and collections will be restored except those specified under `blacklist`.
@@ -657,7 +638,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -736,8 +717,8 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
         * `partial_restore_spec`: Settings for restoring individual databases and collections:
 
-            * `whitelist`: List of databases and collections to restore. For example: `["db1", "db2.collection1"]`. 
-            * `blacklist`: List of databases and collections to exclude from restoring. Here is an example: `["db1.collection1"]`.
+            * `whitelist`: List of databases and collections to restore, e.g., `["db1", "db2.collection1"]`. 
+            * `blacklist`: List of databases and collections to exclude from restoring, e.g., `["db1.collection1"]`.
 
             If you specify databases under `whitelist`, you can use `blacklist` to exclude specific collections within those databases.
             If the `whitelist` parameter is not specified, all databases and collections will be restored except those specified under `blacklist`.
@@ -1107,7 +1088,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-mon
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create such a file, see [Creating a cluster](cluster-create.md).
 
         For a complete list of configurable {{ SD }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mmg }}).
 

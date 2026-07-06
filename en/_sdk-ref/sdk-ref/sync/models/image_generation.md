@@ -46,14 +46,14 @@ Executes the image generation operation asynchronously and returns an operation 
 
 **attach\_deferred**(*operation\_id*, *timeout=60*){#yandex_ai_studio_sdk._models.image_generation.model.ImageGenerationModel.attach_deferred}
 
-Attaches to an ongoing image generation operation.
+Attaches to an ongoing deferred operation using its operation id.
 
 #|
 || Parameters | 
 
-- **operation\_id** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the ID of the operation to attach to.
+- **operation\_id** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – the id of the deferred operation to attach to.
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
-|| Return type | [*Operation*](../../types/operation.md#yandex_ai_studio_sdk._types.operation.Operation)[[*ImageGenerationModelResult*](../../types/model_results.md#yandex_ai_studio_sdk._models.image_generation.result.ImageGenerationModelResult)] ||
+|| Return type | *OperationTypeT* ||
 |#
 
 *property* **config**\: *[ConfigTypeT](../../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT)*{#yandex_ai_studio_sdk._models.image_generation.model.ImageGenerationModel.config}

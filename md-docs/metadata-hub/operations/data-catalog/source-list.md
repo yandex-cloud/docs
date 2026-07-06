@@ -17,7 +17,7 @@
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно получить список каталогов метаданных.
     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
     1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
-    1. В открывшемся списке выберите каталог метаданных, в котором созданы источники.
+    1. В открывшемся списке выберите каталог метаданных, в котором созданы [источники](../../concepts/data-catalog-sources.md).
     1. На панели слева выберите ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Источники данных**.
 
 {% endlist %}

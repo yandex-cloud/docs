@@ -12,8 +12,8 @@ Migration stages:
 
     You need to transfer your data to the staging {{ compute-full-name }} VM in one of the following situations:
 
-    * Your {{ mmy-name }} cluster is not accessible from the internet.
-    * Your hardware or connection to the cluster in {{ yandex-cloud }} are not very reliable.
+    * Your {{ mmy-name }} cluster is not reachable from the internet.
+    * Your hardware or connection to the cluster in {{ yandex-cloud }} is not very reliable.
 
     The larger the amount of data to be migrated and the required migration speed, the higher the virtual machine requirements: number of processor cores, RAM, and disk space.
 
@@ -26,7 +26,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 * {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Virtual machine if created to download a dump: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Virtual machine if created to upload a dump: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -37,7 +37,7 @@ Create the required resources:
 
 - Manually {#manual}
 
-    1. Create a [target {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-create.md) with your preferred configuration. For this operation, the following requirements apply:
+    1. Create a [target {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-create.md) with your preferred configuration. In this case, the following applies:
 
         * The {{ MY }} version must be the same or higher than the version in the source cluster.
 
@@ -254,7 +254,7 @@ For {{ mmy-name }} clusters, [AUTOCOMMIT](https://dev.mysql.com/doc/refman/8.0/e
 
     1. Start the database restore from the dump:
 
-        * If you restore a dump from the VM in {{ yandex-cloud }}:
+        * If you are restoring a dump from a VM located in {{ yandex-cloud }}:
 
             ```bash
             mysql \
@@ -301,9 +301,9 @@ For {{ mmy-name }} clusters, [AUTOCOMMIT](https://dev.mysql.com/doc/refman/8.0/e
 
 {% endlist %}
 
-You can get the cluster ID from the [list of clusters in your folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
+You can get the cluster ID with the [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
 
-## Deleting the created resources {#clear-out}
+## Deleting the resources you created {#clear-out}
 
 Delete the resources you no longer need to avoid paying for them:
 

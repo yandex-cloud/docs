@@ -79,11 +79,11 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
     To edit PXF settings:
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create such a file, see [{#T}](../cluster-create.md).
+        To learn how to create this file, see [{#T}](../cluster-create.md).
 
-        For a complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For the complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
 
     1. In the cluster description, under `pxf_config`, configure the PXF settings:
 

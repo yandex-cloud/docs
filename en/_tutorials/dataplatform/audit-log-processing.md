@@ -68,7 +68,7 @@ You can do the following with streaming query results:
 * [Send them to {{ monitoring-full-name }}](../../query/sources-and-sinks/monitoring.md) as metrics.
 * [Send them to an output stream in {{ yds-name }}](../../query/sources-and-sinks/data-streams-write.md) as data and then process the data using [{{ sf-full-name }} triggers](../../functions/operations/trigger/data-streams-trigger-create.md).
 
-## See also
+#### Useful links {#see-also}
 
 * [{{ objstorage-full-name }}](../../storage/)
 * [{{ yds-full-name }}](../../data-streams/)

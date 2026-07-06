@@ -17,7 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-* {{ msp-name }} cluster: computing resources of cluster components (see [{{ msp-name }} pricing](../../../managed-spark/pricing.md)).
+* {{ msp-name }} cluster: computing resources of the cluster components (see [{{ msp-name }} pricing](../../../managed-spark/pricing.md)).
 * NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 ## Set up your infrastructure {#infra}
@@ -136,7 +136,7 @@ To work with {{ SPRK }} clusters in {{ ml-platform-name }}, create and set up a 
 
 To set up a connection to {{ SPRK }} clusters:
 
-1. Select the community you [created the project](#create-project) in.
+1. Select the community where you have [created a project](#create-project).
 1. Navigate to the **{{ ui-key.yc-ui-datasphere.common.settings-key-value }}** tab.
 1. Under **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.settings.title }}**, click **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.add-service-account.button }}**.
 1. In the window that opens, select the service account you [created earlier](#create-sa) and click **{{ ui-key.yc-ui-datasphere.common.add }}**.

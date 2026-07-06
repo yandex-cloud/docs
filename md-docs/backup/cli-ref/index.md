@@ -18,6 +18,8 @@ Syntax:
 
   - [yc backup agent install](agent/install.md) — Installs backup agent on instance. Attention! This command could be executed only on instances with oslogin support. Supported os families are: ubuntu, centos, debian, redos. This command will execute ssh connection on given instance, install needed packages, download agent installer script and launch downloaded agent installer script.
 
+  - [yc backup agent install-external](agent/install-external.md) — Generates a command to install backup agent on an external instance.
+
   - [yc backup agent reinstall](agent/reinstall.md) — Reinstalls backup agent on instance. Attention! This command could be executed only on instances with oslogin support. Supported os families are: ubuntu, centos, debian, redos. This command will execute ssh connection on given instance, install needed packages, download agent reinstaller script and launch downloaded agent reinstaller script.
 
 - [yc backup backup](backup/index.md) — Manage backups

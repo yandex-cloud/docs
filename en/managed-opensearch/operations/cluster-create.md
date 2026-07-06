@@ -79,7 +79,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
           * To use a previously created key, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
 
-          To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+          Learn more about disk encryption in [Storage](../concepts/storage.md#disk-encryption).
 
 
       1. Optionally, set up automatic storage expansion:
@@ -203,9 +203,9 @@ When creating a cluster, you need to specify individual parameters for each [hos
           Both active and stopped clusters undergo maintenance. Maintenance may involve such operations as applying patches or updating DBMS's.
 
       
-      * `--disk-encryption-key-id`: Disk encryption with a [custom KMS key](../../kms/concepts/key.md).
+      * `--disk-encryption-key-id`: Disk encryption using a [custom KMS key](../../kms/concepts/key.md).
 
-          To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+          Learn more about disk encryption in [Storage](../concepts/storage.md#disk-encryption).
 
 
       * `--read-admin-password`: `admin` password. If you specify this parameter in the command, it will prompt you to enter a password.
@@ -316,11 +316,11 @@ When creating a cluster, you need to specify individual parameters for each [hos
       Where:
 
       * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
-      * `disk_encryption_key_id`: Disk encryption with a [custom KMS key](../../kms/concepts/key.md).
+      * `disk_encryption_key_id`: Disk encryption using a [custom KMS key](../../kms/concepts/key.md).
 
-          To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+          Learn more about disk encryption in [Storage](../concepts/storage.md#disk-encryption).
 
-      * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
+      * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
         Even with cluster deletion protection enabled, it is still possible to delete a user or connect to the cluster manually and delete the data.
 
@@ -339,7 +339,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
           * `day`: Day of week in `DDD` format for the `WEEKLY` type, e.g., `MON`.
           * `hour`: Time of day (UTC) in `HH` format for the `WEEKLY` type, e.g., `21`.
 
-      For a complete list of {{ mos-name }} cluster configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
+      For a complete list of configurable {{ mos-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
 
   1. Make sure the settings are correct.
 
@@ -551,7 +551,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

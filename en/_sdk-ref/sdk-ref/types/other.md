@@ -374,6 +374,8 @@ If there is only one argument, it must be a dictionary mapping Unicode ordinals 
 
 ### *class* yandex\_ai\_studio\_sdk.\_speechkit.text\_to\_speech.bistream.**TTSBidirectionalStreamTypeT**{#yandex_ai_studio_sdk._speechkit.text_to_speech.bistream.TTSBidirectionalStreamTypeT}
 
+### *class* yandex\_ai\_studio\_sdk.\_vision.ocr.ocr.**OCRTypeT**{#yandex_ai_studio_sdk._vision.ocr.ocr.OCRTypeT}
+
 ### *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.stt.**SpeechToTextTypeT**{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.SpeechToTextTypeT}
 
 ### *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.bistream.**STTBidirectionalStreamTypeT**{#yandex_ai_studio_sdk._speechkit.speech_to_text.bistream.STTBidirectionalStreamTypeT}

@@ -43,7 +43,7 @@ For more information about setting up a service account, see [Configuring access
     1. In the [management console]({{ link-console-main }}), navigate to the folder page.
     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
-    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the account you need from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up a service account, see [Configuring access to {{ objstorage-name }}](s3-access.md).
+    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the account you need from the list or [create a new one](../../iam/operations/sa/create.md). For more on setting up a service account, see [Configuring access to {{ objstorage-name }}](s3-access.md).
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -61,13 +61,13 @@ For more information about setting up a service account, see [Configuring access
 
     You can get the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    For more information about setting up a service account, see [Configuring access to {{ objstorage-name }}](s3-access.md).
+    For more on setting up a service account, see [Configuring access to {{ objstorage-name }}](s3-access.md).
 
 - {{ TF }} {#tf}
 
     To change a service account attached to a {{ mos-name }} cluster:
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For a complete list of configurable {{ mos-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
 
@@ -80,7 +80,7 @@ For more information about setting up a service account, see [Configuring access
         }
         ```
 
-        For more information about setting up a service account, see [Configuring access to {{ objstorage-name }}](s3-access.md).
+        For more on setting up a service account, see [Configuring access to {{ objstorage-name }}](s3-access.md).
 
     1. Make sure the settings are correct.
 
@@ -213,7 +213,7 @@ For more information about setting up a service account, see [Configuring access
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For a complete list of configurable {{ mos-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
 
@@ -518,7 +518,7 @@ For more information about setting up a service account, see [Configuring access
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For a complete list of configurable {{ mos-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
 
@@ -735,7 +735,7 @@ After you assign other [security groups](../concepts/network.md#security-groups)
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
         For a complete list of configurable {{ mos-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
 

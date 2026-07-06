@@ -60,7 +60,7 @@ The support cost for this solution includes:
             * `version`: {{ OS }} version.
             * `admin_password`: {{ OS }} admin password.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate

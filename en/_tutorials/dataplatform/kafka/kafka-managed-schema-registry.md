@@ -6,16 +6,16 @@ To use [{{ mkf-msr }}](../../../managed-kafka/concepts/managed-schema-registry.m
 1. [Check that {{ mkf-msr }} runs correctly](#check-schema-registry).
 1. [Delete the resources you created](#clear-out).
 
-This tutorial describes how to register a single data schema. For information on how to register multiple data schemas, see [this Confluent Schema Registry article](https://docs.confluent.io/platform/current/control-center/topics/schema.html).
+This tutorial describes how to register a single data schema. For more information on how to register multiple data schemas, see [this Confluent Schema Registry guide](https://docs.confluent.io/platform/current/control-center/topics/schema.html).
 
 
 ## Required paid resources {#paid-resources}
 
 The infrastructure support cost includes:
 
-* Fee for the {{ mkf-name }} cluster computing resources and storage (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
-* Fee for [VM](../../../compute/concepts/vm.md) computing resources and disks (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
-* Fee for a [public IP address](../../../vpc/concepts/ips.md) (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+* Fee for computing resources of the {{ mkf-name }} cluster and storage space (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
+* Fee for VM computing resources and disks (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
+* Fee for using a [public IP address](../../../vpc/concepts/ips.md) (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}

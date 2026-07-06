@@ -22,7 +22,7 @@ To learn more about sharding, see [{#T}](../../storedoc/concepts/sharding.md).
 
 ## Required paid resources {#paid-resources}
 
-You pay for using a {{ mmg-name }} cluster: Computing resources allocated to hosts, including secondary service hosts, as well as storage and backup size (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
+You pay for using a {{ mmg-name }} cluster: computing resources allocated to hosts, including secondary service hosts, as well as storage and backup size (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
 
 
 ## How to enable collection sharding {#enable}

@@ -58,6 +58,18 @@ Syntax:
 
   - [yc cloud-registry v0 registry lifecycle-policy update](lifecycle-policy/update.md) — Updates the specified lifecycle policy
 
+- [yc cloud-registry v0 registry scan-policy](scan-policy/index.md) — Manage scan policies for registries
+
+  - [yc cloud-registry v0 registry scan-policy create](scan-policy/create.md) — Create a scan policy.
+
+  - [yc cloud-registry v0 registry scan-policy delete](scan-policy/delete.md) — Deletes the specified scan policy
+
+  - [yc cloud-registry v0 registry scan-policy get](scan-policy/get.md) — Get information about a scan policy.
+
+  - [yc cloud-registry v0 registry scan-policy get-by-registry](scan-policy/get-by-registry.md) — Get scan policy of the specified registry.
+
+  - [yc cloud-registry v0 registry scan-policy update](scan-policy/update.md) — Updates the specified scan policy
+
 #### Global Flags
 
 #|

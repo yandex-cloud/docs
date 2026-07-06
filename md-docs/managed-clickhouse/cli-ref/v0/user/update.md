@@ -218,7 +218,7 @@ which send non empty progress packet, other connections are cancelled.
 
 - `load_balancing`: Algorithm of replicas selection that is used for distributed query processing.
 
-  Default value: **LOAD_BALANCING_RANDOM**.
+  Default value: **LOAD_BALANCING_HOSTNAME_LONGEST_COMMON_PREFIX** for versions 26.6 and higher, **LOAD_BALANCING_RANDOM** for versions 26.5 and lower.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#load_balancing).
 

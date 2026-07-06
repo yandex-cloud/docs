@@ -1,6 +1,6 @@
 # Migrating data from {{ mmy-full-name }} to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
-You can set up a data transfer from {{ mmy-full-name }} to {{ GP }} databases in {{ mgp-name }} using {{ data-transfer-full-name }}. Follow these steps:
+You can set up a data transfer from {{ mmy-full-name }} to {{ GP }} databases in {{ mgp-name }} using {{ data-transfer-full-name }}. Proceed as follows:
 
 1. [Prepare your test data](#prepare-data).
 1. [Create a database in the target cluster](#prepare-data).
@@ -120,7 +120,7 @@ Set up your infrastructure:
     CREATE DATABASE mgp_db;
     ```
 
-## Prepare and activate your transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 1. [Create a `{{ GP }}` target endpoint](../../data-transfer/operations/endpoint/target/greenplum.md) with these cluster connection settings:
 
@@ -179,7 +179,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
 1. [Connect](../../managed-greenplum/operations/connect/index.md) to the `mgp_db` database in the {{ GP }} target cluster.
 
-1. Run this request:
+1. Run this query:
 
     ```sql
     SELECT * FROM mmy_db.table1;
@@ -199,7 +199,7 @@ Make sure the transfer works correctly by testing copying and replication.
 1. Check that the added row appears in the target database:
 
     1. [Connect](../../managed-greenplum/operations/connect/index.md) to the database `mgp_db` in the {{ GP }} target cluster.
-    1. Run this request:
+    1. Run this query:
 
         ```sql
         SELECT * FROM mmy_db.table1;

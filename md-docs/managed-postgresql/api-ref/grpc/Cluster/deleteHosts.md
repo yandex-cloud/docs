@@ -4,6 +4,7 @@
 
 Deletes the specified hosts for a cluster.
 
+
 ## gRPC request
 
 **rpc DeleteHosts ([DeleteClusterHostsRequest](#yandex.cloud.mdb.postgresql.v1.DeleteClusterHostsRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**

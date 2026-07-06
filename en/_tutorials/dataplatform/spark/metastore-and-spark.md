@@ -20,7 +20,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note info %}
 
-{{ msp-full-name }} cluster integration with {{ metastore-name }} allows using the {{ IBRG }} table format in Spark jobs. For more information, see [{#T}](../../../managed-spark/tutorials/spark-simple-rw-job.md).
+{{ msp-full-name }} cluster integration with {{ metastore-name }} allows using the {{ IBRG }} table format in Spark jobs. For more information, see [this tutorial](../../../managed-spark/tutorials/spark-simple-rw-job.md).
 
 {% endnote %}
 
@@ -29,8 +29,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 * {{ objstorage-name }} buckets: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 * {{ cloud-logging-full-name }}: amount of written data and its retention time (see [{{ cloud-logging-name }} pricing](../../../logging/pricing.md)).
-* {{ msp-full-name }} cluster: computing resources of cluster components (see [{{ msp-full-name }} pricing](../../../managed-spark/pricing.md)).
-* {{ metastore-name }} cluster: computing resources of cluster components (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md)).
+* {{ msp-full-name }} cluster: computing resources of the cluster's components (see [{{ msp-full-name }} pricing](../../../managed-spark/pricing.md)).
+* {{ metastore-name }} cluster: computing resources of the cluster's components (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md)).
 
 
 ## Set up your infrastructure {#infra}

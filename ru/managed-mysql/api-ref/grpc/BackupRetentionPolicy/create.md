@@ -8,7 +8,7 @@ Add a new retention policy.
 
 ## gRPC request
 
-**rpc Create ([CreateBackupRetentionPolicyRequest](#yandex.cloud.mdb.mysql.v1.CreateBackupRetentionPolicyRequest)) returns ([CreateBackupRetentionPolicyResponse](#yandex.cloud.mdb.mysql.v1.CreateBackupRetentionPolicyResponse))**
+**rpc Create ([CreateBackupRetentionPolicyRequest](#yandex.cloud.mdb.mysql.v1.CreateBackupRetentionPolicyRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## CreateBackupRetentionPolicyRequest {#yandex.cloud.mdb.mysql.v1.CreateBackupRetentionPolicyRequest}
 
@@ -68,80 +68,75 @@ Day of week in cron format. Valid values: 0-7 (0 and 7 both mean Sunday), *, ran
 Defaults to "*". ||
 |#
 
-## CreateBackupRetentionPolicyResponse {#yandex.cloud.mdb.mysql.v1.CreateBackupRetentionPolicyResponse}
+## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
 {
-  "policy": {
-    "policy_id": "string",
-    "cluster_id": "string",
-    "policy_name": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "cron": {
-      "day_of_month": "string",
-      "month": "string",
-      "day_of_week": "string"
-    },
-    "retain_for_days": "int64",
-    "description": "string"
-  }
+  "id": "string",
+  "description": "string",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
+  "done": "bool",
+  "metadata": "google.protobuf.Any",
+  // Includes only one of the fields `error`, `response`
+  "error": "google.rpc.Status",
+  "response": "google.protobuf.Any"
+  // end of the list of possible fields
 }
 ```
 
-#|
-||Field | Description ||
-|| policy | **[BackupRetentionPolicy](#yandex.cloud.mdb.v1.BackupRetentionPolicy)**
-
-Newly created [BackupRetentionPolicy](#yandex.cloud.mdb.v1.BackupRetentionPolicy). ||
-|#
-
-## BackupRetentionPolicy {#yandex.cloud.mdb.v1.BackupRetentionPolicy}
-
-Message to describe a retention policy for cluster backups.
+An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
 
 #|
 ||Field | Description ||
-|| policy_id | **string**
+|| id | **string**
 
-Required field. Required. Policy ID. ||
-|| cluster_id | **string**
-
-Required field. Cluster ID.
-
-The maximum string length in characters is 50. ||
-|| policy_name | **string**
-
-Required field. Required. Policy name. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| cron | **[CronTab](#yandex.cloud.mdb.v1.CronTab2)**
-
-CronTab schedule. ||
-|| retain_for_days | **int64**
-
-Retention duration. ||
+ID of the operation. ||
 || description | **string**
 
-Human-readable description. ||
-|#
+Description of the operation. 0-256 characters long. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-## CronTab {#yandex.cloud.mdb.v1.CronTab2}
+Creation timestamp. ||
+|| created_by | **string**
 
-Message to describe a crontab schedule.
+ID of the user or service account who initiated the operation. ||
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-#|
-||Field | Description ||
-|| day_of_month | **string**
+The time when the Operation resource was last modified. ||
+|| done | **bool**
 
-Day of month in cron format. Valid values: 1-31, *, ranges (1-15), steps (*/2, 1-15/3), lists (1,15,28).
-Defaults to "*". ||
-|| month | **string**
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
-Month in cron format. Valid values: 1-12, *, ranges (1-6), steps (*/3), lists (1,6,12).
-Defaults to "*". ||
-|| day_of_week | **string**
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**
 
-Day of week in cron format. Valid values: 0-7 (0 and 7 both mean Sunday), *, ranges (1-5), steps (0-6/2), lists (1,3,5).
-Defaults to "*". ||
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
 |#

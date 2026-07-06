@@ -56,6 +56,10 @@ Domain for working with [Yandex Cloud OpenAI Compatible API](https://aistudio.ya
 
 Domain for working with [Yandex SpeechKit](https://aistudio.yandex.ru/docs/speechkit/overview) services.
 
+**vision**\: *[AsyncVisionDomain](vision/domain.md#yandex_ai_studio_sdk._vision.domain.AsyncVisionDomain)*{#yandex_ai_studio_sdk.AsyncAIStudio.vision}
+
+Domain for working with [Yandex Vision](https://aistudio.yandex.ru/docs/vision/concepts/ocr/) services.
+
 **\_\_init\_\_**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *folder\_id=Undefined*, *endpoint=Undefined*, *auth=Undefined*, *retry\_policy=Undefined*, *yc\_profile=Undefined*, *service\_map=Undefined*, *interceptors=Undefined*, *enable\_server\_data\_logging=Undefined*, *verify=Undefined*){#yandex_ai_studio_sdk.AsyncAIStudio.__init__i}
 
 Construct a new asynchronous sdk instance.
@@ -407,6 +411,9 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
       - [**AsyncSpeechKitDomain.AudioFormat.OGG\_OPUS**](speechkit/domain.md#yandex_ai_studio_sdk._speechkit.domain.AsyncSpeechKitDomain.AudioFormat.OGG_OPUS)
       - [**AsyncSpeechKitDomain.AudioFormat.\_\_init\_\_()**](speechkit/domain.md#yandex_ai_studio_sdk._speechkit.domain.AsyncSpeechKitDomain.AudioFormat.__init__i)
     - [**AsyncSpeechKitDomain.\_\_init\_\_()**](speechkit/domain.md#yandex_ai_studio_sdk._speechkit.domain.AsyncSpeechKitDomain.__init__i)
+- [Vision domain](vision/domain.md)
+  - [**AsyncVisionDomain**](vision/domain.md#yandex_ai_studio_sdk._vision.domain.AsyncVisionDomain)
+    - [**AsyncVisionDomain.ocr**](vision/domain.md#yandex_ai_studio_sdk._vision.domain.AsyncVisionDomain.ocr)
 - [Threads domain](threads.md)
   - [**AsyncThreads**](threads.md#yandex_ai_studio_sdk._threads.domain.AsyncThreads)
     - [**AsyncThreads.create()**](threads.md#yandex_ai_studio_sdk._threads.domain.AsyncThreads.create)

@@ -1,6 +1,6 @@
 
 
-You can migrate a database from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}. Follow these steps:
+You can migrate a database from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}. Proceed as follows:
 
 1. [Prepare and activate your transfer](#prepare-transfer).
 1. [Test replication](#example-check-replication).
@@ -84,7 +84,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
 {% endlist %}
 
-## Prepare and activate your transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 1. [Connect to the {{ mpg-name }} cluster](../../managed-postgresql/operations/connect/index.md).
 1. In the `db1` database, create a table named `x_tab` and populate it with data:
@@ -133,7 +133,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
         1. In the `postgresql-to-clickhouse.tf` file, set the `transfer_enabled` variable to `1`.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate

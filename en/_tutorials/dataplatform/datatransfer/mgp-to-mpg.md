@@ -1,4 +1,4 @@
-You can migrate a database from {{ GP }} to the {{ PG }} cluster using {{ data-transfer-full-name }}.
+You can migrate a database from {{ GP }} to a {{ PG }} cluster using {{ data-transfer-full-name }}.
 
 To transfer a database from {{ GP }} to {{ PG }}:
 

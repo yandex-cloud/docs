@@ -4,6 +4,7 @@
 
 Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
 
+
 ## HTTP request
 
 ```
@@ -11,6 +12,8 @@ GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}:
 ```
 
 ## Path parameters
+
+Same as [ListLogs](listLogs.md#ListLogs) but using server-side streaming. Also supports `tail -f` semantics.
 
 #|
 ||Field | Description ||
@@ -23,12 +26,16 @@ The maximum string length in characters is 50. ||
 
 ## Query parameters {#yandex.cloud.mdb.postgresql.v1.StreamClusterLogsRequest}
 
+Same as [ListLogs](listLogs.md#ListLogs) but using server-side streaming. Also supports `tail -f` semantics.
+
 #|
 ||Field | Description ||
 || columnFilter[] | **string**
 
 Columns from logs table to get in the response. ||
 || serviceType | **enum** (ServiceType)
+
+Type of the service to request logs about.
 
 - `POSTGRESQL`: Logs of PostgreSQL activity.
 - `POOLER`: Logs of connection pooler activity.

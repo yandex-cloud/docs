@@ -2073,7 +2073,9 @@ The maximum string length in characters is 253. ||
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -2239,7 +2241,9 @@ The maximum string length in characters is 253. ||
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -2405,7 +2409,9 @@ The maximum string length in characters is 253. ||
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         }
       },
       "postgresqlConfig_14_1c": {
@@ -2574,7 +2580,9 @@ The maximum string length in characters is 253. ||
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -2741,7 +2749,9 @@ The maximum string length in characters is 253. ||
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -2908,7 +2918,9 @@ The maximum string length in characters is 253. ||
           "passwordEncryption": "string",
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         }
       },
       "postgresqlConfig_15": {
@@ -3078,7 +3090,9 @@ The maximum string length in characters is 253. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -3246,7 +3260,9 @@ The maximum string length in characters is 253. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -3414,7 +3430,9 @@ The maximum string length in characters is 253. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         }
       },
       "postgresqlConfig_15_1c": {
@@ -3586,7 +3604,9 @@ The maximum string length in characters is 253. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -3756,7 +3776,9 @@ The maximum string length in characters is 253. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -3926,7 +3948,9 @@ The maximum string length in characters is 253. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         }
       },
       "postgresqlConfig_16": {
@@ -4096,7 +4120,9 @@ The maximum string length in characters is 253. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -4264,7 +4290,9 @@ The maximum string length in characters is 253. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -4432,7 +4460,9 @@ The maximum string length in characters is 253. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         }
       },
       "postgresqlConfig_16_1c": {
@@ -4604,7 +4634,9 @@ The maximum string length in characters is 253. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -4774,7 +4806,9 @@ The maximum string length in characters is 253. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -4944,7 +4978,9 @@ The maximum string length in characters is 253. ||
           "autoExplainLogFormat": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "pgHintPlanHintsAnywhere": "boolean"
+          "pgHintPlanHintsAnywhere": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         }
       },
       "postgresqlConfig_17": {
@@ -5116,7 +5152,9 @@ The maximum string length in characters is 253. ||
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -5286,7 +5324,9 @@ The maximum string length in characters is 253. ||
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -5456,7 +5496,9 @@ The maximum string length in characters is 253. ||
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         }
       },
       "postgresqlConfig_17_1c": {
@@ -5630,7 +5672,9 @@ The maximum string length in characters is 253. ||
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -5802,7 +5846,9 @@ The maximum string length in characters is 253. ||
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -5974,7 +6020,9 @@ The maximum string length in characters is 253. ||
           "maxWalSenders": "string",
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
-          "checkpointWarning": "string"
+          "checkpointWarning": "string",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string"
         }
       },
       "postgresqlConfig_18": {
@@ -6147,7 +6195,10 @@ The maximum string length in characters is 253. ||
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "vacuumTruncate": "boolean"
+          "vacuumTruncate": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string",
+          "maxActiveReplicationOrigins": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -6318,7 +6369,10 @@ The maximum string length in characters is 253. ||
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "vacuumTruncate": "boolean"
+          "vacuumTruncate": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string",
+          "maxActiveReplicationOrigins": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -6489,7 +6543,10 @@ The maximum string length in characters is 253. ||
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "vacuumTruncate": "boolean"
+          "vacuumTruncate": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string",
+          "maxActiveReplicationOrigins": "string"
         }
       },
       "postgresqlConfig_18_1c": {
@@ -6664,7 +6721,10 @@ The maximum string length in characters is 253. ||
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "vacuumTruncate": "boolean"
+          "vacuumTruncate": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string",
+          "maxActiveReplicationOrigins": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -6837,7 +6897,10 @@ The maximum string length in characters is 253. ||
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "vacuumTruncate": "boolean"
+          "vacuumTruncate": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string",
+          "maxActiveReplicationOrigins": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -7010,7 +7073,10 @@ The maximum string length in characters is 253. ||
           "maxReplicationSlots": "string",
           "idleSessionTimeout": "string",
           "checkpointWarning": "string",
-          "vacuumTruncate": "boolean"
+          "vacuumTruncate": "boolean",
+          "autovacuumVacuumThreshold": "string",
+          "autovacuumAnalyzeThreshold": "string",
+          "maxActiveReplicationOrigins": "string"
         }
       },
       // end of the list of possible fields
@@ -9583,6 +9649,16 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet14_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet14_1C}
@@ -10049,6 +10125,16 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet15 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15}
@@ -10523,6 +10609,16 @@ Acceptable values are 0 to 2147483647000, inclusive. ||
 || pgHintPlanHintsAnywhere | **boolean**
 
 If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet15_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15_1C}
@@ -10999,6 +11095,16 @@ Acceptable values are 0 to 2147483647000, inclusive. ||
 || pgHintPlanHintsAnywhere | **boolean**
 
 If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet16 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16}
@@ -11478,6 +11584,16 @@ Acceptable values are 0 to 2147483647000, inclusive. ||
 || pgHintPlanHintsAnywhere | **boolean**
 
 If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet16_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16_1C}
@@ -11959,6 +12075,16 @@ Acceptable values are 0 to 2147483647000, inclusive. ||
 || pgHintPlanHintsAnywhere | **boolean**
 
 If it is true, pg_hint_plan reads hints ignoring SQL syntax. This allows placing hints anywhere in the query but may cause false reads. Default is false. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet17 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17}
@@ -12444,6 +12570,16 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet17_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17_1C}
@@ -12931,6 +13067,16 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 in milliseconds. Write a message to the server log if checkpoints caused by the filling of WAL segment files happen closer together than this amount of time (which suggests that `` max_wal_size `` ought to be raised). 0 disables the warning.
 
 Acceptable values are 0 to 2147483647000, inclusive. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18}
@@ -13419,6 +13565,21 @@ Acceptable values are 0 to 2147483647000, inclusive. ||
 || vacuumTruncate | **boolean**
 
 Enables or disables vacuum to try to truncate off any empty pages at the end of the table. Default is true. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| maxActiveReplicationOrigins | **string** (int64)
+
+Maximum number of replication origins that can be tracked simultaneously, effectively limiting the number of logical replication subscriptions that can be created on the server. Changing this parameter requires a server restart.
+
+Acceptable values are 20 to 100, inclusive. ||
 |#
 
 ## PostgresqlConfigSet18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18_1C}
@@ -13909,6 +14070,21 @@ Acceptable values are 0 to 2147483647000, inclusive. ||
 || vacuumTruncate | **boolean**
 
 Enables or disables vacuum to try to truncate off any empty pages at the end of the table. Default is true. ||
+|| autovacuumVacuumThreshold | **string** (int64)
+
+Specifies the minimum number of updated or deleted tuples needed to trigger a VACUUM in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| autovacuumAnalyzeThreshold | **string** (int64)
+
+Specifies the minimum number of inserted, updated or deleted tuples needed to trigger an ANALYZE in any one table. The default is 50 tuples.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
+|| maxActiveReplicationOrigins | **string** (int64)
+
+Maximum number of replication origins that can be tracked simultaneously, effectively limiting the number of logical replication subscriptions that can be created on the server. Changing this parameter requires a server restart.
+
+Acceptable values are 20 to 100, inclusive. ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig}

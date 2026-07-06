@@ -57,6 +57,12 @@ Using {{ dspm-name }} consists of two main phases, which are billed separately:
 * [Data analysis](./concepts/dspm.md#discovery-mode): This is the initial operational phase of {{ dspm-name }}, during which resources containing potentially sensitive data are automatically discovered, identified, and cataloged within the selected environment. Within this phase, 100,000 objects per month are free of charge. Once this limit is exceeded, the use of {{ dspm-name }} is billed either according to your selected plan or per million objects.
 * Continuous monitoring ([scanning](./concepts/dspm.md#scanning)): This phase involves regular requests to files in {{ objstorage-full-name }} buckets and Yandex 360 disks to check for compliance with security policies. The read operations are billed as per [{{ objstorage-name }} pricing](../storage/pricing.md).
 
+### Package-based subscription to {{ dspm-name }} {#dspm-package-subscription}
+
+Package-based subscription to {{ dspm-name }} is a special offer that includes all DSPM’s features. To activate this subscription, contact [support]({{ link-console-support }}).
+
+The prices provided herein are per calendar month. A calendar month is a period from 00:00 on the first day of the month to 23:59 on the last day of the same month, UTC+3. The cost is fixed and does not depend on the number of days in the month.
+
 ### {{ kspm-full-name }} ({{ kspm-name }}) {#kspm-rules}
 
 The cost for using {{ kspm-full-name }} ({{ kspm-name }}) is monthly-based and depends on the number of worker nodes in [{{ managed-k8s-full-name }}](../managed-kubernetes/) clusters for scanning.
@@ -112,6 +118,15 @@ Let’s assume you set up scanning a bucket with 50 text files, their overall si
 
 {% include [usd-scan-by-amount](../_pricing_examples/security-deck/usd-scan-by-amount.md) %}
 
+
+### Package-based subscription to {{ dspm-name }} {#dspm-package-pricing}
+
+
+
+{% include [usd-package-subscription](../_pricing/security-deck/dspm/usd-package-subscription.md) %}
+
+
+^*^ The amount of data provided herein is approximate.
 
 ### {{ kspm-full-name }} ({{ kspm-name }}) {#kspm-pricing}
 

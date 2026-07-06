@@ -19,7 +19,7 @@ Syntax:
 The maximum number of items to list. Default is 1000 items ||
 || `--type` | `string`
 
-Specified resource type for listing, one of 'compute' or 'bms' or '' ||
+Specified resource type for listing, one of 'compute', 'bms', 'external-vm', 'external-server' or '' ||
 |#
 
 #### Global Flags

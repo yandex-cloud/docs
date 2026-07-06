@@ -207,7 +207,7 @@ Update specified by id resource rule.
   // end of the list of possible fields
   "origins_group_id": "google.protobuf.Int64Value",
   "origin_protocol": "OriginProtocol",
-  "field_mask": "google.protobuf.FieldMask"
+  "update_mask": "google.protobuf.FieldMask"
 }
 ```
 
@@ -257,7 +257,7 @@ Required if enabling origins_group_id.
 - `HTTPS`: CDN servers will connect to your origin via HTTPS.
 - `MATCH`: Connection protocol will be chosen automatically (content on the
 origin source should be available for the CDN both through HTTP and HTTPS). ||
-|| field_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask for update resource rule. Works only for `options` field.
 Purpose is to allow partial updates of the resource options and setting them to null for inheritance.

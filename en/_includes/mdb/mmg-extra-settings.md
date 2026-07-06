@@ -2,7 +2,7 @@
 
 - **{{ ui-key.yacloud.mdb.forms.backup-retain-period }}**{#setting-backup-saving}
   
-  Retention period for automatic backups. Backups are automatically deleted once their retention period expires. The default is {{ mmg-backup-retention }} days. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. For more information, see [Backups](../../storedoc/concepts/backup.md).
+  Retention period for automatic backups. Backups are automatically deleted once their retention period expires. The default is {{ mmg-backup-retention }} days. This feature is in [Preview](../../overview/concepts/launch-stages.md). For more information, see [Backups](../../storedoc/concepts/backup.md).
 
 
   Changing the retention period affects both new and existing automatic backups. For example, if the initial retention period was 7 days, and the remaining lifetime of a separate automatic backup is 1 day, increasing the retention period to 9 days will change the remaining lifetime of this backup to 3 days.
@@ -15,7 +15,7 @@
 
 
 
-- **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}**: Enables you to [run SQL queries](../../storedoc/operations/websql.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}.
+- **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}**: This option enables you to [run SQL queries](../../storedoc/operations/websql.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}.
 
 
 - **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}**: Enable this option to use the built-in [performance diagnostics](../../storedoc/operations/performance-diagnostics.md) tool in the cluster. This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.

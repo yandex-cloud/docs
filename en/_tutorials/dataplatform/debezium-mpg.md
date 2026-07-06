@@ -190,7 +190,7 @@ In this tutorial, you will learn how to create a virtual machine in {{ yandex-cl
 
 1. Create a service topic for tracking the connector status:
 
-    * **{{ ui-key.yacloud.common.name }}**: `debezium-heartbeat.mpg`
+    * **{{ ui-key.yacloud.common.name }}**: `debezium-heartbeat.mpg`.
 
         Service topic names [follow](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-property-heartbeat-topics-prefix) the `<prefix_for_heartbeat>.<server_name>` convention.
 

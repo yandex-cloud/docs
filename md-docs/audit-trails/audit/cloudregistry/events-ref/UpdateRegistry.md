@@ -97,7 +97,15 @@
       "labels": "object",
       "properties": "object",
       "createdAt": "string",
-      "modifiedAt": "string"
+      "modifiedAt": "string",
+      "patternFilter": {
+        "includePatterns": [
+          "string"
+        ],
+        "excludePatterns": [
+          "string"
+        ]
+      }
     }
   },
   "requestParameters": "object",
@@ -319,4 +327,17 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| patternFilter | **[PatternFilter](#yandex.cloud.cloudregistry.v1.PatternFilter)** ||
+|#
+
+## PatternFilter {#yandex.cloud.cloudregistry.v1.PatternFilter}
+
+#|
+||Field | Description ||
+|| includePatterns[] | **string**
+
+Each value must match the regular expression ` [A-Za-z0-9._~:@!$PATTERN+\-?*/]+ `. ||
+|| excludePatterns[] | **string**
+
+Each value must match the regular expression ` [A-Za-z0-9._~:@!$PATTERN+\-?*/]+ `. ||
 |#

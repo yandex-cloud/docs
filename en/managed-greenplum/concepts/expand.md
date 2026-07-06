@@ -44,7 +44,7 @@ At this stage, the following processes take place:
 
 1. The `gpexpand` service data schema is deleted.
 
-The approximate duration of this stage is several days. You can influence it using [settings](#settings). For more information on stage durations, see [below](#duration).
+The approximate duration of this stage is several days. You can influence it using [settings](#settings). For more information on how long the stages take, see [below](#duration).
 
 ## Stage duration and duration control {#duration}
 

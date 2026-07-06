@@ -310,9 +310,9 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-      For a complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
+      For the complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
 
   1. To set up a [maintenance window](../concepts/maintenance.md#maintenance-window), add the `maintenance_window` section to the cluster description:
   

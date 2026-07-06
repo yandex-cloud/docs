@@ -12,8 +12,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -36,7 +36,7 @@ Set up your infrastructure:
             {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
     
-    1. If using security groups, make sure they are [configured correctly](../../managed-postgresql/operations/connect/index.md#configuring-security-groups) and allow connections to your cluster.
+    1. If you are using security groups in a cluster, make sure they are [configured correctly](../../managed-postgresql/operations/connect/index.md#configuring-security-groups) and allow connections to it.
 
 
     1. [Create a {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md).
@@ -197,7 +197,7 @@ To reduce the consumption of resources, delete those you do not need:
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the objects](../../storage/operations/objects/delete.md) from the bucket.
-1. Delete other resources, applying the same method used for their creation:
+1. Delete the rest of the resources depending on how you created them:
 
     {% list tabs group=resources %}
 

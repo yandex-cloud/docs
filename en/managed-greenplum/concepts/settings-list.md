@@ -135,7 +135,7 @@ The following settings are available:
 
     Distributed file system settings.
 
-    For more information, see the [Apache Hadoop documentation](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml).
+    For more information, see [this Apache Hadoop guide](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml).
 
     * **Ha Automatic Failover Enabled**{#setting-ha-automatic-failover-enabled}
 
@@ -157,7 +157,7 @@ The following settings are available:
 
     Settings for the ResourceManager service, which tracks resources within a cluster and schedules running apps, such as MapReduce jobs.
 
-    For more information, see the [Apache Hadoop documentation](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html).
+    For more information, see [this Apache Hadoop guide](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html).
 
     * **Resourcemanager Ha Enabled**{#setting-resourcemanager-ha-enabled}
 

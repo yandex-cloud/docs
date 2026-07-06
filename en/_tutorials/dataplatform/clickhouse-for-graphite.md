@@ -29,7 +29,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of maintaining your {{ CH }} database for Graphite includes:
-* Fee for the cluster computing resources, storage, and backups (see [{{ mch-full-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for the cluster's computing resources, storage, and backups (see [{{ mch-full-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Fee for a running VM managing the database (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 
@@ -210,7 +210,7 @@ Configure Graphite to store metrics in your {{ CH }} cluster. The {{ CH }} serve
     sudo systemctl start graphite-clickhouse
     ```
 
-    For more information on configuring Graphite, see [these guides](https://graphite.readthedocs.io/en/latest/index.html). 
+    Read more on configuring Graphite in [this guide](https://graphite.readthedocs.io/en/latest/index.html). 
 
 ## How to delete the resources you created {#clear-out}
 

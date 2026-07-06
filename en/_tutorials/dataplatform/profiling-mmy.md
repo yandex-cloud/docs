@@ -1,4 +1,4 @@
-# {{ mmy-name }} performance analysis and tuning
+# {{ mmy-name }} performance analysis and optimization
 
 The following issues usually cause reduced performance of a {{ mmy-name }} cluster:
 
@@ -71,9 +71,9 @@ You can use special queries to find out what causes increased resource usage:
    
    Pay close attention to read and write operations affecting many rows. These can also cause increased network load. For writes, WAL changes will be applied to replicas, which further increases network load.
 
-- You cannot monitor CPU consumption for individual {{ MY }} queries, but you can identify queries that run inefficiently (see below). 
+- You cannot track CPU consumption for individual {{ MY }} queries, but you can identify inefficient queries (see below).
 
-## Diagnosing inefficient query execution {#inefficient-queries}
+## Diagnosing inefficient queries {#inefficient-queries}
 
 To identify {{ MY }} queries that run inefficiently, use this query:
 
@@ -87,9 +87,9 @@ It returns the 10 longest-running queries in the entire server history.
 
 Pay attention to queries with high values for `ROWS_EXAMINED`, `ROWS_SORTED`, or those with the `FULL_SCAN` flag.
 
-For more information about the output, see [this {{ MY }} article](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
+To learn more about the output, see [this {{ MY }} article](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
 
-## Diagnosing locks {#localize-locking-issues}
+## Diagnosing database locks {#localize-locking-issues}
 
 Cluster performance may degrade because of locks caused by multiple simultaneous attempts to access the same database resource, e.g., table or row.
 

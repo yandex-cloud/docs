@@ -4,6 +4,25 @@ description: В разделе представлена история изме�
 ---
 
 # История изменений в {{ sd-full-name }}
+## Май 2026 {#may-2026}
+
+* В модуле [{{ cspm-name }}](./concepts/cspm.md) появился новый [набор правил](./concepts/standard-compliance/yc-gost-57580.md) на соответствие стандарту ГОСТ Р 57580 — национальному стандарту безопасности банковских и финансовых операций. 
+* В модуле [{{ dspm-name }}](./concepts/dspm.md) появилась возможность создавать [области сканирования](./operations/dspm/create-data-source.md#change-scaning) из результатов предварительного анализа и непрерывно [отслеживать](./concepts/dspm.md#change-scaning) области на предмет появления или изменения чувствительных данных.  
+* Расширилась тарифная сетка — теперь вы можете приобрести ежемесячную [подписку](pricing.md#starter-pricing) на модули [{{ cspm-name }}](./concepts/cspm.md) и [Threat Detection](./concepts/threat-detector.md).
+* Все [ошибки](./diagnostics/index.md) модулей теперь отображаются в общем интерфейсе ошибок.
+* Функциональность поиска чувствительных данных на дисках {{ yandex-360 }} с помощью модуля [{{ dspm-name }}](./concepts/dspm.md) стала доступной всем пользователям. Ранее функциональность была доступна только по запросу.
+
+## Июнь 2026 {#june-2026}
+
+* Сервис {{ sd-full-name }} перешел на стадию [General Availability](../overview/concepts/launch-stages.md). Модули [Threat Detection](./concepts/threat-detector.md) и Vulnerability Manager и AI-ассистент остаются на стадии [Preview](../overview/concepts/launch-stages.md)
+* В модуле [{{ cspm-name }}](./concepts/cspm.md) появились новые правила проверки инфраструктуры на соответствие стандартам безопасности. Новые правила регламентируют использование MFA, ротацию ключей, отслеживание даты последней аутентификации сервисных аккаунтов и использование учетных записей Яндекс ID.
+* В модуле [{{ kspm-name }}](./concepts/kspm.md): 
+  * в [исключениях](./operations/kspm/manage-exceptions.md) теперь можно исключить ресурсы из проверки по типу, имени нагрузки и меткам;
+  * реализованы режимы работы правил типа admission;
+  * поддержана новая версия {{ k8s }}®.
+* Появилась [возможность](./operations/alerts/work.md#update-batch) изменять статус, назначать ответственных и менять критичность сразу для нескольких алертов.
+* При создании окружения создается приемник алертов по умолчанию, если пользователь не создает свой приемник алертов. 
+* Реализована возможность [активировать и деактивировать окружения](./operations/workspaces/index.md) {{ sd-name }}.
 
 ## Апрель 2026 {#april-2026}
 
@@ -14,11 +33,11 @@ description: В разделе представлена история изме�
 * На странице алертов от модулей [{{ cspm-name }}](./concepts/cspm.md) и [{{ kspm-name }}](./concepts/kspm.md) теперь можно [исключить ресурс](./operations/alerts/work.md#create-exception) из проверки на соответствие требованиям.
 
 ## Март 2026 {#march-2026}
-* Запущен [модуль управления уязвимостями (VM)](./concepts/vulnerability-management.md). Модуль находится на стадии [Preview](../overview/concepts/launch-stages.md) и доступен только по запросу.
-* В модуле [DSPM](./concepts/dspm.md) появилась возможность предварительного [анализа данных](./concepts/dspm.md#discovery-mode), хранящихся в бакетах {{ objstorage-name }} в пределах окружения.
+* Запущен модуль [{{ vuln-man-name }}(VM)](./concepts/vulnerability-management.md). Модуль находится на стадии [Preview](../overview/concepts/launch-stages.md) и доступен только по запросу.
+* В модуле [{{ dspm-name }}](./concepts/dspm.md) появилась возможность предварительного [анализа данных](./concepts/dspm.md#discovery-mode), хранящихся в бакетах {{ objstorage-name }} в пределах окружения.
 * Алерты теперь можно [группировать](./operations/alerts/view.md#search) по типу и фильтровать по новым атрибутам.
-* В модуле [KSPM](./concepts/kspm.md) в [исключениях](./operations/kspm/manage-exceptions.md) теперь можно указать объекты через поиск по пространству имен.
-* В модуле [CSPM](./concepts/cspm.md) появились новые правила проверки инфраструктуры на соответствие стандартам безопасности. Новые правила регламентируют [назначение](./rules-reference/cspm.md#check-privileged-roles) привилегированных ролей, [защиту](./rules-reference/cspm.md#appsec-ddos-protection-l3) от DDoS-атак на сетевом уровне, [доступ](./rules-reference/cspm.md#access) сервисных аккаунтов к кластерам {{ k8s }}® и избыточные роли сервисных аккаунтов на уровне [организации](./rules-reference/cspm.md#sa-privileges-org-roles) и [сервиса](./rules-reference/cspm.md#sa-privileges-service-roles). 
+* В модуле [{{ kspm-name }}](./concepts/kspm.md) в [исключениях](./operations/kspm/manage-exceptions.md) теперь можно указать объекты через поиск по пространству имен.
+* В модуле [{{ cspm-name }}](./concepts/cspm.md) появились новые правила проверки инфраструктуры на соответствие стандартам безопасности. Новые правила регламентируют [назначение](./rules-reference/cspm.md#check-privileged-roles) привилегированных ролей, [защиту](./rules-reference/cspm.md#appsec-ddos-protection-l3) от DDoS-атак на сетевом уровне, [доступ](./rules-reference/cspm.md#access) сервисных аккаунтов к кластерам {{ k8s }}® и избыточные роли сервисных аккаунтов на уровне [организации](./rules-reference/cspm.md#sa-privileges-org-roles) и [сервиса](./rules-reference/cspm.md#sa-privileges-service-roles). 
 
 ## Февраль 2026 {#february-2026}
 

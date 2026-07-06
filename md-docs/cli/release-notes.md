@@ -4,6 +4,30 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.17.0 (06.07.26) {#v-1-17-0}
+
+#### Cloud Backup {#v-1-17-0-backup-name}
+
+* Добавлена команда `yc backup agent install-external` для получения команды установки агента резервного копирования на внешние ресурсы: `yc backup agent install-external`.
+* Добавлена поддержка внешних ресурсов в команды `yc backup`:
+  * `yc backup resources list`;
+  * `yc backup backups list`.
+
+## Предыдущие релизы {#previous-release}
+
+### Версия 1.16.0 (02.07.26) {#v-1-16-0}
+
+#### Cloud Registry {#v-1-16-0-cloud-registry-name}
+
+Добавлена команда `yc cloud-registry artifact list` для получения списка артефактов.
+
+#### Yandex StoreDoc {#v-1-16-0-mmg-name}
+
+Добавлены параметры `--autocompact`, `--autocompact-bloat-percent`, `--autocompact-target-free-space` и `--autocompact-compaction-type` в команды:
+* `yc managed-mongodb cluster create`;
+* `yc managed-mongodb cluster update`;
+* `yc managed-mongodb cluster restore`.
+
 ### Версия 1.15.0 (30.06.26) {#v-1-15-0}
 
 #### Managed Service for ClickHouse® {#v-1-15-0-mch-name}
@@ -41,8 +65,6 @@
 #### Load Testing {#v-1-15-0-load-testing-name}
 
 Удалена группа команд `yc loadtesting`, так как сервис Load Testing прекращает работу.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.14.0 (18.06.26) {#v-1-14-0}
 

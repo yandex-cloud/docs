@@ -2384,6 +2384,10 @@ description: В статье приведен полный справочник 
 
 ## {{ mmg-full-name }} {#storedoc-roles}
 
+#### managed-mongodb.clusters.connector {#managed-mongodb-clusters-connector}
+
+{% include [managed-mongodb.clusters.connector](../_roles/managed-mongodb/clusters/connector.md) %}
+
 #### managed-mongodb.auditor {#managed-mongodb-auditor}
 
 {% include [managed-mongodb.auditor](../_roles/managed-mongodb/auditor.md) %}

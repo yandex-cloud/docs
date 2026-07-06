@@ -1,6 +1,6 @@
 # Loading data from {{ objstorage-full-name }} to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
-You can migrate data from {{ objstorage-full-name }} to the {{ GP }} table in {{ mgp-name }} using {{ data-transfer-full-name }}. Follow these steps:
+You can migrate data from {{ objstorage-full-name }} to the {{ GP }} table in {{ mgp-name }} using {{ data-transfer-full-name }}. Proceed as follows:
 
 1. [Prepare your test data](#prepare-data).
 1. [Create a database in the target cluster](#prepare-data).
@@ -13,7 +13,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Required paid resources {#paid-resources}
 
 * {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ mgp-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
+* {{ mgp-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -123,7 +123,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     CREATE DATABASE db1;
     ```
 
-## Prepare and activate your transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md#objstorage-name) of the `{{ objstorage-name }}` type with the following settings:
 
@@ -197,7 +197,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
 1. [Connect](../../managed-greenplum/operations/connect/index.md) to the `db1` database in the {{ GP }} target cluster.
 
-1. Run this request:
+1. Run this query:
 
     ```sql
     SELECT * FROM public.table1;
@@ -225,7 +225,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
     1. [Connect](../../managed-greenplum/operations/connect/index.md) to the `db1` database in the {{ GP }} target cluster.
 
-    1. Run this request:
+    1. Run this query:
 
         ```sql
         SELECT * FROM public.table1;

@@ -34,6 +34,10 @@ The diagram below shows available service roles and their permission inheritance
 
 ### Service roles {#service-roles}
 
+#### managed-mongodb.clusters.connector {#managed-mongodb-clusters-connector}
+
+{% include [managed-mongodb.clusters.connector](../../_roles/managed-mongodb/clusters/connector.md) %}
+
 #### managed-mongodb.auditor {#managed-mongodb-auditor}
 
 {% include [managed-mongodb.auditor](../../_roles/managed-mongodb/auditor.md) %}

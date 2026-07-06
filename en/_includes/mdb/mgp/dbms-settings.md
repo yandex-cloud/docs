@@ -112,7 +112,7 @@ Controls the `ZSTD` memory accounting feature. Enabling it (`true`/`on`) prevent
 |-------------------|---------|---------------------|-----------------------|----------|
 | 6.25 and higher | Integer | from 5 to 2147483647 | 120 | `sighup` |
 
-Specifies the execution interval (in seconds) of the global deadlock detector background workflow (`Global Deadlock Detector`, see the [gp_enable_global_deadlock_detector](#setting-gp-enable-global-deadlock-detector) parameter).
+Specifies the execution interval (in seconds) of the `Global Deadlock Detector` background workflow of the global deadlock detector (see the [gp_enable_global_deadlock_detector](#setting-gp-enable-global-deadlock-detector) parameter).
 
 #### gp_max_plan_size {#setting-gp-max-plan-size}
 

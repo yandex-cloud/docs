@@ -1,6 +1,6 @@
 ---
 title: '{{ yq-full-name }} tutorials'
-description: This section contains tutorials for {{ yq-name }}.
+description: This section provides tutorials for {{ yq-name }}.
 ---
 
 # {{ yq-name }} tutorials

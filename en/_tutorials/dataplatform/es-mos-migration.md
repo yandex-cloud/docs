@@ -18,7 +18,7 @@ There are three ways to migrate data from a source {{ ES }} cluster to a target 
 
     This method is good for {{ ES }} cluster versions 7.11 or lower.
 
-    For more information about snapshots, see [this {{ OS }} guide]({{ os.docs }}/opensearch/snapshots/index/).
+    Learn more about snapshots in the [{{ OS }} guides]({{ os.docs }}/opensearch/snapshots/index/).
 
 * Remote [reindexing]({{ os.docs }}/opensearch/reindex-data/).
 
@@ -166,13 +166,13 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
     * Migrate only your custom indexes. The existing system indexes are not migrated. The import process only affects the user-created indexes on the source cluster.
 
-    * Use the `rename_pattern` and `rename_replacement` parameters. Indexes will be renamed as they are restored. For more information, see the [relevant {{ OS }} article]({{ os.docs }}/opensearch/snapshots/snapshot-restore#conflicts-and-compatibility).
+    * Use the `rename_pattern` and `rename_replacement` parameters. Indexes will be renamed as they are restored. For more information, see [this {{ OS }} guide]({{ os.docs }}/opensearch/snapshots/snapshot-restore#conflicts-and-compatibility).
 
     Example of restoring the entire snapshot:
 
     ```bash
     curl --request POST \
-         "https://admin:<admin_user_password>@<ID_of_{{ OS }}_host_with_DATA_role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository_name>/snapshot_1/_restore" \
+         "https://admin:<admin_password>@<ID_of_{{ OS }}_host_with_DATA_role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository_name>/snapshot_1/_restore" \
          --cacert ~/.opensearch/root.crt
     ```
 
@@ -413,7 +413,7 @@ If you no longer need the resources you created, [delete them](#clear-out-reinde
     ...
     ```
 
-    To learn more about reindexing parameters, see the [relevant {{ OS }} article]({{ os.docs }}/opensearch/reindex-data/#source-index-options).
+    Learn more about reindexing parameters in [this {{ OS }} guide]({{ os.docs }}/opensearch/reindex-data/#source-index-options).
 
     Reindexing may take a while. To check the operation status, run this command:
 

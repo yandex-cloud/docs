@@ -27,7 +27,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, volume of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, amount of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
 * {{ metastore-name }} cluster: computing resources of cluster components (see [{{ metadata-hub-name }} pricing](../../../metadata-hub/pricing.md)).
 * {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 * NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
@@ -41,7 +41,7 @@ Set up your infrastructure:
 - Manually {#manual}
 
     1. [Create a service account](../../../iam/operations/sa/create.md) named `dataproc-s3-sa` and assign it the `dataproc.agent`, `dataproc.provisioner`, `managed-metastore.integrationProvider`, and `storage.uploader` roles.
-    1. In {{ objstorage-full-name }}, [create a bucket](../../../storage/operations/buckets/create.md) named `dataproc-bucket`. Grant the `READ and WRITE` permission for this bucket to the service account.
+    1. In {{ objstorage-name }}, [create a bucket](../../../storage/operations/buckets/create.md) named `dataproc-bucket`. Grant the `READ and WRITE` permission for this bucket to the service account.
     1. [Create a cloud network](../../../vpc/operations/network-create.md) named `dataproc-network`.
     1. In this network, [create a subnet](../../../vpc/operations/subnet-create.md) named `dataproc-subnet`.
     1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the subnet you created.
@@ -157,7 +157,7 @@ Set up your infrastructure:
         * `folder_id`: Cloud folder ID, same as in the provider settings.
         * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. Learn more about connecting to a {{ dataproc-name }} host over SSH [here](../../../data-proc/operations/connect-ssh.md).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate

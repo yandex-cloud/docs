@@ -21,7 +21,7 @@ The admin user is created together with the {{ mgp-name }} cluster and automatic
 * [Configure role privileges](#privileges).
 * [Delete a role](#remove).
 
-For more information about role interaction commands, see the [{{ GP }} guide]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-sql_ref.html).
+For more information about role interaction commands, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-sql_ref.html).
 
 ## View a list of roles {#list}
 
@@ -80,7 +80,7 @@ For more information about role interaction commands, see the [{{ GP }} guide]({
     CREATE ROLE <role_name> <attribute_list>;
     ```
 
-    For a list of available attributes, see [{#T}](../concepts/cluster-users.md#attributes).
+    For the list of available attributes, see [{#T}](../concepts/cluster-users.md#attributes).
 
 {% endlist %}
 
@@ -124,7 +124,7 @@ For more information about role interaction commands, see the [{{ GP }} guide]({
     ALTER ROLE <role_name> <attribute_list>;
     ```
 
-    For a list of available attributes, see [{#T}](../concepts/cluster-users.md#attributes).
+    For the list of available attributes, see [{#T}](../concepts/cluster-users.md#attributes).
 
 {% endlist %}
 
@@ -140,7 +140,7 @@ For more information about role interaction commands, see the [{{ GP }} guide]({
     GRANT <list_of_privileges_separated_by_commas> ON <object_name> TO <role_name>;
     ```
 
-    For a list of available privileges, see [{#T}](../concepts/cluster-users.md#privileges).
+    For the list of available privileges, see [{#T}](../concepts/cluster-users.md#privileges).
 
     To revoke privileges from a role, run this command:
 

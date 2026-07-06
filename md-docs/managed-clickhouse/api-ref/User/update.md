@@ -515,7 +515,7 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 
 Algorithm of replicas selection that is used for distributed query processing.
 
-Default value: **LOAD_BALANCING_RANDOM**.
+Default value: **LOAD_BALANCING_HOSTNAME_LONGEST_COMMON_PREFIX** for versions 26.6 and higher, **LOAD_BALANCING_RANDOM** for versions 26.5 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#load_balancing).
 
@@ -523,7 +523,10 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 - `LOAD_BALANCING_NEAREST_HOSTNAME`: Prefer replicas whose hostname is lexicographically closest to the current server's hostname.
 - `LOAD_BALANCING_IN_ORDER`: Select replicas in the order defined in the configuration, failing over to the next on error.
 - `LOAD_BALANCING_FIRST_OR_RANDOM`: Always try the first replica; fall back to a random replica if it is unavailable or has errors.
-- `LOAD_BALANCING_ROUND_ROBIN`: Cycle through replicas sequentially in a round-robin fashion. ||
+- `LOAD_BALANCING_ROUND_ROBIN`: Cycle through replicas sequentially in a round-robin fashion.
+- `LOAD_BALANCING_HOSTNAME_LONGEST_COMMON_PREFIX`: Like **LOAD_BALANCING_NEAREST_HOSTNAME**, but the replica whose hostname shares the longest common prefix with the local hostname
+is preferred (the longer the common prefix, the higher the priority).
+- `LOAD_BALANCING_HOSTNAME_LONGEST_COMMON_SUFFIX`: Like **LOAD_BALANCING_HOSTNAME_LONGEST_COMMON_PREFIX**, but the longest common suffix is compared instead of the prefix. ||
 || preferLocalhostReplica | **boolean**
 
 Enable or disable preferable using the localhost replica when processing distributed queries.

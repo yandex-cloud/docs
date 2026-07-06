@@ -37,7 +37,7 @@ description: In this tutorial, you will learn about versioning policies supporte
   A {{ mos-name }} cluster running a discontinued {{ OS }} version is updated to the next major version (listed as LTS).
   
 
-- Minor versions.
+- Minor versions
 
   A {{ mos-name }} cluster running on an obsolete {{ OS }} version will be upgraded to either the nearest major version (marked as LTS), if available, or the latest minor version.
   

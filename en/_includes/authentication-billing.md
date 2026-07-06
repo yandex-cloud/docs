@@ -9,7 +9,7 @@ To perform operations via the API, you need to get an [IAM token](../iam/concept
 
 {% include [iam-token-usage](iam-token-usage.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [{#T}](../iam/concepts/users/accounts.md)
 

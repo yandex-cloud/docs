@@ -6361,6 +6361,10 @@
 
 ## Yandex StoreDoc {#storedoc-roles}
 
+#### managed-mongodb.clusters.connector {#managed-mongodb-clusters-connector}
+
+Роль `managed-mongodb.clusters.connector` позволяет [пользователям](concepts/users/accounts.md) Yandex Cloud подключаться к базам данных в [кластерах Yandex StoreDoc](../storedoc/concepts/index.md) с помощью механизмов сервиса [Yandex Identity and Access Management](index.md).
+
 #### managed-mongodb.auditor {#managed-mongodb-auditor}
 
 Роль `managed-mongodb.auditor` позволяет просматривать информацию о [кластерах Yandex StoreDoc](../storedoc/concepts/index.md) и назначенных [правах доступа](concepts/access-control/index.md) к ним, о [хостах](../storedoc/concepts/instance-types.md) и [резервных копиях](../storedoc/concepts/backup.md) кластеров, а также о [квотах](../storedoc/concepts/limits.md#mmg-quotas) и операциях с ресурсами сервиса.

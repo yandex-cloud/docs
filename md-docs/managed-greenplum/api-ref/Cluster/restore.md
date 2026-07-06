@@ -76,6 +76,8 @@ POST https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters:restore
   "segmentHostGroupIds": [
     "string"
   ],
+  "restorePxf": "boolean",
+  "restoreHba": "boolean",
   "serviceAccountId": "string"
 }
 ```
@@ -167,6 +169,12 @@ Host groups hosting VMs of the master subcluster. ||
 || segmentHostGroupIds[] | **string**
 
 Host groups hosting VMs of the segment subcluster. ||
+|| restorePxf | **boolean**
+
+Restore PXF settings from original cluster ||
+|| restoreHba | **boolean**
+
+Restore HBA settings from original cluster ||
 || serviceAccountId | **string**
 
 Service account that will be used to access a Yandex Cloud resources ||

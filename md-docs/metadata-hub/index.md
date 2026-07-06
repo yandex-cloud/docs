@@ -512,6 +512,8 @@
 
  - [Каталог метаданных](concepts/data-catalog.md)
 
+ - [Источники данных](concepts/data-catalog-sources.md)
+
  - [Сервисные роли для управления доступом](security/data-catalog-roles.md)
 
  - [Управление доступом](security/index.md)

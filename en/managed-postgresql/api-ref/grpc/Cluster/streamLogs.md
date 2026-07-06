@@ -6,6 +6,7 @@ editable: false
 
 Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
 
+
 ## gRPC request
 
 **rpc StreamLogs ([StreamClusterLogsRequest](#yandex.cloud.mdb.postgresql.v1.StreamClusterLogsRequest)) returns (stream [StreamLogRecord](#yandex.cloud.mdb.postgresql.v1.StreamLogRecord))**
@@ -26,6 +27,8 @@ Same as ListLogs but using server-side streaming. Also allows for 'tail -f' sema
 }
 ```
 
+Same as [ListLogs](/docs/managed-postgresql/api-ref/grpc/Cluster/listLogs#ListLogs) but using server-side streaming. Also supports `tail -f` semantics.
+
 #|
 ||Field | Description ||
 || cluster_id | **string**
@@ -37,6 +40,8 @@ The maximum string length in characters is 50. ||
 
 Columns from logs table to get in the response. ||
 || service_type | enum **ServiceType**
+
+Type of the service to request logs about.
 
 - `POSTGRESQL`: Logs of PostgreSQL activity.
 - `POOLER`: Logs of connection pooler activity.

@@ -6,6 +6,7 @@ editable: false
 
 Updates the specified hosts.
 
+
 ## gRPC request
 
 **rpc UpdateHosts ([UpdateClusterHostsRequest](#yandex.cloud.mdb.postgresql.v1.UpdateClusterHostsRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**

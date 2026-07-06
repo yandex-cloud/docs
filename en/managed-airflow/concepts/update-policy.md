@@ -15,7 +15,7 @@ In {{ maf-name }},the lifecycle rules for major {{ AF }} versions (2.x and 3.x) 
 
 {% endnote %}
 
-{{ maf-name }} uses two {{ AF }} versioning strategies:
+{{ maf-name }} uses two {{ AF }} version support strategies:
 
 * **LTS** (Long-Term Support) versions.
 * **Versions with regular updates**.
@@ -113,7 +113,7 @@ You need to upgrade to version 3.X manually. Proceed as follows:
 1. [Create](../operations/cluster-create.md) a new {{ maf-name }} version 3.X cluster.
 1. Connect the repository with the DAG files to the cluster you created.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Versioning in {{ maf-name }}](versions.md)
 * [{#T}](../operations/cluster-version-update.md)

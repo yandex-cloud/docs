@@ -70,9 +70,9 @@ After creating a cluster, you can:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For the complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
 
     1. In the {{ mgp-name }} cluster description, edit the `description` attribute value:
 
@@ -230,7 +230,7 @@ After creating a cluster, you can:
 
         * `assignPublicIp`: Public access to cluster hosts, `true` or `false`.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -274,7 +274,7 @@ After creating a cluster, you can:
 
         * `assign_public_ip`: Public access to cluster hosts, `true` or `false`.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -392,9 +392,9 @@ If you enabled public access to the cluster but cannot access it from the inter
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For the complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
 
     1. In the {{ mgp-name }} cluster description, change the values of additional settings as required:
 
@@ -596,13 +596,13 @@ If you enabled public access to the cluster but cannot access it from the inter
             --data "@body.json"
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -716,7 +716,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             {% include [Cloud storage Preview](../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
@@ -857,7 +857,7 @@ You can change your cluster's [scheduled maintenance operations](../concepts/mai
             * `analyze_timeout`: Maximum duration of the `ANALYZE` operation, in seconds. The values range from `7200` to `86399`, the default one is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate.
             * `vacuum_timeout`: Maximum duration of the `VACUUM` operation, in seconds. The values range from `7200` to `86399`, the default one is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -881,7 +881,7 @@ To update settings at the individual database level, use the following command:
 ALTER DATABASE <DB_name> SET <setting> = <value>;
 ```
 
-For a full list of settings, see the [{{ GP }} guide](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html).
+For the full list of settings, see [this {{ GP }} guide](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html).
 
 {% endnote %}
 
@@ -931,9 +931,9 @@ For a full list of settings, see the [{{ GP }} guide](https://techdocs.broadcom.
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For the complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
 
     1. In the cluster description, edit the [DBMS settings](../concepts/settings-list.md) under `greenplum_config`:
 
@@ -993,7 +993,7 @@ For a full list of settings, see the [{{ GP }} guide](https://techdocs.broadcom.
 
             In this case, specify all DBMS settings you want to update.
 
-        * `configSpec.greenplumConfig_<DBMS_version>`: DBMS settings. Enter each setting on a new line, separated by commas. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
+        * `configSpec.greenplumConfig_<DBMS_version>`: DBMS settings. Enter each setting on a new line, separated by commas. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for descriptions and possible values of the settings.
 
             Available DBMS versions: {{ GP }} `6.28` and `6.29` and {{ CB }} `2.0-cb`.
 
@@ -1049,7 +1049,7 @@ For a full list of settings, see the [{{ GP }} guide](https://techdocs.broadcom.
 
             In this case, specify all DBMS settings you want to update.
 
-        * `config_spec.greenplum_config_<DBMS_version>`: DBMS settings. Enter each setting on a new line, separated by commas. See [{#T}](../concepts/settings-list.md) for a description and possible values for each setting.
+        * `config_spec.greenplum_config_<DBMS_version>`: DBMS settings. Enter each setting on a new line, separated by commas. See [{#T}](../concepts/settings-list.md) for descriptions and possible values of the settings.
 
             Available DBMS versions: {{ GP }} `6.28` and `6.29` and {{ CB }} `2.0-cb`.
 
@@ -1134,9 +1134,9 @@ We recommend changing the host class only when the cluster is idle.
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more information about creating this file, see [Creating clusters](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-      For a complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
+      For the complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
 
   1. In the {{ mgp-name }} cluster description, edit the `resource_preset_id` attribute value under `master_subcluster.resources` or `segment_subcluster.resources`:
 
@@ -1205,7 +1205,7 @@ We recommend changing the host class only when the cluster is idle.
 
         * `masterConfig.resources.resourcePresetId` and `segmentConfig.resources.resourcePresetId`: New [host class](../concepts/instance-types.md) for master and segment hosts.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1310,9 +1310,9 @@ We recommend changing the host class only when the cluster is idle.
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For the complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
 
     1. In the {{ mgp-name }} cluster description, edit the values of the `disk_type_id` and `disk_size` attributes under `master_subcluster.resources` or `segment_subcluster.resources`:
 
@@ -1447,7 +1447,7 @@ We recommend changing the host class only when the cluster is idle.
             * `disk_type_id`: [Disk type](../concepts/storage.md).
             * `disk_size`: New storage size in bytes.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1492,9 +1492,9 @@ We recommend changing the host class only when the cluster is idle.
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For the complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
 
     1. In the {{ mgp-name }} cluster description, edit the `service_account_id` attribute value:
 
@@ -1658,9 +1658,9 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For the complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
 
     1. In the {{ mgp-name }} cluster description, edit the attribute values in the `logging` section:
 

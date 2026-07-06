@@ -23,7 +23,7 @@ The package contents in {{ AF }} may vary in different versions. Some packages a
 
 {% include [version-update-rules](../../_includes/managed-airflow/version-update-rules.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{{ AF }}](update-policy.md) versioning policy
 * [{#T}](../operations/cluster-version-update.md)

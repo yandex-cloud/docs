@@ -1,14 +1,14 @@
 ---
 title: Reference for {{ mmg-full-name }} metrics in {{ monitoring-full-name }}
-description: This page is a reference for {{ mmg-name }} metrics delivered to {{ monitoring-full-name }}.
+description: This page provides a reference of {{ mmg-name }} metrics exported to {{ monitoring-full-name }}.
 ---
 
 # {{ monitoring-full-name }} metric reference
 
-This section describes the {{ mmg-name }} metrics delivered to [{{ monitoring-name }}]({{ monitoring-doc-links }}).
+This section describes {{ mmg-name }} metrics exported to [{{ monitoring-name }}]({{ monitoring-doc-links }}).
 
 {% include [managed-mongodb](../_includes/monitoring/metrics-ref/managed-mongodb.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [{#T}](./operations/monitoring.md)

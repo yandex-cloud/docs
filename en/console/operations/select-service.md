@@ -53,7 +53,7 @@ In the {{ yandex-cloud }} management console, you can navigate to a desired serv
 
   ![image](../../_assets/console/create-resource-dashboard.png)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](search.md)
 * [{#T}](ai-assistant.md)

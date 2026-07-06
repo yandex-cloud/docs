@@ -69,6 +69,8 @@ Creates a new Greenplum® cluster using the specified backup.
   "segment_host_group_ids": [
     "string"
   ],
+  "restore_pxf": "bool",
+  "restore_hba": "bool",
   "service_account_id": "string"
 }
 ```
@@ -153,6 +155,12 @@ Host groups hosting VMs of the master subcluster. ||
 || segment_host_group_ids[] | **string**
 
 Host groups hosting VMs of the segment subcluster. ||
+|| restore_pxf | **bool**
+
+Restore PXF settings from original cluster ||
+|| restore_hba | **bool**
+
+Restore HBA settings from original cluster ||
 || service_account_id | **string**
 
 Service account that will be used to access a Yandex Cloud resources ||

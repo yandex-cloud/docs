@@ -115,9 +115,9 @@ We recommend changing the host class only when the cluster is idle.
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
   
   1. In the {{ mmg-name }} cluster description, update the value of the `resource_preset_id` argument for `resources_mongod`, `resources_mongoinfra`, `resources_mongos`, and `resources_mongocfg` resources. The resource type depends on the [sharding type](../concepts/sharding.md#shard-management).
 
@@ -137,7 +137,7 @@ We recommend changing the host class only when the cluster is idle.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
  
@@ -323,9 +323,9 @@ We recommend changing the host class only when the cluster is idle.
 
   To change the disk type and expand the storage size for a cluster:
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. In the {{ mmg-name }} cluster description, change the values of the `disk_type_id` and `disk_size` arguments for the `resources_mongod`, `resources_mongoinfra`, `resources_mongos`, and `resources_mongocfg` resources. The resource type depends on the [sharding type](../concepts/sharding.md#shard-management).
 
@@ -346,7 +346,7 @@ We recommend changing the host class only when the cluster is idle.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -670,9 +670,9 @@ You can change the DBMS settings for your cluster hosts.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
       
-       For more on how to create this file, see [Creating a cluster](cluster-create.md).
+       To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. To change the backup start time, locate your {{ mmg-name }} cluster description and add the `backup_window_start` section under `cluster_config`:
   
@@ -711,7 +711,7 @@ You can change the DBMS settings for your cluster hosts.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -805,7 +805,7 @@ You can change the DBMS settings for your cluster hosts.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -940,9 +940,9 @@ You can change the DBMS settings for your cluster hosts.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](./cluster-create.md).
 
     1. In the {{ mmg-name }} cluster description, add or update the `folder_id` argument:
 
@@ -957,7 +957,7 @@ You can change the DBMS settings for your cluster hosts.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1059,9 +1059,9 @@ You can change the DBMS settings for your cluster hosts.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
       
-       For more on how to create this file, see [Creating a cluster](cluster-create.md).
+       To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Update the `security_group_ids` value in the {{ mmg-name }} cluster description:
   
@@ -1077,7 +1077,7 @@ You can change the DBMS settings for your cluster hosts.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

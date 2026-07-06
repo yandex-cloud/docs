@@ -61,7 +61,7 @@ Set up your data delivery infrastructure:
         * `target_db_name`: {{ ydb-name }} target database name.
         * `transfer_enabled`: Set to `0` to prevent transfer creation until you [create endpoints manually](#prepare-transfer).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
@@ -81,7 +81,7 @@ Set up your data delivery infrastructure:
 
 [Create a data stream in {{ yds-name }}](../../data-streams/quickstart/create-stream.md).
 
-## Prepare and activate your transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 1. [Create a {{ yds-name }} source endpoint](../../data-transfer/operations/endpoint/index.md#create).
 
@@ -173,7 +173,7 @@ Set up your data delivery infrastructure:
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: Set to `1` to create a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate

@@ -9,7 +9,7 @@ keywords:
 
 # Managing backups in {{ mos-name }}
 
-{{ mos-short-name }} enables you to create [index](../concepts/indexing.md) backups using both the {{ yandex-cloud }} tools and the {{ OS }} snapshot mechanism. For more information about snapshots, see [this {{ OS }} guide]({{ os.docs }}/opensearch/snapshots/snapshot-restore/).
+{{ mos-short-name }} enables you to create [index](../concepts/indexing.md) backups using both the {{ yandex-cloud }} tools and the {{ OS }} snapshot mechanism. Learn more about the snapshot mechanism in [this {{ OS }} guide]({{ os.docs }}/opensearch/snapshots/snapshot-restore/).
 
 ## Creating backups with the {{ yandex-cloud }} tools {#cloud-backups}
 
@@ -348,10 +348,6 @@ You can get a list of backups created for the past 14 days.
 For clusters running an unsupported [DBMS version](../concepts/update-policy.md#versioning-policy), restoring from backups is not available.
 
 {% endnote %}
-
-Restoring a cluster from a backup creates a new cluster with that backup’s data. If your folder lacks [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
-
-When creating a cluster, specify all the required settings.
 
 
 Before you begin, [assign](../../iam/operations/roles/grant.md) the following roles to your {{ yandex-cloud }} account:
@@ -838,7 +834,7 @@ When restoring a cluster from a snapshot, the {{ OS }} version in the cluster mu
 1. Close any open indexes using the [{{ OS }} API]({{ os.docs }}/api-reference/index-apis/close-index/):
 
     ```http
-    POST: https://admin:<password>@<ID_of_{{ OS }}_host_with_DATA_role>.{{ dns-zone }}:{{ port-mos }}/<index_name>/_close
+    POST https://admin:<password>@<ID_of_{{ OS }}_host_with_DATA_role>.{{ dns-zone }}:{{ port-mos }}/<index_name>/_close
     ```
 
     To restore an entire cluster, close all open indexes. To restore individual indexes, close only those indexes.

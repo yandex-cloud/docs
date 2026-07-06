@@ -8,7 +8,7 @@ To migrate collections from a third-party {{ MG }} cluster to your {{ mmg-name }
 
 * {{ mmg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Per transfer: Computing resources used and the number of data rows transferred (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -49,7 +49,7 @@ Make sure you can connect to the source cluster’s hosts from the internet.
     db.auth("user1")
     ```
 
-1. Populate `collection1` in `db1` with 200,000 random entries:
+1. Fill in `collection1` in `db1` with random values. 200,000 entries will be added to the collection:
   
     ```javascript
     use db1

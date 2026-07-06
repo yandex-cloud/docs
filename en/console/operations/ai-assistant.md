@@ -7,7 +7,7 @@ description: This guide describes how to use an AI assistant to manage {{ yandex
 
 {% include [preview-pp](../../_includes/preview-pp.md) %}
 
-You can use an [AI assistant]({{ link-docs-ai }}ai-studio/concepts/assistant/index) integrated into the management console to create and delete {{ yandex-cloud }} resources as well as manage their settings. With the AI assistant, you can run operations on cloud resources by sending text messages to a chat with a generative model.
+You can use an AI assistant integrated into the management console to create and delete {{ yandex-cloud }} resources as well as manage their settings. With the AI assistant, you can run operations on cloud resources by sending text messages to a chat with a generative model.
 
 ## Creating and deleting resources {#create-and-delete}
 

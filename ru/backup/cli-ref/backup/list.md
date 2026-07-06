@@ -28,7 +28,7 @@ Specified instance id ||
 Specified archive id ||
 || `--type` | `string`
 
-Specified resource type for listing, one of 'compute' or 'bms' or '' ||
+Specified resource type for listing, one of 'compute', 'bms', 'external-vm', 'external-server' or '' ||
 |#
 
 #### Global Flags

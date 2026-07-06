@@ -11,10 +11,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ sf-name }}: Number of function calls, idle time of provisioned instances, and computing resources allocated to run the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
-* {{ lockbox-name }}: Number of stored secret versions and requests to them (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
-* {{ mch-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ sf-name }}: number of function calls, idle time of provisioned instances, and computing resources allocated for the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
+* {{ lockbox-name }}: number of stored secret versions and requests to them (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
+* {{ mch-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -97,7 +97,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-        1. If using security groups, make sure they are [configured correctly](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) and allow connections to your {{ mch-name }} cluster.
+        1. If you are using security groups in a {{ mch-name }} cluster, make sure they are [configured correctly](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) and allow connections to it.
 
     - {{ TF }} {#tf}
 
@@ -194,7 +194,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - {{ TF }} {#tf}
 
-        1. In the `ya-direct-to-mch.tf` file, specify the following variables:
+        1. In the `ya-direct-to-mch.tf` file, specify these variables:
 
             * `path_to_zip_cf`: Path to the ZIP archive file with the function code.
             * `create_function`: Set to `1` to create a function.
@@ -249,7 +249,7 @@ You will see a Parquet file in the bucket.
 
     - {{ TF }} {#tf}
 
-        1. In the `ya-direct-to-mch.tf` file, specify the following variables:
+        1. In the `ya-direct-to-mch.tf` file, specify these variables:
 
             * `source_endpoint_id`: Source endpoint ID.
             * `transfer_enabled`: Set to `1` to create a transfer.
@@ -301,7 +301,7 @@ To reduce the consumption of resources, delete those you do not need:
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the objects](../../storage/operations/objects/delete.md) from the bucket.
-1. Delete the other resources depending on how you created them:
+1. Delete the rest of the resources depending on how you created them:
 
    {% list tabs group=resources %}
 

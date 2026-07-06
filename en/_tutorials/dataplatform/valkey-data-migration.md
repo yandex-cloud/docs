@@ -27,9 +27,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mrd-name }} target cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ VLK }} pricing](../../managed-valkey/pricing.md)).
+* {{ mrd-name }} target cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ VLK }} pricing](../../managed-valkey/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Virtual machine if created to download a dump: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Virtual machine if created to upload a dump: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -85,7 +85,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * VM public [image](../../compute/operations/images-with-pre-installed-software/get-list) ID, e.g., for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
             * Username and absolute path to the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for accessing the virtual machine. By default, [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) ignores the specified username and automatically creates a user named `ubuntu`. Use it to connect to the VM.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate

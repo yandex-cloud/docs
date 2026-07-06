@@ -1,6 +1,6 @@
 # Yandex AI Studio SDK documentation
 
-Current package version: 0.21.0
+Current package version: 0.22.0
 
 - [Authentication in the Yandex AI Studio SDK](auth.md)
 
@@ -17,6 +17,7 @@ Current package version: 0.21.0
   - [Search indexes domain](sync/search_indexes.md)
   - [Search API domain](sync/search_api.md)
   - [SpheechKit domain](sync/speechkit/domain.md)
+  - [Vision domain](sync/vision/domain.md)
   - [Threads domain](sync/threads.md)
   - [Assistants domain](sync/assistants.md)
   - [Tools domain](sync/tools.md)
@@ -31,6 +32,7 @@ Current package version: 0.21.0
   - [Search indexes domain](async/search_indexes.md)
   - [Yandex Search API domain](async/search_api.md)
   - [SpheechKit domain](async/speechkit/domain.md)
+  - [Vision domain](async/vision/domain.md)
   - [Threads domain](async/threads.md)
   - [Assistants domain](async/assistants.md)
   - [Tools domain](async/tools.md)
