@@ -6,7 +6,7 @@ description: In this article, you will learn what storage is in {{ mmg-name }}, 
 # Storage in {{ mmg-name }}
 
 
-{{ mmg-name }} allows you to use network and local storage drives for database clusters. Network disks are based on network blocks, i.e., virtual disks in the {{ yandex-cloud }} infrastructure. Local drives are physically located on the database host servers.
+{{ mmg-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, i.e., virtual drives in the {{ yandex-cloud }} infrastructure. Local drives are physically located on the database host servers.
 
 {% include [storage-type](../../_includes/mdb/mmg/storage-type.md) %}
 

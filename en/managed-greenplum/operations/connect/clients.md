@@ -14,7 +14,7 @@ To connect to a publicly accessible , [prepare an SSL certificate](index.md#get-
 * `/home/<home_directory>/.postgresql/` for Ubuntu.
 * `$HOME\AppData\Roaming\postgresql` for Windows.
 
-You can connect to a cluster using either a master host's regular FQDN or a primary master host's [special FQDN](fqdn.md#fqdn-master). When connecting via _psql_ or using a JDBC connector, you can specify two master hosts at the same time. To learn how to get a host’s FQDN, see [this guide](fqdn.md).
+You can connect to a cluster using either a master host's regular FQDN or a primary master host's [special FQDN](fqdn.md#fqdn-master). When connecting via _psql_ or using a JDBC connector, you can specify two master hosts at the same time. To learn how to get a host's FQDN, see [this guide](fqdn.md).
 
 
 ## Command line tools {#command-line-tools}

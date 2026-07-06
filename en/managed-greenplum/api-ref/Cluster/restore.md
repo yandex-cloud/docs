@@ -150,6 +150,16 @@ apiPlayground:
           type: array
           items:
             type: string
+        restorePxf:
+          description: |-
+            **boolean**
+            Restore PXF settings from original cluster
+          type: boolean
+        restoreHba:
+          description: |-
+            **boolean**
+            Restore HBA settings from original cluster
+          type: boolean
         serviceAccountId:
           description: |-
             **string**
@@ -404,6 +414,8 @@ POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters:restore
   "segmentHostGroupIds": [
     "string"
   ],
+  "restorePxf": "boolean",
+  "restoreHba": "boolean",
   "serviceAccountId": "string"
 }
 ```
@@ -495,6 +507,12 @@ Host groups hosting VMs of the master subcluster. ||
 || segmentHostGroupIds[] | **string**
 
 Host groups hosting VMs of the segment subcluster. ||
+|| restorePxf | **boolean**
+
+Restore PXF settings from original cluster ||
+|| restoreHba | **boolean**
+
+Restore HBA settings from original cluster ||
 || serviceAccountId | **string**
 
 Service account that will be used to access a Yandex Cloud resources ||

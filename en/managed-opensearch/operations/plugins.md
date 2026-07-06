@@ -111,9 +111,9 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
 
         For a complete list of configurable {{ mos-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
 

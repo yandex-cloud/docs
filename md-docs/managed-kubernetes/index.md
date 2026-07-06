@@ -798,7 +798,11 @@
 
 #### Конфигурация ресурсов (англ.)
 
+ - [DirectResponse](gwin-ref/directresponse.md)
+
  - [Gateway](gwin-ref/gateway.md)
+
+ - [BackendTLSPolicy](gwin-ref/backendtlspolicy.md)
 
  - [GatewayPolicy](gwin-ref/gatewaypolicy.md)
 
@@ -812,15 +816,19 @@
 
  - [IngressPolicy](gwin-ref/ingresspolicy.md)
 
+ - [ListenerSetPolicy](gwin-ref/listenersetpolicy.md)
+
  - [RoutePolicy](gwin-ref/routepolicy.md)
 
  - [Service](gwin-ref/service.md)
 
+ - [ListenerSet](gwin-ref/listenerset.md)
+
  - [ServicePolicy](gwin-ref/servicepolicy.md)
 
- - [TLSRoute](gwin-ref/tlsroute.md)
-
  - [YCCertificate](gwin-ref/yccertificate.md)
+
+ - [TLSRoute](gwin-ref/tlsroute.md)
 
  - [YCStorageBucket](gwin-ref/ycstoragebucket.md)
 

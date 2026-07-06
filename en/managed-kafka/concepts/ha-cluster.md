@@ -58,7 +58,7 @@ High availability of your cluster also depends on the following:
 * [Quotas and limits](limits.md).
 
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../architecture/fault-tolerance.md)
 

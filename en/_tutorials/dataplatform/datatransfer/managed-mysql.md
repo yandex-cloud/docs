@@ -1,4 +1,4 @@
-# Transferring data using {{ data-transfer-full-name }} {#data-transfer}
+# Migrating data via {{ data-transfer-full-name }} {#data-transfer}
 
 To transfer a database from {{ MY }} to {{ mmy-name }}:
 
@@ -10,25 +10,25 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mmy-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
+* {{ mmy-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
 ## Start the data transfer {#start-transfer}
 
-1. [Set up the source cluster](../../../data-transfer/operations/prepare.md#source-my).
+1. [Prepare the source cluster](../../../data-transfer/operations/prepare.md#source-my).
 1. Set up your infrastructure and start the data transfer:
 
     {% list tabs group=instructions %}
 
     - Manually {#manual}
 
-        1. Create a [target {{ mmy-name }} cluster](../../../managed-mysql/operations/cluster-create.md) with any suitable configuration. In this case, the following applies:
+        1. Create a [target {{ mmy-name }} cluster](../../../managed-mysql/operations/cluster-create.md) with your preferred configuration. In this case, the following applies:
 
             * The {{ MY }} version must be the same as or higher than in the source cluster.
 
-                Data transfer with a major {{ MY }} version upgrade is possible but not guaranteed. For more information, see [this {{ MY }} article](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
+                Data transfer with a major {{ MY }} version upgrade is possible but not guaranteed. For more information, see [this {{ MY }} guide](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
 
                 Migration to an earlier {{ MY }} version is [not supported](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html).
 
@@ -55,13 +55,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             {% note warning %}
 
-            Avoid changing the data schema in either the source or target cluster while the transfer is in progress. For more information, see [{#T}](../../../data-transfer/operations/db-actions.md).
+            Do not make any data schema changes in the source or target cluster during the transfer. For more information, see [{#T}](../../../data-transfer/operations/db-actions.md).
 
             {% endnote %}
 
     - {{ TF }} {#tf}
 
-        1. [Set up the source cluster](../../../data-transfer/operations/prepare.md#source-my).
+        1. [Prepare the source cluster](../../../data-transfer/operations/prepare.md#source-my).
 
         1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
         1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
@@ -83,20 +83,20 @@ If you no longer need the resources you created, [delete them](#clear-out).
         1. In the `data-transfer-mysql-mmy.tf` file, specify the following:
 
             * [Source endpoint parameters](../../../data-transfer/operations/endpoint/source/mysql.md#on-premise).
-            * [Target endpoint parameters](../../../data-transfer/operations/endpoint/target/mysql.md#managed-service) inherited from the cluster configuration:
+            * [Target endpoint settings](../../../data-transfer/operations/endpoint/target/mysql.md#managed-service) inherited from the target cluster configuration:
 
                 * `target_mysql_version`: {{ MY }} version. Make sure it is the same as or higher than in the source cluster.
                 * `target_sql_mode`: [SQL mode](../../../managed-mysql/concepts/settings-list.md#setting-sql-mode). It must be the same as in the source cluster.
                 * `target_db_name`: Database name.
                 * `target_user` and `target_password`: Database owner username and password.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            {{ TF }} will show any errors found in your configuration files.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -104,7 +104,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
-            The transfer will activate automatically upon creation.
+            The transfer will be activated automatically as soon as it is created.
 
     {% endlist %}
 
@@ -119,7 +119,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+To minimize resource consumption, delete the resources you no longer need:
 
 {% list tabs group=instructions %}
 

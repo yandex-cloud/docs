@@ -30,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Getting started {#before-you-begin}
 
 1. Check that all source cluster hosts are accessible via public IP addresses to make sure the target cluster can connect to the source cluster. For more information, see [Creating a cluster](../../managed-postgresql/operations/cluster-create.md).
-1. [Install the {{ mpg-name }} client SSL certificates on the hosts of the target cluster](../../managed-postgresql/operations/connect/index.md#get-ssl-cert) to successfully connect to the source cluster that is publicly available.
+1. [Install the {{ mpg-name }}](../../managed-postgresql/operations/connect/index.md#get-ssl-cert) client SSL certificates on the hosts of the target cluster to successfully connect to the source cluster that is publicly available.
 
 
 1. If you need to, set up a firewall and [security groups](../../managed-postgresql/operations/connect/index.md#configuring-security-groups) so you can connect to the source cluster from the target cluster, as well as to each cluster separately, e.g., using the [psql](https://www.postgresql.org/docs/current/app-psql.html) utility.

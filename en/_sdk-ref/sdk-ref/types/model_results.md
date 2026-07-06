@@ -22,6 +22,10 @@ the version of the GPT model used for generating the result
 
 *property* **text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._models.completions.result.GPTModelResult.text}
 
+*property* **status**\: *[AlternativeStatus](#yandex_ai_studio_sdk._models.completions.result.AlternativeStatus)*{#yandex_ai_studio_sdk._models.completions.result.GPTModelResult.status}
+
+*property* **tool\_calls**\: *[ToolCallList](../internals/bases.md#yandex_ai_studio_sdk._tools.tool_call_list.ToolCallList)[ToolCallList, [ToolCallTypeT](other.md#yandex_ai_studio_sdk._tools.tool_call.ToolCallTypeT)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._models.completions.result.GPTModelResult.tool_calls}
+
 **count**(*value*) → integer -- return number of occurrences of value{#yandex_ai_studio_sdk._models.completions.result.GPTModelResult.count}
 
 **index**(*value*[, *start*[, *stop*]]) → integer -- return first index of value.{#yandex_ai_studio_sdk._models.completions.result.GPTModelResult.index}
@@ -29,10 +33,6 @@ the version of the GPT model used for generating the result
 Raises ValueError if the value is not present.
 
 Supporting start and stop arguments is optional, but recommended.
-
-*property* **status**\: *[AlternativeStatus](#yandex_ai_studio_sdk._models.completions.result.AlternativeStatus)*{#yandex_ai_studio_sdk._models.completions.result.GPTModelResult.status}
-
-*property* **tool\_calls**\: *[ToolCallList](../internals/bases.md#yandex_ai_studio_sdk._tools.tool_call_list.ToolCallList)[ToolCallList, [ToolCallTypeT](other.md#yandex_ai_studio_sdk._tools.tool_call.ToolCallTypeT)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._models.completions.result.GPTModelResult.tool_calls}
 
 ### *class* yandex\_ai\_studio\_sdk.\_models.completions.result.**Alternative**{#yandex_ai_studio_sdk._models.completions.result.Alternative}
 
@@ -381,21 +381,21 @@ Shortcut for **result.choice[0].reasoning\_content**
 
 Shortcut for **result.choice[0].status**
 
-**count**(*value*) → integer -- return number of occurrences of value{#yandex_ai_studio_sdk._chat.completions.result.ChatModelResult.count}
-
 *property* **finish\_reason**\: *[FinishReason](#yandex_ai_studio_sdk._chat.completions.result.FinishReason)*{#yandex_ai_studio_sdk._chat.completions.result.ChatModelResult.finish_reason}
 
 Shortcut for **result.choice[0].finish\_reason**
+
+*property* **tool\_calls**\: *[HttpToolCallList](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._tools.tool_call_list.HttpToolCallList)[[ToolCallTypeT](other.md#yandex_ai_studio_sdk._tools.tool_call.ToolCallTypeT)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._chat.completions.result.ChatModelResult.tool_calls}
+
+Shortcut for **result.choice[0].tool\_calls**
+
+**count**(*value*) → integer -- return number of occurrences of value{#yandex_ai_studio_sdk._chat.completions.result.ChatModelResult.count}
 
 **index**(*value*[, *start*[, *stop*]]) → integer -- return first index of value.{#yandex_ai_studio_sdk._chat.completions.result.ChatModelResult.index}
 
 Raises ValueError if the value is not present.
 
 Supporting start and stop arguments is optional, but recommended.
-
-*property* **tool\_calls**\: *[HttpToolCallList](other.md#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._tools.tool_call_list.HttpToolCallList)[[ToolCallTypeT](other.md#yandex_ai_studio_sdk._tools.tool_call.ToolCallTypeT)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._chat.completions.result.ChatModelResult.tool_calls}
-
-Shortcut for **result.choice[0].tool\_calls**
 
 ### *class* yandex\_ai\_studio\_sdk.\_chat.completions.result.**ChatChoice**{#yandex_ai_studio_sdk._chat.completions.result.ChatChoice}
 

@@ -12,14 +12,16 @@ If you are creating a cluster with two or more {{ CH }} hosts per shard, the sys
 
 For more information about {{ ZK }} hosts, see [{#T}](../concepts/coordination-system.md#zk).
 
-You can do the following with {{ ZK }} hosts:
+When managing {{ ZK }} hosts, you can do the following:
 
 * [Get a list of cluster hosts](#list-hosts).
 * [Add {{ ZK }} hosts](#add-zk).
 * [Update {{ ZK }} host settings](#update-zk-settings).
 * [Restart a host](#restart).
-* [Move {{ ZK }} hosts to a different availability zone](host-migration.md#zookeeper-hosts).
+* [Convert non-replicated tables to replicated ones](#replicated-tables).
 * [Delete a host](#delete-zk-host).
+
+For information about moving {{ ZK }} hosts to a different [availability zone](../../overview/concepts/geo-scope.md), see [this guide](host-migration.md#zookeeper-hosts).
 
 ## Getting a list of cluster hosts {#list-hosts}
 
@@ -182,7 +184,7 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -248,7 +250,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
      +-----------+--------------------------------+-------+----------+
      ```
 
-  1. In the update cluster command, provide the new class, disk type, and storage size for your {{ ZK }} host:
+  1. In the update cluster command, provide the new {{ ZK }} host class, disk type, and storage size:
 
      ```bash
      {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
@@ -294,7 +296,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -451,9 +453,42 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
 
 ## Converting non-replicated tables to replicated ones {#replicated-tables}
 
-To automatically convert non-replicated [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) tables to [replicated](../concepts/replication.md#replicated-tables) [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication) tables, add {{ ZK }} hosts with table conversion enabled.
+You can convert MergeTree-based non-replicated tables to ReplicatedMergeTree-based [replicated](../concepts/replication.md#replicated-tables) ones:
 
-For more information, see [Adding {{ ZK }} hosts](#add-zk) and [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/development/architecture#replication).
+* Automatically, when the coordination service gets activated.
+* Using SQL, after the coordination service gets activated.
+
+For more on table engines, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family). 
+
+{% list tabs group=instructions %}
+
+- Automatically {#auto}
+
+  To automatically convert non-replicated tables to replicated ones, [add {{ ZK }} hosts](#add-zk) with table conversion enabled.
+
+- SQL {#sql}
+
+  To convert a non-replicated table to a replicated one:
+
+  1. Make the table unusable:
+    
+      ```sql
+      DETACH TABLE <table_name>;
+      ```
+
+  1. Convert the table to a replicated one:
+
+      ```sql
+      ATTACH TABLE <table_name> AS REPLICATED;
+      ```
+
+  1. Restore and synchronize the state of your table replica in {{ ZK }}:
+
+      ```sql
+      SYSTEM RESTORE REPLICA <table_name>;
+      ```
+
+{% endlist %}
 
 ## Deleting a {{ ZK }} host {#delete-zk-host}
 

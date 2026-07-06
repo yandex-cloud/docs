@@ -11,16 +11,16 @@ You can migrate your databases from one {{ MY }} version to another, e.g., from 
 
 ## Required paid resources {#paid-resources}
 
-The migration infrastructure cost includes a fee for each transfer: Use of computing resources and number transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+The migration infrastructure cost includes a fee for each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-Create a {{ MY }} cluster with any suitable configuration. For this operation, the following requirements apply:
+Create a {{ MY }} cluster with your preferred configuration. In this case, the following applies:
 
 * The {{ MY }} version must be the same or higher than the version in the source cluster.
 
-    Data transfer with a major {{ MY }} version upgrade is possible but not guaranteed. For more information, see [this {{ MY }} article](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
+    Data transfer with a major {{ MY }} version upgrade is possible but not guaranteed. For more information, see [this {{ MY }} guide](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
 
     Migration to an earlier {{ MY }} version is [not supported](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html).
 
@@ -30,6 +30,6 @@ Create a {{ MY }} cluster with any suitable configuration. For this operation, t
 
 {% include notitle [MySQL migration with Data Transfer](datatransfer/managed-mysql-to-mysql.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 For other migration methods, see [this {{ mmy-full-name }} tutorial](../../managed-mysql/tutorials/index.md).

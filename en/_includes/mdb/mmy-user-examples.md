@@ -34,7 +34,7 @@ To create a new user named `user2` with the `SecretPassword` password and read-o
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
       For more information on how to create this file, see [this guide](../../managed-mysql/operations/cluster-create.md).
 

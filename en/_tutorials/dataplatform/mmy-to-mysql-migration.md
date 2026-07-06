@@ -37,7 +37,7 @@ Set up the target cluster:
 
 Additionally, to migrate data using external {{ MY }} replication:
 
-* Check that all source cluster hosts are accessible via public IP addresses to make sure the target cluster can connect to the source cluster. To do this:
+* Check that all source cluster hosts are accessible via public IP addresses to make sure the target cluster can connect to the source cluster. Proceed as follows:
    * [Add hosts](../../managed-mysql/operations/hosts.md#add) with public IP addresses.
    * [Delete hosts](../../managed-mysql/operations/hosts.md#remove) without public IP addresses.
 * Install the [{{ mmy-name }} server SSL certificates](../../managed-mysql/operations/connect/index.md#get-ssl-cert) on the target cluster hosts. These certificates are required to connect to a publicly accessible source cluster.
@@ -52,7 +52,7 @@ Additionally, to migrate data using external {{ MY }} replication:
 
 * {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer, which includes the use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ### Migrate the database {#database-migration}
@@ -242,7 +242,7 @@ The target cluster will connect to the source cluster as this user.
    START SLAVE;
    ```
 
-   This is to ensure the replication will be reconfigured to use the new master host if the master host in the source cluster changes. For more information about configurations, see this [{{ MY }} article](https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html).
+   This is to ensure the replication will be reconfigured to use the new master host if the master host in the source cluster changes. Read more about the setting in [this {{ MY }} guide](https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html).
 
 ### Monitor your data migration {#monitor-migration}
 
@@ -273,7 +273,7 @@ The following fields contain info on the replication status:
 * `Seconds_Behind_Master`: Replica's lag behind the master, in seconds.
 * `Last_IO_Error` and `Last_SQL_Error`: Replication errors.
 
-For more information about the replication status, see [this {{ MY }} article](https://dev.mysql.com/doc/refman/8.0/en/replication-administration-status.html).
+For more information about replication status, see [this {{ MY }} guide](https://dev.mysql.com/doc/refman/8.0/en/replication-administration-status.html).
 
 ### Complete your migration {#finish-migration}
 

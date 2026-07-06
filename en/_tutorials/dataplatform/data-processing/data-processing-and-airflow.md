@@ -29,7 +29,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * {{ metastore-name }} cluster: computing resources of cluster components (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md#metastore)).
 * NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 * {{ objstorage-full-name }} buckets: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
-* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, volume of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, amount of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
 
 
 ## Set up your infrastructure {#infra}
@@ -60,7 +60,7 @@ The example below illustrates two scenarios. Select the one you find most releva
       || **Service account** | **Roles** ||
       || `airflow-agent` for an {{ AF }} cluster |
       * [dataproc.editor](../../../iam/roles-reference.md#dataproc-editor) to manage a {{ dataproc-name }} cluster from a DAG.
-      * [{{ roles-vpc-user }}](../../../iam/roles-reference.md#vpc-user) to use the [{{ vpc-full-name }} subnet](../../../vpc/concepts/network.md#subnet) in the {{ AF }} cluster.
+      * [{{ roles-vpc-user }}](../../../iam/roles-reference.md#vpc-user) to use the [{{ vpc-name }} subnet](../../../vpc/concepts/network.md#subnet) in the {{ AF }} cluster.
       * [{{ roles.maf.integrationProvider }}](../../../iam/roles-reference.md#managed-airflow-integrationProvider) to enable the {{ AF }} cluster to [interact with other resources](../../../managed-airflow/concepts/impersonation.md).
       * [iam.serviceAccounts.user](../../../iam/roles-reference.md#iam-serviceAccounts-user) to specify the `data-processing-agent` service account when creating a {{ dataproc-name }} cluster. ||
       || `metastore-agent` for a {{ metastore-name }} cluster |

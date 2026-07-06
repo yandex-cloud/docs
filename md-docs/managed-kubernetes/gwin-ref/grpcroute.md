@@ -160,7 +160,7 @@ metadata:
     gwin.yandex.cloud/rules.hostRewrite.replace: "grpc.backend.example.com"  # static host replacement
     
     # Security
-    gwin.yandex.cloud/hosts.securityProfileID: "host-security-profile-1"  # WAF profile for hosts
+    gwin.yandex.cloud/hosts.securityProfileID: "host-security-profile-1"  # Yandex Smart Web Security profile for hosts
     
     # Rate limiting
     gwin.yandex.cloud/rules.rateLimit.allRequests.perSecond: "100"  # route-level rate limit for all requests

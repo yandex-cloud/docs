@@ -2,11 +2,11 @@
 
 When saving a document to {{ OS }}, it is indexed and placed in a user-specified _index_, making it available for search and analysis. One may think of an index as a data table in a traditional DBMS.
 
-In {{ OS }}, a document is a set of fields where each field is a `key: value` pair. The index stores optimized documents to enable quickly searching documents by field. Such optimization is achieved with each document field having a specific type. This is how the field data is effectively stored in the index. For more information about this type of optimization, see the [{{ OS }} documentation]({{ os.docs }}/opensearch/mappings/).
+In {{ OS }}, a document is a set of fields where each field is a `key: value` pair. The index stores optimized documents to enable quickly searching documents by field. Such optimization is achieved with each document field having a specific type. This is how the field data is effectively stored in the index. Learn more about this type of optimization in [this {{ OS }} guide]({{ os.docs }}/opensearch/mappings/).
 
 Unlike a traditional DBMS, to save the document in the index, {{ OS }} does not require the explicit specification of the schema, i.e., links between document fields and their types. Even though it is the recommended approach, you can save documents to the index without explicitly specifying the field types; {{ OS }} will try to determine the type automatically for each field in the document. As a result, you can quickly add documents to {{ OS }} storage and start working with them.
 
-To learn more about how indexes work, see the [{{ OS }} documentation]({{ os.docs }}/opensearch/index-data/).
+To learn more about indexes, see [this {{ OS }} guide]({{ os.docs }}/opensearch/index-data/).
 
 In multihost clusters, index [sharding and replication](scalability-and-resilience.md) are supported. This makes it easier to scale a cluster and ensures its high availability.
 
@@ -34,23 +34,23 @@ We tested a {{ mos-name }} cluster in {{ yandex-cloud }}, collecting metrics in 
 
 * {{ mos-name }} cluster configuration:
 
-    * Number of hosts: `1`
-    * Host class: `s2.micro`
-    * Disk type: `network-ssd`
-    * Disk size: `10` GB
+    * Number of hosts: `1`.
+    * Host class: `s2.micro`.
+    * Disk type: `network-ssd`.
+    * Disk size: `10` GB.
 
 * The tool used for the test, [OpenSearch Benchmark]({{ os.docs }}/benchmark/), had the following parameters:
 
-    * Profile: `http_logs`
-    * Number of clients: `8`
-    * Batch size: `5000` documents
+    * Profile: `http_logs`.
+    * Number of clients: `8`.
+    * Batch size: `5000` documents.
 
 * [VM](../../compute/concepts/vm.md) configuration to run OpenSearch Benchmark was as follows:
 
-    * OS: `Ubuntu 24.04 LTS`
-    * vCPU: `8`
-    * RAM: `16` GB
-    * Disk space: `55` GB
+    * OS: `Ubuntu 24.04 LTS`.
+    * vCPU: `8`.
+    * RAM: `16` GB.
+    * Disk space: `55` GB.
 
 #### Test results {#test-results}
 

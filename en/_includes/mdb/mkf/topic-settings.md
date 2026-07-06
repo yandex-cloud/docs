@@ -147,4 +147,4 @@
 
     For more information, see the description of the [Log segment bytes](#settings-log-segment-bytes) cluster-level setting.
 
-    For a full description of this setting, see the [{#T}](../../../managed-kafka/concepts/storage.md#maximum-log-segment-size) section and [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_segment.bytes).
+    For a full description of this setting, see [{#T}](../../../managed-kafka/concepts/storage.md#maximum-log-segment-size) and [this {{ KF }} guide](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_segment.bytes).

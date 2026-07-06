@@ -6,7 +6,7 @@ The example below shows how to run an application in [Python](https://www.python
 
 To run a PySpark job:
 
-1. [Prepare the infrastructure](#before-you-begin).
+1. [Set up your infrastructure](#before-you-begin).
 1. [Prepare your VM](#prepare-vm).
 1. [Prepare your test data](#prepare-data).
 1. [Create and run a PySpark job](#create-job).
@@ -15,7 +15,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* The {{ ytsaurus-name }} cluster, which includes the use of computing resources of cluster components and storage size (see [{{ ytsaurus-name }} pricing](../../../managed-ytsaurus/pricing.md)).
+* The {{ ytsaurus-name }} cluster: use of computing resources of cluster components and storage size (see [{{ ytsaurus-name }} pricing](../../../managed-ytsaurus/pricing.md)).
 * VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
 
 ## Getting started {#before-you-begin}

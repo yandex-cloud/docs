@@ -19,6 +19,8 @@ Gateway is a [Kubernetes Gateway API](https://gateway-api.sigs.k8s.io/) project 
   * [LabelSelector](#labelselector)
   * [LabelSelectorRequirement](#labelselectorrequirement)
   * [GatewayAddress](#gatewayaddress)
+  * [AllowedListeners](#allowedlisteners)
+  * [ListenerNamespaces](#listenernamespaces)
 
 ## Cheatsheet
 
@@ -68,10 +70,16 @@ spec:
   addresses:
     - type: IPAddress
       value: <IP> # ipv4 address preallocated with vpc
+    - type: IPAddress # empty value means auto-assign (same as gwin.yandex.cloud/autoIPv4)
     - type: gwin.yandex.cloud/autoIPv4 # Automatic external ipv4 address.
-      value: auto
     - type: gwin.yandex.cloud/internalIPv4 # Address in vpc subnet.
       value: <subnet-id>/<ip> # You can use "auto" in <ip>.
+  allowedListeners:  # allow ListenerSet resources to attach listeners
+    namespaces:
+      from: Selector  # allow ListenerSets from namespaces matching selector (All or Same can be used as alternative)
+      selector:
+        matchLabels:
+          gateway: my-gateway
 ```
 
 | Field | Description |
@@ -144,6 +152,9 @@ metadata:
     gwin.yandex.cloud/listener.http-listener.albListenerName: "my-http-listener"  # custom listener name
     gwin.yandex.cloud/listener.http-listener.albHTTPRouterName: "my-http-router"  # custom HTTP router name
     # Virtual host and route naming are configured via RoutePolicy (see HTTPRoute/GRPCRoute docs)
+
+    # Virtual host attachment
+    gwin.yandex.cloud/listener.http-listener.attach.virtualHosts.httpRouterID: "http-router-id"  # manage virtual hosts in an existing HTTP router
     ...
 ```
 
@@ -232,6 +243,14 @@ Virtual host and route naming (virtual host, route, backend group, backend) are 
 
 For the target group name, see [`gwin.yandex.cloud/albTargetGroupName`](service.md) on the Service resource.
 
+#### Virtual host attachment
+
+Make the controller manage virtual hosts inside an existing ALB HTTP router instead of creating its own. Within a single Gateway either all listeners must be attached or none.
+
+| Annotation and description |
+|------------|
+| `gwin.yandex.cloud/listener.{listener-name}.attach.virtualHosts.httpRouterID` <br> _(string)_ <br> Cloud HTTP router ID whose virtual hosts are managed by this listener. The controller manages the full lifecycle (create, update, delete) of those virtual hosts and does not create an HTTP router of its own for this listener. <br> Example: `http-router-id` |
+
 #### RBAC configuration
 
 RBAC allows controlling access to listeners, routes or hosts based on request attributes.
@@ -276,6 +295,7 @@ Default name for default `GatewayClass` is `"gwin-default"`. So use this to atta
 | gatewayClassName | **string** <br> Gateway class name. <br> Example: `gwin-default` |
 | listeners | **[[]Listener](#listener)** <br> Gateway listeners. |
 | addresses | **[[]GatewayAddress](#gatewayaddress)** <br> Load balancer public IP settings. |
+| allowedListeners | **[AllowedListeners](#allowedlisteners)** <br> Defines which [ListenerSet](listenerset.md) resources may attach listeners to this Gateway. By default, no ListenerSets are allowed. |
 
 ### Listener
 
@@ -385,8 +405,8 @@ Types and values:
 ```yaml
 - type: IPAddress
   value: <IP> # ipv4 address preallocated with vpc
+- type: IPAddress  # empty value means auto-assign external IPv4
 - type: gwin.yandex.cloud/autoIPv4 # Automatic external ipv4 address.
-  value: auto
 - type: gwin.yandex.cloud/internalIPv4 # Address in vpc subnet.
   value: <subnet-id>/<ip> # You can use "auto" in <ip>.
 ```
@@ -396,4 +416,25 @@ Types and values:
 | Field | Description |
 |-------|-------------|
 | type | **string** <br> Address type: `IPAddress` for standard IP addresses, `gwin.yandex.cloud/autoIPv4` for automatic external IPv4 address, `gwin.yandex.cloud/internalIPv4` for address in VPC subnet. <br> Example: `IPAddress`,`gwin.yandex.cloud/autoIPv4`,`gwin.yandex.cloud/internalIPv4`. |
-| value | **string** <br> Load balancer public IP address. To use a public IP address, first, you need to [reserve it](../../vpc/operations/get-static-ip.md) in VPC. For `gwin.yandex.cloud/autoIPv4` use `auto`. For `gwin.yandex.cloud/internalIPv4` use `<subnet-id>/<ip>` format where you can use `auto` for IP. <br> Example: `5.4.3.2`, `auto`, `subnet-123/10.0.0.1`. |
+| value | **string** <br> Load balancer public IP address. To use a public IP address, first, you need to [reserve it](../../vpc/operations/get-static-ip.md) in VPC. For `IPAddress` type, an empty value means auto-assign external IPv4. For `gwin.yandex.cloud/internalIPv4` use `<subnet-id>/<ip>` format where you can use `auto` for IP. <br> Example: `5.4.3.2`, `auto`, `subnet-123/10.0.0.1`. |
+
+### AllowedListeners
+
+Defines which [ListenerSet](listenerset.md) resources may attach additional listeners to this Gateway. By default (`None`), no ListenerSets are allowed.
+
+*Appears in*: [GatewaySpec](#gatewayspec)
+
+| Field | Description |
+|-------|-------------|
+| namespaces | **[ListenerNamespaces](#listenernamespaces)** <br> Namespace selection rule for ListenerSets. Default is `None` (no ListenerSets allowed). |
+
+### ListenerNamespaces
+
+Namespace selection rules for ListenerSets that may attach to this Gateway.
+
+*Appears in*: [AllowedListeners](#allowedlisteners)
+
+| Field | Description |
+|-------|-------------|
+| from | **string** <br> Selection rule: `All` — any namespace; `Same` — only the Gateway's own namespace; `Selector` — namespaces matching `selector`; `None` — no ListenerSets allowed. Default is `None`. <br> Example: `All`, `Same`, `Selector`, `None`. |
+| selector | **[LabelSelector](#labelselector)** <br> Namespace label selector. Used only when `from` is `Selector`. |

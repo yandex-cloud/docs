@@ -5,7 +5,11 @@ description: Следуя данной инструкции, вы сможете
 
 # Очистка кеша ресурса
 
-Чтобы [очистить кеш](../../concepts/caching.md) ресурса:
+{% note warning %}
+
+{% include [purge-cache-limits-notice](../../../_includes/cdn/purge-cache-limits-notice.md) %}
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -116,3 +120,8 @@ description: Следуя данной инструкции, вы сможете
 {% endlist %}
   
 На очистку кеша может потребоваться до 15 минут.
+
+#### Полезные ссылки {#see-also}
+
+[{#T}](../../concepts/caching.md)
+

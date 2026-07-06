@@ -4,7 +4,7 @@ editable: false
 
 # Identity and Access Management Audit Trails Events: DeleteFederation
 
-## Event JSON schema {#yandex.cloud.audit.iam.workload.oidc.DeleteFederation2-schema}
+## Event JSON schema {#yandex.cloud.audit.iam.DeleteFederation2-schema}
 
 ```json
 {
@@ -89,23 +89,12 @@ editable: false
   },
   "details": {
     "federationId": "string",
-    "federationName": "string",
-    "folderId": "string",
-    "disabled": "boolean",
-    "audiences": [
-      "string"
-    ],
-    "issuer": "string",
-    "jwksUrl": "string",
-    "description": "string",
-    "labels": "object"
-  },
-  "requestParameters": "object",
-  "response": "object"
+    "federationName": "string"
+  }
 }
 ```
 
-## Field description {#yandex.cloud.audit.iam.workload.oidc.DeleteFederation2}
+## Field description {#yandex.cloud.audit.iam.DeleteFederation2}
 
 #|
 ||Field | Description ||
@@ -134,9 +123,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || error | **[Status](#google.rpc.Status)**
 
 The error result of the operation in case of failure or cancellation. ||
-|| details | **[EventDetails](#yandex.cloud.audit.iam.workload.oidc.DeleteFederation.EventDetails)** ||
-|| requestParameters | **object** ||
-|| response | **object** ||
+|| details | **[EventDetails](#yandex.cloud.audit.iam.DeleteFederation.EventDetails)** ||
 |#
 
 ## IamAuthentication {#yandex.cloud.audit.IamAuthentication}
@@ -257,6 +244,21 @@ The error result of the operation in case of failure or cancellation.
 || code | **integer** (int32)
 
 Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
+|| message | **string**
+
+An error message. ||
+|| details[] | **object**
+
+A list of messages that carry the error details. ||
+|#
+
+## EventDetails {#yandex.cloud.audit.iam.DeleteFederation.EventDetails}
+
+#|
+||Field | Description ||
+|| federationId | **string** ||
+|| federationName | **string** ||
+|#/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
 || message | **string**
 
 An error message. ||

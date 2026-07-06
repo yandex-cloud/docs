@@ -272,4 +272,4 @@ This section describes the session and query parameters available in [{{ mgp-nam
 
 * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_interconnect-total-recv-queue-size }}**: Maximum size of the inbound queue, in packets.
 
-Learn more about `interconnect` [here](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/admin_guide-intro-arch_overview.html#arch_interconnect).
+Learn more about `interconnect` in [this official guide](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/admin_guide-intro-arch_overview.html#arch_interconnect).

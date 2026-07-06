@@ -541,7 +541,9 @@ A list of messages that carry the error details. ||
 - `LOAD_BALANCING_NEAREST_HOSTNAME`
 - `LOAD_BALANCING_IN_ORDER`
 - `LOAD_BALANCING_FIRST_OR_RANDOM`
-- `LOAD_BALANCING_ROUND_ROBIN` ||
+- `LOAD_BALANCING_ROUND_ROBIN`
+- `LOAD_BALANCING_HOSTNAME_LONGEST_COMMON_PREFIX`
+- `LOAD_BALANCING_HOSTNAME_LONGEST_COMMON_SUFFIX` ||
 || preferLocalhostReplica | **boolean** ||
 || compileExpressions | **boolean** ||
 || minCountToCompileExpression | **string** (int64) ||

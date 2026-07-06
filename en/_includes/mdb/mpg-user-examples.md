@@ -149,7 +149,7 @@
     1. [Connect](../../managed-postgresql/operations/connect/code-examples.md) to the `db1` database as the owner.
     1. Revoke access privileges from `user2`.
 
-        Examples:
+        Here are some examples:
 
         1. Revoke all privileges for the tables within the `myschema` schema:
 
@@ -193,7 +193,7 @@
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

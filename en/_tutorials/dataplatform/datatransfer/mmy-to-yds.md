@@ -13,9 +13,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
+* {{ mmy-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
+* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../../ydb/pricing/index.md)). The cost depends on the deployment mode:
 
     * In serverless mode, you pay for data operations and storage volume, including stored backups.
     * In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage and backup size.
@@ -177,7 +177,7 @@ Set up your infrastructure:
 
 {% include [note before delete resources](../../../_includes/mdb/note-before-delete-resources.md) %}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../../data-transfer/operations/endpoint/index.md#delete).

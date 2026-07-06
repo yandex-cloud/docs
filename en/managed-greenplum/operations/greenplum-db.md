@@ -7,7 +7,7 @@ description: This guide describes how to use auxiliary utilities.
 
 Greenplum Database 6 features [some useful utilities]({{ gp.docs.broadcom }}/7/greenplum-database/client_tool_guides-tools-ref.html) for working with [{{ GP }} 6]({{ gp.docs.broadcom }}/6/greenplum-database/client_tool_guides-tools-ref.html) and [{{ CB }}](https://cloudberry.apache.org/docs/sys-utilities/) databases. This includes:
 
-* [gpfdist]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpfdist.html): Utility to read data from and write data to files located on remote servers. For more information, see [{#T}](gpfdist/connect.md).
+* [gpfdist]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpfdist.html): Utility to read data from and write data to files located on remote servers. For detailed information, see [{#T}](gpfdist/connect.md).
 * [gpload]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpload.html): Utility to run jobs described in a YAML control file.
 * [psql]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-psql.html): Command line interface for working with the database.
 

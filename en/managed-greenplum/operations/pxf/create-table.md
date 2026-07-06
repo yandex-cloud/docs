@@ -6,7 +6,7 @@ description: Follow this guide to create an external PXF table using an SQL quer
 
 # Creating an external table using PXF
 
-{{ mgp-name }} allows [creating external tables](#sql-statement) to access data in external databases. In clusters with the [Apache Cloudberry™](https://cloudberry.apache.org) DBMS, in addition to external tables, you can also [create foreign tables](#sql-statement-fdw) using the FDW mechanism. Such tables provide access to the same external DBMSs as external ones. However, foreign tables support both read and write operations within a single table, unlike external tables which are strictly read-only or write-only.
+{{ mgp-name }} allows [creating external tables](#sql-statement) to access data in external databases. In clusters with the [Apache Cloudberry™](https://cloudberry.apache.org) DBMS, in addition to external tables, you can also [create foreign tables](#sql-statement-fdw) using the FDW mechanism. Such tables provide access to the same external DBMSs as external ones. In this case, foreign tables support reading and writing within a single table, while external tables support either reading or writing.
 
 The FDW mechanism supports the following external data types:
 
@@ -428,7 +428,7 @@ Where:
 * `<table_name>`: Name of the external table you are creating in the {{ mgp-name }} cluster.
 * `<column_name>`: Column name.
 * `<data_type>`: Column data type. It must match the column data type in the external DBMS table.
-* `<data_path_or_table_name>`: External object name, see [examples of external tables](#pxf-examples).
+* `<data_path_or_table_name>`: External object name. See below for [external table examples](#pxf-examples).
 * `PROFILE`: Standard interface to an external DBMS (profile), e.g., `JDBC`. The list of possible values depends on the connection type:
 
     * [S3]({{ gp.docs.broadcom }}-platform-extension-framework/6-9/gp-pxf/access_objstore.html#objstore_connectors)
@@ -437,7 +437,7 @@ Where:
 
 * `SERVER`: Name of the external PXF data source.
 
-    Instead of `SERVER`, you can provide parameters defining the external data source configuration. These depend on the source connection type. For more information, see the [{{ GP }} PFX guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-9/gp-pxf/intro_pxf.html#create_external_table) and examples of creating external tables.
+    Instead of `SERVER`, you can provide parameters defining the external data source configuration. These depend on the source connection type. For more information, see [this {{ GP }} PFX guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-9/gp-pxf/intro_pxf.html#create_external_table) and examples of creating external tables.
 
 The `WRITABLE` option allows writing data to an external object. To read data from an external object, create an external table with the `READABLE` option.
 

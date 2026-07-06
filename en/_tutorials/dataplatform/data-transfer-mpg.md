@@ -6,7 +6,7 @@ To set up CDC using {{ data-transfer-name }}:
 
 1. [Prepare the source cluster](#prepare-source).
 1. [Set up the target cluster](#prepare-target).
-1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -14,10 +14,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* {{ mkf-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ mkf-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer, which includes the use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -109,7 +109,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 {% endlist %}
 
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 1. [Create endpoints](../../data-transfer/operations/endpoint/index.md#create).
 
@@ -227,7 +227,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) and [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
 

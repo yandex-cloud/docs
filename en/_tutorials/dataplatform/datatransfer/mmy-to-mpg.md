@@ -12,7 +12,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Required paid resources {#paid-resources}
 
 * {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
-* {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
+* {{ mmy-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
@@ -28,9 +28,9 @@ Set up your infrastructure:
 
     1. [Create a {{ mmy-name }} source cluster](../../../managed-mysql/operations/cluster-create.md#create-cluster) in any [availability zone](../../../overview/concepts/geo-scope.md) with publicly available hosts in any suitable configuration and the following settings:
 
-        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `mmy_db`
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mmy_user`
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<source_password>`
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `mmy_db`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mmy_user`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<source_password>`.
 
     1. [Grant](../../../managed-mysql/operations/grant.md#grant-privilege) the `REPLICATION CLIENT` and `REPLICATION SLAVE` administrative privileges to `mmy_user`.
 
@@ -38,9 +38,9 @@ Set up your infrastructure:
 
     1. In the same availability zone, [create a {{ mpg-name }} target cluster](../../../managed-postgresql/operations/cluster-create.md#create-cluster) in any suitable configuration with publicly available hosts and the following settings:
 
-        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `mpg_db`
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mpg_user`
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<target_password>`
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `mpg_db`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mpg_user`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<target_password>`.
 
     1. Make sure the cluster security groups are configured correctly and allow inbound cluster connections:
 
@@ -117,7 +117,7 @@ Set up your infrastructure:
     ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
     ```
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 {% list tabs group=instructions %}
 

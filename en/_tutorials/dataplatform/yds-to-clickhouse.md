@@ -6,17 +6,17 @@
 To transfer data:
 
 1. [Set up a data stream in {{ yds-name }}](#prepare-source).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
+* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on the deployment mode:
 
-	* In serverless mode, you pay for data operations and storage volume, including stored backups.
+	* In serverless mode, you pay for data operations as well as the amount of stored data and backups.
   	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
 * {{ yds-name }} (see [{{ yds-name }} pricing](../../data-streams/pricing.md)). The cost depends on the pricing model:
@@ -24,9 +24,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * [Based on allocated resources](../../data-streams/pricing.md#rules): You pay a fixed hourly rate for the established throughput limit and message retention period, and additionally for the number of units of actually written data.
     * [On-demand](../../data-streams/pricing.md#on-demand): You pay for the performed read/write operations, the amount of read or written data, and the actual storage used for messages that are still within their retention period.
 
-* {{ mch-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ mch-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer, which includes the use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -37,7 +37,7 @@ Set up your infrastructure:
 
 - Manually {#manual}
 
-    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) of your preferred configuration.
+    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) of any suitable configuration.
     1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) of any suitable configuration.
     1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -117,7 +117,7 @@ Set up your infrastructure:
 }
 ```
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 {% include [tips for endpoint settings](../../_includes/data-transfer/queue-ch-transfer-tips.md) %}
 
@@ -128,7 +128,7 @@ Set up your infrastructure:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select your {{ ydb-name }} database from the list.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the stream in {{ yds-name }}.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select an existing service account or create a new one with the `yds.editor` role.
 
@@ -263,11 +263,11 @@ Set up your infrastructure:
 
 {% note info %}
 
-Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting any resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. Delete the resources depending on how you created them:

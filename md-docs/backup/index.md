@@ -140,6 +140,8 @@
 
  - [install](cli-ref/agent/install.md)
 
+ - [install-external](cli-ref/agent/install-external.md)
+
  - [reinstall](cli-ref/agent/reinstall.md)
 
 ### backup
@@ -197,6 +199,8 @@
  - [debug-info](cli-ref/v0/agent/debug-info.md)
 
  - [install](cli-ref/v0/agent/install.md)
+
+ - [install-external](cli-ref/v0/agent/install-external.md)
 
  - [reinstall](cli-ref/v0/agent/reinstall.md)
 

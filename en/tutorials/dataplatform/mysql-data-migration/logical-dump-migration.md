@@ -2,6 +2,6 @@
 
 {% include notitle [Migration with logical dump](../../../_tutorials/dataplatform/mysql-logical-dump-migration.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](data-transfer.md)

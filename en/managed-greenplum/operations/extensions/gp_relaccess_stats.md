@@ -5,6 +5,8 @@ description: How to use gp_relaccess_stats in {{ mgp-full-name }}.
 
 # Using gp_relaccess_stats in {{ mgp-name }}
 
+{% include [not-supported-in-cb](../../../_includes/mdb/mgp/not-supported-in-cb.md) %}
+
 `gp_relaccess_stats` is a {{ yandex-cloud }} extension that collects the access statistics for tables and views. It registers the read, insert, update, and delete operations, as well as the timestamp of the user's last access to the object. The collected data helps find unused or improperly used objects.
 
 ## Extension settings {#extension-settings}
@@ -15,7 +17,7 @@ description: How to use gp_relaccess_stats in {{ mgp-full-name }}.
 | `gp_relaccess_stats.max_tables` | `integer` | `65536` | Maximum number of tables for caching statistics. |
 | `gp_relaccess_stats.dump_on_overflow` | `bool` | `false` | Decides the behavior if `gp_relaccess_stats.max_tables` is exceeded. If `true`, the statistics cache is automatically cleared via `relaccess_stats_dump()`. If `false`, you get a low-space warning. |
 
-For more information about the extension, see [this gp_relaccess_stats guide](https://github.com/open-gpdb/gp_relaccess_stats).
+For more on the extension, see the [gp_relaccess_stats guide](https://github.com/open-gpdb/gp_relaccess_stats).
 
 ## Installing gp_relaccess_stats in a {{ mgp-name }} cluster {#extension-install}
 
@@ -64,3 +66,5 @@ For more information about the extension, see [this gp_relaccess_stats guide](ht
     ```sql
     SELECT * FROM relaccess_stats;
     ```
+
+{% include [cloudberry-trademark](../../../_includes/mdb/mgp/trademark-cloudberry.md) %}

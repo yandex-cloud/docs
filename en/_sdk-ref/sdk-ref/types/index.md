@@ -13,3 +13,4 @@
 - [Other types](other.md)
 - [Batch](batch.md)
 - [Speechkit](speechkit.md)
+- [Vision](vision.md)

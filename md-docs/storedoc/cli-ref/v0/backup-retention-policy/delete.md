@@ -20,6 +20,7 @@ ID of the MongoDB cluster. ||
 || `--cluster-name` | `string`
 
 Name of the MongoDB cluster. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 
 #### Global Flags

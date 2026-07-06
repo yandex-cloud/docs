@@ -15,6 +15,6 @@ This section describes the Odyssey and Yezzey DBMS component metrics exported to
 
 {% include [managed-greenplum-components](../_includes/monitoring/metrics-ref/managed-greenplum-components.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [{#T}](./operations/monitoring.md)

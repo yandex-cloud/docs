@@ -8,7 +8,7 @@ Manage artifacts
 
 Syntax:
 
-`yc cloud-registry artifact <command>`
+`yc cloud-registry artifact <group|command>`
 
 #### Command Tree
 
@@ -20,6 +20,8 @@ Syntax:
 
 - [yc cloud-registry artifact get-by-path](get-by-path.md) — Get information about the artifact by path
 
+- [yc cloud-registry artifact list](list.md) — List artifacts with filtering by kind, registry kind/type, node path
+
 - [yc cloud-registry artifact list-access-bindings](list-access-bindings.md) — Lists access bindings for the specified artifact
 
 - [yc cloud-registry artifact remove-access-binding](remove-access-binding.md) — Remove access binding for the specified artifact
@@ -27,6 +29,18 @@ Syntax:
 - [yc cloud-registry artifact set-access-bindings](set-access-bindings.md) — Set access bindings for the specified artifact and remove existing ones
 
 - [yc cloud-registry artifact upsert](upsert.md) — Upserts a folder at the specified path within the registry
+
+- [yc cloud-registry artifact scanner](scanner/index.md) — Scan artifacts for vulnerabilities and view scan results
+
+  - [yc cloud-registry artifact scanner get-last-scan-result](scanner/get-last-scan-result.md) — Get the last scan result for an artifact.
+
+  - [yc cloud-registry artifact scanner get-scan-result](scanner/get-scan-result.md) — Get information about a scan result.
+
+  - [yc cloud-registry artifact scanner list-scan-results](scanner/list-scan-results.md) — List scan results for an artifact.
+
+  - [yc cloud-registry artifact scanner list-vulnerabilities](scanner/list-vulnerabilities.md) — List vulnerabilities found in a scan result.
+
+  - [yc cloud-registry artifact scanner scan](scanner/scan.md) — Scan an artifact for vulnerabilities.
 
 #### Global Flags
 

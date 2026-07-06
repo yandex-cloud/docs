@@ -8,22 +8,22 @@ You can track data changes in a {{ ydb-name }} _source_ and send them to a {{ mk
 To start data delivery:
 
 1. [Prepare the source](#prepare-source).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
+* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on the deployment mode:
 
 	* In serverless mode, you pay for data operations as well as the amount of stored data and backups.
   	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
-* {{ mkf-name }} cluster, which includes computing resources allocated to hosts, as well as the storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mkf-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer, which includes the use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -35,7 +35,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    - Manually {#manual}
 
 
-       1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) of your preferred configuration.
+       1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) of any suitable configuration.
 
        1. If you selected {{ dd }} database mode, [create](../../vpc/operations/security-group-create.md) and [configure](../../ydb/operations/connection.md#configuring-security-groups) a security group in the network hosting your database.
 
@@ -143,7 +143,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     | `cabin_temperature` | `Uint8`  |                |
     | `fuel_level`        | `Uint32` |                |
 
-    Leave the default values for the other settings.
+    Leave the other settings at their defaults.
 
     You can also create a table by running this YQL command:
 
@@ -162,7 +162,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     )
     ```
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -214,7 +214,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             * `source_endpoint_id`: Source endpoint ID.
             * `target_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: Set to `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create the transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -232,7 +232,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. In a separate terminal, run `kafkacat` in consumer mode:
@@ -424,11 +424,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note info %}
 
-Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting any resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
@@ -437,7 +437,7 @@ To reduce the consumption of resources, delete those you do not need:
 1. If you created a service account when creating the source endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 
-1. Delete the other resources depending on how you created them:
+1. Delete the rest of the resources depending on how you created them:
 
    {% list tabs group=instructions %}
 

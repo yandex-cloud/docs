@@ -1,6 +1,6 @@
 
 
-You can track data changes in a {{ mpg-name }} _source cluster_ and send them to a {{ yds-name }} _target cluster_ using [change data capture](../../../data-transfer/concepts/cdc.md) (CDC).
+You can track data changes in a {{ mpg-name }} _source cluster_ and send them to a {{ yds-name }} _target cluster_ using change data capture (CDC).
 
 To set up CDC using {{ data-transfer-name }}:
 

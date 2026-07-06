@@ -19,10 +19,10 @@ Use of Amazon services is not part of the [{{ yandex-cloud }} Terms of Use]({{ l
 
 ## Required paid resources {#paid-resources}
 
-* {{ mpg-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ mpg-name }} cluster: computing resources allocated to hosts along with storage and backup capacity (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Each transfer, which includes the use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
-* NAT gateway: Hourly use and outgoing traffic (see [{{ vpc-name }} pricing](../../../vpc/pricing.md#nat-gateways)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../../vpc/pricing.md#nat-gateways)).
 
 
 ## Getting started {#before-you-begin}
@@ -70,7 +70,7 @@ Set up your infrastructure:
     1. [Configure the {{ TF }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf) and save it to a separate working directory.
     1. Edit the `provider.tf` file:
 
-        * [Specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider) for the `yandex` provider. If you have not set the authentication credentials as environment variables, specify them in the configuration file.
+        * [Specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider) for the `yandex` provider. If you have not added the authentication credentials to environment variables, specify them in the configuration file.
         * Add the `aws` provider to `required_providers`:
 
             ```hcl
@@ -193,7 +193,7 @@ Set up your infrastructure:
     ('rhibbh3y08qmz3sdbrbu', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
     ```
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 {% list tabs group=instructions %}
 

@@ -59,7 +59,7 @@ To migrate a table from a third-party {{ CH }} cluster to a {{ mch-name }} clust
    SELECT * from <DB_name>.<table_name>;
    ```
 
-   To learn how to get a host FQDN, see [this guide](../../managed-clickhouse/operations/connect/fqdn.md).
+   For how to get a host FQDN, see [this guide](../../managed-clickhouse/operations/connect/fqdn.md).
 
 1. On the target cluster, check that the table from the source cluster has appeared in the database:
 
@@ -73,7 +73,7 @@ To migrate a table from a third-party {{ CH }} cluster to a {{ mch-name }} clust
    SELECT * FROM <DB_name>.<table_name>;
    ```
 
-For more details on using the `remote` function, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/table-functions/remote).
+For more information on using the `remote` function, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/table-functions/remote).
 
 ## Migrating data using the BACKUP/RESTORE commands and an {{ objstorage-name }} bucket {#backup-objstorage}
 

@@ -82,6 +82,6 @@ LIMIT 2;
 
 {% include [limit](../../query/_includes/select-limit.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../query/sources-and-sinks/data-streams.md)

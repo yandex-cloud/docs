@@ -2,7 +2,7 @@
 
 You can upgrade a {{ mos-name }} cluster to a newer {{ OS }} version.
 
-To learn about updates within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).
+To learn about upgrades within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
 ## Viewing a list of available versions {#version-list}
 
@@ -61,9 +61,9 @@ Make sure the upgrade will not disrupt your applications:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create such a file, see the [Creating a cluster](cluster-create.md) section.
 
         For a complete list of configurable {{ mos-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
 

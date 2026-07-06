@@ -1,6 +1,25 @@
 [Документация Yandex Cloud](../index.md) > [Yandex Security Deck](index.md) > История изменений
 
 # История изменений в Yandex Security Deck
+## Май 2026 {#may-2026}
+
+* В модуле [CSPM](concepts/cspm.md) появился новый [набор правил](concepts/standard-compliance/yc-gost-57580.md) на соответствие стандарту ГОСТ Р 57580 — национальному стандарту безопасности банковских и финансовых операций. 
+* В модуле [DSPM](concepts/dspm.md) появилась возможность создавать [области сканирования](operations/dspm/create-data-source.md#change-scaning) из результатов предварительного анализа и непрерывно [отслеживать](concepts/dspm.md#change-scaning) области на предмет появления или изменения чувствительных данных.  
+* Расширилась тарифная сетка — теперь вы можете приобрести ежемесячную [подписку](pricing.md#starter-pricing) на модули [CSPM](concepts/cspm.md) и [Threat Detection](concepts/threat-detector.md).
+* Все [ошибки](diagnostics/index.md) модулей теперь отображаются в общем интерфейсе ошибок.
+* Функциональность поиска чувствительных данных на дисках Яндекс 360 с помощью модуля [DSPM](concepts/dspm.md) стала доступной всем пользователям. Ранее функциональность была доступна только по запросу.
+
+## Июнь 2026 {#june-2026}
+
+* Сервис Yandex Security Deck перешел на стадию [General Availability](../overview/concepts/launch-stages.md). Модули [Threat Detection](concepts/threat-detector.md) и Vulnerability Manager и AI-ассистент остаются на стадии [Preview](../overview/concepts/launch-stages.md)
+* В модуле [CSPM](concepts/cspm.md) появились новые правила проверки инфраструктуры на соответствие стандартам безопасности. Новые правила регламентируют использование MFA, ротацию ключей, отслеживание даты последней аутентификации сервисных аккаунтов и использование учетных записей Яндекс ID.
+* В модуле [KSPM](concepts/kspm.md): 
+  * в [исключениях](operations/kspm/manage-exceptions.md) теперь можно исключить ресурсы из проверки по типу, имени нагрузки и меткам;
+  * реализованы режимы работы правил типа admission;
+  * поддержана новая версия Kubernetes®.
+* Появилась [возможность](operations/alerts/work.md#update-batch) изменять статус, назначать ответственных и менять критичность сразу для нескольких алертов.
+* При создании окружения создается приемник алертов по умолчанию, если пользователь не создает свой приемник алертов. 
+* Реализована возможность [активировать и деактивировать окружения](operations/workspaces/index.md) Security Deck.
 
 ## Апрель 2026 {#april-2026}
 
@@ -11,7 +30,7 @@
 * На странице алертов от модулей [CSPM](concepts/cspm.md) и [KSPM](concepts/kspm.md) теперь можно [исключить ресурс](operations/alerts/work.md#create-exception) из проверки на соответствие требованиям.
 
 ## Март 2026 {#march-2026}
-* Запущен [модуль управления уязвимостями (VM)](concepts/vulnerability-management.md). Модуль находится на стадии [Preview](../overview/concepts/launch-stages.md) и доступен только по запросу.
+* Запущен модуль [Управление уязвимостями(VM)](concepts/vulnerability-management.md). Модуль находится на стадии [Preview](../overview/concepts/launch-stages.md) и доступен только по запросу.
 * В модуле [DSPM](concepts/dspm.md) появилась возможность предварительного [анализа данных](concepts/dspm.md#discovery-mode), хранящихся в бакетах Object Storage в пределах окружения.
 * Алерты теперь можно [группировать](operations/alerts/view.md#search) по типу и фильтровать по новым атрибутам.
 * В модуле [KSPM](concepts/kspm.md) в [исключениях](operations/kspm/manage-exceptions.md) теперь можно указать объекты через поиск по пространству имен.

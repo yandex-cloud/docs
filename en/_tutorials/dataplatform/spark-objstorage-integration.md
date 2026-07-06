@@ -26,7 +26,7 @@ With a local Hive catalog, you can access tables by name without specifying a pa
 
 ## Required paid resources {#paid-resources}
 
-* {{ objstorage-name }} buckets: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ objstorage-name }} buckets: use of storage, data operations ([{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * {{ cloud-logging-full-name }}: amount of written data and its retention time (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
 
 

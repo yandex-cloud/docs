@@ -13,7 +13,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mrd-name }} target cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ VLK }} pricing](../../managed-valkey/pricing.md)).
+* {{ mrd-name }} target cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ VLK }} pricing](../../managed-valkey/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * VM instance, which includes the use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
@@ -165,7 +165,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-    For more information about how to connect to clusters, see [{#T}](../../managed-valkey/operations/connect/index.md).
+    For more information about connecting to a cluster, see [{#T}](../../managed-valkey/operations/connect/index.md).
 
 1. Restart the web server:
 

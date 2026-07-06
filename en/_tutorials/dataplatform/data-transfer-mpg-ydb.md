@@ -16,7 +16,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 * {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
+* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on the deployment mode:
 
     * In serverless mode, you pay for data operations and storage volume, including stored backups.
     * In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage and backup size.
@@ -68,7 +68,7 @@ Set up your data delivery infrastructure:
         * `target_db_name`: {{ ydb-name }} database name.
         * `transfer_enabled`: Set to `0` to ensure that neither a source endpoint nor a transfer is created before you [manually create a target endpoint](#prepare-transfer).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
@@ -116,7 +116,7 @@ Set up your data delivery infrastructure:
 
 1. [Prepare the source cluster for transfer](../../data-transfer/operations/prepare.md#source-pg).
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -158,7 +158,7 @@ Set up your data delivery infrastructure:
             * `target_endpoint_id`: Target endpoint ID.
             * `transfer_enabled`: Set to `1` to create a source endpoint and a transfer.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate

@@ -7,7 +7,7 @@ description: This section contains the {{ mgp-name }} release notes.
 
 ## May 2026 {#may-2026}
 
-Maximum local disk size per host is increased to 36 TB. Disks of this size are available for Intel Ice Lake (`standard-v3`) configurations with 16 or more cores. To create extra large clusters, you may need to contact [support]({{ link-console-support }}) to reserve the required resources.
+Increased the maximum local disk size per host to 36 TB. Disks of this size are available for Intel Ice Lake (`standard-v3`) configurations with 16 or more cores. To create extra large clusters, you may need to contact [support]({{ link-console-support }}) to reserve the required resources.
 
 ## March 2026 {#mar-2026}
 
@@ -48,7 +48,7 @@ You can now [manage resource groups](operations/resource-groups.md) using the {{
 
 * {{ mgp-name }} is now available in the Kazakhstan [region](../overview/concepts/region.md).
 
-* Added the new **{{ ui-key.yacloud.common.monitoring }}** and **{{ ui-key.yacloud.mdb.cluster.switch_network }}** sections with plots for the respective metrics to the ![monitoring.svg](../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.pxf.value_pxf }}** tab in the management console. For more information, see [Monitoring cluster and host state](operations/monitoring.md).
+* Added the new **{{ ui-key.yacloud.common.monitoring }}** and **{{ ui-key.yacloud.mdb.cluster.switch_network }}** sections with plots for the respective metrics to the ![monitoring.svg](../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.pxf.value_pxf }}** tab in the management console. For more information, see [Cluster and host state monitoring](operations/monitoring.md).
 
 
 * Introduced the **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** option in the cluster settings. It enables you to run YQL queries from [{{ yq-full-name }}](../query/concepts/index.md) to a {{ mgp-name }} database.

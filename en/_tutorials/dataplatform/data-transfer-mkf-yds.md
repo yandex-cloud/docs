@@ -6,19 +6,19 @@ A stream in {{ yds-name }} can receive data from {{ KF }} topics in real time.
 To start data delivery:
 
 1. [Create a target stream in {{ yds-name }}](#create-target-yds).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mkf-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
+* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on the deployment mode:
 
-	* In serverless mode, you pay for data operations and storage volume, including stored backups.
+	* In serverless mode, you pay for data operations as well as the amount of stored data and backups.
   	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
 * {{ yds-name }} (see [{{ yds-name }} pricing](../../data-streams/pricing.md)). The cost depends on the pricing model:
@@ -37,7 +37,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 
         1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) of any suitable configuration.
-        1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) of your preferred configuration.
+        1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) of any suitable configuration.
         1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
         1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the new topic.
 
@@ -103,13 +103,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Install these tools:
 
-    - [kafkacat](https://github.com/edenhill/kcat): For data reads and writes in {{ KF }} topics.
+    - [kafkacat](https://github.com/edenhill/kcat): For reading from and writing to {{ KF }} topics.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+        Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
     - [jq](https://stedolan.github.io/jq/): For stream processing of JSON files.
 
@@ -121,22 +121,22 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 [Create a target stream in {{ yds-name }}](../../data-streams/operations/aws-cli/create.md) for your {{ ydb-name }} database.
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 1. [Create](../../data-transfer/operations/endpoint/index.md#create) an [`{{ KF }}` source endpoint](../../data-transfer/operations/endpoint/source/kafka.md):
 
     **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
 
         Select your source cluster from the list and specify its connection settings.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**: `json`
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**: `json`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: You can specify a schema using one of these two methods:
 
-            * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`
+            * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`.
 
                 Set a list of topic fields manually:
 
@@ -152,7 +152,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
                 |`cabin_temperature`| `UINT16`||
                 | `fuel_level`|`UINT16`||
 
-            * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`
+            * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
 
                 Create and upload a data schema file in JSON format, `json_schema.json`:
 
@@ -229,7 +229,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - {{ TF }} {#tf}
 
-        1. In the `data-transfer-mkf-ydb.tf` file, specify these variables:
+        1. In the `data-transfer-mkf-ydb.tf` file, specify the following variables:
 
             * `source_endpoint_id`: Source endpoint ID.
             * `target_endpoint_id`: Target endpoint ID.
@@ -259,7 +259,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             {% include [transformers-mkf-to-yds](../../_tutorials/_tutorials_includes/transformers-mkf-to-yds.md) %}
 
-            For more information on configuring transformers, see [this {{ TF }} provider article]({{ tf-provider-dt-transfer }}).
+            Read more about the transformer settings in [this {{ TF }} provider guide]({{ tf-provider-dt-transfer }}).
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -344,11 +344,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note info %}
 
-Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting any resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).

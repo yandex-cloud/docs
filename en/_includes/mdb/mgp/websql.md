@@ -20,4 +20,4 @@ To connect to a {{ mgp-name }} cluster from {{ websql-name }}, create a connecti
 
 To open the query editor, click the connection you created on the **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}** tab.
 
-For more details on working with {{ websql-name }}, see [these guides](../../../websql/operations/index.md).
+For more information on {{ websql-name }}, see [this guide](../../../websql/operations/index.md).

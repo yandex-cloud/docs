@@ -49,4 +49,4 @@ The following authentication methods are supported:
 * `iam`: [IAM-based authentication](../operations/connect/clients.md#iam).
 * `reject`: User connection is not allowed.
 
-You can learn more about these settings in [this {{ PG }} guide]({{ pg-docs }}/auth-pg-hba-conf.html).
+Read more about settings in [this {{ PG }} guide]({{ pg-docs }}/auth-pg-hba-conf.html).

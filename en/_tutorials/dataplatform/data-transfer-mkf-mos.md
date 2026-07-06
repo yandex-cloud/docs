@@ -15,8 +15,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* {{ mos-name }} cluster, which includes the use of computing resources and storage size (see [{{ mos-name }} pricing](../../managed-opensearch/pricing.md)).
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts and storage size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mos-name }} cluster: use of computing resources, storage and backup size (see [{{ mos-name }} pricing](../../managed-opensearch/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -30,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-        1. [Create a {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) source cluster with your preferred configuration. Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
+        1. [Create a {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) source cluster with your preferred configuration. For connections to the cluster from the user's local machine, rather than the {{ yandex-cloud }} network, enable public access to the cluster when creating it.
 
         1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 
@@ -166,7 +166,7 @@ You can deliver data to the {{ mos-name }} cluster as `admin` with the `superuse
 
 1. [Create a user](../../managed-opensearch/operations/cluster-users.md) and assign this role to them.
 
-## Prepare and activate your transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 1. [Create](../../data-transfer/operations/endpoint/index.md#create) an [`{{ KF }}` source endpoint](../../data-transfer/operations/endpoint/source/kafka.md):
 

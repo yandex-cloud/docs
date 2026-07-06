@@ -18,11 +18,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* {{ mpg-name }} cluster fee: Computing resources and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* {{ maf-name }} cluster fee: Computing resources and disk space (see [{{ AF }} pricing](../../managed-airflow/pricing.md)).
-* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ mpg-name }} cluster fee: computing resources and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ maf-name }} cluster fee: computing resources and disk space (see [{{ AF }} pricing](../../managed-airflow/pricing.md)).
+* {{ objstorage-name }} bucket fee: data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for using a {{ lockbox-name }} secret (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Set up your infrastructure {#create-infrastracture}
@@ -66,9 +66,9 @@ For the {{ AF }} cluster to work correctly, your {{ lockbox-name }} secret's nam
 
 [Create a {{ lockbox-name }}](../../lockbox/operations/secret-create.md) secret with the following parameters:
 
-   * **{{ ui-key.yacloud.common.name }}**: `airflow/connections/pg`
-   * **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}**: `Custom`
-   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}**: `airflow/connections/pg`
+   * **{{ ui-key.yacloud.common.name }}**: `airflow/connections/pg`.
+   * **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}**: `Custom`.
+   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}**: `airflow/connections/pg`.
    * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}**: Select **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.value_payload-entry-value-type-text }}** and specify the following contents:
 
       ```json
@@ -84,7 +84,7 @@ For the {{ AF }} cluster to work correctly, your {{ lockbox-name }} secret's nam
 
 The secret will store the data to connect to the database in the {{ mpg-name }} cluster.
 
-For more information on how to get the FQDN of a {{ PG }} cluster host, see the [documentation](https://yandex.cloud/ru/docs/managed-postgresql/operations/connect#fqdn).
+For more information on how to get the FQDN of a {{ PG }} cluster host, see [this guide](https://yandex.cloud/ru/docs/managed-postgresql/operations/connect#fqdn).
 
 ## Prepare the DAG file and run the graph {#dag}
 

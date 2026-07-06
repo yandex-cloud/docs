@@ -448,6 +448,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [install](cli-ref/backup/cli-ref/agent/install.md)
 
+ - [install-external](cli-ref/backup/cli-ref/agent/install-external.md)
+
  - [reinstall](cli-ref/backup/cli-ref/agent/reinstall.md)
 
 #### backup
@@ -505,6 +507,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [debug-info](cli-ref/backup/cli-ref/v0/agent/debug-info.md)
 
  - [install](cli-ref/backup/cli-ref/v0/agent/install.md)
+
+ - [install-external](cli-ref/backup/cli-ref/v0/agent/install-external.md)
 
  - [reinstall](cli-ref/backup/cli-ref/v0/agent/reinstall.md)
 
@@ -1710,9 +1714,25 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [get-by-path](cli-ref/cloud-registry/cli-ref/artifact/get-by-path.md)
 
+ - [list](cli-ref/cloud-registry/cli-ref/artifact/list.md)
+
  - [list-access-bindings](cli-ref/cloud-registry/cli-ref/artifact/list-access-bindings.md)
 
  - [remove-access-binding](cli-ref/cloud-registry/cli-ref/artifact/remove-access-binding.md)
+
+##### scanner
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/artifact/scanner/index.md)
+
+ - [get-last-scan-result](cli-ref/cloud-registry/cli-ref/artifact/scanner/get-last-scan-result.md)
+
+ - [get-scan-result](cli-ref/cloud-registry/cli-ref/artifact/scanner/get-scan-result.md)
+
+ - [list-scan-results](cli-ref/cloud-registry/cli-ref/artifact/scanner/list-scan-results.md)
+
+ - [list-vulnerabilities](cli-ref/cloud-registry/cli-ref/artifact/scanner/list-vulnerabilities.md)
+
+ - [scan](cli-ref/cloud-registry/cli-ref/artifact/scanner/scan.md)
 
  - [set-access-bindings](cli-ref/cloud-registry/cli-ref/artifact/set-access-bindings.md)
 
@@ -1766,6 +1786,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [remove-ip-permissions](cli-ref/cloud-registry/cli-ref/registry/remove-ip-permissions.md)
 
+##### scan-policy
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/registry/scan-policy/index.md)
+
+ - [create](cli-ref/cloud-registry/cli-ref/registry/scan-policy/create.md)
+
+ - [delete](cli-ref/cloud-registry/cli-ref/registry/scan-policy/delete.md)
+
+ - [get](cli-ref/cloud-registry/cli-ref/registry/scan-policy/get.md)
+
+ - [get-by-registry](cli-ref/cloud-registry/cli-ref/registry/scan-policy/get-by-registry.md)
+
+ - [update](cli-ref/cloud-registry/cli-ref/registry/scan-policy/update.md)
+
  - [set-access-bindings](cli-ref/cloud-registry/cli-ref/registry/set-access-bindings.md)
 
  - [set-ip-permissions](cli-ref/cloud-registry/cli-ref/registry/set-ip-permissions.md)
@@ -1790,9 +1824,25 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [get-by-path](cli-ref/cloud-registry/cli-ref/v0/artifact/get-by-path.md)
 
+ - [list](cli-ref/cloud-registry/cli-ref/v0/artifact/list.md)
+
  - [list-access-bindings](cli-ref/cloud-registry/cli-ref/v0/artifact/list-access-bindings.md)
 
  - [remove-access-binding](cli-ref/cloud-registry/cli-ref/v0/artifact/remove-access-binding.md)
+
+###### scanner
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/v0/artifact/scanner/index.md)
+
+ - [get-last-scan-result](cli-ref/cloud-registry/cli-ref/v0/artifact/scanner/get-last-scan-result.md)
+
+ - [get-scan-result](cli-ref/cloud-registry/cli-ref/v0/artifact/scanner/get-scan-result.md)
+
+ - [list-scan-results](cli-ref/cloud-registry/cli-ref/v0/artifact/scanner/list-scan-results.md)
+
+ - [list-vulnerabilities](cli-ref/cloud-registry/cli-ref/v0/artifact/scanner/list-vulnerabilities.md)
+
+ - [scan](cli-ref/cloud-registry/cli-ref/v0/artifact/scanner/scan.md)
 
  - [set-access-bindings](cli-ref/cloud-registry/cli-ref/v0/artifact/set-access-bindings.md)
 
@@ -1846,6 +1896,20 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [remove-ip-permissions](cli-ref/cloud-registry/cli-ref/v0/registry/remove-ip-permissions.md)
 
+###### scan-policy
+
+ - [Overview](cli-ref/cloud-registry/cli-ref/v0/registry/scan-policy/index.md)
+
+ - [create](cli-ref/cloud-registry/cli-ref/v0/registry/scan-policy/create.md)
+
+ - [delete](cli-ref/cloud-registry/cli-ref/v0/registry/scan-policy/delete.md)
+
+ - [get](cli-ref/cloud-registry/cli-ref/v0/registry/scan-policy/get.md)
+
+ - [get-by-registry](cli-ref/cloud-registry/cli-ref/v0/registry/scan-policy/get-by-registry.md)
+
+ - [update](cli-ref/cloud-registry/cli-ref/v0/registry/scan-policy/update.md)
+
  - [set-access-bindings](cli-ref/cloud-registry/cli-ref/v0/registry/set-access-bindings.md)
 
  - [set-ip-permissions](cli-ref/cloud-registry/cli-ref/v0/registry/set-ip-permissions.md)
@@ -1869,6 +1933,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [get](cli-ref/cloud-registry/cli-ref/v1/artifact/get.md)
 
  - [get-by-path](cli-ref/cloud-registry/cli-ref/v1/artifact/get-by-path.md)
+
+ - [list](cli-ref/cloud-registry/cli-ref/v1/artifact/list.md)
 
  - [list-access-bindings](cli-ref/cloud-registry/cli-ref/v1/artifact/list-access-bindings.md)
 

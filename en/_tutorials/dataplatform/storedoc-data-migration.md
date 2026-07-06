@@ -39,7 +39,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ##### **Required paid resources** {#paid-resources-transfer}
 
-* {{ mmg-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
+* {{ mmg-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
@@ -101,7 +101,7 @@ If you no longer need the resources you created, [delete them](#clear-out-dump).
 
 ##### **Required paid resources** {#paid-resources-dump}
 
-* {{ mmg-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
+* {{ mmg-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 

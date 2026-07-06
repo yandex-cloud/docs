@@ -21,9 +21,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* {{ mkf-name }} cluster fee, which covers the use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
+* {{ mkf-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
 * Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* VM fee, which covers the use of computing resources, storage, and public IP address (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
+* VM fee: use of computing resources, storage, and public IP address (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
 
 
 ## Getting started {#before-you-begin}

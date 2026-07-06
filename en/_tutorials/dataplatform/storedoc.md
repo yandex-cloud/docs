@@ -16,9 +16,9 @@ To use this migration method, enable internet access to the source cluster.
 
 ## Required paid resources {#paid-resources}
 
-* {{ SD }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ SD }} pricing](../../storedoc/pricing.md)).
+* {{ SD }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ SD }} pricing](../../storedoc/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Per transfer: Computing resources used and the number of data rows transferred (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -31,6 +31,6 @@ The source and target database names must be the same.
 
 {% include notitle [Data migration MMG](datatransfer/storedoc.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 For other migration methods, see [this {{ mmg-name }} guide](../../storedoc/tutorials/data-migration.md).

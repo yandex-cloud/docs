@@ -56,6 +56,10 @@ Domain for working with [Yandex Cloud OpenAI Compatible API](https://aistudio.ya
 
 Domain for working with [Yandex SpeechKit](https://aistudio.yandex.ru/docs/speechkit/overview) services.
 
+**vision**\: *[BaseVisionDomain](#yandex_ai_studio_sdk._vision.domain.BaseVisionDomain)*{#yandex_ai_studio_sdk._sdk.BaseSDK.vision}
+
+Domain for working with [Yandex Vision](https://aistudio.yandex.ru/docs/vision/concepts/ocr/) services.
+
 **setup\_default\_logging**(*log\_level='INFO'*, *log\_format='[%(levelname)1.1s %(asctime)s %(name)s:%(lineno)d] %(message)s'*, *date\_format='%Y-%m-%d %H:%M:%S'*){#yandex_ai_studio_sdk._sdk.BaseSDK.setup_default_logging}
 
 Sets up the default logging configuration.
@@ -3336,3 +3340,68 @@ Profanity filter
 ## *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.bistream.**BaseSTTBidirectionalStream**{#yandex_ai_studio_sdk._speechkit.speech_to_text.bistream.BaseSTTBidirectionalStream}
 
 Bidirectional SpeechKit  API which allows to write requests and read synthesized result in realtime
+
+## *class* yandex\_ai\_studio\_sdk.\_vision.domain.**BaseVisionDomain**{#yandex_ai_studio_sdk._vision.domain.BaseVisionDomain}
+
+Domain for working with [Yandex Vision](https://aistudio.yandex.ru/docs/vision/concepts/ocr/) services.
+
+**ocr**\: *[BaseOCRFunction](#yandex_ai_studio_sdk._vision.ocr.function.BaseOCRFunction)*{#yandex_ai_studio_sdk._vision.domain.BaseVisionDomain.ocr}
+
+API for [OCR](https://aistudio.yandex.ru/docs/vision/concepts/ocr/) service
+
+## *class* yandex\_ai\_studio\_sdk.\_vision.ocr.function.**BaseOCRFunction**{#yandex_ai_studio_sdk._vision.ocr.function.BaseOCRFunction}
+
+OCR function for creating an OCR object which provides methods for invoking Yandex Vision OCR.
+
+**\_\_call\_\_**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *language\_codes=Undefined*, *model=Undefined*){#yandex_ai_studio_sdk._vision.ocr.function.BaseOCRFunction.__call__i}
+
+Creates an OCR object for working with Yandex Vision OCR API.
+
+Refer to [OCR documentation](https://aistudio.yandex.ru/docs/vision/concepts/ocr/) for more information.
+
+#|
+|| Parameters | 
+
+- **language\_codes** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – List of languages to recognize text, in ISO 639-1 format (e.g. **"ru"**, **"en"**). See [supported languages](https://aistudio.yandex.ru/docs/vision/concepts/ocr/supported-languages.html).
+- **model** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Model to use for text recognition. General models: **"page"** (default), **"page-column-sort"**, **"handwritten"**, **"table"**, **"markdown"**, **"math-markdown"**. Document template models: **"passport"**, **"driver-license-front"**, **"driver-license-back"**, **"vehicle-registration-front"**, **"vehicle-registration-back"**, **"license-plates"**. See [models](https://aistudio.yandex.ru/docs/vision/concepts/ocr/#models) and [document recognition](https://aistudio.yandex.ru/docs/vision/concepts/ocr/template-recognition). ||
+|| Return type | [*OCRTypeT*](../types/other.md#yandex_ai_studio_sdk._vision.ocr.ocr.OCRTypeT) ||
+|#
+
+## *class* yandex\_ai\_studio\_sdk.\_vision.ocr.ocr.**BaseOCR**{#yandex_ai_studio_sdk._vision.ocr.ocr.BaseOCR}
+
+OCR class which provides methods for working with Yandex Vision OCR API.
+
+**configure**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *language\_codes=Undefined*, *model=Undefined*){#yandex_ai_studio_sdk._vision.ocr.ocr.BaseOCR.configure}
+
+Returns the new object with config fields overridden by passed values.
+
+#|
+|| Parameters | 
+
+- **language\_codes** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – List of languages to recognize text, in ISO 639-1 format (e.g. **"ru"**, **"en"**). See [supported languages](https://aistudio.yandex.ru/docs/vision/concepts/ocr/supported-languages.html).
+- **model** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined) *\| None*) – Model to use for text recognition. General models: **"page"** (default), **"page-column-sort"**, **"handwritten"**, **"table"**, **"markdown"**, **"math-markdown"**. Document template models: **"passport"**, **"driver-license-front"**, **"driver-license-back"**, **"vehicle-registration-front"**, **"vehicle-registration-back"**, **"license-plates"**. See [models](https://aistudio.yandex.ru/docs/vision/concepts/ocr/#models) and [document recognition](https://aistudio.yandex.ru/docs/vision/concepts/ocr/template-recognition). ||
+|| Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
+|#
+
+**\_\_init\_\_**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *sdk*, *uri*, *config=None*, *owner=None*){#yandex_ai_studio_sdk._vision.ocr.ocr.BaseOCR.__init__i}
+
+#|
+|| Parameters | 
+
+- **sdk** ([*yandex\_ai\_studio\_sdk.\_sdk.BaseSDK*](#yandex_ai_studio_sdk._sdk.BaseSDK))
+- **uri** ([*str*](https://docs.python.org/3/library/stdtypes.html#str))
+- **config** ([*ConfigTypeT*](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT) *\| None*)
+- **owner** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\| None*) ||
+|#
+
+*property* **config**\: *[ConfigTypeT](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT)*{#yandex_ai_studio_sdk._vision.ocr.ocr.BaseOCR.config}
+
+*property* **fine\_tuned**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.ocr.BaseOCR.fine_tuned}
+
+*property* **name**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.ocr.BaseOCR.name}
+
+*property* **owner**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.ocr.BaseOCR.owner}
+
+*property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._vision.ocr.ocr.BaseOCR.uri}
+
+*property* **version**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._vision.ocr.ocr.BaseOCR.version}

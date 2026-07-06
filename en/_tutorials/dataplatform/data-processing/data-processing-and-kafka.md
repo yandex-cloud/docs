@@ -12,12 +12,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ mkf-name }} cluster fee: using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
-* {{ dataproc-name }} cluster fee (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* {{ mkf-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
+* Fee for a {{ dataproc-name }} cluster (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
 * Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Fee for an {{ objstorage-name }} bucket: data storage and operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: data storage and data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 
 
 ## Set up your infrastructure {#infra}
@@ -106,7 +106,7 @@ The support cost includes:
       * {{ KF }} user.
       * {{ KF }} topic.
 
-   1. Specify the following in the `kafka-and-data-proc.tf` file:
+   1. In `kafka-and-data-proc.tf`, specify the following:
 
       * `folder_id`: Cloud folder ID, same as in the provider settings.
       * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} cluster. Learn more about connecting to a {{ dataproc-name }} host over SSH [here](../../../data-proc/operations/connect-ssh.md).
@@ -296,7 +296,7 @@ The support cost includes:
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the objects](../../../storage/operations/objects/delete.md) from the bucket.
-1. Delete the other resources depending on how they were created:
+1. Delete the rest of the resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

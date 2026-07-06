@@ -66,7 +66,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         * `target_db_name`: {{ ydb-name }} database name.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
@@ -115,7 +115,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
     ```
 
-## Prepare and activate your transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -151,7 +151,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * `target_endpoint_id` variable. Also, set it to the ID of the target endpoint created in the previous step.
             * `yandex_datatransfer_endpoint` and `yandex_datatransfer_transfer` resources.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate

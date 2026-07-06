@@ -76,7 +76,7 @@ The examples for Windows were tested in the following environment:
 
 {% endlist %}
 
-To learn how to get a host FQDN, see [this guide](fqdn.md).
+See [this guide](fqdn.md) to learn how to get a host FQDN.
 
 After runing this command, enter the user password to complete your connection.
 
@@ -230,7 +230,7 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
         1. Click **Download** in the new window that prompts you to download the driver files.
         1. Specify the [SSL connection](index.md#get-ssl-cert) settings in the driver property list:
             * `ssl:true`
-            * `sslrootcert:<path_to_saved_SSL_certificate_file>`.
+            * `sslrootcert:<full_path_to_saved_root_SSL_certificate_file_including_file_name>`.
 1. Click **Test connection ...**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
 1. Click **Done** to save the database connection settings.
 

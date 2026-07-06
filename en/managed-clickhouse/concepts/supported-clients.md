@@ -10,7 +10,7 @@ To connect to {{ mch-short-name }}, consider using the following clients:
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
 
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../operations/connect/clients.md)
 * [{#T}](../operations/connect/code-examples.md)

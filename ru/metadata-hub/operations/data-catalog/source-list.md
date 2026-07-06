@@ -20,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно получить список каталогов метаданных.
     1. [Перейдите](../../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
-    1. В открывшемся списке выберите каталог метаданных, в котором созданы источники.
+    1. В открывшемся списке выберите каталог метаданных, в котором созданы [источники](../../concepts/data-catalog-sources.md).
     1. На панели слева выберите ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **{{ ui-key.yacloud.data-catalog.label_sources }}**.
 
 {% endlist %}

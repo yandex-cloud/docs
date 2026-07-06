@@ -76,7 +76,7 @@
 
   Specifies how to compute logical timestamps, allowing replicas to identify transactions that can run concurrently. It is used to generate dependency information, which is written to the binary log when multi-threaded replication ([Slave parallel workers](#setting-slave-parallel-workers)) is enabled with the [Slave parallel type](#setting-slave-parallel-type) set to `LOGICAL_CLOCK`.
 
-  Available values:
+  Valid values:
 
   - `COMMIT_ORDER` (default): Two transactions are considered independent if their commit time windows overlap.
   - `WRITESET`: This approach is based on `COMMIT_ORDER`. In addition to the above condition, two transactions are considered conflicting if they share a hash value in their write sets.
@@ -685,7 +685,7 @@
 
   Sets the number of replicas the master must get responses from before committing a transaction in semi-synchronous replication.
 
-  The minimum value is `1`, and the maximum, `2`. The default value is `1`.
+  The valid values range from `1` to `2`. The default value is `1`.
 
   For more information, see [this {{ MY }} guide]({{ my.docs }}/refman/8.0/en/replication-options-source.html#sysvar_rpl_semi_sync_master_wait_for_slave_count).
 

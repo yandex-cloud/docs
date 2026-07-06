@@ -181,17 +181,17 @@ Incorrect settings may cause the cluster to fail.
 
         You can request  the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/updateAuthSettings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/updateAuthSettings.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
 {% note info %}
 
-For more information about SAML attributes, see [this {{ OS }} guide]({{ os.docs }}/security/authentication-backends/saml/).
+Learn more about SAML attributes in [this {{ OS }} guide]({{ os.docs }}/security/authentication-backends/saml/).
 
 {% endnote %}
 
-## Configuring roles for SSO {#roles-sso}
+## Configure roles for SSO {#roles-sso}
 
 To access the cluster via SSO, associate the cluster roles with the SSO users on the IdP side:
 

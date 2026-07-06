@@ -12,9 +12,9 @@ To explore the REST API features for {{ mkf-msr }} and {{ KF }}:
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ mkf-name }} cluster fee, which covers the use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
+* {{ mkf-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../../managed-kafka/pricing.md)).
 * Fee for using public IP addresses (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 

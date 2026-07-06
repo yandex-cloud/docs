@@ -5,6 +5,8 @@ description: Follow this guide to use the gp_relsizes_stats extension in {{ mgp-
 
 # Using gp_relsizes_stats in {{ mgp-name }}
 
+{% include [not-supported-in-cb](../../../_includes/mdb/mgp/not-supported-in-cb.md) %}
+
 The `gp_relsizes_stats` extension is designed to collect statistics on the physical sizes of files and tables across all {{ mgp-name }} cluster segments.
 
 Key features:
@@ -165,3 +167,5 @@ FROM relsizes_stats_schema.table_sizes_history
 WHERE nspname='call_center' AND relname='operators'
 ORDER BY insert_date;
 ```
+
+{% include [cloudberry-trademark](../../../_includes/mdb/mgp/trademark-cloudberry.md) %}

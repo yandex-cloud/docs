@@ -55,6 +55,12 @@
 
 Копии файлов, сделанные CDN-серверами, можно удалить — _очистить кеш_. Это позволяет быстро обновить в CDN контент, который изменился в источниках.
 
+{% note warning %}
+
+{% include [purge-cache-limits-notice](../../_includes/cdn/purge-cache-limits-notice.md) %}
+
+{% endnote %}
+
 Кеш можно [очистить](../operations/resources/purge-cache.md) полностью или частично. Рекомендуется частичная очистка: если удалить из кеша копии всех файлов, CDN-серверы сильно увеличат нагрузку на источники, обращаясь к ним за каждым запрошенным файлом.
 
 {% include [wildcard-paths-purging-specifics](../../_includes/cdn/wildcard-paths-purging-specifics.md) %}
@@ -78,8 +84,6 @@
 {% include [the-vary-headers-purge-warning](../../_includes/cdn/the-vary-headers-purge-warning.md) %}
 
 {% endnote %}
-
-Для очистки кеша существуют технические ограничения — [лимиты](limits.md).
 
 ## Примеры использования {#examples}
 

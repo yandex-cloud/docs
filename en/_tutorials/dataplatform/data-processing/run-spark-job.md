@@ -160,7 +160,7 @@ Spark Submit allows you to run pre-written applications using the `spark-submit`
 
 - PySpark Submit
 
-  1. [Use SSH to connect](../../../data-proc/operations/connect-ssh.md) to the {{ dataproc-name }} cluster's master host.
+  1. [Use SSH to connect](../../../data-proc/operations/connect-ssh.md) to the {{ dataproc-name }} cluster master host.
   1. Create a file named `month_stat.py` with the following code on the master host:
 
      ```python
@@ -201,11 +201,11 @@ Spark Submit allows you to run pre-written applications using the `spark-submit`
 
   To create and launch a Spark application:
 
-  1. [Use SSH to connect](../../../data-proc/operations/connect-ssh.md) to the {{ dataproc-name }} cluster's master host.
+  1. [Use SSH to connect](../../../data-proc/operations/connect-ssh.md) to the {{ dataproc-name }} cluster master host.
   1. [Install](https://docs.scala-lang.net/getting-started/index.html#using-the-scala-installer-recommended-way) _sbt_. It comes bundled with the Scala programming language.
   1. Create a folder, e.g., `spark-app`.
   1. Add the file with the `./src/main/scala/app.scala` path to the created folder.
-  1. Pate the following code to the `app.scala` file:
+  1. Paste the following code to the `app.scala` file:
 
       ```scala
       package com.yandex.cloud.dataproc.scala
@@ -461,7 +461,7 @@ To run a Spark job:
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-1. [Use SSH to connect](../../../data-proc/operations/connect-ssh.md) to the {{ dataproc-name }} cluster's master host.
+1. [Use SSH to connect](../../../data-proc/operations/connect-ssh.md) to the {{ dataproc-name }} cluster master host.
 1. [Install](https://docs.scala-lang.net/getting-started/index.html#using-the-scala-installer-recommended-way) `sbt`, the standard build utility for Scala. It comes bundled with the Scala programming language.
 1. [Install and configure](../../../storage/tools/s3cmd.md) the S3cmd console client to work with {{ objstorage-full-name }}.
 
@@ -476,7 +476,7 @@ To streamline dependency management, build the application to a single JAR file 
     addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "<sbt-assembly_version>")
     ```
 
-    You can check the `sbt-assembly` version in the plugin [repository](https://github.com/sbt/sbt-assembly) under **Releases**.
+    You can check the `sbt-assembly` plugin version in the [repository](https://github.com/sbt/sbt-assembly) under **Releases**.
 
 1. Run the `scala -version` command to get the version of Scala installed on your system.
 1. Create a file named `spark-app/build.sbt` with a description of the dependencies and the strategy for merging them into a single JAR file. Specify the Scala version in the `build.sbt` file:

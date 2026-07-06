@@ -1,6 +1,6 @@
 # Viewing {{ mgp-name }} cluster logs
 
-{{ mgp-name }} allows you to [get a cluster log snippet](#get-log) for the selected time period and [view logs in real time](#get-log-stream).
+{{ mgp-name }} allows you to [get a cluster log snippet](#get-log) for a selected time period and [view logs in real time](#get-log-stream).
 
 {% include [log-duration](../../_includes/mdb/log-duration.md) %}
 
@@ -103,8 +103,8 @@
         * `serviceType`: Type of service to request logs for:
 
             * `GREENPLUM`: DBMS operations.
-            * `GREENPLUM_POOLER`: [Connection manager](../concepts/pooling.md) operations.
-            * `GREENPLUM_PXF`: [PXF](../concepts/external-tables.md) protocol.
+            * `GREENPLUM_POOLER`: [Connection manager](../concepts/pooling.md) operations
+            * `GREENPLUM_PXF`: [PXF](../concepts/external-tables.md) protocol
 
         * `columnFilter`: Name of the data column:
 
@@ -263,7 +263,7 @@ This method allows you to stream cluster logs in real time.
 
         * `filter`: Log filter, e.g., `message.hostname='node1.{{ dns-zone }}'`.
 
-            For more information about filters and their syntax, see the [API reference](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.greenplum.v1.StreamClusterLogsRequest).
+            To learn more about filters and their syntax, see the [API reference](../api-ref/Cluster/streamLogs.md#yandex.cloud.mdb.greenplum.v1.StreamClusterLogsRequest).
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -331,7 +331,7 @@ This method allows you to stream cluster logs in real time.
 
         * `filter`: Log filter, e.g., `message.hostname='node1.{{ dns-zone }}'`.
 
-            For more information about filters and their syntax, see the [API reference](../api-ref/grpc/Cluster/streamLogs.md).
+            To learn more about filters and their syntax, see the [API reference](../api-ref/grpc/Cluster/streamLogs.md).
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 

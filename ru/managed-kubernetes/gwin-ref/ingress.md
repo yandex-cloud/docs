@@ -226,7 +226,7 @@ metadata:
     gwin.yandex.cloud/directResponse.my-response.responseBody.text: "Hello World"  # response body text
     
     # Security
-    gwin.yandex.cloud/hosts.securityProfileID: "host-security-profile-1"  # WAF profile for hosts
+    gwin.yandex.cloud/hosts.securityProfileID: "host-security-profile-1"  # Yandex Smart Web Security profile for hosts
     
     # Host rewriting
     gwin.yandex.cloud/rules.hostRewrite.auto: "true"  # automatically rewrite host to backend target

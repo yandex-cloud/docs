@@ -198,6 +198,12 @@ Region(id: ‘str’, label: ‘str’, children: ‘RegionsMapping | None’)
 
 RegionsMapping(\_regions: ‘MappingProxyType[str, Region]’)
 
+**dfs**(){#yandex_ai_studio_sdk._search_api.types.RegionsMapping.dfs}
+
+#|
+|| Return type | [*Iterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterator)[[*Region*](#yandex_ai_studio_sdk._search_api.types.Region)] ||
+|#
+
 **get**(*k*[, *d*]) → D[k] if k in D, else d.  d defaults to None.{#yandex_ai_studio_sdk._search_api.types.RegionsMapping.get}
 
 **items**() → a set-like object providing a view on D's items{#yandex_ai_studio_sdk._search_api.types.RegionsMapping.items}
@@ -205,12 +211,6 @@ RegionsMapping(\_regions: ‘MappingProxyType[str, Region]’)
 **keys**() → a set-like object providing a view on D's keys{#yandex_ai_studio_sdk._search_api.types.RegionsMapping.keys}
 
 **values**() → an object providing a view on D's values{#yandex_ai_studio_sdk._search_api.types.RegionsMapping.values}
-
-**dfs**(){#yandex_ai_studio_sdk._search_api.types.RegionsMapping.dfs}
-
-#|
-|| Return type | [*Iterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterator)[[*Region*](#yandex_ai_studio_sdk._search_api.types.Region)] ||
-|#
 
 **search\_by\_label**(*label\: [str](https://docs.python.org/3/library/stdtypes.html#str)*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *first\: [Literal](https://docs.python.org/3/library/typing.html#typing.Literal)[False] = False*) → [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Region](#yandex_ai_studio_sdk._search_api.types.Region)]{#yandex_ai_studio_sdk._search_api.types.RegionsMapping.search_by_label}
 

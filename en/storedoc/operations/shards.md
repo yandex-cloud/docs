@@ -136,7 +136,7 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
 
   1. {% include [update-provider-version](../../_includes/mdb/mmg/terraform/update-provider-version.md) %}
 
-  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
 
      To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -287,7 +287,7 @@ The **b1.medium** and **b2.medium** host classes [do not support](../concepts/sh
           * `priority`: Host priority for master promotion during [failover](../concepts/replication.md#master-failover).
           * `tags`: Host tags.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/enableSharding.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -483,7 +483,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
   1. {% include [update-provider-version](../../_includes/mdb/mmg/terraform/update-provider-version.md) %}
 
-  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
 
      To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -665,7 +665,7 @@ The system will invoke the `removeShard` operation for the shard slated for remo
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
 
      To learn how to create this file, see [Creating a cluster](cluster-create.md).
 

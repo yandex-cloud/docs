@@ -6,7 +6,7 @@ description: In this article, you will learn how to configure access to {{ objst
 # Configuring access to {{ objstorage-name }} from an {{ OS }} cluster
 
 
-{{ mos-name }} supports using {{ objstorage-full-name }} as an {{ OS }} snapshot repository. This allows you to use {{ objstorage-name }} to [store backups](cluster-backups.md). For more information about snapshot repositories, see [this {{ OS }} guide]({{ os.docs }}/opensearch/snapshots/snapshot-restore/).
+{{ mos-name }} supports using {{ objstorage-full-name }} as an {{ OS }} snapshot repository. This allows you to use {{ objstorage-name }} to [store backups](cluster-backups.md). For more about the snapshot repository, see [this {{ OS }} guide]({{ os.docs }}/opensearch/snapshots/snapshot-restore/).
 
 
 To access {{ objstorage-name }} bucket data from a cluster:

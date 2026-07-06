@@ -17,7 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 * {{ mkf-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* {{ mch-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ mch-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -85,7 +85,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         
         * `transfer_enabled = 0` disables the creation of endpoints and transfers. They will be created during the [preparation of the transfer](#prepare-transfer).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
@@ -221,7 +221,7 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}{{ la
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file-root }} -Z
     ```
 
-## Prepare and activate your transfer {#prepare-transfer}
+## Prepare and activate a transfer {#prepare-transfer}
 
 {% include [tips for endpoint settings](../../_includes/data-transfer/queue-ch-transfer-tips.md) %}
 
@@ -320,7 +320,7 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}{{ la
 - {{ TF }} {#tf}
 
   1. Specify `transfer_enabled = 1` in the `data-transfer-mkf-mch.tf` file.
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate

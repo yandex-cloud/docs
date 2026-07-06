@@ -1,6 +1,6 @@
 1. [Create a bucket](../../storage/operations/buckets/create.md).
 1. [Create](../../iam/operations/sa/create.md) a service account.
-1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the required role to the service account, e.g., `storage.editor`. For more information about roles, see [{#T}](../../storage/security/index.md).
+1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the required role to the service account, e.g., `storage.editor`. To learn more about roles, see [{#T}](../../storage/security/index.md).
 
        
    {% include [encryption-roles](../storage/encryption-roles.md) %}

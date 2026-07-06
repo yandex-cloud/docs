@@ -23,6 +23,7 @@ HTTPRoute resources must be attached to [Gateway](gateway.md) resources to funct
   * [HTTPHeaderFilter](#httpheaderfilter)
   * [HTTPRequestRedirectFilter](#httprequestredirectfilter)
   * [HTTPPathModifier](#httppathmodifier)
+  * [ExtensionRef](#extensionref)
   * [HTTPBackendRef](#httpbackendref)
   * [HTTPRouteTimeouts](#httproutetimeouts)
 
@@ -96,6 +97,11 @@ spec:
               replaceFullPath: "/v2/api"
             port: 443  # change port
             statusCode: 301  # HTTP redirect code
+        - type: ExtensionRef  # return a fixed response (no backend needed)
+          extensionRef:
+            group: gwin.yandex.cloud
+            kind: DirectResponse  # reference a DirectResponse resource
+            name: not-found-response
       backendRefs:  # where to route requests
         - group: ""  # core Kubernetes API
           kind: Service  # Kubernetes service
@@ -199,7 +205,7 @@ metadata:
     gwin.yandex.cloud/rules.hostRewrite.replace: "backend.example.com"  # static host replacement
     
     # Security
-    gwin.yandex.cloud/hosts.securityProfileID: "host-security-profile-1"  # WAF profile for hosts
+    gwin.yandex.cloud/hosts.securityProfileID: "host-security-profile-1"  # Yandex Smart Web Security profile for hosts
     
     # Rate limiting
     gwin.yandex.cloud/rules.rateLimit.allRequests.perSecond: "100"  # route-level rate limit for all requests
@@ -348,6 +354,28 @@ Health check TLS settings work the same way, but are configured separately.
 | `gwin.yandex.cloud/rules.hostRewrite.replace` <br> _(string)_ <br> Static host replacement value for HTTP/1.1 Host headers and HTTP/2 :authority pseudo-headers. Cannot be used together with `hostRewrite.auto`. <br> Example: `backend.example.com` |
 
 #### Path rewriting
+
+`regexRewrite` rewrites the request path before forwarding to the backend.
+
+**Example: match several paths by regex and add a prefix**
+
+```yaml
+metadata:
+  annotations:
+    # /foo/... → /v2/foo/..., /bar/... → /v2/bar/...
+    gwin.yandex.cloud/rule.my-rule.http.regexRewrite.regex: "^((/foo|/bar).*)$"
+    gwin.yandex.cloud/rule.my-rule.http.regexRewrite.substitute: "/v2\\1"
+spec:
+  rules:
+    - name: my-rule
+      matches:
+        - path:
+            type: RegularExpression
+            value: "(/foo|/bar).*"
+      backendRefs:
+        - name: example-service
+          port: 8080
+```
 
 | Annotation and description |
 |------------|
@@ -519,8 +547,8 @@ HTTPPathMatch describes how to select a HTTP route by matching the HTTP request 
 
 | Field | Description |
 |-------|-------------|
-| type | **string** <br> Path match type. `Exact` for exact path match, `PathPrefix` for path prefix match. <br> Example: `Exact`, `PathPrefix`. |
-| value | **string** <br> Path value to match against. <br> Example: `/api/v1`, `/`. |
+| type | **string** <br> Path match type. `Exact` for exact path match, `PathPrefix` for path prefix match, `RegularExpression` for regex pattern match. <br> Example: `Exact`, `PathPrefix`, `RegularExpression`. |
+| value | **string** <br> Path value to match against. For `RegularExpression` type, this should be a valid RE2 regex pattern. <br> Example: `/api/v1`, `/`, `/api/.*`, `(/qr-pay\|/prepay).*`. |
 
 ### HTTPHeaderMatch
 
@@ -554,11 +582,12 @@ HTTPRouteFilter defines processing steps that must be completed during the reque
 
 | Field | Description |
 |-------|-------------|
-| type | **string** <br> Filter type. Supported: `RequestHeaderModifier`, `ResponseHeaderModifier`, `RequestRedirect`, `URLRewrite` <br> Example: `RequestHeaderModifier` |
+| type | **string** <br> Filter type. Supported: `RequestHeaderModifier`, `ResponseHeaderModifier`, `RequestRedirect`, `URLRewrite`, `ExtensionRef`. <br> Example: `RequestHeaderModifier` |
 | requestHeaderModifier | **[HTTPHeaderFilter](#httpheaderfilter)** <br> Request header modification configuration. |
 | responseHeaderModifier | **[HTTPHeaderFilter](#httpheaderfilter)** <br> Response header modification configuration. |
 | requestRedirect | **[HTTPRequestRedirectFilter](#httprequestredirectfilter)** <br> Request redirect configuration. |
 | urlRewrite | **HTTPURLRewriteFilter** <br> URL rewrite configuration. |
+| extensionRef | **[ExtensionRef](#extensionref)** <br> Extension filter configuration. Used with `type: ExtensionRef`. |
 
 ### HTTPHeaderFilter
 
@@ -596,7 +625,19 @@ HTTPPathModifier defines configuration for path modification in redirects.
 |-------|-------------|
 | type | **string** <br> Path modification type. `ReplaceFullPath` or `ReplacePrefixMatch`. <br> Example: `ReplaceFullPath` |
 | replaceFullPath | **string** <br> Complete path replacement. <br> Example: `/v2/api` |
-| replacePrefixMatch | **string** <br> Path prefix replacement. <br> Example: `/api/v2` |
+| replacePrefixMatch | **string** <br> Path prefix replacement. Only valid when the rule has exactly one `PathPrefix` match. Cannot be used with `RegularExpression` path matches — use the [`regexRewrite` annotation](#path-rewriting) instead. <br> Example: `/api/v2` |
+
+### ExtensionRef
+
+ExtensionRef identifies a Gwin-specific extension resource used as a filter. Currently the only supported extension is [`DirectResponse`](directresponse.md), which instructs the load balancer to return a fixed HTTP response without forwarding to any backend.
+
+*Appears in*: [HTTPRouteFilter](#httproutefilter)
+
+| Field | Description |
+|-------|-------------|
+| group | **string** <br> API group of the extension resource. <br> Example: `gwin.yandex.cloud` |
+| kind | **string** <br> Kind of the extension resource. <br> Example: `DirectResponse` |
+| name | **string** <br> Name of the extension resource. Must be in the same namespace as the HTTPRoute. <br> Example: `not-found-response` |
 
 ### HTTPBackendRef
 

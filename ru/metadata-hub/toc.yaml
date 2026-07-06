@@ -523,6 +523,8 @@ items:
         items:
           - name: Каталог метаданных
             href: concepts/data-catalog.md
+          - name: Источники данных
+            href: concepts/data-catalog-sources.md
       - name: Сервисные роли для управления доступом
         href: security/data-catalog-roles.md
   - name: Управление доступом

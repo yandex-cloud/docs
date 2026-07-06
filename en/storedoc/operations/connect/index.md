@@ -120,7 +120,7 @@ You can get the FQDN using one of the following methods:
 
 * [Get the list of cluster hosts](../hosts.md#list-hosts) via the CLI or API.
 
-## Connection limits {#connection-limits}
+## Limits on the number of connections {#connection-limits}
 
 {% include [mmg-conn-limits](../../../_includes/mdb/mmg/conn-limits.md) %}
 
