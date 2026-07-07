@@ -42,7 +42,7 @@ The profile template is displayed when this profile is blocked by any rule. If y
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](rule-add.md)
 * [{#T}](rule-update.md)

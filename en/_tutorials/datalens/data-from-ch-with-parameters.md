@@ -253,7 +253,7 @@ After adding a selector, unlink it from other selectors in this dashboard tab.
       1. Click ![image](../../_assets/console-icons/gear.svg) at the top of the screen. The settings window will open on the right.
       1. In the settings window, click **Links** ![image](../../_assets/console-icons/sliders-vertical.svg).
       1. In the **Links** window, select **Dimensions**.
-      1. Make sure that you selected the **Outgoing link** link type for the **Chart with a configurable visualization selection**. For the **Grouping** selector, specify the link type **Ignore**.
+      1. Make sure you selected the **Outgoing link** link type for **Chart with a configurable visualization selection**. For the **Grouping** selector, set the **Ignore** link type.
 
          ![image](../../_assets/datalens/solution-parameters/alias-ignor.png)
 
@@ -263,7 +263,7 @@ After adding a selector, unlink it from other selectors in this dashboard tab.
 
          ![image](../../_assets/datalens/solution-parameters/chart-measure-select-pay.png)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../datalens/concepts/parameters.md)
 * [{#T}](../../datalens/operations/dashboard/add-parameters.md)

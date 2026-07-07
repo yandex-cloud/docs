@@ -33,7 +33,7 @@ description: Сессии дают пользователям возможнос
 
 {% endnote %}
 
-Сессия завершается и автоматически пропадает из списка сессий пользователя по истечении срока ее жизни, а также когда пользователь выходит из своего аккаунта, нажав кнопку ![arrow-right-from-square](../../_assets/console-icons/arrow-right-from-square.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.logout_nXPin }}**.
+Сессия завершается и автоматически пропадает из списка сессий пользователя по истечении срока ее жизни, а также когда пользователь выходит из своего аккаунта, нажав **{{ ui-key.yacloud_org.center-layout.SwitchAccountAside.action_switch-account_1aB2c }}** → ![arrow-right-from-square](../../_assets/console-icons/arrow-right-from-square.svg).
 
 #### Полезные ссылки {#see-also}
 

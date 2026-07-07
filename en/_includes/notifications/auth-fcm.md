@@ -8,4 +8,4 @@ You can authenticate with FCM using the API:
 
 {% endnote %}
 
-See more in the [Firebase documentation](https://firebase.google.com/docs/cloud-messaging/android/client).
+For more information, see [this Firebase guide](https://firebase.google.com/docs/cloud-messaging/android/client).

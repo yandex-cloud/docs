@@ -37,7 +37,7 @@ description: Follow this guide to edit a playlist in {{ video-name }}.
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Playlists in {{ video-name }}](../../concepts/playlists.md)
 * [{#T}](get-link.md)

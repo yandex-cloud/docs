@@ -40,7 +40,7 @@ To view detailed information about a specific {{ td-full-name }} security contro
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./manage-exceptions.md)
 * [{#T}](../../concepts/threat-detector.md)

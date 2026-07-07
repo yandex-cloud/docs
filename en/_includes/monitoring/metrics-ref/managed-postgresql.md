@@ -169,7 +169,7 @@ The consumption type goes into the `systag` label.
 | `postgres.slru_Serial_blks_hit`<br/>`DGAUGE`, count | Number of SLRU cache hits for sequence pages.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
 | `postgres.slru_Serial_blks_read`<br/>`DGAUGE`, count | Number of Serial SLRU page reads from the disk.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
 | `postgres.slru_Serial_blks_written`<br/>`DGAUGE`, count | Number of Serial SLRU page writes to the disk.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
-| `postgres.slru_Subtrans_blks_hit`<br/>`DGAUGE`, count | Number of  SLRU cache hits for subtransaction log data pages.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
+| `postgres.slru_Subtrans_blks_hit`<br/>`DGAUGE`, count | Number of SLRU cache hits for subtransaction log data pages.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
 | `postgres.slru_Subtrans_blks_read`<br/>`DGAUGE`, count | Number of Subtrans SLRU page reads from the disk.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
 | `postgres.slru_Subtrans_blks_written`<br/>`DGAUGE`, count | Number of Subtrans SLRU page writes to the disk.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
 | `postgres.slru_Xact_blks_hit`<br/>`DGAUGE`, count | Number of SLRU cache hits for transaction log pages.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
@@ -185,7 +185,7 @@ The consumption type goes into the `systag` label.
 | `postgres_conn_idle_in_transaction`<br/>`DGAUGE`, count | Number of `idle in transaction` connections (pending within an open transaction) |
 | `postgres_conn_idle`<br/>`DGAUGE`, count | Number of `idle` connections (waiting for new requests) |
 | `postgres_conn_waiting`<br/>`DGAUGE`, count | Number of connections waiting for resources |
-| `postgres_max_connections`<br/>`DGAUGE`, count | Maximum number of connections  |
+| `postgres_max_connections`<br/>`DGAUGE`, count | Maximum number of connections |
 | `postgres_oldest_prepared_xact_duration`<br/>`DGAUGE`, seconds | Duration of the oldest prepared transaction |
 | `postgres_oldest_query_duration`<br/>`DGAUGE`, seconds | Duration of the oldest query |
 | `postgres_oldest_transaction_duration`<br/>`DGAUGE`, seconds | Duration of the oldest transaction |
@@ -199,7 +199,7 @@ The consumption type goes into the `systag` label.
 | `postgres_wait_event_IO_WALInitSync`<br/>`DGAUGE`, count | Number of processes waiting for WAL file initialization and synchronization.<br/>Special labels:<ul><li>`database`: Database name</li><li>`user`: Username</li></ul> |
 | `postgres_wait_event_IO_WALSync`<br/>`DGAUGE`, count | Number of processes waiting for WAL file fsync/synchronization.<br/>Special labels:<ul><li>`database`: Database name</li><li>`user`: Username</li></ul> |
 | `postgres_wait_event_LWLock_WALWrite`<br/>`DGAUGE`, count | Number of processes waiting for a WAL write LWLock.<br/>Special labels:<ul><li>`database`: Database name</li><li>`user`: Username</li></ul> |
-| `postgres_wal_rate_bytes`<br/>`DGAUGE`, bytes per second | Write-ahead logging rate |
+| `postgres_wal_rate_bytes`<br/>`DGAUGE`, in bytes per 30 seconds | Write-ahead logging rate |
 | `postgres_xid_left_percent`<br/>`DGAUGE`, % | Percentage of transaction counters left |
 | `postgres_xid_left`<br/>`DGAUGE`, count | Number of transaction counters left |
 | `postgres_xid_used_percent`<br/>`DGAUGE`, % | Percentage of transaction counters used |

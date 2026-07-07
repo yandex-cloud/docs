@@ -98,7 +98,7 @@ You can only add ARL rules to an [ARL](../concepts/arl.md) profile. Basic [rules
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](rule-update.md)
 * [{#T}](rule-delete.md)

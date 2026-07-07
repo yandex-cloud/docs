@@ -126,7 +126,7 @@ To update a {{ sd-name }} [alert sink](../../concepts/workspace.md#alert-sinks):
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/workspace.md)
 * [{#T}](./create.md)

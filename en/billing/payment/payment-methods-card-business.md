@@ -1,6 +1,6 @@
 # Creadit or debit card payments for businesses
 
-Businesses and individual entrepreneurs can top up their personal accounts and pay for consumed resources using a corporate credit or debit card associated with their the billing account, including SBP (Faster Payment System) transfers.
+Businesses and individual entrepreneurs can top up their personal accounts and pay for resources using a corporate credit or debit card associated with their billing account, including via the Faster Payment System (SBP).
 
 {% include [payment-card-types](../../_includes/billing/payment-card-types-business.md) %}
 

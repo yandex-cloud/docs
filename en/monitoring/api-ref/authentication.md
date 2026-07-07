@@ -1,6 +1,6 @@
 ---
 title: Authentication with the {{ monitoring-full-name }} API
-description: 'To work via the {{ monitoring-full-name }} API, get an IAM token for your account. Specify this IAM token to access {{ yandex-cloud }} resources through the API formatted as Authorization: Bearer <IAM-TOKEN>.'
+description: 'To work with the {{ monitoring-full-name }} API, obtain an IAM token for your account. To access {{ yandex-cloud }} resources via the API, provide this IAM token in the following format: Authorization: Bearer <IAM-TOKEN>.'
 ---
 
 # Authentication with the {{ yandex-cloud }} API
@@ -21,6 +21,6 @@ To perform writes to a log group, set the `yc.logging.write` [scope](../../iam/c
 
 {% endnote %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [{#T}](../../iam/concepts/users/accounts.md)

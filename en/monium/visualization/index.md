@@ -42,7 +42,7 @@ To view a dashboard with the most common metrics for a {{ yandex-cloud }} resour
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Data model](../concepts/data-model.md)
 * [Query language](../concepts/querying.md)

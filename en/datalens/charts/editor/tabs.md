@@ -85,7 +85,7 @@ If you set other parameter values for such a chart on the dashboard or in the re
 
 You can get the values ​​of all current parameters on subsequent tabs using the [Editor.getParams()](./methods.md#get-params) method; you can also get the current value of any parameter by its name using [Editor.getParam(name)](./methods.md#get-param).
 
-You can override the parameters using the chart's URL. Here is an example:
+You can override the parameters using the chart's URL. For example:
 
 ```text
 &period=40&metric=2012&metric=2014
@@ -295,7 +295,7 @@ Example of getting only a list of fields from a dataset:
 
 {% endlist %}
 
-#### See also {#see-also-dataset}
+#### Useful links {#see-also-dataset}
 
 * [Quick start on creating a table with a dataset connection](./quickstart/from-dataset.md)
 
@@ -338,7 +338,7 @@ To get data from a connection (via an SQL query):
 
 {% endlist %}
 
-#### See also {#see-also-database}
+#### Useful links {#see-also-database}
 
 * [Quick start on creating a table with connection via an SQL query](./quickstart/from-database.md)
 
@@ -382,7 +382,7 @@ To get data via API Connector:
 
 {% endlist %}
 
-#### See also {#see-also-api-connector}
+#### Useful links {#see-also-api-connector}
 
 * [Quick start on creating a table with a connection via API Connector](./quickstart/from-api-connector.md)
 
@@ -604,7 +604,7 @@ To perform actions of the **Activities** tab, configure interface element events
 * This feature is currently available for the following chart types: [Selector](./widgets/controls.md), [Table](./widgets/table.md), and [Chart (Gravity UI Charts)](./widgets/gravity-ui.md).
 
 
-#### See also {#see-also-activities}
+#### Useful links {#see-also-activities}
 
 * [Tutorial with an example of using the Activities tab in Editor](../../tutorials/create-editor-activities.md)
 

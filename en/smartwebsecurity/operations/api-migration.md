@@ -1,9 +1,9 @@
 ---
-title: Migrating to the new condition format in the API, CLI, and Terraform
-description: Follow this guide to update {{ sws-full-name }} profile conditions to the new format used by the API, CLI, and Terraform.
+title: Migrating to the new condition format in the API, CLI, and {{ TF }}
+description: Follow this guide to update {{ sws-full-name }} profile conditions to the new format used by the API, CLI, and {{ TF }}.
 ---
 
-# Updating the condition format in the API, CLI, and Terraform
+# Updating the condition format in the API, CLI, and {{ TF }}
 
 {% note warning %}
 
@@ -287,7 +287,7 @@ In addition to regular expressions, you can combine conditions using lists of st
   }
   ```
   
-  For more on `yandex_sws_security_profile` properties, see [this provider guide]({{ tf-provider-resources-link }}/sws_security_profile).
+  For more on the properties of the `yandex_sws_security_profile` resource, see [this provider guide]({{ tf-provider-resources-link }}/sws_security_profile).
 
 - API {#api}
 
@@ -404,7 +404,7 @@ In addition to regular expressions, you can combine conditions using lists of st
 {% endlist %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](profile-create.md)
 * [{#T}](profile-update.md)

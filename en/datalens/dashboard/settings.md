@@ -20,23 +20,46 @@ Auto-update is subject to the following limitations:
   * If the tab is selected as the current tab, but the browser is running in the background, the tab is considered active and the data is updated.
 
 
-## Table of contents {#contents}
+## View {#appearance}
+
+
+
+In this section, you can set default background colors for the [dashboard](#dashboard-background) or all its [widgets](#widget-background) separately for the light and dark themes, configure widget [corner rounding](#rounding) and [margins](#margins), as well as the display of the [title](#title-dashboard) and [table of contents](#contents).
+
+If you modify any appearance settings, a ![image](../../_assets/console-icons/arrow-rotate-left.svg) icon will appear next to the section name. Click it to reset all dashboard appearance settings to their defaults.
+
+### Dashboard background {#dashboard-background}
+
+This setting allows you to [select the dashboard background color](../operations/dashboard/add-dashboard-background.md) from a list of preset options or specify it in hexadecimal format. Some of the preset colors are inherited from your global [service appearance settings](../settings/appearance.md).
+
+You can set up a dashboard background for the light and dark theme individually. 
+
+### Widget background {#widget-background}
+
+This setting allows you to [set the default background color and opacity](../operations/dashboard/add-widget-background.md) for all dashboard widgets. You can select a color from preset options or specify it in hexadecimal format. Some of the preset colors are inherited from your global [service appearance settings](../settings/appearance.md).
+
+You can set up a dashboard background for the light and dark theme individually. 
+
+### Rounding {#rounding}
+
+You can set [rounding](../operations/dashboard/add-rounding.md) for all dashboard widgets. The possible values range from `0` to `24` in increments of `2`. The default value for all widgets is either `3` or `12`, depending on whether [UI customization](../settings/appearance.md#ui-customization) is enabled and which version is used. You can set a custom value.
+
+### Margins {#margins}
+
+You can [set offsets](../operations/dashboard/add-margins.md) between widgets. The possible values range from `0` to `22`. The default value is `8`.
+
+
+### Title {#title-dashboard}
+
+This setting allows you to manage dashboard [title display](../operations/dashboard/add-title-dashboard.md).
+
+### Table of contents {#contents}
 
 You can configure the way the [table of contents is displayed](../operations/dashboard/add-contents.md) on the dashboard.
 
 If the **Table of contents** option is on, all [titles](widget.md#title) with **Display in table of contents** ticked and the names of [tabs](#tabs) not hidden in the settings will be displayed in the table of contents on the left. When you click a title in the table of contents, the dashboard page automatically scrolls to the relevant section, and its hash gets added to the address bar. When you click a tab in the table of contents, the dashboard switches to that tab, and its hash gets added to the address bar.
 
 In view mode, you can also show or hide the table of contents via the menu. Do it by clicking ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/list-ul.svg) **Table of contents** at the top of the dashboard. After you refresh the page, the table of contents is one again displayed as per the **Table of contents** option in the settings.
-
-
-## Margins {#margins}
-
-You can [set offsets](../operations/dashboard/add-margins.md) between widgets. The possible values range from `0` to `22`. The default value is `8`.
-
-
-## Title {#title-dashboard}
-
-This setting allows you to manage dashboard [title display](../operations/dashboard/add-title-dashboard.md).
 
 
 

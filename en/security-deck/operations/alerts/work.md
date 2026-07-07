@@ -5,6 +5,8 @@ description: In this section, you will learn how to work with alerts in {{ sd-fu
 
 # Working with alerts
 
+{% include [table-columns-tip](../../../_includes/security-deck/table-columns-tip.md) %}
+
 ## Changing alert status {#status}
 
 {% list tabs group=instructions %}
@@ -16,6 +18,22 @@ description: In this section, you will learn how to work with alerts in {{ sd-fu
   1. At the top of the window, select the [workspace](../../concepts/workspace.md).
   1. Click the table row containing the [alert](../../concepts/alerts.md) name.
   1. In the window that opens, select the status in the top-left corner.
+
+{% endlist %}
+
+
+## Updating multiple alerts {#update-batch}
+
+{% list tabs group=instructions %}
+
+- {{ sd-name }} UI {#cloud-sd}
+
+  1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
+  1. In the left-hand panel, select ![alerts](../../../_assets/security-deck/alerts.svg) **{{ ui-key.yacloud_org.security-center.label_alerts }}**.
+  1. At the top of the window, select the [workspace](../../concepts/workspace.md).
+  1. Select one or more alerts using the options to the left of the alert names.
+  1. Select an action on the panel below.
+  1. In the window that opens, make the changes and click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
@@ -103,7 +121,7 @@ description: In this section, you will learn how to work with alerts in {{ sd-fu
 
         1. Under **{{ ui-key.yacloud_org.security.workspaces.section-title_9BLTm }}**, use a namespace to specify the objects to exclude from the check:
             * Enable **{{ ui-key.yacloud_org.security.workspaces.namespace-checkbox_85krx }}**.
-            * Enter the object name from the namespace. Follow these naming requirements:
+            * Enter the object name from the namespace. The naming requirements are as follows:
 
               {% include [name-format](../../../_includes/name-format.md) %}
 

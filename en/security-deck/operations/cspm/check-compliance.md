@@ -32,6 +32,6 @@ description: In this section, you will learn how to use the compliance UI to vie
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/standard-compliance/index.md)

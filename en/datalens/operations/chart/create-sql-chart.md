@@ -16,7 +16,7 @@ You can create a QL chart using one of the following methods:
 
 QL charts have the same [general settings](../../concepts/chart/settings.md#common-settings) and [section settings](../../concepts/chart/settings.md#section-settings) as the dataset-based charts. Only certain [measure settings](../../concepts/chart/settings.md#indicator-settings) are supported for chart fields.
 
-At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) any change introduced within the current version.
+At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) any change within the current version.
 
 ## Creating a QL chart from the home page {#main-page}
 
@@ -207,7 +207,7 @@ END
 
 When editing a QL chart, you can now [undo/redo](../../concepts/chart/settings.md#undo-redo) any change introduced within the current version.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/chart/index.md)
 * [{#T}](../dashboard/add-chart.md)

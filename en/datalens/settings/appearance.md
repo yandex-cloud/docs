@@ -58,7 +58,9 @@ For UI customization:
        * **Main color**: Used as a background for buttons and controls: switches, checkboxes, and selectors. Additionally, the main color is used as a theme for tooltips.
        * **Main color on hovering the cursor**: When manually customized, you can select any color. When generating a palette, a darker shade of the main color is set automatically.
        * **Page background**: Page background color. For a light theme, white is the most commonly used color. Dark themes have more options, from neutral gray shades to warm or cool colors.
-       * **Additional color**: Used as a background for cards and other elements placed on top of the page background.
+       * **Dashboard background**: Default dashboard background color. Users can [override](../operations/dashboard/add-dashboard-background.md) it for specific dashboards.
+       * **Widget background**: Default widget background color and opacity. Users can [override](../operations/dashboard/add-widget-background.md) this setting for all widgets on a dashboard or configure each widget individually.
+       * **Elevated element background**: Background color of cards and other elevated elements. This setting does not affect the background color of widgets.
        * **Selected elements**: Color for selected elements, e.g., clicked buttons, selected rows, or selected text.
        * **Selected items when hovering the cursor**: Color for selected items (e.g., clicked buttons or selected rows) when hovering over them.
        * **Text on selected items**: Text color on selected items. Set it to contrast with the color of the selected elements.
@@ -75,20 +77,25 @@ For UI customization:
    * **Contrasting color**: Select a color for the text on the button.
    * **Logo and favicon**: To replace the logo and favicon, [upload](../../storage/quickstart.md#upload-files) a 1:1 aspect ratio SVG file to {{ objstorage-full-name }}. Then copy the link to the file in the storage and paste it into this field. Click **Apply** next to the field.
    
-   * **Rounding**: Sets the rounding of the corners of UI elements.
+      
+   * **Rounding**: Sets corner rounding for the following UI elements:
 
-    {% note info %}
+     * **Button**: Select one of the preset options.
+     * **Widgets**: Select a preset option or enable **Specify custom value** and enter a value from `0` to `24` in increments of `2`.
 
-    The preview area displays how the UI elements will look like with the specified settings.
 
-    {% endnote %}
+   {% note info %}
+
+   The preview area displays how the UI elements will look like with the specified settings.
+
+   {% endnote %}
 
 1. At the top right, click **Save**.
 1. To apply the customized UI, enable the corresponding option under **UI customization**.
 
 ## Managing a chart color palette {#palette-settings}
 
-In {{ datalens-full-name }}, you can [create](#create-palette), [edit](#edit-palette), and [delete](#delete-palette) color palettes, as well as [set the default color palette](#default-palette).
+In {{ datalens-full-name }}, you can [create](#create-palette), [edit](#edit-palette), or [delete](#delete-palette) a color palette and [configure the default palette](#default-palette).
 
 ### Creating a color palette {#create-palette}
 
@@ -103,7 +110,7 @@ In {{ datalens-full-name }}, you can [create](#create-palette), [edit](#edit-pal
 {% include [delete-palette](../../_includes/datalens/settings/delete-palette.md) %}
 
 
-### Setting the default color pallete {#default-palette}
+### Setting the default color palette {#default-palette}
 
 {% include [default-palette](../../_includes/datalens/settings/default-palette.md) %}
 

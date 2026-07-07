@@ -29,9 +29,9 @@ See also [Neuroanalyst limits](./limits.md#datalens-ai-limits).
 
 
 
-## Ban on Neuroanalyst {#prohibit}
+## Banning the use of Neuroanalyst {#prohibit}
 
-{{ datalens-name }} users are able to use Neuroanalyst by default. However, the user with the `{{ roles-datalens-admin }}` role may disable this option at the {{ datalens-short-name }} instance level or for individual dashboards or reports:
+{{ datalens-name }} users can use Neuroanalyst by default. Any user with the `{{ roles-datalens-admin }}` role can disable this option at the {{ datalens-short-name }} instance level or for individual dashboards or reports:
 
 {% list tabs %}
 
@@ -42,6 +42,7 @@ See also [Neuroanalyst limits](./limits.md#datalens-ai-limits).
   1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
   1. Select the **Security** tab.
   1. Disable **Neuroanalyst** (on by default). As soon as you do it, the AI assistants will disappear from the {{ datalens-name }} interface for the instance users.
+
 
 
 
@@ -64,12 +65,7 @@ In {{ datalens-short-name }}, you can set up a custom prompt for AI. To do this,
 
 1. Click ![image](../../_assets/console-icons/gear.svg) **Settings** in the left part of the navigation panel to open the settings.
 1. Go to the **AI settings** tab.
-   
-   {% cut "AI settings" %}
 
-   ![image](../../_assets/datalens/release-notes/ai-setting.png)
-
-   {% endcut %}
 
 1. Click **Edit**.
 1. Enter a prompt in the text field and click **Save**.

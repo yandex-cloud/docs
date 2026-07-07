@@ -19,7 +19,7 @@ You can customize the playlist appearance using [presets](../style-presets/creat
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Playlists in {{ video-name }}](../../concepts/playlists.md)
 * [Videos in {{ video-name }}](../../concepts/videos.md)

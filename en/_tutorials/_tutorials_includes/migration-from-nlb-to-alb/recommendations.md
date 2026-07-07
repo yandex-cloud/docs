@@ -1,4 +1,4 @@
-1. Optionally, enable L3-L4 DDoS protection ([the OSI model](https://en.wikipedia.org/wiki/OSI_model)). It will enhance the L7 protection provided by [{{ sws-full-name }}](../../../smartwebsecurity/) after migration.
+1. Optionally, enable L3-L4 DDoS protection (the [OSI model](https://en.wikipedia.org/wiki/OSI_model)). It will enhance the L7 protection provided by [{{ sws-full-name }}](../../../smartwebsecurity/) after migration.
 
     To enable L3-L4 protection:
 
@@ -12,7 +12,7 @@
 
 1. When using an L7 load balancer, requests to backends come with the source IP address from the range of internal IP addresses of the subnets specified when creating the L7 load balancer. The original IP address of the request source (user) is specified in the `X-Forwarded-For` header. If you want to log public IP addresses of users on the web server, reconfigure it.
 
-1. Before the migration, define the minimum number of resource units for the [autoscaling](../../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling) settings in the L7 load balancer:
+1. Before the migration, determine the minimum number of resource units for the [autoscaling](../../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling) settings in the L7 load balancer:
 
     Select the number of resource units based on the analysis of your service load expressed in:
 

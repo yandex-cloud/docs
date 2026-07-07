@@ -42,7 +42,7 @@ To revoke a subject's access (role) for a resource:
 
     {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./view-permissions.md)
 * [{#T}](../../concepts/ciem.md)

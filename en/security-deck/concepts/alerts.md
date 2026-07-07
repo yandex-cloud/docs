@@ -29,7 +29,7 @@ To streamline operations with a large number of alerts, the module [supports](..
 * Assess the scale of data for analysis and investigation.
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/alerts/work.md)
 * [{#T}](../operations/alerts/view.md)

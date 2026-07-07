@@ -67,6 +67,12 @@ description: В данном разделе приведены описания 
 
 {% include [cloud-apps-events](../../_includes/audit-trails/events/cloud-apps-events.md) %}
 
+## {{ connection-manager-full-name }} {#connection-manager}
+
+Имя сервиса — `connectionmanager`.
+
+{% include [connectionmanager-events](../../_includes/audit-trails/events/connectionmanager-events.md) %}
+
 ## {{ backup-full-name }} {#backup}
 
 Имя сервиса — `backup`.
@@ -328,6 +334,12 @@ description: В данном разделе приведены описания 
 
 {% include [ytsaurus-events](../../_includes/audit-trails/events/ytsaurus-events.md) %}
 
+## {{ cns-full-name }} {#notifications}
+
+Имя сервиса — `notifications`.
+
+{% include [notifications-events](../../_includes/audit-trails/events/notifications-events.md) %}
+
 ## {{ resmgr-full-name }} {#resmgr}
 
 Имя сервиса — `resourcemanager`.
@@ -355,6 +367,12 @@ description: В данном разделе приведены описания 
 Имя модуля — `securitydeck.cspm`.
 
 {% include [sd-cspm-events](../../_includes/audit-trails/events/sd-cspm-events.md) %}
+
+### Модуль контроля данных ({{ dspm-name }}) {#sd-dspm}
+
+Имя модуля — `securitydeck.dspm`.
+
+{% include [sd-dspm-events](../../_includes/audit-trails/events/sd-dspm-events.md) %}
 
 ### Модуль {{ alerts-name }} {#sd-alerts}
 
@@ -403,5 +421,11 @@ description: В данном разделе приведены описания 
 Имя сервиса — `websql`.
 
 {% include [websql-events](../../_includes/audit-trails/events/websql-events.md) %}
+
+## {{ sw-full-name }} {#workflows}
+
+Имя сервиса — `serverless.workflows`.
+
+{% include [workflows-events](../../_includes/audit-trails/events/workflows-events.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

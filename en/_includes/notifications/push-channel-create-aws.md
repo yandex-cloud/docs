@@ -53,4 +53,4 @@ Where:
 
 As a result, you will get a notification channel ID (ARN). Save it for future use.
 
-For more information about the `aws sns create-platform-application` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-application.html).
+Learn more about the `aws sns create-platform-application` command in [this AWS guide](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-application.html).

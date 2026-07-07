@@ -142,7 +142,7 @@ To install the Gateway API, you need:
 
 To learn how to install the Gateway API, see [this guide]({{ gateway-install-local-link }}).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Security group configuration]({{ alb-local-link }}/security-groups.md) for a {{ k8s }} cluster and a load balancer
 * [Service account]({{ alb-local-link }}/service-account.md) to support controller operation

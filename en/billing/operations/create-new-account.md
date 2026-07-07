@@ -30,7 +30,7 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
 ## What's next? {#what-is-next}
 
 After creating a billing account you can start using {{ yandex-cloud }} services. You can link one or more clouds to your billing account. Both new and existing clouds can be linked. You cannot unlink a cloud from a billing account. Instead, you can relink it to a different billing account.
-For more operations with your billing account, see the following guides:
+Further actions with the billing account are described in the following guides:
 
 * [{#T}](change-data.md)
 * [{#T}](get-data.md)

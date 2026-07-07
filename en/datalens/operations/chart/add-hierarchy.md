@@ -60,7 +60,7 @@ Adding the hierarchy to the chart will allow you to switch between levels of det
 
 Check out some examples of charts with a hierarchy on [our ready-made dashboard](https://datalens.yandex/9fms9uae7ip02?tab=MNb).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../dataset/data-types.md#how-to-create-tree).
 

@@ -56,7 +56,7 @@ For more on logs, see [{#T}](logs-explorer.md).
 
 {% include [service-logs](../../_includes/monium/service-logs.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../traces/index.md)
 * [{#T}](../metrics/quickstart.md)

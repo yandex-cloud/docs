@@ -297,7 +297,7 @@ window.addEventListener('message', function(event) {
 
 Each method has a matching return event in `<methodName>:return` format.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./index.md)
 * [{#T}](./initialization.md)

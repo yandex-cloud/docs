@@ -5,12 +5,12 @@ canonical: '{{ link-docs }}/tutorials/windows/secure-password-script/console'
 noIndex: true
 ---
 
-# Secure password transmission to an initialization script using the management console, CLI, or API
+# Securely providing a password to an initialization script using the management console, CLI, or API
 
 To [create a VM while protecting sensitive information in the initialization script](index.md) using the management console, CLI, or API:
 
 {% include [secure-password-script-console](../../../_tutorials/windows/secure-password-script-console.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](terraform.md)

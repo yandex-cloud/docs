@@ -20,7 +20,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [service-activate](../_tutorials_includes/vm-with-backup-policy/service-activate.md) %}
 
-## Create your infrastructure {#deploy}
+## Create the infrastructure {#deploy}
 
 {% note info %}
 
@@ -91,7 +91,7 @@ To create an infrastructure using {{ TF }}:
 
     {% endlist %}
 
-    Learn more about the properties of {{ TF }} resources in the relevant provider guides:
+    For more on the properties of resources used in {{ TF }}, see these provider guides:
 
     * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
     * Assigning a [role](../../iam/concepts/access-control/roles.md) to a service account: [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).

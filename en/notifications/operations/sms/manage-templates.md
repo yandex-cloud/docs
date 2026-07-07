@@ -53,6 +53,6 @@ To delete an SMS template in the `Deregistered` status:
 
 {% include [sms-template-delete-registering](../../../_includes/notifications/sms-template-delete-registering.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/sms.md#templates)

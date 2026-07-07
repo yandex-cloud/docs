@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost of support for the new infrastructure includes:
 
 * Fee for VM usage and data storage on disk (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for public DNS zone usage and public DNS requests (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
+* Fee for using a public DNS zone and public DNS requests (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
 * Fee for computing resources allocated to hosts, storage and backup size (see [{{ mmy-full-name }} pricing](../../managed-mysql/pricing.md)).
 * Fee for using a bucket to store media files (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for storage of and operations with secrets (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
@@ -145,9 +145,9 @@ Install [WordPress High Availability](/marketplace/products/yc/wordpress-ha-app)
       || **Instance group size** | — | `2` | Number of instances in the group. ||
       || **Number of vCPUs** | — | `2` | Number of vCPUs. ||
       || **RAM** | — | `2` | RAM in GB. ||
-      || **Guaranteed vCPU share** | — | `100` | Guaranteed vCPU share in %. Available values: 20%, 50%, or 100%. ||
+      || **Guaranteed vCPU share** | — | `100` | Guaranteed vCPU share in %. Valid values: 20%, 50%, or 100%. ||
       || **Public SSH key** | — | — | The key will be added to `authorized_keys` of the WordPress user.
-      We recommend specifying a public SSH key to access the VM over SSH. You will need to create a key pair for the SSH connection yourself; see [this guide](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for details. ||
+      We recommend specifying a public SSH key to access the VM over SSH. You will need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair by yourself. ||
       || **File system size** | — | `100` | File system size in GB. ||
       || **ID of the secret containing the database password** | Yes | — | ID of the `db-password-secret` secret you created earlier; the secret contains the password to connect to a {{ mmy-name }} cluster. ||
       || **{{ mmy-name }}** cluster disk size | — | `20` | {{ mmy-name }} cluster disk size in GB. ||

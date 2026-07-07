@@ -334,7 +334,13 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [DeleteMcpGateway](audit/ai/mcp_hub/events-ref/DeleteMcpGateway.md)
 
+ - [InvokeMcpTool](audit/ai/mcp_hub/events-ref/InvokeMcpTool.md)
+
+ - [ListMcpTools](audit/ai/mcp_hub/events-ref/ListMcpTools.md)
+
  - [SetMcpGatewayAccessBindings](audit/ai/mcp_hub/events-ref/SetMcpGatewayAccessBindings.md)
+
+ - [StartMcpSession](audit/ai/mcp_hub/events-ref/StartMcpSession.md)
 
  - [UpdateMcpGateway](audit/ai/mcp_hub/events-ref/UpdateMcpGateway.md)
 
@@ -368,6 +374,10 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [WebSearchToolSearch](audit/ai/responses/events-ref/WebSearchToolSearch.md)
 
+### ai.settings
+
+ - [SetFolderSettings](audit/ai/settings/events-ref/SetFolderSettings.md)
+
 ### ai.speechkit.stt
 
  - [GetRecognition](audit/ai/speechkit/stt/events-ref/GetRecognition.md)
@@ -398,11 +408,15 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [RescheduleMaintenance](audit/airflow/events-ref/RescheduleMaintenance.md)
 
+ - [SetClusterAccessBindings](audit/airflow/events-ref/SetClusterAccessBindings.md)
+
  - [StartCluster](audit/airflow/events-ref/StartCluster.md)
 
  - [StopCluster](audit/airflow/events-ref/StopCluster.md)
 
  - [UpdateCluster](audit/airflow/events-ref/UpdateCluster.md)
+
+ - [UpdateClusterAccessBindings](audit/airflow/events-ref/UpdateClusterAccessBindings.md)
 
 ### apploadbalancer
 
@@ -491,6 +505,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [ActivateProvider](audit/backup/events-ref/ActivateProvider.md)
 
  - [ApplyPolicy](audit/backup/events-ref/ApplyPolicy.md)
+
+ - [CreateBackup](audit/backup/events-ref/CreateBackup.md)
 
  - [CreateDirectory](audit/backup/events-ref/CreateDirectory.md)
 
@@ -890,6 +906,18 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [UpdateSnapshotScheduleDisks](audit/compute/events-ref/UpdateSnapshotScheduleDisks.md)
 
+### connectionmanager
+
+ - [CreateConnection](audit/connectionmanager/events-ref/CreateConnection.md)
+
+ - [DeleteConnection](audit/connectionmanager/events-ref/DeleteConnection.md)
+
+ - [SetConnectionAccessBindings](audit/connectionmanager/events-ref/SetConnectionAccessBindings.md)
+
+ - [UpdateConnection](audit/connectionmanager/events-ref/UpdateConnection.md)
+
+ - [UpdateConnectionAccessBindings](audit/connectionmanager/events-ref/UpdateConnectionAccessBindings.md)
+
 ### containerregistry
 
  - [CreateImage](audit/containerregistry/events-ref/CreateImage.md)
@@ -1028,6 +1056,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [UpdateSharedEntryAccessBindings](audit/datalens/events-ref/UpdateSharedEntryAccessBindings.md)
 
+ - [UpdateTenantAccessBindings](audit/datalens/events-ref/UpdateTenantAccessBindings.md)
+
  - [UpdateWorkbook](audit/datalens/events-ref/UpdateWorkbook.md)
 
  - [UpdateWorkbookAccessBindings](audit/datalens/events-ref/UpdateWorkbookAccessBindings.md)
@@ -1042,11 +1072,15 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [DeleteSubcluster](audit/dataproc/events-ref/DeleteSubcluster.md)
 
+ - [SetClusterAccessBindings](audit/dataproc/events-ref/SetClusterAccessBindings.md)
+
  - [StartCluster](audit/dataproc/events-ref/StartCluster.md)
 
  - [StopCluster](audit/dataproc/events-ref/StopCluster.md)
 
  - [UpdateCluster](audit/dataproc/events-ref/UpdateCluster.md)
+
+ - [UpdateClusterAccessBindings](audit/dataproc/events-ref/UpdateClusterAccessBindings.md)
 
  - [UpdateSubcluster](audit/dataproc/events-ref/UpdateSubcluster.md)
 
@@ -1882,11 +1916,15 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [RestoreCluster](audit/mdb/greenplum/events-ref/RestoreCluster.md)
 
+ - [SetClusterAccessBindings](audit/mdb/greenplum/events-ref/SetClusterAccessBindings.md)
+
  - [StartCluster](audit/mdb/greenplum/events-ref/StartCluster.md)
 
  - [StopCluster](audit/mdb/greenplum/events-ref/StopCluster.md)
 
  - [UpdateCluster](audit/mdb/greenplum/events-ref/UpdateCluster.md)
+
+ - [UpdateClusterAccessBindings](audit/mdb/greenplum/events-ref/UpdateClusterAccessBindings.md)
 
  - [UpdateHBARule](audit/mdb/greenplum/events-ref/UpdateHBARule.md)
 
@@ -2014,6 +2052,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [UpdateClusterHosts](audit/mdb/mongodb/events-ref/UpdateClusterHosts.md)
 
+ - [UpdateDatabase](audit/mdb/mongodb/events-ref/UpdateDatabase.md)
+
  - [UpdateUser](audit/mdb/mongodb/events-ref/UpdateUser.md)
 
  - [UserAuthentication](audit/mdb/mongodb/events-ref/UserAuthentication.md)
@@ -2126,6 +2166,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [SecurityIndexAttemptTransportEvent](audit/mdb/opensearch/events-ref/SecurityIndexAttemptTransportEvent.md)
 
+ - [SetClusterAccessBindings](audit/mdb/opensearch/events-ref/SetClusterAccessBindings.md)
+
  - [StartCluster](audit/mdb/opensearch/events-ref/StartCluster.md)
 
  - [StopCluster](audit/mdb/opensearch/events-ref/StopCluster.md)
@@ -2133,6 +2175,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [SwitchMaster](audit/mdb/opensearch/events-ref/SwitchMaster.md)
 
  - [UpdateCluster](audit/mdb/opensearch/events-ref/UpdateCluster.md)
+
+ - [UpdateClusterAccessBindings](audit/mdb/opensearch/events-ref/UpdateClusterAccessBindings.md)
 
  - [UpdateDashboardsNodeGroup](audit/mdb/opensearch/events-ref/UpdateDashboardsNodeGroup.md)
 
@@ -2240,6 +2284,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [RestoreCluster](audit/mdb/redis/events-ref/RestoreCluster.md)
 
+ - [SetClusterAccessBindings](audit/mdb/redis/events-ref/SetClusterAccessBindings.md)
+
  - [StartCluster](audit/mdb/redis/events-ref/StartCluster.md)
 
  - [StartClusterFailover](audit/mdb/redis/events-ref/StartClusterFailover.md)
@@ -2247,6 +2293,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [StopCluster](audit/mdb/redis/events-ref/StopCluster.md)
 
  - [UpdateCluster](audit/mdb/redis/events-ref/UpdateCluster.md)
+
+ - [UpdateClusterAccessBindings](audit/mdb/redis/events-ref/UpdateClusterAccessBindings.md)
 
  - [UpdateClusterHosts](audit/mdb/redis/events-ref/UpdateClusterHosts.md)
 
@@ -2284,11 +2332,15 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [RestoreCluster](audit/mdb/spqr/events-ref/RestoreCluster.md)
 
+ - [SetClusterAccessBindings](audit/mdb/spqr/events-ref/SetClusterAccessBindings.md)
+
  - [StartCluster](audit/mdb/spqr/events-ref/StartCluster.md)
 
  - [StopCluster](audit/mdb/spqr/events-ref/StopCluster.md)
 
  - [UpdateCluster](audit/mdb/spqr/events-ref/UpdateCluster.md)
+
+ - [UpdateClusterAccessBindings](audit/mdb/spqr/events-ref/UpdateClusterAccessBindings.md)
 
  - [UpdateClusterHosts](audit/mdb/spqr/events-ref/UpdateClusterHosts.md)
 
@@ -2302,23 +2354,53 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [RescheduleMaintenance](audit/metastore/events-ref/RescheduleMaintenance.md)
 
+ - [SetClusterAccessBindings](audit/metastore/events-ref/SetClusterAccessBindings.md)
+
  - [StartCluster](audit/metastore/events-ref/StartCluster.md)
 
  - [StopCluster](audit/metastore/events-ref/StopCluster.md)
 
  - [UpdateCluster](audit/metastore/events-ref/UpdateCluster.md)
 
+ - [UpdateClusterAccessBindings](audit/metastore/events-ref/UpdateClusterAccessBindings.md)
+
+### notifications
+
+ - [CreateMobileApplication](audit/notifications/events-ref/CreateMobileApplication.md)
+
+ - [CreateSMSChannel](audit/notifications/events-ref/CreateSMSChannel.md)
+
+ - [CreateTopic](audit/notifications/events-ref/CreateTopic.md)
+
+ - [CreateWebpushChannel](audit/notifications/events-ref/CreateWebpushChannel.md)
+
+ - [DeleteMobileApplication](audit/notifications/events-ref/DeleteMobileApplication.md)
+
+ - [DeleteSMSChannel](audit/notifications/events-ref/DeleteSMSChannel.md)
+
+ - [DeleteTopic](audit/notifications/events-ref/DeleteTopic.md)
+
+ - [DeleteWebpushChannel](audit/notifications/events-ref/DeleteWebpushChannel.md)
+
+ - [UpdateMobileApplication](audit/notifications/events-ref/UpdateMobileApplication.md)
+
+ - [UpdateSMSChannel](audit/notifications/events-ref/UpdateSMSChannel.md)
+
+ - [UpdateTopic](audit/notifications/events-ref/UpdateTopic.md)
+
+ - [UpdateWebpushChannel](audit/notifications/events-ref/UpdateWebpushChannel.md)
+
 ### organizationmanager
 
  - [AcceptInvitation](audit/organizationmanager/events-ref/AcceptInvitation.md)
+
+ - [ActivateAuthenticationPolicyRule](audit/organizationmanager/events-ref/ActivateAuthenticationPolicyRule.md)
 
  - [ActivateMfaEnforcement](audit/organizationmanager/events-ref/ActivateMfaEnforcement.md)
 
  - [AddFederatedUserAccounts](audit/organizationmanager/events-ref/AddFederatedUserAccounts.md)
 
  - [AddFederationDomain](audit/organizationmanager/events-ref/AddFederationDomain.md)
-
- - [AddOAuthFederatedUserAccounts](audit/organizationmanager/events-ref/AddOAuthFederatedUserAccounts.md)
 
  - [AddUserBlock](audit/organizationmanager/events-ref/AddUserBlock.md)
 
@@ -2339,6 +2421,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [CreateApplication](audit/organizationmanager/events-ref/CreateApplication.md)
 
  - [CreateAsset](audit/organizationmanager/events-ref/CreateAsset.md)
+
+ - [CreateAuthenticationPolicyRule](audit/organizationmanager/events-ref/CreateAuthenticationPolicyRule.md)
 
  - [CreateBranding](audit/organizationmanager/events-ref/CreateBranding.md)
 
@@ -2368,6 +2452,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [CreateUserSshKey](audit/organizationmanager/events-ref/CreateUserSshKey.md)
 
+ - [DeactivateAuthenticationPolicyRule](audit/organizationmanager/events-ref/DeactivateAuthenticationPolicyRule.md)
+
  - [DeactivateMfaEnforcement](audit/organizationmanager/events-ref/DeactivateMfaEnforcement.md)
 
  - [DeleteApplication](audit/organizationmanager/events-ref/DeleteApplication.md)
@@ -2375,6 +2461,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [DeleteApplication](audit/organizationmanager/events-ref/DeleteApplication.md)
 
  - [DeleteAsset](audit/organizationmanager/events-ref/DeleteAsset.md)
+
+ - [DeleteAuthenticationPolicyRule](audit/organizationmanager/events-ref/DeleteAuthenticationPolicyRule.md)
 
  - [DeleteBranding](audit/organizationmanager/events-ref/DeleteBranding.md)
 
@@ -2467,6 +2555,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [UpdateApplicationAssignments](audit/organizationmanager/events-ref/UpdateApplicationAssignments.md)
 
  - [UpdateApplicationAssignments](audit/organizationmanager/events-ref/UpdateApplicationAssignments.md)
+
+ - [UpdateAuthenticationPolicyRule](audit/organizationmanager/events-ref/UpdateAuthenticationPolicyRule.md)
 
  - [UpdateBranding](audit/organizationmanager/events-ref/UpdateBranding.md)
 
@@ -2604,9 +2694,13 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
 ### securitydeck.kspm
 
+ - [AddCluster](audit/securitydeck/kspm/events-ref/AddCluster.md)
+
  - [CreateException](audit/securitydeck/kspm/events-ref/CreateException.md)
 
  - [CreateProject](audit/securitydeck/kspm/events-ref/CreateProject.md)
+
+ - [DeleteCluster](audit/securitydeck/kspm/events-ref/DeleteCluster.md)
 
  - [DeleteException](audit/securitydeck/kspm/events-ref/DeleteException.md)
 
@@ -2616,6 +2710,12 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [TriggerAdmissionControl](audit/securitydeck/kspm/events-ref/TriggerAdmissionControl.md)
 
+ - [TriggerInventoryControlBatch](audit/securitydeck/kspm/events-ref/TriggerInventoryControlBatch.md)
+
+ - [TriggerInventoryControlEvent](audit/securitydeck/kspm/events-ref/TriggerInventoryControlEvent.md)
+
+ - [TriggerInventoryControlSnapshot](audit/securitydeck/kspm/events-ref/TriggerInventoryControlSnapshot.md)
+
  - [TriggerRuntimeControl](audit/securitydeck/kspm/events-ref/TriggerRuntimeControl.md)
 
  - [TriggerRuntimeProcessInfo](audit/securitydeck/kspm/events-ref/TriggerRuntimeProcessInfo.md)
@@ -2623,6 +2723,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [UpdateException](audit/securitydeck/kspm/events-ref/UpdateException.md)
 
  - [UpdateProject](audit/securitydeck/kspm/events-ref/UpdateProject.md)
+
+ - [UpdateProjectControl](audit/securitydeck/kspm/events-ref/UpdateProjectControl.md)
 
 ### securitydeck.orchestrator
 
@@ -2660,6 +2762,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [CreateTrigger](audit/serverless/events-ref/CreateTrigger.md)
 
+ - [CreateWorkflow](audit/serverless/events-ref/CreateWorkflow.md)
+
  - [DeleteApiGateway](audit/serverless/events-ref/DeleteApiGateway.md)
 
  - [DeleteContainer](audit/serverless/events-ref/DeleteContainer.md)
@@ -2674,7 +2778,11 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [DeleteTrigger](audit/serverless/events-ref/DeleteTrigger.md)
 
+ - [DeleteWorkflow](audit/serverless/events-ref/DeleteWorkflow.md)
+
  - [DeployContainerRevision](audit/serverless/events-ref/DeployContainerRevision.md)
+
+ - [ExecutionFinished](audit/serverless/events-ref/ExecutionFinished.md)
 
  - [PauseTrigger](audit/serverless/events-ref/PauseTrigger.md)
 
@@ -2700,7 +2808,15 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [SetScalingPolicy](audit/serverless/events-ref/SetScalingPolicy.md)
 
+ - [SetWorkflowAccessBindings](audit/serverless/events-ref/SetWorkflowAccessBindings.md)
+
+ - [StartExecution](audit/serverless/events-ref/StartExecution.md)
+
  - [StopApiGateway](audit/serverless/events-ref/StopApiGateway.md)
+
+ - [StopExecution](audit/serverless/events-ref/StopExecution.md)
+
+ - [TerminateExecution](audit/serverless/events-ref/TerminateExecution.md)
 
  - [UpdateApiGateway](audit/serverless/events-ref/UpdateApiGateway.md)
 
@@ -2720,6 +2836,10 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [UpdateTrigger](audit/serverless/events-ref/UpdateTrigger.md)
 
+ - [UpdateWorkflow](audit/serverless/events-ref/UpdateWorkflow.md)
+
+ - [UpdateWorkflowAccessBindings](audit/serverless/events-ref/UpdateWorkflowAccessBindings.md)
+
  - [AddDomain](audit/serverless/apigateway/events-ref/AddDomain.md)
 
  - [CreateApiGateway](audit/serverless/apigateway/events-ref/CreateApiGateway.md)
@@ -2737,6 +2857,24 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [UpdateApiGateway](audit/serverless/apigateway/events-ref/UpdateApiGateway.md)
 
  - [UpdateApiGatewayAccessBindings](audit/serverless/apigateway/events-ref/UpdateApiGatewayAccessBindings.md)
+
+ - [CreateWorkflow](audit/serverless/workflows/events-ref/CreateWorkflow.md)
+
+ - [DeleteWorkflow](audit/serverless/workflows/events-ref/DeleteWorkflow.md)
+
+ - [ExecutionFinished](audit/serverless/workflows/events-ref/ExecutionFinished.md)
+
+ - [SetWorkflowAccessBindings](audit/serverless/workflows/events-ref/SetWorkflowAccessBindings.md)
+
+ - [StartExecution](audit/serverless/workflows/events-ref/StartExecution.md)
+
+ - [StopExecution](audit/serverless/workflows/events-ref/StopExecution.md)
+
+ - [TerminateExecution](audit/serverless/workflows/events-ref/TerminateExecution.md)
+
+ - [UpdateWorkflow](audit/serverless/workflows/events-ref/UpdateWorkflow.md)
+
+ - [UpdateWorkflowAccessBindings](audit/serverless/workflows/events-ref/UpdateWorkflowAccessBindings.md)
 
 ### smartcaptcha
 
@@ -2816,11 +2954,15 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [RescheduleMaintenance](audit/spark/events-ref/RescheduleMaintenance.md)
 
+ - [SetClusterAccessBindings](audit/spark/events-ref/SetClusterAccessBindings.md)
+
  - [StartCluster](audit/spark/events-ref/StartCluster.md)
 
  - [StopCluster](audit/spark/events-ref/StopCluster.md)
 
  - [UpdateCluster](audit/spark/events-ref/UpdateCluster.md)
+
+ - [UpdateClusterAccessBindings](audit/spark/events-ref/UpdateClusterAccessBindings.md)
 
 ### speechsense
 
@@ -2916,6 +3058,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [RescheduleMaintenance](audit/trino/events-ref/RescheduleMaintenance.md)
 
+ - [SetClusterAccessBindings](audit/trino/events-ref/SetClusterAccessBindings.md)
+
  - [StartCluster](audit/trino/events-ref/StartCluster.md)
 
  - [StopCluster](audit/trino/events-ref/StopCluster.md)
@@ -2923,6 +3067,8 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [UpdateCatalog](audit/trino/events-ref/UpdateCatalog.md)
 
  - [UpdateCluster](audit/trino/events-ref/UpdateCluster.md)
+
+ - [UpdateClusterAccessBindings](audit/trino/events-ref/UpdateClusterAccessBindings.md)
 
 ### video
 
@@ -2979,6 +3125,14 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
  - [DownloadEpisode](audit/video/events-ref/DownloadEpisode.md)
 
  - [EpisodePerformAction](audit/video/events-ref/EpisodePerformAction.md)
+
+ - [InitializeChannelAdminChat](audit/video/events-ref/InitializeChannelAdminChat.md)
+
+ - [InitializeEpisodeChat](audit/video/events-ref/InitializeEpisodeChat.md)
+
+ - [ResetChannelAdminChat](audit/video/events-ref/ResetChannelAdminChat.md)
+
+ - [ResyncEpisodeChatAdmins](audit/video/events-ref/ResyncEpisodeChatAdmins.md)
 
  - [SetChannelAccessBindings](audit/video/events-ref/SetChannelAccessBindings.md)
 

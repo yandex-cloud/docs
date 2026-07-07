@@ -1,5 +1,5 @@
 1. [Get your cloud ready](#before-begin).
-1. [Create your infrastructure](#deploy).
+1. [Create the infrastructure](#deploy).
 1. [Create a table](#create-table).
 1. [Test the application](#test-app).
 
@@ -18,15 +18,15 @@
 
 {% include [terraform-definition](../terraform-definition.md) %}
 
-To create an infrastructure using {{ TF }}:
-1. [Install {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing {{ yandex-cloud }} (see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
+To create your infrastructure via {{ TF }}:
+1. [Install {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
 1. Prepare your infrastructure description files:
 
    {% list tabs group=infrastructure_description %}
 
    - Ready-made configuration {#ready}
 
-     1. Clone the repository with configuration files.
+     1. Clone the repository containing the configuration files.
 
         ```bash
         git clone https://github.com/yandex-cloud-examples/yc-serverless-video-gif-converter.git
@@ -50,7 +50,7 @@ To create an infrastructure using {{ TF }}:
            {% endcut %}
 
         1. For an API function:
-           1. Create a file named `index.py` and insert this line into it:
+           1. Create a file named `index.py` and paste this content into it:
 
               {% cut "index.py for an API function" %}
 
@@ -65,10 +65,10 @@ To create an infrastructure using {{ TF }}:
                yandexcloud
                ```
 
-           1. In the folder, create the `ffmpeg-api.zip` archive with `requirements.txt` and `index.py`.
+           1. In the folder, create an archive named `ffmpeg-api.zip` containing the files `requirements.txt` and `index.py`.
 
         1. For a converter function:
-           1. Create a file named `index.py` and insert this line into it:
+           1. Create a file named `index.py` and paste this content into it:
 
               {% cut "index.py for a converter function" %}
 
@@ -86,11 +86,11 @@ To create an infrastructure using {{ TF }}:
 
            1. Prepare the FFmpeg executable. On [FFmpeg's official website](http://ffmpeg.org/download.html), navigate to the **Linux Static Builds** section, download the 64-bit FFmpeg archive, and make the file executable by running the `chmod +x ffmpeg` command.
 
-           1. In the folder, create the `src.zip` archive with `requirements.txt` and `index.py`, and the FFmpeg executable.
+           1. In the folder, create an archive named `src.zip` containing the files `requirements.txt` and `index.py`, and the FFmpeg executable.
 
    {% endlist %}
 
-   Learn more about the properties of {{ TF }} resources in the relevant provider guides:
+   For more on the properties of resources used in {{ TF }}, see these provider guides:
    * [Service account](../../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
    * [Role](../../../iam/concepts/access-control/roles.md): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
    * [Secret]({{ tf-provider-resources-link }}/lockbox_secret): [yandex_lockbox_secret](../../../lockbox/concepts/secret.md).
@@ -110,7 +110,7 @@ To create an infrastructure using {{ TF }}:
 
    {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
 
-[Create a table](#create-table) in YDB when creating an infrastructure.
+After you have created the infrastructure, [create a table](#create-table) in YDB.
 
 
 
@@ -123,7 +123,7 @@ To create an infrastructure using {{ TF }}:
     * **{{ ui-key.yacloud.ydb.table.form.field_type }}**: [{{ ui-key.yacloud.ydb.table.form.label_document-table }}](../../../ydb/operations/schema.md#create-table).
     * **{{ ui-key.yacloud.ydb.table.form.label_columns }}**: One column named `task_id` of the `String` type. Set the [{{ ui-key.yacloud.ydb.table.form.column_shard }}](../../../ydb/operations/schema.md#create-table) attribute.
 
-[Test the application](#test-app) after creating the table.
+After you have created the table, [test the application](#test-app).
 
 
 

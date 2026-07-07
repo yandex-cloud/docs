@@ -122,7 +122,7 @@ HTTP | Error code | Extended code | Description
 400 | UserError | SMSChannelLimitExceeded | Limit on the number of SMS notification channels in the cloud has been exceeded.
 400 | UserError | ChannelAlreadyExists | There is an SMS notification channel with the same sender text name in the cloud.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)

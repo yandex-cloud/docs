@@ -54,7 +54,7 @@ To find a template:
 - {{ sd-name }} UI {#cloud-sd}
 
   1. Open the templates panel.
-  1. Enter your keywords in the search field.
+  1. Enter a search query in the search field.
   1. The results will be displayed automatically.
 
   The system will search for keywords across template names and contents.
@@ -69,7 +69,7 @@ To insert a template into your current query:
 
 - {{ sd-name }} UI {#cloud-sd}
 
-  1. Open the templates panel.
+  1. Open the template panel.
   1. Find the required template.
   1. Click the template.
   1. Select **{{ ui-key.yacloud_org.security.siem.action_insert_into_query_kR3x1 }}**.
@@ -86,7 +86,7 @@ To create a new query from a template:
 
 - {{ sd-name }} UI {#cloud-sd}
 
-  1. Open the templates panel.
+  1. Open the template panel.
   1. Find the required template.
   1. Click the template.
   1. Select **{{ ui-key.yacloud_org.security.siem.action_new_query_from_template_pL7m2 }}**.
@@ -139,8 +139,8 @@ To rename a template:
 
 - {{ sd-name }} UI {#cloud-sd}
 
-  1. Open the templates panel.
-  1. Find the required template.
+  1. Open the template panel.
+  1. Find the desired template.
   1. Right-click the template.
   1. Select **{{ ui-key.yacloud_org.security.siem.action_rename_vN4w3 }}**.
   1. Enter a new name.
@@ -156,8 +156,8 @@ To delete a template:
 
 - {{ sd-name }} UI {#cloud-sd}
 
-  1. Open the templates panel.
-  1. Find the required template.
+  1. Open the template panel.
+  1. Find the desired template.
   1. Right-click the template.
   1. Select **{{ ui-key.yacloud_org.security.siem.action_delete_wM5k5 }}**.
   1. Confirm the deletion.
@@ -170,7 +170,7 @@ To delete a template:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/investigations.md)
 * [{#T}](../../concepts/queries.md)

@@ -148,14 +148,14 @@ You can join data from source tables.
    You can only link fields with the same [data type](./data-types.md). {{ datalens-short-name }} gets information about the field's data type directly from the connection. If you need to join tables by fields with different data types, use one of these options:
    
    * Convert all the fields to the same data type at the source level.
-   * [Describe the dataset with an SQL query](#add-data). Use the [CAST or CONVERT](https://dev.mysql.com/doc/refman/8.0/en/cast-functions.html) functions to convert the data type. Here is an example:
+   * [Describe the dataset with an SQL query](#add-data). Use the [CAST or CONVERT](https://dev.mysql.com/doc/refman/8.0/en/cast-functions.html) functions to convert the data type. For example:
    
      ```sql
      SELECT * FROM lead INNER JOIN user ON lead.assigned_by_id = CONVERT(user.external_id, CHAR)
      ```
 
 1. If required, link other fields in the tables. To do this, click **Add link**.
-1. Optionally, you can disable the **Optimize link** option to make the link required. In this case, the `JOIN` operation will be performed even if you select fields from a single table.
+1. Optionally, you can disable the **Optimize link** option to make the link required. In which case the `JOIN` operation will be performed even if you select fields from a single table.
 1. Click **Apply**.
 
 By default, when you add a new table from a data source to the workspace, it is automatically linked to the first table listed there. If required, you can link a new table to a specific table. To do this, hover the new table over a previously added one and release when you see a gray border around the latter. A new link to the specified table is created.
@@ -217,7 +217,7 @@ You can add fields to a dataset from data source tables or create [calculated fi
 
 ### Duplicating fields {#dublicate-fields}
 
-You can duplicate any dataset field, including the calculated field you previously created. Follow these steps:
+You can duplicate any dataset field, including the calculated field you previously created. Proceed as follows:
 
 1. On the right side of the field row, click ![image](../../_assets/console-icons/ellipsis.svg) (the icon appears when you hover over the row) and select **Duplicate**. In the list on the left, you will see a new field with the same type and settings as the original one.
 1. Optionally, rename the duplicated field, change its type or formula.
@@ -331,7 +331,7 @@ Parameters added at the dataset level are available in all charts created based 
 
    
    * **Allow use in source settings**. Enable the option if you plan to use the parameter to access the [dataset source](./parametrization.md).
-   * **Value validation**. This setting will be available if you enable **Allow use in source settings**. The default value validation is as follows: `[a-zA-Z0-9]*`. You can customize validation with a Python regular expression. Set the **Value validation** field to `Regular expression` and enter one in the field below.
+   * **Value validation**. This setting will be available if you enable **Allow use in source settings**. The default value validation is as follows: `[a-zA-Z0-9]*`. You can customize your validation with a Python regular expression by setting the **Value validation** field to `Regular expression` and entering you regular expression in the field below.
 
      {% note warning %}
 
@@ -417,7 +417,7 @@ To delete a dataset:
 1. At the top of the dataset, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/trash-bin.svg) **Delete**.
 1. Click **Delete**.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./settings.md)
 

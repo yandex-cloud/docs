@@ -21,7 +21,7 @@ If you no longer need the resources you created, [delete them](#cleanup).
 
 ### Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 * Fee for the number of {{ iot-name }} messages (see [{{ iot-full-name }} pricing](../../iot-core/pricing.md)).
 * Fee for the number of [function](../../functions/concepts/function.md) invocations in {{ sf-name }} (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 * Fee for logging user [metrics](../../monitoring/concepts/data-model.md#metric) via the [{{ monitoring-name }}](../../monitoring/index.yaml) API (see [{{ monitoring-full-name }} pricing](../../monitoring/pricing.md)).
@@ -130,7 +130,7 @@ The emulator sends data from device sensors and processes data for monitoring an
               `ROOM_DOOR_SENSOR_VALUE`   | Server room door sensor reading | `False`
               `SMOKE_SENSOR_VALUE`       | Smoke sensor reading                             | `False`
               `WATER_SENSOR_VALUE`       | Water sensor reading                             | `False`
-              `IOT_CORE_DEVICE_ID`       | ID of the device you created.         | See the [management console]({{ link-console-main }}),<br>{{ iot-name }}
+              `IOT_CORE_DEVICE_ID`       | ID of the device you created.         | To look up the ID, use the [management console]({{ link-console-main }})<br>{{ iot-name }}
               `DEVICE_ID`                | Custom device name                 | It is specified by the user.
 
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
@@ -264,7 +264,7 @@ Optionally, to get detailed information from the sensors, [subscribe](../../iot-
               Key | Description | Value
               :--- | :--- | :---
               `VERBOSE_LOG`       | Enabling or disabling data logging | `True`
-              `METRICS_FOLDER_ID` | ID of the folder where you deployed the services and for which you will create a dashboard in {{ monitoring-name }}. | See the [management console]({{ link-console-main }}).
+              `METRICS_FOLDER_ID` | ID of the folder where you deployed the services and for which you will create a dashboard in {{ monitoring-name }}. | You can look up the ID in the [management console]({{ link-console-main }}).
 
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 

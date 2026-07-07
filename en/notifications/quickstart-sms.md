@@ -110,7 +110,7 @@ After practicing on test phone numbers, you can apply to exit the sandbox mode:
 
 Once the ticket is approved, you will be able to send SMS messages to any Russian phone numbers in [E.164](https://en.wikipedia.org/wiki/E.164) format, e.g., `+79991112233`.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Getting started with push notifications](quickstart-sms.md)
 * [Getting started with the service via the AWS CLI](./tools/aws-cli.md)

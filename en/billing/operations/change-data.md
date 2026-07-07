@@ -1,6 +1,6 @@
 # Changing your billing account data
 
-Billing account details can only be updated by the account owner: a user with the `billing.accounts.owner` role. For more information, see [Access control](../security/index.md).
+Billing account details can only be updated by the account owner: a user with the `billing.accounts.owner` role. To learn more, see [Access management](../security/index.md).
 
 The sequence of user actions depends on the type of update.
 
@@ -46,7 +46,7 @@ You cannot change a business or TIN in the billing account settings. If these de
 1. Wait until the billing account is activated to avoid downtime of resources.
 1. Transfer all clouds from the old billing account to the new one. All you have to do is [link](pin-cloud.md) them to the new billing account.
 
-##### See also
+##### Useful links {#see-also}
 
 * [Link another card](pin-card.md)
 * [Changing the payment method](change-payment-method.md)

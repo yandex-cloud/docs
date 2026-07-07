@@ -44,12 +44,14 @@ To create a {{ CH }} connection:
 
        {% include [datalens-db-note](../../../_includes/datalens/datalens-db-note.md) %}
 
-     * **Password**: Enter the password for the user.
+     * **Password**: Specify a password for the user.
      * **Cache TTL in seconds**: Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
 
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
        Click **Check connection** to make sure the parameters are correct.
+
+  
 
    - Specify manually {#manual}
 

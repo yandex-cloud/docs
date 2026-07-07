@@ -104,7 +104,7 @@ You can get a CSV file with your general or per-resource spending details. You c
 
       {% endnote %}
 
-     * Name of the details file folder. Make sure the last character is `/`.
+     * Name of the details file folder. The name must end with `/`.
      * Display language for product names: `{{ ui-key.yacloud_org.billing.account.exports.locale_value_ru-lang }}` or `{{ ui-key.yacloud_org.billing.account.exports.locale_value_en-lang }}`.
      * Detailed view type: `{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}` or `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}`.
 
@@ -237,7 +237,7 @@ The table contains the following columns:
 {% endcut %}
 
 
-##### See also {#see-also}
+##### Useful links {#see-also}
 
 * [View usage details for the cloud](./check-charges.md)
 

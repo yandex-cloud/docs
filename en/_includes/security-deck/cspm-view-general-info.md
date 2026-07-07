@@ -1,10 +1,6 @@
 For each rule, the table displays the following information:
 
-{% note tip %}
-
-If required, you can modify the information columns displayed in the table. Do it by clicking ![gear](../../_assets/console-icons/gear.svg) in the row with the table column headers, selecting the info columns you need, and clicking **{{ ui-key.yacloud_org.common.apply }}**.
-
-{% endnote %}
+{% include [table-columns-tip](./table-columns-tip.md) %}
 
 * {% include [sec-rules-criticality-levels](./sec-rules-criticality-levels.md) %}
 * **{{ ui-key.yacloud_org.security.controls.rule-result.controlRule_kr2Bv }}**: Rule name and brief summary. To [learn more](../../security-deck/operations/cspm/view-rules.md#detailed-info) about a rule, click the table row with its name.

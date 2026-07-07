@@ -1,24 +1,24 @@
-# Connecting using an IDE
+# Connecting via an IDE
 
-{{ yq-full-name }} allows Java DataBase Connectivity ([JDBC](https://ru.wikipedia.org/wiki/Java_Database_Connectivity)) connections, so you can work with connections in {{ yq-name }} using graphical IDEs also supporting this protocol, e.g., DBeaver, DataGrip, etc.
+{{ yq-full-name }} supports [JDBC](https://ru.wikipedia.org/wiki/Java_Database_Connectivity) (Java DataBase Connectivity) connections. It allows you to use JDBC-compatible IDEs, e.g., DBeaver and DataGrip, to work with {{ yq-name }} connections.
 
-This document describes connecting with DBeaver, but the connection process will be similar for any system supporting JDBC data sources.
+While this tutorial describes connecting via DBeaver, the process is the same for any system that supports JDBC data sources.
 
 ## DBeaver {#dbeaver}
 
-[DBeaver](https://dbeaver.com) is a free, open source, cross-platform database management tool with a user-friendly interface for database connections and SQL queries. It supports many databases including MySQL, PostgreSQL, Oracle, SQLite, and others.
+[DBeaver](https://dbeaver.com) is a free, cross-platform, open-source database management tool providing an intuitive interface for connecting to databases and running SQL queries. It supports multiple databases, including MySQL, PostgreSQL, SQLite, and Oracle.
 
 ### JDBC driver {#jdbc}
 
-To connect to {{ yq-full-name }} from DBeaver, you will need a JDBC driver. {{ yq-full-name }} is based on {{ ydb-short-name }} [federated queries]({{ ydb.docs }}/concepts/federated_query/), so the connection will use a {{ ydb-short-name }} JDBC driver.
+Connecting to {{ yq-full-name }} from DBeaver requires a JDBC driver. Since {{ yq-full-name }} is based on {{ ydb-short-name }} [federated queries]({{ ydb.docs }}/concepts/federated_query/), the connection needs a {{ ydb-short-name }} JDBC driver.
 
-Follow these steps to download the driver:
-1. Go to the [ydb-jdbc-driver repository](https://github.com/ydb-platform/ydb-jdbc-driver/releases).
-1. Select the latest release (tagged `Latest`) and save the `ydb-jdbc-driver-shaded-<driver-version>.jar` file.
+To download the driver, do the following:
+1. Navigate to the [ydb-jdbc-driver repository](https://github.com/ydb-platform/ydb-jdbc-driver/releases).
+1. Select the latest release tagged `Latest` and download `ydb-jdbc-driver-shaded-<driver-version>.jar`.
 
-### Connecting a JDBC driver to DBeaver {#dbeaver_yq}
+### Registering a JDBC driver with DBeaver {#dbeaver_yq}
 
-To connect a JDBC driver, follow these steps:
+To register the JDBC driver, follow these steps:
 1. Select **Database** from the DBeaver top menu and click **Driver management**:
 
     ![](../../_assets/query/dbeaver-driver-management_ru.png)
@@ -27,20 +27,20 @@ To connect a JDBC driver, follow these steps:
 
     ![](../../_assets/query/dbeaver-driver-create-new-driver_ru.png)
 
-1. In the **Create driver** window that opens, specify `Yandex Query` in the **Driver name** field:
+1. In the **Create driver** window that opens, set **Driver name** to `Yandex Query`:
 
     ![](../../_assets/query/dbeaver-driver-create-new-driver-set-name_ru.png)
 
-1. Go to the **Libraries** section, click **Add file**, specify the path to the previously downloaded {{ ydb-short-name }} JDBC driver and click **OK**:
+1. Navigate to the **Libraries** section, click **Add file**, specify the path to the {{ ydb-short-name }} JDBC driver you downloaded previously, and click **OK**:
 
     ![](../../_assets/query/dbeaver-add-driver_ru.png)
 
 
-1. The **Yandex Query** driver will appear in the driver list. Double click the new driver and go to the **Libraries** tab, click **Find Class** and select `tech.ydb.jdbc.YdbDriver` from the drop-down list.
+1. The **Yandex Query** driver will appear in the list. Double-click the driver name, switch to the **Libraries** tab, click **Find Class**, and select `tech.ydb.jdbc.YdbDriver` from the drop-down list.
 
     {% note warning %}
 
-    Make sure to explicitly select `tech.ydb.jdbc.YdbDriver` from the drop-down list by clicking it. Otherwise, DBeaver will assume that you have not selected a driver.
+    Make sure you click `tech.ydb.jdbc.YdbDriver` in the drop-down list to select it. Otherwise, DBeaver will act as if you have not selected a driver.
 
     {% endnote %}
 
@@ -48,44 +48,44 @@ To connect a JDBC driver, follow these steps:
 
 ### Creating a {{ yq-full-name }} connection {#dbeaver_yq_connection}
 
-To create a connection, you must complete these preliminary steps:
+Before creating a connection, complete the following steps:
 1. [Create a service account](../../iam/operations/sa/create.md) named `dbeaver` with the `editor` role.
 
 1. [Create an authorized key](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) for the service account and save it to a file.
 
 
-After that, follow these steps:
-1. In DBeaver, create a new connection by specifying the `Yandex Query` connection type.
+Then follow these steps:
+1. In DBeaver, create a new connection with the `Yandex Query` connection type.
 
-1. In the window that opens, go to **Main**.
-1. In the **JDBC URL** input field of the **General** subsection, specify the following path:
+1. In the window that opens, navigate to the **Main** section.
+1. Under **General**, specify the following path in the **JDBC URL** field:
 
     ```text
     jdbc:ydb:grpcs://grpc.yandex-query.cloud.yandex.net:2135/<folder_id>?saFile=<path_to_auth_key_file.json>&useQueryService=false
     ```
 
     Where:
-    - `folder_id`: ID of the folder in which queries to {{ yq-full-name }} will be run.
-    - `path_to_auth_key_file.json`: Path to the authorized key file.
-    - `useQueryService`: Connection mode. {{ yq-full-name }} only supports the `useQueryService=false` mode.
+    - `folder_id`: ID of the folder you will use to run queries against {{ yq-full-name }}.
+    - `path_to_auth_key_file.json`: Authorized key file path.
+    - `useQueryService`: Connection mode. Note that {{ yq-full-name }} only supports the `useQueryService=false` mode.
 
     ![](../../_assets/query/dbeaver-yandex-query-connection.png)
 
-1. Click **Test connection ...** to test the settings.
+1. Click **Test connection ...** to make sure your configuration is correct.
 
-    If all settings are correct, you will get a successful connection test message:
+    If everything is correct, a success message will appear:
 
     ![](../../_assets/query/dbeaver-connection-test.png =400x)
 
-1. Click **Done** to save the connection.
+1. Click **Finish** to save the connection.
 
 ### Working with {{ yq-full-name }} {#dbeaver_yq_connection}
 
-With DBeaver, you can view the list and structure of [data bindings](../concepts/glossary.md#binding):
+In DBeaver, you can see the list of your [data bindings](../concepts/glossary.md#binding) and their structure:
 
 ![](../../_assets/query/dbeaver-binding-structure.png)
 
-You can also run data queries:
+Also, you can run queries:
 
 ![](../../_assets/query/dbeaver-query.png)
 

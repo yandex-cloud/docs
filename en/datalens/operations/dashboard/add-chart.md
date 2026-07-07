@@ -13,7 +13,7 @@ Follow these steps to add a chart to a dashboard:
 
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need. If you do not have a dashboard, [create one](create.md).
 1. At the top of the page, click **Edit**.
-1. In the panel at the bottom of the page, drag ![image](../../../_assets/console-icons/chart-column.svg) **Chart** where you need.
+1. In the panel at the bottom of the page, click ![image](../../../_assets/console-icons/chart-column.svg) **Chart** and drag it where you want it to be.
 
    ![image](../../../_assets/datalens/operations/widget-select.png =500x118)
 
@@ -39,6 +39,11 @@ Follow these steps to add a chart to a dashboard:
    * **Tooltip**. This option allows adding a tooltip to the widget. With this option on, the ![image](../../../_assets/console-icons/circle-question.svg) icon will appear next to the chart header. Hovering over the icon will bring up the tooltip. You can use either a visual editor or [Markdown](../../dashboard/markdown.md).
    * **Auto height**. It sets the automatic height for a widget of the **Table** type. If it is disabled, you can set the widget height on the page using the mouse.
    * **Filtering**. It enables cross-chart [filtering](../../dashboard/chart-chart-filtration.md) on the dashboard.
+
+   
+   * **Background**. It sets the widget background color and opacity for the light and dark theme individually.
+   * **Rounding**. It sets the widget corner rounding.
+
 
 1. Optionally, under **Parameters**, list [chart parameters](../../dashboard/dashboard_parameters.md#params-chart) and set their default values. If you do not set the default values, an error will be displayed on the dashboard.
 1. Click **Add**. The widget will appear on the dashboard.

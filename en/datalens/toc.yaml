@@ -866,6 +866,8 @@ items:
         href: dashboard/chart-chart-filtration.md
       - name: Dashboard settings
         href: dashboard/settings.md
+      - name: Mailing lists
+        href: operations/dashboard/add-maillists.md
       - name: Versioning
         href: dashboard/versioning.md
       - name: Parameters
@@ -902,8 +904,6 @@ items:
             items:
               - name: Changing dashboard settings
                 href: operations/dashboard/dash-settings.md
-              - name: Adding a mailing list for a dashboard
-                href: operations/dashboard/add-maillists.md
               - name: Adding a message displayed when contacting support
                 href: operations/dashboard/add-support-message.md
               - name: Adding an access error message
@@ -912,7 +912,7 @@ items:
                 href: operations/dashboard/add-parameters.md
               - name: Dashboard auto-update
                 href: operations/dashboard/auto-update.md
-              - name: Disabling Neuroanalyst on your dashboard
+              - name: Banning Neuroanalyst on the dashboard
                 href: operations/dashboard/dashboard-neuroanalyst-off.md
           - name: Link settings
             items:
@@ -924,12 +924,18 @@ items:
                 href: operations/dashboard/edit-alias.md
           - name: Appearance customization options
             items:
-              - name: Adding a table of contents to the dashboard
-                href: operations/dashboard/add-contents.md
+              - name: Configuring dashboard background
+                href: operations/dashboard/add-dashboard-background.md
+              - name: Configuring the background and opacity of dashboard widgets
+                href: operations/dashboard/add-widget-background.md
+              - name: Configuring corner rounding on a dashboard
+                href: operations/dashboard/add-rounding.md
               - name: Configuring offsets on the dashboard
                 href: operations/dashboard/add-margins.md
               - name: Configuring the dashboard title
                 href: operations/dashboard/add-title-dashboard.md
+              - name: Adding a table of contents to the dashboard
+                href: operations/dashboard/add-contents.md
           - name: Managing dashboard tabs
             items:
               - name: Configuring dashboard tabs

@@ -1,6 +1,6 @@
 * Backend **{{ ui-key.yacloud.common.name }}**.
 * **{{ ui-key.yacloud.alb.label_backend-weight }}**: Backend weight in traffic distribution. If this option is disabled, the backend weight will be 0 and its endpoints will not be receiving traffic.
-* Backend **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.alb.label_target-group }}` for {{ alb-name }} [target groups](../../application-load-balancer/concepts/target-group.md) or `{{ ui-key.yacloud.alb.label_bucket }}` for {{ objstorage-name }} [buckets](../../storage/concepts/bucket.md). This option works for `{{ ui-key.yacloud.alb.label_proto-http-plain }}` backend groups only. `{{ ui-key.yacloud.alb.label_proto-grpc }}` and Stream group backends have the `{{ ui-key.yacloud.alb.label_target-group }}` backend type. For more information about backend types, see [{#T}](../../application-load-balancer/concepts/backend-group.md#types).
+* Backend **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.alb.label_target-group }}` for {{ alb-name }} [target groups](../../application-load-balancer/concepts/target-group.md) or `{{ ui-key.yacloud.alb.label_bucket }}` for {{ objstorage-name }} [buckets](../../storage/concepts/bucket.md). This option works for `{{ ui-key.yacloud.alb.label_proto-http-plain }}` backend groups only. `{{ ui-key.yacloud.alb.label_proto-grpc }}` and Stream group backends have the `{{ ui-key.yacloud.alb.label_target-group }}` backend type. For more on backend types, see [{#T}](../../application-load-balancer/concepts/backend-group.md#types).
 
 * The settings described below only work for **{{ ui-key.yacloud.alb.label_target-group }}** backends:
 
@@ -8,7 +8,7 @@
     
     * **{{ ui-key.yacloud.alb.label_load-balancing-mode }}**: [Load balancing mode](../../application-load-balancer/concepts/backend-group.md#balancing-mode).
     * **{{ ui-key.yacloud.alb.label_panic-threshold }}**: Healthy endpoint threshold triggering [panic mode](../../application-load-balancer/concepts/backend-group.md#panic-mode) when the load balancer distributes requests across all endpoints, regardless of their health status.
-    * **{{ ui-key.yacloud.alb.label_locality-aware-routing }}**: Share of incoming traffic the load balancer node will route to its availability zone backends. The remaining traffic is distributed equally between other availability zones. To learn more, see [{#T}](../../application-load-balancer/concepts/backend-group.md#locality).
+    * **{{ ui-key.yacloud.alb.label_locality-aware-routing }}**: Share of incoming traffic the load balancer node will route to its availability zone backends. The remaining traffic is split equally between the other zones. For more information, see [{#T}](../../application-load-balancer/concepts/backend-group.md#locality).
     * **{{ ui-key.yacloud.alb.label_strict-locality }}**: If this option is enabled, the load balancer will return `503 Service Unavailable` if no application backends are operational in the request’s originating availability zone.
  
   * Under **{{ ui-key.yacloud.alb.label_protocol-settings }}**:

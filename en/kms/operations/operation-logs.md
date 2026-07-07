@@ -49,7 +49,7 @@ The system logs all actions with {{ kms-name }} resources as a list of operation
   +----------------------+---------------------+----------------------+---------------------+--------+----------------------+
   ```
 
-  By default, information about operations is output as text. To get more details, specify the `yaml` or `json` output data format using `--format`:
+  By default, information about operations is output as text. To get more details, use `--format` to specify the `yaml` or `json` output format:
 
   ```bash
   yc kms symmetric-key list-operations epdplu8jn7sr******** --format yaml
@@ -148,6 +148,6 @@ The system logs all actions with {{ kms-name }} resources as a list of operation
 
    {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../api-design-guide/concepts/about-async.md)

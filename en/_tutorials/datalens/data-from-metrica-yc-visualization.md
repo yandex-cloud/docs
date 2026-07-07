@@ -59,7 +59,7 @@ To use {{ datalens-full-name }} and {{ ml-platform-full-name }} within the {{ ya
 
 The cost of the infrastructure deployment includes:
 
-* Fee for the cluster computing resources and storage (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for cluster computing resources and storage space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Fee for the computation time (see [{{ ml-platform-name }} pricing](../../datasphere/pricing.md)).
 * Fee for the outbound traffic (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 

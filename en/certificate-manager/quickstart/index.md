@@ -18,7 +18,7 @@ To get started with {{ certificate-manager-name }}, you need:
 
          {% note info %}
 
-         To pass a domain rights check, you must have the management access to the domain.
+         To verify domain ownership, you must be its manager.
 
          {% endnote %}
 
@@ -155,7 +155,7 @@ Certificates are not renewed automatically. Keep track of the lifecycle of your 
 {% endlist %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 - [{#T}](../concepts/managed-certificate.md)
 - [{#T}](../concepts/challenges.md)

@@ -33,7 +33,7 @@ The organization's administrator cannot manage the sessions of other organizatio
 
 {% endnote %}
 
-A session ends and automatically disappears from the user's session list when its lifetime ends or when the user logs out of the account by clicking ![arrow-right-from-square](../../_assets/console-icons/arrow-right-from-square.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.logout_nXPin }}**.
+A session ends and automatically disappears from the user's session list when its lifetime ends or when the user logs out of the account by clicking **{{ ui-key.yacloud_org.center-layout.SwitchAccountAside.action_switch-account_1aB2c }}** → ![arrow-right-from-square](../../_assets/console-icons/arrow-right-from-square.svg).
 
 #### See also {#see-also}
 

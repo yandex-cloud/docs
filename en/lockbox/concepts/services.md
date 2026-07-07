@@ -37,7 +37,7 @@ To prevent unauthorized access to [API keys](../../iam/concepts/authorization/ap
 For a {{ serverless-containers-name }} container to access the data stored in a {{ lockbox-name }} secret, assign the `lockbox.payloadViewer` [role](../security/index.md#lockbox-payloadViewer) for the relevant secret to the [service account](../../iam/concepts/users/service-accounts.md) you will use to run the container.
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../functions/operations/function/lockbox-secret-transmit.md)
 * [Creating a {{ connection-manager-name }} connection](../../metadata-hub/operations/create-connection.md)

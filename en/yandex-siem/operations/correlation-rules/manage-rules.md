@@ -108,7 +108,7 @@ To delete a custom correlation rule:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/correlation-rules.md)
 * [{#T}](../exceptions/manage-exceptions.md)

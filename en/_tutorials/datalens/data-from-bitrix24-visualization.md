@@ -96,7 +96,7 @@ You can customize the standard dashboard by deleting, moving, or editing charts.
 1. Add the chart to the dashboard:
 
    1. Return to the tab with the dashboard and click **Edit** at the top of the page.
-   1. In the panel at the bottom of the page, drag ![image](../../_assets/console-icons/chart-column.svg) **Chart** where you need.
+   1. In the panel at the bottom of the page, click ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it where you want it to be.
    
       ![06-add-chart](../../_assets/datalens/solution-bitrix24/06-add-chart.png)
    

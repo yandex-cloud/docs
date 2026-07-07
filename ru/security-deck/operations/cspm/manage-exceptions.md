@@ -25,7 +25,7 @@ description: В данном разделе вы узнаете, как в мо�
       Список исключений для правил модуля {{ cspm-name }} приведен в блоке **{{ ui-key.yacloud_org.security.controls.ExceptionOverview.header_caption_cspm_9dTJt }}** и содержит следующие поля:
 
       * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_reason_qN8a7 }}** — указанная пользователем при создании причина исключения.
-      * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_type_kCG8J }}** — вариант действия для создаваемого исключения:
+      * **ui-key.yacloud_org.security.controls.ScopeFilterTable.field_reason_qN8a7** — вариант действия для создаваемого исключения:
 
           * `{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_type_manual_mbKxp }}` — при соответствии заданным в исключении условиям ресурс будет генерировать только сигналы о соответствии правилу.
           * `{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_type_exclude_cigcD }}` — при соответствии заданным в исключении условиям ресурс не будет генерировать никакие сигналы: ни о соответствии, ни о нарушении правила.

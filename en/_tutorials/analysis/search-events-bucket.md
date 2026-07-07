@@ -51,7 +51,7 @@
     find <folder_path> -type f -exec cat {} \; | jq  '.[] | select(.resource_metadata != null and .resource_metadata.path != null) | select( .resource_metadata.path[] | .resource_type == "resource-manager.folder" and .resource_name == "<folder_name>")'
     ```
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Audit log](../../audit-trails/concepts/format.md)
 * [jq tutorial](https://stedolan.github.io/jq/tutorial)

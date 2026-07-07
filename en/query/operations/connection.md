@@ -1,11 +1,11 @@
 ---
-title: Managing {{ yq-full-name }} connections to data sources and targets
-description: A connection is required for {{ yq-name }} to access data sources and targets.
+title: Managing {{ yq-full-name }} data source and sink connections
+description: '{{ yq-name }} connections are necessary to access data sources and sinks.'
 ---
 
 # Managing connections
 
-A [connection](../concepts/glossary.md#connection) is required for {{ yq-full-name }} to access data sources and targets.
+{{ yq-full-name }} [connections](../concepts/glossary.md#connection) are necessary to access data sources and sinks.
 
 ## Creating a connection {#create}
 
@@ -15,7 +15,7 @@ To create a connection:
 1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
 1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
-1. Enter a name and description for the connection. The naming requirements are as follows:
+1. Specify the connection name and description. The naming requirements are as follows:
 
     {% include [name-format](../_includes/connection-name-format.md) %}
 
@@ -30,18 +30,18 @@ To create a connection:
        For a private bucket:
        * Select **{{ ui-key.yql.yq-connection-form.cloud.input-label }}** where the data source is located.
        * Select an existing bucket or create a new one.
-       * Select or create a [service account](../../iam/concepts/users/service-accounts.md) you will use to access the data.
+       * Select an existing or create a new [service account](../../iam/concepts/users/service-accounts.md). You will use it to access the data.
 
    - {{ yds-short-name }}
 
      * Select the **{{ ui-key.yql.yq-connection-form.cloud.input-label }}** where the data source is located.
-     * Select or create a [serverless {{ ydb-name }} database](../../ydb/) with a {{ yds-full-name }} [stream](../../data-streams/concepts/index.md).
-     * Select or create a [service account](../../iam/concepts/users/service-accounts.md) you will use to access the data.
+     * Select or create a new [serverless {{ ydb-name }} database](../../ydb/) with a {{ yds-full-name }} [stream](../../data-streams/concepts/index.md).
+     * Select an existing or create a new [service account](../../iam/concepts/users/service-accounts.md). You will use it to access the data.
 
    - {{ mch-name }}
 
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ mch-name }} cluster or create a new one.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mch-name }} [service account](../../iam/concepts/users/service-accounts.md) or create a new one with the [`{{ roles.mch.viewer }}`](../../managed-clickhouse/security.md#managed-clickhouse-viewer) role to connect to `{{ mch-name }}` clusters.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mch-name }} [service account](../../iam/concepts/users/service-accounts.md) or create a new one. Assign it the [`{{ roles.mch.viewer }}` role](../../managed-clickhouse/security.md#managed-clickhouse-viewer) allowing it to connect to `{{ mch-name }}` clusters.
       * **{{ ui-key.yql.yq-connection-info.database.label }}**: Select the database you will use when working with the {{ CH }} cluster.
       * **{{ ui-key.yql.yq-connection-form.login.input-label }}**: Username you will use to connect to {{ CH }} databases.
       * **{{ ui-key.yql.yq-connection-form.password.input-label }}**: Password you will use to connect to {{ CH }} databases.
@@ -49,7 +49,7 @@ To create a connection:
    - {{ mgp-name }}
 
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ mgp-name }} cluster or create a new one.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mgp-name }} [service account](../../iam/concepts/users/service-accounts.md) or create a new one. Assign it the [`{{ roles.mgp.viewer }}`](../../managed-greenplum/security/index.md#mgp-viewer) role allowing it to connect to `{{ mgp-name }}` clusters.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mgp-name }} [service account](../../iam/concepts/users/service-accounts.md) or create a new one. Assign it the [`{{ roles.mgp.viewer }}` role](../../managed-greenplum/security/index.md#mgp-viewer) allowing it to connect to `{{ mgp-name }}` clusters.
       * **{{ ui-key.yql.yq-connection-form.database.input-label }}**: Select the database you will use when working with the {{ GP }} cluster.
       * **{{ ui-key.yql.yq-connection-form.schema.input-label }}**: Specify the [namespace](https://docs.vmware.com/en/VMware-Greenplum/7/greenplum-database/admin_guide-ddl-ddl-schema.html) you will use when working with the {{ GP }} database.
       * **{{ ui-key.yql.yq-connection-form.login.input-label }}**: Username you will use to connect to {{ GP }} databases.
@@ -66,7 +66,7 @@ To create a connection:
    - {{ mpg-name }}
 
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ mpg-name }} cluster or create a new one.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mpg-name }} [service account](../../iam/concepts/users/service-accounts.md) or create a new one with the [`{{ roles.mpg.viewer }}` role](../../managed-postgresql/security/index.md#managed-postgresql-viewer) to connect to `{{ mpg-name }}` clusters.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mpg-name }} [service account](../../iam/concepts/users/service-accounts.md) or create a new one. Assign it the [`{{ roles.mpg.viewer }}` role](../../managed-postgresql/security/index.md#managed-postgresql-viewer) allowing it to connect to `{{ mpg-name }}` clusters.
       * **{{ ui-key.yql.yq-connection-form.database.input-label }}**: Select the database you will use when working with the {{ PG }} cluster.
       * **{{ ui-key.yql.yq-connection-form.login.input-label }}**: Username you will use to connect to {{ PG }} databases.
       * **{{ ui-key.yql.yq-connection-form.password.input-label }}**: Password you will use to connect to {{ PG }} databases.
@@ -79,44 +79,44 @@ To create a connection:
    - {{ monitoring-short-name }}
 
      * Select the **{{ ui-key.yql.yq-connection-form.cloud.input-label }}** where the data source is located.
-     * Select or create a [service account](../../iam/concepts/users/service-accounts.md) to use for logging metrics.
+     * Select or create a new [service account](../../iam/concepts/users/service-accounts.md) that will be used for writing metrics.
 
    {% endlist %}
 
 1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
-To use a connection with a service account specified, the user should have the `iam.serviceAccounts.user` [role](../../iam/security/index.md#iam-serviceAccounts-user).
+To use a connection with this service account, you need the `iam.serviceAccounts.user` [role](../../iam/security/index.md#iam-serviceAccounts-user).
 
-Next, you can [create a binding](binding.md#create).
+Now, you can [create a binding](binding.md#create).
 
-## Getting information about a connection {#get-info}
+## Getting connection details {#get-info}
 
-To view information about a connection:
+To view connection details:
 
-1. In the [management console]({{ link-console-main }}), select the folder where the connection was created.
+1. In the [management console]({{ link-console-main }}), select the folder where you have created the connection.
 1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
-1. In the row with the connection name, click ![info](../../_assets/console-icons/circle-info.svg). You can find information about the source and service account under **{{ ui-key.yql.yq-connection-info.general.section-header }}**. In the **{{ ui-key.yql.yq-common-meta-section.meta.section-header }}** section, you can view the connection ID, creation timestamp, and creator.
+1. Find the connection you need in the list and click ![info](../../_assets/console-icons/circle-info.svg) in its row. The source and service account details will appear under **{{ ui-key.yql.yq-connection-info.general.section-header }}**. The connection ID, creation timestamp, and creator will appear under **{{ ui-key.yql.yq-common-meta-section.meta.section-header }}**.
 
-## Changing connection parameters {#update}
+## Modifying connection settings {#update}
 
-To edit connection parameters:
+To edit connection settings:
 
-1. In the [management console]({{ link-console-main }}), select the folder where the connection was created.
+1. In the [management console]({{ link-console-main }}), select the folder where you have created the connection.
 1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
-1. In the row with the appropriate connection name, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yql.yq-connection-actions.edit-connection.menu-item-text }}**.
-1. Set new parameters for the connection. You cannot change the connection type.
+1. Find the connection you need in the list, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yql.yq-connection-actions.edit-connection.menu-item-text }}**.
+1. Update the connection settings. Note that the connection type is read-only.
 1. Click **{{ ui-key.yql.yq-connection-form.modify.button-text }}**.
 
 ## Deleting a connection {#delete}
 
 To delete a connection:
 
-1. In the [management console]({{ link-console-main }}), select the folder where the connection was created.
+1. In the [management console]({{ link-console-main }}), select the folder where you have created the connection.
 1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
-1. In the row with the appropriate connection name, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yql.yq-connection-actions.delete-connection.menu-item-text }}**.
+1. Find the connection you need in the list, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yql.yq-connection-actions.delete-connection.menu-item-text }}**.
 1. Confirm connection deletion.
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

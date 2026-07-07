@@ -1,1 +1,1 @@
-To use a service account, the `iam.serviceAccounts.user` [role](../../iam/security/index.md#iam-serviceAccounts-user) is required.
+To use the service account on your behalf, you need the `iam.serviceAccounts.user` [role](../../iam/security/index.md#iam-serviceAccounts-user).

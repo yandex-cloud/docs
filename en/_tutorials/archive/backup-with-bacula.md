@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The backup and recovery support costs include:
 
 * Fee for VM computing resources and disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for bucket data storage and data operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
+* Fee for bucket data storage and bucket data operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ### Create a bucket {#create-bucket}

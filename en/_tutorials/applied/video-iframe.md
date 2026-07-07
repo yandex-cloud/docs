@@ -31,7 +31,7 @@ You can configure some of the video player parameters in the {{ video-name }} in
 
 {% note info %}
 
-Video autoplay may be restricted by browser policies. For more information, see [{#T}](../../video/autoplay-policy.md).
+Video autoplay may be restricted by browser policies. See details [here](../../video/autoplay-policy.md).
 
 {% endnote %}
 
@@ -267,7 +267,7 @@ Where:
   * `player_border_radius=10`: Rounding of the player section corners.
   * `playlist_item_border_radius=5`: Rounding of the playlist element corners.
 
-Learn more about style parameters in [{#T}](../../video/sdk/iframe/initialization.md#styling).
+Learn more about style parameters in [this article](../../video/sdk/iframe/initialization.md#styling).
 
 {% cut "Example" %}
 

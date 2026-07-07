@@ -92,7 +92,7 @@ To view {{ ui-key.yacloud_org.security.ycdr.query-data-panel.datasets-type-looku
 - {{ sd-name }} UI {#cloud-sd}
 
   1. Open the **{{ ui-key.yacloud_org.security.ycdr.query-data-panel.tab-datasets_dSt4K }}** tab.
-  1. Go to **{{ ui-key.yacloud_org.security.ycdr.query-data-panel.datasets-type-lookup_dTpLk }}**.
+  1. Navigate to **{{ ui-key.yacloud_org.security.ycdr.query-data-panel.datasets-type-lookup_dTpLk }}**.
   1. Select a table from the list.
 
 {% endlist %}
@@ -113,7 +113,7 @@ To insert a dataset into a query:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/investigations.md)
 * [{#T}](../../concepts/queries.md)

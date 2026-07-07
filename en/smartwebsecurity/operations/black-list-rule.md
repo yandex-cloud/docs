@@ -38,7 +38,7 @@ description: Follow this guide to set up a rule for blocking black addresses in 
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](list-create.md)
 * [{#T}](profile-create.md)

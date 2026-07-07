@@ -56,7 +56,7 @@ A dataset page consists of several tabs:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./create-dataset.md)
 * [{#T}](./data-model.md)

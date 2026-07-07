@@ -144,7 +144,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 ## Add the QL chart to the dashboard {#add-sql-chart-to-dashboard}
 
-1. In the panel at the bottom of the page, drag ![image](../../_assets/console-icons/chart-column.svg) **Chart** where you need.
+1. In the panel at the bottom of the page, click ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it where you want it to be.
 
    ![add-chart](../../_assets/datalens/sql-chart/add-chart.png)
 
@@ -162,7 +162,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 Add [selectors](../../datalens/dashboard/selector.md) to filter charts by date and client statuses:
 
-1. In the panel at the bottom of the page, drag ![image](../../_assets/console-icons/sliders.svg) **Selector** where you need.
+1. In the panel at the bottom of the page, click ![image](../../_assets/console-icons/sliders.svg) **Selector** and drag it where you want it to be.
 
    ![image](../../_assets/datalens/sql-chart/add-selector.png)
 
@@ -220,7 +220,7 @@ Your dashboard is ready for use.
 
    ![image](../../_assets/datalens/sql-chart/selector-data-2-values.png)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 - [{#T}](../../datalens/operations/dashboard/add-chart.md)
 - [{#T}](../../datalens/operations/dashboard/add-selector.md)

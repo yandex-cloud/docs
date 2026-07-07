@@ -38,7 +38,7 @@ To revoke access permissions, users must have one of these roles: `admin`, `reso
 
 You can only remove a subject from a group created by an organization administrator. You cannot remove a subject from a system or public group.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/ciem/view-permissions.md)
 * [{#T}](../operations/ciem/revoke-permissions.md)

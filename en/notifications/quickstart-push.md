@@ -82,7 +82,7 @@ To create an endpoint:
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Getting started with SMS](quickstart-sms.md)
 * [Getting started with the service via the AWS CLI](./tools/aws-cli.md)

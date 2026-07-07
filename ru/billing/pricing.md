@@ -6,19 +6,56 @@ editable: false
 
 # Правила тарификации {{ yandex-cloud }}
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      sm: 4
+    children:
+      - type: basic-card
+        title: Калькулятор цен
+        text: Рассчитайте стоимость использования сервисов, исходя из ваших потребностей
+        icon: ../_assets/console-icons/calculator.svg
+        urlTitle: Калькулятор цен
+        url: https://yandex.cloud/ru/prices
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Прайс-лист
+        text: Актуальные тарифы на все наши услуги
+        icon: ../_assets/console-icons/circle-ruble.svg
+        urlTitle: Прайс-лист
+        url: https://yandex.cloud/ru/price-list
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Акции и free tier
+        text: Гранты, специальные условия и программы поддержки
+        icon: ../_assets/console-icons/flame.svg
+        urlTitle: Акции и free tier
+        url: https://yandex.cloud/ru/all-offers
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 В {{ yandex-cloud }} вы можете использовать ресурсы как тарифицируемых, так и нетарифицируемых сервисов. Стоимость использования сервиса {{ billing-name }} входит в стоимость оплачиваемых сервисов и дополнительно не тарифицируется.
-
-
-{% note tip %}
-
-Чтобы рассчитать стоимость использования сервисов, воспользуйтесь [калькулятором]({{ link-cloud-calculator }}) на сайте {{ yandex-cloud }} или ознакомьтесь с [тарифами отдельных сервисов](#billable).
-
-{% endnote %}
-
-
-Цены на продукты сервисов также доступны в [Прайс-листе](/price-list?installationCode=ru).
 
 ## Тарифы отдельных сервисов {#billable}
 

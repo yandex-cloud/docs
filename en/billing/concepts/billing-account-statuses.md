@@ -37,7 +37,7 @@ Status | Balance                                    | Description
 `ACTIVE` | Positive | All {{ yandex-cloud }} services are available for use. <br/>This status persists until your account runs into arrears.
 `PAYMENT_REQUIRED` | Negative | Account is in arrears of payment for the services consumed. <br/><br/>Use of {{ yandex-cloud }} services may be suspended if the arrears are not paid in due time. During the suspension period, a fee is charged for data storage services, in addition to a late payment fee.
 `SUSPENDED` | Negative | Use of {{ yandex-cloud }} services is suspended.<br/><br/>The maximum data storage period after the suspension is 60 calendar days.<br/><br/>Within 60 calendar days of suspending access, the system checks whether a payment is made: <br/> - If you pay the entire outstanding amount, your access to resources will be restored within 24 hours. <br/> - If you do not pay the entire outstanding amount, all your data, including your billing account, will be permanently blocked and deleted.<br/><br/>You cannot recover deleted clouds if they are linked to a blocked account.
-`PENDING_INACTIVATION` | Any value  | Request to delete the billing account was submitted.<br/><br/> We are verifying if the account can be deleted. For reasons why an account cannot be deleted, see [Deleting a billing account](../operations/delete-account.md).
+`PENDING_INACTIVATION` | Any value | Request to delete the billing account was submitted.<br/><br/> We are verifying if the account can be deleted. For reasons why an account cannot be deleted, see [Deleting a billing account](../operations/delete-account.md).
 
   {% include [suspended](../_includes/billing-suspended.md) %}
 
@@ -54,6 +54,6 @@ Status | Balance                                    | Description
 
 {% endlist %}
 
-For more information, see the following sections:
-- [Billing cycle for individuals](../payment/billing-cycle-individual.md)
-- [Billing cycle for businesses and individual entrepreneurs](../payment/billing-cycle-business.md)
+For more information, see these sections:
+* [Billing cycle for individuals](../payment/billing-cycle-individual.md)
+* [Billing cycle for businesses and individual entrepreneurs](../payment/billing-cycle-business.md)

@@ -213,20 +213,20 @@
 
     ```yaml
     build:
-    stage: build
-    script:
-      - echo "Hello, $GITLAB_USER_LOGIN!"
+      stage: build
+      script:
+        - echo "Hello, $GITLAB_USER_LOGIN!"
 
     test:
-    stage: test
-    script:
-      - echo "This job tests something"
+      stage: test
+      script:
+        - echo "This job tests something"
 
     deploy:
-    stage: deploy
-    script:
-      - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
-    environment: production
+      stage: deploy
+      script:
+        - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
+      environment: production
     ```
 
 1. Нажмите **Commit changes**.

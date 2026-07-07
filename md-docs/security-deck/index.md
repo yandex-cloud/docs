@@ -56,6 +56,8 @@
 
  - [Управлять исключениями из правил контроля](operations/kspm/manage-exceptions.md)
 
+ - [Управлять режимами работы правил](operations/kspm/manage-rule-modes.md)
+
 ### Диагностика доступов (CIEM)
 
  - [Обзор](operations/ciem/index.md)

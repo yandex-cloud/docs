@@ -1,0 +1,2 @@
+* `{{ ui-key.yacloud_org.security.kspm.ControlModeSelect.value_audit_jtY6w }}` — режим, при котором нарушение правила не блокирует развертывание нагрузок в кластерах {{ k8s }}. Режим по умолчанию.
+* `{{ ui-key.yacloud_org.security.kspm.ControlModeSelect.value_enforce_ttbjL }}` — режим, при котором нарушение правила ведет к блокировке развертывания нагрузок в кластерах {{ k8s }}.

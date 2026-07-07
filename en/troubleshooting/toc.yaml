@@ -732,10 +732,6 @@ items:
         href: legal/how-to/index.md
         hidden: true
       - name: >-
-          How to find out the physical address of a {{ yandex-cloud }} data
-          center
-        href: legal/how-to/data-centers-physical-addresses.md
-      - name: >-
           Whether you need to conclude a separate agreement to place personal
           data to comply with the requirements of the Russian Federal Law No.
           152-FZ on Personal Data

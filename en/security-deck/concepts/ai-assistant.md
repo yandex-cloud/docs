@@ -13,6 +13,6 @@ The {{ sd-name }} AI assistant is a source of recommendations on how to set up y
 
 You can run the AI analysis on the [alert](./alerts.md) page. The AI assistant will help you fix your configuration issue with due regard for the alert's context and parameters. In addition to its recommendations, the AI assistant will prepare a summary and explain the substance of the alert.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./alerts.md)

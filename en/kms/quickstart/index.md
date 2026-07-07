@@ -82,7 +82,7 @@ Decrypt the `ciphertext` binary file from the previous step.
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Updating keys](../operations/key.md#update)
 * [Rotating a key](../operations/key.md#rotate)

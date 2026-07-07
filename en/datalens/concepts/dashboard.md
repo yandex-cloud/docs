@@ -8,6 +8,8 @@ description: A {{ datalens-full-name }} dashboard is a page or set of pages with
 A _dashboard_ is a page or multiple pages that contain widgets. It allows you to group your charts in the same place and add captions and titles to them.
 You can create new dashboard pages using the **tab** element.
 
+
+
 For more information about dashboards, see the following sections:
 
 * [{#T}](../dashboard/widget.md)
@@ -39,9 +41,13 @@ For more information about dashboards, see the following sections:
   * [{#T}](../operations/dashboard/dash-settings.md)
   * [{#T}](../operations/dashboard/display-modes.md)
   * [{#T}](../operations/dashboard/dashboard-ai-reference-tab.md)
+  * [{#T}](../operations/dashboard/add-dashboard-background.md)
+  * [{#T}](../operations/dashboard/add-widget-background.md)
+  * [{#T}](../operations/dashboard/add-rounding.md)
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../security/index.md)
 * [{#T}](../security/embedded-objects.md)
+

@@ -15,8 +15,10 @@ yandex.cloud.audit.metastore.<имя_события>
 `CreateCluster` | Создание [кластера](concepts/metastore.md) Apache Hive™ Metastore
 `DeleteCluster` | Удаление кластера Apache Hive™ Metastore
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
+`SetClusterAccessBindings` | Назначение прав доступа к кластеру Apache Hive™ Metastore
 `StartCluster` | Запуск кластера Apache Hive™ Metastore
 `StopCluster` | Остановка кластера Apache Hive™ Metastore
 `UpdateCluster` | Изменение кластера Apache Hive™ Metastore
+`UpdateClusterAccessBindings` | Изменение прав доступа к кластеру Apache Hive™ Metastore
 
 _Apache® и [Apache Hive™](https://hive.apache.org/) являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах._

@@ -23,7 +23,7 @@ The plan you choose covers your organization and can only be [changed](../settin
 
 Different service plans offer different features and vary in [cost](../pricing-old.md#prices).
 
-**Service plan**  | **Community** | **Business**
+**Service plan** | **Community** | **Business**
 ------------------ |---------------|---------------
 Creating [charts in wizard](./chart/dataset-based-charts.md), [QL charts](./chart/ql-charts.md), and [dashboards](./dashboard.md) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)   
 [Neuroanalyst](./neuroanalyst.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
@@ -43,7 +43,7 @@ JavaScript customization options in [Editor](../charts/editor/index.md) | ![imag
 [SLA](https://yandex.com/legal/cloud_sla_datalens) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)  
 Support | [Basic plan](../../support/pricing.md#base) (if you do not have [Business](../../support/pricing.md#business) or [Premium](../../support/pricing.md#premium) enabled) | [Business plan](../../support/pricing.md#business) (only applies to {{ datalens-name }}) and priority over the Community plan when processing support requests
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Pricing policy](../pricing.md)
 * [Pricing and payment questions](../qa/pricing.md)

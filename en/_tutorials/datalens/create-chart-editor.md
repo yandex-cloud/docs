@@ -325,14 +325,14 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) and add your chart:
 
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks** and go to the `Charts in Editor` workbook.
 1. In the top-right corner, click **Create** → ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboard**.
-1. In the panel at the bottom of the page, drag ![image](../../_assets/console-icons/chart-column.svg) **Chart** where you need.
+1. In the panel at the bottom of the page, click ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it where you want it to be.
 1. In the window that opens, click **Select**.
 1. Select `Simple chart in Editor`.
 1. Click **Add**.
 
 ### Add selectors to the dashboard {#add-selectors-on-dashboard}
 
-1. Add a period selector. To do this, in the panel at the bottom of the page, drag ![image](../../_assets/console-icons/sliders.svg) **Selector** where you need. Configure the selector:
+1. Add a period selector. To do this, in the panel at the bottom of the page, click ![image](../../_assets/console-icons/sliders.svg) **Selector** and drag it where you want it to be. Configure the selector:
 
    1. Select `Manual input` as the source type.
    1. In **Field or parameter name**, enter `date_interval`.
@@ -894,12 +894,12 @@ Create a chart in Editor with more flexible processing of dashboard filters and 
 1. In the top-right corner, click **Create** → ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboard**.
 1. Add the selector chart to the dashboard:
 
-   1. In the panel at the bottom of the page, drag ![image](../../_assets/console-icons/chart-column.svg) **Chart** where you need.
+   1. In the panel at the bottom of the page, click ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it where you want it to be.
    1. In the window that opens, click **Select**.
    1. Select `Chart with parameter processing in Editor`.
    1. Click **Add**.
 
-1. Add a period selector: in the panel at the bottom of the page, drag ![image](../../_assets/console-icons/sliders.svg) **Selector** where you need. Specify the following settings:
+1. Add a period selector: in the panel at the bottom of the page, click ![image](../../_assets/console-icons/sliders.svg) **Selector** and drag it where you want it to be. Specify the following settings:
 
    1. Select `Manual input` as the source type.
    1. In **Field or parameter name**, enter `date_interval`.
@@ -957,7 +957,7 @@ Create a chart in Editor with more flexible processing of dashboard filters and 
 1. Open the chart inspector by hovering over the chart and clicking ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/magnifier.svg) **Inspector** in its top-right corner. Make sure the query is based on the parameters provided to the Editor chart.
 1. Open your `Simple chart in Editor` for editing by hovering over the chart and clicking ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pencil.svg) **Edit** in its top-right corner.
 
-   The dashboard parameters and their values are displayed at the top.
+   The parameters and their values from the dashboard are displayed at the top.
 ## Add interactive elements to the chart {#interactive-elements}
 
 To add interactive elements, use an [advanced chart](../../datalens/charts/editor/widgets/advanced.md) to create HTML files with secure markup using the [Editor.generateHtml(args)](../../datalens/charts/editor/methods.md#gen-html) function and flexible SVG visualizations based on the `d3`, `d3-chord`, and `d3-sankey` libraries.

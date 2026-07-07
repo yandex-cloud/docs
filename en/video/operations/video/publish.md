@@ -44,7 +44,7 @@ You can publish a video and check its availability.
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [{#T}](get-link.md)
 [{#T}](download.md)

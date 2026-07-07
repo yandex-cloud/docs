@@ -318,7 +318,7 @@ struct ContentView: View {
 
 {% endcut %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 SDK library references:
 

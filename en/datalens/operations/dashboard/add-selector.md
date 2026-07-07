@@ -17,7 +17,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
 1. At the top of the page, click **Edit**.
-1. In the panel at the bottom of the page, drag ![image](../../../_assets/console-icons/sliders.svg) **Selector** where you need.
+1. In the panel at the bottom of the page, click ![image](../../../_assets/console-icons/sliders.svg) **Selector** and drag it where you want it to be.
 
    
    ![image](../../../_assets/datalens/operations/widget-select-js.png =650x95)
@@ -36,8 +36,8 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
      * **Show in tabs**: Select how to display the selector on the dashboard:
 
        * `Current tab <tab_name>`: Display the selector on the selected tab. This is the default option for a single selector.
-       * `Selected tabs`: Select one or multiple tabs where you need to display the selector. By default, the current tab is selected.
-       * `All tabs`: Display the selector on all tabs. This option is available for a single selector.
+       * `Selected tabs`: Select one or more tabs to display the selector on. By default, the current tab is selected.
+       * `All tabs`: Display on all tabs. This option is available for a single selector.
        * `Based on <group_value>` settings: Display the selector based on the advanced settings of the widget with a group of selectors. This option is only available for a selector in a group of selectors.
 
      * ![image](../../../_assets/console-icons/magnifier.svg) button: Displayed to the right of the **Show in tabs** setting if the **Field** is specified. It allows you to find and group selectors with the same field or parameter in other tabs. To group the current selector with the one you find, click **Group** next to the relevant selector in the list. After grouping, the current selector’s **Show in tabs** setting may get updated automatically, for example:
@@ -95,8 +95,8 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
      * **Show in tabs**: Select how to display the selector on the dashboard:
 
        * `Current tab <tab_name>`: Display the selector on the selected tab. This is the default option for a single selector.
-       * `Selected tabs`: Select one or multiple tabs where you need to display the selector. By default, the current tab is selected.
-       * `All tabs`: Display the selector on all tabs. This option is available for a single selector.
+       * `Selected tabs`: Select one or more tabs to display the selector on. By default, the current tab is selected.
+       * `All tabs`: Display on all tabs. This option is available for a single selector.
        * `Based on <group_value>` settings: Display the selector based on the advanced settings of the widget with a group of selectors. This option is only available for a selector in a group of selectors.
 
      * ![image](../../../_assets/console-icons/magnifier.svg) button: Displayed to the right of the **Show in tabs** setting if the **Field or parameter** is specified. It allows you to find and group selectors with the same field or parameter in other tabs. To group the current selector with the one you find, click **Group** next to the relevant selector in the list. After grouping, the current selector’s **Show in tabs** setting may get updated automatically, for example:
@@ -159,14 +159,20 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
    * **Apply button**: Adds a widget button which applies the values of all selectors in the widget. The selector values are not applied until you click the button.
    * **Reset button**: Adds a widget button which resets the values of all the widget selectors to their defaults.
-   * **Auto height**: Sets the automatic height for a widget on the dashboard. It is available for widgets with multiple selectors.
+
+   
+   * **Background**: Widget background color and opacity separately for the light and dark theme.
+   * **Rounding**: Widget corner rounding.
+
+
+   * **Auto height**: Automatic widget height on the dashboard. It is available for widgets with multiple selectors.
 
    
    * Optionally, for a widget with multiple selectors, use the **Show in tabs** field to configure how to display the selector on the dashboard:
 
-     * `Current tab <tab_name>`: Display the selector on the selected tab. This is the default option.
-     * `Selected tabs`: Select one or multiple tabs where you need to display the selector. By default, the current tab is selected.
-     * `All tabs`: Display the selector on all tabs.
+     * `Current tab <tab_name>`: Display on selected tab. This is the default option.
+     * `Selected tabs`: Select one or more tabs to display the selector on. By default, the current tab is selected.
+     * `All tabs`: Display on all tabs.
      
      This setting becomes available when you add a second selector to your widget:
      
@@ -199,7 +205,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
    Click **Save**.
 
-   ![image](../../../_assets/datalens/selector-settings/selector-extending-settings.png =581x419)
+   ![image](../../../_assets/datalens/selector-settings/selector-extending-settings.png =679x544)
 
 1. Click **Save**. The widget will appear on the dashboard.
 
@@ -233,7 +239,7 @@ To paste a copied selector onto your dashboard:
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
 1. At the top of the page, click **Edit**.
 1. Select the dashboard tab you want to paste the widget onto.
-1. In the panel at the bottom of the page, hold down ![image](../../../_assets/console-icons/copy-plus.svg) **Paste** and drag the widget where you need. To paste the widget at the bottom of your dashboard, simply click ![image](../../../_assets/console-icons/copy-plus.svg) **Paste**.
+1. In the panel at the bottom of the page, hold down ![image](../../../_assets/console-icons/copy-plus.svg) **Paste** and drag the widget and drag it where you want it to be. To paste the widget at the bottom of your dashboard, simply click ![image](../../../_assets/console-icons/copy-plus.svg) **Paste**.
 
    If you are trying to paste a selector into another tab of the current dashboard, select:
    

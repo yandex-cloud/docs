@@ -1,14 +1,14 @@
 ---
 title: Reference for {{ cloud-logging-full-name }} metrics in {{ monitoring-full-name }}
-description: This page provides reference information on the {{ cloud-logging-name }} metrics delivered to {{ monitoring-full-name }}.
+description: This page provides a reference of {{ cloud-logging-name }} metrics exported to {{ monitoring-full-name }}.
 ---
 
 # {{ monitoring-full-name }} metric reference
 
-This section describes the {{ cloud-logging-name }} metrics delivered to [{{ monitoring-name }}](../monitoring/).
+This section describes {{ cloud-logging-name }} metrics exported to [{{ monitoring-name }}](../monitoring/).
 
 {% include [cloud-logging](../_includes/monitoring/metrics-ref/cloud-logging.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [{#T}](./tutorials/log-group-record-monitoring.md)

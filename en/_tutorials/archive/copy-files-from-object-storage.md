@@ -33,7 +33,7 @@ To authenticate in {{ objstorage-name }}:
 
 1. The service account must have access to the relevant bucket. Therefore, grant the service account permissions in the [bucket ACL](../../storage/concepts/acl), or the `storage.viewer` or `storage.editor` role.
 
-    For more information about these roles, see the [{{ objstorage-name }} documentation](../../storage/security/index.md).
+    For more on these roles, see [this {{ objstorage-name }} guide](../../storage/security/index.md).
 
 > For example, to get a list of files located in the `yc-mdb-examples` public bucket at `dataproc/example01/set01` you need to [connect](../../data-proc/operations/connect.md) to the cluster and run the command:
 >
@@ -142,7 +142,7 @@ To speed up file writes to {{ objstorage-name }}, you can:
 
 ### Using S3A committers {#s3a-committers}
 
-S3A committers are Apache Hadoop software modules used for writing data to an object storage over the S3 protocol to ensure efficient and near-atomic commits of the changes made. For more information, see the [Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/committers.html) and [Apache Spark](https://spark.apache.org/docs/3.5.3/cloud-integration.html) documentation.
+S3A committers are Apache Hadoop software modules used for writing data to an object storage over the S3 protocol to ensure efficient and near-atomic commits of the changes made. For more information, see the [Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/committers.html) and [Apache Spark](https://spark.apache.org/docs/3.5.3/cloud-integration.html) guides.
 
 {% note info %}
 
@@ -205,7 +205,7 @@ Large values of these parameters may increase the usage of computing resources o
 
 {% endnote %}
 
-For more information, see the [Apache Hadoop documentation](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/performance.html) and the [Component properties](../../data-proc/concepts/settings-list.md) section.
+For more information, see the [Apache Hadoop guides](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/performance.html) and the [Component properties](../../data-proc/concepts/settings-list.md) section.
 
 ### Apache Spark settings {#s3-write-optimize-spark}
 
@@ -241,7 +241,7 @@ If these values are excessively high, you may run out of {{ metastore-name }} sy
 
 {% endnote %}
 
-For more information, see the [Apache Spark documentation](https://spark.apache.org/docs/3.5.3/cloud-integration.html) and the [Component properties](../../data-proc/concepts/settings-list.md) section.
+For more information, see the [Apache Spark guides](https://spark.apache.org/docs/3.5.3/cloud-integration.html) and the [Component properties](../../data-proc/concepts/settings-list.md) section.
 
 ## Using s3fs {#s3fs}
 

@@ -21,7 +21,7 @@ description: Follow this guide to add a broadcast to a playlist in {{ video-name
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Playlists in {{ video-name }}](../../concepts/playlists.md)
 * [Broadcasts in {{ video-name }}](../../concepts/streams.md)

@@ -31,15 +31,15 @@ You will deploy the basic Nextcloud configuration on a single VM with the Nextcl
 
 {% include [terraform-definition](../../_tutorials_includes/terraform-definition.md) %}
 
-To create an infrastructure using {{ TF }}:
-1. [Install {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing {{ yandex-cloud }} (see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
+To create your infrastructure via {{ TF }}:
+1. [Install {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
 1. Prepare your infrastructure description files:
 
     {% list tabs group=infrastructure_description %}
 
     - Ready-made configuration {#ready}
 
-      1. Clone the repository with configuration files.
+      1. Clone the repository containing the configuration files.
 
          ```bash
          git clone https://github.com/yandex-cloud-examples/yc-nextcloud-s3.git
@@ -80,7 +80,7 @@ To create an infrastructure using {{ TF }}:
 
     {% endlist %}
 
-    Learn more about the properties of {{ TF }} resources in the relevant provider guides:
+    For more on the properties of resources used in {{ TF }}, see these provider guides:
     * [Network](../../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
     * [NAT gateway](../../../vpc/concepts/gateways.md#nat-gateway): [yandex_vpc_gateway]({{ tf-provider-resources-link }}/vpc_gateway).
     * [Route table](../../../vpc/concepts/routing.md#rt-vpc): [yandex_vpc_route_table]({{ tf-provider-resources-link }}/vpc_route_table).
@@ -99,7 +99,7 @@ To create an infrastructure using {{ TF }}:
 1. In the `nextcloud-integrate-storage.auto.tfvars` file, set the values of the user-defined variables:
     * `folder_id`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
     * `ssh_key_path`: Path to the public SSH key file. For more information, see [{#T}](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-    * `bucket_name`: Bucket name consistent with the [naming conventions](../../../storage/concepts/bucket.md#naming).
+    * `bucket_name`: Bucket name that meets the [naming conventions](../../../storage/concepts/bucket.md#naming).
     * `db_password`: {{ MY }} database user password.
     * `domain_name`: Name of the domain to host the Nextcloud instance.
 
@@ -194,7 +194,7 @@ Before you begin deploying a fault-tolerant configuration, add your domain to Ne
 
 ### Scale the infrastructure for the fault-tolerant configuration {#create-failsafe-infrastructure}
 
-1. Set up your infrastructure description files:
+1. Prepare your infrastructure description files:
 
     {% list tabs group=infrastructure_description %}
 
@@ -216,7 +216,7 @@ Before you begin deploying a fault-tolerant configuration, add your domain to Ne
 
     {% endlist %}
 
-    For more information about the properties of resources added to {{ TF }}, refer to the relevant provider guides:
+    For more information about the properties of resources you can add in {{ TF }}, see this provider guide:
     * [Disk snapshot](../../../compute/concepts/snapshot.md): [yandex_compute_snapshot]({{ tf-provider-resources-link }}/compute_snapshot)
     * [DNS zone](../../../dns/concepts/dns-zone.md): [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone)
     * [TLS certificate](../../../certificate-manager/concepts/managed-certificate.md): [yandex_cm_certificate]({{ tf-provider-resources-link }}/cm_certificate)

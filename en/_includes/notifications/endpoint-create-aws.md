@@ -11,4 +11,4 @@ Where:
 
 As a result, you will get a mobile endpoint ID (ARN). Save it for future use.
 
-For more information about the `aws sns create-platform-endpoint` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-endpoint.html).
+For more on the `aws sns create-platform-endpoint` command, see [this AWS guide](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/create-platform-endpoint.html).

@@ -1,31 +1,31 @@
 ---
-title: How to upload a data schema to {{ yq-full-name }}
-description: Follow this guide to upload a data schema.
+title: Uploading a data schema to {{ yq-full-name }}
+description: In this tutorial, you will learn how to upload a data schema.
 ---
 
-# Uploading a schema
+# Uploading a data schema
 
-To simplify repetitive actions related to data schema setup and [data binding](../concepts/glossary.md#binding), you can prepare a file with data schemas and upload it. For this, follow these steps:
+To streamline the repetitive steps when configuring schemas for [data bindings](../concepts/glossary.md#binding), you can prepare a file with schemas and then upload it. To do this, follow these steps:
 
-1. In the [management console]({{ link-console-main }}), select the folder where you want to change a data binding.
+1. In the [management console]({{ link-console-main }}), select the folder containing the data binding you want to update.
 1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}**.
-1. In the line with the binding name, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yql.yq-binding-actions.edit-binding.menu-item-text }}**.
-1. Click **{{ ui-key.yql.yq-binding-form.action_upload-schema-file }}** and select the [data schema](#schema) file.
+1. Locate the binding you need in the list, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yql.yq-binding-actions.edit-binding.menu-item-text }}**.
+1. Click **{{ ui-key.yql.yq-binding-form.action_upload-schema-file }}** and select your [schema](#schema) file.
 1. Click **{{ ui-key.yql.yq-binding-form.binding-modify.button-text }}**.
 
 ## Data schemas {#schema}
 
-We support multiple data schema formats:
-1. [Text format](#txt_schema)
-1. [JSON format](#json_schema)
-1. [{{ data-transfer-name }}](../../data-transfer/operations/endpoint/source/data-streams.md#additional-settings) compatible [JSON format](#json_schema_data_transfer)
+We support multiple schema formats:
+1. [Plain text](#txt_schema).
+1. [JSON](#json_schema).
+1. [JSON](#json_schema_data_transfer) compatible with [{{ data-transfer-name }}](../../data-transfer/operations/endpoint/source/data-streams.md#additional-settings).
 
-### Text format {#txt_schema}
+### Plain text {#txt_schema}
 
-The text format of a data schema closely resembles the SQL data definition syntax and consists of the `SCHEMA` keyword and a list of fields with types. Existing data schemas can only be exported from {{ yq-full-name }} in this format.
+The plain-text schema format is very similar to the SQL DDL syntax: it includes the `SCHEMA` keyword, a list of fields, and their corresponding data types. This is the only export format for data schemas in {{ yq-full-name }}.
 
-Here is an example of a data schema in text format:
+Here is an example of a schema in plain-text format:
 
 ```
 SCHEMA=(
@@ -39,12 +39,12 @@ Where:
 * `String`: Field type.
 * `NOT NULL`: Flag indicating a required field in the source data.
 
-### JSON format {#json_schema}
+### JSON {#json_schema}
 
-JSON schema format is designed for importing data schemas from external systems. The JSON format consists of records defining fields, their types, and flags showing whether fields are required.
+JSON format is used for importing schemas from external systems. A schema in JSON format is a set of properties defining field names, data types, and required flags.
 
 
-Here is an example of a data schema in JSON format:
+Here is an example of a schema in JSON format:
 
 ```
 [
@@ -70,7 +70,7 @@ Where:
 
 This format is intended for compatible description of data schemas across various systems. This JSON format consists of a set of records defining fields and their types, with all fields considered optional in the source data.
 
-Here is an example of a data schema:
+Schema example:
 
 ```
 [
@@ -89,7 +89,7 @@ Where:
 * `billing_account_id`: Field name.
 * `String`: Field type.
 
-To ensure compatibility between {{ yq-full-name }} and {{ data-transfer-name }}, we recommend the following data types:
+To ensure compatibility between {{ yq-full-name }} and {{ data-transfer-name }}, we recommend using the following data types:
 * INT64
 * INT32
 * INT16

@@ -34,7 +34,7 @@ Custom certificate requirements:
 
 ## Renewing a certificate {#renew}
 
-{{ certificate-manager-name }} does not manage custom certificates. To make your certificate continuously available to your resources, be sure to renew it on time.
+{{ certificate-manager-name }} does not manage custom certificates. To make your certificate continuously available to your resources, make sure to renew it on time.
 
 To renew a certificate: 
 1. Get a new TLS certificate from a third-party certificate authority.
@@ -48,6 +48,6 @@ To renew a certificate:
 * [{#T}](../tutorials/virtual-hosting.md)
 * [{#T}](../tutorials/tls-termination/index.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
-* [Integration with {{ yandex-cloud }} services](services.md)
+* [Integration with the {{ yandex-cloud }} services](services.md)

@@ -58,7 +58,7 @@ These settings apply to {{ TF }} `0.13` and higher. We recommend using the lates
    }
    ```
 
-   For more information about setting up mirrors, see the [documentation](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
+   For more information on mirror settings, see [this guide](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
 1. At the beginning of the `.tf` configuration file, add the following sections:
 
    
@@ -103,4 +103,4 @@ Where:
 
 If you used the [{{ TF }} modules](../../tutorials/infrastructure-management/terraform-modules.md), first run `terraform init`, then delete the lock file. After that, run the `terraform providers lock` command.
 
-For more information about the `terraform providers lock` command, see [this {{ TF }} article](https://developer.hashicorp.com/terraform/cli/commands/providers/lock).
+Learn more about the `terraform providers lock` command in [this {{ TF }} guide](https://developer.hashicorp.com/terraform/cli/commands/providers/lock).

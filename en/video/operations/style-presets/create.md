@@ -37,7 +37,7 @@ description: Follow this guide to create a player preset in {{ video-full-name }
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](update.md)
 * [{#T}](delete.md)

@@ -45,7 +45,7 @@ To create an infrastructure using {{ TF }}:
 
    {% endlist %}
 
-   For more information about {{ TF }} resource properties, see the relevant provider guides:
+   For more on the properties of resources used in {{ TF }}, see these provider guides:
 
     * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
     * [Subnets](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).

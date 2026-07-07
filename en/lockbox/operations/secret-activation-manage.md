@@ -106,6 +106,6 @@ A secret can be either active or deactivated. When a secret is active, it enable
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../concepts/secret.md)

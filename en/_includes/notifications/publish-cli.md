@@ -12,4 +12,4 @@ Where:
   * `message-structure`: Message format (`json`).
   * `message`: Notification text or path to the notification file. To send different notifications depending on channel type, specify the channel and notification text: If some channel is not specified, the default message will be sent.
 
-For more information about the `aws sns publish` command, see the [AWS documentation](https://docs.amazonaws.cn/en_us/sns/latest/dg/sns-publish-to-topic.html).
+Learn more about the `aws sns publish` command in [this AWS guide](https://docs.amazonaws.cn/en_us/sns/latest/dg/sns-publish-to-topic.html).

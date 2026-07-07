@@ -12,9 +12,9 @@ POST https://{{ cns-host }}/
 
 Parameter | Description
 --- | ---
-`Action` | **string**<br/>This is a required field.<br/>Parameter that indicates the type of operation.<br/>Value: `DeletePlatformApplication`.
-`PlatformApplicationArn` | **string**<br/>This is a required field.<br/>ID of a mobile push notification channel.<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:app/GCM/test-cns-9990`.
-`ResponseFormat` | **string**<br/>Response format.<br/>Possible values:<ul><li>`XML` (default).</li><li>`JSON`.</li></ul>
+`Action` | **string**<br/>Required field.<br/>Operation type parameter.<br/>Value: `DeletePlatformApplication`.
+`PlatformApplicationArn` | **string**<br/>Required field.<br/>Mobile push notification channel ID.<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:app/GCM/test-cns-9990`.
+`ResponseFormat` | **string**<br/>Response format.<br/>The possible values are:<ul><li>`XML` (default).</li><li>`JSON`.</li></ul>
 
 ## Response {#response}
 
@@ -59,7 +59,7 @@ In case of an error, {{ cns-name }} returns a message with the appropriate HTTP 
 
 For a list of common error codes for all actions, see [{#T}](common-errors.md).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)

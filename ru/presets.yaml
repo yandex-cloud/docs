@@ -1483,14 +1483,6 @@ default:
         internal: dn2djih21mipc4jo77uk
       ingress:
         internal: dn2dj452r5cbun6bv52e
-  pc|security_deck:
-    access_transparency:
-      subscription:
-        v1: dn27wruc3zutdqdc45cg
-    cspm:
-      resources: dn2muudyflujxdk7e32n
-    kspm:
-      nodes: dn2ukunmpcmrnab3u5ko
   pc|storage:
     api:
       network:
@@ -3201,6 +3193,8 @@ default:
         label_credit-cudCredit: Скидка на резервируемое потребление
         label_credit-monetaryGrantCredit: Грант
         label_credit-volumeIncentiveCredit: Скидка за объём потребления
+        label_deselected-all: Очистить
+        label_selected-all: Выбрать все
         value_empty_clouds_folders: Все облака и каталоги
         value_empty_service_instances: Все рабочие пространства
       billing-widget:
@@ -3329,7 +3323,6 @@ default:
             value_grants: Гранты
           overview:
             account-data_label_organization: Организация
-            button_bind-card-apply: Применить
             card_label_edit: Изменить банковскую карту
             company_label_rs: Расчетный счет
             payment-type_label_card: Банковская карта
@@ -3575,6 +3568,10 @@ default:
         title_description: Описание
         title_name: Название
       aside-navigation:
+        all-panel:
+          menu:
+            category:
+              explore: Обзор
         menu-item:
           alerts:
             title: Алерты
@@ -3588,6 +3585,8 @@ default:
             title: Метрики
           logs-analytics:
             title: Ошибки
+          logs-metrics:
+            title: Метрики по логам
           logs:
             title: Логи
           notification-feed:
@@ -3696,6 +3695,21 @@ default:
         button_dashboards-action: Создать дашборд
         title_service-dashboards: Сервисные дашборды
         title_service-features: Возможности сервиса
+      logs-metrics:
+        form:
+          block:
+            group-by: Группировать по
+            log-selector: Селектор логов
+          row:
+            aggregate-function-key-value: Функция агрегации
+            window: Окно вычисления
+        view:
+          field:
+            output-metric: Итоговая метрика
+      logs:
+        logs-metrics:
+          create: Создать метрику
+          title: Метрики по логам
       monitoring-alerts-channels:
         method:
           ya-chats: Яндекс Мессенджер
@@ -3957,11 +3971,12 @@ default:
         MyAccountLayout:
           activity_kyqSv: Активность
           groups_pqQRu: Группы
-          logout_nXPin: Выйти из аккаунта
           profile_8kyBA: Профиль
           security_7zQ3g: Вход и безопасность
         OrganizationSelect:
           action_create-organization_j1Yin: Создать организацию
+        SwitchAccountAside:
+          action_switch-account_1aB2c: Сменить аккаунт
       cloud-components:
         AclDashboard:
           action_assign-roles_41Nj1: Назначить роли
@@ -4296,8 +4311,6 @@ default:
           AuthBrandingForm:
             clearAllAction: Сбросить все
             loginSection:
-              alternativeEntryLabel: Альтернативные способы входа
-              placeholderLabel: Подсказка в поле для входа
               title: Форма входа
               welcomeLabel: Приветствие
             styleSection:
@@ -4538,7 +4551,12 @@ default:
             standards_iv6a5: Наборы требований
             verificationMethod_dS9B2: Тип правила
             violations_q7AcU: Нарушения
+          RuleExceptions:
+            placeholder_action_t5zxy: Создать исключение
+          RuleOverview:
+            scan_kind_8Kgmz: Тип правила
           RulePageLayout:
+            tab_exceptions_pHKkb: Исключения
             tab_overview_s9riS: Обзор
             tab_recommendations_qq61Z: Рекомендации
             tab_violations_dkbdT: Нарушения
@@ -4547,7 +4565,6 @@ default:
             field_reason_qN8a7: Причина исключения
             field_rules_vBK4W: Правила
             field_type_exclude_cigcD: Проверка не требуется
-            field_type_kCG8J: Тип исключения
             field_type_manual_mbKxp: Проверено вручную
         discovery:
           action_include-in-scan_2wT6B: Добавить к сканированию
@@ -4613,6 +4630,16 @@ default:
             section_organization_resources_title_5u8qX: Общие ресурсы организации
             section_user_resources_title_aN75p: Пользовательские ресурсы
         kspm:
+          ControlModeSelect:
+            action_disable_enforce_oYV96: Отключить режим блокировки
+            action_enable_enforce_bdsK9: Включить режим блокировки
+            label_mode_rDqYa: Режим
+            value_audit_jtY6w: Аудит
+            value_enforce_ttbjL: Блокировка
+          KspmExceptionForm:
+            section-title_mode: Эффект
+            title_audit: Отключить режим блокировки для правила
+            title_ignore: Игнорировать правило
           TopControlsByErrorsWidget:
             table_controls_rJ32E: Топ правил с алертами
         settings:
@@ -8242,9 +8269,9 @@ default:
           label_paranoia-level: Уровень паранойи
           label_paranoia-option-1: Только 1
           label_profiles: Профили WAF
+          label_request-condition_33CzA: Область применения
           label_save-settings: Сохранить настройки
           title_exclusion-rule-condition-section: Условия на трафик
-          title_exclusion-rule-rules-section: Область применения
           title_exclusion-rules: Правила-исключения
           value_exclude-all-yes: Все правила
       smartcaptcha:
@@ -9536,7 +9563,7 @@ default:
                         title: Схема результирующей таблицы
                     ObjectStorageSourceAdvancedSettings:
                       unparsed_mode:
-                        title: Тип не определён
+                        title: Политика обработки unparsed
                     ObjectStorageTarget:
                       advanced_settings:
                         title: Расширенные настройки

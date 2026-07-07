@@ -248,6 +248,6 @@ You can edit basic [rules](../concepts/rules.md), as well as Smart Protection an
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](rule-delete.md)

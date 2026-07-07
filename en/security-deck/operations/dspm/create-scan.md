@@ -28,7 +28,7 @@ description: Follow this tutorial to create scans in {{ sd-full-name }} {{ dspm-
       
       {% note info %}
 
-      If access to the bucket is controlled by a [policy](../../../storage/security/policy.md#conditional-writes-policy), allow access to the {{ sd-name }} IP addresses in the bucket policy settings. For a list of addresses, see [Public IP address ranges](../../../overview/concepts/public-ips.md#security-deck-ips).
+      If access to the bucket is controlled by a [policy](../../../storage/security/policy.md#conditional-writes-policy), allow access to {{ sd-name }} IP addresses in the bucket policy settings. For a list of addresses, see [Public IP address ranges](../../../overview/concepts/public-ips.md#security-deck-ips).
 
       {% endnote %}
 
@@ -77,7 +77,7 @@ description: Follow this tutorial to create scans in {{ sd-full-name }} {{ dspm-
 {% endlist %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./create-data-source.md)
 * [{#T}](../../concepts/dspm.md)

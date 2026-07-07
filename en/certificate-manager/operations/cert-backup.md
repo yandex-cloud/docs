@@ -143,6 +143,6 @@ To restore a user certificate from the certificate chain and key files:
 
 If you restore a saved [Let's Encrypt certificate](../concepts/managed-certificate.md), it becomes a [custom](../concepts/imported-certificate.md) one. To [renew](../operations/import/cert-update.md) this certificate, download its latest version yourself.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](import/cert-create.md)

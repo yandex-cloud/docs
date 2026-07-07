@@ -119,17 +119,23 @@ editable: false
             ]
           }
         ],
-        // Includes only one of the fields `http`, `tls`, `stream`
+        // Includes only one of the fields `stream`, `http`, `tls`
+        "stream": {
+          "handler": {
+            "backendGroupId": "string",
+            "idleTimeout": "string"
+          }
+        },
         "http": {
           "handler": {
             "httpRouterId": "string",
+            "rewriteRequestId": "boolean",
             // Includes only one of the fields `http2Options`, `allowHttp10`
             "http2Options": {
               "maxConcurrentStreams": "string"
             },
             "allowHttp10": "boolean",
             // end of the list of possible fields
-            "rewriteRequestId": "boolean",
             "preserveHttp1HeaderCasing": "boolean"
           },
           "redirects": {
@@ -138,21 +144,21 @@ editable: false
         },
         "tls": {
           "defaultHandler": {
-            // Includes only one of the fields `httpHandler`, `streamHandler`
+            // Includes only one of the fields `streamHandler`, `httpHandler`
+            "streamHandler": {
+              "backendGroupId": "string",
+              "idleTimeout": "string"
+            },
             "httpHandler": {
               "httpRouterId": "string",
+              "rewriteRequestId": "boolean",
               // Includes only one of the fields `http2Options`, `allowHttp10`
               "http2Options": {
                 "maxConcurrentStreams": "string"
               },
               "allowHttp10": "boolean",
               // end of the list of possible fields
-              "rewriteRequestId": "boolean",
               "preserveHttp1HeaderCasing": "boolean"
-            },
-            "streamHandler": {
-              "backendGroupId": "string",
-              "idleTimeout": "string"
             },
             // end of the list of possible fields
             "certificateIds": [
@@ -172,21 +178,21 @@ editable: false
                 "string"
               ],
               "handler": {
-                // Includes only one of the fields `httpHandler`, `streamHandler`
+                // Includes only one of the fields `streamHandler`, `httpHandler`
+                "streamHandler": {
+                  "backendGroupId": "string",
+                  "idleTimeout": "string"
+                },
                 "httpHandler": {
                   "httpRouterId": "string",
+                  "rewriteRequestId": "boolean",
                   // Includes only one of the fields `http2Options`, `allowHttp10`
                   "http2Options": {
                     "maxConcurrentStreams": "string"
                   },
                   "allowHttp10": "boolean",
                   // end of the list of possible fields
-                  "rewriteRequestId": "boolean",
                   "preserveHttp1HeaderCasing": "boolean"
-                },
-                "streamHandler": {
-                  "backendGroupId": "string",
-                  "idleTimeout": "string"
                 },
                 // end of the list of possible fields
                 "certificateIds": [
@@ -201,12 +207,6 @@ editable: false
               }
             }
           ]
-        },
-        "stream": {
-          "handler": {
-            "backendGroupId": "string",
-            "idleTimeout": "string"
-          }
         }
         // end of the list of possible fields
       }
@@ -451,15 +451,15 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || name | **string** ||
 || endpoints[] | **[Endpoint](#yandex.cloud.apploadbalancer.v1.Endpoint)** ||
-|| http | **[HttpListener](#yandex.cloud.apploadbalancer.v1.HttpListener)**
-
-Includes only one of the fields `http`, `tls`, `stream`. ||
-|| tls | **[TlsListener](#yandex.cloud.apploadbalancer.v1.TlsListener)**
-
-Includes only one of the fields `http`, `tls`, `stream`. ||
 || stream | **[StreamListener](#yandex.cloud.apploadbalancer.v1.StreamListener)**
 
-Includes only one of the fields `http`, `tls`, `stream`. ||
+Includes only one of the fields `stream`, `http`, `tls`. ||
+|| http | **[HttpListener](#yandex.cloud.apploadbalancer.v1.HttpListener)**
+
+Includes only one of the fields `stream`, `http`, `tls`. ||
+|| tls | **[TlsListener](#yandex.cloud.apploadbalancer.v1.TlsListener)**
+
+Includes only one of the fields `stream`, `http`, `tls`. ||
 |#
 
 ## Endpoint {#yandex.cloud.apploadbalancer.v1.Endpoint}
@@ -511,6 +511,21 @@ Includes only one of the fields `externalIpv4Address`, `internalIpv4Address`, `e
 || address | **string** ||
 |#
 
+## StreamListener {#yandex.cloud.apploadbalancer.v1.StreamListener}
+
+#|
+||Field | Description ||
+|| handler | **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)** ||
+|#
+
+## StreamHandler {#yandex.cloud.apploadbalancer.v1.StreamHandler}
+
+#|
+||Field | Description ||
+|| backendGroupId | **string** ||
+|| idleTimeout | **string** (duration) ||
+|#
+
 ## HttpListener {#yandex.cloud.apploadbalancer.v1.HttpListener}
 
 #|
@@ -524,13 +539,13 @@ Includes only one of the fields `externalIpv4Address`, `internalIpv4Address`, `e
 #|
 ||Field | Description ||
 || httpRouterId | **string** ||
+|| rewriteRequestId | **boolean** ||
 || http2Options | **[Http2Options](#yandex.cloud.apploadbalancer.v1.Http2Options)**
 
 Includes only one of the fields `http2Options`, `allowHttp10`. ||
 || allowHttp10 | **boolean**
 
 Includes only one of the fields `http2Options`, `allowHttp10`. ||
-|| rewriteRequestId | **boolean** ||
 || preserveHttp1HeaderCasing | **boolean** ||
 |#
 
@@ -560,24 +575,16 @@ Includes only one of the fields `http2Options`, `allowHttp10`. ||
 
 #|
 ||Field | Description ||
-|| httpHandler | **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
-
-Includes only one of the fields `httpHandler`, `streamHandler`. ||
 || streamHandler | **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)**
 
-Includes only one of the fields `httpHandler`, `streamHandler`. ||
+Includes only one of the fields `streamHandler`, `httpHandler`. ||
+|| httpHandler | **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
+
+Includes only one of the fields `streamHandler`, `httpHandler`. ||
 || certificateIds[] | **string**
 
-The number of elements must be greater than 0. ||
+The string length in characters for each value must be greater than 1. The maximum number of elements is 1. ||
 || clientCertificatesVerification | **[ClientCertificatesVerification](#yandex.cloud.apploadbalancer.v1.ClientCertificatesVerification)** ||
-|#
-
-## StreamHandler {#yandex.cloud.apploadbalancer.v1.StreamHandler}
-
-#|
-||Field | Description ||
-|| backendGroupId | **string** ||
-|| idleTimeout | **string** (duration) ||
 |#
 
 ## ClientCertificatesVerification {#yandex.cloud.apploadbalancer.v1.ClientCertificatesVerification}
@@ -597,15 +604,8 @@ Includes only one of the fields `bytes`. ||
 || name | **string** ||
 || serverNames[] | **string**
 
-The number of elements must be greater than 0. ||
+The string length in characters for each value must be 1-255. Each value must match the regular expression ` ([*].)?[-.a-z0-9]+ `. The number of elements must be greater than 0. ||
 || handler | **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler)** ||
-|#
-
-## StreamListener {#yandex.cloud.apploadbalancer.v1.StreamListener}
-
-#|
-||Field | Description ||
-|| handler | **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)** ||
 |#
 
 ## AllocationPolicy {#yandex.cloud.apploadbalancer.v1.AllocationPolicy}
@@ -644,7 +644,9 @@ Acceptable values are 0 to 1000, inclusive. ||
 
 #|
 ||Field | Description ||
-|| logGroupId | **string** ||
+|| logGroupId | **string**
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `. ||
 || discardRules[] | **[LogDiscardRule](#yandex.cloud.apploadbalancer.v1.LogDiscardRule)** ||
 || disable | **boolean** ||
 |#

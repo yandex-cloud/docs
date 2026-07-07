@@ -2,8 +2,8 @@
 
 To create an infrastructure using {{ TF }}:
 
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
-1. Prepare files with the infrastructure description:
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
+1. Set up your infrastructure description files:
 
    {% list tabs group=infrastructure_description %}
 
@@ -15,13 +15,13 @@ To create an infrastructure using {{ TF }}:
         git clone https://github.com/yandex-cloud-examples/yc-bitrix-website.git
         ```
 
-     1. Navigate to the repository directory. Make sure it contains the following files:
-        * `bitrix-website.tf`: Your infrastructure configuration.
+     1. Navigate to the repository directory. It should now contain the following files:
+        * `bitrix-website.tf`: New infrastructure configuration.
         * `bitrix-website.auto.tfvars`: User data file.
 
    - Manually {#manual}
 
-     1. Create a directory for configuration files.
+     1. Create a folder for configuration files.
      1. In the directory, create:
         1. `bitrix-website.tf` configuration file:
 
@@ -37,9 +37,9 @@ To create an infrastructure using {{ TF }}:
 
            ```hcl
            folder_id      = "<folder_ID>"
-           vm_user        = "<VM_username>"
+           vm_user        = "<VM_user_name>"
            ssh_key_path   = "<path_to_file_with_public_SSH_key>"
-           mysql_user     = "<DB_username>"
+           mysql_user     = "<DB_user_name>"
            mysql_password = "<DB_user_password>"
            ```
 
@@ -47,7 +47,7 @@ To create an infrastructure using {{ TF }}:
 
    {% endlist %}
 
-   For more information about the properties of {{ TF }} resources, see the provider documentation:
+   For more on the properties of resources used in {{ TF }}, see these provider guides:
 
    * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
    * [Subnets](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
@@ -55,15 +55,15 @@ To create an infrastructure using {{ TF }}:
    * [Image](../../compute/concepts/image.md): [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image).
    * [Disk](../../compute/concepts/disk.md): [yandex_compute_disk]({{ tf-provider-resources-link }}/compute_disk).
    * [VM instance](../../compute/concepts/vm.md): [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
-   * [MySQL cluster: [yandex_mdb_mysql_cluster]({{ tf-provider-resources-link }}/mdb_mysql_cluster).
+   * [MySQL cluster](../../managed-mysql/concepts/index.md): [yandex_mdb_mysql_cluster]({{ tf-provider-resources-link }}/mdb_mysql_cluster).
    * Database: [yandex_mdb_mysql_database]({{ tf-provider-resources-link }}/mdb_mysql_database).
    * DB user: [yandex_mdb_mysql_user]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
 1. In the `bitrix-website.auto.tfvars` file, set the following user-defined properties:
    * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-   * `vm_user`: VM username.
-   * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-   * `mysql_user`: Username for connecting to the {{ MY }} DB. To complete this tutorial, specify `user1`.
+   * `vm_user`: VM user name.
+   * `ssh_key_path`: Path to the public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `mysql_user`: User name for connection to the {{ MY }} DB. To complete this tutorial, specify `user1`.
    * `mysql_password`: User password to access the {{ MY }} DB. To complete this tutorial, specify `p@s$woRd!`.
 1. Create the resources:
 

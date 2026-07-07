@@ -75,7 +75,7 @@ description: Follow this guide to edit basic ARL profile settings.
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](arl-profile-delete.md)
 * [{#T}](arl-rule-add.md)

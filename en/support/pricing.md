@@ -64,7 +64,7 @@ The price is calculated based on the fixed part and your consumption in the curr
 {% include [usd.md](../_pricing/support/usd-business-2023.md) %}
 
 
-Calculating the support fee (5% of the cost of consumed resources) includes your adjustments, subscriptions, and a committed volume of services under the billing account linked to your organization and paying for support services. When calculating the support fee (5% of the cost of consumed resources), the cost of {{ marketplace-name }} products is excluded. See [this example of cost calculation](#business-example-one-ba-cvos).
+Calculating the support fee (5% of the cost of consumed resources) includes your adjustments, subscriptions, and a committed volume of services under the billing account linked to your organization and paying for support services. When calculating the support fee (5% of the cost of consumed resources), the cost of {{ marketplace-name }} products is excluded as shown in [this cost calculation example](#business-example-one-ba-cvos).
 
 #### Example of calculating the cost for an organization whose resources are paid from a single billing account {#business-example-one-ba}
 

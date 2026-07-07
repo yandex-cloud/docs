@@ -55,7 +55,7 @@ Types of information to collect (inputs), pipes (filters), interim storage space
 ## Inputs {#inputs}
 An input is used by the agent to receive the messages transmitted during sessions. An input can contain the session infrastructure settings used to configure various limits.
 
-See the [list of available inputs](inputs.md).
+See also the [list of available inputs](inputs.md).
 
 ## Outputs {#outputs}
 
@@ -93,13 +93,13 @@ See also the [pipe configuration guide](routing.md#pipes).
 
 ### Channels {#channels}
 
-Channels group a pipe with a node, one of an output, a named channel, or a splitter.
+Channels group together a pipe and one of the nodes: output, named channel, or splitter.
 
-A splitter allows you to specify a set of channels and copy the incoming message to each one of its channels. You can use splitters to duplicate streams to different outputs. By combining splitters and filters, you can send different messages to different channels based on particular attributes such as metadata.
+Splitters let you specify a set of channels, copying incoming messages to each of them. You can use splitters to duplicate streams to different outputs. By combining splitters and filters, you can send different messages to different channels based on particular attributes such as metadata.
 
 Channels can be named.
 
-See the [named channel configuration guide](routing.md#channels).
+See also the [named channel configuration guide](routing.md#channels).
 
 ### Routes {#routes}
 

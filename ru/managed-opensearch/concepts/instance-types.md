@@ -18,7 +18,9 @@ description: Из статьи вы узнаете про классы хост�
 
 Ниже приведен полный список возможных конфигураций групп хостов на каждой из платформ.
 
-{% include [zone-d-disk-restrictions](../../_includes/mdb/ru-central1-d-local-ssd.md) %}
+{% include [disk-flavor-dependencies](../../_includes/mdb/disk-flavor-dependencies.md) %}
+
+Например, в `{{ region-id }}-d` недоступны платформы Intel Broadwell и хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.
 
 Типы конфигураций:
 
