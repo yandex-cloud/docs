@@ -1,17 +1,17 @@
-## Creating query templates using the mustache syntax {#templating}
+## Query templating using Mustache syntax {#templating}
 
-You can use the templates of the computations exchanged between {{ jlab }} and {{ yq-name }} to work with queries or perform standard operations without writing code. For this purpose, {{ yq-name }} has built-in support for the [mustache syntax](https://mustache.github.io) for queries, where all keywords and template directives are placed inside the `{{}}` key symbols. You can use the mustache syntax with [Jinja2](https://jinja.palletsprojects.com/en/3.1.x/) or in a built-in mustache interpreter.
+You can use query templates shared between {{ jlab }} and {{ yq-name }} to work with queries and perform routine operations without writing any code. For this, {{ yq-name }} comes with built-in [Mustache syntax](https://mustache.github.io) support. You can use it to write queries, placing all template keywords and directives inside double curly brackets (`{{}}`). You can use Mustache syntax either with [Jinja2](https://jinja.palletsprojects.com/en/3.1.x/) or with the built-in Mustache interpreter.
 
-The {{ yq-name }} built-in mustache templates allow you to insert variables from the {{ jlab }} runtime environment directly into SQL queries. Such variables will also be automatically converted into the required {{ yq-name }} data structures. For example:
+Built-in mustache templates {{ `yq-name` }} allow you to insert {{ jlab }} runtime variables into SQL queries. Such variables will be automatically converted into required {{ yq-name }} data structures. Here is an example:
 
 ```python
 myQuery = "select * from Departments"
 %yq not_var{{myQuery}}
 ```
 
-The `not_var{{myQuery}}` mustache string will be interpreted as the name of the source variable for the text, and `select * from Departments` will be sent to {{ yq-name }} for execution.
+The system will interpret the `not_var{{myQuery}}` Mustache string as the name of the variable containing the required text and will send `select * from Departments` to {{ yq-name }} for execution.
 
-Using mustache templates streamlines the integration between {{ jlab }} and {{ yq-name }}. Let's assume you have the `lst=["Academy", "Physics"]` Python list containing the names of departments whose data you want to process. Without the mustache syntax support in {{ yq-name }}, first, you would need to convert the Python list into a string and then input it into the SQL query. Query example:
+Mustache templates streamline {{ jlab }} and {{ yq-name }} integration. Suppose you have a Python list `lst=["Academy", "Physics"]` containing the names of departments whose data you want to process. If {{ yq-name }} did not support Mustache syntax, you would need to convert the Python list into a string first and then insert it into your SQL query. Query example:
 
 ```python
 var lstStr = ",".join(lst)
@@ -19,13 +19,13 @@ sqlQuery = f'select "Academy" in ListCreate({lstStr});
 %yq not_var{{sqlQuery}}
 ```
 
-I.e., working with complex data types requires a detailed knowledge of the {{ yq-name }} SQL syntax. With the mustache syntax, you can write a much simpler query:
+This example showcases how working with complex data types requires you to understand the specifics of {{ yq-name }} SQL syntax. With Mustache syntax, the query becomes simpler:
 
 ```sql
 %yq select "Academy" in not_var{{lst}}
 ```
 
-Here, `lst` will be identified as a Python list and automatically get the correct SQL structure for list processing. This is the final query that will be sent to {{ yq-name }}:
+Here, the system will automatically recognize `lst` as a Python list, insert the SQL fragment required for list processing, and send the following query text to {{ yq-name }}:
 
 ```sql
 %yq select "Academy" in ListCreate("Academy", "Physics") as lst
@@ -33,7 +33,7 @@ Here, `lst` will be identified as a Python list and automatically get the correc
 
 ### Jinja2 {#jinja2}
 
-To perform standard tasks in {{ jlab }} and {{ yq-name }}, we recommend using the built-in mustache syntax. For more advanced templating, you can use Jinja2.
+We recommend using the built-in Mustache syntax for routine tasks in {{ jlab }} and {{ yq-name }}. For advanced templating, use Jinja2.
 
 To install Jinja2, run this command:
 
@@ -41,7 +41,7 @@ To install Jinja2, run this command:
 %pip install Jinja2
 ```
 
-Example of using a Jinja template with the `for` cycle:
+Example of using a Jinja template with the `for` loop:
 
 ```python
 {% for user in users %}
@@ -49,7 +49,7 @@ Example of using a Jinja template with the `for` cycle:
 {% endfor %}
 ```
 
-You can also use Jinja templates to perform various data processing operations. This example illustrates operations performed on department names based on whether the student belongs to the department:
+You can also use Jinja templates for data processing operations. In the following example, the operations performed on the department name vary based on the student’s department:
 
 ```python
 {% if student.department == "Academy" %}
@@ -59,23 +59,23 @@ You can also use Jinja templates to perform various data processing operations. 
 {% endif %}
 ```
 
-To make sure Jinja conversions comply with the {{ yq-name }} rules, use the special `to_yq` filter. Here is what the `lst=["Academy", "Physics"]` Python list from the above example looks like in a Jinja template:
+To make Jinja convert data according to {{ yq-name }} rules, use the `to_yq` filter. Here is how the Python list from the previous example (`lst=["Academy", "Physics"]`) looks in a Jinja template:
 
 ```sql
 %%yq --jinja2
 select "Academy" in not_var{{lst|to_yq}}
 ```
 
-If you need to disable templating, use the `--no-var-expansion` argument:
+To disable templating, use the `--no-var-expansion` argument:
 
 ```sql
 %%yq --no-var-expansion
 ...
 ```
 
-### Built-in mustache templates {#embedded_mustache}
+### Built-in Mustache templates {#embedded_mustache}
 
-In {{ yq-full-name }}, the built-in mustache templates are enabled by default and help to streamline basic operations with {{ jlab }} variables:
+Built-in mustache templates are enabled by default in {{ yq-full-name }} to streamline basic operations with {{ jlab }} variables:
 
 ```python
 lst=["Academy", "Physics"]
@@ -87,9 +87,9 @@ lst=["Academy", "Physics"]
 
 #### Using Pandas DataFrame variables {#capture-dataframe}
 
-Here is an example of using `yandex_query_magic` and the mustache syntax with [Pandas DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html):
+Here is an example of using `yandex_query_magic` and Mustache syntax with [Pandas DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html):
 
-1. Declare the variable in {{ jlab }}:
+1. Define a variable in {{ jlab }}:
 
     ```python
     df = pandas.DataFrame({'_float': [1.0],
@@ -98,9 +98,9 @@ Here is an example of using `yandex_query_magic` and the mustache syntax with [P
                         '_string': ['foo']})
     ```
 
-You can use `df` as a variable in queries to {{ yq-full-name }}. During query execution, the `df` value is used to create a temporary table also named `df`. The table can be used within the {{ yq-full-name }} query that is currently running.
+You can use the `df` variable when querying {{ yq-full-name }}. During query execution, the system uses the `df` value to create a temporary table also named `df`. This table can then be used within the {{ yq-full-name }} query.
 
-1. Get the data:
+1. Retrieve the data:
 
     ```sql
     %%yq
@@ -111,26 +111,26 @@ You can use `df` as a variable in queries to {{ yq-full-name }}. During query ex
         ON mytable.id=df._int
     ```
 
-Table of Pandas types mapping to {{ yq-name }} types:
+Pandas to {{ yq-name }} type mapping:
 
 | Pandas type | YQL type | Note |
 |-----|-----|-----|
-| int64 | Int64 | Exceeding the `int64` limit will result in a query execution error. |
+| int64 | Int64 | Exceeding the `int64` limit will result in a query error. |
 | float64 | Double ||
-| datetime64[ns] | Timestamp | Precision to the microsecond. Specifying nanoseconds ([in the `nanosecond` field](https://pandas.pydata.org/docs/user_guide/timeseries.html#time-date-components)) will return an exception. |
+| datetime64[ns] | Timestamp | Microsecond precision. Entering nanoseconds [in the `nanosecond` field](https://pandas.pydata.org/docs/user_guide/timeseries.html#time-date-components) will raise an exception. |
 | str | String ||
 
 #### Using Python dict variables {#capture-dict}
 
-Here is an example of using `yandex_query_magic` and the mustache syntax with a Python dict:
+Here is an example of using `yandex_query_magic` with Mustache syntax and a Python dict:
 
-1. Declare the variable in {{ jlab }}:
+1. Define a variable in {{ jlab }}:
 
     ```python
     dct = {"a": "1", "b": "2", "c": "test", "d": "4"}
     ```
 
-    Now you can use the `dct` variable directly in {{ yq-name }} queries. When you execute a query, `dct` will be converted into the relevant [YQL Dict]({{ ydb.docs }}/yql/reference/builtins/dict) object:
+    Now you can use the `dct` variable in {{ yq-name }} queries. At query runtime, the system will convert `dct` into the relevant [YQL Dict]({{ ydb.docs }}/yql/reference/builtins/dict) object:
 
     | Key | Value |
     |---|---|
@@ -139,23 +139,23 @@ Here is an example of using `yandex_query_magic` and the mustache syntax with a 
     | c | "test" |
     | d | "4" |
 
-1. Get the data:
+1. Retrieve the data:
 
     ```sql
     %%yq
     SELECT "a" in not_var{{dct}}
     ```
 
-Table of Python dict types mapping to {{ yq-name }} types:
+Python dict to {{ yq-name }} type mapping:
 
 | Python type | YQL type | Note |
 |-----|-----|-----|
-| int | Int64 | Exceeding the int64 limit will result in a query execution error. |
+| int | Int64 | Exceeding the int64 limit will result in a query error. |
 | float | Double ||
 | datetime | Timestamp ||
 | str | String ||
 
-You can also convert a dictionary into a [Pandas DataFrame](#capture-dataframe) table using a constructor:
+Another way to convert a dictionary to a [Pandas DataFrame](#capture-dataframe) is by using a constructor:
 
 ```python
 df = pandas.DataFrame(dct)
@@ -163,33 +163,33 @@ df = pandas.DataFrame(dct)
 
 #### Using Python list variables {#capture-list}
 
-Here is an example of using `yandex_query_magic` and the mustache syntax with a Python list:
+Here is an example of using `yandex_query_magic` with Mustache syntax and a Python dict:
 
-1. Declare the variable in {{ jlab }}:
+1. Define a variable in {{ jlab }}:
 
     ```python
     lst = [1,2,3]
     ```
 
-    Now you can use the `lst` variable directly in {{ yq-name }} queries. When you execute a query, `lst` will be converted into the relevant [YQL List]({{ ydb.docs }}/yql/reference/types/containers) object:
+    Now you can use the `lst` variable in {{ yq-name }} queries. At query runtime, the system will convert `lst` into the relevant [YQL Dict]({{ ydb.docs }}/yql/reference/types/containers) object:
 
-1. Get the data:
+1. Retrieve the data:
 
     ```sql
     %%yq
     SELECT 1 IN not_var{{lst}}
     ```
 
-Table of Python list types mapping to {{ yq-name }} types:
+Python list to {{ yq-name }} type mapping:
 
 | Python type | YQL type | Note |
 |-----|-----|-----|
-| int | Int64 | Exceeding the int64 limit will result in a query execution error. |
+| int | Int64 | Exceeding the int64 limit will result in a query error. |
 | float | Double ||
 | datetime | Timestamp ||
 | str | String ||
 
-You can also convert a list into a [Pandas DataFrame](#capture-dataframe) table using a constructor:
+Another way to convert a dictionary to a [Pandas DataFrame](#capture-dataframe) is by using a constructor:
 
 ```python
 df = pandas.DataFrame(lst,
@@ -198,19 +198,19 @@ df = pandas.DataFrame(lst,
 
 ### Jinja templates {#jinja}
 
-Jinja templates provide a convenient way to generate SQL queries. They allow you to automatically insert various data, e.g, search conditions, so that you do not need to write each query manually. This streamlines work, prevents errors, and results in more readable code.
+Jinja templates make it easy to build SQL queries, allowing you to automatically insert search conditions and other data. This way, you don’t need to write each query from scratch. It can help you streamline your workflow, avoid mistakes, and create more readable code.
 
-With Jinja templates, you can also automate generating queries that contain repeated elements. For example, you can use loops in your template to add a list of values to check in a query. This provides you with additional flexibility and enables you to write complex queries faster when you need to handle large amounts of data.
+You can also use Jinja templates to automate building queries with repetitive parts. For example, you can use template loops to write multiple queries that check different values from a list. This adds even more flexibility, speeding up the process of writing complex queries when you need to handle large amounts of data.
 
-The steps below explain how to filter data in {{ yq-full-name }} using a Python variable.
+The steps below explain how to filter {{ yq-full-name }} data using a Python variable.
 
-1. Declare the variable in {{ jlab }}:
+1. Define a variable in {{ jlab }}:
 
-   ```python
-   name = "John"
-   ```
+    ```python
+    name = "John"
+    ```
 
-1. When running the following code in the {{ jlab }} cell, make sure to specify the `jinja2` flag before executing an SQL query for it to be interpreted as a [Jinja2 template](https://jinja.palletsprojects.com/en/):
+1. Before you run the following code in a {{ jlab }} cell, set the `jinja2` flag. It will tell the system to treat SQL queries as [Jinja2 templates](https://jinja.palletsprojects.com/en/):
 
     ```sql
     %%yq <other_parameters> --jinja2
@@ -218,89 +218,89 @@ The steps below explain how to filter data in {{ yq-full-name }} using a Python 
     SELECT "not_var{{name}}"
     ```
 
-    Parameters:
+    Settings:
 
-    * `--jinja2`: Enables query text rendering with [Jinja](https://jinja.palletsprojects.com/) templates. To use this parameter, you need to install the [Jinja2](https://pypi.org/project/Jinja2/) package (`%pip install Jinja2`).
+    * `--jinja2`: Enables [Jinja](https://jinja.palletsprojects.com/) template rendering for the query text. To use this flag, you need to install the [Jinja2](https://pypi.org/project/Jinja2/) package (`%pip install Jinja2`).
 
-#### to_yq filter {#to_yq}
+#### `to_yq` filter {#to_yq}
 
-Jinja2 is a general-purpose templating engine. When processing variable values, it uses a standard string representation of data types.
+Jinja2 is a general-purpose templating engine. When handling variables, it uses a standard string representation of data types.
 
-For example, you have a Python list specified as `lst=["Academy", "Physics"]`. This is how you can use it in a Jinja template:
+For example, if you have a Python list `lst=["Academy", "Physics"]`, here is how you can use it in a Jinja template:
 
 ```sql
 %%yq --jinja2
 select "Academy" in not_var{{lst}}
 ```
 
-This will get you the `Unexpected token '['` error. Jinja converts the `lst` variable to an `["Academy", "Physics"]` string according to Python rules but disregards the {{ yq-full-name }}-specific features of SQL queries, which causes the error.
+Running this code will result in the `Unexpected token '['` error. This error occurs because Jinja converts the `lst` variable to the `["Academy", "Physics"]` string using Python rules and ignores {{ yq-full-name }}-SQL specifics.
 
-To specify that Jinja conversions must comply with the {{ yq-full-name }} rules, use the `to_yq` filter. Then, the same query in the Jinja syntax will look like this:
+To tell Jinja that it should follow {{ yq-full-name }} rules, use the `to_yq` filter. In this case, the previous query in the Jinja syntax will look like this:
 
 ```sql
 %%yq --jinja2
 select "Academy" in not_var{{lst|to_yq}}
 ```
 
-The`to_yq` Jinja filter converts data to the {{ yq-full-name }} syntax in exactly the same manner as [built-in mustache templates](#embedded_mustache).
+The `to_yq` Jinja filter converts data to the {{ yq-full-name }} syntax in the exact same way as [built-in Mustache templates](#embedded_mustache).
 
-## Capture command results {#capture-command-result}
+## Capturing command results {#capture-command-result}
 
-To capture the result of a line magic command, you can use the assignment command:
+You can capture the output of a line magic command using an assignment:
 
 ```
 varname = %yq <query>
 ```
 
-To capture the result of a cell magic command, you can specify the variable name and the `<<` operator at the beginning of the query text:
+To capture a cell magic command’s output, start the query with the target variable name and the `<<` operator:
 
 ```
 %%yq
 varname << <query>
 ```
 
-Then, you can use the result as a standard {{ jlab }} variable.
+From there, you can treat the result as any other {{ jlab }} variable.
 
-For example, this is how you capture a command result to `output` variables using cell magic:
+For example, let’s use a cell magic to capture the result in the `output` variable:
 
 ```sql
 output = %yq SELECT 1 as column1
 ```
 
-And this is how you can capture a command result to `output2` using line magic:
+And here we use a line magic to capture the result in the `output2` variable:
 
 ```sql
 %%yq
 output2 << SELECT 'Two' as column2, 3 as column3
 ```
 
-Then, you can use these variables as standard IPython variables. For example, you can print them:
+Now, you can use these variables just like any other IPython variable. For example, you can print them:
 
 ```python
 output
 ```
 
-By default, the`%yq` and `%%yq` commands output a [Pandas DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) object with columns matching the column names from the SQL query and rows containing query results. To disable `Pandas DataFrame` conversion, you can use the [--raw-results argument](#usage).
+By default, `%yq` and `%%yq` commands return a [Pandas DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html). Its columns match SQL column names, and its rows contain query results. You can disable `Pandas DataFrame` conversion using the [--raw-results](#usage) argument.
 
-The `output` variable in the above example will have the following structure:
+In our example, the `output` variable has the following structure:
 
 ||**column1**|
 |---|----|
 |**0**|1|
 
-The `output2` variable will look like this:
+The `output2` variable has the following structure:
 
 ||**column2**|**column3**|
 |---|----|-----|
 |**0**|Two|3|
 
-If a query does not imply a result, e.g., `insert into table select * from another_table`, the `None` value will be returned. If a query returns multiple results, they will be displayed as a `list` of individual results.
+If your query does not return any results (for example, it is `insert into table select * from another_table`), the return value will be `None`. If a query returns multiple results, they will be presented as a `list`.
 
-When executing a query, `yandex_query_magic` outputs additional data, e.g., query ID, start time, and execution duration:
+When you run a query, `yandex_query_magic` outputs extra details, e.g., query ID, start time, and query duration:
 
 ![jupyter_query_info](../../_assets/query/jupyter-query-info-progress-output.png)
 
-To hide the execution progress information for a cell, you can use the additional `%%capture` command.
+To hide the progress output for a cell, you can use the `%%capture` command.
 
 ```
 %%capture
@@ -308,4 +308,4 @@ To hide the execution progress information for a cell, you can use the additiona
 <query>
 ```
 
-In this case, the execution progress will not be output to the console.
+This will suppress progress output in the console.

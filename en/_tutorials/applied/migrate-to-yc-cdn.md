@@ -357,7 +357,7 @@ Once you have deleted the third-party CDN resource that was using the original C
 
 Updating the CDN resource settings may take up to 15 minutes. After that, your new CDN resource will be accessible via both domain names, i.e., `cdn-new.example.com` and `cdn.example.com`.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Creating a CDN resource](../../cdn/operations/resources/create-resource.md)
 * [Adding a Let's Encrypt® certificate](../../certificate-manager/operations/managed/cert-create.md)

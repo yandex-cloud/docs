@@ -44,7 +44,7 @@ In {{ objstorage-name }}, you back up data under a [service account](../../iam/c
 To create a service account:
 
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` [role](../../iam/concepts/access-control/roles.md) to the service account.
-1. [Create](../../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key. Save the ID and secret key. After closing the window, the private key properties will no longer be available.
+1. [Create](../../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key. Save the ID and the secret key. After closing the window, the private key properties will no longer be available.
 
 ## Install Duplicati {#install-duplicati}
 
@@ -92,7 +92,7 @@ To test your backup:
 1. In the list of backup plans, next to the `{{ yandex-cloud }}` plan, click **Start**. Wait for the operation to complete.
 1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), select the folder with the backup bucket.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-1. Open the bucket with backups and check whether all the relevant were copied.
+1. Open the bucket with backups and check whether all relevant files were copied.
 
 For more information about restoring data from a backup, see [this Duplicati article](https://duplicati.readthedocs.io/en/latest/03-using-the-graphical-user-interface/#restoring-files-from-a-backup).
 

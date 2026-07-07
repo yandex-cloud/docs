@@ -792,7 +792,7 @@ Acceptable values are 100 to 599, inclusive. ||
 ||Field | Description ||
 || text | **string**
 
-The string length in characters must be greater than 0.
+The string length in characters must be 1-16384.
 
 Includes only one of the fields `text`. ||
 |#

@@ -46,7 +46,7 @@ description: In this tutorial, you will learn how to create a custom template fo
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](template-attach.md)
 * [{#T}](../concepts/response-templates.md)

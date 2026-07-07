@@ -16,6 +16,6 @@ Number of domains per certificate | 100
 Number of certificates per domain | 50 per week
 Number of certificates per domain set | 5 per week
 
-#### See also {#certificate-manager-see-also}
+#### Useful links {#certificate-manager-see-also}
 
 - [Let's Encrypt documentation: Limits](https://letsencrypt.org/ru/docs/rate-limits/)

@@ -26,8 +26,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost of support for the new infrastructure includes:
 
 * Fee for [VM](../../compute/concepts/vm.md) usage and data storage on [disk](../../compute/concepts/disk.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using [public IP address](../../vpc/concepts/address.md#public-addresses) and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Fee for public [DNS zone](../../dns/concepts/dns-zone.md) usage and public DNS requests (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
+* Fee for using a public IP address and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using a public [DNS zone](../../dns/concepts/dns-zone.md) and public DNS requests (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
 * Fee for computing resources allocated to {{ MY }} [hosts](../../managed-mysql/concepts/index.md), storage and backup size (see [{{ mmy-full-name }} pricing](../../managed-mysql/pricing.md)).
 * Fee for using a [bucket](../../storage/concepts/bucket.md) to store media files (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for storage of and operations with [secrets](../../lockbox/concepts/secret.md) (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
@@ -144,7 +144,7 @@ Install [Ghost CMS High Availability](/marketplace/products/yc/ghost-cms-ha) usi
       || **RAM** | — | `2` | RAM in GB. ||
       || **Guaranteed vCPU share** | — | `100` | Guaranteed vCPU share in %. The available values are 20%, 50%, or 100%. ||
       || **Public SSH key** | — | — | The key will be added to `authorized_keys` of the `ghost` VM user.
-      We recommend specifying a public SSH key to access the VM over SSH. You need to create a key pair for the SSH connection on your own. To learn how, see [Connecting to a VM over SSH](../../compute/operations/vm-connect/ssh.md). ||
+      We recommend specifying a public SSH key to access the VM over SSH. You need to create a key pair for the SSH connection [by yourself](../../compute/operations/vm-connect/ssh.md). ||
       || **Disk type** | — | `network-ssd` | VM disk type. ||
       || **Disk size** | — | `20` | VM disk size in GB. ||
       || **ID of the secret containing the database password** | Yes | — | Secret containing the password to connect to a {{ mmy-name }} cluster. This password should be specified in the `db_password` key. ||

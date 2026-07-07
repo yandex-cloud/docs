@@ -36,7 +36,7 @@ To configure the {{ sd-name }} [workspace](../../concepts/workspace.md) access p
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/workspace.md)
 * [{#T}](./create.md)

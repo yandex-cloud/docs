@@ -1,6 +1,6 @@
 ---
 title: Reference for {{ sws-full-name }} metrics in {{ monitoring-full-name }}
-description: This page provides reference information on the {{ sws-name }} metrics delivered to {{ monitoring-full-name }}.
+description: This page provides a reference of {{ sws-name }} metrics exported to {{ monitoring-full-name }}.
 ---
 
 # {{ monitoring-full-name }} metric reference
@@ -9,7 +9,7 @@ This section describes {{ sws-name }} metrics. All {{ sws-name }} metrics are de
 
 {% include [smartwebsecurity](../_includes/monitoring/metrics-ref/smartwebsecurity.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./operations/monitoring.md)
 * [{#T}](./operations/alerting.md)

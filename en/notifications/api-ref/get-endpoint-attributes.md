@@ -72,7 +72,7 @@ In case of an error, {{ cns-name }} returns a message with the appropriate HTTP 
 
 For a list of common error codes for all actions, see [{#T}](common-errors.md).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)

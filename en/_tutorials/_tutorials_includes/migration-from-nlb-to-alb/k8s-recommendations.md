@@ -1,4 +1,4 @@
-1. Optionally, enable L3-L4 DDoS protection ([the OSI model](https://en.wikipedia.org/wiki/OSI_model)). It will enhance the L7 protection provided by [{{ sws-full-name }}](../../../smartwebsecurity/) after migration.
+1. Optionally, enable L3-L4 DDoS protection (the [OSI model](https://en.wikipedia.org/wiki/OSI_model)). It will enhance the L7 protection provided by [{{ sws-full-name }}](../../../smartwebsecurity/) after migration.
 
     To enable L3-L4 protection:
 
@@ -23,6 +23,6 @@
 
 1. The features of the {{ alb-name }} load balancer may differ from those of your load balancer deployed in the {{ managed-k8s-name }} cluster. See [{{ alb-name }}](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) ingress controller description and [operating principles](../../../application-load-balancer/tools/k8s-ingress-controller/principles.md).
 
-1. Set up backend health checks on your {{ alb-name }}. Thanks to health checks, the load balancer spots unavailable backends in a timely manner and diverts traffic to other backends. Once the application is updated, traffic will again be distributed across all backends.
+1. Set up backend health checks on your {{ alb-name }}. With health checks, the load balancer timely spots unavailable backends and reroutes traffic to healthy backends. Once the application is updated, traffic will again be distributed across all backends.
 
     For more information, see [{#T}](../../../application-load-balancer/concepts/best-practices.md) and [{#T}](../../../application-load-balancer/k8s-ref/service-for-ingress.md#annotations).

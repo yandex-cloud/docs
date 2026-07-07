@@ -8,7 +8,7 @@ canonical: '{{ link-docs }}/tutorials/archive/integrate-nextcloud/terraform'
 
 {% include [terraform](../../../_tutorials/archive/integrate-nextcloud/terraform.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./coi-based.md)
 * [{#T}](./fault-tolerant.md)

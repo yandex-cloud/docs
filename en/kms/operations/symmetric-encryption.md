@@ -150,10 +150,10 @@ Changes triggered by [eventually consistent operations](../concepts/consistency.
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Command line interface CLI](../../cli)
 * [Symmetric encryption in {{ kms-full-name }}](../concepts/symmetric-encryption.md)
 * [Asymmetric encryption in {{ kms-full-name }}](../concepts/asymmetric-encryption.md)
 * [Managing keys in KMS](./index.md)
-* [Encrypting secrets in Hashicorp Terraform](../../kms/tutorials/terraform-secret.md)
+* [Encrypting secrets in Hashicorp {{ TF }}](../../kms/tutorials/terraform-secret.md)

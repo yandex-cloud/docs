@@ -24,7 +24,7 @@ To create a budget:
 
 - {{ billing-interface }} {#billing}
 
-  1. Go to [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Navigate to [**{{ billing-name }}**]({{ link-console-billing }}).
 
   1. Select an account on the **{{ ui-key.yacloud_billing.billing.title_accounts }}** page.
 
@@ -63,7 +63,7 @@ To create a budget:
 {% endlist %}
 
 
-## See also
+#### Useful links {#see-also}
 
 * [{#T}](../tutorials/serverless-trigger-budget-vm.md)
 * [{#T}](../tutorials/serverless-trigger-budget-queue-vm-tg.md)

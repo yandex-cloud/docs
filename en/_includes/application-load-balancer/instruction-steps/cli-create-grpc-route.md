@@ -90,7 +90,7 @@
 
       {% endcut %}
 
-      For more details about the `yc alb virtual-host prepend-grpc-route` command, see the [CLI reference](../../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-grpc-route.md).
+      For detailed information about the `yc alb virtual-host prepend-grpc-route` command with the full list of properties, see the [CLI reference](../../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-grpc-route.md).
 
 
 - insert-grpc-route
@@ -225,6 +225,6 @@
 
       {% endcut %}
 
-      For more details about the `yc alb virtual-host insert-grpc-route` command, see the [CLI reference](../../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-grpc-route.md).
+      For detailed information about the `yc alb virtual-host insert-grpc-route` command with the full list of properties, see the [CLI reference](../../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-grpc-route.md).
 
 {% endlist %}

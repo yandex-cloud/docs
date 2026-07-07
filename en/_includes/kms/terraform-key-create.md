@@ -1,6 +1,6 @@
 To create a key:
 
-1. Describe the parameters of the `yandex_kms_symmetric_key` resource in the configuration file:
+1. Specify the `yandex_kms_symmetric_key` resource properties in the configuration file:
 
    ```hcl
    resource "yandex_kms_symmetric_key" "key-a" {
@@ -33,15 +33,15 @@ To create a key:
 
    {% endnote %}
 
-   For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/kms_symmetric_key).
+   For more information about resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/kms_symmetric_key).
 
-1. Check the configuration using this command:
+1. Validate your configuration using this command:
 
    ```bash
    terraform validate
    ```
 
-   If the configuration is correct, you will get this message:
+   If the configuration is valid, you will get this message:
 
    ```text
    Success! The configuration is valid.
@@ -53,7 +53,7 @@ To create a key:
    terraform plan
    ```
 
-   The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+   You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
 1. Apply the configuration changes:
 

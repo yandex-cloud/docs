@@ -50,6 +50,7 @@ yandex.cloud.audit.organizationmanager.<имя_события>
 `idp.DeleteUserpoolDomain` | Удаление привязки домена к пулу пользователей
 `idp.ReactivateUser` | Активация локального пользователя
 `idp.RemoveUserBlock` | Удаление блокировки пользователя
+`idp.ResetOwnPassword` | Сброс собственного пароля
 `idp.SetUserPassword` | Установка пароля локального пользователя
 `idp.SetUserpoolAccessBindings` | Назначение прав доступа к пулу пользователей
 `idp.SuspendUser` | Деактивация локального пользователя
@@ -66,6 +67,11 @@ yandex.cloud.audit.organizationmanager.<имя_события>
 `oauth.UpdateApplication` | Изменение OIDC-приложения
 `oauth.UpdateApplicationAccessBindings` | Изменение прав доступа к OIDC-приложению
 `oauth.UpdateApplicationAssignments` | Изменение списка пользователей OIDC-приложения
+`policy.ActivateAuthenticationPolicyRule` | Активация правила политики аутентификации
+`policy.CreateAuthenticationPolicyRule` | Создание правила политики аутентификации
+`policy.DeactivateAuthenticationPolicyRule` | Деактивация правила политики аутентификации
+`policy.DeleteAuthenticationPolicyRule` | Удаление правила политики аутентификации
+`policy.UpdateAuthenticationPolicyRule` | Изменение правила политики аутентификации
 `RejectInvitation` | Отказ от приглашения
 `ResendInvitation` | Повторная отправка приглашения
 `SetDefaultProfile` | Назначение профиля по умолчанию

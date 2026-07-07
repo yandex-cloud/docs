@@ -11,7 +11,7 @@ To calculate the cost of your cloud resource configuration, use [our calculator]
 
 You pay for resources by crediting money to your individual [personal account](../../billing/concepts/personal-account.md) as per the [agreement](../../billing/concepts/contract.md). Money can be credited to a personal account by individual entrepreneurs, businesses, and individuals.
 
-For more information, see [How to pay for resources](../../billing/payment/index.md).
+For more information, see [Payment for resources](../../billing/payment/index.md).
 
 #### What payment methods can I use? {#payments}
 
@@ -80,7 +80,7 @@ If the [cloud was previously linked](../../billing/operations/pin-cloud.md) to a
 
 {{ yandex-cloud }} resources are consumed on an as-needed basis. The amount for resources consumed is calculated individually for each service.
 
-For more information, see [Pricing](../../billing/pricing.md).
+Learn more in [Pricing](../../billing/pricing.md).
 
 #### If I pay an invoice by wire transfer after the end of the reporting period, will my resources be blocked? {#payment-delay}
 

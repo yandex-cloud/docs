@@ -40,14 +40,16 @@ To create a {{ MY }} connection:
 
      * **Host name**: Select the host name from the list of hosts available in the {{ MY }} cluster. You can select multiple hosts. If you fail to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
      * **Port**: Specify the {{ MY }} connection port. The default port is 3306.
-     * **Path to database**: Specify the name of the database to connect to.
+     * **Path to database**: Specify the database name.
      * **Username**: Specify the username for the {{ MY }} connection.
-     * **Password**: Enter the password for the user.
+     * **Password**: Specify a password for the user.
      * **Cache TTL in seconds**: Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
      
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
        Click **Check connection** to make sure the parameters are correct.
+
+ 
 
    - Specify manually {#manual}
 
@@ -81,7 +83,7 @@ To create a {{ MY }} connection:
 1. Click **Create connection**.
 
 
-1. Select the [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
 
 
 1. Enter a name for the connection and click **Create**.
@@ -95,7 +97,7 @@ You can specify additional connection settings under **Advanced connection setti
 * **Setting collate in a query**: To explicitly define a collation for database queries, select a mode:
 
   * **Auto**: Applies the default setting. {{ datalens-short-name }} decides whether to enable the `utf8mb4_general_ci` locale.
-  * **On**: Applies the {{ datalens-short-name }} setting. The `utf8mb4_general_ci` locale is specified for individual expressions within a query. Thus the server uses the appropriate sorting logic, regardless of the server settings and specific tables. Use the {{ datalens-short-name }} setting if your database locale is incompatible with {{ datalens-short-name }}. For more information on the locale and `COLLATE`, see [{#T}](../../../managed-mysql/operations/databases.md#charset-collate).
+  * **On**: Applies the {{ datalens-short-name }} setting. The `utf8mb4_general_ci` locale is specified for individual expressions within a query. As a result, the server uses the appropriate sorting logic, regardless of the server settings and specific tables. Use the {{ datalens-short-name }} setting if your database locale is incompatible with {{ datalens-short-name }}. For more information on the locale and `COLLATE`, see [{#T}](../../../managed-mysql/operations/databases.md#charset-collate).
   * **Off**: Applies the default setting. {{ datalens-short-name }} only uses database-level locale settings.
 
 * **TLS**: Indicates whether TLS is required. When this option is enabled, the connection requires using SSL.

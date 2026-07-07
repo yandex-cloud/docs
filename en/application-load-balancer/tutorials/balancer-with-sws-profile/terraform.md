@@ -11,6 +11,6 @@ To create an [L7 load balancer with a {{ sws-name }}](index.md) profile through 
 
 {% include [terraform](../../../_tutorials/_tutorials_includes/balancer-with-sws-profile/terraform.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](console.md)

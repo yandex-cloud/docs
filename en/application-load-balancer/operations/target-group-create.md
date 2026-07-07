@@ -179,7 +179,7 @@ To create a [target group](../concepts/target-group.md):
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../tutorials/application-load-balancer-website/index.md)
 * [{#T}](../tutorials/logging.md)

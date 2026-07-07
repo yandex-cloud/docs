@@ -47,7 +47,7 @@ To change the default template assigned to a given playlist at the channel level
 
 A single template will apply to all videos in the playlist, even if a different template was assigned to one of the videos.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../video/update.md)
 * [{#T}](create.md)

@@ -57,7 +57,7 @@ To link or re-link a cloud to a billing account:
      * `billing_account_id`: ID of the billing account to link the cloud to.
      * `cloud_id`: ID of the cloud you want to link to the billing account.
 
-     For more information about `yandex_billing_cloud_binding` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/billing_cloud_binding).
+     For more on the properties of the `yandex_billing_cloud_binding` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/billing_cloud_binding).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

@@ -203,7 +203,7 @@ The sensor outputs the result in JSON format. Here is an example:
 
 Write the received information to a DB table using a function.
 
-Once you [connect to the cluster](#connect-to-cluster), create a table. Follow these steps:
+Once you [connect to the cluster](#connect-to-cluster), create a table. Proceed as follows:
 
 {% list tabs group=instructions %}
 

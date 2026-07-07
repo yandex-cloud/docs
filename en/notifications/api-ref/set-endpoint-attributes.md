@@ -22,7 +22,7 @@ Parameter | Description
 
 Attribute | Description
 --- | ---
-`Token` | **string**<br/>Required field.<br/>For mobile notifications: unique token on the user device (Registration ID) created by the notification service for the app. For in-browser notifications: the [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) object received in the user's browser, in [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON) format.
+`Token` | **string**<br/>Required field.<br/>For mobile notifications: unique token on the user device (Registration ID) created by the notification service for the app. For browser notifications: [PushSubscription](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription) [JSON](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON) object obtained in the user's browser.
 `CustomUserData` | **string**<br/>Other user data that can be stored together with the endpoint. {{ cns-name }} does not use this data in any way.
 
 {% note info %}
@@ -74,7 +74,7 @@ In case of an error, {{ cns-name }} returns a message with the appropriate HTTP 
 
 For a list of common error codes for all actions, see [{#T}](common-errors.md).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)

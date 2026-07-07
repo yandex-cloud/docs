@@ -15,7 +15,7 @@ The method of working with billing accounts in {{ billing-name }} depends on whe
 
 ![](../../_assets/billing/organization.svg)
 
-See:
+For more information, see:
 
 * [Linking a cloud](../operations/pin-cloud.md#bind-cloud-organization)
 * [Access management](../security/index.md)

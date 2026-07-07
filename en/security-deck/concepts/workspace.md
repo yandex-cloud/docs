@@ -14,7 +14,7 @@ You can choose {{ org-full-name }} [organizations](../../organization/concepts/o
 To create and manage workspaces, the user needs the following roles:
 
 * `security-deck.admin` for the folder to contain {{ sd-name }} resources and modules.
-* `auditor` for the [organization](../../organization/concepts/organization.md), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or folder the workspace will control the security of.
+* `auditor` for the [organization](../../organization/concepts/organization.md), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or folder security in which will be controlled by the workspace.
 
 ## Workspace settings {#settings}
 
@@ -64,7 +64,7 @@ Depending on the {{ sd-name }} [modules](../quickstart-overview.md#modules) conf
 
 {% include [dashboard-contents](../../_includes/security-deck/dashboard-contents.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/workspaces/create.md)
 * [{#T}](../operations/workspaces/view-dashboard.md)

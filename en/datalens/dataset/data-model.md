@@ -36,7 +36,7 @@ In this case, you can:
 * The dataset contains one table.
 * The dataset contains multiple tables; however, the query uses fields from only one of those tables (with link optimization enabled).
 
-To manage the link behavior when [joining data from multiple tables](./create-dataset.md#links), use the **Optimize link** option in the link settings. The option is enabled by default for all links in the dataset: the `JOIN` operator is applied if a query uses fields from two or more linked tables. You can disable the option for each individual link to make such a link a required one. In which case the `JOIN` operation will be performed even if fields from a single table are selected.
+To manage the link behavior when [joining data from multiple tables](./create-dataset.md#links), use the **Optimize link** option in the link settings. This option is enabled by default for all links in the dataset: the `JOIN` operator applies if the query uses fields from two or more linked tables. You can disable the option for each individual link to make the link required. In which case the `JOIN` operation will be performed even if you select fields from a single table.
 
 {% note info %}
 
@@ -57,7 +57,7 @@ In the dataset creation interface and wizard, you can duplicate fields, create f
 
 {% note warning %}
 
-The maximum number of fields in a single dataset is 1,200.
+The maximum number of fields per dataset is 1,200.
 
 {% endnote %}
 
@@ -90,6 +90,6 @@ The sources you can use aggregation functions for are listed under **Data source
 
 To learn more about data types, see [{#T}](./data-types.md).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./create-dataset.md)

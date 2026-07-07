@@ -6,7 +6,7 @@
 
     {% note info %}
 
-    `openssl` comes preinstalled in Linux and macOS. If using Windows, you need to install it manually. For more information, visit the [project's website](https://openssl-library.org/).
+    `openssl` comes preinstalled in Linux and macOS. If using Windows, you need to install it manually. For more information, refer to the [project's website](https://openssl-library.org/).
 
     {% endnote %}
 

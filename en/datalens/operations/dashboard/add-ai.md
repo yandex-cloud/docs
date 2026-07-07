@@ -13,7 +13,7 @@ Follow these steps to add Neuroanalyst to a dashboard:
 
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
 1. At the top of the page, click **Edit**.
-1. In the panel at the bottom of the page, drag ![image](../../../_assets/console-icons/sparkles-fill.svg) **Neuroanalyst** where you need.
+1. In the panel at the bottom of the page, click ![image](../../../_assets/console-icons/sparkles-fill.svg) **Neuroanalyst** and drag it where you want it to be.
 
    ![image](../../../_assets/datalens/operations/widget-select-ai.png =687x90)
 
@@ -22,6 +22,11 @@ Follow these steps to add Neuroanalyst to a dashboard:
    * **Chart for analysis**. Click ![image](../../../_assets/console-icons/chart-column.svg) **Select chart** and select a chart from the list on the current dashboard tab.
    * **Header**. It sets the widget name; by default, it is the name of the selected chart. The name is displayed at the top of the widget if the **Header** option is enabled under **Appearance** (which it is by default).
    * **Prompt**. Enter a question for the Neuroanalyst to answer.
+
+   
+   * **Background**. It sets the widget background color and opacity for the light and dark theme individually.
+   * **Rounding**. It sets the widget corner rounding.
+
 
    {% cut "Example of Neuroanalyst settings" %}
 

@@ -60,7 +60,7 @@ You can update the pre-installed `Default Style Preset` and `Summarization Style
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](create.md)
 * [{#T}](delete.md)

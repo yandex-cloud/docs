@@ -7,7 +7,7 @@ description: In this tutorial, you will manually deploy a fault-tolerant {{ yand
 
 {% include [fault-tolerant](../../../_tutorials/archive/integrate-nextcloud/fault-tolerant.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./coi-based.md)
 * [{#T}](./terraform.md)

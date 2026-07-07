@@ -75,7 +75,7 @@ description: Follow this guide to configure access to a secret.
       * `role`: [Role](../security/index.md#roles-list) to assign.
       * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about `yandex_lockbox_secret_iam_member` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lockbox_secret_iam_member).
+      For more information about the `yandex_lockbox_secret_iam_member` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lockbox_secret_iam_member).
 
   1. Create the resources
 
@@ -101,7 +101,7 @@ For more information, see [How access management works](../../iam/concepts/acces
 
 {% endnote %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../concepts/secret.md)
 * [{#T}](../../iam/concepts/access-control/index.md)

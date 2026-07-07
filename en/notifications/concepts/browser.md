@@ -112,7 +112,7 @@ Where:
   ```
 {% endcut %}
 
-You can also get the VAPID key using the management console. To do this:
+You can also get the VAPID key using the management console. Proceed as follows:
 
 1. In the [management console]({{ link-console-main }}), select the folder containing the notification channel.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
@@ -218,7 +218,7 @@ You can send notifications using one of these methods:
 
 You can also send a notification without providing text for a specific platform [via the management console](../quickstart-browser.md#publish).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Service overview](index.md)
 * [Getting started with push notifications](../quickstart-push.md)

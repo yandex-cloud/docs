@@ -1,6 +1,6 @@
 ---
 title: '{{ sws-full-name }} overview'
-description: What is {{ sws-full-name }}, what types of threats it helps prevent, and what are the web app protection components.
+description: What is {{ sws-full-name }}, what types of threats it helps prevent, and what components the web application protection consists of.
 ---
 
 # {{ sws-full-name }} overview

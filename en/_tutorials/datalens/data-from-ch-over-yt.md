@@ -128,6 +128,6 @@ Your {{ ytsaurus-name }} table has no schema. You cannot use such tables in {{ d
 
 {% cut "Interface error: Requested database column does not exist" %}
 
-For details, see [here](../../datalens/troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md).
+For more information, see [here](../../datalens/troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md).
 
 {% endcut %}

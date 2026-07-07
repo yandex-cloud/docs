@@ -30,7 +30,9 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](kspm/enable-kspm.md)
 * [{#T}](kspm/use-kspm.md)
 * [{#T}](kspm/view-rules.md)
+* [{#T}](kspm/check-compliance.md)
 * [{#T}](kspm/manage-exceptions.md)
+* [{#T}](kspm/manage-rule-modes.md)
 
 ## Модуль контроля конфигурации ({{ cspm-name }}) {#cspm}
 

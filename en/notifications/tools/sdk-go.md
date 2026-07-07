@@ -297,7 +297,7 @@ Where:
 * `stringValue`: Sender's text name
 
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Getting started](../quickstart.md)
 * [AWS CLI](aws-cli.md)

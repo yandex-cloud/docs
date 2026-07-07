@@ -102,7 +102,7 @@ The investigations list displays the following details for each investigation:
 
 To open an investigation, click its name in the list.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/investigations.md)
 * [{#T}](../../concepts/queries.md)

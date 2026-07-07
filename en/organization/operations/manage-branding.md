@@ -6,6 +6,7 @@ description: Follow this guide to customize the appearance of authentication pag
 # Configuring branding
 
 
+
 {% include [note-preview](../../_includes/note-preview.md) %}
 
 To configure [branding](../concepts/branding.md):
@@ -38,8 +39,8 @@ To configure [branding](../concepts/branding.md):
   1. Under **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.loginSection.title }}**:
 
      1. In the **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.loginSection.welcomeLabel }}** field, enter the text to appear below the logo.
-     1. In the **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.loginSection.placeholderLabel }}** field, enter the email template to appear in the input field.
-     1. Under **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.loginSection.alternativeEntryLabel }}**, enable or disable the Yandex ID and SSO log-in methods.
+     1. In the **Hint in the input field** field, enter the email template to appear in the input field.
+     1. Under **Alternative login methods**, enable or disable the Yandex ID and SSO log-in methods.
 
   1. To discard your changes and set up branding from scratch, click **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.clearAllAction }}**.
   1. To save your changes, click **{{ ui-key.yacloud.common.save }}**.

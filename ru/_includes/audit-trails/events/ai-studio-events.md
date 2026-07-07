@@ -22,5 +22,6 @@
 `mcp_hub.SetMcpGatewayAccessBindings` | Назначение прав доступа для MCP-сервера
 `mcp_hub.UpdateMcpGateway` | Изменение MCP-сервера
 `mcp_hub.UpdateMcpGatewayAccessBindings` | Изменение прав доступа для MCP-сервера
+`settings.SetFolderSettings` | Изменение настроек сервиса в каталоге
 `tuning.CancelTuning` | Остановка [дообучения]({{ link-docs-ai }}/ai-studio/concepts/tuning/index) модели
 `tuning.StartTuning` | Запуск дообучения модели

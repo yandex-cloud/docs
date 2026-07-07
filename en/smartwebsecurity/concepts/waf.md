@@ -113,7 +113,7 @@ You can configure [trigger conditions](conditions.md) for each exclusion rule. I
 
 WAF configuration should be tailored to each application; there are no universal WAF configurations. During real-world deployment, false positives are expected; this is part of training the WAF to adapt to your traffic. Configure rules in **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** mode and analyze [logs](../operations/configure-logging.md). On average, the overall setup process takes about a week, but we still recommend regularly reviewing logs and adjusting rules as needed.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../quickstart.md#waf)
 * [{#T}](../tutorials/sws-basic-protection.md)

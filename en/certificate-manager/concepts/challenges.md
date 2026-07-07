@@ -1,10 +1,10 @@
-# Domain rights check
+# Domain ownership verification
 
-To get and renew a Let's Encrypt certificate, check the rights for each domain specified in the certificate. In {{ certificate-manager-name }}, there are two types of checks available: `HTTP` and `DNS`. When you create a certificate, you can choose any type of check. A domain rights check may take time.
+To get and renew a Let's Encrypt certificate, verify ownership for each domain specified in the certificate. In {{ certificate-manager-name }}, there are two types of checks available: `HTTP` and `DNS`. When you create a certificate, you can choose any type of check. Domain ownership verification may take a while.
 
 {% note info %}
 
-You only need to check domain rights for Let's Encrypt certificates. {{ certificate-manager-name }} does not check domain rights for imported user certificates.
+You only need to verify domain ownership for Let's Encrypt certificates. {{ certificate-manager-name }} does not check domain ownership for imported user certificates.
 
 {% endnote %}
 
@@ -159,6 +159,6 @@ server {
 }
 ```
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Let's Encrypt documentation: Types of challenges](https://letsencrypt.org/docs/challenge-types/)

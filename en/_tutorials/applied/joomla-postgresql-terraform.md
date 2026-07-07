@@ -1,5 +1,5 @@
 1. [Get your cloud ready](#before-you-begin).
-1. [Create your infrastructure](#deploy).
+1. [Create the infrastructure](#deploy).
 1. [Set up your VM environment](#env-install).
 1. [Configure Joomla](#configure-joomla).
 1. [Test the website](#test-site).
@@ -28,7 +28,7 @@ To create an infrastructure using {{ TF }}:
 
    - Ready-made configuration {#ready}
 
-     1. Clone the repository with configuration files.
+     1. Clone the repository containing the configuration files.
 
          ```bash
          git clone https://github.com/yandex-cloud-examples/yc-joomla-postgresql
@@ -60,7 +60,7 @@ To create an infrastructure using {{ TF }}:
 
    {% endlist %}
 
-   For more information about {{ TF }} resource properties, see the relevant provider guides:
+   For more on the properties of resources used in {{ TF }}, see these provider guides:
 
    * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
    * [Subnets](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
@@ -77,7 +77,7 @@ To create an infrastructure using {{ TF }}:
 
 1. In the `joomla-postgresql-terraform.auto.tfvars` file, set the following user-defined properties:
    * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-   * `ssh_key_path`: Path to the public SSH key required to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `ssh_key_path`: Path to the public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
    * `db_password`: DB password (8 to 128 characters).
    * `domain_name`: Domain name. Specify your registered domain name delegated to {{ dns-full-name }}, e.g., `example.com`.
 

@@ -111,6 +111,6 @@ You can edit ARL rules only in an [ARL](../concepts/arl.md) profile. Basic [rule
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](rule-delete.md)

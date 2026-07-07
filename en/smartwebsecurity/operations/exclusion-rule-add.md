@@ -17,7 +17,7 @@ description: Follow this guide to create a WAF exclusion rule.
       1. Name the exclusion rule.
       1. Optionally, provide a description.
       1. Optionally, enable **{{ ui-key.yacloud.smart-web-security.waf.field_logging }}** to log exception rule triggering.
-      1. Under **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-rules-section }}**, select rules from the basic set to which the exclusion will apply:
+      1. Under **{{ ui-key.yacloud.smart-web-security.waf.label_request-condition_33CzA }}**, select rules from the basic set to which the exclusion will apply:
           * `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-yes }}`: Exclusion will apply to all rules.
           * `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-no }}`: Exclusion will apply to the selected rules.
 
@@ -111,7 +111,7 @@ description: Follow this guide to create a WAF exclusion rule.
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](configure-set-rules.md)
 * [{#T}](exclusion-rule-delete.md)

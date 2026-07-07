@@ -147,7 +147,7 @@ Now you will be able to select this list when adding a rule to a [security](rule
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../concepts/lists.md)
 * [{#T}](../concepts/conditions.md)

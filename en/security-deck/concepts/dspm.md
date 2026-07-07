@@ -57,7 +57,7 @@ Data categories available for scanning:
 
 To create data sources, set up and run scans, and view scan results, the user must have the appropriate [roles](../security/index.md).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/dspm/create-data-source.md)
 * [{#T}](../operations/dspm/create-scan.md)

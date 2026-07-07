@@ -63,7 +63,7 @@ Service plan | Price per active user, <br>per month, without VAT
 | Business  | $8.249997 |
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Configuring a {{ datalens-name }} service plan](./settings/service-plan.md)
 * [Service plan features](./concepts/service-plans-comparison.md)

@@ -6,7 +6,7 @@
 
 * [Dashboard](dashboard.md) to arrange multiple [widgets](widget.md) on a single page, such as charts with service and app metrics, alerts, escalations, and text snippets with comments.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 - [{#T}](../../operations/dashboard/create.md)
 - [{#T}](../../operations/dashboard/copy.md)

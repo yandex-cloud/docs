@@ -15,7 +15,7 @@ You cannot use grants to top up [personal accounts](personal-account.md).
 
 ## Viewing your grants {#how-to-view}
 
-You can view your grants in {{ billing-name }} or in the management console widget.
+You view your grants in {{ billing-name }} or in the management console widget.
 
 {% note info %}
 
@@ -50,7 +50,7 @@ You can view your grants in {{ billing-name }} or in the management console widg
 
 {% include [grant-amount](../../getting-started/_includes/grant-amount.md) %}
 
-For more information about the terms of use of initial grants, see [Getting started](../../getting-started/usage-grant.md).
+For more information about the terms of use of the initial grant, see [Getting started](../../getting-started/usage-grant.md).
 
 {% note info %}
 
@@ -71,6 +71,6 @@ Grants are prioritized based on their validity period: the earlier the expiratio
 
 {% include [grant-and-cvos](../../_includes/billing/grant-and-cvos.md) %}
 
-For more information about using grants, see the [billing cycle description](../payment/billing-cycle-individual.md).
+For more on grants, see the [billing cycle description](../payment/billing-cycle-individual.md).
 
 {% include [grant-support](../../_includes/billing/grant-support.md) %}

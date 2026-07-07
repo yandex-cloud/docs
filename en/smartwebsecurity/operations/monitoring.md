@@ -68,7 +68,7 @@ All the dashboards currently available for {{ sws-name }} are listed on the {{ m
 
 You can combine multiple metrics in a single chart and [configure your own dashboards](../../monitoring/operations/dashboard/create.md) in {{ monitoring-short-name }}.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../metrics.md)
 * [{#T}](../../monitoring/concepts/visualization/dashboard.md)

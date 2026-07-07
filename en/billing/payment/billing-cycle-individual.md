@@ -37,7 +37,7 @@ The diagram below presents the payment cycle for bank cards held by individuals 
 
 1. Verification of payment for consumed resources:
    - If the card was debited within one day, go back to step 4.
-   - If there are not sufficient funds in your bank card account and you have not [topped it up](../operations/pay-the-bill.md), the debiting transaction will be retried. <br/>If debiting is unsuccessful, {{ yandex-cloud }} reserves the right to suspend your billing account or change its status to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md). For more information, see step 10.
+   - If there are not sufficient funds in your bank card account and you have not [topped it up](../operations/pay-the-bill.md), the debiting transaction will be retried. <br/>If debiting is unsuccessful, {{ yandex-cloud }} reserves the right to suspend your billing account or change its status to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md). More details in step 10.
 
      {% include [suspended](../_includes/billing-suspended.md) %}
 
@@ -53,7 +53,7 @@ The diagram below presents the payment cycle for bank cards held by individuals 
 
    {% include [blocked-note](../_includes/blocked-note.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 - [Grant](../concepts/bonus-account.md)
 - [Billing threshold](../concepts/billing-threshold.md)

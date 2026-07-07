@@ -128,7 +128,7 @@ You can add basic [rules](../concepts/rules.md), as well as Smart Protection and
 
 If the `Deny` action is set for the default basic rule and the requests are sent to {{ captcha-name }} for verification, [add](captcha-rule.md) an allowing rule. Learn more about rule priorities in [{#T}](../concepts/rules.md#rules-order).
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](rule-update.md)
 * [{#T}](rule-delete.md)

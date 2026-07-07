@@ -43,4 +43,4 @@ rate_limit:
 
 {% endcut %}
 
-For more details about the `yc alb virtual-host append-http-route` command, see the [CLI reference](../../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
+For detailed information about the `yc alb virtual-host append-http-route` command with the full list of properties, see the [CLI reference](../../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).

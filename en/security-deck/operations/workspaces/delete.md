@@ -29,7 +29,7 @@ To delete a {{ sd-name }} [workspace](../../concepts/workspace.md):
 
 This will irrevocably delete the workspace. All checks in line with the control rules will be stopped, and the components of the {{ sd-name }} modules will be deleted. The [connector](../../concepts/workspace.md#connectors) and [alert sink](../../concepts/workspace.md#alert-sinks) the workspace was using will be preserved.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/workspace.md)
 * [{#T}](./create.md)

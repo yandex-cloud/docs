@@ -57,7 +57,7 @@ You can change the following basic playback settings for broadcast episodes when
 
 By default, there is a 15–20 second delay between the source and playback of the stream, which ensures high image quality and resilience to unstable connections. For scenarios with active viewer interaction, you can reduce the latency to 4-5 seconds, but this will require a high-quality network.
 
-## See also {#see-also}
+#### Useful links {#see-also}
 
 * [Getting started with a video broadcast](../streaming.md)
 * [Getting started with API](../api-ref/quickstart.md)

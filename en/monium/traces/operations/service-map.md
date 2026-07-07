@@ -74,7 +74,7 @@ When working with the map, factor in the following:
 * If you see a dashed node on the map, load its connections to expand the graph.
 * For a detailed analysis of a specific request, navigate from the map to [searching for traces and spans](traces-explorer.md) or [viewing and analyzing traces](trace-view.md).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Searching for traces and spans](traces-explorer.md)
 * [Viewing and analyzing traces](trace-view.md)

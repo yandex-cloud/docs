@@ -265,6 +265,6 @@ Here is a possible use case:
 player.destroy();
 ```
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Interface: PlayerSdkApi](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) in the API reference

@@ -23,7 +23,7 @@ If you do not use any other {{ yandex-cloud }} services except {{ datalens-short
   * Currently, technical support plans can only be linked to a cloud rather than an organization. If you have multiple clouds linked to your organization, and each has a different technical support plan, select the cloud with the highest rate when you create your support ticket. This will provide you with the best technical support available.
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/organizations/change-organization.md)
 

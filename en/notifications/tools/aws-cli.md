@@ -180,7 +180,7 @@ Where:
 * `--message`: SMS text.
 * `--message-attributes`: SMS attributes, where `AWS.SNS.SMS.SenderID.StringValue` is the sender's text name.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Getting started](../quickstart.md)
 * [AWS SDK for Python (boto3)](sdk-python.md)

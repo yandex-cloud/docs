@@ -88,7 +88,7 @@ To add a billing account:
 
 To [view your payment history](../../billing/operations/check-bill-history.md), click ![image](../../_assets/console-icons/logo-yandex-cloud.svg) **Go to Yandex Cloud Billing**.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Pricing policy](../pricing.md)
 * [Pricing questions](../qa/pricing.md)

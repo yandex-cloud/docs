@@ -53,7 +53,7 @@ To apply double filtering to a field (through a selector and chart filter), crea
 
 Filters applied to charts using selectors are displayed in the **Dashboard filters** section. It is available if you open the chart to edit from the dashboard. To clear all the dashboard filters, click ![image](../../_assets/console-icons/trash-bin.svg) in the top-left corner of the section.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/dashboard/add-selector.md)
 * [{#T}](../charts/editor/add-js-selector.md)

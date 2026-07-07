@@ -68,7 +68,7 @@ You can opt for the following actions:
 
 To standardize client response pages whenever an individual rule or any rule in the profile triggers, you can create custom [response templates](response-templates.md).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../quickstart.md#arl)
 * [{#T}](../operations/arl-profile-create.md)

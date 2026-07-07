@@ -45,7 +45,7 @@ You can also find a link to your request in:
 * {{ yandex-cloud }} notifications. In the {{ yandex-cloud }} management console, click ![image](../_assets/console-icons/bell.svg)**{{ ui-key.yacloud.component.navigation-menu.label_notifications }}** in the left-hand panel. To quickly jump to your request, follow the link in the notification.
 * SMS and Telegram bot messages, if these notification methods are available and properly [configured](../console/operations/update.md#notifications).
 
-For more information on how to get notifications, see [this guide](../support/notify.md#notification-settings).
+For more information on how to get notifications, see [this section](../support/notify.md#notification-settings).
 
 
 If you have the {{ yandex-cloud }} [mobile app](../overview/mobile-app/index.md) installed, you can track your case there. You will see all your requests on the **Support** tab.

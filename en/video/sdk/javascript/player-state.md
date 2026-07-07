@@ -275,6 +275,6 @@ The object format is similar to that of [textTracks](#state-textTracks) array it
 
 The default value is `null`.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Interface: PlayerSdkState](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) in the API reference

@@ -79,7 +79,7 @@ description: Follow this guide to create a {{ sws-full-name }} ARL profile.
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](arl-rule-add.md)
 * [{#T}](profile-update.md)

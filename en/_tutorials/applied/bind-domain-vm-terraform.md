@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 To create an infrastructure using {{ TF }}:
 
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
-1. Prepare the infrastructure description file:
+1. Set up your infrastructure description file:
 
     {% list tabs group=infrastructure_description %}
 
@@ -36,7 +36,7 @@ To create an infrastructure using {{ TF }}:
           git clone https://github.com/yandex-cloud-examples/yc-compute-dns-binding
           ```
 
-      1. Navigate to the repository directory. Make sure it contains the following files:
+      1. Navigate to the repository directory. It should now contain the following files:
           * `bind-domain-to-vm.tf`: Your infrastructure configuration.
           * `bind-domain-to-vm.auto.tfvars`: User data file.
 
@@ -62,7 +62,7 @@ To create an infrastructure using {{ TF }}:
 
     {% endlist %}
 
-    For more information about the properties of {{ TF }} resources, see the provider documentation:
+    For more on the properties of resources used in {{ TF }}, see these provider guides:
 
     * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
     * [Subnets](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)

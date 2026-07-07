@@ -3452,11 +3452,12 @@ default:
         MyAccountLayout:
           activity_kyqSv: Activity
           groups_pqQRu: Groups
-          logout_nXPin: Log out
           profile_8kyBA: Profile
           security_7zQ3g: Login and security
         OrganizationSelect:
           action_create-organization_j1Yin: Create organization
+        SwitchAccountAside:
+          action_switch-account_1aB2c: Change account
       cloud-components:
         AclDashboard:
           action_assign-roles_41Nj1: Assign roles
@@ -3775,8 +3776,6 @@ default:
           AuthBrandingForm:
             clearAllAction: Clear all
             loginSection:
-              alternativeEntryLabel: Alternative login methods
-              placeholderLabel: Hint in the input field
               title: Login form
               welcomeLabel: Welcome text
             styleSection:
@@ -4006,7 +4005,6 @@ default:
             field_reason_qN8a7: Exception reason
             field_rules_vBK4W: Rules
             field_type_exclude_cigcD: No check required
-            field_type_kCG8J: Exception type
             field_type_manual_mbKxp: Manually scanned
         discovery:
           AnalyticsDashboard:
@@ -7653,9 +7651,9 @@ default:
           label_paranoia-level: Paranoia level
           label_paranoia-option-1: Only 1
           label_profiles: WAF profiles
+          label_request-condition_33CzA: Scope
           label_save-settings: Save settings
           title_exclusion-rule-condition-section: Traffic conditions
-          title_exclusion-rule-rules-section: Scope of use
           title_exclusion-rules: Exclusion rules
           value_exclude-all-no: Selected rules
           value_exclude-all-yes: All rules
@@ -8940,7 +8938,7 @@ default:
                         title: Result table schema
                     ObjectStorageSourceAdvancedSettings:
                       unparsed_mode:
-                        title: Unparsed mode
+                        title: Unparsed policy
                     ObjectStorageTarget:
                       advanced_settings:
                         title: Advanced settings

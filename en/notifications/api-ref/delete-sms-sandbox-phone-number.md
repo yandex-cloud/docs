@@ -105,7 +105,7 @@ HTTP | Error code | Extended code | Description
 --- | --- | --- | ---
 400 | UserError | VerifiedTooRecently | Insufficient time has passed since the number was confirmed.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)

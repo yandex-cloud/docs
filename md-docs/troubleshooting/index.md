@@ -554,8 +554,6 @@
 
  - [Примеры конфигураций и сценариев Legal](legal/how-to/index.md)
 
- - [Как узнать физический адрес ЦОД Yandex Cloud](legal/how-to/data-centers-physical-addresses.md)
-
  - [Нужно ли заключать отдельный договор по № 152-ФЗ для размещения персональных данных](legal/how-to/fl-152.md)
 
  - [Как стать поставщиком услуг для Яндекса](legal/how-to/becoming-a-service-supplier.md)

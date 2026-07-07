@@ -5,7 +5,7 @@
 
 {% note info %}
 
-Для приглашения пользователей с аккаунтом на Яндексе смотрите нструкции [{#T}](../../organization/operations/add-account.md). Инструкции для федеративных и локальных пользователей смотрите в разделе [{#T}](../../organization/operations/user-account/index.md).
+Для приглашения пользователей с аккаунтом на Яндексе смотрите инструкции [{#T}](../../organization/operations/add-account.md). Инструкции для федеративных и локальных пользователей смотрите в разделе [{#T}](../../organization/operations/user-account/index.md).
 
 {% endnote %}
 

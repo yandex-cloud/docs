@@ -26,7 +26,7 @@ If you no longer need the resources you created, [delete them](#cleanup).
 
 * {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ iot-name }} registry: Number of sent messages (see [{{ iot-name }} pricing](../../iot-core/pricing.md)).
+* {{ iot-name }} registry: number of sent messages (see [{{ iot-name }} pricing](../../iot-core/pricing.md)).
 * {{ sf-full-name }} functions: number of function calls, idle time of provisioned instances, and computing resources allocated for the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 
 
@@ -216,7 +216,7 @@ To run the emulator, create a [function](../../functions/concepts/function.md) t
               `ITEM2_SENSOR_VALUE`        | Stock of product 2                       | `80.97`
               `ITEM3_SENSOR_VALUE`        | Stock of product 3                       | `30.33`
               `ITEM4_SENSOR_VALUE`        | Stock of product 4                       | `15.15`
-              `REGISTRY_ID`               | ID of the registry you created   | See the [management console]({{ link-console-main }})<br>in {{ iot-name }}
+              `REGISTRY_ID`               | ID of the registry you created   | To look up the ID, use the [management console]({{ link-console-main }})<br>in {{ iot-name }}
 
       1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -370,7 +370,7 @@ Create a data processing function, test it, and review the result of data proces
               Key | Description | Value
               :--- | :--- | :---
               `VERBOSE_LOG` | Enables and disables writing data | `True`
-              `DB_HOSTNAME` | Host FQDN in {{ mpg-name }} | See the [management console]({{ link-console-main }}),<br>in {{ mpg-name }}
+              `DB_HOSTNAME` | Host FQDN in {{ mpg-name }} | To look up the FQDN, use the [management console]({{ link-console-main }})<br>in {{ mpg-name }}
               `DB_PORT`     | Port for connection to the cluster in {{ mpg-name }} | `6432`
               `DB_NAME`     | Cluster name in {{ mpg-name }} | `db1`
               `DB_USER`     | Username to connect to the cluster in {{ mpg-name }} | `user1`

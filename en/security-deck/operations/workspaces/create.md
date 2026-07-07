@@ -7,7 +7,12 @@ description: In this guide, you will learn how to create an workspace in {{ sd-f
 
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
-To create a {{ sd-name }} [workspace](../../concepts/workspace.md):
+Before creating a [workspace](../../concepts/workspace.md), make sure you have the necessary [permissions](../../security/index.md) to work with the {{ sd-name }} modules. You optimal roles are:
+
+* `security-deck.admin` for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to store the {{ sd-name }} resources and modules.
+* `auditor` for the [organization](../../../organization/concepts/organization.md), [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud), or folder security in which will be controlled by the workspace.
+
+To create a {{ sd-name }} workspace:
 
 {% list tabs group=instructions %}
 
@@ -25,7 +30,7 @@ To create a {{ sd-name }} [workspace](../../concepts/workspace.md):
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/workspace.md)
 * [{#T}](./view-dashboard.md)

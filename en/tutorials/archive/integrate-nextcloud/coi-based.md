@@ -7,7 +7,7 @@ description: In this tutorial, you will deploy Nextcloud on a {{ compute-full-na
 
 {% include [coi-based](../../../_tutorials/archive/integrate-nextcloud/coi-based.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./fault-tolerant.md)
 * [{#T}](./terraform.md)

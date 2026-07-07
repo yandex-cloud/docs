@@ -400,6 +400,8 @@ Workflows и EventRouter находятся на стадии <a href="../overvi
 
  - [Справочник Terraform](tf-ref.md)
 
+ - [Аудитные логи Audit Trails](at-ref.md)
+
 ## Справочник API Workflows
 
  - [Аутентификация в API](api-ref/workflows/authentication.md)

@@ -25,6 +25,14 @@ yandex.cloud.audit.securitydeck.<имя_модуля><имя_события>
 `UpdateScanJob` | Изменение задания сканирования
 `UpdateScopeFilter` | Изменение фильтра области действия
 
+### Модуль контроля данных (DSPM) {#sd-cspm}
+
+Имя модуля — `dspm`.
+
+Имя события | Описание
+--- | ---
+`ExportDiscoveryResults` | Экспорт результатов обнаружения данных
+
 ### Модуль Контроль Kubernetes® (KSPM) {#sd-kspm}
 
 Имя модуля — `kspm`.
@@ -39,6 +47,7 @@ yandex.cloud.audit.securitydeck.<имя_модуля><имя_события>
 `EnableSDProject` | Включение проекта Security Deck
 `UpdateException` | Изменение параметров исключения
 `UpdateProject`   | Изменение параметров проекта
+`UpdateProjectControl` | Изменение настроек контроля проекта
 
 ### Модуль Алерты {#sd-alerts}
 
@@ -95,6 +104,9 @@ yandex.cloud.audit.securitydeck.<имя_модуля><имя_события>
 Имя события | Описание
 --- | ---
 `TriggerAdmissionControl` | Срабатывание [модуля](concepts/kspm.md) KSPM при проверке создаваемых и изменяемых ресурсов
+`TriggerInventoryControlBatch` | Срабатывание модуля KSPM при пакетной проверке конфигурации
+`TriggerInventoryControlEvent` | Срабатывание модуля KSPM при проверке конфигурации по событию
+`TriggerInventoryControlSnapshot` | Срабатывание модуля KSPM при проверке конфигурации по снимку
 `TriggerRuntimeControl` | Срабатывание модуля KSPM при контроле безопасности рабочих нагрузок
 `TriggerRuntimeProcessInfo` | Срабатывание модуля KSPM при получении информации о процессе
 

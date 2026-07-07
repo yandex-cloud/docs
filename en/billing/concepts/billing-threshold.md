@@ -73,7 +73,7 @@ We recommend that you keep track of the money you spend from your personal accou
 
 {% endnote %}
 
-For more information, see the following sections:
+For more information, see these sections:
 * For individuals
     * [Payment methods](../payment/payment-methods-individual.md)
     * [Billing cycle](../payment/billing-cycle-individual.md)

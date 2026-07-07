@@ -1,5 +1,5 @@
 1. [Get your cloud ready](#before-begin).
-1. [Create your infrastructure](#deploy).
+1. [Create the infrastructure](#deploy).
 1. [Get credentials for authentication in the web interface](#get-auth-data).
 1. [Connect to the WordPress web interface](#connect-wordpress-interface).
 
@@ -19,8 +19,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [terraform-definition](../../_tutorials_includes/terraform-definition.md) %}
 
-To create an infrastructure using {{ TF }}:
-1. [Install {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
+To create your infrastructure via {{ TF }}:
+1. [Install {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
 1. Prepare the infrastructure description files.
 
    {% list tabs group=infrastructure_description %}

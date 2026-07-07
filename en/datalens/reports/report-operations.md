@@ -257,6 +257,18 @@ To configure widget background:
 
      {% endcut %}
 
+
+### Configuring widget corner rounding {#widget-rounding}
+
+To configure widget corner rounding:
+
+1. Select the report page the widget is on.
+1. Click ![image](../../_assets/console-icons/gear.svg) next to the widget.
+1. In the **Rounding** field, set widget corner rounding from `0` to `24` in increments of `2`. The default value is `12`.
+1. Click **Save**.
+1. In the top-right corner, click **Save**.
+
+
 ## Configuring a report {#report-settings}
 
 Report settings are valid for all its pages:
@@ -267,6 +279,7 @@ Report settings are valid for all its pages:
    * **Theme**: Select page theme, ![icon](../../_assets/console-icons/sun.svg) light or ![icon](../../_assets/console-icons/moon.svg) dark.
    * **Contrast**: Select standard (default) or high contrast.
    * **Background color**: Specify a color in hex format or select one from the color palette.
+   * **Rounding**: For your report's widgets, set the corner rounding from `0` to `24` in increments of `2`. The default value is `12`.
    * **Format**: Select a format (`A4`, `A3`, `16:9 (Full HD)`, `16:9 (2K)`, or `16:9 (4K)`).
 
      {% cut "Displaying the report in specific formats" %}

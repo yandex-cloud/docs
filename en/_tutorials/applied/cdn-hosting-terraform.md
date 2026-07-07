@@ -1,6 +1,6 @@
 1. [Get your cloud ready](#before-you-begin).
 1. [Add a certificate to {{ certificate-manager-name }}](#add-certificate).
-1. [Create your infrastructure](#deploy).
+1. [Create the infrastructure](#deploy).
 1. [Test the CDN](#check-cdn).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -21,19 +21,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [add-certificate](../../_tutorials/_tutorials_includes/cdn-hosting/add-certificate.md) %}
 
 
-## Create your infrastructure {#deploy}
+## Create the infrastructure {#deploy}
 
 {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-To create an infrastructure using {{ TF }}:
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing {{ yandex-cloud }} (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
+To create your infrastructure via {{ TF }}:
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
 1. Set up your infrastructure description files:
 
    {% list tabs group=infrastructure_description %}
 
    - Ready-made configuration {#ready}
 
-     1. Clone the repository with configuration files.
+     1. Clone the repository containing the configuration files.
 
         ```bash
         git clone https://github.com/yandex-cloud-examples/yc-s3-cdn-hosting.git
@@ -48,7 +48,7 @@ To create an infrastructure using {{ TF }}:
 
      1. Create a folder for configuration files.
      1. In the folder, create:
-        1. The home page file for the website, `index.html`:
+        1. Website home page file `index.html`:
 
            {% cut "index.html" %}
            
@@ -88,7 +88,7 @@ To create an infrastructure using {{ TF }}:
 
    {% endlist %}
 
-   Learn more about the properties of {{ TF }} resources in the relevant provider guides:
+   For more on the properties of resources used in {{ TF }}, see these provider guides:
    * [TLS certificate](../../certificate-manager/concepts/managed-certificate.md): [yandex_cm_certificate]({{ tf-provider-datasources-link }}/cm_certificate) data source.
    * [Bucket](../../storage/concepts/bucket.md): [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket).
    * [Configuring](../../storage/operations/buckets/edit-acl.md) access permissions for a bucket using [ACL Object Storage](../../storage/concepts/acl.md): [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant).

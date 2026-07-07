@@ -123,7 +123,7 @@ CPU core workload.
 * If the broker has at least one HA topic, the algorithm checks only HA topics. The number of replicas each HA topic has must be equal to or greater than the `Minimum number of in-sync replicas`.
 * If the broker has no HA topics, the algorithm checks all topics. The number of replicas each topic has must be equal to or greater than the `Minimum number of in-sync replicas`.
 
-For more information about the `Minimum number of in-sync replicas`, see the [{{ KF }} settings section](../../../managed-kafka/concepts/settings-list.md#topic-settings).
+For more information about `Minimum number of in-sync replicas`, see [{{ KF }} settings](../../../managed-kafka/concepts/settings-list.md#topic-settings).
 
 It can be either `1` if a broker is alive or `0` if it is not. ||
 || `kafka_network_RequestChannel_RequestQueueSize`<br/>`DGAUGE`, count | Number of enqueued requests ||
@@ -153,7 +153,7 @@ It can be either `1` if a broker is alive or `0` if it is not. ||
 * 4: `Running as Controller`
 * 5: `Pending Controlled ShutdownStates`
 * 6: `Broker Shutting Down` ||
-|| `kafka_server_ReplicaFetcherManager_MaxLag`<br/>`DGAUGE`, count | Maximum lag of message replication between the follower and leader brokers.<br/>Additional labels: `clientId`.  ||
+|| `kafka_server_ReplicaFetcherManager_MaxLag`<br/>`DGAUGE`, count | Maximum lag of message replication between the follower and leader brokers.<br/>Additional labels: `clientId`. ||
 || `kafka_server_ReplicaManager_LeaderCount`<br/>`DGAUGE`, count | Number of partitions led by the broker ||
 || `kafka_server_ReplicaManager_OfflineReplicaCount`<br/>`DGAUGE`, count | Number of partitions with no leader broker. These partitions do not support message writes or reads. ||
 || `kafka_server_ReplicaManager_PartitionCount`<br/>`DGAUGE`, count | Number of partitions per broker ||
@@ -185,7 +185,7 @@ It can be either `1` if the host is available for reads or `0` if it is not. ||
 * If the host has at least one HA topic, the algorithm checks only HA topics. The number of replicas each HA topic has must be equal to or greater than the `Minimum number of in-sync replicas`.
 * If the host has no HA topics, the algorithm checks all topics. The number of replicas each topic has must be equal to or greater than the `Minimum number of in-sync replicas`.
 
-For more information about the `Minimum number of in-sync replicas`, see the [{{ KF }} settings section](../../../managed-kafka/concepts/settings-list.md#topic-settings).
+For more information about `Minimum number of in-sync replicas`, see [{{ KF }} settings](../../../managed-kafka/concepts/settings-list.md#topic-settings).
 
 Additionally, the [storage](../../../managed-kafka/concepts/storage.md) is checked for available space. It should be more than 5%. If there is not enough space, the host is unavailable for writes.
 

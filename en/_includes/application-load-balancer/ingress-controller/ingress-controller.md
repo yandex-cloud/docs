@@ -4,7 +4,7 @@ The ingress controller is an {{ alb-name }} tool for creating and managing load 
 
 Once you install an ingress controller in your cluster, it will automatically deploy [L7 load balancers](../../../application-load-balancer/concepts/application-load-balancer.md) with all required {{ alb-name }} components configured according to your [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource specifications.
 
-For full configuration of the resources for the {{ alb-name }} ingress controller, see the following sections:
+See the full configuration of {{ alb-name }} ingress controller resources in the following sections:
 
 * [Ingress]({{ configuration-local-link }}/ingress.md): Traffic routing and controller configuration.
 * [HttpBackendGroup]({{ configuration-local-link }}/http-backend-group.md) and [GrpcBackendGroup]({{ configuration-local-link }}/grpc-backend-group.md): Combining backends into groups.
@@ -85,7 +85,7 @@ In the ingress controller, you can enable [{{ sws-full-name }}](../../../smartwe
 
 You can deploy multiple ingress controllers, e.g., {{ alb-name }} and NGINX, for a single application. For proper traffic routing isolation, define a dedicated [IngressClass]({{ configuration-local-link }}/ingress-class.md) resource for each ingress controller. Specify the `Ingress` resource’s `IngressClass` in its `spec.ingressClassName` field. Check out a GitHub [example](https://github.com/yandex-cloud-examples/yc-mk8s-with-ingress-class) for configuring `Ingress` resources and routing traffic with multiple ingress controllers.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Controller operating principles]({{ ingress-local-link }}/principles.md)
 * [Security group configuration]({{ alb-local-link }}/security-groups.md) for a {{ k8s }} cluster and a load balancer

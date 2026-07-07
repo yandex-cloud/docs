@@ -17,7 +17,7 @@ description: Follow this guide to edit a WAF exclusion rule.
   1. In the rule row, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
       1. Edit the exclusion rule name and description as needed.
       1. Optionally, enable **{{ ui-key.yacloud.smart-web-security.waf.field_logging }}** to log exception rule triggering.
-      1. Under **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-rules-section }}**, edit rules from the basic set to which the exclusion will apply:
+      1. Under **{{ ui-key.yacloud.smart-web-security.waf.label_request-condition_33CzA }}**, edit rules from the basic set to which the exclusion will apply:
           * `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-yes }}`: Exclusion will apply to all rules.
           * `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-no }}`: Exclusion will apply to the selected rules.
 
@@ -101,7 +101,7 @@ description: Follow this guide to edit a WAF exclusion rule.
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](exclusion-rule-add.md)
 * [{#T}](exclusion-rule-delete.md)

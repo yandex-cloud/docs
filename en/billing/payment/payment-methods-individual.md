@@ -8,7 +8,7 @@ description: Read this article to learn how individuals can top up their persona
 Individuals can top up their personal account and pay for resources by means of the following:
 
 * Credit or debit card
-* SBP (Faster Payment System)
+* Faster Payment System (SBP)
 
 {% include [billing-account-payers](../../billing/_includes/billing-account-payers.md) %}
 

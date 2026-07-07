@@ -5,3 +5,5 @@
 1. In the top-right corner, click **Save**.
 
 After that, the AI assistant will become unavailable for this dashboard.
+
+

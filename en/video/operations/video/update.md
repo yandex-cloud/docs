@@ -61,6 +61,6 @@ description: Follow this guide to edit a video in {{ video-full-name }}.
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [{#T}](get-link.md)

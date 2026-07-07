@@ -19,11 +19,7 @@ description: In this section, you will learn how to view alerts in {{ sd-full-na
 
       For each alert, the table displays the following information:
 
-      {% note tip %}
-
-      You can change the info columns displayed in the table. To do this, click ![gear](../../../_assets/console-icons/gear.svg) in the row with the column headers, select the columns, and click **{{ ui-key.yacloud_org.common.apply }}**.
-
-      {% endnote %}
+      {% include [table-columns-tip](../../../_includes/security-deck/table-columns-tip.md) %}
 
       * ![traffic-light](../../../_assets/console-icons/traffic-light.svg): Alert criticality level:
           * ![cspm-rule-notice-icon](../../../_assets/security-deck/cspm-rule-notice-icon.svg): {{ ui-key.yacloud_org.shared.components.severity_info_biSRh }}
@@ -60,12 +56,6 @@ description: In this section, you will learn how to view alerts in {{ sd-full-na
       * Visual grouping by alert type.
       * Sorting by date and criticality level.
       * Filters.
-
-          {% note tip %}
-
-          You can also update the displayed filters. To do this, click ![gear](../../../_assets/console-icons/plus.svg) in the filter row and select the filters.
-
-          {% endnote %}
 
 {% endlist %}
 

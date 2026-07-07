@@ -32,7 +32,7 @@ Metric delivery is configured the same way as delivery of other telemetry data. 
 
 For additional metric features, see [{#T}](../metrics/metric-explorer.md).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../metrics/metric-explorer.md)
 * [{#T}](../logs/quickstart.md)

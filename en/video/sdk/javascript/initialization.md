@@ -100,7 +100,7 @@ All the controls are shown by default.
 
 As a value, you can provide either an array of interface elements to hide or a string listing such elements separated by commas.
 
-Examples:
+Here are some examples:
 
 * Hide the play/pause and settings buttons by providing `hiddenControls` as a string:
 
@@ -149,7 +149,7 @@ Interface elements you can hide:
 * `sound`: Mute button.
 * `volumeSlider`: Volume slider.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
-* [Interface: PlayerSdkInitConfig](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) in the API reference
+* [Interface: PlayerSdkInitConfig](../../api-ref/javascript/interfaces/PlayerSdkInitConfig.md) in the API reference
 * [Interface: PlayerSdkSourceParams](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) in the API reference

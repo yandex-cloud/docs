@@ -162,11 +162,11 @@ description: Вы можете получить информацию о конф
 
      {% endnote %}
 
-  2. Проверьте корректность настроек.
+  1. Проверьте корректность настроек.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  3. Подтвердите изменение ресурсов.
+  1. Подтвердите изменение ресурсов.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

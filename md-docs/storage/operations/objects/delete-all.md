@@ -211,7 +211,7 @@
        --bucket $BUCKET_NAME \
      | jq -r '.Uploads[] | "--key \"\(.Key)\" --upload-id \(.UploadId)"' \
      | while read -r line; do
-       eval 
+       eval \
          "aws s3api abort-multipart-upload \
            --endpoint-url https://storage.yandexcloud.net \
            --bucket $BUCKET_NAME \
@@ -227,7 +227,7 @@
        --bucket $BUCKET_NAME \
      | jq -r '.Uploads[] | "--key \"\(.Key)\" --upload-id \(.UploadId)"' \
      | while read -r line; do
-       eval 
+       eval \
          "aws s3api list-parts \
            --endpoint-url https://storage.yandexcloud.net \
            --bucket $BUCKET_NAME \

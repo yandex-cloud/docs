@@ -146,7 +146,7 @@ After you finish your app setup, [view the telemetry in {{ monium-name }}](#view
 
 To use the data you collected, you can create [dashboards](operations/dashboard/create.md) and [alerts](operations/alert/create-alert.md).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Getting started with metrics](metrics/quickstart.md)
 * [Getting started with logs](logs/quickstart.md)

@@ -252,7 +252,7 @@ WAF allows using rule sets to protect web applications against various cyber att
 
   1. Go to the ![image](../_assets/console-icons/file-xmark.svg) **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rules }}** tab and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-exclusion-rule }}**.
   1. Enter a name for the [exclusion rule](concepts/waf.md#exclusion-rules), e.g., `exception-rule-1`.
-  1. Under **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-rules-section }}**, specify rules from the basic set for which the exclusion will apply. You can either select `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-yes }}` or specify particular rules.
+  1. Under **{{ ui-key.yacloud.smart-web-security.waf.label_request-condition_33CzA }}**, specify rules from the basic set for which the exclusion will apply. You can either select `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-yes }}` or specify particular rules.
   1. Under **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-condition-section }}**, select the triggering [conditions](concepts/conditions.md) for the exclusion rule.
 
       If you leave the **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** field empty, the exclusion rule will apply to all traffic.
@@ -364,7 +364,7 @@ ARL allows limiting the number of requests to the protected resource to prevent 
 {% endlist %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](operations/profile-create.md)
 * [{#T}](tutorials/sws-basic-protection.md)

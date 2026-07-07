@@ -12,20 +12,20 @@
 ## Certificate types {#types}
 
 {{ certificate-manager-name }} supports two types of certificates:
-* Let's Encrypt certificates (`Managed` certificates): Certificates issued through [Let's Encrypt](https://letsencrypt.org) and managed by {{ certificate-manager-name }}. For more information about these certificates, see [Let's Encrypt certificate](managed-certificate.md).
-* User certificates (`Imported` certificates): Certificates added by the user. You are responsible for renewing these certificates on time. For more information about these certificates, see [User certificate](imported-certificate.md).
+* Let's Encrypt certificates (`Managed`): Certificates issued through [Let's Encrypt](https://letsencrypt.org) and managed by {{ certificate-manager-name }}. For more on this type, see [Let's Encrypt certificate](managed-certificate.md).
+* Custom certificates (`Imported`): Certificates added by the user. Timely renewal of such certificates is under your own responsibility. For more on this type, see [User certificate](imported-certificate.md).
 
 ## Certificate statuses {#statuses}
 
 The lifecycle and statuses of certificates depend on their type.
 
-* Let's Encrypt certificates (`Managed` certificates) can have the following statuses:
-   * `Validating`: The certificate was requested from Let's Encrypt and is pending the domain rights check.
-   * `Issued`: The certificate was obtained and can be used in services integrated with {{ certificate-manager-name }}.
-   * `Invalid`: The certificate failed the check (the domain rights check took more than one week or failed).
-      * `Renewing`: The certificate is being renewed.
-      * `Renewal_failed`: The certificate failed to renew.
-* User certificates (`Imported` certificates) always have the `Issued` status: the certificate was obtained and can be used in services integrated with {{ certificate-manager-name }}.
+* Let's Encrypt certificates (`Managed`) can have the following statuses:
+  * `Validating`: Certificate was requested from Let's Encrypt and is awaiting a successful domain rights check.
+  * `Issued`: Certificate was issued and can be used in services integrated with {{ certificate-manager-name }}.
+  * `Invalid`: Certificate failed the check: the domain rights check took more than one week or failed.
+    * `Renewing`: Certificate is being renewed.
+    * `Renewal_failed`: Renewal failed.
+* Custom (`Imported`) certificates always have the `Issued` status: the certificate was issued and can be used in services integrated with {{ certificate-manager-name }}.
 
 ## Sending notifications to users {#notify}
 
@@ -45,23 +45,23 @@ Deadline for sending notifications:
 
 ## Monitoring the status of certificates {#monitoring}
 
-You can set up metrics and alerts for monitoring certificates. Charts with metrics are available on service [dashboards](../../monitoring/concepts/visualization/dashboard.md) that are created automatically. 
+You can set up metrics and alerts for certificate monitoring. You can see metric charts on the service [dashboard](../../monitoring/concepts/visualization/dashboard.md), which is created automatically.
 
 List of certificate metrics:
 * `certificate.days_until_expiration`: Shows the real number of days until a certificate's expiration date.
 
-   You can use this metric to create alerts about the upcoming expiration of the certificate.
-* `certificate.is_out_of_order`: Shows whether you can use the certificate to provide a TLS connection.
-   * If not, the metric value is 1: the certificate status is `Invalid` or `Revoked`, or its validity period expired.
-   * In all other cases, the metric value is zero, including when the certificate status is `Validating`.
+  You can use this metric to create alerts about the upcoming expiration of the certificate.
+* `certificate.is_out_of_order`: Shows whether the certificate can be used for a TLS connection.
+  * The metric equals one if the certificate cannot be used for a TLS connection, i.e., its status is `Invalid`, `Revoked`, or its validity period has expired.
+  * In all other cases, the metric equals zero, including when the certificate's status is `Validating`.
 
-      You can use this metric to create alerts that warn you about faulty certificates.
+    You can use this metric to create alerts to warn you about an out-of-order certificate.
 * `quota.certificates_count.usage`: Shows the current usage of the [quota]({{ link-console-quotas }}) for the number of certificates per cloud.
 * `quota.certificates_count.limit`: Shows the current limit on the number of certificates per cloud.
 
 You can use metrics to create alerts. For more information, see [{#T}](../operations/alert.md).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Services integrated with {{ certificate-manager-name }}](services.md).
-* [Check rights for domain](challenges.md).
+* [Domain rights check](challenges.md).

@@ -1,5 +1,5 @@
 ---
-title: Viewing the {{ cspm-name }} module's security control rules in {{ sd-full-name }}
+title: Viewing {{ cspm-name }} security control rules in {{ sd-full-name }}
 description: In this section, you will learn how to view the current security rules and learn about related violations in the {{ cspm-full-name }} ({{ cspm-name }}) module in {{ sd-full-name }}.
 ---
 
@@ -42,7 +42,7 @@ To view [detailed information](../../concepts/cspm.md#detailed-info) about a spe
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./manage-exceptions.md)
 * [{#T}](../../concepts/cspm.md)

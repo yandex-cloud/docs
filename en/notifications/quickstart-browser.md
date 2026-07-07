@@ -100,7 +100,7 @@ To create an endpoint, get this user data:
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [How to get started with mobile push notifications](quickstart-push.md)
 * [Getting started with SMS](quickstart-sms.md)

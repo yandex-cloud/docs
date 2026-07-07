@@ -586,6 +586,6 @@ To remove a backend from a group:
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../concepts/best-practices.md)

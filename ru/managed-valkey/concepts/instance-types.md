@@ -27,6 +27,10 @@ description: Класс хостов определяет вычислитель
 ## Доступные классы хостов {#available-flavors}
 
 
+{% include [disk-flavor-dependencies](../../_includes/mdb/disk-flavor-dependencies.md) %}
+
+Например, в `{{ region-id }}-d` недоступны платформы Intel Broadwell и хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.
+
 Типы конфигураций:
 
 * **burstable** — конфигурации с [гарантированной долей vCPU](../../compute/concepts/performance-levels.md) ниже 100%. Этот класс хостов предназначен для тестовой нагрузки, минимальная рекомендуемая конфигурация хоста для продакшн-решений — 2 vCPU с гарантированной долей 100%.
@@ -34,10 +38,6 @@ description: Класс хостов определяет вычислитель
 * **high-memory** — стандартные конфигурации для {{ VLK }}.
 
     Кластер с таким типом конфигурации может содержать несколько хостов на кластер или [шард](./sharding.md) (от 1 до пределов текущей [квоты](./limits.md)). Минимальное количество хостов в кластере [зависит](./limits.md#mrd-limits) от [выбранного типа диска](./storage.md).
-
-{% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
-
-{% include [burstable-hosts-deprecation-2023](../../_includes/mdb/burstable-hosts-deprecation-2023.md) %}
 
 | Имя класса хостов | Количество vCPU | RAM, ГБ | Производительность CPU | Размер <br>диска, ГБ |
 |-------------------|----------------|---------|------------------------|----------------------|

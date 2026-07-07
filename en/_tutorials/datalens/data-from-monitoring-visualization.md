@@ -154,7 +154,7 @@ Add a [selector](../../datalens/dashboard/selector.md) so that you can select th
    
    ![image](../../_assets/datalens/monitoring-visualization/selector-2-values.png)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../datalens/operations/dashboard/add-chart.md)
 * [{#T}](../../datalens/operations/dashboard/add-selector.md)

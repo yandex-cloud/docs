@@ -2,6 +2,12 @@
 
 # Интеграция с Object Storage
 
+{% note warning %}
+
+Перед включением интеграции с Object Storage убедитесь, что [группа безопасности](configure-security-group.md) инстанса Managed Service for GitLab разрешает входящие подключения на порт `80` с внешних IP-адресов Let's Encrypt®. Подробнее об [ограничениях интеграции Object Storage](../concepts/s3-integration.md#restrictions).
+
+{% endnote %}
+
 Интеграция с Object Storage позволяет уменьшить объем данных на дисках [инстанса](../concepts/index.md#instance) и предотвратить их переполнение. Вы можете выбрать типы данных, которые будут храниться в Object Storage:
 
 * `Артефакты` — архивы файлов и каталогов заданий.

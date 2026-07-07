@@ -13,7 +13,7 @@ To add a [header](../../dashboard/widget.md#title) to a dashboard:
 
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need. If you do not have a dashboard, [create one](create.md).
 1. At the top of the page, click **Edit**.
-1. In the panel at the bottom of the page, drag ![image](../../../_assets/console-icons/heading.svg) **Header** where you need.
+1. In the panel at the bottom of the page, click ![image](../../../_assets/console-icons/heading.svg) **Header** and drag it where you want it to be.
 
    ![image](../../../_assets/datalens/operations/widget-select.png =500x118)
 
@@ -22,7 +22,12 @@ To add a [header](../../dashboard/widget.md#title) to a dashboard:
    * Enter the header text.
    * Select the text size from the preset options: `XS`, `S`, `M`, `L`, or `XL`.
    * Optionally, set a text color by selecting one from the palette.
-   * Optionally, set a background.
+   
+   
+   * Optionally, set the widget background color and opacity separately for the light and dark theme.
+   * Optionally, set corner rounding for your widget.
+
+
    * Optionally, enable **Tooltip** and enter the tooltip text. The input field supports [Markdown](../../dashboard/markdown.md).
    * Optionally, enable **Auto height**.
    * Optionally, enable **Display in contents**.

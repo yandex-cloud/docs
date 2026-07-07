@@ -170,7 +170,7 @@ To customize the fields displayed in the results table:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/investigations.md)
 * [{#T}](../../concepts/queries.md)

@@ -5,6 +5,12 @@ description: Следуя данной инструкции, вы сможете
 
 # Интеграция с {{ objstorage-name }}
 
+{% note warning %}
+
+Перед включением интеграции с {{ objstorage-name }} убедитесь, что [группа безопасности](configure-security-group.md) инстанса {{ mgl-name }} разрешает входящие подключения на порт `80` с внешних IP-адресов {{ lets-encrypt }}. Подробнее об [ограничениях интеграции {{ objstorage-name }}](../concepts/s3-integration.md#restrictions).
+
+{% endnote %}
+
 Интеграция с {{ objstorage-name }} позволяет уменьшить объем данных на дисках [инстанса](../concepts/index.md#instance) и предотвратить их переполнение. Вы можете выбрать типы данных, которые будут храниться в {{ objstorage-name }}:
 
 {% include [s3-object-type](../../_includes/managed-gitlab/s3-object-type.md) %}

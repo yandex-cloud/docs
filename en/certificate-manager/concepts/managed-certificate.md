@@ -1,4 +1,4 @@
-# Certificate from Let's Encrypt
+# Let's Encrypt certificate
 
 You can use {{ certificate-manager-name }} to create Let's Encrypt certificates. Request a certificate and pass the domain rights check. After that, {{ certificate-manager-name }} will manage your certificate by working with Let's Encrypt on your behalf.
 
@@ -67,12 +67,12 @@ To renew a certificate, follow the steps below. Keep track of the lifecycle of y
 
 {% endnote %}
 
-1. {{ certificate-manager-name }} initiates the certificate renewal procedure 30 days before it expires.
+1. {{ certificate-manager-name }} initiates a certificate renewal 30 days prior to its expiration.
     
     After the renewal procedure starts, the certificate gets the `Renewing` status.
-1. Pass the domain rights check.
+1. Pass domain ownership verification.
 
-    Depending on the type of check you selected, update the file on the web server or update the `TXT` record in the DNS service to the new value. For more information, see [Check rights for domain](challenges.md).
+    Depending on the type of check you selected, update the file on the web server or update the `TXT` record in the DNS service to the new value. For more information, see [Domain ownership verification](challenges.md).
     
     {% note info %}
     
@@ -87,7 +87,7 @@ Some time after the failed renewal, a new attempt will be made to update the cer
  
 To avoid issues with access to resources that depend on the certificate with the `Renewal_failed` status:
 1. Before the certificate expires, get and [add a new Let's Encrypt certificate](../operations/managed/cert-create.md).
-1. [Pass the domain rights check](../operations/managed/cert-validate.md).
+1. [Pass domain ownership verification](../operations/managed/cert-validate.md).
 1. Use the new certificate in your resources.
 
 ## Use cases {#examples}
@@ -96,7 +96,7 @@ To avoid issues with access to resources that depend on the certificate with the
 * [{#T}](../tutorials/virtual-hosting.md)
 * [{#T}](../tutorials/tls-termination/index.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 - [Domain rights check](challenges.md)
 - [Services integrated with {{ certificate-manager-name }}](services.md)

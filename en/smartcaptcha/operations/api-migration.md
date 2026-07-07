@@ -1,23 +1,23 @@
 ---
-title: Migrating to the new condition format in the API, CLI, and Terraform
-description: Follow this guide to update {{ captcha-full-name }} conditions to the new format used by the API, CLI, and Terraform.
+title: Migrating to the new condition format in the API, CLI, and {{ TF }}
+description: Follow this guide to update {{ captcha-full-name }} conditions to the new format used by the API, CLI, and {{ TF }}.
 ---
 
-# Updating the condition format in the API, CLI, and Terraform
+# Updating the condition format in the API, CLI, and {{ TF }}
 
 {% note warning %}
 
-Starting June 9, 2026, {{ captcha-full-name }} will migrate to the new format of conditions and field names in captcha display rules. If using the API, CLI, or {{ TF }}, update your commands and configurations.
+Starting June 9, 2026, {{ captcha-full-name }} will migrate to the new format of conditions and field names in captcha display rules. If using the API, CLI, or {{ TF }}, update commands and configurations.
 
 {% endnote %}
 
-Earlier, multiple values in the `host` condition were provided as a list. Now you need to combine such values into a single text field, separated by `|`.
+Earlier, multiple values in the `host` condition were provided as a list. Must now be entered in a single text field, separated by `|`.
 
 The `hosts` field is also renamed to `host_matcher`.
 
 ## Updating current configurations {#existing-configurations}
 
-All rules created in the old format will be automatically migrated to the new one. Your current settings will continue to apply correctly.
+All rules created in the old format will be automatically migrated to the new format. Your current settings will continue to apply correctly.
 
 ## Condition description format {matching-format}
 
@@ -46,11 +46,11 @@ Example of combining conditions in the new format:
 "pireRegexMatch": "example\.com|~(example\.net)"
 ```
 
-If in your regular expression the special characters `(`, `)`, `{`, `}`, `[`, `]`, `.`, `*`, `+`, `?`, `^`, `$`, `|`, `\`, `&`, or `~` are used as regular characters, escape them with `\`.
+If special characters, such as `(`, `)`, `{`, `}`, `[`, `]`, `.`, `*`, `+`, `?`, `^`, `$`, `|`, `\`, `&`, or `~` are used as regular characters, escape them with `\`.
 
-The `~` symbol can be used as logical negation.
+You can use `~` as logical negation.
 
-## Updating the CLI {#cli-updates}
+## CLI update {#cli-updates}
 
 1. [Update the CLI](../../cli/operations/update-cli.md) to the latest version:
 
@@ -118,7 +118,7 @@ The `~` symbol can be used as logical negation.
   }
   ```
 
-  For more on `yandex_smartcaptcha_captcha` properties, see [this provider guide]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
+  For more on the properties of the `yandex_smartcaptcha_captcha` resource, see [this provider guide]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
 
 - API {#api}
 
@@ -148,11 +148,11 @@ The `~` symbol can be used as logical negation.
     }'
   ```
 
-  For more on methods, see the REST API reference: [Captcha.Create](../../smartcaptcha/api-ref/Captcha/create.md) and [Captcha.Update](../../smartcaptcha/api-ref/Captcha/update.md) for the [Captcha](../../smartcaptcha/api-ref/Captcha/index.md) resource.
+  For more information about the methods, see the REST API reference: [Captcha.Create](../../smartcaptcha/api-ref/Captcha/create.md) and [Captcha.Update](../../smartcaptcha/api-ref/Captcha/update.md) for the [Captcha](../../smartcaptcha/api-ref/Captcha/index.md) resource.
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](create-captcha.md)
 * [{#T}](get-info.md)

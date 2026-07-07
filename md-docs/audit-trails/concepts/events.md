@@ -21,6 +21,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 * [Yandex BareMetal](events.md#baremetal)
 * [Yandex Certificate Manager](events.md#certificate-manager)
 * [Yandex Cloud Apps](events.md#cloud-apps)
+* [Yandex Connection Manager](events.md#connection-manager)
 * [Yandex Cloud Backup](events.md#backup)
 * [Yandex Cloud Billing](events.md#billing)
 * [Yandex Cloud CDN](events.md#cdn)
@@ -64,6 +65,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 * [Yandex Object Storage](events.md#objstorage)
 * [Yandex Query](events.md#yq)
 * [Yandex Managed Service for YTsaurus](events.md#ytsaurus)
+* [Yandex Cloud Notification Service](events.md#notifications)
 * [Yandex Resource Manager](events.md#resmgr)
 * [Yandex Search API](events.md#searchapi)
 * [SourceCraft](events.md#sourcecraft)
@@ -74,6 +76,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 * [Yandex SpeechSense](events.md#speechsense)
 * [Yandex Virtual Private Cloud](events.md#vpc)
 * [Yandex WebSQL](events.md#websql)
+* [Yandex Workflows](events.md#workflows)
 
 ## Yandex API Gateway {#api-gateway}
 
@@ -158,6 +161,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `mcp_hub.SetMcpGatewayAccessBindings` | Назначение прав доступа для MCP-сервера
 `mcp_hub.UpdateMcpGateway` | Изменение MCP-сервера
 `mcp_hub.UpdateMcpGatewayAccessBindings` | Изменение прав доступа для MCP-сервера
+`settings.SetFolderSettings` | Изменение настроек сервиса в каталоге
 `tuning.CancelTuning` | Остановка [дообучения](https://aistudio.yandex.ru/docs/ru//ai-studio/concepts/tuning/index) модели
 `tuning.StartTuning` | Запуск дообучения модели
 
@@ -239,6 +243,18 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `UpdateApplicationAccessBindings` | Изменение прав доступа для приложения
 `UpdateCloudApplication` | Изменение приложения
 
+## Yandex Connection Manager {#connection-manager}
+
+Имя сервиса — `connectionmanager`.
+
+Имя события | Описание
+--- | ---
+`CreateConnection` | Создание подключения
+`DeleteConnection` | Удаление подключения
+`SetConnectionAccessBindings` | Назначение прав доступа к подключению
+`UpdateConnection` | Изменение подключения
+`UpdateConnectionAccessBindings` | Изменение прав доступа к подключению
+
 ## Yandex Cloud Backup {#backup}
 
 Имя сервиса — `backup`.
@@ -246,6 +262,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 Имя события | Описание
 --- | ---
 `ApplyPolicy` | Применение политики резервного копирования
+`CreateBackup` | Создание резервной копии
 `CreateDirectory` | Создание новой директории внутри ВМ или сервера Yandex BareMetal
 `CreatePolicy` | Создание политики резервного копирования
 `DeleteArchive` | Удаление архива резервной копии
@@ -443,6 +460,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `idp.DeleteUserpoolDomain` | Удаление привязки домена к пулу пользователей
 `idp.ReactivateUser` | Активация локального пользователя
 `idp.RemoveUserBlock` | Удаление блокировки пользователя
+`idp.ResetOwnPassword` | Сброс собственного пароля
 `idp.SetUserPassword` | Установка пароля локального пользователя
 `idp.SetUserpoolAccessBindings` | Назначение прав доступа к пулу пользователей
 `idp.SuspendUser` | Деактивация локального пользователя
@@ -459,6 +477,11 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `oauth.UpdateApplication` | Изменение OIDC-приложения
 `oauth.UpdateApplicationAccessBindings` | Изменение прав доступа к OIDC-приложению
 `oauth.UpdateApplicationAssignments` | Изменение списка пользователей OIDC-приложения
+`policy.ActivateAuthenticationPolicyRule` | Активация правила политики аутентификации
+`policy.CreateAuthenticationPolicyRule` | Создание правила политики аутентификации
+`policy.DeactivateAuthenticationPolicyRule` | Деактивация правила политики аутентификации
+`policy.DeleteAuthenticationPolicyRule` | Удаление правила политики аутентификации
+`policy.UpdateAuthenticationPolicyRule` | Изменение правила политики аутентификации
 `RejectInvitation` | Отказ от приглашения
 `ResendInvitation` | Повторная отправка приглашения
 `SetDefaultProfile` | Назначение профиля по умолчанию
@@ -568,6 +591,10 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteVideo` | Удаление видео
 `DownloadEpisode` | Скачивание эпизода
 `EpisodePerformAction` | Выполнение действий с эпизодом
+`InitializeChannelAdminChat` | Инициализация чата администраторов канала
+`InitializeEpisodeChat` | Инициализация чата эпизода
+`ResetChannelAdminChat` | Сброс чата администраторов канала
+`ResyncEpisodeChatAdmins` | Синхронизация администраторов чата эпизода
 `SetChannelAccessBindings` | Назначение прав доступа на канал
 `StreamLinePerformAction` | Выполнение действий с линией трансляции
 `StreamLineUpdateStreamKey` | Изменение ключа потока линии трансляции
@@ -698,9 +725,11 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `CreateSubcluster` | Создание подкластера
 `DeleteCluster` | Удаление кластера
 `DeleteSubcluster` | Удаление подкластера
+`SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
+`UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
 `UpdateSubcluster` | Изменение подкластера
 
 ## Yandex Data Transfer {#datatransfer}
@@ -773,6 +802,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `UpdateEntityBinding` | Редактирование привязки общего объекта в воркбуке
 `UpdateEntry` | Изменение объекта
 `UpdateSharedEntryAccessBindings` | Изменение настроек доступа к общему объекту
+`UpdateTenantAccessBindings` | Изменение прав доступа к инстансу DataLens
 `UpdateWorkbook` | Изменение воркбука
 `UpdateWorkbookAccessBindings` | Изменение настроек доступа к воркбуку
 
@@ -970,9 +1000,11 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `CreateCluster` | Создание кластера
 `DeleteCluster` | Удаление кластера
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
+`SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
+`UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
 
 ## Yandex Managed Service for Apache Kafka® {#managed-service-for-kafka}
 
@@ -1083,9 +1115,11 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `ExpandCluster` | Расширение кластера
 `MoveCluster` | Перемещение кластера
 `RestoreCluster` | Создание нового кластера из резервной копии
+`SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
+`UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
 
 ## Yandex Managed Service for Kubernetes {#managed-service-for-kubernetes}
 
@@ -1181,8 +1215,10 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `RestoreCluster` | Создание нового кластера из резервной копии
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
+`SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `SwitchMaster` | Смена лидера кворума хостов с ролью `MANAGER`
 `UpdateCluster` | Изменение кластера
+`UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
 `UpdateDashboardsNodeGroup` |  Изменение группы хостов типа `Dashboards`
 `UpdateOpenSearchNodeGroup` | Изменение группы хостов типа `OpenSearch`
 
@@ -1223,9 +1259,11 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `MoveCluster` | Перемещение кластера
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `RestoreCluster` | Создание нового кластера из резервной копии
+`SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
+`UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
 `UpdateClusterHosts` | Изменение хостов в кластере
 
 ## Yandex Managed Service for Trino {#managed-service-for-trino}
@@ -1239,10 +1277,12 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteCatalog` | Удаление каталога
 `DeleteCluster` | Удаление кластера
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
+`SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
 `UpdateCatalog` | Изменение каталога
 `UpdateCluster` | Изменение кластера
+`UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
 
 ## Yandex Managed Service for Apache Spark™ {#managed-service-for-spark}
 
@@ -1251,6 +1291,8 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 Имя события | Описание
 --- | ---
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
+`SetClusterAccessBindings` | Назначение прав доступа к кластеру
+`UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
 
 ## Yandex Managed Service for Valkey™ {#managed-service-for-redis}
 
@@ -1271,10 +1313,12 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `RebalanceCluster` | Перебалансировка кластера
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `RestoreCluster` | Создание нового кластера из резервной копии
+`SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `StartCluster` | Запуск кластера
 `StartClusterFailover` | Запуск переключения мастера для кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
+`UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
 `UpdateClusterHosts` | Изменение хостов кластера
 
 ## Yandex Managed Service for YDB {#ydb}
@@ -1321,9 +1365,11 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `CreateCluster` | Создание [кластера](../../metadata-hub/concepts/metastore.md) Apache Hive™ Metastore
 `DeleteCluster` | Удаление кластера Apache Hive™ Metastore
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
+`SetClusterAccessBindings` | Назначение прав доступа к кластеру Apache Hive™ Metastore
 `StartCluster` | Запуск кластера Apache Hive™ Metastore
 `StopCluster` | Остановка кластера Apache Hive™ Metastore
 `UpdateCluster` | Изменение кластера Apache Hive™ Metastore
+`UpdateClusterAccessBindings` | Изменение прав доступа к кластеру Apache Hive™ Metastore
 
 ## Yandex Network Load Balancer {#network-load-balancer}
 
@@ -1400,6 +1446,25 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `UpdateCluster` | Изменение кластера
 `UpdateClusterGroupMembers` | Изменение участников группы кластера
 
+## Yandex Cloud Notification Service {#notifications}
+
+Имя сервиса — `notifications`.
+
+Имя события | Описание
+--- | ---
+`CreateMobileApplication` | Создание канала мобильных Push-уведомлений
+`CreateSMSChannel` | Создание SMS-канала
+`CreateWebpushChannel` | Создание канала Push-уведомления в браузере
+`DeleteMobileApplication` | Удаление канала мобильных Push-уведомлений
+`DeleteSMSChannel` | Удаление SMS-канала
+`DeleteWebpushChannel` | Удаление канала Push-уведомления в браузере
+`UpdateMobileApplication` | Изменение канала мобильных Push-уведомлений
+`UpdateSMSChannel` | Изменение SMS-канала
+`UpdateWebpushChannel` | Изменение канала Push-уведомления в браузере
+`CreateTopic` | Создание топика
+`DeleteTopic` | Удаление топика
+`UpdateTopic` | Изменение топика
+
 ## Yandex Resource Manager {#resmgr}
 
 Имя сервиса — `resourcemanager`.
@@ -1452,6 +1517,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `EnableSDProject` | Включение проекта Security Deck
 `UpdateException` | Изменение параметров исключения
 `UpdateProject`   | Изменение параметров проекта
+`UpdateProjectControl` | Изменение настроек контроля проекта
 
 ### Модуль Контроль конфигурации (CSPM) {#sd-cspm}
 
@@ -1465,6 +1531,14 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteScopeFilter` | Удаление фильтра области действия
 `UpdateScanJob` | Изменение задания сканирования
 `UpdateScopeFilter` | Изменение фильтра области действия
+
+### Модуль контроля данных (DSPM) {#sd-dspm}
+
+Имя модуля — `securitydeck.dspm`.
+
+Имя события | Описание
+--- | ---
+`ExportDiscoveryResults` | Экспорт результатов обнаружения данных
 
 ### Модуль Алерты {#sd-alerts}
 
@@ -1618,5 +1692,17 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `PublishSavedQuery` | Публикация сохраненного запроса
 `UpdateExecutedQueryAccessBindings` | Обновление прав доступа к выполненному запросу
 `UpdateSavedQueryAccessBindings` | Обновление прав доступа к сохраненному запросу
+
+## Yandex Workflows {#workflows}
+
+Имя сервиса — `serverless.workflows`.
+
+Имя события | Описание
+--- | ---
+`CreateWorkflow` | Создание рабочего процесса
+`DeleteWorkflow` | Удаление рабочего процесса
+`SetWorkflowAccessBindings` | Назначение прав доступа к рабочему процессу
+`UpdateWorkflow` | Изменение рабочего процесса
+`UpdateWorkflowAccessBindings` | Изменение прав доступа к рабочему процессу
 
 _ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

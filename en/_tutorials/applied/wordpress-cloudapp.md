@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost of support for the new infrastructure includes:
 
 * Fee for VM usage and data storage on disk (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for public DNS zone usage and public DNS requests (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
+* Fee for using a public DNS zone and public DNS requests (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
 * Fee for storage of and operations with secrets (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
 * Fee for outgoing emails (see [{{ postbox-full-name }} pricing](../../postbox/pricing.md)).
 
@@ -238,9 +238,9 @@ Install [WordPress](/marketplace/products/yc/wordpress-app) using {{ cloud-apps-
       || **VPC subnet** | Yes | — | Subnet to deploy your VM in. ||
       || **Number of vCPUs** | — | `2` | Number of vCPUs. ||
       || **RAM in GB** | — | `2` | RAM in GB. ||
-      || **Guaranteed vCPU share** | — | `100` | Guaranteed vCPU share in %. Available values: 20%, 50%, or 100%. ||
+      || **Guaranteed vCPU share** | — | `100` | Guaranteed vCPU share in %. Valid values: 20%, 50%, or 100%. ||
       || **Public SSH key** | — | — | The key will be added to `authorized_keys` of the WordPress user.
-      We recommend specifying a public SSH key to access the VM over SSH. You will need to create a key pair for the SSH connection yourself; see [this guide](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) for details. ||
+      We recommend specifying a public SSH key to access the VM over SSH. You will need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) an SSH key pair by yourself. ||
       || **Disk type** | — | `network-ssd` | Type of disk to attach to the VM. ||
       || **Disk size in GB** | — | `20` | Size of disk to attach to the VM, in GB. ||
       || **ID of the secret with the database password** | Yes | — | ID of the `db-password-secret` secret you created earlier to store the database password for accessing the {{ mmy-name }} cluster. ||

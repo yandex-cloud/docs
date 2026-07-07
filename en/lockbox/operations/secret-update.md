@@ -61,7 +61,7 @@ To update a secret:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Open the Terraform configuration file and edit the fragment with the secret description:
+  1. Open the {{ TF }} configuration file and edit the fragment with the secret description:
 
      {% cut "Sample secret description in the {{ TF }}" %} configuration
 
@@ -99,6 +99,6 @@ To update a secret:
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../concepts/secret.md)

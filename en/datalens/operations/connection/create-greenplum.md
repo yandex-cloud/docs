@@ -40,9 +40,9 @@ To create a {{ GP }} connection:
 
      * **Host name**: Select the host name from the list of hosts available in the {{ GP }} cluster. You can select multiple hosts. If you fail to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
      * **Port**: Specify the {{ GP }} connection port. The default port is {{ port-mgp }}.
-     * **Path to database**: Specify the name of the database to connect to.
-     * **Username**: Specify the username for the {{ GP }} connection.
-     * **Password**: Enter the password for the user.
+     * **Path to database**: Specify the database name.
+     * **Username**: Specify a username for the {{ GP }} connection.
+     * **Password**: Specify a password for the user.
      * **Cache TTL in seconds**: Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
      
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
@@ -53,9 +53,9 @@ To create a {{ GP }} connection:
 
       * **Host name**: Specify the path to a master host or a {{ GP }} master host IP address. You can specify multiple hosts in a comma-separated list. If you fail to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
       * **Port**: Specify the {{ GP }} connection port. The default port is 5432.
-      * **Path to database**: Specify the name of the database to connect to.
-      * **Username**: Specify the username for the {{ GP }} connection.
-      * **Password**: Enter the password for the user.
+      * **Path to database**: Specify the database name.
+      * **Username**: Specify a username for the {{ GP }} connection.
+      * **Password**: Specify a password for the user.
       * **Cache TTL in seconds**: Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
       
       {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
@@ -69,10 +69,11 @@ To create a {{ GP }} connection:
 1. Click **Create connection**.
 
 
-1. Select the [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
 
 
 1. Enter a name for the connection and click **Create**.
+
 
 
 

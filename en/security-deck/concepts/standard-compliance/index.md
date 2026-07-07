@@ -37,7 +37,7 @@ You can view the list of control rules included in any given set of requirements
 
 Click the row with the rule for additional info, including violation details and fixing recommendations.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Checking your infrastructure for compliance with security standards based on the {{ kspm-name }} rules](../../operations/kspm/check-compliance.md)
 * [Checking your infrastructure for compliance with security standards based on the {{ cspm-name }} rules](../../operations/cspm/check-compliance.md)

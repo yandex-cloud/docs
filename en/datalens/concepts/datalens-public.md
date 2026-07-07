@@ -80,6 +80,6 @@ To disable object publication:
    1. View a list of published objects that will no longer be publicly accessible. To do this, click **View published**.
    1. Disable **Publication**.
 
-#### See also: {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../security/embedded-objects.md)

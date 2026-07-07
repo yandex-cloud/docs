@@ -28,6 +28,9 @@ To create a collection:
 1. Enter a name for the collection.
 1. Click **Create**.
 
+
+
+
 ## Editing a collection {#edit-collections}
 
 To change collection name and description:

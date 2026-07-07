@@ -3,7 +3,7 @@ title: How to check resource availability in a {{ sws-name }} domain
 description: Follow this guide to check the status and availability of your resources from the {{ sws-full-name }} proxy server load balancer.
 ---
 
-# Checking resources for availability
+# Checking resource availability
 
 Make sure the [proxy server](../concepts/domain-protect.md#proxy), [domain](../concepts/domain-protect.md#domain), and your infrastructure are configured correctly, and the proxy server load balancer has access to the associated resources:
 
@@ -15,7 +15,7 @@ Make sure the [proxy server](../concepts/domain-protect.md#proxy), [domain](../c
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](setup-infrastructure.md)
 * [{#T}](proxy-create.md)

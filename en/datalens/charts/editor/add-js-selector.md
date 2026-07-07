@@ -19,32 +19,37 @@ To add a [selector](./widgets/controls.md) to a dashboard:
 
 1. Specify the selector parameters:
 
-   * **Header**: Used to pick a selector when establishing a link with other widgets.
-   * **Source**: Sets the selector created in Editor. Choose a selector:
+   * **Header**: To choose the selector for linking with other widgets.
+   * **Source**: Sets the selector created in Editor. Choose the selector:
 
      {% list tabs %}
 
      - From the list of objects
 
-       Click **Select** and choose a selector from the list of objects. If you have already done so, you can proceed to edit the selector. To do this, click **Open** to the right of the selector.
+       Click **Select** and choose a selector from the list of objects. If you have already chosen the selector, you can proceed to edit it To do this, click **Open** to the right of the selector.
 
-     - Via a link
+     - Using a link
 
-       Click **Specify link**. Paste the selector URL into the input field and click **OK** below.
+       Click **Specify link**. Enter the selector URL into the input field and click **OK** below.
 
      {% endlist %}
 
    
    * **Show in tabs**: Select how to display the selector on the dashboard:
 
-     * `Current tab <tab_name>`: Display the selector on the selected tab. This is the default option.
-     * `Selected tabs`: Select one or multiple tabs where you need to display the selector. By default, the current tab is selected.
-     * `All tabs`: Display the selector on all tabs.
+     * `Current tab <tab_name>`: Display on selected tab. This is the default option.
+     * `Selected tabs`: Select one or more tabs to display the selector on. By default, the current tab is selected.
+     * `All tabs`: Display on all tabs.
 
 
-   * **Auto height**: Sets the automatic height for a widget on the dashboard.
-   * **Parameters**: Sets a list of selector parameters and their default values. For the widget to work correctly, specify here the selector parameters listed on the [Params](./tabs.md#params) tab.
+   
+   * **Background**: Widget background color and opacity separately for the light and dark theme.
+   * **Rounding**: Widget corner rounding.
+
+
+   * **Auto height**: Automatic widget height on the dashboard.
+   * **Parameters**: Sets a list of selector parameters and their default values. For the widget to work correctly, specify the selector parameters listed on the [Params](./tabs.md#params) tab.
 
      ![selector-js](../../../_assets/datalens/editor/selector-js-params.png)
 
-1. Click **Save**. The widget will be displayed on the dashboard.
+1. Click **Save**. The widget will appear on the dashboard.

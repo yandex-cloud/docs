@@ -99,7 +99,7 @@ You can also upload custom subtitles in SRT and VTT formats. The maximum subtitl
 
 You can also generate timecodes automatically by enabling video [summarization](#summarization).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Getting started with video hosting](../hosting.md)
 * [Getting started with API](../api-ref/quickstart.md)

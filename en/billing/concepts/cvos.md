@@ -88,7 +88,7 @@ The amount charged for the CVoS is determined using the following formulas:
 
 In a leap year, the amount calculated for one additional calendar day in February will be added to the annual amount.
 
-The total amount charged depends on whether any {{ yandex-cloud }} services that are not covered by the CVoS terms were used during the billing period. For more information, see [How to pay for resources](../payment/index.md).
+The total amount charged depends on whether any {{ yandex-cloud }} services that are not covered by the CVoS terms were used during the billing period. For more information, see [Payment for resources](../payment/index.md).
 
 ## Changes and extensions {#how-to-update}
 

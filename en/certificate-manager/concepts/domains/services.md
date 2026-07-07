@@ -17,8 +17,8 @@ If a user confirmed their rights to a domain, they can [indicate](../../../api-g
 
 With {{ api-gw-full-name }}, you can merge several microservices into a single product. These microservices can be run on VMs and containers or implemented as functions. You can use the domain to access the API.
 
-A certificate linked to the domain is used to provide a TLS connection.
+For TLS connections, a certificate bound to the domain will be used.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [{{ api-gw-full-name }}](../../../api-gateway/)

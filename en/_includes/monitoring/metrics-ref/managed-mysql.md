@@ -58,10 +58,10 @@ The consumption type goes into the `systag` label.
 ## Disk I/O metrics {#managed-mysql-diskio-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `io.avg_read_time`<br/>`DGAUGE`, milliseconds | Average disk read time | 
-| `io.avg_write_time`<br/>`DGAUGE`, milliseconds | Average disk write time | 
-| `io.disk*.avg_read_time`<br/>`DGAUGE`, milliseconds | Average read time for a given disk | 
-| `io.disk*.avg_write_time`<br/>`DGAUGE`, milliseconds | Average write time for a given disk | 
+| `io.avg_read_time`<br/>`DGAUGE`, ms | Average disk read time | 
+| `io.avg_write_time`<br/>`DGAUGE`, ms | Average disk write time | 
+| `io.disk*.avg_read_time`<br/>`DGAUGE`, ms | Average read time for a given disk | 
+| `io.disk*.avg_write_time`<br/>`DGAUGE`, ms | Average write time for a given disk | 
 | `io.disk*.read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a given disk | 
 | `io.disk*.read_count`<br/>`DGAUGE`, operations per second | Number of reads per second for a given disk | 
 | `io.disk*.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second for a given disk | 
@@ -78,18 +78,18 @@ The consumption type goes into the `systag` label.
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
 | `monitoring_disk.io_quota_utilization_percentage`<br/>`DGAUGE`, % | Average percentage of disk quota usage |
 | `monitoring_disk.io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Maximum percentage of disk quota usage |
-| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk. |
+| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk |
 | `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk |
-| `monitoring_disk.read_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk read request latency |
+| `monitoring_disk.read_latency`<br/>`DGAUGE`, ms | Distribution histogram for disk read request latency |
 | `monitoring_disk.read_ops`<br/>`DGAUGE`, operations per second | Average number of disk reads |
 | `monitoring_disk.read_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk reads |
-| `monitoring_disk.read_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of read latency due to exceeded disk quota |
-| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk. |
+| `monitoring_disk.read_throttler_delay`<br/>`DGAUGE`, ms | Histogram of read latency due to exceeded disk quota |
+| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk |
 | `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk |
-| `monitoring_disk.write_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk write request latency |
+| `monitoring_disk.write_latency`<br/>`DGAUGE`, ms | Distribution histogram for disk write request latency |
 | `monitoring_disk.write_ops`<br/>`DGAUGE`, operations per second | Average number of disk write operations |
 | `monitoring_disk.write_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk write operations |
-| `monitoring_disk.write_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of write latency due to exceeded disk quota |
+| `monitoring_disk.write_throttler_delay`<br/>`DGAUGE`, ms | Histogram of write latency due to exceeded disk quota |
 
 ## RAM metrics {#managed-mysql-ram-metrics}
 
@@ -178,7 +178,7 @@ The consumption type goes into the `systag` label.
 | `mysql.fileio.reads`<br/>`DGAUGE`, operations per second | Average file reads per second.<br/>Additional label: `filetype`. | 
 | `mysql.fileio.write_bytes`<br/>`DGAUGE`, bytes per second | Data write rate.<br/>Additional label: `filetype`. | 
 | `mysql.fileio.writes`<br/>`DGAUGE`, operations per second | Average file writes per second.<br/>Additional label: `filetype`. | 
-| `mysql.handler`<br/>`DGAUGE`, count | Number of handlers for various operations. For more information, see [this {{ MY }} guide](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html).<br/>Additional label: `handler`. | 
+| `mysql.handler`<br/>`DGAUGE`, count | Number of handlers of various operations. For more information, see [this {{ MY }} guide](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html).<br/>Additional label: `handler`. | 
 | `mysql.session`<br/>`DGAUGE`, count | Number of sessions at a certain stage. <br/>Additional label: `stage`. | 
 | `mysql_Aborted_connects_rate`<br/>`DGAUGE`, connections per second | Rate of failed database connection attempts | 
 | `mysql_Binlog_cache_disk_use_rate`<br/>`DGAUGE`, transactions per second | Rate of transactions requiring temporary disk file writes due to binlog cache overflowing | 
@@ -243,20 +243,20 @@ The consumption type goes into the `systag` label.
 | `mysql_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if not. | 
 | `mysql_is_primary`<br/>`DGAUGE`, 0/1 | Master host indicator.<br/>`1` if the database host is a master, `0` if not. | 
 | `mysql_is_replica`<br/>`DGAUGE`, 0/1 | Replica host indicator.<br/>`1` if the database host is a replica, `0` if not. | 
-| `mysql_latency_query_0.5`<br/>`DGAUGE`, milliseconds | Query execution time, median value | 
-| `mysql_latency_query_0.75`<br/>`DGAUGE`, milliseconds | Query execution time, 75th percentile | 
-| `mysql_latency_query_0.90`<br/>`DGAUGE`, milliseconds | Query execution time, 90th percentile | 
+| `mysql_latency_query_0.5`<br/>`DGAUGE`, ms | Query execution time, median value | 
+| `mysql_latency_query_0.75`<br/>`DGAUGE`, ms | Query execution time, 75th percentile | 
+| `mysql_latency_query_0.90`<br/>`DGAUGE`, ms | Query execution time, 90th percentile | 
 | `mysql_latency_query_0.95`<br/>`DGAUGE`, milliseconds | Query execution time, 95th percentile | 
-| `mysql_latency_query_0.99`<br/>`DGAUGE`, milliseconds | Query execution time, 99th percentile | 
-| `mysql_latency_query_avg`<br/>`DGAUGE`, milliseconds | Average query execution time | 
-| `mysql_latency_query_oldest`<br/>`DGAUGE`, milliseconds | Execution time of the oldest query | 
-| `mysql_latency_trx_0.5`<br/>`DGAUGE`, milliseconds | Transaction execution time, median value | 
-| `mysql_latency_trx_0.75`<br/>`DGAUGE`, milliseconds | Transaction execution time, 75th percentile | 
-| `mysql_latency_trx_0.90`<br/>`DGAUGE`, milliseconds | Transaction execution time, 90th percentile | 
-| `mysql_latency_trx_0.95`<br/>`DGAUGE`, milliseconds | Transaction execution time, 95th percentile | 
-| `mysql_latency_trx_0.99`<br/>`DGAUGE`, milliseconds | Transaction execution time, 99th percentile | 
-| `mysql_latency_trx_avg`<br/>`DGAUGE`, milliseconds | Average transaction execution time | 
-| `mysql_latency_trx_oldest`<br/>`DGAUGE`, milliseconds | Execution time of the oldest transaction | 
+| `mysql_latency_query_0.99`<br/>`DGAUGE`, ms | Query execution time, 99th percentile | 
+| `mysql_latency_query_avg`<br/>`DGAUGE`, ms | Average query execution time | 
+| `mysql_latency_query_oldest`<br/>`DGAUGE`, ms | Execution time of the oldest query | 
+| `mysql_latency_trx_0.5`<br/>`DGAUGE`, ms | Transaction execution time, median value | 
+| `mysql_latency_trx_0.75`<br/>`DGAUGE`, ms | Transaction execution time, 75th percentile | 
+| `mysql_latency_trx_0.90`<br/>`DGAUGE`, ms | Transaction execution time, 90th percentile | 
+| `mysql_latency_trx_0.95`<br/>`DGAUGE`, ms | Transaction execution time, 95th percentile | 
+| `mysql_latency_trx_0.99`<br/>`DGAUGE`, ms | Transaction execution time, 99th percentile | 
+| `mysql_latency_trx_avg`<br/>`DGAUGE`, ms | Average transaction execution time | 
+| `mysql_latency_trx_oldest`<br/>`DGAUGE`, ms | Execution time of the oldest transaction | 
 | `mysql_replication_lag`<br/>`DGAUGE`, seconds | Replica's lag behind the master | 
 | `mysql_replication.io_thread_running`<br/>`DGAUGE`, 0/1 | State of {{ MY }} replication I/O thread.</br>It can be either `1` if the thread is running or `0` if it is stopped.</li></ul> |
 | `mysql_replication.sql_thread_running`<br/>`DGAUGE`, 0/1 | State of {{ MY }} replication SQL thread.</br>It can be either `1` if the thread is running or `0` if it is stopped.</li></ul> |
@@ -268,7 +268,7 @@ The consumption type goes into the `systag` label.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `can_read`<br/>`DGAUGE`, 0/1 | Host read access indicator.<br/>`1` if the host service is available for reads, `0` if not. |
+| `can_read`<br/>`DGAUGE`, 0/1 | Host read availability.<br/>Returns `1` if the host service is available for read operations, `0` if not. |
 | `can_write`<br/>`DGAUGE`, 0/1 | Host write access indicator.<br/>`1` if the host service is available for writes, `0` if not. |
 | `core_dump.count`<br/>`DGAUGE`, count | Number of core dumps |
 | `n_unique_users`<br/>`DGAUGE`, users | Number of unique users or accounts engaging with the system |

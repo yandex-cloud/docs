@@ -23,9 +23,9 @@ description: Класс хостов определяет вычислитель
 
 Ниже приведен полный список возможных конфигураций хостов на каждой из платформ.
 
-{% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
+{% include [disk-flavor-dependencies](../../_includes/mdb/disk-flavor-dependencies.md) %}
 
-{% include [burstable-hosts-deprecation-2023](../../_includes/mdb/burstable-hosts-deprecation-2023.md) %}
+Например, в `{{ region-id }}-d` недоступны платформы Intel Broadwell и хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.
 
 {% include [instance-types-code](../../_includes/mdb/instance-types-code-c3-b3.md) %}
 

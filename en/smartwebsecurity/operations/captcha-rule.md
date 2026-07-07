@@ -20,7 +20,7 @@ Set up a rule to redirect requests to [{{ captcha-name }}](../../smartcaptcha/) 
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](profile-create.md)
 * [{#T}](rule-add.md)

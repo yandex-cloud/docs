@@ -40,6 +40,8 @@
 
  - [Справочник Terraform](connman-tf-ref.md)
 
+ - [Аудитные логи Audit Trails](connman-at-ref.md)
+
 ### Справочник API
 
  - [Аутентификация в API](api-ref/authentication-connman.md)

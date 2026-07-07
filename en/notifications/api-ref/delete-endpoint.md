@@ -10,11 +10,11 @@ POST https://{{ cns-host }}/
 
 ### Query parameters {#parameters}
 
-| Parameter | Description |
+Parameter | Description
 --- | ---
-| `Action` | **string**<br/>Required field.<br/>Parameter to indicate the operation type.<br/>Value: `DeleteEndpoint`. |
-| `EndpointArn` | **string**<br/>Required field.<br/>Mobile endpoint ID (ARN).<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:endpoint/GCM/test-cns-9990/4cbe148515360244248c993abe0a12884d162bb15e87d6c16bd0c810********`. |
-| `ResponseFormat` | **string**<br/>Response format.<br/>The possible values include:<ul><li>`XML` (by default)</li><li>`JSON`.</li></ul> |
+`Action` | **string**<br/>Required field.<br/>Operation type parameter.<br/>Value: `DeleteEndpoint`.
+`EndpointArn` | **string**<br/>Required field.<br/>Mobile endpoint ID (ARN).<br/>Example: `arn:aws:sns::aoegtvhtp8ob********:endpoint/GCM/test-cns-9990/4cbe148515360244248c993abe0a12884d162bb15e87d6c16bd0c810********`.
+`ResponseFormat` | **string**<br/>Response format.<br/>The possible values are:<ul><li>`XML` (default).</li><li>`JSON`.</li></ul>
 
 ## Response {#response}
 
@@ -30,24 +30,24 @@ Data schema:
 
 - XML
 
-   ```xml
-   <?xml version="1.0" encoding="UTF-8"?>
-   <DeleteEndpointResponse>
-   	  <ResponseMetadata>
-   		  <RequestId>string</RequestId>
-   	  </ResponseMetadata>
-   </DeleteEndpointResponse>
-   ```
+  ```xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <DeleteEndpointResponse>
+	  <ResponseMetadata>
+		  <RequestId>string</RequestId>
+	  </ResponseMetadata>
+  </DeleteEndpointResponse>
+  ```
 
 - JSON
 
-   ```json
-   {
-     "ResponseMetadata": {
-       "RequestId": "string"
-     }
-   }
-   ```
+  ```json
+  {
+    "ResponseMetadata": {
+      "RequestId": "string"
+    }
+  }
+  ```
 
 {% endlist %}
 
@@ -59,7 +59,7 @@ In case of an error, {{ cns-name }} returns a message with the appropriate HTTP 
 
 For a list of common error codes for all actions, see [{#T}](common-errors.md).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)

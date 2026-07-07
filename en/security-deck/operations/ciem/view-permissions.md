@@ -14,7 +14,7 @@ To get a list of a subject's accesses to the organization's resources:
 {% include [view-subject-access-bindings](../../../_includes/security-deck/view-subject-access-bindings.md) %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./revoke-permissions.md)
 * [{#T}](../../concepts/ciem.md)

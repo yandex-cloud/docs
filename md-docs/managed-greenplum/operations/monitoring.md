@@ -52,89 +52,89 @@
 
     Дашборд состоит из следующих секций:
 
-    *   **Сигналы**:
-        *   **Cluster** — общий статус кластера.
-        *   **Pooler** — статус пулера соединений.
-        *   **Connections** — статус подключений.
-        *   **Resources** — статус ресурсов хостов.
-        *   **Queries** — статус выполнения тестовых запросов на чтение и запись.
+    * **Сигналы**:
+        * **Cluster** — общий статус кластера.
+        * **Pooler** — статус пулера соединений.
+        * **Connections** — статус подключений.
+        * **Resources** — статус ресурсов хостов.
+        * **Queries** — статус выполнения тестовых запросов на чтение и запись.
 
-    *   **Cluster**:
-        *   **Read availability** — доступность кластера на чтение за последние 5 минут.
-        *   **Write availability** — доступность кластера на запись за последние 5 минут.
-        *   **Master switch history** — история переключений роли мастера (FQDN текущего мастера).
-        *   **XID utilization** — процент использования [счетчика транзакций](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/admin_guide-intro-about_mvcc.html#transaction-id-wraparound).
-        *   **Segments down** — количество сегментов в состоянии `down`.
-        *   **Segments not in preferred role** — количество сегментов, не находящихся в предпочтительной роли.
-        *   **Segments not synchronised** — количество несинхронизированных сегментов.
-        *   **Log events** — количество событий в логах типов `WARNING`, `ERROR`, `FATAL`.
+    * **Cluster**:
+        * **Read availability** — доступность кластера на чтение за последние 5 минут.
+        * **Write availability** — доступность кластера на запись за последние 5 минут.
+        * **Master switch history** — история переключений роли мастера (FQDN текущего мастера).
+        * **XID utilization** — процент использования [счетчика транзакций](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/admin_guide-intro-about_mvcc.html#transaction-id-wraparound).
+        * **Segments down** — количество сегментов в состоянии `down`.
+        * **Segments not in preferred role** — количество сегментов, не находящихся в предпочтительной роли.
+        * **Segments not synchronised** — количество несинхронизированных сегментов.
+        * **Log events** — количество событий в логах типов `WARNING`, `ERROR`, `FATAL`.
 
-    *   **Pooler**:
-        *   **Availability** — доступность пулера за последние 5 минут.
-        *   **CPU usage** — утилизация CPU процессом пулера.
-        *   **Memory usage** — потребление памяти процессом пулера.
-        *   **Network usage** — объем отправленных и полученных данных.
-        *   **Server connections** — количество активных и свободных серверных соединений.
-        *   **Client connections** — количество активных клиентских соединений.
-        *   **Query timings** — распределение длительности запросов по перцентилям.
+    * **Pooler**:
+        * **Availability** — доступность пулера за последние 5 минут.
+        * **CPU usage** — утилизация CPU процессом пулера.
+        * **Memory usage** — потребление памяти процессом пулера.
+        * **Network usage** — объем отправленных и полученных данных.
+        * **Server connections** — количество активных и свободных серверных соединений.
+        * **Client connections** — количество активных клиентских соединений.
+        * **Query timings** — распределение длительности запросов по перцентилям.
 
-    *   **Connections**:
-        *   **Total master connections utilization** — общая утилизация подключений к мастеру.
-        *   **Idle in transaction master connections utilization** — утилизация подключений, простаивающих в транзакции.
-        *   **Master connections** — детализация подключений к мастеру по состояниям: `active`, `idle`, `idle in transaction`, `waiting`, `aborted`, суммарное число по всем состояниям `total` и ограничение `max`.
-        *   **Total segments connections utilization** — утилизация подключений по сегментам.
+    * **Connections**:
+        * **Total master connections utilization** — общая утилизация подключений к мастеру.
+        * **Idle in transaction master connections utilization** — утилизация подключений, простаивающих в транзакции.
+        * **Master connections** — детализация подключений к мастеру по состояниям: `active`, `idle`, `idle in transaction`, `waiting`, `aborted`, суммарное число по всем состояниям `total` и ограничение `max`.
+        * **Total segments connections utilization** — утилизация подключений по сегментам.
 
-    *   **Resources**:
+    * **Resources**:
         * Секция разделена на подгруппы **Master hosts** и **Segment hosts**.
-        *   **Load Average** — средняя нагрузка за 15 минут.
-        *   **CPU utilization** — утилизация процессора.
-        *   **Virtual memory consumption** — потребление виртуальной памяти.
-        *   **Physical memory consumption** — потребление физической памяти.
-        *   **Network packets** — количество отправленных и полученных пакетов в секунду.
-        *   **Network packets in queues** — количество пакетов в очередях сетевого интерфейса.
-        *   **Network traffic** — объем отправленного и полученного трафика.
-        *   **Disk space utilization** — процент занятого дискового пространства.
-        *   **Disk IO** — объем чтения и записи с диска в байтах в секунду.
-        *   **Interconnect retransmits ratio** (только для сегментов) — отношение переотправленных пакетов межсегментного взаимодействия к общему числу отправленных.
+        * **Load Average** — средняя нагрузка за 15 минут.
+        * **CPU utilization** — утилизация процессора.
+        * **Virtual memory consumption** — потребление виртуальной памяти.
+        * **Physical memory consumption** — потребление физической памяти.
+        * **Network packets** — количество отправленных и полученных пакетов в секунду.
+        * **Network packets in queues** — количество пакетов в очередях сетевого интерфейса.
+        * **Network traffic** — объем отправленного и полученного трафика.
+        * **Disk space utilization** — процент занятого дискового пространства.
+        * **Disk IO** — объем чтения и записи с диска в байтах в секунду.
+        * **Interconnect retransmits ratio** (только для сегментов) — отношение переотправленных пакетов межсегментного взаимодействия к общему числу отправленных.
 
-    *   **Queries**:
-        *   **Read test query duration** — время выполнения тестового запроса на чтение.
-        *   **Write test query duration** — время выполнения тестового запроса на запись.
-        *   **Read duration from each segment** — время выполнения тестового запроса на чтение в разрезе сегментов.
-        *   **Queries sent to the cluster** — количество новых и завершенных с ошибкой запросов.
-        *   **Queries execution time distribution** — гистограмма длительности завершенных запросов.
-        *   **Running queries execution time distribution** — гистограмма распределения длительности выполнения запросов.
-        *   **Spill files count** — количество временных файлов (всего и по хостам).
-        *   **Spill files size** — размер временных файлов (всего и по хостам).
+    * **Queries**:
+        * **Read test query duration** — время выполнения тестового запроса на чтение.
+        * **Write test query duration** — время выполнения тестового запроса на запись.
+        * **Read duration from each segment** — время выполнения тестового запроса на чтение в разрезе сегментов.
+        * **Queries sent to the cluster** — количество новых и завершенных с ошибкой запросов.
+        * **Queries execution time distribution** — гистограмма длительности завершенных запросов.
+        * **Running queries execution time distribution** — гистограмма распределения длительности выполнения запросов.
+        * **Spill files count** — количество временных файлов (всего и по хостам).
+        * **Spill files size** — размер временных файлов (всего и по хостам).
 
-    *   **Resource groups**:
+    * **Resource groups**:
         * Графики в данной секции отображают информацию в разрезе по группам процессов:
             * **admin_group** — в административной группе;
             * **default_group** — в группе по умолчанию.
-        *   **Connections utilization by resource group** — утилизация подключений.
-        *   **CPU usage by resource group** — потребление CPU.
-        *   **Memory utilization by resource group** — процент утилизации памяти:
-        *   **Memory usage by resource group** — абсолютное значение использованной и доступной памяти.
-        *   **Running transactions by resource group** — количество выполняемых транзакций.
-        *   **Executed transactions by resource group** — частота транзакций.
-        *   **Queueing transactions by resource group** — количество транзакций в очереди.
+        * **Connections utilization by resource group** — утилизация подключений.
+        * **CPU usage by resource group** — потребление CPU.
+        * **Memory utilization by resource group** — процент утилизации памяти:
+        * **Memory usage by resource group** — абсолютное значение использованной и доступной памяти.
+        * **Running transactions by resource group** — количество выполняемых транзакций.
+        * **Executed transactions by resource group** — частота транзакций.
+        * **Queueing transactions by resource group** — количество транзакций в очереди.
 
-    *   **Background activities**:
-        *   **Vacuum: catalog**:
-            *   **Catalog size** — размер системного каталога в разрезе по базам данных.
-            *   **Catalog percent of dead tuples** — процент «мертвых» кортежей в каталоге в разрезе по базам данных.
-        *   **Vacuum: pg_attribute**:
-            *   **pg_attribute size** — размер таблицы `pg_attribute` в разрезе по базам данных.
-            *   **pg_attribute percent of dead tuples** — процент «мертвых» кортежей в таблице `pg_attribute` в разрезе по базам данных.
-        *   **Vacuum/analyze: user tables**:
-            *   **Tables vacuum age** — распределение таблиц по числу дней с момента последнего выполнения [очистки](../concepts/maintenance.md#custom-table-vacuum) (`VACUUM`).
-            *   **Tables analyze age** — распределение таблиц по числу дней с момента последнего [сбора статистики](../concepts/maintenance.md#get-statistics) (`ANALYZE`).
-    *   **Hybrid storage**:
-        *   **CPU usage per host** — потребление CPU компонентом `yproxy` в разрезе по хостам кластера.
-        *   **Memory usage per host** — потребление памяти компонентом `yproxy` в разрезе по хостам кластера.
-        *   **Storage requests** — количество запросов к хранилищу (всего, успешных, с ошибками).
-        *   **Storage objects count** — общее количество объектов в хранилище.
-        *   **Storage objects size** — суммарный размер объектов в хранилище.
+    * **Background activities**:
+        * **Vacuum: catalog**:
+            * **Catalog size** — размер системного каталога в разрезе по базам данных.
+            * **Catalog percent of dead tuples** — процент «мертвых» кортежей в каталоге в разрезе по базам данных.
+        * **Vacuum: pg_attribute**:
+            * **pg_attribute size** — размер таблицы `pg_attribute` в разрезе по базам данных.
+            * **pg_attribute percent of dead tuples** — процент «мертвых» кортежей в таблице `pg_attribute` в разрезе по базам данных.
+        * **Vacuum/analyze: user tables**:
+            * **Tables vacuum age** — распределение таблиц по числу дней с момента последнего выполнения [очистки](../concepts/maintenance.md#custom-table-vacuum) (`VACUUM`).
+            * **Tables analyze age** — распределение таблиц по числу дней с момента последнего [сбора статистики](../concepts/maintenance.md#get-statistics) (`ANALYZE`).
+    * **Hybrid storage**:
+        * **CPU usage per host** — потребление CPU компонентом `yproxy` в разрезе по хостам кластера.
+        * **Memory usage per host** — потребление памяти компонентом `yproxy` в разрезе по хостам кластера.
+        * **Storage requests** — количество запросов к хранилищу (всего, успешных, с ошибками).
+        * **Storage objects count** — общее количество объектов в хранилище.
+        * **Storage objects size** — суммарный размер объектов в хранилище.
 
 {% endlist %}
 

@@ -175,7 +175,7 @@ For channels with an individual sender, you can contact support to exit the sand
 
 {% include [sms-quota-increase](../../_includes/notifications/sms-quota-increase.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Service overview](index.md)
 * [Getting started with SMS](../quickstart-sms.md)

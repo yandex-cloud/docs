@@ -29,7 +29,9 @@ description: Из статьи вы узнаете про классы хост�
 
 Хосты в кластерах {{ mgp-name }} разворачиваются на базе виртуальных машин {{ compute-full-name }} на [платформах](../../compute/concepts/vm-platforms.md) Intel Cascade Lake и Intel Ice Lake с гарантированной долей vCPU 100%. Ниже приведен полный список возможных конфигураций хостов.
 
-{% include [zone-d-disk-restrictions](../../_includes/mdb/ru-central1-d-local-ssd.md) %}
+{% include [disk-flavor-dependencies](../../_includes/mdb/disk-flavor-dependencies.md) %}
+
+Например, в `{{ region-id }}-d` недоступны платформы Intel Broadwell и хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.
 
 Типы конфигураций:
 

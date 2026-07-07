@@ -241,6 +241,8 @@ items:
             href: logs/concepts/ttl.md
       - name: Метрики логов
         href: logs/logs-metrics.md
+      - name: Вычисление метрик по логам
+        href: logs/aggregates.md
       - name: Ограничения
         href: logs/limits.md
   - name: Трейсы

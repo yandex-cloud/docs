@@ -8,7 +8,7 @@ canonical: '{{ link-docs }}/tutorials/archive/integrate-nextcloud/fault-tolerant
 
 {% include [fault-tolerant](../../../_tutorials/archive/integrate-nextcloud/fault-tolerant.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./coi-based.md)
 * [{#T}](./terraform.md)

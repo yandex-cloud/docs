@@ -80,7 +80,7 @@ Each exception contains the following parameters:
 
 Same as in rules, changes in exceptions take effect after deployment. The exception deployment statuses are the same as the rule deployment statuses: **Updated**, **Will be deployed**, **Deploying**, **Deployed**, **Error**.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/correlation-rules/manage-rules.md)
 * [{#T}](../operations/exceptions/manage-exceptions.md)

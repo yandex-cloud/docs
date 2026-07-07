@@ -379,7 +379,7 @@ Example of an iframe with multiple parameters:
 ></iframe>
 ```
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./index.md)
 * [{#T}](./player-methods.md)

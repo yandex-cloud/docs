@@ -208,7 +208,7 @@ Updating the list of available text tracks (captions).
 
 The handler receives the `{ textTracks }` object containing the new array of [available tracks](./player-state.md#state-textTracks).
 
-Example:
+Here is an example:
 
 ```javascript
 player.on('TextTracksChange', ({ textTracks }) => {
@@ -216,6 +216,6 @@ player.on('TextTracksChange', ({ textTracks }) => {
 });
 ```
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
-* [Interface: PlayerSdkEventHandlers](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) in the API reference.
+* [Interface: PlayerSdkEventHandlers](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) in the API reference

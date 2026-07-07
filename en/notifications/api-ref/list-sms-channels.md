@@ -136,7 +136,7 @@ Where:
 
 For a list of common error codes for all actions, see [{#T}](common-errors.md).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)

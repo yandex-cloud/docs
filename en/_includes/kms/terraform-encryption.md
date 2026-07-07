@@ -13,24 +13,24 @@ To encrypt data:
    Where:
 
    * `key_id`: {{ kms-short-name }} key ID.
-   * `aad_context`: ([AAD context](../../kms/concepts/symmetric-encryption.md#add-context)).
-   * `plaintext`: String to be encrypted.
+   * `aad_context`: [AAD context](../../kms/concepts/symmetric-encryption.md#add-context).
+   * `plaintext`: String to encrypt.
 
    {% note warning %}
 
-   `yandex_kms_secret_ciphertext` enables you to hide secrets when deploying an infrastructure. However, in general, it is not safe to openly specify the `plaintext` and `aad_context` in the configuration file. Secrets can be read from configuration files or execution logs and can end up in the {{ TF }} state.
+   With `yandex_kms_secret_ciphertext`, you can hide secrets when deploying an infrastructure, but generally speaking it is unsafe to specify `plaintext` and `aad_context` in the configuration file in plain text. Secrets can be read from configuration files or execution logs and can end up in the {{ TF }} state.
 
    {% endnote %}
 
-   For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/kms_secret_ciphertext).
+   For more information about resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/kms_secret_ciphertext).
 
-1. Check the configuration using this command:
+1. Validate your configuration using this command:
 
    ```
    terraform validate
    ```
 
-   If the configuration is correct, you will get this message:
+   If the configuration is valid, you will get this message:
 
    ```
    Success! The configuration is valid.
@@ -42,7 +42,7 @@ To encrypt data:
    terraform plan
    ```
 
-   The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+   You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
 1. Apply the configuration changes:
 
@@ -50,12 +50,12 @@ To encrypt data:
    terraform apply
    ```
 
-1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+1. Type `yes` and press **Enter** to confirm the changes.
 
-   The ciphertext can then be accessed via the `ciphertext` variable, and the encrypted data via the `plaintext` variable.
+   After this, you can access the ciphertext through the `ciphertext` variable, and the encrypted data, through `plaintext`.
 
 
-   To check, you can add the following code with the `decrypted_pass` output variable to the configuration file.
+   For verification, you can add the following code with the `decrypted_pass` output variable to the configuration file.
 
    {% note alert %}
 
