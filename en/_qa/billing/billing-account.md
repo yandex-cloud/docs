@@ -31,7 +31,7 @@ Once your [initial grant](../../billing/concepts/bonus-account.md#start) expires
 
 To request a full or partial refund of any positive balance in your account, contact [support]({{ link-console-support }}) and specify the refund amount.
 
-#### I received no email with instructions on what to do after creating a billing account. Why?{#account-notification}
+#### I received no email with instructions on what to do after creating a billing account. Why? {#account-notification}
 
 If you select the **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}** payment method or if the payer is a non-resident of Russia and Kazakhstan, further instructions will be emailed to you at the address specified in your Yandex or Yandex 360 account. You can also get that email after you select **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_card }}** for payment method if your new billing account requires verification. Once your documents and credentials are verified, you can activate your billing account and start using {{ yandex-cloud }}.
 If you still get no email, inquire at [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}).
@@ -81,7 +81,7 @@ Roles can be issued either directly to the billing account and cloud, or to the 
 
 You cannot cancel the deletion of a cloud linked to a billing account with the `SUSPENDED` status.
 
-See [Canceling cloud deletion](../../resource-manager/operations/cloud/delete-cancel.md).
+For more information, see [Canceling cloud deletion](../../resource-manager/operations/cloud/delete-cancel.md).
 
 #### How do I enable a billing threshold? {#credit}
 
@@ -126,7 +126,7 @@ Yes, you can.
 
 {% include [account-in-organization](../../_includes/billing/pay-resouces-of-another-organization.md) %}
 
-See [Managing a billing account in an organization](../../billing/concepts/organization.md) for details.
+For more information, see [Managing a billing account in an organization](../../billing/concepts/organization.md).
 
 #### How do I stop using the platform and delete my billing account? {#delete-account}
 

@@ -3,7 +3,7 @@ title: Integrating {{ certificate-manager-full-name }} with {{ yandex-cloud }} s
 description: In this tutorial, you will learn which {{ yandex-cloud }} services support {{ certificate-manager-name }} certificates.
 ---
 
-# Integration with {{ yandex-cloud }} services
+# Integration with the {{ yandex-cloud }} services
 
 
 You can use {{ certificate-manager-name }} certificates in the following {{ yandex-cloud }} services:
@@ -34,7 +34,7 @@ If using a bucket to host a static website, use a {{ certificate-manager-name }}
 
 {{ api-gw-full-name }} allows you to merge multiple microservices into a single product. Microservices can be run on VMs and containers or implemented as functions. You can use the domain to access the API.
 
-A certificate linked to the domain is used to provide a TLS connection.
+For TLS connections, a certificate bound to the domain will be used.
 
 ## {{ cdn-full-name }} {#cdn}
 
@@ -58,7 +58,7 @@ You can store a {{ certificate-manager-name }} user certificate's private key in
 * [{#T}](../tutorials/virtual-hosting.md)
 * [{#T}](../tutorials/gatsby-static-website.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Static website in {{ objstorage-name }}](../../tutorials/web/static/index.md)
 * [{{ api-gw-full-name }}](../../api-gateway/)

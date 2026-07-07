@@ -162,7 +162,7 @@ description: Follow this guide to edit basic settings of a {{ sws-full-name }} s
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](rule-add.md)
 * [{#T}](rule-update.md)

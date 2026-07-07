@@ -56,7 +56,7 @@ We do not recommend overwriting the token in the endpoint each time the app is l
 
 {% endnote %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Service overview](index.md)
 * [Getting started with push notifications](../quickstart-push.md)

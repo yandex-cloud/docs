@@ -160,11 +160,11 @@ Here are some HTTP header examples:
 
 ## Adding a response page template to profiles and rules {#add-to-profiles-and-rules}
 
-The profile template is displayed when this profile is blocked by any rule. If you select another template for a particular profile, the selected template will be used. If no template is selected for a profile or rules, the default template is used.
+The profile template is displayed when this profile is blocked by any rule. If you select another template for a particular profile, the selected template will be used. If no template is selected for a profile or rule, the default template will be used.
 
 {% include [rules-for-template](../../_includes/smartwebsecurity/rules-for-template.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/template-create.md)
 * [{#T}](../operations/template-attach.md)

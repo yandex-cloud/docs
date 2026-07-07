@@ -18,7 +18,7 @@ Parameter | Description
 `MessageAttributes.entry.N.key` | **string**<br/>Required field.<br/>[Attribute](#attributes) key. `N` is a numeric value.<br/>Example: `MessageAttributes.entry.1.key=AWS.SNS.MOBILE.APNS.PUSH_TYPE&MessageAttributes.entry.2.key=AWS.SNS.MOBILE.APNS.PRIORITY`.
 `MessageAttributes.entry.N.value` | **string**<br/>Required field.<br/>Attribute value. `N` is a numeric value.<br/>Example: `MessageAttributes.entry.1.value={"DataType":"String","StringValue":"background"}&MessageAttributes.entry.2.value={"DataType":"String","StringValue":"5"}`.
 `TargetArn` | **string**<br/>This is a required field.<br/>Mobile endpoint ARN. You must specify either `TargetArn` or `PhoneNumber`. You cannot use this parameter along with `PhoneNumber`. <br/>Here is an example: `arn:aws:sns::aoegtvhtp8ob********:endpoint/GCM/test-cns-9990/4cbe148515360244248c993abe0a12884d162bb15e87d6c16bd0c810********`.
-`PhoneNumber` | **string**<br/>This is a required field.<br/>Enter a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Sending SMS to Russian numbers is supported. You must specify either `TargetArn` or `PhoneNumber`. You cannot use this parameter along with `TargetArn`.
+`PhoneNumber` | **string**<br/>Required field.<br/>Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Sending SMS to Russian numbers is supported. You must specify either `TargetArn` or `PhoneNumber`. You cannot use this parameter along with `TargetArn`.
 `ResponseFormat` | **string**<br/>Response format.<br/>The possible values are:<ul><li>`XML` (default)</li><li>`JSON`.</li></ul>
 
 ### Attributes {#attributes}
@@ -81,7 +81,7 @@ HTTP | Error code | Extended code | Description
 400 | UserError | SMSChannelIsBanned | Attempting to send an SMS using a blocked channel
 400 | UserError | InvalidPhoneNumberRegion | Phone numbers from outside Russia are not supported.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)

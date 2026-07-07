@@ -101,7 +101,7 @@ Following the end of the trial period, your seat charge for the first month will
 {% endnote %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Configuring a {{ datalens-name }} service plan](./settings/service-plan.md)
 * [Service plan features](./concepts/service-plans-comparison.md)

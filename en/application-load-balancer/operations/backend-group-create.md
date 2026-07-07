@@ -264,6 +264,6 @@ To create a [backend group](../concepts/backend-group.md):
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../concepts/best-practices.md)

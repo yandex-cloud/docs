@@ -330,8 +330,14 @@ items:
             href: audit/ai/mcp_hub/events-ref/CreateMcpGateway.md
           - name: DeleteMcpGateway
             href: audit/ai/mcp_hub/events-ref/DeleteMcpGateway.md
+          - name: InvokeMcpTool
+            href: audit/ai/mcp_hub/events-ref/InvokeMcpTool.md
+          - name: ListMcpTools
+            href: audit/ai/mcp_hub/events-ref/ListMcpTools.md
           - name: SetMcpGatewayAccessBindings
             href: audit/ai/mcp_hub/events-ref/SetMcpGatewayAccessBindings.md
+          - name: StartMcpSession
+            href: audit/ai/mcp_hub/events-ref/StartMcpSession.md
           - name: UpdateMcpGateway
             href: audit/ai/mcp_hub/events-ref/UpdateMcpGateway.md
           - name: UpdateMcpGatewayAccessBindings
@@ -364,6 +370,10 @@ items:
             href: audit/ai/responses/events-ref/McpToolList.md
           - name: WebSearchToolSearch
             href: audit/ai/responses/events-ref/WebSearchToolSearch.md
+      - name: ai.settings
+        items:
+          - name: SetFolderSettings
+            href: audit/ai/settings/events-ref/SetFolderSettings.md
       - name: ai.speechkit.stt
         items:
           - name: GetRecognition
@@ -394,12 +404,16 @@ items:
             href: audit/airflow/events-ref/DeleteCluster.md
           - name: RescheduleMaintenance
             href: audit/airflow/events-ref/RescheduleMaintenance.md
+          - name: SetClusterAccessBindings
+            href: audit/airflow/events-ref/SetClusterAccessBindings.md
           - name: StartCluster
             href: audit/airflow/events-ref/StartCluster.md
           - name: StopCluster
             href: audit/airflow/events-ref/StopCluster.md
           - name: UpdateCluster
             href: audit/airflow/events-ref/UpdateCluster.md
+          - name: UpdateClusterAccessBindings
+            href: audit/airflow/events-ref/UpdateClusterAccessBindings.md
       - name: apploadbalancer
         items:
           - name: AddBackendGroupBackend
@@ -488,6 +502,8 @@ items:
             href: audit/backup/events-ref/ActivateProvider.md
           - name: ApplyPolicy
             href: audit/backup/events-ref/ApplyPolicy.md
+          - name: CreateBackup
+            href: audit/backup/events-ref/CreateBackup.md
           - name: CreateDirectory
             href: audit/backup/events-ref/CreateDirectory.md
           - name: CreatePolicy
@@ -893,6 +909,19 @@ items:
             href: audit/compute/events-ref/UpdateSnapshotSchedule.md
           - name: UpdateSnapshotScheduleDisks
             href: audit/compute/events-ref/UpdateSnapshotScheduleDisks.md
+      - name: connectionmanager
+        items:
+          - name: CreateConnection
+            href: audit/connectionmanager/events-ref/CreateConnection.md
+          - name: DeleteConnection
+            href: audit/connectionmanager/events-ref/DeleteConnection.md
+          - name: SetConnectionAccessBindings
+            href: audit/connectionmanager/events-ref/SetConnectionAccessBindings.md
+          - name: UpdateConnection
+            href: audit/connectionmanager/events-ref/UpdateConnection.md
+          - name: UpdateConnectionAccessBindings
+            href: >-
+              audit/connectionmanager/events-ref/UpdateConnectionAccessBindings.md
       - name: containerregistry
         items:
           - name: CreateImage
@@ -1032,6 +1061,8 @@ items:
             href: audit/datalens/events-ref/UpdateEntry.md
           - name: UpdateSharedEntryAccessBindings
             href: audit/datalens/events-ref/UpdateSharedEntryAccessBindings.md
+          - name: UpdateTenantAccessBindings
+            href: audit/datalens/events-ref/UpdateTenantAccessBindings.md
           - name: UpdateWorkbook
             href: audit/datalens/events-ref/UpdateWorkbook.md
           - name: UpdateWorkbookAccessBindings
@@ -1046,12 +1077,16 @@ items:
             href: audit/dataproc/events-ref/DeleteCluster.md
           - name: DeleteSubcluster
             href: audit/dataproc/events-ref/DeleteSubcluster.md
+          - name: SetClusterAccessBindings
+            href: audit/dataproc/events-ref/SetClusterAccessBindings.md
           - name: StartCluster
             href: audit/dataproc/events-ref/StartCluster.md
           - name: StopCluster
             href: audit/dataproc/events-ref/StopCluster.md
           - name: UpdateCluster
             href: audit/dataproc/events-ref/UpdateCluster.md
+          - name: UpdateClusterAccessBindings
+            href: audit/dataproc/events-ref/UpdateClusterAccessBindings.md
           - name: UpdateSubcluster
             href: audit/dataproc/events-ref/UpdateSubcluster.md
       - name: datasphere
@@ -1894,12 +1929,16 @@ items:
             href: audit/mdb/greenplum/events-ref/MoveCluster.md
           - name: RestoreCluster
             href: audit/mdb/greenplum/events-ref/RestoreCluster.md
+          - name: SetClusterAccessBindings
+            href: audit/mdb/greenplum/events-ref/SetClusterAccessBindings.md
           - name: StartCluster
             href: audit/mdb/greenplum/events-ref/StartCluster.md
           - name: StopCluster
             href: audit/mdb/greenplum/events-ref/StopCluster.md
           - name: UpdateCluster
             href: audit/mdb/greenplum/events-ref/UpdateCluster.md
+          - name: UpdateClusterAccessBindings
+            href: audit/mdb/greenplum/events-ref/UpdateClusterAccessBindings.md
           - name: UpdateHBARule
             href: audit/mdb/greenplum/events-ref/UpdateHBARule.md
           - name: UpdatePXFDatasource
@@ -2026,6 +2065,8 @@ items:
             href: audit/mdb/mongodb/events-ref/UpdateClusterAccessBindings.md
           - name: UpdateClusterHosts
             href: audit/mdb/mongodb/events-ref/UpdateClusterHosts.md
+          - name: UpdateDatabase
+            href: audit/mdb/mongodb/events-ref/UpdateDatabase.md
           - name: UpdateUser
             href: audit/mdb/mongodb/events-ref/UpdateUser.md
           - name: UserAuthentication
@@ -2139,6 +2180,8 @@ items:
           - name: SecurityIndexAttemptTransportEvent
             href: >-
               audit/mdb/opensearch/events-ref/SecurityIndexAttemptTransportEvent.md
+          - name: SetClusterAccessBindings
+            href: audit/mdb/opensearch/events-ref/SetClusterAccessBindings.md
           - name: StartCluster
             href: audit/mdb/opensearch/events-ref/StartCluster.md
           - name: StopCluster
@@ -2147,6 +2190,8 @@ items:
             href: audit/mdb/opensearch/events-ref/SwitchMaster.md
           - name: UpdateCluster
             href: audit/mdb/opensearch/events-ref/UpdateCluster.md
+          - name: UpdateClusterAccessBindings
+            href: audit/mdb/opensearch/events-ref/UpdateClusterAccessBindings.md
           - name: UpdateDashboardsNodeGroup
             href: audit/mdb/opensearch/events-ref/UpdateDashboardsNodeGroup.md
           - name: UpdateOpenSearchNodeGroup
@@ -2253,6 +2298,8 @@ items:
             href: audit/mdb/redis/events-ref/RescheduleMaintenance.md
           - name: RestoreCluster
             href: audit/mdb/redis/events-ref/RestoreCluster.md
+          - name: SetClusterAccessBindings
+            href: audit/mdb/redis/events-ref/SetClusterAccessBindings.md
           - name: StartCluster
             href: audit/mdb/redis/events-ref/StartCluster.md
           - name: StartClusterFailover
@@ -2261,6 +2308,8 @@ items:
             href: audit/mdb/redis/events-ref/StopCluster.md
           - name: UpdateCluster
             href: audit/mdb/redis/events-ref/UpdateCluster.md
+          - name: UpdateClusterAccessBindings
+            href: audit/mdb/redis/events-ref/UpdateClusterAccessBindings.md
           - name: UpdateClusterHosts
             href: audit/mdb/redis/events-ref/UpdateClusterHosts.md
           - name: UpdateUser
@@ -2297,12 +2346,16 @@ items:
             href: audit/mdb/spqr/events-ref/RescheduleMaintenance.md
           - name: RestoreCluster
             href: audit/mdb/spqr/events-ref/RestoreCluster.md
+          - name: SetClusterAccessBindings
+            href: audit/mdb/spqr/events-ref/SetClusterAccessBindings.md
           - name: StartCluster
             href: audit/mdb/spqr/events-ref/StartCluster.md
           - name: StopCluster
             href: audit/mdb/spqr/events-ref/StopCluster.md
           - name: UpdateCluster
             href: audit/mdb/spqr/events-ref/UpdateCluster.md
+          - name: UpdateClusterAccessBindings
+            href: audit/mdb/spqr/events-ref/UpdateClusterAccessBindings.md
           - name: UpdateClusterHosts
             href: audit/mdb/spqr/events-ref/UpdateClusterHosts.md
           - name: UpdateUser
@@ -2315,25 +2368,55 @@ items:
             href: audit/metastore/events-ref/DeleteCluster.md
           - name: RescheduleMaintenance
             href: audit/metastore/events-ref/RescheduleMaintenance.md
+          - name: SetClusterAccessBindings
+            href: audit/metastore/events-ref/SetClusterAccessBindings.md
           - name: StartCluster
             href: audit/metastore/events-ref/StartCluster.md
           - name: StopCluster
             href: audit/metastore/events-ref/StopCluster.md
           - name: UpdateCluster
             href: audit/metastore/events-ref/UpdateCluster.md
+          - name: UpdateClusterAccessBindings
+            href: audit/metastore/events-ref/UpdateClusterAccessBindings.md
+      - name: notifications
+        items:
+          - name: CreateMobileApplication
+            href: audit/notifications/events-ref/CreateMobileApplication.md
+          - name: CreateSMSChannel
+            href: audit/notifications/events-ref/CreateSMSChannel.md
+          - name: CreateTopic
+            href: audit/notifications/events-ref/CreateTopic.md
+          - name: CreateWebpushChannel
+            href: audit/notifications/events-ref/CreateWebpushChannel.md
+          - name: DeleteMobileApplication
+            href: audit/notifications/events-ref/DeleteMobileApplication.md
+          - name: DeleteSMSChannel
+            href: audit/notifications/events-ref/DeleteSMSChannel.md
+          - name: DeleteTopic
+            href: audit/notifications/events-ref/DeleteTopic.md
+          - name: DeleteWebpushChannel
+            href: audit/notifications/events-ref/DeleteWebpushChannel.md
+          - name: UpdateMobileApplication
+            href: audit/notifications/events-ref/UpdateMobileApplication.md
+          - name: UpdateSMSChannel
+            href: audit/notifications/events-ref/UpdateSMSChannel.md
+          - name: UpdateTopic
+            href: audit/notifications/events-ref/UpdateTopic.md
+          - name: UpdateWebpushChannel
+            href: audit/notifications/events-ref/UpdateWebpushChannel.md
       - name: organizationmanager
         items:
           - name: AcceptInvitation
             href: audit/organizationmanager/events-ref/AcceptInvitation.md
+          - name: ActivateAuthenticationPolicyRule
+            href: >-
+              audit/organizationmanager/events-ref/ActivateAuthenticationPolicyRule.md
           - name: ActivateMfaEnforcement
             href: audit/organizationmanager/events-ref/ActivateMfaEnforcement.md
           - name: AddFederatedUserAccounts
             href: audit/organizationmanager/events-ref/AddFederatedUserAccounts.md
           - name: AddFederationDomain
             href: audit/organizationmanager/events-ref/AddFederationDomain.md
-          - name: AddOAuthFederatedUserAccounts
-            href: >-
-              audit/organizationmanager/events-ref/AddOAuthFederatedUserAccounts.md
           - name: AddUserBlock
             href: audit/organizationmanager/events-ref/AddUserBlock.md
           - name: AddUserpoolDomain
@@ -2355,6 +2438,9 @@ items:
             href: audit/organizationmanager/events-ref/CreateApplication.md
           - name: CreateAsset
             href: audit/organizationmanager/events-ref/CreateAsset.md
+          - name: CreateAuthenticationPolicyRule
+            href: >-
+              audit/organizationmanager/events-ref/CreateAuthenticationPolicyRule.md
           - name: CreateBranding
             href: audit/organizationmanager/events-ref/CreateBranding.md
           - name: CreateCertificate
@@ -2383,6 +2469,9 @@ items:
             href: audit/organizationmanager/events-ref/CreateUserpool.md
           - name: CreateUserSshKey
             href: audit/organizationmanager/events-ref/CreateUserSshKey.md
+          - name: DeactivateAuthenticationPolicyRule
+            href: >-
+              audit/organizationmanager/events-ref/DeactivateAuthenticationPolicyRule.md
           - name: DeactivateMfaEnforcement
             href: audit/organizationmanager/events-ref/DeactivateMfaEnforcement.md
           - name: DeleteApplication
@@ -2391,6 +2480,9 @@ items:
             href: audit/organizationmanager/events-ref/DeleteApplication.md
           - name: DeleteAsset
             href: audit/organizationmanager/events-ref/DeleteAsset.md
+          - name: DeleteAuthenticationPolicyRule
+            href: >-
+              audit/organizationmanager/events-ref/DeleteAuthenticationPolicyRule.md
           - name: DeleteBranding
             href: audit/organizationmanager/events-ref/DeleteBranding.md
           - name: DeleteCertificate
@@ -2497,6 +2589,9 @@ items:
           - name: UpdateApplicationAssignments
             href: >-
               audit/organizationmanager/events-ref/UpdateApplicationAssignments.md
+          - name: UpdateAuthenticationPolicyRule
+            href: >-
+              audit/organizationmanager/events-ref/UpdateAuthenticationPolicyRule.md
           - name: UpdateBranding
             href: audit/organizationmanager/events-ref/UpdateBranding.md
           - name: UpdateCertificate
@@ -2642,10 +2737,14 @@ items:
             href: audit/securitydeck/cspm/events-ref/UpdateScopeFilter.md
       - name: securitydeck.kspm
         items:
+          - name: AddCluster
+            href: audit/securitydeck/kspm/events-ref/AddCluster.md
           - name: CreateException
             href: audit/securitydeck/kspm/events-ref/CreateException.md
           - name: CreateProject
             href: audit/securitydeck/kspm/events-ref/CreateProject.md
+          - name: DeleteCluster
+            href: audit/securitydeck/kspm/events-ref/DeleteCluster.md
           - name: DeleteException
             href: audit/securitydeck/kspm/events-ref/DeleteException.md
           - name: DeleteProject
@@ -2654,6 +2753,13 @@ items:
             href: audit/securitydeck/kspm/events-ref/EnableProject.md
           - name: TriggerAdmissionControl
             href: audit/securitydeck/kspm/events-ref/TriggerAdmissionControl.md
+          - name: TriggerInventoryControlBatch
+            href: audit/securitydeck/kspm/events-ref/TriggerInventoryControlBatch.md
+          - name: TriggerInventoryControlEvent
+            href: audit/securitydeck/kspm/events-ref/TriggerInventoryControlEvent.md
+          - name: TriggerInventoryControlSnapshot
+            href: >-
+              audit/securitydeck/kspm/events-ref/TriggerInventoryControlSnapshot.md
           - name: TriggerRuntimeControl
             href: audit/securitydeck/kspm/events-ref/TriggerRuntimeControl.md
           - name: TriggerRuntimeProcessInfo
@@ -2662,6 +2768,8 @@ items:
             href: audit/securitydeck/kspm/events-ref/UpdateException.md
           - name: UpdateProject
             href: audit/securitydeck/kspm/events-ref/UpdateProject.md
+          - name: UpdateProjectControl
+            href: audit/securitydeck/kspm/events-ref/UpdateProjectControl.md
       - name: securitydeck.orchestrator
         items:
           - name: CreateConnector
@@ -2698,6 +2806,8 @@ items:
             href: audit/serverless/events-ref/CreateProxy.md
           - name: CreateTrigger
             href: audit/serverless/events-ref/CreateTrigger.md
+          - name: CreateWorkflow
+            href: audit/serverless/events-ref/CreateWorkflow.md
           - name: DeleteApiGateway
             href: audit/serverless/events-ref/DeleteApiGateway.md
           - name: DeleteContainer
@@ -2712,8 +2822,12 @@ items:
             href: audit/serverless/events-ref/DeleteProxy.md
           - name: DeleteTrigger
             href: audit/serverless/events-ref/DeleteTrigger.md
+          - name: DeleteWorkflow
+            href: audit/serverless/events-ref/DeleteWorkflow.md
           - name: DeployContainerRevision
             href: audit/serverless/events-ref/DeployContainerRevision.md
+          - name: ExecutionFinished
+            href: audit/serverless/events-ref/ExecutionFinished.md
           - name: PauseTrigger
             href: audit/serverless/events-ref/PauseTrigger.md
           - name: RemoveFunctionTag
@@ -2738,8 +2852,16 @@ items:
             href: audit/serverless/events-ref/SetProxyAccessBindings.md
           - name: SetScalingPolicy
             href: audit/serverless/events-ref/SetScalingPolicy.md
+          - name: SetWorkflowAccessBindings
+            href: audit/serverless/events-ref/SetWorkflowAccessBindings.md
+          - name: StartExecution
+            href: audit/serverless/events-ref/StartExecution.md
           - name: StopApiGateway
             href: audit/serverless/events-ref/StopApiGateway.md
+          - name: StopExecution
+            href: audit/serverless/events-ref/StopExecution.md
+          - name: TerminateExecution
+            href: audit/serverless/events-ref/TerminateExecution.md
           - name: UpdateApiGateway
             href: audit/serverless/events-ref/UpdateApiGateway.md
           - name: UpdateApiGatewayAccessBindings
@@ -2758,6 +2880,10 @@ items:
             href: audit/serverless/events-ref/UpdateProxyAccessBindings.md
           - name: UpdateTrigger
             href: audit/serverless/events-ref/UpdateTrigger.md
+          - name: UpdateWorkflow
+            href: audit/serverless/events-ref/UpdateWorkflow.md
+          - name: UpdateWorkflowAccessBindings
+            href: audit/serverless/events-ref/UpdateWorkflowAccessBindings.md
           - name: AddDomain
             href: audit/serverless/apigateway/events-ref/AddDomain.md
           - name: CreateApiGateway
@@ -2778,6 +2904,25 @@ items:
           - name: UpdateApiGatewayAccessBindings
             href: >-
               audit/serverless/apigateway/events-ref/UpdateApiGatewayAccessBindings.md
+          - name: CreateWorkflow
+            href: audit/serverless/workflows/events-ref/CreateWorkflow.md
+          - name: DeleteWorkflow
+            href: audit/serverless/workflows/events-ref/DeleteWorkflow.md
+          - name: ExecutionFinished
+            href: audit/serverless/workflows/events-ref/ExecutionFinished.md
+          - name: SetWorkflowAccessBindings
+            href: audit/serverless/workflows/events-ref/SetWorkflowAccessBindings.md
+          - name: StartExecution
+            href: audit/serverless/workflows/events-ref/StartExecution.md
+          - name: StopExecution
+            href: audit/serverless/workflows/events-ref/StopExecution.md
+          - name: TerminateExecution
+            href: audit/serverless/workflows/events-ref/TerminateExecution.md
+          - name: UpdateWorkflow
+            href: audit/serverless/workflows/events-ref/UpdateWorkflow.md
+          - name: UpdateWorkflowAccessBindings
+            href: >-
+              audit/serverless/workflows/events-ref/UpdateWorkflowAccessBindings.md
       - name: smartcaptcha
         items:
           - name: CreateCaptcha
@@ -2856,12 +3001,16 @@ items:
             href: audit/spark/events-ref/DeleteCluster.md
           - name: RescheduleMaintenance
             href: audit/spark/events-ref/RescheduleMaintenance.md
+          - name: SetClusterAccessBindings
+            href: audit/spark/events-ref/SetClusterAccessBindings.md
           - name: StartCluster
             href: audit/spark/events-ref/StartCluster.md
           - name: StopCluster
             href: audit/spark/events-ref/StopCluster.md
           - name: UpdateCluster
             href: audit/spark/events-ref/UpdateCluster.md
+          - name: UpdateClusterAccessBindings
+            href: audit/spark/events-ref/UpdateClusterAccessBindings.md
       - name: speechsense
         items:
           - name: CreateProject
@@ -2956,6 +3105,8 @@ items:
             href: audit/trino/events-ref/DeleteCluster.md
           - name: RescheduleMaintenance
             href: audit/trino/events-ref/RescheduleMaintenance.md
+          - name: SetClusterAccessBindings
+            href: audit/trino/events-ref/SetClusterAccessBindings.md
           - name: StartCluster
             href: audit/trino/events-ref/StartCluster.md
           - name: StopCluster
@@ -2964,6 +3115,8 @@ items:
             href: audit/trino/events-ref/UpdateCatalog.md
           - name: UpdateCluster
             href: audit/trino/events-ref/UpdateCluster.md
+          - name: UpdateClusterAccessBindings
+            href: audit/trino/events-ref/UpdateClusterAccessBindings.md
       - name: video
         items:
           - name: BatchDeleteChannels
@@ -3020,6 +3173,14 @@ items:
             href: audit/video/events-ref/DownloadEpisode.md
           - name: EpisodePerformAction
             href: audit/video/events-ref/EpisodePerformAction.md
+          - name: InitializeChannelAdminChat
+            href: audit/video/events-ref/InitializeChannelAdminChat.md
+          - name: InitializeEpisodeChat
+            href: audit/video/events-ref/InitializeEpisodeChat.md
+          - name: ResetChannelAdminChat
+            href: audit/video/events-ref/ResetChannelAdminChat.md
+          - name: ResyncEpisodeChatAdmins
+            href: audit/video/events-ref/ResyncEpisodeChatAdmins.md
           - name: SetChannelAccessBindings
             href: audit/video/events-ref/SetChannelAccessBindings.md
           - name: StreamLinePerformAction

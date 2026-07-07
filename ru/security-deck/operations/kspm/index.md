@@ -10,3 +10,4 @@ description: В этом разделе собраны пошаговые инс
 * [{#T}](view-rules.md).
 * [{#T}](check-compliance.md).
 * [{#T}](manage-exceptions.md).
+* [{#T}](manage-rule-modes.md).

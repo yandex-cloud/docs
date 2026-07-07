@@ -366,7 +366,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 
 
-1. In the panel at the bottom of the page, drag ![image](../../_assets/console-icons/chart-column.svg) **Chart** where you need.
+1. In the panel at the bottom of the page, click ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it where you want it to be.
 
    ![add-chart](../../_assets/datalens/solution-07/21-add-chart.png)
 
@@ -403,7 +403,7 @@ Create a [dashboard](../../datalens/concepts/dashboard.md) to add charts and oth
 
 1. Add a widget for data filtering:
 
-   1. In the panel at the bottom of the page, drag ![image](../../_assets/console-icons/sliders.svg) **Selector** where you need.
+   1. In the panel at the bottom of the page, click ![image](../../_assets/console-icons/sliders.svg) **Selector** and drag it where you want it to be.
 
       ![add-selector](../../_assets/datalens/solution-07/25-add-selector.png)
 

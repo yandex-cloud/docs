@@ -45,7 +45,7 @@ We recommend grouping them into one of these categories:
 
 In {{ sws-name }}, you can create lists manually or upload ready-made `txt` or `csv` list files.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/list-create.md)
 * [{#T}](conditions.md)

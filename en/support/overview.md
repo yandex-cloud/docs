@@ -49,7 +49,7 @@ The types of requests available depend on the selected plan and are shown in the
 | Ideas on how to improve the services in terms of functionality and feedback | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Assistance in recovering the services in the event of critical issues | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Advice on how to set up {{ yandex-cloud }} services | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Possibility to upgrade the request's priority level on demand | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Upgrading your ticket priority upon request | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Basic recommendations for building a fault-tolerant cloud infrastructure | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Preparing an RCA for _critical_ priority requests | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | HA/DR tests | ![image](../_assets/common/no.svg) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) |

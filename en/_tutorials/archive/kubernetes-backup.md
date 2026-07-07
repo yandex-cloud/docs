@@ -1,4 +1,4 @@
-# {{ managed-k8s-name }} cluster backups in {{ objstorage-name }}
+# Backing up a {{ managed-k8s-name }} cluster to {{ objstorage-name }}
 
 
 The {{ yandex-cloud }} infrastructure provides secure storage and replication for data in [{{ managed-k8s-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). However, you can back up data from [{{ managed-k8s-name }} cluster node groups](../../managed-kubernetes/concepts/index.md#node-group) at any time and store them in [{{ objstorage-full-name }}](../../storage/) or other types of storage.
@@ -16,10 +16,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* Fee for each {{ managed-k8s-name }} cluster: Using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* VM fee (two node groups and a VM for managing a cluster with no public access): Using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for each {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* VM fee (two node groups and a VM for managing a cluster with no public access): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for public IP addresses for the cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * Fee for an {{ objstorage-name }} bucket: data storage and operations with data (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
@@ -38,7 +38,7 @@ The support cost includes:
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-  1. [Create two {{ managed-k8s-name }} clusters](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md). When creating them, specify the security groups prepared earlier.
+  1. [Create two {{ managed-k8s-name }} clusters](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md). When creating, specify the preconfigured security groups.
 
      One {{ managed-k8s-name }} cluster is for creating a node group backup and the other one, for restoring data from the backup.
 
@@ -48,7 +48,7 @@ The support cost includes:
   1. [Create a bucket in {{ objstorage-name }}](../../storage/operations/buckets/create.md).
   1. [Create a service account](../../iam/operations/sa/create.md) with the `compute.admin` [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to work with Velero.
   1. Grant the [service account](../../iam/concepts/users/service-accounts.md) **READ and WRITE** permissions to a [bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }}. To do this, [configure the bucket ACL](../../storage/operations/buckets/edit-acl.md).
-  1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account and save its ID and value. You will not be able to get the secret key again.
+  1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account and save its ID and value. This is the only time you can copy this key as it will not be shown again.
 
 - {{ TF }} {#tf}
 
@@ -82,13 +82,13 @@ The support cost includes:
      * `storage_sa_id`: ID of the [service account](../../iam/concepts/users/service-accounts.md) with the `storage.admin` role. It will be used to create a bucket in {{ objstorage-name }} with `READ and WRITE` permissions in the [ACL](../../storage/concepts/acl.md) for the `sa_name_velero` service account.
      * `bucket_name`: Bucket name in {{ objstorage-name }}.
   1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Validate your {{ TF }} configuration files using this command:
 
      ```bash
      terraform validate
      ```
 
-     {{ TF }} will show any errors found in your configuration files.
+     {{ TF }} will display any configuration errors detected in your files.
   1. Create the required infrastructure:
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -114,7 +114,7 @@ The support cost includes:
 
 1. Select a [Velero client](https://github.com/vmware-tanzu/velero/releases) for your platform based on the [compatibility table](https://github.com/vmware-tanzu/velero#velero-compatibility-matrix).
 1. Download the Velero client, extract the archive contents, and install it. For more information about installation, see [this Velero guide](https://velero.io/docs/main/basic-install/#install-the-cli).
-1. Make sure you have installed the Velero client. To do this, run the following command:
+1. Make sure the Velero client is installed by running this command:
 
    ```bash
    velero version
@@ -136,7 +136,7 @@ To back up {{ managed-k8s-name }} node group data:
    {% include [kubectl info](../../_includes/managed-kubernetes/kubectl-info.md) %}
 
 1. {% include [install-velero](../../_includes/managed-kubernetes/install-velero.md) %}
-1. Make sure you have enough disk snapshot quota and disk size to create a backup. To do this, you can use the [service for viewing quotas](../../quota-manager/operations/read-quotas.md).
+1. Make sure you have enough disk snapshot and disk size quotas to create a backup. To do this, you can use the [service for viewing quotas](../../quota-manager/operations/read-quotas.md).
 1. Back up data from the {{ managed-k8s-name }} cluster node group:
 
    ```bash

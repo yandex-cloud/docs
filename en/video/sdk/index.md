@@ -13,7 +13,7 @@ You can use the following SDKs to embed a [video player](../concepts/player.md) 
 
 We are also planning to add an SDK for Android going forward.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [CloudVideoPlayerSDK reference](./CloudVideoPlayerSDK/Environment.md): Reference of the main iOS SDK library.
 * [CloudVideoPlayerSDKUI reference](./CloudVideoPlayerSDKUI/VideoView.md): iOS SDK UI elements library reference.

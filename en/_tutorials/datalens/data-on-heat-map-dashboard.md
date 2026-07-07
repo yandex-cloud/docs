@@ -45,7 +45,7 @@ We recommend checking out [this FAQ](#qa) covering questions commonly asked by s
 
 {{ datalens-full-name }} is deployed on the {{ yandex-cloud }} platform.
 
-Set up {{ datalens-short-name }} depending on your experience:
+Get ready to work with {{ datalens-short-name }} guided by your experience:
 
 * You are a new user (you only want to use {{ datalens-full-name }} for podcast analysis).
 * You are already using {{ datalens-full-name }} (for other purposes).
@@ -139,7 +139,7 @@ To allow another user to open your dashboard, configure access to {{ datalens-fu
 
 The user will get access to your {{ datalens-short-name }} instance and objects with **All** permissions. You can assign this user individual permissions for objects.
 
-You can send the link to the dashboard from the browser. For more information about permissions for {{ datalens-short-name }} objects, see [this guide](../../datalens/security/index.md#permissions).
+You can send the link to the dashboard from the browser. For more information about permissions to {{ datalens-short-name }} objects, see the [relevant guide](../../datalens/security/index.md#permissions).
 
 ## 4. Make a dashboard or chart public {#publish-dashboard-chart}
 
@@ -168,7 +168,7 @@ Data in {{ datalens-short-name }} is only available to users of a specific insta
 
 ## 5. Add a chart or dashboard to your website {#add-dashboard-chart}
 
-You can embed the published charts into a website or app using the `iframe` element. Follow these steps:
+You can embed the published charts into a website or app using the `iframe` element. Proceed as follows:
 
 1. Follow the public link to the chart.
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the chart and select **Embed code**.

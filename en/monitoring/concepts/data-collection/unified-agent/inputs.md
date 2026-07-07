@@ -10,7 +10,7 @@ You can specify an input in the `routes`:`input` section. The common input descr
     ...
 ```
 
-See also [Session infrastructure settings](services.md#flow_control).
+See also the [session infrastructure settings](services.md#flow_control).
 
 ## agent_metrics input {#agent_metrics_input}
 

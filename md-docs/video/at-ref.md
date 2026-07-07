@@ -42,6 +42,10 @@ yandex.cloud.audit.video.<имя_события>
 `DeleteVideo` | Удаление видео
 `DownloadEpisode` | Скачивание эпизода
 `EpisodePerformAction` | Выполнение действий с эпизодом
+`InitializeChannelAdminChat` | Инициализация чата администраторов канала
+`InitializeEpisodeChat` | Инициализация чата эпизода
+`ResetChannelAdminChat` | Сброс чата администраторов канала
+`ResyncEpisodeChatAdmins` | Синхронизация администраторов чата эпизода
 `SetChannelAccessBindings` | Назначение прав доступа на канал
 `StreamLinePerformAction` | Выполнение действий с линией трансляции
 `StreamLineUpdateStreamKey` | Изменение ключа потока линии трансляции

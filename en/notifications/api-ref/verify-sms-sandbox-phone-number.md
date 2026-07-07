@@ -14,8 +14,8 @@ Parameter | Description
 --- | ---
 `Action` | **string**<br/>Required field.<br/>Operation type parameter.<br/>Value: `VerifySMSSandboxPhoneNumber`.
 `OneTimePassword` | **string**<br/>This is a required field.<br/>Confirmation code sent to the test phone number.
-`PhoneNumber` | **string**<br/>This is a required field.<br/>Enter a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Sending SMS to Russian numbers is supported.
-`SMSChannelArn` | **string**<br/>This is a required field.<br/>SMS notification channel ID.<br/>Example: `arn:aws:sns::b1gvlrnlei4l******:sms/channelname`.
+`PhoneNumber` | **string**<br/>Required field.<br/>Phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. Russian phone numbers are supported.
+`SMSChannelArn` | **string**<br/>Required field.<br/>SMS notification channel ID.<br/>Example: `arn:aws:sns::b1gvlrnlei4l******:sms/channelname`.
 `ResponseFormat` | **string**<br/>Response format.<br/>The possible values are:<ul><li>`XML` (default)</li><li>`JSON`.</li></ul>
 
 ## Response {#response}
@@ -107,7 +107,7 @@ HTTP | Error code | Extended code | Description
 400 | UserError | InvalidOTP | The verification code is invalid, expired, or has been cancelled after an unsuccessful verification attempt.
 404 | NotFound | SMSSandboxPhoneNumberNotFound | This number has not been added to the SMS notification channel for verification.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)

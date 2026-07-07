@@ -35,7 +35,7 @@ On the [page that lists all the user dashboards](https://datalens.ru/gallery/all
 
 {% endcut %}
 
-## Viewing a dashboard{#review}
+## Viewing a dashboard {#review}
 
 To view a dashboard:
 
@@ -69,7 +69,7 @@ You can deploy a dashboard in your {{ datalens-name }} instance if you have [wor
 To deploy a dashboard in your {{ datalens-name }} instance:
 1. Click the dashboard card.
 1. Click **Use** → **Deploy**.
-1. Choose where to save the workbook: workbook and collection root, existing collection, or new collection. Navigate to the saving destination and click **Deploy**. The workbook name must be unique, so edit the name if you need to.
+1. Select where to save the workbook: workbook and collection root, existing collection, or new collection. Navigate to the saving destination and click **Deploy**. The workbook name must be unique, so edit the name if you need to.
 1. Click **Create**.
 
 To download the export file:
@@ -83,6 +83,7 @@ To download the export file:
 
 {% endcut %}
 
+
 ## Adding a dashboard {#suggest}
 
 To contribute to the Gallery, click **Add creation** on the [Gallery home page](https://datalens.ru/gallery) and fill out the form:
@@ -93,7 +94,7 @@ To contribute to the Gallery, click **Add creation** on the [Gallery home page](
 * [Exported workbook](../workbooks-collections/export-and-import.md#export-workbook) file.
 * Dashboard screenshots for the card. Screenshot requirements:
    * Dashboard only, no irrelevant UI or browser elements.
-   * Use the `_embedded=1` parameter in the URL for light (`_theme=light`) or dark (`_theme=dark`) theme. Link example: `https://datalens.yandex/9fms9uae7ip02?_embedded=1&_theme=light`.
+   * Use the `_embedded=1` parameter in the URL for light (`_theme=light`) or dark (`_theme=dark`) theme. Here is an example of such a link: `https://datalens.yandex/9fms9uae7ip02?_embedded=1&_theme=light`.
    * Size: 1920×1080 pixels.
    * Format: PNG.
 

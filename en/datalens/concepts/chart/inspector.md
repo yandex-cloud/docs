@@ -49,6 +49,6 @@ The **Data sources** section displays information about the sources used in a ch
 * Request body in JSON format.
 * SQL query text sent to source (only if the SQL query is successful and its results are rendered in the chart).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../optimization_recommendations.md)

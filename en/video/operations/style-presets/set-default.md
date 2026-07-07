@@ -23,7 +23,7 @@ The default template applies to all videos and playlists on the channel unless a
 
 You cannot delete the default template.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](create.md)
 * [{#T}](update.md)

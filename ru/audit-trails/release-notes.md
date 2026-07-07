@@ -5,6 +5,415 @@ description: В разделе представлена история изме�
 
 # История изменений в {{ at-full-name }}
 
+
+## II квартал 2026 {#q2-2026}
+
+* Добавлены новые события для сервисов:
+
+  {% cut "{{ ai-studio-full-name }}" %}
+
+  [События уровня сервисов](./concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `mcp_hub.InvokeMcpTool` | Вызов инструмента MCP
+  `mcp_hub.ListMcpTools` | Получение списка инструментов MCP
+  `mcp_hub.StartMcpSession` | Запуск сессии MCP
+  `searchindex.CreateSearchIndex` | Создание поискового индекса
+  `searchindex.DeleteFilesFromSearchIndex` | Удаление файлов из поискового индекса
+  `searchindex.DeleteSearchIndex` | Удаление поискового индекса
+  `searchindex.UploadFilesToSearchIndex` | Загрузка файлов в поисковый индекс
+
+  {% endcut %}
+
+  {% cut "{{ baremetal-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `CreatePublicPrefixPool` | Создание пула публичных префиксов
+  `DeletePublicPrefixPool` | Удаление пула публичных префиксов
+  `UpdatePublicPrefixPool` | Изменение пула публичных префиксов
+
+  {% endcut %}
+
+  {% cut "{{ cloud-registry-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `CreateArtifact` | Создание [артефакта](../cloud-registry/concepts/artifacts/index.md)
+  `UpdateArtifact` | Изменение артефакта
+
+  {% endcut %}
+
+  {% cut "{{ datalens-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `CreateEntityBinding` | Создание привязки общего объекта в воркбуке
+  `DeleteEntityBinding` | Удаление привязки общего объекта из воркбука
+  `DeleteSharedEntry` | Удаление общего объекта
+  `MoveSharedEntry` | Перемещение общего объекта
+  `UpdateEntityBinding` | Редактирование привязки общего объекта в воркбуке
+  `UpdateSharedEntryAccessBindings` | Изменение настроек доступа к общему объекту
+  `UpdateTenantAccessBindings` | Изменение прав доступа к тенанту
+
+  {% endcut %}
+
+  {% cut "{{ dns-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `CreateDnsInboundEndpoint` | Создание входящего эндпоинта DNS
+  `DeleteDnsInboundEndpoint` | Удаление входящего эндпоинта DNS
+  `SetDnsInboundEndpointAccessBindings` | Назначение прав доступа к входящему эндпоинту DNS
+  `UpdateDnsInboundEndpoint` | Изменение входящего эндпоинта DNS
+  `UpdateDnsInboundEndpointAccessBindings` | Изменение прав доступа к входящему эндпоинту DNS
+
+  {% endcut %}
+
+  {% cut "{{ org-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `idp.ResetOwnPassword` | Сброс собственного пароля
+  `oauth.AddOAuthFederatedUserAccounts` | Добавление пользователя в федерацию сервисных аккаунтов
+
+  {% endcut %}
+
+  {% cut "{{ video-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `DownloadEpisode` | Скачивание эпизода
+
+  {% endcut %}
+
+  {% cut "{{ iam-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `ReactivateServiceAccount` | Активация сервисного аккаунта
+  `SuspendServiceAccount` | Деактивация сервисного аккаунта
+
+  [События уровня сервисов](./concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `credential.CreateYcSsprToken` | Создание токена для самостоятельного сброса пароля
+
+  {% endcut %}
+
+  {% cut "{{ mkf-short-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "{{ mch-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "{{ mmg-short-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `ResetupHosts` | Ресинхронизация хоста
+  `RestartHosts` | Перезагрузка хоста
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `StepdownHosts` | Смена мастера хоста
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "{{ mmy-short-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  [События уровня сервисов](./concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `UpdateDatabase` | Изменение базы данных
+
+  {% endcut %}
+
+  {% cut "{{ mpg-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "{{ mspqr-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `MoveCluster` | Перемещение кластера
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "{{ ydb-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetBackupAccessBindings` | Назначение прав доступа к бэкапу базы данных
+  `SetDatabaseAccessBindings` | Назначение прав доступа к базе данных
+  `UpdateBackupAccessBindings` | Изменение прав доступа к бэкапу базы данных
+  `UpdateDatabaseAccessBindings` | Изменение прав доступа к базе данных
+
+  [События уровня сервисов](./concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `AlterTopic` | Изменение [топика]({{ ydb.docs }}/concepts/glossary#topic)
+  `CreateTopic` | Создание топика
+  `DeleteTopic` | Удаление топика
+
+  {% endcut %}
+
+  {% cut "{{ objstorage-name }}" %}
+
+  [События уровня сервисов](./concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `ObjectGetByPresignURL` | Получение объекта из бакета по [подписанному URL](../storage/security/overview.md#pre-signed)
+
+  {% endcut %}
+
+  {% cut "{{ wiki-full-name }}" %}
+
+  [События уровня сервисов](./concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `ChangeOrganizationDomain` | Изменение домена организации
+  `ChangeOrganizationMetrika` | Изменение [счетчика Яндекс Метрики](https://yandex.ru/support/wiki/ru/add-metrika) организации
+  `ChangeOrganizationSettings` | Изменение настроек организации
+
+  {% endcut %}
+
+  {% cut "{{ backup-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `CreateBackup` | Создание резервной копии
+
+  {% endcut %}
+
+  {% cut "{{ maf-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "{{ metastore-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "{{ mgp-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "{{ sd-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `ExportDiscoveryResults` | Экспорт результатов сканирования данных
+
+  {% endcut %}
+
+  {% cut "{{ ai-studio-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `settings.SetFolderSettings` | Изменение настроек папки
+
+  {% endcut %}
+
+  {% cut "{{ sd-name }}" %}
+
+  [События уровня сервисов](./concepts/format-data-plane.md):
+
+  Событие | Описание
+  --- | ---
+  `TriggerInventoryControlBatch` | Запуск проверки контроля конфигурации
+  `TriggerInventoryControlEvent` | Запуск проверки контроля конфигурации
+  `TriggerInventoryControlSnapshot` | Создание снимка контроля конфигурации
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `UpdateProjectControl` | Изменение контроля проекта
+
+  {% endcut %}
+
+  {% cut "{{ mos-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "{{ mrd-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "{{ msp-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "{{ mtr-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `SetClusterAccessBindings` | Назначение прав доступа к кластеру
+  `UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
+
+  {% endcut %}
+
+  {% cut "{{ connection-manager-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `CreateConnection` | Создание подключения
+  `DeleteConnection` | Удаление подключения
+  `SetConnectionAccessBindings` | Назначение прав доступа к подключению
+  `UpdateConnection` | Изменение подключения
+  `UpdateConnectionAccessBindings` | Изменение прав доступа к подключению
+
+  {% endcut %}
+
+  {% cut "{{ cns-full-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `CreateMobileApplication` | Создание мобильного приложения
+  `CreateSMSChannel` | Создание SMS-канала
+  `CreateWebpushChannel` | Создание Web Push-канала
+  `DeleteMobileApplication` | Удаление мобильного приложения
+  `DeleteSMSChannel` | Удаление SMS-канала
+  `DeleteWebpushChannel` | Удаление Web Push-канала
+  `UpdateMobileApplication` | Изменение мобильного приложения
+  `UpdateSMSChannel` | Изменение SMS-канала
+  `UpdateWebpushChannel` | Изменение Web Push-канала
+
+  {% endcut %}
+
+* Удалены события для сервисов:
+
+  {% cut "{{ sd-name }}" %}
+
+  [События уровня конфигурации](./concepts/format.md):
+
+  Событие | Описание
+  --- | ---
+  `AssetRemovedFromScope` | Отчет модуля {{ cspm-name }} о прекращении проверок объекта
+
+  {% endcut %}
+
+* Перенесены события для сервисов:
+
+  {% cut "{{ ydb-name }}" %}
+
+  События `AlterTopic`, `CreateTopic`, `DeleteTopic` перенесены из [уровня конфигурации](./concepts/format.md) в [уровень сервисов](./concepts/format-data-plane.md).
+
+  {% endcut %}
+
+
 ## I квартал 2026 {#q1-2026}
 
 * Добавлены новые события для сервисов:

@@ -123,7 +123,7 @@ For more information, see [{#T}](operations/streams/obs-config-help.md).
 1. Open a new browser page and paste the obtained URL to the address bar.
 1. Click the play button to make sure the broadcast is available.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](hosting.md)
 * [{{ video-full-name }} overview](./concepts/index.md)

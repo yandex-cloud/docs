@@ -176,6 +176,8 @@ items:
             href: api-ref/delete-sms-sandbox-phone-number.md
       - name: Publish
         href: api-ref/publish.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Логи {{ cloud-logging-name }}

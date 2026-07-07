@@ -19,7 +19,7 @@ The {{ kspm-name }} configuration is set when you [create](../operations/workspa
 
 For more information, see [{#T}](../operations/kspm/enable-kspm.md).
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](workspace.md)
 * [{#T}](cspm.md)

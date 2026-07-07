@@ -24,13 +24,9 @@ description: Класс хостов определяет вычислитель
 
 Ниже приведен полный список возможных конфигураций хостов на каждой из платформ.
 
+{% include [disk-flavor-dependencies](../../_includes/mdb/disk-flavor-dependencies.md) %}
 
-{% note info %}
-
-Для хостов кластера, размещенных в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`, использование хранилища на локальных SSD-дисках недоступно при выборе платформы Intel Cascade Lake.
-
-{% endnote %}
-
+Например, в `{{ region-id }}-d` использование хранилища на локальных SSD-дисках недоступно при выборе платформы Intel Cascade Lake.
 
 {% include [instance-types-code](../../_includes/mdb/mkf-instance-types-code.md) %}
 

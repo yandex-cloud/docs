@@ -41,12 +41,12 @@ With EDM enabled, original documents are not provided.
 
 ## How to check if EDM is on {#check}
 
-1. Go to [**{{ billing-name }}**]({{ link-console-billing }}).
+1. Navigate to [**{{ billing-name }}**]({{ link-console-billing }}).
 1. At the top of the page, select the account of interest.
 1. On the account page, under **{{ ui-key.yacloud_org.billing.account.dashboard-info.section_contract }}**:
      * If EDM is on, an EDM operator will be specified.
      * If EDM is off, the **{{ ui-key.yacloud_org.billing.account.button_enable-edm-action }}** button will be available.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [{#T}](../operations/edo.md)

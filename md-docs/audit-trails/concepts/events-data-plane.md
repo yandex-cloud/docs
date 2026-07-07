@@ -44,6 +44,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 * [Yandex Vision OCR](events-data-plane.md#vision)
 * [Яндекс Вики](events-data-plane.md#wiki)
 * [Yandex WebSQL](events-data-plane.md#websql)
+* [Yandex Workflows](events-data-plane.md#workflows)
 
 ## Yandex Application Load Balancer {#alb}
 
@@ -113,6 +114,9 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 --- | ---
 `foundationmodels.GetTextProcessingResult` | Запрос на получение результата генерации
 `foundationmodels.TextProcessing` | Запрос на генерацию
+`mcp_hub.InvokeMcpTool` | Вызов инструмента MCP-сервера
+`mcp_hub.ListMcpTools` | Получение списка инструментов MCP-сервера
+`mcp_hub.StartMcpSession` | Запуск сессии MCP-сервера
 `searchindex.CreateSearchIndex` | Создание поискового индекса
 `searchindex.DeleteFilesFromSearchIndex` | Удаление файлов из поискового индекса
 `searchindex.DeleteSearchIndex` | Удаление поискового индекса
@@ -413,6 +417,9 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 Имя события | Описание
 --- | ---
 `TriggerAdmissionControl` | Срабатывание [модуля](../../security-deck/concepts/kspm.md) KSPM при проверке создаваемых и изменяемых ресурсов
+`TriggerInventoryControlBatch` | Срабатывание модуля KSPM при пакетной проверке конфигурации
+`TriggerInventoryControlEvent` | Срабатывание модуля KSPM при проверке конфигурации по событию
+`TriggerInventoryControlSnapshot` | Срабатывание модуля KSPM при проверке конфигурации по снимку
 `TriggerRuntimeControl` | Срабатывание модуля KSPM при контроле безопасности рабочих нагрузок
 `TriggerRuntimeProcessInfo` | Срабатывание модуля KSPM при получении информации о процессе
 
@@ -545,3 +552,14 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `Execute` | Выполнение запроса
 `GenerateSql` | Генерация запроса
 `GetDatabaseStructure` | Получение структуры базы данных
+
+## Yandex Workflows {#workflows}
+
+Имя сервиса — `serverless.workflows`.
+
+Имя события | Описание
+--- | ---
+`ExecutionFinished` | Завершение выполнения запуска рабочего процесса
+`StartExecution` | Запуск рабочего процесса
+`StopExecution` | Остановка запуска рабочего процесса
+`TerminateExecution` | Прекращение запуска рабочего процесса

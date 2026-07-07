@@ -37,6 +37,6 @@ The _{{ ui-key.yacloud_billing.billing.account.budgets.label_type-balance }}_ bu
 * [{#T}](../tutorials/serverless-trigger-budget-queue-vm-tg.md)
 * [{#T}](../tutorials/serverless-trigger-budget-vm.md)
 
-##### See also {#see-also}
+##### Useful links {#see-also}
 
 * [{#T}](../operations/budgets.md)

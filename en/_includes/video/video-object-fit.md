@@ -4,6 +4,6 @@ To make the whole thumbnail fit in the window regardless of screen resolution wh
 
 If this parameter is not specified in the link, the default `object_fit=cover` value will be used.
 
-For more information about the `object_fit` parameter, see the [CSS documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit).
+Learn more about the `object_fit` parameter in [this CSS guide](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit).
 
 {% endnote %}

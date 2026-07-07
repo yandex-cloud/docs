@@ -63,7 +63,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * {{ ui-key.yacloud.mdb.forms.section_service-settings }}:
         * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**: `{{ ui-key.yacloud.common.enabled }}`
         * **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**: `{{ ui-key.yacloud.common.enabled }}`
-    For the full list of settings, see the [{{ mch-name }} settings](../../managed-clickhouse/concepts/settings-list.md).
+    For the full list of settings, see [{{ mch-name }} settings](../../managed-clickhouse/concepts/settings-list.md).
 1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**. Wait for the new cluster status to change to `Alive`.
 1. Copy and save the host name for further {{ sf-name }} setup.
 

@@ -84,7 +84,7 @@ To cancel a scheduled rule deployment:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/correlation-rules.md)
 * [{#T}](manage-rules.md)

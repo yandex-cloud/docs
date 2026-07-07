@@ -50,7 +50,7 @@ When editing a chart, you can [undo/redo](../../concepts/chart/settings.md#undo-
 * [{#T}](../../tutorials/data-from-ch-to-sql-chart.md)
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/chart/index.md)
 * [{#T}](../../concepts/chart/settings.md)

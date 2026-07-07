@@ -12,7 +12,7 @@ This guide provides an example of connecting a virtual printer to printing into 
 To configure printing from a {{ cloud-desktop-name }} desktop on a local printer in Linux:
 
 1. [Get your cloud ready](#before-you-begin).
-1. [Prepare the infrastructure](#create-infrastructure).
+1. [Set up your infrastructure](#create-infrastructure).
 1. [Configure your local machine](#config-local).
 1. [Configure the desktop](#config-desktop).
 1. [Check the result](#check-result).
@@ -27,9 +27,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support costs include:
+The infrastructure support cost includes:
 
-* Fee for using the desktop’s computing resources, disks, and outbound traffic (see [{{ cloud-desktop-full-name }} pricing](../../cloud-desktop/pricing.md)).
+* Fee for using the desktop's computing resources, disks, and outbound traffic (see [{{ cloud-desktop-full-name }} pricing](../../cloud-desktop/pricing.md)).
 * Fee for [NAT gateway](../../vpc/concepts/gateways.md) usage and outbound traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -369,7 +369,7 @@ Configure your local machine to receive files from the desktop.
 
       Where:
 
-      * `--user`: Username of local machine user. This is a required parameter.
+      * `--user`: Username of local machine user. This is a required setting.
       * `--dir`: Monitored folder. The default value is `/srv/printdrop`.
       * `--printer`: CUPS printer name. If you do not specify this parameter, the default system printer will be used.
       * `--fwdir`: Name of the desktop folder for forwarding. The default value is `yc-print`.
@@ -677,7 +677,7 @@ Configure the desktop to send files to the local machine.
 
       Where:
 
-      * `--user`: Username of the desktop user with permissions for the printing jobs folder. The utility will switch to that user when you run it. This is a required parameter.
+      * `--user`: Username of the desktop user with permissions for the printing jobs folder. The utility will switch to that user when you run it. This is a required setting.
       * `--dir`: Printing jobs folder. The default value is `yc-print`.
       * `--printer`: Name of the CUPS printer that needs to be created. The default value is `DropPrinter`.
 

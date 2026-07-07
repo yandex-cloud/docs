@@ -242,7 +242,7 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      yc vpc subnet list
      ```
 
-     If there are no subnets in the folder, [create the right ones](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+     If there are no subnets in the folder, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
   1. Specify the cluster properties in the creation command:
 

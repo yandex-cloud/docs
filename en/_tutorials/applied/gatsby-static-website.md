@@ -38,8 +38,8 @@ Install and configure the AWS CLI by following [this tutorial](../../storage/too
 
 The cost of support for the new infrastructure includes:
 
-* Fee for using a public DNS zone and for public DNS requests (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
-* Fee for data storage in {{ objstorage-name }}, data operations, and outbound traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for using a public DNS zone and public DNS requests (see [{{ dns-full-name }} pricing](../../dns/pricing.md)).
+* Fee for storing data in {{ objstorage-name }}, operations with it, and outgoing traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 ## Register a domain name {#register-domain}
 
@@ -212,7 +212,7 @@ On the DNS sever, create a public [DNS zone](../../dns/concepts/dns-zone.md) and
   1. In the left-hand panel, select ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
   1. Under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
-  1. In the window that opens, click **{{ ui-key.yacloud.dns.button_zone-create }}** and select the domain zone under the same name as the bucket, e.g., `gatsbytest.ru.` (ending with a period). Click **{{ ui-key.yacloud.common.create }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.dns.button_zone-create }}** and select the domain zone under the same name as the bucket, e.g., `gatsbytest.ru.` (with a trailing dot). Click **{{ ui-key.yacloud.common.create }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
       Wait until the record is created.
@@ -299,7 +299,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
       1. In the window that opens, under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, select `CNAME record`.
       1. Click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}** and in the window that opens, click **{{ ui-key.yacloud.common.create }}**.
 
-      Checking rights for a domain may take from a few minutes to a few days. Wait until the check is complete. As a result, the certificate will be issued and get the `Issued` status.
+      Domain ownership verification may take from a few minutes to a few days. Wait until it successfully completes. As a result, the certificate will be issued and get the `Issued` status.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -331,7 +331,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
 
       For more information about the `yc certificate-manager certificate request` command, see the [CLI reference](../../cli/cli-ref/certificate-manager/cli-ref/certificate/request.md).
 
-      Save the ID (`id`) of the created certificate as you will need it to pass the domain rights check.
+      Save the `id` of the created certificate, as you will need it to pass the domain ownership verification.
 
   1. To successfully issue the certificate, pass a domain rights check:
 
@@ -384,7 +384,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
 
           A new certificate with the `Validating` status will appear in the certificate list. This status means that a Let's Encrypt® certificate was requested and you need to pass a [domain rights check](../../certificate-manager/operations/managed/cert-validate.md) for it to be successfully processed.
 
-      1. Create a CNAME [resource record](../../dns/concepts/resource-record.md) to pass a domain rights check:
+      1. Create a CNAME [resource record](../../dns/concepts/resource-record.md) to pass domain ownership verification:
 
           ```bash
           yc dns zone add-records \
@@ -444,7 +444,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
 
   1. To successfully issue the certificate, pass a domain rights check:
 
-      To get the information required to pass the rights check for a domain, use the [get](../../certificate-manager/api-ref/Certificate/get.md) REST API method for the [Certificate](../../certificate-manager/api-ref/Certificate/) resource or the [CertificateService/Get](../../certificate-manager/api-ref/grpc/Certificate/get.md) gRPC API call with the `view=FULL` flag.
+      To get the information required to pass domain ownership verification, use the [get](../../certificate-manager/api-ref/Certificate/get.md) REST API method for the [Certificate](../../certificate-manager/api-ref/Certificate/) resource or the [CertificateService/Get](../../certificate-manager/api-ref/grpc/Certificate/get.md) gRPC API call with the `view=FULL` flag.
 
       To create a CNAME resource record in a DNS zone, use the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../../dns/api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call.
 

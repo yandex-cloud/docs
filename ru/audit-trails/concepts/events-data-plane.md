@@ -226,3 +226,9 @@ description: В данном разделе приведены описания 
 Имя сервиса — `websql`.
 
 {% include [websql-events-dp](../../_includes/audit-trails/events/websql-events-dp.md) %}
+
+## {{ sw-full-name }} {#workflows}
+
+Имя сервиса — `serverless.workflows`.
+
+{% include [workflows-events-dp](../../_includes/audit-trails/events/workflows-events-dp.md) %}

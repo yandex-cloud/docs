@@ -117,7 +117,7 @@ You can view the certificate issue status and possible issue errors in the [mana
 
    For more information about the certificate issue statuses, see [Let's Encrypt certificate](../../concepts/managed-certificate.md#issue-statuses).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](cert-get-content.md)
 * [{#T}](cert-validate.md)

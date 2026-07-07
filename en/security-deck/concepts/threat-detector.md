@@ -21,7 +21,7 @@ You can [view](../operations/td/view-rules.md) information about the {{ td-full-
 
 Exceptions allow you to flexibly configure when and for which objects {{ td-full-name }} should ignore the results of a rule check. You can [view the list of exceptions](../operations/td/manage-exceptions.md#view-exceptions-list) set for your workspace in the [{{ sd-name }}]({{ link-sd-main }}) interface under **{{ ui-key.yacloud_org.app.security.control_rules_rWmUV }}**.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./workspace.md)
 * [{#T}](./alerts.md)

@@ -184,7 +184,7 @@ Let's set up alerts to detect exceeded rate limits:
 1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}**, add the notification channel.
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../metrics.md)
 * [{#T}](../../monitoring/concepts/visualization/query-string.md)

@@ -97,7 +97,7 @@ Database schema contains a hierarchical structure of all available fields. When 
 
 To add a field from a dataset or the database schema into a query, select the field and click {{ ui-key.yacloud_org.security.ycdr.query-data-panel.schema-insert-action_iNs1A }}.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](queries.md)
 * [{#T}](../operations/investigations/index.md)

@@ -17,6 +17,6 @@ To ensure correct operation of automatic video playback:
 * Allow the user to turn sound on manually after playback has started. Do it by using the `mute=true` parameter together with `autoplay=1`.
 
 
-## See also {#see-also}
+#### Useful links {#see-also}
 
 * [Video player SDK for IFrame](./sdk/iframe/index.md)

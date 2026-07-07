@@ -31,9 +31,9 @@ Note that both the infrastructure for Hystax Acura and the cloud agent as well a
 
 The cost of resources for Hystax Acura Migration includes:
 * Fee for disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for storing images (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for a dynamic or static public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Fee for each completed migration (see [product description](/marketplace/products/hystax/hystax-acura-live-cloud-migration) in {{ marketplace-name }}).
+* Fee for storing Docker images (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a static or dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for each completed migration (see the [product description](/marketplace/products/hystax/hystax-acura-live-cloud-migration) in {{ marketplace-name }}).
 
 ## Create a service account and authorized key {#create-sa}
 

@@ -45,7 +45,7 @@ The cost of support for your web application includes:
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-### Create a cloud network and subnet {#create-network}
+### Create a cloud network with a subnet {#create-network}
 
 In {{ yandex-cloud }}, resources are linked one to another and to the internet with [cloud networks](../../vpc/concepts/network.md#network), where resources receive [public](../../vpc/concepts/address.md#public-addresses) IP addresses as well as private IP address ranges or [subnets](../../vpc/concepts/network.md#subnet).
 
@@ -462,7 +462,7 @@ Create a simple web application inside a Python file and run it to launch the se
 
 {% note warning %}
 
-Flask uses a simple web server to maintain the application in the development environment. It is reserved for testing and debugging and should not be used in the production environment. For more information, see [this Flask article](https://flask.palletsprojects.com/en/latest/deploying/).
+Flask uses a simple web server to maintain the application in the development environment. It is reserved for testing and debugging and should not be used in the production environment. For more information, see [this Flask guide](https://flask.palletsprojects.com/en/latest/deploying/).
 
 {% endnote %}
 
@@ -630,7 +630,7 @@ The [CSS language](https://en.wikipedia.org/wiki/CSS) enables you to create a co
 
 ### Configure other HTML templates {#configure-html-templates}
 
-In other HTML templates, you will need to reuse most of the HTML code from the `index.html` template. To avoid unnecessary duplicate code, use the _base template_ file as a parent for all other HTML templates in the project. For more information, see [this Jinja article](https://jinja.palletsprojects.com/en/latest/templates/#template-inheritance).
+In other HTML templates, you will need to reuse most of the HTML code from the `index.html` template. To avoid unnecessary duplicate code, use the _base template_ file as a parent for all other HTML templates in the project. For more information, see [this Jinja guide](https://jinja.palletsprojects.com/en/latest/templates/#template-inheritance).
 
 1. Create and open the `base.html` base template in the `templates` directory:
 
@@ -679,7 +679,7 @@ In other HTML templates, you will need to reuse most of the HTML code from the `
     </html>
     ```
 
-    This file contains HTML code as well as additional code required by Bootstrap. The `<meta>` tags contain browser information, the `<link>` tag binds Bootstrap CSS files, and the `<script>` tag references a JavaScript-based script that enables additional Bootstrap features. For more information, see the [Bootstrap documentation](https://getbootstrap.com/docs/).
+    This file contains HTML code as well as additional code required by Bootstrap. The `<meta>` tags contain browser information, the `<link>` tag binds Bootstrap CSS files, and the `<script>` tag references a JavaScript-based script that enables additional Bootstrap features. For more information, see [this Bootstrap guide](https://getbootstrap.com/docs/).
 
     The following code elements are specific to the Jinja template engine:
 
@@ -1112,7 +1112,7 @@ Create a page where the user can add a new post with a title.
         * [`url_for()`](https://flask.palletsprojects.com/en/latest/api/#flask.url_for) function to generate URLs.
         * [`flash()`](https://flask.palletsprojects.com/en/latest/api/#flask.flash) function to display a message when processing a request.
         * [`redirect()`](https://flask.palletsprojects.com/en/latest/api/#flask.redirect) function to redirect the client to a different page.
-    * Using the `app.config` object, adds the `SECRET_KEY` configuration required for the `flash()` function to store pop-up messages in the client's browser session. The secret key is a long string of random characters. It is used to create secure sessions and allows Flask to remember information between requests. For example, it can go from the post creation page to the main application page. A user can access the information stored in a session but cannot edit it without the secret key. This is why you should never give anyone access to your secret key. For more information, see [this Flask article](https://flask.palletsprojects.com/en/latest/api/#sessions).
+    * Using the `app.config` object, adds the `SECRET_KEY` configuration required for the `flash()` function to store pop-up messages in the client's browser session. The secret key is a long string of random characters. It is used to create secure sessions and allows Flask to remember information between requests. For example, it can go from the post creation page to the main application page. A user can access the information stored in a session but cannot edit it without the secret key. This is why you should never give anyone access to your secret key. For more information, see [this Flask guide](https://flask.palletsprojects.com/en/latest/api/#sessions).
     * Uses the `create()` view function to return the HTML code of the post creation page generated from the `create.html` template. The decorator creates the `/create` route that accepts both `GET` and `POST` requests. By default, only `GET` requests are accepted. To ensure the route also accepts `POST` requests, which are used by the browser when sending form data, you need to provide a tuple of valid request types in the `methods` argument.
 
     Save and close the `app.py` file.

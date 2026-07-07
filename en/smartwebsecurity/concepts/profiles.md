@@ -37,7 +37,7 @@ The diagram below illustrates the relationship between {{ sws-name }} profiles a
 
 ![profiles-rules](../../_assets/smartwebsecurity/profiles-rules.svg)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Managing security profiles](../operations/index.md#profiles)
 * [{#T}](../tutorials/sws-basic-protection.md)

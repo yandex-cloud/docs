@@ -168,6 +168,6 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
 {% endlist %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [{#T}](./update.md)

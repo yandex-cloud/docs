@@ -21,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost of the proposed solution includes: 
 * Fee for [disks](../../../compute/concepts/disk.md) and continuously running [VMs](../../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
-* Fee for using [public IP addresses](../../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+* Fee for [public IP addresses](../../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 * Fee for [data storage](../../../storage/concepts/bucket.md) in {{ objstorage-name }} and data [operations](../../../storage/operations/index.md) (see [{{ objstorage-full-name }} pricing](../../../storage/pricing.md)).
 * If using {{ dns-full-name }}, fee for [DNS zones](../../../dns/concepts/dns-zone.md#public-zones) and public DNS queries (see [{{ dns-name }} pricing](../../../dns/pricing.md)).
 

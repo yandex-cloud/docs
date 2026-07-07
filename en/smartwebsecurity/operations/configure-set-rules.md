@@ -143,7 +143,7 @@ description: Follow this guide to configure rule sets for a WAF profile.
 
 Each time you update or add WAF profile rules, enable the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** mode. Activate a rule only after the logs confirm that it works correctly. This way you will avoid false positives and ensure stable operation of your website or web application.
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](exclusion-rule-add.md)
 * [{#T}](rule-add.md)

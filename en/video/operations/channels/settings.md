@@ -72,6 +72,6 @@ To configure ads:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [{#T}](../../concepts/index.md#channels)

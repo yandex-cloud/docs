@@ -40,4 +40,4 @@ rate_limit:
 
 {% endcut %}
 
-For more details about the `yc alb virtual-host append-grpc-route` command, see the [CLI reference](../../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
+For detailed information about the `yc alb virtual-host append-grpc-route` command with the full list of properties, see the [CLI reference](../../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).

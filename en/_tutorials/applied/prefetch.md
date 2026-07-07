@@ -12,7 +12,7 @@ We do not recommend preloading files smaller than 200 MB or larger than 5 GB.
 {% endnote %}
 
 To create a CDN infrastructure:
-1. [Get ready](#before-you-begin).
+1. [Get ready to work](#before-you-begin).
 1. [Add a certificate to {{ certificate-manager-name }}](#add-certificate).
 1. [Create buckets in {{ objstorage-name }}](#create-buckets).
 1. [Enable logging for the bucket with files](#enable-logging).
@@ -34,8 +34,8 @@ Make sure you have a domain name and can access the DNS settings on your DNS hos
 ### Required paid resources {#paid-resources}
 
 The cost of supporting the CDN infrastructure includes:
-* Fee for outbound traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
-* Fee for data storage in {{ objstorage-name }}, data operations, and outbound traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for outgoing traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
+* Fee for storing data in {{ objstorage-name }}, operations with it, and outgoing traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for public DNS queries and [DNS zones](../../dns/concepts/dns-zone.md) if using [{{ dns-full-name }}](../../dns/) (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 
 ## Add a certificate to {{ certificate-manager-name }} {#add-certificate}
@@ -390,7 +390,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
      }
      ```
 
-     For more information, see the [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) descriptions in the {{ TF }} provider documentation.
+     For more information, see the descriptions of the [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) resources in the {{ TF }} provider guides.
   1. Make sure the configuration files are correct.
      1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
@@ -657,7 +657,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
 
    {% endlist %}
 
-1. Check the logs of requests to the source bucket to make sure that the CDN servers did not download the file from the origin after your request. For more information about log contents, see [this article](../../storage/concepts/server-logs.md#object-format) in the {{ objstorage-name }} documentation.
+1. Check the logs of requests to the source bucket to make sure that the CDN servers did not download the file from the origin after your request. For more information about log contents, see the [{#T}](../../storage/concepts/server-logs.md#object-format) section in the {{ objstorage-name }} guide.
 
 ## How to delete the resources you created {#clear-out}
 

@@ -13,7 +13,7 @@ To work with the API, use the gRPC protocol. The REST API is currently not avail
 
 {{ billing-name }} provides a public API for getting detailed information on expenses and resource consumption. You can use it to generate reports for any period, filter and group data by clouds, folders, services, products, resources, and labels, as well as automate data collection for integration into your own analytics and monitoring systems.
 
-The minimum role required to get the cost breakdown via the API is `billing.accounts.viewer`. For more information, see the [role description](../security/index.md#billing-accounts-viewer).
+The minimum [role](../security/index.md#billing-accounts-viewer) required to get a cost breakdown via the API is `billing.accounts.viewer`.
 
 Public {{ billing-name }} API endpoint: `https://billing.api.cloud.yandex.net`.
 
@@ -458,7 +458,7 @@ Here is a request example to get metadata about available clouds, services, and 
 
   {% endcut %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](check-charges.md)
 * [{#T}](get-folder-report.md)

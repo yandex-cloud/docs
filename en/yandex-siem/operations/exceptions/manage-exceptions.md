@@ -125,7 +125,7 @@ To delete an exception:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/correlation-rules.md)
 * [{#T}](../correlation-rules/manage-rules.md)

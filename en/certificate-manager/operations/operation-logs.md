@@ -38,7 +38,7 @@ The system logs all actions with {{ certificate-manager-name }} resources as a l
   +----------------------+---------------------+----------------------+---------------------+--------+--------------------+
   ```
 
-  By default, information about operations is output as text. To get more details, specify the `yaml` or `json` output data format using `--format`:
+  By default, information about operations is output as text. To get more details, use `--format` to specify the `yaml` or `json` output format:
 
   ```bash
   yc certificate-manager certificates list-operations <certificate_name_or_ID> --format yaml
@@ -152,6 +152,6 @@ The system logs all actions with {{ certificate-manager-name }} resources as a l
 
     {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../api-design-guide/concepts/about-async.md)

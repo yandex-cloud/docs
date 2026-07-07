@@ -456,7 +456,7 @@ You can find the prerequisites and an AWS SDK for Java installation guide in the
     * `message`: Notification text
 
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Getting started](../quickstart.md)
 * [AWS CLI](aws-cli.md)

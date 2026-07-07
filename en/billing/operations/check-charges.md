@@ -4,7 +4,7 @@ description: Follow this guide to view service usage details.
 ---
 # Viewing service usage details
 
-You can view usage details for {{ yandex-cloud }} services as charts and tables in {{ billing-name }}, or check 30-day consumption in the management console.
+You can view {{ yandex-cloud }} service usage as charts and tables in {{ billing-name }}, or check 30-day consumption in the management console.
 
 {% note info %}
 

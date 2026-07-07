@@ -39,7 +39,7 @@ You can specify the following settings for an exception when [creating it](../op
 
 To cancel the limitations on rule compliance checks imposed by an exception, [delete](../operations/cspm/manage-exceptions.md#delete-exception) that exception.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./workspace.md)
 * [{#T}](../operations/cspm/view-rules.md)

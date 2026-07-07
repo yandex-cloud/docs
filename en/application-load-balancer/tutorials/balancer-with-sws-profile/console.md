@@ -10,6 +10,6 @@ To create an [L7 load balancer with a {{ sws-name }}](index.md) profile from the
 
 {% include notitle [balancer-with-sws-profile](../../../_tutorials/security/balancer-with-sws-profile/console.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](terraform.md)

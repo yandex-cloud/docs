@@ -343,7 +343,7 @@ window.addEventListener('message', function(event) {
 });
 ```
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./index.md)
 * [{#T}](./initialization.md)

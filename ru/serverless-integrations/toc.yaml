@@ -398,6 +398,8 @@ items:
         href: ../cli/cli-ref/serverless/cli-ref/network/index.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Справочник API {{ sw-name }}
     items:
       - name: Аутентификация в API

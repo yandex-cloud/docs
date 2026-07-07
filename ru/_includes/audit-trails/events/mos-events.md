@@ -14,7 +14,9 @@
 `RestoreCluster` | Создание нового кластера из резервной копии
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
+`SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `SwitchMaster` | Смена лидера кворума хостов с ролью `MANAGER`
 `UpdateCluster` | Изменение кластера
+`UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
 `UpdateDashboardsNodeGroup` |  Изменение группы хостов типа `Dashboards`
 `UpdateOpenSearchNodeGroup` | Изменение группы хостов типа `OpenSearch`

@@ -11,12 +11,12 @@ Where:
     * `action`: Action if the limit is exceeded. Always set it to `DENY`.
     * `limit`: Maximum number of allowed requests per period.
     * `period`: Time period in seconds during which the limit applies.
-    * `condition`: [Condition](../../smartwebsecurity/concepts/conditions.md) for applying the rule. This is an optional setting. For more information, see the `advanced_rate_limiter_rule.static_quota.condition` description in [this provider article]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
-  * `dynamic_quota`: Request count mode where groups of requests sharing one or more properties are counted. You can only specify either `static_quota` or `dynamic_quota`.
+    * `condition`: [Condition](../../smartwebsecurity/concepts/conditions.md) for applying the rule. This is an optional setting. For more on conditions, see the `advanced_rate_limiter_rule.static_quota.condition` description in [this provider guide]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
+  * `dynamic_quota`: Request count mode where groups of requests sharing one or more properties are counted. You can only specify one section, either `static_quota` or `dynamic_quota`.
     * `action`: Action if the limit is exceeded. Always set it to `DENY`.
     * `limit`: Maximum number of allowed requests per period.
     * `period`: Time period in seconds during which the limit applies.
-    * `condition`: Condition for applying the rule. This is an optional setting. For more information, see the `advanced_rate_limiter_rule.dynamic_quota.condition` description in [this provider article]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
+    * `condition`: Condition for applying the rule. This is an optional setting. For more on conditions, see the `advanced_rate_limiter_rule.dynamic_quota.condition` description in [this provider guide]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
     * `characteristic`: Description of properties to group requests by. You can only specify either `simple_characteristic` or `key_characteristic`.
       * `case_insensitive`: Case insensitive, if `true`, or sensitive, if `false`.
       * `key_characteristic`: Section of parameters requiring a key (string) to group requests by.

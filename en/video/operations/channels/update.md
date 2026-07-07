@@ -7,10 +7,10 @@ description: Follow this guide to edit a {{ video-full-name }} channel.
 
 {% list tabs group=instructions %}
 
-- {{ video-name }} interface {#console}
+- {{ video-name }} UI {#console}
 
   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
-  1. In the row with the channel you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_video.common.action_edit }}**.
+  1. In the line with the channel, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_video.common.action_edit }}**.
   1. Edit the channel name and description.
   1. Click **{{ ui-key.yacloud_video.common.action_accept }}**.
 
@@ -20,6 +20,6 @@ description: Follow this guide to edit a {{ video-full-name }} channel.
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [{#T}](../video/upload.md)

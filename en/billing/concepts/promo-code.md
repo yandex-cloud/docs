@@ -5,7 +5,7 @@ A **promo code** is a password that allows you to get an additional discount on 
 ## Get and activate a promo code {#activate-promocode}
 
 A promo code can be provided to you as part of a Yandex promotional offer.
-You can activate your promo code only once. For more information, see [Activate a promo code](../operations/activate-promocode.md).
+You can activate your promo code only once. For a detailed guide, see [Activating a promo code](../operations/activate-promocode.md).
 
 ## Terms of use and validity period {#terms-of-use}
 

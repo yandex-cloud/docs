@@ -20,9 +20,11 @@ yandex.cloud.audit.mdb.greenplum.<имя_события>
 `ExpandCluster` | Расширение кластера
 `MoveCluster` | Перемещение кластера
 `RestoreCluster` | Создание нового кластера из резервной копии
+`SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
+`UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
 
 ## Справочник событий уровня сервисов {#data-plane-events}
 

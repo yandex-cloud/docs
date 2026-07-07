@@ -110,7 +110,7 @@ description: Follow this guide to get information about a security profile in {{
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](operation-logs.md)
 * [{#T}](waf-profile-get.md)

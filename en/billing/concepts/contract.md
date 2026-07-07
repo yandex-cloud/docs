@@ -10,7 +10,7 @@
 
 ## Residents of Russia {#residents}
 
-Once the offer is accepted or the agreement is signed, the parties shall operate under the agreement in accordance with the Civil Code of the Russian Federation. The agreement stipulates that you must pay for the resources consumed at the end of the reporting period. For more information, see [How to pay for resources](../payment/index.md).
+Once the offer is accepted or the agreement is signed, the parties will operate under the agreement in accordance with the Civil Code of the Russian Federation. The agreement stipulates that you must pay for the resources consumed at the end of the reporting period. For more information, see [Payment for resources](../payment/index.md).
 
 You can learn more about the terms of the agreement in [Yandex Legal documents](https://yandex.ru/legal/cloud_oferta/ru/).
 
@@ -22,7 +22,7 @@ Companies and individual entrepreneurs can sign a bilateral agreement. For this,
 
 ## Residents of Kazakhstan {#residents-rk}
 
-Once the offer is accepted or the agreement is signed, the parties shall operate under the agreement in accordance with the Civil Code of the Republic of Kazakhstan (RK). The agreement stipulates that you must pay for the resources consumed at the end of the reporting period. For more information, see [How to pay for resources](../payment/index.md).
+Once the offer is accepted or the agreement is signed, the parties will operate under the agreement in accordance with the Civil Code of the Republic of Kazakhstan (RK). The agreement stipulates that you must pay for the resources consumed at the end of the reporting period. For more information, see [Payment for resources](../payment/index.md).
 
 You can learn more about the terms of the agreement in [Yandex Legal documents](https://yandex.com/legal/cloud_oferta_kz/?lang=en).
 
@@ -32,9 +32,9 @@ Companies and individual entrepreneurs can sign a bilateral agreement. For this,
 
 {% endnote %}
 
-## Non-residents of Russia and Kazakhstan{#non-residents}
+## Non-residents of Russia and Kazakhstan {#non-residents}
 
-Once the offer is accepted or the agreement is signed, both parties shall operate under the agreement. The agreement stipulates that you must pay for the resources consumed at the end of the reporting period. For more information, see [How to pay for resources](../payment/index.md).
+Once the offer is accepted or the agreement is signed, both parties will operate under the agreement. The agreement stipulates that you must pay for the resources consumed at the end of the reporting period. For more information, see [Payment for resources](../payment/index.md).
 
 Depending on which company you signed the agreement with, you can find the agreement terms in _Yandex Legal documents_ for [Iron Hive doo Beograd (Serbia)](https://yandex.com/legal/cloud_customer_agreement/) or [Direct Cursus Technology L.L.C. (Dubai)](https://yandex.com/legal/cloud_customer_agreement_uae/).
 

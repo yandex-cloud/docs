@@ -184,6 +184,8 @@ Yandex Cloud Notification Service — сервис для мультиканал
 
  - [Publish](api-ref/publish.md)
 
+ - [Аудитные логи Audit Trails](at-ref.md)
+
  - [Метрики Monitoring](metrics.md)
 
  - [Логи Cloud Logging](concepts/logging.md)

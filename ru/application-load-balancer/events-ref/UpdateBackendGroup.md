@@ -97,20 +97,20 @@ editable: false
           "name": "string",
           "backendWeight": "string",
           "loadBalancingConfig": {
+            "mode": "string",
             "panicThreshold": "string",
             "localityAwareRoutingPercent": "string",
-            "strictLocality": "boolean",
-            "mode": "string"
+            "strictLocality": "boolean"
           },
           "port": "string",
-          // Includes only one of the fields `targetGroups`, `storageBucket`
+          // Includes only one of the fields `storageBucket`, `targetGroups`
+          "storageBucket": {
+            "bucket": "string"
+          },
           "targetGroups": {
             "targetGroupIds": [
               "string"
             ]
-          },
-          "storageBucket": {
-            "bucket": "string"
           },
           // end of the list of possible fields
           "healthchecks": [
@@ -175,10 +175,10 @@ editable: false
           "name": "string",
           "backendWeight": "string",
           "loadBalancingConfig": {
+            "mode": "string",
             "panicThreshold": "string",
             "localityAwareRoutingPercent": "string",
-            "strictLocality": "boolean",
-            "mode": "string"
+            "strictLocality": "boolean"
           },
           "port": "string",
           // Includes only one of the fields `targetGroups`
@@ -249,10 +249,10 @@ editable: false
           "name": "string",
           "backendWeight": "string",
           "loadBalancingConfig": {
+            "mode": "string",
             "panicThreshold": "string",
             "localityAwareRoutingPercent": "string",
-            "strictLocality": "boolean",
-            "mode": "string"
+            "strictLocality": "boolean"
           },
           "port": "string",
           // Includes only one of the fields `targetGroups`
@@ -530,12 +530,12 @@ Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || port | **string** (int64)
 
 Acceptable values are 0 to 65535, inclusive. ||
-|| targetGroups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
-
-Includes only one of the fields `targetGroups`, `storageBucket`. ||
 || storageBucket | **[StorageBucketBackend](#yandex.cloud.apploadbalancer.v1.StorageBucketBackend)**
 
-Includes only one of the fields `targetGroups`, `storageBucket`. ||
+Includes only one of the fields `storageBucket`, `targetGroups`. ||
+|| targetGroups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
+
+Includes only one of the fields `storageBucket`, `targetGroups`. ||
 || healthchecks[] | **[HealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck)** ||
 || tls | **[BackendTls](#yandex.cloud.apploadbalancer.v1.BackendTls)** ||
 || useHttp2 | **boolean** ||
@@ -545,6 +545,12 @@ Includes only one of the fields `targetGroups`, `storageBucket`. ||
 
 #|
 ||Field | Description ||
+|| mode | **enum** (LoadBalancingMode)
+
+- `ROUND_ROBIN`
+- `RANDOM`
+- `LEAST_REQUEST`
+- `MAGLEV_HASH` ||
 || panicThreshold | **string** (int64)
 
 Acceptable values are 0 to 100, inclusive. ||
@@ -552,12 +558,13 @@ Acceptable values are 0 to 100, inclusive. ||
 
 Acceptable values are 0 to 100, inclusive. ||
 || strictLocality | **boolean** ||
-|| mode | **enum** (LoadBalancingMode)
+|#
 
-- `ROUND_ROBIN`
-- `RANDOM`
-- `LEAST_REQUEST`
-- `MAGLEV_HASH` ||
+## StorageBucketBackend {#yandex.cloud.apploadbalancer.v1.StorageBucketBackend}
+
+#|
+||Field | Description ||
+|| bucket | **string** ||
 |#
 
 ## TargetGroupsBackend {#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend}
@@ -567,13 +574,6 @@ Acceptable values are 0 to 100, inclusive. ||
 || targetGroupIds[] | **string**
 
 The number of elements must be greater than 0. ||
-|#
-
-## StorageBucketBackend {#yandex.cloud.apploadbalancer.v1.StorageBucketBackend}
-
-#|
-||Field | Description ||
-|| bucket | **string** ||
 |#
 
 ## HealthCheck {#yandex.cloud.apploadbalancer.v1.HealthCheck}
@@ -619,7 +619,7 @@ Includes only one of the fields `plaintext`, `tls`. ||
 ||Field | Description ||
 || text | **string**
 
-The string length in characters must be greater than 0.
+The string length in characters must be 1-16384.
 
 Includes only one of the fields `text`. ||
 |#
@@ -628,8 +628,12 @@ Includes only one of the fields `text`. ||
 
 #|
 ||Field | Description ||
-|| host | **string** ||
-|| path | **string** ||
+|| host | **string**
+
+The string length in characters must be 0-255. Value must match the regular expression ``` |[-.a-z0-9]+(:[0-9]+)? ```. ||
+|| path | **string**
+
+The string length in characters must be 1-255. Value must match the regular expression ` /.* `. ||
 || useHttp2 | **boolean** ||
 || expectedStatuses[] | **string** (int64)
 
@@ -647,7 +651,9 @@ Acceptable values are 100 to 599, inclusive. ||
 
 #|
 ||Field | Description ||
-|| sni | **string** ||
+|| sni | **string**
+
+The maximum string length in characters is 255. Value must match the regular expression ` [-.a-z0-9]* `. ||
 || validationContext | **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext)** ||
 |#
 
@@ -667,7 +673,9 @@ Includes only one of the fields `trustedCaId`, `trustedCaBytes`. ||
 
 #|
 ||Field | Description ||
-|| sni | **string** ||
+|| sni | **string**
+
+The maximum string length in characters is 255. Value must match the regular expression ` [-.a-z0-9]* `. ||
 || validationContext | **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext)** ||
 |#
 

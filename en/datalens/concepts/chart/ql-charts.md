@@ -61,7 +61,7 @@ To create a QL chart, follow [this guide](../../operations/chart/create-sql-char
 * [{#T}](../../tutorials/data-from-ch-to-sql-chart.md)
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../operations/chart/create-sql-chart.md)
 * [{#T}](../../concepts/chart/index.md)

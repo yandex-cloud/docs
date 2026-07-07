@@ -105,7 +105,7 @@ HTTP | Error code | Extended code | Description
 400 | UserError | SMSChannelIsNotDeregistered | The SMS notification channel status is not `Deregistered`.
 400 | UserError | DefaultSMSChannelDeletionForbidden | You cannot delete the default SMS notification channel.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)

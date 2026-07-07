@@ -752,8 +752,6 @@ items:
       - name: Примеры конфигураций и сценариев Legal
         href: legal/how-to/index.md
         hidden: true
-      - name: Как узнать физический адрес ЦОД {{ yandex-cloud }}
-        href: legal/how-to/data-centers-physical-addresses.md
       - name: >-
           Нужно ли заключать отдельный договор по № 152-ФЗ для размещения
           персональных данных

@@ -6,6 +6,7 @@ description: Следуя данной инструкции, вы сможете
 # Настроить брендирование
 
 
+
 {% include [note-preview](../../_includes/note-preview.md) %}
 
 Чтобы настроить [брендирование](../concepts/branding.md):
@@ -38,8 +39,8 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.loginSection.title }}**:
 
      1. В поле **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.loginSection.welcomeLabel }}** введите текст, который будет отображаться под логотипом.
-     1. В поле **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.loginSection.placeholderLabel }}** введите шаблон почты, который будет отображаться в поле ввода.
-     1. В секции **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.loginSection.alternativeEntryLabel }}** включите или выключите вход с помощью Яндекс ID и [SSO](../../glossary/sso.md).
+     1. В поле **Подсказка в поле для входа** введите шаблон почты, который будет отображаться в поле ввода.
+     1. В секции **Альтернативные способы входа** включите или выключите вход с помощью Яндекс ID и [SSO](../../glossary/sso.md).
 
   1. Чтобы сбросить внесенные изменения и настроить брендирование заново, нажмите **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.clearAllAction }}**.
   1. Чтобы сохранить изменения, нажмите **{{ ui-key.yacloud.common.save }}**.

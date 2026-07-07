@@ -173,7 +173,7 @@ You need a service account to send metrics from the VM to {{ monitoring-name }}.
 
 ## Install and configure {{ unified-agent-short-name }} {#configure-ua}
 
-1. Download the latest deb package:
+1. Download the latest deb package version:
 
    ```bash
    ubuntu_name="<OS_version>" ua_version=$(curl --silent https://storage.yandexcloud.net/yc-unified-agent/latest-version) bash -c 'curl --silent --remote-name https://storage.yandexcloud.net/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
@@ -291,7 +291,7 @@ You need a service account to send metrics from the VM to {{ monitoring-name }}.
     * Rename the `cluster` label to `cluster_1c`.
     * Filter (remove) labels containing non-Latin characters: `servicename`, `user`, `base`, and `licSRV`.
 
-   To learn more about configuring {{ unified-agent-short-name }}, see [{#T}](../../monitoring/concepts/data-collection/unified-agent/configuration.md).
+   Read more about the {{ unified-agent-short-name }} setting in [this section](../../monitoring/concepts/data-collection/unified-agent/configuration.md).
 
    {% endcut %}
 
@@ -361,7 +361,7 @@ Below is an example of a dashboard for monitoring metrics provided in the export
 
 {% endlist %}
 
-For additional dashboard settings, see [{#T}](../../monitoring/operations/dashboard/add-widget.md).
+For more dashboard settings, see [{#T}](../../monitoring/operations/dashboard/add-widget.md).
 
 ## Delete the resources you created {#delete-resources}
 

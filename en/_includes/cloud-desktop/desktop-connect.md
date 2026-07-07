@@ -30,7 +30,7 @@
 
   To reconnect to the desktop, run it from the **PCs** tab in the Microsoft Remote Desktop client. In the security window that opens, click **Continue**.
 
-  #### See also {#mac-see-also}
+  #### Useful links {#mac-see-also}
 
   * [Getting started with a remote desktop in macOS]({{ ms.docs }}/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac)
 
@@ -55,7 +55,7 @@
 
   To reconnect to the desktop, run it in the Remmina client.
 
-  #### See also {#lin-see-also}
+  #### Useful links {#lin-see-also}
 
   * [Installing Remmina on non-Ubuntu Linux distributions](https://remmina.org/how-to-install-remmina/)
 

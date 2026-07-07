@@ -192,7 +192,7 @@ HTTP | Error code | Extended code | Description
 400 | InvalidParameter | AppAlreadyExists | A mobile push notification channel with such name and platform already exists.
 400 | InvalidParameter | DeletedAppAlreadyExists | You cannot use the name and platform to create a new mobile push notification channel because a channel with the same parameters was recently deleted, and the mobile platform data has not yet been updated.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)

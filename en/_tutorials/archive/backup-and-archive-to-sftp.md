@@ -28,7 +28,7 @@ The infrastructure support cost includes:
 * Fee for two continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)):
   * SFTP client VM.
   * SFTP server VM.
-* Fee for a dynamic or static public IP address (see [{{ vpc-full-name }} pricing)](../../vpc/pricing.md)).
+* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create the SFTP server VM {#create-vm-sftp-server}
 

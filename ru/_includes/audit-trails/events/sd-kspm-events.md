@@ -8,3 +8,4 @@
 `EnableSDProject` | Включение проекта {{ sd-name }}
 `UpdateException` | Изменение параметров исключения
 `UpdateProject`   | Изменение параметров проекта
+`UpdateProjectControl` | Изменение настроек контроля проекта

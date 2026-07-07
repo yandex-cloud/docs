@@ -48,7 +48,7 @@ In [multi-dataset charts](../chart/index.md#multi-dataset-charts), calculated fi
 
 Functions are the principal components used for creating formulas. You can use them to perform various operations on data fields.
 
-The list of available functions depends on the data source. Learn more in [{#T}](../../function-ref/availability.md).
+The list of available functions depends on the data source. For more information, see [{#T}](../../function-ref/availability.md).
 
 {% note warning %}
 
@@ -103,7 +103,7 @@ You can create calculated fields in the dataset or wizard interface.
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../dataset/create-dataset.md#create-fields)
 * [{#T}](../../security/row-level-security.md)

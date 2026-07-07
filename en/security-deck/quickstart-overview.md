@@ -19,8 +19,8 @@ To get started with {{ sd-name }} in {{ yandex-cloud }}:
 1. Make sure you have the necessary [permissions](./security/index.md) to work with the {{ sd-name }} modules. You optimal roles are:
 
     * `security-deck.admin` for the folder to contain {{ sd-name }} resources and modules.
-    * `auditor` for the [organization](../organization/concepts/organization.md), [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud), or folder the workspace will control the security of.
-1. [Create](../iam/operations/sa/create.md) a [service account](../iam/concepts/users/service-accounts.md) and [assign](../iam/operations/sa/assign-role-for-sa.md) to it the `security-deck.worker` [role](./security/index.md#security-deck-worker) for the organization, cloud, or folder the workspace will control the security of.
+    * `auditor` for the [organization](../organization/concepts/organization.md), [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud), or folder security in which will be controlled by the workspace.
+1. [Create](../iam/operations/sa/create.md) a [service account](../iam/concepts/users/service-accounts.md) and [assign](../iam/operations/sa/assign-role-for-sa.md) to it the `security-deck.worker` [role](./security/index.md#security-deck-worker) for the organization, cloud, or folder security in which will be controlled by the workspace.
 
 ## Create a {{ sd-name }} workspace {#create-workspace}
 

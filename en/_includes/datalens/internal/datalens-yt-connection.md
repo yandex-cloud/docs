@@ -1,7 +1,7 @@
 
 To create a {{ ytsaurus-name }} CHYT connection:
 
-1. Open the [new connection creation page]({{ link-datalens-main }}/connections/new).
+1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
 1. Under **Databases**, select the **{{ ytsaurus-name }} CHYT** connection.
 
 

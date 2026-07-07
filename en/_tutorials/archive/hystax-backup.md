@@ -40,8 +40,8 @@ For detailed system requirements, see the [Hystax deployment reference](https://
 The cost of resources for Hystax Acura Backup includes:
 * Fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-instance-resources)).
 * Fee for VM disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-storage)).
-* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Fee for data storage in a bucket and data operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
+* Fee for a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for bucket data storage and bucket operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for using Hystax Acura Backup (see the [product description](/marketplace/products/hystax/hystax-acura-backup) in {{ marketplace-name }}).
 
 
@@ -379,7 +379,7 @@ To enable VM protection:
 1. Under **Machines Groups**, deploy an instance group, e.g., `Default`.
 1. In the VM list on the right, click ![image](../../_assets/console-icons/ellipsis.svg).
 1. In the** Edit replication settings** menu, set up a replication schedule for the instance group by hour, day, or week, or select continuous protection. Under **Volume type**, specify the drive type for VM recovery: `network-hdd`, `network-ssd`, or `network-ssd-nonreplicated`. 
-1. In the **Edit retention settings** menu, set the backup retention period. For more information, see the [Hystax tutorials](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/dr_overview.html#edit-replication-schedule).
+1. In the **Edit retention settings** menu, set the backup retention period. For more information, see [this Hystax guide](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/dr_overview.html#edit-replication-schedule).
 1. Select **Start Protection**.
 
 This will start VM replication. A VM replica will include all the data of the original VM. Therefore, replication can take a while (depending on the original VM disk size). The replication status will be displayed in the **Status** column under **Machines Groups**. After the replication is complete, the VMs will switch their status to `Protected`.

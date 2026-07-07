@@ -9,6 +9,6 @@ To create an infrastructure for your [website with load balancing](index.md) in 
 
 {% include [application-load-balancer-website-console](../../../_tutorials/infrastructure/application-load-balancer-website-console.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](terraform.md)

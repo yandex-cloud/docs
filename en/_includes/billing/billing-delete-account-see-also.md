@@ -1,4 +1,4 @@
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Linking a cloud to another billing account](../../billing/operations/pin-cloud.md)
 * [Deleting a folder](../../resource-manager/operations/folder/delete.md).

@@ -44,3 +44,5 @@ To create a color palette:
      1. Click **Save**.
 
    {% endlist %}
+
+

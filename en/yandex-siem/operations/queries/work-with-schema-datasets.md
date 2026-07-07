@@ -113,7 +113,7 @@ To insert a dataset into a query:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/investigations.md)
 * [{#T}](../../concepts/queries.md)

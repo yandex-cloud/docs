@@ -182,7 +182,7 @@ All data point attributes are preserved as {{ monium-name }} metric labels.
 
 {{ monium-name }} supports the **OTLP Protobuf** format for all types of telemetry. The OTLP JSON format is currently supported for logs and traces.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](otlp-sdk.md)
 * [{#T}](opentelemetry.md)

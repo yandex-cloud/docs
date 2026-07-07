@@ -56,6 +56,8 @@ items:
             href: operations/kspm/check-compliance.md
           - name: Управлять исключениями из правил контроля
             href: operations/kspm/manage-exceptions.md
+          - name: Управлять режимами работы правил
+            href: operations/kspm/manage-rule-modes.md
       - name: Диагностика доступов ({{ ciem-name }})
         items:
           - name: Обзор

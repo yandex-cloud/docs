@@ -14,7 +14,7 @@ In {{ cns-name }}, messages to end users are sent through _notification channels
 
 {% include [channels-push-preview](../../_includes/notifications/channels-push-preview.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Getting started with the service](../quickstart.md)
 * [Getting started with the service via the AWS CLI](../tools/aws-cli.md)

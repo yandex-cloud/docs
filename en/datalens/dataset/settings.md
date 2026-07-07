@@ -55,7 +55,7 @@ Parameterization of dataset sources allows you to dynamically substitute paramet
 
 By default, the dataset data uploaded from the source is displayed in the preview area. You can disable default data preview. To do this, click ![image](../../_assets/console-icons/gear.svg) → ![image](../../_assets/console-icons/check.svg) **Enable default preview** in the top-right corner of the dataset and save the dataset. Now, when you open the dataset, the data will not appear in the preview area. To display the data, click **Preview** at the top of the screen.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./create-dataset.md)
 * [{#T}](../concepts/calculations/index.md)

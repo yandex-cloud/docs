@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The cost of infrastructure support includes a bucket use fee (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+The cost of infrastructure support includes a fee for using a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 
 ## Set up your environment {#prepare-environment}
@@ -115,7 +115,7 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the `trail-sa` 
 
 {% endlist %}
 
-Assign the `bucket-yq-sa` service account the `storage.viewer` role for `example-folder`:
+Assign the `storage.viewer` role for `example-folder` to the `bucket-yq-sa` service account:
 
 {% list tabs group=instructions %}
 

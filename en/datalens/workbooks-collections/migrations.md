@@ -7,7 +7,7 @@ description: Follow this guide to migrate objects to workbooks.
 
 {% note info %}
 
-* If you do not see ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks** in the left-hand panel, [enable workbooks and collections](../../datalens/workbooks-collections/index.md#enable-workbooks) in your organization.
+* If you do not see ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks** in the left-hand panel, ask the user with the `datalens.admin` role to [enable workbooks and collections](../../datalens/workbooks-collections/index.md#enable-workbooks) in your organization.
 * To migrate objects, a user must have the `{{ roles-datalens-admin }}` role.
 * To transfer your workbook between installations or [organizations](../concepts/organizations.md), use the [export and import](./export-and-import.md) tool.
 

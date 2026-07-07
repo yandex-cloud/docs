@@ -86,7 +86,7 @@ The diagram shows the cycle of issuing and paying invoices for businesses and in
 
    {% include [blocked-note](../_includes/blocked-note.md) %}
 
-#### See also
+#### Useful links {#see-also}
 
 * [Grant](../concepts/bonus-account.md)
 * [Billing threshold](../concepts/billing-threshold.md)

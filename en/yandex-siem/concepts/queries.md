@@ -20,7 +20,7 @@ A KQL query has the following components:
 
 For more information about the KQL syntax, see [{#T}](../kql-reference.md).
 
-Request example:
+Query example:
 
 ```kql
 Events
@@ -56,7 +56,7 @@ To use queries efficiently, follow these best practices:
 * **Aggregate data**: Use `summarize` operators to group and count events instead of retrieving the full output.
 * **Limit results**: Use the `limit` operator to limit the number of returned rows.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](investigations.md)
 * [{#T}](../operations/queries/index.md)

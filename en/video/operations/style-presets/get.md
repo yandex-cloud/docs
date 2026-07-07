@@ -27,7 +27,7 @@ description: Follow this guide to get information about a player preset in {{ vi
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](create.md)
 * [{#T}](update.md)

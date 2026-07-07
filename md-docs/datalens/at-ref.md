@@ -59,6 +59,7 @@ yandex.cloud.audit.datalens.<имя_события>
 `UpdateEntityBinding` | Редактирование привязки общего объекта в воркбуке
 `UpdateEntry` | Изменение объекта
 `UpdateSharedEntryAccessBindings` | Изменение настроек доступа к общему объекту
+`UpdateTenantAccessBindings` | Изменение прав доступа к инстансу DataLens
 `UpdateWorkbook` | Изменение воркбука
 `UpdateWorkbookAccessBindings` | Изменение настроек доступа к воркбуку
 

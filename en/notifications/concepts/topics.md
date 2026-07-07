@@ -29,7 +29,7 @@ This is how you send notifications:
 1. If the request is valid, authenticated and authorized, the system sends the notification to all topics’ subscribers.
 1. If there is an error, e.g., the limits are exceeded, it will be logged in {{ cloud-logging-name }}. Logging is enabled when you create a topic.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Service overview](index.md)
 * [Getting started with the service via the AWS CLI](../tools/aws-cli.md)

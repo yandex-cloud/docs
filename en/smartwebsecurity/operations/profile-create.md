@@ -200,7 +200,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](host-connect.md)
 * [{#T}](profile-update.md)

@@ -105,7 +105,7 @@ To delete an investigation:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/investigations.md)
 * [{#T}](../../concepts/queries.md)

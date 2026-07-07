@@ -76,7 +76,7 @@ In the video settings window that opens, wait until the video is completely uplo
 1. Open a new browser page and paste the obtained URL to the address bar.
 1. Click the Play button.
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](streaming.md)
 * [{{ video-full-name }} overview](./concepts/index.md)

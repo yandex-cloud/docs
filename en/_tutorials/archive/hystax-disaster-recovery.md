@@ -8,7 +8,7 @@ Supported platforms:
 * Hypervisors
 * Physical servers
 
-To get started, create a VM with [Hystax Acura Disaster Recovery](/marketplace/products/hystax/hystax-acura-disaster-recovery) to manage replication and recovery. Auxiliary Hystax Cloud Agent VMs will perform continuous and periodic replication. For a detailed description of the architecture, see this [Hystax overview article](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/index.html#_2).
+To get started, create a VM with [Hystax Acura Disaster Recovery](/marketplace/products/hystax/hystax-acura-disaster-recovery) to manage replication and recovery. Auxiliary Hystax Cloud Agent VMs will perform continuous and periodic replication. For more information about the architecture, see [this guide](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/index.html#_2).
 
 To run Hystax Acura Disaster Recovery, follow these steps:
 1. [Get your cloud ready](#before-begin).
@@ -42,9 +42,9 @@ Note that both the Hystax Acura infrastructure and all recovered VMs will be cha
 
 The cost of resources for Hystax Acura Disaster Recovery includes:
 * Fee for disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for storing images (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for storing Docker images (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Fee for each protected VM (see the [product description](/marketplace/products/hystax/hystax-acura-disaster-recovery) in {{ marketplace-name }}).
+* Fee for each backed up VM (see the [product description](/marketplace/products/hystax/hystax-acura-disaster-recovery) in {{ marketplace-name }}).
 
 
 ## Create a service account and authorized key {#create-sa}
@@ -343,7 +343,7 @@ To enable VM replication:
 1. Open the Hystax Acura control panel. Click the Hystax logo.
 1. Under **Machines Groups**, deploy an instance group, e.g., `Prod-Web`.
 1. In the right-hand VM list, click ![image](../../_assets/options.svg).
-1. Set up a replication schedule and snapshot retention period using the **Edit replication schedule** and **Edit retention policies** options. For more information, see the [Hystax tutorials](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/dr_overview.html#edit-retention-policies).
+1. Set up a replication schedule and snapshot retention period using the **Edit replication schedule** and **Edit retention policies** options. For more information, see [this Hystax guide](https://xn--q1ach.xn--p1ai/documentation/disaster-recovery-and-cloud-backup/dr_overview.html#edit-retention-policies).
 1. Select **Enable protection**.
 
 This will start VM replication. Once it is complete, the VMs will change their status to `Protected`.
@@ -426,7 +426,7 @@ To create subnets:
 
 {% endlist %}
 
-For more details, see [Step-by-step guides](../../vpc/operations/subnet-create.md) in the {{ vpc-name }} documentation.
+For more information, see [these step-by-step guides](../../vpc/operations/subnet-create.md) for {{ vpc-name }}.
 
 ## Create a disaster recovery plan {#disaster-recovery-plan}
 
@@ -451,7 +451,7 @@ The DR plan includes a VM description and the network settings. You can have a p
   1. In the **Title** field, enter the name: `Plan-1`.
   1. Use one of the modes below:
      * `Basic`: Create a plan with regular settings.
-     * `Expert`: Create a plan with flexible settings using JSON (see the detailed syntax description [here](https://hystax.com/documentation/dr/dr_overview.html#id2)).
+     * `Expert`: Create a plan with flexible settings using JSON (see detailed syntax description [here](https://hystax.com/documentation/dr/dr_overview.html#id2)).
   1. Add VMs by clicking ![image](../../_assets/options.svg). If required, specify an initialization order by using the **Move to another Rank** option.
   1. If required, modify the parameters of the new VMs. To do this, specify the following in the **Flavor name** field: `<platform>-<cpu>-<ram>-<core_fraction>`, e.g., `2-8-16-100`.
   1. Under **Subnets** on the right, specify the properties of the previously created subnets: **Subned ID** and **CIDR**.

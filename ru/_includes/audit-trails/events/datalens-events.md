@@ -45,6 +45,7 @@
 `UpdateEntityBinding` | Редактирование привязки общего объекта в воркбуке
 `UpdateEntry` | Изменение объекта
 `UpdateSharedEntryAccessBindings` | Изменение настроек доступа к общему объекту
+`UpdateTenantAccessBindings` | Изменение прав доступа к инстансу {{ datalens-name }}
 `UpdateWorkbook` | Изменение воркбука
 `UpdateWorkbookAccessBindings` | Изменение настроек доступа к воркбуку
 

@@ -23,7 +23,7 @@ Parameter | Description
 Attribute | Description
 --- | ---
 `IsDefault` | Specifies whether the channel is the default channel for outgoing SMS in this cloud. You can only set `IsDefault` for a channel in the `Sandbox` or `Active` state. Due to how {{ cns-name }} operates, this attribute cannot be provided along with other attributes.
-`ChannelState` | Channel's target state. Possible states:<ul><li>`Active`: Active.</li><li>`Disabled`: Disabled.</li></ul>
+`ChannelState` | Channel's target state. The possible states are:<ul><li>`Active`: Enabled.</li><li>`Disabled`: Disabled.</li></ul>
 `Description` | Description of the SMS notification channel.<br/>Example: `Test-sms-channel`.
 
 ## Response {#response}
@@ -116,7 +116,7 @@ HTTP | Error code | Extended code | Description
 400 | UserError | InvalidSMSChannelStateToSetDefault | In its current state, the channel cannot be set as the default channel.
 400 | UserError | InvalidSMSChannelAttributeCombination | The `IsDefault` attribute cannot be provided along with other attributes.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](send-request.md)

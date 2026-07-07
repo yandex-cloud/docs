@@ -27,7 +27,7 @@ To view the list of exceptions from the {{ cspm-name }} module's security contro
       The list of exceptions for the {{ cspm-name }} module rules is provided under **{{ ui-key.yacloud_org.security.controls.ExceptionOverview.header_caption_cspm_9dTJt }}** and contains the following fields:
 
       * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_reason_qN8a7 }}**: User-specified exception reason when creating the exception.
-      * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_type_kCG8J }}**: Action option for the exception you are creating:
+      * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_reason_qN8a7 }}**: Action option for the exception you are creating:
 
           * `{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_type_manual_mbKxp }}`: If the conditions specified in the exception are met, the resource will generate only rule compliance signals.
           * `{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_type_exclude_cigcD }}`: If the conditions specified in the exception are met, the resource will not generate any signals, neither on compliance nor on violation.
@@ -96,7 +96,7 @@ To delete an exception for the {{ cspm-name }} module's security control rules:
 
 This exception will be deleted from the [environment](../../concepts/workspace.md), and the limitations it placed on rule compliance checks will be canceled after the next infrastructure scan is completed. The frequency of checks is 8 hours.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./view-rules.md)
 * [{#T}](../../concepts/cspm.md)

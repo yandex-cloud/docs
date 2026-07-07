@@ -19,6 +19,6 @@ In {{ cns-name }}, messages to end users are sent through [notification channels
 
 {% include [sms-channel-individual-create](../../../_includes/notifications/sms-channel-individual-create.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./manage-templates.md)

@@ -154,7 +154,7 @@ The following health check settings are supported:
   * Request body.
   * Substring in the response that indicates that the health check was successful. If the request body or response body is not specified, a successful connection to the backend is checked.
 
-Note that if the backend is configured to use TLS with the target group endpoints, health checks also use TLS. Here is an example:
+Note that if the backend is configured to use TLS with the target group endpoints, health checks also use TLS. For example:
 
 * If the type of a health check is HTTP, it will be made over HTTPS. 
 
@@ -171,6 +171,6 @@ Note that if the backend is configured to use TLS with the target group endpoint
 * [{#T}](../tutorials/blue-green-canary-deployment.md)
 * [{#T}](../tutorials/logging.md)
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](best-practices.md)

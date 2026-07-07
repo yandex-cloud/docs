@@ -110,7 +110,7 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](configure-set-rules.md)
 * [{#T}](rule-add.md)

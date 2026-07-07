@@ -51,7 +51,7 @@ There is no limit for regular queries made by users in the {{ datalens-name }} i
 
    > 2,000 queries x Number of seats
 
-* Only successfully completed requests for retrieving data to render charts are counted. If multiple requests are required to render a single chart, this is counted as one request.
+* Only successfully completed queries for chart rendering data are counted. If multiple queries are required to render a single chart, they are counted as one query.
 
 * Seats are not linked to embedded charts directly; they do not have to be assigned to external viewers of these charts. What matters is the total number of seats purchased within the instance, both free and assigned to users.
 
@@ -63,7 +63,7 @@ There is no limit for regular queries made by users in the {{ datalens-name }} i
    
    [You can estimate the number of queries from private embedded charts](./settings/seats.md#embedded-queries-count) by enabling [Usage Analytics](./operations/connection/create-usage-tracking.md). If the total number of such queries exceeds the per-instance limit, you may have to purchase more seats.
    
-   When the limit on the number of queries from private embedded charts is exceeded and [automatic seat purchase](./settings/seats.md#purchase-automatically) is enabled, there is no automatic repurchase of new seats.
+   If the limit on the number of queries from embedded private charts is exceeded and [auto-purchasing](./settings/seats.md#purchase-automatically) is on, no new seats will be automatically procured.
 
 ### Trial period {#trial}
 
@@ -94,7 +94,7 @@ The cost of using {{ datalens-name }} depends on the number of seats per instanc
 
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Pricing and payment questions](./qa/pricing.md)
 * [Managing seats in {{ datalens-name }}](./settings/seats.md)

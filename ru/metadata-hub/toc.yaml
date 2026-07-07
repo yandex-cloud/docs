@@ -41,6 +41,8 @@ items:
         href: ../cli/cli-ref/metadata-hub/cli-ref/connection-manager/index.md
       - name: Справочник {{ TF }}
         href: connman-tf-ref.md
+      - name: Аудитные логи {{ at-name }}
+        href: connman-at-ref.md
       - name: Справочник API
         items:
           - name: Аутентификация в API

@@ -21,6 +21,12 @@ description: На этой странице приведен справочни�
 
 {% include [sd-cspm-events](../_includes/audit-trails/events/sd-cspm-events.md) %}
 
+### Модуль контроля данных ({{ dspm-name }}) {#sd-cspm}
+
+Имя модуля — `dspm`.
+
+{% include [sd-dspm-events](../_includes/audit-trails/events/sd-dspm-events.md) %}
+
 ### Модуль Контроль {{ k8s }}® ({{ kspm-name }}) {#sd-kspm}
 
 Имя модуля — `kspm`.

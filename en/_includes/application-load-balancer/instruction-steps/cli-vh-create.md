@@ -36,12 +36,12 @@ Where:
 * `--rate-limit`: Request rate limit. Available properties:
     * `rps` or `rpm`: Number of incoming requests per second or per minute.
     * `all-requests`: Limits all incoming requests.
-    * `requests-per-ip`: Limits requests per client IP address.
+    * `requests-per-ip`: Applies the limit per client IP address.
 
     You can configure only one type of rate limit per virtual host, either `all-requests` or `requests-per-ip`.
 
     This is an optional parameter; if not specified, no rate limiting is applied.
-* `--security-profile-id`: [{{ sws-full-name }}](../../../smartwebsecurity/) [security profile](../../../smartwebsecurity/concepts/profiles.md) ID. A security profile allows you to filter incoming requests, enable [WAF](../../../smartwebsecurity/concepts/waf.md), and set limits on the number of requests for protection against malicious activities. For more information, see [{#T}](../../../smartwebsecurity/concepts/profiles.md). This is an optional parameter.
+* `--security-profile-id`: [{{ sws-full-name }}](../../../smartwebsecurity/) [security profile](../../../smartwebsecurity/concepts/profiles.md) ID. A security profile allows you to filter incoming requests, enable [WAF](../../../smartwebsecurity/concepts/waf.md), and set limits on the number of requests for protection against malicious activity. Learn more [here](../../../smartwebsecurity/concepts/profiles.md). This is an optional parameter.
 
 
 Result:

@@ -17,6 +17,6 @@ To [set up integration](./index.md) of an L7 load balancer with {{ cdn-full-name
 
 {% include [cdn-storage-integration-console](../../../_tutorials/infrastructure/cdn-storage-integration-console.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./terraform.md)

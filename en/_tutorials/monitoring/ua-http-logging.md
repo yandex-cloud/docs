@@ -21,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
-1. Fee for logging operations and log storage in a log group (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
+1. Fee for logging and log storage in a log group (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
 
 ## Set up your infrastructure {#infrastructure-prepare}
 

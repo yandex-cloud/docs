@@ -140,7 +140,7 @@ With secret version management, you can:
          * `include_digits`: Use numbers (0...9). The default value is `true`.
          * `include_punctuation`: Use special characters. The default value is `true`.
 
-       For more information about `yandex_lockbox_secret` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lockbox_secret).
+       For more information about the `yandex_lockbox_secret` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lockbox_secret).
 
     1. Apply the changes:
 
@@ -197,7 +197,7 @@ With secret version management, you can:
        * `key`: Secret key. Non-secret name you will use to identify a value.
        * `path`: Path to the secret generation script.
 
-       For more information about `yandex_lockbox_secret_version` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lockbox_secret_version).
+       For more information about the `yandex_lockbox_secret_version` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lockbox_secret_version).
 
     1. Apply the changes:
 
@@ -383,6 +383,6 @@ With secret version management, you can:
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../concepts/secret.md)

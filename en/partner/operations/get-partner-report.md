@@ -17,7 +17,7 @@ You can get a CSV file with spending details for a partner account and subaccoun
   1. In the left-hand panel, select ![image](../../_assets/console-icons/scales-balanced.svg) **Finance**.
   1. Go to the ![image](../../_assets/console-icons/chart-column.svg) **Subaccount details** tab.
   1. Click **Export as CSV** at the top right.
-  1. Select the time period to get the details for.
+  1. Select a time period you want the details for.
   1. Click **Download**.
 
 {% endlist %}
@@ -58,7 +58,7 @@ A single CSV export disregards the current filter settings in the details. It co
   1. At the top right, click **Create regular export**.
   1. In the **Create regular export** window that opens:
      * In the **Bucket** field, enter the name of the bucket to store the CSV file with details.
-     * In the **Path within the bucket** field, enter the directory name for the file. It must end with the `/` character.
+     * In the **Path within the bucket** field, enter the directory name for the file. The name must end with `/`.
      * In the **Language** field, select the file language.
      * In the **Details** field, select the type of details: `General` or `Resource`.
 
@@ -134,7 +134,7 @@ Exports made before January 17, 2026 do not contain partner premium data (`rewar
 {% endnote %}
 
 
-##### See also {#see-also}
+##### Useful links {#see-also}
 
 * [{#T}](./get-client-stat.md)
 

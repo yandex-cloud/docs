@@ -3,7 +3,7 @@ title: Managing exceptions from {{ td-full-name }} ({{ td-name }}) security rule
 description: In this section, you will learn how to create, modify, and delete exceptions from rules in {{ sd-full-name }}'s {{ td-full-name }} ({{ td-name }}) module.
 ---
 
-# Managing exceptions from {{ td-full-name }} ({{ td-name }}) security rules
+# Managing exceptions to the {{ td-full-name }} ({{ td-name }}) module's security rules
 
 {% include [td-use-in-workspaces](../../../_includes/security-deck/td-use-in-workspaces.md) %}
 
@@ -25,10 +25,10 @@ To view the list of exceptions from the {{ td-full-name }} module's security con
       The list of exceptions for the {{ td-full-name }} module rules is provided under **{{ td-full-name }}** and contains the following fields:
 
       * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_reason_qN8a7 }}**: User-specified exception reason when creating the exception.
-      * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_type_kCG8J }}**: Action which the exception will trigger:
+      * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_reason_qN8a7 }}**: Action which the exception will trigger:
 
           * `{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_type_manual_mbKxp }}`: If the conditions specified in the exception are met, the resource will generate rule compliance signals.
-          * `{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_type_exclude_cigcD }}`: If the conditions specified in the exception are met, the resource will not generate rule compliance signals for the resources in question.
+          * `{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_type_exclude_cigcD }}`: If the conditions specified in the exception are met, the resource will not generate rule compliance signals for the inspected resources.
       * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_rules_vBK4W }}**: Number of rules for which compliance checking is excluded. To view a detailed list of excluded rules, click the line with the exception.
       * **{{ ui-key.yacloud_org.security.controls.ScopeFilterTable.field_author_8hf4z }}**: Information about the user who created the exception, as well as the date and time of creation.
 
@@ -88,7 +88,7 @@ To delete an exception for the {{ td-full-name }} module's security control rule
 
 This exception will be deleted from the [environment](../../concepts/workspace.md), and the limitations it placed on rule compliance checks will be canceled after the next infrastructure scan is completed. The frequency of checks is 8 hours.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./view-rules.md)
 * [{#T}](../../concepts/threat-detector.md)

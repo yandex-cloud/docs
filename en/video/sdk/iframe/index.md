@@ -109,7 +109,7 @@ window.addEventListener('message', function(event) {
 });
 ```
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./initialization.md)
 * [{#T}](./player-methods.md)
