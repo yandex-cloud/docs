@@ -14,22 +14,22 @@
 
 * Изменение [класса хранилища](storage-class.md) объектов или их неактивных [версий](versioning.md) на более «холодный». Настроить изменение класса хранилища на ледяной (`ICE`) можно с помощью Yandex Cloud CLI, AWS CLI, Terraform и API.
 
-
-{% note tip %}
-
-Если вы не хотите настраивать правила жизненного цикла вручную, используйте [умное хранилище](storage-class.md#intelligent-tiering) (`INTELLIGENT_TIERING`) — оно автоматически оптимизирует расходы, перемещая объекты между уровнями доступа в зависимости от частоты обращения к ним.
-
-{% endnote %}
+    
+    {% note warning %}
+    
+    Изменение класса хранилища для уже загруженных объектов тарифицируется как операция `TRANSITION`. Подробнее смотрите [Цены на операции с данными](../pricing.md#prices-operations) в правилах тарификации Object Storage.
+    
+    {% endnote %}
 
 
 * Удаление объектов или их неактивных версий.
 * Удаление незавершенных составных загрузок.
+* Удаление [неактивных маркеров удаления](*noncurrent-delete-markers) (только с помощью [Yandex Cloud CLI](../operations/buckets/lifecycles.md#cli_1), [Yandex Cloud REST](../api-ref/Bucket/update.md#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers) и [Yandex Cloud gRPC](../api-ref/grpc/Bucket/update.md#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers)).
 
 
+{% note tip %}
 
-{% note warning %}
-
-Изменение класса хранилища для уже загруженных объектов тарифицируется как операция `TRANSITION`. Подробнее смотрите [Цены на операции с данными](../pricing.md#prices-operations) в правилах тарификации Object Storage.
+Если вы не хотите настраивать правила жизненного цикла вручную, используйте [умное хранилище](storage-class.md#intelligent-tiering) (`INTELLIGENT_TIERING`) — оно автоматически оптимизирует расходы, перемещая объекты между уровнями доступа в зависимости от частоты обращения к ним.
 
 {% endnote %}
 
@@ -49,6 +49,11 @@
 
 Раз в сутки к жизненным циклам применяются изменения, актуальные на момент 00:00 UTC. Операция выполняется в течение нескольких часов.
 
+
 #### Полезные ссылки {#see-also}
 
 * [Управление жизненными циклами объектов в бакете](../operations/buckets/lifecycles.md)
+
+[*noncurrent-delete-markers]: #### {#noncurrent-delete-markers}
+                              
+                              Неактивный маркер удаления `NoncurrentDeleteMarker` отмечает нетекущую версию объекта, которая была удалена. Такое происходит, когда поверх удаленной версии загружается новая версия объекта. Тогда объект снова становится доступным, а маркер, который отмечал удаленную версию, переходит в историю версий.
