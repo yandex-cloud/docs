@@ -12,20 +12,20 @@
 
 * Изменение [класса хранилища](./storage-class.md) объектов или их неактивных [версий](./versioning.md) на более «холодный». Настроить изменение класса хранилища на ледяной (`ICE`) можно с помощью {{ yandex-cloud }} CLI, AWS CLI, {{ TF }} и API.
 
+    
+    {% include [changing-storage-class](../../_includes/storage/changing-storage-class.md) %}
+
+
+* Удаление объектов или их неактивных версий.
+* Удаление незавершенных составных загрузок.
+* Удаление [неактивных маркеров удаления](*noncurrent-delete-markers) (только с помощью [{{ yandex-cloud }} CLI](../../storage/operations/buckets/lifecycles.md#cli_1), [{{ yandex-cloud }} REST](../../storage/api-ref/Bucket/update.md#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers) и [{{ yandex-cloud }} gRPC](../../storage/api-ref/grpc/Bucket/update.md#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers)).
+
 
 {% note tip %}
 
 Если вы не хотите настраивать правила жизненного цикла вручную, используйте [умное хранилище](./storage-class.md#intelligent-tiering) (`INTELLIGENT_TIERING`) — оно автоматически оптимизирует расходы, перемещая объекты между уровнями доступа в зависимости от частоты обращения к ним.
 
 {% endnote %}
-
-
-* Удаление объектов или их неактивных версий.
-* Удаление незавершенных составных загрузок.
-
-
-
-{% include [changing-storage-class](../../_includes/storage/changing-storage-class.md) %}
 
 
 Фильтры для группировки объектов:
@@ -43,6 +43,9 @@
 
 Раз в сутки к жизненным циклам применяются изменения, актуальные на момент 00:00 UTC. Операция выполняется в течение нескольких часов.
 
+
 #### Полезные ссылки {#see-also}
 
 * [{#T}](../operations/buckets/lifecycles.md)
+
+[*noncurrent-delete-markers]: {% include notitle [popups](../_includes_service/popups.md#noncurrent-delete-markers) %}

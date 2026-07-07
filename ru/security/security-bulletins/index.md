@@ -2,6 +2,8 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+{% include [07.07.2026 — CVE-2026-53359 – Januscape](../../_includes/security/security-bulletins/CVE-2026-53359-januscape.md) %}
+
 {% include [25.06.2026 — Целевые атаки с шифрованием данных в Linux-инфраструктуре](../../_includes/security/security-bulletins/targeted-ransomware-attacks-linux-infrastructure.md) %}
 
 {% include [05.06.2026 — CVE-2026-49975 HTTP/2 Bomb](../../_includes/security/security-bulletins/cve-2026-49975-cve-2026-47774-http2-bomb.md) %}

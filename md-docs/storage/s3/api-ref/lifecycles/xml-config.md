@@ -66,28 +66,87 @@ Object Storage позволяет управлять [жизненными ци�
 
 ## Элементы {#elements}
 
-Элемент | Описание
------ | -----
-`LifecycleConfiguration` | Корневой элемент XML-документа.<br/><br/>Может содержать до 1000 элементов `Rule`.<br/><br/>Путь: `LifecycleConfiguration`.
-`Rule` | Описание правила.<br/><br/>Объекты, попадающие под действие правила задаются элементом `Filter`. Действия над объектами определяются элементами `Transition` и `Expiration`. Действий каждого типа может быть несколько.<br/><br/>Путь: `LifecycleConfiguration\Rule`.
-`ID` | Уникальный идентификатор правила.<br/><br/>Произвольный текст длиной до 255 символов, например "Удалить через 20 дней". Необязательный параметр, который можно использовать для поиска правила в конфигурации.<br/><br/>Если идентификатор не указан, то Object Storage генерирует его автоматически.<br/><br/>Путь: `LifecycleConfiguration\Rule\ID`.
-`Status` | Статус правила.<br/><br/>Правило можно активировать, установив `<Status>Enabled</Status>`, или отключить, установив `<Status>Disabled</Status>`.<br/><br/>Путь: `LifecycleConfiguration\Rule\Status`.
-`Filter` | Фильтр объектов.<br/><br/>Содержит не более одного элемента каждого типа: `And`, `Prefix`, `ObjectSizeGreaterThan`, `ObjectSizeLessThan`, `Tag`.<br/><br/>Если установить пустой фильтр `<Filter></Filter>`, то правило применяется ко всем объектам в бакете.<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter`.
-`ObjectSizeGreaterThan` | Минимальный размер объекта в байтах.<br/><br/>Под действие правила попадают объекты, размер которых больше указанного.<br/><br/>Фильтр может содержать только один минимальный размер объекта.<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter\ObjectSizeGreaterThan`.
-`ObjectSizeLessThan` | Максимальный размер объекта в байтах.<br/><br/>Под действие правила попадают объекты, размер которых меньше указанного.<br/><br/>Фильтр может содержать только один максимальный размер объекта.<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter\ObjectSizeLessThan`.
-`Prefix` | Префикс ключа.<br/><br/>Под действие правила попадают объекты с указанным префиксом ключа.<br/><br/>Примеры префиксов для ключа `some/long/object/key`: `some`, `some/`, `some/lo`.<br/><br/>Фильтр может содержать только один префикс.<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter\Prefix`.
-`Tag` | [Метка](../../../concepts/tags.md#object-tags) объекта<br/><br/>Под действие правила попадают объекты, которым присвоена указанная метка.<br/><br/>Фильтр может содержать только одну метку объекта.<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter\Tag`.
-`And` | Логический оператор **И** (`AND`) для фильтров.<br/><br/>Может содержать любое сочетание следующих элементов: `Prefix`, `ObjectSizeGreaterThan`, `ObjectSizeLessThan`, `Tag`.<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter\And`.
-`Key` | Ключ метки объекта<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter\Tag\Key`.
-`Value` | Значение метки объекта<br/><br/>Путь: `LifecycleConfiguration\Rule\Filter\Tag\Value`.
-`Transition` | Правило для изменения [класса хранилища](../../../concepts/storage-class.md) объекта.<br/><br/>Содержит элемент `StorageClass`, который определяет целевой класс хранилища, а также элемент `Date` или `Days`, который определяет срок исполнения действия.<br/><br/>Переместить объекты можно из стандартного (`STANDARD`) в холодное (`COLD`) , ледяное (`ICE`) или умное (`INTELLIGENT_TIERING`) хранилище, а также из холодного в ледяное хранилище.<br/><br/>Для бакетов со включенным [версионированием](../../../operations/buckets/versioning.md) действие будет применяться для текущих версий объектов.<br/><br/>Путь: `LifecycleConfiguration\Rule\Transition\`.
-`StorageClass` | [Класс хранилища](../../../concepts/storage-class.md) объекта. Может быть `COLD`, `STANDARD`, `ICE` или `INTELLIGENT_TIERING`.<br/><br/>Путь: `LifecycleConfiguration\Rule\Transition\StorageClass`.
-`Expiration` | Правило для удаления объекта из Object Storage.<br/><br/>Содержит элемент `Days` или `Date`, который определяет сроки исполнения действия.<br/>Дополнительно может содержать `ExpiredObjectDeleteMarker` — маркер удаления объекта с истекшим сроком действия, который указывает, удалит ли Object Storage маркер удаления при отсутствии неактивных версий.<br/><br/>Для бакетов со включенным версионированием действие будет применяться для текущих версий объектов.<br/><br/>Путь: `LifecycleConfiguration\Rule\Expiration`.
-`Date` | Дата исполнения правила.<br/><br/>Формат — [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601), например, `YYYY-MM-DD`. Время — всегда 00:00 UTC.<br/><br/>Путь: `LifecycleConfiguration\Rule\Expiration\Date`.
-`Days` | Интервал исполнения правила.<br/><br/>Задается количеством дней после загрузки объекта.<br/><br/>Минимальное значение — 1.<br/><br/>Путь: `LifecycleConfiguration\Rule\Expiration\Days`.
-`NoncurrentVersionTransition` | Правило для изменения [класса хранилища](../../../concepts/storage-class.md) неактивных версий объекта. Это правило применяется не ко всему объекту, а только к его неактивным версиям.<br/><br/>Содержит элемент `StorageClass`, который определяет целевой класс хранилища, а также элемент `NoncurrentDays`, который определяет срок исполнения действия.<br/><br/>Переместить объекты можно из стандартного (`STANDARD`) в холодное (`COLD`) , ледяное (`ICE`) или умное (`INTELLIGENT_TIERING`) хранилище, а также из холодного в ледяное хранилище.<br/><br/>Путь: `LifecycleConfiguration\Rule\NoncurrentVersionTransition`.
-`NoncurrentVersionExpiration` | Правило для удаления неактивных версий объекта из Object Storage. Это правило применяется не ко всему объекту, а только к его неактивным версиям.<br/><br/>Содержит элемент `NoncurrentDays`, который определяет сроки исполнения действия.<br/><br/>Путь: `LifecycleConfiguration\Rule\NoncurrentVersionExpiration`.
-`AbortIncompleteMultipartUpload` | Правило для удаления загрузок, не завершенных за указанное количество дней.<br/><br/>Содержит элемент `DaysAfterInitiation`, который определяет срок исполнения правила.<br/><br/>Путь: `LifecycleConfiguration\Rule\AbortIncompleteMultipartUpload\` `DaysAfterInitiation`.
+#|
+|| Элемент | Описание ||
+|| `LifecycleConfiguration` | Корневой элемент XML-документа.
+Может содержать до 1000 элементов `Rule`.
+Путь: `LifecycleConfiguration`. ||
+|| `Rule` | Описание правила.
+Объекты, попадающие под действие правила, задаются элементом `Filter`. Действия над объектами определяются элементами `Transition` и `Expiration`. Действий каждого типа может быть несколько.
+Путь: `LifecycleConfiguration\Rule`. ||
+|| `ID` | Уникальный идентификатор правила.
+Произвольный текст длиной до 255 символов, например «Удалить через 20 дней». Необязательный параметр, который можно использовать для поиска правила в конфигурации.
+Если идентификатор не указан, то Object Storage генерирует его автоматически.
+Путь: `LifecycleConfiguration\Rule\ID`. ||
+|| `Status` | Статус правила.
+Правило можно активировать, установив `<Status>Enabled</Status>`, или отключить, установив `<Status>Disabled</Status>`.
+Путь: `LifecycleConfiguration\Rule\Status`. ||
+|| `Filter` | Фильтр объектов.
+Содержит не более одного элемента каждого типа: `And`, `Prefix`, `ObjectSizeGreaterThan`, `ObjectSizeLessThan`, `Tag`.
+Если установить пустой фильтр `<Filter></Filter>`, то правило применяется ко всем объектам в бакете.
+Путь: `LifecycleConfiguration\Rule\Filter`. ||
+|| `ObjectSizeGreaterThan` | Минимальный размер объекта в байтах.
+Под действие правила попадают объекты, размер которых больше указанного.
+Фильтр может содержать только один минимальный размер объекта.
+Путь: `LifecycleConfiguration\Rule\Filter\ObjectSizeGreaterThan`. ||
+|| `ObjectSizeLessThan` | Максимальный размер объекта в байтах.
+Под действие правила попадают объекты, размер которых меньше указанного.
+Фильтр может содержать только один максимальный размер объекта.
+Путь: `LifecycleConfiguration\Rule\Filter\ObjectSizeLessThan`. ||
+|| `Prefix` | Префикс ключа.
+Под действие правила попадают объекты с указанным префиксом ключа.
+Примеры префиксов для ключа `some/long/object/key`: `some`, `some/`, `some/lo`.
+Фильтр может содержать только один префикс.
+Путь: `LifecycleConfiguration\Rule\Filter\Prefix`. ||
+|| `Tag` | [Метка](../../../concepts/tags.md#object-tags) объекта
+Под действие правила попадают объекты, которым присвоена указанная метка.
+Фильтр может содержать только одну метку объекта.
+Путь: `LifecycleConfiguration\Rule\Filter\Tag`. ||
+|| `And` | Логический оператор **И** (`AND`) для фильтров.
+Может содержать любое сочетание следующих элементов: `Prefix`, `ObjectSizeGreaterThan`, `ObjectSizeLessThan`, `Tag`.
+Путь: `LifecycleConfiguration\Rule\Filter\And`. ||
+|| `Key` | Ключ метки объекта
+Путь: `LifecycleConfiguration\Rule\Filter\Tag\Key`. ||
+|| `Value` | Значение метки объекта
+Путь: `LifecycleConfiguration\Rule\Filter\Tag\Value`. ||
+|| `Transition` | Правило для изменения [класса хранилища](../../../concepts/storage-class.md) объекта.
+Содержит элемент `StorageClass`, который определяет целевой класс хранилища, а также элемент `Date` или `Days`, который определяет срок исполнения действия.
+Переместить объекты можно из стандартного (`STANDARD`) в холодное (`COLD`) , ледяное (`ICE`) или умное (`INTELLIGENT_TIERING`) хранилище, а также из холодного в ледяное хранилище.
+Для бакетов с включенным [версионированием](../../../operations/buckets/versioning.md) действие будет применяться к текущим версиям объектов.
+Путь: `LifecycleConfiguration\Rule\Transition\`. ||
+|| `StorageClass` | [Класс хранилища](../../../concepts/storage-class.md) объекта. Может быть `COLD`, `STANDARD`, `ICE` или `INTELLIGENT_TIERING`.
+Путь: `LifecycleConfiguration\Rule\Transition\StorageClass`. ||
+|| `Expiration` | Правило для удаления объекта из Object Storage.
+Содержит элемент `Days` или `Date`, который определяет сроки исполнения действия.<br/>Дополнительно может содержать `ExpiredObjectDeleteMarker` — маркер удаления объекта с истекшим сроком действия, который указывает, удалит ли Object Storage маркер удаления при отсутствии неактивных версий.
+Для бакетов со включенным версионированием действие будет применяться для текущих версий объектов.
+Путь: `LifecycleConfiguration\Rule\Expiration`.||
+|| `Date` | Дата исполнения правила.
+Формат — [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601), например, `YYYY-MM-DD`. Время — всегда 00:00 UTC.
+Путь: `LifecycleConfiguration\Rule\Expiration\Date`. ||
+|| `Days` | Интервал исполнения правила.
+Задается количеством дней после загрузки объекта.
+Минимальное значение — 1.
+Путь: `LifecycleConfiguration\Rule\Expiration\Days`. ||
+|| `NoncurrentVersionTransition` | Правило для изменения [класса хранилища](../../../concepts/storage-class.md) неактивных версий объекта. Это правило применяется не ко всему объекту, а только к его неактивным версиям.
+Содержит элемент `StorageClass`, который определяет целевой класс хранилища, а также элемент `NoncurrentDays`, который определяет срок исполнения действия.
+Переместить объекты можно из стандартного (`STANDARD`) в холодное (`COLD`) , ледяное (`ICE`) или умное (`INTELLIGENT_TIERING`) хранилище, а также из холодного в ледяное хранилище.
+Путь: `LifecycleConfiguration\Rule\NoncurrentVersionTransition`. ||
+|| `NoncurrentVersionExpiration` | Правило для удаления неактивных версий объекта из Object Storage. Это правило применяется не ко всему объекту, а только к его неактивным версиям.
+Содержит элемент `NoncurrentDays`, который определяет сроки исполнения действия.
+Путь: `LifecycleConfiguration\Rule\NoncurrentVersionExpiration`.
+ 
+{% note tip %}
+
+Чтобы удалять [неактивные маркеры удаления](*noncurrent-delete-markers), используйте параметр правила жизненного цикла `NoncurrentDeleteMarkers`. Параметр поддерживается только инструментами [Yandex Cloud CLI](../../../operations/buckets/lifecycles.md#cli_1), [Yandex Cloud REST](../../../api-ref/Bucket/update.md#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers) и [Yandex Cloud gRPC](../../../api-ref/grpc/Bucket/update.md#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers).
+
+{% endnote %}
+
+||
+|| `AbortIncompleteMultipartUpload` | Правило для удаления загрузок, не завершенных за указанное количество дней.
+Содержит элемент `DaysAfterInitiation`, который определяет срок исполнения правила.
+Путь: `LifecycleConfiguration\Rule\AbortIncompleteMultipartUpload\DaysAfterInitiation`. ||
+|#
+
 
 ## Пример {#example}
 
@@ -132,3 +191,7 @@ Object Storage позволяет управлять [жизненными ци�
 * [Пример отправки подписанного запроса с помощью утилиты curl](../../../api-ref/authentication.md#s3-api-example)
 
 * [Пример кода для генерации подписи](../../../concepts/pre-signed-urls.md#code-examples)
+
+[*noncurrent-delete-markers]: #### {#noncurrent-delete-markers}
+                              
+                              Неактивный маркер удаления `NoncurrentDeleteMarker` отмечает нетекущую версию объекта, которая была удалена. Такое происходит, когда поверх удаленной версии загружается новая версия объекта. Тогда объект снова становится доступным, а маркер, который отмечал удаленную версию, переходит в историю версий.
