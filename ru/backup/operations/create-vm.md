@@ -1,11 +1,11 @@
 ---
-title: Как создать виртуальную машину на Linux с подключением к {{ backup-full-name }}
-description: Следуя данной инструкции, вы сможете создать виртуальную машину на Linux с подключением к {{ backup-name }}.
+title: Как создать виртуальную машину {{ compute-full-name }} на Linux с подключением к {{ backup-full-name }}
+description: Следуя данной инструкции, вы сможете создать виртуальную машину {{ compute-full-name }} под управлением ОС Linux с подключением к {{ backup-full-name }}.
 ---
 
 # Создать виртуальную машину на Linux с подключением к {{ backup-name }}
 
-Вы можете создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) {{ compute-name }} c [поддерживаемыми операционными системами на базе Linux](../concepts/vm-connection.md#linux).
+Вы можете создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) {{ compute-full-name }} с [поддерживаемыми операционными системами на базе Linux](../concepts/vm-connection/compute.md#linux).
 
 {% include [requirements](../../_includes/backup/requirements.md) %}
 
@@ -23,7 +23,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% endnote %}
 
-1. [Настройте](../concepts/vm-connection.md#vm-network-access) сетевой доступ для ВМ.
+1. [Настройте](../concepts/vm-connection/compute.md#vm-network-access) сетевой доступ для ВМ.
 
 ## Создание ВМ {#creating-vm}
 
@@ -40,8 +40,11 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать ВМ.
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите [операционную систему, поддерживаемую в {{ backup-name }}](../concepts/vm-connection.md#linux).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите [операционную систему, поддерживаемую в {{ backup-name }}](../concepts/vm-connection/compute.md#linux).
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** и **{{ ui-key.yacloud.compute.instances.create.section_platform }}** задайте желаемые параметры ВМ.
+
+      {% include [vm-requirements](../../_includes/backup/vm-requirements.md) %}
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       1. Выберите подсеть, соответствующую выбранной зоне доступности.
@@ -64,6 +67,8 @@ description: Следуя данной инструкции, вы сможете
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   {% include [agent-installation-timespan](../../_includes/backup/agent-installation-timespan.md) %}
+
+  {% include [vm-all-set](../../_includes/backup/vm-all-set.md) %}
 
 - CLI {#cli}
 
@@ -128,7 +133,7 @@ description: Следуя данной инструкции, вы сможете
       * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
       * `subnet-name` — имя выбранной [подсети](../../vpc/concepts/network.md#subnet).
       * `security-group-ids` — идентификатор [группы безопасности](../../vpc/concepts/security-groups.md), настроенной для работы с {{ backup-name }}.
-      * `image-id` — [идентификатор образа](../../compute/concepts/image.md) операционной системы. [Список поддерживаемых ОС на базе Linux](../concepts/vm-connection.md#linux).
+      * `image-id` — [идентификатор образа](../../compute/concepts/image.md) операционной системы. [Список поддерживаемых ОС на базе Linux](../concepts/vm-connection/compute.md#linux).
       * `size` — размер загрузочного диска.
       * `--cores` — [количество vCPU](../../compute/concepts/vm.md) ВМ.
       * `--core-fraction` — гарантированная доля vCPU в %.
@@ -201,11 +206,13 @@ description: Следуя данной инструкции, вы сможете
       Agent registered with id D9CA44FC-716A-4B3B-A702-C6**********
       ```
 
+  {% include [agent-installation-timespan](../../_includes/backup/agent-installation-timespan.md) %}
+
+  {% include [vm-list](../../_includes/backup/vm-list.md) %}
+
 {% endlist %}
 
 {% include [agent-installation-failure](../../_includes/backup/agent-installation-failure.md) %}
-
-{% include [vm-list](../../_includes/backup/vm-list.md) %}
 
 #### Полезные ссылки {#see-also}
 

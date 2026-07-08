@@ -9,6 +9,6 @@ Before you start using {{ container-registry-name }}, you must install and confi
 
 {% include [configure-docker](../../_includes/container-registry/configure-docker.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./authentication.md)

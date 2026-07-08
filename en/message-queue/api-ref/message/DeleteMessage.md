@@ -30,7 +30,7 @@ HTTP code | Error ID | Description
 400 | `InvalidIdFormat` | Invalid `ReceiptHandle` format.
 400 | `ReceiptHandleIsInvalid` | The specified `ReceiptHandle` parameter is invalid.
 
-## Sample request {#request-example}
+## Request example {#request-example}
 
 ```text
 Action=DeleteMessage
@@ -39,7 +39,7 @@ Action=DeleteMessage
 &ReceiptHandle=EAEggPjXhogtKAA
 ```
 
-For more information about forming requests, see [General API request format](../index.md#api-request).
+For more on request formatting, see [General API request format](../index.md#api-request).
 
 ## Response example {#response-example}
 

@@ -76,7 +76,7 @@ To execute a workflow, send a POST request:
     curl "https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution/fd2g4pu20roc********/start" -d '{"hello": "world"}'
     ```
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../../concepts/workflows/execution.md)
 * [{#T}](get-list.md)

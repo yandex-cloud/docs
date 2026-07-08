@@ -60,7 +60,7 @@
      * `output "device_params"`: Output variable containing information about the registry the device belongs to:
        * `value`: Return value.
 
-     You can replace `registry_id` with another variable to get the information you need. For more information about the `yandex_iot_core_device` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/iot_core_device).
+     You can replace `registry_id` with another variable to get the information you need. For more on the properties of the `yandex_iot_core_device` data source, see [this provider guide]({{ tf-provider-datasources-link }}/iot_core_device).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

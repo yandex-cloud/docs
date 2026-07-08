@@ -1,6 +1,6 @@
 ---
-title: Посмотреть статус подключения ВМ
-description: Следуя данной инструкции, вы сможете узнать статус подключения сервиса {{ backup-name }} к виртуальной машине.
+title: Посмотреть статус подключения ВМ {{ compute-full-name }} к {{ backup-full-name }}
+description: Следуя данной инструкции, вы сможете узнать статус подключения сервиса {{ backup-full-name }} к виртуальной машине {{ compute-full-name }}.
 ---
 
 # Посмотреть статус подключения ВМ
@@ -80,5 +80,5 @@ description: Следуя данной инструкции, вы сможете
 
 #### Полезные ссылки {#see-also}
 
-* [Статусы подключения ВМ](../concepts/vm-connection.md#statuses)
+* [Статусы подключения ВМ](../concepts/vm-connection/compute.md#statuses)
 * [{#T}](get-journal.md)

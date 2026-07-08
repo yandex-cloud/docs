@@ -28,7 +28,7 @@ For more details on how {{ PG }} works, refer to its [official documentation](ht
 
 If application RAM consumption increases, some of the memory used for cache can be freed up.
 
-For more details on disk data caching in Linux, refer to the following [guides](https://www.linuxatemyram.com/).
+For more details on disk data caching in Linux, refer to the relevant [guides](https://www.linuxatemyram.com/).
 
 
 #### How do I get alerts on critical {{ PG }} cluster metrics? {#notifications}
@@ -36,16 +36,16 @@ For more details on disk data caching in Linux, refer to the following [guides](
 Use [{{ monitoring-full-name }}]({{ link-monitoring }}) and [set up alerts](../../managed-postgresql/operations/monitoring.md#monitoring-integration) for the metrics critical for you.
 
 
-#### How do I set up an alert that triggers when a certain percentage of disk space is used? {#disk-space-percentage}
+#### How can I configure an alert for when disk usage reaches a certain percentage? {#disk-space-percentage}
 
-[Create an alert](../../managed-postgresql/operations/monitoring.md#monitoring-integration) for the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows disk space utilization in the {{ mpg-name }} cluster.
+[Create an alert](../../managed-postgresql/operations/monitoring.md#monitoring-integration) for the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in a {{ mpg-name }} cluster.
 
-For `disk.used_bytes`, use the following recommended notification thresholds:
+For `disk.used_bytes`, use notification thresholds with the following recommended values:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of disk space
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 80% of disk space
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of disk space.
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 80% of disk space.
 
-Thresholds values must be specified in bytes. For example, the recommended values for a 100 GB disk are as follows:
+Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%)
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85899345920` bytes (80%)
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%).
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85899345920` bytes (80%).

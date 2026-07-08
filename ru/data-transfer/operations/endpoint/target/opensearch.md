@@ -31,10 +31,10 @@ description: Из статьи вы узнаете, как задать наст
 
 Настройте один из поддерживаемых источников данных:
 
-* [{{ PG }}](../source/postgresql.md);
-* [{{ DS }}](../source/data-streams.md);
-* [{{ KF }}](../source/kafka.md);
-* [{{ OS }}](../source/opensearch.md).
+* [{{ PG }}](../source/postgresql.md)
+* [{{ DS }}](../source/data-streams.md)
+* [{{ KF }}](../source/kafka.md)
+* [{{ OS }}](../source/opensearch.md)
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

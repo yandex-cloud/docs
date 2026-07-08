@@ -15,7 +15,7 @@ description: Follow this tutorial to delete a connector label.
   1. Select the [bus](../../../concepts/eventrouter/bus.md) you need.
   1. Navigate to the ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}** tab.
   1. In the line with the connector you need, click ![image](../../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, select the appropriate label and click ![image](../../../../_assets/console-icons/xmark.svg) next to its name.
+  1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, select the label and click ![image](../../../../_assets/console-icons/xmark.svg) next to its name.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -87,7 +87,7 @@ description: Follow this tutorial to delete a connector label.
       }
       ```
 
-      For more information about `yandex_serverless_eventrouter_connector` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
+      For more on the properties of the `yandex_serverless_eventrouter_connector` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
 
   1. Apply the changes:
 

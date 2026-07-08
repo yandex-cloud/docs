@@ -7,3 +7,7 @@
 При реализации сценариев (сетевых топологий) можно использовать ресурсы сервиса [{{ interconnect-name }}](../../interconnect/concepts/index.md).
 
 {% include [cross-org-networking](../../_includes/interconnect/cross-org-networking.md) %}
+
+#### Полезные ссылки {#see-also}
+
+* [Запустили {{ cr-full-name }}, обновили {{ vpc-full-name }} и {{ dns-full-name }}](https://yandex.cloud/ru/blog/yandex-cloud-router)

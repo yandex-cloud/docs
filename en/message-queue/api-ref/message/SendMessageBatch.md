@@ -46,7 +46,7 @@ HTTP code | Error ID | Description
 400 | `TooManyEntriesInBatchRequest` | Too many entries in a batch.
 400 | `UnsupportedOperation` | The operation is not supported.
 
-## Sample request {#request-example}
+## Request example {#request-example}
 
 ```text
 Action=SendMessageBatch
@@ -58,7 +58,7 @@ Action=SendMessageBatch
 &SendMessageBatchRequestEntry.2.MessageBody=WorldHello
 ```
 
-For more information about forming requests, see [General API request format](../index.md#api-request).
+For more on request formatting, see [General API request format](../index.md#api-request).
 
 ## Response example {#response-example}
 

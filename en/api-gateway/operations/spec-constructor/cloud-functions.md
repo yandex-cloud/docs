@@ -27,6 +27,6 @@ description: Follow this guide to add the {{ sf-full-name }} extension using the
 
 {% include [constructor-result](../../../_includes/api-gateway/constructor-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [x-yc-apigateway-integration:cloud_functions extension](../../concepts/extensions/cloud-functions.md)

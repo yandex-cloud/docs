@@ -127,11 +127,11 @@ To disable read-only mode:
 
     To change the disk type and expand the storage size for a cluster:
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
+        For the complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
     1. In the {{ mpg-name }} cluster description, update the `disk_type_id` and `disk_size` attributes in the `config.resources` block:
 
@@ -277,9 +277,9 @@ To disable read-only mode:
 
             You can set both thresholds, provided that the threshold for immediate scaling is higher than that for scaling during the maintenance window.
 
-            To learn more about storage scaling rules, see [this section](../concepts/storage.md#auto-rescale).
+            Learn more about the storage expansion criteria [here](../concepts/storage.md#auto-rescale).
 
-        1. In the **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** field, specify the maximum storage size that can be set during automatic scaling.
+        1. In the **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** field, specify the maximum storage size that can be set during autoscaling.
 
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -310,15 +310,15 @@ To disable read-only mode:
 
         If you have configured storage scaling during a maintenance window, [set the maintenance schedule](cluster-maintenance.md#set-maintenance-window).
 
-        To learn more about storage scaling rules, see [this section](../concepts/storage.md#auto-rescale).
+        Learn more about the storage expansion criteria [here](../concepts/storage.md#auto-rescale).
         
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
+        For the complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
     1. Add the `disk_size_autoscaling` section to the `config` block:
 
@@ -388,9 +388,9 @@ To disable read-only mode:
 
          Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled. The value of this setting must be greater than or equal to `plannedUsageThreshold`.
 
-       * `diskSizeLimit`: Maximum storage size, in bytes, to set when storage usage reaches one of the specified thresholds.
+       * `diskSizeLimit`: Maximum storage size, in bytes, that can be set if the usage percentage reaches one of the specified thresholds.
 
-        To learn more about storage scaling rules, see [this section](../concepts/storage.md#auto-rescale).
+        Learn more about the storage expansion criteria [here](../concepts/storage.md#auto-rescale).
 
      * `maintenanceWindow`: Maintenance window schedule. This setting is required only if `plannedUsageThreshold` is set. Contains the following:
 
@@ -457,7 +457,7 @@ To disable read-only mode:
 
        {% include [disk-size-autoscaling-grpc](../../_includes/mdb/mpg/disk-size-autoscaling-grpc.md) %}
 
-        To learn more about storage scaling rules, see [this section](../concepts/storage.md#auto-rescale).
+        Learn more about the storage expansion criteria [here](../concepts/storage.md#auto-rescale).
 
      * `maintenance_window`: Maintenance window schedule. This setting is required only if `planned_usage_threshold` is set. Contains the following:
 

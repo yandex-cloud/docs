@@ -94,6 +94,6 @@ description: Follow this guide to export messages to {{ yds-name }}.
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../concepts/topic/usage.md#yds-export)

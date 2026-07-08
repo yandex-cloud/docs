@@ -268,14 +268,14 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteArchive` | Удаление архива резервной копии
 `DeleteBackup` | Удаление резервной копии
 `DeletePolicy` | Удаление политики резервного копирования
-`DeleteResource` | Удаление ВМ или сервера BareMetal из сервиса Cloud Backup
+`DeleteResource` | Удаление [защищаемого ресурса](../../backup/concepts/index.md#protected-resources) из сервиса Cloud Backup
 `ExecutePolicy` | Выполнение политики резервного копирования
-`InitResource` | Инициализация подключения ВМ или сервера BareMetal к сервису Cloud Backup
-`RegisterResource` | Подключение ВМ или сервера BareMetal к сервису Cloud Backup завершено
+`InitResource` | Инициализация подключения защищаемого ресурса к сервису Cloud Backup
+`RegisterResource` | Подключение защищаемого ресурса к сервису Cloud Backup завершено
 `RevokePolicy` | Отзыв политики резервного копирования
-`StartRecoverBackup` | Запуск восстановления ВМ или сервера BareMetal из резервной копии
+`StartRecoverBackup` | Запуск восстановления защищаемого ресурса из резервной копии
 `UpdatePolicy` | Изменение политики резервного копирования
-`UpdateResource` | Обновление статуса подключения ВМ или сервера BareMetal к сервису Cloud Backup
+`UpdateResource` | Обновление статуса подключения защищаемого ресурса к сервису Cloud Backup
 
 ## Yandex Cloud Billing {#billing}
 

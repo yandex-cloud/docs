@@ -24,7 +24,7 @@ Examples of invalid handlers:
 ```java
 import java.util.function.Function;
 // Function has only one parameter type specified.
-// Handler should not have any parameter types (see handler requirements).
+// Handler should not have any parameter types (for details, see handler requirements)
 public class Handler<T> implements Function<T, Integer> {
   @Override
   public Integer apply(T i) {

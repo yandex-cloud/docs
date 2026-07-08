@@ -35,16 +35,16 @@
 
 Настройте один из поддерживаемых источников данных:
 
-* [PostgreSQL](../source/postgresql.md);
-* [MySQL®](../source/mysql.md);
-* [Greenplum®](../source/greenplum.md);
-* [Apache Kafka®](../source/kafka.md);
-* [Airbyte®](../../../transfer-matrix.md#airbyte);
-* [YDS](../source/data-streams.md);
-* [Yandex Object Storage](../source/object-storage.md);
-* [YTsaurus](../source/yt.md);
-* [Managed Service for YDB](../source/ydb.md);
-* [Oracle](../source/oracle.md).
+* [PostgreSQL](../source/postgresql.md)
+* [MySQL®](../source/mysql.md)
+* [Greenplum®](../source/greenplum.md)
+* [Apache Kafka®](../source/kafka.md)
+* [Airbyte®](../../../transfer-matrix.md#airbyte)
+* [YDS](../source/data-streams.md)
+* [Yandex Object Storage](../source/object-storage.md)
+* [YTsaurus](../source/yt.md)
+* [Managed Service for YDB](../source/ydb.md)
+* [Oracle](../source/oracle.md)
 
 Полный список поддерживаемых источников и приемников в Yandex Data Transfer читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

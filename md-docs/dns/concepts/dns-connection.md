@@ -13,3 +13,7 @@
 *Входящее DNS-подключение* — это возможность использовать облачный DNS-резолвер на уровне облачной сети или подсети.
 
 Создание входящего DNS-подключения в облачной сети дает возможность корпоративным DNS-серверам отправлять запросы для [внутренних зон Yandex Cloud](dns-zone.md#private-zones). Для этого корпоративные DNS-серверы должны быть настроены таким образом, чтобы DNS-запросы к [внутренним зонам Yandex Cloud](dns-zone.md#private-zones) отправлялись на IP-адрес созданного в VPC входящего DNS-подключения.
+
+#### Полезные ссылки {#see-also}
+
+* [Запустили Yandex Cloud Router, обновили Yandex Virtual Private Cloud и Yandex Cloud DNS](https://yandex.cloud/ru/blog/yandex-cloud-router)

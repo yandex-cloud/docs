@@ -9,7 +9,7 @@ To access the API, use any Amazon SQS compatible tools, such as AWS CLI, Boto3, 
 ## Getting started {#preparations}
 
 1. [Create a service account](../../iam/operations/sa/create.md).
-1. [Assign to the service account the roles](../../iam/operations/sa/assign-role-for-sa.md) required for your project. For more information about roles, see the [{{ iam-name }} documentation](../../iam/concepts/access-control/roles.md).
+1. [Assign to the service account the roles](../../iam/operations/sa/assign-role-for-sa.md) required for your project. For more information about roles, see [this {{ iam-name }} guide](../../iam/concepts/access-control/roles.md).
 1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
 

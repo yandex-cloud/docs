@@ -128,7 +128,7 @@ The trigger must be in the same cloud as the broker whose topic it reads message
 
 {% include [check-result](../../_includes/serverless-containers/check-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../functions/operations/trigger/iot-core-trigger-create.md)
 * [{#T}](../../api-gateway/operations/trigger/iot-core-trigger-broker-create.md)

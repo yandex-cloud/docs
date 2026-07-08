@@ -33,7 +33,7 @@ When invoking a container with a trigger, the following considerations apply:
 * The service account which will invoke the container must have the `{{ roles-serverless-containers-invoker }}` role. Other roles required for the trigger to operate correctly depend on trigger type. Read more about this in the relevant trigger description.
 * If the trigger is suspended and then restarted by the user, it will not process any events that occurred during its idle time.
 
-## Message batching {#batch-messages}
+## Message grouping {#batch-messages}
 
 You can configure the following triggers to batch messages before invoking a container:
 
@@ -45,12 +45,12 @@ You can configure the following triggers to batch messages before invoking a con
 * Trigger for {{ yds-name }}
 * Email trigger
 
-This way you can invoke a container for a whole batch of messages rather than each message separately. Specify the following in the trigger parameters:
+This way you can invoke a container for a whole batch of messages rather than each message separately. To do this, specify the following trigger settings:
 
 * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cutoff }}**: Message batching time. The number of messages cannot exceed the specified batch size.
 * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**: Number of messages for batching.
 
-For more information about message batching, see the guides for creating the relevant trigger.
+For more information about batching messages, see the guides for creating the relevant trigger.
 
 ## Container invocation retries {#invoke-retry}
 
@@ -59,11 +59,11 @@ You can configure invoking a container again if the current attempt fails. Speci
 * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_retry-interval }}**: Invocation retry interval.
 * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_retry-attempts }}**: Number of container invocation retries before the trigger moves a message to the [dead letter queue](../dlq.md).
 
-This setting is available for all trigger types except the trigger for {{ message-queue-name }}.
+This setting is available for all trigger types except the one for {{ message-queue-name }}.
 
 For more information about invocation retries, see the guide for creating the relevant trigger.
 
-## See also {#see-also_}
+## Useful links {#see-also_}
 
 * [Triggers that run a {{ sf-name }}](../../../functions/concepts/trigger/index.md) function
-* [Triggers to send messages to WebSocket connections](../../../api-gateway/concepts/trigger/index.md)
+* [Triggers for sending messages to WebSocket connections](../../../api-gateway/concepts/trigger/index.md)

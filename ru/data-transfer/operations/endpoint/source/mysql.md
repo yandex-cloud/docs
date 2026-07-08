@@ -275,16 +275,16 @@ description: Из статьи вы узнаете, как задать наст
 
 Настройте один из поддерживаемых приемников данных:
 
-* [{{ PG }}](../target/postgresql.md);
-* [{{ MY }}](../target/mysql.md);
-* [{{ CH }}](../target/clickhouse.md);
-* [{{ GP }}](../target/greenplum.md);
-* [{{ ydb-full-name }}](../target/yandex-database.md);
-* [{{ objstorage-full-name }}](../target/object-storage.md);
-* [{{ KF }}](../target/kafka.md);
-* [{{ DS }}](../target/data-streams.md);
-* [{{ ytsaurus-name }}](../source/yt.md);
-* [{{ OS }}](../target/opensearch.md).
+* [{{ PG }}](../target/postgresql.md)
+* [{{ MY }}](../target/mysql.md)
+* [{{ CH }}](../target/clickhouse.md)
+* [{{ GP }}](../target/greenplum.md)
+* [{{ ydb-full-name }}](../target/yandex-database.md)
+* [{{ objstorage-full-name }}](../target/object-storage.md)
+* [{{ KF }}](../target/kafka.md)
+* [{{ DS }}](../target/data-streams.md)
+* [{{ ytsaurus-name }}](../source/yt.md)
+* [{{ OS }}](../target/opensearch.md)
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

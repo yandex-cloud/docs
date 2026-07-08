@@ -100,7 +100,7 @@ Providing {{ lockbox-name }} secrets creates a new container revision. You canno
             * `key`: Key of a secret version’s key-value pair that will be stored in the environment variable. This is a required setting.
             * `environment_variable`: Name of the environment variable that will store the secret. This is a required setting.
         
-        For more information about `yandex_serverless_container` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
+        For more on the properties of the `yandex_serverless_container` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
  
     1. Apply the changes:
 

@@ -45,4 +45,4 @@ Configure event exchange between your services and {{ yandex-cloud }} services u
 
 ### {{ api-gw-name }} {#api-gateway}
 
-Create API gateways supporting [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) and the extension pack for engagement with {{ yandex-cloud }} services. For more information, see the [{{ api-gw-name }} documentation](../../api-gateway/).
+Create API gateways supporting [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) and the extension pack for engagement with {{ yandex-cloud }} services. For more information, see [this {{ api-gw-name }} guide](../../api-gateway/).

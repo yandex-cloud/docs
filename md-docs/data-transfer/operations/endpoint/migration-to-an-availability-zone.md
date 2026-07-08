@@ -30,12 +30,11 @@
 
 1. Перенесите хосты кластера в другую зону доступности. Подробнее — в документации сервисов:
 
-   * [Yandex Managed Service for ClickHouse®](../../../managed-clickhouse/operations/host-migration.md);
-   * [Yandex StoreDoc](../../../storedoc/operations/host-migration.md);
-   * [Yandex Managed Service for MySQL®](../../../managed-mysql/operations/host-migration.md);
-   * [Yandex Managed Service for OpenSearch](../../../managed-opensearch/operations/host-migration.md);
-   * [Yandex Managed Service for PostgreSQL](../../../managed-postgresql/operations/host-migration.md);
-   * [Yandex Managed Service for YDB](../../../ydb/operations/migration-to-an-availability-zone.md).
+   * [Yandex Managed Service for ClickHouse®](../../../managed-clickhouse/operations/host-migration.md)
+   * [Yandex StoreDoc](../../../storedoc/operations/host-migration.md)
+   * [Yandex Managed Service for MySQL®](../../../managed-mysql/operations/host-migration.md)
+   * [Yandex Managed Service for OpenSearch](../../../managed-opensearch/operations/host-migration.md)
+   * [Yandex Managed Service for PostgreSQL](../../../managed-postgresql/operations/host-migration.md)   * [Yandex Managed Service for YDB](../../../ydb/operations/migration-to-an-availability-zone.md)
 
 1. Если [тип трансфера](../../concepts/transfer-lifecycle.md#transfer-types) — **Репликация** или **Копирование и репликация**, перезапустите трансфер, чтобы он получил сведения о новой топологии кластера. Трансферы типа **Копирование** перезапускать не нужно, так как во время их активации информация о новой топологии передается автоматически.
 

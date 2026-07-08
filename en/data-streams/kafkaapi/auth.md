@@ -15,8 +15,8 @@ The endpoint has the following format: `<FQDN_YDB>:PORT`. For example, `ydb-01.s
 
 To authenticate, take these steps:
 
-1. [Create a service account](../../iam/operations/sa/create).
-1. [Assign the following roles to the service account](../../iam/operations/sa/assign-role-for-sa):
+1. [Create a service account](../../iam/operations/sa/create.md).
+1. [Assign the following roles to the service account](../../iam/operations/sa/assign-role-for-sa.md):
    * `ydb.kafkaApi.client` and `ydb.viewer`: for reading from a data stream.
    * `ydb.kafkaApi.client` and `ydb.editor`: for writing to a data stream.
 1. [Create an API key](../../iam/operations/authentication/manage-api-keys.md) with the `yc.ydb.topics.manage` scope.
@@ -32,7 +32,7 @@ The following parameters are required:
 
     For example, if the **Endpoint** field contains `{{ ydb.ep-serverless }}/?database={{ ydb.path-serverless }}`, the database path is `{{ ydb.path-serverless }}`.
 
-* `<api-key>`: [API key](../../iam/concepts/authorization/api-key).
+* `<api-key>`: [API key](../../iam/concepts/authorization/api-key.md).
 
 These parameters will be used for authentication when reading and writing messages:
 
@@ -120,4 +120,4 @@ This example uses the following parameters:
     {% endlist %}
 
 
-For details on working with {{ yds-name }} via the Kafka API and more examples, refer to the [YDB documentation]({{ ydb.docs }}/reference/kafka-api).
+For details on working with {{ yds-name }} via the Kafka API and more examples, refer to the [YDB guides]({{ ydb.docs }}/reference/kafka-api).

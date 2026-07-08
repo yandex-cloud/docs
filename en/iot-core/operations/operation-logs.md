@@ -77,6 +77,6 @@ The system logs all actions with {{ iot-name }} resources as a list of operation
 
     {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../api-design-guide/concepts/about-async.md)

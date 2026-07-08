@@ -2,7 +2,7 @@
 
 # Cloud Backup API, REST: Resource
 
-A set of methods for managing backup resources: [Compute Cloud instances](../../../concepts/vm-connection.md#os).
+A set of methods for managing backup resources: [Compute Cloud instances](../../../concepts/vm-connection/index.md#os).
 
 ## Methods
 

@@ -5,4 +5,4 @@
 * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-failed }}` — агент не онлайн или произошла ошибка регистрации агента.
 * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-not-connected }}` — сервис не подключен к ВМ.
 
-Вы можете [посмотреть](../../backup/operations/get-connection-status.md) статус подключения ВМ и [узнать](../../backup/operations/get-journal.md) подробности о резервном копировании ВМ в журнале резервирования.
+Вы можете [посмотреть](../../backup/operations/get-connection-status.md) статус подключения ВМ и [узнать](../../backup/operations/get-journal.md) подробности о резервном копировании ВМ в журнале резервного копирования.

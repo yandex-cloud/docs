@@ -84,8 +84,6 @@ A subscription is a destination for [notifications about operations with emails]
 
 ## DKIM signature {#dkim}
 
-A DKIM signature is a digital signature added to email headers to verify that the message was sent from the specified domain.
+{% include [dkim](../../_includes/postbox/dkim.md) %}
 
-{{ postbox-name }} supports Easy DKIM for simplified DKIM signature setup, where the system automatically creates and manages DKIM keys for the user's domain. The user does not need to manually generate keys or refresh them upon expiration.
-
-If you opted for Easy DKIM when [creating your address](../operations/create-address.md), you must add two CNAME records to your DNS provider to allow {{ postbox-name }} to sign emails.
+{{ postbox-name }} supports Easy DKIM and the advanced DKIM settings. For more information, see [{#T}](dns-records.md#dkim).

@@ -41,7 +41,7 @@ You can get detailed information about each {{ mrd-short-name }} cluster you cre
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -368,6 +368,6 @@ All actions with {{ mrd-name }} clusters are logged as a list of operations. Eac
 
    {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../api-design-guide/concepts/about-async.md)

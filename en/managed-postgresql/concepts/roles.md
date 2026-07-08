@@ -33,7 +33,7 @@ The `mdb_admin` role includes the following privileges:
 * Predefined role privileges:
   * `pg_monitor`
   * `pg_signal_backend`
-    For more information about predefined roles, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/predefined-roles.html).
+    Learn more about predefined roles in [this {{ PG }} guide](https://www.postgresql.org/docs/current/predefined-roles.html).
 * Subscription for logical replication (`CREATE | DROP | ALTER SUBSCRIPTION`).
 * Extensions:
   * `dblink`

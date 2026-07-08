@@ -44,7 +44,7 @@ description: Follow this guide to add sending emails with {{ postbox-full-name }
               1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_message_properties_simple_view_spec_layout_title }}** field, specify the message text to display in email clients without HTML support.
               1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_message_properties_simple_properties_charset_view_spec_layout_title }}** field, select the message encoding.
 
-          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_message_properties_raw_view_spec_layout_title }}` to set the email content as a template. For more information, see the [{{ postbox-name }} documentation](../../../../postbox/aws-compatible-api/api-ref/send-email.md).
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.postbox_properties_message_properties_raw_view_spec_layout_title }}` to set the email content as a template. For more information, see [this {{ postbox-name }} guide](../../../../postbox/aws-compatible-api/api-ref/send-email.md).
 
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}
@@ -54,7 +54,7 @@ description: Follow this guide to add sending emails with {{ postbox-full-name }
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/integration/postbox.md)
 * [{#T}](../workflow/create-constructor.md)

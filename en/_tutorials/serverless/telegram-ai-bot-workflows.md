@@ -30,10 +30,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost of Telegram bot support includes:
 
-* Text generation fee (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
+* Fee for text generation (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
 * Fee for storing the secret and requests to the secret (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
-* Fee for the amount of stored data, number of data operations, and outbound traffic (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
-* Fee for collecting and storing logs (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
+* Fee for storage space occupied by data, number of data operations, and outgoing traffic (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
+* Fee for retrieval and storage of logs (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
 
 
 ## Create a Telegram bot {#create-bot}
@@ -411,7 +411,7 @@ steps:
                 next: call_ai
                 catch:
                   - errorList:
-                      - STEP_INVALID_ARGUMENT # There is no file or it is not JSON -> initialize
+                      - STEP_INVALID_ARGUMENT # There is no file or it is not JSON -> initialize.
                     errorListMode: INCLUDE
                     output: '\({history: []})'
                     next: call_ai
@@ -706,7 +706,7 @@ History of previous conversations: not_var{{ backstory }}
 
 Also, you can:
 * Add text or files as sources of information for the agent. For more information, see [Text-based agents in {{ ai-studio-name }}]({{ link-docs-ai }}ai-studio/concepts/agents/text-agents).
-* Configure conversation context management. For more information, see [Conversation context management]({{ link-docs-ai }}ai-studio/operations/agents/manage-context).
+* Configure conversation context management. To learn more, see [Conversation context management]({{ link-docs-ai }}ai-studio/operations/agents/manage-context).
 * Use the agent's other tools, such as file search or web search.
 
 

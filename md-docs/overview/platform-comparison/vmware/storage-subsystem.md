@@ -91,7 +91,7 @@ VMware не рекомендует использовать снимки дис�
 
   * Compute Cloud — сервис Yandex Cloud Backup.
 
-[Yandex Cloud Backup](https://yandex.cloud/ru/services/backup) работает на базе агентской технологии резервного копирования. Доступно копирование и восстановление [виртуальных машин Compute Cloud](../../../compute/concepts/vm.md) с [поддерживаемыми операционными системами](../../../backup/concepts/vm-connection.md#os).
+[Yandex Cloud Backup](https://yandex.cloud/ru/services/backup) работает на базе агентской технологии резервного копирования. Доступно копирование и восстановление [виртуальных машин Compute Cloud](../../../compute/concepts/vm.md) с [поддерживаемыми операционными системами](../../../backup/concepts/vm-connection/compute.md#os).
 
 [Агент Cloud Backup](../../../backup/concepts/agent.md) может быть установлен в гостевую ОС ВМ при создании или после ее развертывания в ручном режиме.
 

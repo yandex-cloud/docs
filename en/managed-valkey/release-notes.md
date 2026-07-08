@@ -9,7 +9,7 @@ description: This section contains the {{ mrd-name }} release notes.
 
 * Added the ability to [create and restore](./operations/cluster-backups.md) clusters with encrypted local disks from a backup. The encryption uses a custom KMS key.
 * Maximum local disk size per host is increased to 36 TB. Disks of this size are available for Intel Ice Lake (`standard-v3`) configurations with 16 or more cores. To create extra large clusters, you may need to contact [support]({{ link-console-support }}) to reserve the required resources.
-* Published the updated [versioning policies](./concepts/update-policy.md) describing in detail the periods and terms of support for various DBMS versions.
+* Published the updated [versioning policies](./concepts/update-policy.md) detailing the terms and conditions of support for various DBMS versions.
 * A new [Valkey-Search](concepts/modules.md#valkey-search) version is out: 1.2.0.
 * A new [Valkey-Bloom](concepts/modules.md#valkey-bloom) version is out: 1.0.1.
 * Added support for authorization with an [IAM token](../iam/concepts/authorization/iam-token.md).
@@ -65,11 +65,11 @@ Added the `managed-redis.restorer` role for restoring clusters from backups. To 
 
 ## May 2025 {#may-2025}
 
-A new version is out: {{ VLK }} 8.1. For more information about the updates, see [this {{ VLK }} article](https://github.com/valkey-io/valkey/releases).
+A new version is out: {{ VLK }} 8.1. For more information about the updates, see [this {{ VLK }} guide](https://github.com/valkey-io/valkey/releases).
 
 ## April 2025 {#apr-2025}
 
-A new version is out: {{ VLK }} 8.0. For more information about the updates, see [this {{ VLK }} article](https://github.com/valkey-io/valkey/releases).
+A new version is out: {{ VLK }} 8.0. For more information about the updates, see [this {{ VLK }} guide](https://github.com/valkey-io/valkey/releases).
 
 ## December 2024 {#dec-2024}
 
@@ -77,7 +77,7 @@ The service migrated to [{{ VLK }}](https://valkey.io/) DBMS, an open-source for
 
 ## September 2024 {#sep-2024}
 
-* A new Redis version is out: 7.2. For more information about the updates, see [this Redis article](https://raw.githubusercontent.com/redis/redis/7.2/00-RELEASENOTES).
+* A new Redis version is out: 7.2. For information about the updates, see [this Redis guide](https://raw.githubusercontent.com/redis/redis/7.2/00-RELEASENOTES).
 * Redis 6.2 and 7.0 are no longer supported. Creating clusters of these versions is no longer available. One month after the release of Redis 7.2, existing Redis 6.2 and Redis 7.0 clusters were automatically upgraded to Redis 7.2.
 
 ## February 2024 {#feb-2024}
@@ -86,7 +86,7 @@ The service migrated to [{{ VLK }}](https://valkey.io/) DBMS, an open-source for
 
 ## Q1 2023 {#q1-2023}
 
-* A new version is out: Redis 7.0. For more information about the updates, see [this Redis article](https://raw.githubusercontent.com/redis/redis/7.0/00-RELEASENOTES).
+* A new version is out: Redis 7.0. For information about the updates, see [this Redis guide](https://raw.githubusercontent.com/redis/redis/7.0/00-RELEASENOTES).
 * Added the `rdsync` integration for improved [fault tolerance](concepts/replication.md#availability) of Redis 7.0 clusters.
 
 ## Q2 2022 {#q2-2022}

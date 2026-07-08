@@ -2,7 +2,7 @@
 
 Migration to another availability only makes sense for a {{ ydb-short-name }} [dedicated database](../concepts/serverless-and-dedicated.md). Serverless databases are not migrated between availability zones.
 
-A dedicated database is placed in multiple [availability zones](../../overview/concepts/geo-scope.md) of the central Russia `{{ region-id }}` region. You can replace one zone with another. To do this:
+A dedicated database is placed in multiple [availability zones](../../overview/concepts/geo-scope.md) of the central Russia `{{ region-id }}` region. You can replace one zone with another. Proceed as follows:
 
 1. [Create a subnet](../../vpc/operations/subnet-create.md) in the target availability zone for your database.
 1. Move the {{ ydb-short-name }} database to a new set of subnets:

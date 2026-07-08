@@ -33,12 +33,11 @@ description: Следуя данной инструкции, вы сможете
 
 1. Перенесите хосты кластера в другую зону доступности. Подробнее — в документации сервисов:
 
-   * [{{ mch-full-name }}](../../../managed-clickhouse/operations/host-migration.md);
-   * [{{ mmg-full-name }}](../../../storedoc/operations/host-migration.md);
-   * [{{ mmy-full-name }}](../../../managed-mysql/operations/host-migration.md);
-   * [{{ mos-full-name }}](../../../managed-opensearch/operations/host-migration.md);
-   * [{{ mpg-full-name }}](../../../managed-postgresql/operations/host-migration.md);
-   * [{{ ydb-full-name }}](../../../ydb/operations/migration-to-an-availability-zone.md).
+   * [{{ mch-full-name }}](../../../managed-clickhouse/operations/host-migration.md)
+   * [{{ mmg-full-name }}](../../../storedoc/operations/host-migration.md)
+   * [{{ mmy-full-name }}](../../../managed-mysql/operations/host-migration.md)
+   * [{{ mos-full-name }}](../../../managed-opensearch/operations/host-migration.md)
+   * [{{ mpg-full-name }}](../../../managed-postgresql/operations/host-migration.md)   * [{{ ydb-full-name }}](../../../ydb/operations/migration-to-an-availability-zone.md)
 
 1. Если [тип трансфера](../../concepts/transfer-lifecycle.md#transfer-types) — {{ dt-type-repl }} или {{ dt-type-copy-repl }}, перезапустите трансфер, чтобы он получил сведения о новой топологии кластера. Трансферы типа {{ dt-type-copy }} перезапускать не нужно, так как во время их активации информация о новой топологии передается автоматически.
 

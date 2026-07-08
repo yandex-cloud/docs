@@ -79,7 +79,7 @@ To create a trigger, you will need:
     yc serverless trigger create mail \
       --name <trigger_name> \
       --batch-size <message_batch_size> \
-      --batch-cutoff <maximum_wait_time> \
+      --batch-cutoff <maximum_timeout> \
       --attachements-bucket <bucket_name> \
       --attachements-service-account-id <service_account_ID> \
       --invoke-function-id <function_ID> \
@@ -137,7 +137,7 @@ To create a trigger, you will need:
 
     To create an email trigger that invokes a function:
 
-    1. In the configuration file, specify the trigger properties:
+    1. Describe the trigger in the configuration file:
 
        ```hcl
        resource "yandex_function_trigger" "my_trigger" {
@@ -174,7 +174,7 @@ To create a trigger, you will need:
 
        {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-       For more information about the `yandex_function_trigger` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
+       For more on the properties of the `yandex_function_trigger` resource, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
     1. Create the resources:
 
@@ -198,7 +198,7 @@ To create a trigger, you will need:
 
 {% include [check-result](../../../_includes/functions/check-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../../serverless-containers/operations/mail-trigger-create.md)
 * [{#T}](../../../api-gateway/operations/trigger/mail-trigger-create.md)

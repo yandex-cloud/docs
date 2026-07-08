@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost for this tutorial includes:
 * Fee for using the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
-* Fee for querying the database (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
+* Fee for running queries against the database (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
 
 ## Set up your environment {#prepare-environment}
 

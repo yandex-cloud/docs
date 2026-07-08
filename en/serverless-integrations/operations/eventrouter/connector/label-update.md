@@ -69,7 +69,7 @@ description: Follow this guide to update a connector label.
       }
       ```
 
-      For more information about the `yandex_serverless_eventrouter_connector` resource parameters, see [this {{ TF }} article]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
+      For more on the properties of the `yandex_serverless_eventrouter_connector` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
 
   1. Apply the changes:
 

@@ -2,7 +2,7 @@
 
 Method for deleting multiple messages from a queue. You can delete up to 10 messages at once.
 
-The result of changing each message's visibility timeout is reported individually in the response. Since deleting a message may either succeed or fail, make sure to check all results, even if code 200 is returned in response to the `DeleteMessageBatch` method call.
+The result of changing each message's visibility timeout is reported individually in the response. Since deleting a message may either be a success or a failure, make sure to check all results, even if code 200 is returned in response to the `DeleteMessageBatch` method call.
 
 ## Request {#request}
 
@@ -33,7 +33,7 @@ HTTP code | Error ID | Description
 400 | `InvalidBatchEntryId` | The ID of a batch entry is invalid.
 400 | `TooManyEntriesInBatchRequest` | Too many entries in a batch.
 
-## Sample request {#request-example}
+## Request example {#request-example}
 
 ```text
 Action=DeleteMessageBatch
@@ -45,7 +45,7 @@ Action=DeleteMessageBatch
 &DeleteMessageBatchRequestEntry.2.ReceiptHandle=EAEgq5v********
 ```
 
-For more information about forming requests, see [General API request format](../index.md#api-request).
+For more on request formatting, see [General API request format](../index.md#api-request).
 
 ## Response example {#response-example}
 

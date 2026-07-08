@@ -5,6 +5,10 @@
 
 ## Статьи {#articles}
 
+### 2026 год {#2026-articles}
+
+* PostgreSQL в 2026 году: архитектура, надежность и гибкость. [Статья](https://yandex.cloud/ru/blog/postgresql-overview).
+
 ### 2025 год {#2025-articles}
 
 * Прирост производительности управляемых сервисов по работе с данными Yandex Cloud. [Статья](https://yandex.cloud/ru/blog/performance-gains).

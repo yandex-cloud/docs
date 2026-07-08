@@ -151,12 +151,12 @@
 
 Настройте один из поддерживаемых приемников данных:
 
-* [PostgreSQL](../target/postgresql.md);
-* [MySQL®](../target/mysql.md);
-* [ClickHouse®](../target/clickhouse.md);
-* [Yandex Managed Service for YDB](../target/yandex-database.md);
-* [YTsaurus](yt.md);
-* [Greenplum®](../target/greenplum.md).
+* [PostgreSQL](../target/postgresql.md)
+* [MySQL®](../target/mysql.md)
+* [ClickHouse®](../target/clickhouse.md)
+* [Yandex Managed Service for YDB](../target/yandex-database.md)
+* [YTsaurus](yt.md)
+* [Greenplum®](../target/greenplum.md)
 
 Полный список поддерживаемых источников и приемников в Yandex Data Transfer читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

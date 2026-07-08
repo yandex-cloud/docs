@@ -1,8 +1,8 @@
 To create an API gateway:
 
-1. Describe `yandex_api_gateway` properties in the configuration file:
+1. Specify the `yandex_api_gateway` properties in the configuration file:
 
-   * `name`: API gateway name. Follow these naming requirements:
+   * `name`: API gateway name. The name format is as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -58,28 +58,28 @@ To create an API gateway:
    }
    ```
 
-   For more information about resource properties in {{ TF }}, see the [relevant {{ TF }} documentation]({{ tf-provider-resources-link }}/api_gateway).
+   For more on the properties of resources in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
 
 1. Make sure the configuration files are correct.
 
-   1. In the command line, go to the directory where you created the configuration file.
+   1. In the terminal, navigate to the directory where you created your configuration file.
    1. Run a check using this command:
 
       ```
       terraform plan
       ```
 
-   If the configuration is correct, the terminal will display a list of new resources with their properties. If the configuration contains any errors, {{ TF }} will point them out.
+   If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
 1. Deploy the cloud resources.
 
-   1. If the configuration does not contain any errors, run this command:
+   1. If the configuration is correct, run this command:
 
       ```
       terraform apply
       ```
 
-   1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+   1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
       This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 

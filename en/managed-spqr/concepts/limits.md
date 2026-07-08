@@ -11,8 +11,6 @@ keywords:
 
 # {{ mspqr-name }} quotas and limits
 
-{% include [preview](../../_includes/note-service-preview.md) %}
-
 
 {{ mspqr-name }} has the following limitations:
 

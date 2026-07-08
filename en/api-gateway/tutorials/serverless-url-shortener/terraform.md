@@ -12,6 +12,6 @@ To create a [URL shortener](index.md) with the help of {{ TF }}:
 
 {% include [serverless-url-shortener-terraform](../../../_tutorials/serverless/serverless-url-shortener-terraform.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](console.md)

@@ -94,6 +94,7 @@ You can add and remove cluster hosts, as well as manage their settings. To learn
 
 The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quotas allocated to database clusters in your cloud. To review current resource usage, open the [Quotas]({{ link-console-quotas }}) page and find the **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}** section.
 
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -182,7 +183,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
      For more on how to create this file, see [Creating a cluster](cluster-create.md).
   1. Add the `host` section to the {{ mmy-name }} cluster description:
@@ -396,7 +397,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
 - {{ TF }} {#tf}
 
   To change the cluster host settings:
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
      For more on how to create this file, see [Creating a cluster](cluster-create.md).
   1. In the {{ mmy-name }} cluster description, change the attributes of the `host` section referring to the host you want to update.
@@ -575,7 +576,7 @@ If you are deleting the master host, {{ mmy-name }} will automatically promote t
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
      For more on how to create this file, see [Creating a cluster](cluster-create.md).
   1. Delete the `host` section from the {{ mmy-name }} cluster description.

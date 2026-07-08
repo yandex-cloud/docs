@@ -31,7 +31,7 @@ description: Follow this guide to add an HTTP request to a specified endpoint in
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/integration/httpcall.md)
 * [{#T}](../workflow/create-constructor.md)

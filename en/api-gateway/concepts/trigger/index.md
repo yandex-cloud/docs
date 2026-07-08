@@ -47,7 +47,7 @@ You can configure the following triggers to batch messages before sending them t
 * Trigger for {{ yds-name }}
 * Email trigger
 
-This will allow sending messages as a batch rather than one by one. Specify the following in the trigger parameters:
+This will allow sending messages as a batch rather than one by one. To do this, specify the following trigger settings:
 
 * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cutoff }}**: Message batching time. The number of messages cannot exceed the specified batch size.
 * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}**: Number of messages for batching.
@@ -55,7 +55,7 @@ This will allow sending messages as a batch rather than one by one. Specify the 
 For more information about message batching, see the guides for creating the relevant trigger.
 
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Triggers to run a {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/index.md)
 * [Triggers that run a {{ sf-name }} function](../../../functions/concepts/trigger/index.md)

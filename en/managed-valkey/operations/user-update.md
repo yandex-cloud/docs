@@ -31,7 +31,7 @@ After creating a {{ VLK }} user, you can:
 
         To view the password, navigate to the cluster page, select the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-full-name }} secret containing the password.
 
-        You need the [lockbox.payloadViewer](../../lockbox/security/index.md#lockbox-payloadViewer) role to view passwords.
+        To view passwords, you need the [lockbox.payloadViewer](../../lockbox/security/index.md#lockbox-payloadViewer) role.
 
 
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
@@ -72,7 +72,7 @@ After creating a {{ VLK }} user, you can:
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Update the `passwords` argument in the `yandex_mdb_redis_user` resource description:
 
@@ -143,7 +143,7 @@ After creating a {{ VLK }} user, you can:
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -274,7 +274,7 @@ After creating a {{ VLK }} user, you can:
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Update the `enabled` argument in the `yandex_mdb_redis_user` resource description:
 
@@ -345,7 +345,7 @@ After creating a {{ VLK }} user, you can:
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -475,7 +475,7 @@ After creating a {{ VLK }} user, you can:
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Update the `sanitize_payload` argument in the `yandex_mdb_redis_user` resource description:
 
@@ -548,7 +548,7 @@ After creating a {{ VLK }} user, you can:
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -710,7 +710,7 @@ After creating a {{ VLK }} user, you can:
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Update the arguments in the `permissions` section of the `yandex_mdb_redis_user` resource description:
 
@@ -809,7 +809,7 @@ After creating a {{ VLK }} user, you can:
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

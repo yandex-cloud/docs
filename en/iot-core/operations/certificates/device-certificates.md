@@ -75,7 +75,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
   To add a certificate to a device created using {{ TF }}:
   
-  1. In the configuration file, specify the properties of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      * `yandex_iot_core_device`: Device properties:
        * `registry_id`: [ID of the registry](../registry/registry-list.md#registry-list) where the device will be created.
@@ -98,7 +98,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       }
       ```
 
-      For more information about `yandex_iot_core_device` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_device).
+      For more on the properties of the `yandex_iot_core_device` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_device).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -206,7 +206,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       }
       ```
 
-      For more information about `yandex_iot_core_device` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_device).
+      For more on the properties of the `yandex_iot_core_device` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_device).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 

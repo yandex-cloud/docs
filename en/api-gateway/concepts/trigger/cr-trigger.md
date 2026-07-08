@@ -13,9 +13,9 @@ For more information about creating a trigger for {{ container-registry-name }},
 ## Roles required for the proper operation of a trigger for {{ container-registry-name }} {#roles}
 
 * To create a trigger, you need:
-   * Permission for the service account under which the trigger executes the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles or higher.
-   * The `{{ roles-cr-puller }}` role for the registry whose events are processed by the trigger.
-* To activate a trigger, the service account needs the `api-gateway.websocketBroadcaster` role for the folder containing the API gateway.
+    * Permission for the service account under which the trigger runs the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles or higher.
+    * The `{{ roles-cr-puller }}` role for the registry whose events are processed by the trigger.
+* For the trigger to fire, the service account needs the `api-gateway.websocketBroadcaster` role for the folder containing the API gateway.
 
 Read more about [access management](../../security/index.md).
 
@@ -25,7 +25,7 @@ After the trigger fires, it will send the following message to WebSocket connect
 
 {% include [cr-format](../../../_includes/functions/cr-format.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Trigger for {{ container-registry-name }} that runs a {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/cr-trigger.md)
 * [Trigger for {{ container-registry-name }} that runs a {{ sf-name }} function](../../../functions/concepts/trigger/cr-trigger.md)

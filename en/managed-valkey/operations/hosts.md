@@ -41,7 +41,7 @@ You can add and remove cluster hosts, as well as manage their settings. To learn
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -186,9 +186,9 @@ You can configure public access to hosts only for clusters created with TLS enab
 - {{ TF }} {#tf}
 
   To create a host:
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     For information on how to create this file, see [Creating a cluster](cluster-create.md).
   1. Add a new host to the `hosts` section in the {{ mrd-name }} cluster description:
 
      
@@ -301,9 +301,9 @@ If you cannot [connect](connect/index.md) to the host you added, check that the 
 - {{ TF }} {#tf}
 
   To change the cluster host settings:
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     For information on how to create this file, see [Creating a cluster](cluster-create.md).
   1. In the {{ mrd-name }} cluster description, change the settings of the relevant host in the `hosts` section:
 
      
@@ -484,9 +484,9 @@ You cannot delete a host if the number of hosts in the cluster or shard is equal
 - {{ TF }} {#tf}
 
   To delete a host from a cluster:
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     For information on how to create this file, see [Creating a cluster](cluster-create.md).
   1. In the {{ mrd-name }} cluster description, delete the relevant host from the `hosts` section.
   1. Make sure the settings are correct.
 

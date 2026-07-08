@@ -21,7 +21,7 @@ After the trigger is activated, it sends the following message to the function:
 
 * [{#T}](../../tutorials/serverless-trigger-budget-vm.md)
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../../serverless-containers/concepts/trigger/budget-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/budget-trigger.md)

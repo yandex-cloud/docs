@@ -1335,6 +1335,7 @@
             "useHivePartitioning": "boolean",
             "showDataLakeCatalogsInSystemTables": "boolean",
             "compatibility": "string",
+            "materializeTtlAfterModify": "boolean",
             "compile": "boolean",
             "minCountToCompile": "string",
             "asyncInsertThreads": "string",
@@ -2521,6 +2522,7 @@ The maximum string length in characters is 63. ||
 || useHivePartitioning | **boolean** ||
 || showDataLakeCatalogsInSystemTables | **boolean** ||
 || compatibility | **string** ||
+|| materializeTtlAfterModify | **boolean** ||
 || compile | **boolean** ||
 || minCountToCompile | **string** (int64) ||
 || asyncInsertThreads | **string** (int64) ||

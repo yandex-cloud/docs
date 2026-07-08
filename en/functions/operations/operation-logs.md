@@ -49,7 +49,7 @@ The system logs all actions with {{ sf-name }} resources as a list of operations
   +----------------------+---------------------+----------------------+---------------------+--------+-----------------+
   ```
 
-  By default, information about operations is output as text. To get more details, specify the `yaml` or `json` output data format using `--format`:
+  By default, information about operations is output as text. To get more details, use `--format` to specify the `yaml` or `json` output format:
 
   ```bash
   yc serverless function list-operations <resource_name_or_ID> --format yaml
@@ -129,6 +129,6 @@ The system logs all actions with {{ sf-name }} resources as a list of operations
 
     {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../api-design-guide/concepts/about-async.md)

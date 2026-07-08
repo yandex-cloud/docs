@@ -41,7 +41,7 @@
 - Консоль управления
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в ваш рабочий каталог ресурсов.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+  1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
   1. На панели слева выберите сервис ![image](../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
   1. Выберите нужный каталог метаданных.
   1. Чтобы просмотреть доступные в каталоге метаданные, перейдите на вкладку ![image](../../_assets/console-icons/database-magnifier.svg) **Поиск по метаданным**.

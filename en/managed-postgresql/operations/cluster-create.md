@@ -25,7 +25,7 @@ By default, {{ mpg-name }} sets the maximum possible number of connections for e
 ## Creating a cluster {#create-cluster}
 
 
-To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mpg.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} guides](../../iam/operations/roles/grant.md).
+To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mpg.editor }} role or higher](../security/index.md#roles-list). For information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
 
 
 {% include [Connection Manager](../../_includes/mdb/connman-cluster-create.md) %}
@@ -59,7 +59,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        {% include [local-ssd-steal](../../_includes/mdb/mpg/note-local-ssd-disk.md) %}
 
-     * Select the storage capacity for your data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
+     * Select the storage capacity for your data and backups. For details on how backups consume storage space, see [Backups](../concepts/backup.md).
 
      
      * Optionally, select **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** to encrypt the disk with a [custom KMS key](../../kms/concepts/key.md).
@@ -68,7 +68,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        * To use a previously created key, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
 
-       To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+       Learn more about disk encryption in [Storage](../concepts/storage.md#disk-encryption).
 
 
   1. Optionally, under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, specify the following settings:
@@ -80,9 +80,9 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
           You can set both thresholds, provided that the threshold for immediate scaling is higher than that for scaling during the maintenance window. 
           
-          For more information on storage scaling rules, see [this section](../concepts/storage.md#auto-rescale).
+          Learn more about the storage expansion criteria [here](../concepts/storage.md#auto-rescale).
 
-      * In the **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** field, specify the maximum storage size that can be set during automatic scaling.
+      * In the **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** field, specify the maximum storage size that can be set during autoscaling.
 
       {% include [storage-resize-steps](../../_includes/mdb/mpg/storage-resize-steps.md) %}
 
@@ -152,16 +152,30 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      To enable internet access to the hosts, check **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
 
-    
+  
+  1. Optionally, under **DB Proxy**, enable the [{{ mdb-lb }} load balancer](../concepts/load-balancer.md) using the **DB Proxy load balancing** option for {{ mpg-name }} to automatically distribute load across your database hosts depending on their roles and availability. When the load balancer is enabled, all cluster hosts automatically get subject to load balancing.
+
+     Under **Port settings**, specify replica-level load balancing settings:
+
+     {% include [lb-settings](../../_includes/mdb/load-balancer-settings.md) %}
+
+     {% note warning %}
+
+     You can only enable {{ mdb-lb }} when creating a cluster.
+
+     {% endnote %}
+
+
+  
   1. {% include [diagnostics-settings-console](../../_includes/mdb/mpg/diagnostics-settings-console.md) %}
 
 
-  1. Specify additional cluster settings, if required:
+  1. If needed, configure the advanced cluster settings:
 
      {% include [Additional cluster settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}
 
   1. If needed, configure [cluster-level DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
-  
+
      {% note info %}
 
      Some {{ PG }} settings [depend on the selected host class or storage size](../concepts/settings-list.md#settings-instance-dependent).
@@ -185,7 +199,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      yc vpc subnet list
      ```
 
-     If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
+     If there are no subnets in the folder, [create appropriate ones](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
 
 
   1. View the description of the CLI command for creating a cluster:
@@ -277,11 +291,11 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      To set up a [maintenance window](../concepts/maintenance.md) (including for disabled clusters), provide `--maintenance-window type=<maintenance_window_type>`, where `type` takes the following values:
 
      {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
-     
-     
-     To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), provide `--disk-encryption-key-id <KMS_key_ID>`. To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
-     To allow access to the cluster from [{{ sf-full-name }}](../../functions/), provide the `--serverless-access` parameter. For more information about setting up access, see [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
+     
+     To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), provide `--disk-encryption-key-id <KMS_key_ID>`. Learn more about disk encryption in [Storage](../concepts/storage.md#disk-encryption).
+
+     To allow access to the cluster from [{{ sf-full-name }}](../../functions/), provide `--serverless-access`. Learn more about access setup in [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
 
      To allow access to the cluster from [{{ yq-full-name }}](../../query/index.yaml), provide `--yandexquery-access=true`. This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage and can be enabled upon request.
 
@@ -373,7 +387,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      * `deletion_protection`: Protection of the cluster, its databases, and users against deletion, `true` or `false`.
 
-       By default, when users and databases are created, this setting’s value is inherited from the cluster. You can also specify this setting manually. See [User management](cluster-users.md) and [Database management](databases.md) for details.
+       By default, when users and databases are created, this setting’s value is inherited from the cluster. You can also specify this setting manually by following the guides in [User management](cluster-users.md) and [Database management](databases.md).
 
        If the setting is changed on a running cluster, the new value will only be inherited by users and databases with the **Same as cluster** protection level.
 
@@ -402,11 +416,11 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      {% include [disk-size-autoscaling](../../_includes/mdb/mpg/terraform/disk-size-autoscaling.md) %}
 
      {% note warning %}
-     
+
      * When using `planned_usage_threshold`, make sure to set up a maintenance window in the `maintenance_window` section.
-     
+
      * If you specify both thresholds, `emergency_usage_threshold` must not be less than `planned_usage_threshold`.
-     
+
      {% endnote %}
 
      {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
@@ -422,12 +436,12 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        }
        ```
 
-       To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+       Learn more about disk encryption in [Storage](../concepts/storage.md#disk-encryption).
 
 
      {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
 
-     For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
+     For the complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
   1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -576,7 +590,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          * `enabled`: Enables statistics collection, `true` or `false`.
          * `sessionsSamplingInterval`: Session sampling interval. The values range from `1` to `86400` seconds.
          * `statementsSamplingInterval`: Statement sampling interval. The values range from `60` to `86400` seconds.
-       
+
        {% include [disk-size-autoscaling-rest](../../_includes/mdb/mpg/disk-size-autoscaling-rest.md) %}
 
      * `databaseSpecs`: Database settings as an array of elements, one per database. Each element has the following structure:
@@ -606,7 +620,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
        * `assignPublicIp`: Permission to [connect](connect/index.md) to the host from the internet, `true` or `false`.
 
-     
+
      * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two parameters:
 
        * `anytime`: Maintenance takes place at any time.
@@ -632,7 +646,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

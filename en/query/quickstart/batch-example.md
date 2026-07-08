@@ -6,7 +6,7 @@ The output will be a histogram showing the frequency distribution of ride durati
 
 To run this example:
 
-1. [Make the necessary preparations](#before-you-begin).
+1. [Get ready to work](#before-you-begin).
 1. [Connect to the data source](#create-binding).
 1. [Run the query](#run-query).
 1. [Check the result](#check-result).
@@ -17,7 +17,7 @@ To run this example:
 
 {% endnote %}
 
-## Make the necessary preparations {#before-you-begin}
+## Get ready to work {#before-you-begin}
 
 1. Log in to the [management console]({{ link-console-main }}) or sign up if you have not already. If you have not signed up yet, navigate to the management console and follow the instructions.
 1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have an `ACTIVE` or `TRIAL_ACTIVE` [billing account](../../billing/concepts/billing-account.md). If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
@@ -102,7 +102,7 @@ Kind: AdaptiveWard Bins: 100 WeightsSum: 140151844.000 Min: -531231.000 Max: 436
 ░░░░░░░░░░░░░░░░░░░░░░░░░ P:     115.984 F:   22039.000
 ```
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Named expressions in YQL]({{ ydb.docs }}yql/reference/syntax/expressions#named-nodes)
 * [HISTOGRAM. Built-in YQL functions]({{ ydb.docs }}yql/reference/builtins/aggregation#histogram)

@@ -16,7 +16,6 @@ description: Следуя данной инструкции, вы сможете
 
 1. [Подготовьте инфраструктуру](#deploy-infrastructure).
 1. [Создайте ВМ](#vm-create).
-1. [Привяжите ВМ к политике резервного копирования](#add-policy).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -38,7 +37,7 @@ description: Следуя данной инструкции, вы сможете
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из [образов](../../compute/concepts/image.md) с [поддерживаемой операционной системой](../concepts/vm-connection.md#os), например [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из [образов](../../compute/concepts/image.md) с [поддерживаемой операционной системой](../concepts/vm-connection/compute.md#os), например [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
   1. В блоках **{{ ui-key.yacloud.compute.instances.create.section_storages }}** и **{{ ui-key.yacloud.compute.instances.create.section_platform }}** задайте желаемые параметры ВМ.
 
@@ -70,14 +69,9 @@ description: Следуя данной инструкции, вы сможете
 
 Подробнее о создании ВМ в разделе [{#T}](../../compute/operations/index.md#vm-create).
 
-## Привяжите ВМ к политике резервного копирования {#add-policy}
-
 {% include [agent-installation-timespan](../../_includes/backup/agent-installation-timespan.md) %}
 
-{% include [quickstart-attach-to-policy-after-agent-setup](../../_includes/backup/quickstart-attach-to-policy-after-agent-setup.md) %}
-
-1. {% include [quickstart-check-vm-agent-status](../../_includes/backup/quickstart-check-vm-agent-status.md) %}
-1. {% include [quickstart-attach-vm-to-policy](../../_includes/backup/quickstart-attach-vm-to-policy.md) %}
+{% include [vm-all-set](../../_includes/backup/vm-all-set.md) %}
 
 ## Как удалить созданные ресурсы {#clear-out}
 

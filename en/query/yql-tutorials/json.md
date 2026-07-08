@@ -47,7 +47,7 @@ To insert the first value, we use a `raw string` and escaping via `\"`. To inser
 
 We recommend using a `raw string` and escaping via `\"`, as it is more readable.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [SELECT]({{ ydb.docs }}/yql/reference/syntax/select) operator
 * [JSON_EXISTS]({{ ydb.docs }}/yql/reference/builtins/json#json_exists) function

@@ -32,7 +32,7 @@ description: Follow this guide to add interaction with {{ ai-studio-name }} agen
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/integration/aistudioagent.md)
 * [{#T}](../workflow/create-constructor.md)

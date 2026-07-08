@@ -28,12 +28,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support costs include:
+The infrastructure support cost includes:
 
-* Fee for the number of function calls, computing resources allocated for the functions, and outbound traffic (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
+* Fee for the number of function calls, computing resources allocated for the function, and outgoing traffic (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 * Fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
 * Fee for storing data in a bucket (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
-* Fee for the number of requests to the API gateway and outbound traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
+* Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
 * Fee for logging operations and data storage in a log group (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
 
 
@@ -427,7 +427,7 @@ To upload the current specification to {{ api-gw-name }}, run this command:
   1. Fill in the required fields under **Publication in folder**. Configure the other settings as needed. For example, you can specify various word forms to trigger the skill, select a voice, or set access type.
   1. Click **Save** at the bottom of the page.
 
-  For more information, see [this Yandex Dialogs guide](https://yandex.ru/dev/dialogs/alice/doc/publish.html).
+  Learn more in [this Yandex Dialogs guide](https://yandex.ru/dev/dialogs/alice/doc/publish.html).
 
 {% endlist %}
 
@@ -472,7 +472,7 @@ To upload the current specification to {{ api-gw-name }}, run this command:
   1. Click **Save**.
   1. To complete creating the dialog, click **Submit for moderation** on the right side of the page.
 
-  To learn more about intents, see [Alice's skills](https://yandex.ru/dev/dialogs/alice/doc/nlu-docpage/).
+  To learn more about intents, see [this guide on Alice's skills](https://yandex.ru/dev/dialogs/alice/doc/nlu-docpage/).
 
 {% endlist %}
 

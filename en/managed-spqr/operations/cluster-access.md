@@ -78,7 +78,7 @@ To manage user view permissions for cluster lists, we recommend using different 
 
   1. Open the current configuration file with the {{ mspqr-name }} cluster description.
 
-      For more on how to create this file, see [{#T}](cluster-create.md).
+      For information on how to create this file, see [{#T}](cluster-create.md).
 
   1. Add a resource description:
 
@@ -96,7 +96,7 @@ To manage user view permissions for cluster lists, we recommend using different 
       Where:
 
       * `cluster_id`: Cluster ID.
-      * `role`: [Role](../security.md#roles-list) being assigned, e.g., `managed-spqr.editor`.
+      * `role`: [Role](../security.md#roles-list), e.g., `managed-spqr.editor`.
       * `members`: List of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to in `<subject_type>:<subject_ID>` format.
 
           Here is an example:
@@ -151,7 +151,7 @@ To manage user view permissions for cluster lists, we recommend using different 
       
       Where:
 
-      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-spqr.editor`.
+      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list), e.g., `managed-spqr.editor`.
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
@@ -199,7 +199,7 @@ To manage user view permissions for cluster lists, we recommend using different 
       Where:
 
       * `resource_id`: Cluster ID.
-      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-spqr.editor`.
+      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list), e.g., `managed-spqr.editor`.
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
@@ -217,9 +217,9 @@ To manage user view permissions for cluster lists, we recommend using different 
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Add resource descriptions:
 
@@ -246,7 +246,7 @@ To manage user view permissions for cluster lists, we recommend using different 
       Where:
 
       * `cluster_id`: Cluster ID.
-      * `role`: [Role](../security.md#roles-list) being assigned, e.g., `managed-spqr.editor`.
+      * `role`: [Role](../security.md#roles-list), e.g., `managed-spqr.editor`.
       * `members`: List of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to in `<subject_type>:<subject_ID>` format.
 
           Here is an example:
@@ -319,7 +319,7 @@ To manage user view permissions for cluster lists, we recommend using different 
       
       Where:
 
-      * `accessBindings.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-spqr.editor`.
+      * `accessBindings.roleId`: [Role](../security.md#roles-list), e.g., `managed-spqr.editor`.
       * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
@@ -386,7 +386,7 @@ To manage user view permissions for cluster lists, we recommend using different 
       Where:
 
       * `resource_id`: Cluster ID.
-      * `accessBindings.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-spqr.editor`.
+      * `accessBindings.roleId`: [Role](../security.md#roles-list), e.g., `managed-spqr.editor`.
       * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
@@ -404,9 +404,9 @@ To manage user view permissions for cluster lists, we recommend using different 
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Find the description of the resource with the role you want to revoke and delete this description:
 
@@ -463,7 +463,7 @@ To manage user view permissions for cluster lists, we recommend using different 
       
       Where:
 
-      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-spqr.editor`.
+      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list), e.g., `managed-spqr.editor`.
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
@@ -511,7 +511,7 @@ To manage user view permissions for cluster lists, we recommend using different 
       Where:
 
       * `resource_id`: Cluster ID.
-      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-spqr.editor`.
+      * `access_binding_deltas.roleId`: [Role](../security.md#roles-list), e.g., `managed-spqr.editor`.
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
@@ -532,9 +532,9 @@ For a service account to be able to view the info of all {{ mspqr-name }} cluste
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Add a resource description:
 

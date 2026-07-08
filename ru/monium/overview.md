@@ -139,3 +139,4 @@ description: '{{ monium-name }} — платформа для наблюдени
 #### Полезные ссылки {#see-also}
 
 [{{ monium-full-name }}: платформа для мониторинга и управления состоянием IT-систем](https://yandex.cloud/ru/blog/yandex-monium)
+[{{ monium-full-name }}: от сбоя к решению за минуты](https://yandex.cloud/ru/blog/monium-observability-incident-resolution)

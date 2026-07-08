@@ -180,13 +180,13 @@
 
 Настройте эндпоинт-приемник:
 
-* [OpenSearch](../target/opensearch.md);
-* [ClickHouse®](../target/clickhouse.md);
-* [Greenplum®](../target/greenplum.md);
-* [Yandex Managed Service for YDB](../target/yandex-database.md);
-* [Yandex Object Storage](../target/object-storage.md);
-* [Apache Kafka®](../target/kafka.md);
-* [YDS](../target/data-streams.md);
+* [OpenSearch](../target/opensearch.md)
+* [ClickHouse®](../target/clickhouse.md)
+* [Greenplum®](../target/greenplum.md)
+* [Yandex Managed Service for YDB](../target/yandex-database.md)
+* [Yandex Object Storage](../target/object-storage.md)
+* [Apache Kafka®](../target/kafka.md)
+* [YDS](../target/data-streams.md)
 
 Полный список поддерживаемых источников и приемников в Yandex Data Transfer читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

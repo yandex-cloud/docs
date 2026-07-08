@@ -23,7 +23,7 @@ Once the trigger fires, it will send the following message to the function:
 
 {% include [cr-format](cr-format.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../serverless-containers/concepts/trigger/cr-trigger.md)
 * [{#T}](../../api-gateway/concepts/trigger/cr-trigger.md)

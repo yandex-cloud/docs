@@ -1,10 +1,10 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Backup](../index.md) > [Пошаговые инструкции](index.md) > ВМ в Cloud Backup > Переподключить ВМ на Linux с OS Login к Cloud Backup
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Backup](../index.md) > [Пошаговые инструкции](index.md) > Compute Cloud в Cloud Backup > Переподключить ВМ на Linux с OS Login к Cloud Backup
 
 # Переподключить виртуальную машину на Linux с OS Login к Cloud Backup
 
 {% note info %}
 
-Если вы [удалили](delete-vm.md) ВМ из Cloud Backup и хотите подключить ее к сервису заново, воспользуйтесь инструкциями:
+Если вы [удалили](delete-vm.md) ВМ Yandex Compute Cloud из Cloud Backup и хотите подключить ее к сервису заново, воспользуйтесь инструкциями:
 
 * [Подключить виртуальную машину на Linux](connect-vm-linux.md)
 * [Подключить виртуальную машину на Linux с OS Login](connect-vm-oslogin-linux.md)

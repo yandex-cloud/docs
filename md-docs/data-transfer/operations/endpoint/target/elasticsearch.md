@@ -16,11 +16,11 @@
 
 Настройте один из поддерживаемых источников данных:
 
-* [Apache Kafka®](../source/kafka.md);
-* [YDS](../source/data-streams.md);
-* [PostgreSQL](../source/postgresql.md).
-* [Elasticsearch](../source/elasticsearch.md);
-* [OpenSearch](../source/opensearch.md).
+* [Apache Kafka®](../source/kafka.md)
+* [YDS](../source/data-streams.md)
+* [PostgreSQL](../source/postgresql.md)
+* [Elasticsearch](../source/elasticsearch.md)
+* [OpenSearch](../source/opensearch.md)
 
 Полный список поддерживаемых источников и приемников в Yandex Data Transfer читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

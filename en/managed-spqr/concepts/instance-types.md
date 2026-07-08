@@ -26,7 +26,7 @@ The storage size does not depend on the host class.
 
 {% note info %}
 
-AMD Zen 3 is available to a limited number of users for private testing at the [Preview](../../overview/concepts/launch-stages.md) stage and is not free of charge. To request access to the platform, contact your account manager.
+AMD Zen 4 is available to a limited number of users for private testing. To request access to the platform, contact your account manager.
 
 Intel Broadwell is not available for clusters with hosts residing in the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
 

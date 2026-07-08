@@ -26,6 +26,6 @@ description: Follow this guide to add the Static Response extension using the sp
 
 {% include [constructor-result](../../../_includes/api-gateway/constructor-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [x-yc-apigateway-integration:dummy extension](../../concepts/extensions/dummy.md)

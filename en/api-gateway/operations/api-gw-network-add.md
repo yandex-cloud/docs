@@ -26,6 +26,6 @@ You can specify a [cloud network](../../vpc/concepts/network.md#network) to host
 
 {% endlist %}
 
-## See also
+## Useful links {#see-also}
 
 * [Networking in {{ api-gw-name }}](../concepts/networking.md)

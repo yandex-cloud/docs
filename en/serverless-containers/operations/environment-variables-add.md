@@ -71,7 +71,7 @@ Adding environment variables creates a new container revision. You cannot add en
 
      Where `environment` lists environment variables in `key="value"` format. You can specify more than one pair.
 
-	 For more information about the `yandex_serverless_container` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
+	 For more on the properties of the `yandex_serverless_container` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Validate your configuration using this command:
      ```
@@ -110,6 +110,6 @@ Adding environment variables creates a new container revision. You cannot add en
 
 {% endlist %}
 
-## See also
+## Useful links {#see-also}
 
 * [Environment variables](../concepts/runtime.md#environment-variables)

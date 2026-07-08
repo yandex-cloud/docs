@@ -18,7 +18,7 @@ Parameter | Type | Required parameter | Description
 ----- | ----- | ----- | -----
 `QueueUrl` | **string** | Yes | URL of the queue where the message is placed.
 `ReceiptHandle` | **string** | Yes | `ReceiptHandle` parameter from the `ReceiveMessage` request.
-`VisibilityTimeout` | **integer** | Yes | New value of a [visibility timeout](../../concepts/visibility-timeout.md) for the queue, specified in seconds. Valid values: from 0 to 43200 seconds. The default value is: 30.
+`VisibilityTimeout` | **integer** | Yes | New value of a [visibility timeout](../../concepts/visibility-timeout.md) for the queue, specified in seconds. Valid values: from 0 to 43200 seconds. The default value is 30.
 
 ## Response {#response}
 
@@ -35,7 +35,7 @@ HTTP code | Error ID | Description
 400 | `MessageNotInflight` | The message is not being processed.
 400 | `ReceiptHandleIsInvalid` | The specified `ReceiptHandle` is invalid.
 
-## Sample request {#request-example}
+## Request example {#request-example}
 
 ```text
 Action=ChangeMessageVisibility
@@ -45,7 +45,7 @@ Action=ChangeMessageVisibility
 &VisibilityTimeout=35
 ```
 
-For more information about forming requests, see [General API request format](../index.md#api-request).
+For more on request formatting, see [General API request format](../index.md#api-request).
 
 ## Response example {#response-example}
 

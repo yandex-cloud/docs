@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost of resources for running a Docker image includes:
 
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for storing created images (see [{{ cloud-registry-full-name }} pricing](../../cloud-registry/pricing.md)).
+* Fee for storing the created images (see [{{ cloud-registry-full-name }} pricing](../../cloud-registry/pricing.md)).
 * Fee for outbound traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 
@@ -294,7 +294,7 @@ Create a VM with a public IP address and associate it with the service account y
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, leave the **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** value to assign a random external IP address from the {{ yandex-cloud }} pool.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the VM access credentials:
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `docker-vm`.
@@ -542,7 +542,7 @@ Delete the resources you no longer need to avoid [paying](#paid-resources) for t
 1. Delete the [registry](../../cloud-registry/concepts/registry.md).
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Working with {{ cloud-registry-name }}](../../cloud-registry/operations/index.md)
 * [Creating a VM from a {{ coi }}](../../cos/tutorials/vm-create.md)

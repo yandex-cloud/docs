@@ -460,8 +460,8 @@ Yandex Data Transfer не может переносить базы данных 
 
 Настройте эндпоинт-приемник:
 
-* [YTsaurus](yt.md);
-* [ClickHouse®](../target/clickhouse.md).
+* [YTsaurus](yt.md)
+* [ClickHouse®](../target/clickhouse.md)
 
 Полный список поддерживаемых источников и приемников в Yandex Data Transfer читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

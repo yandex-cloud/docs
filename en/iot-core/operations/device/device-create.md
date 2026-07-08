@@ -173,7 +173,7 @@ description: Follow this guide to create a device.
          * `registry_id`: ID of the registry where the device will be created.
          * `name`: Device name.
          * `description`: Device description.
-         * `aliases`: Topic aliases. For more detail, please see [Creating an alias](../device/alias/alias-create.md).
+         * `aliases`: Topic aliases. Read more in [Creating an alias](../device/alias/alias-create.md).
          * `passwords`: List of passwords for authentication with a [username and password](../../concepts/authorization.md#log-pass).
          * `certificates`: List of certificates for authentication with [certificates](../../concepts/authorization.md#certs).
 
@@ -206,7 +206,7 @@ description: Follow this guide to create a device.
       }
       ```
       
-      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
+      For more information about resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
       
    1. Make sure the configuration files are correct.
       

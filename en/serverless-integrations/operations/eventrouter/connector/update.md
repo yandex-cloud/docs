@@ -93,7 +93,7 @@ You can update a [connector](../../../concepts/eventrouter/connector.md) name, d
       }
       ```
 
-      For more information about `yandex_serverless_eventrouter_connector` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
+      For more on the properties of the `yandex_serverless_eventrouter_connector` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
 
   1. Apply the changes:
 

@@ -378,7 +378,11 @@ description: С помощью этого руководства вы может
 
 ## Восстановите сервер из резервной копии {#server-recovery}
 
+{% note info %}
+
 {% include [vm-and-bms-backup-incompatibility](../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
+
+{% endnote %}
 
 Если вам нужно восстановить резервную копию с одного сервера на другой, или если на исходном сервере была переустановлена операционная система, заново [установите](#agent-install) агент {{ backup-name }} на этом сервере.
 

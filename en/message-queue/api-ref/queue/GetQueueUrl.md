@@ -27,7 +27,7 @@ HTTP code | Error ID | Description
 ----- | ----- | -----
 400 | `NonExistentQueue` | The queue with the specified name doesn't exist.
 
-## Sample request {#request-example}
+## Request example {#request-example}
 
 ```
 Action=GetQueueUrl
@@ -35,7 +35,7 @@ Action=GetQueueUrl
 &QueueName=sample-queue
 ```
 
-For more information about forming requests, see [General API request format](../index.md#api-request).
+For more on request formatting, see [General API request format](../index.md#api-request).
 
 ## Response example {#response-example}
 

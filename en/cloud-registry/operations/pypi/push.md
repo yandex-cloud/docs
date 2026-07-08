@@ -138,7 +138,7 @@ To push a Python package to a registry, you need the `cloud-registry.artifacts.p
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](create.md)
 * [{#T}](pull.md)

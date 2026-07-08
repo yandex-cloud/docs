@@ -3,13 +3,13 @@ title: URL shortener
 description: In this tutorial, you will deploy a URL shortening service using {{ api-gw-full-name }} and {{ sf-full-name }} with the help of {{ TF }}.
 ---
 
-# URL shortener with the help of {{ TF }}
+# Creating a URL shortener with {{ TF }}
 
 
 To create a [URL shortener](index.md) with the help of {{ TF }}:
 
 {% include [serverless-url-shortener-terraform](../../../_tutorials/serverless/serverless-url-shortener-terraform.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](console.md)

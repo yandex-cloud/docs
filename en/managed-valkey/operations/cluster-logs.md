@@ -210,7 +210,7 @@ This method allows you to stream cluster logs in real time.
 
         * `filter`: Log filter, e.g., `message.hostname='node1.{{ dns-zone }}'`.
 
-            For more information about filters and their syntax, see the [API reference](../api-ref/Cluster/streamLogs.md#query_params).
+            For more on filters and their syntax, see the [API reference](../api-ref/Cluster/streamLogs.md#query_params).
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -268,7 +268,7 @@ This method allows you to stream cluster logs in real time.
 
         * `filter`: Log filter, e.g., `message.hostname='node1.{{ dns-zone }}'`.
 
-            For more information about filters and their syntax, see the [API reference](../api-ref/grpc/Cluster/streamLogs.md).
+            For more on filters and their syntax, see the [API reference](../api-ref/grpc/Cluster/streamLogs.md).
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 

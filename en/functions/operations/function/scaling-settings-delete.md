@@ -40,7 +40,7 @@ description: Follow this guide to delete function scaling settings.
 
     To delete scaling settings:
 
-    1. In the configuration file, specify the properties of the resources you want to create:
+    1. In the configuration file, describe the resources you want to create:
 
        * `yandex_function_scaling_policy`: Description of function scaling settings.
          * `function_id`: Function ID.
@@ -62,7 +62,7 @@ description: Follow this guide to delete function scaling settings.
         }
         ```
       
-        For more information about `yandex_function_scaling_policy` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_scaling_policy).
+        For more on the properties of the `yandex_function_scaling_policy` resource, see [this provider guide]({{ tf-provider-resources-link }}/function_scaling_policy).
       
     1. Validate your configuration using this command:
         

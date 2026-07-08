@@ -8,7 +8,7 @@ Method for delivering a message to the specified queue. A message can include on
 
 Parameter | Type | Required parameter | Description
 ----- | ----- | ----- | -----
-`DelaySeconds` | **integer** | No | The number of seconds to [delay the message from being available for processing](../../concepts/delay-queues.md#delay-messages). The possible values range from 0 to 900. If not specified, it defaults to the queue's parameter value. The parameter does not apply to messages sent to a FIFO queue: in this case, the queue's parameter is used.
+`DelaySeconds` | **integer** | No | Time in seconds during which the message will be [hidden after sending](../../concepts/delay-queues.md#delay-messages). The possible values range from 0 to 900. If not specified, it defaults to the queue's parameter value. The parameter does not apply to messages sent to a FIFO queue: in this case, the queue's parameter is used.
 `MessageAttributeName.N`<br/>`MessageAttributeValue.N` | **array** | No | Array of names and corresponding values of your custom message attributes. See the [Message](../data-types/Message.md) data type.
 `QueueUrl` | **string** | Yes | URL of the queue where the message is placed.
 `MessageBody` | **string** | Yes | Body of the message to send. The maximum size is 256 KB. A message can include XML, JSON, and unformatted text. The following Unicode characters are supported: <ul><li>`#x9`</li> <li>`#xA`</li> <li>`#xD`</li> <li>`from #x20 to #xD7FF`</li> <li>`from #xE000 to #xFFFD`</li> <li>`from #x10000 to #x10FFFF`</li></ul>
@@ -17,8 +17,8 @@ Parameter | Type | Required parameter | Description
 
 Parameter | Type | Required parameter | Description
 ----- | ----- | ----- | -----
-`MessageDeduplicationId` | **string** | Yes | ID of the token for message deduplication, used in FIFO queues. Each message must have a unique `MessageDeduplicationId`. If no `MessageDeduplicationId` is specified, the message will not be sent to a queue. The maximum length is 128 characters. You can use numbers, upper and lowercase Latin letters, and punctuation marks. For more information, see [Deduplication](../../concepts/deduplication.md).
-`MessageGroupId` | **string** | Yes | ID of a message group, used in FIFO queues. The maximum length is 128 characters. You can use numbers, upper and lowercase Latin letters, and punctuation marks. For more information, see [Deduplication](../../concepts/deduplication.md).
+`MessageDeduplicationId` | **string** | Yes | ID of the token for message deduplication, used in FIFO queues. Each message must have a unique `MessageDeduplicationId`. If no `MessageDeduplicationId` is specified, the message will not be sent to a queue. The maximum length is 128 characters. You can use numbers, upper and lowercase Latin letters, and punctuation marks. Learn more in [Deduplication](../../concepts/deduplication.md).
+`MessageGroupId` | **string** | Yes | ID of a message group, used in FIFO queues. The maximum length is 128 characters. You can use numbers, upper and lowercase Latin letters, and punctuation marks. Learn more in [Deduplication](../../concepts/deduplication.md).
 
 ## Response {#response}
 
@@ -40,7 +40,7 @@ HTTP code | Error ID | Description
 400 | `UnsupportedOperation` | The operation is not supported.
 400 | `InvalidMessageContents` | The message contains characters outside the allowed set.
 
-## Sample request {#request-example}
+## Request example {#request-example}
 
 ```text
 Action=SendMessage
@@ -49,7 +49,7 @@ Action=SendMessage
 &MessageBody=Hello+world
 ```
 
-For more information about forming requests, see [General API request format](../index.md#api-request).
+For more on request formatting, see [General API request format](../index.md#api-request).
 
 ## Response example {#response-example}
 

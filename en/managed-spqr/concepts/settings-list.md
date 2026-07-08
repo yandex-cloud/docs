@@ -18,7 +18,7 @@ Router settings (**Router** → **Config**):
 
     This setting is disabled by default, i.e., the response includes no additional information.
 
-    For more information, see the `show_notice_messages` setting description in [this {{ SPQR }} guide]({{ spqr.docs }}/configuration/router#debug-settings).
+    For more on setting up `show_notice_messages`, see [this {{ SPQR }} guide]({{ spqr.docs }}/configuration/router#debug-settings).
 
 * **Time Quantiles**
 
@@ -26,7 +26,7 @@ Router settings (**Router** → **Config**):
 
     The default set is [`0.5`, `0.75`, `0.9`, `0.95`, `0.99`, `0.999`, `0.9999`].
 
-    For more information, see the `time_quantiles` setting description in [this {{ SPQR }} guide]({{ spqr.docs }}/configuration/router#statistics-settings).
+    For more on setting up `time_quantiles`, see [this {{ SPQR }} guide]({{ spqr.docs }}/configuration/router#statistics-settings).
 
 * **Default Route Behavior**
 
@@ -35,7 +35,7 @@ Router settings (**Router** → **Config**):
     * `block`: Rejects multishard queries to safeguard data consistency. This is the default option.
     * `allow`: Allows multishard queries. This is useful for DDL and administrative queries.
 
-    For more information, see the `query_routing.default_route_behaviour` setting description in [this {{ SPQR }} guide]({{ spqr.docs }}/configuration/router#query-routing-settings).
+    For more on setting up `query_routing.default_route_behaviour`, see [this {{ SPQR }} guide]({{ spqr.docs }}/configuration/router#query-routing-settings).
 
 * **Prefer Same Availability Zone**
 
@@ -47,7 +47,7 @@ Router settings (**Router** → **Config**):
 
     It determines whether to enable enhanced processing for multishard queries.
 
-    For more information, see the `query_routing.enhanced_multishard_processing` setting description in [this {{ SPQR }} guide]({{ spqr.docs }}/configuration/router#query-routing-settings).
+    For more on setting up `query_routing.enhanced_multishard_processing`, see [this {{ SPQR }} guide]({{ spqr.docs }}/configuration/router#query-routing-settings).
 
     This setting is disabled by default, i.e., enhanced processing is not perfromed.
 
@@ -63,7 +63,7 @@ Router settings (**Router** → **Config**):
     * `read write` (default): Connect only to the master host. If it is not available, the connection fails.
     * `smart read write`: Connect to the master host. If it is not available, the connection fails. If the configuration file specifies `true` for the `query_routing.auto_route_ro_on_standby` setting, read-only queries are automatically redirected to replica hosts (with the `prefer standby` semantics).
 
-    For more information, see the `query_routing.default_target_session_attrs` and `query_routing.auto_route_ro_on_standby` setting description in [this {{ SPQR }} guide]({{ spqr.docs }}/configuration/router#query-routing-settings).
+    For detailed descriptions of the `query_routing.default_target_session_attrs` and `query_routing.auto_route_ro_on_standby` settings, see [this {{ SPQR }} guide]({{ spqr.docs }}/configuration/router#query-routing-settings).
 
 * **Default Commit Strategy**
 
@@ -73,4 +73,4 @@ Router settings (**Router** → **Config**):
     * `one pc` (default): Alias for `best-effort`.
     * `two pc`: Two-stage commit with guaranteed automicity between shards.
 
-    For more information, see the `default_commit_strategy` setting description in [this {{ SPQR }} guide]({{ spqr.docs }}/configuration/router#transaction-settings).
+    For more on setting up `default_commit_strategy`, see [this {{ SPQR }} guide]({{ spqr.docs }}/configuration/router#transaction-settings).

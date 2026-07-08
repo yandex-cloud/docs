@@ -17,6 +17,8 @@ items:
         href: operations/send-email.md
       - name: Templating an email
         href: operations/send-templated-email.md
+      - name: Bulk emailing
+        href: operations/send-bulk-email.md
       - name: Creating a configuration
         href: operations/create-configuration.md
       - name: Linking a configuration to an address
@@ -31,6 +33,8 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
+      - name: DNS records
+        href: concepts/dns-records.md
       - name: Email event notifications
         href: concepts/notification.md
       - name: Tracking email openings
@@ -97,6 +101,8 @@ items:
             href: aws-compatible-api/api-ref/index.md
           - name: Sending emails
             href: aws-compatible-api/api-ref/send-email.md
+          - name: Bulk emailing
+            href: aws-compatible-api/api-ref/send-bulk-email.md
           - name: Addresses
             items:
               - name: ListDomainIdentities method
@@ -142,7 +148,7 @@ items:
                   aws-compatible-api/api-ref/delete-configuration-set-event-destination.md
           - name: Request headers
             href: aws-compatible-api/api-ref/request-headers.md
-  - name: '{{ monitoring-name }} metrics'
+  - name: Metrics {{ monitoring-name }}
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md

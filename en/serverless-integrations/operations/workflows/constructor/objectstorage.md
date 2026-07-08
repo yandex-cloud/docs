@@ -53,7 +53,7 @@ description: Follow this guide to add interaction with {{ objstorage-full-name }
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/integration/objectstorage.md)
 * [{#T}](../workflow/create-constructor.md)

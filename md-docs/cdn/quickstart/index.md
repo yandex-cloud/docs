@@ -10,4 +10,5 @@ Yandex Cloud CDN предоставляет разработчикам веб-с
 
 #### Полезные ссылки {#see-also}
 
+* [Статья: как Yandex Cloud CDN и Yandex Object Storage разгружают высоконагруженную инфраструктуру](https://yandex.cloud/ru/blog/cloud-cdn-object-storage-highload-infrastructure)
 * [Вебинар: как с помощью Cloud CDN разгрузить высоконагруженную инфраструктуру](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)

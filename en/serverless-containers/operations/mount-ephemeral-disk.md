@@ -39,7 +39,7 @@ description: Follow this guide to mount an ephemeral disk to {{ serverless-conta
     --container-name=<container_name> \
     --environment <runtime_environment> \
     --image <container_image_path> \
-    --memory <RAM_amount> \
+    --memory <RAM_size> \
     --execution-timeout <execution_timeout> \
     --service-account-id <service_account_ID> \
     --mount type=ephemeral-disk,mount-point=<mount_point>,size=<disk_size>
@@ -94,7 +94,7 @@ description: Follow this guide to mount an ephemeral disk to {{ serverless-conta
         * `mount_point_path`: Absolute mount path. Use this path to access the directory the disk will be mounted to. Do not use this path for anything other than an empty directory; otherwise, container initialization may fail, and the mounted ephemeral disk will become unavailable. To ensure that the ephemeral disk is mounted correctly, provide the full absolute path to the mount point.
         * `size_gb`: Ephemeral disk size in GB, e.g., `size=5GB`.
 
-      For more information about `yandex_serverless_container` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
+      For more on the properties of the `yandex_serverless_container` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Apply the changes:
 
@@ -112,7 +112,7 @@ description: Follow this guide to mount an ephemeral disk to {{ serverless-conta
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../concepts/mounting.md)
 * [{#T}](../../functions/concepts/mounting.md)

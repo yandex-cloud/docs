@@ -34,9 +34,9 @@ The application support cost includes:
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for storing secrets (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
 * Fee for storing a Docker image (see [{{ container-registry-full-name }} pricing](../../container-registry/pricing.md)).
-* Fee for container invocation count, computing resources allocated to run your application, and outgoing traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md)).
+* Fee for the container invocation count, computing resources allocated for the application, and outgoing traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md)).
 * Fee for API gateway requests (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
-* Fee for logging operations and data storage in a log group (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
+* Fee for logging operations and data storage in a [log group](../../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
 
 
 ## Create a service account {#sa-create}

@@ -71,7 +71,7 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
       --suffix '<object_key_suffix>' \
       --events 'create-object','delete-object','update-object' \
       --batch-size <event_batch_size> \
-      --batch-cutoff <maximum_wait_time> \
+      --batch-cutoff <maximum_timeout> \
       --invoke-function-id <function_ID> \
       --invoke-function-service-account-id <service_account_ID> \
       --retry-attempts <number_of_retry_attempts> \
@@ -180,7 +180,7 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
         
      {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-     For more information about `yandex_function_trigger` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
+     For more on the properties of the `yandex_function_trigger` resource, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 
@@ -202,7 +202,7 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
 
 {% include [check-result](../../../_includes/functions/check-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../../serverless-containers/operations/os-trigger-create.md)
 * [{#T}](../../../api-gateway/operations/trigger/os-trigger-create.md)

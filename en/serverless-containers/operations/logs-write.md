@@ -152,7 +152,7 @@ description: Follow this guide to configure container logging.
             * `folder_id`: Folder ID.
             * `min_level`: Minimum logging level. This is an optional setting.
 
-        For more information about `yandex_serverless_container` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
+        For more on the properties of the `yandex_serverless_container` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
     1. Create the resources:
 

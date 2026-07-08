@@ -1,6 +1,6 @@
 # CORS
 
-The `x-yc-apigateway-cors-rules` and `x-yc-apigateway-cors` extensions allow you to configure automatic processing of [preflight requests](https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request) based on the [CORS](https://developer.mozilla.org/en-US/docs/Glossary/CORS) feature.
+The `x-yc-apigateway-cors-rules` and `x-yc-apigateway-cors` extensions allow you to configure automatic processing of [preflight requests](https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request) using [CORS](https://developer.mozilla.org/en-US/docs/Glossary/CORS).
 
 ## CorsRuleObject {#corsrule_object}
 
@@ -12,19 +12,19 @@ The table below lists the `CorsRuleObject` parameters.
 
  Parameter               | Type                             | Required | Description                                                                                                                                                                                                                                                                                                                                                                                   
 ------------------------|---------------------------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- `origin`               | `boolean`, `string`, `string[]` | Yes           | Defines the `Access-Control-Allow-Origin` header contents. If `false`, there is no CORS processing and the header is not included in the response. If `true`, the header will include the `Origin` request header contents. If the value is set as a string or an array of strings, it is inserted into the `Access-Control-Allow-Origin` response header as is.
- `methods`              | `string`, `string[]`            | No          | Defines the contents of the `Access-Control-Allow-Methods` header. It can be set as a string with a comma-separated list of allowed HTTP methods or as an array of strings with one HTTP method in each. If not specified, the header will include the `Access-Control-Request-Headers` request header contents.                                                                             
+ `origin`               | `boolean`, `string`, `string[]` | Yes           | Defines the contents of the `Access-Control-Allow-Origin` header. If `false`, there is no CORS processing and the header is not included in the response. If `true`, the header will include the `Origin` request header contents. If the value is set as a string or an array of strings, it is inserted into the `Access-Control-Allow-Origin` response header as is.
+ `methods`              | `string`, `string[]`            | No          | Defines the contents of the `Access-Control-Allow-Methods` header. It can be set as a string with a comma-separated list of allowed HTTP methods or as an array of strings with one HTTP method in each. If it is not specified, the header will include the `Access-Control-Request-Headers` request header contents.                                                                             
  `allowedHeaders`       | `string`, `string[]`            | No          | Defines the contents of the `Access-Control-Allow-Headers` header. It can be set as a string with a comma-separated list of allowed headers or as an array of strings with one header in each. If it is not specified, the header is not included in the response.                                                                                                                                                
  `exposedHeaders`       | `string`, `string[]`            | No          | Defines the contents of the `Access-Control-Expose-Headers` header. It can be set as a string with a comma-separated list of allowed headers or as an array of strings with one header in each.  If it is not specified, the header is not included in the response.                                                                                                                                              
  `credentials`          | `boolean`                       | No          | Defines the contents of the `Access-Control-Allow-Credentials` header. If it is not specified, the header is not included in the response.                                                                                                                                                                                                                                                                    
  `maxAge`               | `integer`                       | No          | Defines the contents of the `Access-Control-Max-Age` header. If it is not specified, the header is not included in the response.                                                                                                                                                                                                                                                                              
  `optionsSuccessStatus` | `integer`                       | No          | Determines the successful response code for a preflight request. The default value is 200.                                                                                                                                                                                                                                                                                                          
 
-## X-yc-apigateway-cors-rules extension {#cors-rules}
+## x-yc-apigateway-cors-rules extension {#cors-rules}
 
-With `x-yc-apigateway-cors-rules`, you can describe rules for handling preflight requests in the [components](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#components-object) section. You can reference the rules set in this way using the `$ref` parameter in the `x-yc-apigateway-cors` extension and apply them to different paths or the entire API gateway. For details, see `cors` for [`x-yc-apigateway` extension](index.md#top-level).
+With `x-yc-apigateway-cors-rules`, you can describe rules for handling preflight requests in the [components](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#components-object) section. You can reference the rules set in this way using the `$ref` parameter in the `x-yc-apigateway-cors` extension and apply them to different paths or the entire API gateway (`cors` in the [`x-yc-apigateway` extension](index.md#top-level)).
 
-## X-yc-apigateway-cors extension {#cors}
+## x-yc-apigateway-cors extension {#cors}
 
 With `x-yc-apigateway-cors`, you can apply a rule for handling preflight requests to a specific [path](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#path-item-object). The extension type is [CorsRuleObject](#corsrule_object).
 
@@ -116,7 +116,7 @@ paths:
         function_id: b095c95icn**********
 ```
 
-### Specification example with a CORS rule that copies the `Origin` header to a response
+### Example of a specification with a CORS rule that copies the `Origin` header to a response
 
 ```yaml
 openapi: "3.0.0"

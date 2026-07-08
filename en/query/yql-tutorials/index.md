@@ -17,8 +17,8 @@ To create an analytical query and get started:
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, select ![study](../../_assets/console-icons/graduation-cap.svg) **{{ ui-key.yql.yq-navigation.tutorial.menu-text }}**.
-1. Click **{{ ui-key.yql.yq-tutorial.create-connection.button-label }}**. In the Create connection section, all settings are pre-filled. Just enter an optional description and click **{{ ui-key.yql.yq-connection-form.create.button-text }}**. You will see the Create data binding screen.
-1. Enter the optional data binding description and click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**. The system will create the resources needed for this tutorial.
+1. Click **{{ ui-key.yql.yq-tutorial.create-connection.button-label }}**. In the Create connection section, all the parameter fields are pre-filled. Just enter an optional description and click **{{ ui-key.yql.yq-connection-form.create.button-text }}**. You will see the Create data binding screen.
+1. Enter the optional data binding description and click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**. This will create the resources required for this tutorial.
 
 From the list on the left-hand panel, select a tutorial section:
 
@@ -42,12 +42,12 @@ To create a streaming query and get started:
 1. Select an existing service account or create a new one.
 1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**. You will see the `create data binding` screen.
 1. Select an existing data stream or create a new one.
-1. Specify the optional data binding description and click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**. The system will create the resources needed for this tutorial.
+1. Enter the optional data binding description and click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**. This will create the resources required for this tutorial.
 
 From the list on the left-hand panel, select a tutorial section:
 
 1. [Querying real-time data](./streaming-query.md).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [{{ yql-short-name }} syntax]({{ ydb.docs }}/yql/reference/syntax/)

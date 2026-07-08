@@ -26,6 +26,6 @@ description: Follow this guide to add the {{ serverless-containers-full-name }} 
 
 {% include [constructor-result](../../../_includes/api-gateway/constructor-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [x-yc-apigateway-integration:serverless_containers extension](../../concepts/extensions/containers.md)

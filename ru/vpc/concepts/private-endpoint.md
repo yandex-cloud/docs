@@ -82,3 +82,6 @@ DNS-записи A-типа создаются в [сервисной зоне i
 * [{#T}](../tutorials/storage-vpc-access.md)
 * [{#T}](../tutorials/vpc-cr-access.md)
 
+#### Полезные ссылки {#see-also}
+
+* [Запустили {{ cr-full-name }}, обновили {{ vpc-full-name }} и {{ dns-full-name }}](https://yandex.cloud/ru/blog/yandex-cloud-router)

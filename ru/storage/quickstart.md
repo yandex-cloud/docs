@@ -74,4 +74,5 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](quickstart/quickstart-aws-cli.md)
 * [Как начать работать с AWS S3 API в {{ objstorage-full-name }}](./s3/s3-api-quickstart.md)
 * [Вебинар: как с помощью {{ cdn-name }} и {{ objstorage-name }} разгрузить высоконагруженную инфраструктуру](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)
+* [Статья: как {{ cdn-full-name }} и {{ objstorage-full-name }} разгружают высоконагруженную инфраструктуру](https://yandex.cloud/ru/blog/cloud-cdn-object-storage-highload-infrastructure)
 

@@ -1,0 +1,10 @@
+default:
+  balancer:
+    fqdn-ref: ../../managed-postgresql/operations/connect/fqdn.md
+    port:
+      master: 6432
+      non-delayed-replicas: 7432
+      replicas: 7433
+    proxy:
+      name: Odyssey
+      ref: https://yandex.ru/dev/odyssey/

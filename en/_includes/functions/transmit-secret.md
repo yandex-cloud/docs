@@ -111,7 +111,7 @@ Providing secrets creates a new function version. You cannot provide secrets to 
        * `key`: Key of a secret version’s key-value pair that will be stored in the environment variable. This is a required setting.
        * `environment_variable`: Name of the environment variable that will store the secret. This is a required setting.
   
-     For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+     For more on the properties of the `yandex_function` resource, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
   1. Apply the changes:
 

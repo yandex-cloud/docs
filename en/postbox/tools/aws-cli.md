@@ -10,18 +10,18 @@ The [AWS CLI](https://docs.aws.amazon.com/cli/) is a command line interface desi
 ## Getting started {#before-you-begin}
 
 1. [Create](../../iam/operations/sa/create.md) a service account.
-1. [Assign](../../iam/operations/sa/assign-role-for-sa) the [roles](../security/index.md) required for your project to the service account. For more information about roles, see the [Identity and Access Management documentation](../../iam/concepts/access-control/roles).
-1. [Create](../../iam/operations/authentication/manage-access-keys.md#create-access-key) static access keys. Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
+1. [Assign](../../iam/operations/sa/assign-role-for-sa) the [roles](../security/index.md) required for your project to the service account. For more information about roles, see [this Identity and Access Management guide](../../iam/concepts/access-control/roles).
+1. [Create](../../iam/operations/authentication/manage-access-keys.md#create-access-key) static access keys. Save the ID and secret key to a secure location. You will not be able to view the secret key properties again after you close the window.
 
 ## Installation {#installation}
 
 {% include [install-aws-cli](../../_includes/aws-tools/install-aws-cli.md) %}
 
-## Setup {#setup}
+## Configuration {#setup}
 
 To configure the AWS CLI, run the `aws configure` command in your terminal. The command will request values for the following parameters:
 1. `AWS Access Key ID`: ID of the static key created when [getting started](#before-you-begin).
-1. `AWS Secret Access Key`: Contents of the static access key.
+1. `AWS Secret Access Key`: Contents of the static key.
 1. `Default region name`: `{{ region-id }}`.
 
     To work with {{ postbox-name }}, always specify the `{{ region-id }}`. A different region value may lead to an authorization error.
@@ -32,7 +32,7 @@ To configure the AWS CLI, run the `aws configure` command in your terminal. The 
 
 The `aws configure` command saves the static key and the region.
 
-* Static key format in `.aws/credentials`:
+* The static key in `.aws/credentials` has the following format:
 
   ```ini
   [default]
@@ -40,7 +40,7 @@ The `aws configure` command saves the static key and the region.
     aws_secret_access_key = <static_key_contents>
   ```
 
-* Default region format in `.aws/config`:
+* The default region in `.aws/config` has the following format:
 
   ```ini
   [default]

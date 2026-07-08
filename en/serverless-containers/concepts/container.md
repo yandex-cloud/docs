@@ -8,7 +8,7 @@ description: In this article, you will learn about containers, their revision, a
 A container allows you to run in {{ yandex-cloud }} the application contained in a [Docker image](../../container-registry/concepts/docker-image.md). After creating a container revision, you can invoke it:
 * Over HTTPS.
 * Using a trigger.
-* Using a {{ api-gw-full-name }} extension.
+* Using the {{ api-gw-full-name }} extension.
 
 Learn more about [invoking a container](./invoke.md).
 
@@ -144,7 +144,7 @@ If the user specifies call IDs (`RequestID`) themselves, they must ensure these 
 
 When a container instance processes multiple calls simultaneously, only the ID of the last one is written to the logs. To ensure that the logs record the IDs of all calls that a container handles, use [structured logs](logs.md#structured-logs).
 
-If at least one call reaches a timeout, that call and all the others handled by the same container instance will be aborted. For more information about the timeout, see [{#T}](limits.md#serverless-containers-limits).
+If at least one call reaches a timeout, that call and all the others handled by the same container instance will be aborted. Learn more about timeout in [this section](limits.md#serverless-containers-limits).
 
 ## Use cases {#examples}
 
@@ -153,7 +153,7 @@ If at least one call reaches a timeout, that call and all the others handled by 
 * [{#T}](../tutorials/deploy-app-container.md)
 * [{#T}](../tutorials/functions-framework-to-container.md)
 
-#### See also
+#### Useful links {#see-also}
 
 * [Creating a container revision](../operations/manage-revision.md#create)
 * [Adding scaling settings](../operations/scaling-settings-add.md)

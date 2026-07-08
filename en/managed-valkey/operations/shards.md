@@ -210,9 +210,9 @@ For clusters with the **local-ssd** disk type, the minimum allowed number of hos
 
   To add a shard:
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     For information on how to create this file, see [Creating a cluster](cluster-create.md).
   1. In the `hosts` section, add the required number of hosts to the {{ mrd-name }} cluster description and specify the shard name in the `shard_name` argument:
 
      ```hcl
@@ -391,9 +391,9 @@ To enable data placement on the new shard, run {{ mrd-name }} cluster [rebalanci
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     For information on how to create this file, see [Creating a cluster](cluster-create.md).
   1. Delete all shard-related hosts in the `hosts` section from the {{ mrd-name }} cluster description.
   1. Make sure the settings are correct.
 

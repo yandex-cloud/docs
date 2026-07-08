@@ -209,7 +209,7 @@ import (
   "fmt"
 )
 
-// Request body structure (see the paragraph after this example).
+// Request body structure (see details below this example).
 // This example does not use the other fields, so you can skip them.
 type RequestBody struct {
   HttpMethod string `json:"httpMethod"`

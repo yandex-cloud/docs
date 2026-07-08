@@ -43,6 +43,6 @@ The configuration will apply to all emails sent from this address. To apply your
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Create a configuration](create-configuration.md)

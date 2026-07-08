@@ -11,6 +11,6 @@ To [create a Telegram bot](index.md) using Serverless and {{ TF }}:
 {% include [telegram-bot-serverless-tf](../../../_tutorials/serverless/telegram-bot-serverless/telegram-bot-serverless-tf.md) %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](console.md)

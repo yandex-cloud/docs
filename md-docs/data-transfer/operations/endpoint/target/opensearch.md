@@ -28,10 +28,10 @@
 
 Настройте один из поддерживаемых источников данных:
 
-* [PostgreSQL](../source/postgresql.md);
-* [YDS](../source/data-streams.md);
-* [Apache Kafka®](../source/kafka.md);
-* [OpenSearch](../source/opensearch.md).
+* [PostgreSQL](../source/postgresql.md)
+* [YDS](../source/data-streams.md)
+* [Apache Kafka®](../source/kafka.md)
+* [OpenSearch](../source/opensearch.md)
 
 Полный список поддерживаемых источников и приемников в Yandex Data Transfer читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

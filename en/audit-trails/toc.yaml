@@ -2735,6 +2735,10 @@ items:
             href: audit/securitydeck/cspm/events-ref/UpdateScanJob.md
           - name: UpdateScopeFilter
             href: audit/securitydeck/cspm/events-ref/UpdateScopeFilter.md
+      - name: securitydeck.dspm
+        items:
+          - name: ExportDiscoveryResults
+            href: audit/securitydeck/dspm/events-ref/ExportDiscoveryResults.md
       - name: securitydeck.kspm
         items:
           - name: AddCluster

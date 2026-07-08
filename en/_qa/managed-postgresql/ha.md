@@ -20,7 +20,7 @@ This error occurs if you specify a replication source for the only non-cascading
 
 To ensure [high availability](../../architecture/fault-tolerance.md#mdb-ha), your cluster must have at least one replica without a replication source. This replica will be promoted to master if the master host fails during maintenance.
 
-To learn more about replication, see [this article](../../managed-postgresql/concepts/replication.md).
+Learn more about replication in [this section](../../managed-postgresql/concepts/replication.md).
 
 #### How to ensure I am always connecting to the master host? {#connect-to-master-ha}
 
@@ -68,7 +68,7 @@ To connect to the current master host, use a [special FQDN](../../managed-postgr
 
 No, {{ mpg-name }} does not support multi-master configuration.
 
-For more details on high availability cluster configuration, see [{#T}](../../architecture/fault-tolerance.md#mdb-ha).
+For more on how to achieve high cluster availability, see [{#T}](../../architecture/fault-tolerance.md#mdb-ha).
 
 
 #### How to configure load balancing so that all read requests are redirected to replicas? {#balancing-replicas}

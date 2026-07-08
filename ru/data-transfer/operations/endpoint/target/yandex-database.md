@@ -37,14 +37,14 @@ description: Из статьи вы узнаете, как задать наст
 
 Настройте один из поддерживаемых источников данных:
 
-* [{{ MY }}](../source/mysql.md);
-* [{{ KF }}](../source/kafka.md);
-* [{{ AB }}](../../../transfer-matrix.md#airbyte);
-* [{{ DS }}](../source/data-streams.md);
-* [{{ objstorage-full-name }}](../source/object-storage.md);
-* [{{ ytsaurus-name }}](../source/yt.md);
-* [{{ PG }}](../source/postgresql.md);
-* [{{ OS }}](../source/opensearch.md).
+* [{{ MY }}](../source/mysql.md)
+* [{{ KF }}](../source/kafka.md)
+* [{{ AB }}](../../../transfer-matrix.md#airbyte)
+* [{{ DS }}](../source/data-streams.md)
+* [{{ objstorage-full-name }}](../source/object-storage.md)
+* [{{ ytsaurus-name }}](../source/yt.md)
+* [{{ PG }}](../source/postgresql.md)
+* [{{ OS }}](../source/opensearch.md)
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

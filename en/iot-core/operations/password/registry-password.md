@@ -71,7 +71,7 @@ You can add a password to an already created registry or set it when creating a 
 
   To add a password to a registry created using {{ TF }}:
 
-  1. In the configuration file, specify the properties of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      * `yandex_iot_core_registry`: Registry parameters:
        * `name`: Registry name.
@@ -93,7 +93,7 @@ You can add a password to an already created registry or set it when creating a 
       }
       ```
 
-      For more information about `yandex_iot_core_registry` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
+      For more on the properties of the `yandex_iot_core_registry` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -310,7 +310,7 @@ You can add a password to an already created registry or set it when creating a 
       }
       ```
 
-      For more information about `yandex_iot_core_registry` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
+      For more on the properties of the `yandex_iot_core_registry` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 

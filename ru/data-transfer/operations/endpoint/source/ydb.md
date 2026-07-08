@@ -149,13 +149,13 @@ description: Из статьи вы узнаете, как задать наст
 
 Настройте один из поддерживаемых приемников данных:
 
-* [{{ CH }}](../target/clickhouse.md);
-* [{{ objstorage-full-name }}](../target/object-storage.md);
-* [{{ KF }}](../target/kafka.md);
-* [{{ DS }}](../target/data-streams.md);
-* [{{ ytsaurus-name }}](../source/yt.md);
-* [{{ PG }}](../target/postgresql.md);
-* [{{ ydb-full-name }}](../target/yandex-database.md).
+* [{{ CH }}](../target/clickhouse.md)
+* [{{ objstorage-full-name }}](../target/object-storage.md)
+* [{{ KF }}](../target/kafka.md)
+* [{{ DS }}](../target/data-streams.md)
+* [{{ ytsaurus-name }}](../source/yt.md)
+* [{{ PG }}](../target/postgresql.md)
+* [{{ ydb-full-name }}](../target/yandex-database.md)
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

@@ -12,18 +12,18 @@ For more information about creating a trigger for {{ objstorage-name }}, see [{#
 
 ## Roles required for the proper operation of a trigger for {{ objstorage-name }} {#roles}
 
-* To create a trigger, you need a permission for the service account under which the trigger executes the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles or higher.
-* To run a trigger, the service account needs the `serverless.containers.invoker` role for the folder with the container to be invoked by the trigger.
+* To create a trigger, you need a permission for the service account under which the trigger runs the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles or higher.
+* To use a trigger, the service account needs the `serverless.containers.invoker` role for the folder with the container the trigger will invoke.
 
-Read more about [access management](../../security/index.md).
+Learn more about access management [here](../../security/index.md).
 
 ## {{ objstorage-name }} trigger message format {#format}
 
-After the trigger is activated, it sends the following message to the container:
+After the trigger is activated, it sends the following message to the container: 
 
 {% include [os-format](../../../_includes/functions/os-format.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../../functions/concepts/trigger/os-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/os-trigger.md)

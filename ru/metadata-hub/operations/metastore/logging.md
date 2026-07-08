@@ -26,7 +26,7 @@ description: Следуя данной инструкции, вы сможете
    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-      1. [Перейдите](../../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+      1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Укажите имя кластера `metastore-cluster`.
@@ -196,7 +196,7 @@ description: Следуя данной инструкции, вы сможете
    - Консоль управления {#console}
 
       1. В консоли управления перейдите в нужный каталог.
-      1. [Перейдите](../../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. [Перейдите]({{ link-console-main }}/link/logging) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Нажмите на строку с лог-группой `default`.
 
       На открывшейся странице отобразятся записи.
@@ -258,7 +258,7 @@ description: Следуя данной инструкции, вы сможете
    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-      1. [Перейдите](../../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+      1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Укажите имя кластера `metastore-cluster`.
@@ -428,7 +428,7 @@ description: Следуя данной инструкции, вы сможете
    - Консоль управления {#console}
 
       1. В консоли управления перейдите в нужный каталог.
-      1. [Перейдите](../../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. [Перейдите]({{ link-console-main }}/link/logging) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Нажмите на строку с лог-группой `metastore-log-group`.
 
       На открывшейся странице отобразятся записи.

@@ -1,6 +1,6 @@
 ---
 title: Creating and enabling a trigger in {{ sf-full-name }}
-description: In this guide, you will learn how to create and enable a trigger in {{ sf-name }}.
+description: In this article, you will learn how to create and enable a trigger in {{ sf-name }}.
 ---
 
 # Creating and enabling a trigger in {{ sf-name }}
@@ -11,7 +11,7 @@ In addition to timers, the following types of triggers are available in {{ sf-na
 
 * Trigger for {{ message-queue-short-name }}
 
-    Create [a trigger](../../concepts/trigger/ymq-trigger.md) for a [message queue](../../../message-queue/concepts/queue.md) in {{ message-queue-short-name }} and process messages using a function.
+    Create a [trigger](../../concepts/trigger/ymq-trigger.md) for a [{{ message-queue-short-name }}](../../../message-queue/concepts/queue.md) and process messages using a function.
 
 * Trigger for {{ objstorage-short-name }}
 
@@ -41,7 +41,7 @@ In addition to timers, the following types of triggers are available in {{ sf-na
 
     Create an [email trigger](../../concepts/trigger/mail-trigger.md) that invokes a function when an email arrives.
 
-## See also
+## Useful links {#see-also}
 
 * [Step-by-step guides on how to create triggers](../../operations/index.md#trigger-create)
 * [{{ sf-name }} trigger overview](../../concepts/trigger/index.md)

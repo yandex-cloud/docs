@@ -559,7 +559,11 @@ The final cost of a custom configuration depends on the server components you se
       '{{ pc|baremetal.component.bms-ram5-2304.12-month }}',
       '{{ pc|baremetal.component.bms-ram5-768.1-month }}',
       '{{ pc|baremetal.component.bms-ram5-768.6-month }}',
-      '{{ pc|baremetal.component.bms-ram5-768.12-month }}'
+      '{{ pc|baremetal.component.bms-ram5-768.12-month }}',
+      '{{ pc|baremetal.server.bms-cpu-a9274f.1-month }}',
+      '{{ pc|baremetal.server.bms-cpu-a9274f.3-month }}',
+      '{{ pc|baremetal.server.bms-cpu-a9274f.6-month }}',
+      '{{ pc|baremetal.server.bms-cpu-a9274f.12-month }}'
     ]}
     installationCode="ru"
     currency="USD"

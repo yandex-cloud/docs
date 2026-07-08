@@ -27,7 +27,7 @@ If you no longer need the resources you created, [delete](#clear-out) them.
 
 The cost of CRUD API resources includes:
 * Fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-name }} pricing for serverless mode](../../ydb/pricing/serverless.md)).
-* Fee for the number of container invocations, computing resources allocated to the application, and outgoing traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md)).
+* Fee for the container invocation count, computing resources allocated for the application, and outgoing traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md)).
 * Fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 
 ## Set up your environment {#setup-environment}
@@ -203,7 +203,7 @@ The cost of CRUD API resources includes:
 
 ## Initialize {{ TF }} {#init-terraform}
 
-1. Clone the repository with source files for the CRUD API project:
+1. Clone the repository with source files for your CRUD API project:
 
    ```bash
    git clone https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website.git
@@ -431,7 +431,7 @@ To implement the service based on this specification, you will use [OpenAPI Back
 ### Deploy your application in {{ serverless-containers-name }} {#deploy-container}
 
 Build your application as a Docker image and run it in [{{ serverless-containers-name }}]({{ link-cloud-services }}/serverless-containers):
-1. In the [OpenAPI specification](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/openapi/api.yaml) (`api.yaml`), enter the ID of the service account you created in the `x-yc-apigateway.service_account_id` field.
+1. In the [OpenAPI specification](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/openapi/api.yaml) (`api.yaml`), specify the ID of the service account you created in the `x-yc-apigateway.service_account_id` field.
 1. The [container-registry.tf](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/deploy/container-registry.tf) file defines the configuration of the registry and repository to push the application Docker image to. Go to the `deploy` directory and create resources in [{{ container-registry-full-name }}]({{ link-cloud-services }}/container-registry):
 
    ```bash
@@ -499,8 +499,8 @@ Build your application as a Docker image and run it in [{{ serverless-containers
 
    * `--folder-id`: Folder ID.
    * `--container-id`: Container ID.
-   * `--memory`: Memory available for the container.
-   * `--cores`: Number of vCPUs available for the container.
+   * `--memory`: Memory available to the container.
+   * `--cores`: Number of vCPUs available to the container.
    * `--execution-timeout`: Execution timeout.
    * `--concurrency`: Maximum number of concurrent container invocations. If the number of container invocations exceeds the `--concurrency` value, {{ serverless-containers-name }} scales the container up by running its additional instances.
    * `--environment`: Environment variables. The application reads the Document API endpoint from the `DOCUMENT_API_ENDPOINT` environment variable.
@@ -527,7 +527,7 @@ Build your application as a Docker image and run it in [{{ serverless-containers
 ## Test the new CRUD API {#test-api}
 
 To test the new CRUD API, run the following HTTP requests using the `curl` command:
-1. Get a list of movies:
+1. Get a movie list:
 
    ```bash
    curl "${MOVIES_API_GATEWAY_DOMAIN}/movies?limit=10"
@@ -594,7 +594,7 @@ terraform destroy
 
 Confirm deleting the resources by typing `yes` in the terminal and pressing **Enter**.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [{{ TF }} reference. {{ yandex-cloud }} provider]({{ tf-provider-link }}).

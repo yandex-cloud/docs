@@ -21,8 +21,6 @@ A backup of all cluster data (an RDB snapshot) is automatically created every da
 
 {% include [deprecated-note](../../_includes/mdb/backups/deprecated-note.md) %}
 
-To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md).
-
 ## Creating a backup {#size}
 
 You can create both automatic and manual backups. In both cases, the following method is used:
@@ -36,7 +34,7 @@ You can set the backup start time when [creating](../operations/cluster-create.m
 
 {% note alert %}
 
-When data is written intensively during backups, the cluster might become unavailable as hosts run out of memory. For more information, see [Memory management](memory-management.md).
+When data is written intensively during backups, the cluster might become unavailable as hosts run out of memory. To learn more, see [Memory management](memory-management.md). 
 
 To avoid crashes:
 * Make sure to [start backups](../operations/update.md#change-additional-settings) when the cluster load is minimum.
@@ -62,6 +60,12 @@ Storing backups in {{ mrd-name }}:
 
     For more information, see the [{{ mrd-name }} pricing policy](../pricing.md#rules-storage).
 
-## Testing recovery from a backup {#capabilities}
+## Recovery from a backup {#capabilities}
 
-To test how backup works, [restore a cluster from a backup](../operations/cluster-backups.md) and check your data for integrity.
+Restoring a cluster from a backup creates a new cluster with that backup’s data. You need to specify all the cluster's settings, just as when creating a new cluster. If your folder lacks [resources](../concepts/limits.md) to create such a cluster, you will not be able to recover it from a backup. The average restore speed is 10 MBps.
+
+If you selected the **local-ssd** disk type when restoring the cluster from a backup, add at least two hosts per shard.
+
+To restore a cluster from a backup, follow [this guide](../operations/cluster-backups.md).
+
+{% include [advice-backup](../../_includes/mdb/advice-backup.md) %}

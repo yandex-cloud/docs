@@ -74,7 +74,7 @@ You can configure metadata service parameters when [creating a function version]
             * `1` to enable the parameter.
             * `2` to disable the parameter.
 
-        For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+        For more on the properties of the `yandex_function` resource, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
    1. Apply the changes:
 

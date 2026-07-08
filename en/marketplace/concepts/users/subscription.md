@@ -18,7 +18,7 @@ The user can [move](../../operations/users/move-subscription.md) purchased subsc
 
 Subscription auto-renewal is automatically disabled if the user [billing account](../../../billing/concepts/billing-account.md) is blocked. After unblocking your billing account, you will need to purchase the subscription again.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../operations/users/buy-subscription.md)
 * [{#T}](../../operations/users/cancel-subscription.md)

@@ -96,7 +96,7 @@ description: Follow this guide to mount an ephemeral disk in a function in {{ sf
         * `name`: Name of the mount point. The directory with the mounted disk will be accessible at `/function/storage/<mount_point>`.
         * `size_gb`: Ephemeral disk size in GB, e.g., `size=5GB`.
 
-      For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+      For more on the properties of the `yandex_function` resource, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
   1. Apply the changes:
 
@@ -114,7 +114,7 @@ description: Follow this guide to mount an ephemeral disk in a function in {{ sf
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../concepts/mounting.md)
 * [{#T}](../../../serverless-containers/concepts/mounting.md)

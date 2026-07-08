@@ -9,7 +9,7 @@ This section describes {{ sf-name }} metrics exported to [{{ monitoring-name }}]
 
 {% include [functions](../_includes/monitoring/metrics-ref/functions.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./operations/function/function-monitoring.md)
 * [{#T}](./operations/trigger/trigger-monitoring.md)

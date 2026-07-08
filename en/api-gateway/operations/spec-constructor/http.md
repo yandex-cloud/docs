@@ -37,6 +37,6 @@ description: Follow this guide to add the Access over HTTP extension using the s
 
 {% include [constructor-result](../../../_includes/api-gateway/constructor-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [x-yc-apigateway-integration:http extension](../../concepts/extensions/http.md)

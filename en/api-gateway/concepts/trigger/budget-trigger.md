@@ -8,8 +8,8 @@ For more information about creating a trigger for budgets, see [{#T}](../../oper
 
 ## Roles required for the proper operation of a trigger for budgets {#roles}
 
-* To create a trigger, you need a permission for the service account under which the trigger executes the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) roles or higher.
-* To activate a trigger, the service account needs the `api-gateway.websocketBroadcaster` role for the folder containing the API gateway.
+* To create a trigger, you need a permission for the service account under which the trigger runs the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user) and [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) roles or higher.
+* For the trigger to fire, the service account needs the `api-gateway.websocketBroadcaster` role for the folder where the API gateway resides.
 
 ## Format of the message from the trigger for budgets {#format}
 
@@ -17,7 +17,7 @@ After the trigger fires, it will send the following message to WebSocket connect
 
 {% include [budget-format](../../../_includes/functions/budget-format.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../../serverless-containers/concepts/trigger/budget-trigger.md)
 * [{#T}](../../../functions/concepts/trigger/budget-trigger.md)

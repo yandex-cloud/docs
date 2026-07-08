@@ -6,7 +6,7 @@ A [trigger](../trigger/) for {{ message-queue-short-name }} speeds up the proces
 
 When the trigger is running, requests to the message queue are free of charge.
 
-{{ message-queue-short-name }} triggers require [service accounts](../../../iam/concepts/users/service-accounts.md) to read messages from a message queue and invoke a container. You can use the same service account for both operations.
+{{ message-queue-short-name }} triggers require [service accounts](../../../iam/concepts/users/service-accounts.md) to read messages from a message queue and invoke a container. You can use the same service account for both operations. 
 
 For more information about creating a trigger for {{ message-queue-short-name }}, see [{#T}](../../operations/ymq-trigger-create.md).
 
@@ -14,24 +14,24 @@ For more information about creating a trigger for {{ message-queue-short-name }}
 
 ## Roles required for the proper operation of a trigger for {{ message-queue-short-name }} {#roles}
 
-* To create a trigger, you need:
-   * `{{ roles-viewer }}` role for a folder with a message queue the trigger reads messages from.
-   * `{{ roles-viewer }}` role for the folder with the container that the trigger invokes.
-   * Permission for the service account under which the trigger runs the operations. This permission comes with the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles or higher.
-* For the trigger to fire, service accounts need the following roles:
-   * `{{ roles-editor }}` for the folder with a message queue the trigger reads messages from.
-   * `serverless.containers.invoker` for the folder with the container invoked by the trigger.
+* To create a trigger, you need: 
+    * `{{ roles-viewer }}` role for a folder with a message queue the trigger reads messages from.
+    * `{{ roles-viewer }}` role for the folder with the container that the trigger invokes.
+    * Permission for the service account under which the trigger runs the operations. This permission comes with the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles or higher.
+* For the trigger to fire, service accounts need the following roles: 
+    * `{{ roles-editor }}` for the folder with a message queue the trigger reads messages from.
+    * `serverless.containers.invoker` for the folder with the container invoked by the trigger.
 
-Read more about [access management](../../security/index.md).
+Learn more about access management [here](../../security/index.md).
 
 ## {{ message-queue-short-name }} trigger message format {#format}
 
-After the trigger picks up a message from the queue, it forwards it to the container in the following format:
+After the trigger picks up a message from the queue, it forwards it to the container in the following format: 
 
 {% include [ymq-format](../../../_includes/functions/ymq-format.md) %}
 
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../../functions/concepts/trigger/ymq-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/ymq-trigger.md)

@@ -1,26 +1,28 @@
 ---
-title: Как привязать ВМ или сервер {{ baremetal-name }} к политике резервного копирования
-description: Из статьи вы узнаете, как привязать виртуальную машину {{ compute-name }} или сервер {{ baremetal-full-name }} к политике резервного копирования.
+title: Как привязать защищаемый ресурс к политике резервного копирования
+description: Из статьи вы узнаете, как привязать виртуальную машину или сервер к политике резервного копирования.
 ---
 
-# Привязать виртуальную машину или сервер {{ baremetal-full-name }} к политике резервного копирования
+# Привязать защищаемый ресурс к политике резервного копирования
 
 
-Привязать к политике резервного копирования можно только подключенные к {{ backup-full-name }} виртуальные машины и серверы {{ baremetal-name }}. Подробнее в разделах [{#T}](../index.md#connect-vm) и [{#T}](../index.md#connect-baremetal).
+Привязать к политике резервного копирования можно только [подключенные](../../concepts/vm-connection/index.md) к {{ backup-full-name }} [защищаемые ресурсы](../../concepts/index.md#protected-resources). Подробнее в разделах [{#T}](../index.md#connect-vm), [{#T}](../index.md#connect-baremetal) и [{#T}](../index.md#connect-external).
+
+{% include [external-no-console-notice](../../../_includes/backup/external-no-console-notice.md) %}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите привязать ВМ или сервер {{ baremetal-name }} к политике.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите привязать защищаемый ресурс к политике.
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Перейдите на вкладку ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}**.
-  1. Выберите политику, к которой вы хотите привязать ВМ или сервер {{ baremetal-name }}.
+  1. Выберите политику, к которой вы хотите привязать ВМ или сервер.
   1. В блоке **{{ ui-key.yacloud.backup.title_linked-recourses }}** нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}** и в открывшемся окне:
 
       1. В зависимости от того, какой ресурс вы хотите привязать к политике, выберите вкладку **{{ ui-key.yacloud.backup.value_vm-recourses }}** или **{{ ui-key.yacloud.backup.value_bms-recourses }}** и в списке выберите нужные ВМ или сервер.
 
-          Если ВМ или сервера {{ baremetal-name }}, которые вы хотите привязать к политике, нет в списке, убедитесь, что они подключены к {{ backup-name }}.
+          Если ВМ или сервера, которые вы хотите привязать к политике, нет в списке, убедитесь, что они подключены к {{ backup-name }}.
       1. Нажмите кнопку **{{ ui-key.yacloud_billing.backup.button_attach-instance-submit }}**.
 
 - CLI {#cli}
@@ -29,30 +31,28 @@ description: Из статьи вы узнаете, как привязать в
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для привязки ВМ или сервера {{ baremetal-name }} к политике: 
+  1. Посмотрите описание команды CLI для привязки [защищаемого ресурса](../../concepts/index.md#protected-resources) к политике: 
 
       ```bash
       yc backup policy apply --help
       ```
 
-  1. Узнайте идентификатор политики, к которой вы хотите привязать ВМ или сервер {{ baremetal-name }}:
+  1. Узнайте идентификатор политики, к которой вы хотите привязать защищаемый ресурс:
 
       {% include [get-policy-id](../../../_includes/backup/operations/get-policy-id.md) %}
 
-  1. Узнайте идентификатор ВМ, которую нужно привязать:
+  1. Узнайте идентификатор защищаемого ресурса, который нужно привязать:
 
-      {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
+      {% include [get-resource-ids.md](../../../_includes/backup/operations/get-resource-ids.md) %}
 
-      {% include [get-bms-ids](../../../_includes/backup/operations/get-bms-ids.md) %}
-
-  1. Привяжите ВМ или сервер {{ baremetal-name }}, указав идентификатор политики:
+  1. Привяжите ресурс к политике, указав ее идентификатор:
 
       ```bash
       yc backup policy apply <идентификатор_политики> \
-        --instance-ids <идентификаторы_ВМ_или_серверов_{{ baremetal-name }}>
+        --instance-ids <идентификаторы_защищаемых_ресурсов>
       ```
 
-      Где `--instance-ids` — идентификаторы подключенных к {{ backup-name }} виртуальных машин и серверов {{ baremetal-name }}, которые нужно привязать к политике резервного копирования. Несколько идентификаторов указываются через запятую.
+      Где `--instance-ids` — идентификаторы подключенных к {{ backup-name }} [виртуальных машин {{ compute-name }}](../../concepts/vm-connection/compute.md), [серверов {{ baremetal-name }}](../../concepts/vm-connection/baremetal.md) или [внешних ресурсов](../../concepts/vm-connection/external-resources.md), которые нужно привязать к политике резервного копирования. Несколько идентификаторов указываются через запятую.
 
   Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/backup/cli-ref/policy/apply.md).
 
@@ -62,27 +62,23 @@ description: Из статьи вы узнаете, как привязать в
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  {% note info %}
+  Чтобы привязать [защищаемый ресурс](../../concepts/index.md#protected-resources) к политике резервного копирования:
 
-  В настоящий момент привязать к [политике резервного копирования](../../../backup/concepts/policy.md) с помощью {{ TF }} можно только [виртуальную машину {{ compute-name }}](../../../compute/concepts/vm.md). Чтобы привязать [сервер {{ baremetal-name }}](../../../baremetal/concepts/servers.md), используйте [консоль управления]({{ link-console-main }}), [{{ yandex-cloud }} CLI](../../../cli/cli-ref/backup/cli-ref/policy/apply.md) или [API](../../backup/api-ref/Policy/apply.md).
-
-  {% endnote %}
-
-  Чтобы привязать виртуальную машину к политике резервного копирования:
-
-  1. Опишите в конфигурационном файле {{ TF }} параметры привязки виртуальной машины к политике:
+  1. Опишите в конфигурационном файле {{ TF }} параметры привязки защищаемого ресурса:
 
       ```hcl
       resource "yandex_backup_policy_bindings" "test_backup_binding" {
-        instance_id = "<идентификатор_виртуальной_машины>"
+        instance_id = "<идентификатор_защищаемого_ресурса>"
         policy_id   = "<идентификатор_политики>"
       }
       ```
 
       Где:
 
-      * `instance_id` — [идентификатор](../../../compute/operations/vm-info/get-info.md#outside-instance) виртуальной машины, которую вы хотите привязать к политике.
-      * `policy_id` — [идентификатор](./get-info.md) политики резервного копирования, к которой вы хотите привязать виртуальную машину.
+      * `instance_id` — идентификатор защищаемого ресурса, который вы хотите привязать к политике.
+
+          Получить список идентификаторов, привязанных к {{ backup-name }} ресурсов в каталоге по умолчанию, вы можете с помощью команды {{ yandex-cloud }} CLI `yc backup vm list`.
+      * `policy_id` — [идентификатор](./get-info.md) политики резервного копирования, к которой вы хотите привязать ресурс.
 
      Подробнее о параметрах ресурса `yandex_backup_policy_bindings` в [документации провайдера]({{ tf-provider-resources-link }}/backup_policy_bindings).
   1. Создайте ресурсы:
@@ -107,5 +103,5 @@ description: Из статьи вы узнаете, как привязать в
 * [{#T}](../create-vm-windows.md)
 * [{#T}](create.md)
 * [{#T}](detach-vm.md)
-* [{#T}](../../concepts/vm-connection.md)
+* [{#T}](../../concepts/vm-connection/index.md)
 * [{#T}](../../concepts/policy.md)

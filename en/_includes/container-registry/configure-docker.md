@@ -14,13 +14,13 @@
 
     For groups to update successfully, you may need to log back into the OS or reboot the computer.
 
-    For information about additional Docker settings for Linux, see the [developer documentation](https://docs.docker.com/engine/install/linux-postinstall/).
+    For information on additional Docker settings in Linux, see [this developer guide](https://docs.docker.com/engine/install/linux-postinstall/).
 
     If you are working on a device with a GUI, you can also [install](https://docs.docker.com/desktop/install/linux-install/) Docker Desktop for Linux.
 
 - macOS {#macos}
 
-  [Download](https://docs.docker.com/get-docker/) and install the Docker Desktop distribution for macOS. For more information, see the [developer documentation](https://docs.docker.com/desktop/install/mac-install/).
+  [Download](https://docs.docker.com/get-docker/) and install the Docker Desktop distribution for macOS. For more information, see [this developer guide](https://docs.docker.com/desktop/install/mac-install/).
 
 - Windows {#windows}
 
@@ -39,6 +39,6 @@
         1. Click **OK**.
     1. Run Docker Desktop and make sure the app's status is `running`.
 
-    For information about additional Docker settings for Windows, see the [developer documentation](https://docs.docker.com/desktop/install/windows-install/).
+    For information on additional Docker settings in Windows, see [this developer guide](https://docs.docker.com/desktop/install/windows-install/).
 
 {% endlist %}

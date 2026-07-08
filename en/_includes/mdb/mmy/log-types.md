@@ -5,7 +5,7 @@
 
 * `MYSQL_SLOW_QUERY`: Slow query log.
 
-    It is disabled by default. To enable it, change the [Slow query log](../../../managed-mysql/concepts/settings-list.md#setting-slow-query-log) value when [updating the {{ MY }} settings](../../../managed-mysql/operations/update.md#change-mysql-config). See also: [Log slow filter](../../../managed-mysql/concepts/settings-list.md#setting-log-slow-filter), [Log slow rate limit](../../../managed-mysql/concepts/settings-list.md#setting-log-slow-rate-limit), [Log slow rate type](../../../managed-mysql/concepts/settings-list.md#setting-log-slow-rate-type), [Log slow sp statements](../../../managed-mysql/concepts/settings-list.md#setting-log-slow-sp-statements), and [Slow query log always write time](../../../managed-mysql/concepts/settings-list.md#setting-slow-query-log-always-write-time).
+    It is disabled by default. To enable it, change the [Slow query log](../../../managed-mysql/concepts/settings-list.md#setting-slow-query-log) value when [updating the {{ MY }} settings](../../../managed-mysql/operations/update.md#change-mysql-config). See also the [Log slow filter](../../../managed-mysql/concepts/settings-list.md#setting-log-slow-filter), [Log slow rate limit](../../../managed-mysql/concepts/settings-list.md#setting-log-slow-rate-limit), [Log slow rate type](../../../managed-mysql/concepts/settings-list.md#setting-log-slow-rate-type), [Log slow sp statements](../../../managed-mysql/concepts/settings-list.md#setting-log-slow-sp-statements), and [Slow query log always write time](../../../managed-mysql/concepts/settings-list.md#setting-slow-query-log-always-write-time) settings.
 
 * `MYSQL_AUDIT`: Audit log.
 

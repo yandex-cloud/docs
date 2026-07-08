@@ -194,10 +194,10 @@
 
 Настройте один из поддерживаемых приемников данных:
 
-* [PostgreSQL](../target/postgresql.md);
-* [ClickHouse®](../target/clickhouse.md);
-* [Greenplum®](../target/greenplum.md);
-* [YTsaurus](yt.md).
+* [PostgreSQL](../target/postgresql.md)
+* [ClickHouse®](../target/clickhouse.md)
+* [Greenplum®](../target/greenplum.md)
+* [YTsaurus](yt.md)
 
 Полный список поддерживаемых источников и приемников в Yandex Data Transfer читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

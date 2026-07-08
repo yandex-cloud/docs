@@ -23,7 +23,7 @@
 - Консоль управления {#console}
 
   1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Data Transfer**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
 
   Вы можете отфильтровать список трансферов по доступным параметрам:
@@ -59,7 +59,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Data Transfer**.
+    1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
     1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
     1. Нажмите на имя нужного трансфера.
 
@@ -94,7 +94,7 @@
 - Консоль управления {#console}
 
   1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Data Transfer**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
   1. Нажмите кнопку **Создать трансфер**.
   1. Выберите эндпоинт для источника или [создайте](endpoint/index.md#create) новый.
@@ -428,7 +428,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Data Transfer**.
+    1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
     1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
     1. Выберите трансфер и нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
     1. Измените параметры трансфера:
@@ -653,7 +653,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Data Transfer**.
+    1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
     1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
     1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного трансфера и выберите пункт ![ellipsis](../../_assets/console-icons/play.svg) **Активировать**.
 
@@ -702,8 +702,7 @@
 - Консоль управления {#console}
 
     1. Переведите источник в режим <q>только чтение</q> (read-only).
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Data Transfer**.
+    1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
     1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
     1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **Деактивировать**.
     1. Дождитесь перехода трансфера в статус **Остановлен**.
@@ -755,7 +754,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Data Transfer**.
+    1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
     1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
     1. Если нужный трансфер находится в активном состоянии, [деактивируйте его](#deactivate).
     1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **Удалить**.

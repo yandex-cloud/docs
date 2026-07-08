@@ -1,10 +1,10 @@
 
 
-To connect to the {{ mpg-name }} cluster from the {{ serverless-containers-name }} container:
+To connect to the {{ mpg-name }} cluster from {{ serverless-containers-name }}:
 
 1. [Prepare files for a Docker image](#prepare-docker).
 1. [Create a Docker image in the registry](#create-image).
-1. [Create and set up a {{ serverless-containers-name }} container](#create-container).
+1. [Create and set up a container in {{ serverless-containers-name }}](#create-container).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -20,11 +20,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Getting started {#before-begin}
 
 1. If you do not have Docker yet, [install it](https://docs.docker.com/get-docker/). Make sure Docker Engine is running.
-1. If you do not have a {{ mpg-name }} cluster, [create one](../../managed-postgresql/operations/cluster-create.md). You can connect from the {{ serverless-containers-name }} container regardless of the public access settings to cluster hosts.
+1. If you do not have a {{ mpg-name }} cluster, [create one](../../managed-postgresql/operations/cluster-create.md). You can connect from {{ serverless-containers-name }} regardless of the public access settings for the cluster hosts.
 
 ## Prepare files for a Docker image {#prepare-docker}
 
-1. In the local directory, create an Ubuntu-based Dockerfile. The container environment configuration depends on whether there is public access to the cluster hosts:
+1. In your local directory, create an Ubuntu-based Dockerfile. Container setup depends on whether public access to the cluster hosts is enabled:
 
     {% list tabs %}
 
@@ -64,7 +64,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-1. Put the `pg-version.sh` script in the same working directory. The script connects to the database and requests the {{ PG }} version. The connection string in the script depends on whether there is public access to the cluster hosts:
+1. Place the `pg-version.sh` script in the same working directory. The script connects to the database and requests the {{ PG }} version. The connection string in the script depends on whether public access to the cluster hosts is enabled:
 
     {% list tabs %}
 
@@ -111,7 +111,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create a registry](../../container-registry/operations/registry/registry-create.md) in {{ container-registry-full-name }}.
 
-1. Build the Docker image by running the command in the working directory with the Docker file:
+1. Build the Docker image by running the following command from the directory containing the Dockerfile:
 
     ```bash
     docker build . \
@@ -124,7 +124,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     docker images
     ```
 
-1. Authenticate in the registry:
+1. Authenticate with the registry:
 
     1. [Get an IAM token](../../iam/operations/iam-token/create.md).
     1. Run this command:
@@ -144,29 +144,29 @@ If you no longer need the resources you created, [delete them](#clear-out).
     docker push {{ registry }}/<registry_ID>/ubuntu:pgconnect
     ```
 
-## Create and set up a {{ serverless-containers-name }} container {#create-container}
+## Create and set up a container in {{ serverless-containers-name }} {#create-container}
 
 1. [Create a service account](../../iam/operations/sa/create.md) named `docker-puller` with the `container-registry.images.puller` role.
-1. [Create a {{ serverless-containers-name }} container](../../serverless-containers/operations/create.md) named `demo-pg-connect`.
+1. [Create a container named `demo-pg-connect` in {{ serverless-containers-name }}](../../serverless-containers/operations/create.md).
 1. In the container revision settings, specify:
 
-    * Reference to the previously created image in the registry, in the **{{ ui-key.yacloud.serverless-containers.label_image-url }}** field.
-    * In the Service account `docker-puller` field, specify **{{ ui-key.yacloud.forms.label_service-account-select }}**.
-    * Network in which the {{ mpg-name }} cluster is located, in the **{{ ui-key.yacloud.vpc.label_network }}** field. You do not need to specify the network if public access is enabled for the cluster.
+    * Link to the previously created image in the registry, in the **{{ ui-key.yacloud.serverless-containers.label_image-url }}** field.
+    * The `docker-puller` service account, in the **{{ ui-key.yacloud.forms.label_service-account-select }}** field.
+    * Network hosting the {{ mpg-name }} cluster, in the **{{ ui-key.yacloud.vpc.label_network }}** field. If public access is enabled for the cluster, specifying a network is optional.
 
 1. Click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
-1. Copy the link to invoke the container from the **{{ ui-key.yacloud.common.section-base }}** section in the management console.
-1. Invoke the container by running the command:
+1. Copy the container invocation link from the **{{ ui-key.yacloud.common.section-base }}** section in the management console.
+1. Invoke the container by running this command:
 
     ```bash
     curl --header "Authorization: Bearer $(yc iam create-token)" <invocation_link>
     ```
 
-1. Go to the **{{ ui-key.yacloud.common.logs }}**section and make sure the container logs contain information about the {{ PG }} version.
+1. Go to the **{{ ui-key.yacloud.common.logs }}** section and make sure the container logs contain information about the {{ PG }} version.
 
 ## Delete the resources you created {#clear-out}
 
-To stop incurring charges for the resources you created:
+To stop paying for the resources you created:
 
 1. [Delete the {{ serverless-containers-name }} container](../../serverless-containers/operations/delete.md).
 1. [Delete the Docker images from the registry](../../container-registry/operations/docker-image/docker-image-delete.md).
@@ -174,7 +174,7 @@ To stop incurring charges for the resources you created:
 1. [Delete the service account](../../iam/operations/sa/delete.md).
 1. [Delete the {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
 
-To delete the created Docker image from the local repository, run the command:
+To delete the created Docker image from the local repository, run this command:
 
 ```bash
 docker rmi {{ registry }}/<registry_ID>/ubuntu:pgconnect
