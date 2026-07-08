@@ -1,6 +1,6 @@
 ---
 title: Data validation in {{ api-gw-full-name }}
-description: In this tutorial, you will learn about {{ api-gw-name }} extensions that allow you to define a validator for schemas described in the API gateway specification.
+description: In this article, you will learn about {{ api-gw-name }} extensions that allow you to define a validator for schemas described in the API gateway specification.
 ---
 
 # Data validation
@@ -24,7 +24,7 @@ The table below lists the `ValidatorObject` parameters.
  `validateRequestBody`       | `boolean`      | No          | `false`               | Enabling or disabling request body validation.                                                                       
  `validateRequestParameters` | `boolean`      | No          | `false`               | Enabling or disabling request parameter validation.                                                                 
  `validateResponseBody`      | `boolean`      | No          | `false`               | Enabling or disabling response body validation.                                                                        
- `validateResponseHeaders`   | `string`       | No          | `undefined`           | [Type of response body validation](#type). It may take one of the following values: `any`, `superset`, `subset`, or `exact`. 
+ `validateResponseHeaders`   | `string`       | No          | `undefined`           | [Type of response header validation](#type). It may take one of the following values: `any`, `superset`, `subset`, or `exact`. 
  `validationErrorHandler`    | `ErrorHandler` | No          | `undefined`           | [Validation error handler](#errorhandler).
 
 #### Types of response header validation
@@ -32,11 +32,11 @@ The table below lists the `ValidatorObject` parameters.
 * `any`: Ignores missing or additional response headers and only checks the header types listed in the specification.
 * `superset`: Checks that the headers listed in the specification are included in the list of response headers.
 * `subset`: Checks that response headers are included in the list of headers in the specification.
-* `exact`: Checks that the list of response headers is exactly the same as the list of headers in the specification.
+* `exact`: Checks that the list of response headers matches the list of headers in the specification.
 
 ## ErrorHandler object {#errorhandler}
 
-This object contains parameters for providing validation errors to the integration. For example, you can provide errors to handle to a [function](cloud-functions.md), [container](containers.md), [HTTP integration](http.md) or [return an object from a bucket](object-storage.md).
+This object contains parameters for providing validation errors to the integration. For example, you can provide errors to handle to a [function](cloud-functions.md), [container](containers.md), [HTTP integration](http.md), or [return an object from a bucket](object-storage.md).
 
 ### Parameters {#errorhandler_parameters}
 
@@ -53,7 +53,7 @@ If the `ErrorHandler` integration returns an error, the user will get a default 
 
 ## ErrorHandlerEvent object {#errorhandlerevent}
 
-If the API gateway detects an error in the request during validation, it will invoke the integration specified in `ErrorHandler`. The `ErrorHandlerEvent` object with error information is sent to this integration.
+If the API gateway detects an error in the request during validation, it will invoke the integration specified in `ErrorHandler`. The `ErrorHandlerEvent` object with error information is provided to this integration.
 
 ### Parameters {#errorhandlerevent_parameters}
 
@@ -61,23 +61,23 @@ The table below lists the `ErrorHandlerEvent` parameters.
 
  Parameter     | Type             | Description                                                                                      
 --------------|-----------------|-------------------------------------------------------------------------------------------------------------------
- `errorType`  | `string`        | Possible values: `response-body-validation-error`, `response-headers-validation-error`, and `request-validation-error`.
+ `errorType`  | `string`        | The possible values are `response-body-validation-error`, `response-headers-validation-error`, and `request-validation-error`.
  `errorData`  | `ErrorObject[]` | Validation error array
  `statusCode` | `number`        | Validation error code
  `path`       | `string`        | Path in the OpenAPI specification
  `request`    | `object`        | Request that resulted in the error.
 
-## X-yc-apigateway-validators extension {#validators}
+## x-yc-apigateway-validators extension {#validators}
 
-The `x-yc-apigateway-validators` extension allows you to describe validators in the [components](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#components-object) section. You can refer to these validators using the `$ref` parameter in the `x-yc-apigateway-validator` extension and link the same validators to multiple operations or to the entire API gateway. For details, see the `validator` parameter in the [`x-yc-apigateway` extension](index.md#top-level).
+The `x-yc-apigateway-validators` extension allows you to describe validators in the [components](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#components-object) section. You can refer to these validators using the `$ref` parameter in the `x-yc-apigateway-validator` extension and assign the same validators to multiple operations or to the entire API gateway. For details, see the `validator` parameter in the [`x-yc-apigateway` extension](index.md#top-level).
 
 ## x-yc-apigateway-validator extension {#validator}
 
-The `x-yc-apigateway-validator` extension allows you to link a validator to an [operation](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#operation-object). The extension type is [ValidatorObject](#validator_object).
+The `x-yc-apigateway-validator` extension allows you to assign a validator to an [operation](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#operation-object). The extension type is [ValidatorObject](#validator_object).
 
 ## Specification examples {#spec}
 
-### Example of a specification with HTTP request URI and path parameter validation
+### Example of a specification with HTTP request URI or path parameter validation
 
 In this example, validation is set up for all operations of the API gateway. The validator is defined at the top level using the `validator` parameter of the `x-yc-apigateway` extension.
 

@@ -27,7 +27,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
-`data` | `string` | Yes | No | Yes | Raw email type. For more information, see the [{{ postbox-name }} documentation](../../../../../postbox/aws-compatible-api/api-ref/send-email.md).
+`data` | `string` | Yes | No | Yes | Raw email type. For more information, see [this {{ postbox-name }} guide](../../../../../postbox/aws-compatible-api/api-ref/send-email.md).
 
 ## SimpleMessage {#postbox-simplemessage}
 

@@ -14,7 +14,7 @@ With {{ sf-name }}, you can run applications written in [Kotlin](https://kotlinl
 
 You can add an [SDK library](https://github.com/yandex-cloud/java-sdk) to the runtime to work with the {{ yandex-cloud }} API. For more info on how to use the SDK, see [Using the SDK](sdk.md).
 
-When creating a function version, the [builder](../../concepts/builder.md) will automatically install all declared dependencies required for the function. To learn more about the requirements for declaring dependencies, see [{#T}](dependencies.md).
+When creating a function version, the [builder](../../concepts/builder.md) will automatically install all declared dependencies required for the function. To learn more about requirements for declaring dependencies, see [{#T}](dependencies.md).
 
 The runtime automatically loads your code and invokes the [request handler](handler.md) you specified. The handler arguments depend on the [Kotlin programming model](model/index.md) you use.
 

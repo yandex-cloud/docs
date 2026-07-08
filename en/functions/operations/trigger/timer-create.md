@@ -140,7 +140,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that invokes 
 
      {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-     For more information about `yandex_function_trigger` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
+     For more on the properties of the `yandex_function_trigger` resource, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 
@@ -162,7 +162,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that invokes 
 
 {% include [check-result](../../../_includes/functions/check-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../../serverless-containers/operations/timer-create.md)
 * [{#T}](../../../api-gateway/operations/trigger/timer-create.md)

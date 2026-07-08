@@ -25,7 +25,7 @@ If you do not have a [network](../../vpc/operations/network-create.md) or [subne
 
 The infrastructure support cost includes:
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or static external [IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing)](../../vpc/pricing.md)).
+* Fee for using a dynamic or static [external IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create a VM specification file {#prepare-specification-vm}
 

@@ -25,8 +25,8 @@ If you no longer need the resources you created, [delete](#clear-out) them.
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost for running a web app includes:
-* Fee for data storage in a bucket and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* Fee for using the API gateway (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
+* Fee for bucket data storage and bucket operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for using an API gateway (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 
 ## Create a project and set up Google OAuth in Google Cloud {#create-google-cloud-project}
 
@@ -238,7 +238,7 @@ Firebase:
      * `name`: API gateway name.
      * `spec`: API gateway specification.
 
-     For more information about `yandex_api_gateway` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
+     For more on the properties of the `yandex_api_gateway` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -377,7 +377,7 @@ Deploy a static website.
           * `bucket`: Bucket name.
           * `acl`: Bucket access settings.
 
-        For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
+        For more on the properties of the `yandex_storage_bucket` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
      1. Create the resources:
 
         {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -492,7 +492,7 @@ Deploy a static website.
           * `index_document`: Absolute path to the website home page file. This is a required setting.
           * `error_document`: Absolute path to the file the user will see in case of `4xx` errors. This is an optional setting.
 
-        For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+        For more on the properties of the `yandex_storage_bucket` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
      1. Create the resources:
 
         {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

@@ -1,11 +1,11 @@
 ---
-title: Как удалить виртуальную машину из {{ backup-full-name }}
+title: Как удалить виртуальную машину {{ compute-full-name }} из {{ backup-full-name }}
 description: Следуя данной инструкции, вы сможете удалить виртуальную машину из {{ backup-name }}.
 ---
 
 # Удалить виртуальную машину из {{ backup-name }}
 
-При удалении виртуальной машины из {{ backup-name }}, она остается в {{ compute-full-name }} и продолжает функционировать. [Удаление](../../compute/operations/vm-control/vm-delete.md) ВМ из {{ compute-name }} выполняется отдельно.
+При удалении виртуальной машины {{ compute-full-name }} из {{ backup-name }} она остается в {{ compute-full-name }} и продолжает функционировать. [Удаление](../../compute/operations/vm-control/vm-delete.md) ВМ из {{ compute-name }} выполняется отдельно.
 
 {% note info %}
 

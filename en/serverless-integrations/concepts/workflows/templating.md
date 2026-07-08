@@ -15,7 +15,7 @@ keywords:
 
 # Templating
 
-For the [YaWL specification](yawl/index.md) fields that support templating, values can be generated dynamically using the data obtained from the workflow state. The templating language is `jq`. For more information, see the [jq documentation](https://jqlang.github.io/jq/manual/).
+For the [YaWL specification](yawl/index.md) fields that support templating, values can be generated dynamically using the data obtained from the workflow state. The templating language is `jq`. For more information, see [this jq guide](https://jqlang.github.io/jq/manual/).
 
 By default, templating is not used for string values of fields; use [string interpolation](https://jqlang.github.io/jq/manual/#string-interpolation) instead.
 
@@ -61,7 +61,7 @@ Field value | Templater interpretation
 
 Templater extensions allow you to call jq functions implementing non-standard logic.
 
-### $global variable {#global}
+### `$global` variable {#global}
 
 The `$global` variable returns the top-level state of the workflow before starting the current top-level step. For example, in the [Foreach](yawl/management/foreach.md) step, input data filtering is a required attribute, and the `$global` variable can be used within the sequence of steps in `do` to retrieve the workflow state as it was before `Foreach` started (top-level state).
 

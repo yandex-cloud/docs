@@ -35,6 +35,7 @@ Learn more about other cluster updates:
 
 * [Migrating cluster hosts to a different availability zone](host-migration.md).
 
+
 ## Changing the host class {#change-resource-preset}
 
 {% note info %}
@@ -104,11 +105,11 @@ We recommend changing the host class only when the cluster is idle.
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-      For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
+      For the complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
   1. In the {{ mpg-name }} cluster description, update the `resource_preset_id` attribute value under `config.resources`:
 
@@ -275,11 +276,11 @@ You can change the DBMS settings for the hosts in your cluster.
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
+        For the complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
     1. Update the settings in the `config.postgresql_config` section of your {{ mpg-short-name }} cluster description. If there is no such section, create one.
 
@@ -422,12 +423,13 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
-  
+
   
   1. {% include [diagnostics-settings-console](../../_includes/mdb/mpg/diagnostics-settings-console.md) %}
-  
 
-  1. Update additional cluster settings:
+
+
+  1. Configure advanced cluster settings:
 
      {% include [mpg-extra-settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}
 
@@ -471,16 +473,16 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
     * `--backup-retain-period-days`: Automatic backup retention period, in days.
 
-    * `--datalens-access`: Enables access from DataLens. The default value is `false`. To learn more about configuring a connection, see [Connecting to a cluster from {{ datalens-name }}](datalens-connect.md).
+    * `--datalens-access`: Enables access from DataLens. The default value is `false`. Learn more about configuring a connection in [Connecting to a cluster from {{ datalens-name }}](datalens-connect.md).
 
     * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings that apply to both running and stopped clusters. The `type` setting defines the maintenance type:
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
     * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
+
     
-    
-    * `--serverless-access`: Enables access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information about setting up access, see [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
+    * `--serverless-access`: Enables access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. Learn more about access setup in [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
 
     * `--yandexquery-access`: Enables access to the cluster from [{{ yq-full-name }}](../../query/concepts/index.md). This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage and can be enabled upon request.
 
@@ -507,11 +509,11 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-      For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
+      For the complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
   1. To change the backup start time, add the `config.backup_window_start` section to the {{ mpg-name }} cluster description:
 
@@ -585,7 +587,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
       `deletion_protection`: Protection of the cluster, its databases, and users against deletion (`true` or `false`).
 
-      By default, when users and databases are created, this setting’s value is inherited from the cluster. You can also specify this setting manually. See [User management](cluster-users.md) and [Database management](databases.md) for details.
+      By default, when users and databases are created, this setting’s value is inherited from the cluster. You can also specify this setting manually by following the guides in [User management](cluster-users.md) and [Database management](databases.md).
 
       If the setting is changed on a running cluster, the new value will only be inherited by users and databases with the **Same as cluster** protection level.
 
@@ -704,7 +706,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
      * `deletionProtection`: Protection of the cluster, its databases, and users against deletion, `true` or `false` value.
 
-        By default, when users and databases are created, this setting’s value is inherited from the cluster. You can also specify this setting manually. See [User management](cluster-users.md) and [Database management](databases.md) for details.
+        By default, when users and databases are created, this setting’s value is inherited from the cluster. You can also specify this setting manually by following the guides in [User management](cluster-users.md) and [Database management](databases.md).
 
         If the setting is changed on a running cluster, the new value will only be inherited by users and databases with the **Same as cluster** protection level.
 
@@ -727,7 +729,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -841,7 +843,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
      * `deletion_protection`: Protection of the cluster, its databases, and users against deletion, `true` or `false` value.
 
-        By default, when users and databases are created, this setting’s value is inherited from the cluster. You can also specify this setting manually. See [User management](cluster-users.md) and [Database management](databases.md) for details.
+        By default, when users and databases are created, this setting’s value is inherited from the cluster. You can also specify this setting manually by following the guides in [User management](cluster-users.md) and [Database management](databases.md).
 
         If the setting is changed on a running cluster, the new value will only be inherited by users and databases with the **Same as cluster** protection level.
 
@@ -899,7 +901,7 @@ Master failover specifics in {{ mpg-name }}
 * A replica with an explicitly defined replication source cannot be promoted to master.
 * Unless the replica name for promotion is explicitly specified, the master will fail over to one of the quorum replicas.
 
-To learn more, see [Replication](../concepts/replication.md).
+Learn more in [Replication](../concepts/replication.md).
 
 To perform a master failover:
 
@@ -931,11 +933,11 @@ To perform a master failover:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
+        For the complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
     1. In the `host_master_name` argument, specify the name of the replica you want to promote.
 
@@ -1052,9 +1054,9 @@ To perform a master failover:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](./cluster-create.md).
 
     1. In the {{ mpg-name }} cluster description, add or update the `folder_id` argument:
 
@@ -1069,7 +1071,7 @@ To perform a master failover:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1172,11 +1174,11 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-      For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
+      For the complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
   1. Edit the `security_group_ids` value in the cluster description:
 

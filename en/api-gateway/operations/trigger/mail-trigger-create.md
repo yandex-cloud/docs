@@ -108,7 +108,7 @@ Create an [email trigger](../../concepts/trigger/mail-trigger.md) to send messag
 
 {% include [check-result](../../../_includes/api-gateway/check-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Email trigger that invokes a {{ sf-name }} function](../../../functions/operations/trigger/mail-trigger-create.md)
 * [Email trigger that invokes a {{ serverless-containers-name }} container](../../../serverless-containers/operations/mail-trigger-create.md)

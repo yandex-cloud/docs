@@ -43,7 +43,7 @@ A newly created version gets the `$latest` [tag](../../concepts/function.md#) by
 
     To add a version tag:
 
-    1. In the configuration file, add the `tags` section for `yandex_function` and list the tags you want to add in the following format: `tags = ["<tag_name>"]`.
+    1. In the configuration file, add the `tags` section for the `yandex_function` resource and list the tags you want to add in the following format: `tags = ["<tag_name>"]`.
 
        Example of a function description in the {{ TF }} configuration:
       
@@ -64,7 +64,7 @@ A newly created version gets the `$latest` [tag](../../concepts/function.md#) by
         }
         ``` 
 
-        For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+        For more on the properties of the `yandex_function` resource, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
     1. Validate your configuration using this command:
         

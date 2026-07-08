@@ -17,6 +17,6 @@ In Maven, artifacts are [ZIP files](https://en.wikipedia.org/wiki/ZIP_(file_form
 
 For more information about Maven, see [this documentation](https://maven.apache.org/guides/index.html).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [Supported artifact types](./index.md#artifacts)

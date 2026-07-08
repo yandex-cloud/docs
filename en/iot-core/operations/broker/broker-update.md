@@ -67,7 +67,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       }
       ```
 
-      For more information about `yandex_iot_core_broker` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more on the properties of the `yandex_iot_core_broker` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -165,7 +165,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       }
       ```
 
-      For more information about `yandex_iot_core_broker` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more on the properties of the `yandex_iot_core_broker` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -277,7 +277,7 @@ You can perform the following actions with broker labels:
       }
       ```
 
-      For more information about `yandex_iot_core_broker` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more on the properties of the `yandex_iot_core_broker` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -378,7 +378,7 @@ You can perform the following actions with broker labels:
       }
       ```
 
-      For more information about `yandex_iot_core_broker` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more on the properties of the `yandex_iot_core_broker` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -475,7 +475,7 @@ You can perform the following actions with broker labels:
       }
       ```
 
-      For more information about `yandex_iot_core_broker` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more on the properties of the `yandex_iot_core_broker` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 

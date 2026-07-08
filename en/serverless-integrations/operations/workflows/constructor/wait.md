@@ -24,11 +24,11 @@ The Wait control step suspends the execution of the workflow for a specified tim
           * `{{ ui-key.yacloud.serverless-workflows.workflow-editor_wait-step-type-field-duration-label }}` to specify wait duration in seconds. Specify the required value in the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_wait-step-duration-field }}** field.
           * `{{ ui-key.yacloud.serverless-workflows.workflow-editor_wait-step-type-field-until-label }}` to wait for a particular point in time. In the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_wait-step-until-field }}** field, enter the required time point in [ISO 8601](https://{{ lang }}.wikipedia.org/wiki/ISO_8601) format or locate the required date using the interactive calendar ![calendar](../../../../_assets/console-icons/calendar.svg).
           
-          To get wait duration or timestamp from the workflow state, enable the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_wait-step-use-jq-expression-field }}** option and specify a template in jq format in the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_wait-step-jq-expression-field }}** field. For more information, see [{#T}](../../../concepts/workflows/templating.md).
+          To get wait duration or timestamp from the workflow state, enable the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_wait-step-use-jq-expression-field }}** option and specify a template in jq format in the **{{ ui-key.yacloud.serverless-workflows.workflow-editor_wait-step-jq-expression-field }}** field. Read more in [{#T}](../../../concepts/workflows/templating.md).
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/management/wait.md)
 * [{#T}](../workflow/create-constructor.md)

@@ -162,7 +162,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file describing your infrastructure.
+   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
       For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -323,7 +323,7 @@ Let's consider the following example showing how to upgrade a cluster from versi
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file describing your infrastructure.
+   1. Open the current {{ TF }} configuration file with the infrastructure plan.
    1. Set the `version` field to `8.0` in the `yandex_mdb_mysql_cluster` resource:
 
       ```hcl
@@ -375,6 +375,6 @@ After a successful upgrade:
    SHOW VARIABLES LIKE '%buffer%';
    ```
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Technical overview of {{ MY }} 8.0 features](../concepts/mysql-57-80-comparison.md) with focus on the new version's changes in terms of performance and functionality.

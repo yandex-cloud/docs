@@ -22,7 +22,7 @@ For more information about creating a trigger for {{ message-queue-short-name }}
     * `{{ roles-editor }}` for the folder with a message queue the trigger reads messages from.
     * `{{ roles-functions-invoker }}` for the folder with the function that the trigger invokes.
 
-Read more about [access management](../../security/index.md).
+Learn more about access management [here](../../security/index.md).
 
 ## {{ message-queue-short-name }} trigger message format {#format}
 
@@ -35,7 +35,7 @@ After the trigger picks up a message from the queue, it sends it to the function
 * [{#T}](../../tutorials/serverless-trigger-budget-queue-vm-tg.md)
 * [{#T}](../../tutorials/video-converting-queue/index.md)
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../../serverless-containers/concepts/trigger/ymq-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/ymq-trigger.md)

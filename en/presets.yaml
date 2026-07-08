@@ -386,6 +386,7 @@ default:
   mch-name: Managed Service for ClickHouse®
   mch-short-name: Managed Service for ClickHouse®
   mcp-hub-name: MCP Hub
+  mdb-lb: DB Proxy
   mes-full-name: Yandex Managed Service for Elasticsearch
   mes-name: Managed Service for Elasticsearch
   mes-short-name: Managed Service for Elasticsearch
@@ -1158,6 +1159,11 @@ default:
         1-month: dn2paaexhgf2bviickkp
         12-month: dn2oqzoduucamz4ny6ir
         6-month: dn2bhhmb5x7nnrdhair7
+      bms-cpu-a9274f:
+        1-month: dn2vt664tba3iblf6bu2
+        12-month: dn2oc7waiwmkghi5azan
+        3-month: dn2hplv446j7rgfoxour
+        6-month: dn22sp4giatug3acvlsw
       bms-cpu-ie5-2650v2:
         1-month: dn2v7dn7jxq3h4tchgff
         12-month: dn25yqzqiq7qp7hz4v5r

@@ -10,6 +10,6 @@ To create an infrastructure for your [1C-Bitrix website](index.md) through {{ TF
 
 {% include [bitrix-website-terraform](../../../_tutorials/applied/bitrix-website-terraform.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](console.md)

@@ -98,7 +98,7 @@ description: Follow this guide to create a timer in {{ er-name }}.
 
   To create a [timer](../../../concepts/eventrouter/connector.md#timer):
 
-  1. In the configuration file, specify the properties of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_serverless_eventrouter_connector" "example_connector" {
@@ -134,7 +134,7 @@ description: Follow this guide to create a timer in {{ er-name }}.
       * `timezone`: Time zone in [tz database](https://en.wikipedia.org/wiki/Tz_database) format. This is an optional setting.
       * `payload`: Message sent to the bus if the timer fires. This is an optional setting.
 
-      For more information about `yandex_serverless_eventrouter_connector` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
+      For more on the properties of the `yandex_serverless_eventrouter_connector` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
 
   1. Create the resources:
 

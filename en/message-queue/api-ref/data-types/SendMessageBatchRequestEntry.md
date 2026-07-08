@@ -1,6 +1,6 @@
 # SendMessageBatchRequestEntry
 
-Contains the details of a message being sent and its ID. For more information about attributes, see the description of the [SendMessage](../message/SendMessage.md#array-parameters) method.
+Contains the details of a message being sent and its ID. For more information about attributes, see the [SendMessage](../message/SendMessage.md#array-parameters) method description.
 
 Parameter | Type | Required | Description
 ----- | ----- | ----- | -----
@@ -8,5 +8,5 @@ Parameter | Type | Required | Description
 `Id` | **string** | Yes | ID of the message in the list.
 `MessageAttribute` | **string** | No | Message attributes: name, type, and value.
 `MessageBody` | **string** | No | Message body.
-`MessageDeduplicationId` | **string** | No | ID used for message deduplication. For more information, see [Deduplication](../../concepts/deduplication.md).
+`MessageDeduplicationId` | **string** | No | ID used for message deduplication. Learn more in [Deduplication](../../concepts/deduplication.md).
 `MessageGroupId` | **string** | No | ID of the message group. Used only in FIFO queues.

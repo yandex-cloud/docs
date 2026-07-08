@@ -12,7 +12,7 @@ Maintenance in {{ mpg-name }} includes:
 * Scheduled [automatic storage expansion](./storage.md#auto-rescale).
 * Other maintenance activities.
 
-A major DBMS version update is not part of maintenance. For more information about major version changes, see [{#T}](../operations/cluster-version-update.md).
+A major DBMS version update is not part of maintenance. For more information about upgrading between major versions, see [{#T}](../operations/cluster-version-update.md).
 
 ## Maintenance window {#maintenance-window}
 

@@ -2,12 +2,12 @@
 canonical: '{{ link-docs }}/tutorials/internet-store/bitrix-shop/console'
 ---
 
-# Creating an online store with 1C-Bitrix: Website Management using the management console
+# Creating an online store on 1C-Bitrix: Website Management using the management console
 
-To create an infrastructure for an [online store with 1C-Bitrix: Website Management](index.md) using the {{ yandex-cloud }} management console:
+To create an infrastructure for an [online store on 1C-Bitrix: Website Management](index.md) using the {{ yandex-cloud }} management console:
 
 {% include [bitrix-shop-console](../../../_tutorials/applied/bitrix-shop-console.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](terraform.md)

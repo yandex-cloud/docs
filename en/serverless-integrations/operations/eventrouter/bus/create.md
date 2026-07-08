@@ -85,7 +85,7 @@ description: Follow this guide to create a bus.
 
   To create a [bus](../../../concepts/eventrouter/bus.md):
 
-  1. In the configuration file, specify the properties of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_serverless_eventrouter_bus" "example_bus" {
@@ -112,7 +112,7 @@ description: Follow this guide to create a bus.
       * `deletion-protection`: Bus deletion protection, `true` or `false`. You cannot delete a bus with this option enabled. This is an optional setting.
       * `labels`: List of labels Provide labels in `<key> = "<value>"` format. This is an optional setting.
 
-      For more information about `yandex_serverless_eventrouter_bus` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_bus).
+      For more on the properties of the `yandex_serverless_eventrouter_bus` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_bus).
 
   1. Create the resources:
 

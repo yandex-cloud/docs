@@ -72,7 +72,7 @@ For more information about invocation retries, see the guide for creating the re
 * [{#T}](../../tutorials/serverless-trigger-budget-vm.md)
 * [{#T}](../../tutorials/video-converting-queue/index.md)
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Triggers to run a {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/index.md)
 * [Triggers to send messages to WebSocket connections](../../../api-gateway/concepts/trigger/index.md)

@@ -77,7 +77,7 @@ The trigger must be in the same cloud as the registry or device whose topic it r
       --device-id <device_ID> \
       --mqtt-topic '<broker_MQTT_topic>' \
       --batch-size <message_batch_size> \
-      --batch-cutoff <maximum_wait_time> \
+      --batch-cutoff <maximum_timeout> \
       --invoke-container-id <container_ID> \
       --invoke-container-service-account-id <service_account_ID> \
       --retry-attempts <number_of_retry_attempts> \
@@ -129,7 +129,7 @@ The trigger must be in the same cloud as the registry or device whose topic it r
 
   To create a trigger for {{ iot-name }}:
 
-  1. In the configuration file, describe the trigger properties:
+  1. Describe the trigger in the configuration file:
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
@@ -138,7 +138,7 @@ The trigger must be in the same cloud as the registry or device whose topic it r
           id                 = "<container_ID>"
           service_account_id = "<service_account_ID>"
           retry_attempts     = "<number_of_retry_attempts>"
-          retry_interval     = "<interval_between_retry_attempts>"
+          retry_interval     = "<time_between_retry_attempts>"
         }
         iot {
           registry_id  = "<registry_ID>"
@@ -176,7 +176,7 @@ The trigger must be in the same cloud as the registry or device whose topic it r
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-      For more information about resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
+      For more on the properties of the `yandex_function_trigger` resource, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 
@@ -198,7 +198,7 @@ The trigger must be in the same cloud as the registry or device whose topic it r
 
 {% include [check-result](../../_includes/serverless-containers/check-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../functions/operations/trigger/iot-core-trigger-create.md)
 * [{#T}](../../api-gateway/operations/trigger/iot-core-trigger-create.md)

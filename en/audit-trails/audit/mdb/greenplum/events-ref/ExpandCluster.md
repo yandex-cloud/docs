@@ -180,6 +180,16 @@ editable: false
             "maxStatementMem": "string",
             "logStatement": "string",
             "gpAddColumnInheritsTableSetting": "boolean",
+            "logConnections": "boolean",
+            "logDisconnections": "boolean",
+            "logHostname": "boolean",
+            "logErrorVerbosity": "string",
+            "logMinDurationStatement": "string",
+            "logMinMessages": "string",
+            "logStatementStats": "boolean",
+            "masterSharedBuffers": "string",
+            "segmentSharedBuffers": "string",
+            "maxLocksPerTransaction": "string",
             "gpEnableGlobalDeadlockDetector": "boolean",
             "gpGlobalDeadlockDetectorPeriod": "string",
             "gpMaxSlices": "string",
@@ -192,17 +202,7 @@ editable: false
             "gpMaxPlanSize": "string",
             "gpAutostatsMode": "string",
             "gpAutostatsOnChangeThreshold": "string",
-            "gpResourceGroupMemoryLimit": "number",
-            "logConnections": "boolean",
-            "logDisconnections": "boolean",
-            "logHostname": "boolean",
-            "logStatementStats": "boolean",
-            "logMinDurationStatement": "string",
-            "masterSharedBuffers": "string",
-            "maxLocksPerTransaction": "string",
-            "segmentSharedBuffers": "string",
-            "logErrorVerbosity": "string",
-            "logMinMessages": "string"
+            "gpResourceGroupMemoryLimit": "number"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -215,6 +215,16 @@ editable: false
             "maxStatementMem": "string",
             "logStatement": "string",
             "gpAddColumnInheritsTableSetting": "boolean",
+            "logConnections": "boolean",
+            "logDisconnections": "boolean",
+            "logHostname": "boolean",
+            "logErrorVerbosity": "string",
+            "logMinDurationStatement": "string",
+            "logMinMessages": "string",
+            "logStatementStats": "boolean",
+            "masterSharedBuffers": "string",
+            "segmentSharedBuffers": "string",
+            "maxLocksPerTransaction": "string",
             "gpEnableGlobalDeadlockDetector": "boolean",
             "gpGlobalDeadlockDetectorPeriod": "string",
             "gpMaxSlices": "string",
@@ -227,17 +237,7 @@ editable: false
             "gpMaxPlanSize": "string",
             "gpAutostatsMode": "string",
             "gpAutostatsOnChangeThreshold": "string",
-            "gpResourceGroupMemoryLimit": "number",
-            "logConnections": "boolean",
-            "logDisconnections": "boolean",
-            "logHostname": "boolean",
-            "logStatementStats": "boolean",
-            "logMinDurationStatement": "string",
-            "masterSharedBuffers": "string",
-            "maxLocksPerTransaction": "string",
-            "segmentSharedBuffers": "string",
-            "logErrorVerbosity": "string",
-            "logMinMessages": "string"
+            "gpResourceGroupMemoryLimit": "number"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -250,6 +250,16 @@ editable: false
             "maxStatementMem": "string",
             "logStatement": "string",
             "gpAddColumnInheritsTableSetting": "boolean",
+            "logConnections": "boolean",
+            "logDisconnections": "boolean",
+            "logHostname": "boolean",
+            "logErrorVerbosity": "string",
+            "logMinDurationStatement": "string",
+            "logMinMessages": "string",
+            "logStatementStats": "boolean",
+            "masterSharedBuffers": "string",
+            "segmentSharedBuffers": "string",
+            "maxLocksPerTransaction": "string",
             "gpEnableGlobalDeadlockDetector": "boolean",
             "gpGlobalDeadlockDetectorPeriod": "string",
             "gpMaxSlices": "string",
@@ -262,17 +272,7 @@ editable: false
             "gpMaxPlanSize": "string",
             "gpAutostatsMode": "string",
             "gpAutostatsOnChangeThreshold": "string",
-            "gpResourceGroupMemoryLimit": "number",
-            "logConnections": "boolean",
-            "logDisconnections": "boolean",
-            "logHostname": "boolean",
-            "logStatementStats": "boolean",
-            "logMinDurationStatement": "string",
-            "masterSharedBuffers": "string",
-            "maxLocksPerTransaction": "string",
-            "segmentSharedBuffers": "string",
-            "logErrorVerbosity": "string",
-            "logMinMessages": "string"
+            "gpResourceGroupMemoryLimit": "number"
           }
         },
         // end of the list of possible fields
@@ -916,14 +916,48 @@ Acceptable values are 134217728 to 1099511627776, inclusive. ||
 - `MOD`
 - `ALL` ||
 || gpAddColumnInheritsTableSetting | **boolean** ||
+|| logConnections | **boolean** ||
+|| logDisconnections | **boolean** ||
+|| logHostname | **boolean** ||
+|| logErrorVerbosity | **enum** (LogErrorVerbosity)
+
+- `TERSE`
+- `DEFAULT`
+- `VERBOSE` ||
+|| logMinDurationStatement | **string** (int64) ||
+|| logMinMessages | **enum** (LogLevelMessage)
+
+- `DEBUG5`
+- `DEBUG4`
+- `DEBUG3`
+- `DEBUG2`
+- `DEBUG1`
+- `INFO`
+- `NOTICE`
+- `WARNING`
+- `ERROR`
+- `FATAL`
+- `PANIC` ||
+|| logStatementStats | **boolean** ||
+|| masterSharedBuffers | **string** (int64)
+
+The minimum value is 1048576. ||
+|| segmentSharedBuffers | **string** (int64)
+
+The minimum value is 1048576. ||
+|| maxLocksPerTransaction | **string** (int64)
+
+Acceptable values are 128 to 2048, inclusive. ||
 || gpEnableGlobalDeadlockDetector | **boolean** ||
-|| gpGlobalDeadlockDetectorPeriod | **string** (int64) ||
+|| gpGlobalDeadlockDetectorPeriod | **string** (int64)
+
+Acceptable values are 5 to 2147483647, inclusive. ||
 || gpMaxSlices | **string** (int64)
 
 Acceptable values are 10 to 100, inclusive. ||
 || gpCachedSegworkersThreshold | **string** (int64)
 
-Acceptable values are 0 to 10, inclusive. ||
+Acceptable values are 1 to 10, inclusive. ||
 || lockTimeout | **string** (int64)
 
 Acceptable values are 0 to 2147483647, inclusive. ||
@@ -949,38 +983,6 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 
 Acceptable values are 0 to 2147483647, inclusive. ||
 || gpResourceGroupMemoryLimit | **number** (double) ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logHostname | **boolean** ||
-|| logStatementStats | **boolean** ||
-|| logMinDurationStatement | **string** (int64) ||
-|| masterSharedBuffers | **string** (int64)
-
-Acceptable values are 1048576 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64)
-
-Acceptable values are 128 to 2048, inclusive. ||
-|| segmentSharedBuffers | **string** (int64)
-
-Acceptable values are 1048576 to 2147483647, inclusive. ||
-|| logErrorVerbosity | **enum** (LogErrorVerbosity)
-
-- `TERSE`
-- `DEFAULT`
-- `VERBOSE` ||
-|| logMinMessages | **enum** (LogLevelMessage)
-
-- `DEBUG5`
-- `DEBUG4`
-- `DEBUG3`
-- `DEBUG2`
-- `DEBUG1`
-- `INFO`
-- `NOTICE`
-- `WARNING`
-- `ERROR`
-- `FATAL`
-- `PANIC` ||
 |#
 
 ## DBMSConfigSet {#yandex.cloud.mdb.greenplum.v1.DBMSConfigSet}

@@ -42,10 +42,10 @@ description: Из статьи вы узнаете, как задать наст
 
 Настройте один из поддерживаемых приемников данных:
 
-* [{{ PG }}](../target/postgresql.md);
-* [{{ CH }}](../target/clickhouse.md);
-* [{{ GP }}](../target/greenplum.md);
-* [{{ ydb-full-name }}](../target/yandex-database.md).
+* [{{ PG }}](../target/postgresql.md)
+* [{{ CH }}](../target/clickhouse.md)
+* [{{ GP }}](../target/greenplum.md)
+* [{{ ydb-full-name }}](../target/yandex-database.md)
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

@@ -24,10 +24,10 @@ When receiving messages from a FIFO queue, only one message will be accepted fro
 
 Parameter | Type | Required<br>parameter | Description
 ----- | ----- | ----- | -----
-`MaxNumberOfMessages` | **string** | No | Maximum number of messages that will be fetched. A smaller number of messages than specified in this parameter can be fetched, but never a higher number. Valid values: from 1 to 10. The default value is: 1.
+`MaxNumberOfMessages` | **string** | No | Maximum number of messages that will be fetched. A smaller number of messages than specified in this parameter can be fetched, but never a higher number. Valid values: from 1 to 10. The default value is 1.
 `MessageAttributeName.N` | **array** | No | Array of message attribute names to return in response to the request. A name may contain letters, numbers, hyphens, underscores, and periods. Attribute names are case-sensitive and unique within a single message. An attribute name cannot start or end with a period. Attribute names cannot contain several consecutive periods. The maximum length of an attribute name is 256 characters. You can get all attributes in one go by putting `All` or `.*` in your request. You can also use prefixes to get the necessary attributes.
 `QueueUrl` | **string** | Yes | URL of the queue where the message is placed.
-`ReceiveRequestAttemptId` | **string** | No | ID for a repeated attempt to receive messages from a FIFO queue. For more information, see [Deduplication](../../concepts/deduplication.md#request-attempts).
+`ReceiveRequestAttemptId` | **string** | No | ID for a repeated attempt to receive messages from a FIFO queue. Learn more in [Deduplication](../../concepts/deduplication.md#request-attempts).
 `VisibilityTimeout` | **string** | No | [Visibility timeout](../../concepts/visibility-timeout.md) of a message received.
 `WaitTimeSeconds` | **string** | No | Waiting time in seconds for a message to be delivered to the queue. If messages arrive to the queue, the call will be made earlier than specified in`WaitTimeSeconds`. If no messages arrive within `WaitTimeSeconds`, an empty list will be returned.
 
@@ -47,8 +47,8 @@ Attribute | Description
 `ApproximateReceiveCount` | Number of times the message was received from the queue but not deleted.
 `SenderId` | ID of the sender (IAM user).
 `SentTimestamp` | Time the message was sent to the queue.
-`MessageDeduplicationId` | ID of the token for message deduplication, used in FIFO queues. Each message must have a unique `MessageDeduplicationId`. If no `MessageDeduplicationId` is specified, the message will not be sent to a queue. The maximum length is 128 characters. You can use numbers, upper and lowercase Latin letters, and punctuation marks. For more information, see [Deduplication](../../concepts/deduplication.md).
-`MessageGroupId` | ID of a message group, used in FIFO queues. For more information, see [Deduplication](../../concepts/deduplication.md).
+`MessageDeduplicationId` | ID of the token for message deduplication, used in FIFO queues. Each message must have a unique `MessageDeduplicationId`. If no `MessageDeduplicationId` is specified, the message will not be sent to a queue. The maximum length is 128 characters. You can use numbers, upper and lowercase Latin letters, and punctuation marks. Learn more in [Deduplication](../../concepts/deduplication.md).
+`MessageGroupId` | ID of a message group, used in FIFO queues. Learn more in [Deduplication](../../concepts/deduplication.md).
 `SequenceNumber` | Message number specific to FIFO queues within a group of messages with the same MessageGroupId.
 
 ## Response {#response}
@@ -67,7 +67,7 @@ HTTP code | Error ID | Description
 ----- | ----- | -----
 403 | `OverLimit` | The operation has exceeded one of the [limits](../../concepts/limits.md).
 
-## Sample request {#request-example}
+## Request example {#request-example}
 
 ```text
 Action=ReceiveMessage
@@ -78,7 +78,7 @@ Action=ReceiveMessage
 &VisibilityTimeout=15
 ```
 
-For more information about forming requests, see [General API request format](../index.md#api-request).
+For more on request formatting, see [General API request format](../index.md#api-request).
 
 ## Response example {#response-example}
 

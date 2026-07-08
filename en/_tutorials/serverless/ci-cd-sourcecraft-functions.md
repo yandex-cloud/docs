@@ -7,14 +7,14 @@ To set up CI/CD for {{ sf-name }} function deployment from a {{ src-name }} repo
 1. [Create a repository](#repository).
 1. [Create a service connection](#create-service-connection).
 1. [Edit the CI/CD configuration](#push-changes).
-1. [Test CI/CD](#check-ci-cd).
+1. [Test CI/CD pipeline execution](#check-ci-cd).
 1. [Check the function updates](#check-function).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The infrastructure support cost includes fees for function invocation count, computing resources allocated for the function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+The infrastructure support cost includes fees for the number of function calls, computing resources allocated for the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 
 ## Create a service account {#create-sa}
 
@@ -93,9 +93,9 @@ The repository will be created from the [yc-cloud-functions-template]({{ link-sr
       * In the **{{ ui-key.sourcecraft.repoCreate.title_owner-field_7gbCn }}** field, select the [organization]({{ link-src-docs }}/sourcecraft/concepts/#org) in which you created the {{ yandex-cloud }} service account.
       * In the **{{ ui-key.sourcecraft.repoCreate.title_repo-field_p5MD3 }}** field, specify a name for the repository. 
 
-        The name must be unique within the organization. The name may contain the following [ASCII characters](https://en.wikipedia.org/wiki/ASCII): lowercase and uppercase Latin letters, numbers, commas, hyphens, and underscores.
+        The name must be unique within the organization and can include the following [ASCII characters](https://en.wikipedia.org/wiki/ASCII): lowercase and uppercase Latin letters, numbers, commas, hyphens, and underscores.
 
-        The address to access the repository at is displayed below the name.
+        The repository’s address is displayed below its name.
 
       * Optionally, in the **{{ ui-key.sourcecraft.repoSettings.field_description_1274t }}** field, enter a description for the repository.
 
@@ -119,10 +119,10 @@ The repository will be created from the [yc-cloud-functions-template]({{ link-sr
   1. Open the {{ src-name }} [home page]({{ link-src-main }}).
   1. Navigate to the ![image](../../_assets/console-icons/briefcase.svg) **{{ ui-key.sourcecraft.lib.organizations_5CjkW }}** tab.
   1. Select the organization where you created the {{ yandex-cloud }} service account.
-  1. On the organization page, in the ![image](../../_assets/console-icons/gear.svg) **{{ ui-key.sourcecraft.lib.settings_cwUYS }}** section, go to the ![image](../../_assets/console-icons/cloud-nut-hex.svg) **{{ ui-key.sourcecraft.mainApp.route_service-connections_2PPgz }}** section.
+  1. On the organization page, under ![image](../../_assets/console-icons/gear.svg) **{{ ui-key.sourcecraft.lib.settings_cwUYS }}**, go to the ![image](../../_assets/console-icons/cloud-nut-hex.svg) **{{ ui-key.sourcecraft.mainApp.route_service-connections_2PPgz }}** section.
   1. Click **{{ ui-key.sourcecraft.serviceConnections.button_add-connection_6Bj7i }}**.
   1. In the window that opens:
-      * Under **{{ ui-key.sourcecraft.serviceConnections.section_basic_wmaiy }}**, give the connection a name, e.g., `default-service-connection`, and add an optional description.
+      * Under **{{ ui-key.sourcecraft.serviceConnections.section_basic_wmaiy }}**, give the connection a name, e.g., `default-service-connection`, and, optionally, provide a description.
       * Under **{{ ui-key.sourcecraft.serviceConnections.section_scope_9gXcu }}**, select the repositories and branches the service connection will be available to, e.g., the repository you created earlier.
       * Under **{{ ui-key.sourcecraft.serviceConnections.section_cloud-settings_tDMfn }}**, select:
         * Folder for which you have assigned a role to the service account.
@@ -149,35 +149,35 @@ The repository will be created from the [yc-cloud-functions-template]({{ link-sr
   1. Select the repository you created earlier.
   1. Select `.sourcecraft/ci.yaml`.
   1. In the top-right corner, click ![image](../../_assets/console-icons/pencil.svg) **Edit**.
-  1. In the `deploy-nodejs-function` [workflow]({{ link-src-docs }}/sourcecraft/concepts/ci-cd#workflows), edit the parameters of your new function:
+  1. In the `deploy-nodejs-function` [workflow]({{ link-src-docs }}/sourcecraft/concepts/ci-cd#workflows), edit the settings of your new function:
       * `YC_FUNCTION_NAME`: Function name, e.g., `test-function-nodejs`.
-      * `YC_FUNCTION_RUNTIME`: [Runtime environment](../../functions/concepts/runtime/index.md#runtimes), e.g., `nodejs22`.
-      * `YC_FUNCTION_ENTRYPOINT`: Function entry point, e.g., `index.handler`. Specify it based on your runtime environment as described in [this guide](../../functions/quickstart/create-function/index.md).
+      * `YC_FUNCTION_RUNTIME`: [Runtime](../../functions/concepts/runtime/index.md#runtimes), e.g., `nodejs22`.
+      * `YC_FUNCTION_ENTRYPOINT`: Function entry point, e.g., `index.handler`. Specify it based on your runtime as described in [this guide](../../functions/quickstart/create-function/index.md).
       * `SOURCE_PATH`: Repository path to the function code, e.g., `./nodejs`.
 
-      You can also add optional parameters:
+      You can also specify more settings:
       * `ENVIRONMENT`: Environment variables for the function, e.g., `MY_ENV=SOURCECRAFT`. This is an equivalent of the `--environment` parameter in the [yc serverless function version create](../../cli/cli-ref/serverless/cli-ref/function/version/create.md) {{ yandex-cloud }} CLI command.
-      * `PUBLIC`: Make the function publicly available. This parameter takes the `true` value. This is an equivalent of the [yc serverless function allow-unauthenticated-invoke](../../cli/cli-ref/serverless/cli-ref/function/allow-unauthenticated-invoke.md) {{ yandex-cloud }} CLI command.
+      * `PUBLIC`: This setting makes the function publicly available when takes the `true` value. This is an equivalent of the [yc serverless function allow-unauthenticated-invoke](../../cli/cli-ref/serverless/cli-ref/function/allow-unauthenticated-invoke.md) {{ yandex-cloud }} CLI command.
 
   1. In the top-right corner, click **{{ ui-key.sourcecraft.repo.action_commit_brj4B }}**.
-  1. Commit the files:
+  1. Make a commit:
 
-      1. Enter a message about the changes.
+      1. Enter a commit message.
       1. Under **{{ ui-key.sourcecraft.repo.field_commit-branch_d1Mzi }}**, select **{{ ui-key.sourcecraft.repo.field_text_commit-directly-to-the-branch_mBfk8 }} main**.
       1. Under **{{ ui-key.sourcecraft.repo.field_after-commit-action_mKjo4 }}**, select **{{ ui-key.sourcecraft.repo.option_just-commit_to5sC }}**.
       1. Click **{{ ui-key.sourcecraft.repo.button_commit_si86H }}**.
 
 {% endlist %}
 
-After saving the changes, the `deploy-nodejs-function` workflow will start.
+After saving the changes, `deploy-nodejs-function` will start.
 
 Similarly, you can edit the function code in `nodejs/index.js`. This will also trigger the workflow for publishing the new function version.
 
 {% note tip %}
 
-The example below shows how to automatically start a workflow for the `nodejs22` runtime environment. For other runtimes, use [manual]({{ link-src-docs }}/sourcecraft/operations/run-workflow-manually) startup or edit the `on` section in `.sourcecraft/ci.yaml`.
+The example below shows how to automatically run a workflow for the `nodejs22` runtime. For other runtimes, use [manual]({{ link-src-docs }}/sourcecraft/operations/run-workflow-manually) run or edit the `on` section in `.sourcecraft/ci.yaml`.
 
-{% cut "Automatic startup example for python312" %}
+{% cut "Example of automatic run for Python 3.12" %}
 
 ```yaml
 on:
@@ -224,7 +224,7 @@ workflows:
           YC_FUNCTION_RUNTIME: "nodejs22"
           YC_FUNCTION_ENTRYPOINT: "index.handler"
           # The cube exchanges the {{ src-name }} token for the {{ yandex-cloud }} IAM token
-          # and saves it to the `IAM_TOKEN` variable within the `outputs` section.
+          # and saves it to the IAM_TOKEN variable within the outputs section.
         cubes:
           - name: get-iam-token
             env:
@@ -233,12 +233,12 @@ workflows:
             image: {{ registry }}/sourcecraft/yc-iam:latest
 
           # The cube with pre-installed {{ yandex-cloud }} CLI retrieves 
-          # the `IAM_TOKEN` variable from `outputs` and uses it to check if there is a function from {{ sf-name }}
+          # the IAM_TOKEN variable from outputs and uses it to check if there is a function from {{ sf-name }}
           # with a certain name; if that function does not exist, the cube creates it.
           - name: check-and-create-function
             env:
-              # Substitute to the `outputs` section the name of the IAM token cube,
-              # e.g., `get-iam-token`.
+              # In the outputs section, insert the name of the IAM token cube,
+              # e.g., get-iam-token.
               YC_IAM_TOKEN: ${{ cubes.<IAM_token_cube_name>.outputs.IAM_TOKEN }}
               YC_FOLDER_ID: ${{ tokens.<token_name>.folder_id }}
             image:
@@ -256,11 +256,11 @@ workflows:
                 fi
 
           # The cube with pre-installed {{ yandex-cloud }} CLI retrieves 
-          # the `IAM_TOKEN` variable from `outputs` and uses it to create a new version of the function from {{ sf-name }}.
+          # the IAM_TOKEN variable from outputs and uses it to create a new version of the function from {{ sf-name }}.
           - name: deploy-function-version
             env:
-              # Substitute to the `outputs` section the name of the IAM token cube,
-              # e.g., `get-iam-token`.
+              # In the outputs section, insert the name of the IAM token cube,
+              # e.g., get-iam-token.
               YC_IAM_TOKEN: ${{ cubes.<IAM_token_cube_name>.outputs.IAM_TOKEN }}
               YC_FOLDER_ID: ${{ tokens.<token_name>.folder_id }}
             image:
@@ -282,7 +282,7 @@ workflows:
 
 {% endcut %}
 
-## Test CI/CD {#check-ci-cd}
+## Test CI/CD pipeline execution {#check-ci-cd}
 
 {% list tabs group=instructions %}
 
@@ -354,7 +354,7 @@ Make sure in {{ sf-name }} there is now a function with the name you specified i
       +----------------------+----------------------+----------------------+--------+
       ```
 
-      The command output should now contain the function named `test-function-nodejs` .
+      The command output should now contain the `test-function-nodejs` function.
 
   1. Get a list of versions of the `test-function-nodejs` function:
 
@@ -393,7 +393,7 @@ If you no longer need the resources you created, delete them:
 1. [Delete the function](../../functions/operations/function/function-delete.md).
 1. [Delete the service account](../../iam/operations/sa/delete.md).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Setting up CI/CD to deploy an application to {{ serverless-containers-full-name }} using GitHub Actions]({{ link-src-docs }}/sourcecraft/tutorials/ci-cd-sourcecraft-github-actions)
 * [Configuring a service connection to {{ yandex-cloud }}]({{ link-src-docs }}/sourcecraft/operations/service-connections) in {{ src-name }}

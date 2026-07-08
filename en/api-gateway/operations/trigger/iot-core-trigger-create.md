@@ -121,7 +121,7 @@ The trigger must be in the same cloud as the registry or device from the topic o
 
 {% include [check-result](../../../_includes/api-gateway/check-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Trigger for {{ iot-name }} that sends messages from registry or device topics to a {{ sf-name }} function](../../../functions/operations/trigger/iot-core-trigger-create.md)
 * [Trigger for {{ iot-name }} that sends messages from registry or device topics to a {{ serverless-containers-name }} container](../../../serverless-containers/operations/iot-core-trigger-create.md)

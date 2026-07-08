@@ -81,8 +81,6 @@ items:
                 href: operations/pypi/push.md
               - name: Pulling a Python package from a registry
                 href: operations/pypi/pull.md
-              - name: Deleting a Python package from a registry
-                href: operations/pypi/delete.md
               - name: Examples of working with PyPI registries
                 href: operations/pypi/examples.md
           - name: Binary artifact
@@ -91,6 +89,16 @@ items:
                 href: operations/binary/push.md
               - name: Pulling a binary artifact from a registry
                 href: operations/binary/pull.md
+          - name: Go artifact
+            items:
+              - name: Creating a Go module
+                href: operations/go/create.md
+              - name: Pulling a Go module to the registry
+                href: operations/go/push.md
+              - name: Pushing a Go module from the registry
+                href: operations/go/pull.md
+          - name: Deleting an artifact from a registry
+            href: operations/artifacts/delete.md
       - name: Creating a lifecycle policy
         href: operations/lifecycle-policy/create.md
   - name: Tutorials
@@ -121,6 +129,8 @@ items:
             href: concepts/artifacts/python.md
           - name: Binary artifact
             href: concepts/artifacts/binary.md
+          - name: Go artifact
+            href: concepts/artifacts/go.md
       - name: Lifecycle policy
         href: concepts/lifecycle-policy.md
       - name: Quotas and limits

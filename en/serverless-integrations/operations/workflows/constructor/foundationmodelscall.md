@@ -92,7 +92,7 @@ description: Follow this guide to add interaction with {{ ai-studio-name }} mode
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/integration/foundationmodelscall.md)
 * [{#T}](../workflow/create-constructor.md)

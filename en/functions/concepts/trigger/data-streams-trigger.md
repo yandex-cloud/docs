@@ -32,7 +32,7 @@ Once the trigger fires, it will send a message with the `messages` array to the 
 
 * [{#T}](../../tutorials/events-from-postbox-to-yds.md)
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../../serverless-containers/concepts/trigger/data-streams-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/data-streams-trigger.md)

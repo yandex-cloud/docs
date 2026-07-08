@@ -23,7 +23,7 @@ To create a bot:
 
 The cost of bot support includes:
 
-* Fee for using the API gateway (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
+* Fee for using an API gateway (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
 * Fee for using functions (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 
 ## Set up your environment {#prepare}
@@ -41,7 +41,7 @@ The cost of bot support includes:
 
    1. Click **Create an App**.
    1. Select **From scratch**.
-   1. In the **App Name** field, enter the name for your app: `ServerlessBotApp`.
+   1. In the **App Name** field, name your application: `ServerlessBotApp`.
    1. Select the available workspace and click **Create App**.
 
 1. Grant permissions to `ServerlessBotApp`:

@@ -59,9 +59,9 @@ You can connect modules to a [new](cluster-create.md) or [existing](#enable-modu
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+        For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
     1. Add the `modules` section to the {{ mrd-name }} cluster description:
 
@@ -274,9 +274,9 @@ You can connect modules to a [new](cluster-create.md) or [existing](#enable-modu
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-       For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+       For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
     1. In the {{ mrd-name }} cluster description, do the necessary editing under `modules.valkey_search`:
 

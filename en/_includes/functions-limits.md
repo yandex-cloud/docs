@@ -27,7 +27,7 @@
 
 {% include [quota-trigger-count](quota-trigger-count.md) %}
 
-For more information about relationships between quotas, see [{#T}](../functions/concepts/limits.md#related-quotas).
+For more information on the relationship between quotas, see [this section](../functions/concepts/limits.md#related-quotas).
 
 #### Limits {#functions-limits}
 
@@ -42,7 +42,7 @@ Maximum size of the JSON structure of a [request](../functions/concepts/function
 Maximum size of [temporary files](../functions/concepts/runtime/environment-variables.md#files) | 512 MB
 Maximum function execution time before [timeout](../functions/operations/function/version-manage.md), including first call initialization^1^ | 1 hour
 Maximum RAM per function instance | 8 GB
-Maximum total environment variable storage, including variable names^2^ | 4 KB
+Maximum total size of environment variables, including their names^2^ | 4 KB
 Maximum number of triggers per [message queue](../message-queue/concepts/queue.md) | 1
 Maximum message size per trigger^3^ | 230 KB
 Number of network packets per second per function instance | 10,000 

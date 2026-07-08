@@ -15,7 +15,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) ресурсов, в котором создан каталог метаданных.
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+    1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
     1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
     1. В открывшемся списке выберите каталог метаданных, в котором вы хотите создать [источник](../../concepts/data-catalog-sources.md).
     1. На панели слева выберите ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Источники данных**.
@@ -24,15 +24,15 @@
     1. (Опционально) Добавьте описание источника.
     1. Выберите тип бэкенда, из которого будут поставляться метаданные. После создания источника его тип нельзя будет изменить. Доступные бэкенды:
 
-       * PostgreSQL;
-       * MySQL®;
-       * ClickHouse®;
-       * Yandex StoreDoc/MongoDB;
-       * OpenSearch;
-       * Greenplum®;
-       * Yandex Data Transfer;
-       * WebSQL;
-       * DataLens.
+       * PostgreSQL
+       * MySQL®
+       * ClickHouse®
+       * Yandex StoreDoc/MongoDB
+       * OpenSearch
+       * Greenplum®
+       * Yandex Data Transfer
+       * WebSQL
+       * DataLens
 
     1. Укажите параметры источника для выбранного типа бэкенда:
 

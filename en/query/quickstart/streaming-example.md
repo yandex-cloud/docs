@@ -6,7 +6,7 @@ The result will be the total fare of the first ten rides written to the stream a
 
 To run this example:
 
-1. [Make the necessary preparations](#before-you-begin).
+1. [Get ready to work](#before-you-begin).
 1. [Create a data stream](#create-datastream).
 1. [Set up data generation](#configure-generation).
 1. [Run the query](#run-query).
@@ -18,7 +18,7 @@ To run this example:
 
 {% endnote %}
 
-## Make the necessary preparations {#before-you-begin}
+## Get ready to work {#before-you-begin}
 
 1. Log in to the [management console]({{ link-console-main }}) or sign up if you have not already. If you have not signed up yet, navigate to the management console and follow the instructions.
 1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have an `ACTIVE` or `TRIAL_ACTIVE` [billing account](../../billing/concepts/billing-account.md). If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
@@ -68,7 +68,7 @@ Once completed, the query returns the total fare (`total_amount`) of the first 1
 | --- | --- | --- | --- |
 | 1  | 2022-11-28T16:05:00.000000Z | 10 | 5675.542679843059 |
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [HOP operator and window parameters in streaming data processing](../concepts/stream-processing-windows.md)
 * [Aggregate functions in YQL]({{ ydb.docs }}/yql/reference/builtins/aggregation)

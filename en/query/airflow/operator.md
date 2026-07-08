@@ -82,7 +82,7 @@ The following rules apply when converting YQL types to Python types.
 | `Tuple<Type1, Type2>` | `tuple` | ```(element1, element2, ..)``` |
 | `Struct<Name:Utf8,Age:Int32>` | `dict` | `{ "Name": "John", "Age": 128 }` |
 | `Variant<Type1, Type2>` with a tuple | `list` | ```list[64563, 1]``` |
-| `Variant<value:Int32,error:String>` with a structure | `dict` | ```{key1: value1, key2: value2}``` |
+| `Variant<value:Int32,error:String>` structured string | `dict` | ```{key1: value1, key2: value2}``` |
 
 ### Special types {#special-types}
 
@@ -93,6 +93,6 @@ The following rules apply when converting YQL types to Python types.
 | `EmptyDict` | `{}` |
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../tutorials/airflow-auto-tasks.md)

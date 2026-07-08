@@ -72,7 +72,7 @@ You can configure metadata service parameters when [creating a container revisio
             * `1` to enable the parameter.
             * `2` to disable the parameter.
 
-        For more information about `yandex_serverless_container` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
+        For more on the properties of the `yandex_serverless_container` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
    1. Apply the changes:
 

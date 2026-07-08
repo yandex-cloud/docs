@@ -70,7 +70,7 @@ Number of calls processed concurrently by a single function instance (`concurren
 
     To set the number of calls to be processed concurrently by a single function instance, set its `concurrency` as follows:
 
-    1. In the configuration file, specify the properties of the resources you want to create:
+    1. In the configuration file, describe the resources you want to create:
 
        * `yandex_function`: Description of the function being created and its source code.
          * `name`: Function name.
@@ -102,7 +102,7 @@ Number of calls processed concurrently by a single function instance (`concurren
         }
         ```
 
-        For more information about resource properties, see [yandex_function]({{ tf-provider-resources-link }}/function).
+        For more on the properties of the `yandex_function` resource, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
     1. Validate your configuration using this command:
         

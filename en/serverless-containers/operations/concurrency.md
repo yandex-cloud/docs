@@ -91,7 +91,7 @@ The number of concurrent container instance calls (`concurrency`) cannot exceed 
         * `concurrency`: Maximum number of concurrent invocations per container instance.
         * `url`: [Docker image](../../container-registry/concepts/docker-image.md) URL.
        
-       For more information about `yandex_serverless_container` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
+       For more on the properties of the `yandex_serverless_container` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
     1. Run a check using this command:
 

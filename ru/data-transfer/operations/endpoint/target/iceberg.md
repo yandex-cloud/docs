@@ -22,16 +22,16 @@ description: Из статьи вы узнаете, как задать наст
 
 Настройте один из поддерживаемых источников данных:
 
-* [{{ CH }}](../source/clickhouse.md);
-* [{{ GP }}](../source/greenplum.md);
-* [{{ MG }}](../source/mongodb.md);
-* [{{ MY }}](../source/mysql.md);
-* [{{ PG }}](../source/postgresql.md);
-* [{{ ES }}](../source/elasticsearch.md);
-* [{{ objstorage-full-name }}](../source/object-storage.md);
-* [Oracle](../source/oracle.md);
-* [{{ ydb-name }}](../source/ydb.md);
-* [{{ ytsaurus-name }}](../source/yt.md).
+* [{{ CH }}](../source/clickhouse.md)
+* [{{ GP }}](../source/greenplum.md)
+* [{{ MG }}](../source/mongodb.md)
+* [{{ MY }}](../source/mysql.md)
+* [{{ PG }}](../source/postgresql.md)
+* [{{ ES }}](../source/elasticsearch.md)
+* [{{ objstorage-full-name }}](../source/object-storage.md)
+* [Oracle](../source/oracle.md)
+* [{{ ydb-name }}](../source/ydb.md)
+* [{{ ytsaurus-name }}](../source/yt.md)
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
@@ -69,7 +69,7 @@ description: Из статьи вы узнаете, как задать наст
 
 {% endlist %}
 
-### Настройки конфигурации бакета {#bucket-config}
+### Файловое хранилище {#bucket-config}
 
 {% list tabs group=instructions %}
 
@@ -97,13 +97,25 @@ description: Из статьи вы узнаете, как задать наст
 
 - Консоль управления {#console}
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergTarget.cleanup_policy.title }}** — выберите способ очистки данных в базе-приемнике перед переносом:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergTarget.cleanup_policy.title }}** — выберите способ очистки данных в базе-приемнике перед переносом:
 
-     * `{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergCleanupPolicy.ICEBERG_CLEANUP_POLICY_DISABLED.title }}` — существующие таблицы с данными будут использоваться для дальнейшей записи данных.
+        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergCleanupPolicy.ICEBERG_CLEANUP_POLICY_DISABLED.title }}` — существующие таблицы с данными будут использоваться для дальнейшей записи данных.
 
-     * `{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergCleanupPolicy.ICEBERG_CLEANUP_POLICY_DROP.title }}` — полное удаление таблиц, участвующих в трансфере.
+        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergCleanupPolicy.ICEBERG_CLEANUP_POLICY_DROP.title }}` — полное удаление таблиц, участвующих в трансфере.
 
-       Используйте эту опцию, чтобы при любой активации трансфера в базу-приемник всегда передавалась самая последняя версия схемы таблиц из источника.
+        Используйте эту опцию, чтобы при любой активации трансфера в базу-приемник всегда передавалась самая последняя версия схемы таблиц из источника.
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergTarget.writer_settings.title }}** — настройки записи данных в таблицы {{ IBRG }}:
+
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergWriterSettings.max_rows_per_file.title }}** — максимальное число строк в одном файле данных. При значении `0` число строк не ограничено.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergWriterSettings.max_bytes_per_file.title }}** — максимальный размер (в байтах) одного файла данных. При значении `0` размер файлов не ограничен.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergWriterSettings.parquet.title }}** — настройки формата данных Parquet:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergParquetRowGroup.row_group_max_bytes.title }}** — максимальное число строк в группе. При значении `0` число строк в группе не ограничено.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergParquetRowGroup.row_group_max_rows.title }}** — максимальный размер (в байтах) группы строк. При значении `0` размер группы строк не ограничен.
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergTarget.replication_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergReplicationSettings.commit_interval.title }}** — интервал (в секундах) между коммитами в таблицу {{ IBRG }} при репликации.
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.iceberg.console.form.iceberg.IcebergTarget.default_namespace.title }}** — пространство имен в {{ IBRG }}, в которое будут переноситься таблицы, если у базы-источника отсутствует схема данных.
 
 {% endlist %}
 

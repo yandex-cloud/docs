@@ -1,1 +1,1 @@
-The `cspm.auditor` role allows the user to view info on cloud infrastructure checks for compliance with [security standards](../../security-deck/concepts/cspm.md#standards) configured in [{{ cspm-name }}](../../security-deck/concepts/cspm.md) settings.
+The `cspm.auditor` role enables viewing info on cloud infrastructure checks for compliance with [security standards](../../security-deck/concepts/cspm.md#standards), as well as on jobs for such checks configured in the [{{ cspm-name }}](../../security-deck/concepts/cspm.md) settings.

@@ -1,11 +1,11 @@
 ---
-title: Как подключить виртуальную машину на Linux к {{ backup-full-name }}
-description: Следуя данной инструкции, вы сможете подключить виртуальную машину на Linux к {{ backup-name }}.
+title: Как подключить виртуальную машину {{ compute-full-name }} на Linux к {{ backup-full-name }}
+description: Следуя данной инструкции, вы сможете подключить виртуальную машину {{ compute-full-name }} на Linux к {{ backup-full-name }}.
 ---
 
 # Подключить существующую виртуальную машину на Linux к {{ backup-name }}
 
-Вы можете создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) {{ compute-name }} c [поддерживаемыми операционными системами на базе Linux](../concepts/vm-connection.md#linux).
+Вы можете создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) {{ compute-full-name }} с [поддерживаемыми операционными системами на базе Linux](../concepts/vm-connection/compute.md#linux).
 
 {% include [requirements](../../_includes/backup/requirements.md) %}
 

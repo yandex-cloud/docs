@@ -68,7 +68,7 @@ description: Follow this guide to update a rule label.
       }
       ```
 
-      For more information about the `yandex_serverless_eventrouter_rule` resource parameters, see [this Terraform article]({{ tf-provider-resources-link }}/serverless_eventrouter_rule).
+      For more on the properties of the `yandex_serverless_eventrouter_rule` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_rule).
 
   1. Apply the changes:
 

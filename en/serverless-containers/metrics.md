@@ -5,11 +5,11 @@ description: This page provides a reference of {{ serverless-containers-name }} 
 
 # {{ monitoring-full-name }} metric reference
 
-This section describes the {{ serverless-containers-name }} metrics delivered to [{{ monitoring-name }}](../monitoring/).
+This section describes {{ serverless-containers-name }} metrics exported to [{{ monitoring-name }}](../monitoring/).
 
 {% include [serverless-containers](../_includes/monitoring/metrics-ref/serverless-containers.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./operations/monitoring.md)
 * [{#T}](./operations/trigger-monitoring.md)

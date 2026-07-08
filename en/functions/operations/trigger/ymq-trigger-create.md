@@ -170,7 +170,7 @@ To create a trigger, you will need:
        * `batch_size`: Message batch size. This is an optional setting. The values may range from 1 to 1,000. The default value is 1.
        * `batch_cutoff`: Maximum wait time. This is an optional setting. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages within the `batch-cutoff` period and sends them to the function. The number of messages cannot exceed `batch-size`.
 
-     For more information about `yandex_function_trigger` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
+     For more on the properties of the `yandex_function_trigger` resource, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 
@@ -206,7 +206,7 @@ To create a trigger, you will need:
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../../serverless-containers/operations/ymq-trigger-create.md)
 * [{#T}](../../../api-gateway/operations/trigger/ymq-trigger-create.md)

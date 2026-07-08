@@ -132,3 +132,4 @@ Object Storage позволяет хранить объекты в хранил�
 #### Полезные ссылки {#see-also}
 
 * [Yandex Object Storage: как выбрать класс хранилища](https://yandex.cloud/ru/blog/object-storage-class)
+* [Экономим с «Умным хранилищем»: новый класс хранения Yandex Object Storage](https://yandex.cloud/ru/blog/s3-intelligent-tiering)

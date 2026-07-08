@@ -84,9 +84,9 @@ Learn more about other cluster updates:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+        For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
-    1. Edit the `description` parameter in the {{ mrd-name }} cluster description:
+    1. Update the `description` value in the {{ mrd-name }} cluster description:
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
@@ -225,9 +225,9 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+        For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
-    1. Edit the `announce_hostnames` parameter in the {{ mrd-name }} cluster description:
+    1. Update the `announce_hostnames` value in the {{ mrd-name }} cluster description:
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
@@ -280,7 +280,7 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
         * `announceHostnames`: [Using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -376,9 +376,9 @@ For more information about data persistence and its settings, see [Persistence](
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+        For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
-    1. Edit the `persistence_mode` parameter in the {{ mrd-name }} cluster description:
+    1. Update the `persistence_mode` value in the {{ mrd-name }} cluster description:
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
@@ -570,9 +570,9 @@ We recommend changing the host class only when the cluster is idle.
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+        For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
-    1. Edit the `resource_preset_id` value in the `resources` section of your {{ mrd-name }} cluster description:
+    1. In the {{ mrd-name }} cluster description, change the `resource_preset_id` parameter value under `resources`:
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
@@ -630,7 +630,7 @@ We recommend changing the host class only when the cluster is idle.
 
         * `configSpec.resources.resourcePresetId`: New [host class](../concepts/instance-types.md). To get the list of supported values, call the [ResourcePreset.List](../api-ref/ResourcePreset/list.md) method.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -676,7 +676,7 @@ We recommend changing the host class only when the cluster is idle.
 
         * `config_spec.resources.resource_preset_id`: New [host class](../concepts/instance-types.md). To get the list of supported values, call the [ResourcePreset.List](../api-ref/ResourcePreset/list.md) method.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -720,7 +720,7 @@ We recommend changing the host class only when the cluster is idle.
      {{ yc-mdb-rd }} cluster update --help
      ```
 
-  1. Specify the required storage size in the cluster update command: The new size must be at least as large as the current `disk_size` in the cluster properties.
+  1. Specify the required storage size in the cluster update command. The new size must be at least as large as the current `disk_size` value in the cluster properties.
 
      ```bash
      {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
@@ -735,9 +735,9 @@ We recommend changing the host class only when the cluster is idle.
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+        For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
-    1. Edit the `disk_size` value in the `resources` section of your {{ mrd-name }} cluster description:
+    1. In the {{ mrd-name }} cluster description, change the `disk_size` parameter value under `resources`:
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
@@ -856,7 +856,7 @@ We recommend changing the host class only when the cluster is idle.
             * `disk_size`: New storage size in bytes.
 
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -915,7 +915,7 @@ For more information about storage and its autoscaling, see [Storage in {{ mrd-n
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Add the following section to the cluster description:
 
@@ -1053,7 +1053,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+        For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
     1. Update the settings in the `config` section of your {{ mrd-name }} cluster description:
 
@@ -1121,9 +1121,9 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 
         * `updateMask`: Comma-separated string of settings to update.
 
-        * `configSpec.redisConfig_<{{ VLK }}_version>`: {{ VLK }} settings. Specify each setting on a new line, separated by commas.
+        * `configSpec.redisConfig_<{{ VLK }}_version>`: {{ VLK }} settings. Enter each setting on a new line, separated by commas.
 
-            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for the descriptions and possible values of the settings.
+            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for descriptions and possible values of the settings.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1175,9 +1175,9 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 
         * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
-        * `config_spec.redis_config_<{{ VLK }}_version>`: {{ VLK }} settings. Specify each setting on a new line, separated by commas.
+        * `config_spec.redis_config_<{{ VLK }}_version>`: {{ VLK }} settings. Enter each setting on a new line, separated by commas.
 
-            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for the descriptions and possible values of the settings.
+            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.redis.v1.UpdateClusterRequest) for the list of {{ VLK }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for descriptions and possible values of the settings.
 
         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -1249,7 +1249,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+        For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
     1. In the {{ mrd-name }} cluster description, update the settings you need:
     
@@ -1512,7 +1512,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+        For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
     1. Add the `sharded` argument set to `true` to the {{ mrd-name }} cluster description:
 
@@ -1527,7 +1527,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1554,7 +1554,7 @@ You cannot disable sharding in a cluster where it is already enabled.
             --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>:enable_sharding'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         {% include [enable-sharding-shard-note](../../_includes/mdb/mvk/enable-sharding-shard-note.md) %}
 
@@ -1584,7 +1584,7 @@ You cannot disable sharding in a cluster where it is already enabled.
             yandex.cloud.mdb.redis.v1.ClusterService.EnableSharding
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         {% include [enable-sharding-shard-note](../../_includes/mdb/mvk/enable-sharding-shard-note.md) %}
 
@@ -1631,7 +1631,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+        For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
     1. In the {{ mrd-name }} cluster description, add or update the `folder_id` argument:
 
@@ -1750,9 +1750,9 @@ You cannot disable sharding in a cluster where it is already enabled.
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+        For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
-    1. Edit the `security_group_ids` parameter in the {{ mrd-name }} cluster description:
+    1. Update the `security_group_ids` value in the {{ mrd-name }} cluster description:
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
@@ -1808,7 +1808,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
         * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1855,7 +1855,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
         * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1866,4 +1866,3 @@ You cannot disable sharding in a cluster where it is already enabled.
 You may need to [configure security groups](connect/index.md#configuring-security-groups) to enable access to your cluster.
 
 {% endnote %}
-

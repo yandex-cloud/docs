@@ -198,7 +198,7 @@ Create a [function](../../functions/concepts/function.md) to get a list of numbe
      * `content`: Function source code.
      * `content.0.zip_filename`: Path to the ZIP archive containing the function source code.
 
-     For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+     For more on the properties of the `yandex_function` resource, see [this provider guide]({{ tf-provider-resources-link }}/function).
   1. Make sure the configuration files are correct.
      1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
@@ -360,7 +360,7 @@ Add function information to the API gateway specification.
      }
      ```
 
-     For more information about resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
+     For more on the properties of resources in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
   1. Make sure the configuration files are correct.
      1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
@@ -415,7 +415,7 @@ Result:
 [0, 1, 2]
 ```
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Service usage concepts](../concepts/index.md)
 * [Step-by-step guides on managing API gateways](../operations/index.md)

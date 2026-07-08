@@ -14,6 +14,6 @@ This API reference is organized around Cloud Backup resources. Actions are perfo
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [Policy](Policy/index.md) | A set of methods for managing [policies](../../concepts/policy.md). ||
 || [Provider](Provider/index.md) | A set of methods for managing [backup providers](../../concepts/index.md#providers). ||
-|| [Resource](Resource/index.md) | A set of methods for managing backup resources: [Compute Cloud instances](../../concepts/vm-connection.md#os). ||
+|| [Resource](Resource/index.md) | A set of methods for managing backup resources: [Compute Cloud instances](../../concepts/vm-connection/index.md#os). ||
 || [Setup](Setup/index.md) |  ||
 |#

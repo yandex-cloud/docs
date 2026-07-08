@@ -22,7 +22,7 @@ The Success control step successfully completes the workflow execution. If the s
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/management/success.md)
 * [{#T}](../workflow/create-constructor.md)

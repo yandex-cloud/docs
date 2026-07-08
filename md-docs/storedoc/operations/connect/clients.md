@@ -220,6 +220,98 @@
 
 {% endlist %}
 
+
+
+### Подключение с аутентификацией через IAM {#iam}
+
+Вы можете подключиться к кластеру Yandex StoreDoc с помощью аутентификации через IAM. Для аутентификации используйте [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративный](../../../iam/concepts/users/accounts.md#saml-federation) или [локальный](../../../iam/concepts/users/accounts.md#local) аккаунт.
+
+Подключение выполняется через MongoDB Shell. О том, как установить утилиту MongoDB Shell, читайте в [инструкции](index.md#mongosh-install).
+
+Перед подключением [настройте группы безопасности](index.md#configuring-security-groups), а также [включите публичный доступ](../hosts.md#update) к хостам кластера, если подключение выполняется через интернет.
+
+Чтобы подключиться к кластеру с помощью аутентификации через IAM:
+
+1. Настройте аутентификацию:
+
+    {% list tabs group=instructions %}
+
+    - Консоль управления {#console}
+
+      1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+      1. Перейдите в сервис **Yandex StoreDoc**.
+      1. Выберите кластер.
+      1. Назначьте аккаунту в Yandex Cloud роль `managed-mongodb.clusters.connector` на кластер:
+         
+          1. Выберите вкладку **Права доступа**.
+          1. В правом верхнем углу страницы нажмите кнопку **Назначить роли**.
+          1. В поле **Кому выдать доступ** выберите аккаунт.
+              
+              Чтобы найти нужный аккаунт, введите в это поле адрес почты, к которому привязан аккаунт.
+          
+          1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `managed-mongodb.clusters.connector`.
+          1. Нажмите кнопку **Сохранить**.
+      
+      1. Создайте пользователя Yandex StoreDoc:
+
+          1. Выберите вкладку ![image](../../../_assets/console-icons/persons.svg) **Пользователи**.
+          1. В правом верхнем углу страницы нажмите кнопку **Создать пользователя**.
+          1. Выберите способ авторизации **IAM**.
+          1. Выберите аккаунт в Yandex Cloud с ролью `managed-mongodb.clusters.connector`.
+          1. Выберите базы данных и настройте для них [роли](../../concepts/users-and-roles.md):
+          
+              1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить базу данных** и выберите базу данных.
+              1. Назначьте роли для выбранной базы данных.
+              
+                  Чтобы назначить роль, нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) и выберите роль.
+          
+          1. Нажмите кнопку **Создать**.
+
+    {% endlist %}
+
+1. Получите IAM-токен и поместите его в переменную окружения `IAM_TOKEN`:
+    
+    * [Инструкция](../../../iam/operations/iam-token/create.md) для аккаунта на Яндексе.
+    * [Инструкция](../../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
+    * [Инструкция](../../../iam/operations/iam-token/create-for-local.md) для локального аккаунта.
+
+1. [Получите SSL-сертификат](index.md#get-ssl-cert).
+1. Подключитесь к кластеру, выполнив команду:
+
+    Для нешардированного кластера:
+
+    ```bash
+    mongosh --norc \
+            --tls \
+            --tlsCAFile ~/.mongodb/root.crt \
+            --host '<FQDN_хоста_1_MONGOINFRA_или_MONGOS>:27018,...,<FQDN_хоста_N_MONGOINFRA_или_MONGOS>:27018' \
+            --username "<имя_пользователя_БД>" \
+            --password "$IAM_TOKEN" \
+            --authenticationDatabase '$external' \
+            --authenticationMechanism PLAIN \
+            <имя_БД>
+    ```
+
+    Для шардированного кластера:
+
+    ```bash
+    mongosh --norc \
+            --tls \
+            --tlsCAFile ~/.mongodb/root.crt \
+            --host '<FQDN_хоста_1_MONGOINFRA_или_MONGOS>:27017,...,<FQDN_хоста_N_MONGOINFRA_или_MONGOS>:27017' \
+            --username "<имя_пользователя_БД>" \
+            --password "$IAM_TOKEN" \
+            --authenticationDatabase '$external' \
+            --authenticationMechanism PLAIN \
+            <имя_БД>
+    ```
+
+    Где `--username` — имя пользователя базы данных, которое совпадает с адресом почты аккаунта в Yandex Cloud.
+
+    О том, как получить FQDN хоста, читайте в [инструкции](index.md#get-fqdn).
+
+
+
 ## Подключение из графических IDE {#connection-ide}
 
 Подключения проверялись в следующем окружении:

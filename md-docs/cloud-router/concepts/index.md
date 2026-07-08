@@ -13,3 +13,7 @@ Yandex Cloud Router — это сервис для управления сете
 Чтобы организовать сетевую связность между ресурсами, относящимися к разным [организациям](../../organization/concepts/organization.md) в пределах Yandex Cloud, отправьте [запрос](https://center.yandex.cloud/support) в службу технической поддержки.
 
 {% endnote %}
+
+#### Полезные ссылки {#see-also}
+
+* [Запустили Yandex Cloud Router, обновили Yandex Virtual Private Cloud и Yandex Cloud DNS](https://yandex.cloud/ru/blog/yandex-cloud-router)

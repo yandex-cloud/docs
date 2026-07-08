@@ -93,7 +93,7 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, specify the properties of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      resource "yandex_container_repository_lifecycle_policy" "my_lifecycle_policy" {
@@ -122,7 +122,7 @@ You can only set a [lifecycle policy](../../concepts/lifecycle-policy.md) for a 
        * `retained_top`: Number of Docker images that will not be deleted even if they match the lifecycle policy rules.
        * `expire_period`: Time after which the lifecycle policy applies to the Docker image. This parameter comes as a number followed by a unit of measurement: `s`, `m`, `h`, or `d` (seconds, minutes, hours, or days). `expire_period` must be a multiple of 24 hours.
 
-     For more information about `yandex_container_repository_lifecycle_policy` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/container_repository_lifecycle_policy).
+     For more on the properties of the `yandex_container_repository_lifecycle_policy` resource, see [this provider guide]({{ tf-provider-resources-link }}/container_repository_lifecycle_policy).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

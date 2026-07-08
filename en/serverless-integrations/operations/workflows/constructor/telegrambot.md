@@ -36,7 +36,7 @@ description: Follow this guide to add the step of accessing the Telegram Bot API
           1. In the **Chat ID** field, provide chat ID or channel name in `@channelusername` format.
           1. In the **Text** field, enter the text of the message.
           1. Optionally, in the **Reply to** field, provide the ID of the message to reply to.
-          1. Optionally, in the **Formatting mode** field, select message formatting mode. For more information, see the [Telegram Bot API](https://core.telegram.org/bots/api#formatting-options) documentation.
+          1. Optionally, in the **Formatting mode** field, select message formatting mode. For more information, see [this Telegram Bot API guide](https://core.telegram.org/bots/api#formatting-options).
 
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}
@@ -46,7 +46,7 @@ description: Follow this guide to add the step of accessing the Telegram Bot API
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/integration/telegrambot.md)
 * [{#T}](../workflow/create-constructor.md)

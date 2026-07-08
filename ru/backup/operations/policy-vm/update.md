@@ -1,6 +1,6 @@
 ---
 title: Изменить политику резервного копирования в {{ backup-full-name }}
-description: Из статьи вы узнаете, как изменить политику резервного копирования в {{ backup-name }}.
+description: Из статьи вы узнаете, как изменить политику резервного копирования в {{ backup-full-name }}.
 ---
 
 # Изменить политику резервного копирования
@@ -18,7 +18,7 @@ description: Из статьи вы узнаете, как изменить по
   
   Политики копирования с некоторыми дополнительными настройками нельзя изменить в консоли управления {{ yandex-cloud }}. Чтобы изменить настройки таких политик, воспользуйтесь CLI {{ yandex-cloud }}, {{ TF }} или API.
 
-  Если изменения настроек политики резервного копирования не применились на ВМ или сервере {{ baremetal-name }}, к которым ранее была привязана политика, то [отвяжите](detach-vm.md) политику от ВМ и [привяжите](attach-and-detach-vm.md) ее заново.
+  Если изменения настроек политики резервного копирования не применились на [защищаемом ресурсе](../../concepts/index.md#protected-resources), к которому ранее была привязана политика, то [отвяжите](detach-vm.md) политику от ресурса и [привяжите](attach-and-detach-vm.md) ее заново.
 
   {% endnote %}
 
@@ -66,7 +66,7 @@ description: Из статьи вы узнаете, как изменить по
 
       {% endcut %}
 
-      В примере приведена конфигурация политики резервного копирования, которая будет создавать [инкрементальные](../../concepts/backup.md#types) [резервные копии](../../concepts/backup.md) [виртуальной машины](../../../compute/concepts/vm.md) или [сервера {{ baremetal-name }}](../../../baremetal/concepts/servers.md) каждый понедельник в 00:05 (UTC+0). При этом храниться будут только десять последних копий.
+      В примере приведена конфигурация политики резервного копирования, которая будет создавать [инкрементальные](../../concepts/backup.md#types) [резервные копии](../../concepts/backup.md) для [защищаемого ресурса](../../concepts/index.md#protected-resources) каждый понедельник в 00:05 (UTC+0). При этом храниться будут только десять последних копий.
 
       Полная спецификация описана в разделе [{#T}](../../concepts/policy.md#specification).
  
@@ -103,7 +103,7 @@ description: Из статьи вы узнаете, как изменить по
 
      ```hcl
      resource "yandex_backup_policy" "my_policy" {
-         archive_name                      = "[<имя_ВМ_или_сервера_{{ baremetal-name }}>]-[<идентификатор_плана>]-[<уникальный_идентификатор>]a"
+         archive_name                      = "[<имя_защищаемого_ресурса>]-[<идентификатор_плана>]-[<уникальный_идентификатор>]"
          cbt                               = "USE_IF_ENABLED"
          compression                       = "NORMAL"
          fast_backup_enabled               = true
@@ -177,7 +177,9 @@ description: Из статьи вы узнаете, как изменить по
 
 {% endlist %}
 
-## Изменить список виртуальных машин и серверов {{ baremetal-full-name }} {#update-vm-list}
+## Изменить список защищаемых ресурсов {#update-vm-list}
+
+{% include [external-no-console-notice](../../../_includes/backup/external-no-console-notice.md) %}
 
 {% list tabs group=instructions %}
 
@@ -186,18 +188,18 @@ description: Из статьи вы узнаете, как изменить по
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится политика резервного копирования.
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Перейдите на вкладку ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
-  1. Выберите политику резервного копирования, в которой нужно изменить список [виртуальных машин](../../../compute/concepts/vm.md) или [серверов](../../../baremetal/concepts/servers.md) {{ baremetal-name }}.
+  1. Выберите политику резервного копирования, в которой нужно изменить список [защищаемых ресурсов](../../concepts/index.md#protected-resources).
   1. Измените список привязанных ресурсов:
-     * Чтобы привязать новую ВМ или сервер {{ baremetal-name }}, нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}** и в открывшемся окне:
+     * Чтобы привязать новую ВМ или сервер, нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}** и в открывшемся окне:
 
         * В зависимости от того, какой ресурс вы хотите привязать к политике, выберите вкладку **{{ ui-key.yacloud.backup.value_vm-recourses }}** или **{{ ui-key.yacloud.backup.value_bms-recourses }}** и в списке выберите нужные ВМ или сервер.
 
-           Если ВМ или сервера {{ baremetal-name }}, которые вы хотите привязать к политике, нет в списке, убедитесь, что они подключены к {{ backup-name }}.
+           Если ВМ или сервера, которые вы хотите привязать к политике, нет в списке, убедитесь, что они подключены к {{ backup-name }}.
         * Нажмите кнопку **{{ ui-key.yacloud_billing.backup.button_attach-instance-submit }}**.
-     * Чтобы отвязать ВМ или сервер {{ baremetal-name }}:
+     * Чтобы отвязать ВМ или сервер от политики:
 
         * В зависимости от того, какой ресурс вы хотите отвязать от политики резервного копирования, выберите вкладку **{{ ui-key.yacloud.backup.value_vm-recourses }}** или **{{ ui-key.yacloud.backup.value_bms-recourses }}**.
-        * В строке с ВМ или сервером {{ baremetal-name }}, которые нужно отвязать от политики, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите соответственно **{{ ui-key.yacloud.backup.action_detach-vm-instance }}** или **{{ ui-key.yacloud.backup.action_detach-baremetal-instance }}**.
+        * В строке с ВМ или сервером, которые нужно отвязать от политики, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите соответственно **{{ ui-key.yacloud.backup.action_detach-vm-instance }}** или **{{ ui-key.yacloud.backup.action_detach-baremetal-instance }}**.
         * В открывшемся окне подтвердите это действие.
 
 - CLI {#cli}
@@ -206,18 +208,16 @@ description: Из статьи вы узнаете, как изменить по
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Узнайте идентификатор политики резервного копирования, в которой нужно изменить список ВМ или серверов {{ baremetal-name }}:
+  1. Узнайте идентификатор политики резервного копирования, в которой нужно изменить список [защищаемых ресурсов](../../concepts/index.md#protected-resources):
 
      {% include [get-policy-id](../../../_includes/backup/operations/get-policy-id.md) %}
 
-  1. Узнайте идентификаторы виртуальных машин, которые нужно добавить или удалить:
+  1. Узнайте идентификаторы защищаемых ресурсов, подключенных к {{ backup-name }}, которые нужно добавить или удалить:
 
-     {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
+     {% include [get-resource-ids](../../../_includes/backup/operations/get-resource-ids.md) %}
 
-     {% include [get-bms-ids](../../../_includes/backup/operations/get-bms-ids.md) %}
-
-  1. Измените список ВМ и серверов {{ baremetal-name }} в политике резервного копирования.
-     * Чтобы привязать ВМ или сервер {{ baremetal-name }} к политике резервного копирования:
+  1. Измените список защищаемых ресурсов в политике резервного копирования.
+     * Чтобы привязать ресурс к политике резервного копирования:
 
        Посмотрите описание команды CLI:
 
@@ -225,17 +225,17 @@ description: Из статьи вы узнаете, как изменить по
        yc backup policy apply --help
        ```
 
-       Привяжите ВМ или серверы {{ baremetal-name }} к политике резервного копирования, указав ее идентификатор:
+       Привяжите ресурсы к политике резервного копирования, указав ее идентификатор:
 
        ```bash
        yc backup policy apply <идентификатор_политики_резервного_копирования> \
-         --instance-ids <идентификаторы_ВМ_или_серверов_{{ baremetal-name }}>
+         --instance-ids <идентификаторы_защищаемых_ресурсов>
        ```
 
-       Где `--instance-ids` — идентификаторы подключенных к {{ backup-name }} виртуальных машин и серверов {{ baremetal-name }}, которые нужно привязать к политике резервного копирования. Несколько идентификаторов указываются через запятую.
+       Где `--instance-ids` — идентификаторы подключенных к {{ backup-name }} [виртуальных машин {{ compute-name }}](../../concepts/vm-connection/compute.md), [серверов {{ baremetal-name }}](../../concepts/vm-connection/baremetal.md) или [внешних ресурсов](../../concepts/vm-connection/external-resources.md), которые нужно привязать к политике резервного копирования. Несколько идентификаторов указываются через запятую.
 
        Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/backup/cli-ref/policy/apply.md).
-     * Чтобы отвязать ВМ или серверы {{ baremetal-name }} от политики резервного копирования:
+     * Чтобы отвязать защищаемые ресурсы от политики резервного копирования:
 
        Посмотрите описание команды CLI:
 
@@ -243,20 +243,60 @@ description: Из статьи вы узнаете, как изменить по
        yc backup policy revoke --help
        ```
 
-       Отвяжите ВМ или серверы {{ baremetal-name }} от политики резервного копирования, указав ее идентификатор:
+       Отвяжите ресурсы от политики резервного копирования, указав ее идентификатор:
 
        ```bash
        yc backup policy revoke <идентификатор_политики_резервного_копирования> \
-         --instance-ids <идентификаторы_ВМ_или_серверов_{{ baremetal-name }}>
+         --instance-ids <идентификаторы_защищаемых_ресурсов>
        ```
 
-       Где `--instance-ids` — идентификаторы ВМ или серверов {{ baremetal-name }}, которые нужно отвязать от политики резервного копирования. Несколько идентификаторов указываются через запятую.
+       Где `--instance-ids` — идентификаторы [виртуальных машин {{ compute-name }}](../../concepts/vm-connection/compute.md), [серверов {{ baremetal-name }}](../../concepts/vm-connection/baremetal.md) или [внешних ресурсов](../../concepts/vm-connection/external-resources.md), которые нужно отвязать от политики резервного копирования. Несколько идентификаторов указываются через запятую.
 
        Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/backup/cli-ref/policy/revoke.md).
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  Чтобы изменить список [защищаемых ресурсов](../../concepts/index.md#protected-resources), привязанных к политике резервного копирования:
+
+  1. Опишите в конфигурационном файле {{ TF }} отдельными блоками параметры привязки к политике для каждого защищаемого ресурса:
+
+      ```hcl
+      resource "yandex_backup_policy_bindings" "test_backup_binding_1" {
+        instance_id = "<идентификатор_защищаемого_ресурса_1>"
+        policy_id   = "<идентификатор_политики>"
+      }
+
+      resource "yandex_backup_policy_bindings" "test_backup_binding_2" {
+        instance_id = "<идентификатор_защищаемого_ресурса_2>"
+        policy_id   = "<идентификатор_политики>"
+      }
+      ```
+
+      Где:
+
+      * `instance_id` — идентификаторы защищаемых ресурсов, которые должны быть привязаны к политике.
+
+          Получить список идентификаторов, привязанных к сервису {{ backup-name }} ресурсов в каталоге по умолчанию, вы можете с помощью команды {{ yandex-cloud }} CLI `yc backup vm list`.
+      * `policy_id` — [идентификатор](./get-info.md) политики резервного копирования, к которой должны быть привязаны защищаемые ресурсы.
+
+     Более подробную информацию о параметрах ресурса `yandex_backup_policy_bindings` см. в [документации провайдера]({{ tf-provider-resources-link }}/backup_policy_bindings).
+  1. Создайте ресурсы {{ TF }}:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+     ```bash
+      yc backup policy list-applications
+     ```
+
 - API {#api}
 
-  Чтобы изменить список ВМ или серверов {{ baremetal-name }}, копии которых создаются согласно [политике резервного копирования](../../concepts/policy.md), воспользуйтесь методом REST API [update](../../backup/api-ref/Policy/update.md) для ресурса [Policy](../../backup/api-ref/Policy/index.md) или вызовом gRPC API [PolicyService/Update](../../backup/api-ref/grpc/Policy/update.md).
+  Чтобы изменить список [защищаемых ресурсов](../../concepts/index.md#protected-resources), копии которых создаются согласно [политике резервного копирования](../../concepts/policy.md), воспользуйтесь методом REST API [update](../../backup/api-ref/Policy/update.md) для ресурса [Policy](../../backup/api-ref/Policy/index.md) или вызовом gRPC API [PolicyService/Update](../../backup/api-ref/grpc/Policy/update.md).
 
 {% endlist %}
 

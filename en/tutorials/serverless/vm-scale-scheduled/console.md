@@ -11,6 +11,6 @@ To set up [scheduled scaling for an instance group](index.md):
 
 {% include [vm-scale-scheduled-console](../../../_tutorials/infrastructure/vm-scale-scheduled-console.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](terraform.md).

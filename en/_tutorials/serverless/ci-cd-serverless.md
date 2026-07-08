@@ -3,7 +3,7 @@
 
 You can build a continuous integration/continuous delivery (CI/CD) pipeline using serverless products.
 
-As an example, we will use a [Django](https://www.djangoproject.com/) web app simulating an online store shopping cart. The app uses a database to store product descriptions and the user session to store the shopping cart status. We will deploy the Django app in a [{{ serverless-containers-name }} container](../../serverless-containers/concepts/container.md) with secrets securely delivered to it through [{{ lockbox-name }}](../../lockbox/). [{{ api-gw-full-name }}](../../api-gateway/) accepts user requests and redirects them to the app container.
+As an example, we will use a [Django](https://www.djangoproject.com/) web app simulating an online store shopping cart. The app uses a database to store product descriptions and the user session to store the shopping cart status. We will deploy the Django app in a [container in {{ serverless-containers-name }}](../../serverless-containers/concepts/container.md) with secrets securely delivered to it through [{{ lockbox-name }}](../../lockbox/). [{{ api-gw-full-name }}](../../api-gateway/) accepts user requests and redirects them to the app container.
 
 The project uses two environments:
 * `prod`: Production environment available to users.
@@ -19,7 +19,7 @@ To build a CI/CD pipeline with serverless products:
 1. [Create a {{ GLR }}](#runners).
 1. [Upload files to the {{ GL }} repository](#add-files).
 1. [Create {{ GL }} environment variables](#add-variables).
-1. [Create a CI script configuration file](#add-ci).
+1. [Create a CI pipeline configuration file](#add-ci).
 1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -32,7 +32,7 @@ The infrastructure support cost includes:
 * Fee for using a [{{ managed-k8s-full-name }} master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for storing the created Docker images (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
 * Fee for storing secrets (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
-* Fee for the number of container invocations, computing resources allocated to the application, and outgoing traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md)).
+* Fee for the container invocation count, computing resources allocated for the application, and outgoing traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md)).
 * Fee for API gateway requests (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 * Fee for using [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
@@ -108,7 +108,7 @@ Create either a {{ mgl-name }} instance or a [VM](../../compute/concepts/vm.md) 
 
 ## Upload files to the {{ GL }} repository {#add-files}
 
-1. [Add an SSH key to securely access {{ GL }}](https://docs.gitlab.com/user/ssh/).
+1. [Add an SSH key for secure access to {{ GL }}](https://docs.gitlab.com/user/ssh/).
 1. [Clone](https://docs.gitlab.com/topics/git/clone/) the `gitlab-test` repository over SSH.
 1. Copy all files from the `yc-serverless-gitlab-ci-cd` repository to `gitlab-test`.
 1. Navigate to the `gitlab-test` directory.
@@ -142,7 +142,7 @@ Create either a {{ mgl-name }} instance or a [VM](../../compute/concepts/vm.md) 
    * `DOCAPI_ENDPOINT_prod`: Document API endpoint of the [{{ ydb-full-name }}](../../ydb/) database in the `prod` folder.
    * `PROD_SA_ID`: `deployer` service account ID in the `prod` folder.
    * `SA_PROD_DEPLOYER_PRIVATE_KEY`: `deployer` service account key in the `prod` folder.
-   * `prod_container_id`: {{ serverless-containers-name }} container ID in the `prod` folder.
+   * `prod_container_id`: Container ID from {{ serverless-containers-name }} in the `prod` folder.
    * `cart_testing`: {{ yandex-cloud }} test folder name.
    * `DOCAPI_ENDPOINT_testing`: Document API endpoint of the {{ ydb-name }} database in the `testing` folder.
    * `TESTING_SA_ID`: `deployer` service account ID in the `testing` folder.
@@ -150,11 +150,11 @@ Create either a {{ mgl-name }} instance or a [VM](../../compute/concepts/vm.md) 
 
    To add a variable:
    1. Click **Add variable**.
-   1. In the window that opens, specify the variable name in the **Key** field and its value in the **Value** field.
+   1. In the window that opens, specify a variable name in the **Key** field and its value in the **Value** field.
    1. Disable **Protect variable**.
    1. Click **Add variable**.
 
-## Create a CI script configuration file {#add-ci}
+## Create a CI pipeline configuration file {#add-ci}
 
 1. Open the `gitlab-test` project.
 1. Click ![image](../../_assets/console-icons/plus.svg) in the repository navigation bar and select **New file** from the drop-down menu.
@@ -272,18 +272,18 @@ Create either a {{ mgl-name }} instance or a [VM](../../compute/concepts/vm.md) 
 1. Add a comment in the **Commit message** field: `CI scripts`.
 1. Click **Commit changes**.
 
-The `.gitlab-ci.yml` file contains the following steps of the CI script:
+The `.gitlab-ci.yml` file defines the following CI pipeline stages:
 * **build**: Building a Docker image with `Dockerfile` and pushing the image to {{ container-registry-name }}.
-* **deploy-test-env**: App test deployment. Additionally, we described the [artifacts](https://docs.gitlab.com/ci/jobs/job_artifacts/) feature to transfer data from one step to another that we are not going to use here. You can configure it, if required.
+* **deploy-test-env**: App test deployment. Additionally, we described the [artifacts](https://docs.gitlab.com/ci/jobs/job_artifacts/) feature to transfer data from one stage to another that we are not going to use here. You can configure it, if required.
 * **test**: Testing the app. The tests involve E2E simulation and load testing. You can describe and set up custom tests as well.
 * **delete-test-env**: Deleting the test app.
-* **release**: Deploying the app in production. This step also uses [deployment environments](https://docs.gitlab.com/ci/environments/). The system creates and saves them each time the pipeline is run successfully. Use them to restore and deploy the previous app version.
+* **release**: Deploying the app to production. This stage also uses [deployment environments](https://docs.gitlab.com/ci/environments/). The system creates and saves them after each successful pipeline run. Use them to restore and deploy the previous app version.
 
-After you save the `.gitlab-ci.yml` configuration file, the build script will start.
+After you save the `.gitlab-ci.yml` configuration file, the build pipeline will start.
 
 ## Check the result {#check-result}
 
-To check the build script results, select **Build** on the left-hand panel in the `gitlab-test` project, and then **Pipelines** from the drop-down menu. Make sure all five steps complete successfully.
+To check the build pipeline results, select **Build** on the left-hand panel in the `gitlab-test` project, and then **Pipelines** from the drop-down menu. Make sure all the five stages complete successfully.
 
 You can access the app at the {{ api-gw-name }} service domain URL in the `prod` folder. You can find this URL in the [management console]({{ link-console-main }}) or in the `domain` field of the `bootstrap.sh` script runtime log.
 
@@ -293,5 +293,5 @@ Some resources are not free of charge. Delete the resources you no longer need t
 1. [Delete](../../resource-manager/operations/folder/delete.md) the `prod`, `testing`, and `infra` folders with their contents.
 1. [Delete the {{ mgl-name }} instance](../../managed-gitlab/operations/instance/instance-delete.md) or the [{{ GL }} VM](../../compute/operations/vm-control/vm-delete.md).
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. [Delete](../../vpc/operations/address-delete.md) the cluster public static IP address if you reserved one.
+1. [Delete](../../vpc/operations/address-delete.md) the cluster's public static IP address if you reserved one.
 1. [Delete the service accounts](../../iam/operations/sa/delete.md).

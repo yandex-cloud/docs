@@ -99,9 +99,9 @@ items:
         href: tutorials/1c-postgresql-linux.md
       - name: Exporting a database to {{ dataproc-full-name }}
         href: tutorials/sqoop.md
-      - name: Searching for cluster performance issues
+      - name: Troubleshooting cluster performance
         href: tutorials/performance-problems.md
-      - name: Performance analysis and tuning
+      - name: Performance analysis and optimization
         href: tutorials/profiling.md
       - name: >-
           Setting up a connection from a container in {{
@@ -229,6 +229,8 @@ items:
         href: concepts/roles.md
       - name: Managing connections
         href: concepts/pooling.md
+      - name: Load balancer for hosts
+        href: concepts/load-balancer.md
       - name: Replication
         href: concepts/replication.md
       - name: Maintenance

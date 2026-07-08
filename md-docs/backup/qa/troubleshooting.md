@@ -38,17 +38,17 @@
 
 - Виртуальная машина {#vm}
 
-  * Виртуальная машина создана из [поддерживаемого образа](../concepts/vm-connection.md#os) или (при установке агента Cloud Backup вручную) операционная система ВМ [поддерживается Cloud Backup](../concepts/vm-connection.md#self-install).
+  * Виртуальная машина создана из [поддерживаемого образа](../concepts/vm-connection/compute.md#os) или (при установке агента Cloud Backup вручную) операционная система ВМ [поддерживается Cloud Backup](../concepts/vm-connection/compute.md#self-install).
   * Сервисному аккаунту, привязанному к ВМ, назначена [роль](../security/index.md#backup-editor) `backup.editor`.
-  * Для ВМ [корректно](../concepts/vm-connection.md#vm-network-access) настроена [группа безопасности](../../vpc/concepts/security-groups.md).
+  * Для ВМ [корректно](../concepts/vm-connection/compute.md#vm-network-access) настроена [группа безопасности](../../vpc/concepts/security-groups.md).
 
-  Подробнее в статье [Подключение виртуальных машин Compute Cloud к Cloud Backup](../concepts/vm-connection.md).
+  Подробнее в статье [Подключение виртуальных машин Compute Cloud к Cloud Backup](../concepts/vm-connection/compute.md).
 
 - Сервер BareMetal {#baremetal-server}
 
-  * На сервере установлена [поддерживаемая операционная система](../concepts/vm-connection.md#self-install).
+  * На сервере установлена [поддерживаемая операционная система](../concepts/vm-connection/baremetal.md#self-install).
   * Сервисному аккаунту, IAM-токен которого используется при [установке](../operations/backup-baremetal/backup-baremetal.md#agent-install) агента Cloud Backup, назначена [роль](../security/index.md#backup-editor) `backup.editor`.
-  * Серверу [назначен публичный IP-адрес](../concepts/vm-connection.md#provide-access).
+  * Серверу [назначен публичный IP-адрес](../concepts/vm-connection/baremetal.md#provide-access).
 
   Подробнее в статье [Подключение сервера BareMetal к Cloud Backup](../operations/backup-baremetal/backup-baremetal.md).
 
@@ -110,7 +110,7 @@ Not all of the items are mapped. Please, check your goal instance and its volume
 
 {% note info %}
 
-Чтобы избежать ошибок при восстановлении из резервной копии, перед восстановлением рекомендуется сопоставить параметры дисков и разделов резервной копии с параметрами дисков и разделов [ВМ](../../compute/concepts/vm.md) или [сервера](../../baremetal/concepts/servers.md) Yandex BareMetal. Подробнее в разделе [Посмотреть параметры дисков и разделов в резервной копии](../operations/backup-vm/view-disk-layout.md).
+Чтобы избежать ошибок при восстановлении из резервной копии, перед восстановлением рекомендуется сопоставить параметры дисков и разделов резервной копии с параметрами дисков и разделов ВМ или сервера, на которые будет выполняться восстановление. Подробнее в разделе [Посмотреть параметры дисков и разделов в резервной копии](../operations/backup-vm/view-disk-layout.md).
 
 {% endnote %}
 
@@ -126,9 +126,9 @@ Iteration 0: The term 'acropsh' is not recognized as the name of a cmdlet, funct
 
 Убедитесь, что:
 
-* Операционная система ВМ [поддерживается Cloud Backup](../concepts/vm-connection.md#os).
+* Операционная система ВМ [поддерживается Cloud Backup](../concepts/vm-connection/compute.md#os).
 * Сервисному аккаунту, привязанному к ВМ, назначена [роль](../security/index.md#backup-editor) `backup.editor`.
-* Разрешен [сетевой доступ для ВМ](../concepts/vm-connection.md#vm-network-access).
+* Разрешен [сетевой доступ для ВМ](../concepts/vm-connection/compute.md#vm-network-access).
 * В политиках выполнения PowerShell разрешен запуск скриптов. Если запуск запрещен, разрешите его и перезапустите PowerShell. Подробнее в [документации Microsoft](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
 
 
@@ -152,13 +152,13 @@ Failed to parse cloudbackup from instance attributes IAM token and instance regi
 
 #### Почему после обновления ОС перестало работать резервное копирование? {#kernel-update-consequences}
 
-При обновлении [ядра](https://ru.wikipedia.org/wiki/Ядро_Linux) операционной системы Linux виртуальной машины или сервера BareMetal, подключенных к Cloud Backup, работоспособность агента Cloud Backup может оказаться нарушена: будет невозможно создать резервную копию ВМ/сервера или восстановить ВМ/сервер из резервной копии.
+При обновлении [ядра](https://ru.wikipedia.org/wiki/Ядро_Linux) операционной системы Linux [защищаемого ресурса](../concepts/index.md#protected-resources), подключенного к Cloud Backup, работоспособность агента Cloud Backup может оказаться нарушена: будет невозможно создать резервную копию защищаемого ресурса или восстановить его из резервной копии.
 
-Функционирование агента может нарушиться, потому что модуль SnapAPI, разработанный [провайдером резервного копирования](../concepts/index.md#providers) для работы агента с дисками и собираемый [фреймворком DKMS](https://ru.wikipedia.org/wiki/Dynamic_Kernel_Module_Support) под конкретное ядро Linux, после обновления ядра может не обновиться и перестать соответствовать версии ядра. 
+Функционирование агента может нарушиться, потому что модуль SnapAPI, разработанный [провайдером резервного копирования](../concepts/index.md#providers) для работы агента с дисками и собираемый [фреймворком DKMS](https://ru.wikipedia.org/wiki/Dynamic_Kernel_Module_Support) под конкретное ядро Linux, после обновления ядра может не обновиться и перестать соответствовать версии ядра.
 
-Чтобы восстановить работоспособность агента Cloud Backup, нарушенную после обновления ядра ОС, необходимо обновить версию заголовков ядра Linux, на которую ориентируется DKMS при сборке модуля SnapAPI. Как только версия заголовков ядра станет соответствовать версии ядра, DKMS пересоберет модуль SnapAPI под нужную версию ядра Linux при следующем запуске ВМ или сервера BareMetal.
+Чтобы восстановить работоспособность агента Cloud Backup, нарушенную после обновления ядра ОС, необходимо обновить версию заголовков ядра Linux, на которую ориентируется DKMS при сборке модуля SnapAPI. Как только версия заголовков ядра станет соответствовать версии ядра, DKMS пересоберет модуль SnapAPI под нужную версию ядра Linux при следующем запуске защищаемого ресурса.
 
-Чтобы обновить версии заголовков ядра Linux, воспользуйтесь инструкциями [Восстановить работоспособность агента Cloud Backup на ВМ](../operations/update-backup-agent.md#restore-agent) и [Восстановить работоспособность агента Cloud Backup на сервере BareMetal](../operations/backup-baremetal/restore-agent.md).
+Чтобы обновить версии заголовков ядра Linux, воспользуйтесь инструкцией [Восстановить работоспособность агента Cloud Backup после обновления ядра Linux](../operations/backup-baremetal/restore-agent.md).
 
 #### Создание инкрементальных резервных копий ВМ или сервера BareMetal занимает больше времени, чем обычно {#av-interaction}
 
@@ -166,7 +166,7 @@ Failed to parse cloudbackup from instance attributes IAM token and instance regi
 
 #### Out-Of-Memory Killer (OOM Killer) в Linux завершает процесс агента Cloud Backup {#oom-solution}
 
-Для ускорения [резервного копирования](../operations/backup-vm/create.md) данных и их [восстановления](../operations/backup-vm/recover.md) из резервных копий [агент Cloud Backup](../concepts/agent.md) может потреблять значительные объемы оперативной памяти (RAM) защищаемого ресурса — [виртуальной машины](../../compute/concepts/vm.md) или [сервера BareMetal](../../baremetal/concepts/servers.md). При этом агент может использовать всю доступную память, что в некоторых случаях приводит к сбоям в работе других служб защищаемого ресурса и невозможности завершить процесс резервного копирования или восстановления данных.
+Для ускорения [резервного копирования](../operations/backup-vm/create.md) данных и их [восстановления](../operations/backup-vm/recover.md) из резервных копий агент Cloud Backup может потреблять значительные объемы оперативной памяти (RAM) [защищаемого ресурса](../concepts/index.md#protected-resources). При этом агент может использовать всю доступную память, что в некоторых случаях приводит к сбоям в работе других служб защищаемого ресурса и невозможности завершить процесс резервного копирования или восстановления данных.
 
 Чтобы предотвратить возникновение таких сбоев, [ограничьте](../operations/limit-agent-memory-usage.md) объем данных, кешируемых агентом в оперативной памяти.
 
@@ -182,7 +182,7 @@ Failed to parse cloudbackup from instance attributes IAM token and instance regi
 
 #### Проблемы с установкой агента Cloud Backup на ВМ с низкими вычислительными ресурсами {#low-resources-installation}
 
-Установка агента Cloud Backup является ресурсоемкой операцией. Если вы хотите использовать ВМ в минимально возможной конфигурации или, например, ВМ с [уровнем производительности vCPU](../../compute/concepts/performance-levels.md) ниже 100%, рекомендуем на время установки агента Cloud Backup увеличить ресурсы ВМ.
+Установка агента Cloud Backup является ресурсоемкой операцией. Если вы хотите использовать виртуальную машину в минимально возможной конфигурации или, например, ВМ с [уровнем производительности vCPU](../../compute/concepts/performance-levels.md) ниже 100%, рекомендуем на время установки агента Cloud Backup увеличить ресурсы ВМ.
 
 #### Если удалить ВМ, ее резервные копии останутся? {#backup-after-delete-vm}
 

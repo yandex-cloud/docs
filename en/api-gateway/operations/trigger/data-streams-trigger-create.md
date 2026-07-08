@@ -17,7 +17,7 @@ Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigge
 
 {% include [trigger-before-you-begin](../../../_includes/api-gateway/trigger-before-you-begin.md) %}
 
-* Stream that will set off the trigger when data is sent to it. If you do not have a stream, [create one](../../../data-streams/quickstart/create-stream.md).
+* Stream that will fire the trigger when data is sent to it. If you do not have a stream, [create one](../../../data-streams/quickstart/create-stream.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -124,7 +124,7 @@ Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigge
 
 {% include [check-result](../../../_includes/api-gateway/check-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Trigger for {{ yds-name }} that invokes a {{ sf-name }} function](../../../functions/operations/trigger/data-streams-trigger-create.md)
 * [Trigger for {{ yds-name }} that invokes a {{ serverless-containers-name }} container](../../../serverless-containers/operations/data-streams-trigger-create.md)

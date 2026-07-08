@@ -8,6 +8,6 @@ To create an infrastructure for your [Joomla website with a {{ PG }} database](i
 
 {% include [joomla-postgresql-terraform](../../../_tutorials/applied/joomla-postgresql-terraform.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](console.md)

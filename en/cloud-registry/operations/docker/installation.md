@@ -4,6 +4,6 @@ Before you start using {{ cloud-registry-name }}, you must install and configure
 
 {% include [configure-docker](../../../_includes/container-registry/configure-docker.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](authentication.md)

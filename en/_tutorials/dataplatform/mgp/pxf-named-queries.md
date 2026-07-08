@@ -20,9 +20,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mgp-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
-* {{ mpg-full-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
-* NAT gateway: Fee for hourly usage of NAT gateways and outgoing traffic they handle (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+* {{ mgp-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
+* {{ mpg-full-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* NAT gateway: hourly use of gateways and their outgoing traffic (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
@@ -72,7 +72,7 @@ Set up your infrastructure:
          terraform validate
          ```
 
-       {{ TF }} will show any errors found in your configuration files.
+       {{ TF }} will display any configuration errors detected in your files.
 
     1. Create an infrastructure:
 
@@ -157,7 +157,7 @@ To create a named query, add it to the `mdb_toolkit.pxf_named_queries` table:
 
 1. [Connect](../../../managed-greenplum/operations/connect/index.md) to {{ GP }}.
 
-1. Run this request:
+1. Run this query:
 
    ```sql
    INSERT INTO mdb_toolkit.pxf_named_queries (pxf_profile, name, query) VALUES (
@@ -207,7 +207,7 @@ To create a named query, add it to the `mdb_toolkit.pxf_named_queries` table:
    Learn more about the SQL syntax for creating external tables [here](../../../managed-greenplum/operations/pxf/create-table.md#sql-statement).
 
 
-1. Get the data:
+1. Retrieve the data:
 
    ```sql
    SELECT * FROM pxf_named_query;

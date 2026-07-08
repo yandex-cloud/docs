@@ -111,7 +111,7 @@ Where:
     
     {% endnote %}
     
-* `isBase64Encoded`: If `body` contains Base64-encoded data, then {{ sf-name }} will set the parameter to `true`.
+* `isBase64Encoded`: If `body` contains Base64-encoded data, then {{ sf-name }} sets the parameter to `true`.
 
 #### Debugging functions {#example}
 
@@ -349,8 +349,8 @@ By default, an HTTP response contains special headers that start with `X-`, for 
 
 Its possible values are:
 
-* `stripAll`: Delete special headers upon any response.
-* `stripOnSuccess`: Delete special headers only upon a successful response of the function.
+* `stripAll`: Delete special headers for any response.
+* `stripOnSuccess`: Delete special headers only for successful function responses.
 
 For example, for the request:
 
@@ -447,7 +447,7 @@ When invoking a function using a trigger, the JSON description of a trigger even
 
 ## Invoking a function using a {{ api-gw-full-name }} extension {#extension}
 
-When invoking a function using the {{ api-gw-name }} extension, the function receives an HTTP request addressed to the API gateway. In which case the `Host` header specifies the host used by the user to access the API gateway, not the function's host. The request source IP is provided in the same way as when [invoking a function using HTTPS](#ip). For more on extension, see [this {{ api-gw-full-name }} guide](../../api-gateway/concepts/extensions/cloud-functions.md).
+When invoking a function using the {{ api-gw-name }} extension, the function receives an HTTP request addressed to the API gateway. In which case the `Host` header specifies the host used by the user to access the API gateway, not the function's host. The request source IP is provided in the same way as when [invoking a function using HTTPS](#ip). Learn more about the extension in the [{{ api-gw-full-name }} documentation](../../api-gateway/concepts/extensions/cloud-functions.md).
 
 ### Use cases {#examples-api-gw}
 
@@ -460,8 +460,8 @@ When invoking a function using the {{ api-gw-name }} extension, the function rec
 
 ## Invoking functions using {{ monitoring-short-name }} events {#monitoring}
 
-You can integrate {{ sf-name }} functions into {{ monitoring-full-name }} for automatic processing of incidents and other events. To do this, add a function to the [notification channel](../../monitoring/operations/alert/create-channel-function.md). You can invoke a {{ sf-name }} function when an [alert](../../monitoring/concepts/alerting/alert.md) fires or in a {{ monitoring-short-name }} [escalation](../../monitoring/concepts/alerting/escalations.md).
+You can integrate {{ sf-name }} functions into {{ monitoring-full-name }} for automatic processing of incidents and other events. To do this, add a function to the [notification channel](../../monitoring/operations/alert/create-channel-function.md). You can invoke a {{ sf-name }} function upon an [alert](../../monitoring/concepts/alerting/alert.md) or in a {{ monitoring-short-name }} [escalation](../../monitoring/concepts/alerting/escalations.md).
 
 A function must be invoked in [asynchronous mode](../concepts/function-invoke-async.md).
 
-See [{#T}](../../monitoring/operations/alert/create-channel-function.md) for an example of a function for invoking an external API when an alert fires.
+See [{#T}](../../monitoring/operations/alert/create-channel-function.md) for an example of a function used to invoke an external API upon an alert.

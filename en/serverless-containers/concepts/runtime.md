@@ -37,7 +37,7 @@ You can retrieve environment variables using standard programming language tools
 
 ## File system {#file-system}
 
-The container image files and directories are readable on the virtual environment file system. The file system is writable. The space available for writing is limited. For more detail, please see [Quotas and limits](./limits.md).
+The container image files and directories are readable on the virtual environment file system. The file system is writable. The space available for writing is limited. Read more in [Quotas and limits](./limits.md).
 
 The file system is stored in RAM. Data written to the file system is not saved when a container instance is stopped.
 

@@ -364,7 +364,7 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || name | **string**
 
-The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
+The string length in characters must be 3-200. Value must match the regular expression ` ^[-_A-Za-z0-9:]+$ `. ||
 || s3 | **[PXFDatasourceS3](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceS3)**
 
 Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`. ||
@@ -413,10 +413,10 @@ The maximum string length in characters is 200. ||
 The maximum string length in characters is 200. ||
 || statementBatchSize | **string** (int64)
 
-Acceptable values are 50 to 1000, inclusive. ||
+Acceptable values are 50 to 200000, inclusive. ||
 || statementFetchSize | **string** (int64)
 
-Acceptable values are 50 to 10000, inclusive. ||
+Acceptable values are 50 to 200000, inclusive. ||
 || statementQueryTimeout | **string** (int64)
 
 Acceptable values are 5 to 43200, inclusive. ||
@@ -450,7 +450,7 @@ The maximum string length in characters is 128. ||
 Acceptable values are 1 to 50, inclusive. ||
 || zkHosts[] | **string**
 
-The maximum number of elements is 200. The string length in characters for each value must be 1-200. ||
+The string length in characters for each value must be 1-200. The maximum number of elements is 200. ||
 || dfs | **[PXFDatasourceHDFSDfs](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfs)** ||
 || yarn | **[PXFDatasourceHDFSYarn](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarn)** ||
 |#
@@ -474,22 +474,22 @@ The maximum string length in characters is 1000. ||
 || enable | **boolean** ||
 || primary | **string**
 
-The maximum string length in characters is 128. ||
+The maximum string length in characters is 128. Value must match the regular expression ` ^[a-zA-Z0-9. _:-]*$ `. ||
 || realm | **string**
 
-The maximum string length in characters is 1000. ||
+The maximum string length in characters is 1000. Value must match the regular expression ` ^[a-zA-Z0-9. _:-]*$ `. ||
 || kdcServers[] | **string**
 
-The maximum number of elements is 200. The string length in characters for each value must be 1-200. ||
+The string length in characters for each value must be 1-200. Each value must match the regular expression ` ^[a-zA-Z0-9. _:-]*$ `. The maximum number of elements is 200. ||
 || adminServer | **string**
 
-The maximum string length in characters is 128. ||
+The maximum string length in characters is 128. Value must match the regular expression ` ^[a-zA-Z0-9. _:-]*$ `. ||
 || defaultDomain | **string**
 
-The maximum string length in characters is 128. ||
+The maximum string length in characters is 128. Value must match the regular expression ` ^[a-zA-Z0-9. _:-]*$ `. ||
 || keytabBase64 | **string**
 
-Value must match the regular expression ``` ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$ ```. The maximum string length in characters is 65536. ||
+The maximum string length in characters is 65536. Value must match the regular expression ``` ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$ ```. ||
 |#
 
 ## PXFDatasourceHDFSDfs {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfs}
@@ -565,11 +565,11 @@ The maximum string length in characters is 128. ||
 Acceptable values are 1 to 50, inclusive. ||
 || zkHosts[] | **string**
 
-The maximum number of elements is 200. The string length in characters for each value must be 1-200. ||
+The string length in characters for each value must be 1-200. The maximum number of elements is 200. ||
 || ppd | **boolean** ||
 || metastoreUris[] | **string**
 
-The maximum number of elements is 200. The string length in characters for each value must be 1-200. ||
+The string length in characters for each value must be 1-200. The maximum number of elements is 200. ||
 || metastoreKerberosPrincipal | **string**
 
 The maximum string length in characters is 1000. ||

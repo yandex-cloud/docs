@@ -15,7 +15,7 @@ In both cases, we will use a reference table stored in {{ objstorage-name }} to 
 
 To run this example:
 
-1. [Make the necessary preparations](#before-you-begin).
+1. [Get ready to work](#before-you-begin).
 1. [Analyze the {{ objstorage-name }} data](#batch).
 1. [Analyze the streaming data from {{ yds-name }}](#stream).
 
@@ -25,7 +25,7 @@ To run this example:
 
 {% endnote %}
 
-## Make the necessary preparations {#before-you-begin}
+## Get ready to work {#before-you-begin}
 
 1. Log in to the [management console]({{ link-console-main }}) or sign up if you have not already. If you have not signed up yet, navigate to the management console and follow the instructions.
 1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have an `ACTIVE` or `TRIAL_ACTIVE` [billing account](../../billing/concepts/billing-account.md). If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account).
@@ -171,7 +171,7 @@ Once launched, the query returns the total fare (`total_amount`) of the taxi rid
 | 6  | 127 | 2022-02-15T12:04:00.000000Z | 2105.3125 |
 | ... |
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [HOP operator and window parameters in streaming data processing](../concepts/stream-processing-windows.md)
 * [Aggregate functions in YQL]({{ ydb.docs }}/yql/reference/builtins/aggregation)

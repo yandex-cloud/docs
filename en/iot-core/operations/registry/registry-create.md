@@ -169,7 +169,7 @@ description: Follow this guide to create a {{ iot-name }} registry.
       }
       ```
 
-      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
+      For more information about resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_registry).
       
   1. Make sure the configuration files are correct.
       1. In the terminal, navigate to the directory where you created your configuration file.

@@ -126,7 +126,7 @@ To add a resource:
     * **Resource**: Selecting one of the resources you added.
     * **Expression**: [Calculated expression](../concepts/expressions.md) allowing you to dynamically generate the field value based on other values, input parameters, and calculations.
 
-    For descriptions of the resource parameters, see the [{{ TF }} provider documentation]({{ tf-docs-link }}). The options available when creating resources and those described in the documentation may differ.
+    For descriptions of the resource parameters, see [this {{ TF }} provider guide]({{ tf-docs-link }}). The options available when creating resources and those described in the documentation may differ.
 
     {% cut "Example of adding a resource" %}
 
@@ -138,6 +138,6 @@ To add a resource:
 
 1. Click **Save** to save the configuration.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../tutorials/demo-cloud-apps.md)

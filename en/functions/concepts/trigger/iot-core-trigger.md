@@ -4,7 +4,7 @@ A [trigger](../trigger/) for {{ iot-short-name }} manages messages exchanged bet
 
 {% include [trigger](../../../_includes/iot-core/trigger.md) %}
  
-A trigger for {{ iot-short-name }} needs a [service account](../../../iam/concepts/users/service-accounts.md) to call the function. 
+A trigger for {{ iot-short-name }} needs a [service account](../../../iam/concepts/users/service-accounts.md) to invoke a function. 
 
 For more information about creating a trigger for {{ iot-short-name }}, see [{#T}](../../operations/trigger/iot-core-trigger-create.md) and [{#T}](../../operations/trigger/iot-core-trigger-broker-create.md).
 
@@ -13,9 +13,9 @@ For more information about creating a trigger for {{ iot-short-name }}, see [{#T
 ## Roles required for the proper operation of a trigger for {{ iot-short-name }} {#roles}
 
 * To create a trigger, you need a permission for the service account under which the trigger runs the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [{{ roles-editor }}](../../../iam/roles-reference.md#editor) roles or higher.
-* For the trigger to fire, the service account needs the `{{ roles-functions-invoker }}` role for the folder containing the function called by the trigger.
+* For the trigger to fire, the service account needs the `{{ roles-functions-invoker }}` role for the folder containing the function invoked by the trigger.
 
-Read more about [access management](../../security/index.md).
+Learn more about access management [here](../../security/index.md).
 
 ## {{ iot-short-name }} trigger message format {#format}
 
@@ -34,7 +34,7 @@ Before the message is copied to a function, the trigger converts it to the forma
 * [{#T}](../../tutorials/data-recording.md)
 * [{#T}](../../tutorials/monitoring.md)
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../../serverless-containers/concepts/trigger/iot-core-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/iot-core-trigger.md)

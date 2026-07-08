@@ -38,7 +38,7 @@ Action=UntagQueue
 &TagKey.1=environment
 ```
 
-For more information about formatting your requests, see [General API request format](../index.md#api-request).
+For more on request formatting, see [General API request format](../index.md#api-request).
 
 ## Response example {#response-example}
 

@@ -24,7 +24,7 @@ The Fail control step terminates a workflow execution with an error. If the step
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/management/fail.md)
 * [{#T}](../workflow/create-constructor.md)

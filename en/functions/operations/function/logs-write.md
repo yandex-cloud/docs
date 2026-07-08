@@ -159,7 +159,7 @@ description: Follow this guide to configure function logging.
             * `log_group_id`: ID of the log group to write logs to.
             * `min_level`: Minimum logging level. This is an optional setting.
 
-        For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+        For more on the properties of the `yandex_function` resource, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
     1. Apply the changes:
 

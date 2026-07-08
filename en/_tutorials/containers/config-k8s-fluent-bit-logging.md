@@ -11,10 +11,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* {{ cloud-logging-name }} fee for data logging and storage (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
+* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a public IP address if assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ cloud-logging-name }} fee: data logging and storage (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -197,7 +197,7 @@ Select the Fluent Bit installation option depending on what logs you want to col
           fluentbit ./fluent-bit/
         ```
 
-        For the current version of the Helm chart, see [this {{ marketplace-full-name }} page](/marketplace/products/yc/fluent-bit).
+        See the current Helm chart version on the [{{ marketplace-full-name }} page](/marketplace/products/yc/fluent-bit).
 
         This command will create a new namespace required for Fluent Bit.
 
@@ -313,7 +313,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
      ```
 
      {{ TF }} will display any configuration errors detected in your files.
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -24,7 +24,7 @@ Field | Type | Description
 
 The method does not return any specific errors. For a list of errors common for all methods, see [{#T}](../common-errors.md).
 
-## Sample request {#request-example}
+## Request example {#request-example}
 
 ```text
 Action=ListQueues
@@ -32,7 +32,7 @@ Action=ListQueues
 &QueueNamePrefix=test
 ```
 
-For more information about forming requests, see [General API request format](../index.md#api-request).
+For more on request formatting, see [General API request format](../index.md#api-request).
 
 ## Response example {#request-example}
 

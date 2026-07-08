@@ -311,8 +311,6 @@ In single-host clusters, backups are created by reading data from the master hos
 
 {% endnote %}
 
-For a new cluster, make sure to set all the required parameters except for the cluster type.
-
 
 Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yandex-cloud }} account the [managed-mysql.restorer](../../iam/roles-reference.md#managed-mysql-restorer) role or higher for the backup folder and the new cluster folder.
 
@@ -512,7 +510,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -706,7 +704,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      To learn how to create this file, see [Creating a cluster](cluster-create.md).
+      For more on how to create such a file, see [Creating a cluster](cluster-create.md).
 
   1. Add the `backup_window_start` section to the {{ mmy-name }} cluster description:
 
@@ -873,9 +871,9 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create such a file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of {{ mmy-name }} cluster configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
+        For a complete list of configurable {{ mmy-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
     1. To set the retention period for automatic backups, add the `backup_retain_period_days` section to the {{ mmy-name }} cluster description:
 
@@ -989,7 +987,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
 ## Setting a host's backup priority {#set-backup-priority}
 
-The minimum value of the host's backup priority is `0`, and the maximum, `100`. The default value is `0`. The replica host with the highest priority is selected as the backup source. For more information, see [Creating backups](../concepts/backup.md#size).
+The minimum value of the host's backup priority is `0`, and the maximum, `100`. The default value is `0`. The replica host with the highest priority is selected as the backup source. For more information, see [Creating a backup](../concepts/backup.md#size).
 
 {% list tabs group=instructions %}
 

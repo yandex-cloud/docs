@@ -1,14 +1,14 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Backup](../index.md) > [Пошаговые инструкции](index.md) > ВМ в Cloud Backup > Подключить существующую ВМ к Cloud Backup > Подключить существующую ВМ на Windows
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Backup](../index.md) > [Пошаговые инструкции](index.md) > Compute Cloud в Cloud Backup > Подключить существующую ВМ к Cloud Backup > Подключить существующую ВМ на Windows
 
 # Подключить существующую виртуальную машину на Windows Server к Cloud Backup
 
-Вы можете создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) Compute Cloud c [поддерживаемыми операционными системами на базе Windows](../concepts/vm-connection.md#windows).
+Вы можете создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) Yandex Compute Cloud с [поддерживаемыми операционными системами на базе Windows](../concepts/vm-connection/compute.md#windows).
 
-Для корректной работы [агента Cloud Backup](../concepts/agent.md) ВМ должна соответствовать [минимальным требованиям](../concepts/vm-connection.md#requirements).
+Для корректной работы [агента Cloud Backup](../concepts/agent.md) ВМ должна соответствовать [минимальным требованиям](../concepts/vm-connection/index.md#requirements).
 
 {% note warning %}
 
-Чтобы ВМ можно было подключить к Cloud Backup, для нее должны быть правильно настроены сервисный аккаунт, публичный IP-адрес и группа безопасности. Подробнее в разделе [Подключение виртуальных машин Compute Cloud и серверов Yandex BareMetal к Cloud Backup](../concepts/vm-connection.md).
+Чтобы ВМ можно было подключить к Cloud Backup, для нее должны быть правильно настроены сервисный аккаунт, публичный IP-адрес и группа безопасности. Подробнее в разделе [Подключение виртуальных машин Yandex Compute Cloud к Cloud Backup](../concepts/vm-connection/compute.md).
 
 {% endnote %}
 
@@ -331,25 +331,6 @@
       `7770-7800` | `TCP` | `CIDR` | `84.47.172.0/24`
       `8443` | `TCP` | `CIDR` | `84.47.172.0/24`
       `44445` | `TCP` | `CIDR` | `51.250.1.0/24`
-      
-      
-      
-      {% note tip %}
-      
-      При установке [агента Cloud Backup](../concepts/agent.md) на ВМ или сервер BareMetal может понадобиться доустановить отсутствующие компоненты ПО из интернета. Для этого добавьте в [группу безопасности](../../vpc/concepts/security-groups.md) следующее правило для исходящего трафика:
-      * **Диапазон портов** — `0-65535`.
-      * **Протокол** — `Любой` (`Any`).
-      * **Назначение** — `CIDR`.
-      * **CIDR блоки** — `0.0.0.0/0`.
-      После установки агента Cloud Backup вы можете удалить это правило.
-      
-      Для доступа к ВМ по протоколу [SSH](../../compute/operations/vm-connect/ssh.md) добавьте следующее правило для входящего трафика:
-      * **Диапазон портов** — `22`.
-      * **Протокол** — `Любой` (`Any`).
-      * **Назначение** — `CIDR`.
-      * **CIDR блоки** — `0.0.0.0/0`.
-      
-      {% endnote %}
 
   1. Нажмите **Сохранить**.
 
@@ -791,6 +772,6 @@
 
 * [Создать виртуальную машину на Linux с подключением к Cloud Backup](create-vm.md)
 * [Привязать виртуальную машину к политике резервного копирования](policy-vm/update.md#update-vm-list)
-* [Восстановить виртуальную машину или сервер Yandex BareMetal из резервной копии](backup-vm/recover.md)
+* [Восстановить виртуальную машину Yandex Compute Cloud или сервер Yandex BareMetal из резервной копии](backup-vm/recover.md)
 * [Удалить резервную копию](backup-vm/delete.md)
 * [Создать политику резервного копирования](policy-vm/create.md)

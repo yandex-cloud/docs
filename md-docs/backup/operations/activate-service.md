@@ -3,7 +3,7 @@
 # Активировать сервис
 
 
-Чтобы активировать сервис, у вас должна быть _минимальная_ [роль](../security/index.md#backup-user) `backup.user` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создавать резервные копии ВМ или серверов BareMetal.
+Чтобы активировать сервис, у вас должна быть _минимальная_ [роль](../security/index.md#backup-user) `backup.user` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создавать резервные копии [защищаемых ресурсов](../concepts/index.md#protected-resources).
 
 Активация сервиса запускает работу провайдера резервного копирования. Подробнее о провайдере резервного копирования и передаваемых ему данных в разделе [Активация сервиса и провайдер резервного копирования](../concepts/index.md#providers).
 
@@ -11,7 +11,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать ВМ или сервер Yandex BareMetal с подключением к Cloud Backup.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать [защищаемый ресурс](../concepts/index.md#protected-resources) с подключением к Cloud Backup.
   1. Перейдите в сервис **Cloud Backup**.
   1. Нажмите кнопку **Активировать**.
 

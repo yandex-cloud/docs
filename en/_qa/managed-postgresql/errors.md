@@ -199,7 +199,7 @@ This error occurs if you specify a replication source for the only non-cascading
 
 To ensure [high availability](../../architecture/fault-tolerance.md#mdb-ha), your cluster must have at least one replica without a replication source. This replica will be promoted to master if the master host fails during maintenance.
 
-To learn more about replication, see [this section](../../managed-postgresql/concepts/replication.md).
+Learn more about replication in [this section](../../managed-postgresql/concepts/replication.md).
 
 #### Why do I get a `cannot execute <SQL_command> in a read-only transaction` error? {#read-only-error}
 

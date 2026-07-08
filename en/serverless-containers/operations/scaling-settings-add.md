@@ -1,6 +1,6 @@
 # Adding container scaling settings
 
-You can set the number of provisioned instances.
+You can set the following:
 
 {% include [scaling-settings](../../_includes/serverless-containers/scaling-settings.md) %}
 
@@ -116,7 +116,7 @@ The scaling settings must be within the [quotas](../concepts/limits.md#serverles
         * `url`: [Docker image](../../container-registry/concepts/docker-image.md) URL.
         * `min_instances`: Number of provisioned instances.
        
-       For more information about `yandex_serverless_container` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
+       For more on the properties of the `yandex_serverless_container` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
     1. Run a check using this command:
 

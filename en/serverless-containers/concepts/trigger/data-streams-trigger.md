@@ -29,7 +29,7 @@ Once the trigger fires, it will send a message with the `messages` array to the 
 {% include [yds-format](../../../_includes/functions/yds-format.md) %}
 
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../../functions/concepts/trigger/data-streams-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/data-streams-trigger.md)

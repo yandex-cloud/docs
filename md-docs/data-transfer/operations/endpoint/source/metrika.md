@@ -108,7 +108,7 @@
 
 Настройте поддерживаемый приемник данных:
 
-* [ClickHouse®](../target/clickhouse.md).
+* [ClickHouse®](../target/clickhouse.md)
 
 Полный список поддерживаемых источников и приемников в сервисе Yandex Data Transfer читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

@@ -33,7 +33,7 @@ You can create these resources [automatically](#automatic-setup) or [manually](#
 
 The infrastructure support cost for this tutorial includes:
 * Fee for using the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
-* Text generation fee (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
+* Fee for text generation (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
 * Fee for storing the secret and operations with it (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
 * Fee for logging operations and data storage in a [log group](../../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)) when using [{{ cloud-logging-name }}](../../logging/).
 
@@ -953,7 +953,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Advanced AI agent {#advanced}
 
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** and select the function you created.
-  1. Navigate to the ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
+  1. Navigate to the ![circle-play](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** field, specify:
 
       ```json

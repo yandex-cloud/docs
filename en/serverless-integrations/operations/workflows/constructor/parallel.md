@@ -30,7 +30,7 @@ The Parallel control step executes multiple branches (sequences of steps) concur
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/management/parallel.md)
 * [{#T}](../workflow/create-constructor.md)

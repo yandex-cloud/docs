@@ -23,6 +23,6 @@ Containers do not support sending results to a {{ message-queue-full-name }}, bu
 {% endnote %}
 
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Invoking a container asynchronously](../operations/invoke-async.md)

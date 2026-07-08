@@ -15,7 +15,7 @@ Parameter | Type | Required parameter | Description
 
 #### Attributes {#attributes}
 
-Queue attributes. Attributes are sent as a list. For more information about passing list parameters, see [Using the API](../index.md#array-parameters).
+Queue attributes. Attributes are sent as a list. For the rules of providing listed attributes, see [Using the API](../index.md#array-parameters).
 
 ```text
 Attribute.N.Name (attribute)
@@ -29,13 +29,13 @@ Attribute | Description
 `ApproximateNumberOfMessagesDelayed` | Returns the approximate number of messages in the queue that are delayed and not available for reading immediately.
 `ApproximateNumberOfMessagesNotVisible` | Returns the approximate number of messages that are in flight: they have been sent to a client but have not yet been deleted or have not yet reached the end of their [visibility timeout](../../concepts/visibility-timeout.md).
 `CreatedTimestamp` | Returns the time stamp when the queue was created, in seconds (epoch time).
-`DelaySeconds` | Number of seconds to [delay the message from being available for processing](../../concepts/delay-queues.md#delay-queues).
+`DelaySeconds` | Time in seconds the messages will remain [hidden after they are sent](../../concepts/delay-queues.md#delay-queues).
 `LastModifiedTimestamp` | Returns the time when the queue was last changed in seconds (epoch time).
 `MaximumMessageSize` | Returns the maximum message size in bytes.
 `MessageRetentionPeriod` | Returns the length of time, in seconds, for which a message is retained.
 `QueueArn` | Queue ARN used in the `RedrivePolicy` attribute.
-`ReceiveMessageWaitTimeSeconds` | Returns the length of time, in seconds, for which the [ReceiveMessage](../message/ReceiveMessage) action waits for a message to arrive.
-`RedrivePolicy` | Redirect policy for moving messages to a [dead-letter queue](../../concepts/dlq.md). The source queue and DLQ must be the same type: for FIFO queues, the DLQ must also be a FIFO queue. It includes these two parameters: <ul><li>`deadLetterTargetArn`: ARN of the DLQ the messages will be moved to.</li> <li>`maxReceiveCount`: Maximum number of attempts to read a message from a queue before redirecting it to the DLQ. When `ReceiveCount` exceeds `maxReceiveCount` for a given message, the message is moved to the DLQ.</li></ul>
+`ReceiveMessageWaitTimeSeconds` | Returns the wait time for the [ReceiveMessage](../message/ReceiveMessage) method, in seconds.
+`RedrivePolicy` | Redirect policy for moving messages to a [dead-letter queue](../../concepts/dlq.md). The source queue and DLQ must be the same type: for FIFO queues, the DLQ must also be a FIFO queue. It includes two parameters: <ul><li>`deadLetterTargetArn`: ARN of the DLQ the messages will be moved to.</li> <li>`maxReceiveCount`: Maximum number of attempts to read a message from a queue before redirecting it to the DLQ. When `ReceiveCount` exceeds `maxReceiveCount` for a given message, the message is moved to the DLQ.</li></ul>
 `VisibilityTimeout` | Returns the [visibility timeout](../../concepts/visibility-timeout.md) for the queue, specified in seconds.
 
 #### FIFO queue attributes {#fifo-path-parameters}
@@ -69,7 +69,7 @@ HTTP code | Error ID | Description
 ----- | ----- | -----
 400 | `InvalidAttributeName` | The attribute name is invalid.
 
-## Sample request {#request-example}
+## Request example {#request-example}
 
 ```text
 Action=GetQueueAttributes
@@ -78,7 +78,7 @@ Action=GetQueueAttributes
 &AttributeName.1=All
 ```
 
-For more information about forming requests, see [General API request format](../index.md#api-request).
+For more on request formatting, see [General API request format](../index.md#api-request).
 
 ## Response example {#response-example}
 

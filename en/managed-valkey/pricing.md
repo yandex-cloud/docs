@@ -27,6 +27,8 @@ For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=
 
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
+{% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
+
 ## What goes into the cost of using {{ mrd-short-name }} {#rules}
 
 The {{ mrd-name }} usage cost includes:

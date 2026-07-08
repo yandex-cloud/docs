@@ -129,7 +129,7 @@ description: Follow this guide to create a rule with a {{ sw-full-name }} target
 
   To create a [rule](../../../concepts/eventrouter/rule.md) with a {{ sw-full-name }} target:
 
-  1. In the configuration file, specify the properties of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_serverless_eventrouter_rule" "example_rule" {
@@ -172,7 +172,7 @@ description: Follow this guide to create a rule with a {{ sw-full-name }} target
 
       {% include [target-additional-tf](../../../../_includes/serverless-integrations/target-additional-tf.md) %}
 
-      For more information about `yandex_serverless_eventrouter_rule` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_rule).
+      For more on the properties of the `yandex_serverless_eventrouter_rule` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_rule).
 
   1. Create the resources:
 

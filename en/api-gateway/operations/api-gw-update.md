@@ -110,8 +110,8 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
      ...
      ```
 
-     For more information about `yandex_api_gateway` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
-  1. Check the configuration using this command:
+     For more on the properties of the `yandex_api_gateway` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
+  1. Validate your configuration using this command:
 
      ```bash
      terraform validate

@@ -73,7 +73,7 @@ description: Follow this guide to add a trigger label in {{ sf-name }}.
      ...
      ```
 
-     For more information about the `yandex_function_trigger` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
+     For more on the properties of the `yandex_function_trigger` resource, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Validate your configuration using this command:
 

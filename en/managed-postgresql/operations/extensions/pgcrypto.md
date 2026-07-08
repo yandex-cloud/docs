@@ -17,6 +17,6 @@ Installing `pgcrypto` will trigger a rolling restart of {{ PG }} on all cluster 
 
 {% endnote %}
 
-To learn more about the `pgcrypto` extension, see its [official documentation]({{ pg-docs }}/static/pgcrypto.html).
+Learn more about the `pgcrypto` extension in [this official guide]({{ pg-docs }}/static/pgcrypto.html).
 
 {% include [example-pgcrypto](../../../_includes/mdb/mgp-mpg-example-pgcrypto.md) %}

@@ -105,7 +105,7 @@ description: Follow this guide to configure and run an asynchronous invocation f
 
           * `service_account_id`: Service account with the `serverless-containers.containerInvoker` [role](../security/index.md#serverless-containers-containerinvoker).
 
-      For more information about `yandex_serverless_container` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
+      For more on the properties of the `yandex_serverless_container` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Apply the changes:
 
@@ -129,6 +129,6 @@ description: Follow this guide to configure and run an asynchronous invocation f
 When [invoking](invoke.md) the container over HTTP, specify the `X-Ycf-Container-Integration-Type: async` header.
 
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../concepts/invoke-async.md)

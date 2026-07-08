@@ -27,7 +27,7 @@
 
 Для работы с сервисом в консоли управления:
 1. Перейдите на страницу каталога.
-1. Перейдите в сервис [**Data Transfer**](https://console.yandex.cloud/link/data-transfer/). 
+1. [Перейдите](https://console.yandex.cloud/link/data-transfer/) в сервис **Data Transfer**. 
 
 ## Настройте источник и приемник {#db-settings}
 
@@ -139,7 +139,7 @@ Airbyte® уже встроен в Data Transfer, поэтому вам не н�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Data Transfer**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
   1. На панели слева выберите ![image](../_assets/console-icons/aperture.svg) **Эндпоинты**.
   1. Нажмите кнопку **Создать эндпоинт**.
   1. Убедитесь, что в поле **Направление** указано `Источник`.
@@ -159,7 +159,7 @@ Airbyte® уже встроен в Data Transfer, поэтому вам не н�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Data Transfer**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
   1. На панели слева выберите ![image](../_assets/console-icons/aperture.svg) **Эндпоинты**.
   1. Нажмите кнопку **Создать эндпоинт**.
   1. Убедитесь, что в поле **Направление** указано `Приёмник`.
@@ -179,7 +179,7 @@ Airbyte® уже встроен в Data Transfer, поэтому вам не н�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Data Transfer**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
   1. На панели слева выберите ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
   1. Нажмите кнопку **Создать трансфер**.
   1. Укажите имя трансфера.
@@ -203,7 +203,7 @@ Airbyte® уже встроен в Data Transfer, поэтому вам не н�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Data Transfer**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
   1. На панели слева выберите ![image](../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
   1. Нажмите значок ![ellipsis](../_assets/console-icons/ellipsis.svg) рядом с именем нужного трансфера и выберите пункт **Активировать**.
 

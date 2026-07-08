@@ -1,6 +1,6 @@
 ---
 title: Как арендовать сервер {{ baremetal-full-name }} с подключением к {{ backup-full-name }}
-description: Следуя данной инструкции, вы сможете арендовать сервер {{ baremetal-name }} с подключением к {{ backup-name }}.
+description: Следуя данной инструкции, вы сможете арендовать сервер {{ baremetal-full-name }} с подключением к {{ backup-full-name }}.
 ---
 
 # Арендовать сервер {{ baremetal-full-name }} с подключением к {{ backup-name }}

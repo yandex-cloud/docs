@@ -2692,6 +2692,10 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [UpdateScopeFilter](audit/securitydeck/cspm/events-ref/UpdateScopeFilter.md)
 
+### securitydeck.dspm
+
+ - [ExportDiscoveryResults](audit/securitydeck/dspm/events-ref/ExportDiscoveryResults.md)
+
 ### securitydeck.kspm
 
  - [AddCluster](audit/securitydeck/kspm/events-ref/AddCluster.md)

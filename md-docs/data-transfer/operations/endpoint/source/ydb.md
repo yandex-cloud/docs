@@ -180,13 +180,13 @@
 
 Настройте один из поддерживаемых приемников данных:
 
-* [ClickHouse®](../target/clickhouse.md);
-* [Yandex Object Storage](../target/object-storage.md);
-* [Apache Kafka®](../target/kafka.md);
-* [YDS](../target/data-streams.md);
-* [YTsaurus](yt.md);
-* [PostgreSQL](../target/postgresql.md);
-* [Yandex Managed Service for YDB](../target/yandex-database.md).
+* [ClickHouse®](../target/clickhouse.md)
+* [Yandex Object Storage](../target/object-storage.md)
+* [Apache Kafka®](../target/kafka.md)
+* [YDS](../target/data-streams.md)
+* [YTsaurus](yt.md)
+* [PostgreSQL](../target/postgresql.md)
+* [Yandex Managed Service for YDB](../target/yandex-database.md)
 
 Полный список поддерживаемых источников и приемников в Yandex Data Transfer читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

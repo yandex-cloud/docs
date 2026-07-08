@@ -36,7 +36,7 @@ description: Follow this guide to add accessing the {{ tracker-full-name }} API 
 
           If you specified the organization type, specify its ID in the **{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_organization_properties_cloud_view_spec_layout_title }}** field.
 
-          For more information about organizations, see the [Yandex Tracker documentation]({{ link-tracker-cloudless }}enable-tracker).
+          For more information about organizations, see the [Yandex Tracker guide]({{ link-tracker-cloudless }}enable-tracker).
       1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_action_view_spec_layout_title }}** field, select the action to perform with {{ tracker-name }} issues:
 
           {% cut "`{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_action_description_get_issue }}`" %}
@@ -234,7 +234,7 @@ description: Follow this guide to add accessing the {{ tracker-full-name }} API 
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/integration/tracker.md)
 * [{#T}](../workflow/create-constructor.md)

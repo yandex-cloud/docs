@@ -90,7 +90,7 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) to send
 
 {% include [check-result](../../../_includes/api-gateway/check-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Trigger for budgets that invokes a {{ sf-name }} function](../../../functions/operations/trigger/budget-trigger-create.md)
 * [{#T}](../../../serverless-containers/operations/budget-trigger-create.md)

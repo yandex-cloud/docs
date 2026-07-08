@@ -1,4 +1,4 @@
-#### Is autovacuum enabled for all tables by default? {#autovacuum}
+#### Is `autovacuum` enabled for all tables by default? {#autovacuum}
 
 Yes, `AUTOVACUUM` is enabled for all tables by default.
 
@@ -26,4 +26,4 @@ Once a database is created, you cannot change its locale settings. However, you 
 
 #### Can I change the database owner? {#db-owner}
 
-Once a database is created, you cannot change its owner. An attemp to change the owner of a database [created using {{ TF }}](../../managed-postgresql/operations/databases.md#add-db) by editing its `owner` setting will trigger the database recreation, resulting in data loss.
+Once a database is created, you cannot change its owner. Changing the `owner` setting after [creating a database with {{ TF }}](../../managed-postgresql/operations/databases.md#add-db) will trigger database recreation, resulting in data loss.

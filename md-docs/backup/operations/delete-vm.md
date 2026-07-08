@@ -1,8 +1,8 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Backup](../index.md) > [Пошаговые инструкции](index.md) > ВМ в Cloud Backup > Удалить ВМ из Cloud Backup
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Backup](../index.md) > [Пошаговые инструкции](index.md) > Compute Cloud в Cloud Backup > Удалить ВМ из Cloud Backup
 
 # Удалить виртуальную машину из Cloud Backup
 
-При удалении виртуальной машины из Cloud Backup, она остается в Yandex Compute Cloud и продолжает функционировать. [Удаление](../../compute/operations/vm-control/vm-delete.md) ВМ из Compute Cloud выполняется отдельно.
+При удалении виртуальной машины Yandex Compute Cloud из Cloud Backup она остается в Yandex Compute Cloud и продолжает функционировать. [Удаление](../../compute/operations/vm-control/vm-delete.md) ВМ из Compute Cloud выполняется отдельно.
 
 {% note info %}
 

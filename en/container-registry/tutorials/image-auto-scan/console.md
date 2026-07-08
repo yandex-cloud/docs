@@ -258,7 +258,7 @@ Create a trigger that will invoke your function when creating a Docker image [ta
   Where:
   * `--name`: Trigger name.
   * `--registry-id`: [ID of the registry](../../operations/registry/registry-list.md) to push the Docker image to.
-  * `--events`: [Events](../../../functions/concepts/trigger/cr-trigger.md#event) that set off the trigger.
+  * `--events`: [Events](../../../functions/concepts/trigger/cr-trigger.md#event) to set off the trigger.
   * `--invoke-function-id`: Function ID.
   * `--invoke-function-service-account-id`: ID of the service account with permissions to invoke the function.
 
@@ -295,6 +295,6 @@ To stop paying for the resources you created:
 1. [Delete](../../../functions/operations/function/function-delete.md) the function in {{ sf-name }}.
 1. [Delete](../../../functions/operations/function/function-delete.md) the {{ sf-name }} trigger.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](terraform.md)

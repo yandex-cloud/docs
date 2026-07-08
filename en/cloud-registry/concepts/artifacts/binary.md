@@ -30,6 +30,6 @@ You can [push](../../operations/binary/push.md) and [pull](../../operations/bina
 
 You can delete a binary artifact from the [management console]({{ link-console-main }}). You cannot overwrite the existing version of a binary artifact.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [Supported artifact types](./index.md#artifacts)

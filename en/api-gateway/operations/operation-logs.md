@@ -130,6 +130,6 @@ The system logs all actions with {{ api-gw-name }} resources as a list of operat
 
     {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../api-design-guide/concepts/about-async.md)

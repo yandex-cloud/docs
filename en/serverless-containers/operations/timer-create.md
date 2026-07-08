@@ -112,7 +112,7 @@ Create a [timer](../concepts/trigger/timer.md), i.e., a trigger that invokes a [
           id                 = "<container_ID>"
           service_account_id = "<service_account_ID>"
           retry_attempts     = <number_of_retry_attempts>
-          retry_interval     = <interval_between_retry_attempts>
+          retry_interval     = <time_between_retry_attempts>
         }
         timer {
           cron_expression = "<cron_expression>"
@@ -144,7 +144,7 @@ Create a [timer](../concepts/trigger/timer.md), i.e., a trigger that invokes a [
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-      For more information about `function_trigger` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
+      For more on the properties of the `function_trigger` resource, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 
@@ -166,7 +166,7 @@ Create a [timer](../concepts/trigger/timer.md), i.e., a trigger that invokes a [
 
 {% include [check-result](../../_includes/serverless-containers/check-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../functions/operations/trigger/timer-create.md)
 * [{#T}](../../api-gateway/operations/trigger/timer-create.md)

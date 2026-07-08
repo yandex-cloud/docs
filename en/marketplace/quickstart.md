@@ -49,7 +49,7 @@ In {{ marketplace-short-name }}, you can place VM images from {{ yandex-cloud }}
 
 ## Create the first version of the product {#create-version}
 
-For more information on creating the first version of the product in the {{ marketplace-name }} partner dashboard, see [{#T}](operations/create-new-version.md).
+For more on how to create the first version of the product on a {{ marketplace-name }} partner dashboard, see [{#T}](operations/create-new-version.md).
 
 ## Submit you version for moderation {#moderate-version}
 

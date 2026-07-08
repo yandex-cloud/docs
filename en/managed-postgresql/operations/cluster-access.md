@@ -104,7 +104,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       Where:
 
-      * `--role`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-postgresql.editor`.
+      * `--role`: [Role](../security/index.md#roles-list), e.g., `managed-postgresql.editor`.
       * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
 
           Here is an example:
@@ -153,7 +153,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       Where:
 
-      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-postgresql.editor`.
+      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list), e.g., `managed-postgresql.editor`.
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
@@ -199,7 +199,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `resource_id`: Cluster ID.
-      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-postgresql.editor`.
+      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list), e.g., `managed-postgresql.editor`.
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
@@ -217,7 +217,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
   1. Open the current configuration file with the {{ mpg-name }} cluster description.
  
-     For more on how to create this file, see [{#T}](cluster-create.md).
+     To learn how to create this file, see [{#T}](cluster-create.md).
  
   1. Add a resource description:
    
@@ -232,8 +232,8 @@ Thus, you can granularly assign different roles for particular clusters to diffe
      Where:
 
      * `cluster_id`: Cluster ID.
-     * `role`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-postgresql.editor`.
-     * `members`: Array of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to in `<subject_type>:<subject_ID>` format.
+     * `role`: [Role](../security/index.md#roles-list), e.g., `managed-postgresql.editor`.
+     * `members`: Array of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role, in `<subject_type>:<subject_ID>` format.
 
        Here is an example:
 
@@ -299,7 +299,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       Where `--access-binding` assigns a role to a subject. You can assign multiple roles at once by describing each of them in a separate `--access-binding` parameter.
 
-      * `role`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-postgresql.editor`.
+      * `role`: [Role](../security/index.md#roles-list), e.g., `managed-postgresql.editor`.
       * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
 
           Here is an example:
@@ -360,7 +360,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       Where:
 
-      * `accessBindings.roleId`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-postgresql.editor`.
+      * `accessBindings.roleId`: [Role](../security/index.md#roles-list), e.g., `managed-postgresql.editor`.
       * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
@@ -424,7 +424,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `resource_id`: Cluster ID.
-      * `accessBindings.roleId`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-postgresql.editor`.
+      * `accessBindings.roleId`: [Role](../security/index.md#roles-list), e.g., `managed-postgresql.editor`.
       * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
@@ -440,12 +440,12 @@ Thus, you can granularly assign different roles for particular clusters to diffe
    
   {% endnote %}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
-
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+ 
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Add resource descriptions:
-
+   
      ```hcl
      resource "yandex_mdb_postgresql_cluster_iam_binding" "<resource_1_local_name>" {
        cluster_id = "<cluster_ID>"
@@ -463,8 +463,8 @@ Thus, you can granularly assign different roles for particular clusters to diffe
      Where:
 
      * `cluster_id`: Cluster ID.
-     * `role`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-postgresql.editor`.
-     * `members`: Array of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to in `<subject_type>:<subject_ID>` format.
+     * `role`: [Role](../security/index.md#roles-list), e.g., `managed-postgresql.editor`.
+     * `members`: Array of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) getting the role, in `<subject_type>:<subject_ID>` format.
 
        Here is an example:
 
@@ -566,7 +566,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       Where:
 
-      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-postgresql.editor`.
+      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list), e.g., `managed-postgresql.editor`.
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
@@ -612,7 +612,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `resource_id`: Cluster ID.
-      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-postgresql.editor`.
+      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list), e.g., `managed-postgresql.editor`.
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
@@ -628,12 +628,12 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
   {% endnote %}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
-
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+ 
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Find the description of the resource with the role you want to revoke and delete this description:
-
+   
      ```hcl
      resource "yandex_mdb_postgresql_cluster_iam_binding" "<local_resource_name>" {
        cluster_id = "<cluster_ID>"
@@ -870,9 +870,9 @@ For a service account to be able to view the info of all {{ mpg-name }} clusters
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Add resource descriptions:
 

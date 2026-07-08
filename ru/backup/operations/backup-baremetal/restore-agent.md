@@ -1,6 +1,6 @@
 ---
-title: Как восстановить работоспособность агента {{ backup-full-name }} на сервере {{ baremetal-name }}
-description: Следуя данной инструкции, вы сможете восстановить работоспособность агента {{ backup-name }} на сервере {{ baremetal-full-name }} после обновления версии ядра Linux.
+title: Как восстановить работоспособность агента {{ backup-full-name }}
+description: Следуя данной инструкции, вы сможете восстановить работоспособность агента {{ backup-full-name }} после обновления версии ядра Linux.
 ---
 
 # Восстановить работоспособность агента {{ backup-name }} после обновления ядра Linux
@@ -14,6 +14,10 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [update-kernel-headers-ubuntu](../../../_includes/backup/operations/update-kernel-headers-ubuntu.md) %}
 
+- CentOS {#centos}
+
+  {% include [update-kernel-headers-centos](../../../_includes/backup/operations/update-kernel-headers-centos.md) %}
+
 {% endlist %}
 
-Если по какой-либо причине восстановить работу агента {{ backup-name }} не удалось, [обратитесь]({{ link-console-support }}) в техническую поддержку.
+Если по какой-либо причине восстановить работу агента {{ backup-name }} не удалось, [обратитесь]({{ link-console-support }}) в службу технической поддержки.

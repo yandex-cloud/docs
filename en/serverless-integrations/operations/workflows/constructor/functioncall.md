@@ -26,7 +26,7 @@ description: Follow this guide to add invocation of a function from {{ sf-full-n
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/integration/functioncall.md)
 * [{#T}](../workflow/create-constructor.md)

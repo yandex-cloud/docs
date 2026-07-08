@@ -162,7 +162,7 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) named `
       * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional setting. It defaults to the value specified in the provider settings.
       * `role`: Role to assign.
 
-      For more information about `yandex_iam_service_account` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account).
+      For more on the properties of the `yandex_iam_service_account` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account).
 
   1. Make sure the configuration files are correct.
 
@@ -250,7 +250,7 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
 
       Where `service_account_id` is the `s3-copy-fn` service account ID.
 
-      For more information about `yandex_iam_service_account_static_access_key` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
+      For more on the properties of the `yandex_iam_service_account_static_access_key` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
 
   1. Make sure the configuration files are correct.
 
@@ -375,7 +375,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
 
       {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
 
-      Learn more about the properties of {{ TF }} resources in the relevant provider guides:
+      For more on the properties of resources used in {{ TF }}, see these provider guides:
 
       * [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret)
       * [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version).
@@ -689,7 +689,7 @@ Create a function that automatically copies new [objects](../../storage/concepts
       * `secrets`: Secret with parts of the static access key.
       * `content`: Path to the `handler-sh.zip` archive with the function source code.
 
-      For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+      For more on the properties of the `yandex_function` resource, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
   1. Make sure the configuration files are correct.
 
@@ -796,7 +796,7 @@ Create a trigger for {{ objstorage-name }} that invokes `copy-function` when you
 
 - {{ TF }} {#tf}
 
-  1. In the configuration file, specify the trigger properties:
+  1. Describe the trigger in the configuration file:
 
       ```hcl
       resource "yandex_function_trigger" "my_trigger" {
@@ -822,7 +822,7 @@ Create a trigger for {{ objstorage-name }} that invokes `copy-function` when you
           * `id`: `copy-function` ID.
           * `service_account_id`: `s3-copy-trigger` service account ID.
 
-      For more information about resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
+      For more on the properties of resources in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Make sure the configuration files are correct.
 
@@ -879,3 +879,4 @@ To stop paying for the resources you created:
 1. [Delete](../../storage/operations/buckets/delete.md) the buckets.
 1. [Delete](../../functions/operations/trigger/trigger-delete.md) the `bucket-to-bucket-copying` trigger.
 1. [Delete](../../functions/operations/function/function-delete.md) `copy-function`.
+

@@ -72,7 +72,7 @@ description: Follow this guide to update a function description.
         }
         ``` 
 
-        For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+        For more on the properties of the `yandex_function` resource, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
     1. Validate your configuration using this command:
         

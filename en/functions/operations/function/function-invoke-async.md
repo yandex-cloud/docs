@@ -113,7 +113,7 @@ description: Follow this guide to configure and run an asynchronous function inv
          * `service_account_id`: Service account with permissions to write to the queue for successful asynchronous invocations.
          * `arn`: ARN of the destination queue in {{ message-queue-name }} for messages about successful function invocations. If you skip this setting, no messages will be sent.
 
-     For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+     For more on the properties of the `yandex_function` resource, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
   1. Apply the changes:
 
@@ -135,6 +135,6 @@ description: Follow this guide to configure and run an asynchronous function inv
 
 [Call the function](function-invoke.md) via HTTPS, specifying the `?integration=async` query string parameter.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Asynchronous function invocation](../../concepts/function-invoke-async.md)

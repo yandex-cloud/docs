@@ -118,14 +118,14 @@ Create a [trigger for a {{ message-queue-short-name }} message queue](../../conc
 
     Check that the number of enqueued messages is decreasing. To do this, view the queue statistics:
 
-   1. In the [management console]({{ link-console-main }}), go to **{{ ui-key.yacloud.iam.folder.dashboard.label_ymq }}**.
+   1. In the [management console]({{ link-console-main }}), navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_ymq }}**.
    1. Select the queue for which you created the trigger.
    1. Go to **{{ ui-key.yacloud.common.monitoring }}**. Check the **{{ ui-key.yacloud.ymq.queue.overview.label_msg-count }}** chart.
 
 {% endlist %}
 
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Trigger for {{ message-queue-name }} that sends messages to a {{ sf-name }} function](../../../functions/operations/trigger/ymq-trigger-create.md)
 * [Trigger for {{ message-queue-name }} that sends messages to a {{ serverless-containers-name }} container](../../../serverless-containers/operations/ymq-trigger-create.md)

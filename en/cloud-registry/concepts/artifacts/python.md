@@ -12,7 +12,7 @@ _Python artifact_ is a package file containing a [Python](https://www.python.org
 
 Python artifacts are used to distribute libraries, tools, and components you can integrate into your Python projects. [PyPI](https://docs.pypi.org/) is the official repository for distributing Python artifacts.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Supported artifact types](./index.md#artifacts)
 * [{#T}](../../operations/pypi/installation.md)

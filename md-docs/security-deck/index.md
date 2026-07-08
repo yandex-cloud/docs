@@ -164,6 +164,10 @@
 
  - [Роли CSPM](security/cspm-roles.md)
 
+ - [Роли TD](security/td-roles.md)
+
+ - [Роли VM](security/vm-roles.md)
+
  - [Роли Access Transparency](security/access-transparency-roles.md)
 
  - [Роли модуля Алерты](security/alerts-roles.md)

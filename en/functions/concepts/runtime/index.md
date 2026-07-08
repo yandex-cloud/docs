@@ -5,7 +5,7 @@ description: When you create a function, you select a runtime environment provid
 
 # Runtime environment. Overview
 
-When you create a function, you select a runtime environment providing additional libraries and environment variables that can be accessed from the function code. You can change the selected runtime environment by updating the function configuration. The system automatically updates the [preloaded runtime environment](./preload-runtime.md) in the function version settings to the latest minor version available in {{ sf-name }}. For more information about its update, see [{#T}](preload-runtime.md#update).
+When you create a function, you select a runtime environment providing additional libraries and environment variables that can be accessed from the function code. You can change the selected runtime environment by updating the function configuration. The system automatically updates the [preloaded runtime environment](./preload-runtime.md) in the function version settings to the latest minor version available in {{ sf-name }}. For more information about the update, see [{#T}](preload-runtime.md#update).
 
 Runtime environment characteristics:
 

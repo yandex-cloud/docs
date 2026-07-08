@@ -22,7 +22,7 @@ You can use both X.509 certificates and passwords at the same time. Note that pa
 | Correct, <br>but for a different device | Correct | Authentication is performed on behalf of the device, the ID of which is specified in the username. |
 
 
-## Authentication with certificates {#certs}
+## Authentication using certificates {#certs}
 
 When authenticating with X.509 certificates, private keys and certificates stored as .pem files are used. They are stored on a device or in a registry.
 * For a private key, you specify the path to the .pem file when sending messages or subscribing to receive messages.
@@ -40,7 +40,7 @@ When authenticating with your username and password:
     * Minimum password length is 14 characters.
     * The password must contain three groups of characters out of these four: lowercase Latin letters, uppercase Latin letters, numbers, and special characters.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../concepts/index.md)
 * [{#T}](../operations/certificates/create-certificates.md)

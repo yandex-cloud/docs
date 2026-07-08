@@ -1,6 +1,6 @@
 ---
 title: Mounting buckets to a container in {{ serverless-containers-full-name }}
-description: Follow this guide to mount a bucket to a container in {{ serverless-containers-name }} .
+description: Follow this guide to mount a bucket to a container in {{ serverless-containers-name }}.
 ---
 
 # Mounting buckets to a container
@@ -107,7 +107,7 @@ To mount buckets to a container:
 
           To mount several buckets to a container at the same time, specify `mounts` as many times as you need.
 
-      For more information about `yandex_serverless_container` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
+      For more on the properties of the `yandex_serverless_container` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Apply the changes:
 
@@ -125,7 +125,7 @@ To mount buckets to a container:
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../concepts/mounting.md)
 * [{#T}](../../functions/concepts/mounting.md)

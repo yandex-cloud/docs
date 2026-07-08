@@ -18,10 +18,6 @@ You can create [backups](../concepts/backup.md) and use existing backups to rest
 
 {% endnote %}
 
-When you restore a cluster from a backup, you create a new cluster with the backup data. If your folder lacks [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup restore speed is 10 MBps.
-
-If you selected the **local-ssd** disk type when restoring the cluster from a backup, add at least two hosts per shard.
-
 
 Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-redis.restorer](../../iam/roles-reference.md#managed-redis-restorer) role or higher for the backup folder and the new cluster folder to your {{ yandex-cloud }} account.
 
@@ -319,7 +315,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
             yandex.cloud.mdb.redis.v1.ClusterService.Backup
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -383,7 +379,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
                 --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>/backups'
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         1. Check the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.redis.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
@@ -431,7 +427,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
                 yandex.cloud.mdb.redis.v1.ClusterService.ListBackups
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         1. Check the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.redis.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
@@ -671,7 +667,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [managed-red
             * `seconds`: Between `0` and `59` seconds.
             * `nanos`: Between `0` and `999999999` nanoseconds.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

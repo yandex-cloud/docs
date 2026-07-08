@@ -21,7 +21,7 @@ The number of hosts you can create together with a {{ VLK }} cluster depends on 
 | Local SSDs (`local-ssd`)                           | 3 hosts or more                        | 2 hosts or more (1 shard × 2 hosts)    |
 | Non-replicated SSDs (`network-ssd-nonreplicated`)     | 3 hosts or more                        | 3 hosts or more (1 shard × 3 hosts)    |
 
-For more information about limits on the number of hosts per cluster or shard, see [Quotas and limits](./limits.md).
+Learn about the limits on the number of hosts per cluster or shard in [Quotas and limits](./limits.md).
 
 
 ## Managing disk space {#manage-storage-space}

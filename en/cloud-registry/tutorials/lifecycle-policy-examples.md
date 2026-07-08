@@ -191,7 +191,7 @@ The `keep_by_version` rule has a higher priority than the deletion rule. This me
 * Use retention rules together with deletion rules to flexibly manage artifacts.
 * Check the status of your policies on a regular basis using the `yc cloud-registry registry lifecycle-policy list` command.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/lifecycle-policy/create.md)
 * [{#T}](../concepts/lifecycle-policy.md)

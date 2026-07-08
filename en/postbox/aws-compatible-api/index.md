@@ -44,8 +44,8 @@ For a list of endpoints and relevant HTTP methods, see the [API reference](api-r
 A request must include one of the authentication headers:
 
 * `X-YaCloud-SubjectToken`: Contains a service account IAM token. Learn more about authentication with an IAM token [here](../api-ref/authentication.md).
-* `Authorization`: Contains a static access key and request signature. The signature is required when accessing the API directly without the [AWS CLI](../tools/aws-cli.md) or apps. {{ postbox-name }} supports [Amazon Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html). For more information, see the [`Authorization` header description](signing-requests.md#authorization-header).
+* `Authorization`: Contains a static access key and a request signature. The latter is required if accessing the API directly without the [AWS CLI](../tools/aws-cli.md) or apps. {{ postbox-name }} supports [Amazon Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html). For more information, see the [`Authorization` header description](signing-requests.md#authorization-header).
 
    You can test the signature generation process using the AWS CLI in debug mode. For this, add the `--debug` flag to the `aws` command. For more information, see [this debug example](signing-requests.md#debugging).
 
-   To avoid generating the signature manually, use the [cURL](https://curl.se/) utility: it automatically signs requests to the Amazon API. For more information, see [this API use case](#ses-api-example).
+   To avoid generating the signature manually, use the [cURL](https://curl.se/) utility: it automatically signs requests to the Amazon API. For more information, see [this API usage example](#ses-api-example).

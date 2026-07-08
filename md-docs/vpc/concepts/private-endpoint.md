@@ -97,3 +97,7 @@ DNS-записи A-типа создаются в [сервисной зоне i
 
 * [Подключение к Object Storage из Virtual Private Cloud](../tutorials/storage-vpc-access.md)
 * [Подключение к Container Registry из Virtual Private Cloud](../tutorials/vpc-cr-access.md)
+
+#### Полезные ссылки {#see-also}
+
+* [Запустили Yandex Cloud Router, обновили Yandex Virtual Private Cloud и Yandex Cloud DNS](https://yandex.cloud/ru/blog/yandex-cloud-router)

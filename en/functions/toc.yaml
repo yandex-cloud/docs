@@ -485,8 +485,8 @@ items:
           - name: '{{ tracker-full-name }}: Data export and visualization'
             href: tutorials/data-from-tracker.md
           - name: >-
-              Delivering {{ forms-full-name }} data to {{ datalens-full-name }}
-              using {{ sf-full-name }} and {{ yq-full-name }}
+              Transferring {{ forms-full-name }} data to {{ datalens-full-name
+              }} via {{ sf-full-name }} and {{ yq-full-name }}
             items:
               - name: Overview
                 href: tutorials/forms-and-datalens-integration/index.md
@@ -553,7 +553,13 @@ items:
           - name: Building a skill for Alice and a website with authorization
             href: tutorials/alice-shareable-todolist.md
           - name: Creating a skill for Alice
-            href: tutorials/alice-skill.md
+            items:
+              - name: Overview
+                href: tutorials/alice-skill/index.md
+              - name: Management console, CLI, and API
+                href: tutorials/alice-skill/console.md
+              - name: '{{ TF }}'
+                href: tutorials/alice-skill/terraform.md
       - name: AI
         items:
           - name: Creating an AI agent with {{ sf-name }}

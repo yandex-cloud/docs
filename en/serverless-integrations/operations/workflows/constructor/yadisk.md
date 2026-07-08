@@ -73,7 +73,7 @@ description: Follow this guide to add interaction with Yandex Disk files to your
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/integration/disk.md)
 * [{#T}](../workflow/create-constructor.md)

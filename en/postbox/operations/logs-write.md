@@ -34,6 +34,6 @@ You can set up logging when or after [creating](create-address.md) an address. T
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Create a configuration](create-configuration.md)

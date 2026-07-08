@@ -1,6 +1,6 @@
 ---
 title: PostgreSQL cluster and host state monitoring
-description: You can monitor the state of a {{ mpg-name }} cluster and its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts. You can also configure {{ monitoring-full-name }} alerts for automated cluster state monitoring.
+description: You can monitor the state of a {{ mpg-name }} cluster and its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts. You can also configure {{ monitoring-full-name }} alerts for automated cluster health monitoring.
 ---
 
 # {{ PG }} cluster and host state monitoring
@@ -17,7 +17,7 @@ description: You can monitor the state of a {{ mpg-name }} cluster and its indiv
 To identify potential issues in a cluster, [use other cluster diagnostic tools](../tutorials/performance-problems.md) alongside monitoring.
 
 
-## Cluster state monitoring {#monitoring-cluster}
+## Monitoring the cluster state {#monitoring-cluster}
 
 To view detailed information on the health state of a {{ mpg-name }} cluster:
 
@@ -52,7 +52,7 @@ You will see the following charts:
    * **Disk usage on primary**: Disk space utilization on the master host (bytes).
    * **Disk read/write bytes**: Speed of disk read and write operations (bytes per second).
    * **Disk read/write IOPS**: Intensity of disk read and write operations (operations per second).
-   * **Disk usage by DB**: Disk space utilization, broken down by database (bytes).
+   * **Disk usage by DB**: Disk space utilization, broken down by database, in bytes.
    * **Inode usage on primary**: Number of inodes used on the master host.
    * **Inode usage by host**: Number of inodes used by each host.
    * **Total size of temporary files**: Total size of temporary files in bytes.
@@ -92,7 +92,7 @@ You will see the following charts:
 * Under **Network**:
 
    * **Packets received/sent**: Network packet exchange rate, in packets per second.
-   * **Network received/sent bytes**: Network data exchange rate (bytes per second).
+   * **Network received/sent bytes**: Network data exchange rate, in bytes per second.
 
 
 ## Host state monitoring {#monitoring-hosts}
@@ -107,8 +107,8 @@ This page displays workload charts for an individual cluster host:
 
 * **CPU usage**: Processor core workload. With increased workload, the **Idle** value drops.
 * **Memory usage**: Use of RAM, in bytes. At high loads, the value of the **Free space** metric decreases, while the others increase.
-* **Disk usage**: Disk space usage (in bytes).
-* **Disk usage by DB**: Disk space utilization, broken down by database (bytes).
+* **Disk usage**: Disk space usage in bytes.
+* **Disk usage by DB**: Disk space utilization, broken down by database, in bytes.
 * **Disk IOPS**: Number of disk operations per second.
 * **Network packets**: Network packet exchange rate, in packets per second.
 * **Network bytes**: Network data transfer rate, in bytes per second.
@@ -140,9 +140,9 @@ For **Replica** hosts, the **Received** value is normally greater than **Sent** 
     1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select:
         * **{{ mpg-name }} — Cluster Overview** to set up cluster alerts.
         * **{{ mpg-name }} — Host Overview** to set up host alerts.
-    1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-    1. If the chart shows multiple metrics, select the data query to generate a metric and click **{{ ui-key.yacloud.common.continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} guides](../../monitoring/concepts/querying.md).
-    1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` thresholds to trigger the alert.
+    1. In the relevant chart, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+    1. If the chart displays multiple metrics, select the data query for the relevant metric and click **{{ ui-key.yacloud.common.continue }}**. Learn more about the query language in [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
+    1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` alert thresholds.
     1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
@@ -166,7 +166,7 @@ For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert-templa
 You can check the current storage size in the [cluster details](cluster-list.md#get-cluster). For a complete list of supported metrics, see [this {{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-postgresql-ref.md).
 
 
-## Cluster state and status {#cluster-health-and-status}
+## Cluster health and status {#cluster-health-and-status}
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 

@@ -15,7 +15,7 @@ To install `pg_cron` in a {{ PG }} cluster:
 
     {% endnote %}
 
-1. [Assign](../grant.md#grant-privilege) the [`mdb_admin` role](../../concepts/roles.md#mdb-admin) to the user who will be managing the jobs.
+1. [Add](../grant.md#grant-privilege) the [`mdb_admin` role](../../concepts/roles.md#mdb-admin) to the user who will manage tasks.
 
 The database will now contain the `cron` schema with tables and functions required for the extension:
 
@@ -31,4 +31,4 @@ The database will now contain the `cron` schema with tables and functions requir
     * `unschedule`: Deletes a job.
     * `alter_job`: Alters a job.
 
-To learn more about the `pg_cron` extension, see its [official documentation](https://github.com/citusdata/pg_cron).
+Learn more about the `pg_cron` extension in [this official guide](https://github.com/citusdata/pg_cron).

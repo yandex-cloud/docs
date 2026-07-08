@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Data Transfer**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **Эндпоинты**.
 
 - CLI {#cli}
@@ -41,7 +41,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Data Transfer**.
+    1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
     1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **Эндпоинты**.
     1. Нажмите на имя нужного эндпоинта.
 
@@ -84,7 +84,7 @@
 - Консоль управления {#console}
 
   1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Data Transfer**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **Эндпоинты**.
   1. Нажмите кнопку **Создать эндпоинт**.
   1. В поле **Направление** выберите **Источник** или **Приёмник**.
@@ -273,7 +273,7 @@
 - Консоль управления {#console}
 
   1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Data Transfer**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **Эндпоинты**.
   1. Выберите эндпоинт и нажмите кнопку ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
   1. Отредактируйте параметры эндпоинта:
@@ -417,7 +417,7 @@
 - Консоль управления {#console}
 
   1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Data Transfer**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **Эндпоинты**.
   1. Выберите эндпоинт, который нужно клонировать.
   1. Нажмите кнопку **Клонировать** на панели сверху.
@@ -477,7 +477,7 @@
 - Консоль управления {#console}
 
   1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Data Transfer**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/aperture.svg) **Эндпоинты**.
   1. Выберите эндпоинт, который нужно удалить.
   1. Нажмите кнопку **Удалить** на панели сверху.

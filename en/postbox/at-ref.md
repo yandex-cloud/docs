@@ -5,7 +5,7 @@ description: This section provides descriptions of the {{ at-full-name }} audit 
 
 # {{ at-full-name }} event reference
 
-{{ at-name }} supports tracking control plane events for {{ postbox-full-name }}. For more information, see [{#T}](../audit-trails/concepts/format.md).
+{{ at-name }} supports tracking control plane events for {{ postbox-full-name }}. Read more in [{#T}](../audit-trails/concepts/format.md).
 
 The general format of the `event_type` field value is as follows:
 

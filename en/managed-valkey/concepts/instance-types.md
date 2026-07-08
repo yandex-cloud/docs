@@ -10,7 +10,7 @@ The host class determines the computing power allocated for each host in a clust
 
 {% note info %}
 
-The amount of memory allocated to a host also depends on the `maxmemory` configuration parameter for {{ VLK }} hosts: the maximum amount of data equals {{ mrd-memory-used }} of available memory. For more information, see [Memory management](memory-management.md).
+The amount of memory allocated to a host also depends on the `maxmemory` configuration parameter for {{ VLK }} hosts: the maximum amount of data equals {{ mrd-memory-used }} of available memory. To learn more, see [Memory management](memory-management.md).
 
 {% endnote %}
 
@@ -122,4 +122,3 @@ Configuration types:
 | hm4af-c48-m576    | 48             | 576     | 100%                   | 1,152 - 8,184          |
 | hm4af-c80-m800    | 80             | 800     | 100%                   | 1,600 - 8,184          |
 | hm4af-c80-m960    | 80             | 960     | 100%                   | 1,860 - 8,184          |
-

@@ -95,6 +95,6 @@ To view this information:
       
   {% include [ymq-monitoring-message-duration.md](../../_includes/message-queue/ymq-monitoring-message-duration.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [{#T}](../metrics.md)

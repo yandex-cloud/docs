@@ -1,12 +1,12 @@
 ---
-title: Как создать резервную копию виртуальной машины или сервера {{ baremetal-full-name }} в {{ backup-full-name }}
-description: Следуя данной инструкции, вы сможете создать резервную копию виртуальной машины или сервера {{ baremetal-name }}.
+title: Как создать резервную копию виртуальной машины или сервера в {{ backup-full-name }}
+description: Следуя данной инструкции, вы сможете создать резервную копию виртуальной машины или сервера в {{ backup-full-name }}.
 ---
 
-# Создать резервную копию виртуальной машины или сервера {{ baremetal-full-name }}
+# Создать резервную копию защищаемого ресурса
 
 
-Чтобы создать резервную копию виртуальной машины или сервера {{ baremetal-name }}, [подключите](../../concepts/vm-connection.md) их к {{ backup-name }} и [привяжите](../policy-vm/attach-and-detach-vm.md#attach-vm) хотя бы к одной [политике резервного копирования](../../concepts/policy.md). Все резервные копии создаются только в рамках политик.
+Чтобы создать резервную копию [защищаемого ресурса](../../concepts/index.md#protected-resources), [подключите](../../concepts/vm-connection/index.md) его к {{ backup-name }} и [привяжите](../policy-vm/attach-and-detach-vm.md#attach-vm) хотя бы к одной [политике резервного копирования](../../concepts/policy.md). Все резервные копии создаются только в рамках политик.
 
 Резервные копии в {{ backup-name }} создаются автоматически по расписанию, указанному в политике.
 
@@ -18,11 +18,18 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится политика резервного копирования.
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. В зависимости от ресурса, для которого вы хотите создать резервную копию, на панели слева выберите ![vm](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_instances }}** или ![bms](../../../_assets/console-icons/objects-align-justify-horizontal.svg) **{{ ui-key.yacloud.backup.label_baremetal-instances }}**.
-  1. В строке с нужной виртуальной машиной или сервером {{ baremetal-name }} нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.backup.action_start_backup }}**.
+  1. На панели слева выберите ![resources](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_connected-resources }}**.
+  1. В зависимости от типа ресурса, для которого вы хотите создать резервную копию, откройте вкладку:
+
+      * **{{ ui-key.yacloud.backup.label_instances }}** — для виртуальных машин {{ compute-name }}.
+      * **{{ ui-key.yacloud.backup.label_baremetal-instances }}** — для серверов {{ baremetal-name }}.
+      * **{{ ui-key.yacloud.backup.label_external-vm-instances }}** — для внешних виртуальных машин.
+      * **{{ ui-key.yacloud.backup.label_external-server-instances }}** — для внешних серверов.
+
+  1. В строке с нужным ресурсом нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.action_start_backup }}**.
   1. В открывшемся окне выберите политику резервного копирования, в соответствии с которой будет создана резервная копия, и нажмите **{{ ui-key.yacloud.common.create }}**.
 
-  Запустится процесс создания резервной копии ВМ или сервера {{ baremetal-name }}. Прогресс создания копии будет отображаться в строке соответствующих ВМ или сервера {{ baremetal-name }} в поле **{{ ui-key.yacloud.backup.column_baremetal-instance-status }}**.
+  Запустится процесс создания резервной копии. Прогресс создания копии будет отображаться в строке соответствующего ресурса в поле **{{ ui-key.yacloud.backup.column_baremetal-instance-status }}**.
 
 - CLI {#cli}
 
@@ -40,24 +47,22 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [get-backup-id](../../../_includes/backup/operations/get-policy-id.md) %}
 
-  1. Узнайте идентификатор виртуальной машины, резервную копию которой нужно создать:
+  1. Узнайте идентификатор [защищаемого ресурса](../../concepts/index.md#protected-resources), резервную копию которого нужно создать:
 
-      {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
-
-      {% include [get-bms-ids](../../../_includes/backup/operations/get-bms-ids.md) %}
+      {% include [get-resource-ids](../../../_includes/backup/operations/get-resource-ids.md) %}
 
   1. Создайте резервную копию:
 
       ```bash
       yc backup policy execute \
         --id <идентификатор_политики> \
-        --instance-id <идентификатор_ВМ_или_сервера_{{ baremetal-name }}>
+        --instance-id <идентификатор_защищаемого_ресурса>
       ```
 
       Где:
 
       * `--id` — идентификатор политики резервного копирования, в соответствии с которой нужно создать резервную копию.
-      * `--instance-id` — идентификатор виртуальной машины или сервера {{ baremetal-name }}, резервную копию которых нужно создать.
+      * `--instance-id` — идентификатор [виртуальной машины {{ compute-name }}](../../concepts/vm-connection/compute.md), [сервера {{ baremetal-name }}](../../concepts/vm-connection/baremetal.md) или [внешнего ресурса](../../concepts/vm-connection/external-resources.md), резервную копию которых нужно создать.
 
       Результат:
 
@@ -74,5 +79,9 @@ description: Следуя данной инструкции, вы сможете
       ```
 
   Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/backup/cli-ref/policy/execute.md).
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [execute](../../backup/api-ref/Policy/execute.md) для ресурса [Policy](../../backup/api-ref/Policy/index.md) или вызовом gRPC API [PolicyService/Execute](../../backup/api-ref/grpc/Policy/execute.md).
 
 {% endlist %}

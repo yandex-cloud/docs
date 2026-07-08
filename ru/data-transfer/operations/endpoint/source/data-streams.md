@@ -110,16 +110,16 @@ description: Следуя данной инструкции, вы сможете
 
 Настройте один из поддерживаемых приемников данных:
 
-* [{{ PG }}](../target/postgresql.md);
-* [{{ MY }}](../target/mysql.md);
+* [{{ PG }}](../target/postgresql.md)
+* [{{ MY }}](../target/mysql.md)
 * [{{ MG }}](../target/mongodb.md)
-* [{{ CH }}](../target/clickhouse.md);
-* [{{ GP }}](../target/greenplum.md);
-* [{{ ydb-full-name }}](../target/yandex-database.md);
-* [{{ objstorage-full-name }}](../target/object-storage.md);
-* [{{ KF }}](../target/kafka.md);
-* [{{ DS }}](../target/data-streams.md);
-* [{{ OS }}](../target/opensearch.md).
+* [{{ CH }}](../target/clickhouse.md)
+* [{{ GP }}](../target/greenplum.md)
+* [{{ ydb-full-name }}](../target/yandex-database.md)
+* [{{ objstorage-full-name }}](../target/object-storage.md)
+* [{{ KF }}](../target/kafka.md)
+* [{{ DS }}](../target/data-streams.md)
+* [{{ OS }}](../target/opensearch.md)
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

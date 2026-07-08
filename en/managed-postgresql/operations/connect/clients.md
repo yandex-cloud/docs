@@ -5,7 +5,7 @@ description: Follow this guide to connect to {{ PG }} cluster hosts with the hel
 
 # Connecting to a {{ PG }} cluster from applications
 
-You can connect to a {{ PG }} cluster using [command line tools](#command-line-tools), [graphical IDEs](#connection-ide), [{{ websql-full-name }}](#websql), [{{ pgadmin }}](#connection-pgadmin), [{{ google-looker }}](#connection-google-looker), or a [Docker container](#connection-docker). To learn how to connect from your application code, see [Code examples](./code-examples.md).
+You can connect to a {{ PG }} cluster using [command line tools](#command-line-tools), [graphical IDEs](#connection-ide), [{{ websql-full-name }}](#websql), [{{ pgadmin }}](#connection-pgadmin), [{{ google-looker }}](#connection-google-looker), or a [Docker container](#connection-docker). To learn how to connect from the code of your application, see [Code examples](./code-examples.md).
 
 You can connect to {{ CH }} cluster hosts using [SSL certificates](index.md#get-ssl-cert). The examples below assume that the `root.crt` certificate is located in this directory:
 

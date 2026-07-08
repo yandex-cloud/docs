@@ -7,18 +7,18 @@ description: Access management in {{ api-gw-full-name }}, an API gateway service
 
 In this section, you will learn about:
 
-* [What resources you can assign a role for](#resources).
-* [What roles this service has](#roles-list).
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user should have the `api-gateway.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you need the `api-gateway.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
 {% note info %}
 
-For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
+To learn more about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) for {{ resmgr-full-name }}.
 
 {% endnote %}
 
@@ -36,9 +36,9 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
 You can assign a role for an [API gateway](../concepts/index.md) via the {{ yandex-cloud }} [CLI](../../cli/cli-ref/serverless/cli-ref/api-gateway/add-access-binding.md) or [API](../api-ref/apigateway/authentication.md).
 
-## Roles existing in this service {#roles-list}
+## Roles available in the service {#roles-list}
 
-The list below shows all roles used for access control in {{ api-gw-name }}.
+The list below shows all the roles used for access control in {{ api-gw-name }}.
 
 ### Service roles {#service-roles}
 

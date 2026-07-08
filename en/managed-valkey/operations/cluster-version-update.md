@@ -84,9 +84,9 @@ Make sure the upgrade will not disrupt your applications:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](./cluster-create.md).
+        For information on how to create this file, see [Creating a cluster](./cluster-create.md).
 
     1. Update the `version` argument in the `config` section to specify the {{ VLK }} version you want to upgrade to:
 

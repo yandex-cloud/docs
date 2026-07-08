@@ -97,7 +97,7 @@ Make sure to properly configure security groups for all subnets where the cluste
 For more information about security groups, see [{#T}](../../concepts/network.md#security-groups).
 
 
-## Getting an SSL certificate {#get-ssl-cert}
+## Obtaining an SSL certificate {#get-ssl-cert}
 
 To use an encrypted SSL connection, get an SSL certificate:
 
@@ -110,3 +110,4 @@ To use an encrypted SSL connection, get an SSL certificate:
 * [Get the FQDN of the host](./fqdn.md) you want to connect to.
 * [Connect](./clients.md) to the cluster from a graphical IDE, Docker container, or CLI.
 * [Integrate](./code-examples.md) the cluster connection into your application code.
+

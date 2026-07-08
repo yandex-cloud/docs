@@ -26,7 +26,7 @@ You can use the Foreach control step to set a sequence of steps to apply to each
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/management/foreach.md)
 * [{#T}](../workflow/create-constructor.md)

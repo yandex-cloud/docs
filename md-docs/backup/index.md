@@ -2,7 +2,7 @@
 
 # Yandex Cloud Backup
 
-Сервис Yandex Cloud Backup позволяет настроить автоматическое резервное копирование виртуальных машин сервиса <a href="../compute/index.md">Yandex Compute Cloud</a>, а также серверов <a href="../baremetal/index.md">Yandex BareMetal</a>.
+Сервис Yandex Cloud Backup позволяет настроить автоматическое резервное копирование виртуальных машин <a href="../compute/index.md">Yandex Compute Cloud</a>, серверов <a href="../baremetal/index.md">Yandex BareMetal</a>, а также виртуальных машин и серверов в инфраструктуре пользователя или сторонних провайдеров.
 
 # Yandex Cloud Backup
 
@@ -20,7 +20,7 @@
 
  - [Активировать сервис](operations/activate-service.md)
 
-### ВМ в Cloud Backup
+### Compute Cloud в Cloud Backup
 
  - [Создать и подключить ВМ на Linux](operations/create-vm.md)
 
@@ -38,7 +38,7 @@
 
  - [Переподключить ВМ на Linux с OS Login к Cloud Backup](operations/refresh-connection-oslogin-linux.md)
 
- - [Обновить или восстановить агент Cloud Backup](operations/update-backup-agent.md)
+ - [Обновить агент Cloud Backup](operations/update-backup-agent.md)
 
  - [Посмотреть статус подключения ВМ](operations/get-connection-status.md)
 
@@ -54,7 +54,9 @@
 
  - [Переподключить сервер BareMetal к Cloud Backup](operations/backup-baremetal/refresh-connection.md)
 
- - [Восстановить работу агента Cloud Backup](operations/backup-baremetal/restore-agent.md)
+### Внешние ресурсы в Cloud Backup
+
+ - [Подключить внешний ресурс](operations/external/connect.md)
 
 ### Политики резервного копирования
 
@@ -62,11 +64,11 @@
 
  - [Изменить политику](operations/policy-vm/update.md)
 
- - [Привязать ВМ или сервер BareMetal к политике](operations/policy-vm/attach-and-detach-vm.md)
+ - [Привязать защищаемый ресурс к политике](operations/policy-vm/attach-and-detach-vm.md)
 
  - [Получить информацию о политике](operations/policy-vm/get-info.md)
 
- - [Отвязать ВМ или сервер BareMetal от политики](operations/policy-vm/detach-vm.md)
+ - [Отвязать защищаемый ресурс от политики](operations/policy-vm/detach-vm.md)
 
  - [Удалить политику](operations/policy-vm/delete.md)
 
@@ -74,9 +76,11 @@
 
  - [Создать копию](operations/backup-vm/create.md)
 
- - [Восстановить ВМ или сервер BareMetal из копии](operations/backup-vm/recover.md)
+ - [Восстановить ВМ Compute Cloud или сервер BareMetal из копии](operations/backup-vm/recover.md)
 
- - [Восстановить ВМ или сервер BareMetal из копии другой ВМ или сервера BareMetal](operations/backup-vm/non-native-recovery.md)
+ - [Восстановить внешние ВМ или сервер из копии](operations/external/recover.md)
+
+ - [Восстановить ВМ Compute Cloud или сервер BareMetal из копии другой ВМ или сервера](operations/backup-vm/non-native-recovery.md)
 
  - [Восстановить отдельные директории и файлы из резервной копии](operations/backup-vm/recover-file-by-file.md)
 
@@ -84,7 +88,9 @@
 
  - [Удалить копию](operations/backup-vm/delete.md)
 
- - [Удалить все копии ВМ или сервера BareMetal](operations/backup-vm/batch-delete.md)
+ - [Удалить все копии защищаемого ресурса](operations/backup-vm/batch-delete.md)
+
+ - [Восстановить работу агента Cloud Backup](operations/backup-baremetal/restore-agent.md)
 
  - [Посмотреть операции с ресурсами сервиса](operations/operation-logs.md)
 
@@ -112,7 +118,15 @@
 
  - [Обзор сервиса](concepts/index.md)
 
- - [Подключение ВМ и серверов BareMetal к сервису](concepts/vm-connection.md)
+### Подключение ресурсов к Cloud Backup
+
+ - [Обзор](concepts/vm-connection/index.md)
+
+ - [ВМ Compute Cloud](concepts/vm-connection/compute.md)
+
+ - [Серверы BareMetal](concepts/vm-connection/baremetal.md)
+
+ - [ВМ и серверы вне Yandex Cloud](concepts/vm-connection/external-resources.md)
 
  - [Политики резервного копирования](concepts/policy.md)
 

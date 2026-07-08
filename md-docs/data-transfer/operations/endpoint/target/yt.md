@@ -30,15 +30,15 @@
 
 Настройте один из поддерживаемых источников данных:
 
-* [Apache Kafka®](../source/kafka.md) (трансфер возможен только в приемник вида `YTSaurus Dynamic`);
-* [ClickHouse®](../source/clickhouse.md);
-* [Greenplum®](../source/greenplum.md);
-* [MongoDB](../source/mongodb.md);
-* [MySQL®](../source/mysql.md);
-* [PostgreSQL](../source/postgresql.md);
-* [Yandex Object Storage](../source/object-storage.md);
-* [Oracle](../source/oracle.md);
-* [Managed Service for YDB](../source/ydb.md).
+* [Apache Kafka®](../source/kafka.md) (трансфер возможен только в приемник вида `YTSaurus Dynamic`)
+* [ClickHouse®](../source/clickhouse.md)
+* [Greenplum®](../source/greenplum.md)
+* [MongoDB](../source/mongodb.md)
+* [MySQL®](../source/mysql.md)
+* [PostgreSQL](../source/postgresql.md)
+* [Yandex Object Storage](../source/object-storage.md)
+* [Oracle](../source/oracle.md)
+* [Managed Service for YDB](../source/ydb.md)
 
 Полный список поддерживаемых источников и приемников в Yandex Data Transfer читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

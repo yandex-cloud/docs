@@ -29,7 +29,7 @@ You can integrate {{ postbox-name }} with other services to:
 
 * [{#T}](../tutorials/events-from-postbox-to-yds.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../quickstart.md)
 * [{#T}](../pricing.md)

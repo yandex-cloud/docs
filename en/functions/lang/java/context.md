@@ -20,7 +20,7 @@ If you are using the [YcFunction interface](model/yc-function.md) as your progra
 * `getRequestId()`: Returns the request ID.
 * `getTokenJson()`: Returns the parameters for authentication with the {{ yandex-cloud }} APIs.
 
-For more information, see [Using the YcFunction interface for a handler in Java](./model/yc-function.md#http-info).
+For more information, see [Using the YcFunction interface for a Java handler](./model/yc-function.md#http-info).
 
 ## HttpServlet class {#httpservlet}
 

@@ -49,4 +49,5 @@
     sudo reboot
     ```
 
-    В процессе перезагрузки фреймворк DKMS пересоберет модуль SnapAPI под нужную версию ядра Linux и агент {{ backup-name }} заработает.
+    В процессе перезагрузки фреймворк DKMS пересоберет модуль SnapAPI под нужную версию ядра Linux, и агент {{ backup-name }} заработает.
+1. {% include [update-snapapi-dkms](./update-snapapi-dkms.md) %}

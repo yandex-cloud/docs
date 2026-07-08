@@ -8,6 +8,10 @@ description: Видеозаписи конференций и вебинаров
 
 ## Статьи {#articles}
 
+### 2026 год {#2026-articles}
+
+* {{ PG }} в 2026 году: архитектура, надежность и гибкость. [Статья](https://yandex.cloud/ru/blog/postgresql-overview).
+
 ### 2025 год {#2025-articles}
 
 * Прирост производительности управляемых сервисов по работе с данными {{ yandex-cloud }}. [Статья](https://yandex.cloud/ru/blog/performance-gains).

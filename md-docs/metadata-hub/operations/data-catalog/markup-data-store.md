@@ -24,8 +24,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
-  1. Выберите сервис **Yandex MetaData Hub**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
+  1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
   1. В открывшемся списке выберите каталог метаданных, содержащий нужные хранилища данных.
   1. На панели слева выберите ![image](../../../_assets/console-icons/book.svg) **Хранилище данных**.
   1. Чтобы назначить домен для одного хранилища данных:
@@ -55,8 +55,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
-  1. Выберите сервис **Yandex MetaData Hub**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
+  1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
   1. В открывшемся списке выберите каталог метаданных, содержащий нужные хранилища данных.
   1. На панели слева выберите ![image](../../../_assets/console-icons/book.svg) **Хранилище данных**.
   1. Выберите одно или несколько хранилищ данных и на панели снизу нажмите **Изменить термины**.
@@ -82,8 +82,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
-  1. Выберите сервис **Yandex MetaData Hub**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
+  1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
   1. В открывшемся списке выберите каталог метаданных, содержащий нужные хранилища данных.
   1. На панели слева выберите ![image](../../../_assets/console-icons/book.svg) **Хранилище данных**.
   1. Выберите одно или несколько хранилищ данных и на панели снизу нажмите **Изменить теги**.
@@ -107,8 +107,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
-  1. Выберите сервис **Yandex MetaData Hub**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
+  1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
   1. В открывшемся списке выберите каталог метаданных, содержащий нужное хранилище данных.
   1. На панели слева выберите ![image](../../../_assets/console-icons/book.svg) **Хранилище данных**.
   1. Нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке нужного хранилища и выберите **Редактировать**.

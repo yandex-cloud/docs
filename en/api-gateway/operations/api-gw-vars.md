@@ -143,7 +143,7 @@ By default, variables take the values specified in the `default` field of the [O
 
 {% endlist %}
 
-## See also
+## Useful links {#see-also}
 
 * [How specification parameterization works](../concepts/extensions/parametrization.md)
 * [How to update an API gateway specification](../operations/api-gw-update.md)

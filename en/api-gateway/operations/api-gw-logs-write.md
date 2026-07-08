@@ -130,9 +130,9 @@ description: Follow this guide to configure API gateway logging.
         * `folder_id`: Folder ID.
         * `min_level`: Minimum logging level. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. This is an optional setting.
 
-        For more information about `yandex_api_gateway` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
+        For more on the properties of the `yandex_api_gateway` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
     
-    1. Check the configuration using this command:
+    1. Validate your configuration using this command:
 
         ```bash
         terraform validate

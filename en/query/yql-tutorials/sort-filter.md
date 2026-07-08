@@ -1,6 +1,6 @@
-# Data sorting and filtering
+# Data filtering and sorting
 
-When querying data, you can order the selection results and limit them using filters.
+When selecting data, you can specify filter expressions that will limit the result. You can also set the order of values returned.
 
 For example:
 
@@ -23,7 +23,7 @@ LIMIT 10                    -- Retrieve only 10 rows.
 Check the example in the right-hand section and click ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 The query result will appear in the **{{ ui-key.yql.yq-query-results.result.tab-text }}** tab as a table or chart.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [SELECT]({{ ydb.docs }}/yql/reference/syntax/select) operator
 * [WHERE]({{ ydb.docs }}/yql/reference/syntax/select#where) operator

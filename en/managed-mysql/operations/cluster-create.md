@@ -22,7 +22,7 @@ For more information on the {{ mmy-name }} cluster structure, see [Resource rela
 ## Creating a cluster {#create-cluster}
 
 
-To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mmy.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
+To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mmy.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
 
 
 
@@ -71,7 +71,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 
   1. Optionally, under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**:
-      
+
      {% include [disk-size-autoscaling-console](../../_includes/mdb/mmy/disk-size-autoscaling-console.md) %}
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the database details:
@@ -124,6 +124,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      After creating a {{ mmy-name }} cluster, you can add more hosts to it if your [folder resource](../concepts/limits.md) quotas allow.
 
+
   1. Specify additional {{ mmy-name }} cluster settings, if required:
 
      {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
@@ -143,13 +144,13 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   To create a {{ mmy-name }} cluster:
 
   
-  1. Check whether the folder has any [subnets](../../vpc/concepts/network.md#subnet) for the {{ mmy-name }} cluster hosts:
+  1. Check whether the folder has any [subnets](../../vpc/concepts/network.md#subnet) for {{ mmy-name }} cluster hosts:
 
      ```bash
      yc vpc subnet list
      ```
 
-     If your folder has no subnets, [create them](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
+     If there are no subnets in the folder, [create them](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
 
 
   1. View the description of the CLI command to create a {{ mmy-name }} cluster:
@@ -213,9 +214,9 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
        {% endnote %}
-    
+
      * `--database name`: Database name.
-     
+
        {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
 
@@ -377,7 +378,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 
      * {% include [disk-size-autoscaling](../../_includes/mdb/mmy/terraform/disk-size-autoscaling.md) %}
-  
+
      * {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
      
@@ -635,7 +636,7 @@ To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

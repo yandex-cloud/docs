@@ -7,7 +7,7 @@ Make sure you specify the encryption key when creating a {{ managed-k8s-name }} 
 
 ## Required paid resources {#paid-resources}
 
-The cost of support for the described solution includes a {{ kms-name }} fee: number of active key versions (with `Active` or `Scheduled For Destruction` for status) and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
+The cost of support for the described solution includes a {{ kms-name }} fee: number of active key versions (with `Active` or `Scheduled For Destruction` status) and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
 
 
 {% list tabs group=instructions %}
@@ -84,7 +84,7 @@ The cost of support for the described solution includes a {{ kms-name }} fee: nu
 
 {{ managed-k8s-name }} works with {{ kms-name }} using the [{{ kms-name }}](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/) provider mechanism. {{ managed-k8s-name }} supports the {{ kms-name }} plugin which is used to encrypt and decrypt data encryption keys (DEK) in {{ kms-name }}. Secrets are encrypted using standard {{ k8s }} tools.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Getting started with {{ managed-k8s-name }}](../../managed-kubernetes/quickstart.md)
 * [{#T}](../../kms/concepts/envelope.md)

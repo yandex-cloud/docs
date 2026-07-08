@@ -1,6 +1,6 @@
 ---
 title: '{{ sf-full-name }} tutorials'
-description: This section contains tutorials for {{ sf-name }}.
+description: This section provides tutorials for {{ sf-name }}.
 ---
 
 # {{ sf-name }} tutorials
@@ -58,7 +58,7 @@ description: This section contains tutorials for {{ sf-name }}.
 ## Integration with Yandex and Yandex Cloud services {#integrations}
 
 * [{#T}](alice-shareable-todolist.md)
-* [{#T}](alice-skill.md)
+* [{#T}](alice-skill/index.md)
 
 ## AI {#ai}
 

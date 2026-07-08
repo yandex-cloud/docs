@@ -30,7 +30,7 @@ After the trigger picks up a message from the queue, it will send it to WebSocke
 
 {% include [ymq-format](../../../_includes/functions/ymq-format.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Trigger for {{ message-queue-name }} that sends messages to a {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/ymq-trigger.md)
 * [Trigger for {{ message-queue-name }} that sends messages to a {{ sf-name }} function](../../../functions/concepts/trigger/ymq-trigger.md)

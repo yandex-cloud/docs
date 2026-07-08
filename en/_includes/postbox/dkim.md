@@ -1,0 +1,1 @@
+A [DKIM signature](https://{{ lang }}.wikipedia.org/wiki/DomainKeys_Identified_Mail) is a digital signature added to email headers to verify that the message originated from the specified domain and was not tampered with in transit. Without a properly configured DKIM signature, most email services will reject emails from {{ postbox-name }} or flag them as spam.

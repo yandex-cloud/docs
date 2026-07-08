@@ -27,7 +27,7 @@ description: Follow this guide to add a synchronous execution of a {{ sw-full-na
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/integration/workflow.md)
 * [{#T}](../workflow/create-constructor.md)

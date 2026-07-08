@@ -64,7 +64,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
 
   To add an alias to a device created using{{ TF }}:
 
-  1. In the configuration file, specify the properties of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      * `yandex_iot_core_device`: Device properties:
        * `registry_id`: [ID of the registry](../../registry/registry-list.md#registry-list) where the device was created.
@@ -88,7 +88,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
       }
       ```
 
-      For more information about `yandex_iot_core_device` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_device).
+      For more on the properties of the `yandex_iot_core_device` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_device).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 

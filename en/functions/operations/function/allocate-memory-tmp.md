@@ -71,7 +71,7 @@ description: In this guide, you will learn how to allocate a portion of memory i
         }
         ```
 
-        For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+        For more on the properties of the `yandex_function` resource, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
     1. Validate your configuration using this command:
 
@@ -109,6 +109,6 @@ description: In this guide, you will learn how to allocate a portion of memory i
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [User files](../../concepts/runtime/environment-variables.md#files)

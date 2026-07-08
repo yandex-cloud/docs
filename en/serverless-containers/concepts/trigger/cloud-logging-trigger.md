@@ -21,7 +21,7 @@ After the trigger is activated, it sends the following message to the container:
 
 {% include [logging-format](../../../_includes/functions/logging-format.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../../functions/concepts/trigger/cloud-logging-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/cloud-logging-trigger.md)

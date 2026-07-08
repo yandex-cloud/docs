@@ -30,7 +30,7 @@ The response does not contain any fields.
 
 The method does not return any specific errors. For a list of errors common for all methods, see [{#T}](../common-errors.md).
 
-## Sample request {#request-example}
+## Request example {#request-example}
 
 ```text
 Action=DeleteQueue
@@ -38,7 +38,7 @@ Action=DeleteQueue
 &QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
 ```
 
-For more information about forming requests, see [General API request format](../index.md#api-request).
+For more on request formatting, see [General API request format](../index.md#api-request).
 
 ## Response example {#response-example}
 

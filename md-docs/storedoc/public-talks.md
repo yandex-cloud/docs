@@ -5,6 +5,12 @@
 ## Конференции и вебинары {#conf-and-webinars}
 
 
+### 2026: Статьи {#article-2026}
+
+* Когда документная база данных выгоднее реляционной: пять сценариев Yandex StoreDoc. 
+
+  * [Текст статьи](https://yandex.cloud/ru/blog/storedoc-cases).
+
 ### 2026: Yandex Cloud {#yc-2026}
 
 * Руководство по Yandex StoreDoc: MongoDB-совместимой базе данных в Yandex Cloud.

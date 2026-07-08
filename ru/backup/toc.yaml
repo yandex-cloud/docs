@@ -16,7 +16,7 @@ items:
         href: operations/index.md
       - name: Активировать сервис
         href: operations/activate-service.md
-      - name: ВМ в {{ backup-name }}
+      - name: '{{ compute-name }} в {{ backup-name }}'
         items:
           - name: Создать и подключить ВМ на Linux
             href: operations/create-vm.md
@@ -34,7 +34,7 @@ items:
             href: operations/refresh-connection.md
           - name: Переподключить ВМ на Linux с {{ oslogin }} к {{ backup-name }}
             href: operations/refresh-connection-oslogin-linux.md
-          - name: Обновить или восстановить агент {{ backup-name }}
+          - name: Обновить агент {{ backup-name }}
             href: operations/update-backup-agent.md
           - name: Посмотреть статус подключения ВМ
             href: operations/get-connection-status.md
@@ -54,19 +54,21 @@ items:
             href: operations/backup-baremetal/backup-baremetal.md
           - name: Переподключить сервер {{ baremetal-name }} к {{ backup-name }}
             href: operations/backup-baremetal/refresh-connection.md
-          - name: Восстановить работу агента {{ backup-name }}
-            href: operations/backup-baremetal/restore-agent.md
+      - name: Внешние ресурсы в {{ backup-name }}
+        items:
+          - name: Подключить внешний ресурс
+            href: operations/external/connect.md
       - name: Политики резервного копирования
         items:
           - name: Создать политику
             href: operations/policy-vm/create.md
           - name: Изменить политику
             href: operations/policy-vm/update.md
-          - name: Привязать ВМ или сервер {{ baremetal-name }} к политике
+          - name: Привязать защищаемый ресурс к политике
             href: operations/policy-vm/attach-and-detach-vm.md
           - name: Получить информацию о политике
             href: operations/policy-vm/get-info.md
-          - name: Отвязать ВМ или сервер {{ baremetal-name }} от политики
+          - name: Отвязать защищаемый ресурс от политики
             href: operations/policy-vm/detach-vm.md
           - name: Удалить политику
             href: operations/policy-vm/delete.md
@@ -74,11 +76,15 @@ items:
         items:
           - name: Создать копию
             href: operations/backup-vm/create.md
-          - name: Восстановить ВМ или сервер {{ baremetal-name }} из копии
-            href: operations/backup-vm/recover.md
           - name: >-
-              Восстановить ВМ или сервер {{ baremetal-name }} из копии другой ВМ
-              или сервера {{ baremetal-name }}
+              Восстановить ВМ {{ compute-name }} или сервер {{ baremetal-name }}
+              из копии
+            href: operations/backup-vm/recover.md
+          - name: Восстановить внешние ВМ или сервер из копии
+            href: operations/external/recover.md
+          - name: >-
+              Восстановить ВМ {{ compute-name }} или сервер {{ baremetal-name }}
+              из копии другой ВМ или сервера
             href: operations/backup-vm/non-native-recovery.md
           - name: Восстановить отдельные директории и файлы из резервной копии
             href: operations/backup-vm/recover-file-by-file.md
@@ -86,8 +92,10 @@ items:
             href: operations/backup-vm/view-disk-layout.md
           - name: Удалить копию
             href: operations/backup-vm/delete.md
-          - name: Удалить все копии ВМ или сервера {{ baremetal-name }}
+          - name: Удалить все копии защищаемого ресурса
             href: operations/backup-vm/batch-delete.md
+      - name: Восстановить работу агента {{ backup-name }}
+        href: operations/backup-baremetal/restore-agent.md
       - name: Посмотреть операции с ресурсами сервиса
         href: operations/operation-logs.md
       - name: Ограничить использование оперативной памяти агентом {{ backup-name }}
@@ -114,8 +122,16 @@ items:
     items:
       - name: Обзор сервиса
         href: concepts/index.md
-      - name: Подключение ВМ и серверов {{ baremetal-name }} к сервису
-        href: concepts/vm-connection.md
+      - name: Подключение ресурсов к {{ backup-name }}
+        items:
+          - name: Обзор
+            href: concepts/vm-connection/index.md
+          - name: ВМ {{ compute-name }}
+            href: concepts/vm-connection/compute.md
+          - name: Серверы {{ baremetal-name }}
+            href: concepts/vm-connection/baremetal.md
+          - name: ВМ и серверы вне {{ yandex-cloud }}
+            href: concepts/vm-connection/external-resources.md
       - name: Политики резервного копирования
         href: concepts/policy.md
       - name: Резервные копии

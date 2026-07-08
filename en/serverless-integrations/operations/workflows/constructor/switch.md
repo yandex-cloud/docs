@@ -32,7 +32,7 @@ If all conditions return `false`, the workflow will be executed for the path spe
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/management/switch.md)
 * [{#T}](../workflow/create-constructor.md)

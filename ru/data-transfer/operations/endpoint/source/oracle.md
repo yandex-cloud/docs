@@ -45,10 +45,10 @@ description: Следуя данной инструкции, вы сможете
 
 Настройте один из поддерживаемых приемников данных:
 
-* [{{ PG }}](../target/postgresql.md);
-* [{{ CH }}](../target/clickhouse.md);
-* [{{ GP }}](../target/greenplum.md);
-* [{{ ytsaurus-name }}](../source/yt.md).
+* [{{ PG }}](../target/postgresql.md)
+* [{{ CH }}](../target/clickhouse.md)
+* [{{ GP }}](../target/greenplum.md)
+* [{{ ytsaurus-name }}](../source/yt.md)
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

@@ -94,7 +94,7 @@ VMware не рекомендует использовать снимки дис�
 
   * {{ compute-name }} — сервис {{ backup-full-name }}.
 
-[{{ backup-full-name }}](https://yandex.cloud/ru/services/backup) работает на базе агентской технологии резервного копирования. Доступно копирование и восстановление [виртуальных машин {{ compute-name }}](../../../compute/concepts/vm.md) с [поддерживаемыми операционными системами](../../../backup/concepts/vm-connection.md#os).
+[{{ backup-full-name }}](https://yandex.cloud/ru/services/backup) работает на базе агентской технологии резервного копирования. Доступно копирование и восстановление [виртуальных машин {{ compute-name }}](../../../compute/concepts/vm.md) с [поддерживаемыми операционными системами](../../../backup/concepts/vm-connection/compute.md#os).
 
 [Агент {{ backup-name }}](../../../backup/concepts/agent.md) может быть установлен в гостевую ОС ВМ при создании или после ее развертывания в ручном режиме.
 

@@ -33,7 +33,7 @@ HTTP code | Error ID | Description
 400 | `InvalidBatchEntryId` | The ID of a batch entry is invalid.
 400 | `TooManyEntriesInBatchRequest` | Too many entries in a batch.
 
-## Sample request {#request-example}
+## Request example {#request-example}
 
 ```text
 Action=ChangeMessageVisibilityBatch
@@ -47,7 +47,7 @@ Action=ChangeMessageVisibilityBatch
 &ChangeMessageVisibilityBatchRequestEntry.2.VisibilityTimeout=30
 ```
 
-For more information about forming requests, see [General API request format](../index.md#api-request).
+For more on request formatting, see [General API request format](../index.md#api-request).
 
 ## Response example {#response-example}
 

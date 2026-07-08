@@ -51,7 +51,7 @@ description: This section contains the {{ postbox-name }} release notes.
 
 ### Updates {#updates}
 
-* Added support for {{ TF }}: you can now create addresses and check custom domain ownership using {{ TF }}. For more information, see [{#T}](tutorials/domain-identity-creating.md).
+* Added support for {{ TF }}: you can now create addresses and check custom domain ownership using {{ TF }}. Read more in [this article](tutorials/domain-identity-creating.md).
 
 ## March 2025 {#march-2025}
 

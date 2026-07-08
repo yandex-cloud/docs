@@ -1,9 +1,9 @@
 ---
 title: Как ограничить использование оперативной памяти агентом резервного копирования
-description: 'Следуя данной инструкции, вы сможете настроить для агента резервного копирования ограничение на использование оперативной памяти (RAM) защищаемого ресурса: виртуальной машины или сервера {{ baremetal-name }}.'
+description: Следуя данной инструкции, вы сможете настроить для агента резервного копирования ограничение на использование оперативной памяти (RAM) защищаемого ресурса.
 ---
 
-# Ограничить использование оперативной памяти агентом {{ backup-name }}
+# Ограничить использование агентом {{ backup-name }} оперативной памяти защищаемого ресурса
 
 
 {% include [agent-ram-usage-paragraph](../../_includes/backup/operations/agent-ram-usage-paragraph.md) %}
@@ -18,7 +18,7 @@ description: 'Следуя данной инструкции, вы сможет�
 
 - Linux {#linux}
 
-  1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ или серверу {{ baremetal-name }} по SSH.
+  1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине {{ compute-name }} или серверу {{ baremetal-name }} по SSH. Если вы подключаетесь к [внешнему ресурсу](../concepts/vm-connection/external-resources.md), используйте удобный вам способ подключения.
   1. Остановите системный процесс агента резервного копирования, выполнив в терминале команду:
 
       ```bash
@@ -47,7 +47,7 @@ description: 'Следуя данной инструкции, вы сможет�
 
 - Windows {#windows}
 
-  1. Подключитесь к ВМ [по RDP](../../compute/operations/vm-connect/rdp.md) или к серверу {{ baremetal-name }} [с помощью KVM-консоли](../../baremetal/operations/servers/server-kvm.md).
+  1. Подключитесь к виртуальной машине {{ compute-name }} [по RDP](../../compute/operations/vm-connect/rdp.md) или к серверу {{ baremetal-name }} [с помощью KVM-консоли](../../baremetal/operations/servers/server-kvm.md). Если вы подключаетесь к [внешнему ресурсу](../concepts/vm-connection/external-resources.md), используйте удобный вам способ подключения.
   1. Запустите от имени администратора оболочку `PowerShell`.
   1. В терминале `PowerShell` выполните команду:
 

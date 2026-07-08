@@ -20,7 +20,7 @@ To install `postgresql_anonymizer` in a {{ PG }} cluster:
 
     You can get the owner's name from the [cluster’s database list](../databases.md#list-db).
 
-To learn more about the `postgresql_anonymizer` extension, see its [official documentation](https://postgresql-anonymizer.readthedocs.io/en/stable/).
+For more on the `postgresql_anonymizer` extension, see [this official guide](https://postgresql-anonymizer.readthedocs.io/en/stable/).
 
 ## Usage example {#usage-example}
 

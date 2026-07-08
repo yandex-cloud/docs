@@ -168,6 +168,10 @@ items:
         href: security/ciem-roles.md
       - name: Роли {{ cspm-name }}
         href: security/cspm-roles.md
+      - name: Роли {{ td-name }}
+        href: security/td-roles.md
+      - name: Роли {{ vuln-man-short-name }}
+        href: security/vm-roles.md
       - name: Роли {{ atr-name }}
         href: security/access-transparency-roles.md
       - name: Роли модуля {{ alerts-name }}

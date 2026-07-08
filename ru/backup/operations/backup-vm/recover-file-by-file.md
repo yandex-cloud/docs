@@ -1,12 +1,12 @@
 ---
-title: Как восстановить отдельные директории и файлы на ВМ или сервере {{ baremetal-name }}
-description: Следуя данной инструкции, вы сможете восстановить на виртуальной машине или сервере {{ baremetal-name }} отдельные директории и файлы.
+title: Как восстановить отдельные директории и файлы на ВМ {{ compute-full-name }} или сервере {{ baremetal-full-name }}
+description: Следуя данной инструкции, вы сможете восстановить на виртуальной машине {{ compute-full-name }} или сервере {{ baremetal-full-name }} отдельные директории и файлы.
 ---
 
-# Восстановить на виртуальной машине или сервере {{ baremetal-name }} отдельные директории и файлы
+# Восстановить на виртуальной машине {{ compute-full-name }} или сервере {{ baremetal-full-name }} отдельные директории и файлы
 
 
-Вы можете восстановить из резервной копии отдельные файлы и директории на любые из ВМ или серверов {{ baremetal-name }}, подключенных к {{ backup-name }} и находящихся в [статусе](../../../compute/concepts/vm-statuses.md#list-of-statuses) `Running`:
+Вы можете восстановить из резервной копии отдельные файлы и директории на любые из виртуальных машин {{ compute-name }} или серверов {{ baremetal-name }}, подключенных к {{ backup-name }} и находящихся в [статусе](../../../compute/concepts/vm-statuses.md#list-of-statuses) `Running`:
 
 {% list tabs group=instructions %}
 
@@ -21,11 +21,11 @@ description: Следуя данной инструкции, вы сможете
   1. На нижней панели нажмите кнопку ![file](../../../_assets/console-icons/file-plus.svg) **{{ ui-key.yacloud.backup.action_add-to-recovery-list }}**.
   1. Последовательно добавьте в список **{{ ui-key.yacloud.component.files-recovery-container.title_recovery-container }}** все файлы и директории, которые вы хотите восстановить.
   1. Нажмите кнопку **{{ ui-key.yacloud.component.files-recovery-container.action_start-recovery }}** и в открывшемся окне:
-      * Выберите ВМ или сервер {{ baremetal-name }}, в которые вы хотите восстановить файлы и директории.
+      * Выберите ВМ {{ compute-name }} или сервер {{ baremetal-name }}, в которые вы хотите восстановить файлы и директории.
 
         {% note info %}
 
-        ВМ или сервер {{ baremetal-name }}, на которые будут восстановлены файлы и директории, должны быть [подключены](../../concepts/vm-connection.md) к {{ backup-name }}.
+        [Защищаемый ресурс](../../concepts/index.md#protected-resources), на который будут восстановлены файлы и директории, должен быть [подключен](../../concepts/vm-connection/index.md) к {{ backup-name }}.
 
         {% endnote %}
 
@@ -44,7 +44,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% endnote %}
 
-  1. Выберите действие, которое вы хотите выполнить при совпадении имен файлов из резервной копии с именами файлов на ВМ или сервере {{ baremetal-name }}:
+  1. Выберите действие, которое вы хотите выполнить при совпадении имен файлов из резервной копии с именами файлов на ВМ {{ compute-name }} или сервере {{ baremetal-name }}:
       * `{{ ui-key.yacloud.backup.files-recovery.value_overwrite-all }}`.
       * `{{ ui-key.yacloud.backup.files-recovery.value_overwrite-older }}`.
       * `{{ ui-key.yacloud.backup.files-recovery.value_overwrite-none }}` — файлы, которых нет в исходной директории, также не будут записаны.

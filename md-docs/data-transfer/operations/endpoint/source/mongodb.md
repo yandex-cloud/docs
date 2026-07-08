@@ -509,9 +509,9 @@ Data Transfer поддерживает трансферы с MongoDB, начин
 
 Настройте один из поддерживаемых приемников данных:
 
-* [Yandex Object Storage](../target/object-storage.md);
-* [YTsaurus](yt.md);
-* [Yandex StoreDoc (Managed Service for MongoDB)](../target/mongodb.md).
+* [Yandex Object Storage](../target/object-storage.md)
+* [YTsaurus](yt.md)
+* [Yandex StoreDoc (Managed Service for MongoDB)](../target/mongodb.md)
 
 Полный список поддерживаемых источников и приемников в Yandex Data Transfer читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

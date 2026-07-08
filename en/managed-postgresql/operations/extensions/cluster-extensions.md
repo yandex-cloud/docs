@@ -139,11 +139,11 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create this file, see [Creating a cluster](../cluster-create.md).
+     To learn how to create this file, see [Creating a cluster](../cluster-create.md).
 
-     For a complete list of {{ mpg-name }} cluster database configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_database).
+     For the complete list of configurable {{ mpg-name }} cluster database fields, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_database).
 
   1. Add one or more `extension` sections to your cluster database configuration, with one section per extension:
 
@@ -341,7 +341,7 @@ Using this extension requires you to [enable the `age` shared library](#librarie
 || <p>[seg]({{ pg-docs }}/static/seg.html)</p><p>Contains the `seg` data type to represent line segments or floating-point intervals.</p> | 1.4 | 1.4 | 1.4 | 1.4 | - ||
 || <p>[smlar](http://sigaev.ru/git/gitweb.cgi?p=smlar.git;a=blob;hb=HEAD;f=README)</p><p>Provides functions for calculating array similarity.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 18 ||
 || <p>[tablefunc](https://www.postgresql.org/docs/current/static/tablefunc.html)</p><p>Provides functions returning row sets.</p> | 1.0 | 1.0 | 1.0 | 1.0 | - ||
-|| <p>[timescaledb](https://github.com/timescale/timescaledb)</p><p>Enables automatic table partitioning by time and partition key, while preserving the standard {{ PG }} data interface. This provides the scalability needed to process time-series in {{ PG }}.</p><p>Using this extension requires you to [enable the `timescaledb` shared library](#libraries-connection).</p><p>The service includes TimescaleDB Apache 2 Edition, which offers reduced functionality compared to TimescaleDB Community Edition. You cannot change the edition. For more details on limitations, see the [TimescaleDB guides](https://docs.timescale.com/about/latest/timescaledb-editions/).</p> | 2.6.1 | 2.9.0 | 2.20.3 | 2.20.3 | 2.23.0 ||
+|| <p>[timescaledb](https://github.com/timescale/timescaledb)</p><p>Enables automatic table partitioning by time and partition key, while preserving the standard {{ PG }} data interface. This provides the scalability needed to process time-series in {{ PG }}.</p><p>Using this extension requires you to [enable the `timescaledb` shared library](#libraries-connection).</p><p>The service includes TimescaleDB Apache 2 Edition, which offers reduced functionality compared to TimescaleDB Community Edition. You cannot change the edition. For more information about limitations, see [this TimescaleDB guide](https://docs.timescale.com/about/latest/timescaledb-editions/).</p> | 2.6.1 | 2.9.0 | 2.20.3 | 2.20.3 | 2.23.0 ||
 || <p>[unaccent]({{ pg-docs }}/static/unaccent.html)</p><p>Provides a dictionary for diacritic-insensitive text search.</p> | 1.1 | 1.1 | 1.1 | 1.1 | - ||
 || <p>[uuid-ossp]({{ pg-docs }}/static/uuid-ossp.html)</p><p>Provides functions for generating UUIDs according to standard algorithms.</p> | 1.1 | 1.1 | 1.1 | 1.1 | - ||
 || <p>[xml2]({{ pg-docs }}/static/xml2.html)</p><p>Adds support for Xpath and XSLT.</p> | 1.1 | 1.1 | 1.1 | 1.1 | - ||

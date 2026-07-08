@@ -1,0 +1,3 @@
+Роль `threat-detector.viewer` позволяет просматривать информацию о правилах контроля безопасности [модуля {{ td-full-name }}](../../security-deck/concepts/threat-detector.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к нему.
+
+Включает разрешения, предоставляемые ролью `threat-detector.auditor`.

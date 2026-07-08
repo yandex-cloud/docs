@@ -10,8 +10,6 @@ keywords:
 
 # Resource relationships in {{ mspqr-full-name }}
 
-{% include [preview](../../_includes/note-service-preview.md) %}
-
 
 {{ SPQR }} is a system for horizontal {{ PG }} scaling through sharding. Essentialy, these are multiple {{ PG }} clusters merged into a single {{ SPQR }} cluster.
 

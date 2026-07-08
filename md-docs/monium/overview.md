@@ -160,3 +160,4 @@ graph LR
 #### Полезные ссылки {#see-also}
 
 [Yandex Monium: платформа для мониторинга и управления состоянием IT-систем](https://yandex.cloud/ru/blog/yandex-monium)
+[Yandex Monium: от сбоя к решению за минуты](https://yandex.cloud/ru/blog/monium-observability-incident-resolution)

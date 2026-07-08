@@ -93,9 +93,19 @@ description: Из статьи вы узнаете, как добавлять и
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
 
-  1. Введите имя пользователя БД и пароль.
+  
+  1. Выберите способ авторизации:
 
-      {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+      * **{{ ui-key.yacloud.mongodb.UserAddDialog.label_password_2MQCs }}** — авторизация по имени пользователя и паролю.
+        
+        Для этого способа авторизации введите имя пользователя и пароль.
+
+        {% include [user-name-and-password-limits](../../_includes/mdb/mmg/note-info-user-name-and-pass-limits.md) %}
+
+      * **{{ ui-key.yacloud.mongodb.UserAddDialog.label_iam_ffBD5 }}** — авторизация с помощью [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративного](../../iam/concepts/users/accounts.md#saml-federation) или [локального](../../iam/concepts/users/accounts.md#local) аккаунта.
+
+        Для этого способа авторизации выберите аккаунт в поле **{{ ui-key.yacloud.common.user }}**.
+
 
   1. Настройте [роли](../concepts/users-and-roles.md) пользователя:
 

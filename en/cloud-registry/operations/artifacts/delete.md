@@ -1,13 +1,13 @@
 ---
-title: Deleting a Python package from a {{ cloud-registry-name }} registry
-description: Follow this guide to delete a Python package from a {{ cloud-registry-name }}  registry.
+title: Deleting an artifact from {{ cloud-registry-name }}
+description: Follow this guide to delete an artifact from a registry in {{ cloud-registry-name }}.
 ---
 
-# Deleting a Python package from a registry
+# Deleting an artifact from a registry
 
-You can delete a [Python package](../../concepts/artifacts/python.md) from a {{ cloud-registry-name }} [registry](../../concepts/registry.md).
+You can delete the [artifact](../../concepts/artifacts/index.md) from a [registry](../../concepts/registry.md) in {{ cloud-registry-name }}.
 
-To delete a Python package, you need the `cloud-registry.admin` [role](../../security/index.md) or higher.
+To delete an atrifact, you need the `cloud-registry.admin` [role](../../security/index.md) or higher.
 
 {% list tabs group=instructions %}
 
@@ -16,11 +16,11 @@ To delete a Python package, you need the `cloud-registry.admin` [role](../../sec
     1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the registry is located.
     1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
     1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud.cloud-registry.title_registries }}**.
-    1. Select the registry you want to delete the package from.
+    1. Select the registry you want to delete the artifact from.
     1. In the left-hand panel, select ![cube](../../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.cloud-registry.title_registry-artifacts }}**.
     1. Click on the ![folder](../../../_assets/console-icons/folder-open.svg) artifact name.
-    1. Find the package version in the list.
-    1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the package and select **{{ ui-key.yacloud.common.delete }}**.
+    1. Find the artifact version in the list.
+    1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the artifact and select **{{ ui-key.yacloud.common.delete }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
@@ -28,12 +28,6 @@ To delete a Python package, you need the `cloud-registry.admin` [role](../../sec
     {% include [cli-install](../../../_includes/cli-install.md) %}
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-    {% note info %}
-    
-    You can find the artifact ID through the [management console]({{ link-console-main }}) in **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
-     
-    {% endnote %}
 
     1. Get a list of artifacts in the registry:
 
@@ -73,15 +67,15 @@ To delete a Python package, you need the `cloud-registry.admin` [role](../../sec
 
 - API {#api}
 
-    To delete a Python package, use the [delete](../../api-ref/Artifact/delete.md) REST API method for the [Artifact](../../api-ref/Artifact/index.md) resource or the [ArtifactService/Delete](../../api-ref/grpc/Artifact/delete.md) gRPC API call.
+    To delete an artifact, use the [delete](../../api-ref/Artifact/delete.md) REST API method for the [Artifact](../../api-ref/Artifact/index.md) resource or the [ArtifactService/Delete](../../api-ref/grpc/Artifact/delete.md) gRPC API call.
 
 {% endlist %}
 
 ## Automatic deletion of old versions {#lifecycle-policy}
 
-To automatically delete old package versions, use [lifecycle policies](../../concepts/lifecycle-policy.md). For more information, see [{#T}](../../tutorials/lifecycle-policy-examples.md).
+To automatically delete old artifact versions, use [lifecycle policies](../../concepts/lifecycle-policy.md). For more information, see [{#T}](../../tutorials/lifecycle-policy-examples.md).
 
-Example of a policy for Python packages:
+Policy example:
 
 ```json
 [
@@ -97,10 +91,3 @@ Example of a policy for Python packages:
   }
 ]
 ```
-
-#### See also {#see-also}
-
-* [{#T}](push.md)
-* [{#T}](pull.md)
-* [{#T}](../../tutorials/lifecycle-policy-examples.md)
-* [{#T}](../../concepts/lifecycle-policy.md)

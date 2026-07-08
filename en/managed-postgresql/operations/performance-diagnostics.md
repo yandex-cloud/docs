@@ -2,7 +2,7 @@
 
 {{ mpg-name }} provides a built-in tool for diagnosing your database cluster performance. This tool helps you analyze {{ PG }} performance metrics for [sessions](#get-sessions) and [queries](#get-queries).
 
-To learn how to identify and resolve cluster performance issues, see the [Performance analysis and optimization](../tutorials/profiling.md) and [Troubleshooting cluster performance](../tutorials/performance-problems.md) sections.
+To learn how to identify and resolve cluster performance issues, see [Performance analysis and optimization](../tutorials/profiling.md) and [Troubleshooting cluster performance](../tutorials/performance-problems.md).
 
 ## Enabling statistics collection {#activate-stats-collector}
 
@@ -42,11 +42,11 @@ To learn how to identify and resolve cluster performance issues, see the [Perfor
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file describing your infrastructure.
+    1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
+        For the complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
     1. {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
 
@@ -136,7 +136,7 @@ To learn how to identify and resolve cluster performance issues, see the [Perfor
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. To enable the collection of statistics when creating a cluster:
+  1. To enable collection of statistics when creating a cluster:
 
      1. Include the `config_spec.performance_diagnostics` option to the [grpcurl command](cluster-create.md#grpc-api) implementing the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method:
 
@@ -170,7 +170,7 @@ To learn how to identify and resolve cluster performance issues, see the [Perfor
 
      1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
-  1. To enable the collection of statistics when updating an existing cluster:
+  1. To enable collection of statistics when updating an existing cluster:
 
      1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
@@ -270,7 +270,7 @@ To learn how to identify and resolve cluster performance issues, see the [Perfor
 
 {% endlist %}
 
-To learn what statistics you can get, see the [{{ PG }} guides](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
+For more on displayed data, see [this {{ PG }} guide](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
 
 ## Getting query statistics {#get-queries}
 
@@ -330,7 +330,7 @@ To learn what statistics you can get, see the [{{ PG }} guides](https://www.post
 
 {% endlist %}
 
-To learn more about available statistics, refer to the [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html) and [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache/blob/master/README.rst) extension guides.
+For more on displayed data, see the [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html) and [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache/blob/master/README.rst) extension guides.
 
 ## Getting query plan details {#auto-explain-enable}
 

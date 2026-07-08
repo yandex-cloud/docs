@@ -13,7 +13,7 @@ A set of methods for managing [policies](../../../../concepts/policy.md).
 || [Get](get.md) | Get specific policy. ||
 || [Update](update.md) | Update specific policy. ||
 || [Delete](delete.md) | Delete specific policy. ||
-|| [Apply](apply.md) | Apply policy to [Compute Cloud instance](../../../../concepts/vm-connection.md#os). ||
+|| [Apply](apply.md) | Apply policy to [Compute Cloud instance](../../../../concepts/vm-connection/index.md#os). ||
 || [ListApplications](listApplications.md) | List applied policies using filters. ||
 || [Execute](execute.md) | Run policy on specific Compute Cloud instance. That will create backup ||
 || [Revoke](revoke.md) | Revoke policy from Compute Cloud instance. ||
