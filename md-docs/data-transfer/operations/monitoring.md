@@ -30,7 +30,7 @@
 - Консоль управления {#console}
 
   1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Data Transfer**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-transfer) в сервис **Data Transfer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) **Трансферы**.
   1. Нажмите на имя нужного трансфера и выберите вкладку ![image](../../_assets/console-icons/display-pulse.svg) **Мониторинг**.
   1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе Yandex Monitoring, нажмите кнопку **Открыть в Monium** на панели сверху.
@@ -97,7 +97,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог с трансфером, для которого нужно настроить алерты.
-  1. Перейдите в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
+  1. [Перейдите](https://monitoring.yandex.cloud/link/monitoring) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
   1. В блоке **Сервисные дашборды** выберите **Data Transfer**.
   1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Создать алерт**.
   1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов в [документации Yandex Monitoring](../../monitoring/concepts/querying.md).

@@ -9,7 +9,7 @@ If you created a [subscription](../concepts/subscription.md) within one of these
 * `Subscription`: Set up integration with the [{{ license-manager }} API](../license-manager/api-ref/quickstart.md) for your subscription to work properly.
 * `PAYG`: User will automatically switch to this service plan as soon as they unlink the subscription from a resource or as soon as the subscription expires. You can set up integration with the [{{ license-manager }} API](../license-manager/api-ref/quickstart.md) if required.
 
-To set up integration with the {{ license-manager }} SaaS API, see [this guide](../license-manager/saas/api-ref/quickstart.md).
+Learn how to set up integration with the {{ license-manager }} SaaS API in [{#T}](../license-manager/saas/api-ref/quickstart.md).
 
 {% list tabs group=service %}
 
@@ -29,7 +29,7 @@ To set up integration with the {{ license-manager }} SaaS API, see [this guide](
 
     1. Implement the following steps in your product code:
 
-        1. Getting the ID of application installation to the {{ k8s }} cluster and linking it to the subscription. [Sample code](https://github.com/yandex-cloud-examples/yc-marketplace-k8s-check-licenses/tree/main).
+        1. Getting the ID of application installation to the {{ k8s }} cluster and linking it to the subscription. See [this code example](https://github.com/yandex-cloud-examples/yc-marketplace-k8s-check-licenses/tree/main).
 
         1. {% include [lmi-step-2](../../_includes/marketplace/lmi-step-2.md) %}
 

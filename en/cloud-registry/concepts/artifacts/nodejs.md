@@ -18,8 +18,8 @@ In npm, artifacts are files with specific content which you can use as dependenc
 * Dependencies
 * devDependencies
 
-For more information about npm, see the [relevant documentation](https://docs.npmjs.com/).
+For more information about NPM, see the [relevant documentation](https://docs.npmjs.com/).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [Supported artifact types](./index.md#artifacts)

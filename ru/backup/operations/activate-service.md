@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать ВМ или сервер {{ baremetal-full-name }} с подключением к {{ backup-name }}.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать [защищаемый ресурс](../concepts/index.md#protected-resources) с подключением к {{ backup-name }}.
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.backup.button_action-activate }}**.
 

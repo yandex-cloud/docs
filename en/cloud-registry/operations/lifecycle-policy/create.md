@@ -87,7 +87,7 @@ description: Follow this guide to create a lifecycle policy in {{ cloud-registry
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../tutorials/lifecycle-policy-examples.md)
 * [{#T}](../../concepts/lifecycle-policy.md)

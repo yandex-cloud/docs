@@ -71,9 +71,9 @@ description: Follow this guide to create a function.
         * `entrypoint`: Function name in the source code that will serve as an entry point to applications.
         * `memory`: Amount of memory allocated for the function, in MB.
         * `content`: Function source code:
-            * `zip_filename`: Path to the ZIP archive containing the function source code and relevant dependencies.
+            * `zip_filename`: Path to the ZIP archive with the function source code and required dependencies.
 
-        For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+        For more on the properties of the `yandex_function` resource, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
     1. Create the resources:
 

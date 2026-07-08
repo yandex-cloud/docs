@@ -105,7 +105,7 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: '{{ mmy-name }} performance analysis and tuning'
+      - name: '{{ mmy-name }} performance analysis and optimization'
         href: tutorials/profiling-mmy.md
       - name: Exporting a database to {{ dataproc-full-name }}
         href: tutorials/sqoop.md

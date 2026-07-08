@@ -228,7 +228,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm resource changes.
+   1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -310,7 +310,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -715,9 +715,9 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
+        For the complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
     1. Add the `backup_window_start` block to the `config` section of the {{ mpg-name }} cluster description:
 
@@ -886,9 +886,9 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) to your {{ yande
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
+        For the complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
     1. Add the `backup_retain_period_days` block to the `config` section of the {{ mpg-name }} cluster description:
 

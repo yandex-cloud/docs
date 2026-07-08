@@ -14,7 +14,7 @@ Additional messages are logged using standard language constructs:
 
 {% include [multiline warning](../../../_includes/functions/multiline.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [String formatting in the Kotlin docs](https://kotlinlang.org/docs/strings.html#string-formatting)
 * [Viewing function logs](../../operations/function/function-logs.md)

@@ -29,4 +29,4 @@ To connect to the database from {{ websql-name }}:
     
 {% endlist %}
 
-For more details on working with {{ websql-name }}, see [these guides](../../../websql/operations/index.md).
+For more information on {{ websql-name }}, see [this guide](../../../websql/operations/index.md).

@@ -17,7 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 To create your infrastructure via {{ TF }}:
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [obtain authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
 1. Set up your infrastructure description files:
 
    {% list tabs group=infrastructure_description %}
@@ -82,7 +82,7 @@ To create your infrastructure via {{ TF }}:
 
      1. In the folder, create an archive named `function.zip` containing the files `requirements.txt` and `index.py`.
 
-     1. In the `serverless-url-shortener.auto.tfvars` file, specify these custom settings:
+     1. In the `serverless-url-shortener.auto.tfvars` file, set the following user-defined properties:
 
           * `cloud_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
           * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
@@ -90,7 +90,7 @@ To create your infrastructure via {{ TF }}:
 
    {% endlist %}
    
-   For more information about {{ TF }} resource properties, see the relevant provider guides:
+   For more on the properties of resources used in {{ TF }}, see these provider guides:
    
    * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
    * [Static key](../../iam/concepts/authorization/access-key.md): [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
@@ -113,7 +113,7 @@ To create your infrastructure via {{ TF }}:
 
 ## How to delete the resources you created {#clear-out}
 
-To stop incurring charges for the resources you created:
+To stop paying for the resources you created:
 
 1. Open the `serverless-url-shortener.tf` file and delete your infrastructure description from it.
 1. Apply the changes:

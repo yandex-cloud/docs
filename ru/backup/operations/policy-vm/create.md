@@ -1,12 +1,12 @@
 ---
 title: Создать политику резервного копирования
-description: Из статьи вы узнаете, как создать политику резервного копирования в {{ backup-name }}.
+description: Из статьи вы узнаете, как создать политику резервного копирования в {{ backup-full-name }}.
 ---
 
 # Создать политику резервного копирования
 
 
-Создание [политики](../../concepts/policy.md) доступно после [активации](../../concepts/index.md#providers) сервиса {{ backup-name }}.
+Создание [политики](../../concepts/policy.md) доступно после [активации](../../concepts/index.md#providers) сервиса {{ backup-full-name }}.
 
 Создать или [изменить](update.md) политику можно с помощью консоли управления {{ yandex-cloud }}, {{ TF }}, а также задать по [спецификации](../../concepts/policy.md#specification) в формате [JSON](https://ru.wikipedia.org/wiki/JSON), с помощью [CLI](../../../cli/quickstart.md) {{ yandex-cloud }} или API.
 
@@ -37,7 +37,7 @@ description: Из статьи вы узнаете, как создать пол
       * Выберите [тип резервных копий](../../concepts/backup.md#types):
 
           * `{{ ui-key.yacloud.backup.policy-form.title_incremental-backup-card }}` — сохраняются только отличия от предыдущей копии. При первом запуске будет создана полная копия ресурса.
-          * `{{ ui-key.yacloud.backup.policy-form.title_full-backup-card }}` — сохраняются все данные виртуальной машины или сервера {{ baremetal-name }}.
+          * `{{ ui-key.yacloud.backup.policy-form.title_full-backup-card }}` — сохраняются все данные [защищаемого ресурса](../../concepts/index.md#protected-resources).
 
           После создания политики изменить тип будет нельзя.
 
@@ -93,7 +93,7 @@ description: Из статьи вы узнаете, как создать пол
 
       Сохраните готовую конфигурацию в файл с расширением `.json`.
 
-      В примере приведена конфигурация политики резервного копирования, которая будет создавать [инкрементальные](../../concepts/backup.md#types) [резервные копии](../../concepts/backup.md) [виртуальной машины](../../../compute/concepts/vm.md) или [сервера {{ baremetal-name }}](../../../baremetal/concepts/servers.md) каждый понедельник в 00:05 (UTC+0). При этом храниться будут только десять последних копий.
+      В примере приведена конфигурация политики резервного копирования, которая будет создавать [инкрементальные](../../concepts/backup.md#types) [резервные копии](../../concepts/backup.md) для [защищаемого ресурса](../../concepts/index.md#protected-resources) каждый понедельник в 00:05 (UTC+0). При этом храниться будут только десять последних копий.
 
       Полная спецификация описана в разделе [{#T}](../../concepts/policy.md#specification).
 
@@ -189,7 +189,7 @@ description: Из статьи вы узнаете, как создать пол
      Где:
 
      * `archive_name` — имя сгенерированных архивов. Необязательный параметр. Переменные параметра:
-       * `Machine Name` — имя [виртуальной машины](../../../compute/concepts/vm.md) или [сервера {{ baremetal-name }}](../../../baremetal/concepts/servers.md).
+       * `Machine Name` — имя [защищаемого ресурса](../../concepts/index.md#protected-resources).
        * `Plan ID` — идентификатор плана.
        * `Unique ID` — уникальный идентификатор.
 

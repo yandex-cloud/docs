@@ -28,6 +28,6 @@ description: Follow this guide to add the {{ yds-full-name }} extension using th
 
 {% include [constructor-result](../../../_includes/api-gateway/constructor-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [x-yc-apigateway-integration:cloud_datastreams extension](../../concepts/extensions/datastreams.md)

@@ -6,29 +6,32 @@ description: На странице представлен список поша�
 # Пошаговые инструкции для {{ backup-name }}
 
 
-## Управление виртуальными машинами в {{ backup-name }} {#connect-vm}
+## Управление виртуальными машинами {{ compute-full-name }} в {{ backup-name }} {#connect-vm}
 
-* [{#T}](create-vm.md)
-* [{#T}](create-vm-windows.md)
-* [{#T}](refresh-connection.md)
-* [{#T}](refresh-connection-oslogin-linux.md)
-* [{#T}](update-backup-agent.md)
-* [{#T}](get-connection-status.md)
-* [{#T}](get-journal.md)
-* [{#T}](delete-vm.md)
+* [{#T}](./create-vm.md)
+* [{#T}](./create-vm-windows.md)
+* [{#T}](./refresh-connection.md)
+* [{#T}](./refresh-connection-oslogin-linux.md)
+* [{#T}](./update-backup-agent.md)
+* [{#T}](./get-connection-status.md)
+* [{#T}](./get-journal.md)
+* [{#T}](./delete-vm.md)
 
 ### Подключение уже существующих виртуальных машин к {{ backup-name }} {#connect-running-vm}
 
-* [{#T}](connect-vm-linux.md)
-* [{#T}](connect-vm-oslogin-linux.md)
-* [{#T}](connect-vm-windows.md)
+* [{#T}](./connect-vm-linux.md)
+* [{#T}](./connect-vm-oslogin-linux.md)
+* [{#T}](./connect-vm-windows.md)
 
 ## Управление серверами {{ baremetal-name }} в {{ backup-name }} {#connect-baremetal}
 
-* [{#T}](backup-baremetal/lease-server-with-backup.md)
-* [{#T}](backup-baremetal/backup-baremetal.md)
-* [{#T}](backup-baremetal/refresh-connection.md)
-* [{#T}](backup-baremetal/restore-agent.md)
+* [{#T}](./backup-baremetal/lease-server-with-backup.md)
+* [{#T}](./backup-baremetal/backup-baremetal.md)
+* [{#T}](./backup-baremetal/refresh-connection.md)
+
+## Управление внешними виртуальными машинами и серверами в {{ backup-name }} {#connect-external}
+
+* [{#T}](./external/connect.md)
 
 ## Управление политиками резервного копирования {#policy-vm}
 
@@ -43,6 +46,7 @@ description: На странице представлен список поша�
 
 * [{#T}](./backup-vm/create.md)
 * [{#T}](./backup-vm/recover.md)
+* [{#T}](./external/recover.md)
 * [{#T}](./backup-vm/non-native-recovery.md)
 * [{#T}](./backup-vm/recover-file-by-file.md)
 * [{#T}](./backup-vm/view-disk-layout.md)
@@ -51,11 +55,12 @@ description: На странице представлен список поша�
 
 ## Сервисные операции {#service-operations}
 
-* [{#T}](activate-service.md)
-* [{#T}](limit-agent-memory-usage.md)
-* [{#T}](get-stats.md)
-* [{#T}](configure-alerts.md)
+* [{#T}](./activate-service.md)
+* [{#T}](./limit-agent-memory-usage.md)
+* [{#T}](./get-stats.md)
+* [{#T}](./configure-alerts.md)
 
-## Получение дополнительной информации {#get-additional-info}
+## Другие операции {#get-additional-info}
 
-* [{#T}](operation-logs.md)
+* [{#T}](./backup-baremetal/restore-agent.md)
+* [{#T}](./operation-logs.md)

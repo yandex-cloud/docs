@@ -11,7 +11,7 @@ Maintenance includes:
 * Scheduled [automatic storage expansion](storage.md#auto-rescale).
 * Other maintenance activities.
 
-A major DBMS version update is not part of maintenance. For more information about major version changes, see [{#T}](../operations/cluster-version-update.md).
+A major DBMS version update is not part of maintenance. For more information about migrating between major versions, see [{#T}](../operations/cluster-version-update.md).
 
 ## Maintenance window {#maintenance-window}
 
@@ -44,3 +44,4 @@ In sharded clusters, maintenance is performed shard by shard in ascending order 
 
 1. Replica hosts undergo maintenance one by one. Such hosts are queued randomly. If a replica needs to be restarted during maintenance, it will become unavailable.
 1. Maintenance is performed on a master host. If the master host needs to restart and becomes unavailable, one of the replicas will assume its role. A single-host shard will be unavailable during its maintenance.
+

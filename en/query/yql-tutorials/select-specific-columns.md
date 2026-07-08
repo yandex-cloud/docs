@@ -23,7 +23,7 @@ LIMIT 10
 Check the example in the right-hand section and click ![run](../../_assets/console-icons/play-fill.svg) **{{ ui-key.yql.yq-query-actions.run-query.button-text }}**.
 The query result will appear in the **{{ ui-key.yql.yq-query-results.result.tab-text }}** tab as a table or chart.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [SELECT]({{ ydb.docs }}/yql/reference/syntax/select) operator
 * [YQL data types]({{ ydb.docs }}/yql/reference/types/)

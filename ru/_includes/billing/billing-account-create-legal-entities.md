@@ -34,12 +34,7 @@
 
 Если вы выбрали способ оплаты **{{ ui-key.yacloud_billing_account.create-account.label_payment_invoice }}** или если плательщик — нерезидент РФ и РК, вы получите письмо с описанием дальнейших действий на почту, указанную в аккаунте Яндекса или Яндекс 360. Вы также можете получить такое письмо в случае выбора способа оплаты **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_card }}**, если после создания платежного аккаунта потребуется его верификация. После проверки документов ваш платежный аккаунт может быть активирован, и вы сможете начать пользоваться {{ yandex-cloud }}.
 
-Отправьте на электронную почту [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}) следующие документы:
-
-
-* Копию протокола или решения о назначении генерального директора.
-* Идентификатор [платежного аккаунта](../../billing/concepts/billing-account.md#billing-account-id) (billing account ID).
-
+{% include [send-docs-for-verification](send-docs-for-verification.md) %}
 
 
 {% include [offices-and-foreign-companies](offices-and-foreign-companies.md) %}

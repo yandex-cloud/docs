@@ -58,6 +58,7 @@ _Политики авторизации_ (политики) — это меха
 * [organization.denyMemberInvitation](#organization-denyMemberInvitation)
 * [organization.denyUserListing](#organization-denyUserListing)
 * [resourceManager.denyCloudRemoval](#resourceManager-denyCloudRemoval)
+* [resourceManager.denyFolderRemoval](#resourceManager-denyFolderRemoval)
 
 #### backup.denyActivation {#backup-denyActivation}
 
@@ -111,8 +112,24 @@ _Политики авторизации_ (политики) — это меха
 Политика запрещает удалять [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud) в Yandex Cloud:
 
 * если политика создана для [организации](../../../organization/concepts/organization.md), запрет относится ко всем облакам в этой организации;
-* если политика создана для облака, запрет относится только к данному облаку;
+* если политика создана для облака, запрет относится только к этому облаку;
 * если политика создана для [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), запрет не будет установлен.
+
+#### resourceManager.denyFolderRemoval {#resourceManager-denyFolderRemoval}
+
+Политика запрещает удалять [каталоги](../../../resource-manager/concepts/resources-hierarchy.md#folder) в Yandex Cloud:
+
+* если политика создана для [организации](../../../organization/concepts/organization.md), запрет относится ко всем каталогам во всех облаках этой организации;
+* если политика создана для облака, запрет относится ко всем каталогам в этом облаке;
+* если политика создана для каталога, запрет относится только к этому каталогу.
+
+{% note info %}
+
+Если политика авторизации `resourceManager.denyFolderRemoval` создана для облака или хотя бы одного из каталогов в облаке, удалить такое облако не получится. Если политика создана для организации, в этой организации не удастся удалить ни одно облако.
+
+Чтобы удалить облако, предварительно удалите политику авторизации `resourceManager.denyFolderRemoval` у организации, этого облака и/или всех его каталогов.
+
+{% endnote %}
 
 ### Шаблоны с параметрами {#customizable}
 

@@ -6,3 +6,5 @@ The service supports:
 * [NuGet artifacts](../../cloud-registry/concepts/artifacts/nuget.md)
 * [Python artifacts](../../cloud-registry/concepts/artifacts/python.md)
 * [Binary artifacts](../../cloud-registry/concepts/artifacts/binary.md)
+* [Go artifacts](../../cloud-registry/concepts/artifacts/go.md)
+

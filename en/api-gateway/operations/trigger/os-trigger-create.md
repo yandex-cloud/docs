@@ -6,7 +6,7 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
 
 {% include [trigger-before-you-begin](../../../_includes/api-gateway/trigger-before-you-begin.md) %}
 
-* [Bucket](../../../storage/concepts/bucket.md) whose object events will set off the trigger. If you do not have a bucket, [create one](../../../storage/operations/buckets/create.md) with restricted access.
+* [Bucket](../../../storage/concepts/bucket.md) for whose object events the trigger will fire. If you do not have a bucket, [create one](../../../storage/operations/buckets/create.md) with restricted access.
 
 ## Creating a trigger {#trigger-create}
 
@@ -118,7 +118,7 @@ Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.m
 
 {% include [check-result](../../../_includes/api-gateway/check-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Trigger for {{ objstorage-name }} that invokes a {{ sf-name }} function](../../../functions/operations/trigger/os-trigger-create.md)
 * [Trigger for {{ objstorage-name }} that invokes a {{ serverless-containers-name }} container](../../../serverless-containers/operations/os-trigger-create.md)

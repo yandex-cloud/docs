@@ -8,6 +8,6 @@ To [use a static access key](index.md) saved in a {{ lockbox-name }} secret via 
 
 {% include [static-key-in-lockbox-console](../../../_tutorials/security/static-key-in-lockbox-console.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](terraform.md)

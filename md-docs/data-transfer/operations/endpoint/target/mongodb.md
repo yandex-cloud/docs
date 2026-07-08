@@ -30,10 +30,10 @@
 
 Настройте один из поддерживаемых источников данных:
 
-* [MongoDB/Yandex StoreDoc](../source/mongodb.md);
-* [Airbyte®](../../../transfer-matrix.md#airbyte);
-* [YDS](../source/data-streams.md);
-* [Apache Kafka®](../source/kafka.md).
+* [MongoDB/Yandex StoreDoc](../source/mongodb.md)
+* [Airbyte®](../../../transfer-matrix.md#airbyte)
+* [YDS](../source/data-streams.md)
+* [Apache Kafka®](../source/kafka.md)
 
 Полный список поддерживаемых источников и приемников в Yandex Data Transfer читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

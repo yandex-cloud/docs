@@ -153,9 +153,9 @@ Key changes in the new version:
 * Added the logical replication setting from a replica.
 * New version 16 clusters use ICU locales instead of libc.
 
-For information on how to update a cluster, see [{#T}](operations/cluster-version-update.md).
+Learn how to update a cluster in [{#T}](operations/cluster-version-update.md).
 
-For more information about the updates in {{ PG }} version 16, see [this {{ PG }} article]({{ pg.docs.org }}/release/16.0/).
+For more information about the {{ PG }} version 16 updates, see [this {{ PG }} guide]({{ pg.docs.org }}/release/16.0/).
 
 ## Q3 2023 {#q3-2023}
 
@@ -177,9 +177,9 @@ For more information about the updates in {{ PG }} version 16, see [this {{ PG }
     * You can now specify [ICU]({{ pg.docs.org }}/15/locale.html#id-1.6.11.3.7) for a database by default.
     * Improved performance, in particular, for in-memory and on-disk sorting.
 
-    For information on how to update a cluster, see [{#T}](operations/cluster-version-update.md).
+    Learn how to update a cluster in [{#T}](operations/cluster-version-update.md).
 
-    For more information about the updates in {{ PG }} version 15, see [this {{ PG }} article]({{ pg.docs.org }}/release/15.0/).
+    For more information about the {{ PG }} version 15 updates, see [this {{ PG }} guide]({{ pg.docs.org }}/release/15.0/).
 
 * Added support for the [pgaudit](https://www.pgaudit.org/) and [pg_prewarm]({{ pg-docs }}/pgprewarm.html) extensions.
 * You can now restore a cluster from a backup in a different folder using any interface.
@@ -187,7 +187,7 @@ For more information about the updates in {{ PG }} version 16, see [this {{ PG }
 ## Q3 2022 {#q3-2022}
 
 * Added the `Inode usage`, `Memory usage`, and `Free space` charts to the [cluster monitoring](operations/monitoring.md#monitoring-cluster) tab.
-* {{ PG }} 10 is [no longer](https://www.postgresql.org/about/news/postgresql-143-137-1211-1116-and-1021-released-2449/) supported. Starting August 15, you can no longer create new clusters of this version, and an automatic cluster update is scheduled from September 1 as part of the maintenance window. To learn how to update a cluster on your own, see [{#T}](operations/cluster-version-update.md).
+* {{ PG }} 10 is [no longer](https://www.postgresql.org/about/news/postgresql-143-137-1211-1116-and-1021-released-2449/) supported. Starting August 15, you can no longer create new clusters of this version, and an automatic cluster update is scheduled from September 1 as part of the maintenance window. Learn how to update a cluster manually in [{#T}](operations/cluster-version-update.md).
 * You can now create a database from a template with the CLI and {{ TF }}.
 * Added support for the `pg_cron` [extension](operations/extensions/pg_cron.md).
 * Installed the [version 14.4 update]({{ pg.docs.org }}/release/14.4/) with index corruption issues fixed.

@@ -80,7 +80,7 @@ When adding environment variables, you create a new version of the function. You
         }
         ```
 
-        For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+        For more on the properties of the `yandex_function` resource, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
     1. Validate your configuration using this command:
         
@@ -120,6 +120,6 @@ When adding environment variables, you create a new version of the function. You
 {% endlist %}
 
 
-## See also
+## Useful links {#see-also}
 
 * [Environment variables](../../concepts/runtime/environment-variables.md#env)

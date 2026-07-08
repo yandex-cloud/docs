@@ -48,8 +48,8 @@ description: This page provides a list of tutorials on creating sites, using 1C 
 
 ## Alice {#alice}
 
-* [{#T}](../serverless/alice-skill.md)
-* [{#T}](../serverless/alice-shareable-todolist.md)
+* [{#T}](../applied/alice-skill/index.md)
+* [{#T}](../applied/alice-shareable-todolist.md)
 
 ## Other {#other}
 

@@ -75,7 +75,7 @@ description: Follow this guide to delete a target.
       }
       ```
 
-      For more information about `yandex_serverless_eventrouter_rule` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_rule).
+      For more on the properties of the `yandex_serverless_eventrouter_rule` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_rule).
 
   1. Apply the changes:
 

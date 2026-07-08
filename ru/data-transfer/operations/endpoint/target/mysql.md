@@ -33,13 +33,13 @@ description: Из статьи вы узнаете, как задать наст
 
 Настройте один из поддерживаемых источников данных:
 
-* [{{ PG }}](../source/postgresql.md);
-* [{{ MY }}](../source/mysql.md);
-* [{{ KF }}](../source/kafka.md);
-* [{{ AB }}](../../../transfer-matrix.md#airbyte);
-* [{{ DS }}](../source/data-streams.md);
-* [{{ objstorage-full-name }}](../source/object-storage.md);
-* [{{ ydb-name }}](../source/ydb.md).
+* [{{ PG }}](../source/postgresql.md)
+* [{{ MY }}](../source/mysql.md)
+* [{{ KF }}](../source/kafka.md)
+* [{{ AB }}](../../../transfer-matrix.md#airbyte)
+* [{{ DS }}](../source/data-streams.md)
+* [{{ objstorage-full-name }}](../source/object-storage.md)
+* [{{ ydb-name }}](../source/ydb.md)
 
 ## Подготовка базы данных приемника {#prepare}
 

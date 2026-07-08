@@ -1,20 +1,26 @@
 ---
 title: Удалить резервную копию
-description: Из статьи вы узнаете, как удалить резервную копию виртуальной машины или сервера {{ baremetal-full-name }} в **{{ backup-full-name }}**.
+description: Из статьи вы узнаете, как удалить резервную копию виртуальной машины или сервера в {{ backup-full-name }}.
 ---
 
 # Удалить резервную копию
 
 
-{% note info %}
+{% note tip %}
 
-Чтобы удалить резервные копии, в каталоге должна быть хотя бы одна виртуальная машина или сервер {{ baremetal-name }}, подключенные к сервису {{ backup-name }}. Если таких ВМ или серверов нет, на время [создайте](../create-vm.md) новую ВМ с подключением к {{ backup-name }} и удалите резервные копии.
+Чтобы удалить резервные копии, в каталоге должен быть хотя бы один [защищаемый ресурс](../../concepts/index.md#protected-resources), подключенный к сервису {{ backup-name }}. Если таких ресурсов нет, на время [создайте](../create-vm.md) новую ВМ с подключением к {{ backup-name }} и удалите резервные копии.
 
 Процесс удаления происходит асинхронно, поэтому дождитесь его завершения. Перед остановкой или удалением последней ВМ или сервера, подключенных к {{ backup-name }}, убедитесь, что список резервных копий пуст.
 
 {% endnote %}
 
 Чтобы удалить резервную копию:
+
+{% note info %}
+
+В настоящее время удалить резервную копию [внешнего ресурса](../../concepts/vm-connection/external-resources.md) можно с помощью [{{ yandex-cloud }} CLI](../../../cli/cli-ref/backup/cli-ref/backup/delete.md) и [API](../../backup/api-ref/Backup/delete.md).
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -43,24 +49,22 @@ description: Из статьи вы узнаете, как удалить рез
 
       {% include [get-backup-id](../../../_includes/backup/operations/get-backup-id.md) %}
 
-  1. Узнайте идентификатор виртуальной машины, резервную копию которой нужно удалить:
+  1. Узнайте идентификатор [защищаемого ресурса](../../concepts/index.md#protected-resources), резервную копию которого нужно удалить:
 
-      {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
-
-      {% include [get-bms-ids](../../../_includes/backup/operations/get-bms-ids.md) %}
+      {% include [get-resource-ids](../../../_includes/backup/operations/get-resource-ids.md) %}
 
   1. Удалите резервную копию:
 
       ```bash
       yc backup backups delete \
         --backup-id <идентификатор_резервной_копии> \
-        --instance-id <идентификатор_ВМ_или_сервера_{{ baremetal-name }}>
+        --instance-id <идентификатор_ресурса>
       ```
 
       Где:
 
       * `--backup-id` — идентификатор резервной копии, которую нужно удалить.
-      * `--instance-id` — идентификатор виртуальной машины или сервера {{ baremetal-name }}, резервную копию которых нужно удалить.
+      * `--instance-id` — идентификатор [виртуальной машины {{ compute-name }}](../../concepts/vm-connection/compute.md), [сервера {{ baremetal-name }}](../../concepts/vm-connection/baremetal.md) или [внешнего ресурса](../../concepts/vm-connection/external-resources.md), резервную копию которых нужно удалить.
 
   Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/backup/cli-ref/backup/delete.md).
 

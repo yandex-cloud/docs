@@ -10,6 +10,7 @@ description: In this tutorial, you will learn about the Amazon API methods you c
 #|
 || **Method** | **Description** ||
 || [SendEmail](send-email.md) | Sends an email. ||
+|| [SendBulkEmail](send-bulk-email.md) | Sends multiple template emails as one request. ||
 |#
 
 ## Addresses {#domains}

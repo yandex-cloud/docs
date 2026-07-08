@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Backup](../index.md) > [Пошаговые инструкции](index.md) > ВМ в Cloud Backup > Посмотреть журнал резервного копирования
+[Документация Yandex Cloud](../../index.md) > [Yandex Cloud Backup](../index.md) > [Пошаговые инструкции](index.md) > Compute Cloud в Cloud Backup > Посмотреть журнал резервного копирования
 
 # Посмотреть журнал резервного копирования
 
@@ -51,5 +51,5 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Статусы подключения ВМ](../concepts/vm-connection.md#statuses)
+* [Статусы подключения ВМ](../concepts/vm-connection/compute.md#statuses)
 * [Посмотреть статус подключения ВМ](get-connection-status.md)

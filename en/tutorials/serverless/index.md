@@ -74,7 +74,7 @@
 ## Integration with Yandex and Yandex Cloud services {#integrations}
 
 * [{#T}](api-gw-sws-integration.md)
-* [{#T}](alice-skill.md)
+* [{#T}](alice-skill/index.md)
 * [{#T}](alice-shareable-todolist.md)
 * [{#T}](speechkit-integrarion-via-agi-gw.md)
 

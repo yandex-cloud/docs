@@ -26,7 +26,7 @@ After the trigger is activated, it sends the following message to the function:
 * [{#T}](../../tutorials/logging-functions.md)
 * [{#T}](../../tutorials/logging.md)
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../../serverless-containers/concepts/trigger/cloud-logging-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/cloud-logging-trigger.md)

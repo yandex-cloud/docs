@@ -54,7 +54,7 @@ Sometimes, you may get more notifications than the actual number of times the re
 
 If the recipient's email client or intermediate servers cache images, repeated openings of the email may not be logged. This depends on the settings of each specific email client.
 
-### Limitations {#limitations}
+### Limits {#limitations}
 
 Tracking email openings may not work accurately in the following cases:
 

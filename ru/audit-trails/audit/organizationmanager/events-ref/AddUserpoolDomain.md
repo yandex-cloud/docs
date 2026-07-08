@@ -134,7 +134,9 @@ editable: false
     "cookieMaxAge": "string",
     "passwordBlacklistPolicy": {
       "checkCommon": "boolean"
-    }
+    },
+    "description": "string",
+    "labels": "object"
   },
   "requestParameters": "object",
   "response": "object"
@@ -319,6 +321,8 @@ A list of messages that carry the error details. ||
 || bruteforceProtectionPolicy | **[BruteforceProtectionPolicy](#yandex.cloud.audit.organizationmanager.idp.BruteforceProtectionPolicy)** ||
 || cookieMaxAge | **string** (duration) ||
 || passwordBlacklistPolicy | **[PasswordBlacklistPolicy](#yandex.cloud.audit.organizationmanager.idp.PasswordBlacklistPolicy)** ||
+|| description | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 |#
 
 ## UserSettings {#yandex.cloud.audit.organizationmanager.idp.UserSettings}

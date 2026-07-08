@@ -589,16 +589,16 @@
 
 Настройте один из поддерживаемых приемников данных:
 
-* [PostgreSQL](../target/postgresql.md);
-* [MySQL®](../target/mysql.md);
-* [ClickHouse®](../target/clickhouse.md);
-* [Greenplum®](../target/greenplum.md);
-* [Yandex Managed Service for YDB](../target/yandex-database.md);
-* [Yandex Object Storage](../target/object-storage.md);
-* [Apache Kafka®](../target/kafka.md);
-* [YDS](../target/data-streams.md);
-* [YTsaurus](yt.md);
-* [OpenSearch](../target/opensearch.md).
+* [PostgreSQL](../target/postgresql.md)
+* [MySQL®](../target/mysql.md)
+* [ClickHouse®](../target/clickhouse.md)
+* [Greenplum®](../target/greenplum.md)
+* [Yandex Managed Service for YDB](../target/yandex-database.md)
+* [Yandex Object Storage](../target/object-storage.md)
+* [Apache Kafka®](../target/kafka.md)
+* [YDS](../target/data-streams.md)
+* [YTsaurus](yt.md)
+* [OpenSearch](../target/opensearch.md)
 
 Полный список поддерживаемых источников и приемников в Yandex Data Transfer читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

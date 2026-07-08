@@ -57,6 +57,22 @@ description: Следуя данной инструкции, вы узнаете
 
       Вы можете выбрать все доступные категории одновременно и любую их комбинацию.
 
+  1. (Опционально) В блоке **{{ ui-key.yacloud_org.security.dspm.CustomDictionariesAlert.custom_dictionaries_title_mw3fv }}** оставьте заявку на подключение [пользовательских словарей](../../concepts/dspm.md#custom-dictionaries) для поиска чувствительных данных:
+
+      1. Нажмите **{{ ui-key.yacloud_org.security.dspm.CustomDictionariesAlert.custom_dictionaries_action_yes_iuL9X }}**.
+
+          {% note info %}
+
+          После выбора любого варианта блок больше не будет отображаться.
+
+          Если вы нажали **{{ ui-key.yacloud_org.security.dspm.CustomDictionariesAlert.custom_dictionaries_action_no_r9PVm }}**, вы можете изменить решение. Для этого заполните [форму](https://forms.yandex.ru/surveys/13835302.f77819f788eb2cd7df871cd6f8523fe29c5e4c23/).
+
+          {% endnote %}
+
+      1. На открывшейся странице заполните поля и нажмите **Отправить**.
+
+          Специалисты обработают заявку и свяжутся с вами для уточнения деталей и информирования о результате.
+
   1. {% include [scan-settings](../../../_includes/security-deck/scan-settings.md) %}
   1. Нажмите **{{ ui-key.yacloud_org.security.dspm.ScanForm.action_create-scan_dvakP }}**.
 

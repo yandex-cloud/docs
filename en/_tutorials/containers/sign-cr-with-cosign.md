@@ -15,9 +15,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for public IP addresses assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for public IP addresses if assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * Fee for {{ container-registry-name }} [storage](../../container-registry/pricing).
 
 
@@ -39,8 +39,8 @@ The support cost for this solution includes:
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-  1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a cluster, specify the previously created service accounts for resources and nodes and the security group.
-  1. [Create a {{ container-registry-name }}](../../container-registry/operations/registry/registry-create.md).
+  1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a cluster, specify the previously created service accounts for resources and nodes and the security group.
+  1. [Create a registry in {{ container-registry-name }}](../../container-registry/operations/registry/registry-create.md).
 
 - {{ TF }} {#tf}
 
@@ -81,7 +81,7 @@ The support cost for this solution includes:
 
 {% endlist %}
 
-### Get ready to use the {{ managed-k8s-name }} cluster
+### Get ready to work with the {{ managed-k8s-name }} cluster
 
 1. {% include [install-kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Install Helm](https://helm.sh/docs/intro/install).
@@ -390,7 +390,7 @@ The support cost for this solution includes:
 
       {% note info %}
 
-      By default, when you create a policy, a signature verification request is made to the Transparency Log immutable record storage. You can disable it by adding the `rekor: ignoreTlog: true` parameter to the `keys` element of the policy specification. For more information, see the [Kyverno documentation](https://kyverno.io/docs/writing-policies/verify-images/sigstore/#ignoring-tlogs-and-sct-verification).
+      By default, when you create a policy, a signature verification request is made to the Transparency Log immutable record storage. You can disable it by adding the `rekor: ignoreTlog: true` parameter to the `keys` element of the policy specification. For more information, see the [Kyverno guide](https://kyverno.io/docs/writing-policies/verify-images/sigstore/#ignoring-tlogs-and-sct-verification).
 
       {% endnote %}
 

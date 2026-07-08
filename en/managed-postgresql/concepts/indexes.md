@@ -65,7 +65,7 @@ ORDER BY distance
 LIMIT 5;
 ```
 
-For more information about index types, see [{{ PG }}](https://www.postgresql.org/docs/current/indexes-types.html).
+Learn more about index types in [this {{ PG }} guide](https://www.postgresql.org/docs/current/indexes-types.html).
 
 ## Index bloating {#index-bloating}
 
@@ -133,7 +133,7 @@ This operation requires a table lock, which may be impossible under high loads.
 
 ### pg_repack extension {#pg-repack}
 
-The [pg_repack](https://github.com/reorg/pg_repack) extension reorganizes tables and indexes without long-term locks. To learn how to update and run `pg_repack` in a {{ mpg-name }} cluster, see [Using pg_repack](../operations/extensions/pg_repack.md).
+The [pg_repack](https://github.com/reorg/pg_repack) extension reorganizes tables and indexes without long-term locks. A guide for installing and running `pg_repack` in a {{ mpg-name }} cluster is in the [Using pg_repack](../operations/extensions/pg_repack.md) section.
 
 ## Use cases {#examples}
 

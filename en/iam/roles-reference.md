@@ -2662,6 +2662,7 @@ Learn more in [Access management in {{ kspm-name }}](../security-deck/security/k
 
 Learn more in [Access management in {{ cspm-name }}](../security-deck/security/cspm-roles.md).
 
+
 ### Service roles for {{ atr-name }} data analysis {#access-transparency-roles}
 
 #### access-transparency.viewer {#access-transparency-viewer}

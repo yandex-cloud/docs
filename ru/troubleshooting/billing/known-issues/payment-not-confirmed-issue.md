@@ -10,9 +10,7 @@
 
 Статус `PAYMENT_NOT_CONFIRMED` означает, что требуется подтверждение аккаунта.
 
-Отправьте на электронную почту [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}) следующие документы:
-   * Копию протокола или решения о назначении генерального директора.
-   * Идентификатор [платежного аккаунта](../../../billing/concepts/billing-account.md#billing-account-id) (billing account ID).
+{% include [send-docs-for-verification](../../../_includes/billing/send-docs-for-verification.md) %}
 
 После проверки документов ваш платежный аккаунт может быть активирован и вы сможете начать пользоваться {{ yandex-cloud }}.
 

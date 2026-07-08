@@ -5,8 +5,6 @@ description: Learn how to create backups and use existing backups to restore you
 
 # Managing backups in {{ mspqr-full-name }}
 
-{% include [preview](../../_includes/note-service-preview.md) %}
-
 You can [create](#create-backup) backups and use existing backups to [restore](#restore) your clusters.
 
 {{ mspqr-name }} automatically takes a daily backup as well. You can [specify the start time](#set-backup-window) and configure the [retention period](#set-backup-retain) for automatic backups.
@@ -845,7 +843,7 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
 
         {% note warning %}
 
-        When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
+        When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
         {% endnote %}
 
@@ -921,7 +919,7 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
 
         {% note warning %}
 
-        When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
+        When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
         {% endnote %}
     
@@ -1009,7 +1007,7 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
 
         {% note warning %}
 
-        When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
+        When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
         {% endnote %}
 
@@ -1073,7 +1071,7 @@ You can [create](#create-backup) backups and use existing backups to [restore](#
 
         {% note warning %}
 
-        When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
+        When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
         {% endnote %}
 

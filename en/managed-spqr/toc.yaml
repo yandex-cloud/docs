@@ -1,6 +1,5 @@
 title: '{{ mspqr-full-name }}'
 href: index.yaml
-stage: preview
 items:
   - name: Getting started
     href: quickstart.md
@@ -496,7 +495,7 @@ items:
                 href: api-ref/User/update.md
               - name: Delete
                 href: api-ref/User/delete.md
-  - name: '{{ monitoring-name }} metrics'
+  - name: Metrics {{ monitoring-name }}
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md

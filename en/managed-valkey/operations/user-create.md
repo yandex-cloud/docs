@@ -28,20 +28,20 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
         
         1. Set a user password in one of the following ways:
  
-            * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Enter a password manually. It must be from 8 to 128 characters long.
-            * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Generate a password using [{{ connection-manager-full-name }}](../../metadata-hub/concepts/connection-manager.md) and store it in a [{{ lockbox-full-name }} secret](../../lockbox/concepts/secret.md).
+            * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}**: Enter the password manually. It must be from 8 to 128 characters long.
+            * **{{ ui-key.yacloud.component.password-input.label_button-generate }}**: Generate a password using [{{ connection-manager-full-name }}](../../metadata-hub/concepts/connection-manager.md) and save it in a [{{ lockbox-full-name }} secret](../../lockbox/concepts/secret.md).
 
               To view the password, navigate to the cluster page, select the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-full-name }} secret containing the password.
 
-              You need the [lockbox.payloadViewer](../../lockbox/security/index.md#lockbox-payloadViewer) role to view passwords.
+              To view passwords, you need the [lockbox.payloadViewer](../../lockbox/security/index.md#lockbox-payloadViewer) role.
         
 
-      * **IAM**: Authorization via [{{ yandex-cloud }} accounts](../../iam/concepts/users/accounts.md).
+      * **IAM**: Authorization via [accounts in {{ yandex-cloud }}](../../iam/concepts/users/accounts.md).
         
-        For this authorization method, select the right account in the **User** field.
+        For this authorization method, select the account in the **User** field.
 
 
-  1. Select the **{{ ui-key.yacloud.mdb.cluster.users.field_enable-user }}** option to enable the user to connect to the cluster and execute commands.
+  1. Select the **{{ ui-key.yacloud.mdb.cluster.users.field_enable-user }}** option so that the user can connect to the cluster and execute commands.
   1. Under `Permissions`, specify user permissions:
 
       * `Patterns`: Permissions for key patterns.
@@ -132,7 +132,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
-      To learn how to create this file, see [Creating a cluster](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
   
   1. To create a user, add the `yandex_mdb_redis_user` resource:
   
@@ -191,7 +191,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -278,7 +278,7 @@ description: You can create {{ VLK }} users and manage their permissions in {{ m
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

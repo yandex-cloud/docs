@@ -6,17 +6,17 @@
 
 - Виртуальная машина {#vm}
 
-  * Виртуальная машина создана из [поддерживаемого образа](../../backup/concepts/vm-connection.md#os) или (при установке агента {{ backup-name }} вручную) операционная система ВМ [поддерживается {{ backup-name }}](../../backup/concepts/vm-connection.md#self-install).
+  * Виртуальная машина создана из [поддерживаемого образа](../../backup/concepts/vm-connection/compute.md#os) или (при установке агента {{ backup-name }} вручную) операционная система ВМ [поддерживается {{ backup-name }}](../../backup/concepts/vm-connection/compute.md#self-install).
   * Сервисному аккаунту, привязанному к ВМ, назначена [роль](../../backup/security/index.md#backup-editor) `backup.editor`.
-  * Для ВМ [корректно](../../backup/concepts/vm-connection.md#vm-network-access) настроена [группа безопасности](../../vpc/concepts/security-groups.md).
+  * Для ВМ [корректно](../../backup/concepts/vm-connection/compute.md#vm-network-access) настроена [группа безопасности](../../vpc/concepts/security-groups.md).
 
-  Подробнее в статье [Подключение виртуальных машин Compute Cloud к {{ backup-name }}](../../backup/concepts/vm-connection.md).
+  Подробнее в статье [Подключение виртуальных машин Compute Cloud к {{ backup-name }}](../../backup/concepts/vm-connection/compute.md).
 
 - Сервер {{ baremetal-name }} {#baremetal-server}
 
-  * На сервере установлена [поддерживаемая операционная система](../../backup/concepts/vm-connection.md#self-install).
+  * На сервере установлена [поддерживаемая операционная система](../../backup/concepts/vm-connection/baremetal.md#self-install).
   * Сервисному аккаунту, IAM-токен которого используется при [установке](../../backup/operations/backup-baremetal/backup-baremetal.md#agent-install) агента {{ backup-name }}, назначена [роль](../../backup/security/index.md#backup-editor) `backup.editor`.
-  * Серверу [назначен публичный IP-адрес](../../backup/concepts/vm-connection.md#provide-access).
+  * Серверу [назначен публичный IP-адрес](../../backup/concepts/vm-connection/baremetal.md#provide-access).
 
   Подробнее в статье [Подключение сервера {{ baremetal-name }} к {{ backup-name }}](../../backup/operations/backup-baremetal/backup-baremetal.md).
 
@@ -92,9 +92,9 @@ Iteration 0: The term 'acropsh' is not recognized as the name of a cmdlet, funct
 
 Убедитесь, что:
 
-* Операционная система ВМ [поддерживается {{ backup-name }}](../../backup/concepts/vm-connection.md#os).
+* Операционная система ВМ [поддерживается {{ backup-name }}](../../backup/concepts/vm-connection/compute.md#os).
 * Сервисному аккаунту, привязанному к ВМ, назначена [роль](../../backup/security/index.md#backup-editor) `backup.editor`.
-* Разрешен [сетевой доступ для ВМ](../../backup/concepts/vm-connection.md#vm-network-access).
+* Разрешен [сетевой доступ для ВМ](../../backup/concepts/vm-connection/compute.md#vm-network-access).
 * В политиках выполнения PowerShell разрешен запуск скриптов. Если запуск запрещен, разрешите его и перезапустите PowerShell. Подробнее в [документации Microsoft](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
 
 
@@ -120,7 +120,7 @@ Failed to parse cloudbackup from instance attributes IAM token and instance regi
 
 {% include [update-kernel-headers-description](../../_includes/backup/operations/update-kernel-headers-description.md) %}
 
-Чтобы обновить версии заголовков ядра Linux, воспользуйтесь инструкциями [Восстановить работоспособность агента {{ backup-name }} на ВМ](../../backup/operations/update-backup-agent.md#restore-agent) и [Восстановить работоспособность агента {{ backup-name }} на сервере {{ baremetal-name }}](../../backup/operations/backup-baremetal/restore-agent.md).
+Чтобы обновить версии заголовков ядра Linux, воспользуйтесь инструкцией [{#T}](../../backup/operations/backup-baremetal/restore-agent.md).
 
 #### Создание инкрементальных резервных копий ВМ или сервера {{ baremetal-name }} занимает больше времени, чем обычно {#av-interaction}
 

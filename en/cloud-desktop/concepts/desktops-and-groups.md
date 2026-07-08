@@ -17,6 +17,6 @@ A desktop is available to organization users created in [{{ org-full-name }}](..
 
 {% include [access-options](../../_includes/cloud-desktop/access-options.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [How to set up remote desktops with {{ cloud-desktop-full-name }}](https://yandex.cloud/ru/blog/remote-workplaces)

@@ -174,7 +174,7 @@ If the user specifies call IDs (`RequestID`) themselves, they must ensure these 
 
 When a function instance processes multiple calls simultaneously, only the ID of the last one is written to the logs. To log the IDs of all calls a function handles, use [structured logs](logs.md#structured-logs).
 
-If at least one call reaches a timeout, that call and all other calls handled by the same function instance will be aborted. For more information about the timeout, see [{#T}](limits.md#functions-limits).
+If at least one call reaches a timeout, that call and all other calls handled by the same function instance will be aborted. Learn more about timeout in [{#T}](limits.md#functions-limits).
 
 The `concurrency` parameter is available for functions with the following [runtime environments](runtime/index.md):
 
@@ -194,7 +194,7 @@ The `concurrency` parameter is available for functions with the following [runti
 * [{#T}](../tutorials/monitoring.md)
 * [{#T}](../tutorials/nodejs-cron-restart-vm.md)
 
-#### See also
+#### Useful links
 
 * [Creating a function version](../operations/function/version-manage.md)
 * [Adding scaling settings](../operations/function/scaling-settings-add.md)

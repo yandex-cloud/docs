@@ -33,15 +33,15 @@ description: Из статьи вы узнаете, как задать наст
 
 Настройте один из поддерживаемых источников данных:
 
-* [{{ KF }}](../source/kafka.md) (трансфер возможен только в приемник вида `YTSaurus Dynamic`);
-* [{{ CH }}](../source/clickhouse.md);
-* [{{ GP }}](../source/greenplum.md);
-* [{{ MG }}](../source/mongodb.md);
-* [{{ MY }}](../source/mysql.md);
-* [{{ PG }}](../source/postgresql.md);
-* [{{ objstorage-full-name }}](../source/object-storage.md);
-* [Oracle](../source/oracle.md);
-* [{{ ydb-name }}](../source/ydb.md).
+* [{{ KF }}](../source/kafka.md) (трансфер возможен только в приемник вида `YTSaurus Dynamic`)
+* [{{ CH }}](../source/clickhouse.md)
+* [{{ GP }}](../source/greenplum.md)
+* [{{ MG }}](../source/mongodb.md)
+* [{{ MY }}](../source/mysql.md)
+* [{{ PG }}](../source/postgresql.md)
+* [{{ objstorage-full-name }}](../source/object-storage.md)
+* [Oracle](../source/oracle.md)
+* [{{ ydb-name }}](../source/ydb.md)
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

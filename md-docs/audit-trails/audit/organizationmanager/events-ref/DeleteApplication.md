@@ -168,7 +168,9 @@
           ]
         }
       ]
-    }
+    },
+    "description": "string",
+    "labels": "object"
   },
   "requestParameters": "object",
   "response": "object"
@@ -351,6 +353,8 @@ A list of messages that carry the error details. ||
 || securitySettings | **[SecuritySettingsDetails](#yandex.cloud.audit.organizationmanager.application.saml.SecuritySettingsDetails)** ||
 || groupClaimsSettings | **[GroupClaimsSettingsDetails](#yandex.cloud.audit.organizationmanager.application.saml.GroupClaimsSettingsDetails)** ||
 || attributeMapping | **[AttributeMappingDetails](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails)** ||
+|| description | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 |#
 
 ## ServiceProviderDetails {#yandex.cloud.audit.organizationmanager.application.saml.ServiceProviderDetails}

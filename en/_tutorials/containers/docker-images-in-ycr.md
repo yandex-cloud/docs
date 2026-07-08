@@ -46,9 +46,9 @@ By default, {{ GL }} {{ container-registry-name }} is disabled when creating an 
 Infrastructure support costs include fees for the following resources:
 
 * Disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Using a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Storing the Docker images you created and a vulnerability scanner, if [activated](#vulnerability-scanner) (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
-* Using a {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Storage of the Docker images you created and vulnerability scanner, if [enabled](#vulnerability-scanner) (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
+* {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 
 ### Set up your infrastructure {#deploy-infrastructure}
 
@@ -94,7 +94,7 @@ Infrastructure support costs include fees for the following resources:
       * [Folder ID](../../resource-manager/operations/folder/get-id.md).
       * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
 
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate

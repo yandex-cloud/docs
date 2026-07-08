@@ -46,7 +46,7 @@ You can add and remove cluster hosts, as well as manage their settings. To learn
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -95,6 +95,12 @@ You can add and remove cluster hosts, as well as manage their settings. To learn
 ## Creating a host {#add}
 
 The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and RAM quotas allocated to database clusters in your cloud. To review your resource usage, open the [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) page and find the **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}** section.
+
+{% note info %}
+
+With a {{ mdb-lb }} load balancer enabled in the cluster, a new host will be automatically added for load balancing.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -176,11 +182,11 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 - {{ TF }} {#tf}
 
   To create a host:
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-     For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
+     For the complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
   1. Add a `host` section to the {{ mpg-name }} cluster description:
 
      ```hcl
@@ -217,7 +223,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -263,9 +269,9 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
      * `replicationSource`: Host’s replication source for [manual replication stream management](../concepts/replication.md#replication-manual). Specify the [FQDN of the host](connect/fqdn.md#special-fqdns) that will be used as the replication source.
      * `priority`: Host priority relative to all other hosts.
-     * `configSpec.postgresqlConfig_<{{ PG }}_version>`: {{ PG }} settings. Specify each setting on a separate line, separated by commas.
+     * `configSpec.postgresqlConfig_<{{ PG }}_version>`: {{ PG }} settings. Enter each setting on a new line, separated by commas.
 
-       See the [method description](../api-ref/Cluster/addHosts.md#yandex.cloud.mdb.postgresql.v1.AddClusterHostsRequest) for the list of {{ PG }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for descriptions and possible values of the settings.
+       See the [method description](../api-ref/Cluster/addHosts.md#yandex.cloud.mdb.postgresql.v1.AddClusterHostsRequest) for the list of {{ PG }} versions supporting this option. See [{#T}](../concepts/settings-list.md) for descriptions and possible values of the settings.
 
      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -326,7 +332,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
      * `priority`: Host priority relative to all other hosts.
      * `config_spec.postgresql_config_<{{ PG }}_version>`: {{ PG }} settings. Enter each setting on a new line, separated by commas.
 
-       See the [method description](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec) for the list of {{ PG }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for a description and possible values for each setting.
+       See the [method description](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec) for the list of {{ PG }} versions supporting this option. See [{#T}](../concepts/settings-list.md) for descriptions and possible values of the settings.
 
      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -397,11 +403,11 @@ In a {{ mpg-short-name }} cluster, you can configure the [replication](../concep
 - {{ TF }} {#tf}
 
   To change the cluster host settings:
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-     For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
+     For the complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
   1. In the {{ mpg-name }} cluster description, change the attributes of the `host` section referring to the host you want to update.
 
      ```hcl
@@ -482,7 +488,7 @@ In a {{ mpg-short-name }} cluster, you can configure the [replication](../concep
      * `priority`: Host priority relative to all other hosts.
      * `configSpec.postgresqlConfig_<{{ PG }}_version>`: {{ PG }} settings. Enter each setting on a new line, separated by commas.
 
-       See the [method description](../api-ref/Cluster/updateHosts.md#yandex.cloud.mdb.postgresql.v1.UpdateClusterHostsRequest) for the list of {{ PG }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for a description and possible values for each setting.
+       See the [method description](../api-ref/Cluster/updateHosts.md#yandex.cloud.mdb.postgresql.v1.UpdateClusterHostsRequest) for the list of {{ PG }} versions supporting this option. See [{#T}](../concepts/settings-list.md) for descriptions and possible values of the settings.
 
      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -549,7 +555,7 @@ In a {{ mpg-short-name }} cluster, you can configure the [replication](../concep
      * `priority`: Host priority relative to all other hosts.
      * `config_spec.postgresql_config_<{{ PG }}_version>`: {{ PG }} settings. Enter each setting on a new line, separated by commas.
 
-       See the [method description](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec) for the list of {{ PG }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for a description and possible values for each setting.
+       See the [method description](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec) for the list of {{ PG }} versions supporting this option. See [{#T}](../concepts/settings-list.md) for descriptions and possible values of the settings.
 
      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -598,12 +604,12 @@ If you are deleting the master host, {{ mpg-short-name }} will automatically pro
 - {{ TF }} {#tf}
 
   To delete a host from a cluster:
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-     For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
-  1. Delete the `host` section referring to the host you want to delete from the {{ mpg-name }} cluster description.
+     For the complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
+  1. Delete the relevant `host` section from the {{ mpg-name }} cluster description.
   1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}

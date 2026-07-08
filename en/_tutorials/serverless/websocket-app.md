@@ -38,12 +38,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support cost for this tutorial includes:
 
 * Fee for data operations and the amount of stored data (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
-* Fee for using a data stream (see [{{ yds-full-name }} pricing](../../data-streams/pricing.md)).
-* Fee for secret storage (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
+* Fee data flow usage (see [{{ yds-full-name }} pricing](../../data-streams/pricing.md)).
+* Fee for storing a secret (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
 * Fee for data storage and data operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
-* Fee for requests to API gateways you create and outbound traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
-* Fee for queue requests and outbound traffic (see [{{ message-queue-full-name }} pricing](../../message-queue/pricing.md)).
-* Fee for function invocations and computing resources allocated to run the functions (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
+* Fee for requests to new API gateways and outgoing traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
+* Fee for queue requests and outgoing traffic (see [{{ message-queue-full-name }} pricing](../../message-queue/pricing.md)).
+* Fee for function invocations and computing resources allocated for the functions (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 
 ## Set up your environment {#prepare}
 
@@ -318,7 +318,7 @@ echo $YC_IAM_TOKEN
 
    Specify the following:
    
-   * `AWS Access Key ID`: Service account `key_id` you got earlier.
+   * `AWS Access Key ID`: Service account access key ID (`key_id`) you got earlier.
    * `AWS Secret Access Key`: Service account secret key (`secret`) you got earlier.
    * `Default region name`: Use the `{{ region-id }}` value.
    * `Default output format`: Leave empty.

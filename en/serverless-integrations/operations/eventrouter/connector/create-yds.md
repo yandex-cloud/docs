@@ -100,7 +100,7 @@ description: Follow this guide to create a connector for {{ yds-full-name }}.
 
   To create a [connector](../../../concepts/eventrouter/connector.md) for {{ yds-name }}:
 
-  1. In the configuration file, specify the properties of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_serverless_eventrouter_connector" "example_connector" {
@@ -140,7 +140,7 @@ description: Follow this guide to create a connector for {{ yds-full-name }}.
       * `consumer`: Name of the [dedicated data consumer](../../../../data-streams/concepts/glossary.md#consumers).
       * `service_account_id`: ID of the [service account](../../../../iam/concepts/users/service-accounts.md) that has read permissions for the data stream.
 
-      For more information about `yandex_serverless_eventrouter_connector` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
+      For more on the properties of the `yandex_serverless_eventrouter_connector` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
 
   1. Create the resources:
 

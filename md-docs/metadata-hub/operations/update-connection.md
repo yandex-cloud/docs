@@ -10,7 +10,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+  1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **Connection manager**.
   1. В списке подключений нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке подключения, которое вы хотите изменить.
   1. Выберите пункт **Редактировать**.

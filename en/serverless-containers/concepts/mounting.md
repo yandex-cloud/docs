@@ -43,7 +43,7 @@ When the container's lifecycle ends, the ephemeral disk is permanently deleted. 
 {% endnote %}
 
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Mounting buckets to a function](../../functions/operations/function/mount-bucket.md)
 * [Mounting an ephemeral disk to a function](../../functions/operations/function/mount-ephemeral-disk.md)

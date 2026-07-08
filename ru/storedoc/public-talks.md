@@ -8,6 +8,12 @@ description: Видеозаписи конференций и вебинаров
 ## Конференции и вебинары {#conf-and-webinars}
 
 
+### 2026: Статьи {#article-2026}
+
+* Когда документная база данных выгоднее реляционной: пять сценариев {{ mmg-full-name }}. 
+
+  * [Текст статьи](https://yandex.cloud/ru/blog/storedoc-cases).
+
 ### 2026: {{ yandex-cloud }} {#yc-2026}
 
 * Руководство по {{ mmg-short-name }}: {{ MG }}-совместимой базе данных в {{ yandex-cloud }}.

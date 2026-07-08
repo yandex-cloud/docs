@@ -56,7 +56,7 @@ description: Следуя данному руководству, вы начне
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите [подготовленный ранее](#before-you-begin) каталог ресурсов.
-  1. [Перейдите](../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. На панели слева выберите сервис ![image](../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.data-catalog.action_create-catalog }}**.
   1. Задайте **{{ ui-key.yacloud.common.name }}** каталога метаданных.

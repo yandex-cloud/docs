@@ -23,6 +23,7 @@ If a user is removed from the list of {{ yandex-cloud }} users for any reason, e
 
 ## Example of access control in {{ cloud-desktop-name }} {#example}
 
+
 1. The organization administrator (user with the `organization-manager.admin` [role](../../organization/security/index.md#organization-manager-admin) for the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud)) creates a {{ org-full-name }} [user group](../../organization/concepts/groups.md) for which a desktop group will be deployed.
 1. The {{ cloud-desktop-name }} administrator (user with the `vdi.admin` [role](../security/index.md#vdi-admin) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder)) [creates](../operations/desktop-groups/create.md) a desktop group and [grants](../operations/desktop-groups/update-acl.md) permissions for it to a user group.
 
@@ -32,7 +33,7 @@ If a user is removed from the list of {{ yandex-cloud }} users for any reason, e
 1. A user group member gets authenticated using [Yandex ID](https://yandex.ru/support/id/index.html) or [Single Sign-On (SSO)](../../organization/concepts/add-federation.md) on the [User desktop showcase](showcase.md) page. The showcase displays the desktops available to a given user.
 1. From the showcase, the user group member downloads the RDP file for the appropriate desktop and [connects](../operations/desktops/connect.md) to it.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Getting started with {{ cloud-desktop-name }}](../quickstart.md)
 * [Access management](../security/index.md)

@@ -146,7 +146,7 @@ Placement of platform service hosts in different availability zones is the key m
 ### High availability managed databases (MDB) {#mdb-ha}
 
 
-According to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/#klastera-servisa-upravlyaemogo-mysql-%5C/-yandex-managed-service-for-mysql,-popadayushie-pod-dejstvie-urovnya-obsluzhivaniya), a high availability configuration is one with a `DB cluster consisting of two or more DB hosts located in different availability zones`. It is optimal to put DB cluster nodes in three availability zones, because high availability is ensured by systems based on quorum algorithms. At the same time, different services may have specific high-availability requirements. Some MDB services are subject to special SLAs:
+According to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/#definition-of-service-unavailability), a high availability configuration is one with a `DB cluster consisting of two or more DB hosts located in different availability zones`. It is optimal to put DB cluster nodes in three availability zones, because high availability is ensured by systems based on quorum algorithms. At the same time, different services may have specific high-availability requirements. Some MDB services are subject to special SLAs:
 
 * [{{ mkf-name }}]({{ link-sla-kafka }}).
 * [{{ mgp-name }}]({{ link-sla-greenplum }}).

@@ -61,7 +61,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
       --batch-cutoff 1s \
       --resource-ids <resource_ID> \
       --resource-types <resource_type> \
-      --stream-names <logging_stream> \
+      --stream-names <log_stream> \
       --log-levels <logging_level> \
       --gateway-id <API_gateway_ID> \
       --gateway-websocket-broadcast-path <path> \
@@ -117,7 +117,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
 {% include [check-result](../../../_includes/api-gateway/check-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Trigger for {{ cloud-logging-name }} that invokes a {{ sf-name }} function](../../../functions/operations/trigger/cloud-logging-trigger-create.md)
 * [Trigger for {{ cloud-logging-name }} that invokes a {{ serverless-containers-name }} container](../../../serverless-containers/operations/cloud-logging-trigger-create.md)

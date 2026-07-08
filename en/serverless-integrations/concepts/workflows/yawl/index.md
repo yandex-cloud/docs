@@ -12,7 +12,7 @@ keywords:
 
 ## Workflow {#workflow}
 
-For the workflow JSON schema, visit our [GitHub repo](https://raw.githubusercontent.com/yandex-cloud/json-schema-store/refs/heads/master/serverless/workflows/yawl.json).
+For a JSON schema of a workflow, visit [this GitHub repository](https://raw.githubusercontent.com/yandex-cloud/json-schema-store/refs/heads/master/serverless/workflows/yawl.json).
 
 Field name | Type | Required | Description
 --- | --- | --- | ---
@@ -66,7 +66,7 @@ Field name | Type | Required | Default value | Description
 
 Field name | Type | Required | Default value | Threshold value | Description
 --- | --- | --- | --- | --- | ---
-`errorList` | `WorkflowError[]` | Yes | `[]` | — | List of errors for which the step will be retried. For more information, see [{#T}](../execution.md#errors).
+`errorList` | `WorkflowError[]` | Yes | `[]` | — | List of errors for which the step will be retried. Read more in [{#T}](../execution.md#errors).
 `errorListMode` | `INCLUDE/EXCLUDE` | No | `INCLUDE` | — | Error selection mode: `INCLUDE` to retry on errors listed in `error_list`; `EXCLUDE` to retry on any error other than those listed in `error_list`.
 `initialDelay` | `Duration` | No | `1s` | `1s` | Initial value for a delay between retries.
 `backoffRate` | `double` | No | `1.0` | `1.0` | Multiplier for time between each next retry.

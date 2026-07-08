@@ -25,7 +25,7 @@ The steps are described:
 In the workflow settings, you can:
 * Specify a user network to run the workflow in. The workflow will have access to resources in this network.
 * Specify a service account to use to access private resources, such as {{ yds-full-name }} data streams.
-* Enable **{{ ui-key.yacloud.serverless-workflows.label_public-access }}**. This will allow any user to run the workflow. For more information, see [{#T}](execution.md).
+* Enable **{{ ui-key.yacloud.serverless-workflows.label_public-access }}**. This will allow any user to run the workflow. See details [here](execution.md).
 
 ## Workflow state {#state}
 
@@ -73,6 +73,6 @@ After the input data is filtered, the [Foreach](yawl/management/foreach.md) step
 * [{#T}](../../tutorials/auto-upload.md)
 * [{#T}](../../tutorials/tracker-yandexgpt-postbox-integrations.md)
 
-## See also
+## Useful links {#see-also}
 
 * [YaWL specification example](yawl/index.md#spec-example)

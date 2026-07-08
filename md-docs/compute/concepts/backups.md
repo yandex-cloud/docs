@@ -26,13 +26,13 @@
 
 {% note info %}
 
-Если вы используете политику с [опцией](../../backup/concepts/policy.md#specification) быстрого резервного копирования `fastBackupEnabled`, и перед созданием [инкрементальной копии](../../backup/concepts/backup.md#types) выполнялась антивирусная проверка, время резервного копирования может значительно увеличиться. Подробнее в [Взаимодействие с антивирусом](../../backup/concepts/av-interaction.md).
+Если вы используете [политику](../../backup/concepts/policy.md) с [опцией](../../backup/concepts/policy.md#specification) быстрого резервного копирования `fastBackupEnabled` и перед созданием [инкрементальной копии](../../backup/concepts/backup.md#types) выполнялась антивирусная проверка, время резервного копирования может значительно увеличиться. Подробнее в разделе [Взаимодействие с антивирусом](../../backup/concepts/av-interaction.md).
 
 {% endnote %}
 
 С помощью Cloud Backup из резервной копии можно [восстановить](../../backup/operations/backup-vm/recover-file-by-file.md) отдельные файлы и директории.
 
-Чтобы включить на ВМ резервное копирование, [подключите](../../backup/concepts/vm-connection.md) эту ВМ к сервису Cloud Backup и [привяжите](../../backup/operations/policy-vm/update.md#update-vm-list) ее к [политике](../../backup/concepts/policy.md) резервного копирования. Операционная система ВМ должна [поддерживаться](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html) провайдером.
+Чтобы включить на ВМ резервное копирование, [подключите](../../backup/concepts/vm-connection/compute.md) эту ВМ к сервису Cloud Backup и [привяжите](../../backup/operations/policy-vm/update.md#update-vm-list) ее к [политике](../../backup/concepts/policy.md) резервного копирования. Операционная система ВМ должна [поддерживаться](https://docs.cyberprotect.ru/ru-RU/CyberBackupCloud/21.06/user/#supported-operating-systems-and-environments.html) провайдером.
 
 | | Снимки дисков в Compute Cloud | Cloud Backup |
 | --- | --- | --- |

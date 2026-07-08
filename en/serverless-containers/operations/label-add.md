@@ -58,7 +58,7 @@ description: Follow this guide to add a container label.
      ...
      ```
 
-	 For more information about the `yandex_serverless_container` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
+	 For more on the properties of the `yandex_serverless_container` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Validate your configuration using this command:
      ```

@@ -9,6 +9,6 @@ _[NuGet](https://en.wikipedia.org/wiki/NuGet) artifact_ is a `*.nupkg` package f
 
 NuGet artifacts are used to distribute libraries, tools, and components you can integrate to projects written in C#, C++, and other .NET languages.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [Supported artifact types](./index.md#artifacts)

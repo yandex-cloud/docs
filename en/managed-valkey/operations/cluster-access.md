@@ -3,7 +3,7 @@ title: Managing access to a {{ mrd-full-name }} cluster
 description: Follow this guide to configure {{ mrd-name }} cluster access permissions.
 ---
 
-# Managing {{ mrd-name }} cluster access
+# Managing access to a {{ mrd-name }} cluster
 
 You can grant a [role](../security/index.md) for access to a specific [cluster](../concepts/index.md) to a user or service account.
 
@@ -104,7 +104,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       Where:
 
-      * `--role`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-redis.editor`.
+      * `--role`: [Role](../security/index.md#roles-list), e.g., `managed-redis.editor`.
       * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
 
           Here is an example:
@@ -125,7 +125,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
   1. Open the current configuration file with the {{ mrd-name }} cluster description.
   
-      For more on how to create this file, see [{#T}](cluster-create.md).
+      For information on how to create this file, see [{#T}](cluster-create.md).
   
   1. Add a resource description:
     
@@ -140,7 +140,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `cluster_id`: Cluster ID.
-      * `role`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-redis.editor`.
+      * `role`: [Role](../security/index.md#roles-list), e.g., `managed-redis.editor`.
       * `members`: Array of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to in `<subject_type>:<subject_ID>` format.
 
         Here is an example:
@@ -199,7 +199,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       Where:
 
-      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-redis.editor`.
+      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list), e.g., `managed-redis.editor`.
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
@@ -245,7 +245,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `resource_id`: Cluster ID.
-      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-redis.editor`.
+      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list), e.g., `managed-redis.editor`.
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
@@ -293,7 +293,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       Where `--access-binding` assigns a role to a subject. You can assign multiple roles at once by describing each of them in a separate `--access-binding` parameter.
 
-      * `role`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-redis.editor`.
+      * `role`: [Role](../security/index.md#roles-list), e.g., `managed-redis.editor`.
       * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
 
           Here is an example:
@@ -306,12 +306,12 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
-
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+  
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Add resource descriptions:
-
+    
       ```hcl
       resource "yandex_mdb_redis_cluster_iam_binding" "<resource_1_local_name>" {
         cluster_id = "<cluster_ID>"
@@ -329,7 +329,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `cluster_id`: Cluster ID.
-      * `role`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-redis.editor`.
+      * `role`: [Role](../security/index.md#roles-list), e.g., `managed-redis.editor`.
       * `members`: Array of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to in `<subject_type>:<subject_ID>` format.
 
         Here is an example:
@@ -351,7 +351,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_redis_cluster_iam_binding).
 
   1. To view a list of roles assigned for the cluster, run this [CLI](../../cli/) command:
-
+    
       ```bash
       {{ yc-mdb-rd }} cluster list-access-bindings <cluster_name_or_ID>
       ```
@@ -406,7 +406,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       Where:
 
-      * `accessBindings.roleId`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-redis.editor`.
+      * `accessBindings.roleId`: [Role](../security/index.md#roles-list), e.g., `managed-redis.editor`.
       * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
@@ -470,7 +470,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `resource_id`: Cluster ID.
-      * `accessBindings.roleId`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-redis.editor`.
+      * `accessBindings.roleId`: [Role](../security/index.md#roles-list), e.g., `managed-redis.editor`.
       * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
@@ -524,12 +524,12 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
-
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
+  
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Find the description of the resource with the role you want to revoke and delete this description:
-
+    
       ```hcl
       resource "yandex_mdb_redis_cluster_iam_binding" "<local_resource_name>" {
         cluster_id = "<cluster_ID>"
@@ -586,7 +586,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       Where:
 
-      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-redis.editor`.
+      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list), e.g., `managed-redis.editor`.
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
@@ -632,7 +632,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `resource_id`: Cluster ID.
-      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list) being assigned, e.g., `managed-redis.editor`.
+      * `access_binding_deltas.roleId`: [Role](../security/index.md#roles-list), e.g., `managed-redis.editor`.
       * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
@@ -675,9 +675,9 @@ For a service account to be able to view the info of all {{ mrd-name }} clusters
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Add resource descriptions:
 

@@ -30,7 +30,7 @@ description: Follow this guide to add a gRPC call of a given endpoint to a {{ sw
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/integration/grpccall.md)
 * [{#T}](../workflow/create-constructor.md)

@@ -41,6 +41,6 @@ In {{ cloud-apps-name }}, you can manage access using both service and primitive
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 [Hierarchy of {{ yandex-cloud }} resources](../../resource-manager/concepts/resources-hierarchy.md)

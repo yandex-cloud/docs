@@ -28,7 +28,7 @@ After the trigger fires, it will send a message with the `messages` array to Web
 
 {% include [yds-format](../../../_includes/functions/yds-format.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Trigger for {{ yds-name }} that runs a {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/data-streams-trigger.md)
 * [Trigger for {{ yds-name }} that runs a {{ sf-name }} function](../../../functions/concepts/trigger/data-streams-trigger.md)

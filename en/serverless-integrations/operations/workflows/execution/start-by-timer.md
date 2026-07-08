@@ -124,7 +124,7 @@ You can add a schedule when [creating](../workflow/create-yawl.md) or [updating]
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../../concepts/workflows/execution.md)
 * [{#T}](get-list.md)

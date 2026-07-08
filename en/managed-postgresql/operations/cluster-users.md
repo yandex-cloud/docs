@@ -53,7 +53,7 @@ While you can use SQL commands to assign user privileges, you cannot use them to
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/users'
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/User/list.md#yandex.cloud.mdb.postgresql.v1.ListUsersResponse) to make sure your request was successful.
 
@@ -185,9 +185,9 @@ While you can use SQL commands to assign user privileges, you cannot use them to
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-     For a complete list of {{ mpg-name }} cluster user configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_user).
+     For the complete list of adjustable configuration fields for {{ mpg-name }} cluster users, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
   1. Add the `yandex_mdb_postgresql_user` resource:
 
@@ -423,7 +423,7 @@ Newly created users only get the `CONNECT` privilege for selected databases and 
 
       To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-      For a complete list of configurable fields of {{ mpg-name }} cluster user accounts, refer to the [{{ TF }} provider guides]({{ tf-provider-resources-link }}/mdb_postgresql_user).
+      For the complete list of adjustable configuration fields for {{ mpg-name }} cluster users, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
   1. Locate the `yandex_mdb_postgresql_user` resource for the user in question.
   1. Edit the `password` field value:
@@ -663,7 +663,7 @@ To learn how to assign privileges and roles to a user, see [this article](grant.
 
         To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of {{ mpg-name }} cluster user configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_user).
+        For the complete list of adjustable configuration fields for {{ mpg-name }} cluster users, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
     1. To configure user permissions for access to specific databases:
         1. Locate the `yandex_mdb_postgresql_user` resource for the user in question.
@@ -949,11 +949,11 @@ A user account can have deletion protection enabled. To delete such a user, [dis
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-     For more on how to create this file, see [Creating a cluster](cluster-create.md).
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-     For a complete list of {{ mpg-name }} cluster configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
+     For the complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
-  1. Delete the `yandex_mdb_postgresql_user` resource with the user description.
+  1. Delete the `yandex_mdb_postgresql_user` resource with the target user’s description.
 
   1. Make sure the settings are correct.
 

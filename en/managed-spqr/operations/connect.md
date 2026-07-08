@@ -15,7 +15,7 @@ You can connect to {{ mspqr-name }} cluster hosts:
 
 * From {{ yandex-cloud }} VMs located in the same [cloud network](../../vpc/concepts/network.md) For hosts without public access, SSL is not required to connect to them from these virtual machines.
 
-You can connect to all [host types](../concepts/index.md): `INFRA`, `ROUTER`, `COORDINATOR`, {{ PG }} cluster hosts. The connection is established through port `{{ port-mpg }}`. In the case of `COORDINATOR` hosts and the {{ SPQR }} admin console, you must connect as the `spqr-console` user to the `spqr-console` database. You can use the admin console to configure sharding rules. For more information, see the [SPQR documentation](https://pg-sharding.tech/welcome/get_started).
+You can connect to all [host types](../concepts/index.md): `INFRA`, `ROUTER`, `COORDINATOR`, {{ PG }} cluster hosts. The connection is established through port `{{ port-mpg }}`. In the case of `COORDINATOR` hosts and the {{ SPQR }} admin console, you must connect as the `spqr-console` user to the `spqr-console` database. You can use the admin console to configure sharding rules. For more information, see [this SPQR guide](https://pg-sharding.tech/welcome/get_started).
 
 
 ## Configuring security groups {#configuring-security-groups}
@@ -116,7 +116,7 @@ sudo apt update && sudo apt install --yes postgresql-client
               target_session_attrs=read-write"
         ```
 
-        Where `target_session_attrs` defines the type of request to the host. For example, `read-write` enables both reading and writing. For more information, see the [SPQR documentation](https://docs.pg-sharding.tech/routing/hints#__spqr__target_session_attrs).
+        Where `target_session_attrs` defines the type of request to the host. For example, `read-write` enables both reading and writing. For more information, see [this SPQR guide](https://docs.pg-sharding.tech/routing/hints#__spqr__target_session_attrs).
 
         After runing this command, enter the user password to complete your connection.
 
@@ -139,7 +139,7 @@ sudo apt update && sudo apt install --yes postgresql-client
               target_session_attrs=read-write"
         ```
 
-        Where `target_session_attrs` defines the type of request to the host. For example, `read-write` enables both reading and writing. For more information, see the [SPQR documentation](https://pg-sharding.tech/routing/hints#spqr-target-session-attrs).
+        Where `target_session_attrs` defines the type of request to the host. For example, `read-write` enables both reading and writing. For more information, see [this SPQR guide](https://pg-sharding.tech/routing/hints#spqr-target-session-attrs).
 
         After runing this command, enter the user password to complete your connection.
 

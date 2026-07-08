@@ -1,1 +1,1 @@
-Роль `cspm.auditor` позволяет просматривать информацию о заданиях проверок инфраструктуры на соответствие [стандартам безопасности](../../security-deck/concepts/cspm.md#standards), заданным в настройках [модуля {{ cspm-name }}](../../security-deck/concepts/cspm.md).
+Роль `cspm.auditor` позволяет просматривать информацию о проверках инфраструктуры на соответствие [стандартам безопасности](../../security-deck/concepts/cspm.md#standards), а также о заданиях таких проверок, указанных в настройках [модуля {{ cspm-name }}](../../security-deck/concepts/cspm.md).

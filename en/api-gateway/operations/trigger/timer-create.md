@@ -91,7 +91,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger to send messa
 
 {% include [check-result](../../../_includes/api-gateway/check-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Timer that invokes a {{ sf-name }} function](../../../functions/operations/trigger/timer-create.md)
 * [Timer that invokes a {{ serverless-containers-name }} container](../../../serverless-containers/operations/timer-create.md)

@@ -5,7 +5,7 @@ description: Follow this guide to set up a canary release for an API gateway.
 
 # Setting up a canary release
 
-You can only set up a canary release for [OpenAPI specifications](https://en.wikipedia.org/wiki/OpenAPI_Specification) with variables (see [Specification parameterization](../concepts/extensions/parametrization.md)).
+You can set up a canary release only for [OpenAPI specifications](https://en.wikipedia.org/wiki/OpenAPI_Specification) with variables (for more, see [Specification parameterization](../concepts/extensions/parametrization.md)).
 
 {% list tabs group=instructions %}
 
@@ -70,8 +70,8 @@ You can only set up a canary release for [OpenAPI specifications](https://en.wik
      * `weight`: Percentage of requests for the canary release to process.
      * `variables`: Variables for the canary release, listed as `key=value`.
 
-     For more information about `yandex_api_gateway` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
-  1. Check the configuration using this command:
+     For more on the properties of the `yandex_api_gateway` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
+  1. Validate your configuration using this command:
 
      ```bash
      terraform validate
@@ -110,7 +110,7 @@ You can only set up a canary release for [OpenAPI specifications](https://en.wik
 
 {% endlist %}
 
-## See also
+## Useful links
 
 * [What is a canary release?](../concepts/extensions/canary.md)
 * [Canary release of a function in {{ sf-name }}](../tutorials/canary-release.md)

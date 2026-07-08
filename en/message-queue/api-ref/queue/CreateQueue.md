@@ -34,7 +34,7 @@ Parameter | Type | Required parameter | Description
 
 #### Attributes {#attributes}
 
-Queue attributes. Attributes are sent as a list. For more information about passing list parameters, see [Using the API](../index.md#array-parameters).
+Queue attributes. Attributes are sent as a list. For the rules of providing listed attributes, see [Using the API](../index.md#array-parameters).
 
 ```
 Attribute.N.Name (attribute)
@@ -45,10 +45,10 @@ Attribute | Type | Description
 ----- | ----- | -----
 `DelaySeconds` | **integer** | Time in seconds the messages will remain [hidden after they are sent](../../concepts/delay-queues.md#delay-queues). Valid values: from 0 to 900 seconds (15 minutes). The default value is 0.
 `MaximumMessageSize` | **integer** | Maximum message size in bytes. Valid values: from 1024 bytes (1 KB) to 262144 bytes (256 KB). The default value is 262144 (256 KB).
-`MessageRetentionPeriod` | **integer** | Message retention period, seconds. Valid values: from 60 seconds (1 minute) to 1209600 seconds (14 days). Default: 345600 (4 days).
-`ReceiveMessageWaitTimeSeconds` | **integer** | Wait time for the [ReceiveMessage](../message/ReceiveMessage) method, seconds. The valid values are from 0 to 20 seconds. Default: 0.
+`MessageRetentionPeriod` | **integer** | Message retention period, seconds. Valid values: from 60 seconds (1 minute) to 1209600 seconds (14 days). The default value is 345600 (4 days).
+`ReceiveMessageWaitTimeSeconds` | **integer** | Wait time for the [ReceiveMessage](../message/ReceiveMessage) method, seconds. The valid values are from 0 to 20 seconds. The default value is 0.
 `RedrivePolicy` | **string** | Redirect policy for moving messages to a [dead-letter queue](../../concepts/dlq.md). The source queue and DLQ must be the same type: for FIFO queues, the DLQ must also be a FIFO queue. It includes two parameters: <ul><li>`deadLetterTargetArn`: ARN of the DLQ the messages will be moved to. You can get the queue's ARN by calling the [GetQueueAttributes](GetQueueAttributes.md) method.</li><li>`maxReceiveCount`: Maximum number of attempts to read a message from a queue before redirecting it to the DLQ. When `ReceiveCount` exceeds `maxReceiveCount` for a given message, the message is moved to the DLQ.</li></ul>
-`VisibilityTimeout` | **integer** | [Visibility timeout](../../concepts/visibility-timeout.md) for the queue, seconds. Valid values: from 0 to 43000 seconds. Default: 30.
+`VisibilityTimeout` | **integer** | [Visibility timeout](../../concepts/visibility-timeout.md) for the queue, seconds. Valid values: from 0 to 43000 seconds. The default value is 30.
 
 #### FIFO queue attributes {#fifo-path-parameters}
 
@@ -97,7 +97,7 @@ Action=CreateQueue
 &Tag.1.Value=production
 ```
 
-For more information about forming requests, see [General API request format](../index.md#api-request).
+For more on request formatting, see [General API request format](../index.md#api-request).
 
 ## Response example {#response-example}
 

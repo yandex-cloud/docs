@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+  1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **Metastore-сервер**.
 
 
@@ -103,7 +103,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, где находится нужный кластер.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+  1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **Metastore-сервер**.
   1. Нажмите на имя нужного кластера.
 
@@ -191,7 +191,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, где находится нужный кластер.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+  1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **Metastore-сервер**.
   1. Нажмите на имя нужного кластера.
   1. На панели слева выберите ![image](../../../_assets/console-icons/list-check.svg) **Операции**.

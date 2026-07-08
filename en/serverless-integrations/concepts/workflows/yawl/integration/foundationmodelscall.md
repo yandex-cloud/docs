@@ -26,7 +26,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 --- | --- | --- | --- | --- | ---
 `temperature` | `number` | Yes | `0.3` | None | With a higher temperature, you get a more creative and randomized response from the model. This parameter accepts values between 0 and 1, inclusive. 
 `maxTokens` | `integer` | Yes | `5.0` | None | Maximum number of tokens to generate. Allows limiting the model's response if needed.
-`json` | `string` | None | `""` | Yes | Context for the model, as a JSON string. For more information, see the `messages` field description in the [{{ foundation-models-name }}]({{ link-docs-ai }}ai-studio/operations/generation/create-prompt#request) documentation.
+`json` | `string` | None | `""` | Yes | Context for the model, as a JSON string. For more information about the `messages` field, see [this {{ foundation-models-name }} guide]({{ link-docs-ai }}ai-studio/operations/generation/create-prompt#request).
 `messages` | [FoundationModelsGenerate.Messages[]](#FoundationModelsGenerateMessages) | None | `[]` | None | Context for the model, as a list of input messages.
 `reasoningOptions` | [FoundationModelsGenerate.ReasoningOptions](#FoundationModelsGenerateReasoningOptions) | None | None  | None | Reasoning mode. For more information, see [this {{ foundation-models-name }} guide]({{ link-docs-ai }}ai-studio/concepts/generation/chain-of-thought).
 `jsonSchema` | `string` | None | None | Yes | Model's JSON-formatted response
@@ -42,8 +42,8 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
-`role` | `string` | Yes | None | None | Message sender ID. The available values are `system`, `assistant`, and `user`. For more information, see [TextGeneration.completion]({{ link-docs-ai }}ai-studio/text-generation/api-ref/TextGeneration/completion).
-`text` | `string` | Yes | None | Yes | Message text. For more information, see [TextGeneration.completion]({{ link-docs-ai }}ai-studio/text-generation/api-ref/TextGeneration/completion).
+`role` | `string` | Yes | None | None | Message sender ID. The available values are `system`, `assistant`, and `user`. Read more in [TextGeneration.completion]({{ link-docs-ai }}ai-studio/text-generation/api-ref/TextGeneration/completion).
+`text` | `string` | Yes | None | Yes | Message text. Read more in [TextGeneration.completion]({{ link-docs-ai }}ai-studio/text-generation/api-ref/TextGeneration/completion).
 
 ## FoundationModelsGenerate.ReasoningOptions object {#FoundationModelsGenerateReasoningOptions}
 
@@ -101,7 +101,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 --- | --- | --- | --- | --- | ---
 `temperature` | `number` | Yes | `0.3` | None | With a higher temperature, you get a more creative and randomized response from the model. This parameter accepts values between 0 and 1, inclusive. 
 `maxTokens` | `integer` | Yes | `5.0` | None | Maximum number of tokens to generate. Allows limiting the model's response if needed.
-`json` | `string` | None | `""` | Yes | Context for the model, as a JSON string. For more information, see the `messages` field description in the [{{ foundation-models-name }} documentation]({{ link-docs-ai }}ai-studio/operations/generation/create-prompt#request).
+`json` | `string` | None | `""` | Yes | Context for the model, as a JSON string. For more information about the `messages` field, see [this {{ foundation-models-name }} guide]({{ link-docs-ai }}ai-studio/operations/generation/create-prompt#request).
 `messages` | [FoundationModelsVision.Messages[]](#FoundationModelsVisionMessages) | None | `[]` | None | Context for the model, as a list of input messages.
 
 ## FoundationModelsVision.Messages object {#FoundationModelsVisionMessages}
@@ -114,8 +114,8 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
-`role` | `string` | Yes | None | None | Message sender ID. The available values are `system`, `assistant`, and `user`. For more information, see [TextGeneration.completion]({{ link-docs-ai }}ai-studio/text-generation/api-ref/TextGeneration/completion). If the `images` field is not empty, specify `role: user`.
-`text` | `string` | Yes | None | Yes | Message text. For more information, see [TextGeneration.completion]({{ link-docs-ai }}ai-studio/text-generation/api-ref/TextGeneration/completion).
+`role` | `string` | Yes | None | None | Message sender ID. The available values are `system`, `assistant`, and `user`. Read more in [TextGeneration.completion]({{ link-docs-ai }}ai-studio/text-generation/api-ref/TextGeneration/completion). If the `images` field is not empty, specify `role: user`.
+`text` | `string` | Yes | None | Yes | Message text. Read more in [TextGeneration.completion]({{ link-docs-ai }}ai-studio/text-generation/api-ref/TextGeneration/completion).
 `images` | [FoundationModelsVision.Image](#FoundationModelsVisionImage) | None | None | None | Images to add to the message.
 
 ## FoundationModelsVision.Image {#FoundationModelsVisionImage}

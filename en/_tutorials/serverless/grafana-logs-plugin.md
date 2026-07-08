@@ -153,7 +153,7 @@ The cost of resources includes a fee for logging operations and log storage in a
      * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional setting. It defaults to the value specified in the provider settings.
      * `role`: Role to assign.
 
-     For more information about `yandex_iam_service_account` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account).
+     For more on the properties of the `yandex_iam_service_account` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account).
 
   1. Make sure the configuration files are correct.
 
@@ -382,7 +382,7 @@ The cost of resources includes a fee for logging operations and log storage in a
      * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
      * `retention_period`: Retention period for log group entries.
 
-     For more information about `yandex_logging_group` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/logging_group).
+     For more on the properties of the `yandex_logging_group` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/logging_group).
 
   1. Make sure the configuration files are correct.
 

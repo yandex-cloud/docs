@@ -1,4 +1,4 @@
-# Using the YcFunction interface for a handler in Java
+# Using the YcFunction interface for a Java handler
 
 To create a [handler](../handler.md) in Java, you can implement the [YcFunction](https://github.com/yandex-cloud/java-sdk/blob/master/java-sdk-functions/src/main/java/yandex/cloud/sdk/functions/YcFunction.java) interface. To do this, add the [SDK](../sdk.md) to the [dependencies](../dependencies.md).
 
@@ -27,8 +27,8 @@ Examples of invalid handlers:
 ```java
 import yandex.cloud.sdk.functions.YcFunction;
 import yandex.cloud.sdk.functions.Context;
-// YcFunction has only one parameter type specified.
-// Handler should not have any parameter types (see handler requirements).
+// YcFunction has only one parameter type specified
+// Handler should not have any parameter types (for details, see handler requirements)
 public class Handler<T> implements YcFunction<T, Integer> {
   @Override
   public Integer handle(T i, Context c) {

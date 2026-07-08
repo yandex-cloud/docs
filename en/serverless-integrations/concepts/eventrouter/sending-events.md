@@ -24,7 +24,7 @@ Sending through a [connector](../../concepts/eventrouter/connector.md) with a `T
 Sending through a connector with a `{{ yds-full-name }}` source | Events come from a [data stream](../../../data-streams/concepts/glossary.md#stream-concepts) | No
 Sending through a connector with a `{{ message-queue-full-name }}` source | Events come from a [message queue](../../../message-queue/concepts/queue.md) | Yes
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../operations/eventrouter/bus/data-put.md)
 * [{#T}](../../operations/eventrouter/bus/data-send.md)

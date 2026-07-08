@@ -26,8 +26,8 @@ description: Follow this guide to add interaction with document tables in {{ ydb
           * `Update` to update data in the table. Configure the update options:
 
               1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_action_properties_update_properties_key_view_spec_layout_title }}** field, specify the primary key value of the database element you want to update.
-              1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_action_properties_update_properties_expression_view_spec_layout_title }}** field, specify an expression describing the updates of the element's attributes in the database. For details, refer to the `UpdateExpression` parameter information in the relevant [{{ ydb-full-name }} documentation](../../../../ydb/docapi/api-ref/actions/updateItem.md#parametry).
-              1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_action_properties_update_properties_expression_attribute_values_view_spec_layout_title }}** field, specify the attribute values used in the expression above. For details, refer to the `ExpressionAttributeValues` parameter information in the relevant [{{ ydb-full-name }} documentation](../../../../ydb/docapi/api-ref/actions/updateItem.md#parametry).
+              1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_action_properties_update_properties_expression_view_spec_layout_title }}** field, specify an expression describing the update of the element's attributes in the database. Learn more about the `UpdateExpression` parameter in [this {{ ydb-full-name }} guide](../../../../ydb/docapi/api-ref/actions/updateItem.md#parametry).
+              1. In the **{{ ui-key.yc-serverless-workflows.dynamic-forms.ydb_document_properties_action_properties_update_properties_expression_attribute_values_view_spec_layout_title }}** field, specify the attribute values used in the expression above. Learn more about the `ExpressionAttributeValues` parameter in [this {{ ydb-full-name }} guide](../../../../ydb/docapi/api-ref/actions/updateItem.md#parametry).
 
           * `Scan` to search the database. Configure the search parameters:
 
@@ -42,7 +42,7 @@ description: Follow this guide to add interaction with document tables in {{ ydb
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/integration/ydbdocument.md)
 * [{#T}](../workflow/create-constructor.md)

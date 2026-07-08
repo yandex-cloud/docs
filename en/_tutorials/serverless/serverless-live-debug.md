@@ -19,9 +19,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support costs include:
+The infrastructure support cost includes:
 
-* Fee for function invocations and computing resources allocated to run the functions (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
+* Fee for function invocations and computing resources allocated for the functions (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 * Fee for the number of requests to the API gateway (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
 * Fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
 * Fee for logging operations and log storage (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
@@ -106,7 +106,7 @@ The infrastructure support costs include:
           * `description`: Service account description. This is an optional setting.
           * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional setting. It defaults to the value specified in the provider settings.
 
-          For more information about `yandex_iam_service_account` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iam_service_account).
+          For more on the properties of the `yandex_iam_service_account` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account).
     
       1. Make sure the configuration files are correct.
 
@@ -179,7 +179,7 @@ The infrastructure support costs include:
           * `role`: Role being assigned. This is a required setting.
           * `member`: User or service account getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
 
-          For more information about `yandex_resourcemanager_folder_iam_member` properties, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
+          For more on the properties of the `yandex_resourcemanager_folder_iam_member` resource, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
 
       1. Make sure the configuration files are correct.
 

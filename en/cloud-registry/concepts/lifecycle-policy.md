@@ -138,7 +138,7 @@ Field | Type | Description
 --- | --- | ---
 `version_type` | `string` | Filter Java artifacts by version type:<ul><li>`VERSION_TYPE_ANY`: Any type</li><li>`RELEASE`: Only release versions</li><li>`SNAPSHOT`: Only snapshots</li></ul>
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/lifecycle-policy/create.md)
 * [{#T}](../tutorials/lifecycle-policy-examples.md)

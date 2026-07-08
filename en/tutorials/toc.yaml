@@ -866,9 +866,15 @@ items:
       - name: Alice
         items:
           - name: Creating a skill for Alice
-            href: serverless/alice-skill.md
+            items:
+              - name: Overview
+                href: applied/alice-skill/index.md
+              - name: Management console, CLI, and API
+                href: applied/alice-skill/console.md
+              - name: '{{ TF }}'
+                href: applied/alice-skill/terraform.md
           - name: Building a skill for Alice and a website with authorization
-            href: serverless/alice-shareable-todolist.md
+            href: applied/alice-shareable-todolist.md
       - name: Other
         items:
           - name: Publishing game updates using {{ cdn-name }}
@@ -1112,7 +1118,7 @@ items:
         href: dataplatform/storedoc-versions.md
       - name: Sharding {{ SD }} collections
         href: dataplatform/storedoc-sharding.md
-      - name: '{{ SD }} performance analysis and tuning'
+      - name: '{{ SD }} performance analysis and optimization'
         href: dataplatform/storedoc-profiling.md
       - name: >-
           Migrating a database from a third-party {{ MY }} cluster to a {{
@@ -1124,7 +1130,7 @@ items:
             href: dataplatform/mysql-data-migration/data-transfer.md
           - name: Migrating data using a logical dump
             href: dataplatform/mysql-data-migration/logical-dump-migration.md
-      - name: '{{ mmy-name }} performance analysis and tuning'
+      - name: '{{ mmy-name }} performance analysis and optimization'
         href: dataplatform/profiling-mmy.md
       - name: >-
           Syncing data from a third-party {{ MY }} cluster to {{ mmy-name }}
@@ -1205,9 +1211,9 @@ items:
         href: dataplatform/mos-mcp.md
       - name: Creating a {{ PG }} cluster for 1C:Enterprise
         href: dataplatform/1c-postgresql.md
-      - name: Searching for the {{ mpg-name }} cluster performance issues
+      - name: Troubleshooting {{ mpg-name }} cluster performance
         href: dataplatform/mpg-performance-problems.md
-      - name: '{{ mpg-name }} performance analysis and tuning'
+      - name: '{{ mpg-name }} performance analysis and optimization'
         href: dataplatform/mpg-profiling.md
       - name: Logical replication in {{ PG }}
         href: dataplatform/mpg-replication-overview.md
@@ -1323,7 +1329,7 @@ items:
         href: dataplatform/debezium-yq.md
       - name: Analyzing data with {{ jlab }}
         href: dataplatform/jupyter-yq.md
-      - name: Processing files with usage details in {{ billing-name }}
+      - name: Processing usage detail files in {{ billing-name }}
         href: dataplatform/billing-detail-files-processing.md
       - name: Ingesting data into storage systems
         href: dataplatform/data-ingestion.md
@@ -1571,7 +1577,7 @@ items:
                 href: datalens/data-from-monitoring-visualization.md
               - name: Visualizing {{ ytsaurus-name }} CHYT data
                 href: datalens/data-from-ch-over-yt.md
-          - name: Functional
+          - name: Tutorials for features
             items:
               - name: Using parameters in calculated fields
                 href: datalens/data-from-ch-with-parameters.md
@@ -1640,8 +1646,8 @@ items:
           - name: Interactive debugging of functions in {{ sf-name }}
             href: serverless/serverless-live-debug.md
           - name: >-
-              Creating a {{ postbox-full-name }} address and a domain ownership
-              check with {{ TF }}
+              Creating a {{ postbox-full-name }} address and verifying domain
+              ownership with {{ TF }}
             href: serverless/domain-identity-creating.md
           - name: Configuring Postfix to send emails via {{ postbox-full-name }}
             href: serverless/postfix-integration.md
@@ -1683,8 +1689,8 @@ items:
           - name: '{{ tracker-name }}: Data export and visualization'
             href: serverless/data-from-tracker.md
           - name: >-
-              Delivering {{ forms-full-name }} data to {{ datalens-full-name }}
-              using {{ sf-full-name }} and {{ yq-full-name }}
+              Transferring {{ forms-full-name }} data to {{ datalens-full-name
+              }} via {{ sf-full-name }} and {{ yq-full-name }}
             items:
               - name: Overview
                 href: serverless/forms-and-datalens-integration/index.md
@@ -1783,7 +1789,13 @@ items:
           - name: '{{ api-gw-name }} protection with {{ sws-name }}'
             href: serverless/api-gw-sws-integration.md
           - name: Creating a skill for Alice
-            href: serverless/alice-skill.md
+            items:
+              - name: Overview
+                href: serverless/alice-skill/index.md
+              - name: Management console, CLI, and API
+                href: serverless/alice-skill/console.md
+              - name: '{{ TF }}'
+                href: serverless/alice-skill/terraform.md
           - name: Building a skill for Alice and a website with authorization
             href: serverless/alice-shareable-todolist.md
           - name: >-
@@ -1858,7 +1870,7 @@ items:
             href: ml-ai/yq-clickhouse.md
           - name: Working with data in {{ mpg-name }}
             href: ml-ai/yq-postgre.md
-          - name: Federated data queries
+          - name: Federated queries
             href: ml-ai/yq-federative-queries.md
           - name: Using the service {{ msp-name }}
             href: dataplatform/spark-and-datasphere.md

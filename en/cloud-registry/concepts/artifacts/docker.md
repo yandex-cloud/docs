@@ -31,6 +31,6 @@ You can access a specific Docker image version in one of the following ways:
 
 The Docker image and all its versions are stored in a registry.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [Supported artifact types](./index.md#artifacts)

@@ -58,7 +58,7 @@ description: This section contains the {{ sf-name }} release notes.
 
 ### Updates {#updates}
 
-* Added support for Node.js 22 and Go 1.23.
+* Added support for Node.js 22 and Go 1.23.
 
 ## February 2025 {#february-2025}
 

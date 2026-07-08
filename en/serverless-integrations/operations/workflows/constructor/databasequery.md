@@ -77,7 +77,7 @@ description: Follow this guide to add execution of SQL queries against databases
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/integration/databasequery.md)
 * [{#T}](../workflow/create-constructor.md)

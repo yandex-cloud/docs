@@ -95,7 +95,7 @@ To create your infrastructure via {{ TF }}:
         * `postbox-email-identity.tf`: New infrastructure configuration.
         * `postbox-email-identity.auto.tfvars`: User data file.
 
-   For more information on the properties of {{ TF }} resources, see these provider guides:
+   For more on the properties of resources used in {{ TF }}, see these provider guides:
    * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
    * [Assigning access permissions](../../iam/concepts/access-control/roles.md): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
    * [Static access key](../../iam/concepts/authorization/access-key.md): [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).

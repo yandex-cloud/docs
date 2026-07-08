@@ -6,10 +6,4 @@
 
 {% endnote %}
 
-{% note tip %}
-
-{% include [cloud-backup-resources-note](../../../_includes/backup/cloud-backup-resources-note.md) %}
-
-{% endnote %}
-
-Подробнее читайте в разделе [{#T}](../../../backup/concepts/vm-connection.md).
+Подробнее читайте в разделе [{#T}](../../../backup/concepts/vm-connection/compute.md).

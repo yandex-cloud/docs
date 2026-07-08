@@ -19,9 +19,9 @@ In {{ postbox-name }}, you can send an email:
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `postbox.sender` [role](../security/index.md#postbox-sender) to the service account.
 1. Create a key for the service account:
 
-    * [API key](../../iam/operations/authentication/manage-api-keys.md#create-api-key). When creating an API key, set the scope for `yc.postbox.send`. Save the secret key you got in a secure location. You will not be able to view the secret key parameters again after you close the window.
+    * [API key](../../iam/operations/authentication/manage-api-keys.md#create-api-key) When creating an API key, set the scope to `yc.postbox.send`. Save the secret key you got in a secure location. You will not be able to view the secret key properties again after you close the window.
 
-    * [Static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key). Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
+    * [Static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key). Save the ID and secret key to a secure location. You will not be able to view the secret key properties again after you close the window.
 
     * [IAM token](../../iam/operations/iam-token/create-for-sa.md). This authorization method is suitable for sending emails from [functions](../../functions/concepts/function.md) in {{ sf-name }} and [containers](../../serverless-containers/concepts/container.md) in {{ serverless-containers-name }}, as well as for {{ compute-name }} [VMs](../../compute/concepts/vm.md) linked to a service account. Select this method if you do not want to create and store static access keys.
 
@@ -71,7 +71,7 @@ In {{ postbox-name }}, you can send an email:
 
 ### AWS SDK {#aws-sdk}
 
-You can send an email using the AWS SDK for .NET Core, Go, JavaScript, and Python. For more details, see these tutorials:
+You can send an email using the AWS SDK for .NET Core, Go, JavaScript, and Python. For more information, see these tutorials:
 
 * [{#T}](../../postbox/tutorials/send-emails-aws-sdk-csharp.md)
 * [{#T}](../../postbox/tutorials/send-emails-aws-sdk-go.md)

@@ -104,4 +104,4 @@
         ```
      1. Confirm creating the resources.
      
-     This will create all the resources you need in the specified folder. You can check the new resources and their settings in the [management console]({{ link-console-main }}). To delete the resources you created, run the `terraform destroy` command.
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}). To delete the resources you created, run the `terraform destroy` command.

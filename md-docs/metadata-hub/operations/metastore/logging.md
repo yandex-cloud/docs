@@ -23,7 +23,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+      1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **Metastore-сервер**.
       1. Нажмите кнопку **Создать кластер**.
       1. Укажите имя кластера `metastore-cluster`.
@@ -203,7 +203,7 @@
    - Консоль управления {#console}
 
       1. В консоли управления перейдите в нужный каталог.
-      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Logging**.
+      1. [Перейдите](https://console.yandex.cloud/link/logging) в сервис **Cloud Logging**.
       1. Нажмите на строку с лог-группой `default`.
 
       На открывшейся странице отобразятся записи.
@@ -265,7 +265,7 @@
    - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+      1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **Metastore-сервер**.
       1. Нажмите кнопку **Создать кластер**.
       1. Укажите имя кластера `metastore-cluster`.
@@ -445,7 +445,7 @@
    - Консоль управления {#console}
 
       1. В консоли управления перейдите в нужный каталог.
-      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Logging**.
+      1. [Перейдите](https://console.yandex.cloud/link/logging) в сервис **Cloud Logging**.
       1. Нажмите на строку с лог-группой `metastore-log-group`.
 
       На открывшейся странице отобразятся записи.

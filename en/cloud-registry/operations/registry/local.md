@@ -1,6 +1,6 @@
 ---
 title: Creating a local registry in {{ cloud-registry-full-name }}
-description: '{{ cloud-registry-name }}Follow this guide to create a local registry in.'
+description: Follow this guide to create a local registry in {{ cloud-registry-name }}.
 ---
 
 # Creating a local registry
@@ -17,13 +17,13 @@ description: '{{ cloud-registry-name }}Follow this guide to create a local regis
     1. In the **Registry type** field, select `Local`.
     1. If you set the registry format to:
 
-        * `Docker`, specify an artifact immutability policy:
+        * `Docker`, specify the artifact immutability policy:
 
             * `Disabled`: Do not use the policy.
             * `Simple`: Prevent artifact overwriting.
             * `Full`: Prevent artifact overwriting, even after the artifact is deleted.
 
-        * `Maven`, specify a versioning policy:
+        * `Maven`, specify the versioning policy:
 
             * `Mixed`: A combination of `Release` and `Snapshot` for flexibility.
             * `Release`: For stable versions.
@@ -51,9 +51,9 @@ description: '{{ cloud-registry-name }}Follow this guide to create a local regis
     * `--description`: Registry description.
     * `--registry-kind`: Registry format. Available formats: `maven`, `npm`, `docker`, `nuget`, `pypi`, and `binary`.
     * `--registry-type`: Registry [type](../../concepts/registry.md#registry-types).
-    * `--properties`: Registry properties. Provide them as a string in `name1=value1,name2=value2` format. The available properties for local registries are as follows:
+    * `--properties`: Registry properties. Provide them as a string in `name1=value1,name2=value2` format. Available properties for local registries are as follows:
 
-        * `immutable-artifacts-policy`: Artifact immutability policy. It is only supported for the `docker` registry format. Here are the available policy options:
+        * `immutable-artifacts-policy`: Artifact immutability policy. It is only supported for the `docker` registry format. Here are available policy options:
 
             * `disabled`: Do not use the policy.
             * `simple`: Prevent artifact overwriting.
@@ -61,7 +61,7 @@ description: '{{ cloud-registry-name }}Follow this guide to create a local regis
 
             The default value is `disabled`.
 
-        * `version-policy`: Versioning policy. It is only supported for the `maven` registry format. Here are the available policy options:
+        * `version-policy`: Versioning policy. It is only supported for the `maven` registry format. Here are available policy options:
 
             * `mixed`: A combination of `release` and `snapshot` for flexibility.
             * `release`: For stable versions.

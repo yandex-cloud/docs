@@ -222,8 +222,8 @@ description: Из статьи вы узнаете, как задать наст
 
 Настройте эндпоинт-приемник:
 
-* [{{ ytsaurus-name }}](../source/yt.md);
-* [{{ CH }}](../target/clickhouse.md).
+* [{{ ytsaurus-name }}](../source/yt.md)
+* [{{ CH }}](../target/clickhouse.md)
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

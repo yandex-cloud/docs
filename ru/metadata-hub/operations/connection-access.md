@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
     
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно настроить доступ к подключению.
-  1. [Перейдите](../../console/operations/select-service#select-service) в сервис **{{ metadata-hub-full-name }}**.
+  1. [Перейдите]({{ link-console-main }}/link/metadata-hub) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Нажмите на имя нужного подключения.
   1. На панели слева выберите ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.

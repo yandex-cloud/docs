@@ -41,7 +41,7 @@ When the function's lifecycle ends, the ephemeral disk is permanently deleted. U
 {% endnote %}
 
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Mounting buckets to a function](../operations/function/mount-bucket.md)
 * [Mounting an ephemeral disk to a function](../operations/function/mount-ephemeral-disk.md)

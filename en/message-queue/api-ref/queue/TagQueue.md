@@ -15,7 +15,7 @@ Parameter | Type | Required parameter | Description
 
 #### Labels {#tags}
 
-Queue labels. The labels are provided as a list. For more information about passing list parameters, see [Using the API](../index.md#array-parameters).
+Queue labels. The labels are provided as a list. For the rules of providing listed attributes, see [Using the API](../index.md#array-parameters).
 
 ```
 Tag.N.Key (label)
@@ -42,7 +42,7 @@ Action=TagQueue
 &Tag.1.Value=production
 ```
 
-For more information about forming requests, see [General API request format](../index.md#api-request).
+For more on request formatting, see [General API request format](../index.md#api-request).
 
 ## Response example {#response-example}
 

@@ -5,7 +5,7 @@ You can connect to {{ mpg-short-name }} cluster hosts:
 * From {{ yandex-cloud }} virtual machines located in the same cloud network. For hosts without public access, SSL is not required to connect to them from these virtual machines.
 * From a [{{ serverless-containers-full-name }} container](../../serverless-containers/concepts/index.md). For hosts without public access, this container must be located in the same cloud network.
 
-For more information, see the [service documentation](../../managed-postgresql/operations/connect/index.md).
+For more information, see [this guide](../../managed-postgresql/operations/connect/index.md).
 
 #### Can I connect to a cluster from a Docker container? {#conn-from-docker}
 
@@ -23,7 +23,7 @@ mkdir $HOME\.postgresql; curl.exe --output $HOME\.postgresql\root.crt {{ crt-web
 
 The certificate will be saved to the `$HOME\.postgresql\root.crt` file.
 
-For details on obtaining a certificate and connecting to a database, see the [service documentation](../../managed-postgresql/operations/connect/index.md).
+For details on getting a certificate and connecting to a database, see the [service guide](../../managed-postgresql/operations/connect/index.md).
 
 #### How do I install an SSL certificate to connect Power BI to {{ mpg-name }} via psql? {#power-bi}
 
@@ -67,7 +67,7 @@ For instructions on updating {{ PG }} settings at the user level, see [this guid
 
 #### Why am I getting an error when trying to connect to a database from {{ google-looker }}? {#google-looker}
 
-To connect from {{ google-looker }}, you need to generate a client certificate file and a private key and specify them in the connection settings. For more information, see [Connecting from {{ google-looker }}](../../managed-postgresql/operations/connect/clients.md#connection-google-looker).
+To connect from {{ google-looker }}, you need to generate a client certificate file and a private key and specify them in the connection settings. For instructions, see [Connecting from {{ google-looker }}](../../managed-postgresql/operations/connect/clients.md#connection-google-looker).
 
 #### How to ensure I am always connecting to the master host? {#connect-to-master}
 
@@ -103,10 +103,10 @@ psql "host=c-<cluster_ID>.ro.{{ dns-zone }} \
 
 If there are no active replicas in the cluster, this FQDN will point to the current master host.
 
-#### How do I connect to the postgres database? {#postgres-db}
+#### How do I connect to the `postgres` database? {#postgres-db}
 
 `postgres` is a system database. For security reasons, you cannot connect to system databases.
 
-#### How do I get the postgres user's password? {#postgres-user}
+#### How do I get the `postgres` user's password? {#postgres-user}
 
 For security reasons, the system does not permit obtaining the `postgres` user's password to connect to the database on their behalf.

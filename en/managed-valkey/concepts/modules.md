@@ -41,7 +41,7 @@ Module features:
 
 Examples of commands available in a cluster with the Valkey-JSON module installed: `JSON.SET`, `JSON.GET`, `JSON.ARRINSERT`, `JSON.ARRLEN`. See the [full list of available commands](https://valkey.io/commands/#json).
 
-For more information about the module, see [this official guide](https://valkey.io/topics/valkey-json/).
+For more on employing the module, see [this official guide](https://valkey.io/topics/valkey-json/).
 
 ## Valkey-Bloom {#valkey-bloom}
 
@@ -55,4 +55,4 @@ Advantages:
 
 The module is compatible with {{ VLK }} client libraries and {{ RD }} equivalents. You can use it to prevent ad repetitions, detect fraud, filter spam, etc.
 
-For more information about the module, see [this official guide](https://valkey.io/topics/bloomfilters/).
+For more on employing the module, see [this official guide](https://valkey.io/topics/bloomfilters/).

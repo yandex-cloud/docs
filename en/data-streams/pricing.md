@@ -56,7 +56,7 @@ Below, you can find the rules for calculating the cost of queries against {{ yds
 
 With on-demand pricing:
 * You pay for data streams stored in [serverless {{ ydb-short-name }} databases](../ydb/concepts/serverless-and-dedicated.md#serverless) according to [this table of prices](#prices).
-* There is no separate fee for data streams stored in [dedicated {{ ydb-short-name }}](../ydb/concepts/serverless-and-dedicated.md#dedicated) databases (you pay only for the dedicated database, see the [pricing policy for dedicated databases](../ydb/pricing/dedicated.md)).
+* There is no separate fee for data streams stored in [dedicated {{ ydb-short-name }} databases](../ydb/concepts/serverless-and-dedicated.md#dedicated). You only pay for the dedicated database; see the [pricing policy for dedicated databases](../ydb/pricing/dedicated.md).
 
 
 

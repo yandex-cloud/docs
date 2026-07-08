@@ -1,12 +1,16 @@
 ---
-title: Как восстановить ВМ или сервер {{ baremetal-name }} из резервной копии
+title: Как восстановить ВМ или сервер {{ baremetal-full-name }} из резервной копии
 description: Следуя данной инструкции, вы сможете восстановить виртуальную машину или сервер {{ baremetal-full-name }} из резервной копии.
 ---
 
-# Восстановить виртуальную машину или сервер {{ baremetal-full-name }} из резервной копии
+# Восстановить виртуальную машину {{ compute-full-name }} или сервер {{ baremetal-full-name }} из резервной копии
 
+
+{% note info %}
 
 {% include [vm-and-bms-backup-incompatibility](../../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
+
+{% endnote %}
 
 {% include [avoid-errors-when-restoring-from-backup.md](../../../_includes/backup/avoid-errors-when-restoring-from-backup.md) %}
 
@@ -16,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-Чтобы восстановить виртуальную машину или сервер {{ baremetal-name }} из резервной копии:
+Чтобы восстановить виртуальную машину {{ compute-name }} или сервер {{ baremetal-name }} из резервной копии:
 
 {% list tabs group=instructions %}
 
@@ -26,8 +30,8 @@ description: Следуя данной инструкции, вы сможете
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. На панели слева выберите ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
   1. В зависимости от того, какой ресурс вы хотите восстановить из резервной копии, выберите вкладку **{{ ui-key.yacloud.backup.value_vm-recourses }}** или **{{ ui-key.yacloud.backup.value_bms-recourses }}**.
-  1. В строке с резервной копией, из которой нужно восстановить ВМ или сервер {{ baremetal-name }}, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите соответственно **{{ ui-key.yacloud.backup.action_recovery }}** или **{{ ui-key.yacloud.backup.action_bms-recovery }}**.
-  1. В открывшемся окне выберите виртуальную машину или сервер {{ baremetal-name }}, из которых была создана выбранная резервная копия. В списке эти ВМ или сервер будут отмечены соответственно как `({{ ui-key.yacloud.backup.context_current-vm }})` или `({{ ui-key.yacloud.backup.context_current-bms }})`.
+  1. В строке с резервной копией, из которой нужно восстановить ВМ или сервер, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите соответственно **{{ ui-key.yacloud.backup.action_recovery }}** или **{{ ui-key.yacloud.backup.action_bms-recovery }}**.
+  1. В открывшемся окне выберите виртуальную машину или сервер, из которых была создана выбранная резервная копия. В списке эти ВМ или сервер будут отмечены соответственно как `({{ ui-key.yacloud.backup.context_current-vm }})` или `({{ ui-key.yacloud.backup.context_current-bms }})`.
   1. Нажмите кнопку **{{ ui-key.yacloud.backup.action_recovery-start }}**.
 
 - CLI {#cli}
@@ -36,7 +40,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для восстановления ВМ или сервера {{ baremetal-name }} из резервной копии:
+  1. Посмотрите описание команды CLI для восстановления [защищаемого ресурса](../../concepts/index.md#protected-resources) из резервной копии:
 
       ```bash
       yc backup backups recover --help
@@ -46,24 +50,22 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [get-backup-id](../../../_includes/backup/operations/get-backup-id.md) %}
 
-  1. Узнайте идентификатор ВМ, которую нужно восстановить:
+  1. Узнайте идентификатор ресурса, который нужно восстановить:
 
-      {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
+      {% include [get-resource-ids](../../../_includes/backup/operations/get-resource-ids.md) %}
 
-      {% include [get-bms-ids](../../../_includes/backup/operations/get-bms-ids.md) %}
-
-  1. Восстановите ВМ или сервер {{ baremetal-name }} из резервной копии:
+  1. Восстановите ВМ {{ compute-name }} или сервер {{ baremetal-name }} из резервной копии:
 
       ```bash
       yc backup backups recover \
         --source-backup-id <идентификатор_резервной_копии> \
-        --destination-instance-id <идентификатор_ВМ_или_сервера_{{ baremetal-name }}>
+        --destination-instance-id <идентификатор_ВМ_или_сервера>
       ```
 
       Где:
 
-      * `--source-backup-id` — идентификатор резервной копии, из которой нужно восстановить ВМ или сервер {{ baremetal-name }}.
-      * `--destination-instance-id` — идентификатор ВМ или сервера {{ baremetal-name }}, в которые нужно восстановить резервную копию.
+      * `--source-backup-id` — идентификатор резервной копии, из которой нужно восстановить ВМ {{ compute-name }} или сервер {{ baremetal-name }}.
+      * `--destination-instance-id` — идентификатор ВМ {{ compute-name }} или сервера {{ baremetal-name }}, в которые нужно восстановить резервную копию.
 
       Результат:
 

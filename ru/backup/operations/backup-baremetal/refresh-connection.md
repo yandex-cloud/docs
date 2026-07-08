@@ -1,6 +1,6 @@
 ---
 title: Как обновить подключение сервера {{ baremetal-full-name }} к {{ backup-full-name }}
-description: Следуя данной инструкции, вы сможете обновить подключение сервера {{ baremetal-name }} к {{ backup-name }}.
+description: Следуя данной инструкции, вы сможете обновить подключение сервера {{ baremetal-full-name }} к {{ backup-full-name }}.
 ---
 
 # Переподключить сервер {{ baremetal-full-name }} к {{ backup-name }}

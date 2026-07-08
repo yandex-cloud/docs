@@ -7,11 +7,7 @@ description: Follow this guide to send an email from {{ postbox-name }} using a 
 
 To send emails using a populated template, submit both the template and data to insert via the [AWS CLI](#aws-cli-send) or [API](../aws-compatible-api/api-ref/send-email.md).
 
-## Getting started {#before-begin}
-
-1. [Create](../../iam/operations/sa/create.md) a service account in the folder as the address. If you create the service account and address in different folders, you will get an error when attempting to send an email.
-1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `postbox.sender` [role](../security/index.md#postbox-sender) to the service account.
-1. [Create](../../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key. Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
+{% include [before-begin](../../_includes/postbox/before-begin.md) %}
 
 ## Sending an email via the AWS CLI {#aws-cli-send}
 

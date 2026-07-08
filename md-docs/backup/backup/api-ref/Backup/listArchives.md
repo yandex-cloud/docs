@@ -3,7 +3,7 @@
 # Cloud Backup API, REST: Backup.ListArchives
 
 List archives that holds backups for specified folder or
-specified [Compute Cloud instance](../../../concepts/vm-connection.md#os).
+specified [Compute Cloud instance](../../../concepts/vm-connection/index.md#os).
 
 ## HTTP request
 

@@ -2,19 +2,19 @@
 
 Once the backup process is started, the cluster changes its status to **Updating**. You cannot cancel this operation. Please wait for it to complete.
 
-The operation’s duration depends on a number of factors, including database size, cluster configuration, and the nature of the stored data. The average [cluster restoration speed](../../managed-postgresql/operations/cluster-backups.md#restore) is approximately 100 MB/s.
+The time this operation is performed depends on a number of factors, such as DB size, cluster configuration, and the nature of data being stored. The average speed when [recovering a cluster from a backup](../../managed-postgresql/operations/cluster-backups.md#restore) is about 100 Mbps.
 
 #### Can I create two {{ PG }} databases at the same time? {#multi-db}
 
-You cannot perform multiple cluster operations simultaneously due to architectural constraints of the technologies used in {{ yandex-cloud }}.
+You cannot apply multiple transactions to a cluster at the same time. It is an architectural feature of the technologies utilized by {{ yandex-cloud }}.
 
-#### How can I change the number of connections available for a user? {#user-conn-number}
+#### Can I change the number of connections available to a user? {#user-conn-number}
 
-You can change the number of connections by [updating the following settings](../../managed-postgresql/operations/cluster-users.md#update-settings):
+Yes, you can. To do this, [change the values of the relevant settings](../../managed-postgresql/operations/cluster-users.md#update-settings):
 * [**Conn limit**](../../managed-postgresql/concepts/settings-list.md#setting-conn-limit): Maximum number of host connections per user. The default value is 50. The minimum value is 10.
-* [**Max connections**](../../managed-postgresql/concepts/settings-list.md#setting-max-connections): Maximum number of connections reserved for all users. The default value is `200 × <number_of_vCPUs_per_host>`. Note that this number includes 15 system connections. For example, with `"max_connections": 100`, you can reserve no more than 85 user connections per cluster host.
+* [**Max connections**](../../managed-postgresql/concepts/settings-list.md#setting-max-connections): Maximum number of connections reserved for all users. The default value is `200 × <number_of_vCPUs_per_host>`. You have to keep in mind that this number includes 15 service connections, e.g., given a cluster with `"max_connections": 100`, you can reserve a maximum of 85 connections per cluster host for users.
 
-#### Can I change the host class (standard, memory-optimized, burstable) for an existing host? {#host-class}
+#### Can I change the class of an existing host (standard, memory-optimized, burstable)? {#host-class}
 
 Yes, you can do this by following the procedure in [Changing cluster settings](../../managed-postgresql/operations/update.md#change-resource-preset).
 

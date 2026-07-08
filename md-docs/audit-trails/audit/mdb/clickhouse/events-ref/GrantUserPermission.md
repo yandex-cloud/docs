@@ -272,6 +272,7 @@
         "useHivePartitioning": "boolean",
         "showDataLakeCatalogsInSystemTables": "boolean",
         "compatibility": "string",
+        "materializeTtlAfterModify": "boolean",
         "compile": "boolean",
         "minCountToCompile": "string",
         "asyncInsertThreads": "string",
@@ -768,6 +769,7 @@ A list of messages that carry the error details. ||
 || useHivePartitioning | **boolean** ||
 || showDataLakeCatalogsInSystemTables | **boolean** ||
 || compatibility | **string** ||
+|| materializeTtlAfterModify | **boolean** ||
 || compile | **boolean** ||
 || minCountToCompile | **string** (int64) ||
 || asyncInsertThreads | **string** (int64) ||

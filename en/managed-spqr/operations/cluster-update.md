@@ -9,8 +9,6 @@ keywords:
 
 # Updating a {{ SPQR }} cluster
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 After creating a cluster, you can edit its basic and advanced settings.
 
 {% list tabs group=instructions %}
@@ -228,7 +226,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

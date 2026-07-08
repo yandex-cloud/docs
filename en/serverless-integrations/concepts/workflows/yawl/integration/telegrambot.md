@@ -4,7 +4,7 @@ Accessing the Telegram Bot API
 
 Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
 --- | --- |--- | --- | --- | ---
-`token`| `string` | Yes | No | Yes | Bot token. For more information, see the [Telegram Bot Features](https://core.telegram.org/bots/features#creating-a-new-bot) documentation.
+`token`| `string` | Yes | No | Yes | Bot token. For more information, see [this Telegram Bot Features guide](https://core.telegram.org/bots/features#creating-a-new-bot).
 `sendMessage`| [TelegramBotSendMessage](#TelegramBotSendMessage) | Yes | No | No | Description of the message sending action.
 
 ### TelegramBotSendMessage {#TelegramBotSendMessage}
@@ -13,7 +13,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 --- | --- |--- | --- | --- | ---
 `chatId`| `string` | Yes | No | Yes | Chat ID or channel name in `@channelusername` format.
 `text`| `string` | Yes | No | Yes | Text of the message you need to send.
-`parseMode`| `string` | No | No | No | Message formatting mode. Available modes: `UNSPECIFIED`, `MARKDOWN`, `MARKDOWNV2`, and `HTML`. For more information, see the [Telegram Bot API](https://core.telegram.org/bots/api#formatting-options) documentation.
+`parseMode`| `string` | No | No | No | Message formatting mode. Available modes: `UNSPECIFIED`, `MARKDOWN`, `MARKDOWNV2`, and `HTML`. For more information, see [this Telegram Bot API guide](https://core.telegram.org/bots/api#formatting-options).
 `replyTo`| `string` | No | No | Yes | ID of the message to reply to.
 
 ## Specification example

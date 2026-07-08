@@ -79,9 +79,9 @@ To configure automatic monitoring of key cluster health metrics:
     1. Under **{{ ui-key.yacloud_monitoring.homepage.title_service-dashboards }}**, select:
         * **{{ mspqr-name }} — Cluster Overview** to configure cluster alerts.
         * **{{ mspqr-name }} — Host Overview** to set up host alerts.
-    1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-    1. If the chart shows multiple metrics, select the data query to generate a metric and click **{{ ui-key.yacloud.common.continue }}**. You can learn more about the query language in the [{{ monitoring-full-name }} guides](../../monitoring/concepts/querying.md).
-    1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` thresholds to trigger the alert.
+    1. In the relevant chart, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+    1. If the chart displays multiple metrics, select the data query for the relevant metric and click **{{ ui-key.yacloud.common.continue }}**. For more on the query language, see [this {{ monitoring-full-name }} guide](../../monitoring/concepts/querying.md).
+    1. Set the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` alert thresholds.
     1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}

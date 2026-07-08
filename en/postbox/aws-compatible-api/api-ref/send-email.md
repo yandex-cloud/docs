@@ -179,23 +179,10 @@ Unique ID of the email. ||
 
 {% include [api-errors](../../../_includes/postbox/api-errors.md) %}
 
-The possible errors include:
+{% include [errors-list](../../../_includes/postbox/errors-list.md) %}
 
-#|
-|| **Error code** | **Description** ||
-|| `400 BadRequestException` | The request contains invalid headers or parameters. ||
-|| `400 BadRequestException: sender is not allowed` | The [sender](../../concepts/glossary.md#sender) is not listed among the allowed senders in the address settings. ||
-|| `400 AccountSuspendedException` | For this service account, sending email is disabled permanently. ||
-|| `400 SendingPausedException` | For this service account, sending email is disabled temporarily. ||
-|| `400 MessageRejected` | The email contains invalid data. ||
-|| `400 MailFromDomainNotVerifiedException` | The address the email comes from is not verified. ||
-|| `404 NotFoundException` | The requested resource was not found. ||
-|| `429 TooManyRequestsException` | The request [quota](../../concepts/limits.md#postbox-quotas) was exceeded. ||
-|| `429 LimitExceededException` | The request [limit](../../concepts/limits.md) was exceeded. ||
-|#
+## Useful links {#see-also}
 
-## See also {#see-also}
-
-* [How to use the Amazon S3 API to work with {{ postbox-name }}](../index.md)
-* [Authentication with the {{ postbox-full-name }} API](../../api-ref/authentication.md)
-* [Templating an email in {{ postbox-full-name }}](../../operations/send-templated-email.md)
+* [{#T}](../index.md)
+* [{#T}](../../api-ref/authentication.md)
+* [{#T}](../../operations/send-templated-email.md)

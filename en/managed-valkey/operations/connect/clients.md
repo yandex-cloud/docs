@@ -111,7 +111,7 @@ If your client application does not support connecting via Sentinel, connect dir
 
 {% include [after-connect](../../../_includes/mdb/mvk/connect/bash/after-connect.md) %}
 
-For more information about Sentinel, see [{#T}](../../concepts/replication.md) and [this {{ VLK }} guide](https://valkey.io/topics/sentinel/).
+For more on Sentinel, see [this article](../../concepts/replication.md) and [this {{ VLK }} guide](https://valkey.io/topics/sentinel/).
 
 ## Connecting from graphical IDEs {#connection-ide}
 

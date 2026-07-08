@@ -16,17 +16,17 @@ Events with bucket objects that can be tracked using a trigger:
 ### Filtering events by object {#filter}
 
 Events are filtered using prefixes and suffixes for an object [key](../../../storage/concepts/object.md#key).
-* The prefix is the part of the object key that contains the beginning of the object key.
-* The suffix is the part of the object key that contains the end of the object key.
+* The prefix is a part at the beginning of the object key.
+* The suffix is a part at the end of the object key.
 
-Prefixes and suffixes can be of any length. When using a prefix and suffix at the same time, filtering is based on the logical `AND`: for the trigger to work, the object key must match both the prefix and suffix.
+Prefixes and suffixes can be of any length. When using a prefix and suffix at the same time, filtering is based on the logical `AND`: for the trigger to fire, the object key must match both the prefix and suffix.
 
 {% include [batching-events](../../../_includes/api-gateway/batching-events.md) %}
 
 ## Roles required for the proper operation of a trigger for {{ objstorage-name }} {#roles}
 
-- To create a trigger, you need a permission for the service account under which the trigger executes the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles or higher.
-- To activate a trigger, the service account needs the `api-gateway.websocketBroadcaster` role for the folder containing the API gateway.
+- To create a trigger, you need a permission for the service account under which the trigger runs the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [editor](../../../iam/roles-reference.md#editor) roles or higher.
+- For the trigger to fire, the service account needs the `api-gateway.websocketBroadcaster` role for the folder containing the API gateway.
 
 Read more about [access management](../../security/index.md).
 
@@ -36,7 +36,7 @@ After the trigger fires, it will send the following message to WebSocket connect
 
 {% include [os-format](../../../_includes/functions/os-format.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Trigger for {{ objstorage-name }} that runs a {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/os-trigger.md)
 * [Trigger for {{ objstorage-name }} that runs a {{ sf-name }} function](../../../functions/concepts/trigger/os-trigger.md)

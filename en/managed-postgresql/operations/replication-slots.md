@@ -10,7 +10,7 @@ description: In this tutorial, you will learn how to create and configure a repl
 * The service automatically creates physical slots for replica hosts and uses them for [data replication](../concepts/replication.md) within the {{ mpg-name }} cluster.
 * Logical slots are created by users for [logical data replication](../concepts/replication.md#logical-decoding) across clusters, for example, in CDC (Change Data Capture) scenarios.
 
-For more information, see [this {{ PG }} guide](https://www.postgresql.org/docs/current/logicaldecoding.html).
+For more information, see the [relevant {{ PG }} guide](https://www.postgresql.org/docs/current/logicaldecoding.html).
 
 ## Viewing a list of logical replication slots {#list}
 
@@ -44,7 +44,7 @@ For more information, see [this {{ PG }} guide](https://www.postgresql.org/docs/
     Where:
 
     * `<slot_name>`: Unique slot name. This is a required parameter.
-    * `<plugin_name>`: Name of plugin from the list of supported output plugins. For the full list, see [Replication](../concepts/replication.md#logical-decoding). This is a required parameter.
+    * `<plugin_name>`: Name of plugin from the list of supported output plugins. For the full list, see [Replication](../concepts/replication.md#logical-decoding). This is a required setting.
     * `temporary`: If `true`, the slot will be dropped at the end of the current session or if an error occurs. The default is `false`.
     * `two_phase`: If `true`, the slot will decode the [prepared transactions](https://www.postgresql.org/docs/current/sql-prepare-transaction.html). The default value is `false`.
 

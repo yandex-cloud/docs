@@ -8,7 +8,7 @@ You can also create products for {{ compute-full-name }} to run on [Linux](compu
 
 ## Hosting and naming Docker images {#registry}
 
-* The product’s [Helm chart](https://helm.sh/docs/topics/charts/) and all Docker images it includes must reside in the publisher [registry](../../container-registry/concepts/registry.md) created in {{ container-registry-full-name }}. To learn how to [create a registry](../../container-registry/operations/registry/registry-create.md) and [push a Docker image](../../container-registry/operations/docker-image/docker-image-push.md), see the relevant guides.
+* The product’s [Helm chart](https://helm.sh/docs/topics/charts/) and all Docker images it includes must reside in the publisher [registry](../../container-registry/concepts/registry.md) created in {{ container-registry-full-name }}. For instructions on [creating a registry](../../container-registry/operations/registry/registry-create.md) and [uploading a Docker image](../../container-registry/operations/docker-image/docker-image-push.md), see the relevant guide sections.
 
 * The product’s Helm chart name must follow this format:
 
@@ -228,7 +228,7 @@ The product specification uses YAML format and contains the following data:
      min_k8s_version: ">=1.18"
    ```
 
-1. `user_values`: Optional parameter. It stands for a list of product variables the user can override while installing or modifying an already installed product via the {{ yandex-cloud }} management console.
+1. `user_values`: Optional setting. It stands for a list of product variables the user can override while installing or modifying an already installed product via the {{ yandex-cloud }} management console.
 
    {% note tip %}
 
@@ -604,7 +604,7 @@ The product specification uses YAML format and contains the following data:
               required: false
         ```
 
-1. `private_artifacts`: Optional parameter. Use it to avoid moving all the Docker images that come with the product from the publisher's registry to the public `yc-marketplace` registry. The possible values are `true` and `false`; the default one is `false`.
+1. `private_artifacts`: Optional setting. Use it to avoid moving all the Docker images that come with the product from the publisher's registry to the public `yc-marketplace` registry. The possible values are `true` and `false`; the default one is `false`.
 
    This parameter is set for a product version. To install a version with `private_artifacts = true`, the user will need to utilize {{ yandex-cloud }} [interfaces](../../overview/concepts/interfaces.md). Installation with the `helm install` command will not be available.
 

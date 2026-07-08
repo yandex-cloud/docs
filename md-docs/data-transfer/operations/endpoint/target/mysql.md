@@ -30,13 +30,13 @@
 
 Настройте один из поддерживаемых источников данных:
 
-* [PostgreSQL](../source/postgresql.md);
-* [MySQL®](../source/mysql.md);
-* [Apache Kafka®](../source/kafka.md);
-* [Airbyte®](../../../transfer-matrix.md#airbyte);
-* [YDS](../source/data-streams.md);
-* [Yandex Object Storage](../source/object-storage.md);
-* [Managed Service for YDB](../source/ydb.md).
+* [PostgreSQL](../source/postgresql.md)
+* [MySQL®](../source/mysql.md)
+* [Apache Kafka®](../source/kafka.md)
+* [Airbyte®](../../../transfer-matrix.md#airbyte)
+* [YDS](../source/data-streams.md)
+* [Yandex Object Storage](../source/object-storage.md)
+* [Managed Service for YDB](../source/ydb.md)
 
 ## Подготовка базы данных приемника {#prepare}
 

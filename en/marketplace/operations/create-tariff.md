@@ -26,7 +26,7 @@ description: Follow this guide to create a service plan.
     * Describe the plan you want to create and we will help set it up if possible.
     * Create a plan on your own: specify the metric for tracking product consumption by users and the unit price.
 
-    For more information, see [{#T}](../concepts/api-usage.md).
+    Read more in [{#T}](../concepts/api-usage.md).
 
 1. Click **{{ ui-key.yacloud.common.create }}**.
 

@@ -1,6 +1,6 @@
 ---
 title: '{{ sf-full-name }}. FAQ'
-description: How do I get my activity logs in {{ sf-full-name }}? Find the answer to this and other questions in this article.
+description: How do I get my activity logs in {{ sf-full-name }}? Find answers to this and other questions in this article.
 ---
 
 # General questions about {{ sf-name }}
@@ -39,6 +39,6 @@ Such calls will be charged according to [{#T}](../pricing.md).
 
 #### I want to increase my quotas. How do I determine appropriate values for them? {#quotas}
 
-For more information on which quotas to increase and to what extent, see [{#T}](../concepts/limits.md#related-quotas).
+For more on which quotas to increase and to what extent, see [{#T}](../concepts/limits.md#related-quotas).
 
 {% include [api-duration-format-qa](../../_qa/serverless/api-duration-format-qa.md) %}

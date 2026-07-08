@@ -5,7 +5,9 @@ description: This section contains the {{ mspqr-name }} release notes.
 
 # {{ mspqr-full-name }} release notes
 
-{% include [preview](../_includes/note-service-preview.md) %}
+## June 2026 {#jun-2026}
+
+* {{ mspqr-full-name }} has entered the [General Availability](../overview/concepts/launch-stages.md) stage.
 
 ## January 2026 {#jan-2026}
 

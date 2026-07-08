@@ -99,7 +99,7 @@ Learn more in [{#T}](../../managed-postgresql/concepts/maintenance.md).
 
 The database software is updated whenever new minor versions are released. Owners of affected database clusters get advance notice of the upcoming maintenance schedule and database availability.
 
-#### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
+#### What happens when a DBMS version becomes deprecated (`Deprecated`)? {#dbms-deprecated}
 
 Existing clusters based on `Deprecated` versions continue to operate normally. Six months before the end of support, an active notification effort starts about the need to update. From this point on, you cannot create new clusters.
 

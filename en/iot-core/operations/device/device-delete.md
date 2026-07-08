@@ -62,7 +62,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       }
       ```
 
-      For more information about `yandex_iot_core_device` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_device).
+      For more on the properties of the `yandex_iot_core_device` resource, see [this provider guide]({{ tf-provider-resources-link }}/iot_core_device).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 

@@ -19,7 +19,7 @@ We do not recommend creating a single-host cluster.
 
 {% endnote %}
 
-A cluster with two hosts located in different availability zones is considered highly available and is subject to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/#definition-of-service-unavailability). This option is suitable for medium-sized applications in a production environment. The default cluster configuration offered in the management console includes two hosts.
+A cluster with two hosts located in different availability zones is considered highly available and is subject to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/). This option is suitable for medium-sized applications in a production environment. The default cluster configuration offered in the management console includes two hosts.
 
 A cluster with three or more hosts located in three different availability zones is considered highly available and is subject to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/#definition-of-service-unavailability). Such clusters are suitable for production environments subject to high availability and performance requirements.
 
@@ -41,7 +41,7 @@ Using a [special FQDN](../operations/connect/fqdn.md#special-fqdns) simplifies a
 
 ## Maintenance settings {#maintenance-settings}
 
-During [maintenance](maintenance.md), a cluster with two or more hosts may not be available for writes until the master automatically fails over. A single host cluster is completely unavailable during maintenance. Therefore, consider the expected load on your cluster when selecting the [maintenance day and time](maintenance.md#maintenance-window).
+During [maintenance](maintenance.md), a cluster with two or more hosts may not be available for writes until the master automatically fails over. A single host cluster is completely unavailable during maintenance. Therefore, we recommend selecting the [maintenance day and time](maintenance.md#maintenance-window) based on expected cluster load.
 
 When updating a [{{ PG }} version](../operations/cluster-version-update.md), a cluster with three or more hosts is unavailable for writes but has at least one readable replica. A cluster with one or two hosts is completely unavailable during {{ PG }} version updates. Consider the expected load on your cluster when planning updates.
 

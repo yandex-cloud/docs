@@ -20,7 +20,7 @@
 
 - **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}**: Enables you to run YQL queries against cluster databases from [{{ yq-full-name }}](../../../query/concepts/index.md).
 
-- **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**: Enable this option to allow cluster access from [{{ sf-full-name }}](../../../functions/concepts/index.md). For more information about setting up access, see [{{ sf-name }}](../../../functions/operations/database-connection.md) this guide.
+- **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**: Enable this option to allow cluster access from [{{ sf-full-name }}](../../../functions/concepts/index.md). For more information about access setup, see [this {{ sf-name }} guide](../../../functions/operations/database-connection.md).
 
 
 

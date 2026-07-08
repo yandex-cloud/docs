@@ -100,7 +100,7 @@ The web application support cost includes:
       * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional setting. It defaults to the value specified in the provider settings.
       * `role`: Role being assigned.
 
-      For more information about `yandex_iam_service_account` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account).
+      For more on the properties of the `yandex_iam_service_account` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account).
 
   1. Make sure the configuration files are correct.
 
@@ -201,7 +201,7 @@ Tag the first function version as `stable` and the second one as `canary`.
         }
         ``` 
 
-        For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+        For more on the properties of the `yandex_function` resource, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
     1. Validate your configuration using this command:
         

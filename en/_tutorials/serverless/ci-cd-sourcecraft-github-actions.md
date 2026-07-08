@@ -20,11 +20,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost includes:
 * Fee for storing the created Docker images (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md).
-* Fee for the number of container invocations, computing resources allocated to the application, and outgoing traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md).
+* Fee for the container invocation count, computing resources allocated for the application, and outgoing traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md).
 
 ## Create a service account {#create-sa}
 
-You will use this [service account](../../iam/concepts/users/service-accounts.md) to upload Docker images to [registries](../../container-registry/concepts/registry.md) in {{ container-registry-full-name }} and deploy [containers](../../serverless-containers/concepts/container.md) to {{ serverless-containers-name }}.
+You will use this [service account](../../iam/concepts/users/service-accounts.md) to push Docker images to [registries](../../container-registry/concepts/registry.md) in {{ container-registry-full-name }} and deploy [containers](../../serverless-containers/concepts/container.md) to {{ serverless-containers-name }}.
 
 {% list tabs group=instructions %}
 
@@ -37,7 +37,7 @@ You will use this [service account](../../iam/concepts/users/service-accounts.md
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `github-action`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select these roles:
 
-      * `{{ roles-cr-pusher }}`: To work with Docker images in a registry.
+      * `{{ roles-cr-pusher }}`: To work with Docker images in the registry.
       * `serverless-containers.editor`: To manage the container.
       * `iam.serviceAccounts.user`: To enable specifying a service account when creating a container revision. This account will be used to pull the Docker image from the registry.
 
@@ -116,7 +116,7 @@ The registry in {{ container-registry-name }} will house the application’s Doc
   1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
   1. Specify `github-action` as the registry name.
   1. Click **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
-  1. Save the new registry’s ID, you will need it later.
+  1. Save the new registry’s ID, as you will need it later.
 
 - CLI {#cli}
 
@@ -136,13 +136,13 @@ The registry in {{ container-registry-name }} will house the application’s Doc
   created_at: "2025-10-03T10:34:06.601Z"
   ```
 
-  Save the new registry’s ID, you will need it later.
+  Save the new registry’s ID, as you will need it later.
 
 - API {#api}
 
   Use the [create](../../container-registry/api-ref/Registry/create.md) REST API method for the [Registry](../../container-registry/api-ref/Registry/index.md) resource or the [RegistryService/CreateRegistryRequest](../../container-registry/api-ref/grpc/Registry/create.md) gRPC API call.
 
-  Save the new registry’s ID, you will need it later.
+  Save the new registry’s ID, as you will need it later.
 
 {% endlist %}
 
@@ -161,9 +161,9 @@ The repository will be created from the [yc-ci-cd-serverless]({{ link-src-main }
       * In the **{{ ui-key.sourcecraft.repoCreate.title_owner-field_7gbCn }}** field, select the [organization]({{ link-src-docs }}/sourcecraft/concepts/#org) in which you created the {{ yandex-cloud }} service account.
       * In the **{{ ui-key.sourcecraft.repoCreate.title_repo-field_p5MD3 }}** field, specify a name for the repository. 
 
-        The name must be unique within the organization. The name may contain the following [ASCII characters](https://ru.wikipedia.org/wiki/ASCII): lowercase and uppercase Latin letters, numbers, commas, hyphens, and underscores.
+        The name must be unique within the organization and can include the following [ASCII characters](https://ru.wikipedia.org/wiki/ASCII): lowercase and uppercase Latin letters, numbers, commas, hyphens, and underscores.
 
-        The address to access the repository at is displayed below the name.
+        The repository’s address is displayed below its name.
 
       * Optionally, in the **{{ ui-key.sourcecraft.repoSettings.field_description_1274t }}** field, enter a description for the repository.
 
@@ -193,9 +193,9 @@ The repository will be created from the [yc-ci-cd-serverless]({{ link-src-main }
   1. Open the {{ src-name }} [home page]({{ link-src-main }}).
   1. Navigate to the ![image](../../_assets/console-icons/briefcase.svg) **{{ ui-key.sourcecraft.lib.organizations_5CjkW }}** tab.
   1. Select the organization where you created the {{ yandex-cloud }} service account.
-  1. On the organization page, in the ![image](../../_assets/console-icons/gear.svg) **{{ ui-key.sourcecraft.lib.settings_cwUYS }}** section, go to the ![image](../../_assets/console-icons/cloud-nut-hex.svg) **{{ ui-key.sourcecraft.mainApp.route_service-connections_2PPgz }}** section.
+  1. On the organization page, under ![image](../../_assets/console-icons/gear.svg) **{{ ui-key.sourcecraft.lib.settings_cwUYS }}**, go to the ![image](../../_assets/console-icons/cloud-nut-hex.svg) **{{ ui-key.sourcecraft.mainApp.route_service-connections_2PPgz }}** section.
   1. Click **{{ ui-key.sourcecraft.serviceConnections.button_add-connection_6Bj7i }}**.
-  1. Under **{{ ui-key.sourcecraft.serviceConnections.section_basic_wmaiy }}**, specify the service connection name, `default-service-connection`.
+  1. Under **{{ ui-key.sourcecraft.serviceConnections.section_basic_wmaiy }}**, specify the service connection name: `default-service-connection`.
   1. Under **{{ ui-key.sourcecraft.serviceConnections.section_scope_9gXcu }}**, select the repository you created earlier.
   1. Under **{{ ui-key.sourcecraft.serviceConnections.section_cloud-settings_tDMfn }}**, select:
 
@@ -230,16 +230,16 @@ The repository will be created from the [yc-ci-cd-serverless]({{ link-src-main }
       ```
 
   1. In the top-right corner, click **{{ ui-key.sourcecraft.repo.action_commit_brj4B }}**.
-  1. Commit the files:
+  1. Make a commit:
 
-      1. Enter a message about the changes.
+      1. Enter a commit message.
       1. Under **{{ ui-key.sourcecraft.repo.field_commit-branch_d1Mzi }}**, select **{{ ui-key.sourcecraft.repo.field_text_commit-directly-to-the-branch_mBfk8 }} main**.
       1. Under **{{ ui-key.sourcecraft.repo.field_after-commit-action_mKjo4 }}**, select **{{ ui-key.sourcecraft.repo.option_just-commit_to5sC }}**.
       1. Click **{{ ui-key.sourcecraft.repo.button_commit_si86H }}**.
 
 {% endlist %}
 
-After saving the changes, the `demo-service-connection-workflow` workflow will start.
+After saving the changes, `demo-service-connection-workflow` will start.
 
 ## Test CI/CD {#check-ci-cd}
 
@@ -296,12 +296,12 @@ After saving the changes, the `demo-service-connection-workflow` workflow will s
 
 ## Delete the resources you created {#clear-out}
 
-To stop incurring charges for the resources you created:
+To stop paying for the resources you created:
 1. [Delete](../../serverless-containers/operations/delete.md) the container.
 1. [Delete](../../container-registry/operations/docker-image/docker-image-delete.md) the Docker image.
 1. [Delete](../../container-registry/operations/registry/registry-delete.md) the registry.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Configuring CI/CD between {{ src-name }} and {{ sf-full-name }}](../../tutorials/serverless/ci-cd-sourcecraft-functions.md)
 * [Service connections]({{ link-src-docs }}/sourcecraft/concepts/service-connections)

@@ -104,7 +104,7 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
 
 {% include [check-result](../../_includes/serverless-containers/check-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../functions/operations/trigger/budget-trigger-create.md)
 * [{#T}](../../api-gateway/operations/trigger/budget-trigger-create.md)

@@ -41,6 +41,6 @@ Check the throughput capacity in the {{ ydb-short-name }} cluster settings and i
 
 This error means that you have exceeded the [quota](concepts/limits.md#ydb-quotas) for [RUs (request units)](concepts/serverless-and-dedicated.md#capacity) consumption per second.
 
-You can change quotas for an individual database in its settings (see [{#T}](operations/manage-databases.md#update-db-serverless)). If you want to increase your cloud quota, [contact support]({{ link-console-support }}).
+You can change the quotas for an individual database in its settings (see [{#T}](operations/manage-databases.md#update-db-serverless)). If you want to increase your cloud quota, [contact support]({{ link-console-support }}).
 
 To prevent users from overconsuming RUs, we recommend setting the [maximum consumption limit](concepts/serverless-and-dedicated.md#capacity).

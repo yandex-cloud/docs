@@ -103,11 +103,11 @@ Thus, `/a/{param1}/{param+}` is selected as a handler.
 
 ## Using domains {#domains}
 
-{{ api-gw-short-name }} allows you to add your own domain to access the API gateway. To establish a TLS connection, you can use certificates added in {{ certificate-manager-short-name }}.
+{{ api-gw-short-name }} allows you to add your custom domain to access the API gateway. To establish a TLS connection, you can use certificates added in {{ certificate-manager-short-name }}.
 
-For more information on connecting your own domain to the API gateway, see [{#T}](../operations/api-gw-domains.md).
+For more information on connecting your custom domain to the API gateway, see [{#T}](../operations/api-gw-domains.md).
 
-For more information on adding certificates, see [{#T}](../../certificate-manager/operations/managed/cert-create.md).
+For more information about adding certificates, see [{#T}](../../certificate-manager/operations/managed/cert-create.md).
 
 ## Authorization {#authorization}
 
@@ -138,6 +138,6 @@ For limits related to WebSocket support, see [Quotas and limits](../concepts/lim
 
 To view an example of a serverless WebSocket app, [click here](http://github.com/yandex-cloud-examples/yc-serverless-game).
  
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Overview of available extensions](extensions/index.md)

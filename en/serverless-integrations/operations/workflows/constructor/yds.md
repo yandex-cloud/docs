@@ -27,7 +27,7 @@ description: Follow this guide to add sending messages to a {{ yds-full-name }} 
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/integration/yds.md)
 * [{#T}](../workflow/create-constructor.md)

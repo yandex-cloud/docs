@@ -16,15 +16,15 @@
 
 Data Catalog поддерживает получение метаданных из следующих сервисов:
 
-* PostgreSQL;
-* MySQL®;
-* ClickHouse®;
-* Yandex StoreDoc/MongoDB;
-* OpenSearch;
-* Greenplum®;
-* Yandex Data Transfer;
-* WebSQL;
-* DataLens.
+* PostgreSQL
+* MySQL®
+* ClickHouse®
+* Yandex StoreDoc/MongoDB
+* OpenSearch
+* Greenplum®
+* Yandex Data Transfer
+* WebSQL
+* DataLens
 
 Чтобы начать работу с сервисом:
 
@@ -85,7 +85,7 @@ Data Catalog поддерживает получение метаданных и
 - Консоль управления
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [подготовленный ранее](#before-you-begin) каталог ресурсов.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+  1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
   1. На панели слева выберите сервис ![image](../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
   1. Нажмите кнопку **Cоздать каталог**.
   1. Задайте **Имя** каталога метаданных.

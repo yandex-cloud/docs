@@ -8,9 +8,9 @@ description: The main entity {{ mpg-name }} operates is a database cluster. Each
 
 The main entity {{ mpg-name }} operates is a _database cluster_.
 
-Each cluster consists of one or multiple _database hosts_, which are virtual machines with deployed DBMS servers. Cluster hosts may reside in different availability zones. You can learn more about the {{ yandex-cloud }} availability zones in [Platform overview](../../overview/concepts/geo-scope.md).
+Each cluster consists of one or multiple _database hosts_, which are virtual machines with deployed DBMS servers. Cluster hosts may reside in different availability zones. You can learn more about {{ yandex-cloud }} geography in the [Platform overview](../../overview/concepts/geo-scope.md) section.
 
-A cluster of two or more hosts is natively [highly available](high-availability.md) because one of its replica hosts will assume the master role upon the current master host's failure. To learn more about how the number of hosts affects cluster availability, see the [relevant section](high-availability.md#host-configuration).
+A cluster of two or more hosts is natively [highly available](high-availability.md) because one of its replica hosts will assume the master role upon the current master host's failure. To learn more about how the number of hosts affects cluster availability, see [this section](high-availability.md#host-configuration).
 
 {% note info %}
 
@@ -28,10 +28,10 @@ We do not recommend creating a cluster having a single host. While being cheaper
 
 A cluster's computing capacity depends on its _host class_, which is the virtual machine template used to deploy the cluster's hosts. For a list of available host classes and their specs, see [Host classes](instance-types.md).
 
-To manage connections and balance the cluster load, the service architecture features the _Odyssey connection pooler_. For more information, see [Managing connections](pooling.md).
+To manage connections and balance the cluster load, the service architecture features the _Odyssey connection pooler_. To learn more, see [Connection management](pooling.md).
 
 
-You can access a cluster created in a folder from any VM in the same cloud network. For more information about networking, see [this {{ vpc-name }} guide](../../vpc/).
+You can access a cluster created in a folder from any VM in the same cloud network. For more information on how the network works, see [this {{ vpc-name }} guide](../../vpc/).
 
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}

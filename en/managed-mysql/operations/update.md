@@ -35,6 +35,7 @@ Learn more about other cluster updates:
 * [{#T}](cluster-version-update.md).
 * [Migrating cluster hosts to a different availability zone](host-migration.md).
 
+
 ## Changing the host class {#change-resource-preset}
 
 The choice of a [host class](../concepts/instance-types.md) in {{ mmy-short-name }} clusters is limited by the CPU and RAM quotas allocated to database clusters in your cloud. To check the resources currently in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}**.
@@ -264,7 +265,7 @@ We recommend changing the host class only when the cluster is idle.
 
   To change the disk type and expand the storage size for a cluster:
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
       For more on how to create this file, see [Creating a cluster](./cluster-create.md).
 
@@ -446,7 +447,7 @@ We recommend changing the host class only when the cluster is idle.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -491,7 +492,7 @@ We recommend changing the host class only when the cluster is idle.
 
       * `configSpec.mysqlConfig_<{{ MY }}_version>`: {{ MY }} settings. Specify each setting on a separate line, separated by commas.
 
-          See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterRequest) for the list of {{ MY }} versions available for this parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for descriptions and possible values of the settings.
+          See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterRequest) for the list of {{ MY }} versions supporting this option. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for descriptions and possible values of the settings.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -543,7 +544,7 @@ We recommend changing the host class only when the cluster is idle.
 
       * `configSpec.mysqlConfig_<{{ MY }}_version>`: {{ MY }} settings. Enter each setting on a new line, separated by commas.
 
-          See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterReques) for the list of {{ MY }} versions available for this parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
+          See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterReques) for the list of {{ MY }} versions supporting this option. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for descriptions and possible values of the settings.
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -561,10 +562,12 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+
+
   1. Configure advanced cluster settings:
 
      - **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**
-       
+
        {% include [disk-size-autoscaling-console](../../_includes/mdb/mmy/disk-size-autoscaling-console.md) %}
 
      {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
@@ -635,7 +638,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
       For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -795,7 +798,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
               * `enabled`: Enables statistics collection, `true` or `false`.
               * `sessionsSamplingInterval`: Session sampling interval, from `1` to `86400` seconds.
               * `statementsSamplingInterval`: Statement sampling interval, from `1` to `86400` seconds.
-          
+
           {% include [disk-size-autoscaling-rest](../../_includes/mdb/mmy/disk-size-autoscaling-rest.md) %}
 
       {% include [maintenance-window-rest](../../_includes/mdb/mmy/maintenance-window-rest.md) %}
@@ -821,7 +824,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

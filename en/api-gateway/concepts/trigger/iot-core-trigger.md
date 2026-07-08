@@ -12,8 +12,8 @@ For more information about creating a trigger for {{ iot-short-name }}, see [{#T
 
 ## Roles required for the proper operation of a trigger for {{ iot-short-name }} {#roles}
 
-* To create a trigger, you need a permission for the service account under which the trigger executes the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [{{ roles-editor }}](../../../iam/roles-reference.md#editor) roles or higher.
-* To activate a trigger, the service account needs the `api-gateway.websocketBroadcaster` role for the folder containing the API gateway.
+* To create a trigger, you need a permission for the service account under which the trigger runs the operation. This permission comes with the [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user) and [{{ roles-editor }}](../../../iam/roles-reference.md#editor) roles or higher.
+* For the trigger to fire, the service account needs the `api-gateway.websocketBroadcaster` role for the folder containing the API gateway.
 
 Read more about [access management](../../security/index.md).
 
@@ -29,7 +29,7 @@ Before sending a message copy to WebSocket connections, the trigger converts it 
 
 {% include [iot-format](../../../_includes/functions/iot-format-broker.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Trigger for {{ iot-name }} that sends messages to a {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/iot-core-trigger.md)
 * [Trigger for {{ iot-name }} that sends messages to a {{ sf-name }} function](../../../functions/concepts/trigger/iot-core-trigger.md)

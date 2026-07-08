@@ -2,7 +2,7 @@
 
 # Cloud Backup API, REST: Policy.Apply
 
-Apply policy to [Compute Cloud instance](../../../concepts/vm-connection.md#os).
+Apply policy to [Compute Cloud instance](../../../concepts/vm-connection/index.md#os).
 
 ## HTTP request
 

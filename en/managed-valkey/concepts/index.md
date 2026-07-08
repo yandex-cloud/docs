@@ -21,7 +21,7 @@ description: '{{ VLK }} is a high-performance in-memory DBMS for storing key-val
 
 The main entity in {{ mrd-name }} is a _database cluster_.
 
-Each cluster consists of one or multiple _database hosts_, which are virtual machines with deployed DBMS servers. Cluster hosts may reside in different availability zones and even different availability regions. You can learn more about the {{ yandex-cloud }} availability zones in [Platform overview](../../overview/concepts/geo-scope.md).
+Each cluster consists of one or multiple _database hosts_, which are virtual machines with deployed DBMS servers. Cluster hosts may reside in different availability zones and even different availability regions. You can learn more about {{ yandex-cloud }} geography in the [Platform overview](../../overview/concepts/geo-scope.md) section.
 
 [The high availability of a {{ mrd-name }} cluster](high-availability.md) depends on the number and placement of its hosts, replication settings, and other cluster parameters.
 
@@ -39,7 +39,7 @@ The amount of memory allocated to a host also depends on the `maxmemory` configu
 {% endnote %}
 
 
-You can access a cluster created in a folder from any VM in the same cloud network. For more information about networking, see [this {{ vpc-name }} guide](../../vpc/).
+You can access a cluster created in a folder from any VM in the same cloud network. For more information about how the network works, see [this {{ vpc-name }} guide](../../vpc/).
 
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}

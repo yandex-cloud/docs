@@ -162,7 +162,7 @@ A [local registry](../../concepts/registry.md#local-registry) contains packages 
 
     {% endlist %}
 
-Example:
+Here is an example:
 
 ```bash
 pip install <package_name> \
@@ -207,7 +207,7 @@ A [remote registry](../../concepts/registry.md#remote-registry) acts as a proxy 
 
     {% endlist %}
 
-Example:
+Here is an example:
 
 ```bash
 pip install pytest==9.0.1 \
@@ -254,7 +254,7 @@ A [virtual registry](../../concepts/registry.md#virtual-registry) combines sever
 
     {% endlist %}
 
-Example:
+Here is an example:
 
 ```bash
 pip install <package_name> \
@@ -277,7 +277,7 @@ Where:
 * `--index-url`: Primary package source (your registry).
 * `--extra-index-url`: Additional source for dependencies (public PyPI).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](installation.md)
 * [{#T}](push.md)

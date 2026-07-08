@@ -97,7 +97,7 @@
 - Консоль управления {#console}
 
     1. В консоли управления перейдите в ранее созданный каталог.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+    1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
     1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     1. Нажмите кнопку **Создать кластер**.
     1. Введите имя кластера. Оно должно быть уникальным в рамках каталога.

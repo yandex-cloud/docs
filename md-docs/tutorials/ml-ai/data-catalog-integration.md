@@ -105,15 +105,15 @@
     1. Задайте имя источника `test-sales-source`.
     1. Выберите тип бэкенда, из которого будут поставляться метаданные для анализа. После создания источника нельзя будет изменить тип базы данных. Доступные бэкенды:
 
-       * PostgreSQL;
-       * MySQL®;
-       * ClickHouse®;
-       * Yandex StoreDoc/MongoDB;
-       * OpenSearch;
-       * Greenplum®;
-       * Yandex Data Transfer;
-       * WebSQL;
-       * DataLens.
+       * PostgreSQL
+       * MySQL®
+       * ClickHouse®
+       * Yandex StoreDoc/MongoDB
+       * OpenSearch
+       * Greenplum®
+       * Yandex Data Transfer
+       * WebSQL
+       * DataLens
 
     1. Укажите параметры источника для выбранного типа базы данных:
 

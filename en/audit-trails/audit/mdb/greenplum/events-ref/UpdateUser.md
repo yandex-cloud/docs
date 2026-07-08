@@ -281,8 +281,8 @@ A list of messages that carry the error details. ||
 The string length in characters must be 1-63. Value must match the regular expression ` ^[a-zA-Z_][a-zA-Z0-9_]{0,62}$ `. ||
 || password | **string**
 
-The string length in characters must be 6-200. ||
+The maximum string length in characters is 128. ||
 || resourceGroup | **string**
 
-Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
+Value must match the regular expression ``` ^([^\|/*?.,;'<>]+|)$ ```. ||
 |#

@@ -1,11 +1,11 @@
-* `diskSizeAutoscaling`: Storage autoscaling setting:
-  * `plannedUsageThreshold`: Storage usage percentage threshold triggering a storage expansion during the next maintenance window. This is an optional setting. The default value is `0` (autoscale disabled).
+* `diskSizeAutoscaling`: Automatic storage expansion settings:
+  * `plannedUsageThreshold`: Storage utilization threshold to trigger a storage expansion during the next maintenance window, in percent. This is an optional setting. The default value is `0`, i.e., automatic expansion is disabled.
            
-    Values for this setting can range from `0` to `100`.
+    The valid values range from `0` to `100`.
 
-  * `emergencyUsageThreshold`: Storage usage percentage threshold triggering an immediate storage expansion. This is an optional setting. The default value is `0` (autoscale disabled).
+  * `emergencyUsageThreshold`: Storage utilization threshold to trigger an immediate expansion, in percent. This is an optional setting. The default value is `0`, i.e., automatic expansion is disabled.
            
-    Values for this setting can range from `0` to `100`. 
+    The valid values range from `0` to `100`. 
 
   * `diskSizeLimit`: Maximum storage capacity after expansion, in bytes. 
 
@@ -13,8 +13,8 @@
   
   * When using the `plannedUsageThreshold` setting, make sure to specify `maintenanceWindow`.
         
-  * If you specify both thresholds, make sure `emergencyUsageThreshold` is greater than or equal to `plannedUsageThreshold`.
+  * If you specify both thresholds, `emergencyUsageThreshold` must not be less than `plannedUsageThreshold`.
 
   {% endnote %}
 
-    For more information about storage scaling rules, see [this section](../../../managed-postgresql/concepts/storage.md#auto-rescale). 
+    Learn more about the storage expansion criteria [here](../../../managed-postgresql/concepts/storage.md#auto-rescale).

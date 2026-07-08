@@ -44,7 +44,7 @@ description: You can delete a {{ VLK }} user in {{ mrd-name }}.
 
   1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. Delete the `yandex_mdb_redis_user` resource with the target user’s description.
 
@@ -52,7 +52,7 @@ description: You can delete a {{ VLK }} user in {{ mrd-name }}.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

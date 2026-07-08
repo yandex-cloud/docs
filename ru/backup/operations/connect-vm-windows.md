@@ -1,11 +1,11 @@
 ---
-title: Как подключить виртуальную машину на Windows Server к {{ backup-full-name }}
-description: Следуя данной инструкции, вы сможете подключить виртуальную машину на Windows Server к {{ backup-name }}.
+title: Как подключить виртуальную машину {{ compute-full-name }} на Windows Server к {{ backup-full-name }}
+description: Следуя данной инструкции, вы сможете подключить виртуальную машину {{ compute-full-name }} на Windows Server к {{ backup-name }}.
 ---
 
 # Подключить существующую виртуальную машину на Windows Server к {{ backup-name }}
 
-Вы можете создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) {{ compute-name }} c [поддерживаемыми операционными системами на базе Windows](../concepts/vm-connection.md#windows).
+Вы можете создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) {{ compute-full-name }} с [поддерживаемыми операционными системами на базе Windows](../concepts/vm-connection/compute.md#windows).
 
 {% include [requirements](../../_includes/backup/requirements.md) %}
 

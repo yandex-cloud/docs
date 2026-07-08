@@ -30,7 +30,7 @@ To configure an error transition rule for a workflow integration step, do the fo
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../workflow/create-constructor.md)
 * [{#T}](../workflow/update.md)

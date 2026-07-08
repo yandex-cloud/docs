@@ -11,6 +11,6 @@ To [create a Telegram bot](index.md) using Serverless in the {{ yandex-cloud }} 
 {% include [telegram-bot-serverless-console](../../../_tutorials/serverless/telegram-bot-serverless/telegram-bot-serverless-console.md) %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](terraform.md)

@@ -7,7 +7,7 @@ description: Follow this guide to create a remote registry in {{ cloud-registry-
 
 {% note info %}
 
-You can create a remote registry in any format except binary.
+A remote registry can be created in any format except binary.
 
 {% endnote %}
 
@@ -23,7 +23,7 @@ You can create a remote registry in any format except binary.
     1. In the **Registry type** field, select `Remote`.
     1. Select the source type:
 
-        * `Public`: Public source
+        * `Public`: Public source.
 
             Registry format | Public source addresses
             --- | ---
@@ -36,7 +36,7 @@ You can create a remote registry in any format except binary.
 
             {% note info %}
 
-            The `Axiom` public source is available on request. To get access to `Axiom`, [create]({{ link-console-support }}/tickets/create) a request to support.
+            You can get access to the `Axiom` public source on request. To activate access to `Axiom`, [create]({{ link-console-support }}/tickets/create) a request to support.
 
             {% endnote %}
 
@@ -49,7 +49,7 @@ You can create a remote registry in any format except binary.
 
         {% note info %}
 
-        Authorization is is supported for custom sources and the `Docker Hub` public source. `Docker Hub` only supports the `Basic` authorization type.
+        Authorization is available for custom sources and the `Docker Hub` public source. For `Docker Hub`, only the `Basic` authorization type is available.
 
         {% endnote %}
 
@@ -59,12 +59,12 @@ You can create a remote registry in any format except binary.
 
         * `Bearer`: Authorization by Bearer token.
 
-    1. If you selected `Basic` or `Bearer` authorization:
+    1. If `Basic` or `Bearer` is your selected authorization type:
 
-        1. [Create](../../../lockbox/operations/secret-create.md) a {{ lockbox-full-name }} secret. Under **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}**, specify `value`. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, specify the following:
+        1. [Create](../../../lockbox/operations/secret-create.md) a {{ lockbox-full-name }} secret. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify `value`. In **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}**, specify as follows:
 
-            * Password, if using `Basic` authorization.
-            * Bearer token, if using `Bearer` authorization.
+            * Password, for the `Basic` authorization type.
+            * Bearer token, for the `Bearer` authorization type.
 
         1. Grant access to the contents of the secret to the {{ cloud-registry-name }} [service agent](../../../iam/concepts/service-control.md#service-agent) by assigning it the `lockbox.payloadViewer` [role](../../../lockbox/security/index.md#lockbox-payloadViewer) for this secret.
 
@@ -78,7 +78,7 @@ You can create a remote registry in any format except binary.
               --cloud-id <cloud_ID>
             ```
 
-        1. In the registry settings, specify the username (if using `Basic` authorization) and the ID of the {{ lockbox-full-name }} secret you created.
+        1. In the registry settings, specify the username (if the authorization type is `Basic`) and the ID of the {{ lockbox-full-name }} secret you created.
 
     1. Enter a name and description for the registry.
     1. Add labels in `key: value` format.
@@ -102,9 +102,9 @@ You can create a remote registry in any format except binary.
     * `--description`: Registry description.
     * `--registry-kind`: Registry format. Available formats: `maven`, `npm`, `docker`, `nuget`, and `pypi`.
     * `--registry-type`: Registry [type](../../concepts/registry.md#registry-types).
-    * `--properties`: Registry properties. Provide them as a string in `name1=value1,name2=value2` format. The available properties for remote registries are as follows:
+    * `--properties`: Registry properties. Provide them as a string in `name1=value1,name2=value2` format. Available properties for remote registries are as follows:
 
-        * `source`: Source registry. You can specify a public source or a [custom](../../concepts/registry.md#custom-registry) one. Available public sources:
+        * `source`: Source registry. You can specify a public source or a [custom](../../concepts/registry.md#custom-registry) one. Available public sources are as follows:
 
             Registry format | Public source addresses
             --- | ---
@@ -116,7 +116,7 @@ You can create a remote registry in any format except binary.
 
             {% note info %}
 
-            The `@axiom` public source is available on request. To get access to `@axiom`, [create]({{ link-console-support }}/tickets/create) a request to support.
+            You can get access to the `@axiom` public source on request. To activate access to `@axiom`, [create]({{ link-console-support }}/tickets/create) a request to support.
 
             {% endnote %}
 
@@ -124,20 +124,20 @@ You can create a remote registry in any format except binary.
 
             {% note info %}
 
-            Authorization is supported for custom sources and the `@docker-hub` public source. `@docker-hub` only supports the `basic` authorization type.
+            Authorization is available for custom sources and the `@docker-hub` public source. For `@docker-hub`, only the `basic` authorization type is available.
 
             {% endnote %}
 
-            If you selected `basic` or `bearer` `authorizationType`:
+            If `basic` or `bearer` is your specified `authorizationType`:
 
-            1. [Create](../../../lockbox/operations/secret-create.md) a {{ lockbox-full-name }} secret. Set the `key` parameter to `value` and define the key value as follows:
+            1. [Create](../../../lockbox/operations/secret-create.md) a {{ lockbox-full-name }} secret. Set the `key` parameter to `value`; set the key value as follows:
 
-                * Enter the password if `authorizationType` is set to `basic`.
-                * Specify the bearer token if `authorizationType` is set to `bearer`.
+                * Password, where `authorizationType` set to `basic`.
+                * Bearer token, where `authorizationType` set to `bearer`.
 
             1. Grant access to the contents of the secret to the {{ cloud-registry-name }} [service agent](../../../iam/concepts/service-control.md#service-agent) by assigning it the `lockbox.payloadViewer` [role](../../../lockbox/security/index.md#lockbox-payloadViewer) for this secret.
 
-                Run the command below, specifying the ID of the {{ lockbox-full-name }} secret containing the password or bearer token and the [ID of the cloud](../../../organization/operations/organization-get-id.md) you are creating the registry in:
+                Run the command while specifying the ID of the {{ lockbox-full-name }} secret containing the password or Bearer token and the [ID of the cloud](../../../organization/operations/organization-get-id.md) you are creating the registry in:
 
                 ```bash
                 yc lockbox secret add-access-binding \
@@ -147,7 +147,7 @@ You can create a remote registry in any format except binary.
                   --cloud-id <cloud_ID>
                 ```
 
-        * `authorizationSecretId`: ID of the user secret that stores the password or bearer token. It is required if `authorizationType` is set to `basic` or `bearer`.
+        * `authorizationSecretId`: ID of the user secret that stores the password or Bearer token. It is required where `authorizationType` is set to `basic` or `bearer`.
         * `authorizationUsername`: Username. It is required if `authorizationType` is `basic`.
 
     Result:

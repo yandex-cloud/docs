@@ -92,7 +92,7 @@ Your changes will apply within five minutes.
           id                 = "<container_ID>"
           service_account_id = "<service_account_ID>"
           retry_attempts     = <number_of_retry_attempts>
-          retry_interval     = <interval_between_retry_attempts>
+          retry_interval     = <time_between_retry_attempts>
         }
         dlq {
           queue_id           = "<dead-letter_queue_ID>"
@@ -103,7 +103,7 @@ Your changes will apply within five minutes.
 
       Where:
 
-      * `name`: Timer name. Follow these naming requirements:
+      * `name`: Timer name. The name format is as follows:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
@@ -119,7 +119,7 @@ Your changes will apply within five minutes.
 
       {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-      For more information about `function_trigger` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
+      For more on the properties of the `function_trigger` resource, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 

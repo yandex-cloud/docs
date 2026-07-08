@@ -15,7 +15,7 @@ If you no longer need the resources you created, [delete](#clear-out) them.
 
 ### Required paid resources {#paid-resources}
 
-The cost of the resources includes the fee for the number of API gateway requests and outbound traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
+The cost of resources includes the fee for the number of API gateway requests and outgoing traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
 
 ## Create an API gateway {#create}
 

@@ -1,4 +1,4 @@
-Example API gateway description in the {{ TF }} configuration:
+Example of an API gateway description in the {{ TF }} configuration:
 
 ```hcl
 resource "yandex_api_gateway" "test-api-gateway" {
@@ -27,4 +27,4 @@ resource "yandex_api_gateway" "test-api-gateway" {
 }
 ```
 
-For more information about the `yandex_api_gateway` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/api_gateway).
+For more on the properties of the `yandex_api_gateway` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).

@@ -9,8 +9,6 @@ keywords:
 
 # Deleting a {{ SPQR }} cluster
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 You can delete an {{ SPQR }} cluster if you no longer need it.
 
 ## Deleting a cluster {#delete}

@@ -4,7 +4,7 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
 
 {% include [trigger-before-you-begin](trigger-before-you-begin.md) %}
 
-* [Registry](../../container-registry/concepts/registry.md) whose Docker image [events](../../functions/concepts/trigger/cr-trigger.md#event) will set off the trigger. If you do not have a registry, [create one](../../container-registry/operations/registry/registry-create.md).
+* [Registry](../../container-registry/concepts/registry.md) whose Docker image [events](../../functions/concepts/trigger/cr-trigger.md#event) will fire the trigger. If you do not have a registry, [create one](../../container-registry/operations/registry/registry-create.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -170,7 +170,7 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
 
       {% include [tf-dlq-params](../serverless-containers/tf-dlq-params.md) %}
 
-      For more information about `yandex_function_trigger` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
+      For more on the properties of the `yandex_function_trigger` resource, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 
@@ -192,7 +192,7 @@ Create a [trigger for {{ container-registry-name }}](../../functions/concepts/tr
 
 {% include [check-result](check-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../serverless-containers/operations/cr-trigger-create.md)
 * [{#T}](../../api-gateway/operations/trigger/cr-trigger-create.md)

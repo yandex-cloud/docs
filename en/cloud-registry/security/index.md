@@ -9,12 +9,12 @@ description: Access management in {{ cloud-registry-full-name }}, a secure stora
 
 In this section, you will learn about:
 
-* [What resources you can assign a role for](#resources).
-* [What roles exist in this service](#roles-list).
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user should have the `cloud-registry.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you need the `cloud-registry.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -68,6 +68,6 @@ In {{ cloud-registry-name }}, you can manage access using both service and primi
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 [Hierarchy of {{ yandex-cloud }} resources](../../resource-manager/concepts/resources-hierarchy.md)

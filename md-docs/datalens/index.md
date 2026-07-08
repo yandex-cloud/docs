@@ -1168,7 +1168,9 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
 ## История изменений
 
- - [Май 2026](release-notes/index.md)
+ - [Июнь 2026](release-notes/index.md)
+
+ - [Май 2026](release-notes/2605.md)
 
  - [Апрель 2026](release-notes/2604.md)
 
@@ -1178,9 +1180,9 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [Январь 2026](release-notes/2601.md)
 
- - [Декабрь 2025](release-notes/2512.md)
-
 ### Архив
+
+ - [Декабрь 2025](release-notes/2512.md)
 
  - [Ноябрь 2025](release-notes/2511.md)
 

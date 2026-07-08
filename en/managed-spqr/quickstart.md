@@ -12,8 +12,6 @@ keywords:
 
 # Getting started with {{ mspqr-name }}
 
-{% include [preview](../_includes/note-service-preview.md) %}
-
 With {{ mspqr-name }}, you can create and maintain sharded {{ PG }} ([SPQR](https://pg-sharding.tech/welcome)) clusters in the {{ yandex-cloud }} infrastructure. {{ SPQR }} uses a {{ PG }} protocol, enabling you to configure sharding rules and run database queries using the `psql` client. Sharding rules are configured through the admin console (SPQR router admin console). When connecting to the administrator console, put `spqr-console` for user name and `spqr-console` for database name.
 
 To get started:

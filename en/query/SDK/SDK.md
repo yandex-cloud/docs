@@ -21,7 +21,7 @@ All examples below use the Python SDK. SDKs for other languages work similarly, 
 
 ## Authentication {#auth}
 
-{{ yq-full-name }} is a fully managed service that uses [{{ iam-short-name }} authentication mechanisms](../../iam/concepts/authorization/index.md).
+{{ yq-full-name }} is a fully managed service that uses [{{ iam-short-name }} authentication mechanisms](../../iam/concepts/authorization/index.md#authentication).
 
 You can authenticate using:
 * [Authorized keys](../../iam/concepts/authorization/key.md)

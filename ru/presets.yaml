@@ -1160,6 +1160,11 @@ default:
         1-month: dn2paaexhgf2bviickkp
         12-month: dn2oqzoduucamz4ny6ir
         6-month: dn2bhhmb5x7nnrdhair7
+      bms-cpu-a9274f:
+        1-month: dn2vt664tba3iblf6bu2
+        12-month: dn2oc7waiwmkghi5azan
+        3-month: dn2hplv446j7rgfoxour
+        6-month: dn22sp4giatug3acvlsw
       bms-cpu-ie5-2650v2:
         1-month: dn2v7dn7jxq3h4tchgff
         12-month: dn25yqzqiq7qp7hz4v5r
@@ -4583,6 +4588,10 @@ default:
             scannable_jWMD6: Доступные для сканирования
             searchResource_cGkdQ: Поиск по имени ресурса
           button_file_filter_jXXxv: Фильтр по файлам
+          CustomDictionariesAlert:
+            custom_dictionaries_action_no_r9PVm: Нет
+            custom_dictionaries_action_yes_iuL9X: Да, подключить
+            custom_dictionaries_title_mw3fv: Подключение пользовательских словарей
           data-sources:
             bXXxQ: Выбранные ресурсы
           dataSourceTypes:
@@ -5173,11 +5182,16 @@ default:
         action_start_backup: Создать резервную копию
         button_action-activate: Активировать
         button_attach-instance: Привязать ресурс
+        button_connect-external-resource: Подключить внешний ресурс
         button_create-policy: Создать политику
         column_baremetal-instance-status: Статус сервера
         context_current-bms: текущий
         context_current-vm: текущая
+        dialog_connect-external-resource_title: Подключение внешнего ресурса
+        field_connect-external-resource_policies: Политики резервного копирования
+        field_connect-external-resource_resource-type: Тип ресурса
         field_delete-old-vm: Удалить неактуальную ВМ
+        field_recover-to-resource: Целевой ресурс
         field_vm-instances: Cloud Backup
         files-recovery:
           value_location-custom: Пользовательское
@@ -5187,6 +5201,9 @@ default:
           value_overwrite-older: Перезаписать только существующие файлы
         label_backups: Резервные копии
         label_baremetal-instances: Серверы BareMetal
+        label_connected-resources: Подключённые ресурсы
+        label_external-server-instances: Внешние серверы
+        label_external-vm-instances: Внешние виртуальные машины
         label_instances: Виртуальные машины
         label_navigate-to-journal-action: Открыть журнал резервирования
         label_policies: Политики копирования
@@ -5243,9 +5260,13 @@ default:
             field_post-data-command-enabled_rXvwj: Выполнение команды после захвата данных
             field_pre-data-command-enabled_sZ45C: Выполнение команды до захвата данных
             field_pre-post-data-command_mmRTZ: Команды до и после захвата данных
+        section_connect-external-resource_command: Команда для установки агента Cloud Backup
         title_linked-recourses: Привязанные ресурсы
+        title_recovery-dialog_external: Восстановление из резервной копии
         title_select-vm-backup-policies-row: Политики резервного копирования
         value_bms-recourses: Серверы BareMetal
+        value_external-server: Внешний сервер
+        value_external-vm: Внешняя виртуальная машина
         value_vm-recourses: Виртуальные машины
       baremetal:
         action_add-to-raid: Добавить в RAID
@@ -5925,8 +5946,13 @@ default:
         components:
           AttachInstanceToPoolDialog:
             button_attach_pHLyg: Привязать
+          BackupMethodField:
+            cloudBackup_title_aB1c2: Cloud Backup
           BackupSection:
             section_backup_1MXwy: Резервное копирование
+          CloudBackupFooter:
+            button_create-policy_cBf1a: Создать политику
+            placeholder_select-policy_cBf3c: Выберите политику
           InstanceActions:
             button_attach-to-pool_ak57z: Привязать к пулу резервов ВМ
             button_confirm-detach-vm-from-pool_8dze2: Отвязать
@@ -7722,6 +7748,9 @@ default:
           action_stepdown-host: Сменить мастер
         switch_list: Кластеры
         switch_operations: Операции
+        UserAddDialog:
+          label_iam_ffBD5: IAM
+          label_password_2MQCs: Пароль
       monitoring:
         button_open-in-monitoring: Открыть в Monium
       mysql:
@@ -9150,15 +9179,36 @@ default:
                         title: Бакет
                       service_account_id:
                         title: Сервисный аккаунт
+                    IcebergParquetRowGroup:
+                      row_group_max_bytes:
+                        title: Максимум байт в группе
+                      row_group_max_rows:
+                        title: Максимум строк в группе
+                    IcebergReplicationSettings:
+                      commit_interval:
+                        title: Интервал коммитов
                     IcebergTarget:
                       cleanup_policy:
                         title: Политика очистки
+                      default_namespace:
+                        title: Пространство имён по умолчанию
                       mdb_cluster_id:
                         title: Кластер Apache Hive™ Metastore
                       prefix:
                         title: Префикс пути
+                      replication_settings:
+                        title: Параметры репликации
                       security_group_ids:
                         title: Группы безопасности
+                      writer_settings:
+                        title: Параметры записи
+                    IcebergWriterSettings:
+                      max_bytes_per_file:
+                        title: Максимум байт в файле
+                      max_rows_per_file:
+                        title: Максимум строк в файле
+                      parquet:
+                        title: Параметры Parquet
             kafka:
               console:
                 form:

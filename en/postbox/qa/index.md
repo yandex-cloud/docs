@@ -16,3 +16,9 @@ Yes, you can specify your {{ yandex-360 }} organization's domain in the address 
 #### Are there any {{ yandex-360 }} or {{ postbox-name }} quotas and limits when using a {{ yandex-360 }} domain? {#domain-yandex-360-limits}
 
 {{ postbox-name }} quotas and limits apply when using any domains. For more information, see [{#T}](../concepts/limits.md).
+
+#### Is it required to create an SPF record? {#spf-required}
+
+No, creating an SPF record on your custom domain is not required. Each email sent via {{ postbox-name }} is signed with two DKIM signatures: one from `postbox.yandexcloud.net`, our technical domain (with its SPF record preconfigured), and a second from your custom domain. In most cases, such authentication is sufficient for successful email delivery.
+
+However, if the recipient has strict incoming mail screening policies, you may need to add an SPF record to your custom domain as well. For information about how to do this, see [{#T}](../concepts/dns-records.md#spf).

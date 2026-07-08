@@ -29,7 +29,7 @@ Each execution branch within the While step (including all [Switch](./switch.md)
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/management/while.md)
 * [{#T}](../workflow/create-constructor.md)

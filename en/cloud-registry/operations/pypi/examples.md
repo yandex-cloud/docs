@@ -216,7 +216,7 @@ All installed packages are cached in the registry. On next installation they wil
       --no-cache
     ```
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](create.md)
 * [{#T}](push.md)

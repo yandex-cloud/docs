@@ -107,7 +107,7 @@ To mount buckets to a function:
 
           To mount several buckets to a function at the same time, specify `mounts` as many times as you need.
 
-      For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+      For more on the properties of the `yandex_function` resource, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
   1. Apply the changes:
 
@@ -125,7 +125,7 @@ To mount buckets to a function:
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../concepts/mounting.md)
 * [{#T}](../../../serverless-containers/concepts/mounting.md)

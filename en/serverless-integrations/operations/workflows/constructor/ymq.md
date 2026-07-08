@@ -26,7 +26,7 @@ description: Follow this guide to add sending messages to a {{ message-queue-ful
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [YaWL specification](../../../concepts/workflows/yawl/integration/ymq.md)
 * [{#T}](../workflow/create-constructor.md)

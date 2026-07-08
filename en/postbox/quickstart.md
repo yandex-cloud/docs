@@ -59,7 +59,7 @@ You can send a test email using the [AWS CLI](#aws-cli-send) or from your email 
 
 {% include [smtp-send-api](../_includes/postbox/smtp-send-api.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](concepts/notification.md)
 * [{#T}](operations/send-email.md)

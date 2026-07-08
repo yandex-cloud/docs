@@ -27,7 +27,7 @@ For more information on the {{ mrd-name }} cluster structure, see [Resource rela
 ## Creating a cluster {#create-cluster}
 
 
-To create a {{ mrd-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mrd.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
+To create a {{ mrd-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mrd.editor }} role or higher](../security/index.md#roles-list). To learn how to assign a role, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
 
 
 {% note info %}
@@ -164,13 +164,13 @@ There are no restrictions for non-sharded clusters.
   To create a {{ mrd-name }} cluster:
 
   
-  1. Verify that your folder has subnets for cluster host placement:
+  1. Check whether the folder has any subnets for cluster hosts:
 
      ```bash
      yc vpc subnet list
      ```
 
-     If your folder contains no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+     If there are no subnets in the folder, [create the right ones](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
   1. View the description of the CLI command for creating a cluster:
@@ -250,7 +250,7 @@ There are no restrictions for non-sharded clusters.
         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
       
-      * `--disk-encryption-key-id`: Disk encryption with a [custom KMS key](../../kms/concepts/key.md).
+      * `--disk-encryption-key-id`: Disk encryption using a [custom KMS key](../../kms/concepts/key.md).
 
         To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
@@ -429,7 +429,7 @@ There are no restrictions for non-sharded clusters.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    This will create all the resources you need in the specified folder, and the terminal will display the [FQDNs of the cluster hosts](../concepts/network.md#hostname). You can check the new resources and their settings in the [management console]({{ link-console-main }}).
+    This will create all the resources you need in the specified folder, and the terminal will display the [FQDNs of the cluster hosts](../concepts/network.md#hostname). You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mrd }}).
 
@@ -603,7 +603,7 @@ There are no restrictions for non-sharded clusters.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1220,4 +1220,3 @@ To create a {{ VLK }} cluster copy:
     ```
 
 {% endlist %}
-

@@ -72,9 +72,9 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
   
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of configurable fields of {{ mpg-name }} cluster user accounts, refer to the [{{ TF }} provider guides]({{ tf-provider-resources-link }}/mdb_postgresql_user).
+        For the complete list of {{ mpg-name }} cluster user configuration fields, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_user).
 
     1. Locate the `yandex_mdb_postgresql_user` resource for the user in question.
     1. Add the `grants` attribute with the list of required roles:
@@ -259,7 +259,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
     1. Open the {{ TF }} configuration file describing your infrastructure.
   
-        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Add the `postgresql` provider and configure it to access your target database using its owner’s credentials:
 
@@ -275,7 +275,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
 
         {% include [see-fqdn](../../_includes/mdb/mpg/fqdn-host.md) %}
 
-        For a full list of settings, see [this provider guide](https://registry.terraform.io/providers/cyrilgdn/postgresql/latest/docs).
+        For the full list of settings, see [this provider guide](https://registry.terraform.io/providers/cyrilgdn/postgresql/latest/docs).
 
     1. Add the `postgresql_grant` resource:
 
@@ -298,7 +298,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
         * `database`: Name of the target database for granting privileges.
         * `role`: Name of the user receiving the privileges.
         * `object_type`: Type of {{ PG }} object for which the privileges are granted. Possible values: `database`, `schema`, `table`, `sequence`, `function`, `procedure`, `routine`, `foreign_data_wrapper`, `foreign_server`, `column`.
-        * `privileges`: Array of privileges to grant. The possible values are `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, `REFERENCES`, `TRIGGER`, `CREATE`, `CONNECT`, `TEMPORARY`, `EXECUTE`, and `USAGE`. For privilege descriptions see [this {{ PG }} article](https://www.postgresql.org/docs/current/ddl-priv.html).
+        * `privileges`: Array of privileges to grant. The possible values are `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, `REFERENCES`, `TRIGGER`, `CREATE`, `CONNECT`, `TEMPORARY`, `EXECUTE`, and `USAGE`. For privilege descriptions see [this {{ PG }} guide](https://www.postgresql.org/docs/current/ddl-priv.html).
         * `schema`: Target schema for granting privileges. You cannot use this option with the `database` object type.
         * `objects`: Array of target objects for granting privileges. This is an optional argument. If you omit it, the system will grant privileges on all objects of the specified type. You cannot use this option with `database` and `schema` object types. For the `column` object type, the array of target objects cannot contain more than one item.
         * `columns`: Array of target columns for granting privileges. This argument is required for the `column` object type and cannot be used with any other type.
@@ -314,7 +314,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
   
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -342,7 +342,7 @@ You cannot create custom roles in {{ mpg-name }}. A user’s permissions are det
   
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
   
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

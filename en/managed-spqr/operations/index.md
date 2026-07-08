@@ -8,8 +8,6 @@ keywords:
 
 # Step-by-step guides for {{ mspqr-name }}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 ## Clusters
 
 * [Getting information about existing clusters](cluster-list.md)

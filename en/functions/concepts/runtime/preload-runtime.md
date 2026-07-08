@@ -1,4 +1,4 @@
-# Preloaded runtime environment
+# Preloaded runtime
 
 A _preloaded runtime environment_ is a special environment that enables you to reduce the cold start time of functions and to receive runtime updates automatically.
 
@@ -12,7 +12,7 @@ Preloaded runtime environments are usually those which have the latest major ver
 
 To use preloaded runtime environments as regular ones, [add the following user-defined environment variables](../../operations/function/environment-variables-add.md):
 
-* `X_YCF_NO_RUNTIME_POOL` set to `1`.
+* `X_YCF_NO_RUNTIME_POOL` with the `1` value.
 * `LD_PRELOAD` or `LD_LIBRARY_PATH` when using [dynamic libraries](environment-variables.md#dynamic-library).
 
 ## Initializing a runtime environment {#initialization}

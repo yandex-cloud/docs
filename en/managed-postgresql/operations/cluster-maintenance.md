@@ -286,11 +286,11 @@ When you select a new maintenance window, any scheduled maintenance that does no
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-      For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
+      For the complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
   1. {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 

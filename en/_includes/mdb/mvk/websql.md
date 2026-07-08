@@ -17,8 +17,8 @@ To connect to the database from {{ websql-name }}:
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}** tab.
   1. Select the required connection.
 
-      The connection will open in {{ websql-name }}. To go to the query editor, select the required database.
+      The connection will open in {{ websql-name }}. To open the query editor, select the required database.
     
 {% endlist %}
 
-For more details on working with {{ websql-name }}, see [these guides](../../../websql/operations/index.md).
+For more information on {{ websql-name }}, see [these guides](../../../websql/operations/index.md).

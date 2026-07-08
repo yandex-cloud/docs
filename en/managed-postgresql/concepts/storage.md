@@ -20,7 +20,7 @@ The number of hosts you can create together with a {{ PG }} cluster depends on t
     * Local SSDs (`local-ssd`)
     * Non-replicated SSDs (`network-ssd-nonreplicated`)
 
-    Storage on local SSDs increases your cluster costs: you pay for the cluster even if it is stopped. For more information, see the [pricing policy](../pricing.md).
+    Storage on local SSDs increases your cluster costs: you pay for the cluster even if it is stopped. For more information, see [Pricing policy](../pricing.md).
 
     {% include [local-ssd-steal](../../_includes/mdb/mpg/note-local-ssd-disk.md) %}
 

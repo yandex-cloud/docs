@@ -12,6 +12,6 @@ To create a [link shortener](index.md) using the {{ yandex-cloud }} management c
 
 {% include [serverless-url-shortener](../../../_tutorials/serverless/serverless-url-shortener-console.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](terraform.md)

@@ -75,7 +75,7 @@ description: Follow this guide to add a label to a bus.
       }
       ```
 
-      For more information about `yandex_serverless_eventrouter_bus` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_bus).
+      For more on the properties of the `yandex_serverless_eventrouter_bus` resource, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_bus).
 
   1. Apply the changes:
 

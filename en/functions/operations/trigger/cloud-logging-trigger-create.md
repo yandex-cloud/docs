@@ -178,7 +178,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
      {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-     For more information about `yandex_function_trigger` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
+     For more on the properties of the `yandex_function_trigger` resource, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 
@@ -200,7 +200,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
 {% include [check-result](../../../_includes/functions/check-result.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../../serverless-containers/operations/cloud-logging-trigger-create.md)
 * [{#T}](../../../api-gateway/operations/trigger/cloud-logging-trigger-create.md)

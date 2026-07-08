@@ -9,8 +9,6 @@ keywords:
 
 # Managing {{ SPQR }} shards
 
-{% include [preview](../../_includes/note-service-preview.md) %}
-
 ## Creating a shard {#create-shard}
 
 {{ SPQR }} shards are based on existing {{ mpg-full-name }} clusters residing in the same folder and cloud network as the {{ SPQR }} cluster.

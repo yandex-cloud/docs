@@ -47,6 +47,51 @@ Notification example:
 }
 ```
 
+### Email rendering error notification {#rendering-failure}
+
+It appears if {{ postbox-name }} accepted the email for processing, but there was an error rendering the template.
+
+Notification example:
+
+```json
+{
+    "eventType": "Rendering Failure",
+    "mail": {
+        "timestamp": "2024-04-25T18:05:04.84108+03:00",
+        "messageId": "vgAyRUls8591ybPKeH-Ov",
+        "identityId": "nWh0ZpVEgnKO1bghxydXn",
+        "commonHeaders": {
+            "from":[ "User <user@example.com>" ],
+            "date":"Thu, 27 Jun 2024 14:05:45 +0000",
+            "to":[ "Recipient Name <recipient@example.com>" ],
+            "messageId":"vgAyRUls8591ybPKeH-Ov",
+            "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+               "123.123.123.123"
+            ],
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
+        }
+    },
+    "failure": {
+        "errorMessage": "template variable not_var{{name}} is missing"
+    },
+    "eventId": "vgAyRUls8591ybPKeH-Ov:0"
+}
+```
+
 ### Email delivered notification {#delivery}
 
 Comes when the email was sent and the recipient's email client has confirmed acceptance.
@@ -421,20 +466,23 @@ The notification is written to the {{ yds-full-name }} [data stream](../../data-
 
 ### Main object {#main-object}
 
-Field | Type | Description
+Name | Type | Description
 --- | --- | ---
-`eventType` | String | [Notification type](#types). The possible values are `Bounce`, `Click`, `Complaint`, `Delivery`, `DeliveryDelay`, `Open`, `Rendering Failure`, `Send`, or `Subscription`.
+`eventType` | String | [Notification type](#types). The possible values are `Bounce`, `Click`, `Complaint`, `Delivery`, `DeliveryDelay`, `Open`, `Rendering Failure`, `Send`, and `Subscription`.
 `mail` | [Mail](#mail-object) object | Object containing general information about the sent email.
 `bounce` | [Bounce](#bounce-object) object | Object containing information that the email has not been delivered. Required if the `eventType` is `Bounce`; otherwise, not present.
 `delivery` | [Delivery](#delivery-object) object | Object containing information about the email being delivered to an individual recipient. Required if the `eventType` is `Delivery`; otherwise, not present.
 `complaint` | [Complaint](#complaint-object) object | Object containing information about the recipient's complaint about an email. Required if the `eventType` is `Complaint`; otherwise, not present.
 `subscription` | [Subscription](#subscription-object) object | Object containing information that the recipient has unsubscribed from the mailing list. Required if the `eventType` is `Subscription`; otherwise, not present.
+`deliveryDelay` | [DeliveryDelay](#delivery-delay-object) object | Object containing information about the email delivery delay. Required if the `eventType` is `DeliveryDelay`; otherwise, not present.
 `open` | [Open](#open-object) object | Object containing information that the email has been opened. Required if the `eventType` is `Open`; otherwise, not present.
+`click` | [Click](#click-object) object | Object containing information about following a clickable link in the email. Required if the `eventType` is `Click`; otherwise, not present.
+`failure` | [Failure](#failure-object) object | Object containing information about the email rendering error. Required if the `eventType` is `Rendering Failure`; otherwise, not present.
 `eventId` | String | Unique ID of the event.
 
 ### Mail object {#mail-object}
 
-Field | Type | Description
+Name | Type | Description
 --- | --- | ---
 `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time the email was accepted by {{ postbox-name }}.
 `messageId` | String | Unique ID of the email. One email can have multiple recipients. Sent by {{ postbox-name }} when accepting the email for processing.
@@ -444,7 +492,7 @@ Field | Type | Description
 
 ### CommonHeaders object {#common-headers-object}
 
-Field | Type | Description
+Name | Type | Description
 --- | --- | ---
 `from` | Array of strings | Contents of the `From` header, broken down by address.
 `to` | Array of strings | Contents of the `To` header, broken down by address.
@@ -458,7 +506,7 @@ Empty object.
 
 ### Bounce object {#bounce-object}
 
-Field | Type | Description
+Name | Type | Description
 --- | --- | ---
 `bounceType` | String | Error type. The possible values are:<ul><li>`Permenent`: Email not delivered.</li></ul>
 `bounceSubType` | String | Error subtype. The possible values are:<ul><li>`Undetermined`: Unknown error.</li><li>`Suppressed`: Email not delivered because the recipient is on the stop list.</li></ul>
@@ -467,7 +515,7 @@ Field | Type | Description
 
 ### BounceRecipient object {#bounce-recipent-object}
 
-Field | Type | Description
+Name | Type | Description
 --- | --- | ---
 `emailAddress` | String | Recipient's email address.
 `action` | String | This is an optional field. Result of sending. The possible value is `failed`.
@@ -476,7 +524,7 @@ Field | Type | Description
 
 ### Click object {#click-object}
 
-Field | Type | Description
+Name | Type | Description
 --- | --- | ---
 `ipAddress` | String | IP address of the recipient’s device used to open the link.
 `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time when the recipient clicked the link.
@@ -486,7 +534,7 @@ Field | Type | Description
 
 ### Complaint object {#complaint-object}
 
-Field | Type | Description
+Name | Type | Description
 --- | --- | ---
 `complainedRecipients` | [ComplainedRecipient](#complained-recipient-object) object array | Array containing information about the recipients who might have filed the complaint.
 `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time the ISP sent the complaint to {{ postbox-name }}.
@@ -496,13 +544,13 @@ Field | Type | Description
 
 ### ComplainedRecipient object {#complained-recipient-object}
 
-Field | Type | Description
+Name | Type | Description
 --- | --- | ---
 `emailAddress` | String | Email address of the recipient who might have filed the complaint.
 
 ### Delivery object {#delivery-object}
 
-Field | Type | Description
+Name | Type | Description
 --- | --- | ---
 `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time when {{ postbox-name }} sent the email and received a successful response from the recipient's email client.
 `processingTimeMillis` | Integer | Time spent to process the email in milliseconds.
@@ -510,7 +558,7 @@ Field | Type | Description
 
 ### DeliveryDelay object {#delivery-delay-object}
 
-Field | Type | Description
+Name | Type | Description
 --- | --- | ---
 `delayType` | String | Delay type. The possible value is `General`.
 `delayedRecipients` | [DelayedRecipient](#delayed-recipient-object) object array | Array containing information about the email recipient and the related delivery delay.
@@ -518,13 +566,20 @@ Field | Type | Description
 
 ### DelayedRecipient object {#delayed-recipient-object}
 
-Field | Type | Description
+Name | Type | Description
 --- | --- | ---
 `emailAddress` | String | Recipient's email address.
 
+### Failure object {#failure-object}
+
+Name | Type | Description
+--- | --- | ---
+`errorMessage` | String | Rendering error description.
+`templateName` | String | This is an optional field. The name of the template that threw an error when rendered, if sent in the notification.
+
 ### Subscription object {#subscription-object}
 
-Field | Type | Description
+Name | Type | Description
 --- | --- | ---
 `contactList` | String | Name of the contact list associated with the email.
 `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Recipient unsubscribe timestamp.
@@ -532,7 +587,7 @@ Field | Type | Description
 
 ### Open object {#open-object}
 
-Field | Type | Description
+Name | Type | Description
 --- | --- | ---
 `ipAddress` | String | IP address of the recipient’s device used to open the email.
 `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Email opening timestamp.
@@ -544,7 +599,7 @@ When sending an email, {{ postbox-name }} adds the following system tags to it a
 
 Common tags:
 
-Field | Description
+Name | Description
 --- | ---
 `ses:configuration-set` | ID of the [configuration](glossary.md#configuration) used when sending the email.
 `ses:from-domain` | Domain the email was sent from.
@@ -552,7 +607,7 @@ Field | Description
 
 Additional tags included only into [delivery notifications](#delivery):
 
-Field | Description
+Name | Description
 --- | ---
 `ses:outgoing-tls-version` | TLS version used to send the email to the recipient server.
 `ses:outgoing-tls-cipher` | TLS cipher used to send the email to the recipient server.

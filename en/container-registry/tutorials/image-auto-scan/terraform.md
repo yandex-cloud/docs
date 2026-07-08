@@ -12,17 +12,17 @@ You can enable auto [scans](../../concepts/vulnerability-scanner.md) of [Docker 
 
 {% endnote %}
 
-To configure automatic [Docker image](index.md) [scans](../../concepts/vulnerability-scanner.md) for vulnerabilities on push to [{{ container-registry-full-name }}](../../../container-registry/) using {{ TF }}:
+To configure automatic vulnerability [scans](../../concepts/vulnerability-scanner.md) of [Docker images](index.md) on push to [{{ container-registry-full-name }}](../../../container-registry/) using {{ TF }}:
 
-1. [Prepare your cloud](#before-you-begin).
-1. [Prepare the environment](#prepare).
-1. [Create an infrastructure](#deploy).
+1. [Get your cloud ready](#before-you-begin).
+1. [Set up your environment](#prepare).
+1. [Create the infrastructure](#deploy).
 1. [Push the Docker image](#download-image).
 1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-begin}
+## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -30,30 +30,30 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [paid-resources](../../../_tutorials/_tutorials_includes/image-auto-scan/paid-resources.md) %}
 
-## Prepare the environment {#prepare}
+## Set up your environment {#prepare}
 
 1. [Install and configure](../../operations/configure-docker.md) Docker.
 
-## Create an infrastructure {#deploy}
+## Create the infrastructure {#deploy}
 
 {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 To create an infrastructure to automatically scan a Docker image on push using {{ TF }}:
 1. [Install {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) and [get the authentication data](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
 1. Specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
-1. Prepare files with the infrastructure description:
+1. Prepare your infrastructure description files:
 
    {% list tabs group=infrastructure_description %}
 
    - Ready-made configuration {#ready}
 
-     1. Clone the repository with configuration files.
+     1. Clone the repository containing the configuration files.
 
         ```bash
         git clone https://github.com/yandex-cloud-examples/yc-cr-image-scanning
         ```
 
-     1. Go to the directory with the repository. Make sure it contains the following files:
+     1. Navigate to the repository directory. It should now contain the following files:
         * `image-auto-scan.tf`: New infrastructure configuration.
         * `image-auto-scan.auto.tfvars`: User data file.
         * `function.zip`: ZIP archive with the function code.
@@ -61,7 +61,7 @@ To create an infrastructure to automatically scan a Docker image on push using {
    - Manually {#manual}
 
      1. Create a folder for configuration files.
-     1. In the directory, create a configuration file named `image-auto-scan.tf`:
+     1. Create a configuration file named `image-auto-scan.tf` in the folder:
 
         {% cut "image-auto-scan.tf" %}
 
@@ -92,7 +92,7 @@ To create an infrastructure to automatically scan a Docker image on push using {
 
    {% endlist %}
 
-   For more information about the parameters of resources used in {{ TF }}, see the provider documentation:
+   Learn more about the properties of resources in these {{ TF }} provider guides:
    * [Service account](../../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
    * [Assigning access permissions for a folder](../../../iam/concepts/access-control/index.md#access-bindings): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
    * [Registry](../../../container-registry/concepts/registry.md): [yandex_container_registry]({{ tf-provider-resources-link }}/container_registry).
@@ -103,7 +103,7 @@ To create an infrastructure to automatically scan a Docker image on push using {
    * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) to create the infrastructure in.
    * `folder_id`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) to create the infrastructure in.
 
-1. Create resources:
+1. Create the resources:
 
    {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -119,11 +119,11 @@ To create an infrastructure to automatically scan a Docker image on push using {
 
 To stop paying for the resources you created:
 
-1. Open the `image-auto-scan.tf` configuration file and delete the description of the new infrastructure from it.
+1. Open the `image-auto-scan.tf` file and delete your infrastructure description from it.
 1. Apply the changes:
 
     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](console.md)

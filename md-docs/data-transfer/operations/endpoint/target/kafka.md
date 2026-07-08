@@ -33,13 +33,13 @@
 
 Настройте один из поддерживаемых источников данных:
 
-* [PostgreSQL](../source/postgresql.md);
-* [MySQL®](../source/mysql.md);
-* [Apache Kafka®](../source/kafka.md);
-* [Airbyte®](../../../transfer-matrix.md#airbyte);
-* [YDS](../source/data-streams.md);
-* [Managed Service for YDB](../source/ydb.md);
-* [OpenSearch](../source/opensearch.md).
+* [PostgreSQL](../source/postgresql.md)
+* [MySQL®](../source/mysql.md)
+* [Apache Kafka®](../source/kafka.md)
+* [Airbyte®](../../../transfer-matrix.md#airbyte)
+* [YDS](../source/data-streams.md)
+* [Managed Service for YDB](../source/ydb.md)
+* [OpenSearch](../source/opensearch.md)
 
 Полный список поддерживаемых источников и приемников в Yandex Data Transfer читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

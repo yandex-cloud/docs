@@ -131,5 +131,6 @@ description: '{{ objstorage-name }} позволяет хранить объек
 #### Полезные ссылки {#see-also}
 
 * [{{ objstorage-full-name }}: как выбрать класс хранилища](https://yandex.cloud/ru/blog/object-storage-class)
+* [Экономим с «Умным хранилищем»: новый класс хранения {{ objstorage-full-name }}](https://yandex.cloud/ru/blog/s3-intelligent-tiering)
 
 

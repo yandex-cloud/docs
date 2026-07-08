@@ -34,8 +34,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost of support for the new infrastructure includes:
 
-* Fee for using the storage, amount of outgoing traffic, and using the {{ container-registry-name }} vulnerability scanner (see the [{{ container-registry-full-name }} pricing](../../container-registry/pricing.md)).
-* Fee for using {{ serverless-containers-name }} (see [{{ serverless-containers-full-name }} pricing](../../serverless-containers/pricing.md)).
+* Fee for storage space, amount of outgoing traffic, and the use of the {{ container-registry-name }} vulnerability scanner (see [{{ container-registry-full-name }} pricing](../../container-registry/pricing.md)).
+* Fee for {{ serverless-containers-name }} (see [{{ serverless-containers-full-name }} pricing](../../serverless-containers/pricing.md)).
 
 ### Set up your environment {#setup-runtime}
 

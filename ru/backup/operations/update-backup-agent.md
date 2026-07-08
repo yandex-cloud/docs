@@ -1,11 +1,11 @@
 ---
-title: Как обновить или восстановить агент {{ backup-full-name }} на виртуальной машине
-description: Следуя данной инструкции, вы сможете обновить агент {{ backup-name }} или восстановить его работоспособность на ВМ.
+title: Как обновить агент {{ backup-full-name }} на ВМ {{ compute-full-name }}
+description: Следуя данной инструкции, вы сможете обновить агент {{ backup-full-name }} на виртуальной машине {{ compute-full-name }}.
 ---
 
-# Обновить или восстановить агент {{ backup-full-name }} на виртуальной машине
+# Обновить агент {{ backup-full-name }} на виртуальной машине {{ compute-full-name }}
 
-В некоторых ситуациях, чтобы обеспечить бесперебойное автоматическое резервное копирование [виртуальных машин](../../compute/concepts/vm.md) {{ compute-full-name }}, может понадобиться обновить [агент {{ backup-name }}](../concepts/agent.md) или восстановить нарушенную работоспособность агента.
+В некоторых ситуациях, чтобы обеспечить бесперебойное автоматическое резервное копирование [виртуальных машин](../../compute/concepts/vm.md) {{ compute-name }}, может потребоваться обновить [агент {{ backup-name }}](../concepts/agent.md) или восстановить его нарушенную работоспособность.
 
 ## Обновление агента {{ backup-name }} {#update-agent}
 
@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-Чтобы обновить агент {{ backup-name }} на ВМ:
+Чтобы обновить агент {{ backup-name }} на ВМ {{ compute-name }}:
 
 {% list tabs group=operating_system %}
 
@@ -69,20 +69,6 @@ description: Следуя данной инструкции, вы сможете
 
 Если по какой-либо причине обновить агент {{ backup-name }} не удалось, [обратитесь]({{ link-console-support }}) в техническую поддержку.
 
-## Восстановление работоспособности агента {{ backup-name }} {#restore-agent}
+#### См. также {#see-also}
 
-{% include [update-kernel-headers-description](../../_includes/backup/operations/update-kernel-headers-description.md) %}
-
-{% list tabs group=operating_system %}
-
-- Debian/Ubuntu {#ubuntu}
-
-  {% include [update-kernel-headers-ubuntu](../../_includes/backup/operations/update-kernel-headers-ubuntu.md) %}
-
-- CentOS {#centos}
-
-  {% include [update-kernel-headers-centos](../../_includes/backup/operations/update-kernel-headers-centos.md) %}
-
-{% endlist %}
-
-Если по какой-либо причине восстановить работу агента {{ backup-name }} не удалось, [обратитесь]({{ link-console-support }}) в техническую поддержку.
+* [{#T}](./backup-baremetal/restore-agent.md)
