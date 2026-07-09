@@ -110,10 +110,10 @@ To restore a VM or {{ baremetal-name }} server from a backup of another VM or {{
 
 {% endnote %}
 
-Following recovery from a backup, the source VM (unless the **{{ ui-key.yacloud.backup.field_delete-old-vm }}** option was enabled in the management console during the backup) or {{ baremetal-name }} server the backup was created from will become obsolete. To be able to create new backups of the source VM or {{ baremetal-name }} server, refresh their connection to {{ backup-name }}. For more information, see [{#T}](../refresh-connection.md) and [{#T}](../backup-baremetal/refresh-connection.md).
+Following recovery from a backup, the source VM (unless the **{{ ui-key.yacloud.backup.field_delete-old-vm }}** option was enabled in the management console during the backup) or {{ baremetal-name }} server the backup was created from will become obsolete. To be able to create new backups of the source VM or {{ baremetal-name }} server, refresh their connection to {{ backup-name }}. For more information, see these guides: [{#T}](../refresh-connection.md) and [{#T}](../backup-baremetal/refresh-connection.md).
 
 {% include [non-native-bms-restore-connectivity-loss](../../../_includes/backup/operations/non-native-bms-restore-connectivity-loss.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](delete.md)

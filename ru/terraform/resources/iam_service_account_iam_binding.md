@@ -6,6 +6,13 @@ subcategory: Identity and Access Management
 
 Allows creation and management of a single binding within IAM policy for an existing `service_account`.
 
+{% note warning %}
+
+**Warning:** This resource is authoritative for the given `role` on the target `service_account` and manages the complete set of its members. When you change or delete `yandex_iam_service_account_iam_binding`, the `role` may be removed from other subjects on the `service_account` as well — including subjects granted outside of this resource (via the corresponding `*_iam_member` resource, the management console, CLI or API). Those subjects are not tracked in the Terraform state, so a plain `terraform plan` does not list them. Be careful.
+
+{% endnote %}
+
+
 ## Example usage
 
 ```terraform

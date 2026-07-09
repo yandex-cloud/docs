@@ -25,8 +25,10 @@ yc managed-kubernetes node-group list
 - Консоль управления {#console}
 
   Чтобы удалить [группу узлов](../../concepts/index.md#node-group):
+  
   1. Перейдите в [кластер Kubernetes](../../concepts/index.md#kubernetes-cluster), в котором требуется удалить группу узлов:
-     1. Откройте раздел **Managed Service for&nbsp;Kubernetes** в каталоге.
+     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+     1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
      1. Откройте нужный кластер Kubernetes.
      1. Перейдите на вкладку **Управление узлами**.
   1. На вкладке **Группы узлов** нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке группы узлов, которую требуется удалить.

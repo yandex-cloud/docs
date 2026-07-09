@@ -8,7 +8,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится [группа размещения дисков](../../concepts/disk-placement-group.md).
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/copy-transparent.svg) **Группы размещений**.
   1. Перейдите на вкладку **Группы размещения нереплицируемых дисков**.
   1. Выберите нужную группу размещения дисков.

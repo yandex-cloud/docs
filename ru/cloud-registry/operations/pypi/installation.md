@@ -5,8 +5,8 @@ description: Следуя данной инструкции, вы настрои
 
 # Настроить PyPI
 
-1. {% include [auth-env-vars](../../../_includes/cloud-registry/auth-env-vars.md) %}
-1. В корневой директории пользователя создайте файл `~/.pypirc` со следующим содержимым, указав в нем полученный токен:
+1. {% include [auth-env](../../../_includes/cloud-registry/auth-env.md) %}
+1. В корневой директории пользователя создайте файл `~/.pypirc` со следующим содержимым:
 
     {% list tabs group=registry_auth %}
 

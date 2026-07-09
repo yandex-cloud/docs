@@ -58,7 +58,7 @@ To connect an existing VM to {{ backup-name }}, you can also [take](../../comput
 {% endnote %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](create-vm.md)
 * [Linking a VM to a backup policy](policy-vm/update.md#update-vm-list)

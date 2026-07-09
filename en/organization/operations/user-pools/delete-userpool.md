@@ -53,7 +53,7 @@ description: Follow this guide to delete a user pool in {{ org-full-name }}.
      }
      ```
 
-     For more information about `yandex_organizationmanager_idp_userpool` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
+     For more on the properties of the `yandex_organizationmanager_idp_userpool` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
 
   1. Apply the changes:
 

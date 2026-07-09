@@ -11,7 +11,7 @@ You can use an SSH certificate of an [organization user](../../../organization/c
 
 You can use the exported SSH certificate to [connect](./os-login.md#connect-with-ssh-client) to a {{ compute-name }} instance, {{ dataproc-name }} cluster, or {{ k8s }} node with {{ oslogin }} access [enabled](../vm-control/vm-update.md#enable-oslogin-access).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../../organization/operations/os-login-access.md)
 * [{#T}](../../../organization/operations/add-ssh.md)

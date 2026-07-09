@@ -1,6 +1,6 @@
 # Viewing operations with {{ backup-name }} resources
 
-All actions with {{ backup-name }} resources are logged as a list of operations. Each operation gets its own unique ID.
+The system logs all actions with {{ backup-name }} resources as a list of operations. Each operation gets an ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -8,15 +8,15 @@ All actions with {{ backup-name }} resources are logged as a list of operations.
 
 - Management console {#console}
 
-  To view all operations with {{ backup-name }} resources, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** in the left-hand panel. In the list that opens, you will also see operations with the resources that were deleted.
+  To view operations with all the resources, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** in the left-hand panel. This will open the list of all operations, including those on currently deleted resources.
 
 {% endlist %}
 
-## Getting detailed information about an operation {#get-operations-info}
+## Getting operation details {#get-operations-info}
 
-1. [Get a list of operations](#get-operations) for the resource.
+1. [Get the list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
-1. Get detailed information about the operation:
+1. Get the operation details:
 
     {% list tabs group=instructions %}
 
@@ -54,6 +54,6 @@ All actions with {{ backup-name }} resources are logged as a list of operations.
 
     {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../api-design-guide/concepts/about-async.md)

@@ -38,7 +38,7 @@ description: Следуя данной инструкции, вы сможете
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного кластера {{ k8s }} и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Thumbor](/marketplace/products/yc/thumbor) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
@@ -117,7 +117,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Перейдите]({{ link-console-main }}/link/network-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Узнайте IP-адрес для балансировщика с описанием `cluster <имя_вашего_кластера>, service <пространство_имен>/thumbor`.
   1. В адресной строке браузера откройте ссылку `http://<IP-адрес_балансировщика>/unsafe/<имя_изображения_в_бакете>`.
 
@@ -143,8 +143,8 @@ description: Следуя данной инструкции, вы сможете
 
 Узнайте, как использовать приложение Thumbor для редактирования изображений на вашем сайте. [Пример работы с Thumbor](../../tutorials/marketplace/thumbor.md), рассмотренный в документации, включает в себя настройку сервиса [{{ cdn-full-name }}](../../../cdn/concepts/index.md). Он позволяет снизить скорость загрузки изображений на сайте.
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Документация Thumbor](https://thumbor.readthedocs.io/en/latest/).
-* [Документация {{ objstorage-name }}](../../../storage/).
-* [Документация {{ network-load-balancer-name }}](../../../network-load-balancer/).
+* [Документация Thumbor](https://thumbor.readthedocs.io/en/latest/)
+* [Документация {{ objstorage-name }}](../../../storage/)
+* [Документация {{ network-load-balancer-name }}](../../../network-load-balancer/)

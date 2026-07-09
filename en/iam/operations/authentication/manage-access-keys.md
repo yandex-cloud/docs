@@ -24,7 +24,7 @@ To create a service account static access key:
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Select the service account to create a static access key for.
   1. In the top panel, click ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
-  1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
+  1. Enter a description for the key and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Save the ID and secret key.
 
       {% note alert %}
@@ -110,22 +110,22 @@ To create a service account static access key:
          * `entry_for_access_key`: Secret key to assign to the static access key ID value you are saving.
          * `entry_for_secret_key`: Secret key to assign to the secret key value you are saving.
 
-     For more information about `yandex_iam_service_account_static_access_key` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
+     For more on the properties of the `yandex_iam_service_account_static_access_key` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
          
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply
@@ -133,10 +133,10 @@ To create a service account static access key:
 
      1. Confirm creating the static access key by typing `yes` in the terminal and pressing **Enter**.
 
-        In there were any errors when creating the key, {{ TF }} will point them out.
-        If the key has been created successfully, {{ TF }} will write it into its configuration without showing it to the user. The terminal will display only the ID of the created key.
+        If there are any errors when creating the key, {{ TF }} will report them.
+        If the key is created successfully, {{ TF }} will store it in its state without showing it to the user. The terminal will display only the ID of the created key.
 
-        You can check the new service account key in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md) command:
+        You can verify that the service account key has been created using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
          
         ```bash
         yc iam access-key list --service-account-name=<service_account_name>
@@ -259,18 +259,18 @@ To delete a service account static access key:
 
     1. Make sure the configuration files are correct.
 
-        1. In the command line, navigate to the directory where you created the configuration file.
+        1. In the terminal, navigate to the directory where you created your configuration file.
         1. Run a check using this command:
 
             ```bash
             terraform plan
             ```
 
-        If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+        If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
     1. Deploy the cloud resources.
 
-        1. If the configuration does not contain any errors, run this command:
+        1. If the configuration is correct, run this command:
 
             ```bash
             terraform apply
@@ -290,7 +290,7 @@ To delete a service account static access key:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/authorization/access-key.md)
 * [Configuring tools to work with {{ objstorage-name }}](../../../storage/tools/index.md)

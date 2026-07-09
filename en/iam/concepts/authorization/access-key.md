@@ -69,7 +69,7 @@ The following services support authentication based on static access keys:
 
 * [Using a {{ lockbox-full-name }} secret to store a static access key](../../tutorials/static-key-in-lockbox/index.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../operations/authentication/manage-access-keys.md#create-access-key)
 * [{#T}](./index.md)

@@ -266,7 +266,7 @@
 
 1. [Удалите диск](../../../compute/operations/disk-control/delete.md) в Compute Cloud, связанный с объектом `PersistentVolume`.
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Том](../../concepts/volume.md)
 * [Использование зашифрованных дисков для постоянных томов](encrypted-disks.md)

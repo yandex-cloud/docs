@@ -7,7 +7,7 @@ description: Обзор возможностей работы с запроса�
 
 {% include [preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
-* [{#T}](manage-queries.md).
-* [{#T}](work-with-templates.md).
-* [{#T}](work-with-schema-datasets.md).
-* [{#T}](query-history.md).
+* [{#T}](manage-queries.md)
+* [{#T}](work-with-templates.md)
+* [{#T}](work-with-schema-datasets.md)
+* [{#T}](query-history.md)

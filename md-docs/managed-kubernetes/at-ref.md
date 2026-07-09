@@ -22,6 +22,7 @@ yandex.cloud.audit.k8s.<имя_события>
 `DeleteNodeGroup` | Удаление группы узлов
 `DeleteStoppedCluster` | Удаление остановленного кластера
 `InstallHelmRelease` | Установка версии Helm
+`ScaleMaster` | Масштабирование основного узла
 `SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера

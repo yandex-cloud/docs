@@ -24,7 +24,7 @@ Before you start, you need to add dependencies.
 
 - Go {#go}
 
-    Run the following command: 
+    Run this command: 
 
     ```go
     go get github.com/yandex-cloud/kms-clients-go/yckmstink
@@ -93,7 +93,7 @@ The code uses the following variables:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Google Tink](https://github.com/google/tink).
 * [Java client for Tink](https://github.com/yandex-cloud/kms-clients-java/tree/master/kms-provider-tink).

@@ -61,7 +61,7 @@ We recommend enabling a software-accelerated network to shorten request processi
 
 * On VMs with custom DB installations in the case of high [disk](../../compute/concepts/disk.md) and CPU utilization (over 70-80%).
 * If you see a high `CPU steal time` metric value inside a VM.
-* In [{{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md) cluster node groups when using intra-cluster L7 load balancers, e.g., [Istio ingress gateways](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/).
+* In [{{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md) cluster node groups when using intra-cluster L7 load balancers, e.g., [Istio ingress Gateways](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/).
 
 {% note warning %}
 
@@ -74,6 +74,6 @@ Enabling SAN will not accelerate your [network disks](../../compute/concepts/dis
 * [{#T}](../../tutorials/routing/storage-vpc-access.md)
 * [{#T}](../../tutorials/routing/vpc-cr-access.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../vpc/operations/enable-software-accelerated-network.md)

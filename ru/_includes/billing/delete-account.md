@@ -1,4 +1,4 @@
-1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
 1. Выберите платежный аккаунт из списка.
 
     {% include [account-access-lost](../../_includes/billing/account-access-lost.md) %}

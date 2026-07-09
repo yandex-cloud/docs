@@ -91,7 +91,7 @@
 
       For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 
-  1. Create the required resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
    

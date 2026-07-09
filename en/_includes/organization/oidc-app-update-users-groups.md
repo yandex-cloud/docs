@@ -103,7 +103,7 @@
       * `application_id`: OIDC app ID.
       * `subject_id`: User or user group ID.
 
-      For more information about `yandex_organizationmanager_idp_application_oauth_application_assignment` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application_assignment).
+      For more on the properties of the `yandex_organizationmanager_idp_application_oauth_application_assignment` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application_assignment).
 
   1. Create the resources:
 

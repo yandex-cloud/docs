@@ -105,6 +105,6 @@
    terraform init
    ```
 
-## Полезные ссылки {see-also}
+#### Полезные ссылки {see-also}
 
 Руководство [Управление ресурсами Kubernetes с помощью провайдера Terraform](../tutorials/kubernetes-terraform-provider.md).

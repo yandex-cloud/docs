@@ -23,6 +23,6 @@ The [cloud](../../concepts/resources-hierarchy.md#cloud) access policies can be 
 
 {% include [access-policies-revoke-cloud](../../../_includes/iam/access-policies-revoke-cloud.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../../iam/concepts/access-control/access-policies.md)

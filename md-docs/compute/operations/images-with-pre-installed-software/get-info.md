@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать виртуальную машину.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Справа сверху нажмите кнопку **Создать ресурс**.
   1. В открывшемся списке выберите **Виртуальная машина**.
   1. В блоке **Образ загрузочного диска** нажмите ![image](../../../_assets/console-icons/circle-info.svg) рядом с нужным [публичным образом](../../concepts/image.md#public).
@@ -149,7 +149,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать виртуальную машину.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Справа сверху нажмите кнопку **Создать ресурс**.
   1. В открывшемся списке выберите **Виртуальная машина**.
   1. В блоке **Образ загрузочного диска** нажмите ![image](../../../_assets/console-icons/circle-info.svg) рядом с нужным [публичным образом](../../concepts/image.md#public).

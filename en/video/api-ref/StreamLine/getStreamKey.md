@@ -50,7 +50,8 @@ The maximum string length in characters is 50. ||
 
 ```json
 {
-  "key": "string"
+  "key": "string",
+  "backupKey": "string"
 }
 ```
 
@@ -61,4 +62,7 @@ Represents the stream key used for pushing video streams.
 || key | **string**
 
 The unique stream key. ||
+|| backupKey | **string**
+
+The unique backup stream key. ||
 |#

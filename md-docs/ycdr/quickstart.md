@@ -18,7 +18,7 @@
 
 ## Создайте расследование {#create-investigation}
 
-1. Перейдите в сервис [Security Deck](https://center.yandex.cloud/security/).
+1. Перейдите в сервис [Yandex Security Deck](https://center.yandex.cloud/security/).
 1. На панели слева выберите **YCDR**.
 1. Перейдите на вкладку **Расследования**.
 1. Нажмите **Новое расследование**.

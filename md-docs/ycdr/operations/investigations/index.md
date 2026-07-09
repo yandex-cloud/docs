@@ -8,5 +8,5 @@
 
 {% endnote %}
 
-* [Управление расследованиями](manage-investigations.md).
-* [Работа со списком расследований](investigations-list.md).
+* [Управление расследованиями](manage-investigations.md)
+* [Работа со списком расследований](investigations-list.md)

@@ -24,7 +24,7 @@ For more information about working with SSH keys, see [Connecting to a Linux VM 
 * [Using {{ yandex-cloud }} from within a VM](auth-inside-vm.md)
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](rdp.md)
 * [{#T}](powershell.md)

@@ -70,7 +70,7 @@ To assign the `serverless.containers.restrictNetworkAccess` policy template for 
 {% endlist %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/access-control/access-policies.md)
 * [{#T}](./list.md)

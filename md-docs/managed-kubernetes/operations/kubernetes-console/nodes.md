@@ -14,7 +14,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера и на панели слева выберите ![Nodes](../../../_assets/console-icons/graph-node.svg) **Управление узлами**.
   1. Выберите вкладку **Узлы**.
   1. Нажмите на имя нужного узла.
@@ -33,7 +34,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера и на панели слева выберите ![Nodes](../../../_assets/console-icons/graph-node.svg) **Управление узлами**.
   1. Выберите вкладку **Узлы**.
   1. Нажмите на имя нужного узла.
@@ -42,6 +44,6 @@
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Взаимосвязь ресурсов в Managed Service for Kubernetes](../../concepts/index.md)
+[Взаимосвязь ресурсов в Managed Service for Kubernetes](../../concepts/index.md)

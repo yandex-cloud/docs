@@ -137,7 +137,7 @@ To [update a reserved instance pool](../../concepts/reserved-pools.md):
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./manage-pool-vms.md)
 * [{#T}](../../concepts/reserved-pools.md)

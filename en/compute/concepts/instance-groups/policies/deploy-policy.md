@@ -86,7 +86,7 @@ Key | Value
 
 * [{#T}](../../../tutorials/autoscale-monitoring.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](healing-policy.md)
 * [{#T}](scale-policy.md)

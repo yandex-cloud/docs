@@ -253,7 +253,7 @@ To provide a {{ lockbox-name }} secret to a VM via metadata:
 
 For more `user-data` key configuration examples, see the [Examples](./create-with-cloud-init-scripts.md#examples) section.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/vm-metadata.md)
 * [{#T}](./create-with-env-variables.md)

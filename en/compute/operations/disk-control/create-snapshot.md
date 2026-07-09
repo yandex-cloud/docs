@@ -39,7 +39,7 @@ To avoid this, attach the disk to the VM and change all duplicate UUIDs. For mor
 {% endnote %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../snapshot-control/create-schedule.md)
 * [{#T}](../disk-create/from-snapshot.md)

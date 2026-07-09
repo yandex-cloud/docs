@@ -32,7 +32,7 @@ Metrics Provider транслирует метрики объектов [кла�
 ## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
 1. Нажмите на имя нужного кластера Managed Service for Kubernetes и выберите вкладку **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [Metrics Provider](https://yandex.cloud/ru/marketplace/products/yc/metric-provider) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
@@ -121,4 +121,4 @@ Metrics Provider транслирует метрики объектов [кла�
 
 ## Примеры использования {#examples}
 
-* [Использование Metrics Provider для трансляции метрик](../../tutorials/marketplace/metrics-provider.md).
+[Использование Metrics Provider для трансляции метрик](../../tutorials/marketplace/metrics-provider.md)

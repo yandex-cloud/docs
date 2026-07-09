@@ -19,18 +19,12 @@ This rule requires a manual check. Upon completion, please change the rule's sta
 
 Bucket policy [examples](https://yandex.cloud/en/docs/storage/concepts/policy#config-examples):
 
-* Policy that only enables object download from a specified range of IP addresses.
-* Policy that prohibits downloading objects from the specified IP address.
-* Policy that provides different users with full access only to certain folders, with each user being able to access their own.
-* Policy that gives each user and service account full access to a folder named the same as the user ID or service account ID.
+* Policy that only enables object download from a specified range of IP addresses. * Policy that prohibits downloading objects from the specified IP address. * Policy that provides different users with full access only to certain folders, with each user being able to access their own. * Policy that gives each user and service account full access to a folder named the same as the user ID or service account ID.
 
 We recommend making sure that your Object Storage bucket uses at least one policy.
 
-#### Guides and solutions to use
+#### Instructions and solutions
 
 **Guides and solutions to use:**
 
-1. In the [management console](https://console.yandex.cloud), select the cloud or folder where resides the bucket which you want to check bucket policies for.
-2. Go to Object Storage and select the bucket in question.
-3. In the left-hand menu, select **Security** and go to the **Access policy** tab.
-4. If at least one policy is enabled, the rule is considered satisfied. Otherwise, it is recommended to [configure](https://yandex.cloud/en/docs/storage/operations/buckets/policy) an access policy for the bucket.
+1. In the [management console](https://console.yandex.cloud), select the cloud or folder where resides the bucket which you want to check bucket policies for. 2. Go to Object Storage and select the bucket in question. 3. In the left-hand menu, select **Security** and go to the **Access policy** tab. 4. If at least one policy is enabled, the rule is considered satisfied. Otherwise, it is recommended to [configure](https://yandex.cloud/en/docs/storage/operations/buckets/policy) an access policy for the bucket.

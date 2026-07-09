@@ -50,7 +50,7 @@ To connect a Windows VM to {{ backup-name }}:
 
     {% include [ps-note](../../_includes/backup/ps-note.md) %}
 
-1. Run the following command:
+1. Run this command:
 
     ```powershell
     . { iwr -useb https://{{ s3-storage-host }}/backup-distributions/agent_installer.ps1 } | iex
@@ -66,7 +66,7 @@ To connect a Windows VM to {{ backup-name }}:
 After that, you can link your VM to [backup policies](../concepts/policy.md).
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](create-vm.md)
 * [Linking a VM to a backup policy](./policy-vm/update.md#update-vm-list)

@@ -25,11 +25,12 @@ yandex.cloud.audit.containerregistry.<имя_события>
 `DeleteRepository` | Удаление репозитория
 `DeleteScanPolicy` | Удаление политики сканирования
 `ScanImage` | Сканирование Docker-образа
+`SetIpPermission` | Назначение прав доступа к IP-разрешению
+`SetRegistryAccessBindings`  | Назначение прав доступа на реестр
+`SetRepositoryAccessBindings` | Назначение прав доступа на репозиторий
 `UpdateIpPermission` | Изменение политики доступа к реестру
 `UpdateLifecyclePolicy` | Изменение политики автоматического удаления Docker-образов
 `UpdateRegistry` | Изменение реестра
 `UpdateScanPolicy` | Изменение политики сканирования
 `UpdateRegistryAccessBindings` | Изменение прав доступа на реестр  
 `UpdateRepositoryAccessBindings` | Изменение прав доступа на репозиторий
-`SetRegistryAccessBindings`  | Назначение прав доступа на реестр
-`SetRepositoryAccessBindings` | Назначение прав доступа на репозиторий

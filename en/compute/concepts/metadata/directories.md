@@ -91,7 +91,7 @@ All data in the `user-data` metadata folder will be publicly available to any us
 * [{#T}](../../../tutorials/archive/vm-with-backup-policy/index.md)
 * [{#T}](../../../tutorials/routing/multi-folder-vpc.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../vm-metadata.md)
 * [{#T}](./public-image-keys.md)

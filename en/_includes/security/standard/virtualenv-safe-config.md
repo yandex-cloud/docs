@@ -913,11 +913,11 @@ You can access the DB cluster hosts from the function only via the [SSL protocol
 * [Revoke](../../../functions/operations/function/role-revoke.md) a role assigned to a function.
 * [Connect](../../../functions/operations/database-connection.md) to a database from a function.
 
-For more information about roles and resources you can assign roles for in {{ sf-name }}, see [{#T}](../../../functions/security/index.md).
+For more on the roles and resources you can assign roles for in {{ sf-name }}, see [{#T}](../../../functions/security/index.md).
 
 #### 3.22 Aspects of time synchronization in {{ sf-name }} are addressed {#ntp-functions}
 
-{{ sf-name }} does not guarantee time synchronization prior to or during execution of requests by functions. To get a function log with exact timestamps on the {{ sf-name }} side, use a cloud logging service. For more information on function logging, see [{#T}](../../../functions/concepts/logs.md).
+{{ sf-name }} does not guarantee time synchronization prior to or during execution of requests by functions. To get a function log with exact timestamps on the {{ sf-name }} side, use a cloud logging service. For more on logging functions, see [{#T}](../../../functions/concepts/logs.md).
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -925,7 +925,7 @@ For more information about roles and resources you can assign roles for in {{ sf
 
 #### 3.23 Aspects of header management in {{ sf-name }} are addressed {#http-functions}
 
-If the function is called to process an HTTP request, the returned result should be a JSON document containing the HTTP response code, response headers, and response content. {{ sf-name }} automatically processes this JSON document and returns data in a standard HTTP response to the user. It is the customer's responsibility to manage the response headers according to the regulatory requirements and the threat model. For more information on how to process an HTTP request, refer to the {{ sf-name }} manual, [Function calling in {{ sf-name }}](../../../functions/concepts/function-invoke.md).
+If the function is called to process an HTTP request, the returned result should be a JSON document containing the HTTP response code, response headers, and response content. {{ sf-name }} automatically processes this JSON document and returns data in a standard HTTP response to the user. It is the customer's responsibility to manage the response headers according to the regulatory requirements and the threat model. For more on handling an HTTP request, see [Invoking a function in {{ sf-name }}](../../../functions/concepts/function-invoke.md).
 
 You can run a function by specifying the `?integration=raw` string query parameter. When invoked this way, a function cannot parse or set HTTP headers:
 
@@ -941,7 +941,7 @@ The request must be a JSON structure which contains:
 * `multiValueQueryStringParameters`: Dictionary with the list of all specified values for each query parameter. If the same parameter is specified multiple times, the dictionary will contain all the specified values.
 * `requestContext`: Request context.
 
-For the purpose of debugging a function, you can use special requests that return the JSON structure of the request and the result you need for debugging. For more information, see [function debugging](../../../functions/concepts/function-invoke.md#example).
+For debugging a function, you can use special requests that return the JSON structure of the request and the result you need for debugging. For more information, see [function debugging](../../../functions/concepts/function-invoke.md#example).
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -967,7 +967,7 @@ When working with the database, use [parameterized prepared statements]({{ ydb.d
 
 #### 3.26 There is no public access for {{ ydb-short-name }} {#ydb-public}
 
-When accessing the database in dedicated mode, we recommend that you use it inside {{ vpc-short-name }} and disable public access to it from the internet. In serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your infrastructure. For more information about the operating modes, see the [Serverless and dedicated modes](../../../ydb/concepts/serverless-and-dedicated.md) section in the {{ ydb-name }} documentation.
+When accessing the database in dedicated mode, we recommend that you use it inside {{ vpc-short-name }} and disable public access to it from the internet. In serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your infrastructure. For more information about the operating modes, see the [Serverless and dedicated modes](../../../ydb/concepts/serverless-and-dedicated.md) section in the {{ ydb-name }} guide.
 
 When setting up database permissions, use the principle of least privilege.
 
@@ -1311,7 +1311,7 @@ If you manually resolve the thread, it will be recreated. If the merge request i
 
 **Guides and solutions to use**:
 
-[Enabling approval rules in the {{ GL }} instance](../../../managed-gitlab/operations/approval-rules.md#enable)
+[Enabling approval rules in the {{ GL }} instance](../../../managed-gitlab/operations/approval-rules.md#enable).
 
 #### 3.34 {{ managed-k8s-full-name }} security guidelines are used {#k8s-security}
 

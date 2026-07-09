@@ -52,7 +52,7 @@ description: Follow this guide to find detailed VM backup information in the bac
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [VM connection statuses](../concepts/vm-connection.md#statuses)
 * [{#T}](get-connection-status.md)

@@ -128,7 +128,7 @@
 
       {{ TF }} will change all required resources. You can check the update in the [management console]({{ link-console-main }}).
 
-  For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-datasources-link }}/compute_instance).
+  For more information about `yandex_compute_instance` properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_instance).
 
 - API {#api}
 

@@ -65,7 +65,7 @@ The alert is created.
 
 The alert will send notification that the trail has stopped uploading audit logs to its destination object, for example, due to a lack of free space in the bucket.
 
-The **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}** parameter is trail-specific. The type and number of resources within the audit trail logging section will define the frequency for uploading audit logs to the destination object. 
+The **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}** parameter depends on a specific trail. The type and number of resources within the audit trail logging section will define the frequency for uploading audit logs to the destination object. 
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create an alert.
 1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
@@ -259,11 +259,11 @@ Apart from the chart for missed event monitoring, you can add a chart for the de
     [Add](../../logging/tutorials/log-group-record-monitoring.md) a chart for the `group.service.ingested_records_per_second` [metric](../../monitoring/metrics-ref/logging-ref.md) to the dashboard to display the actual rate of log ingestion into the log group. Comparing this value with the `Maximum write speed` [quota](../../logging/concepts/limits.md#logging-quotas) helps determine whether the log stream is hitting its limit. The additional `group.service.ingest_requests_per_second` chart filtered by `ERROR` status enables detecting write errors promptly.
 
 
-* **{{ yds-name }}**: See [these {{ ydb-full-name }} guides](../../ydb/):
+* **{{ yds-name }}**: For more information, see this [{{ ydb-full-name }} guide](../../ydb/):
   * [{#T}](../../ydb/metrics.md)
   * [{#T}](../../ydb/concepts/limits.md)
 
-  Learn more about resolving data write issues, see [{#T}](../../data-streams/tutorials/slow-writes-debug.md).
+  Learn more about resolving data write issues [here](../../data-streams/tutorials/slow-writes-debug.md).
 
   {% note tip %}
 

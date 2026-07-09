@@ -45,7 +45,7 @@
       * `federation_id`: ID of the federation to add the user to.
       * `name_id`: Name ID of the user.
 
-      For more information about `yandex_organizationmanager_saml_federation_user_account` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_saml_federation_user_account).
+      For more on the properties of the `yandex_organizationmanager_saml_federation_user_account` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_saml_federation_user_account).
 
   1. Create the resources:
 

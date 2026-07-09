@@ -84,7 +84,7 @@ You can only link a VM or {{ baremetal-name }} server to a backup policy if they
       * `instance_id`: [ID](../../../compute/operations/vm-info/get-info.md#outside-instance) of the VM you want to associate with the policy.
       * `policy_id`: [ID](./get-info.md) of the policy to associate the VM with.
 
-     For more information about `yandex_backup_policy_bindings` properties, see [this provider guide]({{ tf-provider-resources-link }}/backup_policy_bindings).
+     For more on the properties of the `yandex_backup_policy_bindings` resource, see [this provider guide]({{ tf-provider-resources-link }}/backup_policy_bindings).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -101,7 +101,7 @@ You can only link a VM or {{ baremetal-name }} server to a backup policy if they
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../create-vm.md)
 * [{#T}](../create-vm-windows.md)

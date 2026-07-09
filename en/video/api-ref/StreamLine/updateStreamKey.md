@@ -26,6 +26,7 @@ apiPlayground:
 Regenerates and updates the stream key for a push-type stream line.
 This is useful for security purposes when the existing key may be compromised.
 
+
 ## HTTP request
 
 ```

@@ -29,7 +29,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support cost includes:
 
 * Fee for a continuously running [VM](../../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
-* Fee for using an [OIDC app](../../../organization/concepts/applications.md#oidc) (see [{{ org-full-name }} pricing](../../../organization/pricing.md)).
+* Fee for using an [OIDC application](../../../organization/concepts/applications.md#oidc) (see [{{ org-full-name }} pricing](../../../organization/pricing.md)).
 
 ## Create the infrastructure {#deploy}
 
@@ -419,6 +419,8 @@ Users and groups added to an OIDC application can be managed by a user with the 
      ```
 
 {% endlist %}
+
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
 
 ## Install and configure openvpn-auth-oauth2 {#setup-plugin}
 

@@ -32,8 +32,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * VMs: use of computing resources, storage, public IP address, and the OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * {{ sf-full-name }} functions: number of function calls, idle time of provisioned instances, and computing resources allocated for the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
-* {{ cloud-logging-name }} logs: amount of data written and its retention period (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
-* {{ alb-name }} instances: use of computing resources of each active load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* {{ cloud-logging-name }} logs: amount of written data and its retention time (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
+* {{ alb-name }} load balancers: use of each active load balancer's computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 
 
 ## Create a cloud network {#create-network}
@@ -270,7 +270,7 @@ To create an instance group:
      - In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
      - In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
         
-       You need to create a key pair for the SSH connection yourself. See [Connecting to a VM via SSH](../../compute/operations/vm-connect/ssh.md).
+       You need to create a key pair for the SSH connection [by yourself](../../compute/operations/vm-connect/ssh.md).
         
      {% note alert %}
       
@@ -567,7 +567,7 @@ To create a trigger:
   * `--batch-size`: Maximum number of messages sent to the function at the same time.
   * `--batch-cutoff`: Maximum time interval between consecutive messages to the function.
   
-  For more information about this command, see the [CLI reference](../../cli/cli-ref/serverless/cli-ref/trigger/create/logging.md).
+  For more information about the command, see the [CLI reference](../../cli/cli-ref/serverless/cli-ref/trigger/create/logging.md).
   
 - API {#api}
 

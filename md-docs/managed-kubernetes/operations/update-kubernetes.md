@@ -30,7 +30,7 @@
 
   Чтобы узнать список доступных версий для кластера Managed Service for Kubernetes:
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
   1. Нажмите кнопку **Редактировать** в правом верхнем углу.
   1. Получите список доступных версий в поле **Версия Kubernetes** блока **Конфигурация мастера**.
@@ -38,7 +38,7 @@
   Чтобы узнать список доступных версий для группы узлов Managed Service for Kubernetes:
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера Managed Service for Kubernetes и перейдите на вкладку **Управление узлами**.
   1. Выберите нужную группу узлов Managed Service for Kubernetes в списке и нажмите кнопку **Редактировать** в правом верхнем углу.
   1. Получите список доступных версий в поле **Версия Kubernetes**.
@@ -343,7 +343,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
   1. Нажмите кнопку **Редактировать** в правом верхнем углу.
   1. В поле **Версия Kubernetes** выберите вариант `Обновить до версии <номер_версии>`.
@@ -843,7 +843,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
   1. Перейдите на вкладку **Управление узлами**.
   1. Выберите нужную группу узлов Managed Service for Kubernetes в списке.
@@ -978,7 +978,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
   1. Нажмите кнопку **Редактировать** в правом верхнем углу.
   1. В поле **Версия Kubernetes** выберите `Получить последние улучшения и исправления для версии...`.
@@ -1023,7 +1023,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
   1. Перейдите на вкладку **Управление узлами**.
   1. Выберите нужную группу узлов Managed Service for Kubernetes в списке.
@@ -1082,7 +1082,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
   1. В блоке **Обновления** нажмите кнопку **Обновить сейчас**.
 
@@ -1095,7 +1095,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
   1. В блоке **Обновления** нажмите кнопку **Перенести**.
   1. Выберите новую дату обновления и нажмите кнопку **Перенести**.

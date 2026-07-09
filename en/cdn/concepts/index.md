@@ -53,6 +53,7 @@
 
 See also the {{ yandex-cloud }} [general resource hierarchy](../../resource-manager/concepts/resources-hierarchy.md).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
-* [Yandex SWS and CDN: website protection and acceleration for companies of any size](https://yandex.cloud/ru/blog/sws-cdn-cloudflare-alternative)
+* [Yandex SWS and CDN: Website protection and acceleration for businesses of any size](https://yandex.cloud/ru/blog/sws-cdn-cloudflare-alternative)
+* [Webinar: How to use Cloud CDN to offload a high-traffic infrastructure](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)

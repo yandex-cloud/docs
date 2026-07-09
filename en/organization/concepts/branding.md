@@ -37,6 +37,6 @@ Branding can be configured only by users with the `organization-manager.admin` o
 * Email template used as a prompt in the email input field
 * Enabling or disabling the Yandex ID and SSO log-in methods
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/manage-branding.md)

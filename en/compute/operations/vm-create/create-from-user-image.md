@@ -305,7 +305,7 @@ Make sure the image you upload has the `READY` status.
 
 {% include [disable-metadata-check](../../../_includes/compute/disable-metadata-check.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../image-create/custom-image.md)
 * [{#T}](../vm-connect/ssh.md)

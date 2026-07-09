@@ -122,7 +122,7 @@ To update an [MFA policy](../../concepts/mfa.md#mfa-policies):
 
 {% include [mfa-policy-add-users-notice](../../../_includes/organization/mfa-policy-add-users-notice.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./create-policy.md)
 * [{#T}](./add-users.md)

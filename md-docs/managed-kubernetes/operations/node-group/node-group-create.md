@@ -21,7 +21,7 @@
 
   Чтобы создать [группу узлов Managed Service for Kubernetes](../../concepts/index.md#node-group):
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан [кластер Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster).
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Выберите кластер Managed Service for Kubernetes, для которого необходимо создать группу узлов.
   1. На странице кластера Managed Service for Kubernetes перейдите на вкладку **Управление узлами**.
   1. Нажмите кнопку **Создать группу узлов**.
@@ -1041,7 +1041,7 @@
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Создание группы с узлами из пула резервов ВМ Yandex Compute Cloud](node-group-create-in-instance-pool.md)
 * [Группа узлов](../../concepts/index.md#node-group)

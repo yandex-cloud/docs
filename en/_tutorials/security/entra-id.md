@@ -337,7 +337,7 @@ Configure the application for the new group to have access to it.
 
          {% endnote %}
 
-      For more information, see [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) and [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) in the {{ TF }} provider guides.
+      For more information, see the descriptions of the [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) and [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) resources in the {{ TF }} provider guides.
 
   1. Create the resources:
 
@@ -361,7 +361,7 @@ Configure the application for the new group to have access to it.
 
     {% endcut %}
 
-    If you have set up everything correctly, the browser will redirect you to the {{ microsoft-idp.entra-id-short }} authentication page.
+    If you have set everything up correctly, the browser will redirect you to the {{ microsoft-idp.entra-id-short }} authentication page.
 
 1. Enter the credentials of the `az_demo_user@example.com` user [you created earlier in {{ microsoft-idp.entra-id-short }}](#create-user) and click **Sign in**.
 

@@ -11,7 +11,7 @@ Compute Cloud периодически проводит [техническое 
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите посмотреть задания на техническое обслуживание ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![bars-play](../../../_assets/console-icons/bars-play.svg) **Обслуживание**.
 
       В открывшемся окне приведен список всех заданий на техническое обслуживание ВМ с GPU, который содержит:
@@ -123,7 +123,7 @@ Compute Cloud периодически проводит [техническое 
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) с виртуальной машиной, для которой вы хотите перенести запланированное задание на техническое обслуживание.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![bars-play](../../../_assets/console-icons/bars-play.svg) **Обслуживание**.
   1. В открывшемся списке в строке с нужным заданием нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![arrow-uturn-cw-right](../../../_assets/console-icons/arrow-uturn-cw-right.svg) **Перенести**. В открывшемся окне:
 
@@ -188,7 +188,7 @@ Compute Cloud периодически проводит [техническое 
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) с виртуальной машиной, для которой вы хотите выполнить задание на техническое обслуживание.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![bars-play](../../../_assets/console-icons/bars-play.svg) **Обслуживание**.
   1. В открывшемся списке в строке с нужным заданием нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![play](../../../_assets/console-icons/play.svg) **Провести сейчас**.
   1. В открывшемся окне подтвердите немедленное выполнение задания.

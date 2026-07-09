@@ -78,7 +78,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан нужный кластер {{ managed-k8s-name }}.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Выберите кластер {{ managed-k8s-name }}, по конфигурации `Ingress` которого был создан балансировщик.
   1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку ![shapes-3](../../../_assets/console-icons/shapes-3.svg) **{{ ui-key.yacloud.k8s.cluster.switch_custom-resources }}**.
   1. Выберите `ingressgroupstatuses.alb.yc.io` и перейдите на вкладку **{{ ui-key.yacloud.k8s.custom-resources.label_tab-resources }}**.

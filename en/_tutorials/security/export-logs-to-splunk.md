@@ -38,7 +38,7 @@ The infrastructure support cost includes:
 
 * Fee for using VM instances (see [{{ compute-short-name }} pricing](../../compute/pricing.md)).
 * Fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
-* Fee for operations with data (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-operations)).
+* Fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-operations)).
 * Fee for using KMS keys (see [{{ kms-name }} pricing](../../kms/pricing.md#prices)).
 
 ## Set up your environment {#prepare-environment}

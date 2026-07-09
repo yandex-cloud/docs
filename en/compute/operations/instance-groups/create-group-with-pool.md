@@ -12,7 +12,7 @@ description: In this article, you will learn how to create a {{ compute-full-nam
 
 {% include [reserved-pools-intro](../../../_includes/compute/reserved-pools-intro.md) %}
 
-You can use reserved pools for [instance groups](../../concepts/instance-groups/index.md). This guarantees the availability of resources for the instance group.
+You can use reserved pools for [instance groups](../../concepts/instance-groups/index.md). This ensures resource availability for an instance group.
 
 {% include [pool-restrictions](../../_includes_service/pool-restrictions.md) %}
 
@@ -37,7 +37,7 @@ For more information, see [{#T}](../../concepts/reserved-pools.md).
 
       {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-      1. Create the `specification.yaml` file containing the instance group specification, for example:
+      1. Create the `specification.yaml` file containing the instance group specification, e.g.:
 
           ```yaml
           name: first-fixed-group
@@ -73,11 +73,11 @@ For more information, see [{#T}](../../concepts/reserved-pools.md).
           ```
 
           Where:
-          * `service_account_id`: [ID of the service account](../../../iam/operations/sa/get-id.md) you created earlier.
+          * `service_account_id`: [ID of the service account](../../../iam/operations/sa/get-id.md) you created previously.
           * `network_id`: [Network ID](../../../vpc/operations/network-get-info.md).
           * `subnet_ids`: [Subnet ID](../../../vpc/operations/subnet-get-info.md).
           * `security_group_ids`: [Security group ID](../../../vpc/operations/security-group-get-info.md).
-          * `reserved_instance_pool_id`: Reserved instance pool [ID](../../cli-ref/reserved-instance-pool/list.md) you created earlier.
+          * `reserved_instance_pool_id`: Reserved instance pool [ID](../../cli-ref/reserved-instance-pool/list.md) you created previously.
           * `zone_id`: Availability zone.
 
           For more information about the instance group parameters, see [{#T}](../../concepts/instance-groups/specification.md).
@@ -143,11 +143,11 @@ For more information, see [{#T}](../../concepts/reserved-pools.md).
           ```
 
           Where:
-          * `service_account_id`: [ID of the service account](../../../iam/operations/sa/get-id.md) you created earlier.
+          * `service_account_id`: [ID of the service account](../../../iam/operations/sa/get-id.md) you created previously.
           * `network_id`: [Network ID](../../../vpc/operations/network-get-info.md).
           * `subnet_ids`: [Subnet ID](../../../vpc/operations/subnet-get-info.md).
           * `security_group_ids`: [Security group ID](../../../vpc/operations/security-group-get-info.md).
-          * `reserved_instance_pool_id`: Reserved instance pool [ID](../../cli-ref/reserved-instance-pool/list.md) you created earlier.
+          * `reserved_instance_pool_id`: Reserved instance pool [ID](../../cli-ref/reserved-instance-pool/list.md) you created previously.
           * `zones`: Availability zone.
 
           For more information about the instance group parameters, see [{#T}](../../concepts/instance-groups/specification.md).
@@ -169,7 +169,7 @@ For more information, see [{#T}](../../concepts/reserved-pools.md).
 ## Creating a group in three availability zones with VMs from the reserve pools of each zone {#multi-zone}
 
 1. [Create](../../../iam/operations/sa/create.md) a service account with the [compute.admin](../../security/index.md#compute-admin) role which the group will use to manage instances.
-1. [Create](../../operations/reserved-pools/create-reserved-pool.md) reserved instance pools in three availability zones using a configuration you want to use for the instance group.
+1. [Create](../../operations/reserved-pools/create-reserved-pool.md) reserved instance pools in three availability zones, using a configuration you want to use for the instance group.
 
     {% include [reserved-pools-configuration-for-groups](../../../_includes/compute/reserved-pools-configuration-for-groups.md) %}
 
@@ -183,7 +183,7 @@ For more information, see [{#T}](../../concepts/reserved-pools.md).
 
       {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-      1. Create the `specification.yaml` file containing the instance group specification, for example:
+      1. Create the `specification.yaml` file containing the instance group specification, e.g.:
 
           ```yaml
           name: first-fixed-group
@@ -230,13 +230,13 @@ For more information, see [{#T}](../../concepts/reserved-pools.md).
           ```
 
           Where:
-          * `service_account_id`: [ID of the service account](../../../iam/operations/sa/get-id.md) you created earlier.
+          * `service_account_id`: [ID of the service account](../../../iam/operations/sa/get-id.md) you created previously.
           * `network_id`: [Network ID](../../../vpc/operations/network-get-info.md).
           * `subnet_ids`: [Subnet IDs](../../../vpc/operations/subnet-get-info.md).
           * `security_group_ids`: [Security group ID](../../../vpc/operations/security-group-get-info.md).
           * `variables`: User-defined variables with [IDs of reserved instance pools](../../cli-ref/reserved-instance-pool/list.md) in different availability zones.
           * `reserved_instance_pool_id`: Reserved instance pool IDs you will get as a result of substituting the `instance.zone_id` [system variable](../../concepts/instance-groups/variables-in-the-template.md#first-stage) (availability zone of a specific instance) and the [user-defined variables](../../concepts/instance-groups/variables-in-the-template.md#second-stage) specified in the `variables` parameter.
-          * `zone_id`: Availability zone.
+          * `zone_id`: Availability zones.
 
           For more information about the instance group parameters, see [{#T}](../../concepts/instance-groups/specification.md).
 
@@ -309,7 +309,7 @@ For more information, see [{#T}](../../concepts/reserved-pools.md).
           ```
 
           Where:
-          * `service_account_id`: [ID of the service account](../../../iam/operations/sa/get-id.md) you created earlier.
+          * `service_account_id`: [ID of the service account](../../../iam/operations/sa/get-id.md) you created previously.
           * `network_id`: [Network ID](../../../vpc/operations/network-get-info.md).
           * `subnet_ids`: [Subnet IDs](../../../vpc/operations/subnet-get-info.md).
           * `security_group_ids`: [Security group ID](../../../vpc/operations/security-group-get-info.md).
@@ -335,7 +335,7 @@ For more information, see [{#T}](../../concepts/reserved-pools.md).
 
     {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../concepts/instance-groups/index.md)
 * [{#T}](../../concepts/reserved-pools.md)

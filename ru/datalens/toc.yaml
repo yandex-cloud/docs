@@ -1040,6 +1040,10 @@ items:
     items:
       - name: Как пользоваться Public API
         href: operations/api-start.md
+      - name: Версионирование
+        href: operations/api-versioning.md
+      - name: История изменений
+        href: release-notes/api-changelog.md
       - name: '{{ datalens-name }} API (англ.)'
         items:
           - name: Overview

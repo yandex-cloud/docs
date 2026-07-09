@@ -39,7 +39,7 @@ You can configure the metadata service when [creating](../operations/index.md#vm
 * [{#T}](../tutorials/secure-password-script/index.md)
 * [{#T}](../../tutorials/security/gitlab-lockbox-integration.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./metadata/directories.md)
 * [{#T}](./metadata/public-image-keys.md)

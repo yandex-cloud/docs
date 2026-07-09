@@ -132,7 +132,7 @@ If a [password policy](../../concepts/password-policy.md) is configured for a us
 
      {% endnote %}
 
-     For more information about `yandex_organizationmanager_idp_user` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
+     For more on the properties of the `yandex_organizationmanager_idp_user` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
 
   1. Apply the changes:
 

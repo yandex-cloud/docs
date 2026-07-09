@@ -22,6 +22,6 @@ Files of the following MIME types can be compressed:
 
 The MIME type is determined by the `Content-Type` HTTP header value in the origin's response to the CDN server request.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Instructions for enabling file compression](../operations/resources/enable-compression.md).

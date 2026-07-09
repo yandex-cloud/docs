@@ -13,7 +13,7 @@ To set up the vulnerability scanner:
 1. [Configure {{ GL }}](#configure-gitlab).
 1. [Create a test application](#app-create).
 1. [Create a {{ GLR }}](#runners).
-1. [Configure the CI script](#ci).
+1. [Configure the CI pipeline](#ci).
 1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -23,15 +23,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support cost includes:
 
 * Fee for [disks](../../compute/concepts/disk.md) and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for storing the created Docker images and for the vulnerability scanner (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
-* Fee for using the [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for storing the created Docker images and vulnerability scanner (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
+* Fee for using a [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 ## Getting started {#before-begin}
 
 {% include [deploy-infrastructure](../../_includes/managed-gitlab/deploy-infrastructure.md) %}
-
-Additionally, [assign](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) the `container-registry.images.scanner` role to the service account for the nodes. This role allows scanning Docker images for vulnerabilities.
 
 {% include [prepare](../../_includes/managed-gitlab/prepare.md) %}
 
@@ -59,10 +57,10 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
 {% endlist %}
 
-## Configure the CI script {#ci}
+## Configure the CI pipeline {#ci}
 
 1. Create [{{ GL }} environment variables]({{ gl.docs }}/ee/ci/variables/):
-   1. In {{ GL }}, navigate to **Settings** in the left-hand panel and select **CI/CD** from the drop-down list.
+   1. In {{ GL }}, navigate to **Settings** in the left-hand panel and select **CI/CD** from the pop-up list.
    1. Click **Expand** next to **Variables**.
    1. Add the following environment variables depending on the {{ managed-k8s-name }} authentication method in {{ GL }}:
 
@@ -70,7 +68,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
       - Service account token {#token}
 
-        * `KUBE_URL`: [{{ managed-k8s-name }} master address](../../managed-kubernetes/concepts/index.md#master). You can retrieve it using the following command:
+        * `KUBE_URL`: [{{ managed-k8s-name }} master address](../../managed-kubernetes/concepts/index.md#master). You can get it using the following command:
 
           ```bash
           yc managed-kubernetes cluster get <cluster_name_or_ID> --format=json \
@@ -88,9 +86,9 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
       To add a variable:
       * Click **Add variable**.
-      * In the window that opens, specify the variable name in the **Key** field and its value in the **Value** field.
+      * In the window that opens, specify a variable name in the **Key** field and its value in the **Value** field.
       * Click **Add variable**.
-1. Create the CI script configuration file:
+1. Create a CI pipeline configuration file:
    1. Open the `gitlab-test` project.
    1. Click ![image](../../_assets/console-icons/plus.svg) in the repository navigation bar and select **New file** from the drop-down menu.
    1. Name your file `.gitlab-ci.yml`. Add the steps to build and push a Docker image, scan it for vulnerabilities, and update the application configuration in the {{ managed-k8s-name }} cluster. The file structure depends on the {{ k8s }} authentication method in {{ GL }}:
@@ -237,10 +235,10 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
    `.gitlab-ci.yml` describes the following CI script steps:
    * Building a Docker image using `Dockerfile` and pushing the image to {{ container-registry-name }}.
    * Scanning the Docker image for vulnerabilities in {{ container-registry-name }}.
-   * Setting up an environment to work with {{ k8s }} and applying the `k8s.yaml` configuration to {{ managed-k8s-name }} clusters. This way, the application is deployed on the previously created {{ managed-k8s-name }} cluster.
+   * Setting up an environment to work with {{ k8s }} and applying the `k8s.yaml` configuration to the {{ managed-k8s-name }} cluster. This way, the application is deployed to the previously created {{ managed-k8s-name }} cluster.
 
 ## Check the result {#check-result}
 
-After you save the `.gitlab-ci.yml` configuration file, the build scenario will start. To check its results, select **Build** on the left-hand panel in the `gitlab-test` project, and then **Pipelines** from the drop-down menu. Vulnerability scanning is performed at the second stage (`test`).
+After you save the `.gitlab-ci.yml` configuration file, the build pipeline will start. To check its results, select **Build** on the left-hand panel in the `gitlab-test` project, and then **Pipelines** from the drop-down menu. Vulnerability scanning is performed at the second stage (`test`).
 
 {% include [clear-out](../../_includes/managed-gitlab/clear-out.md) %}

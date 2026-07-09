@@ -9,3 +9,4 @@
 `searchindex.DeleteFilesFromSearchIndex` | Удаление файлов из поискового индекса
 `searchindex.DeleteSearchIndex` | Удаление поискового индекса
 `searchindex.UploadFilesToSearchIndex` | Загрузка файлов в поисковый индекс
+`responses.GetResponse` | Получение ответа

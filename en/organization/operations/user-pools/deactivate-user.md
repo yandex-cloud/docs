@@ -133,7 +133,7 @@ To deactivate a local user account:
      * `full_name`: User’s full name.
      * `is_active`: Activation flag. Set to `false` to deactivate the user.
 
-     For more information about `yandex_organizationmanager_idp_user` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
+     For more on the properties of the `yandex_organizationmanager_idp_user` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
 
   1. Create the resources:
 
@@ -151,6 +151,6 @@ To deactivate a local user account:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](activate-user.md)

@@ -427,7 +427,7 @@ To configure such a policy:
 
          {% include [adfs-group-note](../../_includes/organization/adfs-group-note.md) %}
 
-      For more information, see [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) and [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) in the {{ TF }} provider guides.
+      For more information, see the descriptions of the [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) and [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) resources in the {{ TF }} provider guides.
 
   1. Create the resources:
 

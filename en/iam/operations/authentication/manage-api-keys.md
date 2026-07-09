@@ -379,7 +379,7 @@ To delete a service account API key:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/authorization/api-key.md)
 * [{{ yandex-cloud }} services that support API keys](../../concepts/authorization/api-key.md#supported-services)

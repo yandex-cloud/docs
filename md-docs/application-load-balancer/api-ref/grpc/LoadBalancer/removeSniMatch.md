@@ -3,7 +3,6 @@
 # Application Load Balancer API, gRPC: LoadBalancerService.RemoveSniMatch
 
 Deletes the specified SNI handler.
-
 This request does not allow to delete [TlsListener.default_handler](get.md#yandex.cloud.apploadbalancer.v1.TlsListener).
 
 ## gRPC request
@@ -24,7 +23,9 @@ This request does not allow to delete [TlsListener.default_handler](get.md#yande
 ||Field | Description ||
 || load_balancer_id | **string**
 
-Required field. ID of the application load balancer to remove the SNI handler from. ||
+Required field. ID of the application load balancer to remove the SNI handler from.
+
+The maximum string length in characters is 50. ||
 || listener_name | **string**
 
 Required field. Name of the listener te remove the SNI handler from. ||
@@ -43,14 +44,10 @@ Required field. Name of the SNI handler to remove. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "load_balancer_id": "string",
-    "listener_name": "string",
-    "sni_match_name": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": "google.protobuf.Empty"
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -78,7 +75,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[RemoveSniMatchMetadata](#yandex.cloud.apploadbalancer.v1.RemoveSniMatchMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -93,7 +90,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -108,19 +105,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## RemoveSniMatchMetadata {#yandex.cloud.apploadbalancer.v1.RemoveSniMatchMetadata}
-
-#|
-||Field | Description ||
-|| load_balancer_id | **string**
-
-ID of the application load balancer that the SNI handler is being removed from. ||
-|| listener_name | **string**
-
-Name of the listener that the SNI handler is being removed from. ||
-|| sni_match_name | **string**
-
-Name of the SNI handler that is being removed. ||
 |#

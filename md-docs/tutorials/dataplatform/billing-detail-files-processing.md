@@ -55,5 +55,5 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Yandex Object Storage](../../storage/index.md).
-* [Yandex DataLens](../../datalens/index.md).
+* [Yandex Object Storage](../../storage/index.md)
+* [Yandex DataLens](../../datalens/index.md)

@@ -14,11 +14,10 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 #|
 || Requirement ID | Security standard requirement | Check IDs in the [{{ cspm-name }} module](../cspm.md) ||
 || **Identification and authentication of access subjects and access objects** (IA) {align="center"} | > | > ||
-|| IA.1 | Identification and authentication of users who are the operator's employees | [cspm.access.check-bindings](../../rules-reference/cspm.md#access-check-bindings}) ||
 || IA.4 | Management of authentication means including the storage, issue, initialization and blocking of authentication means and taking relevant measures in case of loss and/or compromising a means of authentication |
 [cspm.crypto.secrets-lockbox](../../rules-reference/cspm.md#secrets-lockbox)
 [cspm.crypto.secrets-serverless](../../rules-reference/cspm.md#secrets-serverless)
-[cspm.crypto.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
+[cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
 [cspm.aws-token](../../rules-reference/cspm.md#aws-token)
 ||
 || **Management of access by access subjects to access objects** (MA) {align="center"} | > | > ||
@@ -59,7 +58,6 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 || MA.17 | Providing trusted loading of computer equipment | [cspm.crypto.managed-vm-kms](../../rules-reference/cspm.md#managed-vm-kms) ||
 || **Software environment restrictions** (SER) {align="center"} | > | > ||
 || SER.1 | Managing execution of software components, including defining components to be executed, configuring the execution parameters of components, and monitoring execution of software components |
-[cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 [cspm.k8s.kspm](../../rules-reference/cspm.md#k8s-kspm)
 ||
 || SER.2 | Managing installation of software components, including defining components to be installed, configuring the installation parameters of components, and monitoring installation of software components |
@@ -105,7 +103,6 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
 || AS.3 | Control of operability, settings and faultless operation of software and information protection means |
-[cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 ||
 || AS.4 | Control of composition of hardware, software, and information protection means | [cspm.o11y.labeled-resources](../../rules-reference/cspm.md#labeled-resources) ||
@@ -139,23 +136,18 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 ||
 || **Protection of hardware** (PH) / **Virtualization environment protection** (VEP) {align="center"} | > | > ||
 || VEP.1 | Identification and authentication of access subjects and access objects in the virtual infrastructure, including administrators of virtualization means |
-[cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 [cspm.k8s.access](../../rules-reference/cspm.md#access)
 ||
 || VEP.2 | Managing access of access subjects to access objects in the virtual infrastructure, including access within virtual machines |
-[cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 [cspm.k8s.access](../../rules-reference/cspm.md#access)
 ||
 || VEP.4 | Managing (filtering, routing, connection control, unidirectional transmission) information flows between virtual infrastructure components, as well as around the virtual infrastructure perimeter | [cspm.network.firewall](../../rules-reference/cspm.md#firewall) ||
-|| VEP.6 | Managing the migration of virtual machines (containers) and the data processed on them | [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config) ||
-|| VEP.7 | Control of integrity of the virtual infrastructure and its configurations | [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config) ||
 || VEP.9 | Anti-virus protection in the virtual infrastructure |
 [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 [cspm.appsec.registry-recently-scan](../../rules-reference/cspm.md#registry-recently-scan)
 ||
 || VEP.10 | Segmentation of the virtual infrastructure for processing of information by an individual user and/or group of users |
-[cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
 || **Protection of the information system, its equipment, communication and data transmission systems** (PIS) {align="center"} | > | > ||
@@ -187,5 +179,4 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
 || **Management of configuration of the information system and the personal data protection** (MC) {align="center"} | > | > ||
-|| MC.1–MC.4 | Management of configuration of the information system and the personal data protection | [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config) ||
 |#

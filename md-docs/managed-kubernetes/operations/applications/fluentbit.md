@@ -27,7 +27,7 @@
 ## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
 1. Нажмите на имя нужного кластера Managed Service for Kubernetes и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [Fluent Bit с плагином для Cloud Logging](https://yandex.cloud/ru/marketplace/products/yc/fluent-bit) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
@@ -71,9 +71,9 @@
 
 ## Примеры использования {#examples}
 
-* [Настройка Fluent Bit для работы с Yandex Cloud Logging](../../tutorials/fluent-bit-logging.md).
+[Настройка Fluent Bit для работы с Yandex Cloud Logging](../../tutorials/fluent-bit-logging.md)
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Документация Fluent Bit](https://docs.fluentbit.io/manual).
-* [Документация Cloud Logging](../../../logging/index.md).
+* [Документация Fluent Bit](https://docs.fluentbit.io/manual)
+* [Документация Cloud Logging](../../../logging/index.md)

@@ -5,6 +5,6 @@ description: Follow this tutorial to configure exporting {{ at-full-name }} audi
 
 {% include [at-maxpatrol-siem-console](../../../_tutorials/security/at-maxpatrol-siem-console.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./terraform.md)

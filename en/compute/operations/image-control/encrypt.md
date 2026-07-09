@@ -273,7 +273,7 @@ description: Follow this guide to encrypt a disk image in {{ compute-short-name 
 {% endlist %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/encryption.md)
 * [{#T}](../disk-control/disk-encrypt.md)

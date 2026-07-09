@@ -14,9 +14,9 @@ These rules help mitigate risks from basic security threats in cloud environment
 #|
 || Requirement ID | [Security standard](../../../security/standard/all.md) requirement | Check ID in the [{{ cspm-name }} module](../cspm.md) ||
 || **Authentication and access management** (IAM) {align="center"} | > | > ||
+| IAM1 | [An identity federation (Single Sign-On, SSO) is configured](../../../security/standard/all.md#saml-federation) | [cspm.access.idp](../../rules-reference/cspm.md#idp) ||
 || IAM5 | [Only appropriate administrators can manage IAM group membership](../../../security/standard/all.md#iam-admins) | [cspm.access.user-groups-access](../../rules-reference/cspm.md#user-groups-access) ||
 || IAM22 | [There is no public access to resources within the organization](../../../security/standard/all.md#public-access) | [cspm.access.public-access](../../rules-reference/cspm.md#public-access) ||
-|| IAM27 | [Access permissions of users and service accounts are regularly audited using the {{ sd-full-name }} {{ ciem-name }}](../../../security/standard/all.md#ciem-access-control) | [cspm.access.check-bindings](../../rules-reference/cspm.md#access-check-bindings) ||
 || **Network security** (NET) {align="center"} | > | > ||
 || NET3 | [Security groups have no access rule that is too broad](../../../security/standard/all.md#access-rule) | [cspm.network.network-firewall-scope](../../rules-reference/cspm.md#network-firewall-scope) ||
 || **Secure virtual environment configuration** (ENV) {align="center"} | > | > ||
@@ -36,7 +36,5 @@ These rules help mitigate risks from basic security threats in cloud environment
 || APPSEC10 | [A web application firewall is used](../../../security/standard/all.md#use-waf) | [cspm.appsec.use-waf](../../rules-reference/cspm.md#use-waf) ||
 || APPSEC11 | [Advanced Rate Limiter is used](../../../security/standard/all.md#use-arl) | [cspm.appsec.use-arl](../../rules-reference/cspm.md#use-arl) ||
 || **{{ k8s }} security** (K8S) {align="center"} | > | > ||
-|| K8S8 | [One of the three latest {{ k8s }} versions is used, updates are monitored](../../../security/standard/all.md#version-update) | [cspm.k8s.version-update](../../rules-reference/cspm.md#version-update) ||
 || K8S11 | [A {{ k8s }} security policy is used](../../../security/standard/all.md#security-standards) | [cspm.k8s.kspm](../../rules-reference/cspm.md#k8s-kspm) ||
-|| K8S12 | [Audit log collection is set up for incident investigation](../../../security/standard/all.md#audit-logs) | [cspm.k8s.audit-logs](../../rules-reference/cspm.md#audit-logs) ||
 |#

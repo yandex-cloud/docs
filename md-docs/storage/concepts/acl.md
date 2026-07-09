@@ -170,7 +170,7 @@ ACL | Описание
     --subject system:allUsers
   ```
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Редактирование ACL бакета](../operations/buckets/edit-acl.md)
 * [Редактирование ACL объекта](../operations/objects/edit-acl.md)

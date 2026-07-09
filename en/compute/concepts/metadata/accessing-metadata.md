@@ -17,9 +17,9 @@ You can [access](../../operations/vm-metadata/get-vm-metadata.md#external-access
 
 {% include [vm-metadata](../../../_includes/vm-metadata.md) %}
 
-To learn more, see [Examples of requests to the metadata service from inside the VM instance](../../operations/vm-metadata/get-vm-metadata.md#request-examples).
+For more information on getting metadata from inside the VM instance, see [Examples of requests to the metadata service from inside the VM instance](../../operations/vm-metadata/get-vm-metadata.md#request-examples).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Getting VM instance metadata](../../operations/vm-metadata/get-vm-metadata.md)
 * [{#T}](../vm-metadata.md)

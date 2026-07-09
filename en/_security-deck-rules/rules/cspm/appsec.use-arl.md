@@ -1,4 +1,4 @@
-### Advanced rate limiter is implemented {#use-arl}
+### Advanced Rate Limiter is implemented {#use-arl}
 
 #|
 || **kind** | **severity** | **ID** ||
@@ -6,12 +6,6 @@
 |#
 
 #### Description
-
-{% note tip "**Automatic verification**" %}
-
-This control automatically checks for Advanced Rate Limiter configuration.
-
-{% endnote %}
 
 {% note warning "**Manual Check**" %}
 
@@ -23,8 +17,8 @@ This rule checks only the built-in information security features in Yandex Cloud
 
 You need to connect your ARL profile to the [security profile](https://yandex.cloud/en/docs/smartwebsecurity/concepts/profiles) in Smart Web Security.
 
-#### Guides and solutions
+#### Instructions and solutions
 
-Guides and solutions to use:
+**Guides and solutions to use:**
 
-* [Creating an ARL profile and connecting it to a security profile in Smart Web Security](https://yandex.cloud/en/docs/smartwebsecurity/quickstart#arl)
+[Creating an ARL profile and connecting it to a security profile in Smart Web Security](https://yandex.cloud/en/docs/smartwebsecurity/quickstart#arl).

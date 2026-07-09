@@ -11,6 +11,6 @@ All cookies are linked to a single logical [session](../../../organization/conce
 
 Cookies are created independently for each {{ yandex-cloud }} service operating on its own dedicated domain (e.g., [management console]({{ link-console-main }}), [{{ cloud-center }}]({{ cloud-center-link }}), [{{ datalens-full-name }}]({{ link-datalens-main }}), etc.)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../../organization/concepts/sessions.md)

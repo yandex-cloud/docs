@@ -149,6 +149,8 @@ Add users to the application:
 
 {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 Add administrators:
 
 1. Log in to the Yandex Browser for organizations [management console](https://browser.yandex.ru/corp/builds).
@@ -159,7 +161,7 @@ Add administrators:
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and Yandex Browser for organizations integration management console work correctly, authenticate as one of the administrators you added to the app. Follow these steps:
+To make sure both your SAML app and Yandex Browser for organizations integration management console work correctly, authenticate as one of the administrators you added to the app. Proceed as follows:
 
 1. In your browser, go to the Yandex Browser for organizations management console login page.
 1. If you were previously logged in, log out.

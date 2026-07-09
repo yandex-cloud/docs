@@ -202,6 +202,6 @@ To configure the allowed HTTP client requests methods for a resource:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/clients-to-servers.md)

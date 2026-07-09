@@ -37,6 +37,8 @@ description: В данном разделе вы узнаете, как можн
 
               {% include [kspm-admission-modes](../../../_includes/security-deck/kspm-admission-modes.md) %}
 
+          * `HostSecurity` — тип правил из [стандарта CIS Benchmark™](../../concepts/standard-compliance/cis-kubernetes-benchmark.md), применяемый к компонентам на рабочих узлах {{ k8s }}.
+
       * **{{ ui-key.yacloud_org.security.controls.ExceptionDrawer.resources_field_id }}** — идентификатор правила в {{ yandex-cloud }}.
       * **{{ ui-key.yacloud_org.security.controls.rule-result.violations_q7AcU }}** — количество выявленных нарушений правила.
 

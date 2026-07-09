@@ -17,6 +17,6 @@ The administrator can revoke the `iam.serviceAccounts.tokenCreator` role from th
 
 {% endnote %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../operations/sa/impersonate-sa.md)

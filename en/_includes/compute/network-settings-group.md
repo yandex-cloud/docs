@@ -7,10 +7,10 @@
 
   Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If your network has no subnets, create one by selecting **{{ ui-key.yacloud.compute.instances.create.button_create-subnetwork-new }}**.
 
-* In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, select a method for assigning an IP address:
+* In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, select the IP address assignment method:
 
     * `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`: To assign a random IP address from the {{ yandex-cloud }} IP address pool.
-    * `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`: Not to assign a public IP address.
+    * `{{ ui-key.yacloud.compute.instances.create.value_address-none }}`: Do not assign a public IP address.
 
 * Select the [relevant security groups](../../vpc/concepts/security-groups.md).
 

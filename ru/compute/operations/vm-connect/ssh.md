@@ -374,7 +374,7 @@ description: 'Следуя данной инструкции, вы сможет�
 
 #### Что дальше {#what-is-next}
 
-* [Узнайте, как работать с {{ yandex-cloud }} изнутри ВМ](auth-inside-vm.md).
+[Узнайте, как работать с {{ yandex-cloud }} изнутри ВМ](auth-inside-vm.md)
 
 #### Полезные ссылки {#see-also}
 

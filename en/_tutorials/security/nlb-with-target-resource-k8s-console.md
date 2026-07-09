@@ -24,7 +24,7 @@ To migrate a service from a network load balancer to an L7 load balancer:
 
 1. Optionally, [reserve an L3-L4 DDoS-protected static public IP address](../../vpc/operations/get-static-ip.md) for the L7 load balancer.
 
-1. The {{ managed-k8s-name }} services used as backends must be of the `NodePort` type. If your service type is different, change it to `NodePort`. For more information about this type, see [this {{ k8s }} article](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
+1. The {{ managed-k8s-name }} services used as backends must be of the `NodePort` type. If your service type is different, change it to `NodePort`. For more about this type, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
 
 ## Create a {{ sws-name }} profile {#create-profile-sws}
 

@@ -64,7 +64,7 @@ You can get a token when creating a {{ GLR }} in {{ GL }}. You specify this toke
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../concepts/index.md#managed-runners)
 * [{#T}](../tutorials/install-gitlab-runner.md)

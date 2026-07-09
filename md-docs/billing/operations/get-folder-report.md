@@ -250,8 +250,8 @@
 {% endcut %}
 
 
-##### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Посмотреть детализацию для облака](check-charges.md)
+[Посмотреть детализацию для облака](check-charges.md)
 
 _ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

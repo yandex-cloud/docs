@@ -1,1 +1,1 @@
-The new resource will start running properly after the CNAME record that you created on your DNS hosting (see [Host names](../../cdn/concepts/resource.md#hostnames)) is propagated across DNS servers. This may take several hours.
+The new resource will start working properly after the CNAME record you created on your DNS hosting (see the section on [host names for content distribution](../../cdn/concepts/resource.md#hostnames)) gets propagated across the DNS servers. This may take a few hours.

@@ -82,7 +82,7 @@ To create a VM with multiple network interfaces, [contact our technical support]
 
 The cost of the infrastructure includes:
 * Fee for computing resources, disks, and VM images (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for data storage in a bucket and operations with data (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
+* Fee for bucket data storage and bucket operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for a public IP address and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -288,7 +288,7 @@ The VM is created from the disk image prepared for {{ compute-name }}. Image req
           MD5 (va_vipnet_base_x86_64_4.5.1-5668.ova.zip) = 42c0f1401aa77fc5366e7eff8cc8ed4a
           ```
 
-          Compare the checksum against the one in the email: if the values differ, repeat the download.
+          Compare the checksum against the one in the email: If the values differ, repeat the download.
 
       1. Unpack the archive:
 

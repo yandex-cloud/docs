@@ -14,7 +14,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана группа выделенных хостов.
-  1. В списке сервисов выберите **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/cubes-3-overlap.svg) **Группы выделенных хостов**.
   1. Справа сверху нажмите **Создать группу выделенных хостов**.
   1. Введите имя и описание группы выделенных хостов. Требования к имени:

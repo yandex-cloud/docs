@@ -66,7 +66,6 @@ GET https://alb.{{ api-host }}/apploadbalancer/v1/targetGroups
 || folderId | **string**
 
 Required field. ID of the folder to list target groups in.
-
 To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
 || pageSize | **string** (int64)
 
@@ -85,7 +84,6 @@ The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters target groups listed in the response.
-
 The expression must specify:
 1. The field name. Currently you can use filtering only on [TargetGroup.name](#yandex.cloud.apploadbalancer.v1.TargetGroup) field.
 2. An `=` operator.
@@ -114,8 +112,8 @@ The maximum string length in characters is 1000. ||
           "ipAddress": "string",
           // end of the list of possible fields
           "subnetId": "string",
-          "privateIpv4Address": "boolean",
-          "externalAddress": "boolean"
+          "externalAddress": "boolean",
+          "privateIpv4Address": "boolean"
         }
       ],
       "createdAt": "string"
@@ -135,7 +133,6 @@ List of target groups in the specified folder. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListTargetGroupsRequest.pageSize](#yandex.cloud.apploadbalancer.v1.ListTargetGroupsRequest), use `next_page_token` as the value
 for the [ListTargetGroupsRequest.pageToken](#yandex.cloud.apploadbalancer.v1.ListTargetGroupsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -194,14 +191,14 @@ Reference to the target. As of now, targets must only be referred to by their IP
 || subnetId | **string**
 
 ID of the subnet that the target is connected to. ||
+|| externalAddress | **boolean**
+
+If set, will not require `subnet_id` to validate the target.
+Only one of `subnet_id` or `external_address` should be set. ||
 || privateIpv4Address | **boolean**
 
 If set, will not require `subnet_id` to validate the target.
 Instead, the address should belong to one of the following ranges:
 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
 Only one of `subnet_id` or `private_ipv4_address` should be set. ||
-|| externalAddress | **boolean**
-
-If set, will not require `subnet_id` to validate the target.
-Only one of `subnet_id` or `external_address` should be set. ||
 |#

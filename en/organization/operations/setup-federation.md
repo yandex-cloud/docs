@@ -177,7 +177,7 @@ For IdP-specific examples, see our tutorials:
 
       {% include [organizationmanager_saml_federation-tf](../../_includes/organization/organizationmanager_saml_federation-tf.md) %}
 
-  1. Validate your {{ TF }} configuration:
+  1. Make sure the {{ TF }} configuration files are correct:
 
        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -473,20 +473,63 @@ After a user gets authenticated, the IdP server will send a SAML message to {{ y
 
 To correctly provide user information to {{ org-full-name }}, you need to set up mapping between SAML message attributes and the personal data stored with your IdP.
 
-User data | Comment | SAML message elements
-------------------- | ----------- | ----------------------
-Unique user ID | Required attribute. We recommend using the User Principal Name (UPN) or email address. | `<NameID>`
-Surname | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-last-name }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"`
-Name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"`
-Full name | Displayed in {{ yandex-cloud }} services.<br>Example: Ivan Ivanov.<br> Value length limit: {{ saml-limit-display-name }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"`
-Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example: `ivanov@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"`
-Phone | Used to send notifications from {{ yandex-cloud }} services.<br>Example: +71234567890.<br> Value length limit: {{ saml-limit-phone }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone"`
-Profile image | Displayed in {{ yandex-cloud }} services.<br>Images are transmitted in [Base64]({{ link-base64 }}) encoding.<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | `<Attribute>` with the following parameter:<br>`Name="thumbnailPhoto"`
-Group membership | Used for dynamic mapping of group members. | `<Attribute>` with the following parameter:<br>`Name="member"`
-Company name | Displayed in {{ yandex-cloud }} services.<br>Here is an example: Holiday LLC. | `<Attribute>` with the following parameter:<br>`Name="company_name"`
-Organizational unit | Displayed in {{ yandex-cloud }} services.<br>Here is an example: Control systems department. | `<Attribute>` with the following parameter:<br>`Name="department"`
-Job title | Displayed in {{ yandex-cloud }} services.<br>Here is an example: Software engineer. | `<Attribute>` with the following parameter:<br>`Name="job_title"`
-Employee ID | Displayed in {{ yandex-cloud }} services.<br>Here is an example: 08012. | `<Attribute>` with the following parameter:<br>`Name="employee_id"`
+#|
+|| **User data** | **Comment** | **Attribute names in SAML Response** ||
+|| Unique user ID | Required attribute. We recommend using the User Principal Name (UPN) or email address. |
+* `NameID`
+||
+|| Surname | Displayed in {{ yandex-cloud }} services. Value length limit: {{ saml-limit-last-name }}. |
+* `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
+* `surname`
+* `lastname`
+||
+|| Name | Displayed in {{ yandex-cloud }} services. Value length limit: {{ saml-limit-first-name }}. |
+* `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+* `givenname`
+* `firstname`
+||
+|| Full name | Displayed in {{ yandex-cloud }} services. Here is an example: Ivan Ivanov. Value length limit: {{ saml-limit-display-name }}. |
+* `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
+* `name`
+* `displayname`
+||
+|| Email | Used to send notifications from {{ yandex-cloud }} services. Here is an example: `ivanov@example.com`. Value length limit: {{ saml-limit-email }}. |
+* `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+* `emailaddress`
+* `email`
+||
+|| Phone | Used to send notifications from {{ yandex-cloud }} services. Here is an example: +71234567890. Value length limit: {{ saml-limit-phone }}. |
+* `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone`
+* `phone`
+* `phones`
+* `mobile`
+||
+|| Profile image | Displayed in {{ yandex-cloud }} services. Images are transmitted in [Base64]({{ link-base64 }}) encoding. Value length limit: {{ saml-limit-thumbnail-photo }}. |
+* `thumbnailPhoto`
+* `photos`
+* `picture`
+||
+|| Group membership | Used for dynamic mapping of group members. |
+* `member`
+* `http://schemas.xmlsoap.org/claims/group`
+* `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`
+||
+|| Company name | Displayed in {{ yandex-cloud }} services. Here is an example: Holiday LLC. |
+* `company_name`
+* `companyname`
+||
+|| Organizational unit | Displayed in {{ yandex-cloud }} services. Here is an example: Control systems department. |
+* `department`
+||
+|| Job title | Displayed in {{ yandex-cloud }} services. Here is an example: Software engineer. |
+* `job_title`
+* `jobtitle`
+||
+|| Employee ID | Displayed in {{ yandex-cloud }} services. Here is an example: 08012. |
+* `employee_id`
+* `employeeid`
+||
+|#
 
 
 {% note info %}

@@ -13,8 +13,8 @@ description: Из статьи вы узнаете, как работать с �
 
 ## Запросы {#queries}
 
-* [{#T}](queries/index.md).
-* [{#T}](queries/manage-queries.md).
-* [{#T}](queries/work-with-templates.md).
-* [{#T}](queries/work-with-schema-datasets.md).
-* [{#T}](queries/query-history.md).
+* [{#T}](queries/index.md)
+* [{#T}](queries/manage-queries.md)
+* [{#T}](queries/work-with-templates.md)
+* [{#T}](queries/work-with-schema-datasets.md)
+* [{#T}](queries/query-history.md)

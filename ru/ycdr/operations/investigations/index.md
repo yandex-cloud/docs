@@ -7,5 +7,5 @@ description: Обзор возможностей работы с расслед�
 
 {% include [preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
-* [{#T}](manage-investigations.md).
-* [{#T}](investigations-list.md).
+* [{#T}](manage-investigations.md)
+* [{#T}](investigations-list.md)

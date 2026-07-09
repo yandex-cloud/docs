@@ -26,7 +26,7 @@ We recommend avoiding the use of personal `@yandex.ru` portal accounts in the co
 
 The organization use single sign-on (SSO) access implemented through an external SAML-compatible identity provider (IdP). Domain users must not coexist with SSO accounts. If you do not have a dedicated IdP, you can use {{ org-full-name }}. To do so, create a SAML application in {{ org-full-name }} and configure it both on the {{ org-full-name }} side and the service provider side.
 
-For more information, see [Creating a SAML application in {{ org-full-name }}](../../../organization/operations/applications/saml-create.md).
+For more on creating an SAML application, see [this guide](../../../organization/operations/applications/saml-create.md).
 
 **How to implement:**
 

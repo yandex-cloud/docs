@@ -86,7 +86,7 @@ To configure user access to {{ yandex-cloud }} resources using [group mapping](.
           * `internal_group_id`: {{ org-full-name }} group name.
           * `external_group_id`: Name of an identity provider group.
 
-          For more information about `yandex_organizationmanager_group_mapping_item` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item).
+          For more on the properties of the `yandex_organizationmanager_group_mapping_item` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item).
       1. Create the resources:
 
           {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

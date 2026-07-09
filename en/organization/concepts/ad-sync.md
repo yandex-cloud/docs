@@ -233,6 +233,6 @@ The synchronization agent's configuration depends on the authentication type the
 {% endlist %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/sync-ad.md)

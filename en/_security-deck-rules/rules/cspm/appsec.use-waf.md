@@ -1,4 +1,4 @@
-### Web application firewall is implemented {#use-waf}
+### Web Application Firewall is implemented {#use-waf}
 
 #|
 || **kind** | **severity** | **ID** ||
@@ -6,12 +6,6 @@
 |#
 
 #### Description
-
-{% note tip "**Automatic verification**" %}
-
-This control automatically checks for Web Application Firewall configuration.
-
-{% endnote %}
 
 {% note warning "**Manual Check**" %}
 
@@ -23,8 +17,10 @@ To mitigate risks associated with web attacks, we recommend using the Yandex Sma
 
 You can manage the web application firewall using a [WAF profile](https://yandex.cloud/en/docs/smartwebsecurity/concepts/waf) that connects to a [security profile](https://yandex.cloud/en/docs/smartwebsecurity/concepts/profiles) in Smart Web Security as a separate [rule](https://yandex.cloud/en/docs/smartwebsecurity/concepts/rules).
 
-#### Guides and solutions
+#### Instructions and solutions
 
-Guides and solutions to use:
+Create a WAF profile and connect it to a security profile in Smart Web Security. It is recommended to configure and test your security profile Basic and Smart Protection rules beforehand.
 
-* [Creating a WAF profile and connecting it to a security profile in Smart Web Security](https://yandex.cloud/en/docs/smartwebsecurity/quickstart#waf)
+**Guides and solutions to use:**
+
+1. [Create](https://yandex.cloud/en/docs/smartwebsecurity/operations/waf-profile-create) a WAF profile. 2. [Configure](https://yandex.cloud/en/docs/smartwebsecurity/operations/configure-set-rules) a WAF rule set. 3. [Add](https://yandex.cloud/en/docs/smartwebsecurity/operations/exclusion-rule-add) an exclusion rule to the WAF profile. 4. [Attach](https://yandex.cloud/en/docs/smartwebsecurity/operations/rule-add) the WAF profile to your security profile.

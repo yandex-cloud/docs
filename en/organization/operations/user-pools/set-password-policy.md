@@ -150,7 +150,7 @@ To set up a [password policy](../../concepts/password-policy.md):
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  For more information about {{ TF }}, see [this guide](../../../tutorials/infrastructure-management/terraform-quickstart.md).
+  For more information about {{ TF }}, see [this tutorial](../../../tutorials/infrastructure-management/terraform-quickstart.md).
 
   1. Create a configuration file with the user pool and password policy settings:
 
@@ -240,7 +240,7 @@ To set up a [password policy](../../concepts/password-policy.md):
        * `window`: Interval for counting wrong entries (e.g., `10m` for 10 minutes or `600s` for 600 seconds).
        * `block`: Lockout duration after exceeding the wrong entry limit (e.g., `10m` or `600s`).
 
-     For more information about `yandex_organizationmanager_idp_userpool` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
+     For more on the properties of the `yandex_organizationmanager_idp_userpool` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
 
   1. Create the resources:
 

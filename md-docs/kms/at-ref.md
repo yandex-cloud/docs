@@ -14,6 +14,9 @@ yandex.cloud.audit.kms.<имя_события>
 
 Имя события | Описание
 --- | ---
+`asymmetricencryption.CancelAsymmetricEncryptionKeyDeletion` | Отмена удаления асимметричной ключевой пары шифрования
+`asymmetricsignature.CancelAsymmetricSignatureKeyDeletion` | Отмена удаления ключевой пары электронной подписи
+`asymmetricsignature.UpdateAsymmetricSignatureKeyAccessBindings` | Изменение прав доступа к асимметричному ключу подписи
 `CancelDeleteSymmetricKey` | Отмена ранее запланированного уничтожения ключа
 `CancelSymmetricKeyVersionDestruction` | Отмена ранее запланированного уничтожения версии симметричного ключа
 `CreateAsymmetricEncryptionKey` | Создание асимметричной ключевой пары шифрования
@@ -33,13 +36,16 @@ yandex.cloud.audit.kms.<имя_события>
 `UpdateSymmetricKey` | Изменение симметричного ключа
 `UpdateSymmetricKeyAccessBindings` | Изменение прав доступа для симметричного ключа
 `UpdateAsymmetricEncryptionKeyAccessBindings` | Изменение прав доступа для асимметричной ключевой пары шифрования
-`asymmetricencryption.CancelAsymmetricEncryptionKeyDeletion` | Отмена удаления асимметричной ключевой пары шифрования
-`asymmetricsignature.CancelAsymmetricSignatureKeyDeletion` | Отмена удаления ключевой пары электронной подписи
 
 ## Справочник событий уровня сервисов {#data-plane-events}
 
 Имя события | Описание
 --- | ---
+`asymmetricencryption.AsymmetricDecrypt` | Расшифровка данных асимметричным ключом
+`asymmetricencryption.AsymmetricGetPublicKey` | Получение открытого ключа
+`asymmetricsignature.AsymmetricGetPublicKey` | Получение открытого ключа
+`asymmetricsignature.AsymmetricSign` | Подписание данных асимметричным ключом
+`asymmetricsignature.AsymmetricSignHash` | Подписание хеша асимметричным ключом
 `Decrypt` | Расшифрование шифртекста с помощью ключа
 `Encrypt` | Шифрование тестовой строки с помощью ключа
 `GenerateDataKey` | Формирование ключа с высокой энтропией для шифрования по схеме Envelope Encryption

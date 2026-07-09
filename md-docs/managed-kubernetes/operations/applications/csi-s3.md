@@ -33,7 +33,7 @@
 ## Установка в консоли управления с помощью Cloud Marketplace {#marketplace-install}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
 1. Нажмите на имя нужного кластера Managed Service for Kubernetes и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [Container Storage Interface для S3](https://yandex.cloud/ru/marketplace/products/yc/csi-s3) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
@@ -130,7 +130,7 @@
 `secret.secretKey` | Секретный ключ |
 `secret.endpoint` | Адрес S3-сервиса | `https://storage.yandexcloud.net`
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Спецификация CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md)
 * [Container Storage Interface для S3 с поддержкой Object Storage на GitHub](https://github.com/yandex-cloud/k8s-csi-s3)

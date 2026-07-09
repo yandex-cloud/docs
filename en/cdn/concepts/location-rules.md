@@ -37,7 +37,7 @@ For the full list of location rule parameters, see the [API](../api-ref/Resource
 
 You can configure location rules in the [management console]({{ link-console-main }}) or using the [API](../api-ref/ResourceRules/index.md). For more information, see [{#T}](../operations/resources/location-rules.md).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](./resource.md)
 * [{#T}](./caching.md)

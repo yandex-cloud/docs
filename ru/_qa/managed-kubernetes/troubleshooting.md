@@ -201,7 +201,8 @@ kubectl get pods -n kube-system -l k8s-app=kube-dns -o wide
 
 ##### Убедитесь, что кластеру достаточно ресурсов CPU {#check-cpu}
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
 1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_nodes }}** и нажмите на имя любого узла {{ managed-k8s-name }}.
 1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.node.overview.label_monitoring }}**.
@@ -346,7 +347,8 @@ FATA[0000] rpc error: code = Unknown desc = error testing repository connectivit
 
    - Консоль управления {#console}
 
-     1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+     1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Нажмите на имя нужного кластера {{ k8s }}.
      1. В блоке **{{ ui-key.yacloud.k8s.cluster.overview.section_master }}** нажмите на имя подсети.
      1. Нажмите кнопку ![subnets](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.

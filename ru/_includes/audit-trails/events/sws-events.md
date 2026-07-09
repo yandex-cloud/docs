@@ -6,6 +6,7 @@
 `CreateLoadBalancer` | Создание прокси-сервера
 `CreateMatchList` | Создание списка адресов
 `CreateSecurityProfile` | Создание профиля безопасности
+`CreateSolidWafProfile` | Создание профиля SolidWall WAF
 `CreateWafProfile` | Создание профиля WAF
 `DeleteArlProfile` | Удаление профиля ARL
 `DeleteCustomPage` | Удаление шаблона страницы ответа
@@ -13,6 +14,7 @@
 `DeleteLoadBalancer` | Удаление прокси-сервера
 `DeleteMatchList` | Удаление списка адресов
 `DeleteSecurityProfile` | Удаление профиля безопасности
+`DeleteSolidWafProfile` | Удаление профиля SolidWall WAF
 `DeleteWafProfile` | Удаление профиля WAF
 `StartLoadBalancer` | Запуск прокси-сервера
 `StopLoadBalancer` | Остановка прокси-сервера
@@ -22,4 +24,5 @@
 `UpdateLoadBalancer` | Изменение прокси-сервера
 `UpdateMatchList` | Изменение списка адресов
 `UpdateSecurityProfile` | Изменение профиля безопасности
+`UpdateSolidWafProfile` | Изменение профиля SolidWall WAF
 `UpdateWafProfile` | Изменение профиля WAF

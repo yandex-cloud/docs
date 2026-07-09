@@ -109,7 +109,7 @@ description: In this tutorial, you will learn how to delete a backup policy in {
 
      {% endcut %}
 
-     For more information about `yandex_backup_policy` properties, see [this provider guide]({{ tf-provider-resources-link }}/backup_policy).
+     For more on the properties of the `yandex_backup_policy` resource, see [this provider guide]({{ tf-provider-resources-link }}/backup_policy).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

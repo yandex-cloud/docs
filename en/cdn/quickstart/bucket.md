@@ -86,8 +86,9 @@ Set up content distribution over a CDN with an {{ objstorage-name }} [bucket](..
 
 {% include [quickstart-check-cdn-working](../../_includes/cdn/quickstart-check-cdn-working.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./server.md)
 * [{#T}](../concepts/index.md)
 * [{#T}](../../storage/operations/buckets/create.md)
+* [Webinar: Reducing load on high-traffic infrastructure with Cloud CDN](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)

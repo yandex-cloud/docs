@@ -247,7 +247,7 @@ BranchGroups:
 
 {% endnote %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](./approval-rules.md)
 * [{#T}](../operations/approval-rules.md)

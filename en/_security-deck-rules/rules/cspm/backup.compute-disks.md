@@ -13,10 +13,9 @@ It is important to configure back ups since it is the only practical way to rest
 
 In cloud, there are two options to back up VMs:
 
-* Scheduled snapshots
-* Cloud Backup
+* Scheduled snapshots * Cloud Backup
 
-#### Guides and solutions to use
+#### Instructions and solutions
 
 [Backups](https://yandex.cloud/en/docs/compute/concepts/backups) in Compute Cloud includes snapshots of disks connected to VMs and Yandex Cloud Backup usage.
 

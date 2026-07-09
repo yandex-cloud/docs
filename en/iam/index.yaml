@@ -1,14 +1,3 @@
-title: Yandex Identity and Access Management
-description:
-  - >-
-    Yandex Identity and Access Management (IAM) is an identification and access
-    control tool that helps you centrally manage user access permissions to your
-    Yandex Cloud resources. IAM makes sure all operations with resources are
-    only performed by users who have the required permissions.
-  - >-
-    The Yandex Cloud infrastructure is <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">protected</a>
-    pursuant to the Russian Federal Law No. 152-FZ on Personal Data.
 meta:
   title: Yandex Identity and Access Management
   description: >-
@@ -23,28 +12,114 @@ meta:
     - keyword: identification in {{ yandex-cloud }}
     - keyword: access control in {{ yandex-cloud }}
     - keyword: access management in {{ yandex-cloud }}
-    - keyword: identification and access control
+    - keyword: identification and access management
     - keyword: managing user permissions
     - keyword: access management
-links:
-  - title: Getting started
-    description: Add a user and assign a role
-    href: quickstart-overview
-  - title: Step-by-step guides
-    description: How to perform routine operations
-    href: operations/
-  - title: Concepts
-    description: Learn more about the service's concepts and resources
-    href: concepts/
-  - title: API reference
-    description: HTTP API method descriptions
-    href: api-ref/
-  - title: Quotas and limits
-    description: Technical and organizational limitations
-    href: concepts/limits
-  - title: Access management
-    description: Configure access permissions to use the service
-    href: security/
-  - title: Pricing policy
-    description: Service pricing and cost calculations
-    href: pricing
+blocks:
+  - type: card-layout-block
+    title: Yandex Identity and Access Management
+    description: "Yandex\_Identity\_and\_Access\_Management\_(IAM) is an identification and access management service that helps you centrally manage user access to your Yandex\_Cloud resources. IAM makes sure all operations with resources are only performed by users who have the required permissions.\n\nThe Yandex Cloud infrastructure is [protected](https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf) pursuant to the Russian Federal Law 152-FZ on Personal Data."
+    colSizes:
+      all: 12
+      lg: 4
+      sm: 4
+    children:
+      - type: basic-card
+        title: Getting started
+        text: Add a user and assign a role
+        size: s
+        urlTitle: "How to get started with Yandex\_Identity and Access\_Management"
+        url: quickstart-overview
+        icon: _assets/icons/rocket.svg
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Step-by-step guides
+        text: Follow our guides for routine operations
+        size: s
+        urlTitle: "Step-by-step instructions for Identity and Access\_Management"
+        url: operations/index
+        icon: _assets/icons/list-ol.svg
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Concepts
+        text: Introduction to the basic terms and concepts
+        size: s
+        urlTitle: "Overview of Yandex\_Identity and Access\_Management"
+        url: concepts/index
+        icon: _assets/icons/bookmark.svg
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Role reference
+        text: "Yandex\_Cloud role reference"
+        size: s
+        urlTitle: "Yandex\_Cloud role reference"
+        url: roles-reference
+        icon: _assets/icons/book-open.svg
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: API reference
+        text: "Use HTTP\_API methods to manage access"
+        size: s
+        urlTitle: "HTTP\_API method descriptions"
+        url: api-ref/
+        icon: _assets/icons/code.svg
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Release notes
+        text: Releases and updates
+        urlTitle: "Yandex\_Identity and Access\_Management release notes"
+        size: s
+        url: release-notes
+        icon: _assets/icons/timeline.svg
+        controlPosition: content
+        animated: false
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+    background: ''
+    title: "Access\_management\_in\_Identity\_and\_Access\_Management"
+    children:
+      - type: basic-card
+        title: Authentication
+        text: "Authentication methods in Yandex\_Cloud"
+        size: s
+        urlTitle: "How to choose a suitable authentication method in Yandex\_Cloud"
+        url: concepts/authorization/index
+        icon: _assets/icons/key.svg
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Authorization
+        text: "Managing and checking access permissions to resources in Yandex\_Cloud"
+        size: s
+        urlTitle: "How access management works in Yandex\_Cloud"
+        url: concepts/access-control/index
+        icon: _assets/icons/person.svg
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Quotas and limits
+        text: Technical and organizational limitations
+        size: s
+        urlTitle: "Quotas and limits in Identity and Access\_Management"
+        url: concepts/limits
+        icon: _assets/icons/sliders.svg
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Manage access
+        text: "Access permissions required to use Identity and Access\_Management"
+        size: s
+        urlTitle: "Access management in Identity and Access\_Management"
+        url: security/index
+        icon: _assets/icons/persons-lock.svg
+        controlPosition: content
+        animated: false
+links: []

@@ -32,7 +32,7 @@ Other than viewing metrics, you can [set up](configure-alerts.md) alerts to get 
 
 {% endnote %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](configure-alerts.md)
 * [{#T}](../metrics.md)

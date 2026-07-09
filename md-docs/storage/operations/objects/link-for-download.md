@@ -17,7 +17,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Нажмите на имя необходимого бакета.
   1. Нажмите на имя объекта.
   1. Нажмите ![link](../../../_assets/storage/link.svg) **Получить ссылку** в правом верхнем углу.
@@ -228,4 +228,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Получение подписанной ссылки (pre-signed URL) на загрузку объекта](link-for-upload.md)
+[Получение подписанной ссылки (pre-signed URL) на загрузку объекта](link-for-upload.md)

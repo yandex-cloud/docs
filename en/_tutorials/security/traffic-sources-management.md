@@ -171,7 +171,7 @@ Use logs and the service's monitoring capabilities for your analysis. For more i
 
 After testing, disable **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** for the rules. Keep on monitoring and updating the rules as needed.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../smartwebsecurity/concepts/lists.md)
 * [{#T}](../../smartwebsecurity/concepts/conditions.md)

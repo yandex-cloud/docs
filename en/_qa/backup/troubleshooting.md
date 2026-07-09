@@ -95,7 +95,7 @@ Make sure that:
 * [{{ backup-name }} supports](../../backup/concepts/vm-connection.md#os) the VM operating system.
 * The service account linked to the VM has the `backup.editor` [role](../../backup/security/index.md#backup-editor).
 * [Network access for your VM](../../backup/concepts/vm-connection.md#vm-network-access) is enabled.
-* The PowerShell execution policies allow scripts. If not, allow scripts and restart PowerShell. For more information, see the [Microsoft documentation](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
+* The PowerShell execution policies allow scripts. If not, allow scripts and restart PowerShell. For more information, see [this Microsoft guide](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
 
 
 #### Authorization error when installing a {{ backup-name }} agent on a Linux VM {#install-auth-error}
@@ -114,7 +114,7 @@ Make sure that:
 
 #### How do I update the {{ backup-name }} agent on a VM? {#update-backup-agent}
 
-Check [Updating the {{ backup-name }} agent on a VM](../../backup/operations/update-backup-agent.md).
+Use this guide: [Updating the {{ backup-name }} agent on a VM](../../backup/operations/update-backup-agent.md).
 
 #### Why are backups disabled after the OS update? {#kernel-update-consequences}
 
@@ -124,7 +124,7 @@ To update Linux kernel header versions, follow these tutorials: [Restoring the {
 
 #### Creating incremental backups of a VM or {{ baremetal-name }} server is taking longer than usual {#av-interaction}
 
-Antivirus activity may affect the time required to create [incremental backups](../../backup/concepts/backup.md#types) under a policy with the fast backup [option](../../backup/concepts/policy.md#specification) enabled (`fastBackupEnabled`). For more information, see [{#T}](../../backup/concepts/av-interaction.md).
+Antivirus activity may affect the time required to create [incremental backups](../../backup/concepts/backup.md#types) under a policy with the fast backup [option](../../backup/concepts/policy.md#specification) enabled (`fastBackupEnabled`). Read more in [{#T}](../../backup/concepts/av-interaction.md).
 
 #### Out-Of-Memory Killer (OOM Killer) kills the {{ backup-name }} agent process in Linux {#oom-solution}
 

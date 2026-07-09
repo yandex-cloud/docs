@@ -263,7 +263,7 @@ description: Follow this guide to encrypt a disk snapshot in {{ compute-short-na
 {% endlist %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/encryption.md)
 * [{#T}](../disk-control/disk-encrypt.md)

@@ -35,7 +35,7 @@
 ## Установка в консоли управления с помощью Cloud Marketplace {#marketplace-install}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
 1. Нажмите на имя нужного [кластера Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [Crossplane с поддержкой Yandex Cloud](https://yandex.cloud/ru/marketplace/products/yc/crossplane) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
@@ -205,8 +205,8 @@
 
 ## Примеры использования {#examples}
 
-* [Интеграция с Crossplane](../../tutorials/marketplace/crossplane.md)
+[Интеграция с Crossplane](../../tutorials/marketplace/crossplane.md)
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Документация Crossplane](https://docs.crossplane.io/)
+[Документация Crossplane](https://docs.crossplane.io/)

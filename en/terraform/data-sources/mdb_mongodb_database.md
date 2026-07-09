@@ -25,6 +25,7 @@ output "owner" {
 ## Arguments & Attributes Reference
 
 - `cluster_id` (**Required**)(String). The ID of MongoDB Cluster.
+- `deletion_protection` (Bool). Inhibits deletion of the database.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `name` (**Required**)(String). The name of the database.
 - `timeouts` [Block]. 

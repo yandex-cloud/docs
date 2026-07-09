@@ -204,18 +204,18 @@ To create a federation:
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, navigate to the directory where you created the configuration file.
+      1. In the terminal, navigate to the directory where you created your configuration file.
       1. Run a check using this command:
 
           ```bash
           terraform plan
           ```
 
-      If the configuration is described correctly, the terminal displays the federation parameters. {{ TF }} will show any errors in the configuration.
+      If the configuration is described correctly, the terminal displays the federation parameters. Otherwise, {{ TF }} will show any detected errors.
 
   1. Create a federation.
 
-      1. If the configuration does not contain any errors, run this command:
+      1. If the configuration is correct, run this command:
 
           ```bash
           terraform apply

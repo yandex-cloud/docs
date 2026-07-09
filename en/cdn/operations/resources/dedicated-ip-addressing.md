@@ -8,6 +8,9 @@ description: Follow this guide to configure dedicated IP addressing of CDN resou
 {% include [dedicated-ip-condition.md](../../../_includes/cdn/dedicated-ip-condition.md) %}
 
 To get a [dedicated IP address](../../concepts/dedicated-ip-addressing.md) for [CDN resources](../../concepts/resource.md) from a specific folder:
+
+{% include [pricing-for-dedicated-ip.md](../../../_includes/cdn/pricing-for-dedicated-ip.md) %}
+
 1. Make sure the folder you are requesting dedicated IP addressing for already contains at least one CDN resource.
 1. [Submit]({{ link-console-support }}/tickets/create) a ticket to {{ yandex-cloud }} support.
 
@@ -74,7 +77,7 @@ To get a [dedicated IP address](../../concepts/dedicated-ip-addressing.md) for [
 
 1. If you had redirected traffic from your CDN resource, restore the original CNAME record.
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../concepts/dedicated-ip-addressing.md)
 * [{#T}](../../concepts/limits.md)

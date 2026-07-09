@@ -151,6 +151,6 @@ If you increase the instance group's target size, new instances will be created 
 
 Preemptible instances must be terminated within 24 hours of their launch. In this case, there is a risk that the entire instance group will restart at the same time and stop handling the load of running applications. To avoid this, {{ ig-name }} stops preemptible instances after a random interval of 22 to 24 hours, rather than exactly after 24 hours.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../operations/instance-groups/enable-autohealing.md).

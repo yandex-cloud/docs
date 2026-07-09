@@ -26,7 +26,7 @@ Object Storage [не гарантирует](../../concepts/server-logs.md) по
    - Консоль управления {#console}
    
      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать бакет.
-     1. Перейдите в сервис **Object Storage**.
+     1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
      1. На панели сверху нажмите **Создать бакет**.
      1. На странице создания бакета:
    
@@ -480,7 +480,7 @@ Object Storage [не гарантирует](../../concepts/server-logs.md) по
    - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-      1. Перейдите в сервис **Object Storage**.
+      1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
       1. Выберите бакет, для которого хотите настроить логирование.
       1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **Настройки**.
       1. Выберите вкладку **Логирование**.
@@ -649,7 +649,7 @@ Object Storage [не гарантирует](../../concepts/server-logs.md) по
 - Консоль управления {#console}
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-   1. Перейдите в сервис **Object Storage**.
+   1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
    1. Выберите исходный бакет.
    1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **Настройки**.
    1. Выберите вкладку **Логирование**
@@ -775,7 +775,7 @@ Object Storage [не гарантирует](../../concepts/server-logs.md) по
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Выберите целевой бакет с логами.
   1. Перейдите в папку `logs/`.
   1. Напротив объекта с логами, который вы хотите скачать, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Скачать**.
@@ -805,7 +805,7 @@ Object Storage [не гарантирует](../../concepts/server-logs.md) по
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Выберите бакет, для которого хотите выключить логирование.
   1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **Настройки**.
   1. Выберите вкладку **Логирование**.

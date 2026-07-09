@@ -143,6 +143,6 @@ The disk size must be a multiple of 93 GB.
 {% endlist %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../snapshot-control/create-schedule.md)

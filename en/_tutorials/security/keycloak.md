@@ -38,8 +38,8 @@ If you already have an active {{ keycloak }} server, check the {{ keycloak }} se
 
     As long as the container is running, the {{ keycloak }} administrator account will be available at [http://localhost:8080/admin](http://localhost:8080/admin) or [http://0.0.0.0:8080/admin](http://0.0.0.0:8080/admin). The default login credentials are as follows:
 
-    * **User name or email**: `admin`
-    * **Password**: `Pa55w0rd`
+    * **User name or email**: `admin`.
+    * **Password**: `Pa55w0rd`.
 
     {% note info %}
 
@@ -53,9 +53,9 @@ If you already have an active {{ keycloak }} server, check the {{ keycloak }} se
 
         If you are using a local server from a Docker image, the default login credentials are as follows:
 
-        * URL: [http://0.0.0.0:8080/admin](http://0.0.0.0:8080/admin)
-        * **User name or email**: `admin`
-        * **Password**: `Pa55w0rd`
+        * URL: [http://0.0.0.0:8080/admin](http://0.0.0.0:8080/admin).
+        * **User name or email**: `admin`.
+        * **Password**: `Pa55w0rd`.
 
     1. In the **Realm Settings** section, select the **Keys** tab.
 
@@ -153,9 +153,9 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
     If you are using a local server from a Docker image, the default login credentials are as follows:
 
-    * URL: [http://0.0.0.0:8080/admin](http://0.0.0.0:8080/admin)
-    * **User name or email**: `admin`
-    * **Password**: `Pa55w0rd`
+    * URL: [http://0.0.0.0:8080/admin](http://0.0.0.0:8080/admin).
+    * **User name or email**: `admin`.
+    * **Password**: `Pa55w0rd`.
 
 1. Create a SAML application:
 
@@ -329,9 +329,9 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
       ```
 
       Where:
-      * `folder_id`: The folder the role is assigned for.
+      * `folder_id`: Folder the role is assigned for.
 
-      For more information, see [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) and [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) in the {{ TF }} provider guides.
+      For more information, see the descriptions of the [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) and [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) resources in the {{ TF }} provider guides.
 
   1. Create the resources:
 
@@ -355,7 +355,7 @@ A SAML application in {{ keycloak }} acts as an identity provider (IdP). To crea
 
     {% endcut %}
 
-    If you have set up everything correctly, the browser will redirect you to the {{ keycloak }} authentication page.
+    If you have set everything up correctly, the browser will redirect you to the {{ keycloak }} authentication page.
 
 1. Enter the username and password for the test federated user (`demo_user1`) and click **Sign in**.
 

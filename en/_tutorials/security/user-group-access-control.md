@@ -338,7 +338,7 @@ In addition to that, the infrastructure you create in this tutorial consumes [qu
 
 You can also separately delete [clouds](../../resource-manager/operations/cloud/delete.md), [folders](../../resource-manager/operations/folder/delete.md), [user groups](../../organization/operations/delete-group.md), or [service accounts](../../iam/operations/sa/delete.md) from an organization.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * {{ at-full-name }}:
     * [{#T}](../../audit-trails/operations/create-trail.md)

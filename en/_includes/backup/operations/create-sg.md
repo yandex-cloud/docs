@@ -183,9 +183,9 @@
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}).
+      {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}).
 
-    For more information about `yandex_vpc_security_group` properties, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_security_group).
+    For more on the properties of the `yandex_vpc_security_group` resource, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_security_group).
 
 - API {#api}
 

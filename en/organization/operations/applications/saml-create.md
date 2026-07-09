@@ -28,7 +28,7 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
       1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
 
           1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-          1. Enter a label in `key: value` format.
+          1. Add a label in `key: value` format.
           1. Press **Enter**.
       1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
@@ -115,7 +115,7 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
      * `description`: SAML application description. This is an optional setting.
      * `labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional setting.
 
-     For more information about `yandex_organizationmanager_idp_application_saml_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
+     For more on the properties of the `yandex_organizationmanager_idp_application_saml_application` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
 
   1. Create the resources:
 
@@ -268,7 +268,7 @@ Before configuring your SAML application in {{ org-full-name }}, get the require
        * `RESPONSE_ONLY`: Full SAML response.
        * `RESPONSE_AND_ASSERTION`: Full SAML response and, separately, the provided attributes.
 
-     For more information about `yandex_organizationmanager_idp_application_saml_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
+     For more on the properties of the `yandex_organizationmanager_idp_application_saml_application` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
 
   1. Apply the changes:
 
@@ -300,11 +300,13 @@ Users and groups added to a SAML application can be managed by a user with the `
 
 {% include [saml-app-update-users-groups](../../../_includes/organization/saml-app-update-users-groups.md) %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 ## Make sure your application works correctly {#validate}
 
 To make sure both your SAML application and service provider integration work correctly, authenticate to the external app as one of the users you added to the application.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./saml-update.md)
 * [{#T}](./saml-deactivate-remove.md)

@@ -476,6 +476,6 @@
 }
 ```
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Управление политикой доступа (bucket policy)](../operations/buckets/policy.md)
+[Управление политикой доступа (bucket policy)](../operations/buckets/policy.md)

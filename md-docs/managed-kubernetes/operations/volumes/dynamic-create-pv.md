@@ -157,7 +157,7 @@ kubectl delete pvc <идентификатор_объекта_PersistentVolumeCl
 
 Диск в [Yandex Compute Cloud](../../../compute/index.md) удалится автоматически.
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Том](../../concepts/volume.md)
 * [Использование зашифрованных дисков для постоянных томов](encrypted-disks.md)

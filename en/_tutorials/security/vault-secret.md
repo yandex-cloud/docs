@@ -54,7 +54,7 @@ To set up Auto Unseal:
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost includes:
-* Fee for a continuously running VM (see [{{ compute-full-name }}](../../compute/pricing.md) pricing).
+* Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for a dynamic or static [external IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for the number of active {{ kms-short-name }} key versions and completed cryptographic operations (see [{{ vpc-full-name }} pricing](../../kms/pricing.md)).
 
@@ -155,7 +155,7 @@ To stop paying for the resources you created:
 * [Delete the static public IP](../../vpc/operations/address-delete.md) if you reserved one.
 * [Delete the {{ kms-name }} key](../../kms/operations/key.md#delete).
 
-## See also {#see-also}
+## Useful links {#see-also}
 * [HashiCorp Vault](https://www.vaultproject.io/)
 * [Seal/Unseal in Vault](https://www.vaultproject.io/docs/concepts/seal)
 * [Seal configuration in Vault](https://www.vaultproject.io/docs/configuration/seal)

@@ -21,7 +21,7 @@ For more information about {{ k8s }} events, see [Collecting, monitoring, and an
 
 #### 5.1 {{ at-full-name }} is enabled at the organization level {#audit-trails}
 
-The main tool for collecting {{ yandex-cloud }} level logs is [{{ at-full-name }}](../../../audit-trails/concepts/index.md). This service allows you to collect audit logs about events happening to {{ yandex-cloud }} resources and upload these logs to {{ objstorage-full-name }} buckets or {{ cloud-logging-name }} log groups for further analysis or export. For information on how to start collecting logs, see [this guide](../../../audit-trails/quickstart.md).
+The main tool for {{ yandex-cloud }} level logging is [{{ at-full-name }}](../../../audit-trails/concepts/index.md). This service allows you to collect audit logs about events happening to {{ yandex-cloud }} resources and upload these logs to {{ objstorage-full-name }} buckets or {{ cloud-logging-name }} log groups for further analysis or export. For how to start logging, see [this guide](../../../audit-trails/quickstart.md).
 
 {{ at-name }} audit logs may contain two types of events: [management events](../../../audit-trails/concepts/events.md) and [data events](../../../audit-trails/concepts/events-data-plane.md).
 
@@ -31,7 +31,7 @@ For more information, see [{#T}](../../../audit-trails/concepts/control-plane-vs
 
  To collect metrics, analyze {{ yandex-cloud }}-level events, and set up notifications, we recommend using [{{ monitoring-full-name }}](../../../monitoring/).  For example, it can help you track spikes in {{ compute-name }} workload, {{ alb-name }} RPS, or significant changes in {{ iam-name }} event statistics.
 
-You can also use {{ monitoring-name }} to monitor the health of the {{ at-name }} service itself and track security events. You can export metrics to a SIEM system via the API, see [this guide](../../../monitoring/operations/metric/get.md). 
+You can also use {{ monitoring-name }} to monitor the health of the {{ at-name }} service itself and track security events. You can export metrics to a SIEM system via the API, see [this guide](../../../monitoring/operations/metric/get.md).
 
 [Solution: Monitoring {{ at-name }} and security events using {{ monitoring-name }}](https://github.com/yandex-cloud-examples/yc-audit-trails-monitoring)
 
@@ -235,7 +235,7 @@ We recommend to enable **all events** for [{{ iam-full-name }}](../../../audit-t
   1. Select the trail you need.
   1. Make sure the trail info page in **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** lists all the services you want to collect data event logs for, specifying the correct audit log [scope](../../../audit-trails/concepts/trail.md#collecting-area) for each service.
 
-      For the list of supported services, see [{#T}](../../../audit-trails/concepts/events-data-plane.md).
+      A list of supported services is provided in the [{{ at-full-name }} data event reference](../../../audit-trails/concepts/events-data-plane.md).
 
 {% endlist %}
 

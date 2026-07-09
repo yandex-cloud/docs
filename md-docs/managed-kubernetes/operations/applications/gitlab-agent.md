@@ -54,7 +54,7 @@ GitLab Agent не исполняет конвейеры [CI/CD](https://yandex.c
 ## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
 1. Нажмите на имя нужного кластера Managed Service for Kubernetes и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [GitLab Agent](https://yandex.cloud/ru/marketplace/products/yc/gitlab-agent) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
@@ -104,9 +104,9 @@ GitLab Agent не исполняет конвейеры [CI/CD](https://yandex.c
 
 ## Примеры использования {#examples}
 
-* [Непрерывное развертывание контейнеризованных приложений с помощью GitLab](../../tutorials/gitlab-containers.md).
+[Непрерывное развертывание контейнеризованных приложений с помощью GitLab](../../tutorials/gitlab-containers.md)
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Документация GitLab Agent](https://docs.gitlab.com/ee/user/clusters/agent/).
-* [Документация Managed Service for GitLab](../../../managed-gitlab/index.md).
+* [Документация GitLab Agent](https://docs.gitlab.com/ee/user/clusters/agent/)
+* [Документация Managed Service for GitLab](../../../managed-gitlab/index.md)

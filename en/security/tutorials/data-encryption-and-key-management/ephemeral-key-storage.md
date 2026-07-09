@@ -9,7 +9,7 @@ canonical: '{{ link-docs }}/tutorials/security/ephemeral-key-storage'
 {% include [ephemeral-key-storage](../../../_tutorials/security/ephemeral-key-storage.md) %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../../storage/quickstart/quickstart-aws-cli.md)
 * [{#T}](../../../iam/concepts/authorization/ephemeral-keys.md)

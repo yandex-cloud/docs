@@ -47,4 +47,4 @@ description: Следуя данной инструкции, вы сможете
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](./link-for-upload.md)
+[{#T}](./link-for-upload.md)

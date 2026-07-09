@@ -105,7 +105,7 @@ To create an MFA policy:
 
 {% include [mfa-policy-add-users-notice](../../../_includes/organization/mfa-policy-add-users-notice.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./update-policy.md)
 * [{#T}](./add-users.md)

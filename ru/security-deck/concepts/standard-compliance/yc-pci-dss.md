@@ -33,7 +33,6 @@ description: В этом разделе приведен набор правил
 || 2.2 | Безопасная конфигурация и управление системными компонентами |
 [cspm.data.storage-https](../../rules-reference/cspm.md#storage-https)
 [cspm.appsec.cdn-https](../../rules-reference/cspm.md#cdn-https)
-[cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 ||
 || **3. Защита хранимых данных учетных записей** {align="center"} | > | > ||
 || 3.2, 3.3, 3.4 | Минимизация хранения, запрет хранения SAD, ограничение отображения PAN | [cspm.db.db-deletion-protection](../../rules-reference/cspm.md#db-deletion-protection) ||
@@ -42,7 +41,7 @@ description: В этом разделе приведен набор правил
 [cspm.crypto.managed-vm-kms](../../rules-reference/cspm.md#managed-vm-kms)
 ||
 || 3.6, 3.7 | Защита и управление криптографическими ключами |
-[cspm.crypto.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
+[cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
 [cspm.crypto.keys-hsm](../../rules-reference/cspm.md#keys-hsm)
 [cspm.crypto.keys-rotation](../../rules-reference/cspm.md#keys-rotation)
 [cspm.crypto.keys-deletion-protection](../../rules-reference/cspm.md#keys-deletion-protection)
@@ -84,10 +83,10 @@ description: В этом разделе приведен набор правил
 || **8. Идентификация пользователей и аутентификация доступа к системным компонентам** {align="center"} | > | > ||
 || 8.3 | Надежная аутентификация для пользователей и администраторов |
 [cspm.access.serial-console](../../rules-reference/cspm.md#serial-console)
-[cspm.crypto.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
+[cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
 ||
 || 8.6 | Управление использованием учетных записей приложений/систем |
-[cspm.crypto.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
+[cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
 [cspm.access.defined-key-scopes](../../rules-reference/cspm.md#defined-key-scopes)
 ||
 || **10. Регистрация и мониторинг всех событий доступа к системным компонентам и данным держателей карт** {align="center"} | > | > ||

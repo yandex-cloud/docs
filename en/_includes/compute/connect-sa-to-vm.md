@@ -31,7 +31,7 @@
   
   {% include [terraform-install](../terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file with the description of the VM you want to link the service account to. See [an example of the VM configuration file](../../compute/operations/vm-create/create-linux-vm.md#tf_1).
+  1. Open the {{ TF }} configuration file with the description of the VM you want to link the service account to. See [this example of the VM configuration file](../../compute/operations/vm-create/create-linux-vm.md#tf_1).
   1. In the section with the `yandex_compute_instance` resource description, add the `service_account_id` parameter and specify the service account ID:
 
       ```hcl
@@ -48,7 +48,7 @@
 
      {{ TF }} will change all required resources. You can check the new resources in the [management console]({{ link-console-main }}).
 
-  For more information about the `yandex_compute_instance` resource properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_instance).
+  For more information about `yandex_compute_instance` properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_instance).
 
 - API {#api}
 
@@ -84,7 +84,7 @@
 
 - {{ TF }} {#tf}
 
-  1. Open the {{ TF }} configuration file with the description of the VM you want to link the service account to. See [an example of the VM configuration file](../../compute/operations/vm-create/create-linux-vm.md#tf_1).
+  1. Open the {{ TF }} configuration file with the description of the VM you want to link the service account to. See [this example of the VM configuration file](../../compute/operations/vm-create/create-linux-vm.md#tf_1).
   1. In the section with the `yandex_compute_instance` resource description, add the `service_account_id` parameter and specify the service account ID:
 
       ```hcl
@@ -101,7 +101,7 @@
 
      {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}).
 
-  For more information about the `yandex_compute_instance` resource properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_instance).
+  For more information about `yandex_compute_instance` properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_instance).
 
 - API {#api}
 

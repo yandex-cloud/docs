@@ -51,15 +51,18 @@ The maximum string length in characters is 50. ||
   "id": "string",
   "channelId": "string",
   "title": "string",
+  "inputSource": "string",
   // Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`
   "rtmpPush": {
     "url": "string"
   },
   "rtmpPull": {
-    "url": "string"
+    "url": "string",
+    "backupUrl": "string"
   },
   "srtPull": {
-    "url": "string"
+    "url": "string",
+    "backupUrl": "string"
   },
   // end of the list of possible fields
   // Includes only one of the fields `manualLine`, `autoLine`
@@ -87,6 +90,13 @@ ID of the channel to which this stream line belongs. ||
 || title | **string**
 
 Title of the stream line. ||
+|| inputSource | **enum** (LineInputSource)
+
+Specifies which input source (main or backup) is selected for processing.
+
+- `ANY`: Use any available input source (main or backup).
+- `MAIN`: Use main input source.
+- `BACKUP`: Use backup input source (works only if backup input source is provided). ||
 || rtmpPush | **[RTMPPushInput](#yandex.cloud.video.v1.RTMPPushInput)**
 
 Real-Time Messaging Protocol (RTMP) push input type.
@@ -173,6 +183,9 @@ Used when the service pulls the video stream from an RTMP source.
 || url | **string**
 
 RTMP url for receiving video signal. ||
+|| backupUrl | **string**
+
+Backup RTMP url (optional). ||
 |#
 
 ## SRTPullInput {#yandex.cloud.video.v1.SRTPullInput}
@@ -186,6 +199,9 @@ Used when the service pulls the video stream from an SRT source.
 || url | **string**
 
 SRT url for receiving video signal. ||
+|| backupUrl | **string**
+
+Backup SRT url (optional). ||
 |#
 
 ## AutoLine {#yandex.cloud.video.v1.AutoLine}

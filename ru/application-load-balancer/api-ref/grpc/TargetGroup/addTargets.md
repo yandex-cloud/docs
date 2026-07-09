@@ -21,8 +21,8 @@ Adds targets to the specified target group.
       "ip_address": "string",
       // end of the list of possible fields
       "subnet_id": "string",
-      "private_ipv4_address": "bool",
-      "external_address": "bool"
+      "external_address": "bool",
+      "private_ipv4_address": "bool"
     }
   ]
 }
@@ -33,7 +33,6 @@ Adds targets to the specified target group.
 || target_group_id | **string**
 
 Required field. ID of the target group to add targets to.
-
 To get the target group ID, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/grpc/TargetGroup/list#List) request. ||
 || targets[] | **[Target](#yandex.cloud.apploadbalancer.v1.Target)**
 
@@ -59,16 +58,16 @@ Reference to the target. As of now, targets must only be referred to by their IP
 || subnet_id | **string**
 
 ID of the subnet that the target is connected to. ||
+|| external_address | **bool**
+
+If set, will not require `subnet_id` to validate the target.
+Only one of `subnet_id` or `external_address` should be set. ||
 || private_ipv4_address | **bool**
 
 If set, will not require `subnet_id` to validate the target.
 Instead, the address should belong to one of the following ranges:
 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
 Only one of `subnet_id` or `private_ipv4_address` should be set. ||
-|| external_address | **bool**
-
-If set, will not require `subnet_id` to validate the target.
-Only one of `subnet_id` or `external_address` should be set. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -81,29 +80,10 @@ Only one of `subnet_id` or `external_address` should be set. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "target_group_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "name": "string",
-    "description": "string",
-    "folder_id": "string",
-    "labels": "map<string, string>",
-    "targets": [
-      {
-        // Includes only one of the fields `ip_address`
-        "ip_address": "string",
-        // end of the list of possible fields
-        "subnet_id": "string",
-        "private_ipv4_address": "bool",
-        "external_address": "bool"
-      }
-    ],
-    "created_at": "google.protobuf.Timestamp"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -131,7 +111,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[AddTargetsMetadata](#yandex.cloud.apploadbalancer.v1.AddTargetsMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -146,7 +126,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[TargetGroup](#yandex.cloud.apploadbalancer.v1.TargetGroup)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -161,73 +141,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## AddTargetsMetadata {#yandex.cloud.apploadbalancer.v1.AddTargetsMetadata}
-
-#|
-||Field | Description ||
-|| target_group_id | **string**
-
-ID of the target group that the targets are being added to. ||
-|#
-
-## TargetGroup {#yandex.cloud.apploadbalancer.v1.TargetGroup}
-
-A target group resource.
-For details about the concept, see [documentation](/docs/application-load-balancer/concepts/target-group).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the target group. Generated at creation time. ||
-|| name | **string**
-
-Name of the target group. The name is unique within the folder. ||
-|| description | **string**
-
-Description of the target group. ||
-|| folder_id | **string**
-
-ID of the folder that the target group belongs to. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Target group labels as `key:value` pairs.
-For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||
-|| targets[] | **[Target](#yandex.cloud.apploadbalancer.v1.Target2)**
-
-List of targets in the target group. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp. ||
-|#
-
-## Target {#yandex.cloud.apploadbalancer.v1.Target2}
-
-A target resource.
-For details about the concept, see [documentation](/docs/application-load-balancer/concepts/target-group).
-
-#|
-||Field | Description ||
-|| ip_address | **string**
-
-IP address of the target.
-
-Includes only one of the fields `ip_address`.
-
-Reference to the target. As of now, targets must only be referred to by their IP addresses. ||
-|| subnet_id | **string**
-
-ID of the subnet that the target is connected to. ||
-|| private_ipv4_address | **bool**
-
-If set, will not require `subnet_id` to validate the target.
-Instead, the address should belong to one of the following ranges:
-10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
-Only one of `subnet_id` or `private_ipv4_address` should be set. ||
-|| external_address | **bool**
-
-If set, will not require `subnet_id` to validate the target.
-Only one of `subnet_id` or `external_address` should be set. ||
 |#

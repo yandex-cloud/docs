@@ -151,7 +151,7 @@ Check the list of returned encrypted disks. If the list matches your threat mode
 
 #### 4.2 At-rest encryption with a {{ kms-short-name }} key is enabled in {{ objstorage-full-name }} {#storage-kms}
 
-To protect critical data in {{ objstorage-full-name }}, we recommend using bucket server-side encryption with {{ kms-full-name }} keys. This encryption method protects against accidental or intentional publication of the bucket content on the web. For more information, see [Encryption](../../../storage/concepts/encryption.md) in the {{ objstorage-name }} documentation.
+To protect critical data in {{ objstorage-full-name }}, we recommend using bucket server-side encryption with {{ kms-full-name }} keys. It safeguards you against accidental or intentional publication of the bucket contents on the web. For more on encryption, see the [Encryption](../../../storage/concepts/encryption.md) section in the {{ objstorage-name }} guide.
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -209,7 +209,7 @@ Support for legacy TLS protocols in {{ yandex-cloud }} services will [gradually 
 
 #### 4.3 HTTPS for static website hosting is enabled in {{ objstorage-full-name }} {#storage-https}
 
-[{{ objstorage-name }}](../../../storage/) supports secure connections over HTTPS. You can upload your own security certificate if a connection to your {{ objstorage-name }} website requires HTTPS access. Integration with [{{ certificate-manager-name }}](../../../certificate-manager/) is also supported. See the instructions in the {{ objstorage-name }} documentation:
+[{{ objstorage-name }}](../../../storage/) supports secure connections over HTTPS. You can upload your own security certificate if a connection to your {{ objstorage-name }} website requires HTTPS access. Integration with [{{ certificate-manager-name }}](../../../certificate-manager/) is also supported. See the instructions in the {{ objstorage-name }} guides:
 * [Configuring HTTPS](../../../storage/operations/hosting/certificate.md)
 * [Bucket](../../../storage/concepts/bucket.md)
 
@@ -247,7 +247,7 @@ When using [{{ objstorage-name }}](../../../storage/), make sure that support fo
 
 #### 4.4 {{ alb-full-name }} uses HTTPS {#alb-https}
 
-[{{ alb-name }}](../../../application-load-balancer/) supports an HTTPS listener with a [certificate](../../../certificate-manager/concepts/imported-certificate.md) uploaded from {{ certificate-manager-name }}. See [listener setup description](../../../application-load-balancer/concepts/application-load-balancer.md#listener) in the {{ alb-full-name }} documentation.
+[{{ alb-name }}](../../../application-load-balancer/) supports an HTTPS listener with a [certificate](../../../certificate-manager/concepts/imported-certificate.md) uploaded from {{ certificate-manager-name }}. See [how to set up the listener](../../../application-load-balancer/concepts/application-load-balancer.md#listener) in the {{ alb-full-name }} guide.
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -538,7 +538,7 @@ To access the {{ kms-short-name }} service, you need an [IAM token](../../../iam
 
 To automate operations with {{ kms-short-name }}, we recommend that you create a [service account](../../../iam/concepts/users/service-accounts.md) and run commands and scripts under it. If you use VMs, get an IAM token for your service account using the mechanism of [assigning a service account](../../../compute/operations/vm-connect/auth-inside-vm.md) to your VM. For other ways to get an IAM token for your service account, see the {{ iam-short-name }} documentation, [Getting an IAM token for a service account](../../../iam/operations/iam-token/create-for-sa.md).
 
-We recommend that you grant granular permissions for specific keys in the {{ kms-short-name }} service to your users and service accounts. For more information, see the {{ kms-short-name }} documentation, [Access management in {{ kms-name }}](../../../kms/security/).
+We recommend that you grant granular permissions for specific keys in the {{ kms-short-name }} service to your users and service accounts. For more information, see [Access management in {{ kms-name }}](../../../kms/security/) in the {{ kms-short-name }} guide.
 
 For more information about security measures for access control, see [Authentication and access control](../../../security/standard/authentication.md).
 
@@ -629,7 +629,7 @@ For the first group, we recommend that you set up automatic key rotation with a 
 
 For data storage services, we recommend that you either manually rotate keys or use automatic key rotation, depending on your internal procedures for processing critical data.
 
-A secure value for AES-GCM mode is encryption using 4294967296 (= 2<sup>32</sup>) blocks. Having reached this number of encrypted blocks, you need to create a new DEK version. For more information about the AES-GCM operating mode, see the [NIST materials](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf).
+A secure value for AES-GCM mode is encryption using 4,294,967,296 (= 2<sup>32</sup>) blocks. Having reached this number of encrypted blocks, you need to create a new DEK version. For more information about the AES-GCM operating mode, see the [NIST materials](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf).
 
 {% note info %}
 
@@ -637,7 +637,7 @@ Destroying any version of a key means destroying all data encrypted with it. You
 
 {% endnote %}
 
-For more information about key rotation, see the {{ kms-short-name }} documentation, [Key version](../../../kms/concepts/version.md).
+For more information about key rotation, see [Key version](../../../kms/concepts/version.md) in the {{ kms-short-name }} guide.
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -735,7 +735,7 @@ Critical data and access secrets (authentication tokens, API keys, and encryptio
 
 {{ lockbox-short-name }} securely stores secrets in an encrypted form only. Encryption is performed using {{ kms-short-name }}. For secret access control, use service roles.
 
-You can learn how to use the service in the [{{ lockbox-short-name }} documentation](../../../lockbox/).
+You can learn how to use the service in [the {{ lockbox-short-name }} guide](../../../lockbox/).
 
 {% note info %}
 
@@ -834,7 +834,7 @@ Delete secret data from env and use the {{ lockbox-short-name }} integration fun
 
 #### 4.15 When working with {{ coi }}, secret encryption is used {#secrets-coi}
 
-{{ kms-short-name }} supports the encryption of secrets used in a {{ TF }} configuration, e.g., for transferring secrets to a VM in encrypted form. See [Encrypting secrets in {{ TF-full }}](../../../kms/tutorials/terraform-secret.md) in the {{ kms-short-name }} documentation. It is not safe to openly provide secrets through environment variables, because they are displayed in the VM properties.
+{{ kms-short-name }} supports the encryption of secrets used in a {{ TF }} configuration, e.g., for transferring secrets to a VM in encrypted form. See the [Encrypting secrets in {{ TF-full }}](../../../kms/tutorials/terraform-secret.md) section of the {{ kms-short-name }} guide. It is not safe to openly provide secrets through environment variables, because they are displayed in the VM properties.
 
 | Requirement ID | Severity |
 | --- | --- |

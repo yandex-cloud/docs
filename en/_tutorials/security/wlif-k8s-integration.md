@@ -129,7 +129,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost includes:
 1. Fee for storing the [secret](../../lockbox/concepts/secret.md) and requests to the secret (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
-1. Fee for data storage in a bucket and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+1. Fee for bucket data storage and bucket operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 ### Upload a file with a public key set to a public bucket
 
@@ -311,7 +311,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 * [{{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md)
 * [Service account](../../iam/operations/sa/delete.md)
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../iam/concepts/workload-identity.md)
 * [Accessing the {{ yandex-cloud }} API from a {{ managed-k8s-name }} cluster using an {{ iam-name }} workload identity federation](../../tutorials/security/wlif-managed-k8s-integration.md)

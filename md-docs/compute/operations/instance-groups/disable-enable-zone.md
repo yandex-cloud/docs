@@ -146,7 +146,7 @@
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Временное отключение зон доступности для групп ВМ Yandex Compute Cloud](../../concepts/instance-groups/disable-enable-zone.md)
 * [Отключить и включить зоны доступности в Yandex Network Load Balancer](../../../network-load-balancer/operations/manage-zone/disable-enable-zone.md)

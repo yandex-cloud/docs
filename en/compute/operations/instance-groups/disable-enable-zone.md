@@ -9,7 +9,7 @@ description: Follow this guide to disable or enable availability zones for an in
 
 For more information on instance group behavior when an availability zone is disabled, see [this page](../../concepts/instance-groups/disable-enable-zone.md).
 
-## Disabling an availability zone {#disable}
+## Enabling a zonal shift {#disable}
 
 {% list tabs group=instructions %}
 
@@ -58,7 +58,7 @@ For more information on instance group behavior when an availability zone is dis
 
 {% endlist %}
 
-## Enabling an availability zone {#enable}
+## Disabling a zonal shift {#enable}
 
 {% list tabs group=instructions %}
 
@@ -137,7 +137,7 @@ For more information on instance group behavior when an availability zone is dis
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../concepts/instance-groups/disable-enable-zone.md)
 * [Disabling and enabling availability zones in {{ network-load-balancer-full-name }}](../../../network-load-balancer/operations/manage-zone/disable-enable-zone.md)

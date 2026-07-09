@@ -97,7 +97,9 @@ For the user to access {{ yandex-cloud }} resources, invite them to the organiza
 
 {% endlist %}
 
-### Assign the user a role for a cloud {#add-cloud-role}
+### Assign to the user a role for a cloud {#add-cloud-role}
+
+The user needs this role to access resources in this cloud in the management console.
 
 {% list tabs group=instructions %}
 
@@ -113,6 +115,12 @@ For the user to access {{ yandex-cloud }} resources, invite them to the organiza
 
 {% endlist %}
 
+{% note info %}
+
+To grant access permissions to all organization users in one go, assign the `All users in organization X` role to the [system group](../../iam/concepts/access-control/system-group.md#allOrganizationUsers).
+
+{% endnote %}
+
 ### Assign the user a role for the folder {#add-folder-role}
 
 {% list tabs group=instructions %}
@@ -124,7 +132,7 @@ For the user to access {{ yandex-cloud }} resources, invite them to the organiza
     1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
     1. In the window that opens, select **{{ ui-key.yacloud_org.common.resource-acl.label_invitee-accounts }}**.
     1. Select a user from the list or use the user search option.
-    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `compute.editor` role.
+    1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `compute.editor` role to manage virtual machines.
 
        {% note tip %}
 

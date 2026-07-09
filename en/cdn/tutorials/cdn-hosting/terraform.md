@@ -12,6 +12,6 @@ To set up the infrastructure for [website hosting in a bucket with {{ cdn-full-n
 {% include [cdn-hosting-terraform](../../../_tutorials/applied/cdn-hosting-terraform.md) %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](console.md)

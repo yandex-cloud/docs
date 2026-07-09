@@ -107,11 +107,13 @@ For your organization's users to be able to authenticate in Sentry with {{ org-f
 
    {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and Sentry integration work correctly, authenticate to Sentry as one of the users you added to the app. Follow these steps:
+To make sure both your SAML app and Sentry integration work correctly, authenticate to Sentry as one of the users you added to the app. Proceed as follows:
 
-1. In your browser, navigate to your Sentry instance's address.
+1. In your browser, navigate to your Sentry instance address.
 1. On the authentication page, click **Login with SAML2**.
 1. On the {{ yandex-cloud }} authentication page, enter the user email address and password. The user or group they belong to must be added to the application. The user must also have their email address specified.
 1. Make sure you have successfully authenticated in Sentry.

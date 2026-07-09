@@ -108,7 +108,7 @@ For the list of metrics delivered to {{ monitoring-name }}, see the [reference](
 * [{#T}](../tutorials/protected-access-to-content/index.md)
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Guides on using resources](../operations/index.md#resources)
 * [Guide on using the basic resource settings](../operations/resources/configure-basics.md)

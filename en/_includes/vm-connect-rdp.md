@@ -23,7 +23,7 @@ To connect to the VM:
 
   {% include [initialization-windows-vm](initialization-windows-vm.md) %}
 
-  #### See also
+  #### Useful links
 
   * [Remote desktop connection](https://support.microsoft.com/en-us/windows/how-to-use-remote-desktop-5fe128d5-8fb1-7a23-3b8a-41e636865e8c).
 
@@ -39,7 +39,7 @@ To connect to the VM:
   1. Click **Add** twice.
   1. Connect to the remote machine by double-clicking the connection you created in the main Microsoft Remote Desktop window.
 
-  #### See also
+  #### Useful links
 
   * [Getting started with a remote desktop on Mac]({{ ms.docs }}/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac).
 
@@ -71,7 +71,7 @@ To connect to the VM:
   1. Click **Save**.
   1. Connect to the remote machine by double-clicking the connection you created in the quick access connection list.
 
-  #### See also
+  #### Useful links
 
   * [Installing Remmina on Linux distributions other than Ubuntu](https://remmina.org/how-to-install-remmina/).
 

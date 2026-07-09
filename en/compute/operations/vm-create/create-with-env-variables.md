@@ -90,7 +90,7 @@ To create a VM with metadata from environment variables:
 
           Note that the CLI command for the `HOSTNAME` variable will not substitute its value into the metadata. Instead, the `$HOSTNAME` variable name will be provided to the `cloud-init` configuration when executing the CLI command; the hostname value of the new VM will be substituted in place of that variable later what creating the VM.
 
-          This is why the `HOSTNAME` variable is specified using the two-dollar syntax in the `user-data` key: `$$HOSTNAME`. To learn more, see [{#T}](../../concepts/metadata/sending-metadata.md#environment-variables).
+          This is why the `HOSTNAME` variable is specified using the two-dollar syntax in the `user-data` key: `$$HOSTNAME`. For more information, see [{#T}](../../concepts/metadata/sending-metadata.md#environment-variables).
 
           {% endnote %}
 
@@ -175,7 +175,7 @@ To create a VM with metadata from environment variables:
 
 For more `user-data` configuration examples, see [Examples](./create-with-cloud-init-scripts.md#examples).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/vm-metadata.md)
 * [{#T}](./create-with-lockbox-secret.md)

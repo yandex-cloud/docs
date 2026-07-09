@@ -20,7 +20,7 @@ description: Удалить можно только не подключенны�
 - Консоль управления {#console}
 
   1. В консоли управления выберите каталог, которому принадлежит диск.
-  1. Перейдите в сервис **{{ compute-name }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. В строке с нужным диском нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.

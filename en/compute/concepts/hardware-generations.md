@@ -64,6 +64,6 @@ Some operating systems may not support all hardware configurations.
 
 {% endnote %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/vm-create/create-gen2-vm.md)

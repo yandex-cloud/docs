@@ -25,7 +25,6 @@ Lists operations for the specified target group.
 || target_group_id | **string**
 
 Required field. ID of the target group to get operations for.
-
 To get the target group ID, use a [TargetGroupService.List](/docs/application-load-balancer/api-ref/grpc/TargetGroup/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -78,7 +77,6 @@ List of operations for the specified target group. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListTargetGroupOperationsRequest.page_size](#yandex.cloud.apploadbalancer.v1.ListTargetGroupOperationsRequest), use `next_page_token` as the value
 for the [ListTargetGroupOperationsRequest.page_token](#yandex.cloud.apploadbalancer.v1.ListTargetGroupOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

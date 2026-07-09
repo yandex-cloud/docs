@@ -68,7 +68,7 @@ The above lists of the current and archived types are provided for indicative pu
     yc compute host-type list
     ```
 
-    For more information, see the [guide on creating host groups](../operations/dedicated-host/create-host-group.md).
+    For more information, see [this guide](../operations/dedicated-host/create-host-group.md) on creating a group.
 
 ^1^ This is the number of vCPUs you can use to run VMs. Other vCPUs of the host are allocated for system usage (see [below](#resource-fragmentation) for details): 20 vCPUs running on the Intel® Xeon® Gold 6338 processors, and 8 vCPUs, on Intel® Xeon® Gold 6354.
 
@@ -278,7 +278,7 @@ We do not recommend using [placement groups](placement-groups.md) for VMs on ded
 For information about pricing for dedicated hosts, see [{#T}](../pricing.md#prices).
 
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../operations/dedicated-host/create-host-group.md)
 * [{#T}](../operations/dedicated-host/running-host-group-vms.md)

@@ -78,11 +78,11 @@ During a zonal incident, [instance group behavior changes automatically](zonal-i
 
 {% note tip %}
 
-During an incident, you can disable the affected zone in the instance group. This way, the restrictions on instance creation, startup, and update will continue to apply after the incident is over, so you can gradually reintroduce instances from the affected zone in a controlled manner.
+During an incident, you can disable the affected zone in the instance group. This extends restrictions on instance creation, startup, and update beyond the incident's end, allowing you to gradually reintroduce instances from the affected zone in a controlled manner once the incident is over.
 
 {% endnote %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../operations/instance-groups/disable-enable-zone.md)
 * [Disabling and enabling availability zones in {{ network-load-balancer-full-name }}](../../../network-load-balancer/operations/manage-zone/disable-enable-zone.md)

@@ -157,7 +157,7 @@ To update the [OIDC app's](../../concepts/applications.md#oidc) basic settings:
         * `NONE`: Service provider will not get any of the groups the user belongs to.
     * `labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional setting.
 
-    For more information about `yandex_organizationmanager_idp_application_oauth_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
+    For more on the properties of the `yandex_organizationmanager_idp_application_oauth_application` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
 
   1. Apply the changes:
 
@@ -184,7 +184,7 @@ To update the service provider configuration in an OIDC app:
 - {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the OIDC app.
+  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the OIDC app.
   1. {% include [oidc-app-update-sp-settings](../../../_includes/organization/oidc-app-update-sp-settings.md) %}
 
 - CLI {#cli}
@@ -274,7 +274,7 @@ To update the service provider configuration in an OIDC app:
       * `phone`: User phone number.
       * `groups`: User groups in the organization.
 
-    For more information about `yandex_iam_oauth_client` properties, see [this provider guide]({{ tf-provider-resources-link }}/iam_oauth_client).
+    For more on the properties of the `yandex_iam_oauth_client` resource, see [this provider guide]({{ tf-provider-resources-link }}/iam_oauth_client).
 
   1. Apply the changes:
 
@@ -302,7 +302,7 @@ There is no way you can view or update an app’s [secret](../../concepts/applic
 - {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the OIDC app.
+  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the OIDC app.
   1. {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
   1. Remember to provide the new secret in the settings on the service provider side. If you need help, refer to your service provider's documentation or support team.
 
@@ -355,7 +355,7 @@ There is no way you can view or update an app’s [secret](../../concepts/applic
 
     * `oauth_client_id`: ID of the OAuth client for which you are creating a new secret. This is a required setting.
 
-    For more information about `yandex_iam_oauth_client_secret` properties, see [this provider guide]({{ tf-provider-resources-link }}/iam_oauth_client_secret).
+    For more on the properties of the `yandex_iam_oauth_client_secret` resource, see [this provider guide]({{ tf-provider-resources-link }}/iam_oauth_client_secret).
 
   1. Apply the changes:
 
@@ -376,11 +376,13 @@ There is no way you can view or update an app’s [secret](../../concepts/applic
 
 ## Update the list of app users and groups {#users-and-groups}
 
-Update the list of your [organization's](../../concepts/organization.md) users permitted to authenticate in an external app with an OIDC application:
+Update the list of your [organization's](../../concepts/organization.md) users who can use the OIDC app to authenticate to an external application:
 
 {% include [oidc-app-update-users-groups](../../../_includes/organization/oidc-app-update-users-groups.md) %}
 
-#### See also {#see-also}
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
+#### Useful links {#see-also}
 
 * [{#T}](./oidc-create.md)
 * [{#T}](./oidc-deactivate-remove.md)

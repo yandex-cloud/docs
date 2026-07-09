@@ -96,7 +96,7 @@ allocation_policy:
 * [{#T}](../../../tutorials/vm-autoscale/index.md)
 * [{#T}](../../../tutorials/autoscale-monitoring.md)
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](healing-policy.md)
 * [{#T}](scale-policy.md)

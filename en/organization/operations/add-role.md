@@ -18,7 +18,7 @@ For information on roles available in {{ yandex-cloud }} and their associated pe
 
   1. [Get the user ID](../operations/users-get.md).
 
-  1. Assign the role using this command:
+  1. Assign a role using this command:
 
       ```bash
       yc <service_name> <resource> add-access-binding <resource_name_or_ID> \
@@ -71,7 +71,7 @@ For information on roles available in {{ yandex-cloud }} and their associated pe
 
       For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 
-  1. Create the required resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
      
@@ -119,7 +119,7 @@ For information on roles available in {{ yandex-cloud }} and their associated pe
 
 In a similar way, you can [assign roles](../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) for an organization to a service account.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../iam/operations/sa/set-access-bindings.md)
 * [{#T}](../../resource-manager/operations/cloud/set-access-bindings.md)

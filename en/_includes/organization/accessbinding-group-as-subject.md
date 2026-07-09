@@ -24,7 +24,7 @@
   {% include [cli-install](../cli-install.md) %}
 
   1. Select a [role](../../iam/concepts/access-control/roles.md) from the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
-  1. Assign the role using this command:
+  1. Assign a role using this command:
 
      ```bash
      yc <service_name> <resource> add-access-binding <resource_name_or_ID> \
@@ -66,15 +66,15 @@
      Where:
      
      * `cloud_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md). You can also assign a role within an individual [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). To do this, specify `folder_id` instead of `cloud_id` and the required folder ID in the resource parameters.
-     * `role`: Role to assign. This is a required parameter.
-     * `member`: Group the role is assigned to. Use this format: `group:<group_ID>`. This is a required parameter.
+     * `role`: Role to assign. This is a required setting.
+     * `member`: Group the role is assigned to. Use this format: `group:<group_ID>`. This is a required setting.
 
          To assign a role to one of the [system groups](../../iam/concepts/access-control/system-group.md), specify the following in the `member` parameter:
 
          * `system:group:organization:<organization_ID>:users`: To assign a role to the `All users in organization X` system group.
          * `system:group:federation:<federation_ID>:users`: To assign a role to the `All users in federation N` system group.
 
-     For more information about the `yandex_resourcemanager_cloud_iam_member` resource parameters, see [this {{ TF }} article]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
+     For more on the properties of the `yandex_resourcemanager_cloud_iam_member` resource, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -85,15 +85,15 @@
      terraform plan
      ```
 
-     If the configuration is correct, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
   1. Deploy the cloud resources.
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
      This will create all the resources you need in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this CLI command:
 

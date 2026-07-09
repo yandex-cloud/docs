@@ -23,7 +23,7 @@ To comply with PCI DSS or other security standards when using {{ managed-k8s-nam
 * Use sensitive data in etcd in clear text.
 * Write sensitive data to {{ managed-k8s-name }} logs.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | K8S1 | High |
 
@@ -63,7 +63,7 @@ Less strict isolation models are also possible, e.g., where:
 * Services have separate {{ k8s }} clusters.
 * Microservices use different namespaces.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | K8S2 | High |
 
@@ -79,7 +79,7 @@ Less strict isolation models are also possible, e.g., where:
 
 We do not recommend granting access to the {{ k8s }} API and node groups from non-trusted networks, e.g., from the internet. Use firewall protection where needed (for example, [security groups](../../../vpc/concepts/security-groups.md)).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | K8S3 | Medium |
 
@@ -89,21 +89,21 @@ We do not recommend granting access to the {{ k8s }} API and node groups from no
 * [Security group setup guide](../../../managed-kubernetes/operations/connect/security-groups.md).
 * Use network policy configuration tools via the [Calico](../../../managed-kubernetes/concepts/network-policy.md#calico) (basic) or [Cilium CNI](../../../managed-kubernetes/concepts/network-policy.md#cilium) (advanced) plugins in {{ yandex-cloud }}. By default, apply the `default deny` rules for incoming and outgoing traffic with only the relevant traffic allowed.
 * For online endpoints, allocate an independent {{ k8s }} cluster or independent node groups (using such mechanisms as [Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/#:~:text=Node%20affinity%20is%20a%20property,onto%20nodes%20with%20matching%20taints) + [Node affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/)). By doing this, you establish a DMZ so that if your nodes are compromised online, your attack surface is small.
-* To enable incoming network access to your workloads via HTTP/HTTPS, use the [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource. There are at least two controller options that you can use in {{ yandex-cloud }}:
+* To enable incoming network access to your workloads via HTTP/HTTPS, use the [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource. There are at least two Ingress controller options that you can use in {{ yandex-cloud }}:
 
   * [Yandex Cloud Gwin Controller](../../../managed-kubernetes/alb-ref/gwin-index.md).
   * [Application Load Balancer of an Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
 #### 7.4 Authentication and access management are configured in {{ managed-k8s-name }} {#kubernetes-auth}
 
-You need two service accounts for your {{ k8s }} cluster: [cluster service account and node group service account](../../../managed-kubernetes/security/index.md#sa-annotation). The access of IAM accounts to {{ managed-k8s-name }} resources is managed at the following levels:
+For the {{ k8s }} cluster to run, you need two service accounts: [the service account of the cluster and the service account of the node group](../../../managed-kubernetes/security/index.md#sa-annotation). The access of IAM accounts to {{ managed-k8s-name }} resources is managed at the following levels:
 
-* {{ managed-k8s-name }} service roles (access to the {{ yandex-cloud }} API). These allow you to control clusters and node groups (e.g., create a cluster, create/edit/delete a node group, and so on).
-* Service roles required to access the {{ k8s }} API. These allow you to control cluster resources via the {{ k8s }} API (e.g., perform standard actions with {{ k8s }}: create, delete, view namespaces, work with pods, deployments, create roles, and so on). Only the basic global roles are available at cluster level: `k8s.cluster-api.cluster-admin`, `k8s.cluster-api.editor`, or `k8s.cluster-api.viewer`.
-* Primitive roles. These are global primitive IAM roles that comprise service roles (e.g., the primitive admin role comprises both the service administration role and the administration role for access to the {{ k8s }} API).
-* Standard {{ k8s }} roles. Inside the {{ k8s }} cluster itself, the {{ k8s }} tools can help you create both regular roles and cluster roles. Thus you can manage access for IAM accounts at the namespace level. To assign IAM roles at the namespace level, you can manually create RoleBinding objects in a relevant namespace stating the cloud user's IAM ID in the **subjects name** field.
+* {{ managed-k8s-name }}service roles (access to the {{ yandex-cloud }} API). These enable you to control clusters and node groups (for example, create a cluster, create/edit/delete a node group, and so on).
+* Service roles to access the {{ k8s }} API. These let you control cluster resources via the {{ k8s }} API (for example, perform standard actions with {{ k8s }}: create, delete, view namespaces, work with pods, deployments, create roles, and so on). Only the basic global roles at the cluster level are available: `k8s.cluster-api.cluster-admin`, `k8s.cluster-api.editor`, and `k8s.cluster-api.viewer`.
+* Primitive roles. These are global primitive IAM roles that include service roles (e.g., the primitive `admin` role includes both the service administration role and the administrative role to access the {{ k8s }} API).
+* Standard {{ k8s }} roles. Inside the {{ k8s }} cluster itself, you can use {{ k8s }} tools to create both regular roles and cluster roles. Thus you can manage access for IAM accounts at the namespace level. To assign IAM roles at the namespace level, you can manually create RoleBinding objects in a relevant namespace stating the cloud user's IAM ID in the **subjects name** field.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | K8S4 | High |
 
@@ -121,7 +121,7 @@ In {{ managed-k8s-name }}, the user is fully in control of all node group settin
 
 The [CIS {{ k8s }} Benchmark](https://www.cisecurity.org/benchmark/kubernetes) standard is designed to build a secure {{ k8s }} configuration, including node configurations. In {{ yandex-cloud }}, the {{ k8s }} node groups are deployed by default with the configuration that complies with CIS {{ k8s }} Benchmark.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | K8S5 | Medium |
 
@@ -144,7 +144,7 @@ We recommend that you use SecretManager solutions to work with {{ k8s }} secrets
 
 The most secure recommended option for encrypting secrets is ESO as a Service (External Secrets Operator as a service). When using ESO, the global administrator has access to the namespace where ESO is installed, and administrators of individual namespaces create their own [SecretStore](https://external-secrets.io/latest/api/secretstore/) objects (where they specify IAM-authorized access keys for their {{ lockbox-short-name }} secrets). If this SecretStore object is compromised, the authorized key of only one namespace will be compromised – not all of them, as in the case of Shared ClusterSecretStore.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | K8S6 | Medium |
 
@@ -161,7 +161,7 @@ You should perform vulnerability scanning at least once a week. This will help y
 
 Using {{ container-registry-name }} to store images will also provide centralized image version control for simpler updates and security management.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | K8S7 | Medium |
 
@@ -188,7 +188,7 @@ For {{ k8s }}, both automatic and manual updates are available for [clusters](..
 * Check that the update settings meet the Information Security standards.
 * Use one of the three latest {{ k8s }} versions, because updates (including security updates) are only released for these versions.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | K8S8 | Medium |
 
@@ -204,7 +204,7 @@ For {{ k8s }}, both automatic and manual updates are available for [clusters](..
 
   To get a list of available versions for a {{ k8s }} node group:
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the name of the {{ k8s }} cluster you need and go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+  1. Click the name of your {{ k8s }} cluster and open the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Select the {{ k8s }} node group from the list and click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. Get a list of available versions in the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field.
 
@@ -214,7 +214,7 @@ For {{ k8s }}, both automatic and manual updates are available for [clusters](..
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  To get a list of available versions, run the following command:
+  To get a list of available versions, run this command:
 
   ```bash
   yc managed-kubernetes list-versions
@@ -233,9 +233,9 @@ For {{ k8s }}, both automatic and manual updates are available for [clusters](..
 
 #### 7.9 Backup is configured {#backup}
 
-To ensure continuous operation and data protection, we recommend using backups in {{ managed-k8s-name }}. With backups, you can quickly recover the service without experiencing any data or time loss in the wake of a malfunction or accident. The {{ yandex-cloud }} infrastructure provides secure storage and replication for data in [{{ k8s }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) clusters. However, you can back up data from [{{ k8s }} cluster node groups](../../../managed-kubernetes/concepts/index.md#node-group) at any time and store them in [{{ objstorage-full-name }}](../../../storage/index.yaml) or other types of storage.
+To ensure continuous operation and data protection, we recommend using backups in {{ managed-k8s-name }}. With backups, you can quickly recover the service without experiencing any data or time loss in the wake of a malfunction or accident. {{ yandex-cloud }} provides secure storage and replication for data in [{{ k8s }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) clusters. However, you can back up data from your [{{ k8s }} cluster node groups](../../../managed-kubernetes/concepts/index.md#node-group) at any time and store it in [{{ objstorage-full-name }}](../../../storage/index.yaml) or other types of storage.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | K8S9 | High |
 
@@ -266,7 +266,7 @@ You can control Dockerfile in your CI/CD pipeline using the [Conftest](https://w
 
 When using minimal images or distroless images without a shell, we recommend using [ephemeral containers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers/).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | K8S10 | Informational |
 
@@ -284,7 +284,7 @@ The requirements listed in [{{ k8s }} Pod Security Standards](https://kubernetes
 
 These requirements allow you to ensure security and reliability of applications in a {{ k8s }} cluster. To achieve compliance, you can either use the built-in {{ k8s }} tool called [Pod Security Admission Controller](https://kubernetes.io/docs/setup/best-practices/enforcing-pod-security-standards/) or open-source software, e.g., [OPA Gatekeeper](https://github.com/open-policy-agent/gatekeeper) or [Kyverno](/marketplace/products/yc/kyverno).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | K8S11 | Medium |
 
@@ -315,7 +315,7 @@ Events available to the user in the {{ managed-k8s-name }} service can be classi
 * {{ k8s }} metrics
 * {{ k8s }} flow logs
 
-For more information about setting up audit event logging at various levels, see [{#T}](../../../security/domains/kubernetes.md#collection-monitoring-analysis-audit-logs).
+For more information about setting up audit event logging at different levels, see [{#T}](../../../security/domains/kubernetes.md#collection-monitoring-analysis-audit-logs).
 
 In {{ managed-k8s-name }}, you can audit the current role model used in the service. To do this, open the {{ k8s }} cluster page in the [management console]({{ link-console-main }}), and go to the **{{ ui-key.yacloud.k8s.access.label_title }}** tab.
 
@@ -325,7 +325,7 @@ You can also use:
 * [Krane](https://github.com/appvia/krane)
 * {{ at-full-name }} [audit logs](../../../managed-kubernetes/at-ref.md)
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | K8S12 | High |
 

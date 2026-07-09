@@ -56,14 +56,14 @@ To update a [folder](../../concepts/resources-hierarchy.md#folder) name or descr
 
      {% endcut %}
 
-     For more information about `yandex_resourcemanager_folder` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_folder).
+     For more on the properties of the `yandex_resourcemanager_folder` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_folder).
 
-  1. Check the configuration using this command:
+  1. Validate your configuration using this command:
      ```
      terraform validate
      ```
      
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
      
      ```
      Success! The configuration is valid.
@@ -74,9 +74,9 @@ To update a [folder](../../concepts/resources-hierarchy.md#folder) name or descr
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
      ```
      terraform apply
      ```

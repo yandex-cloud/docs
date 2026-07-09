@@ -7,16 +7,8 @@
 
 #### Description
 
-{% note tip "**Automatic verification**" %}
+To mitigate the risks associated with automated attacks on applications, we recommend using [Yandex SmartCaptcha](https://yandex.cloud/en/services/smartcaptcha). The service checks user requests with its ML algorithms and only shows challenges to those users whose requests it considers suspicious. You do not have to place the **"I’m not a robot"** button on the page.
 
-This control automatically checks for Yandex SmartCaptcha usage in applications.
+#### Instructions and solutions
 
-{% endnote %}
-
-To mitigate the risks associated with automated attacks on applications, we recommend using [Yandex SmartCaptcha](https://yandex.cloud/en/services/smartcaptcha). The service checks user requests with its ML algorithms and only shows challenges to those users whose requests it considers suspicious. You do not have to place the "I'm not a robot" button on the page.
-
-#### Guides and solutions
-
-Guides and solutions to use:
-
-* [Yandex SmartCaptcha service](https://yandex.cloud/en/services/smartcaptcha)
+[Yandex SmartCaptcha service](https://yandex.cloud/en/services/smartcaptcha)

@@ -57,7 +57,7 @@ You can get an IAM token for your Yandex account [using the CLI](#via-cli). You 
 {% include [token-examples](../../../_includes/iam/iam-token-usage-examples.md) %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Using an IAM token in a Helm chart](../../../container-registry/operations/helm-chart/helm-chart-push.md)
 * [Revoking an IAM token](./revoke-iam-token.md)

@@ -1,12 +1,12 @@
 # Revoking a user's role 
 
-If you want to deny a user access to a resource, revoke the relevant roles for this resource and for resources that grant inherited access rights. For more information on access management in {{ yandex-cloud }}, see the [{{ iam-full-name }}](../../iam/concepts/access-control/index.md) documentation.
+If you want to deny a user access to a resource, revoke the relevant roles for this resource as well as for other resources access permissions can be inherited from. For more information on access management in {{ yandex-cloud }}, see the [{{ iam-full-name }}](../../iam/concepts/access-control/index.md) documentation.
 
 The role can be revoked by a user with the [`organization-manager.admin`](add-org-admin.md) or `organization-manager.organizations.owner` role.
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   {% include [revoke-role-from-user](../../_includes/organization/revoke-role-from-user.md) %}
 
@@ -14,7 +14,7 @@ The role can be revoked by a user with the [`organization-manager.admin`](add-or
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  1. View the roles and assignees for the resource:
+  1. View the list of users and their roles for the resource:
 
       ```bash
       yc <service_name> <resource> list-access-bindings <resource_name_or_ID>
@@ -125,6 +125,6 @@ The role can be revoked by a user with the [`organization-manager.admin`](add-or
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [{#T}](add-role.md)

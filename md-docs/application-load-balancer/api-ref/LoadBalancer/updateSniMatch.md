@@ -3,7 +3,6 @@
 # Application Load Balancer API, REST: LoadBalancer.UpdateSniMatch
 
 Updates the specified SNI handler of the specified listener.
-
 This request does not allow to update [TlsListener.defaultHandler](get.md#yandex.cloud.apploadbalancer.v1.TlsListener). Make an [UpdateListener](updateListener.md#UpdateListener) request instead.
 
 ## HTTP request
@@ -18,7 +17,9 @@ POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBala
 ||Field | Description ||
 || loadBalancerId | **string**
 
-Required field. ID of the application load balancer to update the SNI handler in. ||
+Required field. ID of the application load balancer to update the SNI handler in.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.apploadbalancer.v1.UpdateSniMatchRequest}
@@ -32,21 +33,21 @@ Required field. ID of the application load balancer to update the SNI handler in
     "string"
   ],
   "handler": {
-    // Includes only one of the fields `httpHandler`, `streamHandler`
+    // Includes only one of the fields `streamHandler`, `httpHandler`
+    "streamHandler": {
+      "backendGroupId": "string",
+      "idleTimeout": "string"
+    },
     "httpHandler": {
       "httpRouterId": "string",
+      "rewriteRequestId": "boolean",
       // Includes only one of the fields `http2Options`, `allowHttp10`
       "http2Options": {
         "maxConcurrentStreams": "string"
       },
       "allowHttp10": "boolean",
       // end of the list of possible fields
-      "rewriteRequestId": "boolean",
       "preserveHttp1HeaderCasing": "boolean"
-    },
-    "streamHandler": {
-      "backendGroupId": "string",
-      "idleTimeout": "string"
     },
     // end of the list of possible fields
     "certificateIds": [
@@ -83,14 +84,13 @@ The rest of the fields will be reset to the default. ||
 || serverNames[] | **string**
 
 New server names that are matched by the SNI handler.
-
 Existing set of server names is completely replaced by the provided set, so if you just want
 to add or remove a server name:
 1. Get the current set of server names with a [LoadBalancerService.Get](get.md#Get) request.
 2. Add or remove a server name in this set.
 3. Send the new set in this field.
 
-The number of elements must be greater than 0. ||
+The string length in characters for each value must be 1-255. Each value must match the regular expression ` ([*].)?[-.a-z0-9]+ `. The number of elements must be greater than 0. ||
 || handler | **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler)**
 
 Required field. New settings for handling requests with Server Name Indication (SNI) matching one of `serverNames` values. ||
@@ -102,30 +102,47 @@ A TLS-encrypted (HTTP or TCP stream) handler resource.
 
 #|
 ||Field | Description ||
-|| httpHandler | **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
-
-HTTP handler.
-
-Includes only one of the fields `httpHandler`, `streamHandler`.
-
-Settings for handling requests. ||
 || streamHandler | **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)**
 
 Stream (TCP) handler.
 
-Includes only one of the fields `httpHandler`, `streamHandler`.
+Includes only one of the fields `streamHandler`, `httpHandler`.
+
+Settings for handling requests. ||
+|| httpHandler | **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
+
+HTTP handler.
+
+Includes only one of the fields `streamHandler`, `httpHandler`.
 
 Settings for handling requests. ||
 || certificateIds[] | **string**
 
 ID's of the TLS server certificates from [Certificate Manager](../../../certificate-manager/index.md).
-
 RSA and ECDSA certificates are supported, and only the first certificate of each type is used.
 
-The number of elements must be greater than 0. ||
+The string length in characters for each value must be greater than 1. The maximum number of elements is 1. ||
 || clientCertificatesVerification | **[ClientCertificatesVerification](#yandex.cloud.apploadbalancer.v1.ClientCertificatesVerification)**
 
 Client certificates verification settings. ||
+|#
+
+## StreamHandler {#yandex.cloud.apploadbalancer.v1.StreamHandler}
+
+A stream (TCP) handler resource.
+
+#|
+||Field | Description ||
+|| backendGroupId | **string**
+
+Required field. ID of the backend group processing requests. For details about the concept, see
+[documentation](../../concepts/backend-group.md).
+The backend group type, specified via [BackendGroup.backend](../BackendGroup/get.md#yandex.cloud.apploadbalancer.v1.BackendGroup.backend), must be `stream`.
+To get the list of all available backend groups, make a [BackendGroupService.List](../BackendGroup/list.md#List) request. ||
+|| idleTimeout | **string** (duration)
+
+The idle timeout is duration during which no data is transmitted or received on either the upstream or downstream connection.
+If not configured, the default idle timeout is 1 hour. Setting it to 0 disables the timeout. ||
 |#
 
 ## HttpHandler {#yandex.cloud.apploadbalancer.v1.HttpHandler}
@@ -138,18 +155,18 @@ An HTTP handler resource.
 
 ID of the HTTP router processing requests. For details about the concept, see
 [documentation](../../concepts/http-router.md).
-
 To get the list of all available HTTP routers, make a [HttpRouterService.List](../HttpRouter/list.md#List) request. ||
+|| rewriteRequestId | **boolean**
+
+When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. ||
 || http2Options | **[Http2Options](#yandex.cloud.apploadbalancer.v1.Http2Options)**
 
 HTTP/2 settings.
-
 If specified, incoming HTTP/2 requests are supported by the listener.
 
 Includes only one of the fields `http2Options`, `allowHttp10`.
 
 Protocol settings.
-
 For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
 negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension. ||
 || allowHttp10 | **boolean**
@@ -159,12 +176,8 @@ Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for 
 Includes only one of the fields `http2Options`, `allowHttp10`.
 
 Protocol settings.
-
 For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
 negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension. ||
-|| rewriteRequestId | **boolean**
-
-When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. ||
 || preserveHttp1HeaderCasing | **boolean**
 
 When enabled, preserves the original casing of HTTP/1.1 header names (e.g. "CONTENT-Type" -> "CONTENT-Type").
@@ -180,26 +193,6 @@ An HTTP/2 options resource.
 || maxConcurrentStreams | **string** (int64)
 
 Maximum number of concurrent HTTP/2 streams in a connection. ||
-|#
-
-## StreamHandler {#yandex.cloud.apploadbalancer.v1.StreamHandler}
-
-A stream (TCP) handler resource.
-
-#|
-||Field | Description ||
-|| backendGroupId | **string**
-
-Required field. ID of the backend group processing requests. For details about the concept, see
-[documentation](../../concepts/backend-group.md).
-
-The backend group type, specified via [BackendGroup.backend](../BackendGroup/get.md#yandex.cloud.apploadbalancer.v1.BackendGroup.backend), must be `stream`.
-
-To get the list of all available backend groups, make a [BackendGroupService.List](../BackendGroup/list.md#List) request. ||
-|| idleTimeout | **string** (duration)
-
-The idle timeout is duration during which no data is transmitted or received on either the upstream or downstream connection.
-If not configured, the default idle timeout is 1 hour. Setting it to 0 disables the timeout. ||
 |#
 
 ## ClientCertificatesVerification {#yandex.cloud.apploadbalancer.v1.ClientCertificatesVerification}
@@ -230,19 +223,16 @@ Includes only one of the fields `bytes`. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "loadBalancerId": "string",
-    "listenerName": "string",
-    "sniMatchName": "string"
-  },
-  // Includes only one of the fields `error`
+  "metadata": "object",
+  // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
     "details": [
       "object"
     ]
-  }
+  },
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -284,7 +274,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateSniMatchMetadata](#yandex.cloud.apploadbalancer.v1.UpdateSniMatchMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -293,27 +283,27 @@ Any method that returns a long-running operation should document the metadata ty
 
 The error result of the operation in case of failure or cancellation.
 
-Includes only one of the fields `error`.
+Includes only one of the fields `error`, `response`.
 
 The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
+|| response | **object**
 
-## UpdateSniMatchMetadata {#yandex.cloud.apploadbalancer.v1.UpdateSniMatchMetadata}
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
 
-#|
-||Field | Description ||
-|| loadBalancerId | **string**
+Includes only one of the fields `error`, `response`.
 
-ID of the application load balancer that the SNI handler is being updated in. ||
-|| listenerName | **string**
-
-Name of the listener that the SNI handler is being updated in. ||
-|| sniMatchName | **string**
-
-Name of the SNI handler that is being updated. ||
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
 ## Status {#google.rpc.Status}

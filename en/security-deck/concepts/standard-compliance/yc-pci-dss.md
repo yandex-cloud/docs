@@ -35,7 +35,6 @@ To ensure PCI DSS compliance, use the following rules:
 || 2.2 | Secure configuration and management of system components |
 [cspm.data.storage-https](../../rules-reference/cspm.md#storage-https)
 [cspm.appsec.cdn-https](../../rules-reference/cspm.md#cdn-https)
-[cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 ||
 || **3. Protecting stored account data** {align="center"} | > | > ||
 || 3.2, 3.3, 3.4 | Minimized storage time, prohibition to store SAD, masked PAN display | [cspm.db.db-deletion-protection](../../rules-reference/cspm.md#db-deletion-protection) ||
@@ -44,7 +43,7 @@ To ensure PCI DSS compliance, use the following rules:
 [cspm.crypto.managed-vm-kms](../../rules-reference/cspm.md#managed-vm-kms)
 ||
 || 3.6, 3.7 | Protection and management of cryptographic keys |
-[cspm.crypto.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
+[cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
 [cspm.crypto.keys-hsm](../../rules-reference/cspm.md#keys-hsm)
 [cspm.crypto.keys-rotation](../../rules-reference/cspm.md#keys-rotation)
 [cspm.crypto.keys-deletion-protection](../../rules-reference/cspm.md#keys-deletion-protection)
@@ -86,10 +85,10 @@ To ensure PCI DSS compliance, use the following rules:
 || **8. User identification and authentication for access to system components** {align="center"} | > | > ||
 || 8.3 | Reliable authentication for users and administrators |
 [cspm.access.serial-console](../../rules-reference/cspm.md#serial-console)
-[cspm.crypto.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
+[cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
 ||
 || 8.6 | Managing the use of application or system accounts |
-[cspm.crypto.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
+[cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
 [cspm.access.defined-key-scopes](../../rules-reference/cspm.md#defined-key-scopes)
 ||
 || **10. Recording and monitoring all access events to system components and cardholder data** {align="center"} | > | > ||

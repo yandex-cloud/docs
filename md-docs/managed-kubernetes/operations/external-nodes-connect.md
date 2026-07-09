@@ -300,7 +300,7 @@ journalctl -u kubelet
 Учитывайте [требования](../concepts/external-nodes.md#requirements) для подключения внешних узлов Managed Service for Kubernetes.
 
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Настройка WireGuard-шлюзов для подключения внешних узлов](external-nodes-connect-wireguard.md)
 * [Настройка IPSec-шлюзов для подключения внешних узлов](external-nodes-connect-ipsec.md)

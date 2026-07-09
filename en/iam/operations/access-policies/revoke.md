@@ -29,7 +29,7 @@ You can delete an access policy created for a [folder](#folder), [cloud](#cloud)
 
 {% include [access-policies-revoke-org](../../../_includes/iam/access-policies-revoke-org.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/access-control/access-policies.md)
 * [{#T}](./list.md)

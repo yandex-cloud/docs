@@ -245,6 +245,6 @@ All actions with {{ mgl-name }} instances are logged as a list of operations. Ea
 
     {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../../api-design-guide/concepts/about-async.md)
