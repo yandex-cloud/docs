@@ -13,13 +13,10 @@
 
 Данная проверка выявляет случаи, в которых пользователь [получает](https://yandex.cloud/ru/docs/iam/concepts/access-control/roles) такие права:
 
-* Пользователю назначена роль `organization-manager.groups.memberAdmin` на организацию.
-* Пользователю назначена роль `organization-manager.groups.memberAdmin` на конкретную группу как на ресурс.
-* Пользователю назначена роль `organization-manager.organizations.owner` или `admin` или другая привилегированная роль на всю организацию.
-* Пользователю назначена роль `admin` или `editor` на конкретную группу как на ресурс (нерекомендованный сценарий).
+* Пользователю назначена роль `organization-manager.groups.memberAdmin` на организацию. * Пользователю назначена роль `organization-manager.groups.memberAdmin` на конкретную группу как на ресурс. * Пользователю назначена роль `organization-manager.organizations.owner` или `admin` или другая привилегированная роль на всю организацию. * Пользователю назначена роль `admin` или `editor` на конкретную группу как на ресурс (нерекомендованный сценарий).
 
 #### Инструкции и решения по выполнению
 
-1. В [интерфейсе Cloud Center](https://center.yandex.cloud/organization) на панели слева выберите **Группы** и в открывшемся списке нажмите на строку с нужной группой.
-2. Перейдите на вкладку **Права доступа к группе** и включите опцию **Наследуемые роли**.
-3. Воспользуйтесь инструкциями по отзыву роли [на организацию](https://yandex.cloud/ru/docs/organization/operations/revoke-role) или [на группу пользователей](https://yandex.cloud/ru/docs/organization/operations/access-manage-group#remove-access-binding), чтобы отозвать права у неуполномоченных учетных записей.
+**Инструкции и решения по выполнению:**
+
+1. В [интерфейсе Cloud Center](https://center.yandex.cloud/organization) на панели слева выберите **Группы** и в открывшемся списке нажмите на строку с нужной группой. 2. Перейдите на вкладку **Права доступа к группе** и включите опцию **Наследуемые роли**. 3. Воспользуйтесь инструкциями по отзыву роли [на организацию](https://yandex.cloud/ru/docs/organization/operations/revoke-role) или [на группу пользователей](https://yandex.cloud/ru/docs/organization/operations/access-manage-group#remove-access-binding), чтобы отозвать права у неуполномоченных учетных записей.

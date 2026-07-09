@@ -6,6 +6,8 @@
 
 {% include [migration-comparison](../../_pricing_examples/monium/migration-comparison.md) %}
 
+Все цены приведены в правилах тарификации сервисов [{{ cloud-logging-name }}](../../logging/pricing.md#prices) и [{{ monium-name }}](../pricing.md#prices).
+
 ## Тестирование {{ monium-name }} без миграции {#preview}
 
 Логи из {{ cloud-logging-name }} уже доступны в {{ monium-name }}. Откройте их в [консоли управления]({{ link-console-main }}) одним из способов: 

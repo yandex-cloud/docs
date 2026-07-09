@@ -23,7 +23,6 @@ Lists virtual hosts of the specified HTTP router.
 || http_router_id | **string**
 
 Required field. ID of the HTTP router to list virtual hosts in.
-
 To get the HTTP router ID, make a [HttpRouterService.List](../HttpRouter/list.md#List) request. ||
 || page_size | **int64**
 
@@ -347,7 +346,6 @@ List of virtual hosts of the specified HTTP router. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListVirtualHostsRequest.page_size](#yandex.cloud.apploadbalancer.v1.ListVirtualHostsRequest), use `next_page_token` as the value
 for the [ListVirtualHostsRequest.page_token](#yandex.cloud.apploadbalancer.v1.ListVirtualHostsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -779,7 +777,7 @@ A health check payload resource.
 
 Payload text.
 
-The string length in characters must be greater than 0.
+The string length in characters must be 1-16384.
 
 Includes only one of the fields `text`.
 

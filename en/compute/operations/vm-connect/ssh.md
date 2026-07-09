@@ -175,7 +175,7 @@ You can also use [internal IP addresses](../../../vpc/concepts/address.md#intern
 
   Where:
   
-  * `<user_name>`: VM account user name. If you created your VM via the CLI, `yc-user` is the default user.
+  * `<username>`: VM account user name. If you created your VM via the CLI, `yc-user` is the default user.
   * `<VM_public_IP_address>`: VM [public IP address](../../../vpc/concepts/address.md#public-addresses) for internet access.
 
       {% include [vm-find-public-ip](../../../_includes/compute/vm-find-public-ip.md) %}
@@ -183,7 +183,7 @@ You can also use [internal IP addresses](../../../vpc/concepts/address.md#intern
   If you have multiple private keys, specify the one you need:
 
   ```shell
-  ssh -i <key_path\key_file_name> <user_name>@<VM_public_IP_address>
+  ssh -i <key_path\key_file_name> <username>@<VM_public_IP_address>
   ```
 
   If this is your first time connecting to the VM, you will get this unknown host warning:
@@ -323,7 +323,7 @@ To configure users from within the VM, follow these steps:
 
 * [Using {{ yandex-cloud }} from within a VM](auth-inside-vm.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](cloud-shell.md)
 * [{#T}](rdp.md)

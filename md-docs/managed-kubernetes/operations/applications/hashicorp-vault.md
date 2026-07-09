@@ -73,7 +73,7 @@
 {% endnote %}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
 1. Нажмите на имя нужного [кластера Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![Marketplace](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [HashiCorp Vault с поддержкой Key Management Service](https://yandex.cloud/ru/marketplace/products/yc/vault-yckms-k8s) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
@@ -192,7 +192,7 @@
    vault-yckms-k8s-0  1/1    Running  0         5m
    ```
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Документация HashiCorp Vault](https://developer.hashicorp.com/vault/docs?product_intent=vault)
 * [Документация Key Management Service](../../../kms/index.md)

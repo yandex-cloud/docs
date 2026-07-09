@@ -99,7 +99,7 @@ To get a temporary access key:
       * `--duration-seconds`: Key lifetime in seconds, which cannot exceed `43200`.
       * `--policy file://`: Path to the bucket policy file.
 
-      For more information about the `aws sts assume-role` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/assume-role.html).
+      For more information about the `aws sts assume-role` command, see [this AWS guide](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/assume-role.html).
 
       Result:
 

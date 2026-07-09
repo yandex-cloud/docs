@@ -10,7 +10,7 @@ For this scenario, we recommend using [{{ interconnect-name }}](../../interconne
 * Using the dedicated physical channels, the client’s network equipment is connected to {{ yandex-cloud }} equipment in [points of presence](../../interconnect/concepts/pops.md) either directly over a cross connection or via network providers.
 * With {{ interconnect-name }} connections, you can set up logical connections to the client’s [cloud networks](../../interconnect/concepts/priv-con.md), as well as to {{ yandex-cloud }} [services](../../interconnect/concepts/pub-con.md), such as [{{ objstorage-name }}](../../storage).
 * To ensure {{ interconnect-name }} fault tolerance, you may want to set up connections at multiple [points of presence](../../interconnect/concepts/pops.md).
-* For detailed instructions on how to enable and manage {{ interconnect-name }}, see the [relevant documentation](../../interconnect/operations/index.md).
+* For detailed instructions on how to enable and manage {{ interconnect-name }}, see [this guide](../../interconnect/operations/index.md).
 
 ## Resource and access management
 In the {{ yandex-cloud }} resource model, any cloud user with the `editor` or `admin` permissions for a resource can modify its specifications. When infrastructure is isolated, this poses a risk of unauthorized changes in resource specifications, which compromises the threat model’s isolation principle. We recommend using [{{ at-name }}](../../audit-trails/) logs and [SIEM](https://en.wikipedia.org/wiki/Security_information_and_event_management) notifications to track such events; however, there is also a proactive approach to monitoring changes in the protected environment.

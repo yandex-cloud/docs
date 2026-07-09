@@ -28,7 +28,7 @@ To grant access to the organization, [configure](https://id.yandex.ru/security/e
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/os-login-access.md)
 * [{#T}](../operations/enable-refresh-tokens.md)

@@ -33,7 +33,7 @@
   Чтобы изменить vCPU и RAM ВМ:
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Нажмите на имя нужной ВМ.
   1. В правом верхнем углу страницы нажмите кнопку **Остановить**.
   1. В открывшемся окне нажмите кнопку **Остановить**.
@@ -137,7 +137,7 @@ Compute Cloud проверяет работоспособность и реко�
   Чтобы изменить количество GPU на ВМ:
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Нажмите на имя нужной ВМ.
   1. В правом верхнем углу страницы нажмите кнопку **Остановить**.
   1. В открывшемся окне нажмите кнопку **Остановить**.
@@ -248,7 +248,7 @@ Compute Cloud проверяет работоспособность и реко�
   Чтобы изменить количество [GPU](../../concepts/gpus.md) на существующей ВМ:
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Нажмите на имя нужной ВМ.
   1. В правом верхнем углу страницы нажмите кнопку **Остановить**.
   1. В открывшемся окне нажмите кнопку **Остановить**.
@@ -351,7 +351,7 @@ Compute Cloud проверяет работоспособность и реко�
   Чтобы включить [программно ускоренную сеть](../../concepts/software-accelerated-network.md) на существующей ВМ:
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Нажмите на имя нужной ВМ.
   1. В правом верхнем углу страницы нажмите кнопку **Остановить**.
   1. В открывшемся окне нажмите кнопку **Остановить**.

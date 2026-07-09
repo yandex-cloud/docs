@@ -80,6 +80,7 @@ yandex.cloud.audit.compute.<имя_события>
 `instancegroup.EnableZones` | Включение зон доступности
 `instancegroup.PauseInstanceGroup` | Приостановка процессов управления группой ВМ
 `instancegroup.ResumeInstanceGroup` | Возобновление процессов управления группой ВМ
+`instancegroup.RollingRecreateInstanceGroupInstances` | Поочередное пересоздание ВМ из группы
 `instancegroup.RollingRestartInstanceGroupInstances` | Поочередная перезагрузка ВМ из группы
 `instancegroup.SetInstanceGroupAccessBindings` | Назначение ролей на группу ВМ
 `instancegroup.StartInstanceGroup` | Запуск группы ВМ

@@ -35,7 +35,7 @@
 ## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
 1. Нажмите на имя нужного [кластера Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [Loki](https://yandex.cloud/ru/marketplace/products/yc/loki) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
@@ -103,6 +103,6 @@ kubectl get service -A | grep distributed-gateway
 test-namespace   loki-loki-distributed-gateway   ClusterIP   10.96.168.88   <none>   80/TCP    15m
 ```
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Документация Grafana Loki](https://grafana.com/docs/loki/latest/).
+[Документация Grafana Loki](https://grafana.com/docs/loki/latest/)

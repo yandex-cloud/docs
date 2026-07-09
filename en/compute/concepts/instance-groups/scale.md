@@ -159,7 +159,7 @@ where $t$ is the time of measuring the metric in seconds, $t = b - a$.
 * [{#T}](../../tutorials/vm-autoscale/index.md)
 * [{#T}](../../tutorials/autoscale-monitoring.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](policies/scale-policy.md)
 * [{#T}](../../operations/instance-groups/create-fixed-group.md)

@@ -17,7 +17,7 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
 
     {% note warning %}
 
-    Starting August 1, 2026, the [`compute.editor`](../../compute/security/index.md#compute-editor) and [`compute.admin`](../../compute/security/index.md#compute-admin) roles get new permissions allowing them to connect VMs to {{ backup-full-name }}, link and unlink them from [backup policies](../concepts/policy.md).
+    Starting August 1, 2026, the [`compute.editor`](../../compute/security/index.md#compute-editor) and [`compute.admin`](../../compute/security/index.md#compute-admin) roles get new permissions that allow them to connect VMs to {{ backup-full-name }}, as well as bind and unbind them from [backup policies](../concepts/policy.md).
 
     {% include [denyActivation-iam-policy-pre-notice](../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 
@@ -49,7 +49,7 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
       1. Select a [security group](../../vpc/concepts/security-groups.md) configured to work with {{ backup-name }}.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
   
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, select the SSH key saved in your [organization user](../../organization/concepts/membership.md) profile.
 
       If your profile has no SSH keys, click **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}** to add a new key.
@@ -128,7 +128,7 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
       * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) matching the selected subnet.
       * `subnet-name`: Name of the selected [subnet](../../vpc/concepts/network.md#subnet).
       * `security-group-ids`: ID of the [security group](../../vpc/concepts/security-groups.md) configured to work with {{ backup-name }}.
-      * `image-id`: OS [image ID](../../compute/concepts/image.md). See the [list of supported Linux-based operating systems](../concepts/vm-connection.md#linux) for details.
+      * `image-id`: OS [image ID](../../compute/concepts/image.md). See the [list of supported Linux-based operating systems](../concepts/vm-connection.md#linux).
       * `size`: Boot disk size.
       * `--cores`: [Number of vCPUs](../../compute/concepts/vm.md) in the VM.
       * `--core-fraction`: Guaranteed vCPU share, in %.
@@ -207,7 +207,7 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
 
 {% include [vm-list](../../_includes/backup/vm-list.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](connect-vm-windows.md)
 * [{#T}](connect-vm-linux.md)

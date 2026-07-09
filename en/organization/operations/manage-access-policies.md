@@ -23,6 +23,6 @@ An [organization's](../concepts/organization.md) access policies can be managed 
 
 {% include [access-policies-revoke-org](../../_includes/iam/access-policies-revoke-org.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../iam/concepts/access-control/access-policies.md)

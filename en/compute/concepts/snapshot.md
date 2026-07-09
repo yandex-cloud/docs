@@ -20,7 +20,7 @@ If you need to create multiple disks with the same content, you can use [images]
 
 {% endnote %}
 
-A disk snapshot only contains the data that was written to the disk at the time its snapshot was created. If the disk is attached to a running VM, the OS and app cache will not be included in the snapshot. For more on how to prepare a VM for a disk snapshot and ensure snapshot data integrity, see [this guide](../operations/disk-control/create-snapshot.md#prepare).
+A disk snapshot only contains the data that was written to the disk at the time its snapshot was created. If the disk is attached to a running VM, the OS and app cache will not be included in the snapshot. For more information about preparing a VM for disk snapshot creation and ensuring the integrity of the snapshot data, see [this guide](../operations/disk-control/create-snapshot.md#prepare).
 
 You can create disk snapshots both manually and automatically, based on a [schedule](snapshot-schedule.md).
 
@@ -64,7 +64,7 @@ For more information, see [{#T}](encryption.md).
 * [{#T}](../../tutorials/testing/ci-for-snapshots.md)
 * [{#T}](../../tutorials/web/bitrix-website/index.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Guides on disk snapshots and schedules](../operations/#snapshots)
 * [{#T}](../operations/disk-create/from-snapshot.md)

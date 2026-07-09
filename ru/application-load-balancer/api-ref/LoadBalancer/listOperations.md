@@ -59,7 +59,6 @@ GET https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId}
 || loadBalancerId | **string**
 
 Required field. ID of the application load balancer to get operations for.
-
 To get the application load balancer ID, use a [LoadBalancerService.List](/docs/application-load-balancer/api-ref/LoadBalancer/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -126,7 +125,6 @@ List of operations for the specified application load balancer. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListLoadBalancerOperationsRequest.pageSize](#yandex.cloud.apploadbalancer.v1.ListLoadBalancerOperationsRequest), use `next_page_token` as the value
 for the [ListLoadBalancerOperationsRequest.pageToken](#yandex.cloud.apploadbalancer.v1.ListLoadBalancerOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

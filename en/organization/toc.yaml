@@ -195,6 +195,16 @@ items:
                 href: operations/mfa/delete-policy.md
               - name: Removing an MFA factor and resetting the verification date
                 href: operations/mfa/manage-verification.md
+          - name: Managing authentication policies
+            items:
+              - name: Creating an authentication policy
+                href: operations/authentication-policies/create.md
+              - name: Activating/deactivating an authentication policy
+                href: operations/authentication-policies/activate-deactivate.md
+              - name: Editing an authentication policy
+                href: operations/authentication-policies/update.md
+              - name: Deleting an authentication policy
+                href: operations/authentication-policies/delete.md
           - name: Working with {{ oslogin }}
             items:
               - name: Enabling access via {{ oslogin }}
@@ -285,6 +295,8 @@ items:
             href: tutorials/single-sign-on/saml-opensearch.md
           - name: MWS
             href: tutorials/single-sign-on/oidc-mws.md
+          - name: NetBird
+            href: tutorials/single-sign-on/oidc-netbird.md
           - name: '{{ OS }}'
             href: tutorials/single-sign-on/saml-opensearch-self-managed.md
           - name: Selectel
@@ -325,6 +337,8 @@ items:
         href: concepts/user-pools.md
       - name: Password policy
         href: concepts/password-policy.md
+      - name: Authentication policies
+        href: concepts/authentication-policy.md
       - name: Identity federations
         href: concepts/add-federation.md
       - name: Domains

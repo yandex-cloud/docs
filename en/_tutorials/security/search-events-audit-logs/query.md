@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The cost of infrastructure support includes a bucket use fee (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+The cost of infrastructure support includes a fee for using the bucket (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 
 
 ## Set up your environment {#prepare-environment}

@@ -18,6 +18,8 @@ In {{ org-full-name }}, you can [create](../operations/applications/saml-create.
 
 The external applications can only be accessed by {{ yandex-cloud }} organization users either explicitly [added](../operations/applications/saml-create.md#users-and-groups) to the relevant SAML application or belonging to [user groups](./groups.md) explicitly added to it.
 
+{% include [auth-policy-applications-tip](../../_includes/organization/auth-policy-applications-tip.md) %}
+
 {% include [saml-app-admin-role](../../_includes/organization/saml-app-admin-role.md) %}
 
 ### SAML collaboration diagram {#saml-scheme}
@@ -193,7 +195,7 @@ A configuration URL gives the service provider the values of all settings requir
 
 In addition to the above-mentioned settings, you also need to specify an [app secret](#oidc-secret) on the service provider side.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/applications/saml-create.md)
 * [{#T}](../operations/applications/saml-update.md)

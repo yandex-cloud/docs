@@ -106,6 +106,14 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [Скачать Go-модуль из реестра](operations/go/pull.md)
 
+#### Debian-артефакт
+
+ - [Настроить APT](operations/debian/installation.md)
+
+ - [Загрузить Debian-пакет в реестр](operations/debian/push.md)
+
+ - [Скачать Debian-пакет из реестра](operations/debian/pull.md)
+
  - [Удалить артефакт из реестра](operations/artifacts/delete.md)
 
  - [Создание политики жизненного цикла](operations/lifecycle-policy/create.md)
@@ -139,6 +147,8 @@ Yandex Cloud Registry — сервис для безопасного хране�
  - [Binary-артефакт](concepts/artifacts/binary.md)
 
  - [Go-артефакт](concepts/artifacts/go.md)
+
+ - [Debian-артефакт](concepts/artifacts/debian.md)
 
  - [Политика жизненного цикла](concepts/lifecycle-policy.md)
 

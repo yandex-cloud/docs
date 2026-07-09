@@ -107,7 +107,7 @@ The following services support authentication based on API keys:
 
 * [{#T}](../../../tutorials/ml-ai/speechsense/auto-upload.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../operations/authentication/manage-api-keys.md#create-api-key)
 * [{#T}](iam-token.md)

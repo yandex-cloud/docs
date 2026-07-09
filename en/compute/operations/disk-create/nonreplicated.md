@@ -121,7 +121,7 @@ The [disk](../../concepts/disk.md) size must be a multiple of 93 GB.
 
         {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
-     For more information about the `yandex_compute_disk` resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
+     For more information about `yandex_compute_disk` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
   1. Make sure the configuration files are correct.
      1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
@@ -285,6 +285,6 @@ You can only create a disk in an existing disk placement group.
 {% endlist %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../snapshot-control/create-schedule.md)

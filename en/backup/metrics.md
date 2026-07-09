@@ -6,12 +6,12 @@ description: This page provides a reference of {{ backup-name }} metrics exporte
 # {{ monitoring-full-name }} metric reference
 
 
-This section describes the {{ backup-name }} metrics delivered to [{{ monitoring-name }}](../monitoring/).
+This section describes {{ backup-name }} metrics exported to [{{ monitoring-name }}](../monitoring/).
 
 {% include [backup](../_includes/monitoring/metrics-ref/backup.md) %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](operations/get-stats.md)
 * [{#T}](operations/configure-alerts.md)

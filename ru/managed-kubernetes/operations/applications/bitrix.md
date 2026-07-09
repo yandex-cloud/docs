@@ -115,7 +115,7 @@ description: Следуя данной инструкции, вы сможете
 ## Установка с помощью {{ marketplace-name }} {#marketplace-install}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Битрикс](/marketplace/products/yc/bitrix-env) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
@@ -320,7 +320,7 @@ description: Следуя данной инструкции, вы сможете
    /scripts/commit-all.sh <описание commit>
    ```
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [1С-Битрикс: Веб-окружение](https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=32&LESSON_ID=29234&LESSON_PATH=3903.4862.29228.29234)
 * [Контейнерное окружение для Битрикс](https://github.com/bitrix-tools/env-docker)

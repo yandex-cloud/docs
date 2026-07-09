@@ -33,7 +33,7 @@ Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
     * Expand **{{ ui-key.yacloud.dns.label_dns-internal-settings }}** and click **{{ ui-key.yacloud.dns.button_add-record }}**.
     * Specify a zone, FQDN, and TTL for the record. When setting the FQDN, you can enable `{{ ui-key.yacloud.dns.label_auto-select-zone }}` for the zone.
-      You can add multiple records to [internal DNS zones](../../../dns/concepts/dns-zone.md). For more information, see [Cloud DNS integration with Compute Cloud](../../../dns/concepts/compute-integration.md).
+      You can add multiple records to [internal DNS zones](../../../dns/concepts/dns-zone.md). For more information, see [Yandex Cloud DNS integration with Yandex Compute Cloud](../../../dns/concepts/compute-integration.md).
     * To create another record, click **{{ ui-key.yacloud.dns.button_add-record }}**.
 
 If you want to add another [network interface](../../../compute/concepts/network.md) to your VM, click **{{ ui-key.yacloud.compute.instances.create.label_add-network-interface }}** and repeat the settings from this step for the new interface. You can add up to eight network interfaces to a single VM.

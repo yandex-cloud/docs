@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [диск](../../concepts/disk.md).
-  1. Перейдите в сервис **{{ compute-name }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Выберите диск из списка.
   1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о диске.

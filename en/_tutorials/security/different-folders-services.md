@@ -3,7 +3,7 @@
 
 This tutorial describes a use case involving multiple independent teams managing {{ yandex-cloud }} resources. The services and apps developed by these teams are published on the internet. {{ yandex-cloud }} uses folders to separate resources, ensuring that each team can only access its designated folder. Moreover, the information security (IS) regulations prohibit teams from directly publishing their folder resources on the internet.
 
-For a special case scenario of this guide with infrastructure deployed from scratch, see the [Creating a distributed infrastructure with secure access](../../smartwebsecurity/tutorials/distributed-secured-infrastructure.md) section.
+For a special case scenario of this guide with an infrastructure deployed from scratch, see [Creating a distributed infrastructure with secure access](../../smartwebsecurity/tutorials/distributed-secured-infrastructure.md).
 
 To implement this approach, you can use such {{ yandex-cloud }} services as [{{ alb-full-name }}](../../application-load-balancer/) (ALB) and [{{ sws-full-name }}](../../smartwebsecurity/concepts/) (SWS).
 
@@ -48,7 +48,7 @@ Therefore, consider the following:
     * Target security groups should allow inbound traffic from L7 load balancer subnets.
     * L7 load balancer security groups should allow inbound traffic to target subnets.
 
-      To learn more about best practices for setting up security groups, see [this section](../../application-load-balancer/concepts/application-load-balancer.md#security-groups).
+      Learn more about the best practices for setting up security groups [here](../../application-load-balancer/concepts/application-load-balancer.md#security-groups).
 
 ### L7 load balancers {#l7-balancer-requirements}
 
@@ -121,7 +121,7 @@ The chart below shows the L7 load balancer resources you will create and configu
 
 {% endlist %}
 
-For other ways to create a security profile, see [this section](../../smartwebsecurity/operations/profile-create.md).
+For other ways to create a security profile, see [this article](../../smartwebsecurity/operations/profile-create.md).
 
 ### Creating an L7 load balancer {#create-alb}
 

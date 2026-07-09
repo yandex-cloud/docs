@@ -231,7 +231,7 @@ To access the virtual machine's data and settings, start the command line shell:
 
 {% endnote %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/serial-console.md)
 * [{#T}](./index.md)

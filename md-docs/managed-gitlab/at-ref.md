@@ -24,6 +24,7 @@ yandex.cloud.audit.gitlab.<имя_события>
 `ReconfigureGitlab` | Изменение конфигурации GitLab
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `ResizeInstance` | Изменение размера инстанса
+`RestoreInstanceBackup` | Восстановление инстанса из резервной копии
 `RollbackMigration` | Отмена процесса миграции инстанса в другую зону доступности
 `ScheduleUpgrade` | Назначение времени обновления инстанса
 `StartInstance` | Запуск инстанса

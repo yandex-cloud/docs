@@ -320,6 +320,6 @@ description: Use this tutorial to create a Linux VM.
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../vm-connect/ssh.md)

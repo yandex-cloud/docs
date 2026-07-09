@@ -59,6 +59,6 @@ To unlink a VM or {{ baremetal-name }} server from a backup policy:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](attach-and-detach-vm.md)

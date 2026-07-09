@@ -87,7 +87,7 @@ There are technical [limits](limits.md) for cache purging.
 * [{#T}](../tutorials/prefetch.md)
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Caching setup guide](../operations/resources/configure-caching.md)
 * [Cache prefetching guide](../operations/resources/prefetch-files.md)

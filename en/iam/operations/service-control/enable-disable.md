@@ -106,7 +106,7 @@ To revoke the service's access to the user resources in the cloud, disable the s
 
 As a result, the [status](../../concepts/service-control.md#access-status) of the service in the specified cloud will change to `DISABLED`, its [service agents](../../concepts/service-control.md#service-agent) will be deleted, and the service will lose access to user resources in this cloud.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./list-get.md)
 * [{#T}](../../concepts/service-control.md)

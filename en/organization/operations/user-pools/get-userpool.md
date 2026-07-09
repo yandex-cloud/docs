@@ -59,13 +59,13 @@ description: Follow this guide to get information about a user pool in {{ org-fu
      * `output "instance_domain"`: Output variable that contains information about the pool domains:
        * `value`: Return value.
 
-     You can replace `domains` with any other parameter to get the information you need. For more information about the `yandex_organizationmanager_idp_userpool` data source properties, see [this {{ TF }} provider guide]({{ tf-provider-datasources-link }}/organizationmanager_idp_userpool).
+     You can replace `domains` with another variable to get the information you need. For more on the properties of the `yandex_organizationmanager_idp_userpool` data source, see [this provider guide]({{ tf-provider-datasources-link }}/organizationmanager_idp_userpool).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+      {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

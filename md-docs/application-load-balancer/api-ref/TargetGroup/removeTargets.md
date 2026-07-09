@@ -17,7 +17,6 @@ POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/targetGroups/{targetGro
 || targetGroupId | **string**
 
 Required field. ID of the target group to remove targets from.
-
 To get the target group ID, make a [TargetGroupService.List](list.md#List) request. ||
 |#
 
@@ -31,8 +30,8 @@ To get the target group ID, make a [TargetGroupService.List](list.md#List) reque
       "ipAddress": "string",
       // end of the list of possible fields
       "subnetId": "string",
-      "privateIpv4Address": "boolean",
-      "externalAddress": "boolean"
+      "externalAddress": "boolean",
+      "privateIpv4Address": "boolean"
     }
   ]
 }
@@ -64,16 +63,16 @@ Reference to the target. As of now, targets must only be referred to by their IP
 || subnetId | **string**
 
 ID of the subnet that the target is connected to. ||
+|| externalAddress | **boolean**
+
+If set, will not require `subnet_id` to validate the target.
+Only one of `subnet_id` or `external_address` should be set. ||
 || privateIpv4Address | **boolean**
 
 If set, will not require `subnet_id` to validate the target.
 Instead, the address should belong to one of the following ranges:
 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
 Only one of `subnet_id` or `private_ipv4_address` should be set. ||
-|| externalAddress | **boolean**
-
-If set, will not require `subnet_id` to validate the target.
-Only one of `subnet_id` or `external_address` should be set. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -88,9 +87,7 @@ Only one of `subnet_id` or `external_address` should be set. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "targetGroupId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -99,24 +96,7 @@ Only one of `subnet_id` or `external_address` should be set. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "name": "string",
-    "description": "string",
-    "folderId": "string",
-    "labels": "object",
-    "targets": [
-      {
-        // Includes only one of the fields `ipAddress`
-        "ipAddress": "string",
-        // end of the list of possible fields
-        "subnetId": "string",
-        "privateIpv4Address": "boolean",
-        "externalAddress": "boolean"
-      }
-    ],
-    "createdAt": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -158,7 +138,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[RemoveTargetsMetadata](#yandex.cloud.apploadbalancer.v1.RemoveTargetsMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -173,7 +153,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[TargetGroup](#yandex.cloud.apploadbalancer.v1.TargetGroup)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -188,15 +168,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## RemoveTargetsMetadata {#yandex.cloud.apploadbalancer.v1.RemoveTargetsMetadata}
-
-#|
-||Field | Description ||
-|| targetGroupId | **string**
-
-ID of the target group that the targets are being removed from. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -214,71 +185,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## TargetGroup {#yandex.cloud.apploadbalancer.v1.TargetGroup}
-
-A target group resource.
-For details about the concept, see [documentation](../../concepts/target-group.md).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the target group. Generated at creation time. ||
-|| name | **string**
-
-Name of the target group. The name is unique within the folder. ||
-|| description | **string**
-
-Description of the target group. ||
-|| folderId | **string**
-
-ID of the folder that the target group belongs to. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Target group labels as `key:value` pairs.
-For details about the concept, see [documentation](../../../overview/concepts/services.md#labels). ||
-|| targets[] | **[Target](#yandex.cloud.apploadbalancer.v1.Target2)**
-
-List of targets in the target group. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|#
-
-## Target {#yandex.cloud.apploadbalancer.v1.Target2}
-
-A target resource.
-For details about the concept, see [documentation](../../concepts/target-group.md).
-
-#|
-||Field | Description ||
-|| ipAddress | **string**
-
-IP address of the target.
-
-Includes only one of the fields `ipAddress`.
-
-Reference to the target. As of now, targets must only be referred to by their IP addresses. ||
-|| subnetId | **string**
-
-ID of the subnet that the target is connected to. ||
-|| privateIpv4Address | **boolean**
-
-If set, will not require `subnet_id` to validate the target.
-Instead, the address should belong to one of the following ranges:
-10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
-Only one of `subnet_id` or `private_ipv4_address` should be set. ||
-|| externalAddress | **boolean**
-
-If set, will not require `subnet_id` to validate the target.
-Only one of `subnet_id` or `external_address` should be set. ||
 |#

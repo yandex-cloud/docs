@@ -17,7 +17,7 @@ _Функциональность пулов резервов ВМ находи�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится пул резервов ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-lock.svg) **Пулы резервов ВМ**.
   1. В строке с нужным пулом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
   1. Подтвердите удаление.

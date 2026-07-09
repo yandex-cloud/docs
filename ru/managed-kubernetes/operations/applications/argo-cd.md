@@ -23,7 +23,7 @@ description: Следуя данной инструкции, вы сможете
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Argo CD](/marketplace/products/yc/argo-cd) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
@@ -117,7 +117,7 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
    * Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, где развернут кластер {{ managed-k8s-name }}.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+      1. [Перейдите]({{ link-console-main }}/link/network-load-balancer) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
 
          В разделе **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_list }}** отображен сетевой балансировщик нагрузки с префиксом `k8s` в имени и уникальным идентификатором кластера {{ k8s }} в описании.
 
@@ -237,8 +237,8 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
 
 ## Примеры использования {#examples}
 
-* [{#T}](../../tutorials/marketplace/argo-cd.md).
+[{#T}](../../tutorials/marketplace/argo-cd.md)
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Документация Argo CD](https://argo-cd.readthedocs.io/en/stable/operator-manual/).
+[Документация Argo CD](https://argo-cd.readthedocs.io/en/stable/operator-manual/)

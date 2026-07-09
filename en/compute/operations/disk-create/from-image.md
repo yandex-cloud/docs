@@ -30,7 +30,7 @@ To create a disk from an [image](../../concepts/image.md):
   1. In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and select an image from the list. Optionally, use the filter.
   1. Set the disk parameters: [disk type](../../concepts/disk.md#disks_types), [disk size](../../concepts/disk.md#maximum-disk-size), and [block size](../../concepts/disk.md#maximum-disk-size).
   1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
-  1. Optionally, select or create a [schedule](../../concepts/snapshot-schedule.md) for automatic disk snapshots. For more information on schedule settings, see [this guide](../snapshot-control/create-schedule.md).
+  1. Optionally, select or create a [schedule](../../concepts/snapshot-schedule.md) for automatic disk snapshots. For more information on scheduling settings, see [this guide](../snapshot-control/create-schedule.md).
 
       {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
@@ -261,7 +261,7 @@ To create a disk from an [image](../../concepts/image.md):
 Once created, the disk will get the `CREATING` status. Wait until the disk status changes to `READY` before using it.
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Creating a VM from a custom image](../vm-create/create-from-user-image.md)
 * [Attaching a disk to a VM and mounting partitions](../vm-control/vm-attach-disk.md)

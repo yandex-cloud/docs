@@ -24,7 +24,7 @@
 ## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
 1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [Argo CD](https://yandex.cloud/ru/marketplace/products/yc/argo-cd) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
@@ -122,7 +122,7 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
    * Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где развернут кластер Managed Service for Kubernetes.
-      1. Перейдите в сервис **Network Load Balancer**.
+      1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer) в сервис **Network Load Balancer**.
 
          В разделе **Балансировщики** отображен сетевой балансировщик нагрузки с префиксом `k8s` в имени и уникальным идентификатором кластера Kubernetes в описании.
 
@@ -264,8 +264,8 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
 
 ## Примеры использования {#examples}
 
-* [Интеграция с Argo CD](../../tutorials/marketplace/argo-cd.md).
+[Интеграция с Argo CD](../../tutorials/marketplace/argo-cd.md)
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Документация Argo CD](https://argo-cd.readthedocs.io/en/stable/operator-manual/).
+[Документация Argo CD](https://argo-cd.readthedocs.io/en/stable/operator-manual/)

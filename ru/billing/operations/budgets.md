@@ -24,7 +24,7 @@
 
 - {{ billing-interface }} {#billing}
 
-  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 
   1. Выберите аккаунт на странице **{{ ui-key.yacloud_billing.billing.title_accounts }}**.
 
@@ -65,5 +65,5 @@
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](../tutorials/serverless-trigger-budget-vm.md).
-* [{#T}](../tutorials/serverless-trigger-budget-queue-vm-tg.md).
+* [{#T}](../tutorials/serverless-trigger-budget-vm.md)
+* [{#T}](../tutorials/serverless-trigger-budget-queue-vm-tg.md)

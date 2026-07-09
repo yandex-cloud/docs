@@ -7,14 +7,10 @@
 
 #### Description
 
-{% note tip "**Automatic verification**" %}
-
-This control automatically checks for deletion protection settings on KMS keys.
-
-{% endnote %}
-
 Deleting a KMS key always means destroying data. Therefore, make sure to protect the keys against accidental deletion. KMS has the necessary feature.
 
-#### Guides and solutions
+#### Instructions and solutions
 
-* Enable deletion protection: <https://yandex.cloud/en/docs/kms/operations/key#update>
+**Guides and solutions to use:**
+
+[Enable](https://yandex.cloud/en/docs/kms/operations/key#update) deletion protection.

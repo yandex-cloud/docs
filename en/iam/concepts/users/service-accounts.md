@@ -53,7 +53,7 @@ Generated keys belong to the service account and permissions to manage them are 
 * [{#T}](../../tutorials/wlif-gitlab-integration.md)
 * [{#T}](../../tutorials/wlif-k8s-integration.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../quickstart-sa.md)
 * [{#T}](../../operations/sa/list-get.md)

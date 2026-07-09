@@ -33,7 +33,7 @@ To get a temporary access key using {{ sts-name }}, use the [AWS Command Line In
 
 There is a separate [API endpoint](../../api-design-guide/concepts/endpoints.md) for {{ sts-name }}: `https://{{ sts-host }}`.
 
-For more information, see [{#T}](../../iam/operations/sa/create-sts-key.md).
+Learn more in [{#T}](../../iam/operations/sa/create-sts-key.md).
 
 {% note warning %}
 

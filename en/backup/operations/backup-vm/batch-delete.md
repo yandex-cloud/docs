@@ -85,6 +85,6 @@ If backups for a VM or {{ baremetal-name }} server were based on a variety of ba
 
 {% endnote %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./delete.md)

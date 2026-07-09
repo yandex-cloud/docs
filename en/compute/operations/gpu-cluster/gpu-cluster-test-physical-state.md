@@ -62,6 +62,6 @@ To test the data transfer rate between GPUs on different VMs:
    * `BW average[Gb/sec]`: Average transfer rate
    * `MsgRate[Mpps]`: Message frequency
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Questions about GPUs](../../../compute/qa/gpu.md)

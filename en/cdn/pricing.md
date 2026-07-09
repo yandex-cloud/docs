@@ -8,7 +8,10 @@ editable: false
 
 {% note warning %}
 
+
 Starting July 1, 2026, a new pricing model for {{ cdn-name }} is in effect.
+
+
 
 {% endnote %}
 
@@ -79,6 +82,8 @@ You can choose one of the following billing models when [activating dedicated IP
 
 * Per individual [CDN resource](concepts/resource.md). This option is cost-effective if you have few CDN resources or need dedicated IP addresses only for some of them.
 * For all CDN resources of your [billing account](../billing/concepts/billing-account.md). This is optimal if you need dedicated IP addresses for multiple CDN resources.
+
+{% include [pricing-for-dedicated-ip.md](../_includes/cdn/pricing-for-dedicated-ip.md) %}
 
 
 

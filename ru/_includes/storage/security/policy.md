@@ -470,6 +470,6 @@
 }
 ```
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [{#T}](../../../storage/operations/buckets/policy.md)
+[{#T}](../../../storage/operations/buckets/policy.md)

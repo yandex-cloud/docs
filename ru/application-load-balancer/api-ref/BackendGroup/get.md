@@ -23,7 +23,6 @@ apiPlayground:
 # Application Load Balancer API, REST: BackendGroup.Get
 
 Returns the specified backend group.
-
 To get the list of all available backend groups, make a [List](/docs/application-load-balancer/api-ref/BackendGroup/list#List) request.
 
 ## HTTP request
@@ -39,7 +38,6 @@ GET https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups/{backendGroupId}
 || backendGroupId | **string**
 
 Required field. ID of the backend group to return.
-
 To get the backend group ID, make a [BackendGroupService.List](/docs/application-load-balancer/api-ref/BackendGroup/list#List) request. ||
 |#
 
@@ -54,27 +52,112 @@ To get the backend group ID, make a [BackendGroupService.List](/docs/application
   "description": "string",
   "folderId": "string",
   "labels": "object",
-  // Includes only one of the fields `http`, `grpc`, `stream`
+  // Includes only one of the fields `stream`, `http`, `grpc`
+  "stream": {
+    "backends": [
+      {
+        "name": "string",
+        "backendWeight": "string",
+        "loadBalancingConfig": {
+          "mode": "string",
+          "panicThreshold": "string",
+          "localityAwareRoutingPercent": "string",
+          "strictLocality": "boolean"
+        },
+        "port": "string",
+        // Includes only one of the fields `targetGroups`
+        "targetGroups": {
+          "targetGroupIds": [
+            "string"
+          ]
+        },
+        // end of the list of possible fields
+        "healthchecks": [
+          {
+            "timeout": "string",
+            "interval": "string",
+            "intervalJitterPercent": "string",
+            "healthyThreshold": "string",
+            "unhealthyThreshold": "string",
+            "healthcheckPort": "string",
+            // Includes only one of the fields `stream`, `http`, `grpc`
+            "stream": {
+              "send": {
+                // Includes only one of the fields `text`
+                "text": "string"
+                // end of the list of possible fields
+              },
+              "receive": {
+                // Includes only one of the fields `text`
+                "text": "string"
+                // end of the list of possible fields
+              }
+            },
+            "http": {
+              "host": "string",
+              "path": "string",
+              "useHttp2": "boolean",
+              "expectedStatuses": [
+                "string"
+              ]
+            },
+            "grpc": {
+              "serviceName": "string"
+            },
+            // end of the list of possible fields
+            // Includes only one of the fields `plaintext`, `tls`
+            "plaintext": "object",
+            "tls": {
+              "sni": "string",
+              "validationContext": {
+                // Includes only one of the fields `trustedCaId`, `trustedCaBytes`
+                "trustedCaId": "string",
+                "trustedCaBytes": "string"
+                // end of the list of possible fields
+              }
+            }
+            // end of the list of possible fields
+          }
+        ],
+        "tls": {
+          "sni": "string",
+          "validationContext": {
+            // Includes only one of the fields `trustedCaId`, `trustedCaBytes`
+            "trustedCaId": "string",
+            "trustedCaBytes": "string"
+            // end of the list of possible fields
+          }
+        },
+        "enableProxyProtocol": "boolean",
+        "keepConnectionsOnHostHealthFailure": "boolean"
+      }
+    ],
+    // Includes only one of the fields `connection`
+    "connection": {
+      "sourceIp": "boolean"
+    }
+    // end of the list of possible fields
+  },
   "http": {
     "backends": [
       {
         "name": "string",
         "backendWeight": "string",
         "loadBalancingConfig": {
+          "mode": "string",
           "panicThreshold": "string",
           "localityAwareRoutingPercent": "string",
-          "strictLocality": "boolean",
-          "mode": "string"
+          "strictLocality": "boolean"
         },
         "port": "string",
-        // Includes only one of the fields `targetGroups`, `storageBucket`
+        // Includes only one of the fields `storageBucket`, `targetGroups`
+        "storageBucket": {
+          "bucket": "string"
+        },
         "targetGroups": {
           "targetGroupIds": [
             "string"
           ]
-        },
-        "storageBucket": {
-          "bucket": "string"
         },
         // end of the list of possible fields
         "healthchecks": [
@@ -156,10 +239,10 @@ To get the backend group ID, make a [BackendGroupService.List](/docs/application
         "name": "string",
         "backendWeight": "string",
         "loadBalancingConfig": {
+          "mode": "string",
           "panicThreshold": "string",
           "localityAwareRoutingPercent": "string",
-          "strictLocality": "boolean",
-          "mode": "string"
+          "strictLocality": "boolean"
         },
         "port": "string",
         // Includes only one of the fields `targetGroups`
@@ -241,91 +324,6 @@ To get the backend group ID, make a [BackendGroupService.List](/docs/application
     }
     // end of the list of possible fields
   },
-  "stream": {
-    "backends": [
-      {
-        "name": "string",
-        "backendWeight": "string",
-        "loadBalancingConfig": {
-          "panicThreshold": "string",
-          "localityAwareRoutingPercent": "string",
-          "strictLocality": "boolean",
-          "mode": "string"
-        },
-        "port": "string",
-        // Includes only one of the fields `targetGroups`
-        "targetGroups": {
-          "targetGroupIds": [
-            "string"
-          ]
-        },
-        // end of the list of possible fields
-        "healthchecks": [
-          {
-            "timeout": "string",
-            "interval": "string",
-            "intervalJitterPercent": "string",
-            "healthyThreshold": "string",
-            "unhealthyThreshold": "string",
-            "healthcheckPort": "string",
-            // Includes only one of the fields `stream`, `http`, `grpc`
-            "stream": {
-              "send": {
-                // Includes only one of the fields `text`
-                "text": "string"
-                // end of the list of possible fields
-              },
-              "receive": {
-                // Includes only one of the fields `text`
-                "text": "string"
-                // end of the list of possible fields
-              }
-            },
-            "http": {
-              "host": "string",
-              "path": "string",
-              "useHttp2": "boolean",
-              "expectedStatuses": [
-                "string"
-              ]
-            },
-            "grpc": {
-              "serviceName": "string"
-            },
-            // end of the list of possible fields
-            // Includes only one of the fields `plaintext`, `tls`
-            "plaintext": "object",
-            "tls": {
-              "sni": "string",
-              "validationContext": {
-                // Includes only one of the fields `trustedCaId`, `trustedCaBytes`
-                "trustedCaId": "string",
-                "trustedCaBytes": "string"
-                // end of the list of possible fields
-              }
-            }
-            // end of the list of possible fields
-          }
-        ],
-        "tls": {
-          "sni": "string",
-          "validationContext": {
-            // Includes only one of the fields `trustedCaId`, `trustedCaBytes`
-            "trustedCaId": "string",
-            "trustedCaBytes": "string"
-            // end of the list of possible fields
-          }
-        },
-        "enableProxyProtocol": "boolean",
-        "keepConnectionsOnHostHealthFailure": "boolean"
-      }
-    ],
-    // Includes only one of the fields `connection`
-    "connection": {
-      "sourceIp": "boolean"
-    }
-    // end of the list of possible fields
-  },
   // end of the list of possible fields
   "createdAt": "string"
 }
@@ -353,25 +351,25 @@ ID of the folder that the backend group belongs to. ||
 Backend group labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
 The maximum number of labels is 64. ||
+|| stream | **[StreamBackendGroup](#yandex.cloud.apploadbalancer.v1.StreamBackendGroup)**
+
+List of stream (TCP) backends that the backend group consists of.
+
+Includes only one of the fields `stream`, `http`, `grpc`.
+
+Backends that the backend group consists of. ||
 || http | **[HttpBackendGroup](#yandex.cloud.apploadbalancer.v1.HttpBackendGroup)**
 
 List of HTTP backends that the backend group consists of.
 
-Includes only one of the fields `http`, `grpc`, `stream`.
+Includes only one of the fields `stream`, `http`, `grpc`.
 
 Backends that the backend group consists of. ||
 || grpc | **[GrpcBackendGroup](#yandex.cloud.apploadbalancer.v1.GrpcBackendGroup)**
 
 List of gRPC backends that the backend group consists of.
 
-Includes only one of the fields `http`, `grpc`, `stream`.
-
-Backends that the backend group consists of. ||
-|| stream | **[StreamBackendGroup](#yandex.cloud.apploadbalancer.v1.StreamBackendGroup)**
-
-List of stream (TCP) backends that the backend group consists of.
-
-Includes only one of the fields `http`, `grpc`, `stream`.
+Includes only one of the fields `stream`, `http`, `grpc`.
 
 Backends that the backend group consists of. ||
 || createdAt | **string** (date-time)
@@ -386,82 +384,47 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#
 
-## HttpBackendGroup {#yandex.cloud.apploadbalancer.v1.HttpBackendGroup}
+## StreamBackendGroup {#yandex.cloud.apploadbalancer.v1.StreamBackendGroup}
 
-An HTTP backend group resource.
+A stream (TCP) backend group resource.
 
 #|
 ||Field | Description ||
-|| backends[] | **[HttpBackend](#yandex.cloud.apploadbalancer.v1.HttpBackend)**
+|| backends[] | **[StreamBackend](#yandex.cloud.apploadbalancer.v1.StreamBackend)**
 
-List of HTTP backends. ||
+List of stream (TCP) backends. ||
 || connection | **[ConnectionSessionAffinity](#yandex.cloud.apploadbalancer.v1.ConnectionSessionAffinity)**
 
 Connection-based session affinity configuration.
-
 For now, a connection is defined only by an IP address of the client.
 
-Includes only one of the fields `connection`, `header`, `cookie`.
+Includes only one of the fields `connection`.
 
 Session affinity configuration for the backend group.
-
 For details about the concept, see
 [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
-
-If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
-[HttpBackend.backendWeight](#yandex.cloud.apploadbalancer.v1.HttpBackend)), its [HttpBackend.backendType](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend.backendType) should be [TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend), and its
-[LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of these conditions are not met, session
-affinity will not work. ||
-|| header | **[HeaderSessionAffinity](#yandex.cloud.apploadbalancer.v1.HeaderSessionAffinity)**
-
-HTTP-header-field-based session affinity configuration.
-
-Includes only one of the fields `connection`, `header`, `cookie`.
-
-Session affinity configuration for the backend group.
-
-For details about the concept, see
-[documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
-
-If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
-[HttpBackend.backendWeight](#yandex.cloud.apploadbalancer.v1.HttpBackend)), its [HttpBackend.backendType](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend.backendType) should be [TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend), and its
-[LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of these conditions are not met, session
-affinity will not work. ||
-|| cookie | **[CookieSessionAffinity](#yandex.cloud.apploadbalancer.v1.CookieSessionAffinity)**
-
-Cookie-based session affinity configuration.
-
-Includes only one of the fields `connection`, `header`, `cookie`.
-
-Session affinity configuration for the backend group.
-
-For details about the concept, see
-[documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
-
 If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
 [HttpBackend.backendWeight](#yandex.cloud.apploadbalancer.v1.HttpBackend)), its [HttpBackend.backendType](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend.backendType) should be [TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend), and its
 [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of these conditions are not met, session
 affinity will not work. ||
 |#
 
-## HttpBackend {#yandex.cloud.apploadbalancer.v1.HttpBackend}
+## StreamBackend {#yandex.cloud.apploadbalancer.v1.StreamBackend}
 
-An HTTP backend resource.
+A stream (TCP) backend resource.
 
 #|
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the backend.
+Name of the backend.
 
 Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || backendWeight | **string** (int64)
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
-
 Weights must be set either for all backends in a group or for none of them.
 Setting no weights is the same as setting equal non-zero weights for all backends.
-
 If the weight is non-positive, traffic is not sent to the backend. ||
 || loadBalancingConfig | **[LoadBalancingConfig](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig)**
 
@@ -476,44 +439,27 @@ Acceptable values are 0 to 65535, inclusive. ||
 Target groups that belong to the backend. For details about target groups, see
 [documentation](/docs/application-load-balancer/concepts/target-group).
 
-Includes only one of the fields `targetGroups`, `storageBucket`.
+Includes only one of the fields `targetGroups`.
 
-Reference to targets that belong to the backend.
-
-A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see
-[documentation](/docs/application-load-balancer/concepts/backend-group#types). ||
-|| storageBucket | **[StorageBucketBackend](#yandex.cloud.apploadbalancer.v1.StorageBucketBackend)**
-
-Object Storage bucket to use as the backend. For details about buckets, see
-[documentation](/docs/storage/concepts/bucket).
-
-If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly
-accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability).
-
-Includes only one of the fields `targetGroups`, `storageBucket`.
-
-Reference to targets that belong to the backend.
-
-A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see
-[documentation](/docs/application-load-balancer/concepts/backend-group#types). ||
+Reference to targets that belong to the backend. ||
 || healthchecks[] | **[HealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck)**
 
 Health checks to perform on targets from target groups.
 For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks).
-
 If no health checks are specified, active health checking is not performed. ||
 || tls | **[BackendTls](#yandex.cloud.apploadbalancer.v1.BackendTls)**
 
 Settings for TLS connections between load balancer nodes and backend targets.
+If specified, the load balancer establishes TLS-encrypted TCP connections with targets and compares received
+certificates with the one specified in [BackendTls.validationContext](#yandex.cloud.apploadbalancer.v1.BackendTls).
+If not specified, the load balancer establishes unencrypted TCP connections with targets. ||
+|| enableProxyProtocol | **boolean**
 
-If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets
-and compares received certificates with the one specified in [BackendTls.validationContext](#yandex.cloud.apploadbalancer.v1.BackendTls).
-If not specified, the load balancer establishes unencrypted HTTP connections with targets. ||
-|| useHttp2 | **boolean**
+If set, proxy protocol will be enabled for this backend. ||
+|| keepConnectionsOnHostHealthFailure | **boolean**
 
-Enables HTTP/2 usage in connections between load balancer nodes and backend targets.
-
-Default value: `false`, HTTP/1.1 is used. ||
+If a backend host becomes unhealthy (as determined by the configured health checks),
+keep connections to the failed host. ||
 |#
 
 ## LoadBalancingConfig {#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig}
@@ -522,17 +468,36 @@ A load balancing configuration resource.
 
 #|
 ||Field | Description ||
+|| mode | **enum** (LoadBalancingMode)
+
+Load balancing mode for the backend.
+For details about load balancing modes, see
+[documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode).
+
+- `ROUND_ROBIN`: Round robin load balancing mode.
+All endpoints of the backend take their turns to receive requests attributed to the backend.
+- `RANDOM`: Random load balancing mode. Default value.
+For a request attributed to the backend, an endpoint that receives it is picked at random.
+- `LEAST_REQUEST`: Least request load balancing mode.
+To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used;
+that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active
+requests.
+- `MAGLEV_HASH`: Maglev hashing load balancing mode.
+Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies
+the same amount of rows. An attribute of each request is also hashed by the same function (if session affinity is
+enabled for the backend group, the attribute to hash is specified in session affinity configuration). The row
+with the same number as the resulting value is looked up in the table to determine the endpoint that receives
+the request.
+If the backend group with session affinity enabled contains more than one backend with positive weight, endpoints
+for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead. ||
 || panicThreshold | **string** (int64)
 
 Threshold for panic mode.
-
 If percentage of healthy backends in the group drops below threshold,
 panic mode will be activated and traffic will be routed to all backends, regardless of their health check status.
 This helps to avoid overloading healthy backends.
 For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode).
-
 If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times.
-
 Default value: `0`.
 
 Acceptable values are 0 to 100, inclusive. ||
@@ -541,12 +506,9 @@ Acceptable values are 0 to 100, inclusive. ||
 Percentage of traffic that a load balancer node sends to healthy backends in its availability zone.
 The rest is divided equally between other zones. For details about zone-aware routing, see
 [documentation](/docs/application-load-balancer/concepts/backend-group#locality).
-
 If there are no healthy backends in an availability zone, all the traffic is divided between other zones.
-
 If `strictLocality` is `true`, the specified value is ignored.
 A load balancer node sends all the traffic within its availability zone, regardless of backends' health.
-
 Default value: `0`.
 
 Acceptable values are 0 to 100, inclusive. ||
@@ -554,42 +516,11 @@ Acceptable values are 0 to 100, inclusive. ||
 
 Specifies whether a load balancer node should only send traffic to backends in its availability zone,
 regardless of their health, and ignore backends in other zones.
-
 If set to `true` and there are no healthy backends in the zone, the node in this zone will respond
 to incoming traffic with errors.
 For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality).
-
 If `strict_locality` is `true`, the value specified in `localityAwareRoutingPercent` is ignored.
-
 Default value: `false`. ||
-|| mode | **enum** (LoadBalancingMode)
-
-Load balancing mode for the backend.
-
-For details about load balancing modes, see
-[documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode).
-
-- `ROUND_ROBIN`: Round robin load balancing mode.
-
-  All endpoints of the backend take their turns to receive requests attributed to the backend.
-- `RANDOM`: Random load balancing mode. Default value.
-
-  For a request attributed to the backend, an endpoint that receives it is picked at random.
-- `LEAST_REQUEST`: Least request load balancing mode.
-
-  To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used;
-that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active
-requests.
-- `MAGLEV_HASH`: Maglev hashing load balancing mode.
-
-  Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies
-the same amount of rows. An attribute of each request is also hashed by the same function (if session affinity is
-enabled for the backend group, the attribute to hash is specified in session affinity configuration). The row
-with the same number as the resulting value is looked up in the table to determine the endpoint that receives
-the request.
-
-  If the backend group with session affinity enabled contains more than one backend with positive weight, endpoints
-for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead. ||
 |#
 
 ## TargetGroupsBackend {#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend}
@@ -601,22 +532,9 @@ A resource for target groups that belong to the backend.
 || targetGroupIds[] | **string**
 
 List of ID's of target groups that belong to the backend.
-
 To get the ID's of all available target groups, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/TargetGroup/list#List) request.
 
 The number of elements must be greater than 0. ||
-|#
-
-## StorageBucketBackend {#yandex.cloud.apploadbalancer.v1.StorageBucketBackend}
-
-A resource for Object Storage bucket used as a backend. For details about the concept,
-see [documentation](/docs/storage/concepts/bucket).
-
-#|
-||Field | Description ||
-|| bucket | **string**
-
-Required field. Name of the bucket. ||
 |#
 
 ## HealthCheck {#yandex.cloud.apploadbalancer.v1.HealthCheck}
@@ -629,7 +547,6 @@ For details about the concept, see [documentation](/docs/application-load-balanc
 || timeout | **string** (duration)
 
 Required field. Health check timeout.
-
 The timeout is the time allowed for the target to respond to a check.
 If the target doesn't respond in time, the check is considered failed. ||
 || interval | **string** (duration)
@@ -639,26 +556,19 @@ Required field. Base interval between consecutive health checks. ||
 || healthyThreshold | **string** (int64)
 
 Number of consecutive successful health checks required to mark an unhealthy target as healthy.
-
 Both `0` and `1` values amount to one successful check required.
-
 The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check.
-
 Default value: `0`. ||
 || unhealthyThreshold | **string** (int64)
 
 Number of consecutive failed health checks required to mark a healthy target as unhealthy.
-
 Both `0` and `1` values amount to one unsuccessful check required.
-
 The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target
 (not applicable to TCP stream health checks). The target is immediately marked unhealthy.
-
 Default value: `0`. ||
 || healthcheckPort | **string** (int64)
 
 Port used for health checks.
-
 If not specified, the backend port ([HttpBackend.port](#yandex.cloud.apploadbalancer.v1.HttpBackend) or [GrpcBackend.port](#yandex.cloud.apploadbalancer.v1.GrpcBackend)) is used for health checks.
 
 Acceptable values are 0 to 65535, inclusive. ||
@@ -669,7 +579,6 @@ TCP stream health check settings.
 Includes only one of the fields `stream`, `http`, `grpc`.
 
 Protocol-specific health check settings.
-
 The protocols of the backend and of its health check may differ,
 e.g. a gRPC health check may be specified for an HTTP backend. ||
 || http | **[HttpHealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck.HttpHealthCheck)**
@@ -679,7 +588,6 @@ HTTP health check settings.
 Includes only one of the fields `stream`, `http`, `grpc`.
 
 Protocol-specific health check settings.
-
 The protocols of the backend and of its health check may differ,
 e.g. a gRPC health check may be specified for an HTTP backend. ||
 || grpc | **[GrpcHealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck.GrpcHealthCheck)**
@@ -689,7 +597,6 @@ gRPC health check settings.
 Includes only one of the fields `stream`, `http`, `grpc`.
 
 Protocol-specific health check settings.
-
 The protocols of the backend and of its health check may differ,
 e.g. a gRPC health check may be specified for an HTTP backend. ||
 || plaintext | **object**
@@ -717,12 +624,10 @@ A resource for TCP stream health check settings.
 || send | **[Payload](#yandex.cloud.apploadbalancer.v1.Payload)**
 
 Message sent to targets during TCP data transfer.
-
 If not specified, no data is sent to the target. ||
 || receive | **[Payload](#yandex.cloud.apploadbalancer.v1.Payload)**
 
 Data that must be contained in the messages received from targets for a successful health check.
-
 If not specified, no messages are expected from targets, and those that are received are not checked. ||
 |#
 
@@ -736,7 +641,7 @@ A health check payload resource.
 
 Payload text.
 
-The string length in characters must be greater than 0.
+The string length in characters must be 1-16384.
 
 Includes only one of the fields `text`.
 
@@ -751,15 +656,18 @@ A resource for HTTP health check settings.
 ||Field | Description ||
 || host | **string**
 
-Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header used in requests to targets. ||
+Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header used in requests to targets.
+
+The string length in characters must be 0-255. Value must match the regular expression ``` |[-.a-z0-9]+(:[0-9]+)? ```. ||
 || path | **string**
 
-Required field. HTTP path used in requests to targets: request URI for HTTP/1.1 request line
-or value for the HTTP/2 `:path` pseudo-header. ||
+HTTP path used in requests to targets: request URI for HTTP/1.1 request line
+or value for the HTTP/2 `:path` pseudo-header.
+
+The string length in characters must be 1-255. Value must match the regular expression ` /.* `. ||
 || useHttp2 | **boolean**
 
 Enables HTTP/2 usage in health checks.
-
 Default value: `false`, HTTP/1.1 is used. ||
 || expectedStatuses[] | **string** (int64)
 
@@ -778,9 +686,7 @@ A resource for gRPC health check settings.
 || serviceName | **string**
 
 Name of the gRPC service to be checked.
-
 If not specified, overall health is checked.
-
 For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md). ||
 |#
 
@@ -792,7 +698,9 @@ Transport settings to be used instead of the settings configured per-cluster
 ||Field | Description ||
 || sni | **string**
 
-SNI string for TLS connections. ||
+SNI string for TLS connections.
+
+The maximum string length in characters is 255. Value must match the regular expression ` [-.a-z0-9]* `. ||
 || validationContext | **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext)**
 
 Validation context for backend TLS connections. ||
@@ -826,7 +734,9 @@ A resource for backend TLS settings.
 ||Field | Description ||
 || sni | **string**
 
-Server Name Indication (SNI) string for TLS connections. ||
+Server Name Indication (SNI) string for TLS connections.
+
+The maximum string length in characters is 255. Value must match the regular expression ` [-.a-z0-9]* `. ||
 || validationContext | **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext)**
 
 Validation context for TLS connections. ||
@@ -841,6 +751,133 @@ A resource for connection-based session affinity configuration.
 || sourceIp | **boolean**
 
 Specifies whether an IP address of the client is used to define a connection for session affinity. ||
+|#
+
+## HttpBackendGroup {#yandex.cloud.apploadbalancer.v1.HttpBackendGroup}
+
+An HTTP backend group resource.
+
+#|
+||Field | Description ||
+|| backends[] | **[HttpBackend](#yandex.cloud.apploadbalancer.v1.HttpBackend)**
+
+List of HTTP backends. ||
+|| connection | **[ConnectionSessionAffinity](#yandex.cloud.apploadbalancer.v1.ConnectionSessionAffinity)**
+
+Connection-based session affinity configuration.
+For now, a connection is defined only by an IP address of the client.
+
+Includes only one of the fields `connection`, `header`, `cookie`.
+
+Session affinity configuration for the backend group.
+For details about the concept, see
+[documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
+If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
+[HttpBackend.backendWeight](#yandex.cloud.apploadbalancer.v1.HttpBackend)), its [HttpBackend.backendType](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend.backendType) should be [TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend), and its
+[LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of these conditions are not met, session
+affinity will not work. ||
+|| header | **[HeaderSessionAffinity](#yandex.cloud.apploadbalancer.v1.HeaderSessionAffinity)**
+
+HTTP-header-field-based session affinity configuration.
+
+Includes only one of the fields `connection`, `header`, `cookie`.
+
+Session affinity configuration for the backend group.
+For details about the concept, see
+[documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
+If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
+[HttpBackend.backendWeight](#yandex.cloud.apploadbalancer.v1.HttpBackend)), its [HttpBackend.backendType](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend.backendType) should be [TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend), and its
+[LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of these conditions are not met, session
+affinity will not work. ||
+|| cookie | **[CookieSessionAffinity](#yandex.cloud.apploadbalancer.v1.CookieSessionAffinity)**
+
+Cookie-based session affinity configuration.
+
+Includes only one of the fields `connection`, `header`, `cookie`.
+
+Session affinity configuration for the backend group.
+For details about the concept, see
+[documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
+If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
+[HttpBackend.backendWeight](#yandex.cloud.apploadbalancer.v1.HttpBackend)), its [HttpBackend.backendType](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend.backendType) should be [TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend), and its
+[LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of these conditions are not met, session
+affinity will not work. ||
+|#
+
+## HttpBackend {#yandex.cloud.apploadbalancer.v1.HttpBackend}
+
+An HTTP backend resource.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the backend.
+
+Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
+|| backendWeight | **string** (int64)
+
+Backend weight. Traffic is distributed between backends of a backend group according to their weights.
+Weights must be set either for all backends in a group or for none of them.
+Setting no weights is the same as setting equal non-zero weights for all backends.
+If the weight is non-positive, traffic is not sent to the backend. ||
+|| loadBalancingConfig | **[LoadBalancingConfig](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig)**
+
+Load balancing configuration for the backend. ||
+|| port | **string** (int64)
+
+Port used by all targets to receive traffic.
+
+Acceptable values are 0 to 65535, inclusive. ||
+|| storageBucket | **[StorageBucketBackend](#yandex.cloud.apploadbalancer.v1.StorageBucketBackend)**
+
+Object Storage bucket to use as the backend. For details about buckets, see
+[documentation](/docs/storage/concepts/bucket).
+If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly
+accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability).
+
+Includes only one of the fields `storageBucket`, `targetGroups`.
+
+Reference to targets that belong to the backend.
+A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see
+[documentation](/docs/application-load-balancer/concepts/backend-group#types). ||
+|| targetGroups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
+
+Target groups that belong to the backend. For details about target groups, see
+[documentation](/docs/application-load-balancer/concepts/target-group).
+
+Includes only one of the fields `storageBucket`, `targetGroups`.
+
+Reference to targets that belong to the backend.
+A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see
+[documentation](/docs/application-load-balancer/concepts/backend-group#types). ||
+|| healthchecks[] | **[HealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck)**
+
+Health checks to perform on targets from target groups.
+For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks).
+If no health checks are specified, active health checking is not performed. ||
+|| tls | **[BackendTls](#yandex.cloud.apploadbalancer.v1.BackendTls)**
+
+Settings for TLS connections between load balancer nodes and backend targets.
+If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets
+and compares received certificates with the one specified in [BackendTls.validationContext](#yandex.cloud.apploadbalancer.v1.BackendTls).
+If not specified, the load balancer establishes unencrypted HTTP connections with targets. ||
+|| useHttp2 | **boolean**
+
+Enables HTTP/2 usage in connections between load balancer nodes and backend targets.
+Default value: `false`, HTTP/1.1 is used. ||
+|#
+
+## StorageBucketBackend {#yandex.cloud.apploadbalancer.v1.StorageBucketBackend}
+
+A resource for Object Storage bucket used as a backend. For details about the concept,
+see [documentation](/docs/storage/concepts/bucket).
+
+#|
+||Field | Description ||
+|| bucket | **string**
+
+Required field. Name of the bucket. ||
 |#
 
 ## HeaderSessionAffinity {#yandex.cloud.apploadbalancer.v1.HeaderSessionAffinity}
@@ -870,16 +907,13 @@ The string length in characters must be 1-256. ||
 || ttl | **string** (duration)
 
 Maximum age of cookies that are generated for sessions.
-
 If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted
 on client restarts.
-
 If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. ||
 || path | **string**
 
 Path of cookie.
 This will be used to set the path of a new cookie when it is generated.
-
 If path is unspecified or empty, no path will be set for the cookie.
 
 The string length in characters must be 0-256. ||
@@ -897,16 +931,13 @@ List of gRPC backends. ||
 || connection | **[ConnectionSessionAffinity](#yandex.cloud.apploadbalancer.v1.ConnectionSessionAffinity)**
 
 Connection-based session affinity configuration.
-
 For now, a connection is defined only by an IP address of the client.
 
 Includes only one of the fields `connection`, `header`, `cookie`.
 
 Session affinity configuration for the backend group.
-
 For details about the concept, see
 [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
-
 If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
 [GrpcBackend.backendWeight](#yandex.cloud.apploadbalancer.v1.GrpcBackend)), and its [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of
 these conditions are not met, session affinity will not work. ||
@@ -917,10 +948,8 @@ HTTP-header-field-based session affinity configuration.
 Includes only one of the fields `connection`, `header`, `cookie`.
 
 Session affinity configuration for the backend group.
-
 For details about the concept, see
 [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
-
 If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
 [GrpcBackend.backendWeight](#yandex.cloud.apploadbalancer.v1.GrpcBackend)), and its [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of
 these conditions are not met, session affinity will not work. ||
@@ -931,10 +960,8 @@ Cookie-based session affinity configuration.
 Includes only one of the fields `connection`, `header`, `cookie`.
 
 Session affinity configuration for the backend group.
-
 For details about the concept, see
 [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
-
 If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
 [GrpcBackend.backendWeight](#yandex.cloud.apploadbalancer.v1.GrpcBackend)), and its [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of
 these conditions are not met, session affinity will not work. ||
@@ -948,16 +975,14 @@ A gRPC backend resource.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the backend.
+Name of the backend.
 
 Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || backendWeight | **string** (int64)
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
-
 Weights must be set either for all backends of a group or for none of them.
 Setting no weights is the same as setting equal non-zero weights for all backends.
-
 If the weight is non-positive, traffic is not sent to the backend. ||
 || loadBalancingConfig | **[LoadBalancingConfig](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig)**
 
@@ -978,98 +1003,11 @@ Reference to targets that belong to the backend. For now, targets are referenced
 
 Health checks to perform on targets from target groups.
 For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks).
-
 If no health checks are specified, active health checking is not performed. ||
 || tls | **[BackendTls](#yandex.cloud.apploadbalancer.v1.BackendTls)**
 
 Settings for TLS connections between load balancer nodes and backend targets.
-
 If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets
 and compares received certificates with the one specified in [BackendTls.validationContext](#yandex.cloud.apploadbalancer.v1.BackendTls).
 If not specified, the load balancer establishes unencrypted HTTP connections with targets. ||
-|#
-
-## StreamBackendGroup {#yandex.cloud.apploadbalancer.v1.StreamBackendGroup}
-
-A stream (TCP) backend group resource.
-
-#|
-||Field | Description ||
-|| backends[] | **[StreamBackend](#yandex.cloud.apploadbalancer.v1.StreamBackend)**
-
-List of stream (TCP) backends. ||
-|| connection | **[ConnectionSessionAffinity](#yandex.cloud.apploadbalancer.v1.ConnectionSessionAffinity)**
-
-Connection-based session affinity configuration.
-
-For now, a connection is defined only by an IP address of the client.
-
-Includes only one of the fields `connection`.
-
-Session affinity configuration for the backend group.
-
-For details about the concept, see
-[documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
-
-If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
-[HttpBackend.backendWeight](#yandex.cloud.apploadbalancer.v1.HttpBackend)), its [HttpBackend.backendType](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend.backendType) should be [TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend), and its
-[LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of these conditions are not met, session
-affinity will not work. ||
-|#
-
-## StreamBackend {#yandex.cloud.apploadbalancer.v1.StreamBackend}
-
-A stream (TCP) backend resource.
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the backend.
-
-Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
-|| backendWeight | **string** (int64)
-
-Backend weight. Traffic is distributed between backends of a backend group according to their weights.
-
-Weights must be set either for all backends in a group or for none of them.
-Setting no weights is the same as setting equal non-zero weights for all backends.
-
-If the weight is non-positive, traffic is not sent to the backend. ||
-|| loadBalancingConfig | **[LoadBalancingConfig](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig)**
-
-Load balancing configuration for the backend. ||
-|| port | **string** (int64)
-
-Port used by all targets to receive traffic.
-
-Acceptable values are 0 to 65535, inclusive. ||
-|| targetGroups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
-
-Target groups that belong to the backend. For details about target groups, see
-[documentation](/docs/application-load-balancer/concepts/target-group).
-
-Includes only one of the fields `targetGroups`.
-
-Reference to targets that belong to the backend. ||
-|| healthchecks[] | **[HealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck)**
-
-Health checks to perform on targets from target groups.
-For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks).
-
-If no health checks are specified, active health checking is not performed. ||
-|| tls | **[BackendTls](#yandex.cloud.apploadbalancer.v1.BackendTls)**
-
-Settings for TLS connections between load balancer nodes and backend targets.
-
-If specified, the load balancer establishes TLS-encrypted TCP connections with targets and compares received
-certificates with the one specified in [BackendTls.validationContext](#yandex.cloud.apploadbalancer.v1.BackendTls).
-If not specified, the load balancer establishes unencrypted TCP connections with targets. ||
-|| enableProxyProtocol | **boolean**
-
-If set, proxy protocol will be enabled for this backend. ||
-|| keepConnectionsOnHostHealthFailure | **boolean**
-
-If a backend host becomes unhealthy (as determined by the configured health checks),
-keep connections to the failed host. ||
 |#

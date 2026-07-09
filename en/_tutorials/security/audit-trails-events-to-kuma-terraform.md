@@ -56,7 +56,7 @@ To create an infrastructure using {{ TF }}:
 
           {% endcut %}
 
-      1. In the directory, create a user data file named `at-events-to-kuma.auto.tfvars`:
+      1. In the folder, create a user data file named `at-events-to-kuma.auto.tfvars`:
 
           {% cut "at-events-to-kuma.auto.tfvars" %}
 
@@ -66,7 +66,7 @@ To create an infrastructure using {{ TF }}:
 
     {% endlist %}
 
-    For more information on the properties of {{ TF }} resources, see these provider guides:
+    For more on the properties of resources used in {{ TF }}, see these provider guides:
 
     * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
     * [Static access key](../../iam/concepts/authorization/access-key.md): [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key)

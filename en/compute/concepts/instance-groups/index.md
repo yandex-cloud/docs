@@ -50,7 +50,7 @@ You can use [reserved instance](../reserved-pools.md) pools to [create instance 
 {% endnote %}
 
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../operations/instance-groups/create-fixed-group.md)
 * [{#T}](disable-enable-zone.md)

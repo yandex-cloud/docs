@@ -15,7 +15,8 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера и на панели слева выберите ![Storage](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.k8s.cluster.switch_storage }}**.
   1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.create }}** и выберите тип ресурса.
   1. В выпадающем списке выберите **{{ ui-key.yacloud.k8s.cluster.field_namespace }}**, в котором будет создан ресурс.
@@ -34,7 +35,8 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера и на панели слева выберите ![Storage](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.k8s.cluster.switch_storage }}**.
   1. Выберите вкладку с типом ресурса, который нужно отредактировать.
   1. В строке ресурса нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
@@ -57,7 +59,8 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера и на панели слева выберите ![Storage](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.k8s.cluster.switch_storage }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.k8s.storage.label_storage-classes }}**.
   1. В строке класса хранилища нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.k8s.storage.button_action-add-default }}** или **{{ ui-key.yacloud.k8s.storage.button_action-remove-default }}**.
@@ -75,7 +78,8 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера и на панели слева выберите ![Storage](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.k8s.cluster.switch_storage }}**.
   1. Выберите вкладку с типом ресурса, который нужно удалить.
   1. В строке ресурса нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.

@@ -1,4 +1,5 @@
-You can use CDN resource settings from a configuration of another CDN resource. To do this, in the **Copy a configuration** field, select an existing CDN resource. Keep in mind the following:
+You can use CDN resource settings from a configuration of another CDN resource. To do this, select an existing CDN resource in the **Copy a configuration** field. Keep in mind the following:
 * A domain name is unique within a single resource, i.e., you cannot create another resource with the same domain name. A configuration copy does not inherit the domain name.
-* Copying settings between resources of different providers creates a copy of the [origin group](../../cdn/concepts/origins.md) in the provider of the new resource.
+* You can copy settings only from a CDN resource residing within the same [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
+* If the existing resource indicates `POST`, `PUT`, `PATCH`, or `DELETE` under **{{ ui-key.yacloud.cdn.label_resource-http-headers-allowed-methods }}**, these methods will not be available to users of the new resource. To find out if you can use these methods, contact [support]({{ link-console-support }}). When contacting, describe your use case.
 * If you uploaded a TLS certificate for the original resource, the system will re-use it in the new resource. You do not need to upload it again.

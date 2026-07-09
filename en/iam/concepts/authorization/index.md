@@ -1,9 +1,9 @@
 ---
-title: How to choose the appropriate authentication method in {{ yandex-cloud }}
-description: In this article, you will learn how to choose the appropriate authentication method in {{ yandex-cloud }}.
+title: How to choose the right authentication method in {{ yandex-cloud }}
+description: In this article, you will learn how to choose the right authentication method in {{ yandex-cloud }}.
 ---
 
-# How to choose the appropriate authentication method in {{ yandex-cloud }}
+# How to choose a suitable authentication method in {{ yandex-cloud }}
 
 Users and [service accounts](../users/service-accounts.md) get permissions to perform actions with {{ yandex-cloud }} resources along with [roles](../../roles-reference.md) for these resources. {{ iam-name }} verifies the required permissions when a user or service account runs an operation on a {{ yandex-cloud }} resource.
 
@@ -23,6 +23,6 @@ Use the appropriate credential type for authentication:
 * [Cookie](cookie.md) is only used for service purposes.
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [{#T}](../users/accounts.md)

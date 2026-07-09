@@ -1,6 +1,6 @@
 # Viewing operations with {{ resmgr-name }} resources
 
-The system logs all actions with {{ resmgr-name }} resources as a list of operations. Each operation gets its own unique ID.
+The system logs all actions with {{ resmgr-name }} resources as a list of operations. Each operation gets an ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -45,7 +45,7 @@ The system logs all actions with {{ resmgr-name }} resources as a list of operat
   +----------------------+---------------------+----------------------+---------------------+--------+--------------------------------+
   ```
 
-  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
+  By default, information about operations is output as text. To get more details, use `--format` to specify the `yaml` or `json` output format:
 
   ```bash
   yc resource-manager folder list-operations b1g681qpemb4******** --format yaml
@@ -90,9 +90,9 @@ The system logs all actions with {{ resmgr-name }} resources as a list of operat
 
 ## Getting operation details {#get-operations-info}
 
-1. [Get a list of operations](#get-operations) for the resource.
+1. [Get the list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
-1. Get operation details:
+1. Get the operation details:
 
     {% list tabs group=instructions %}
 
@@ -130,6 +130,6 @@ The system logs all actions with {{ resmgr-name }} resources as a list of operat
 
    {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../api-design-guide/concepts/about-async.md)

@@ -1,4 +1,4 @@
-### Только доверенные администраторы имеют доступ к сервисным аккаунтам {#access-privileged-sa-access}
+### Только доверенные администраторы имеют доступ к сервисным аккаунтам {#privileged-sa-access}
 
 #|
 || **kind** | **severity** | **ID** ||
@@ -19,7 +19,7 @@
 
 Каждый сервисный аккаунт с расширенными правами нужно размещать как ресурс в отдельном каталоге. Это необходимо для того, чтобы случайно не выдать пользователю права на такой сервисный аккаунт вместе с правами на каталог с компонентом сервиса.
 
-#### Рекомендации
+#### Инструкции и решения по выполнению
 
 **Инструкции и решения по выполнению:**
 
@@ -27,5 +27,4 @@
 
 Чтобы централизованно управлять доступом, используйте [Модуль диагностики доступов](https://center.yandex.cloud/security/iam-diagnostics/) (CIEM). Для этого воспользуйтесь инструкциями:
 
-* [Просмотреть список доступов субъекта](https://yandex.cloud/ru/docs/security-deck/operations/ciem/view-permissions)
-* [Отозвать доступ у субъекта](https://yandex.cloud/ru/docs/security-deck/operations/ciem/revoke-permissions)
+* [Просмотреть список доступов субъекта](https://yandex.cloud/ru/docs/security-deck/operations/ciem/view-permissions) * [Отозвать доступ у субъекта](https://yandex.cloud/ru/docs/security-deck/operations/ciem/revoke-permissions)

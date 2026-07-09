@@ -95,7 +95,7 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
 
       The example describes a configuration for a backup policy that will create [incremental](../../concepts/backup.md#types) [VM](../../../compute/concepts/vm.md) or [{{ baremetal-name }} server](../../../baremetal/concepts/servers.md) [backups](../../concepts/backup.md) every Monday at 00:05 (UTC+0). Only the last 10 backups will be stored.
 
-      See the [full backup policy specification](../../concepts/policy.md#specification) for details.
+      The full specification is described in [{#T}](../../concepts/policy.md#specification).
 
   1. Create a backup policy:
 
@@ -114,7 +114,7 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
 
       {% include [json-output-cli](../../../_includes/backup/operations/json-output-cli.md) %}
 
-      For more information about this command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/create.md).
+      For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/create.md).
 
 - {{ TF }} {#tf}
 
@@ -268,7 +268,7 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
      {% endnote %}
 
 
-     For more information about `yandex_backup_policy` properties, see [this provider guide]({{ tf-provider-resources-link }}/backup_policy).
+     For more on the properties of the `yandex_backup_policy` resource, see [this provider guide]({{ tf-provider-resources-link }}/backup_policy).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -285,7 +285,7 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](update.md).
 * [{#T}](delete.md).

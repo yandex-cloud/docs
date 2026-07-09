@@ -101,7 +101,7 @@
      * `application_id`: SAML application ID.
      * `subject-id`: ID of the user or user group that will have access to the SAML application. To get the user ID, follow [this guide](../../organization/operations/users-get.md). To get the user group ID, follow [this guide](../../organization/operations/group-get-id.md).
 
-     For more information about `yandex_organizationmanager_idp_application_saml_application_assignment` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application_assignment).
+     For more on the properties of the `yandex_organizationmanager_idp_application_saml_application_assignment` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application_assignment).
 
   1. Apply the changes:
 

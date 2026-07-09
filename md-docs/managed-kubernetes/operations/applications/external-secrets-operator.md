@@ -36,7 +36,7 @@ External Secrets Operator с поддержкой Yandex Lockbox позволя�
 ## Установка External Secrets Operator с помощью Yandex Cloud Marketplace {#marketplace-install}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
 1. Нажмите на имя нужного кластера Managed Service for Kubernetes и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [External Secrets Operator с поддержкой Yandex Lockbox](https://yandex.cloud/ru/marketplace/products/yc/external-secrets) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
@@ -75,9 +75,9 @@ External Secrets Operator с поддержкой Yandex Lockbox позволя�
 
 ## Примеры использования {#examples}
 
-* [Синхронизация с секретами Yandex Lockbox](../../tutorials/kubernetes-lockbox-secrets.md).
+[Синхронизация с секретами Yandex Lockbox](../../tutorials/kubernetes-lockbox-secrets.md)
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Описание External Secrets Operator](https://external-secrets.io/v0.8.1/provider/yandex-lockbox/).
-* [Документация Yandex Lockbox](../../../lockbox/index.md).
+* [Описание External Secrets Operator](https://external-secrets.io/v0.8.1/provider/yandex-lockbox/)
+* [Документация Yandex Lockbox](../../../lockbox/index.md)

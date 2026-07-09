@@ -1,4 +1,4 @@
-### Only trusted administrators have access to service accounts {#access-privileged-sa-access}
+### Only trusted administrators have access to service accounts {#privileged-sa-access}
 
 #|
 || **kind** | **severity** | **ID** ||
@@ -19,7 +19,7 @@ Follow the principle of least privilege when granting access for a service accou
 
 Each service account with extended permissions should be placed as a resource in a separate folder. This helps prevent accidentally granting permissions for a service account along with the permissions for the folder with the respective service component.
 
-#### Recommendations
+#### Instructions and solutions
 
 **Guides and solutions to use:**
 
@@ -27,5 +27,4 @@ Validate the access rights assigned for service accounts. The recommendation is 
 
 To manage access centrally, use the [CIEM module](https://center.yandex.cloud/security/iam-diagnostics/). Refer to the guides below for instructions:
 
-* [Viewing a list of a subject's accesses](https://yandex.cloud/en/docs/security-deck/operations/ciem/view-permissions)
-* [Revoking a subject's access](https://yandex.cloud/en/docs/security-deck/operations/ciem/revoke-permissions)
+* [Viewing a list of a subject's accesses](https://yandex.cloud/en/docs/security-deck/operations/ciem/view-permissions) * [Revoking a subject's access](https://yandex.cloud/en/docs/security-deck/operations/ciem/revoke-permissions)

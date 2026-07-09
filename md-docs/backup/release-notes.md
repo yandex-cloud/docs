@@ -2,6 +2,16 @@
 
 # История изменений в Yandex Cloud Backup
 
+## II квартал 2026 {#q2-2026}
+
+* Реализовано подключение к Cloud Backup ВМ и серверов, расположенных за пределами Yandex Cloud. Подробнее в документации:
+  * [Подключение к Cloud Backup виртуальных машин и серверов, расположенных за пределами Yandex Cloud](concepts/vm-connection/external-resources.md)
+  * [Подключить к Cloud Backup виртуальную машину или сервер, расположенные за пределами Yandex Cloud](operations/external/connect.md)
+  * [Создать резервную копию защищаемого ресурса](operations/backup-vm/create.md)
+  * [Восстановить внешнюю виртуальную машину или сервер из резервной копии](operations/external/recover.md)
+* Упрощено подключение существующей ВМ Compute Cloud к Cloud Backup в [консоли управления](https://console.yandex.cloud) — теперь не нужно привязывать к ВМ сервисный аккаунт и вручную устанавливать агент Cloud Backup.
+* Добавлены [политики авторизации](security/index.md#access-policies) Identity and Access Management, с помощью которых вы можете ограничить определенные действия с ресурсами Cloud Backup даже при наличии у пользователей разрешающих ролей.
+
 ## I квартал 2026 {#q1-2026}
 
 * Улучшена функциональность создания виртуальной машины с подключением к Cloud Backup в [консоли управления](https://console.yandex.cloud).

@@ -52,7 +52,7 @@
     - Консоль управления {#console}
 
         1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится кластер Managed Service for Kubernetes, к узлу которого нужен доступ.
-        1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+        1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
         1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
         1. Перейдите во вкладку **Группы узлов**.
         1. Выберите нужную группу узлов.

@@ -14,7 +14,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера и на панели слева выберите ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **Рабочая нагрузка**.
   1. В правом верхнем углу нажмите кнопку **Создать** и выберите тип рабочей нагрузки.
   1. В выпадающем списке выберите **Пространство имён**, в котором будет создана рабочая нагрузка.
@@ -35,7 +36,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера и на панели слева выберите ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **Рабочая нагрузка**.
   1. Выберите вкладку с типом рабочей нагрузки, которую нужно отредактировать.
   1. В строке рабочей нагрузки нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
@@ -54,7 +56,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера и на панели слева выберите ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **Рабочая нагрузка**.
   1. Выберите вкладку **CronJobs**.
   1. В строке cron-задачи нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Запустить** или **Остановить**.
@@ -72,7 +75,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера и на панели слева выберите ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **Рабочая нагрузка**.
   1. Выберите вкладку с типом рабочей нагрузки, которую нужно удалить.
   1. В строке рабочей нагрузки нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
@@ -80,6 +84,6 @@
 
 {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Взаимосвязь ресурсов в Managed Service for Kubernetes](../../concepts/index.md)
+[Взаимосвязь ресурсов в Managed Service for Kubernetes](../../concepts/index.md)

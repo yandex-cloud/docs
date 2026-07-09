@@ -74,9 +74,9 @@ Set user attributes for integration with {{ yandex-360 }}:
     1. Navigate to the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}** tab.
     1. Edit user attributes:
 
-        1. Replace the `emailaddress` attribute with `User.EmailAddress`. Follow these steps:
+        1. Replace the `emailaddress` attribute with `User.EmailAddress`. Proceed as follows:
             1. Click the row with the `emailaddress` attribute.
-            1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** field, specify `User.EmailAddress`.
+            1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** field, enter `User.EmailAddress`.
             1. In the **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** field, leave `SubjectClaims.email`.
             1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -103,7 +103,7 @@ To set up SSO in {{ yandex-360 }}, you need the following data from your SAML ap
         * **{{ ui-key.yacloud_org.application.overview.saml_field_issuer }}**: IdP entity ID.
         * **{{ ui-key.yacloud_org.application.overview.saml_field_login }}**: Entry point URL address (Login URL).
 
-    1. Under **{{ ui-key.yacloud_org.application.overview.certificate_section_title }}**, click **{{ ui-key.yacloud_org.application.overview.certificate_action_download_cert }}** and save the token signature certificate in X.509 format to your device.
+    1. Under **{{ ui-key.yacloud_org.application.overview.certificate_section_title }}**, click **{{ ui-key.yacloud_org.application.overview.certificate_action_download_cert }}** and save the token signing certificate in X.509 format to your device.
 
 {% endlist %}
 
@@ -154,9 +154,11 @@ Add users to the application:
 
 {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and {{ yandex-360 }} integration work correctly, authenticate to {{ yandex-360 }} as one of the users you added to the app. Follow these steps:
+To make sure both your SAML app and {{ yandex-360 }} integration work correctly, authenticate to {{ yandex-360 }} as one of the users you added to the app. Proceed as follows:
 
 1. In your browser, go to the {{ yandex-360 }} login page.
 1. If you were logged in to {{ yandex-360 }}, log out.

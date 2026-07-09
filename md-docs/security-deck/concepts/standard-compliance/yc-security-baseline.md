@@ -9,9 +9,9 @@
 #|
 || Идентификатор требования | Требование [стандарта безопасности](../../../security/standard/all.md) | Идентификатор проверки в [модуле CSPM](../cspm.md) ||
 || **Аутентификация и управление доступом** (IAM) {align="center"} | > | > ||
+|| IAM1 | [Настроена федерация удостоверений (Single Sign-On, SSO)](../../../security/standard/all.md#saml-federation) | [cspm.access.idp](../../rules-reference/cspm.md#idp) ||
 || IAM5 | [Только необходимые администраторы управляют членством в IAM-группах](../../../security/standard/all.md#iam-admins) | [cspm.access.user-groups-access](../../rules-reference/cspm.md#user-groups-access) ||
 || IAM22 | [Для ресурсов в организации отсутствует публичный доступ](../../../security/standard/all.md#public-access) | [cspm.access.public-access](../../rules-reference/cspm.md#public-access) ||
-|| IAM27 | [Регулярно проводится аудит прав доступа пользователей и сервисных аккаунтов с использованием Yandex Security Deck CIEM](../../../security/standard/all.md#ciem-access-control) | [cspm.access.check-bindings](../../rules-reference/cspm.md#access-check-bindings) ||
 || **Сетевая безопасность** (NET) {align="center"} | > | > ||
 || NET3 | [В группах безопасности отсутствует слишком широкое правило доступа](../../../security/standard/all.md#access-rule) | [cspm.network.network-firewall-scope](../../rules-reference/cspm.md#network-firewall-scope) ||
 || **Безопасная конфигурация виртуальной среды** (ENV) {align="center"} | > | > ||

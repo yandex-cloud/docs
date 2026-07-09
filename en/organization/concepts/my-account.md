@@ -14,7 +14,7 @@ description: '[_My account_]({{ link-my-account }}) is a user''s personal worksp
 
 The scope of [actions](../operations/manage-account.md) you can perform in the _My account_ portal depends on your [account type](../../iam/concepts/users/accounts.md).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/manage-account.md)
 * [{#T}](../../iam/concepts/users/accounts.md)

@@ -3,7 +3,6 @@
 # Application Load Balancer API, REST: LoadBalancer.Get
 
 Returns the specified application load balancer.
-
 To get the list of all available application load balancers, make a [List](list.md#List) request.
 
 ## HTTP request
@@ -19,7 +18,6 @@ GET https://alb.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalan
 || loadBalancerId | **string**
 
 Required field. ID of the application load balancer to return.
-
 To get the application load balancer ID, make a [LoadBalancerService.List](list.md#List) request. ||
 |#
 
@@ -35,8 +33,6 @@ To get the application load balancer ID, make a [LoadBalancerService.List](list.
   "folderId": "string",
   "labels": "object",
   "status": "string",
-  "regionId": "string",
-  "networkId": "string",
   "listeners": [
     {
       "name": "string",
@@ -63,17 +59,23 @@ To get the application load balancer ID, make a [LoadBalancerService.List](list.
           ]
         }
       ],
-      // Includes only one of the fields `http`, `tls`, `stream`
+      // Includes only one of the fields `stream`, `http`, `tls`
+      "stream": {
+        "handler": {
+          "backendGroupId": "string",
+          "idleTimeout": "string"
+        }
+      },
       "http": {
         "handler": {
           "httpRouterId": "string",
+          "rewriteRequestId": "boolean",
           // Includes only one of the fields `http2Options`, `allowHttp10`
           "http2Options": {
             "maxConcurrentStreams": "string"
           },
           "allowHttp10": "boolean",
           // end of the list of possible fields
-          "rewriteRequestId": "boolean",
           "preserveHttp1HeaderCasing": "boolean"
         },
         "redirects": {
@@ -82,21 +84,21 @@ To get the application load balancer ID, make a [LoadBalancerService.List](list.
       },
       "tls": {
         "defaultHandler": {
-          // Includes only one of the fields `httpHandler`, `streamHandler`
+          // Includes only one of the fields `streamHandler`, `httpHandler`
+          "streamHandler": {
+            "backendGroupId": "string",
+            "idleTimeout": "string"
+          },
           "httpHandler": {
             "httpRouterId": "string",
+            "rewriteRequestId": "boolean",
             // Includes only one of the fields `http2Options`, `allowHttp10`
             "http2Options": {
               "maxConcurrentStreams": "string"
             },
             "allowHttp10": "boolean",
             // end of the list of possible fields
-            "rewriteRequestId": "boolean",
             "preserveHttp1HeaderCasing": "boolean"
-          },
-          "streamHandler": {
-            "backendGroupId": "string",
-            "idleTimeout": "string"
           },
           // end of the list of possible fields
           "certificateIds": [
@@ -116,21 +118,21 @@ To get the application load balancer ID, make a [LoadBalancerService.List](list.
               "string"
             ],
             "handler": {
-              // Includes only one of the fields `httpHandler`, `streamHandler`
+              // Includes only one of the fields `streamHandler`, `httpHandler`
+              "streamHandler": {
+                "backendGroupId": "string",
+                "idleTimeout": "string"
+              },
               "httpHandler": {
                 "httpRouterId": "string",
+                "rewriteRequestId": "boolean",
                 // Includes only one of the fields `http2Options`, `allowHttp10`
                 "http2Options": {
                   "maxConcurrentStreams": "string"
                 },
                 "allowHttp10": "boolean",
                 // end of the list of possible fields
-                "rewriteRequestId": "boolean",
                 "preserveHttp1HeaderCasing": "boolean"
-              },
-              "streamHandler": {
-                "backendGroupId": "string",
-                "idleTimeout": "string"
               },
               // end of the list of possible fields
               "certificateIds": [
@@ -145,12 +147,6 @@ To get the application load balancer ID, make a [LoadBalancerService.List](list.
             }
           }
         ]
-      },
-      "stream": {
-        "handler": {
-          "backendGroupId": "string",
-          "idleTimeout": "string"
-        }
       }
       // end of the list of possible fields
     }
@@ -166,7 +162,9 @@ To get the application load balancer ID, make a [LoadBalancerService.List](list.
       }
     ]
   },
+  "networkId": "string",
   "logGroupId": "string",
+  "regionId": "string",
   "securityGroupIds": [
     "string"
   ],
@@ -228,31 +226,27 @@ Status of the application load balancer.
 - `STOPPING`: The application load balancer is being stopped.
 - `STOPPED`: The application load balancer is stopped and doesn't send traffic to the targets.
 - `DELETING`: The application load balancer is being deleted. ||
-|| regionId | **string**
-
-ID of the region that the application load balancer is located at. ||
-|| networkId | **string**
-
-ID of the network that the application load balancer belongs to. ||
 || listeners[] | **[Listener](#yandex.cloud.apploadbalancer.v1.Listener)**
 
 Listeners that belong to the application load balancer.
-
 For details about the concept, see [documentation](../../concepts/application-load-balancer.md#listener). ||
 || allocationPolicy | **[AllocationPolicy](#yandex.cloud.apploadbalancer.v1.AllocationPolicy)**
 
 Locality settings of the application load balancer.
-
 For details about the concept, see [documentation](../../concepts/application-load-balancer.md#lb-location). ||
+|| networkId | **string**
+
+ID of the network that the application load balancer belongs to. ||
 || logGroupId | **string**
 
 ID of the log group that stores access logs of the application load balancer.
-
 The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](../../../functions/operations/trigger/cloud-logging-trigger-create.md). ||
+|| regionId | **string**
+
+ID of the region that the application load balancer is located at. ||
 || securityGroupIds[] | **string**
 
 ID's of the security groups attributed to the application load balancer.
-
 For details about the concept,
 see [documentation](../../concepts/application-load-balancer.md#security-groups). ||
 || createdAt | **string** (date-time)
@@ -268,11 +262,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || autoScalePolicy | **[AutoScalePolicy](#yandex.cloud.apploadbalancer.v1.AutoScalePolicy)**
 
 Scaling settings of the application load balancer.
-
 The scaling settings relate to a special internal instance group which facilitates the balancer's work.
 Instances in this group are called _resource units_. The group is scaled automatically based on incoming load
 and within limitations specified in these settings.
-
 For details about the concept,
 see [documentation](../../concepts/application-load-balancer.md#lcu-scaling). ||
 || logOptions | **[LogOptions](#yandex.cloud.apploadbalancer.v1.LogOptions)**
@@ -286,7 +278,6 @@ Specifies whether application load balancer is available to zonal shift. ||
 ## Listener {#yandex.cloud.apploadbalancer.v1.Listener}
 
 A listener resource.
-
 For details about the concept, see [documentation](../../concepts/application-load-balancer.md#listener).
 
 #|
@@ -298,31 +289,29 @@ The string length in characters is 3-63. ||
 || endpoints[] | **[Endpoint](#yandex.cloud.apploadbalancer.v1.Endpoint)**
 
 Endpoints of the listener.
-
 Endpoints are defined by their IP addresses and ports. ||
+|| stream | **[StreamListener](#yandex.cloud.apploadbalancer.v1.StreamListener)**
+
+Unencrypted stream (TCP) listener settings.
+
+Includes only one of the fields `stream`, `http`, `tls`.
+
+Listener type and settings. ||
 || http | **[HttpListener](#yandex.cloud.apploadbalancer.v1.HttpListener)**
 
 Unencrypted HTTP listener settings.
 
-Includes only one of the fields `http`, `tls`, `stream`.
+Includes only one of the fields `stream`, `http`, `tls`.
 
 Listener type and settings. ||
 || tls | **[TlsListener](#yandex.cloud.apploadbalancer.v1.TlsListener)**
 
 TLS-encrypted HTTP or TCP stream listener settings.
-
 All handlers within a listener ([TlsListener.defaultHandler](#yandex.cloud.apploadbalancer.v1.TlsListener) and [TlsListener.sniHandlers](#yandex.cloud.apploadbalancer.v1.TlsListener)) must be of one
 type, [HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler) or [StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not
 supported.
 
-Includes only one of the fields `http`, `tls`, `stream`.
-
-Listener type and settings. ||
-|| stream | **[StreamListener](#yandex.cloud.apploadbalancer.v1.StreamListener)**
-
-Unencrypted stream (TCP) listener settings.
-
-Includes only one of the fields `http`, `tls`, `stream`.
+Includes only one of the fields `stream`, `http`, `tls`.
 
 Listener type and settings. ||
 |#
@@ -361,7 +350,6 @@ Endpoint address of one of the types: public (external) IPv4 address, internal I
 || internalIpv4Address | **[InternalIpv4Address](#yandex.cloud.apploadbalancer.v1.InternalIpv4Address)**
 
 Internal IPv4 endpoint address.
-
 To enable the use of listeners with internal addresses, [contact support](../../../support/overview.md#response-time).
 
 Includes only one of the fields `externalIpv4Address`, `internalIpv4Address`, `externalIpv6Address`.
@@ -412,6 +400,35 @@ A public (external) IPv4 endpoint address resource.
 IPv6 address. ||
 |#
 
+## StreamListener {#yandex.cloud.apploadbalancer.v1.StreamListener}
+
+A stream (TCP) listener resource.
+
+#|
+||Field | Description ||
+|| handler | **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)**
+
+Required field. Settings for handling stream (TCP) requests. ||
+|#
+
+## StreamHandler {#yandex.cloud.apploadbalancer.v1.StreamHandler}
+
+A stream (TCP) handler resource.
+
+#|
+||Field | Description ||
+|| backendGroupId | **string**
+
+Required field. ID of the backend group processing requests. For details about the concept, see
+[documentation](../../concepts/backend-group.md).
+The backend group type, specified via [BackendGroup.backend](../BackendGroup/get.md#yandex.cloud.apploadbalancer.v1.BackendGroup.backend), must be `stream`.
+To get the list of all available backend groups, make a [BackendGroupService.List](../BackendGroup/list.md#List) request. ||
+|| idleTimeout | **string** (duration)
+
+The idle timeout is duration during which no data is transmitted or received on either the upstream or downstream connection.
+If not configured, the default idle timeout is 1 hour. Setting it to 0 disables the timeout. ||
+|#
+
 ## HttpListener {#yandex.cloud.apploadbalancer.v1.HttpListener}
 
 An HTTP listener resource.
@@ -421,12 +438,10 @@ An HTTP listener resource.
 || handler | **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
 
 Settings for handling HTTP requests.
-
 Only one of `handler` and `redirects` can be specified. ||
 || redirects | **[Redirects](#yandex.cloud.apploadbalancer.v1.Redirects)**
 
 Redirects settings.
-
 Only one of `redirects` and `handler` can be specified. ||
 |#
 
@@ -440,18 +455,18 @@ An HTTP handler resource.
 
 ID of the HTTP router processing requests. For details about the concept, see
 [documentation](../../concepts/http-router.md).
-
 To get the list of all available HTTP routers, make a [HttpRouterService.List](../HttpRouter/list.md#List) request. ||
+|| rewriteRequestId | **boolean**
+
+When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. ||
 || http2Options | **[Http2Options](#yandex.cloud.apploadbalancer.v1.Http2Options)**
 
 HTTP/2 settings.
-
 If specified, incoming HTTP/2 requests are supported by the listener.
 
 Includes only one of the fields `http2Options`, `allowHttp10`.
 
 Protocol settings.
-
 For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
 negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension. ||
 || allowHttp10 | **boolean**
@@ -461,12 +476,8 @@ Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for 
 Includes only one of the fields `http2Options`, `allowHttp10`.
 
 Protocol settings.
-
 For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
 negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension. ||
-|| rewriteRequestId | **boolean**
-
-When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. ||
 || preserveHttp1HeaderCasing | **boolean**
 
 When enabled, preserves the original casing of HTTP/1.1 header names (e.g. "CONTENT-Type" -> "CONTENT-Type").
@@ -493,7 +504,6 @@ A listener redirects resource.
 || httpToHttps | **boolean**
 
 Redirects all unencrypted HTTP requests to the same URI with scheme changed to `https`.
-
 The setting has the same effect as a single, catch-all [HttpRoute](../HttpRouter/get.md#yandex.cloud.apploadbalancer.v1.HttpRoute)
 with [RedirectAction.replaceScheme](../HttpRouter/get.md#yandex.cloud.apploadbalancer.v1.RedirectAction) set to `https`. ||
 |#
@@ -520,50 +530,29 @@ A TLS-encrypted (HTTP or TCP stream) handler resource.
 
 #|
 ||Field | Description ||
-|| httpHandler | **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
-
-HTTP handler.
-
-Includes only one of the fields `httpHandler`, `streamHandler`.
-
-Settings for handling requests. ||
 || streamHandler | **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)**
 
 Stream (TCP) handler.
 
-Includes only one of the fields `httpHandler`, `streamHandler`.
+Includes only one of the fields `streamHandler`, `httpHandler`.
+
+Settings for handling requests. ||
+|| httpHandler | **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
+
+HTTP handler.
+
+Includes only one of the fields `streamHandler`, `httpHandler`.
 
 Settings for handling requests. ||
 || certificateIds[] | **string**
 
 ID's of the TLS server certificates from [Certificate Manager](../../../certificate-manager/index.md).
-
 RSA and ECDSA certificates are supported, and only the first certificate of each type is used.
 
-The number of elements must be greater than 0. ||
+The string length in characters for each value must be greater than 1. The maximum number of elements is 1. ||
 || clientCertificatesVerification | **[ClientCertificatesVerification](#yandex.cloud.apploadbalancer.v1.ClientCertificatesVerification)**
 
 Client certificates verification settings. ||
-|#
-
-## StreamHandler {#yandex.cloud.apploadbalancer.v1.StreamHandler}
-
-A stream (TCP) handler resource.
-
-#|
-||Field | Description ||
-|| backendGroupId | **string**
-
-Required field. ID of the backend group processing requests. For details about the concept, see
-[documentation](../../concepts/backend-group.md).
-
-The backend group type, specified via [BackendGroup.backend](../BackendGroup/get.md#yandex.cloud.apploadbalancer.v1.BackendGroup.backend), must be `stream`.
-
-To get the list of all available backend groups, make a [BackendGroupService.List](../BackendGroup/list.md#List) request. ||
-|| idleTimeout | **string** (duration)
-
-The idle timeout is duration during which no data is transmitted or received on either the upstream or downstream connection.
-If not configured, the default idle timeout is 1 hour. Setting it to 0 disables the timeout. ||
 |#
 
 ## ClientCertificatesVerification {#yandex.cloud.apploadbalancer.v1.ClientCertificatesVerification}
@@ -595,21 +584,10 @@ Required field. Name of the SNI handler. ||
 
 Server names that are matched by the SNI handler.
 
-The number of elements must be greater than 0. ||
+The string length in characters for each value must be 1-255. Each value must match the regular expression ` ([*].)?[-.a-z0-9]+ `. The number of elements must be greater than 0. ||
 || handler | **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler)**
 
 Required field. Settings for handling requests with Server Name Indication (SNI) matching one of `serverNames` values. ||
-|#
-
-## StreamListener {#yandex.cloud.apploadbalancer.v1.StreamListener}
-
-A stream (TCP) listener resource.
-
-#|
-||Field | Description ||
-|| handler | **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)**
-
-Required field. Settings for handling stream (TCP) requests. ||
 |#
 
 ## AllocationPolicy {#yandex.cloud.apploadbalancer.v1.AllocationPolicy}
@@ -628,7 +606,6 @@ The minimum number of elements is 1. ||
 ## Location {#yandex.cloud.apploadbalancer.v1.Location}
 
 An application load balancer location resource.
-
 For details about the concept, see [documentation](../../concepts/application-load-balancer.md#lb-location).
 
 #|
@@ -636,7 +613,6 @@ For details about the concept, see [documentation](../../concepts/application-lo
 || zoneId | **string**
 
 Required field. ID of the availability zone where the application load balancer resides.
-
 Each availability zone can only be specified once. ||
 || subnetId | **string**
 
@@ -644,7 +620,6 @@ ID of the subnet that the application load balancer belongs to. ||
 || disableTraffic | **boolean**
 
 Disables the load balancer node in the specified availability zone.
-
 Backends in the availability zone are not directly affected by this setting.
 They still may receive traffic from the load balancer nodes in other availability zones,
 subject to [LoadBalancingConfig.localityAwareRoutingPercent](../BackendGroup/get.md#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) and [LoadBalancingConfig.strictLocality](../BackendGroup/get.md#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) settings. ||
@@ -667,20 +642,16 @@ A resource for scaling settings of an application load balancer.
 || minZoneSize | **string** (int64)
 
 Lower limit for the number of resource units in each availability zone.
-
 If not specified previously (using other instruments such as management console), the default value is 2.
 To revert to it, specify it explicitly.
-
 The minimum value is 2.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || maxSize | **string** (int64)
 
 Upper limit for the total number of resource units across all availability zones.
-
 If a positive value is specified, it must be at least `minZoneSize` multiplied by the size of
 [AllocationPolicy.locations](#yandex.cloud.apploadbalancer.v1.AllocationPolicy).
-
 If the value is 0, there is no upper limit.
 
 Acceptable values are 0 to 1000, inclusive. ||
@@ -694,7 +665,9 @@ Acceptable values are 0 to 1000, inclusive. ||
 
 Cloud Logging log group ID to store access logs.
 If not set then logs will be stored in default log group for the folder
-where load balancer located. ||
+where load balancer located.
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `. ||
 || discardRules[] | **[LogDiscardRule](#yandex.cloud.apploadbalancer.v1.LogDiscardRule)**
 
 ordered list of rules, first matching rule applies ||

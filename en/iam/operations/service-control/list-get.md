@@ -106,7 +106,7 @@ To get information about the [status](../../concepts/service-control.md#access-s
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./enable-disable.md)
 * [{#T}](../../concepts/service-control.md)

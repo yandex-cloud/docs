@@ -177,6 +177,6 @@ To enable request redirection on a CDN resource:
 
 {% include [after-changes-tip](../../../_includes/cdn/after-changes-tip.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/http-rewrite.md)

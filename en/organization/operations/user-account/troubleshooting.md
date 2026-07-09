@@ -18,7 +18,7 @@ This section describes fixes to common issues when managing a user account in {{
 
 ## Second factor registration time expired {#mfa-timeout}
 
-You get this error at sign-in: `Account login is not possible. The deadline for adding the second factor has expired. Contact the organization's administrator`.
+You get this error at sign-in: `Account login is not possible. The deadline for adding the second factor has expired. Contact the organization administrator`.
 
 ### Solution {#mfa-timeout-solution}
 
@@ -85,7 +85,7 @@ When attempting to sign in via an identity federation, you get an error message 
 1. Verify that you are entering the correct credentials on the identity provider's page.
 1. If you see an error on the identity provider's page, contact your corporate authentication system administrator.
 1. If successful authentication with the identity provider does not redirect you to the {{ yandex-cloud }} console, contact your organization administrator. The [federation](../../concepts/add-federation.md) may have been configured incorrectly.
-1. For more information about the federation errors, refer to the following sections:
+1. For more information about federation errors, see these sections:
    * [{#T}](../../diagnostics.md)
    * [{#T}](../../saml-diagnostics.md)
 
@@ -126,7 +126,7 @@ If you did not find a solution to your issue in this section:
    * [{#T}](../../yandex-id-diagnostics.md)
 1. Contact [{{ yandex-cloud }} support]({{ link-console-support }}).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](first-login.md)
 * [{#T}](../manage-account.md)

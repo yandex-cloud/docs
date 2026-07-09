@@ -1,5 +1,8 @@
 Имя события | Описание
 --- | ---
+`asymmetricencryption.CancelAsymmetricEncryptionKeyDeletion` | Отмена удаления асимметричной ключевой пары шифрования
+`asymmetricsignature.CancelAsymmetricSignatureKeyDeletion` | Отмена удаления ключевой пары электронной подписи
+`asymmetricsignature.UpdateAsymmetricSignatureKeyAccessBindings` | Изменение прав доступа к асимметричному ключу подписи
 `CancelDeleteSymmetricKey` | Отмена ранее запланированного уничтожения ключа
 `CancelSymmetricKeyVersionDestruction` | Отмена ранее запланированного уничтожения версии симметричного ключа
 `CreateAsymmetricEncryptionKey` | Создание асимметричной ключевой пары шифрования
@@ -19,5 +22,3 @@
 `UpdateSymmetricKey` | Изменение симметричного ключа
 `UpdateSymmetricKeyAccessBindings` | Изменение прав доступа для симметричного ключа
 `UpdateAsymmetricEncryptionKeyAccessBindings` | Изменение прав доступа для асимметричной ключевой пары шифрования
-`asymmetricencryption.CancelAsymmetricEncryptionKeyDeletion` | Отмена удаления асимметричной ключевой пары шифрования
-`asymmetricsignature.CancelAsymmetricSignatureKeyDeletion` | Отмена удаления ключевой пары электронной подписи

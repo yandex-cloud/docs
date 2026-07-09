@@ -29,7 +29,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создана ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. Нажмите кнопку **Создать виртуальную машину**.
   1. [Задайте](create-linux-vm.md) нужные параметры ВМ.

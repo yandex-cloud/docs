@@ -2,6 +2,12 @@
 
 To delete a cloud, you must have the [{{ roles-resource-manager-editor }}](../../security/index.md#resource-manager-editor) role or higher for that cloud. If you cannot perform this operation, contact the [cloud owner](../../concepts/resources-hierarchy.md#owner).
 
+{% note info %}
+
+Deleting a cloud may not be allowed if that cloud or its parent [organization](*organization) is subject to a `resourceManager.denyCloudRemoval` [authorization policy](*access_policies). This restriction still applies even if the user has a [role](*roles) that allows deleting clouds.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -96,7 +102,7 @@ To delete a cloud, you must have the [{{ roles-resource-manager-editor }}](../..
 
       {% endcut %}
 
-      For more information about `yandex_resourcemanager_cloud` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/resourcemanager_cloud).
+      For more on the properties of the `yandex_resourcemanager_cloud` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_cloud).
 
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
@@ -105,7 +111,7 @@ To delete a cloud, you must have the [{{ roles-resource-manager-editor }}](../..
       terraform validate
       ```
 
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
      
       ```bash
       Success! The configuration is valid.
@@ -117,9 +123,9 @@ To delete a cloud, you must have the [{{ roles-resource-manager-editor }}](../..
       terraform plan
       ```
 
-      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
@@ -144,3 +150,9 @@ Deletion starts from stopping the resources. The cloud enters the `PENDING_DELET
 {% include [alert-pending-deletion](../../../_includes/resource-manager/alert-pending-deletion.md) %}
 
 As soon as the deletion preparation and delay periods are over, the cloud enters the `DELETING` status. This status means it is being permanently deleted, which can take up to 72 hours. All the cloud's resources will be deleted together with it.
+
+[*organization]: [Learn more](../../../organization/concepts/organization.md) about organizations in {{ yandex-cloud }}.
+
+[*roles]: [Learn more](../../security/index.md) about the roles available in {{ resmgr-full-name }}.
+
+[*access_policies]: _Access policies_ are a {{ iam-full-name }} mechanism that allows you to manage permissions for specific operations with [{{ yandex-cloud }}](../../../overview/roles-and-resources.md) resources. Access policies complement the [role](../../../iam/concepts/access-control/roles.md) system for more flexible [access management](../../../iam/concepts/access-control/index.md). [Learn more](../../../iam/concepts/access-control/access-policies.md) about access policies in {{ yandex-cloud }}.

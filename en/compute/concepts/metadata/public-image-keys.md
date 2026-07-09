@@ -55,7 +55,7 @@ The list of keys processed by the [metadata service](../vm-metadata.md) in {{ ya
 * [{#T}](../../../tutorials/routing/multi-folder-vpc.md)
 * [{#T}](../../../tutorials/infrastructure-management/run-docker-on-vm/index.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../vm-metadata.md)
 * [{#T}](./directories.md)

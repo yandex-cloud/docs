@@ -46,6 +46,7 @@ yandex.cloud.audit.datasphere.<имя_события>
 `DeleteSparkConnector` | Удаление коннектора Apache Spark™
 `DeleteYandexDataProcessing` | Удаление шаблона Yandex Data Processing
 `ExecuteJob` | Запуск выполнения задания
+`ExportJupyterProject` | Экспорт проекта Jupyter
 `OpenProject` | Открытие проекта
 `ResumeNode` | Возобновление работы ноды
 `SetCommunityAccessBindings` | Назначение прав доступа для сообщества

@@ -11,7 +11,7 @@ You can configure automatic [disk snapshot](snapshot.md) creation based on a _sc
 In the schedule, you specify:
 
 * Disks for which the snapshots will be created. One schedule can include multiple disks, and one disk can be added to multiple schedules.
-* Frequency of snapshot creation by hour, day, week, or [cron expression](#cron). All times are [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
+* Frequency of snapshot creation by hour, day, week, or [cron expression](#cron). Use [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
 * [Snapshot retention](#retention) settings.
 * Scheduled snapshot description and [labels](../../resource-manager/concepts/labels.md) (you can only use the API to add them to the schedule settings).
 
@@ -39,7 +39,7 @@ You can specify a snapshot schedule using a [cron expression](https://{{ lang }}
 
 ### Possible field values {#cron-fields}
 
-| Name <br>name | Acceptable <br>values | Supported <br>[special <br>characters](#cron-special-characters) |
+| Name <br>name | Acceptable <br>values | Support <br>[special <br>characters](#cron-special-characters) |
 |----|----|----|
 |`Minutes` | `0`–`59` | `,`, `-`, `*`, `/` |
 |`Hours` | `0`–`23` (UTC+0)| `,`, `-`, `*`, `/` |
@@ -137,6 +137,6 @@ For a scheduled snapshot, a name up to 63 characters long is generated. The name
 
 All running snapshot creation or deletion operations initiated prior to changing, disabling, or deleting the schedule will be completed.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Guides on disk snapshots and schedules](../operations/#snapshots)

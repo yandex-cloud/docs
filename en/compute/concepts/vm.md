@@ -70,7 +70,7 @@ Read more about disks in [{#T}](disk.md).
 
 The status of a VM determines which operations you can currently perform on it.
 
-> For example, the `STOPPED` status means the VM is stopped and you cannot connect to it. To connect to such a VM, you must [start](../operations/vm-control/vm-stop-and-start.md#start) it first. After the status switches to `RUNNING` and the OS boots, you will be able to connect to the VM.
+> For example, the `STOPPED` status means the VM is stopped and you cannot connect to it. To connect to such a VM, you must [start](../operations/vm-control/vm-stop-and-start.md#start) it first. After the status changes to `RUNNING` and the OS boots, you will be able to connect to the VM.
 
 For more information about statuses, see [{#T}](vm-statuses.md).
 
@@ -92,6 +92,6 @@ For more information, see [{#T}](network.md).
 * [{#T}](../tutorials/vm-fluent-bit-logging.md)
 * [{#T}](../tutorials/bind-domain-vm/index.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [How to select the right VM type in {{ yandex-cloud }}](https://yandex.cloud/ru/blog/posts/2025/03/vm-type-selection)

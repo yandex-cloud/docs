@@ -136,7 +136,7 @@ To select roles, look them up in the [role reference](../../roles-reference.md).
 
 ## Assigning a role for an organization {#organization}
 
-To grant access permissions for an organization, you need the `{{ roles-organization-admin }}` role or higher. To learn more about the role sequence, see the [{{ org-full-name }} document](../../../organization/security/index.md#roles-list).
+To grant access permissions for an organization, you need the `{{ roles-organization-admin }}` role or higher. For more information on role sequence, see [this {{ org-full-name }} document](../../../organization/security/index.md#roles-list).
 
 To assign a role for an organization:
 
@@ -261,7 +261,7 @@ To assign a role for an organization:
 
       For more information, see [this provider guide]({{ tf-provider-link }}).
 
-   1. Validate your configuration.
+   1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -296,7 +296,7 @@ You can assign a role not only for an organization, cloud, or folder but their c
 
    To assign a role for a resource:
 
-   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder your resource is in.
+   1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder containing the resource.
    1. Open its page.
    1. Navigate to ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
    1. Select the group, user, or service account you want to grant access to a resource.

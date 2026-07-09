@@ -111,7 +111,7 @@ Set user attributes for integration with VK Cloud:
     1. If you plan to use group mapping, add an attribute for group transfer:
 
         1. Click **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}**.
-        1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** field, specify `http://schemas.xmlsoap.org/claims/Group`.
+        1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** field, enter `http://schemas.xmlsoap.org/claims/Group`.
         1. In the **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** field, specify `SubjectClaims.groups`.
         1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -138,6 +138,8 @@ For the users of your organization to be able to authenticate in VK Cloud via a 
 
 {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 ### Configure group and role mapping in VK Cloud {#vkcloud-groups-roles}
 
 To define federated users' access permissions in VK Cloud, configure mappings between IdP groups and VK Cloud roles.
@@ -153,7 +155,7 @@ To define federated users' access permissions in VK Cloud, configure mappings be
 
 To make sure your SAML app and its integration with VK Cloud work correctly, sign in to VK Cloud as one of the users you added to the app.
 
-Follow these steps:
+Proceed as follows:
 
 1. In your browser, open the federated user sign-in URL: `https://cloud.vk.com/v1/federation/saml/<federation_ID>/signin`, where `<federation_ID>` is the federation ID you copied when [creating the federation in VK Cloud](#setup-sp).
 1. Authenticate in {{ yandex-cloud }} under a user account from your organization.

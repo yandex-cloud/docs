@@ -60,7 +60,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет [создана](../vm-create/create-linux-vm.md) ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. Нажмите **Создать виртуальную машину**.
   1. В блоке **Доступ** нажмите **Добавить ключ**.
@@ -368,8 +368,8 @@
 
 - Yandex Cloud Shell {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) на панели слева нажмите ![image](../../../_assets/console-icons/dots-9.svg) **Все сервисы** и выберите **Compute Cloud** или найдите его с помощью строки поиска на дашборде.
-  1. Перейдите в ВМ, к которой хотите подключиться.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
+  1. Выберите ВМ, к которой хотите подключиться.
   1. Убедитесь, что ВМ находится в статусе `Running`. Если ВМ не запущена, в правом верхнем углу нажмите ![image](../../../_assets/console-icons/play.svg) **Запустить** и дождитесь перехода ВМ в статус `Running`.
   1. Справа вверху нажмите ![image](../../../_assets/console-icons/terminal.svg) **Подключиться в Cloud Shell**.
   1. Введите логин пользователя. По умолчанию введен логин, указанный при создании ВМ.
@@ -472,7 +472,7 @@
 
 #### Что дальше {#what-is-next}
 
-* [Узнайте, как работать с Yandex Cloud изнутри ВМ](auth-inside-vm.md).
+[Узнайте, как работать с Yandex Cloud изнутри ВМ](auth-inside-vm.md)
 
 #### Полезные ссылки {#see-also}
 

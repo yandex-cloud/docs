@@ -19,7 +19,6 @@ These rules help ensure compliance with GOST R 57580:
 || УЗП.10; УЗП.17–УЗП.21 | [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges) ||
 || УЗП.22–УЗП.27 | [cspm.access.check-privileged-roles](../../rules-reference/cspm.md#check-privileged-roles) ||
 || УЗП.22–УЗП.25; УЗП.28 | [cspm.access.kms-keys-access](../../rules-reference/cspm.md#kms-keys-access) ||
-|| УЗП.8–УЗП.13; УЗП.17–УЗП.20 | [cspm.access.check-bindings](../../rules-reference/cspm.md#check-bindings) ||
 || УЗП.10; УЗП.17–УЗП.21 | [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges) ||
 || РД.14–РД.15 | [cspm.cookie-timeout.organization](../../rules-reference/cspm.md#ccookie-timeout-organization) ||
 || УЗП.22–УЗП.25 | [cspm.access.user-groups-access](../../rules-reference/cspm.md#user-groups-access) ||
@@ -49,7 +48,7 @@ These rules help ensure compliance with GOST R 57580:
 [cspm.access.sa-privileges-service-roles](../../rules-reference/cspm.md#sa-privileges-service-roles)
 ||
 || УЗП.22–УЗП.25 | [cspm.access.privileged-sa-access](../../rules-reference/cspm.md#privileged-sa-access) ||
-|| РД.29; РД.43–РД.44 | [cspm.crypto.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation) ||
+|| РД.29; РД.43–РД.44 | [cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation) ||
 || РД.30–РД.31 | [cspm.access.defined-key-scopes](../../rules-reference/cspm.md#defined-key-scopes) ||
 || СМЭ.16–СМЭ.19; ИУ.7–ИУ.8 | [cspm.access.bucket-public-access](../../rules-reference/cspm.md#bucket-public-access) ||
 || ИУ.1–ИУ.4 | [cspm.o11y.labeled-resources](../../rules-reference/cspm.md#labeled-resources) ||

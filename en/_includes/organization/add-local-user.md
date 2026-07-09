@@ -15,6 +15,7 @@
       The user must change this password on their first login to {{ yandex-cloud }}.
   1. Enable **{{ ui-key.yacloud_org.organization.userpools.field_active }}** if you need to activate the user immediately upon adding them. Activated users gain access to the organization resources.
   1. Optionally, expand the **{{ ui-key.yacloud_org.organization.userpools.title_personal-info }}** section and specify the user's first name, last name, and phone number.
+  1. Optionally, expand the **Organizational information** section, and specify the user’s company name, department, job title, and employee ID.
   1. Click **{{ ui-key.yacloud_org.organization.userpools.action_create-user }}**.
 
 - CLI {#cli}
@@ -48,11 +49,11 @@
      * `--userpool-id`: ID of the user pool you need to add the user to.
      * `--username`: User login and domain in `login@domain` format. The login must be unique for the current user pool.
      * `--full-name`: User first and last name in any format.
-     * `--given-name`: Username. This is an optional parameter.
-     * `--family-name`: User last name. This is an optional parameter.
-     * `--email`: User email. This is an optional parameter.
-     * `--phone-number`: User phone number. This is an optional parameter.
-     * `--password`: Password. This is an optional parameter. If no password is set, it will be generated automatically. The user must change this password on their first login to {{ yandex-cloud }}.
+     * `--given-name`: Username. This is an optional setting.
+     * `--family-name`: User last name. This is an optional setting.
+     * `--email`: User email. This is an optional setting.
+     * `--phone-number`: User phone number. This is an optional setting.
+     * `--password`: Password. This is an optional setting. If no password is set, it will be generated automatically. The user must change this password on their first login to {{ yandex-cloud }}.
 
 - {{ TF }} {#tf}
 
@@ -83,14 +84,14 @@
      * `userpool_id`: ID of the [user pool](../../organization/concepts/user-pools.md) you need to add the new user to.
      * `username`: User login and domain in `login@domain` format. The login must be unique for the current user pool.
      * `full_name`: User first and last name in any format.
-     * `given_name`: Username. This is an optional parameter.
-     * `family_name`: User last name. This is an optional parameter.
-     * `email`: User email. This is an optional parameter.
-     * `phone_number`: User phone number. This is an optional parameter.
-     * `password`: Password. This is an optional parameter. If no password is set, it will be generated automatically. The user must change this password on their first login to {{ yandex-cloud }}.
-     * `is_active`: Activation flag. Set to `true` to activate the user.
+     * `given_name`: Username. This is an optional setting.
+     * `family_name`: User last name. This is an optional setting.
+     * `email`: User email. This is an optional setting.
+     * `phone_number`: User phone number. This is an optional setting.
+     * `password`: Password. This is an optional setting. If no password is set, it will be generated automatically. The user must change this password on their first login to {{ yandex-cloud }}.
+     * `is_active`: User activation flag. Set to `true` to activate the user.
  
-     For more information about `yandex_organizationmanager_idp_user` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
+     For more on the properties of the `yandex_organizationmanager_idp_user` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
  
   1. Create the resources:
  

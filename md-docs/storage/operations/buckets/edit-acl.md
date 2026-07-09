@@ -15,7 +15,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. В строке с нужным бакетом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Настроить ACL**.
 
       Также можно нажать на имя бакета, на открывшейся странице справа сверху нажать ![image](../../../_assets/console-icons/ellipsis.svg) и выбрать **Настроить ACL**.

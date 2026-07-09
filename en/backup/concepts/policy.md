@@ -31,7 +31,7 @@ The backup policy specifies:
 
 * Schedule type and settings:
 
-    * `{{ ui-key.yacloud.backup.policy-form.value_schedule-type-fixed }}`: Backup frequency in hours, days, weeks, or months. All times are [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
+    * `{{ ui-key.yacloud.backup.policy-form.value_schedule-type-fixed }}`: Backup frequency in hours, days, weeks, or months. Use [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
     * `{{ ui-key.yacloud.backup.policy-form.value_schedule-type-interval }}`: Interval, in hours or days, between the end of the previous backup and the start of the new one.
 
 * [Backup retention](#retention) settings.
@@ -50,7 +50,7 @@ The settings apply to all VMs and {{ baremetal-name }} servers in the policy.
 
 {% include [vm-and-bms-backup-incompatibility](../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
 
-If you make changes to the backup retention rules, by default they will take effect as soon as you create another backup. For more information on the setup parameters of the backup retention rules, see the next section.
+If you make changes to the backup retention rules, by default they will take effect as soon as you create another backup. For a detailed description of backup retention policy configuration parameters, see the next section.
 
 ## Backup policy specification {#specification}
 
@@ -65,7 +65,7 @@ The complete backup policy specification for {{ backup-name }} is detailed below
 * [{#T}](../tutorials/vm-with-backup-policy/index.md)
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/policy-vm/create.md)
 * [{#T}](../operations/policy-vm/attach-and-detach-vm.md)

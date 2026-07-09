@@ -104,9 +104,9 @@
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}).
+      {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}).
 
-  For more information about resource parameters, see the relevant provider documentation:
+  For more information about resource properties, see these provider guides:
 
   * [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)
   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member)

@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать образ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/layers.svg) **Образы**.
   1. В строке с нужным образом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Создать образ**.
   1. Введите имя создаваемого образа. Требования к имени:

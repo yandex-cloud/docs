@@ -1,6 +1,7 @@
 Имя события | Описание
 --- | ---
 `CreateProject` | Создание проекта
+`CreateProjectBinding` | Создание привязки проекта
 `CreateSpace` | Создание пространства
 `DeleteProject` | Удаление проекта
 `DeleteSpace` | Удаление пространства

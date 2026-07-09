@@ -7,7 +7,7 @@
 * Do not explicitly specify the secret values in the configuration file. Read them from a storage with restricted access (e.g., a secret storage).
 * Consider [storing the {{ TF }} state remotely](https://www.terraform.io/docs/state/sensitive-data.html).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Getting started with {{ TF }} in {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [{{ yandex-cloud }} provider documentation]({{ tf-provider-link }}).

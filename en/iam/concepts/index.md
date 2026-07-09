@@ -38,6 +38,6 @@ These keys are currently only used for service accounts.
 
 For {{ iam-short-name }} to be able to authorize the user (i.e., check if the user has the required permissions), the user must get authenticated. Authentication is performed in different ways, depending on the type of account and the interface used. For more information, see [{#T}](authorization/index.md).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../security/domains/iam-checklist.md)

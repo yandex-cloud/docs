@@ -21,7 +21,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится диск.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Откройте вкладку ![image](../../../_assets/console-icons/hard-drive.svg) **Диски** и выберите диск.
   1. В блоке **Расписания снимков** нажмите ![image](../../../_assets/console-icons/plus.svg) **Настроить расписания снимков**.
   1. Выберите расписание или создайте новое. Подробнее о настройках расписания читайте в [инструкции](../snapshot-control/create-schedule.md).
@@ -155,7 +155,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится диск.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Откройте вкладку ![image](../../../_assets/console-icons/hard-drive.svg) **Диски** и выберите диск.
   1. В блоке **Расписания снимков** в строке с расписанием нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Отвязать от диска**.
 

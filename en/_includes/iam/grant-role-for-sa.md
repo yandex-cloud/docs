@@ -77,13 +77,13 @@ To assign a role for a resource:
   1. Make sure the configuration files are correct.
 
      1. In the terminal, navigate to the directory where you created your configuration file.
-     1. Run a check using the following command:
+     1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
@@ -93,7 +93,7 @@ To assign a role for a resource:
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` and press **Enter**.
+     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
      This will create all the resources you need in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
@@ -241,7 +241,7 @@ To grant a service account permissions to access an organization, you need the `
   1. Make sure the configuration files are correct.
     
      1. In the terminal, navigate to the directory where you created your configuration file.
-     1. Run a check using the following command:
+     1. Run a check using this command:
  
         ```
         terraform plan
@@ -257,7 +257,7 @@ To grant a service account permissions to access an organization, you need the `
         terraform apply
         ```
 
-     1. To confirm resource creation, type `yes` and press **Enter**.
+     1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 	 
      This will create the required resources in the specified organization. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 

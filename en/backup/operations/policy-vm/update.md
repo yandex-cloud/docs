@@ -68,7 +68,9 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
       The example describes a configuration for a backup policy that will create [incremental](../../concepts/backup.md#types) [VM](../../../compute/concepts/vm.md) or [{{ baremetal-name }} server](../../../baremetal/concepts/servers.md) [backups](../../concepts/backup.md) every Monday at 00:05 (UTC+0). Only the last 10 backups will be stored.
 
-      See the [full backup policy specification](../../concepts/policy.md#specification) for details.
+      The full specification is described in [{#T}](../../concepts/policy.md#specification).
+
+
   1. Get the ID of the backup policy you want to update:
 
       {% include [get-policy-id](../../../_includes/backup/operations/get-policy-id.md) %}
@@ -86,7 +88,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
       {% include [json-output-cli](../../../_includes/backup/operations/json-output-cli.md) %}
 
-      For more information about this command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/update.md).
+      For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/update.md).
 
 - {{ TF }} {#tf}
 
@@ -158,7 +160,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
      {% endcut %}
 
-     For more information about `yandex_backup_policy` properties, see [this provider guide]({{ tf-provider-resources-link }}/backup_policy).
+     For more on the properties of the `yandex_backup_policy` resource, see [this provider guide]({{ tf-provider-resources-link }}/backup_policy).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -258,6 +260,6 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](delete.md)

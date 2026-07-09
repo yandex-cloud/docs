@@ -6,7 +6,7 @@ description: In this article, you will learn about {{ compute-name }} encryption
 # Encryption in {{ compute-name }}
 
 
-By default, all data on {{ compute-name }} [disks](../../compute/concepts/disk.md) is encrypted at the storage database level using a system key. This protects your data from being compromised in the event of a physical theft of disks from {{ yandex-cloud }} data centers. For more information, see [{#T}](../../security/standarts.md#sec-data).
+By default, all data on {{ compute-name }} [disks](../../compute/concepts/disk.md) is encrypted at the storage database level using a system key. This protects your data from being compromised in the event of a physical theft of disks from the {{ yandex-cloud }} data centers. For more information, see [{#T}](../../security/standarts.md#sec-data).
 
 We also recommend encrypting disks, [snapshots](snapshot.md), and [images](image.md) using custom {{ kms-full-name }} [symmetric keys](../../kms/concepts/key.md). This approach allows you to:
 * Protect yourself against potential threats of isolation breach and data compromise at the virtual infrastructure level.
@@ -34,7 +34,7 @@ The table below lists the methods you can use to create encrypted {{ compute-nam
 | --- | --- | --- | --- |
 | Empty encrypted disk | —                      | Any       | See [{#T}](../operations/disk-create/empty.md). |
 | Encrypted disk        | Unencrypted image  | Any       | See [{#T}](../operations/disk-create/from-image.md).</br>You can also use an image to</br>encrypt existing [disks](../operations/disk-control/disk-encrypt.md) and [snapshots](../operations/snapshot-control/snapshot-encrypt.md). |
-| Encrypted disk        | Encrypted image    | Image key | See [{#T}](../operations/disk-create/from-image.md).</br>You can also use an encrypted</br>image to make a copy of</br>an encrypted disk. |
+| Encrypted disk        | Encrypted image    | Image key | See [{#T}](../operations/disk-create/from-image.md).</br>You can also use an encrypted</br>image to make a copy</br>of an encrypted disk. |
 | Encrypted disk        | Unencrypted snapshot | Any       | See [{#T}](../operations/disk-create/from-snapshot.md). |
 | Encrypted disk        | Encrypted snapshot   | Snapshot key | See [{#T}](../operations/disk-create/from-snapshot.md). |
 | Encrypted image       | Encrypted disk     | Disk key  | See [{#T}](../operations/image-create/create-from-disk.md). |
@@ -56,7 +56,7 @@ To use encryption in {{ compute-name }}, the user must have the `kms.keys.user` 
 For more information, see [Access management](../../kms/security/index.md).
 
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [Data encryption and key and secret management](../../security/standard/encryption.md)
 * [{#T}](../operations/disk-control/disk-encrypt.md)

@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположена группа размещения.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **Группы размещений**.
   1. На вкладке **Группы размещения виртуальных машин** нажмите на имя нужной группы.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **Права доступа**.
@@ -156,7 +156,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположена группа размещения.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **Группы размещений**.
   1. На вкладке **Группы размещения виртуальных машин** нажмите на имя нужной группы.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **Права доступа**.
@@ -311,7 +311,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположена группа размещения.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **Группы размещений**.
   1. На вкладке **Группы размещения виртуальных машин** нажмите на имя нужной группы.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **Права доступа**.

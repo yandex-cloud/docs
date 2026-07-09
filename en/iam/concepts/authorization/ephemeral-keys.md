@@ -6,7 +6,7 @@ description: In this article, you will learn about the purpose of an ephemeral a
 {% include [ephemeral-key](../../../_includes/iam/ephemeral-keys.md) %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../operations/authentication/manage-ephemeral-keys.md)
 * [{#T}](../../tutorials/ephemeral-key-storage.md)

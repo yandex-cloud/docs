@@ -12,7 +12,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера и на панели слева выберите ![Access](../../../_assets/console-icons/shield-check.svg) **Управление доступом**.
   1. В правом верхнем углу нажмите кнопку **Создать** и выберите **Сервисный аккаунт**.
   1. В открывшемся окне введите **Имя** сервисного аккаунта.
@@ -31,7 +32,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера и на панели слева выберите ![Access](../../../_assets/console-icons/shield-check.svg) **Управление доступом**.
   1. В строке сервисного аккаунта нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
   1. Подтвердите действие.

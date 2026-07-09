@@ -16,7 +16,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. В строке с нужным бакетом в колонке **{{ ui-key.yacloud.storage.buckets.column_count }}** наведите указатель на желтое поле с количеством частично загруженных объектов.
   1. В открывшемся окне нажмите **{{ ui-key.yacloud.storage.buckets.button_open-multipart-uploads }}**.
   1. Отметьте незавершенные загрузки, которые нужно удалить.
@@ -215,4 +215,3 @@ description: Следуя данной инструкции, вы сможете
   Чтобы удалить частично загруженный объект, воспользуйтесь методом S3 API [abortUpload](../../s3/api-ref/multipart/abortupload.md).
 
 {% endlist %}
-

@@ -8,7 +8,7 @@ description: The {{ backup-name }} agent interfaces the resources with {{ backup
 
 The {{ backup-name }} agent interfaces the resources with {{ backup-name }} and the backup provider. It is installed on [{{ compute-full-name }}](../../compute/index.yaml) VMs or [{{ baremetal-full-name }}](../../baremetal/index.yaml) servers.
 
-For more information about the backup provider and the data sent to it, see [{#T}](index.md#providers).
+Learn more about the backup provider and data sent to it in [{#T}](index.md#providers).
 
 The {{ backup-name }} agent performs the following actions on the resource:
 
@@ -35,7 +35,7 @@ You can install the {{ backup-name }} agent on a VM [manually](vm-connection.md#
 * [{#T}](../tutorials/vm-with-backup-policy/index.md)
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/connect-vm-linux.md)
 * [{#T}](../operations/connect-vm-oslogin-linux.md)

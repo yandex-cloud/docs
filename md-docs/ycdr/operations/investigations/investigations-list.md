@@ -24,7 +24,7 @@
 
 - Интерфейс Security Deck {#cloud-sd}
 
-  1. Перейдите в сервис [Security Deck](https://center.yandex.cloud/security/).
+  1. Перейдите в сервис [Yandex Security Deck](https://center.yandex.cloud/security/).
   1. На панели слева выберите **YCDR**.
   1. Перейдите на вкладку **Расследования**.
 
@@ -107,7 +107,7 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Расследования](../../concepts/investigations.md).
-* [Запросы](../../concepts/queries.md).
-* [Управление расследованиями](manage-investigations.md).
-* [Работа с запросами](../queries/index.md).
+* [Расследования](../../concepts/investigations.md)
+* [Запросы](../../concepts/queries.md)
+* [Управление расследованиями](manage-investigations.md)
+* [Работа с запросами](../queries/index.md)

@@ -140,9 +140,11 @@ For the users of your organization to be able to authenticate in OpenVPN Access 
 
    {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 ## Make sure your application works correctly {#validate}
 
-To make sure your SAML app and OpenVPN Access Server integration work correctly, authenticate to OpenVPN Access Server as one of the users you added to the app. Follow these steps:
+To make sure your SAML app and OpenVPN Access Server integration work correctly, authenticate to OpenVPN Access Server as one of the users you added to the app. Proceed as follows:
 
 1. In your browser, go to the OpenVPN Access Server client interface. Its default address is `https://<server_address>:943/`.
 1. On the authentication page, click **Sign In With SAML**.

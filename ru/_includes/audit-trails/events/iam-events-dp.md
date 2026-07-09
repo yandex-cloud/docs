@@ -12,3 +12,4 @@
 `oslogin.CheckSshPolicy` | Проверка прав на подключение по SSH при доступе по {{ oslogin }}
 `oslogin.GenerateSshCertificate` | Генерация SSH-сертификата для доступа по {{ oslogin }}
 `RevokeIamToken` | Отзыв IAM-токена
+`AccessKeyLastUsed` | Последнее использование статического ключа

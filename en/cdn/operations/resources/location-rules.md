@@ -86,7 +86,7 @@ After creating a rule, you can configure its advanced settings:
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../concepts/location-rules.md)
 * [{#T}](./configure-caching.md)

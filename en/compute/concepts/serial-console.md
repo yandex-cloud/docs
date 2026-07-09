@@ -69,7 +69,7 @@ A secure connection can be established using the following methods:
 
 Check the specified files often. Download them only via HTTPS but first make sure that the `https://{{ s3-storage-host }}` website has a valid certificate. If the website cannot guarantee secure encryption of your data due to certificate issues, your browser will display a warning.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/serial-console/index.md)
 * [{#T}](../operations/serial-console/connect-ssh.md)

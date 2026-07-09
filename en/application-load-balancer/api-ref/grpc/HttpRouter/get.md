@@ -5,7 +5,6 @@ editable: false
 # Application Load Balancer API, gRPC: HttpRouterService.Get
 
 Returns the specified HTTP router.
-
 To get the list of all available HTTP routers, make a [List](/docs/application-load-balancer/api-ref/grpc/HttpRouter/list#List) request.
 
 ## gRPC request
@@ -25,7 +24,6 @@ To get the list of all available HTTP routers, make a [List](/docs/application-l
 || http_router_id | **string**
 
 Required field. ID of the HTTP router to return.
-
 To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-load-balancer/api-ref/grpc/HttpRouter/list#List) request. ||
 |#
 
@@ -405,7 +403,6 @@ For details about the concept, see [documentation](/docs/overview/concepts/servi
 
 Virtual hosts that combine routes inside the router.
 For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host).
-
 Only one virtual host with no authority (default match) can be specified. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
@@ -841,7 +838,7 @@ A health check payload resource.
 
 Payload text.
 
-The string length in characters must be greater than 0.
+The string length in characters must be 1-16384.
 
 Includes only one of the fields `text`.
 

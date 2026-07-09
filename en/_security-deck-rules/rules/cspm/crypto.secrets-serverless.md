@@ -7,12 +7,6 @@
 
 #### Description
 
-{% note tip "**Automatic verification**" %}
-
-This control automatically checks for the use of Lockbox secrets in serverless functions and containers.
-
-{% endnote %}
-
 When working with Serverless Containers or Cloud Functions, it is often necessary to use a secret (such as a token or password).
 
 If you specify secret information in environment variables, it can be viewed by any cloud user with permissions to view and use a function, which causes information security risks.
@@ -21,8 +15,10 @@ We recommend using Serverless integration with Lockbox for that. You can use a s
 
 Make sure that the secrets are used as described above.
 
-#### Guides and solutions
+#### Instructions and solutions
 
-* Delete secret data from env and use the Lockbox integration functionality:
-  * Transmitting Yandex Lockbox secrets to a container: <https://yandex.cloud/en/docs/serverless-containers/operations/lockbox-secret-transmit>
-  * Transmitting Yandex Lockbox secrets to a function: <https://yandex.cloud/en/docs/functions/operations/function/lockbox-secret-transmit>
+**Guides and solutions to use:**
+
+Delete secret data from `env` and use the Lockbox integration functionality:
+
+* [Transmitting Yandex Lockbox secrets to a container](https://yandex.cloud/en/docs/serverless-containers/operations/lockbox-secret-transmit). * [Transmitting Yandex Lockbox secrets to a function](https://yandex.cloud/en/docs/functions/operations/function/lockbox-secret-transmit).

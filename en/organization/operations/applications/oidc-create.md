@@ -6,7 +6,7 @@ description: Follow this guide to create an OIDC application in {{ org-full-name
 # Creating an OIDC application in {{ org-full-name }}
 
 
-To authenticate your [organization’s](../../concepts/organization.md) users in external apps using [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) single sign-on, create an [OIDC application](../../concepts/applications.md#oidc) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and on your service provider’s side.
+To authenticate your [organization](../../concepts/organization.md)'s users to external apps using SSO based on [OpenID connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC), create an [OIDC application](../../concepts/applications.md#oidc) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and on your service provider's side.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -31,7 +31,7 @@ To authenticate your [organization’s](../../concepts/organization.md) users in
       1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
 
           1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-          1. Enter a label in `key: value` format.
+          1. Add a label in `key: value` format.
           1. Press **Enter**.
       1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
@@ -75,7 +75,7 @@ To authenticate your [organization’s](../../concepts/organization.md) users in
      status: ACTIVE
      ```
 
-     Save the `id` field value: you will need it to create and configure your app.
+     Save the `id` field value for when you need to create and configure your app.
 
   1. Create a secret for your OAuth client:
 
@@ -172,7 +172,7 @@ To authenticate your [organization’s](../../concepts/organization.md) users in
        * `phone`: User phone number.
        * `groups`: User groups in the organization.
 
-     For more information about `yandex_iam_oauth_client` properties, see [this provider guide]({{ tf-provider-resources-link }}/iam_oauth_client).
+     For more on the properties of the `yandex_iam_oauth_client` resource, see [this provider guide]({{ tf-provider-resources-link }}/iam_oauth_client).
 
   1. In the {{ TF }} configuration file, describe the OAuth client [secret](../../concepts/applications.md#oidc-secret) parameters:
 
@@ -186,7 +186,7 @@ To authenticate your [organization’s](../../concepts/organization.md) users in
 
      * `oauth_client_id`: ID of the OAuth client for which you are creating the secret.
 
-     For more information about `yandex_iam_oauth_client_secret` properties, see [this provider guide]({{ tf-provider-resources-link }}/iam_oauth_client_secret).
+     For more on the properties of the `yandex_iam_oauth_client_secret` resource, see [this provider guide]({{ tf-provider-resources-link }}/iam_oauth_client_secret).
 
   1. Describe the [OIDC application](../../concepts/applications.md#oidc) parameters in the {{ TF }} configuration file:
 
@@ -230,7 +230,7 @@ To authenticate your [organization’s](../../concepts/organization.md) users in
          * `NONE`: Service provider will not get any of the groups the user belongs to.
      * `labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional setting.
 
-     For more information about `yandex_organizationmanager_idp_application_oauth_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
+     For more on the properties of the `yandex_organizationmanager_idp_application_oauth_application` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
 
   1. Create the resources:
 
@@ -265,7 +265,7 @@ Depending on the options supported by your service provider, you can configure t
 - Manual setup
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, your OIDC app.
+  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the OIDC app.
   1. On the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** tab, under **{{ ui-key.yacloud_org.application.overview.idp_section_title }}**, expand the **{{ ui-key.yacloud_org.application.overview.idp_section_closed_text }}** section and copy the parameter values to use on the service provider side:
 
       {% include [oidc-app-sp-parameter-list](../../../_includes/organization/oidc-app-sp-parameter-list.md) %}
@@ -294,7 +294,7 @@ Before configuring your OIDC application in {{ org-full-name }}, get the redirec
 - {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the OIDC app.
+  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the OIDC app.
   1. {% include [oidc-app-update-sp-settings](../../../_includes/organization/oidc-app-update-sp-settings.md) %}
 
 - CLI {#cli}
@@ -360,7 +360,7 @@ Before configuring your OIDC application in {{ org-full-name }}, get the redirec
      * `folder_id`: ID of the folder where you want to create your OAuth server.
      * `redirect_uris`: Specify the address or addresses you got from the service provider in square brackets.
 
-     For more information about `yandex_iam_oauth_client` properties, see [this provider guide]({{ tf-provider-resources-link }}/iam_oauth_client).
+     For more on the properties of the `yandex_iam_oauth_client` resource, see [this provider guide]({{ tf-provider-resources-link }}/iam_oauth_client).
 
   1. Apply the changes:
 
@@ -390,11 +390,13 @@ Users and groups added to an OIDC application can be managed by a user with the 
 
 {% include [oidc-app-update-users-groups](../../../_includes/organization/oidc-app-update-users-groups.md) %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 ## Make sure your application works correctly {#validate}
 
 To make sure both your OIDC application and service provider integration work correctly, get authenticated in the external app as one of the users you added to the application.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./oidc-update.md)
 * [{#T}](./oidc-deactivate-remove.md)

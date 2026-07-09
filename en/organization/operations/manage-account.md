@@ -197,6 +197,6 @@ Before using WebAuthn for login authentication, make sure your browser and OS ar
 
      You can use also use filters at the top of the page to find the logs you need.
 
-  To view logs of all the users of the [organization](../concepts/organization.md) or [pool](../concepts/user-pools.md) you administer, see [{#T}](./user-pools/user-get-logs.md).
+  To view logs for all users within the [organization](../concepts/organization.md) or user [pool](../concepts/user-pools.md) you administer, see [{#T}](./user-pools/user-get-logs.md).
 
 {% endlist %}

@@ -33,10 +33,7 @@ Make sure to properly secure this account: it offers significant privileges and 
 
 The most appropriate approach would be to not use this account on a regular basis:
 
-* Only use it for initial setup and updates.
-* When actively using this account, enable two-factor authentication (2FA) in Yandex ID.
-* After that, if you do not use the bank card payment method (only available for this role), set a strong password for this account (generated using specialized software), disable 2FA, and refrain from using this account unnecessarily.
-* Change the password to a newly generated one each time you use the account.
+* Only use it for initial setup and updates. * When actively using this account, enable two-factor authentication (2FA) in Yandex ID. * After that, if you do not use the bank card payment method (only available for this role), set a strong password for this account (generated using specialized software), disable 2FA, and refrain from using this account unnecessarily. * Change the password to a newly generated one each time you use the account.
 
 We recommend disabling 2FA only for this account and if it is not assigned to a specific employee. Thus you can avoid linking this critical account to a personal device.
 
@@ -52,32 +49,24 @@ Assign the `resource-manager.clouds.owner` and `organization-manager.organizatio
 
 Make sure to fully protect your federated account that is granted one of the privileged roles listed above:
 
-* Enable two-factor authentication.
-* Disable authentication from devices beyond the company's control.
-* Configure login attempt monitoring and set alert thresholds.
+* Enable two-factor authentication. * Disable authentication from devices beyond the company's control. * Configure login attempt monitoring and set alert thresholds.
 
 Assign federated accounts the `admin` roles for clouds, folders, and billing accounts. Minimize the number of accounts with these roles and regularly review the expedience of these roles for the accounts they are assigned to.
 
-#### Guides and solutions to use
+#### Instructions and solutions
 
 **Guides and solutions to use:**
 
 Check access rights for the Yandex Cloud Billing service:
 
-1. Go to [Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts).
-2. In the left-hand panel, select **Access management**.
-3. Check which users have the `billing.accounts.owner` and `admin` roles.
+1. Go to [Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts). 2. In the left-hand panel, select **Access management**. 3. Check which users have the `billing.accounts.owner` and `admin` roles.
 
 Check access rights for an organization:
 
-1. Go to [Yandex Identity Hub](https://center.yandex.cloud/organization)
-2. In the left-hand panel, select **Access bindings**.
-3. Check which users have the `admin`, `organization-manager.organizations.owner`, `organization-manager.admin`, and `resource-manager.clouds.owner` roles.
+1. Go to [Yandex Identity Hub](https://center.yandex.cloud/organization) 2. In the left-hand panel, select **Access bindings**. 3. Check which users have the `admin`, `organization-manager.organizations.owner`, `organization-manager.admin`, and `resource-manager.clouds.owner` roles.
 
 Check access rights for a cloud or a folder:
 
-1. In the [management console](https://console.yandex.cloud), select the cloud or folder to check access permissions in.
-2. Click the **Access permissions** tab.
-3. Check which users have the `admin`, `editor`, `resource-manager.clouds.owner`, and `resource-manager.clouds.editor` roles.
+1. In the [management console](https://console.yandex.cloud), select the cloud or folder to check access permissions in. 2. Click the **Access permissions** tab. 3. Check which users have the `admin`, `editor`, `resource-manager.clouds.owner`, and `resource-manager.clouds.editor` roles.
 
 Make sure all the privileged roles are granted to trusted administrators. If any roles granted to untrusted administrators are found, investigate why and remove the respective permissions.

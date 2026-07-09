@@ -7,12 +7,6 @@
 
 #### Description
 
-{% note tip "**Automatic verification**" %}
-
-This control automatically checks for the use of Yandex Lockbox for secret storage.
-
-{% endnote %}
-
 Critical data and access secrets (authentication tokens, API keys, and encryption keys, etc.) should not be used in plain text in code, cloud object names and descriptions, VM metadata, etc. Use secret storage services instead, e.g., Lockbox.
 
 Lockbox securely stores secrets in an encrypted form only. Encryption is performed using KMS. For secret access control, use service roles.
@@ -23,6 +17,6 @@ When working in Terraform, we recommend using a script to [fill in](https://terr
 
 {% endnote %}
 
-#### Guides and solutions
+#### Instructions and solutions
 
-* You can learn how to use the service in the Lockbox documentation: <https://yandex.cloud/en/docs/lockbox>
+You can learn how to use the service in the [Lockbox documentation](https://yandex.cloud/en/docs/lockbox).

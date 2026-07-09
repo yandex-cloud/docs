@@ -1040,6 +1040,10 @@ Yandex DataLens — это сервис бизнес-аналитики для �
 
  - [Как пользоваться Public API](operations/api-start.md)
 
+ - [Версионирование](operations/api-versioning.md)
+
+ - [История изменений](release-notes/api-changelog.md)
+
 ### DataLens API (англ.)
 
  - [Overview](openapi-ref/index.md)

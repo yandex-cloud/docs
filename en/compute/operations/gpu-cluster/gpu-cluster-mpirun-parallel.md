@@ -29,7 +29,7 @@ description: Follow this guide to use mpirun to run distributed jobs in a GPU cl
 
    1. Copy the binary `all_reduce_perf` file from the `build` folder to all cluster VMs. The `all_reduce_perf` file must be in the same directory on all VMs as on the main one (e.g., `~/nccl-tests/build/`).
 
-1. On the main VM, create paswordless SSH keys:
+1. On the main VM, create passwordless SSH keys:
 
    ```bash
    ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -N ""
@@ -71,6 +71,6 @@ description: Follow this guide to use mpirun to run distributed jobs in a GPU cl
    # Avg bus bandwidth    : 121.467
    ```
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Questions about GPUs](../../../compute/qa/gpu.md)

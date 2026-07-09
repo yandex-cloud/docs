@@ -10,8 +10,8 @@ description: Следуя данной инструкции, вы получит
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-    1. Выберите кластер и в правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**. Откроется страница редактирования кластера.  
+    1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. Выберите кластер и в правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**. Откроется страница редактирования кластера.
     1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}** раскройте секцию **{{ ui-key.yacloud.k8s.clusters.create.label_master-computing-resources }}**.
 
        Доступные конфигурации перечислены на вкладках:

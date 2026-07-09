@@ -12,6 +12,6 @@ You can select a suitable location when enabling or configuring shielding.
 
 Origin shielding is a paid function. See [{#T}](../pricing.md) for rates.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Instructions for enabling shielding](../operations/resources/enable-shielding.md).

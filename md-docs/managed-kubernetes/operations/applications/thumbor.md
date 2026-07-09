@@ -39,7 +39,7 @@
 ## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
 1. Нажмите на имя нужного кластера Kubernetes и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [Thumbor](https://yandex.cloud/ru/marketplace/products/yc/thumbor) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
@@ -126,7 +126,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Network Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer) в сервис **Network Load Balancer**.
   1. Узнайте IP-адрес для балансировщика с описанием `cluster <имя_вашего_кластера>, service <пространство_имен>/thumbor`.
   1. В адресной строке браузера откройте ссылку `http://<IP-адрес_балансировщика>/unsafe/<имя_изображения_в_бакете>`.
 
@@ -156,8 +156,8 @@
 
 Узнайте, как использовать приложение Thumbor для редактирования изображений на вашем сайте. [Пример работы с Thumbor](../../tutorials/marketplace/thumbor.md), рассмотренный в документации, включает в себя настройку сервиса [Yandex Cloud CDN](../../../cdn/concepts/index.md). Он позволяет снизить скорость загрузки изображений на сайте.
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Документация Thumbor](https://thumbor.readthedocs.io/en/latest/).
-* [Документация Object Storage](../../../storage/index.md).
-* [Документация Network Load Balancer](../../../network-load-balancer/index.md).
+* [Документация Thumbor](https://thumbor.readthedocs.io/en/latest/)
+* [Документация Object Storage](../../../storage/index.md)
+* [Документация Network Load Balancer](../../../network-load-balancer/index.md)

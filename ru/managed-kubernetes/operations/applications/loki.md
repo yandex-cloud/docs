@@ -34,7 +34,7 @@ description: Следуя данной инструкции, вы сможете
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Loki](/marketplace/products/yc/loki) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
@@ -98,6 +98,6 @@ kubectl get service -A | grep distributed-gateway
 test-namespace   loki-loki-distributed-gateway   ClusterIP   10.96.168.88   <none>   80/TCP    15m
 ```
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Документация Grafana Loki](https://grafana.com/docs/loki/latest/).
+[Документация Grafana Loki](https://grafana.com/docs/loki/latest/)

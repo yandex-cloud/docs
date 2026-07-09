@@ -54,7 +54,7 @@ Learn more about exporting logs in the [Log export](concepts/logs.md) section.
 || `upstream_response_time` | String | Source response time. This field will be empty if the response originated from the PoP server cache. ||
 |#
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Log export](concepts/logs.md)
 * [Configuring log export](operations/resources/configure-logs.md)

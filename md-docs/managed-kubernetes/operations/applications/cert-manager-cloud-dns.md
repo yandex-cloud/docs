@@ -50,7 +50,7 @@
 ## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
 1. Нажмите на имя нужного кластера Managed Service for Kubernetes и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [cert-manager c плагином Yandex Cloud DNS ACME webhook](https://yandex.cloud/ru/marketplace/products/yc/cert-manager-webhook-yandex) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
@@ -172,9 +172,9 @@
 
 ## Примеры использования {#examples}
 
-* [Проверка DNS Challenge для сертификатов Let's Encrypt®](../../tutorials/dnschallenge.md).
+[Проверка DNS Challenge для сертификатов Let's Encrypt®](../../tutorials/dnschallenge.md)
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Документация Let's Encrypt®](https://letsencrypt.org/docs/client-options/).
-* [Документация cert-manager](https://cert-manager.io/docs/configuration/).
+* [Документация Let's Encrypt®](https://letsencrypt.org/docs/client-options/)
+* [Документация cert-manager](https://cert-manager.io/docs/configuration/)

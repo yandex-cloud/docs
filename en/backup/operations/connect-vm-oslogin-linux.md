@@ -65,8 +65,8 @@ To connect a Linux VM with {{ oslogin }} to {{ backup-name }}:
 
       Where:
 
-      * `id`: VM unique ID. This is a required parameter.
-      * `policy-ids`: IDs of the [backup policies](../concepts/policy.md) for attaching to the VM after installing the {{ backup-name }} agent. This is an optional parameter. Attaching a policy to a VM is an asynchronous operation which may take several minutes.
+      * `id`: VM unique ID. This is a required setting.
+      * `policy-ids`: IDs of the [backup policies](../concepts/policy.md) for attaching to the VM after installing the {{ backup-name }} agent. This is an optional setting. Attaching a policy to a VM is an asynchronous operation which may take several minutes.
 
       Once you execute the command, you will get the {{ backup-name }} agent installation warning: `This command will launch commands on specified instance to install backup agent via oslogin. Do you confirm this actions to be executed? [Yes/no][y/N]`. Confirm the installation: in the terminal, type `yes` and press `Enter`. The {{ backup-name }} agent installation will start. It will take some time.
 
@@ -94,7 +94,7 @@ To connect an existing VM to {{ backup-name }}, you can also [take](../../comput
 
 {% endnote %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](create-vm.md)
 * [Linking a VM to a backup policy](./policy-vm/update.md#update-vm-list)

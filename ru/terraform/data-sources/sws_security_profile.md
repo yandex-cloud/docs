@@ -30,21 +30,21 @@ data "yandex_sws_security_profile" "by-name" {
 - `captcha_id` (String). Captcha ID to use with this security profile. Set empty to use default.
 - `cloud_id` (String). ID of the cloud that the security profile belongs to.
 - `created_at` (*Read-Only*) (String). Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-- `custom_page_id` (*Read-Only*) (String). ID of the default custom page shown to the user when a request is denied.
+- `custom_page_id` (String). ID of the default custom page shown to the user when a request is denied.
 - `default_action` (**Required**)(String). Action to perform if none of rules matched.
 - `description` (String). Optional description of the security profile.
-- `disallow_data_processing` (*Read-Only*) (Bool). Disables the use of HTTP request data for training and improving the service's ML models.
+- `disallow_data_processing` (Bool). Disables the use of HTTP request data for training and improving the service's ML models.
 - `folder_id` (String). ID of the folder that the security profile belongs to.
 - `id` (String). ID of the SecurityProfile resource to return.
 - `labels` (Map Of String). Labels as `` key:value `` pairs. Maximum of 64 per resource.
 - `log_group_id` (*Read-Only*) (String). ID of the Cloud Logging log group to write SWS logs to.
 - `log_options` [Block]. Configures logging of requests processed by SWS to Audit Trails and Cloud Logging.
-  - `discard_allow_percentage` (*Read-Only*) (Number). Percentage of ALLOW verdicts to discard from logging (0-100).
-  - `enable` (*Read-Only*) (Bool). Enables logging of requests processed by SWS.
-  - `enabled_actions` (*Read-Only*) (List Of String). List of verdicts for which requests will be logged.
-  - `enabled_modules` (*Read-Only*) (List Of String). List of modules whose requests will be logged.
-  - `log_group_id` (*Read-Only*) (String). ID of the Cloud Logging log group to write SWS logs to.
-  - `outputs` (*Read-Only*) (List Of String). List of log destinations: Cloud Logging and/or Audit Trails.
+  - `discard_allow_percentage` (Number). Percentage of ALLOW verdicts to discard from logging (0-100).
+  - `enable` (Bool). Enables logging of requests processed by SWS.
+  - `enabled_actions` (List Of String). List of verdicts for which requests will be logged.
+  - `enabled_modules` (List Of String). List of modules whose requests will be logged.
+  - `log_group_id` (String). ID of the Cloud Logging log group to write SWS logs to.
+  - `outputs` (List Of String). List of log destinations: Cloud Logging and/or Audit Trails.
 - `name` (**Required**)(String). Name of the security profile. The name is unique within the folder. 1-50 characters long.
 - `security_profile_id` (String). ID of the SecurityProfile resource to return.
 - `security_rule` [Block]. List of security rules.
@@ -843,6 +843,7 @@ data "yandex_sws_security_profile" "by-name" {
           - `match` (Bool). Boolean value to match against.
     - `mode` (**Required**)(String). Mode of protection.
     - `waf_profile_id` (**Required**)(String). ID of WAF profile to use in this rule.
+- `updated_at` (*Read-Only*) (String). Update timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.

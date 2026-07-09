@@ -8,7 +8,7 @@ description: In this tutorial, you will learn how to create ephemeral access key
 {% include [manage-ephemeral-keys](../../../_includes/iam/manage-ephemeral-keys.md) %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../../storage/security/overview.md)
 * [{#T}](../sa/create-sts-key.md)

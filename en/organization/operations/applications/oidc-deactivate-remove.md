@@ -185,7 +185,7 @@ To delete an OIDC application:
 
      Where:
 
-     * `organization_id`: [ID of the organization](../organization-get-id.md) the OIDC app belongs to.
+     * `organization_id`: [ID of the organization](../organization-get-id.md) the OIDC app resides in.
      * `name`: OIDC app name.
      * `description`: OIDC app description.
      * `client_grant`: OAuth client connection settings:
@@ -195,7 +195,7 @@ To delete an OIDC application:
        * `group_distribution_type`: Group distribution type.
      * `labels`: List of [labels](../../../resource-manager/concepts/labels.md).
 
-     For more information about `yandex_organizationmanager_idp_application_oauth_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
+     For more on the properties of the `yandex_organizationmanager_idp_application_oauth_application` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
 
   1. Apply the changes:
 
@@ -215,7 +215,7 @@ To delete an OIDC application:
 
 This will delete the OIDC application, and the users will no longer be able to use it for authentication in the external app.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./oidc-create.md)
 * [{#T}](./oidc-update.md)

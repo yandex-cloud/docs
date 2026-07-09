@@ -21,6 +21,7 @@
 `DeleteOrganization` | Удаление организации
 `DeleteOsLoginProfile` | Удаление профиля {{ oslogin }}
 `DeleteUserSshKey` | Удаление SSH-ключа пользователя
+`idp.AddUserBlock` | Добавление блока пользователя
 `idp.AddUserpoolDomain` | Привязка домена к пулу пользователей
 `idp.branding.CreateAsset` | Загрузка ресурса для [брендирования](../../../organization/concepts/branding.md)
 `idp.branding.CreateBranding` | Создание брендирования
@@ -47,6 +48,9 @@
 `idp.ValidateUserpoolDomain` | Валидация домена, привязываемого к пулу пользователей
 `oauth.CreateApplication` | Создание [OIDC](https://openid.net/developers/how-connect-works/)-приложения
 `oauth.DeleteApplication` | Удаление OIDC-приложения
+`oauth.OAuthFederationPrivateTlsCreateCertificate` | Создание TLS-сертификата для приватной OAuth-федерации
+`oauth.OAuthFederationPrivateTlsDeleteCertificate` | Удаление TLS-сертификата для приватной OAuth-федерации
+`oauth.OAuthFederationPrivateTlsUpdateCertificate` | Изменение TLS-сертификата для приватной OAuth-федерации
 `oauth.ReactivateApplication` | Активация OIDC-приложения
 `oauth.SetApplicationAccessBindings` | Назначение прав доступа к OIDC-приложению
 `oauth.SuspendApplication` | Деактивация OIDC-приложения
@@ -60,18 +64,15 @@
 `policy.UpdateAuthenticationPolicyRule` | Изменение правила политики аутентификации
 `RejectInvitation` | Отказ от приглашения
 `ResendInvitation` | Повторная отправка приглашения
-`SetDefaultProfile` | Назначение профиля по умолчанию
-`SetGroupAccessBindings` | Назначение прав доступа к группе пользователей
-`SetOrganizationAccessBindings` | Назначение прав доступа к организации
-`saml.AddFederationDomain` | Привязка [домена](../../../organization/concepts/domains.md) к федерации
 `saml.AddFederatedUserAccounts` | Добавление пользователя в федерацию
+`saml.AddFederationDomain` | Привязка [домена](../../../organization/concepts/domains.md) к федерации
 `saml.CreateApplication` | Создание [SAML](../../../organization/concepts/add-federation.md)-приложения
 `saml.CreateFederation` | Создание федерации удостоверений
 `saml.CreateSignatureCertificate` | Создание сертификата для подписи
 `saml.DeleteApplication` | Удаление SAML-приложения
+`saml.DeleteFederatedUserAccounts` | Удаление пользователя из федерации
 `saml.DeleteFederation` | Удаление федерации удостоверений
 `saml.DeleteFederationDomain` | Удаление домена
-`saml.DeleteFederatedUserAccounts` | Удаление пользователя из федерации
 `saml.DeleteSignatureCertificate` | Удаление сертификата для подписи
 `saml.ReactivateApplication` | Активация SAML-приложения
 `saml.ReactivateFederatedUserAccounts` | Активация федеративного пользователя
@@ -85,13 +86,18 @@
 `saml.UpdateSignatureCertificate` | Изменение сертификата для подписи
 `saml.UploadSignatureCertificate` | Загрузка сертификата для подписи
 `saml.ValidateFederationDomain` | Валидация домена, привязываемого к федерации 
+`SetDefaultProfile` | Назначение профиля по умолчанию
+`SetGroupAccessBindings` | Назначение прав доступа к группе пользователей
+`SetOrganizationAccessBindings` | Назначение прав доступа к организации
 `UnbindOrganizationAccessPolicy` | Отмена привязки политики авторизации в организации
 `UpdateGroup` | Изменение группы пользователей
 `UpdateGroupAccessBindings` | Изменение прав доступа к группе пользователей
 `UpdateGroupMapping` | Изменение сопоставления групп федеративных пользователей
+`UpdateGroupMappingItems` | Изменение элементов сопоставления групп
 `UpdateGroupMembers` | Изменение состава участников группы пользователей
 `UpdateMfaEnforcement` | Изменение политики MFA
 `UpdateMfaEnforcementAudience` | Изменение целевых пользователей политики MFA
+`UpdateMfaEnforcementExcludedAudience` | Изменение списка исключений для принудительного использования MFA
 `UpdateOrganization` | Изменение организации
 `UpdateOrganizationAccessBindings` | Изменение прав доступа к организации
 `UpdateOrganizationAccessPolicyBindingParameters` | Изменение параметров политики авторизации в организации

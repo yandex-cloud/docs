@@ -8,7 +8,7 @@
 
 {% endnote %}
 
-* [Управление запросами](manage-queries.md).
-* [Работа с шаблонами запросов](work-with-templates.md).
-* [Работа со схемой базы и датасетами](work-with-schema-datasets.md).
-* [История запросов](query-history.md).
+* [Управление запросами](manage-queries.md)
+* [Работа с шаблонами запросов](work-with-templates.md)
+* [Работа со схемой базы и датасетами](work-with-schema-datasets.md)
+* [История запросов](query-history.md)

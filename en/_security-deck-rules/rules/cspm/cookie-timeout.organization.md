@@ -1,4 +1,4 @@
-### The cookie lifetime timeout in the federation is less than 6 hours {#cookie-timeout-organization}
+### The cookie lifetime timeout in the federation is less than 6 hours {#organization}
 
 #|
 || **kind** | **severity** | **ID** ||
@@ -11,7 +11,9 @@ Limiting the validity period of cookies is a key security measure for web applic
 
 In addition, automatic session termination after a predetermined period (e.g., 6 hours) prevents unauthorized access if a user forgets to log out of their account on a foreign device or if their device has been compromised.
 
-#### Guides and solutions to use
+#### Instructions and solutions
+
+**Guides and solutions to use:**
 
 In your [identity federation](https://yandex.cloud/en/docs/organization/concepts/add-federation) settings make sure the **Cookie lifetime** value is less or equal to 6 hours. This would help minimize the risk of compromising cloud users' workstations.
 

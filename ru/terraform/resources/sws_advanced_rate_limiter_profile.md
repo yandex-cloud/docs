@@ -47,6 +47,7 @@ resource "yandex_sws_advanced_rate_limiter_profile" "demo-profile" {
 - `id` (String). ID of the AdvancedRateLimiterProfile resource to return.
 - `labels` (Map Of String). Labels as `` key:value `` pairs. Maximum of 64 per resource.
 - `name` (**Required**)(String). Name of the ARL profile. The name is unique within the folder. 1-50 characters long.
+- `updated_at` (*Read-Only*) (String). Update timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 - `advanced_rate_limiter_rule` [Block]. List of rules.
   - `description` (String). Optional description of the rule. 0-512 characters long.
   - `dry_run` (Bool). This allows you to evaluate backend capabilities and find the optimum limit values.

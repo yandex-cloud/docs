@@ -160,26 +160,27 @@ resource "yandex_sws_security_profile" "demo-profile-advanced" {
 - `captcha_id` (String). Captcha ID to use with this security profile. Set empty to use default.
 - `cloud_id` (String). ID of the cloud that the security profile belongs to.
 - `created_at` (*Read-Only*) (String). Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-- `custom_page_id` (*Read-Only*) (String). ID of the default custom page shown to the user when a request is denied.
+- `custom_page_id` (String). ID of the default custom page shown to the user when a request is denied.
 - `default_action` (**Required**)(String). Action to perform if none of rules matched.
 - `description` (String). Optional description of the security profile.
-- `disallow_data_processing` (*Read-Only*) (Bool). Disables the use of HTTP request data for training and improving the service's ML models.
+- `disallow_data_processing` (Bool). Disables the use of HTTP request data for training and improving the service's ML models.
 - `folder_id` (String). ID of the folder that the security profile belongs to.
 - `id` (String). ID of the SecurityProfile resource to return.
 - `labels` (Map Of String). Labels as `` key:value `` pairs. Maximum of 64 per resource.
 - `log_group_id` (*Read-Only*) (String). ID of the Cloud Logging log group to write SWS logs to.
-- `log_options` [Block]. Configures logging of requests processed by SWS to Audit Trails and Cloud Logging.
-  - `discard_allow_percentage` (*Read-Only*) (Number). Percentage of ALLOW verdicts to discard from logging (0-100).
-  - `enable` (*Read-Only*) (Bool). Enables logging of requests processed by SWS.
-  - `enabled_actions` (*Read-Only*) (List Of String). List of verdicts for which requests will be logged.
-  - `enabled_modules` (*Read-Only*) (List Of String). List of modules whose requests will be logged.
-  - `log_group_id` (*Read-Only*) (String). ID of the Cloud Logging log group to write SWS logs to.
-  - `outputs` (*Read-Only*) (List Of String). List of log destinations: Cloud Logging and/or Audit Trails.
 - `name` (**Required**)(String). Name of the security profile. The name is unique within the folder. 1-50 characters long.
 - `security_profile_id` (String). ID of the SecurityProfile resource to return.
+- `updated_at` (*Read-Only*) (String). Update timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 - `analyze_request_body` [Block]. Parameters for request body analyzer.
   - `size_limit` (Number). Maximum size of body to pass to analyzer. In kilobytes.
   - `size_limit_action` (**Required**)(String). Action to perform if maximum size of body exceeded.
+- `log_options` [Block]. Configures logging of requests processed by SWS to Audit Trails and Cloud Logging.
+  - `discard_allow_percentage` (Number). Percentage of ALLOW verdicts to discard from logging (0-100).
+  - `enable` (Bool). Enables logging of requests processed by SWS.
+  - `enabled_actions` (List Of String). List of verdicts for which requests will be logged.
+  - `enabled_modules` (List Of String). List of modules whose requests will be logged.
+  - `log_group_id` (String). ID of the Cloud Logging log group to write SWS logs to.
+  - `outputs` (List Of String). List of log destinations: Cloud Logging and/or Audit Trails.
 - `security_rule` [Block]. List of security rules.
   - `custom_page_id` (String). ID of the custom page shown to the user when the rule denies a request.
   - `description` (String). Optional description of the rule. 0-512 characters long.

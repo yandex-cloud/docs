@@ -60,7 +60,7 @@ When you delete a reserved instance pool, all VMs attached to it will be detache
 
 {% endnote %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./manage-pool-vms.md)
 * [{#T}](../../concepts/reserved-pools.md)

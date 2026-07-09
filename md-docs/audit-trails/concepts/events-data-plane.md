@@ -121,6 +121,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `searchindex.DeleteFilesFromSearchIndex` | Удаление файлов из поискового индекса
 `searchindex.DeleteSearchIndex` | Удаление поискового индекса
 `searchindex.UploadFilesToSearchIndex` | Загрузка файлов в поисковый индекс
+`responses.GetResponse` | Получение ответа
 
 ## Yandex Identity Hub {#organization}
 
@@ -148,6 +149,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `oslogin.CheckSshPolicy` | Проверка прав на подключение по SSH при доступе по OS Login
 `oslogin.GenerateSshCertificate` | Генерация SSH-сертификата для доступа по OS Login
 `RevokeIamToken` | Отзыв IAM-токена
+`AccessKeyLastUsed` | Последнее использование статического ключа
 
 ## Yandex Key Management Service {#kms}
 
@@ -155,6 +157,11 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 
 Имя события | Описание
 --- | ---
+`asymmetricencryption.AsymmetricDecrypt` | Расшифровка данных асимметричным ключом
+`asymmetricencryption.AsymmetricGetPublicKey` | Получение открытого ключа
+`asymmetricsignature.AsymmetricGetPublicKey` | Получение открытого ключа
+`asymmetricsignature.AsymmetricSign` | Подписание данных асимметричным ключом
+`asymmetricsignature.AsymmetricSignHash` | Подписание хеша асимметричным ключом
 `Decrypt` | Расшифрование шифртекста с помощью ключа
 `Encrypt` | Шифрование тестовой строки с помощью ключа
 `GenerateDataKey` | Формирование ключа с высокой энтропией для шифрования по схеме Envelope Encryption
@@ -508,6 +515,8 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `CommentCreate` | Создание комментария
 `CommentDelete` | Удаление комментария
 `CommentUpdate` | Обновление комментария
+`DraftCreate` | Создание черновика
+`DraftPublish` | Публикация черновика
 `GridAddColumns` | Добавление столбцов в динамическую таблицу
 `GridAddRows` | Добавление строк в динамическую таблицу
 `GridClone` | Создание копии динамической таблицы

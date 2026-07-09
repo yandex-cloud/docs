@@ -3,7 +3,6 @@
 # Application Load Balancer API, REST: TargetGroup.Get
 
 Returns the specified target group.
-
 To get the list of all available target groups, make a [List](list.md#List) request.
 
 ## HTTP request
@@ -19,7 +18,6 @@ GET https://alb.api.cloud.yandex.net/apploadbalancer/v1/targetGroups/{targetGrou
 || targetGroupId | **string**
 
 Required field. ID of the target group to return.
-
 To get the target group ID, make a [TargetGroupService.List](list.md#List) request. ||
 |#
 
@@ -40,8 +38,8 @@ To get the target group ID, make a [TargetGroupService.List](list.md#List) reque
       "ipAddress": "string",
       // end of the list of possible fields
       "subnetId": "string",
-      "privateIpv4Address": "boolean",
-      "externalAddress": "boolean"
+      "externalAddress": "boolean",
+      "privateIpv4Address": "boolean"
     }
   ],
   "createdAt": "string"
@@ -101,14 +99,14 @@ Reference to the target. As of now, targets must only be referred to by their IP
 || subnetId | **string**
 
 ID of the subnet that the target is connected to. ||
+|| externalAddress | **boolean**
+
+If set, will not require `subnet_id` to validate the target.
+Only one of `subnet_id` or `external_address` should be set. ||
 || privateIpv4Address | **boolean**
 
 If set, will not require `subnet_id` to validate the target.
 Instead, the address should belong to one of the following ranges:
 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
 Only one of `subnet_id` or `private_ipv4_address` should be set. ||
-|| externalAddress | **boolean**
-
-If set, will not require `subnet_id` to validate the target.
-Only one of `subnet_id` or `external_address` should be set. ||
 |#

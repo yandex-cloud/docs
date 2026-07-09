@@ -24,7 +24,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-      1. Перейдите в сервис **Identity and Access Management**.
+      1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
       1. Нажмите кнопку **Создать сервисный аккаунт**.
       1. Введите имя сервисного аккаунта.
       

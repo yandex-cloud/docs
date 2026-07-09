@@ -245,7 +245,7 @@ description: Follow this guide to encrypt a disk in {{ compute-short-name }}.
 {% endlist %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/encryption.md)
 * [{#T}](../image-control/encrypt.md)

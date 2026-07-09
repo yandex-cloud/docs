@@ -45,7 +45,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера {{ k8s }}.
 
 - CLI {#cli}

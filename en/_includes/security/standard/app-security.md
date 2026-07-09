@@ -6,7 +6,7 @@
 
 #### 6.1 {{ captcha-full-name }} is used {#use-smartcaptcha}
 
-To mitigate the risks associated with automated attacks on applications, we recommend using [{{ captcha-full-name }}](/services/smartcaptcha). The service checks user requests with its ML algorithms and only shows challenges to those users whose requests it considers suspicious. You do not have to place the **"I’m not a robot"** button on the page.
+To mitigate the risks associated with automated attacks on applications, we recommend using [{{ captcha-full-name }}](/services/smartcaptcha). SmartCaptcha runs user requests through its ML algorithms and challenges only users whose requests it finds suspicious. You do not have to place the **"I’m not a robot"** button on the page.
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -50,7 +50,7 @@ When creating a new [registry](../../../container-registry/concepts/registry.md)
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a registry.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
-  1. In the **{{ ui-key.yacloud.cr.overview.popup-create_field_name }}** field, enter a name for the registry. Follow these naming requirements:
+  1. In the **{{ ui-key.yacloud.cr.overview.popup-create_field_name }}** field, enter a name for the registry. The naming requirements are as follows:
       
       {% include [name-format](../../name-format.md) %}
   1. Under **{{ ui-key.yacloud.cr.overview.popup-create_field_auto_scan }}**:
@@ -274,9 +274,9 @@ You need to connect your ARL profile to the [security profile](../../../smartweb
 
 With [{{ mgl-full-name }}](../../../managed-gitlab/index.yaml), you can flexibly set up required [approval rules](../../../managed-gitlab/concepts/approval-rules.md) before the code can be added to the target project branch. This feature is an alternative to the GitLab Enterprise Edition’s [Approval Rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html) tool and is available regardless of the GitLab [version](https://about.gitlab.com/pricing).
 
-If a [{{ GL }} instance](../../../managed-gitlab/concepts/index.md#instance) has the approval rules enabled, {{ mgl-name }} analyzes approvals from reviewers for compliance with the specified rules. If there are not enough approvals, a thread is created in a merge request that blocks it from being merged to the target branch. Editing the merge request creates or updates a comment in the thread with its current compliance status. Once all the required approvals are obtained, the thread is closed.
+If a [{{ GL }} instance](../../../managed-gitlab/concepts/index.md#instance) has the approval rules enabled, {{ mgl-name }} analyzes approvals from reviewers for compliance with the specified rules. If there are not enough approvals, a thread is created in a merge request that blocks it from being merged to the target branch. When the merge request is updated, a comment with the current compliance status is created or updated in the thread. Once all required approvals are obtained, the thread is resolved.
 
-If you close a thread manually, it will be created again. If a merge request is approved regardless of the existing rules, users with the `Maintainer` role or higher will receive an email notification about the violated code approval workflow.
+If you manually resolve the thread, it will be recreated. If the merge request is approved regardless of the existing rules, users with the `Maintainer` role or higher will receive an email notification about the violated approval workflow.
 
 | Requirement ID | Severity |
 | --- | --- |
@@ -312,7 +312,7 @@ If you close a thread manually, it will be created again. If a merge request is 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Go to **{{ ui-key.yacloud.smart-web-security.match-lists.label_match-lists }}**.
+  1. Navigate to **{{ ui-key.yacloud.smart-web-security.match-lists.label_match-lists }}**.
   1. Check that the lists have been created.
   1. If there are such lists, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 

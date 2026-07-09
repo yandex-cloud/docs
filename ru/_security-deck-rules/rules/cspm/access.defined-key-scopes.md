@@ -17,4 +17,6 @@
 
 #### Инструкции и решения по выполнению
 
+**Инструкции и решения по выполнению**
+
 [Создайте](https://yandex.cloud/ru/docs/iam/operations/authentication/manage-api-keys#create-api-key) API-ключ с заданной областью действия.

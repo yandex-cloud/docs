@@ -108,6 +108,3 @@ description: Следуя данной инструкции, вы подключ
 [Подробнее о работе с модулями](../../terraform/concepts/modules.md).
 
 {% endnote %}
-
-
-

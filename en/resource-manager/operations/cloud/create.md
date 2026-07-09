@@ -126,7 +126,7 @@ To create a cloud:
           You can get the [billing account ID](../../../billing/concepts/billing-account.md#billing-account-id) in the [{{ billing-name }}]({{ link-console-billing }}) interface under **{{ ui-key.yacloud_billing.billing.account.dashboard-info.title_main }}** on the billing account page.
       * `cloud_id`: [ID](../../../resource-manager/operations/cloud/get-id.md) of the cloud to link to the billing account.
 
-      For more information about the `yandex_resourcemanager_cloud` and `yandex_billing_cloud_binding` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-docs-link }}).
+      For more on the properties of the `yandex_resourcemanager_cloud` and `yandex_billing_cloud_binding` resources in {{ TF }}, see [this provider guide]({{ tf-docs-link }}).
 
   1. Create the resources:
 
@@ -145,7 +145,7 @@ To create a cloud:
 {% endlist %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](update.md)
 * [{#T}](set-access-bindings.md)

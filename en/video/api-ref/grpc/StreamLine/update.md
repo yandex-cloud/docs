@@ -18,13 +18,16 @@ Only fields specified in the field_mask will be updated.
   "stream_line_id": "string",
   "field_mask": "google.protobuf.FieldMask",
   "title": "string",
+  "input_source": "LineInputSource",
   // Includes only one of the fields `rtmp_push`, `rtmp_pull`, `srt_pull`
   "rtmp_push": "RTMPPushParams",
   "rtmp_pull": {
-    "url": "string"
+    "url": "string",
+    "backup_url": "string"
   },
   "srt_pull": {
-    "url": "string"
+    "url": "string",
+    "backup_url": "string"
   },
   // end of the list of possible fields
   "labels": "map<string, string>"
@@ -49,6 +52,13 @@ This allows for partial updates. ||
 Line title.
 
 The maximum string length in characters is 300. ||
+|| input_source | enum **LineInputSource**
+
+Specifies which input source (main or backup) should be used.
+
+- `ANY`: Use any available input source (main or backup).
+- `MAIN`: Use main input source.
+- `BACKUP`: Use backup input source (works only if backup input source is provided). ||
 || rtmp_push | **[RTMPPushParams](#yandex.cloud.video.v1.RTMPPushParams)**
 
 RTMP push input type.
@@ -100,6 +110,11 @@ Required field. The RTMP URL from which to pull the video stream.
 Must be a valid RTMP URL starting with "rtmp://".
 
 Value must match the regular expression ` rtmp://.* `. ||
+|| backup_url | **string**
+
+The backup RTMP URL from which to pull the video stream.
+
+Value must match the regular expression ``` (|rtmp://.*) ```. ||
 |#
 
 ## SRTPullParams {#yandex.cloud.video.v1.SRTPullParams}
@@ -114,6 +129,11 @@ Required field. The SRT URL from which to pull the video stream.
 Must be a valid SRT URL starting with "srt://".
 
 Value must match the regular expression ` srt://.* `. ||
+|| backup_url | **string**
+
+The backup SRT URL from which to pull the video stream.
+
+Value must match the regular expression ``` (|srt://.*) ```. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

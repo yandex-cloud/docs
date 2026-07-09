@@ -212,6 +212,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
 ##### Data Sources
 
+ - [cloudregistry_folder](data-sources/cloudregistry_folder.md)
+
  - [cloudregistry_lifecycle_policy](data-sources/cloudregistry_lifecycle_policy.md)
 
  - [cloudregistry_registry](data-sources/cloudregistry_registry.md)
@@ -219,6 +221,10 @@ Yandex Cloud предоставляет провайдер, набор моду�
  - [cloudregistry_registry_ip_permission](data-sources/cloudregistry_registry_ip_permission.md)
 
 ##### Resources
+
+ - [cloudregistry_folder](resources/cloudregistry_folder.md)
+
+ - [cloudregistry_folder_iam_binding](resources/cloudregistry_folder_iam_binding.md)
 
  - [cloudregistry_lifecycle_policy](resources/cloudregistry_lifecycle_policy.md)
 
@@ -692,6 +698,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
 ##### Data Sources
 
+ - [mdb_mongodb_backup_retention_policy](data-sources/mdb_mongodb_backup_retention_policy.md)
+
  - [mdb_mongodb_cluster](data-sources/mdb_mongodb_cluster.md)
 
  - [mdb_mongodb_database](data-sources/mdb_mongodb_database.md)
@@ -699,6 +707,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
  - [mdb_mongodb_user](data-sources/mdb_mongodb_user.md)
 
 ##### Resources
+
+ - [mdb_mongodb_backup_retention_policy](resources/mdb_mongodb_backup_retention_policy.md)
 
  - [mdb_mongodb_cluster](resources/mdb_mongodb_cluster.md)
 
@@ -712,6 +722,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
 ##### Data Sources
 
+ - [mdb_mysql_backup_retention_policy](data-sources/mdb_mysql_backup_retention_policy.md)
+
  - [mdb_mysql_cluster](data-sources/mdb_mysql_cluster.md)
 
  - [mdb_mysql_database](data-sources/mdb_mysql_database.md)
@@ -723,6 +735,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
  - [mdb_mysql_user_v2](data-sources/mdb_mysql_user_v2.md)
 
 ##### Resources
+
+ - [mdb_mysql_backup_retention_policy](resources/mdb_mysql_backup_retention_policy.md)
 
  - [mdb_mysql_cluster](resources/mdb_mysql_cluster.md)
 
@@ -754,6 +768,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
 ##### Data Sources
 
+ - [mdb_postgresql_backup_retention_policy](data-sources/mdb_postgresql_backup_retention_policy.md)
+
  - [mdb_postgresql_cluster](data-sources/mdb_postgresql_cluster.md)
 
  - [mdb_postgresql_database](data-sources/mdb_postgresql_database.md)
@@ -761,6 +777,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
  - [mdb_postgresql_user](data-sources/mdb_postgresql_user.md)
 
 ##### Resources
+
+ - [mdb_postgresql_backup_retention_policy](resources/mdb_postgresql_backup_retention_policy.md)
 
  - [mdb_postgresql_cluster](resources/mdb_postgresql_cluster.md)
 
@@ -810,6 +828,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
 
 ##### Data Sources
 
+ - [mdb_redis_backup_retention_policy](data-sources/mdb_redis_backup_retention_policy.md)
+
  - [mdb_redis_cluster](data-sources/mdb_redis_cluster.md)
 
  - [mdb_redis_cluster_v2](data-sources/mdb_redis_cluster_v2.md)
@@ -817,6 +837,8 @@ Yandex Cloud предоставляет провайдер, набор моду�
  - [mdb_redis_user](data-sources/mdb_redis_user.md)
 
 ##### Resources
+
+ - [mdb_redis_backup_retention_policy](resources/mdb_redis_backup_retention_policy.md)
 
  - [mdb_redis_cluster](resources/mdb_redis_cluster.md)
 
@@ -993,6 +1015,18 @@ Yandex Cloud предоставляет провайдер, набор моду�
  - [serverless_eventrouter_connector](resources/serverless_eventrouter_connector.md)
 
  - [serverless_eventrouter_rule](resources/serverless_eventrouter_rule.md)
+
+#### Serverless Workflows
+
+##### Data Sources
+
+ - [serverless_workflow](data-sources/serverless_workflow.md)
+
+##### Resources
+
+ - [serverless_workflow](resources/serverless_workflow.md)
+
+ - [serverless_workflow_iam_binding](resources/serverless_workflow_iam_binding.md)
 
 #### Smart Captcha
 

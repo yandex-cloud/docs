@@ -15,7 +15,7 @@
   {% endnote %}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
-  1. Перейдите в сервис **{{ compute-name }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. В строке с нужной ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.common.metadata }}** передайте метаданные в формате `Ключ:Значение`.

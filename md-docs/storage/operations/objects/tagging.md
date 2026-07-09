@@ -17,7 +17,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Выберите нужный бакет из списка.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Объекты**.
   1. Нажмите на имя нужного объекта.
@@ -184,7 +184,7 @@
   Вы можете посмотреть метки в списке объектов бакета и на странице отдельного объекта.
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Выберите нужный бакет из списка.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Объекты**.
   1. Нажмите на имя нужного объекта.
@@ -291,7 +291,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Выберите нужный бакет из списка.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Объекты**.
   1. Нажмите на имя нужного объекта.

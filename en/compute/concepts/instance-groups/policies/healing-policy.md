@@ -17,13 +17,13 @@ auto_healing_policy:
 
 Where:
 
-| Key | Value |
+Key | Value
 --- | ---
-| `auto_healing_action` | Action to perform for an instance's recovery. Three types of actions are available:<ul><li>`RESTART`: Restart a failed instance.</li><li>`RECREATE`: In the event of a failure, the original instance is deleted and a new one is deployed instead.<br/>Recreating VM instances may be helpful if the data they store is not critical and the software needs to be deployed again.</li><li>`NONE`: Disable recovery for group instances.<br/>Select this option if you need to recover an instance manually or retrieve data from it to perform diagnostics.</li></ul> The default value is `RESTART`. |
+`auto_healing_action` | Instance recovery action. There are three types of actions:<ul><li>`RESTART`: On failure, the instance will be restarted.</li><li>`RECREATE`: On failure, the original instance will be deleted with a new one deployed in its place.<br/>Recreation may be helpful if the data is irrelevant, and the software needs to be redeployed.</li><li>`NONE`: Disables recovery for the group's instances.<br/>Use if you need to recover the instance manually or retrieve its data for diagnostics.</li></ul> The default value is `RESTART`.
 
 If you do not set the recovery policy, the VM instances will be [auto-healed](../../instance-groups/autohealing.md#healthcheck-cases) depending on the [deployment policy](deploy-policy.md) settings.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](scale-policy.md)
 * [{#T}](allocation-policy.md)

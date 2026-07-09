@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы научите
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите на имя нужного бакета.
   1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_versioning }}**.

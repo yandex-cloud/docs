@@ -1,9 +1,9 @@
 ---
-title: How to lease a {{ baremetal-full-name }} server with a connection to {{ backup-full-name }}
-description: Follow this guide to lease a {{ baremetal-name }} server with a connection to {{ backup-name }}.
+title: How to rent a {{ baremetal-full-name }} server with a connection to {{ backup-full-name }}
+description: Follow this guide to rent a {{ baremetal-name }} server with a connection to {{ backup-name }}.
 ---
 
-# Leasing a {{ baremetal-full-name }} server connected to {{ backup-name }}
+# Renting a {{ baremetal-full-name }} server with a connection to {{ backup-name }}
 
 
 You can back up your {{ baremetal-name }} [servers](../../../baremetal/concepts/servers.md) with supported Linux-based operating systems: {#os-support}
@@ -14,13 +14,13 @@ To connect a server to {{ backup-full-name }}, you need the `backup.user` [role]
 
 {% note warning %}
 
-Starting August 1, 2026, the [`baremetal.editor`](../../../baremetal/security/index.md#baremetal-editor) and [`baremetal.admin`](../../../baremetal/security/index.md#baremetal-admin) roles get new permissions allowing them to connect {{ baremetal-name }} servers to {{ backup-full-name }}, link and unlink them from [backup policies](../../concepts/policy.md).
+Starting August 1, 2026, the [`baremetal.editor`](../../../baremetal/security/index.md#baremetal-editor) and [`baremetal.admin`](../../../baremetal/security/index.md#baremetal-admin) roles get new permissions that allow them to connect {{ baremetal-name }} servers to {{ backup-full-name }}, as well as bind and unbind them from [backup policies](../../concepts/policy.md).
 
 {% include [denyActivation-iam-policy-pre-notice](../../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 
 {% endnote %}
 
-## Leasing a server {#server-rent}
+## Server rent {#server-rent}
 
 {% list tabs group=instructions %}
 
@@ -52,7 +52,7 @@ Starting August 1, 2026, the [`baremetal.editor`](../../../baremetal/security/in
 
 {% endlist %}
 
-For more information on leasing a server, see [this {{ baremetal-name }} guide](../../../baremetal/operations/servers/server-lease.md).
+For more information on renting a server, see [this {{ baremetal-name }} guide](../../../baremetal/operations/servers/server-lease.md).
 
 {% note info %}
 

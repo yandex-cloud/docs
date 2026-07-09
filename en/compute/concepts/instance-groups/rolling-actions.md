@@ -2,7 +2,7 @@
 
 Instances in a group can be automatically [restarted](../../operations/instance-groups/rolling-restart.md) or [recreated](../../operations/instance-groups/rolling-recreate.md) one by one based on the parameters specified in the instance group [deployment policy](./policies/deploy-policy.md). These actions can apply both to all instances in the group and to specified instances only.
 
-For example, if the maximum number of unhealthy instances per group set in the deployment policy is `1`, then, when restarting or recreating instances one by one, only one instance will be unavailable at any given time and each next instance will be restarted or recreated only after the status of the previous instance changes to `Running`.
+For example, if the deployment policy specifies a maximum of `1` unavailable instance per group, then only one instance will be down at any given time when sequentially restarting or recreating instances. In this case, each subsequent instance will only be restarted or recreated after the previous one goes into the `Running` status.
 
 _Restarting group instances one by one_ may be useful, for example, when updating the VM software. This feature allows performing automatic software updates with no downtime of the instance group resources for end users.
 
@@ -12,7 +12,7 @@ _Recreating group instances one by one_ may be useful, for example, when migrati
 
 To restart or recreate instances in a group one by one, use the {{ yandex-cloud }} [CLI](../../../cli/quickstart.md) or make an API request.
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../operations/instance-groups/rolling-restart.md)
 * [{#T}](../../operations/instance-groups/rolling-recreate.md)

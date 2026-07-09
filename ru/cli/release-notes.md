@@ -7,6 +7,53 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.18.0 (09.07.26) {#v-1-18-0}
+
+#### {{ interconnect-name }} {#v-1-18-0-cic}
+
+* Добавлена команда `yc cic revoke`.
+* Добавлены параметры `--spec`, `--ticket-id` и `--trunk-connection-id` в команды:
+  * `yc cic create`;
+  * `yc cic get`;
+  * `yc cic listoperations`.
+* Удалены параметры `--description`, `--ipv4-peering`, `--ipv4-static-routes`, `--labels`, `--name`, `--private-connection-id`, `--trunk-connection-id` и `--vlan-id` в командах:
+  * `yc cic create`;
+  * `yc cic get`;
+  * `yc cic listoperations`.
+
+#### {{ iam-name }} {#v-1-18-0-iam}
+
+* Добавлена новая команда `list-profiles`: `yc iam oauth-client list-profiles`.
+* Добавлены новые параметры при создании OAuthClient: `authentication_methods`, `profile-id` и `pkce_required`:
+  * `yc iam oauth-client create`;
+  * `yc iam oauth-client update`.
+* Добавлены команды блокировки и разблокировки сервисных аккаунтов:
+  * `yc iam service-account suspend`;
+  * `yc iam service-account reactivate`.
+
+#### {{ mpg-name }} {#v-1-18-0-mpg}
+
+* Добавлена группа команд управления `pg_repack` в кластерах {{ mpg-name }}:
+  * `yc managed-postgresql repack list-running`;
+  * `yc managed-postgresql repack launch`;
+  * `yc managed-postgresql repack terminate`.
+* Добавлен параметр управления `pg_repack` в кластерах {{ mpg-name }}:
+  * `yc managed-postgresql cluster create`;
+  * `yc managed-postgresql cluster update`.
+* Добавлен тип сервиса `repack` для просмотра логов `pg_repack` в кластерах {{ mpg-name }}: `yc managed-postgresql cluster list-logs`.
+
+#### {{ mmg-name }} {#v-1-18-0-mmg}
+
+* Добавлен новый параметр для создания пользователей с IAM-авторизацией в {{ mmg-name }}: `yc managed-mongodb user create`.
+* Добавлен новый параметр для создания и обновления пользователей `deletion-protection` в {{ mmg-name }}: `yc managed-mongodb user create`, `yc managed-mongodb user update`.
+* Добавлен новый параметр для создания и обновления баз данных `deletion-protection` в {{ mmg-name }}: `yc managed-mongodb database create, yc managed-mongodb database update`.
+
+#### {{ cloud-registry-name }} {#v-1-18-0-cloud-registry}
+
+* Добавлены параметры фильтрации по имени, виду, типу и статусу реестра в команду: `yc cloud-registry registry list`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.17.0 (06.07.26) {#v-1-17-0}
 
 #### {{ backup-name }} {#v-1-17-0-backup-name}
@@ -15,8 +62,6 @@ description: На странице представлены релизы CLI, а
 * Добавлена поддержка внешних ресурсов в команды `yc backup`:
   * `yc backup resources list`;
   * `yc backup backups list`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.16.0 (02.07.26) {#v-1-16-0}
 

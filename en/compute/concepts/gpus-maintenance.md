@@ -49,6 +49,6 @@ GPU VM maintenance tasks can have the following statuses:
 
 VMs are stopped and restarted at the scheduled time. However, users may [reschedule](../operations/vm-control/gpus-maintenance.md#reschedule-maintenance) maintenance tasks to an earlier or later time, or instantly [run](../operations/vm-control/gpus-maintenance.md#execute-now) pending tasks.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/vm-control/gpus-maintenance.md)

@@ -103,7 +103,7 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
            --access-binding role=<role>,subject=group:<group_ID>
          ```
 
-      Provide a separate `--access-binding` parameter for each role. Example:
+      Provide a separate `--access-binding` parameter for each role. Here is an example:
 
       ```bash
       yc organization-manager group set-access-bindings \
@@ -154,7 +154,7 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
 
       For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 
-  1. Create the required resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
    

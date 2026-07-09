@@ -8,6 +8,12 @@ editable: false
 
 Rules for checking cloud resource configuration.
 
+{% include [access.userpool-mfa](../../_security-deck-rules/rules/cspm/access.userpool-mfa.md) %}
+
+{% include [iam.sa-key-rotation](../../_security-deck-rules/rules/cspm/iam.sa-key-rotation.md) %}
+
+{% include [yid-organization](../../_security-deck-rules/rules/cspm/yid-organization.md) %}
+
 {% include [access.user-groups-access](../../_security-deck-rules/rules/cspm/access.user-groups-access.md) %}
 
 {% include [access.sa-privileges-org-roles](../../_security-deck-rules/rules/cspm/access.sa-privileges-org-roles.md) %}
@@ -19,8 +25,6 @@ Rules for checking cloud resource configuration.
 {% include [o11y.labeled-resources](../../_security-deck-rules/rules/cspm/o11y.labeled-resources.md) %}
 
 {% include [access.bucket-access-policy](../../_security-deck-rules/rules/cspm/access.bucket-access-policy.md) %}
-
-{% include [backup.compute-disks](../../_security-deck-rules/rules/cspm/backup.compute-disks.md) %}
 
 {% include [access.kms-keys-access](../../_security-deck-rules/rules/cspm/access.kms-keys-access.md) %}
 
@@ -42,19 +46,18 @@ Rules for checking cloud resource configuration.
 
 {% include [access.privileged-sa-access.en](../../_security-deck-rules/rules/cspm/access.privileged-sa-access.en.md) %}
 
-{% include [access.check-bindings.en](../../_security-deck-rules/rules/cspm/access.check-bindings.en.md) %}
 
 {% include [access.acl-container-registry](../../_security-deck-rules/rules/cspm/access.acl-container-registry.md) %}
 
 {% include [access.bucket-public-access](../../_security-deck-rules/rules/cspm/access.bucket-public-access.md) %}
-
-{% include [access.compute-public-ip](../../_security-deck-rules/rules/cspm/access.compute-public-ip.md) %}
 
 {% include [access.db-console-access](../../_security-deck-rules/rules/cspm/access.db-console-access.md) %}
 
 {% include [access.db-datalens-access](../../_security-deck-rules/rules/cspm/access.db-datalens-access.md) %}
 
 {% include [access.defined-key-scopes](../../_security-deck-rules/rules/cspm/access.defined-key-scopes.md) %}
+
+{% include [access.idp](../../_security-deck-rules/rules/cspm/access.idp.md) %}
 
 {% include [access.min-privileges](../../_security-deck-rules/rules/cspm/access.min-privileges.md) %}
 
@@ -102,8 +105,6 @@ Rules for checking cloud resource configuration.
 
 {% include [crypto.managed-vm-kms](../../_security-deck-rules/rules/cspm/crypto.managed-vm-kms.md) %}
 
-{% include [crypto.sa-key-rotation](../../_security-deck-rules/rules/cspm/crypto.sa-key-rotation.md) %}
-
 {% include [crypto.secrets-lockbox](../../_security-deck-rules/rules/cspm/crypto.secrets-lockbox.md) %}
 
 {% include [crypto.secrets-serverless](../../_security-deck-rules/rules/cspm/crypto.secrets-serverless.md) %}
@@ -116,13 +117,9 @@ Rules for checking cloud resource configuration.
 
 {% include [cookie-timeout.organization](../../_security-deck-rules/rules/cspm/cookie-timeout.organization.md) %}
 
-{% include [k8s.kubernetes-safe-config](../../_security-deck-rules/rules/cspm/k8s.kubernetes-safe-config.md) %}
-
 {% include [k8s.network-firewall-scope](../../_security-deck-rules/rules/cspm/k8s.network-firewall-scope.md) %}
 
 {% include [k8s.network-policy](../../_security-deck-rules/rules/cspm/k8s.network-policy.md) %}
-
-{% include [iam.group-membership-admin](../../_security-deck-rules/rules/cspm/iam.group-membership-admin.md) %}
 
 {% include [network.db-ip](../../_security-deck-rules/rules/cspm/network.db-ip.md) %}
 

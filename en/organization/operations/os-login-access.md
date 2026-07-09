@@ -19,7 +19,7 @@ With [{{ oslogin }}](../concepts/os-login.md), you can manage SSH access to [VMs
 
 {% endnote %}
 
-To create virtual machines or {{ k8s }} nodes with {{ oslogin }} access, enable this feature at the organization level. To do this:
+To create virtual machines or {{ k8s }} nodes with {{ oslogin }} access, enable this feature at the organization level. Proceed as follows:
 
 {% list tabs group=instructions %}
 
@@ -120,7 +120,7 @@ To create virtual machines or {{ k8s }} nodes with {{ oslogin }} access, enable 
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the properties of resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_organizationmanager_os_login_settings" "my_os_login_settings" {
@@ -153,22 +153,22 @@ To create virtual machines or {{ k8s }} nodes with {{ oslogin }} access, enable 
 
           {% endnote %}
 
-      For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/organizationmanager_os_login_settings).
+      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_os_login_settings).
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, navigate to the directory where you created the configuration file.
+      1. In the terminal, navigate to the directory where you created your configuration file.
       1. Run a check using this command:
 
           ```bash
           terraform plan
           ```
 
-      If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
-      1. If the configuration does not contain any errors, run this command:
+      1. If the configuration is correct, run this command:
 
           ```bash
           terraform apply
@@ -204,7 +204,7 @@ To create virtual machines or {{ k8s }} nodes with {{ oslogin }} access, enable 
 
 {% endnote %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/os-login-profile-create.md)
 * [{#T}](../operations/add-ssh.md)

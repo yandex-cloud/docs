@@ -590,7 +590,7 @@ To test the new network interface:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./vm-attach-public-ip.md)
 * [{#T}](./vm-set-static-ip.md)

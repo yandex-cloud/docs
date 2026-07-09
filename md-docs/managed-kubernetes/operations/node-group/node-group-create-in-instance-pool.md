@@ -345,7 +345,7 @@ _Пул резервов виртуальных машин_ — это заре�
 
     {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Пулы резервов виртуальных машин для групп узлов Yandex Managed Service for Kubernetes](../../concepts/node-group/reserved-pools.md)
 * [Переменные в шаблоне узла Yandex Managed Service for Kubernetes](../../concepts/node-group/variables-in-the-template.md)

@@ -23,6 +23,6 @@ A [folder’s](../../concepts/resources-hierarchy.md#folder) access policies can
 
 {% include [access-policies-revoke-folder](../../../_includes/iam/access-policies-revoke-folder.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../../iam/concepts/access-control/access-policies.md)

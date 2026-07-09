@@ -23,7 +23,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Нажмите на имя нужного бакета.
   1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **Настройки**.
   1. Выберите вкладку **Версионирование**.

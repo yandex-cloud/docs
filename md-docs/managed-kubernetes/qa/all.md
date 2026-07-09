@@ -598,7 +598,8 @@ kubectl get pods -n kube-system -l k8s-app=kube-dns -o wide
 
 ##### Убедитесь, что кластеру достаточно ресурсов CPU {#check-cpu}
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud) и выберите сервис **Managed Service for&nbsp;Kubernetes**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
 1. Нажмите на имя нужного кластера Managed Service for Kubernetes и выберите вкладку **Управление узлами**.
 1. Перейдите во вкладку **Узлы** и нажмите на имя любого узла Managed Service for Kubernetes.
 1. Перейдите во вкладку **Мониторинг**.
@@ -745,7 +746,8 @@ FATA[0000] rpc error: code = Unknown desc = error testing repository connectivit
 
    - Консоль управления {#console}
 
-     1. Перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
+     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+     1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
      1. Нажмите на имя нужного кластера Kubernetes.
      1. В блоке **Конфигурация мастера** нажмите на имя подсети.
      1. Нажмите кнопку ![subnets](../../_assets/console-icons/pencil.svg) **Редактировать** в правом верхнем углу.

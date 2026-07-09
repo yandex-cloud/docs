@@ -6,6 +6,26 @@ editable: false
 
 
 
+## 0.215.0 (July 9, 2026)
+##### FEATURES:
+* yandex_mdb_mongodb_user: support creating IAM users via new `auth_type` attribute (`PASSWORD` or `IAM`)
+* mongodb: add tri-state `deletion_protection` attribute (`true`/`false`/`null`) to yandex_mdb_mongodb_database and yandex_mdb_mongodb_user
+* mdb_clickhouse: added option auth_method to users for IAM support
+* mongodb: add yandex_mdb_mongodb_backup_retention_policy resource and datasource
+* valkey: add yandex_mdb_redis_backup_retention_policy resource and datasource
+* mysql: add yandex_mdb_mysql_backup_retention_policy resource and datasource
+* postgresql: add yandex_mdb_postgresql_backup_retention_policy resource and datasource
+
+## 0.214.0 (July 6, 2026)
+##### FEATURES:
+* serverless: added new data source yandex_serverless_workflow
+* serverless: added new resource yandex_serverless_workflow_iam_binding
+* serverless: added new resource yandex_serverless_workflow
+* cloudregistry: add `yandex_cloudregistry_folder` resource and data source
+##### BUG FIXES:
+* crypto: managed certificate `challenge_count` parameter now does not make certificate creation to fail if mispredicted
+* iam: yandex_*_iam_binding resources are now removed from state when the parent resource is deleted outside terraform, instead of failing refresh
+
 ## 0.213.0 (June 29, 2026)
 ##### FEATURES:
 * mdb_clickhouse: SSD cache dictionaries support

@@ -27,7 +27,7 @@ description: Следуя данной инструкции, вы сможете
 
 - {{ billing-interface }} {#billing}
 
-  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите аккаунт на странице **{{ ui-key.yacloud_billing.billing.title_accounts }}**. Если для выбранного платежного аккаунта есть предложения, они будут перечислены в верхнем информационном блоке.
   1. Для просмотра всех предложений на панели слева выберите ![image](../../_assets/console-icons/tag-dollar.svg) **{{ ui-key.yacloud_org.billing.account.switch_proposals }}**.
   1. На странице **{{ ui-key.yacloud_org.billing.account.proposals.label_title }}** вы сможете просмотреть активные предложения на вкладке **{{ ui-key.yacloud_org.billing.account.proposals.label_from-current }}**. Там отображаются предложения в статусе `{{ ui-key.yacloud_org.billing.account.proposals.tariff_available-title }}`. Для удобства просмотра отфильтруйте список предложений по типу условий или сервисам, а также отсортируйте их по сроку действия.

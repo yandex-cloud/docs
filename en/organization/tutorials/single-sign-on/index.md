@@ -20,6 +20,7 @@ description: Setting up integration between {{ org-full-name }} and external app
 * [{{ mgl-name }}](./saml-managed-gitlab.md)
 * [{{ mos-name }}](./saml-opensearch.md)
 * [MWS](./oidc-mws.md)
+* [NetBird](./oidc-netbird.md)
 * [{{ OS }}](./saml-opensearch-self-managed.md)
 * OpenVPN
     * [OpenVPN Access Server](./saml-ovpn.md)

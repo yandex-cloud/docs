@@ -20,7 +20,7 @@ To move an instance group to a different availability zone:
 
     {% include [ig-delete-in-zone.md](../../../_includes/compute/ig-delete-in-zone.md) %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](move-group-with-nlb.md)
 * [{#T}](move-group-with-alb.md)

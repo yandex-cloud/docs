@@ -12,6 +12,6 @@ To [set up static website hosting](index.md) in a bucket with CDN access using t
 {% include [cdn-hosting-console](../../../_tutorials/applied/cdn-hosting-console.md) %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](terraform.md)

@@ -75,7 +75,7 @@ _Снимок диска_ — это копия файловой системы 
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится диск.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски**.
   1. В строке с диском нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Создать снимок**.
   1. Введите имя снимка. Требования к имени:

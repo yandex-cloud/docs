@@ -29,7 +29,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором размещен кластер.
-      1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+      1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
       1. Напротив кластера нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
       1. В поле **Управление идентификацией и доступом** включите федерацию сервисных аккаунтов.
       1. Нажмите **Сохранить**.
@@ -186,7 +186,7 @@
 
     {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Федерации сервисных аккаунтов](../../../iam/concepts/workload-identity.md)
 * [Доступ к API Yandex Cloud из кластера Managed Service for Kubernetes с помощью федерации сервисных аккаунтов Identity and Access Management](../../tutorials/wlif-managed-k8s-integration.md)

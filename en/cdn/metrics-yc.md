@@ -5,10 +5,10 @@ description: This page provides a reference of {{ cdn-name }} metrics exported t
 
 # {{ monitoring-full-name }} metric reference
 
-This section describes the {{ cdn-name }} metrics delivered to [{{ monitoring-name }}](../monitoring/).
+This section describes {{ cdn-name }} metrics exported to [{{ monitoring-name }}](../monitoring/).
 
 {% include [cdn-yc](../_includes/monitoring/metrics-ref/cdn-yc.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [{#T}](./operations/resources/get-stats.md)

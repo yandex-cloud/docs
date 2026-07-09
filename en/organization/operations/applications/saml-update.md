@@ -130,7 +130,7 @@ To update the [SAML app's basic settings](../../concepts/applications.md#saml):
      * `description`: New SAML app description.
      * `labels`: New [labels](../../../resource-manager/concepts/labels.md).
 
-     For more information about `yandex_organizationmanager_idp_application_saml_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
+     For more on the properties of the `yandex_organizationmanager_idp_application_saml_application` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
 
   1. Apply the changes:
 
@@ -238,7 +238,7 @@ To update the service provider configuration in a SAML app:
        * `RESPONSE_ONLY`: Full SAML response.
        * `RESPONSE_AND_ASSERTION`: Full SAML response and, separately, the provided attributes.
 
-     For more information about `yandex_organizationmanager_idp_application_saml_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
+     For more on the properties of the `yandex_organizationmanager_idp_application_saml_application` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
 
   1. Apply the changes:
 
@@ -348,7 +348,7 @@ You can issue any number of new digital signature verification key certificates 
      * `application_id`: SAML application ID.
      * `name`: Certificate name.
 
-     For more information about `yandex_organizationmanager_idp_application_saml_signature_certificate` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_signature_certificate).
+     For more on the properties of the `yandex_organizationmanager_idp_application_saml_signature_certificate` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_signature_certificate).
 
   1. Create a resource:
 
@@ -380,7 +380,9 @@ Update the list of your [organization's](../../concepts/organization.md) users p
 
 {% include [saml-app-update-users-groups](../../../_includes/organization/saml-app-update-users-groups.md) %}
 
-#### See also {#see-also}
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
+#### Useful links {#see-also}
 
 * [{#T}](./saml-create.md)
 * [{#T}](./saml-deactivate-remove.md)

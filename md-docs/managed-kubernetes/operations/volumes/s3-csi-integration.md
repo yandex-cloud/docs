@@ -251,7 +251,7 @@ Container Storage Interface позволяет динамически резер
 
 1. Убедитесь, что файл попал в бакет:
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-   1. Перейдите в сервис **Object Storage**.
+   1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
    1. Нажмите на бакет `pvc-<имя_dynamic-бакета>`. Если при настройке класса хранилища было указано имя бакета, то откройте указанный бакет и каталог `pvc-<имя_dynamic-бакета>` внутри него.
 
 ### Статический PersistentVolume {#create-static-pvc}
@@ -399,5 +399,5 @@ Container Storage Interface позволяет динамически резер
 
 1. Убедитесь, что файл попал в бакет:
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-   1. Перейдите в сервис **Object Storage**.
+   1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
    1. Нажмите на бакет `<имя_static-бакета>`. Если вы указали путь к каталогу в бакете в описании статического `PersistentVolume`, то сначала откройте указанный каталог.

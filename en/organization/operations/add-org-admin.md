@@ -27,7 +27,7 @@ description: Follow this guide to assign a user as an organization administrator
 
   1. [Get the user ID](../operations/users-get.md).
 
-  1. Assign the [role](../../iam/concepts/access-control/roles.md) using this command:
+  1. Assign a [role](../../iam/concepts/access-control/roles.md) using this command:
 
       ```bash
       yc organization-manager organization add-access-binding <organization_name_or_ID> \
@@ -87,7 +87,7 @@ description: Follow this guide to assign a user as an organization administrator
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../iam/operations/sa/set-access-bindings.md)
 * [{#T}](../../resource-manager/operations/cloud/set-access-bindings.md)

@@ -84,7 +84,7 @@ To create a group of dedicated hosts:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](running-host-group-vms.md)
 * [{#T}](running-host-vms.md)

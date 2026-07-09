@@ -14,7 +14,7 @@ Log export is a paid feature. See [{#T}](../pricing.md) for billing information.
 
 {% include [logs-unload-delay](../../_includes/cdn/logs-unload-delay.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Query log reference](../logs-ref.md)
 * [Export setup guide](../operations/resources/configure-logs.md)

@@ -82,7 +82,7 @@ To create a workload identity federation, the user needs the `iam.workloadIdenti
 
       Where:
 
-      * `--name`: Name of the new federation, e.g., `sample-iam-federation`. Follow these naming requirements:
+      * `--name`: Name of the new federation, e.g., `sample-iam-federation`. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
       * `--issuer`: URL of the OIDC provider.
@@ -134,7 +134,7 @@ To create a workload identity federation, the user needs the `iam.workloadIdenti
 
       Where:
 
-      * `name`: Name of the new federation, e.g., `sample-iam-federation`. Follow these naming requirements:
+      * `name`: Name of the new federation, e.g., `sample-iam-federation`. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
       * `folder_id`: [ID](../../../resource-manager/operations/folder/get-id.md) of the folder to create the workload identity federation in.
@@ -148,7 +148,7 @@ To create a workload identity federation, the user needs the `iam.workloadIdenti
 
           To get this value, refer to the OIDC provider's documentation or contact their support.
 
-      For more information about `yandex_iam_workload_identity_oidc_federation` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_workload_identity_oidc_federation).
+      For more on the properties of the `yandex_iam_workload_identity_oidc_federation` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_workload_identity_oidc_federation).
 
   1. Create the resources:
 
@@ -261,7 +261,7 @@ To create federated credentials, the user needs the following:
 
           To get this value, refer to the OIDC provider's documentation or contact their support.
 
-      For more information about `yandex_iam_workload_identity_federated_credential` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_workload_identity_federated_credential).
+      For more on the properties of the `yandex_iam_workload_identity_federated_credential` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_workload_identity_federated_credential).
 
   1. Create the resources:
 
@@ -318,7 +318,7 @@ Content-Type: application/json
 
 Where `access_token` is the requested service account IAM token you can use for authentication when working in the [{{ yandex-cloud }} API](../../../api-design-guide/index.yaml).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../concepts/workload-identity.md).
 * [{#T}](../../tutorials/wlif-github-integration.md).

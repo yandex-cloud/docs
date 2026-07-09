@@ -5,7 +5,7 @@ description: Follow this guide to view and terminate sessions of federated and l
 
 # Managing user sessions
 
-The administrator can view and terminate {{ org-full-name }} [sessions](../concepts/sessions.md) of the organization’s [federated](../../iam/concepts/users/accounts.md#saml-federation) and [local](../../iam/concepts/users/accounts.md#local) users. The [organization](../concepts/organization.md) roles the administrator needs for that are [`organization-manager.federations.userAdmin`](../security/index.md#organization-manager-federations-userAdmin) and [`organization-manager.userpools.userAdmin`](../security/index.md#organization-manager-userpools-userAdmin) or higher, respectively.
+An administrator can view and end {{ org-full-name }} [sessions](../concepts/sessions.md) of the organization's [federated](../../iam/concepts/users/accounts.md#saml-federation) and [local](../../iam/concepts/users/accounts.md#local) users. The [organization](../concepts/organization.md) roles the administrator needs for that are [`organization-manager.federations.userAdmin`](../security/index.md#organization-manager-federations-userAdmin) and [`organization-manager.userpools.userAdmin`](../security/index.md#organization-manager-userpools-userAdmin) or higher, respectively.
 
 {% note warning %}
 
@@ -53,7 +53,7 @@ To terminate the active sessions of a federated or local user of the organizatio
       1. In the session row, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![arrow-right-from-square](../../_assets/console-icons/arrow-right-from-square.svg) **{{ ui-key.yacloud_org.actions.end }}**.
       1. In the window that opens, confirm the termination.
 
-      As a result, the user will cease to have access to services that use {{ org-full-name }} as an identity provider from the selected device.
+      As the result, the user will cease to have access to services that use {{ org-full-name }} as an identity provider from the selected device.
   1. To terminate all the user's sessions:
 
       1. In the top-right corner, click ![arrow-right-from-square](../../_assets/console-icons/arrow-right-from-square.svg) **{{ ui-key.yacloud_org.organization.users.action_end-all-sso-sessions_7DUdt }}**.
@@ -65,7 +65,7 @@ To terminate the active sessions of a federated or local user of the organizatio
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../concepts/sessions.md)
 * [{#T}](./manage-account.md)

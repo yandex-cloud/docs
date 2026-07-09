@@ -16,6 +16,8 @@
 
           {% include [kspm-admission-modes](./kspm-admission-modes.md) %}
 
+      * `HostSecurity` — тип правил из [стандарта CIS Benchmark™](../../security-deck/concepts/standard-compliance/cis-kubernetes-benchmark.md), применяемый к компонентам на рабочих узлах {{ k8s }}.
+
   * подробную информацию о контролируемых функциональностях, их параметрах или действиях с ними.
 
 - {{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_violations_dkbdT }}

@@ -10,7 +10,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится файловое хранилище.
-     1. Перейдите в сервис **Compute Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
      1. На панели слева выберите ![image](../../../_assets/console-icons/nodes-right.svg) **Файловые хранилища**.
      1. В строке нужного файлового хранилище нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
      1. В открывшемся окне нажмите **Удалить**.

@@ -107,7 +107,7 @@ To test your security profile, use information from monitoring charts and logs.
 
 {% endlist %}
 
-For detailed description of charts, see [{#T}](../../smartwebsecurity/operations/monitoring.md).
+For a detailed description of charts, see [{#T}](../../smartwebsecurity/operations/monitoring.md).
 
 ### Logging {#logs}
 

@@ -15,7 +15,7 @@ To migrate a service from a network load balancer to an L7 load balancer:
 
 ## Getting started {#before-you-begin}
 
-The {{ managed-k8s-name }} services used as backends must be of the `NodePort` type. If your service type is different, change it to `NodePort`. For more information about this type, see [this {{ k8s }} article](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
+The {{ managed-k8s-name }} services used as backends must be of the `NodePort` type. If your service type is different, change it to `NodePort`. For more about this type, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport).
 
 ## Create the infrastructure {#deploy}
 
@@ -43,7 +43,7 @@ The {{ managed-k8s-name }} services used as backends must be of the `NodePort` t
     * `certificate` (for `HTTPS`): Path to the self-signed custom certificate.
     * `private_key` (for `HTTPS`): Path to the private key file.
 
-1. Make sure the {{ TF }} configuration files are correct using this command:
+1. Validate your {{ TF }} configuration files using this command:
 
     ```bash
     terraform validate

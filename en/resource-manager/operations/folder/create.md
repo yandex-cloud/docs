@@ -1,4 +1,4 @@
-# Creating a folder
+# Creating a metadata catalog
 
 A _folder_ is a space where {{ yandex-cloud }} resources are created and [grouped](../../concepts/resources-hierarchy.md).
 
@@ -26,7 +26,7 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and [groupe
             --name new-folder
           ```
 
-          Follow these naming requirements:
+          The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -44,12 +44,12 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and [groupe
 
   1. In the configuration file, describe the resources you want to create:
 
-     * `cloud_id`: [ID of the cloud](../cloud/get-id.md) to create the folder in. This is an optional parameter. The default value in use is the one specified in the provider settings.
-     * `name`: Name of the new folder. This is a required setting. Follow these naming requirements:
+     * `cloud_id`: [ID of the cloud](../cloud/get-id.md) to create the folder in. This is an optional setting. It defaults to the value specified in the provider settings.
+     * `name`: Name of the new folder. This is a required setting. The naming requirements are as follows:
 
        {% include [name-format](../../../_includes/name-format.md) %}
 
-     * `description`: Folder description. This is an optional parameter.
+     * `description`: Folder description. This is an optional setting.
 
      Here is an example of the configuration file structure:
 
@@ -61,11 +61,11 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and [groupe
      }
      ```
 
-     For more information about the `yandex_resourcemanager_folder` parameters in {{ TF }}, see the [relevant {{ TF }} article]({{ tf-provider-resources-link }}/resourcemanager_folder).
+     For more on the properties of the `yandex_resourcemanager_folder` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_folder).
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the folder where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
 
      1. Check the configuration using this command:
 
@@ -73,7 +73,7 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and [groupe
         terraform validate
         ```
      
-        If the configuration is correct, you will get this message:
+        If the configuration is valid, you will get this message:
      
         ```
         Success! The configuration is valid.
@@ -85,17 +85,17 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and [groupe
         terraform plan
         ```
 
-        If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+        If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
 
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```
         terraform apply
         ```
 
-     1. Confirm the creation of the resources: in the terminal, type `yes` and press **Enter**.
+     1. Confirm creating the resources: type `yes` and press **Enter**.
 
         This will create the folder in the specified cloud. You can check the new folder and its settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 

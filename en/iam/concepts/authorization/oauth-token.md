@@ -52,6 +52,6 @@ These services and utilities can request an IAM token automatically, so you can 
 * [{#T}](../../../tutorials/infrastructure-management/run-docker-on-vm/index.md)
 * [{#T}](../../../serverless-containers/tutorials/movies-database.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * Learn more about Yandex OAuth [here](https://yandex.com/dev/id/doc/dg/oauth/concepts/about.html).

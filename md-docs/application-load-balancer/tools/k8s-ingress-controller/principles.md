@@ -90,7 +90,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан нужный кластер Managed Service for Kubernetes.
-  1. В списке сервисов выберите **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Выберите кластер Managed Service for Kubernetes, по конфигурации `Ingress` которого был создан балансировщик.
   1. На странице кластера Managed Service for Kubernetes перейдите на вкладку ![shapes-3](../../../_assets/console-icons/shapes-3.svg) **Пользовательские ресурсы**.
   1. Выберите `ingressgroupstatuses.alb.yc.io` и перейдите на вкладку **Ресурсы**.

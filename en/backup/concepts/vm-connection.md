@@ -13,7 +13,7 @@ You can connect the following to {{ backup-name }}:
 * VMs created from other images, if those images are supported by the Cyberprotect backup [provider](./index.md#providers). You will need to [install the {{ backup-name }} agent on such VMs manually](#self-install).
 * {{ baremetal-name }} servers running a [supported](#self-install) operating system. You can install the {{ backup-name }} agent on {{ baremetal-name }} servers either [manually](#self-install) or automatically when [ordering](../../baremetal/operations/servers/server-lease.md) a server.
 
-For more information about connecting to {{ backup-name }}, see these [guides](../operations/index.md).
+To learn more about connecting to {{ backup-name }}, see [these guides](../operations/index.md).
 
 For the {{ backup-name }} connection to work correctly, link to the resource a [service account](#sa) (with the `backup.user` role or higher for the VM or the `baremetal.editor` and the `backup.user` roles or higher for the {{ baremetal-name }} server) and configure [network access](#vm-network-access).
 
@@ -27,7 +27,7 @@ After connecting to {{ backup-name }}, [add](../operations/policy-vm/attach-and-
 
 {% include [vm-running](../../_includes/backup/vm-running.md) %}
 
-You can also link a policy to a VM or {{ baremetal-name }} server when creating the VM/ordering the server. A policy is linked asynchronously after you create and initialize a VM/server and after you install and configure the {{ backup-name }} agent. This may take up to 10-15 minutes. For more information on automatic linking of policies to VMs, see [{#T}](../tutorials/vm-with-backup-policy/index.md).
+You can also link a policy to a VM or {{ baremetal-name }} server when creating the VM/ordering the server. A policy is linked asynchronously after you create and initialize a VM/server and after you install and configure the {{ backup-name }} agent. This may take up to 10-15 minutes. To learn more about automatically linking policies to VMs, see [{#T}](../tutorials/vm-with-backup-policy/index.md).
 
 ## VM and {{ baremetal-name }} server specification requirements {#requirements}
 

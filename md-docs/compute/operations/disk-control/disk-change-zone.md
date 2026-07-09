@@ -76,7 +76,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится диск.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски**.
   1. В строке с диском нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Создать снимок**.
   1. Введите имя снимка. Требования к имени:
@@ -273,7 +273,7 @@
 
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. Нажмите кнопку **Создать виртуальную машину**.
   1. В блоке **Образ загрузочного диска**:

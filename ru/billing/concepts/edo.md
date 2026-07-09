@@ -41,7 +41,7 @@ description: Электронный документооборот (ЭДО) ис
 
 ## Как проверить подключение к ЭДО {#check}
 
-1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 1. Вверху страницы выберите нужный аккаунт.
 1. На странице аккаунта в блоке **{{ ui-key.yacloud_org.billing.account.dashboard-info.section_contract }}**:
      * Указан оператор ЭДО, если ЭДО подключен.

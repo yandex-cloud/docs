@@ -20,9 +20,11 @@ yandex.cloud.audit.cloudregistry.<имя_события>
 `SetArtifactAccessBindings` | Назначение прав доступа для артефакта
 `SetIpPermissions` | Настройка доступа для IP-адресов
 `SetRegistryAccessBindings` | Назначение прав доступа на реестр
+`SetRegistryFolderAccessBindings` | Назначение прав доступа к каталогу реестра
 `SetupDelegation` | Назначение прав делегирования сервисному аккаунту для доступа к ресурсам облака
 `UpdateArtifact` | Изменение артефакта
 `UpdateArtifactAccessBindings` | Изменение прав доступа для артефакта
 `UpdateIpPermissions` | Изменение доступа для IP-адресов
 `UpdateRegistry` | Изменение реестра
 `UpdateRegistryAccessBindings` | Изменение прав доступа на реестр
+`UpdateRegistryFolderAccessBindings` | Изменение прав доступа к каталогу реестра

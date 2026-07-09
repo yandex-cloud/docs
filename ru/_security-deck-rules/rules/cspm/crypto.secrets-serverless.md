@@ -7,13 +7,7 @@
 
 #### Описание
 
-{% note tip "**Автоматическая проверка**" %}
-
-Данный контроль автоматически проверяет использование секретов Lockbox в serverless функциях и контейнерах.
-
-{% endnote %}
-
-При работе с Serverless Containers или Cloud Functions часто возникает необходимость использовать секрет (токен, пароль и т.д.).
+При работе с Serverless Containers или Cloud Functions часто возникает необходимость использовать секрет (токен, пароль и т. д.).
 
 Если указать секретную информацию в переменных окружения, она может быть доступна для просмотра любому пользователю облака с правами на просмотр и использование функции и влечет за собой риски ИБ.
 
@@ -23,6 +17,8 @@
 
 #### Инструкции и решения по выполнению
 
-* Удалите секретные данные из env и воспользуйтесь функционалом интеграции с Lockbox:
-  * Передать секреты Yandex Lockbox в контейнер: https://yandex.cloud/ru/docs/serverless-containers/operations/lockbox-secret-transmit
-  * Передать секреты Yandex Lockbox в функцию: https://yandex.cloud/ru/docs/functions/operations/function/lockbox-secret-transmit
+**Инструкции и решения по выполнению:**
+
+Удалите секретные данные из `env` и воспользуйтесь функционалом интеграции с Lockbox:
+
+* [Передать секреты Yandex Lockbox в контейнер](https://yandex.cloud/ru/docs/serverless-containers/operations/lockbox-secret-transmit). * [Передать секреты Yandex Lockbox в функцию](https://yandex.cloud/ru/docs/functions/operations/function/lockbox-secret-transmit).

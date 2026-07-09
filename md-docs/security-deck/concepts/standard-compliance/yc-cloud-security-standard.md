@@ -11,6 +11,7 @@
 #|
 || Идентификатор требования | Требование [стандарта безопасности](../../../security/standard/all.md) | Идентификаторы проверки в [модуле CSPM](../cspm.md) ||
 || **Аутентификация и управление доступом** {align="center"} | > | > ||
+|| `IAM1` | [Настроена федерация удостоверений (Single Sign-On, SSO)](../../../security/standard/all.md#saml-federation) | [cspm.access.idp](../../rules-reference/cspm.md#idp) ||
 || `IAM2` | [Настроено сопоставление групп пользователей в федерации удостоверений](../../../security/standard/all.md#group-mapping) | [cspm.access.user-groups-mapping](../../rules-reference/cspm.md#access-user-groups-mapping) ||
 || `IAM4` | [Таймаут жизни cookie в федерации меньше 6 часов](../../../security/standard/all.md#cookie-timeout) | [cspm.cookie-timeout.organization](../../rules-reference/cspm.md#cookie-timeout-organization) ||
 || `IAM5` | [Только необходимые администраторы управляют членством в IAM-группах](../../../security/standard/all.md#iam-admins) | [cspm.access.user-groups-access](../../rules-reference/cspm.md#user-groups-access) ||
@@ -20,13 +21,12 @@
 [cspm.access.sa-privileges-service-roles](../../rules-reference/cspm.md#sa-privileges-service-roles)
 ||
 || `IAM10` | [Только доверенные администраторы имеют доступ к сервисным аккаунтам](../../../security/standard/all.md#sa-admins) | [cspm.access.privileged-sa-access](../../rules-reference/cspm.md#access-privileged-sa-access) ||
-|| `IAM11` | [Выполняется периодическая ротация ключей сервисных аккаунтов](../../../security/standard/all.md#sa-key-rotation) | [cspm.crypto.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation) ||
+|| `IAM11` | [Выполняется периодическая ротация ключей сервисных аккаунтов](../../../security/standard/all.md#sa-key-rotation) | [cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation) ||
 || `IAM12` | [Для API-ключей сервисных аккаунтов задана область действия](../../../security/standard/all.md#api-key-scopes) | [cspm.access.defined-key-scopes](../../rules-reference/cspm.md#defined-key-scopes) ||
 || `IAM16` | [На ВМ отключено получение токена через AWS IMDSv1](../../../security/standard/all.md#aws-token) | [cspm.aws-token](../../rules-reference/cspm.md#aws-token) ||
 || `IAM18` | [Привилегированные роли назначены только доверенным администраторам](../../../security/standard/all.md#privileged-users) | [cspm.access.check-privileged-roles](../../rules-reference/cspm.md#check-privileged-roles) ||
 || `IAM22` | [Для ресурсов в организации отсутствует публичный доступ](../../../security/standard/all.md#public-access) | [cspm.access.public-access](../../rules-reference/cspm.md#public-access) ||
 || `IAM24` | [На ресурсах используются метки](../../../security/standard/all.md#labels) | [cspm.o11y.labeled-resources](../../rules-reference/cspm.md#labeled-resources) ||
-|| `IAM27` | [Регулярно проводится аудит прав доступа пользователей и сервисных аккаунтов с использованием Yandex Security Deck CIEM](../../../security/standard/all.md#ciem-access-control) | [cspm.access.check-bindings](../../rules-reference/cspm.md#access-check-bindings) ||
 || **Сетевая безопасность** {align="center"} | > | > ||
 || `NET1` | [Для объектов облака используется межсетевой экран или группы безопасности](../../../security/standard/all.md#firewall) | [cspm.network.firewall](../../rules-reference/cspm.md#firewall) ||
 || `NET2` | [В Yandex Virtual Private Cloud существует как минимум одна группа безопасности](../../../security/standard/all.md#vpc-sg) | [cspm.network.network-firewall](../../rules-reference/cspm.md#network-firewall) ||

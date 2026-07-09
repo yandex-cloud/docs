@@ -22,7 +22,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создана прерываемая ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. Нажмите кнопку **Создать виртуальную машину**.
   1. В блоке **Образ загрузочного диска** выберите один из [образов](../../concepts/image.md) и версию операционной системы.
@@ -468,7 +468,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится прерываемая ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. В строке с нужной ВМ нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Остановить**.
   1. В открывшемся окне нажмите **Остановить**. Статус ВМ изменится на `Stopped`.
