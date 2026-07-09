@@ -31,7 +31,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Нажмите на имя нужной ВМ.
   1. В правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **Изменить ВМ**.
   1. В блоке **Дополнительно** выберите один из существующих сервисных аккаунтов или создайте новый.

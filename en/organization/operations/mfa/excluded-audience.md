@@ -117,7 +117,7 @@ Exceptions prevent an [MFA policy](../../concepts/mfa.md#mfa-policies) from appl
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./add-users.md)
 * [{#T}](./create-policy.md)

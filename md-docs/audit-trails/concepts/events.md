@@ -147,6 +147,11 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `dedicated_instance.StartDedicatedInstance` | Запуск выделенного инстанса
 `dedicated_instance.StopDedicatedInstance` | Остановка выделенного инстанса
 `dedicated_instance.UpdateDedicatedInstance` | Изменение выделенного инстанса
+`foundationmodels.UpdateDataLogging` | Изменение настроек логирования данных
+`guardrails.BlockContentByClassifier` | Блокировка контента по классификатору
+`guardrails.BlockContentByDictionary` | Блокировка контента по словарю
+`guardrails.ChangeDefaultGuardrail` | Изменение правила модерации по умолчанию
+`guardrails.CompleteContentCheck` | Завершение проверки контента
 `guardrails.CreateDictionary` | Создание [словаря](https://aistudio.yandex.ru/docs/ru//ai-studio/concepts/security/guardrails#dictionaries) фраз и регулярных выражений в [правиле модерации](https://aistudio.yandex.ru/docs/ru//ai-studio/concepts/security/guardrails#rules)
 `guardrails.CreateGuardrail` | Создание правила модерации
 `guardrails.DeleteDictionary` | Удаление словаря фраз и регулярных выражений из правила модерации
@@ -161,6 +166,16 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `mcp_hub.SetMcpGatewayAccessBindings` | Назначение прав доступа для MCP-сервера
 `mcp_hub.UpdateMcpGateway` | Изменение MCP-сервера
 `mcp_hub.UpdateMcpGatewayAccessBindings` | Изменение прав доступа для MCP-сервера
+`responses.CancelResponse` | Отмена ответа
+`responses.CreateResponse` | Создание ответа
+`responses.DeleteResponse` | Удаление ответа
+`responses.FileSearchToolSearch` | Поиск по файлам через инструмент поиска
+`responses.GetResponse` | Получение ответа
+`responses.McpToolApprovalRequest` | Запрос подтверждения вызова MCP-инструмента
+`responses.McpToolApprovalResponse` | Ответ на запрос подтверждения вызова MCP-инструмента
+`responses.McpToolCall` | Вызов MCP-инструмента
+`responses.McpToolList` | Получение списка MCP-инструментов
+`responses.WebSearchToolSearch` | Поиск через инструмент веб-поиска (Web Search)
 `settings.SetFolderSettings` | Изменение настроек сервиса в каталоге
 `tuning.CancelTuning` | Остановка [дообучения](https://aistudio.yandex.ru/docs/ru//ai-studio/concepts/tuning/index) модели
 `tuning.StartTuning` | Запуск дообучения модели
@@ -239,6 +254,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 --- | ---
 `CreateCloudApplication` | Создание приложения
 `DeleteCloudApplication` | Удаление приложения
+`RestoreInstanceBackup` | Восстановление инстанса из резервной копии
 `SetApplicationAccessBindings` | Назначение прав доступа для приложения
 `UpdateApplicationAccessBindings` | Изменение прав доступа для приложения
 `UpdateCloudApplication` | Изменение приложения
@@ -261,6 +277,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 
 Имя события | Описание
 --- | ---
+`ActivateProvider` | Активация провайдера резервного копирования
 `ApplyPolicy` | Применение политики резервного копирования
 `CreateBackup` | Создание резервной копии
 `CreateDirectory` | Создание новой директории внутри ВМ или сервера Yandex BareMetal
@@ -352,6 +369,18 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `UpdateDnsZoneAccessBindings` | Изменение прав доступа к зоне DNS
 `UpdatePrivateNetworks` | Изменение приватных сетей
 `UpdateRecordSets` | Изменение набора записей
+`CreateDnsFirewall` | Создание DNS Firewall
+`CreateDnsInboundEndpoint` | Создание входящей DNS-точки подключения
+`DeleteDnsFirewall` | Удаление DNS Firewall
+`DeleteDnsInboundEndpoint` | Удаление входящей DNS-точки подключения
+`MoveDnsFirewall` | Перемещение DNS Firewall
+`MoveDnsZone` | Перемещение зоны DNS
+`SetDnsFirewallAccessBindings` | Назначение прав доступа к DNS Firewall
+`SetDnsInboundEndpointAccessBindings` | Назначение прав доступа к входящей DNS-точке подключения
+`UpdateDnsFirewall` | Изменение DNS Firewall
+`UpdateDnsFirewallAccessBindings` | Изменение прав доступа к DNS Firewall
+`UpdateDnsInboundEndpoint` | Изменение входящей DNS-точки подключения
+`UpdateDnsInboundEndpointAccessBindings` | Изменение прав доступа к входящей DNS-точке подключения
 
 ## Yandex Cloud Functions {#functions}
 
@@ -387,20 +416,24 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 
 Имя события | Описание
 --- | ---
-`ChangeLogGroupAccessBindings` | Изменение прав доступа для лог-группы
 `CreateExport` | Создание выгрузки логов
 `CreateLogGroup` | Создание лог-группы
+`CreateRoutingRule` | Создание правила маршрутизации
 `CreateSink` | Создание приемника логов
 `DeleteExport` | Удаление выгрузки логов
 `DeleteLogGroup` | Удаление лог-группы
+`DeleteRoutingRule` | Удаление правила маршрутизации
 `DeleteSink` | Удаление приемника логов
 `SetExportAccessBindings` | Назначение прав доступа для выгрузки логов
 `SetLogGroupAccessBindings` | Назначение прав доступа для лог-группы
 `SetSinkAccessBindings` | Назначение прав доступа для приемника логов
+`SetRoutingRuleAccessBindings` | Назначение прав доступа к правилу маршрутизации
 `UpdateExport` | Изменение выгрузки логов 
 `UpdateExportAccessBindings` | Изменение прав доступа для выгрузки логов
 `UpdateLogGroup` | Изменение лог-группы
 `UpdateLogGroupAccessBindings` | Изменение прав доступа для лог-группы
+`UpdateRoutingRule` | Изменение правила маршрутизации
+`UpdateRoutingRuleAccessBindings` | Изменение прав доступа к правилу маршрутизации
 `UpdateSink` | Изменение приемника логов
 `UpdateSinkAccessBindings` | Изменение прав доступа для приемника логов
 
@@ -445,6 +478,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteOrganization` | Удаление организации
 `DeleteOsLoginProfile` | Удаление профиля OS Login
 `DeleteUserSshKey` | Удаление SSH-ключа пользователя
+`idp.AddUserBlock` | Добавление блока пользователя
 `idp.AddUserpoolDomain` | Привязка домена к пулу пользователей
 `idp.branding.CreateAsset` | Загрузка ресурса для [брендирования](../../organization/concepts/branding.md)
 `idp.branding.CreateBranding` | Создание брендирования
@@ -471,6 +505,9 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `idp.ValidateUserpoolDomain` | Валидация домена, привязываемого к пулу пользователей
 `oauth.CreateApplication` | Создание [OIDC](https://openid.net/developers/how-connect-works/)-приложения
 `oauth.DeleteApplication` | Удаление OIDC-приложения
+`oauth.OAuthFederationPrivateTlsCreateCertificate` | Создание TLS-сертификата для приватной OAuth-федерации
+`oauth.OAuthFederationPrivateTlsDeleteCertificate` | Удаление TLS-сертификата для приватной OAuth-федерации
+`oauth.OAuthFederationPrivateTlsUpdateCertificate` | Изменение TLS-сертификата для приватной OAuth-федерации
 `oauth.ReactivateApplication` | Активация OIDC-приложения
 `oauth.SetApplicationAccessBindings` | Назначение прав доступа к OIDC-приложению
 `oauth.SuspendApplication` | Деактивация OIDC-приложения
@@ -484,18 +521,15 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `policy.UpdateAuthenticationPolicyRule` | Изменение правила политики аутентификации
 `RejectInvitation` | Отказ от приглашения
 `ResendInvitation` | Повторная отправка приглашения
-`SetDefaultProfile` | Назначение профиля по умолчанию
-`SetGroupAccessBindings` | Назначение прав доступа к группе пользователей
-`SetOrganizationAccessBindings` | Назначение прав доступа к организации
-`saml.AddFederationDomain` | Привязка [домена](../../organization/concepts/domains.md) к федерации
 `saml.AddFederatedUserAccounts` | Добавление пользователя в федерацию
+`saml.AddFederationDomain` | Привязка [домена](../../organization/concepts/domains.md) к федерации
 `saml.CreateApplication` | Создание [SAML](../../organization/concepts/add-federation.md)-приложения
 `saml.CreateFederation` | Создание федерации удостоверений
 `saml.CreateSignatureCertificate` | Создание сертификата для подписи
 `saml.DeleteApplication` | Удаление SAML-приложения
+`saml.DeleteFederatedUserAccounts` | Удаление пользователя из федерации
 `saml.DeleteFederation` | Удаление федерации удостоверений
 `saml.DeleteFederationDomain` | Удаление домена
-`saml.DeleteFederatedUserAccounts` | Удаление пользователя из федерации
 `saml.DeleteSignatureCertificate` | Удаление сертификата для подписи
 `saml.ReactivateApplication` | Активация SAML-приложения
 `saml.ReactivateFederatedUserAccounts` | Активация федеративного пользователя
@@ -509,13 +543,18 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `saml.UpdateSignatureCertificate` | Изменение сертификата для подписи
 `saml.UploadSignatureCertificate` | Загрузка сертификата для подписи
 `saml.ValidateFederationDomain` | Валидация домена, привязываемого к федерации 
+`SetDefaultProfile` | Назначение профиля по умолчанию
+`SetGroupAccessBindings` | Назначение прав доступа к группе пользователей
+`SetOrganizationAccessBindings` | Назначение прав доступа к организации
 `UnbindOrganizationAccessPolicy` | Отмена привязки политики авторизации в организации
 `UpdateGroup` | Изменение группы пользователей
 `UpdateGroupAccessBindings` | Изменение прав доступа к группе пользователей
 `UpdateGroupMapping` | Изменение сопоставления групп федеративных пользователей
+`UpdateGroupMappingItems` | Изменение элементов сопоставления групп
 `UpdateGroupMembers` | Изменение состава участников группы пользователей
 `UpdateMfaEnforcement` | Изменение политики MFA
 `UpdateMfaEnforcementAudience` | Изменение целевых пользователей политики MFA
+`UpdateMfaEnforcementExcludedAudience` | Изменение списка исключений для принудительного использования MFA
 `UpdateOrganization` | Изменение организации
 `UpdateOrganizationAccessBindings` | Изменение прав доступа к организации
 `UpdateOrganizationAccessPolicyBindingParameters` | Изменение параметров политики авторизации в организации
@@ -551,12 +590,14 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `SetArtifactAccessBindings` | Назначение прав доступа для артефакта
 `SetIpPermissions` | Настройка доступа для IP-адресов
 `SetRegistryAccessBindings` | Назначение прав доступа на реестр
+`SetRegistryFolderAccessBindings` | Назначение прав доступа к каталогу реестра
 `SetupDelegation` | Назначение прав делегирования сервисному аккаунту для доступа к ресурсам облака
 `UpdateArtifact` | Изменение артефакта
 `UpdateArtifactAccessBindings` | Изменение прав доступа для артефакта
 `UpdateIpPermissions` | Изменение доступа для IP-адресов
 `UpdateRegistry` | Изменение реестра
 `UpdateRegistryAccessBindings` | Изменение прав доступа на реестр
+`UpdateRegistryFolderAccessBindings` | Изменение прав доступа к каталогу реестра
 
 ## Yandex Cloud Video {#video}
 
@@ -679,6 +720,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `instancegroup.EnableZones` | Включение зон доступности
 `instancegroup.PauseInstanceGroup` | Приостановка процессов управления группой ВМ
 `instancegroup.ResumeInstanceGroup` | Возобновление процессов управления группой ВМ
+`instancegroup.RollingRecreateInstanceGroupInstances` | Поочередное пересоздание ВМ из группы
 `instancegroup.RollingRestartInstanceGroupInstances` | Поочередная перезагрузка ВМ из группы
 `instancegroup.SetInstanceGroupAccessBindings` | Назначение ролей на группу ВМ
 `instancegroup.StartInstanceGroup` | Запуск группы ВМ
@@ -706,14 +748,15 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteRepository` | Удаление репозитория
 `DeleteScanPolicy` | Удаление политики сканирования
 `ScanImage` | Сканирование Docker-образа
+`SetIpPermission` | Назначение прав доступа к IP-разрешению
+`SetRegistryAccessBindings`  | Назначение прав доступа на реестр
+`SetRepositoryAccessBindings` | Назначение прав доступа на репозиторий
 `UpdateIpPermission` | Изменение политики доступа к реестру
 `UpdateLifecyclePolicy` | Изменение политики автоматического удаления Docker-образов
 `UpdateRegistry` | Изменение реестра
 `UpdateScanPolicy` | Изменение политики сканирования
 `UpdateRegistryAccessBindings` | Изменение прав доступа на реестр  
 `UpdateRepositoryAccessBindings` | Изменение прав доступа на репозиторий
-`SetRegistryAccessBindings`  | Назначение прав доступа на реестр
-`SetRepositoryAccessBindings` | Назначение прав доступа на репозиторий
 
 ## Yandex Data Processing {#dataproc}
 
@@ -738,18 +781,25 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 
 Имя события | Описание
 --- | ---
+`AddTablesToTransfer` | Добавление таблиц в трансфер
 `ActivateTransfer` | Активация трансфера
 `CreateEndpoint` | Создание эндпоинта
 `CreateTransfer` | Создание трансфера
 `DeactivateTransfer` | Деактивация трансфера
 `DeleteEndpoint` | Удаление эндпоинта
 `DeleteTransfer` | Удаление трансфера
-`FreezeTransferVersion` | Фиксация для трансфера определенной версии data plane
+`FreezeTransferVersion` | Фиксация для трансфера определенной версии
 `RestartTransfer` | Перезапуск трансфера
-`UnfreezeTransferVersion` | Разрешение обновления трансфера до последней версии data plane
+`PauseTransfer` | Приостановка трансфера
+`RemoveTablesFromTransfer` | Удаление таблиц из трансфера
+`ReUploadTransfer` | Повторная загрузка трансфера
+`StartTransfer` | Запуск трансфера
+`TestTransfer` | Тестирование трансфера
+`UnfreezeTransferVersion` | Разрешение обновления трансфера до последней версии
 `UpdateEndpoint` | Изменение эндпоинта
 `UpdateTransfer` | Изменение трансфера
-`UpdateTransferVersion` | Обновление версии data plane трансфера
+`UpdateTransferVersion` | Обновление версии трансфера
+`UploadTransfer` | Загрузка трансфера
 
 ## Yandex DataLens {#datalens}
 
@@ -848,6 +898,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteSparkConnector` | Удаление коннектора Apache Spark™
 `DeleteYandexDataProcessing` | Удаление шаблона Yandex Data Processing
 `ExecuteJob` | Запуск выполнения задания
+`ExportJupyterProject` | Экспорт проекта Jupyter
 `OpenProject` | Открытие проекта
 `ResumeNode` | Возобновление работы ноды
 `SetCommunityAccessBindings` | Назначение прав доступа для сообщества
@@ -951,6 +1002,9 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 
 Имя события | Описание
 --- | ---
+`asymmetricencryption.CancelAsymmetricEncryptionKeyDeletion` | Отмена удаления асимметричной ключевой пары шифрования
+`asymmetricsignature.CancelAsymmetricSignatureKeyDeletion` | Отмена удаления ключевой пары электронной подписи
+`asymmetricsignature.UpdateAsymmetricSignatureKeyAccessBindings` | Изменение прав доступа к асимметричному ключу подписи
 `CancelDeleteSymmetricKey` | Отмена ранее запланированного уничтожения ключа
 `CancelSymmetricKeyVersionDestruction` | Отмена ранее запланированного уничтожения версии симметричного ключа
 `CreateAsymmetricEncryptionKey` | Создание асимметричной ключевой пары шифрования
@@ -970,8 +1024,6 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `UpdateSymmetricKey` | Изменение симметричного ключа
 `UpdateSymmetricKeyAccessBindings` | Изменение прав доступа для симметричного ключа
 `UpdateAsymmetricEncryptionKeyAccessBindings` | Изменение прав доступа для асимметричной ключевой пары шифрования
-`asymmetricencryption.CancelAsymmetricEncryptionKeyDeletion` | Отмена удаления асимметричной ключевой пары шифрования
-`asymmetricsignature.CancelAsymmetricSignatureKeyDeletion` | Отмена удаления ключевой пары электронной подписи
 
 ## Yandex Lockbox {#lockbox}
 
@@ -1091,6 +1143,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `ReconfigureGitlab` | Изменение конфигурации GitLab
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `ResizeInstance` | Изменение размера инстанса
+`RestoreInstanceBackup` | Восстановление инстанса из резервной копии
 `RollbackMigration` | Отмена процесса миграции инстанса в другую зону доступности
 `ScheduleUpgrade` | Назначение времени обновления инстанса
 `StartInstance` | Запуск инстанса
@@ -1135,6 +1188,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteNodeGroup` | Удаление группы узлов
 `DeleteStoppedCluster` | Удаление остановленного кластера
 `InstallHelmRelease` | Установка версии Helm
+`ScaleMaster` | Масштабирование основного узла
 `SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
@@ -1602,6 +1656,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `CreateLoadBalancer` | Создание прокси-сервера
 `CreateMatchList` | Создание списка адресов
 `CreateSecurityProfile` | Создание профиля безопасности
+`CreateSolidWafProfile` | Создание профиля SolidWall WAF
 `CreateWafProfile` | Создание профиля WAF
 `DeleteArlProfile` | Удаление профиля ARL
 `DeleteCustomPage` | Удаление шаблона страницы ответа
@@ -1609,6 +1664,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `DeleteLoadBalancer` | Удаление прокси-сервера
 `DeleteMatchList` | Удаление списка адресов
 `DeleteSecurityProfile` | Удаление профиля безопасности
+`DeleteSolidWafProfile` | Удаление профиля SolidWall WAF
 `DeleteWafProfile` | Удаление профиля WAF
 `StartLoadBalancer` | Запуск прокси-сервера
 `StopLoadBalancer` | Остановка прокси-сервера
@@ -1618,6 +1674,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 `UpdateLoadBalancer` | Изменение прокси-сервера
 `UpdateMatchList` | Изменение списка адресов
 `UpdateSecurityProfile` | Изменение профиля безопасности
+`UpdateSolidWafProfile` | Изменение профиля SolidWall WAF
 `UpdateWafProfile` | Изменение профиля WAF
 
 ## Yandex SpeechSense {#speechsense}
@@ -1627,6 +1684,7 @@ yandex.cloud.audit.<имя_сервиса>.<имя_события>
 Имя события | Описание
 --- | ---
 `CreateProject` | Создание проекта
+`CreateProjectBinding` | Создание привязки проекта
 `CreateSpace` | Создание пространства
 `DeleteProject` | Удаление проекта
 `DeleteSpace` | Удаление пространства

@@ -9,11 +9,10 @@
 #|
 || Идентификатор требования | Требование стандарта безопасности | Идентификаторы проверки в [модуле CSPM](../cspm.md) ||
 || **Идентификация и аутентификация субъектов доступа и объектов доступа** (ИАФ) {align="center"} | > | > ||
-|| ИАФ.1 | Идентификация и аутентификация пользователей, являющихся работниками оператора | [cspm.access.check-bindings](../../rules-reference/cspm.md#access-check-bindings}) ||
 || ИАФ.4 | Управление средствами аутентификации, в том числе хранение, выдача, инициализация, блокирование средств аутентификации и принятие мер в случае утраты и (или) компрометации средств аутентификации |
 [cspm.crypto.secrets-lockbox](../../rules-reference/cspm.md#secrets-lockbox)
 [cspm.crypto.secrets-serverless](../../rules-reference/cspm.md#secrets-serverless)
-[cspm.crypto.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
+[cspm.iam.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
 [cspm.aws-token](../../rules-reference/cspm.md#aws-token)
 ||
 || **Управление доступом субъектов доступа к объектам доступа** (УПД) {align="center"} | > | > ||
@@ -54,7 +53,6 @@
 || УПД.17 | Обеспечение доверенной загрузки средств вычислительной техники | [cspm.crypto.managed-vm-kms](../../rules-reference/cspm.md#managed-vm-kms) ||
 || **Ограничение программной среды** (ОПС) {align="center"} | > | > ||
 || ОПС.1 | Управление запуском (обращениями) компонентов программного обеспечения, в том числе определение запускаемых компонентов, настройка параметров запуска компонентов, контроль за запуском компонентов программного обеспечения |
-[cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 [cspm.k8s.kspm](../../rules-reference/cspm.md#k8s-kspm)
 ||
 || ОПС.2 | Управление установкой (инсталляцией) компонентов программного обеспечения, в том числе определение компонентов, подлежащих установке, настройка параметров установки компонентов, контроль за установкой компонентов программного обеспечения |
@@ -100,7 +98,6 @@
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
 || АНЗ.3 | Контроль работоспособности, параметров настройки и правильности функционирования программного обеспечения и средств защиты информации |
-[cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 ||
 || АНЗ.4 | Контроль состава технических средств, программного обеспечения и средств защиты информации | [cspm.o11y.labeled-resources](../../rules-reference/cspm.md#labeled-resources) ||
@@ -134,23 +131,18 @@
 ||
 || **Защита технических средств** (ЗТС) / **Защита среды виртуализации** (ЗСВ) {align="center"} | > | > ||
 || ЗСВ.1 | Идентификация и аутентификация субъектов доступа и объектов доступа в виртуальной инфраструктуре, в том числе администраторов управления средствами виртуализации |
-[cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 [cspm.k8s.access](../../rules-reference/cspm.md#access)
 ||
 || ЗСВ.2 | Управление доступом субъектов доступа к объектам доступа в виртуальной инфраструктуре, в том числе внутри виртуальных машин |
-[cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 [cspm.k8s.access](../../rules-reference/cspm.md#access)
 ||
 || ЗСВ.4 | Управление (фильтрация, маршрутизация, контроль соединения, однонаправленная передача) потоками информации между компонентами виртуальной инфраструктуры, а также по периметру виртуальной инфраструктуры | [cspm.network.firewall](../../rules-reference/cspm.md#firewall) ||
-|| ЗСВ.6 | Управление перемещением виртуальных машин (контейнеров) и обрабатываемых на них данных | [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config) ||
-|| ЗСВ.7 | Контроль целостности виртуальной инфраструктуры и ее конфигураций | [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config) ||
 || ЗСВ.9 | Реализация антивирусной защиты в виртуальной инфраструктуре |
 [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 [cspm.appsec.registry-recently-scan](../../rules-reference/cspm.md#registry-recently-scan)
 ||
 || ЗСВ.10 | Разбиение виртуальной инфраструктуры на сегменты (сегментирование виртуальной инфраструктуры) для обработки информации отдельным пользователем и (или) группой пользователей |
-[cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
 || **Защита информационной системы, ее средств и систем связи и передачи данных** (ЗИС) {align="center"} | > | > ||
@@ -182,5 +174,4 @@
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
 || **Управление конфигурацией информационной системы и системы защиты персональных данных** (УКФ) {align="center"} | > | > ||
-|| УКФ.1–УКФ.4 | Управление конфигурацией информационной системы и системы защиты персональных данных | [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config) ||
 |#

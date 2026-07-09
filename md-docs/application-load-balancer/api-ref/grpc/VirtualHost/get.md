@@ -3,7 +3,6 @@
 # Application Load Balancer API, gRPC: VirtualHostService.Get
 
 Returns the specified virtual host.
-
 To get the list of all virtual hosts of an HTTP router, make a [List](list.md#List) request.
 
 ## gRPC request
@@ -24,15 +23,13 @@ To get the list of all virtual hosts of an HTTP router, make a [List](list.md#Li
 || http_router_id | **string**
 
 Required field. ID of the HTTP router that the virtual host belongs to.
-
 To get the HTTP router ID, make a [HttpRouterService.List](../HttpRouter/list.md#List) request. ||
 || virtual_host_name | **string**
 
 Required field. Name of the virtual host to return.
-
 To get the virtual host name, make a [VirtualHostService.List](list.md#List) request.
 
-Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `. ||
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 |#
 
 ## VirtualHost {#yandex.cloud.apploadbalancer.v1.VirtualHost}
@@ -752,7 +749,7 @@ A health check payload resource.
 
 Payload text.
 
-The string length in characters must be greater than 0.
+The string length in characters must be 1-16384.
 
 Includes only one of the fields `text`.
 

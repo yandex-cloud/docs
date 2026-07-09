@@ -70,7 +70,7 @@ yc managed-kubernetes node-group list
 
   Чтобы изменить группу узлов Managed Service for Kubernetes:
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера.
   1. Перейдите во вкладку **Группы узлов**.
   1. Выберите нужную группу узлов.
@@ -331,7 +331,8 @@ yc managed-kubernetes node-group list
 
 - Консоль управления {#console}
 
-  1. Откройте раздел **Managed Service for&nbsp;Kubernetes** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер Managed Service for Kubernetes.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором требуется изменить кластер Managed Service for Kubernetes.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
   1. Перейдите во вкладку **Группы узлов**.
   1. Выберите нужную группу узлов.
@@ -477,7 +478,7 @@ yc managed-kubernetes node-group list
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера.
   1. Перейдите на вкладку **Группы узлов**.
   1. Выберите нужную группу узлов.
@@ -813,7 +814,7 @@ yc managed-kubernetes node-group list
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
     1. Нажмите на имя нужного кластера.
     1. Перейдите во вкладку **Группы узлов**.
     1. Выберите нужную группу узлов.
@@ -931,7 +932,7 @@ yc managed-kubernetes node-group list
   Чтобы изменить облачную метку, потребуется удалить ее и создать заново:
 
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
     1. Нажмите на имя нужного кластера.
     1. Перейдите во вкладку **Группы узлов**.
     1. Выберите нужную группу узлов.
@@ -1052,7 +1053,7 @@ yc managed-kubernetes node-group list
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
     1. Нажмите на имя нужного кластера.
     1. Перейдите во вкладку **Группы узлов**.
     1. Выберите нужную группу узлов.
@@ -1159,7 +1160,7 @@ yc managed-kubernetes node-group list
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
     1. Нажмите на имя нужного кластера.
     1. Перейдите во вкладку **Группы узлов**.
     1. Выберите нужную группу узлов.
@@ -1298,7 +1299,7 @@ yc managed-kubernetes node-group list
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
     1. Нажмите на имя нужного кластера.
     1. Перейдите во вкладку **Группы узлов**.
     1. Выберите нужную группу узлов.

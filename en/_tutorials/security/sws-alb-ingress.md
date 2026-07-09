@@ -109,7 +109,7 @@ The support cost for this solution includes:
             * {{ sws-name }} profile name.
             * IP address to allow traffic from.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
@@ -481,7 +481,7 @@ To create an ingress resource:
 
           {% endnote %}
 
-      Learn more about annotations in [Ingress resource fields and annotations](../../application-load-balancer/gwin-ref/ingress.md).
+      Learn more about annotations in [Fields and annotations of the Ingress resource](../../application-load-balancer/gwin-ref/ingress.md).
 
     - Ingress controller {#alb-ingress}
 
@@ -530,7 +530,7 @@ To create an ingress resource:
 
       {% endnote %}
 
-      Learn more about annotations in [Ingress resource fields and annotations](../../application-load-balancer/k8s-ref/ingress.md).
+      Learn more about annotations in [Fields and annotations of the Ingress resource](../../application-load-balancer/k8s-ref/ingress.md).
 
     {% endlist %}
 

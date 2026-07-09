@@ -28,10 +28,10 @@ When a {{ yandex-cloud }} user requests a password reset:
 
 1. On the user side, the received password is decrypted with the private key and displayed in the management console or PowerShell.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Resetting a VM user password](../operations/vm-control/vm-reset-password.md)
-* [Verifying agent operation](../operations/vm-guest-agent/check.md)
+* [Testing the agent](../operations/vm-guest-agent/check.md)
 * [Installing the agent](../operations/vm-guest-agent/install.md)
 * [Deleting the agent](../operations/vm-guest-agent/uninstall.md)
 

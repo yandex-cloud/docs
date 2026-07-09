@@ -1,4 +1,4 @@
-# {{ captcha-full-name }} in iOS apps
+# {{ captcha-full-name }} on iOS
 
 To embed [{{ captcha-name }}](../../smartcaptcha/) in an iOS app:
 1. [Configure your website's JS part](#customize-js-part).
@@ -64,7 +64,7 @@ If not using `{{ captcha-mobile-site }}`, follow these steps:
 
    {% include [query-parameters](../../_includes/smartcaptcha/query-parameters.md) %}
 
-### challengeDidAppear method for invisible CAPTCHA {#challengeDidAppear-method}
+### `challengeDidAppear` method for invisible CAPTCHA {#challengeDidAppear-method}
 
 CAPTCHA [will not be shown in the HTML code of the page](../../smartcaptcha/concepts/invisible-captcha.md) if called with the `invisible` parameter. Make sure **WKWebView** is loaded but is not available to the user until the `challengeDidAppear` method is called. Here is one of the ways to ensure this:
 
@@ -74,7 +74,7 @@ UIApplication.shared.windows.first?.addSubview(webControllerView)
 
 If the validation results in `captchaDidFinish`, remove `webControllerView` from the hierarchy. If the result does not contain `captchaDidFinish`, move `webControllerView` into the hierarchy for presenting to the user.
 
-### challengeDidDisappear method for invisible CAPTCHA {#challengeDidDisappear-method}
+### `challengeDidDisappear` method for invisible CAPTCHA {#challengeDidDisappear-method}
 
 If CAPTCHA is swiped off the screen, it cannot be recovered by the user unassisted. Call the **WKWebView** content reload upon the `challengeDidDisappear` event:
 
@@ -84,7 +84,7 @@ webControllerView.reload()
 
 ## Sample implementation in Swift using {{ captcha-mobile-site }} {#ios-example}
 
-This section describes the steps to follow to create an app with a CAPTCHA for iOS. See the example of a ready-to-use app with all components configured: [{{ captcha-full-name }} for iOS](https://github.com/yandex-cloud-examples/yc-smartcaptcha-ios-example/tree/main).
+This section describes the steps to follow to create an app with a CAPTCHA for iOS. Here is an example of a ready-made app with all components configured: [{{ captcha-full-name }} for iOS](https://github.com/yandex-cloud-examples/yc-smartcaptcha-ios-example/tree/main).
 1. Create a class to store **WKWebView**:
 
    ```swift

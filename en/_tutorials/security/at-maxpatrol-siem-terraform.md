@@ -23,8 +23,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
-To create an infrastructure using {{ TF }}:
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing {{ yandex-cloud }} (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
+To create your infrastructure via {{ TF }}:
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
 1. Set up your infrastructure description files:
 
     {% list tabs group=infrastructure_description %}
@@ -64,7 +64,7 @@ To create an infrastructure using {{ TF }}:
 
     {% endlist %}
 
-    For more information about {{ TF }} resource parameters, see the relevant provider guides:
+    Learn more about the properties of resources used in {{ TF }} in these provider guides:
 
     * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
     * [Role](../../iam/concepts/access-control/roles.md) assigned to the service account for the folder: [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).

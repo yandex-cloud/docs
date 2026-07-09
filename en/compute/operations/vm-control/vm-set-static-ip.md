@@ -20,7 +20,7 @@ To make a public IP address assigned to a VM [network interface](../../concepts/
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./vm-attach-public-ip.md)
 * [{#T}](../../../vpc/operations/set-static-ip.md)

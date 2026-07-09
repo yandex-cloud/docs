@@ -43,4 +43,4 @@ description: Следуя данной инструкции, вы сможете
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](./link-for-download.md)
+[{#T}](./link-for-download.md)

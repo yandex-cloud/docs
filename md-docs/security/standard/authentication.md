@@ -1204,7 +1204,7 @@ yc compute instance get `
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. В строке с нужной ВМ нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. Раскройте секцию **Метаданные** и удалите ключи, нажав ![image](../../_assets/console-icons/xmark.svg).

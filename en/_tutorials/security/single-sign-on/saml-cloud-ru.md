@@ -109,6 +109,8 @@ To enable your organization's users to authenticate in Cloud.ru using the {{ org
 
 {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 #### Add users to the Cloud.ru federation {#add-cloudru-users}
 
 1. Log in to the Cloud.ru [console](https://console.cloud.ru/).
@@ -123,7 +125,7 @@ To enable your organization's users to authenticate in Cloud.ru using the {{ org
 
 To make sure both your SAML app and its integration with Cloud.ru work correctly, authenticate to Cloud.ru as one of the users you added to the app.
 
-Follow these steps:
+Proceed as follows:
 
 1. In your browser, open the Cloud.ru [console](https://console.cloud.ru/) login page.
 1. If you were logged in, log out.

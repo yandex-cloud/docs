@@ -23,7 +23,7 @@ _Login Discovery_ in {{ yandex-cloud }} maps users without relying on external a
 
 The domain a user specifies must match the domain registered in the user pool, federation, or Yandex ID at all levels.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/user-pools/manage-domain.md)
 * [{#T}](../operations/manage-domain-in-federation.md)

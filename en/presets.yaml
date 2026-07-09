@@ -3394,6 +3394,7 @@ default:
           oauth_field_client_id: ClientID
           oauth_field_open_id: OpenID Configuration
           oauth_field_redirect_uri: Redirect URI
+          oauth_field_scopes: User attributes
           oauth_field_token_endpoint: Token endpoint
           oauth_field_user_info_endpoint: Userinfo endpoint
           oauth_idp_section_title: Identity provider (IdP) configuration
@@ -3600,6 +3601,12 @@ default:
             username: Username
           column_last-auth: Last authentication
       form:
+        auth-policy:
+          caption:
+            active: Policy active
+          create:
+            action:
+              create: Create policy
         federation:
           action:
             create: Create federation
@@ -3798,6 +3805,15 @@ default:
           acr_any-except-sms_6NWqb: Any (except SMS)
           acr_any-mfa_j6PdY: Any
           acr_phr_7hMqk: Phishing-resistant
+          AppsCard:
+            scope_all_iXjnP: All apps
+            title_hBXgK: Apps
+          auth-policies-create-policy-action: Create policy
+          auth-policies-table:
+            action-activate: Activate
+            action-deactivate: Deactivate
+          AuthPolicyForm:
+            section_title_scope_b9vbe: Conditions
           mfa-overview-action-activate: Activate
           mfa-overview-action-suspend: Suspend
           mfa-policies-create-policy-action: Create policy
@@ -3805,6 +3821,9 @@ default:
             policies_title: MFA policies
             tab_exclusions: Exclusions
             tab_groups: Users and groups
+          NetworksCard:
+            scope_all_1pGZE: Any networks
+            title_aSxuJ: Networks and IP addresses
           OtherSecuritySettingsForm:
             auth_settings_1RoAM: Authentication settings
             required_mfa_6P4xN: >-
@@ -3814,9 +3833,19 @@ default:
               Block users from viewing the list of organization members and
               their details
             title_users-list-visibility_ftTaP: Confidentiality
+          PolicyResultCard:
+            section_title: Result
+          ScopeCardBlock:
+            exclude_label_4Mn7B: Exclude
+            include_label_8Kp2A: Include
+            selected_resources_qvwZX: Selected
           SecuritySettingsPageLayout:
+            tab_auth_policies: Authentication policies
             tab_mfa_policies_m8oE3: MFA policies
             tab_other_kJgk8: Other parameters
+          UsersAndGroupsCard:
+            scope_all: All users
+            title: Users and groups
         userpool:
           action_delete-domain: Delete
         userpools:

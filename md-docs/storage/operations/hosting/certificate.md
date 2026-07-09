@@ -43,7 +43,7 @@ Object Storage поддерживает только [PEM](https://en.wikipedia.
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-    1. Перейдите в сервис **Object Storage**.
+    1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
     1. Выберите нужный бакет из списка.
     1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **Безопасность**.
     1. Выберите вкладку **HTTPS**.
@@ -188,7 +188,7 @@ cat domain.pem intermediate.pem rootca.pem > bundle.pem
 - Консоль управления {#console}
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-   1. Перейдите в сервис **Object Storage**.
+   1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
    1. Выберите нужный бакет из списка.
    1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **Безопасность**.
    1. Выберите вкладку **HTTPS**.
@@ -209,7 +209,7 @@ cat domain.pem intermediate.pem rootca.pem > bundle.pem
 
 {% endnote %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Как исправить некорректный MIME-тип объектов при их загрузке в бакет?](../../qa.md#qa-mime-type)
 * [Настройка хостинга](setup.md)

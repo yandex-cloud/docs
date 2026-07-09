@@ -17,7 +17,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-    1. Перейдите в сервис **Object Storage**.
+    1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
     1. Выберите нужный бакет из списка.
     1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Объекты** и найдите в списке нужный объект.
     1. Чтобы отредактировать ACL, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке с нужным объектом и выберите **ACL объекта**.

@@ -5,14 +5,14 @@ description: This section describes the CDN resource option of hiding from end c
 
 # Hiding of origin headers
 
-By default, {{ cdn-name }} provides all HTTP headers received from the [origin](origins.md) to the client. With the header hiding option, you can [configure](../operations/resources/hiding-headers.md) your CDN resource in a way that the client gets only particular origin headers.
+By default, {{ cdn-name }} provides all HTTP headers received from the [origin](origins.md) to the client. With the header hiding option, you can [configure](../operations/resources/hiding-headers.md) your CDN resource so that the client gets only specific origin headers.
 
 This option works as a whitelist. All origin headers not mentioned in the setting will be screened and hidden.
 
-You may want to hide headers in some of the following situations:
+You may want to hide headers in the following situations:
 
-* Protecting sensitive information.
-* Enforcement of requirements prohibiting the transmission of certain headers to clients.
+* Protection of sensitive information.
+* Enforcement of requirements prohibiting disclosure of specific headers to clients.
 * Downsizing the response.
 
 
@@ -36,6 +36,6 @@ We recommend to hide the following headers for increased security:
 * `X-Internal-*`: Any internal headers.
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/resources/hiding-headers.md)

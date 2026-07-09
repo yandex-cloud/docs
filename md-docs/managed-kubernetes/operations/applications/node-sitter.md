@@ -30,7 +30,8 @@
 
 ## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud) и выберите сервис **Managed Service for&nbsp;Kubernetes**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
 1. Нажмите на имя нужного кластера Kubernetes и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [node-sitter](https://yandex.cloud/ru/marketplace/products/yc/node-sitter) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:

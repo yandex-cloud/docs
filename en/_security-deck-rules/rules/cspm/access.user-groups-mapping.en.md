@@ -1,4 +1,4 @@
-### User group mapping is configured in an identity federation {#access-user-groups-mapping}
+### User group mapping is configured in an identity federation {#user-groups-mapping}
 
 #|
 || **kind** | **severity** | **ID** ||
@@ -11,7 +11,7 @@ In organizations with a lot of users, you may need to grant the same access perm
 
 If you have created user groups in your identity provider or plan to do so, you can [map user groups](https://yandex.cloud/en/docs/organization/operations/federation-group-mapping) between the IdP and Yandex Identity Hub. Users in the identity provider's groups will be granted the same access permissions for Yandex Cloud resources as their respective groups in Identity Hub.
 
-#### Recommendations
+#### Instructions and solutions
 
 **Guides and solutions to use:**
 

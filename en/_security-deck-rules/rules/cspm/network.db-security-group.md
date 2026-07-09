@@ -1,22 +1,14 @@
-### No public IP address is assigned in managed databases {#db-security-group}
+### A security group is assigned in managed databases {#db-security-group}
 
 #|
 || **kind** | **severity** | **ID** ||
-|| automatic | medium | network.db-security-group ||
+|| automatic | high | network.db-security-group ||
 |#
 
 #### Description
 
-{% note tip "**Automatic verification**" %}
+We recommend prohibiting internet access to databases that contain critical data, in particular PCI DSS data or private data. Configure security groups to only allow connections to the DBMS from particular IP addresses. To do this, follow the steps in [Creating a security group](https://yandex.cloud/en/docs/vpc/operations/security-group-create). You can specify a security group in the cluster settings or when creating the cluster in the network settings section.
 
-This control automatically checks for public IP address assignment on managed database clusters.
+#### Instructions and solutions
 
-{% endnote %}
-
-Assigning a public IP to a managed database raises information security risks. We do not recommend assigning an external IP unless it is absolutely necessary.
-
-Remove public access if it is not required.
-
-#### Guides and solutions
-
-* It is recommended to delete the IP address linked to the database: <https://yandex.cloud/en/docs/vpc/operations/address-delete>
+It is recommended to [set up](https://yandex.cloud/en/docs/vpc/concepts/security-groups) a security group for the database cluster

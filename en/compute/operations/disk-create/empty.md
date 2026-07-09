@@ -136,6 +136,6 @@ You can create an empty disk of the specified size.
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../snapshot-control/create-schedule.md)

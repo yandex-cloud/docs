@@ -149,18 +149,18 @@ To add a public SSH key to a profile:
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, navigate to the directory where you created the configuration file.
+      1. In the terminal, navigate to the directory where you created your configuration file.
       1. Run a check using this command:
 
           ```bash
           terraform plan
           ```
 
-      If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+      If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
-      1. If the configuration does not contain any errors, run this command:
+      1. If the configuration is correct, run this command:
 
           ```bash
           terraform apply
@@ -200,7 +200,7 @@ To allow users to upload SSH keys to their own profiles, [enable](./os-login-acc
 
 {% endnote %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/os-login-access.md)
 * [{#T}](../operations/os-login-profile-create.md)

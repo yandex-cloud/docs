@@ -4,6 +4,13 @@
 
 Allows creation and management of a single binding within IAM policy for an existing `asymmetric_signature_key`.
 
+{% note warning %}
+
+**Warning:** This resource is authoritative for the given `role` on the target `asymmetric_signature_key` and manages the complete set of its members. When you change or delete `yandex_kms_asymmetric_signature_key_iam_binding`, the `role` may be removed from other subjects on the `asymmetric_signature_key` as well — including subjects granted outside of this resource (via the corresponding `*_iam_member` resource, the management console, CLI or API). Those subjects are not tracked in the Terraform state, so a plain `terraform plan` does not list them. Be careful.
+
+{% endnote %}
+
+
 ## Example usage
 
 ```terraform

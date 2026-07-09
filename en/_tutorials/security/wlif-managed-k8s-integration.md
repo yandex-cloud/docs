@@ -36,7 +36,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support cost includes:
 * Fee for computing resources and disks for {{ managed-k8s-name }} cluster [nodes](../../managed-kubernetes/concepts/index.md#node-group) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using the {{ managed-k8s-name }} [master](../../managed-kubernetes/concepts/index.md#master) and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for a {{ managed-k8s-name }} cluster's [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for the {{ managed-k8s-name }} cluster's [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for storing the [secret](../../lockbox/concepts/secret.md) and requests to it (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
 
 ## Set up a {{ managed-k8s-name }} cluster {#prepare-cluster}
@@ -658,7 +658,7 @@ To stop paying for the resources you created:
 * [Delete](../../managed-kubernetes/operations/node-group/node-group-delete.md) the {{ managed-k8s-name }} node group.
 * [Delete](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) the {{ managed-k8s-name }} cluster.
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../iam/concepts/workload-identity.md)
 * [Getting the {{ lockbox-full-name }} secret value on the custom {{ k8s }} installation side](../../tutorials/security/wlif-k8s-integration.md)

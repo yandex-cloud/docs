@@ -18,7 +18,7 @@
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
 
-1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
 
 1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
 
@@ -74,7 +74,7 @@
   `auditEventsInvolvedNamespace` | Создавать события в затронутом пространстве имен | `false`
   `enableExternalData` | Экспериментальная поддержка внешних источников данных | `true`
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Документация Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/docs/)
 

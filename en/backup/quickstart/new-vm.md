@@ -55,7 +55,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
   
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, select the SSH key saved in your [organization user](../../organization/concepts/membership.md) profile.
 
       If your profile has no SSH keys, click **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}** to add a new key.
@@ -68,7 +68,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% endlist %}
 
-For more information on how to create a VM, see [{#T}](../../compute/operations/index.md#vm-create).
+For more information on how to create a VM, see [this guide](../../compute/operations/index.md#vm-create).
 
 ## Link your VM to a backup policy {#add-policy}
 
@@ -91,7 +91,7 @@ To stop paying for the resources you created:
 * [Learn about the service's features](../concepts/index.md)
 * [See other guides on how to use the service](../operations/index.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 {% include [see-also-snapshot](../../_includes/backup/see-also-snapshot.md) %}
 

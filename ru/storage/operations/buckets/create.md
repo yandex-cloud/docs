@@ -7,7 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [create-bucket](../../../_includes/storage/create-bucket.md) %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [{#T}](../objects/upload.md)
 * [{#T}](edit-acl.md)

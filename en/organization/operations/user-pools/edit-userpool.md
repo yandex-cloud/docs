@@ -19,7 +19,7 @@ description: Follow this guide to edit a user pool in {{ org-full-name }}.
 
       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
 
-  1. Specify a new [domain](../../concepts/domains.md) to use if there are no other domains associated with the pool.
+  1. Specify a new [domain](../../concepts/domains.md) to use if no other domains are linked to the pool.
   1. Add or delete labels.
   1. Update the data users can edit on the [My account](../../concepts/my-account.md) portal.
   1. In the **{{ ui-key.yacloud_org.form.userpool.caption.session-lifetime }}** field, specify a time period for user [sessions](../../concepts/sessions.md) to remain active before requiring reauthentication in {{ org-full-name }}.
@@ -89,7 +89,7 @@ description: Follow this guide to edit a user pool in {{ org-full-name }}.
        {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
 
      * `description`: New user pool description.
-     * `default_subdomain`: New default [domain](../../concepts/domains.md). It will be used if no other domains are associated with the pool.
+     * `default_subdomain`: New default [domain](../../concepts/domains.md). It will be used if no other domains are linked to the pool.
      * `labels`: New list of [labels](../../../resource-manager/concepts/labels.md).
      * `user_settings`: User data available for editing on the [My account](../../concepts/my-account.md) portal. The following options are available:
        * `allow_edit_self_contacts`: Editing contact details.
@@ -97,7 +97,7 @@ description: Follow this guide to edit a user pool in {{ org-full-name }}.
        * `allow_edit_self_login`: Editing username.
        * `allow_edit_self_password`: Editing password.
 
-     For more information about the `yandex_organizationmanager_idp_userpool` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
+     For more on the properties of the `yandex_organizationmanager_idp_userpool` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
 
   1. Apply the changes:
 

@@ -12,7 +12,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера и на панели слева выберите ![Namespaces](../../../_assets/console-icons/layers.svg) **Пространства имён**.
   1. В правом верхнем углу нажмите кнопку **Создать**.
   1. В открывшемся окне введите **Имя** пространства имен.
@@ -37,7 +38,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;Kubernetes**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера и на панели слева выберите ![Namespaces](../../../_assets/console-icons/layers.svg) **Пространства имён**.
   1. В строке пространства имен нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
   1. Подтвердите действие.

@@ -11,7 +11,7 @@ Managed Service for Kubernetes позволяет использовать в к
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Marketplace**.
 
 {% endlist %}
@@ -23,7 +23,7 @@ Managed Service for Kubernetes позволяет использовать в к
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Marketplace**.
   1. В разделе **Установленные приложения** нажмите на имя нужного вам приложения.
 
@@ -48,7 +48,7 @@ Managed Service for Kubernetes позволяет использовать в к
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Marketplace**.
   1. В разделе **Доступные для установки приложения** нажмите на имя нужного вам приложения.
   1. В открывшемся окне нажмите кнопку **Использовать**.
@@ -69,7 +69,7 @@ Managed Service for Kubernetes позволяет использовать в к
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Marketplace**.
   1. В разделе **Установленные приложения** нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке приложения, которое требуется изменить.
   1. В открывшемся меню нажмите кнопку **Редактировать**.
@@ -84,7 +84,7 @@ Managed Service for Kubernetes позволяет использовать в к
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Marketplace**.
   1. В разделе **Установленные приложения** нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке приложения, которое требуется удалить.
   1. В открывшемся меню нажмите кнопку **Удалить**.
@@ -102,7 +102,7 @@ Managed Service for Kubernetes позволяет использовать в к
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Marketplace**.
   1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/ban.svg) **Запретить Marketplace собирать статистику**.
 

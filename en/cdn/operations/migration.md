@@ -110,7 +110,7 @@ To check whether your resource works properly:
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](./resources/copy-resource.md)
 * [{#T}](./resources/get-stats.md)

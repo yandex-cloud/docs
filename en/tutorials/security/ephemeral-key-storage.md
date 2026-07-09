@@ -8,7 +8,7 @@ description: In this tutorial, you will learn how to use ephemeral access keys t
 {% include [ephemeral-key-storage](../../_tutorials/security/ephemeral-key-storage.md) %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../storage/quickstart/quickstart-aws-cli.md)
 * [{#T}](../../iam/concepts/authorization/ephemeral-keys.md)

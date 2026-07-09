@@ -43,7 +43,7 @@ In {{ sf-name }}, you can use the {{ yandex-cloud }} SDK in [function](../../fun
 * [Kotlin](../../functions/lang/kotlin/sdk.md)
 * [.NET Core](../../functions/lang/csharp/sdk.md)
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{{ console-full-name }}](../../console/)
 * [{{ yandex-cloud }} CLI](../../cli/)

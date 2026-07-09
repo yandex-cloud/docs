@@ -159,7 +159,7 @@ Select instructions based on your OS and processor architecture:
 {% include [next-step-cli-profile](../../_includes/cli/next-step-cli-profile.md) %}
 
 
-### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](profile/profile-create.md)
 * [{#T}](update-cli.md)

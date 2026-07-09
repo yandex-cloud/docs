@@ -237,8 +237,8 @@
 {% endcut %}
 
 
-##### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Посмотреть детализацию для облака](./check-charges.md)
+[Посмотреть детализацию для облака](./check-charges.md)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -17,7 +17,7 @@ _Функциональность пулов резервов ВМ находи�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать пул резервов ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-lock.svg) **Пулы резервов ВМ**.
   1. Нажмите кнопку **Создать пул**.
   1. Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой нужно зарезервировать [вычислительные ресурсы](../../concepts/vm.md#types).

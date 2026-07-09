@@ -19,10 +19,10 @@ description: Follow this guide to create a user pool in {{ org-full-name }}.
 
       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
 
-  1. In the **{{ ui-key.yacloud_org.form.userpool.caption.domain }}** field, add the [domain](../../concepts/domains.md) that will be used if there are no other domains associated with the pool.
+  1. In the **{{ ui-key.yacloud_org.form.userpool.caption.domain }}** field, add the [domain](../../concepts/domains.md) that will be used if no other domains are linked to the pool.
   1. Optionally, add labels:
      1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-     1. Enter a label in `key: value` format.
+     1. Add a label in `key: value` format.
      1. Press **Enter**.
   1. Optionally, in the **{{ ui-key.yacloud_org.form.userpool.caption.settings-data }}** field, select the user settings available for editing on the [My account](../../concepts/my-account.md) portal. By default, password management is allowed.
   1. In the **{{ ui-key.yacloud_org.form.userpool.caption.session-lifetime }}** field, specify a time period for user [sessions](../../concepts/sessions.md) to remain active before requiring reauthentication in {{ org-full-name }}.
@@ -59,7 +59,7 @@ description: Follow this guide to create a user pool in {{ org-full-name }}.
        {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
 
      * `--description`: User pool description. This is an optional setting.
-     * `--default-subdomain`: Default [domain](../../concepts/domains.md). It will be used if no other domains are associated with the pool.
+     * `--default-subdomain`: Default [domain](../../concepts/domains.md). It will be used if no other domains are linked to the pool.
      * `--labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional setting. You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
 
 - {{ TF }} {#tf}
@@ -96,7 +96,7 @@ description: Follow this guide to create a user pool in {{ org-full-name }}.
        {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
 
      * `description`: User pool description. This is an optional setting.
-     * `default_subdomain`: Default [domain](../../concepts/domains.md). It will be used if no other domains are associated with the pool.
+     * `default_subdomain`: Default [domain](../../concepts/domains.md). It will be used if no other domains are linked to the pool.
      * `labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional setting.
      * `user_settings`: User data available for editing on the [My account](../../concepts/my-account.md) portal. By default, password management is allowed. This is an optional setting. Includes the following options:
        * `allow_edit_self_contacts`: Editing contact details.
@@ -104,7 +104,7 @@ description: Follow this guide to create a user pool in {{ org-full-name }}.
        * `allow_edit_self_login`: Editing username.
        * `allow_edit_self_password`: Editing password.
 
-     For more information about the `yandex_organizationmanager_idp_userpool` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
+     For more on the properties of the `yandex_organizationmanager_idp_userpool` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
 
   1. Create the resources:
 
@@ -121,7 +121,7 @@ description: Follow this guide to create a user pool in {{ org-full-name }}.
   Use the [Userpool.Create](../../idp/api-ref/Userpool/create.md) REST API method for the [Userpool](../../idp/api-ref/Userpool/index.md) resource or the [UserpoolService/Create](../../idp/api-ref/grpc/Userpool/create.md) gRPC API call.
 
 {% endlist %}
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../add-account.md#add-local-user)
 * [{#T}](add-domain.md)

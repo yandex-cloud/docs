@@ -102,7 +102,7 @@ Some service resources do not support labels, and some interfaces may not displa
 
 * [{#T}](../../tutorials/infrastructure-management/serverless-trigger-budget-vm.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Managing labels](../operations/manage-labels.md)
 * [Managing labels in {{ ml-platform-full-name }} communities](../../datasphere/operations/community/manage-community-labels.md)

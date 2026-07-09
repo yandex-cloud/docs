@@ -149,7 +149,7 @@
 
              The maximum number of groups this field can include is 1,000. If the user belongs to more groups than this, only the first thousand will go to the service provider. 
 
-     For more information about `yandex_organizationmanager_idp_application_saml_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
+     For more on the properties of the `yandex_organizationmanager_idp_application_saml_application` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_saml_application).
 
   1. Apply the changes:
 

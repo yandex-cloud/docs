@@ -58,7 +58,6 @@ GET https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}/vir
 || httpRouterId | **string**
 
 Required field. ID of the HTTP router to list virtual hosts in.
-
 To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-load-balancer/api-ref/HttpRouter/list#List) request. ||
 |#
 
@@ -390,7 +389,6 @@ List of virtual hosts of the specified HTTP router. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListVirtualHostsRequest.pageSize](#yandex.cloud.apploadbalancer.v1.ListVirtualHostsRequest), use `next_page_token` as the value
 for the [ListVirtualHostsRequest.pageToken](#yandex.cloud.apploadbalancer.v1.ListVirtualHostsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -822,7 +820,7 @@ A health check payload resource.
 
 Payload text.
 
-The string length in characters must be greater than 0.
+The string length in characters must be 1-16384.
 
 Includes only one of the fields `text`.
 

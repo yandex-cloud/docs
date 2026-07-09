@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит диск.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски**.
   1. Выберите диск из списка.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **Права доступа**.
@@ -165,7 +165,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит диск.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски**.
   1. Выберите диск из списка.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **Права доступа**.
@@ -312,7 +312,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит диск.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски**.
   1. Выберите диск из списка.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **Права доступа**.

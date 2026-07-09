@@ -119,7 +119,7 @@ description: Follow this guide to delete a user SSH key.
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/add-ssh.md)
 * [{#T}](../operations/os-login-access.md)

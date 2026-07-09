@@ -106,7 +106,7 @@ To create a service account authorized key:
        Where:
        * `service_account_id`: Service account [ID](../sa/get-id.md). This is a required setting.
        * `description`: Key description. This is an optional setting.
-       * `key_algorithm`: Key generation algorithm. This is an optional setting. The default algorithm is `RSA_2048`. For more information about the acceptable parameter values, see the [API documentation](../../api-ref/Key/index.md).
+       * `key_algorithm`: Key generation algorithm. This is an optional setting. The default algorithm is `RSA_2048`. For more information about the acceptable values, see [this API guide](../../api-ref/Key/index.md).
        * `pgp_key`: Additional PGP key for encrypting a private key. This is an optional setting. Specify the public part of the key in Base64 encoding or in `keybase:keybaseusername` format.
        * `output_to_lockbox`: Description of the {{ lockbox-full-name }} [secret](../../../lockbox/concepts/secret.md) to save the secret key value in to prevent its possible leakage through the `terraform.tfstate` file. This is an optional setting. Nested parameters:
            * `secret_id`: ID of the {{ lockbox-full-name }} secret to save the private part of the authorized key value to. The secret must be [custom](../../../lockbox/concepts/secret.md#secret-type).
@@ -116,26 +116,26 @@ To create a service account authorized key:
 
     1. Make sure the configuration files are correct.
 
-       1. In the command line, navigate to the directory where you created the configuration file.
+       1. In the terminal, navigate to the directory where you created your configuration file.
        1. Run a check using this command:
 
           ```
           terraform plan
           ```
 
-       If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+       If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
     1. Deploy the cloud resources.
 
-       1. If the configuration does not contain any errors, run this command:
+       1. If the configuration is correct, run this command:
 
           ```
           terraform apply
           ```
 
-       1. Confirm creating the resources: type `yes` and press **Enter**.
+       1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
-       This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) and this CLI command:
+       This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this CLI command:
 
        ```
        yc iam key list --service-account-id <service_account_ID>
@@ -250,18 +250,18 @@ To delete a service account authorized key:
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, navigate to the directory where you created the configuration file.
+      1. In the terminal, navigate to the directory where you created your configuration file.
       1. Run a check using this command:
 
           ```bash
           terraform plan
           ```
 
-      If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+      If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
-      1. If the configuration does not contain any errors, run this command:
+      1. If the configuration is correct, run this command:
 
           ```bash
           terraform apply
@@ -281,7 +281,7 @@ To delete a service account authorized key:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/authorization/key.md)
 * [{#T}](../iam-token/create-for-sa.md)

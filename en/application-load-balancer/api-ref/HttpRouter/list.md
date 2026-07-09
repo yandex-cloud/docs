@@ -66,7 +66,6 @@ GET https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters
 || folderId | **string**
 
 Required field. ID of the folder to list HTTP routers in.
-
 To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
 || pageSize | **string** (int64)
 
@@ -85,7 +84,6 @@ The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters HTTP routers listed in the response.
-
 The expression must specify:
 1. The field name. Currently you can use filtering only on [HttpRouter.name](#yandex.cloud.apploadbalancer.v1.HttpRouter) field.
 2. An `=` operator.
@@ -463,7 +461,6 @@ List of HTTP routers in the specified folder. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListHttpRoutersRequest.pageSize](#yandex.cloud.apploadbalancer.v1.ListHttpRoutersRequest), use `next_page_token` as the value
 for the [ListHttpRoutersRequest.pageToken](#yandex.cloud.apploadbalancer.v1.ListHttpRoutersRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -494,7 +491,6 @@ For details about the concept, see [documentation](/docs/overview/concepts/servi
 
 Virtual hosts that combine routes inside the router.
 For details about the concept, see [documentation](/docs/application-load-balancer/concepts/http-router#virtual-host).
-
 Only one virtual host with no authority (default match) can be specified. ||
 || createdAt | **string** (date-time)
 
@@ -937,7 +933,7 @@ A health check payload resource.
 
 Payload text.
 
-The string length in characters must be greater than 0.
+The string length in characters must be 1-16384.
 
 Includes only one of the fields `text`.
 

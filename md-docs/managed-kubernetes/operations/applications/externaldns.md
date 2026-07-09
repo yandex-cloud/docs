@@ -39,7 +39,7 @@
 ## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
 1. Нажмите на имя нужного [кластера Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [ExternalDNS с Webhook Yandex Cloud DNS](https://yandex.cloud/ru/marketplace/products/yc/external-dns-yc-webhook) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
@@ -88,8 +88,8 @@
 
 ## Примеры использования {#examples}
 
-* [Настройка логирования для L7-балансировщика Yandex Application Load Balancer с помощью Ingress-контроллера](../../tutorials/alb-ingress-controller-log-options.md).
+[Настройка логирования для L7-балансировщика Yandex Application Load Balancer с помощью Ingress-контроллера](../../tutorials/alb-ingress-controller-log-options.md)
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Документация ExternalDNS](https://github.com/kubernetes-sigs/external-dns/).
+[Документация ExternalDNS](https://github.com/kubernetes-sigs/external-dns/)

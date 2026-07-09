@@ -47,8 +47,8 @@ Required field. ID of the target group to get target states of. ||
         "ipAddress": "string",
         // end of the list of possible fields
         "subnetId": "string",
-        "privateIpv4Address": "boolean",
-        "externalAddress": "boolean"
+        "externalAddress": "boolean",
+        "privateIpv4Address": "boolean"
       }
     }
   ]
@@ -115,7 +115,6 @@ sending health check requests to the target or the target has not responded in t
 
 Indicates whether the target has been marked `UNHEALTHY` due to failing active health checks,
 which determine target statuses as configured in [HttpBackend.healthchecks](../BackendGroup/get.md#yandex.cloud.apploadbalancer.v1.HttpBackend) or [GrpcBackend.healthchecks](../BackendGroup/get.md#yandex.cloud.apploadbalancer.v1.GrpcBackend).
-
 Currently the only type of health checks is active, as described above.
 Passive health checks, which determine the health of a target based on its responses to production requests
 (HTTP 5xx status codes, connection errors etc.), are not implemented yet. ||
@@ -138,14 +137,14 @@ Reference to the target. As of now, targets must only be referred to by their IP
 || subnetId | **string**
 
 ID of the subnet that the target is connected to. ||
+|| externalAddress | **boolean**
+
+If set, will not require `subnet_id` to validate the target.
+Only one of `subnet_id` or `external_address` should be set. ||
 || privateIpv4Address | **boolean**
 
 If set, will not require `subnet_id` to validate the target.
 Instead, the address should belong to one of the following ranges:
 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
 Only one of `subnet_id` or `private_ipv4_address` should be set. ||
-|| externalAddress | **boolean**
-
-If set, will not require `subnet_id` to validate the target.
-Only one of `subnet_id` or `external_address` should be set. ||
 |#

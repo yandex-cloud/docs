@@ -76,7 +76,7 @@ To stop paying for the resources you created:
 * [Learn about the service's features](../concepts/index.md)
 * [See other guides on how to use the service](../operations/index.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 {% include [see-also-snapshot](../../_includes/backup/see-also-snapshot.md) %}
 

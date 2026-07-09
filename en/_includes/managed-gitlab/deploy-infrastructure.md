@@ -12,7 +12,7 @@
   1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where the new [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node group](../../managed-kubernetes/concepts/index.md#node-group) will reside.
   1. [Create these service accounts](../../iam/operations/sa/create.md):
      * Service account for resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to host the new {{ managed-k8s-name }} cluster. This service account will be used to create {{ managed-k8s-name }} cluster resources.
-     * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) and [{{ roles-cr-pusher }}](../../container-registry/security/index.md#container-registry-images-pusher) roles for the folder with the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). The {{ managed-k8s-name }} nodes will use this service account to push the Docker images built in {{ GL }} to the registry and pull them to run [pods](../../managed-kubernetes/concepts/index.md#pod).
+     * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller), [{{ roles-cr-pusher }}](../../container-registry/security/index.md#container-registry-images-pusher), and [{{ roles-cr-images-scanner }}](../../container-registry/security/index.md#container-registry-images-scanner) roles for the folder with the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). The {{ managed-k8s-name }} nodes will use this service account to push the Docker images built in {{ GL }} to the registry and pull them to run [pods](../../managed-kubernetes/concepts/index.md#pod).
 
      {% note tip %}
 
@@ -66,7 +66,7 @@
      * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
      * Name of the {{ managed-k8s-name }} cluster service account.
      * Name of the {{ container-registry-name }}.
-  1. Make sure the {{ TF }} configuration files are correct using this command:
+  1. Validate your {{ TF }} configuration files using this command:
 
      ```bash
      terraform validate

@@ -1,0 +1,3 @@
+Authentication policies can be managed by users with the `organization-manager.admin` [role](*org_manager_admin) or higher.
+
+[*org_manager_admin]: The `organization-manager.admin` role enables managing organization settings, identity federations, user pools, SAML applications, OIDC applications, users and user groups, and users' access permissions to the organization and its resources. To learn more, see [Access management in {{ org-full-name }}](../../organization/security/index.md#organization-manager-admin).

@@ -1,4 +1,4 @@
-### The Kubernetes security policy is in place {#k8s-kspm}
+### The Kubernetes security policy is in place {#kspm}
 
 #|
 || **kind** | **severity** | **ID** ||
@@ -23,17 +23,12 @@ The KSPM configuration is set when you [create](https://yandex.cloud/en/docs/sec
 
 * `CIS Kubernetes Benchmark`: This standard includes recommendations from the [CIS Kubernetes Benchmark](https://www.cisecurity.org/benchmark/kubernetes) for secure configuration of Kubernetes worker node components. Only automatic checks from section `4 Worker Nodes` are included.
 
-#### Recommendations
+#### Instructions and solutions
 
 **Guides and solutions to use:**
 
 Use the KSPM module to protect Kubernetes clusters and containers in your workspace:
 
-1. [Create](https://yandex.cloud/en/docs/iam/operations/sa/create) a service account KSPM will use to view Managed Service for Kubernetes cluster info, install the necessary components, and perform checks.
-2. [Assign](https://yandex.cloud/en/docs/iam/operations/sa/assign-role-for-sa) to the service account the `security-deck.worker` [role](https://yandex.cloud/en/docs/security-deck/security/#security-deck-worker) for the organization, cloud, or folder.
-3. [Create](https://yandex.cloud/en/docs/security-deck/operations/workspaces/create) a Security Deck workspace, specify the clouds and folders you want to control the security of clusters in, and select the industry standards and regulations the resources you have chosen will be benchmarked against.
-4. On the new workspace page, click **Workspace Parameters** and navigate to the **KSPM** tab.
-5. Under **Scope of control**, select the clouds, folders, or clusters within the workspace resources where compliance with the Kubernetes security rules will be enforced.
-6. Click **Save** and confirm the action.
+1. [Create](https://yandex.cloud/en/docs/iam/operations/sa/create) a service account KSPM will use to view Managed Service for Kubernetes cluster info, install the necessary components, and perform checks. 2. [Assign](https://yandex.cloud/en/docs/iam/operations/sa/assign-role-for-sa) to the service account the `security-deck.worker` [role](https://yandex.cloud/en/docs/security-deck/security/#security-deck-worker) for the organization, cloud, or folder. 3. [Create](https://yandex.cloud/en/docs/security-deck/operations/workspaces/create) a Security Deck workspace, specify the clouds and folders you want to control the security of clusters in, and select the industry standards and regulations the resources you have chosen will be benchmarked against. 4. On the new workspace page, click **Workspace Parameters** and navigate to the **KSPM** tab. 5. Under **Scope of control**, select the clouds, folders, or clusters within the workspace resources where compliance with the Kubernetes security rules will be enforced. 6. Click **Save** and confirm the action.
 
 For more information, see [Activating KSPM](https://yandex.cloud/en/docs/security-deck/operations/kspm/enable-kspm).

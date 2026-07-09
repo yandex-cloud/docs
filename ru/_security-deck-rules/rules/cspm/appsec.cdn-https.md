@@ -7,14 +7,10 @@
 
 #### Описание
 
-{% note tip "**Автоматическая проверка**" %}
-
-Данный контроль автоматически проверяет настройки HTTPS и SSL-сертификатов на ресурсах CDN.
-
-{% endnote %}
-
 [Cloud CDN](https://yandex.cloud/ru/docs/cdn) поддерживает безопасное подключение по протоколу HTTPS к источникам. Также вы можете загрузить собственный сертификат безопасности для доступа к вашему [CDN-ресурсу](https://yandex.cloud/ru/docs/cdn/concepts/resource) по протоколу HTTPS.
 
 #### Инструкции и решения по выполнению
 
-* [Подключите сертификат и HTTPS согласно инструкции](https://yandex.cloud/ru/docs/cdn/operations/resources/configure-basics)
+**Инструкции и решения по выполнению:**
+
+[Подключите](https://yandex.cloud/ru/docs/cdn/operations/resources/configure-basics) сертификат и HTTPS согласно инструкции.

@@ -33,7 +33,7 @@
 ## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
 1. Нажмите на имя нужного кластера Managed Service for Kubernetes и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [GitLab Runner](https://yandex.cloud/ru/marketplace/products/yc/gitlab-runner) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
@@ -84,13 +84,13 @@
 
 ## Примеры использования {#examples}
 
-* [Непрерывное развертывание контейнеризованных приложений с помощью GitLab](../../tutorials/gitlab-containers.md).
-* [Сканирование уязвимостей Container Registry при непрерывном развертывании приложений с помощью GitLab](../../tutorials/cr-scanner-with-k8s-and-gitlab.md).
-* [Хранение Docker-образов в Yandex Container Registry](../../../managed-gitlab/tutorials/image-storage.md).
+* [Непрерывное развертывание контейнеризованных приложений с помощью GitLab](../../tutorials/gitlab-containers.md)
+* [Сканирование уязвимостей Container Registry при непрерывном развертывании приложений с помощью GitLab](../../tutorials/cr-scanner-with-k8s-and-gitlab.md)
+* [Хранение Docker-образов в Yandex Container Registry](../../../managed-gitlab/tutorials/image-storage.md)
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Документация Managed Service for GitLab](../../../managed-gitlab/index.md).
+* [Документация Managed Service for GitLab](../../../managed-gitlab/index.md)
 * [Документация GitLab](https://docs.gitlab.com/).
-* [Документация GitLab CI/CD](https://docs.gitlab.com/ee/ci/).
-* [Справочник по .gitlab-ci.yml](https://docs.gitlab.com/ee/ci/yaml/index.html).
+* [Документация GitLab CI/CD](https://docs.gitlab.com/ee/ci/)
+* [Справочник по .gitlab-ci.yml](https://docs.gitlab.com/ee/ci/yaml/index.html)

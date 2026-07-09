@@ -12,7 +12,7 @@
    - Консоль управления {#console}
    
      1. В [консоли управления](https://console.yandex.cloud) откройте [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная [группа виртуальных машин](../../concepts/instance-groups/index.md).
-     1. Перейдите в сервис **Compute Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
      1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
      1. Выберите группу ВМ, которую хотите изменить.
      1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
@@ -201,7 +201,7 @@
         - Консоль управления {#console}
         
           1. В [консоли управления](https://console.yandex.cloud) откройте [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная [группа виртуальных машин](../../concepts/instance-groups/index.md).
-          1. Перейдите в сервис **Compute Cloud**.
+          1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
           1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
           1. Выберите группу ВМ, которую хотите изменить.
           1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
@@ -308,7 +308,7 @@
         - Консоль управления {#console}
 
           1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится балансировщик.
-          1. Перейдите в сервис **Network Load Balancer**.
+          1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer) в сервис **Network Load Balancer**.
           1. Нажмите на имя нужного балансировщика.
           1. В блоке **Обработчики** нажмите ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **Удалить обработчик**.
           1. Справа сверху нажмите ![image](../../../_assets/plus-sign.svg) **Создать обработчик** и [создайте](../../../network-load-balancer/operations/listener-add.md) новый обработчик.
@@ -522,7 +522,7 @@
         - Консоль управления {#console}
         
           1. В [консоли управления](https://console.yandex.cloud) откройте [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная [группа виртуальных машин](../../concepts/instance-groups/index.md).
-          1. Перейдите в сервис **Compute Cloud**.
+          1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
           1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
           1. Выберите группу ВМ, которую хотите изменить.
           1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.

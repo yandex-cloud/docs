@@ -347,7 +347,7 @@ To change the type of a VM, such as making it non-preemptible:
 
 This will affect the cost of running this VM. Learn more about VM pricing [here](../../pricing.md#prices-instance-resources).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../vm-connect/ssh.md)
 * [{#T}](../../tutorials/nodejs-cron-restart-vm.md)

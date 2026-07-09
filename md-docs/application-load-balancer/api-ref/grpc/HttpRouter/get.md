@@ -3,7 +3,6 @@
 # Application Load Balancer API, gRPC: HttpRouterService.Get
 
 Returns the specified HTTP router.
-
 To get the list of all available HTTP routers, make a [List](list.md#List) request.
 
 ## gRPC request
@@ -23,7 +22,6 @@ To get the list of all available HTTP routers, make a [List](list.md#List) reque
 || http_router_id | **string**
 
 Required field. ID of the HTTP router to return.
-
 To get the HTTP router ID, make a [HttpRouterService.List](list.md#List) request. ||
 |#
 
@@ -403,7 +401,6 @@ For details about the concept, see [documentation](../../../../overview/concepts
 
 Virtual hosts that combine routes inside the router.
 For details about the concept, see [documentation](../../../concepts/http-router.md#virtual-host).
-
 Only one virtual host with no authority (default match) can be specified. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
@@ -839,7 +836,7 @@ A health check payload resource.
 
 Payload text.
 
-The string length in characters must be greater than 0.
+The string length in characters must be 1-16384.
 
 Includes only one of the fields `text`.
 

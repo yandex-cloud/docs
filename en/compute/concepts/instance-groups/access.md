@@ -26,7 +26,7 @@ For more information, see [{#T}](balancers.md).
 
 * [{#T}](../../tutorials/vm-autoscale/index.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 - [{#T}](../../quickstart/ig.md)
 - [{#T}](../../../iam/operations/sa/create.md)

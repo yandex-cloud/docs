@@ -25,7 +25,7 @@
 ## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
 1. Нажмите на имя нужного [кластера Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [Kyverno & Kyverno Policies](https://yandex.cloud/ru/marketplace/products/yc/kyverno) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
@@ -88,7 +88,7 @@
 - Yandex Cloud Marketplace {#marketplace}
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-   1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
    1. Нажмите на имя нужного [кластера Kubernetes](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
    1. В разделе **Установленные приложения**, в строке приложения [Kyverno & Kyverno Policies](https://yandex.cloud/ru/marketplace/products/yc/kyverno), сначала нажмите кнопку ![image](../../../_assets/marketplace/three_dots.png =22x13), затем — **Удалить**.
    1. [Подключитесь к кластеру](../connect/index.md#kubectl-connect) с помощью kubectl.
@@ -109,8 +109,8 @@
 
 ## Примеры использования {#examples}
 
-* [Настройка Kyverno & Kyverno Policies](../../tutorials/marketplace/kyverno.md).
+[Настройка Kyverno & Kyverno Policies](../../tutorials/marketplace/kyverno.md)
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Документация Kyverno](https://kyverno.io/docs/).
+[Документация Kyverno](https://kyverno.io/docs/)

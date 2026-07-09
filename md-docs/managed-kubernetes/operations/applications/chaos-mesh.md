@@ -26,7 +26,7 @@
 ## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
 1. Нажмите на имя нужного [кластера Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [Chaos Mesh с поддержкой Yandex Cloud](https://yandex.cloud/ru/marketplace/products/yc/chaos-mesh) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
@@ -178,6 +178,6 @@
 
 {% endnote %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Документация Chaos Mesh](https://chaos-mesh.org/docs/).
+[Документация Chaos Mesh](https://chaos-mesh.org/docs/)

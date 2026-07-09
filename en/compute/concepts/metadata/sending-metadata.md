@@ -62,9 +62,9 @@ With the [{{ yandex-cloud }} CLI](../../../cli/index.yaml), you can provide both
 
 {% include [cli-metadata-variables-substitution-notice](../../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
-For an example of using variables when supplying metadata to a VM via the {{ yandex-cloud }} CLI, see [{#T}](../../operations/vm-create/create-with-env-variables.md).
+For an example of using variables when supplying metadata to a VM via the {{ yandex-cloud }} CLI, see [this section](../../operations/vm-create/create-with-env-variables.md).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Updating VM metadata](../../operations/vm-metadata/update-vm-metadata.md)
 * [Creating a VM with a custom configuration script](../../operations/vm-create/create-with-cloud-init-scripts.md)

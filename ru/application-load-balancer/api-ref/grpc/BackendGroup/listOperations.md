@@ -25,7 +25,6 @@ Lists operations for the specified backend group.
 || backend_group_id | **string**
 
 Required field. ID of the backend group to get operations for.
-
 To get the backend group ID, use a [BackendGroupService.List](/docs/application-load-balancer/api-ref/grpc/BackendGroup/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -78,7 +77,6 @@ List of operations for the specified backend group. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListBackendGroupOperationsRequest.page_size](#yandex.cloud.apploadbalancer.v1.ListBackendGroupOperationsRequest), use `next_page_token` as the value
 for the [ListBackendGroupOperationsRequest.page_token](#yandex.cloud.apploadbalancer.v1.ListBackendGroupOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

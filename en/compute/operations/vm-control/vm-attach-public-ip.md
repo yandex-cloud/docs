@@ -6,7 +6,7 @@ If a VM has multiple [network interfaces](../../concepts/network.md), you can as
 
 {% include [vm-attach-public-ip](../../../_includes/compute/vm-attach-public-ip.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./vm-set-static-ip.md)
 * [{#T}](../../../vpc/operations/set-static-ip.md)

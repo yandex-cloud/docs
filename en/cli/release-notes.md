@@ -7,6 +7,42 @@ description: This page presents CLI releases and their updates.
 
 ## Current version {#latest-release}
 
+### Version 1.14.0 (18/06/26) {#v-1-14-0}
+
+#### {{ mrd-name }} {#v-1-14-0-mrd-name}
+
+Added the `yc managed-redis backup-retention-policy` command group for LTR policy management:
+* `yc managed-redis backup-retention-policy create`
+* `yc managed-redis backup-retention-policy list`
+* `yc managed-redis backup-retention-policy delete`
+
+#### {{ mmg-name }} {#v-1-14-0-mmg-name}
+
+Added the `yc managed-mongodb backup-retention-policy` command group for LTR policy management:
+* `yc managed-mongodb backup-retention-policy create`
+* `yc managed-mongodb backup-retention-policy list`
+* `yc managed-mongodb backup-retention-policy delete`
+
+#### {{ cloud-registry-name }} {#v-1-14-0-cloud-registry-name}
+
+Added the `yc cloud-registry tools debian reindex-packages` command to invoke tools for managing debian registries.
+
+#### {{ baremetal-name }} {#v-1-14-0-baremetal-name}
+
+Added a command branch in the new `yc baremetal v2` syntax.
+
+#### {{ mtr-name }} {#v-1-14-0-mtr-name}
+
+Added the `--retry-policy-exchange-manager-s3-bucket` parameter to the commands for using an S3 bucket as an Exchange Manager storage:
+* `yc managed-trino cluster create`
+* `yc managed-trino cluster update`
+
+#### {{ mgp-name }} {#v-1-14-0-mgp-name}
+
+Added support for Apache Cloudberry to the `yc managed-greenplum cluster update-config` command that updates DBMS configuration.
+
+## Previous releases {#previous-release}
+
 ### Version 1.13.0 (09/06/26) {#v-1-13-0}
 
 #### Changes to the CLI system commands {#v-1-13-0-yc}
@@ -30,8 +66,6 @@ Added new flags for granular management of events displayed in audit logs:
 * `--log-monitoring-checks`
 * `--log-index-maintenance`
 * `--log-backup-operations`
-
-## Previous releases {#previous-release}
 
 ### Version 1.12.0 (04/06/26) {#v-1-12-0}
 
@@ -97,8 +131,6 @@ Added new flags for granular management of events displayed in audit logs:
 Added support for Apache Cloudberry resource groups, namely the `--cpu-max-percent`, `--cpu-weight`, `--memory-quota`, `--min-cost`, and `--io-limit` parameters for the following commands:
   * `yc managed-greenplum resource-groups create`
   * `yc managed-greenplum resource-groups update`
-
-## Previous releases {#previous-release}
 
 ### Version 1.11.0 (28/05/26) {#v-1-11-0}
 

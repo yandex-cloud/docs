@@ -272,7 +272,7 @@ You can configure [snapshot](../../concepts/snapshot.md) [schedules](../../conce
 {% endlist %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../snapshot-control/create-schedule.md)
 * [Updating a disk list in a snapshot schedule](../snapshot-control/update-schedule.md#update-disk-list)

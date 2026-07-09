@@ -151,12 +151,12 @@ To create an [instance group](../../compute/concepts/instance-groups/index.md) f
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** named `mysite-network` that you [created earlier](#create-network) and its subnets.
-  1. Select the `mysite-sg-vms` security group you [created earlier](#create-security-groups).
+  1. Select the `mysite-sg-vms` security group [you created earlier](#create-security-groups).
   1. Specify the VM access credentials:
       * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
       * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
-        You need to create a key pair for the SSH connection on your own. To learn how, see [Connecting to a VM over SSH](../../compute/operations/vm-connect/ssh.md).
+        You need to create a key pair for the SSH connection [by yourself](../../compute/operations/vm-connect/ssh.md).
 
       {% note alert %}
 

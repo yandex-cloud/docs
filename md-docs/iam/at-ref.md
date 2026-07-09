@@ -72,3 +72,4 @@ yandex.cloud.audit.iam.<имя_события>
 `oslogin.CheckSshPolicy` | Проверка прав на подключение по SSH при доступе по OS Login
 `oslogin.GenerateSshCertificate` | Генерация SSH-сертификата для доступа по OS Login
 `RevokeIamToken` | Отзыв IAM-токена
+`AccessKeyLastUsed` | Последнее использование статического ключа

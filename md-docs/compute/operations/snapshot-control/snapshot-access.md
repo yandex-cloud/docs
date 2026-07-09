@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит снимок диска.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **Снимки дисков**.
   1. Выберите снимок диска из списка.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **Права доступа**.
@@ -165,7 +165,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит снимок диска.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **Снимки дисков**.
   1. Выберите снимок диска из списка.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **Права доступа**.
@@ -306,7 +306,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит снимок диска.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **Снимки дисков**.
   1. Выберите снимок диска из списка.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **Права доступа**.

@@ -28,7 +28,7 @@ You can upload your own UEFI and GPT-enabled VM image to {{ compute-name }} to c
 
 {% include [available-image-format](../../../_includes/compute/available-image-format.md) %}
 
-For setup instructions, see [{#T}](../image-create/custom-image.md).
+For setup guides, see [{#T}](../image-create/custom-image.md).
 
 #### Upload the image file to {{ objstorage-name }} {#upload-file}
 
@@ -691,7 +691,7 @@ To create a disk with the `Gen 2` hardware generation assigned:
           {% include [name-format](../../../_includes/name-format.md) %}
       1. In the **{{ ui-key.yacloud.compute.disk-form.field_zone }}** field, select an [availability zone](../../../overview/concepts/geo-scope.md) for the new disk.
       1. Depending on the source you are creating the disk from, in the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` or `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` and select the snapshot or image from the list that opens.
-      1. In the **{{ ui-key.yacloud.compute.disk-form.field_type }}** field, select disk [type](../../concepts/disk.md#disks-types). Available values:
+      1. In the **{{ ui-key.yacloud.compute.disk-form.field_type }}** field, select disk [type](../../concepts/disk.md#disks-types). Valid values:
 
           * `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}`: Fast network drive; SSD network block storage.
           * `{{ ui-key.yacloud.compute.value_disk-type-network-hdd_cw9XD }}`: Standard network drive; HDD network block storage.
@@ -731,7 +731,7 @@ To create a disk with the `Gen 2` hardware generation assigned:
           {% include [name-format](../../../_includes/name-format.md) %}
 
       * `--zone`: [Availability zone](../../../overview/concepts/geo-scope.md) of the new disk.
-      * `--type`: [Disk type](../../concepts/disk.md#disks-types). Available values:
+      * `--type`: [Disk type](../../concepts/disk.md#disks-types). Valid values:
 
           * `network-ssd`: Fast network drive; SSD network block storage.
           * `network-hdd`: Standard network drive; HDD network block storage.
@@ -803,7 +803,7 @@ To create a disk with the `Gen 2` hardware generation assigned:
       
           {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `type`: [Disk type](../../concepts/disk.md#disks-types). Available values:
+      * `type`: [Disk type](../../concepts/disk.md#disks-types). Valid values:
 
           * `network-ssd`: Fast network drive; SSD network block storage.
           * `network-hdd`: Standard network drive; HDD network block storage.
@@ -878,7 +878,7 @@ To create a disk with the `Gen 2` hardware generation assigned:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `typeId`: [Disk type](../../concepts/disk.md#disks-types). Available values:
+      * `typeId`: [Disk type](../../concepts/disk.md#disks-types). Valid values:
 
           * `network-ssd`: Fast network drive; SSD network block storage.
           * `network-hdd`: Standard network drive; HDD network block storage.
@@ -988,7 +988,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
   1. {% include [network-settings](../../../_includes/compute/create/section-network.md) %}
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
   
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
   
           {% note alert %}
   
@@ -1057,7 +1057,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
 
                   {% include [name-format](../../../_includes/name-format.md) %}
               
-              * `type`: Disk [type](../../concepts/disk.md#disks-types). Available values:
+              * `type`: Disk [type](../../concepts/disk.md#disks-types). Valid values:
 
                   * `network-ssd`: Fast network drive; SSD network block storage.
                   * `network-hdd`: Standard network drive; HDD network block storage.
@@ -1184,7 +1184,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
 
               {% include [name-format](../../../_includes/name-format.md) %}
 
-          * `type`: Disk [type](../../concepts/disk.md#disks-types). Available values:
+          * `type`: Disk [type](../../concepts/disk.md#disks-types). Valid values:
 
               * `network-ssd`: Fast network drive; SSD network block storage.
               * `network-hdd`: Standard network drive; HDD network block storage.
@@ -1377,6 +1377,6 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/hardware-generations.md)

@@ -13,7 +13,7 @@ _Статический IP-адрес_ — постоянный IP-адрес, �
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
-  1. Перейдите в сервис **{{ compute-name }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Выберите виртуальную машину.
   1. Определите публичный IP-адрес виртуальной машины: он указан в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** блока сетевого интерфейса в секции **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице виртуальной машины.
   1. Сделайте публичный IP-адрес статическим. Подробнее читайте в разделе [{#T}](../../../vpc/operations/set-static-ip.md) документации сервиса {{ vpc-name }}.

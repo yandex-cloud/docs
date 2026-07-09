@@ -54,7 +54,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления](https://console.yandex.cloud).
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите **Создать сервисный аккаунт**.
   1. В поле **Имя** укажите `ephemeral-sa`.
   1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `storage.editor`.

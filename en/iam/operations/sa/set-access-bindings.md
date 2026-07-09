@@ -103,7 +103,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
        * `service_account_id`: ID of the service account to configure access for.
        * `role`: Role being assigned. This is a required setting.
-       * `members`: List of users or service accounts the role is being assigned to. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
+       * `members`: List of users or service accounts the role is being assigned to. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
 
        Here is an example of the configuration file structure:
 
@@ -121,24 +121,24 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
     1. Make sure the configuration files are correct.
 
-       1. In the command line, navigate to the directory where you created the configuration file.
+       1. In the terminal, navigate to the directory where you created your configuration file.
        1. Run a check using this command:
 
           ```
           terraform plan
           ```
 
-       If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+       If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
     1. Deploy the cloud resources.
 
-       1. If the configuration does not contain any errors, run this command:
+       1. If the configuration is correct, run this command:
 
           ```
           terraform apply
           ```
 
-       1. Confirm creating the resources: type `yes` and press **Enter**.
+       1. Confirm creating the resources by typing `yes` and pressing **Enter**.
 
        This will create all the resources you need in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
@@ -267,7 +267,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
        {% endnote %}
 
-       * `members`: List of users or service accounts the role is being assigned to. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
+       * `members`: List of users or service accounts the role is being assigned to. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
 
      {% cut "Example of assigning multiple roles to a service account using {{ TF }}" %}
 
@@ -294,12 +294,12 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
  
-  1. Check the configuration using this command:
+  1. Validate your configuration using this command:
      ```
      terraform validate
      ``` 
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```
      Success! The configuration is valid.
@@ -310,9 +310,9 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
      ```
      terraform apply
      ```
@@ -426,7 +426,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
        * `service_account_id`: ID of the service account to configure access for.
        * `role`: Role being assigned. This is a required setting.
-       * `members`: List of users or service accounts the role is being assigned to. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
+       * `members`: List of users or service accounts the role is being assigned to. Use one of these formats: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
 
      {% cut "Example of granting the `test-sa` service account permissions to manage the `my-robot` service account using {{ TF }}" %}
 
@@ -446,12 +446,12 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
 
-  1. Check the configuration using this command:
+  1. Validate your configuration using this command:
      ```
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```
      Success! The configuration is valid.
@@ -462,9 +462,9 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
      ```
      terraform apply
      ```
@@ -530,6 +530,6 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./impersonate-sa.md)

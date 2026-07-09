@@ -22,7 +22,7 @@ You may need to follow redirects in the following scenarios:
 * A/B testing: when switching traffic between different content versions.
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/resources/setup-follow-redirects.md)
 * [{#T}](../operations/resources/enable-shielding.md)

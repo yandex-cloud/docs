@@ -147,7 +147,7 @@ Template field value | Field value</br>after conversion | Conversion description
 
    In the `instance_template.name` field, the `{short_zone_var_{{ region-id }}-a}` variable will be converted to `rc1a`.
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](specification.md)
 * [{#T}](instance-template.md)

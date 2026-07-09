@@ -8,7 +8,7 @@ For the users of your [organization](../../../organization/concepts/organization
 
 ## Getting started {#before-you-begin}
 
-Make sure you can [access {{ OS }} Dashboards](../../../managed-opensearch/operations/connect/clients.md#dashboards) using the `admin` user credentials. For information on how to create and configure an {{ OS }} cluster, see [Creating an {{ OS }} cluster](../../../managed-opensearch/operations/cluster-create.md).
+Make sure you can [access {{ OS }} Dashboards](../../../managed-opensearch/operations/connect/clients.md#dashboards) using the `admin` user credentials. For information on how to set up an {{ OS }} cluster, see [Creating an {{ OS }} cluster](../../../managed-opensearch/operations/cluster-create.md).
 
 In this tutorial, we will use the following URL to access the {{ OS }} Dashboards web interface:
 
@@ -136,7 +136,7 @@ To configure {{ mos-name }} integration with the SAML app you created in {{ org-
 
 #### Add a user groups attribute {#group-attribute}
 
-{{ OS }} users have to get one of the basic roles upon login. For this to work, the {{ org-full-name }} authentication source must provide in its SAML response a list of user groups that will have roles mapped in {{ OS }}. Follow these steps:
+{{ OS }} users have to get one of the basic roles upon login. For this to work, the {{ org-full-name }} authentication source must provide in its SAML response a list of user groups that will have roles mapped in {{ OS }}. Proceed as follows:
 
 {% list tabs group=instructions %}
 
@@ -191,9 +191,11 @@ For your organization's users to be able to authenticate in {{ OS }} Dashboards 
 
     {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and {{ mos-name }} integration work correctly, authenticate to {{ OS }} Dashboards as one of the users you added to the app. Follow these steps:
+To make sure both your SAML app and {{ mos-name }} integration work correctly, authenticate to {{ OS }} Dashboards as one of the users you added to the app. Proceed as follows:
 
 1. In your browser, navigate to the address of your {{ OS }} Dashboards instance.
 1. If logged in to {{ OS }} Dashboards, log out.

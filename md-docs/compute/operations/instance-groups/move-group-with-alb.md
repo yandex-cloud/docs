@@ -13,7 +13,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится балансировщик.
-      1. Перейдите в сервис **Application Load Balancer**.
+      1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer**.
       1. В строке с нужным балансировщиком нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
       1. В открывшемся окне в блоке **Размещение** включите прием трафика в той зоне доступности, в которую хотите перенести группу ВМ.
       1. Нажмите кнопку **Сохранить**.
@@ -160,7 +160,7 @@
    - Консоль управления {#console}
    
      1. В [консоли управления](https://console.yandex.cloud) откройте [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная [группа виртуальных машин](../../concepts/instance-groups/index.md).
-     1. Перейдите в сервис **Compute Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
      1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
      1. Выберите группу ВМ, которую хотите изменить.
      1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
@@ -344,7 +344,7 @@
    - Консоль управления {#console}
    
      1. В [консоли управления](https://console.yandex.cloud) откройте [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная [группа виртуальных машин](../../concepts/instance-groups/index.md).
-     1. Перейдите в сервис **Compute Cloud**.
+     1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
      1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
      1. Выберите группу ВМ, которую хотите изменить.
      1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.

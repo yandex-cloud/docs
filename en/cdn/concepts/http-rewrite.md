@@ -3,7 +3,7 @@ title: Redirecting content requests
 description: This section describes the CDN resource option which allows you to modify the paths of requests from the CDN resource to an origin using _rewrite_ rules.
 ---
 
-# Redirecting requests
+# Request redirection
 
 You can [customize redirection](../operations/resources/setup-http-rewrite.md) of requests from a [CDN resource](./resource.md) to an origin by changing the [URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier) of the request using a `Rewrite` [rule](#rewrite-rule).
 
@@ -48,6 +48,6 @@ Flags allow you to stop further processing of `Rewrite` directives or return `re
 * [{#T}](../tutorials/migrate-to-yc-cdn.md)
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Guide for enabling request redirection](../operations/resources/setup-http-rewrite.md)

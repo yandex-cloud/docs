@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит группа размещения.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **Группы размещений**.
   1. Перейдите на вкладку **Группы размещения виртуальных машин**.
   1. В строке с нужной группой размещения нажмите значок ![image](../../../_assets/options.svg) и выберите **Удалить**.

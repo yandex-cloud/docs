@@ -47,13 +47,37 @@ resource "yandex_vpc_subnet" "foo" {
   v4_cidr_blocks = ["10.5.0.0/24"]
 }
 ```
+```terraform
+//
+// Create a new MDB MongoDB user authenticated via IAM.
+//
+// An IAM user is identified by the ID of an IAM subject (for example, a
+// service account) and authenticates with IAM tokens, so it has no password.
+//
+resource "yandex_iam_service_account" "my_sa" {
+  name = "mongodb-iam-user"
+}
+
+resource "yandex_mdb_mongodb_user" "my_iam_user" {
+  cluster_id = yandex_mdb_mongodb_cluster.my_cluster.id
+  name       = yandex_iam_service_account.my_sa.id
+  auth_type  = "IAM"
+
+  permission {
+    database_name = "db1"
+    roles         = ["readWrite"]
+  }
+}
+```
 
 ## Arguments & Attributes Reference
 
+- `auth_type` (String). The authentication type of the user. Either `PASSWORD` (default) or `IAM`.
 - `cluster_id` (**Required**)(String). The ID of the cluster to which user belongs to.
+- `deletion_protection` (Bool). Inhibits deletion of the user.
 - `id` (*Read-Only*) (String). The resource identifier.
 - `name` (**Required**)(String). The name of the user.
-- `password` (**Required**)(String). The password of the user.
+- `password` (String). The password of the user. Required for users with `PASSWORD` authentication and must be omitted for users with `IAM` authentication.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
   - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.

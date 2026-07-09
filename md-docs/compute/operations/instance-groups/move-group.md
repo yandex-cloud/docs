@@ -16,7 +16,7 @@
     - Консоль управления {#console}
     
       1. В [консоли управления](https://console.yandex.cloud) откройте [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная [группа виртуальных машин](../../concepts/instance-groups/index.md).
-      1. Перейдите в сервис **Compute Cloud**.
+      1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
       1. Выберите группу ВМ, которую хотите изменить.
       1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
@@ -200,7 +200,7 @@
     - Консоль управления {#console}
     
       1. В [консоли управления](https://console.yandex.cloud) откройте [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужная [группа виртуальных машин](../../concepts/instance-groups/index.md).
-      1. Перейдите в сервис **Compute Cloud**.
+      1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
       1. Выберите группу ВМ, которую хотите изменить.
       1. В правом верхнем углу нажмите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
@@ -298,7 +298,7 @@
     
     {% endlist %}
 
-### Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Перенести группу виртуальных машин с сетевым балансировщиком нагрузки в другую зону доступности](move-group-with-nlb.md)
 * [Перенести группу виртуальных машин с L7-балансировщиком в другую зону доступности](move-group-with-alb.md)

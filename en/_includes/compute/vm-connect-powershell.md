@@ -112,6 +112,6 @@ To connect to a VM:
     ...
     ```
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [PowerShell sessions (PSSessions)](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_pssessions)

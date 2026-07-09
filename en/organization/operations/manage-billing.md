@@ -22,7 +22,7 @@ By default, an {{ org-full-name }} [organization](../concepts/organization.md) h
   1. In the left-hand panel, select ![credit-card](../../_assets/console-icons/credit-card.svg) **{{ ui-key.yacloud_org.pages.organization-billing }}**.
   1. To link a billing account for the first time:
   
-      1. In the top-right corner, click **{{ ui-key.yacloud_org.organization.billing.layout.bind_account_action }}** and do the following in the window that opens:
+      1. In the top-right corner, click **{{ ui-key.yacloud_org.organization.billing.layout.bind_account_action }}** and in the window that opens:
 
           1. Select the billing account you need from the list.
 
@@ -31,7 +31,7 @@ By default, an {{ org-full-name }} [organization](../concepts/organization.md) h
 
   1. To change a billing account linked to {{ org-full-name }}:
 
-      1. In the top-right corner, click **{{ ui-key.yacloud_org.organization.billing.layout.change_account_action }}** and do the following in the window that opens:
+      1. In the top-right corner, click **{{ ui-key.yacloud_org.organization.billing.layout.change_account_action }}** and in the window that opens:
 
           1. Select the billing account you need from the list.
 
@@ -105,6 +105,6 @@ To edit the connection limit:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../pricing.md)

@@ -2076,10 +2076,6 @@ default:
       v1:
         active_secrets|number: 0.137
         active_secrets|string: "0,137\_₸"
-  sku|KZT|logging:
-    ingested:
-      traffic|pricingRate:
-        5|string: "127,7523\_₸"
   sku|KZT|mdb:
     cluster:
       clickhouse:
@@ -2192,10 +2188,6 @@ default:
       prometheus:
         export|number: 38.43
         export|string: "38,43\_₸"
-  sku|KZT|monium:
-    logs:
-      ingested:
-        traffic|string: "22\_₸"
   sku|KZT|network:
     public_fips:
       deallocated|number: 1.7019
@@ -5929,6 +5921,18 @@ default:
           button_action-delete-cloud_3simi: Удалить облако
         FolderActions:
           button_action-delete-folder_mu24C: Удалить каталог
+        Terraform:
+          button:
+            TerraformButton:
+              button_terraform_ozL8u: Генерация кода
+          TerraformDialog:
+            button_code_api_grpc: Код API
+            button_code_cli: Код CLI
+            button_code-terraform: Код Terraform
+            button_documentation: Документация Terraform
+            button_documentation_api_grpc: Документация API
+            button_documentation_cli: Документация CLI
+            button_open-cloud-shell: Открыть Cloud Shell
       compute:
         attach-disk:
           button_attach: Подключить

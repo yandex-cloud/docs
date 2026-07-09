@@ -116,7 +116,7 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Расследования](../../concepts/investigations.md).
-* [Запросы](../../concepts/queries.md).
-* [Управление запросами](manage-queries.md).
-* [Работа с шаблонами запросов](work-with-templates.md).
+* [Расследования](../../concepts/investigations.md)
+* [Запросы](../../concepts/queries.md)
+* [Управление запросами](manage-queries.md)
+* [Работа с шаблонами запросов](work-with-templates.md)

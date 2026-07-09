@@ -314,7 +314,7 @@ data "yandex_sws_waf_profile" "by-name" {
   - `log_excluded` (Bool). Records the fact that an exception rule is triggered.
   - `name` (**Required**)(String). Name of exclusion rule.
   - `request_condition` [Block]. Additional condition applied to specific parts of the request to refine when the exclusion is triggered.
-    - `body_matcher` [Block]. Matcher for request body.
+    - `body_matcher` [Block]. Matcher for request body exclusion flag.
       - `body_value` [Block]. package: yandex.cloud.smartwebsecurity.v1.waf
 filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
 
@@ -322,6 +322,9 @@ filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
 filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
 
         - `value` (String). package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
+      - `is_excluded` (Bool). package: yandex.cloud.smartwebsecurity.v1.waf
 filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
 
     - `cookie_matcher` [Block]. Matcher for request cookies.
@@ -413,6 +416,7 @@ filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
       - `name` (**Required**)(String). Name of rule set.
       - `type` (String). Type of rule set.
       - `version` (**Required**)(String). Version of rule set.
+- `updated_at` (*Read-Only*) (String). Update timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 - `waf_profile_id` (String). ID of the WafProfile resource to return.
 - `timeouts` [Block]. 
   - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).

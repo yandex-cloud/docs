@@ -38,7 +38,7 @@ If you do not have a web server yet:
 1. [Create](../../compute/operations/vm-create/create-linux-vm.md) a {{ compute-name }} instance or [rent](../../baremetal/operations/servers/server-lease.md) a {{ baremetal-name }} server.
 1. Install a web server on the new server or VM instance, e.g., [Apache](https://httpd.apache.org/) or [nginx](https://nginx.org/).
 
-    When installing the web server on a VM instance, remember to associate it with a [security group](../../vpc/concepts/security-groups.md) that allows incoming and outgoing network traffic on the appropriate ports, e.g., `80` and `443`. To learn more about creating security groups, see [{#T}](../../vpc/operations/security-group-create.md).
+    When installing the web server on a VM instance, remember to associate it with a [security group](../../vpc/concepts/security-groups.md) that allows incoming and outgoing network traffic on the appropriate ports, e.g., `80` and `443`. For more information, see [{#T}](../../vpc/operations/security-group-create.md).
 1. Upload content to your web server.
 1. Make sure your web server is available from the internet.
 
@@ -95,7 +95,7 @@ Learn more about creating a website based on a {{ compute-name }} VM instance [h
 
 {% include [quickstart-check-cdn-working](../../_includes/cdn/quickstart-check-cdn-working.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./bucket.md)
 * [{#T}](../concepts/index.md)
@@ -103,3 +103,4 @@ Learn more about creating a website based on a {{ compute-name }} VM instance [h
 * [Renting a stock-configuration {{ baremetal-name }} server](../../baremetal/operations/servers/server-lease.md)
 * [Creating a website on the LAMP or LEMP stack](../../tutorials/web/lamp-lemp/index.md)
 * [Configuring a web server](../tutorials/protected-access-to-content/console.md#setup-web-server)
+* [Webinar: Reducing load on high-traffic infrastructure with Cloud CDN](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)

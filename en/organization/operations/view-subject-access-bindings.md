@@ -1,6 +1,6 @@
 ---
 title: Viewing a list of a subject's accesses in {{ org-full-name }}
-description: In this section, you will learn how to view all account's or group's access permissions for resources in a {{ org-full-name }} organization.
+description: In this section, you will learn how to view all access permissions of an account or group to resources in a {{ org-full-name }} organization.
 ---
 
 # Viewing a list of a subject's accesses
@@ -16,7 +16,7 @@ To get a list of a subject's accesses to the organization's resources:
 {% include [view-subject-access-bindings](../../_includes/security-deck/view-subject-access-bindings.md) %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../security-deck/concepts/ciem.md)
 * [{#T}](../../security-deck/security/index.md)

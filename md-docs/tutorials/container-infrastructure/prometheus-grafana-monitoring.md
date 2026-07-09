@@ -133,7 +133,7 @@ Prometheus Operator с поддержкой Monitoring упрощает уста
 - Консоль управления {#console}
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-   1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+   1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
    1. Нажмите на имя нужного кластера Kubernetes и выберите вкладку ![image](../../_assets/marketplace.svg) **Marketplace**.
    1. В разделе **Доступные для установки приложения** выберите [Prometheus Operator с поддержкой Monitoring](https://yandex.cloud/ru/marketplace/products/yc/prometheus-operator) и нажмите кнопку **Перейти к установке**.
    1. Задайте настройки приложения:

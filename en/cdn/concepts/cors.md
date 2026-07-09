@@ -13,6 +13,6 @@ CORS settings apply to all files of the resource.
 {% include [cors-note](../../_includes/cdn/cors-note.md) %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [CORS configuration guide](../operations/resources/configure-cors.md).

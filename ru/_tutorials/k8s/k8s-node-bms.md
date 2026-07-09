@@ -191,7 +191,7 @@
 * [Откажитесь](../../baremetal/operations/servers/server-lease-cancel.md) от продления аренды сервера {{ baremetal-name }}. После отказа от аренды сервер проработает до конца оплаченного периода, а затем будет удален.
 * [Удалите](../../baremetal/tutorials/bm-vrf-and-vpc-interconnect.md#clear-out) приватное соединение.
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Подключение внешних узлов к кластеру](../../managed-kubernetes/operations/external-nodes-connect.md)
 * [Настройка WireGuard-шлюзов для подключения внешних узлов](../../managed-kubernetes/operations/external-nodes-connect-wireguard.md)

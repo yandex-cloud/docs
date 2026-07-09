@@ -252,7 +252,7 @@ Your next steps depend on whether [{{ oslogin }}](../../../organization/concepts
 * If you get the `Permission denied (publickey).` error when connecting with an SSH certificate, make sure {{ oslogin }} authorization is enabled on the VM for serial console connections and the certificate is valid. Enable {{ oslogin }} authorization on the VM for serial console connections or re-export the SSH certificate as required.
 * If you get the `Connection closed by 2a0d:d6c1:0:**::*** port 9600` error when connecting using an SSH certificate, open the `known_hosts` file on your local machine and delete all lines that start with `[serialssh.cloud.yandex.net]:9600`. Then try connecting again and respond with `yes` to `Are you sure you want to continue connecting (yes/no/[fingerprint])?`.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/serial-console.md)
 * [{#T}](./index.md)

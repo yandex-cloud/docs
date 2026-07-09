@@ -78,7 +78,7 @@ description: Follow this guide to find out the status of a {{ backup-name }} con
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [VM connection statuses](../concepts/vm-connection.md#statuses)
 * [{#T}](get-journal.md)

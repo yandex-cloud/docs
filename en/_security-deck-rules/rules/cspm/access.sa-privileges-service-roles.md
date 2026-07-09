@@ -11,17 +11,10 @@ Follow the principle of least privilege and [assign to the service account](http
 
 This rule detects service accounts with the following roles within the service:
 
-* `compute.admin`
-* `storage.admin`
-* `iam.serviceAccounts.admin`
-* `vpc.admin`
-* `k8s.admin`
-* `lockbox.admin`
-* `kms.admin`
+* `compute.admin` * `storage.admin` * `iam.serviceAccounts.admin` * `vpc.admin` * `k8s.admin` * `lockbox.admin` * `kms.admin`
 
-#### Guides and solutions to use
+#### Instructions and solutions
 
 **Guides and solutions to use:**
 
-* Use Security Deck to [revoke](https://yandex.cloud/en/docs/security-deck/operations/ciem/revoke-permissions) the service account's excessive access permissions.
-* [Revoke](https://yandex.cloud/en/docs/iam/operations/roles/revoke) the excessive permissions from the service account using IAM.
+* Use Security Deck to [revoke](https://yandex.cloud/en/docs/security-deck/operations/ciem/revoke-permissions) the service account's excessive access permissions. * [Revoke](https://yandex.cloud/en/docs/iam/operations/roles/revoke) the excessive permissions from the service account using IAM.

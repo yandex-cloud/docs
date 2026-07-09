@@ -112,15 +112,15 @@ To grant a user access to cloud resources, assign the user a role for the cloud.
       }
       ```
 
-      For more information about `yandex_resourcemanager_cloud_iam_member` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_cloud_iam_member).
-  1. In the command line, navigate to the directory you created the configuration file in.
+      For more on `yandex_resourcemanager_cloud_iam_member` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_cloud_iam_member).
+  1. In the terminal, navigate to the directory where you created your configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
 
       ```bash
       Success! The configuration is valid.
@@ -133,7 +133,7 @@ To grant a user access to cloud resources, assign the user a role for the cloud.
       ```
 
       The terminal displays a list of resources to be created and their parameters. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-  1. Apply the changes:
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
@@ -269,14 +269,14 @@ To grant a user access to cloud resources, assign the user a role for the cloud.
       }
       ```
 
-  1. In the command line, navigate to the directory you created the configuration file in.
+  1. In the terminal, navigate to the directory where you created your configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
 
       ```bash
       Success! The configuration is valid.
@@ -289,7 +289,7 @@ To grant a user access to cloud resources, assign the user a role for the cloud.
       ```
 
       The terminal displays a list of resources to be created and their parameters. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-  1. Apply the changes:
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply
@@ -414,14 +414,14 @@ Allow the `test-sa` service account to manage `my-cloud` and its resources:
       }
       ```
 
-  1. In the command line, navigate to the directory you created the configuration file in.
+  1. In the terminal, navigate to the directory where you created your configuration file.
   1. Make sure the configuration file is correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If the configuration is correct, you will get this message:
+      If the configuration is valid, you will get this message:
 
       ```bash
       Success! The configuration is valid.
@@ -434,7 +434,7 @@ Allow the `test-sa` service account to manage `my-cloud` and its resources:
       ```
 
       The terminal displays a list of resources to be created and their parameters. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-  1. Apply the changes:
+  1. Apply the configuration changes:
 
       ```bash
       terraform apply

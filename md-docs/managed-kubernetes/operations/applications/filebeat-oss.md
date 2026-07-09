@@ -63,7 +63,7 @@
 ## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
 1. Нажмите на имя нужного кластера Managed Service for Kubernetes и выберите вкладку ![image](../../../_assets/marketplace.svg) **Marketplace**.
 1. В разделе **Доступные для установки приложения** выберите [Filebeat OSS](https://yandex.cloud/ru/marketplace/products/yc/filebeat-oss) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
@@ -112,9 +112,9 @@
 
 ## Примеры использования {#examples}
 
-* [Мониторинг кластера Managed Service for Kubernetes с помощью Filebeat OSS](../../tutorials/filebeat-oss-monitoring.md).
+[Мониторинг кластера Managed Service for Kubernetes с помощью Filebeat OSS](../../tutorials/filebeat-oss-monitoring.md)
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
-* [Документация Managed Service for OpenSearch](../../../managed-opensearch/index.md).
-* [Документация Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/index.html).
+* [Документация Managed Service for OpenSearch](../../../managed-opensearch/index.md)
+* [Документация Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/index.html)

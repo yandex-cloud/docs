@@ -287,6 +287,9 @@ items:
             items:
               - name: Data Sources
                 items:
+                  - name: cloudregistry_folder
+                    href: data-sources/cloudregistry_folder.md
+                    title: ''
                   - name: cloudregistry_lifecycle_policy
                     href: data-sources/cloudregistry_lifecycle_policy.md
                     title: ''
@@ -299,6 +302,12 @@ items:
                 title: ''
               - name: Resources
                 items:
+                  - name: cloudregistry_folder
+                    href: resources/cloudregistry_folder.md
+                    title: ''
+                  - name: cloudregistry_folder_iam_binding
+                    href: resources/cloudregistry_folder_iam_binding.md
+                    title: ''
                   - name: cloudregistry_lifecycle_policy
                     href: resources/cloudregistry_lifecycle_policy.md
                     title: ''
@@ -1023,6 +1032,9 @@ items:
             items:
               - name: Data Sources
                 items:
+                  - name: mdb_mongodb_backup_retention_policy
+                    href: data-sources/mdb_mongodb_backup_retention_policy.md
+                    title: ''
                   - name: mdb_mongodb_cluster
                     href: data-sources/mdb_mongodb_cluster.md
                     title: ''
@@ -1035,6 +1047,9 @@ items:
                 title: ''
               - name: Resources
                 items:
+                  - name: mdb_mongodb_backup_retention_policy
+                    href: resources/mdb_mongodb_backup_retention_policy.md
+                    title: ''
                   - name: mdb_mongodb_cluster
                     href: resources/mdb_mongodb_cluster.md
                     title: ''
@@ -1053,6 +1068,9 @@ items:
             items:
               - name: Data Sources
                 items:
+                  - name: mdb_mysql_backup_retention_policy
+                    href: data-sources/mdb_mysql_backup_retention_policy.md
+                    title: ''
                   - name: mdb_mysql_cluster
                     href: data-sources/mdb_mysql_cluster.md
                     title: ''
@@ -1071,6 +1089,9 @@ items:
                 title: ''
               - name: Resources
                 items:
+                  - name: mdb_mysql_backup_retention_policy
+                    href: resources/mdb_mysql_backup_retention_policy.md
+                    title: ''
                   - name: mdb_mysql_cluster
                     href: resources/mdb_mysql_cluster.md
                     title: ''
@@ -1116,6 +1137,9 @@ items:
             items:
               - name: Data Sources
                 items:
+                  - name: mdb_postgresql_backup_retention_policy
+                    href: data-sources/mdb_postgresql_backup_retention_policy.md
+                    title: ''
                   - name: mdb_postgresql_cluster
                     href: data-sources/mdb_postgresql_cluster.md
                     title: ''
@@ -1128,6 +1152,9 @@ items:
                 title: ''
               - name: Resources
                 items:
+                  - name: mdb_postgresql_backup_retention_policy
+                    href: resources/mdb_postgresql_backup_retention_policy.md
+                    title: ''
                   - name: mdb_postgresql_cluster
                     href: resources/mdb_postgresql_cluster.md
                     title: ''
@@ -1200,6 +1227,9 @@ items:
             items:
               - name: Data Sources
                 items:
+                  - name: mdb_redis_backup_retention_policy
+                    href: data-sources/mdb_redis_backup_retention_policy.md
+                    title: ''
                   - name: mdb_redis_cluster
                     href: data-sources/mdb_redis_cluster.md
                     title: ''
@@ -1212,6 +1242,9 @@ items:
                 title: ''
               - name: Resources
                 items:
+                  - name: mdb_redis_backup_retention_policy
+                    href: resources/mdb_redis_backup_retention_policy.md
+                    title: ''
                   - name: mdb_redis_cluster
                     href: resources/mdb_redis_cluster.md
                     title: ''
@@ -1475,6 +1508,24 @@ items:
                     title: ''
                   - name: serverless_eventrouter_rule
                     href: resources/serverless_eventrouter_rule.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Serverless Workflows
+            items:
+              - name: Data Sources
+                items:
+                  - name: serverless_workflow
+                    href: data-sources/serverless_workflow.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: serverless_workflow
+                    href: resources/serverless_workflow.md
+                    title: ''
+                  - name: serverless_workflow_iam_binding
+                    href: resources/serverless_workflow_iam_binding.md
                     title: ''
                 title: ''
             title: ''

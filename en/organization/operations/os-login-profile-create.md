@@ -143,7 +143,7 @@ To create an {{ oslogin }} profile:
 
 You can only create an {{ oslogin }} profile for a service account using the [{{ yandex-cloud }} CLI](../cli-ref/oslogin/profile/create.md) or [API](../../organization/api-ref/OsLogin/createProfile.md).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/os-login-access.md)
 * [{#T}](../operations/add-ssh.md)

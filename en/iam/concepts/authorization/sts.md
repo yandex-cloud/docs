@@ -6,7 +6,7 @@ description: '{{ sts-name }}: {{ iam-name }} component used to get temporary acc
 {% include [sts-overview](../../../_includes/iam/sts-overview.md) %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../../storage/security/overview.md)
 * [{#T}](ephemeral-keys.md)

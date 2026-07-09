@@ -1,7 +1,7 @@
 title: Security in Yandex Cloud
 href: index.yaml
 items:
-  - name: Key security principles
+  - name: Key security features
     href: principles.md
   - name: Division of responsibility for security
     href: respons.md
@@ -10,7 +10,7 @@ items:
   - name: Security measures on the {{ yandex-cloud }} side
     href: standarts.md
   - name: Security tools available to cloud service users
-    href: user-side.md
+    href: user-side.yaml
   - name: Best practices for securing your cloud infrastructure
     items:
       - name: All recommendations
@@ -129,6 +129,8 @@ items:
             href: tutorials/single-sign-on/saml-opensearch.md
           - name: Setting up OIDC SSO in MWS
             href: tutorials/single-sign-on/oidc-mws.md
+          - name: Setting up OIDC SSO using NetBird
+            href: tutorials/single-sign-on/oidc-netbird.md
           - name: Setting up SAML SSO in {{ OS }}
             href: tutorials/single-sign-on/saml-opensearch-self-managed.md
           - name: OpenVPN

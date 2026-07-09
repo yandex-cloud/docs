@@ -7,4 +7,4 @@
 * [Python-артефакты](../../cloud-registry/concepts/artifacts/python.md)
 * [Binary-артефакты](../../cloud-registry/concepts/artifacts/binary.md)
 * [Go-артефакты](../../cloud-registry/concepts/artifacts/go.md)
-
+* [Debian-артефакты](../../cloud-registry/concepts/artifacts/debian.md)

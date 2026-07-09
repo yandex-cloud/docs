@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы настроили сервисное подключение {{ vpc-short-name }}.
-  1. Перейдите в сервис **{{ objstorage-name }}**.
+  1. [Перейдите]({{ link-console-main }}/link/storage) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**
   1. Выберите бакет в списке.
   1. Перейдите на вкладку ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** в меню слева.
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.

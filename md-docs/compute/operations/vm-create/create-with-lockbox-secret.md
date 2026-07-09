@@ -61,7 +61,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находятся секрет и сервисный аккаунт.
-      1. Перейдите в сервис **Compute Cloud**.
+      1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
       1. Нажмите кнопку **Создать виртуальную машину**.
       1. В блоке **Образ загрузочного диска** выберите образ [Ubuntu 24.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin).

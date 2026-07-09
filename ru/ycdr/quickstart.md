@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы научите
 
 ## Создайте расследование {#create-investigation}
 
-1. Перейдите в сервис [{{ sd-name }}]({{ link-sd-main }}).
+1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
 1. На панели слева выберите **{{ ycdr-name }}**.
 1. Перейдите на вкладку **{{ ui-key.yacloud_org.security.ycdr.YcdrPageLayout.investigations_wYxSe }}**.
 1. Нажмите **{{ ui-key.yacloud_org.security.siem.InvestigationsPage.create-investigation_iCPUP }}**.

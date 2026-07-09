@@ -86,7 +86,7 @@ To create an infrastructure using {{ TF }}:
 
     {% endlist %}
 
-    Learn more about the properties of {{ TF }} resources in the relevant provider guides:
+    For more on the properties of resources used in {{ TF }}, see these provider guides:
 
     * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
     * Service account [role](../../iam/concepts/access-control/roles.md): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
@@ -112,7 +112,7 @@ To create an infrastructure using {{ TF }}:
     * `content_file_path`: Path to the file with content for uploading to the bucket.
     * `domain_name`: Your domain name, e.g., `example.com`.
     * `subdomain_name`: Prefix of subdomain for the CDN resource, e.g., `cdn`.
-    * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
+    * `bucket_name`: Bucket name that meets the [naming conventions](../../storage/concepts/bucket.md#naming).
     * `secure_key`: Secret key that is a string of 6 to 32 characters. It is required to restrict access to a resource using [secure tokens](../../cdn/concepts/secure-tokens.md).
 
 1. Create the resources:

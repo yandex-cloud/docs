@@ -48,7 +48,7 @@ To remove an existing authentication factor from a user account:
 
 The user's authentication factor will be deleted, and the user will need to complete the [verification](../../concepts/mfa.md#mfa-factors) again during the next authentication in {{ yandex-cloud }}.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./create-policy.md)
 * [{#T}](./update-policy.md)

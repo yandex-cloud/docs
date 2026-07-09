@@ -78,6 +78,6 @@ description: Follow this guide to create an empty disk with a large block.
 {% endlist %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../snapshot-control/create-schedule.md)

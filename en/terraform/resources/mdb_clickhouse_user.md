@@ -81,14 +81,15 @@ resource "yandex_mdb_clickhouse_user" "foo" {
 
 ## Arguments & Attributes Reference
 
+- `auth_method` (String). Authentication method for the user. Possible values are `password`, `iam`. Default is `password`.
 - `cluster_id` (**Required**)(String). ID of the ClickHouse cluster. Provided by the client when the user is created.
 - `connection_manager` [Block]. Connection Manager connection configuration. Filled in by the server automatically.
   - `connection_id` (*Read-Only*) (String). ID of Connection Manager connection. Filled in by the server automatically. String.
-- `generate_password` (Bool). Generate password using Connection Manager. Allowed values: `true` or `false`. It's used only during user creation and is ignored during updating.
+- `generate_password` (Bool). Generate password using Connection Manager. Allowed values: `true` or `false`.
 
 {% note warning %}
 
-**Must specify either password or generate_password**.
+**For password authentication, must specify exactly one of password or generate_password**.
 
 {% endnote %}
 

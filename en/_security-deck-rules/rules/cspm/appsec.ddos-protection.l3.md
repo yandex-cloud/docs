@@ -1,4 +1,4 @@
-### Network DDoS protection is enabled (L3) {#appsec-ddos-protection-l3}
+### Network DDoS protection is enabled (L3) {#l3}
 
 #|
 || **kind** | **severity** | **ID** ||
@@ -7,7 +7,7 @@
 
 #### Description
 
-{% note tip "**Automatic verification**" %}
+{% note tip %}
 
 This control automatically checks Yandex DDoS Protection security profiles. If an external DDoS protection software is used, please change the status manually.
 
@@ -17,17 +17,15 @@ Yandex Cloud provides basic and advanced DDoS protection. Make sure to use at le
 
 Yandex DDoS Protection is a VPC component that safeguards cloud resources from DDoS attacks. DDoS Protection is provided in partnership with Qrator Labs. Supported up to OSI L4.
 
-Activating Yandex DDoS Protection for VM instances or network load balancers allows you to efficiently respond to attacks aiming to overwhelm the channel capacity and computing resources of your VM instances. 
+Activating Yandex DDoS Protection for VM instances or network load balancers allows you to efficiently respond to attacks aiming to overwhelm the channel capacity and computing resources of your VM instances.
 
 To prevent such attacks, DDoS Protection:
 
-* Constantly analyzes all incoming traffic.
-* Detects the above issues in the network and transport layers.
-* Automatically diverts unwanted traffic when its intensity threatens the health of your service in Yandex Cloud.
+* Constantly analyzes all incoming traffic. * Detects the above issues in the network and transport layers. * Automatically diverts unwanted traffic when its intensity threatens the health of your service in Yandex Cloud.
 
 [Advanced DDoS protection](https://yandex.cloud/en/services/ddos-protection) is available at OSI layers 3, 4, and 7. You can also track load and attack metrics and enable Solidwall WAF in your Curator account.
 
-#### Recommendations
+#### Instructions and solutions
 
 **Guides and solutions to use:**
 

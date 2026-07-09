@@ -8,6 +8,6 @@ To create an infrastructure for a [single-node file server](index.md) using {{ T
 
 {% include [tls-termination-terraform](../../../_tutorials/archive/single-node-file-server-terraform.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](console.md).

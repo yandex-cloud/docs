@@ -97,6 +97,14 @@ items:
                 href: operations/go/push.md
               - name: Скачать Go-модуль из реестра
                 href: operations/go/pull.md
+          - name: Debian-артефакт
+            items:
+              - name: Настроить APT
+                href: operations/debian/installation.md
+              - name: Загрузить Debian-пакет в реестр
+                href: operations/debian/push.md
+              - name: Скачать Debian-пакет из реестра
+                href: operations/debian/pull.md
           - name: Удалить артефакт из реестра
             href: operations/artifacts/delete.md
       - name: Создание политики жизненного цикла
@@ -133,6 +141,8 @@ items:
             href: concepts/artifacts/binary.md
           - name: Go-артефакт
             href: concepts/artifacts/go.md
+          - name: Debian-артефакт
+            href: concepts/artifacts/debian.md
       - name: Политика жизненного цикла
         href: concepts/lifecycle-policy.md
       - name: Квоты и лимиты

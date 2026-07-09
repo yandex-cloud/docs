@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** и выберите нужную ВМ.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** и выберите нужную ВМ.
   1. На панели сверху нажмите ![image](../../_assets/console-icons/stop.svg) **{{ ui-key.yacloud.common.stop }}** и подтвердите остановку ВМ.
   1. Подождите, пока ВМ перейдет в статус `Stopped`, и на панели сверху нажмите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите опцию **{{ ui-key.yacloud.component.compute.resources.field_sw-accelerated-net }}**.

@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 
 - {{ billing-interface }} {#billing}
 
-  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите платежный аккаунт из списка.
   1. На странице ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** в правом верхнем углу нажмите кнопку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-change-org }}**.
   1. В появившемся окне выберите организацию из списка (будут показаны только те организации, [пользователем](../../organization/operations/add-account) которых вы являетесь), подтвердите смену организации и нажмите **Изменить**.

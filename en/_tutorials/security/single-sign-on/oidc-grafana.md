@@ -3,11 +3,11 @@
 
 [Grafana Cloud](https://grafana.com/products/cloud/) is a managed cloud monitoring and observability platform that brings together Grafana, Prometheus, Loki, and other tools for data visualization and analysis. Grafana Cloud supports [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) authentication to provide secure SSO for your organization's users.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to Grafana Cloud with OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and Grafana Cloud.
+For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to Grafana Cloud via OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-full-name }} and configure it both in {{ org-full-name }} and Grafana Cloud.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
-For the users of your organization to be able to access Grafana Cloud:
+To give access to Grafana Cloud to the users of your organization:
 
 1. [Create a Grafana Cloud account](#grafana-account).
 1. [Create an app](#create-app).
@@ -50,7 +50,7 @@ To configure OIDC in Grafana Cloud, you need organization administrator permissi
         1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
 
             1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-            1. Enter a label in `key: value` format.
+            1. Add a label in `key: value` format.
             1. Press **Enter**.
         1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
@@ -91,7 +91,7 @@ To configure OIDC in Grafana Cloud, you need organization administrator permissi
      status: ACTIVE
      ```
 
-     Save the `id` field value: you will need it to create and configure your app.
+     Save the `id` field value for when you need to create and configure your app.
 
   1. Create a secret for your OAuth client:
 
@@ -168,7 +168,7 @@ To integrate Grafana Cloud with the OIDC app you created in {{ org-full-name }},
 - {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the OIDC app.
+  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the OIDC app.
   1. On the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** tab, under **{{ ui-key.yacloud_org.application.overview.idp_section_title }}**, expand the **{{ ui-key.yacloud_org.application.overview.idp_section_closed_text }}** section and copy the parameter values you need to specify in Grafana Cloud:
 
         * `{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}`: Unique application ID.
@@ -182,7 +182,7 @@ To integrate Grafana Cloud with the OIDC app you created in {{ org-full-name }},
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Get information about your new OIDC application:
+  1. Get the new OIDC app info:
 
      ```bash
      yc organization-manager idp application oauth application get <app_ID>
@@ -239,7 +239,7 @@ To integrate Grafana Cloud with the OIDC app you created in {{ org-full-name }},
 - {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the OIDC app.
+  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the OIDC app.
   1. At the top right, click ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** and in the window that opens:
       1. In the **{{ ui-key.yacloud_org.application.overview.oauth_field_redirect_uri }}** field, specify the authentication endpoint for your Grafana Cloud instance formatted as follows:
 
@@ -363,6 +363,8 @@ Add a user to the application:
         ```
 
 {% endlist %}
+
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
 
 ## Make sure your application works correctly {#validate}
 

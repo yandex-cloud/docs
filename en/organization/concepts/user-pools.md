@@ -21,7 +21,7 @@ The pool administrator can indicate which data users will be able modify on the 
 * Password (allowed by default)
 * Organization details
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/user-pools/create-userpool.md)
 * [Creating a local user](../operations/add-account.md#add-local-user)

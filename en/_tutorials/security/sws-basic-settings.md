@@ -410,7 +410,7 @@ Use logs and monitoring charts to check the performance of your rules:
 
 {% endlist %}
 
-For detailed description of charts, see [{#T}](../../smartwebsecurity/operations/monitoring.md).
+For a detailed description of charts, see [{#T}](../../smartwebsecurity/operations/monitoring.md).
 
 ## Set up load limitations {##rate-limiter}
 

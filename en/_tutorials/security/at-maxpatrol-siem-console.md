@@ -327,7 +327,7 @@ The trail will collect management event audit logs for all your organization's r
 
 {% endlist %}
 
-For more information about creating a trail, see [{#T}](../../audit-trails/operations/create-trail.md).
+For more on creating a trail, see [{#T}](../../audit-trails/operations/create-trail.md).
 
 ## Configure MaxPatrol SIEM {#configure-maxpatrol}
 

@@ -170,7 +170,7 @@ You do not need to use any third-party user and access management systems. You c
 
 Moreover, {{ org-full-name }} can act as an identity provider for you to authenticate your users with third-party systems and solutions using [apps](./concepts/applications.md).
 
-For more information, see these sections:
+For more information, see:
 * [{#T}](./concepts/add-federation.md)
 * [{#T}](./concepts/user-pools.md)
 * [{#T}](./concepts/applications.md)

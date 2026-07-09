@@ -85,6 +85,6 @@ To restore a VM or {{ baremetal-name }} server from a backup:
 
 {% endnote %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](non-native-recovery.md)

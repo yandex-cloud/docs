@@ -87,7 +87,7 @@ After you install the plugin, a new **Security Realm** option, `SAML 2.0`, will 
 
 ### Configure user attributes {#user-attributes}
 
-Add the `preferred_username` attribute to users, which will be used as the username when authenticating to Jenkins. Follow these steps:
+Add the `preferred_username` attribute to users, which will be used as the username when authenticating to Jenkins. Proceed as follows:
 
 {% list tabs group=instructions %}
 
@@ -98,7 +98,7 @@ Add the `preferred_username` attribute to users, which will be used as the usern
     1. Navigate to the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}** tab.
     1. In the top-right corner, click ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_attribute }}** and in the window that opens:
 
-        1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** field, specify `preferred_username`.
+        1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** field, enter `preferred_username`.
         1. In the **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** field, select `SubjectClaims.preferred_username`.
         1. Click **{{ ui-key.yacloud.common.add }}**.
 
@@ -127,9 +127,11 @@ For your organization's users to be able to authenticate to Jenkins with {{ org-
 
    {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and Jenkins integration work correctly, authenticate to Jenkins as one of the users you added to the app. Follow these steps:
+To make sure both your SAML app and Jenkins integration work correctly, authenticate to Jenkins as one of the users you added to the app. Proceed as follows:
 
 1. In your browser, navigate to your Jenkins instance address.
 1. You will be redirected to the {{ yandex-cloud }} authentication page. Specify the email and password for the user you added to the app. The user must also have their email address specified.

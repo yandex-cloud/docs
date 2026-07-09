@@ -436,7 +436,7 @@ To make sure the configuration scripts ran successfully, [get the serial port ou
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 Other configuration examples for the `user-data` key:
 

@@ -152,7 +152,7 @@ The VM statistics indicate the `total` number of virtual machines attached to a 
 
 When you [delete](../operations/reserved-pools/delete-reserved-pool.md) a reserved instance pool, all VMs attached to it will be detached, and the running ones will continue to operate.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/reserved-pools/create-reserved-pool.md)
 * [{#T}](../operations/instance-groups/create-group-with-pool.md)

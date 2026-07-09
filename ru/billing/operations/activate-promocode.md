@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
 
 - {{ billing-interface }} {#billing}
 
-  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите аккаунт на странице **{{ ui-key.yacloud_billing.billing.title_accounts }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.button_activate-grant }}**. Эта кнопка появляется только, когда промокод стал доступен.
   1. Введите промокод и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard.popup-grant-activation_button_activate }}**.

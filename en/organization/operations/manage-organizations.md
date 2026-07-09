@@ -54,6 +54,6 @@ Only users with Yandex accounts can create organizations. [Federated users](../.
 
 If there are multiple organizations registered in your account, you can [move](../../resource-manager/operations/cloud/change-organization.md) clouds between them. To move a cloud to a different organization, you need the `{{ roles-cloud-owner }}` [role](../security/index.md#organization-manager-organizations-owner) for the cloud you are transferring and the `{{ roles-organization-owner }}` [role](../../resource-manager/security/index.md#resource-manager-clouds-owner) for the destination organization.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../billing/operations/change-organization.md)

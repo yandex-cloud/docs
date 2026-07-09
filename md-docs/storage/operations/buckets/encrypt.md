@@ -31,7 +31,7 @@
 
   Чтобы добавить ключ KMS:
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Выберите бакет, для которого хотите настроить шифрование.
   1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **Безопасность**.
   1. Выберите вкладку **Шифрование**.
@@ -162,7 +162,7 @@
 
   Чтобы убрать шифрование, удалите ключ KMS:
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Выберите бакет, для которого хотите убрать шифрование.
   1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **Безопасность**.
   1. Выберите вкладку **Шифрование**.
@@ -248,4 +248,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Шифрование в Object Storage](../../concepts/encryption.md)
+[Шифрование в Object Storage](../../concepts/encryption.md)

@@ -68,7 +68,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором размещен кластер.
-      1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+      1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
       1. Напротив кластера нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
       1. В поле **Управление идентификацией и доступом** включите федерацию сервисных аккаунтов.
       1. Нажмите **Сохранить**.

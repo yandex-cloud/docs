@@ -7,14 +7,10 @@
 
 #### Description
 
-{% note tip "**Automatic verification**" %}
+To protect critical data in Yandex Object Storage, we recommend using bucket server-side encryption with Yandex Key Management Service keys. This encryption method protects against accidental or intentional publication of the bucket content on the web. For more information, see [Encryption in the Object Storage ](https://yandex.cloud/en/docs/storage/concepts/encryption) documentation.
 
-This control automatically checks for encryption settings on Object Storage buckets.
+#### Instructions and solutions
 
-{% endnote %}
+**Guides and solutions to use:**
 
-To protect critical data in Yandex Object Storage, we recommend using bucket server-side encryption with Yandex Key Management Service keys. This encryption method protects against accidental or intentional publication of the bucket content on the web. For more information, see [Encryption](https://yandex.cloud/en/docs/storage/concepts/encryption) in the Object Storage documentation.
-
-#### Guides and solutions
-
-* It is recommended to enable data encryption for buckets with critical data: <https://yandex.cloud/en/docs/tutorials/security/server-side-encryption>
+It is recommended to enable data [encryption](https://yandex.cloud/ru/docs/tutorials/security/server-side-encryption) for buckets with critical data.

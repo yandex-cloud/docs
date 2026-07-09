@@ -2,7 +2,7 @@
 
 By default, technical notifications for an organization are sent to users with the `organization-manager.organizations.owner` role.
 
-You can also subscribe other users in your organization to receive technical notifications. To do this:
+You can also subscribe other users in your organization to receive technical notifications. Proceed as follows:
 
 {% list tabs group=instructions %}
 

@@ -15,7 +15,7 @@ Object Storage автоматически отправляет метрики р
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. Выберите бакет, статистику которого вы хотите посмотреть.
   1. На панели слева выберите ![image](../../../_assets/console-icons/display-pulse.svg) **Мониторинг**.
   1. Выберите временной промежуток, за который хотите посмотреть статистику: 1 час, 3 часа, 1 день, 1 неделя, 1 месяц. 
@@ -38,7 +38,7 @@ Object Storage автоматически отправляет метрики р
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Object Storage**.
+  1. [Перейдите](https://console.yandex.cloud/link/storage) в сервис **Object Storage**.
   1. На панели слева выберите ![image](../../../_assets/monitoring/concepts/visualization/legend-goto-chart.svg) **Метрики**.
   1. В строке запроса выберите параметры:
       1. Сервис **Object Storage**.

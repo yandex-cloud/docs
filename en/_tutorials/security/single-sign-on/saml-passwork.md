@@ -117,9 +117,11 @@ For the users of your organization to be able to authenticate in Passwork with {
 
 {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and Passwork integration work correctly, sign in to Passwork as one of the users you added to the app. Follow these steps:
+To make sure both your SAML app and Passwork integration work correctly, sign in to Passwork as one of the users you added to the app. Proceed as follows:
 
 1. In your browser, navigate to your Passwork instance URL, e.g., `https://my-domain.passwork-cloud.ru`.
 1. If already logged in to Passwork, sign out of your account.

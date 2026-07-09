@@ -71,6 +71,12 @@
 * [Загрузить Go-модуль](go/push.md)
 * [Скачать Go-модуль](go/pull.md)
 
+### Debian {#debian}
+
+* [Настроить менеджер пакетов APT](debian/installation.md)
+* [Загрузить Debian-пакет](debian/push.md)
+* [Скачать Debian-пакет](debian/pull.md)
+
 
 ## Другие инструкции {#other}
 

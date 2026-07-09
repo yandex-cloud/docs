@@ -12,7 +12,7 @@ To isolate applications from each other, put resources in different [security gr
 
 #### 2.1 Cloud objects use a firewall or security groups {#firewall}
 
-With built-in security groups, you can manage VM access to resources and security groups in {{ yandex-cloud }} or resources on the internet. A security group is a set of rules for incoming and outgoing traffic that can be assigned to a VM's network interface. Security groups work like a stateful firewall: they monitor the status of sessions and, if a rule allows a session to be created, they automatically allow response traffic. For a guide on how to set up security groups, see [{#T}](../../../vpc/operations/security-group-create.md). You can specify a security group in the VM settings.
+With built-in security groups, you can manage VM access to resources and security groups in {{ yandex-cloud }} or resources on the internet. A security group is a set of rules for incoming and outgoing traffic that can be assigned to a VM's network interface. Security groups work like a stateful firewall: they monitor the status of sessions and, if a rule allows a session to be created, they automatically allow response traffic. You can find the security group setup guide in [{#T}](../../../vpc/operations/security-group-create.md). You can specify a security group in the VM settings.
 
 You can use security groups to protect:
 * VM.

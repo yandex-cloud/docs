@@ -36,7 +36,7 @@ The infrastructure support cost includes:
    * **Value**: ID of the {{ lockbox-name }} secret you created.
    * **Mask variable**: Enabled.
 
-      To protect your passwords from attackers, mask the variable. This way, only users with the `Maintainer` or `Owner` roles in your {{ GL }} project will be able to see the variable value, i.e., the {{ lockbox-name }} secret ID . If connected to a virtual machine with {{ GLR }}, an attacker will not be able to retrieve the password from a secret without knowing the secret ID.
+      To protect your passwords from attackers, mask the variable. This way, only users with the `Maintainer` or `Owner` roles in your {{ GL }} project will be able to see the variable value, i.e., the {{ lockbox-name }} secret ID. If connected to a virtual machine with {{ GLR }}, an attacker will not be able to retrieve the password from a secret without knowing the secret ID.
 
 1. [Install {{ GLR }}](../../managed-gitlab/tutorials/install-gitlab-runner.md) on a separate {{ compute-full-name }} VM. When creating a VM, specify the service account you previously created.
 
@@ -54,7 +54,7 @@ The infrastructure support cost includes:
 
    1. Click **Save changes**.
 
-   You can learn more about {{ GLR }} settings in [this {{ GL }} guide]({{ gl.docs }}/ee/ci/runners/configure_runners.html).
+   Read more about {{ GLR }} settings in [this {{ GL }} guide]({{ gl.docs }}/ee/ci/runners/configure_runners.html).
 
    {% endcut %}
 

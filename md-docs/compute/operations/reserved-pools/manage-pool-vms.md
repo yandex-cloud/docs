@@ -27,7 +27,7 @@ _Функциональность пулов резервов ВМ находи�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится пул резервов ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-lock.svg) **Пулы резервов ВМ**.
   1. Выберите нужный пул.
   1. На панели слева перейдите в раздел ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
@@ -91,7 +91,7 @@ _Функциональность пулов резервов ВМ находи�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится пул резервов ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-lock.svg) **Пулы резервов ВМ**.
   1. В строке с нужным пулом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/plug-connection.svg) **Создать ВМ**.
   1. Настройте параметры создаваемой ВМ. Подробнее на странице [Создание виртуальной машины](../index.md#vm-create).
@@ -229,7 +229,7 @@ _Функциональность пулов резервов ВМ находи�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится пул резервов ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. В строке с нужной ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/plug-connection.svg) **Привязать к пулу резервов ВМ**.
   1. В открывшемся окне выберите нужный пул резервов ВМ из списка или создайте новый.
@@ -363,7 +363,7 @@ _Функциональность пулов резервов ВМ находи�
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится пул резервов ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. В строке с нужной ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/plug-connection.svg) **Отвязать от пула резервов ВМ**.
   1. В открывшемся окне нажмите кнопку **Отвязать**.

@@ -17,13 +17,16 @@ POST https://video.api.cloud.yandex.net/video/v1/streamLines
 {
   "channelId": "string",
   "title": "string",
+  "inputSource": "string",
   // Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`
   "rtmpPush": "object",
   "rtmpPull": {
-    "url": "string"
+    "url": "string",
+    "backupUrl": "string"
   },
   "srtPull": {
-    "url": "string"
+    "url": "string",
+    "backupUrl": "string"
   },
   // end of the list of possible fields
   // Includes only one of the fields `manualLine`, `autoLine`
@@ -46,6 +49,14 @@ The maximum string length in characters is 50. ||
 Required field. Line title.
 
 The maximum string length in characters is 300. ||
+|| inputSource | **enum** (LineInputSource)
+
+Specifies which input source (main or backup) should be used.
+Default is LINE_INPUT_SOURCE_MAIN if not specified.
+
+- `ANY`: Use any available input source (main or backup).
+- `MAIN`: Use main input source.
+- `BACKUP`: Use backup input source (works only if backup input source is provided). ||
 || rtmpPush | **object**
 
 RTMP push input type.
@@ -109,6 +120,11 @@ Required field. The RTMP URL from which to pull the video stream.
 Must be a valid RTMP URL starting with "rtmp://".
 
 Value must match the regular expression ` rtmp://.* `. ||
+|| backupUrl | **string**
+
+The backup RTMP URL from which to pull the video stream.
+
+Value must match the regular expression ``` (|rtmp://.*) ```. ||
 |#
 
 ## SRTPullParams {#yandex.cloud.video.v1.SRTPullParams}
@@ -123,6 +139,11 @@ Required field. The SRT URL from which to pull the video stream.
 Must be a valid SRT URL starting with "srt://".
 
 Value must match the regular expression ` srt://.* `. ||
+|| backupUrl | **string**
+
+The backup SRT URL from which to pull the video stream.
+
+Value must match the regular expression ``` (|srt://.*) ```. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

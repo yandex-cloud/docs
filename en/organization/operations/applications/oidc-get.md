@@ -82,13 +82,13 @@ description: Follow this guide to get information about an OIDC app in {{ org-fu
      * `output`: Output variables containing the app info:
        * `value`: Return value.
 
-     You can replace these parameters with any others to get the information you need. For more information about the `yandex_organizationmanager_idp_application_oauth_application` data source properties, see [this {{ TF }} provider guide]({{ tf-provider-datasources-link }}/organizationmanager_idp_application_oauth_application).
+     You can replace these parameters with any others to get the information you need. For more on the properties of the `yandex_organizationmanager_idp_application_oauth_application` data source, see [this provider guide]({{ tf-provider-datasources-link }}/organizationmanager_idp_application_oauth_application).
 
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+     {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
      ```bash
      terraform output

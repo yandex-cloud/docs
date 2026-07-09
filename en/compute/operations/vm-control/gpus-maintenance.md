@@ -69,7 +69,7 @@ description: Follow this guide to manage maintenance of GPU virtual machines in 
       * `--filter`: Filter to apply to the task list you obtained. This is an optional setting. By default, the command outputs the full list of maintenance tasks.
       
           You can filter the list by task status (`status`) or by VM ID (`resource_id`), e.g., `--filter 'status = "SCHEDULED"'` or `--filter 'resource_id = "a7loutvf73vg********"'`.
-      * `sort_order`: Task list sorting order. This is an optional setting. Available values:
+      * `sort_order`: Task list sorting order. This is an optional setting. Valid values:
       
           * `created_at`: By the task creation time.
           * `start_scheduled_at`: By the scheduled time of the task.
@@ -237,6 +237,6 @@ You can instantly start a scheduled VM maintenance task.
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/gpus-maintenance.md)

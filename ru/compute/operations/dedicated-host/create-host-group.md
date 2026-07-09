@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана группа выделенных хостов.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.compute.host-groups_eKsBm }}**.
   1. Справа сверху нажмите **{{ ui-key.yacloud.compute.host-groups.button_create-host-group }}**.
   1. Введите имя и описание группы выделенных хостов. Требования к имени:

@@ -849,7 +849,7 @@ In addition to service account access permissions, you can define [scopes](../..
 
 #### 1.12 Tokens for cloud functions and VMs are issued by a service account {#func-token}
 
-To get an IAM token when executing a function, [assign](../../../functions/operations/function-sa.md) a service account to the function. In this case, the function will get an {{ iam-short-name }} token by means of built-in {{ yandex-cloud }} tools so that you do not have to provide any secrets to the function externally. Do the same [for your VMs](../../../compute/operations/vm-info/get-info.md#inside-instance). For more information about getting an IAM token in a function, see [{#T}](../../../functions/operations/function-sa.md).
+To get an IAM token when executing a function, [assign](../../../functions/operations/function-sa.md) a service account to the function. In this case, the function will get an {{ iam-short-name }} token by means of built-in {{ yandex-cloud }} tools so that you do not have to provide any secrets to the function externally. Do the same [for your VMs](../../../compute/operations/vm-info/get-info.md#inside-instance). Learn more about getting an IAM token in a function [here](../../../functions/operations/function-sa.md).
 
 | Requirement ID | Severity |
 | --- | --- |

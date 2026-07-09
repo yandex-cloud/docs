@@ -71,8 +71,8 @@
   1. Нажмите кнопку **Save**.
   1. Подключитесь к удаленной машине двойным нажатием на созданное подключение в списке подключений для быстрого доступа.
 
-  #### Полезные ссылки
+  #### Полезные ссылки {#see-also}
 
-  * [Установка Remmina на дистрибутивы Linux отличные от Ubuntu](https://remmina.org/how-to-install-remmina/).
+  [Установка Remmina на дистрибутивы Linux отличные от Ubuntu](https://remmina.org/how-to-install-remmina/)
 
 {% endlist %}

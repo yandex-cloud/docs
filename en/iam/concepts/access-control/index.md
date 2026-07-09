@@ -134,7 +134,7 @@ Service control is the whole of the access permissions needed to create and oper
 
 The user cannot directly create or delete service agents. All the required service agents with the appropriate access permissions are automatically created when you enable a service and get deleted when you disable it.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 For more information about managing access to a specific {{ yandex-cloud }} service, see the <q>Access management</q> section in the documentation for that service.
 

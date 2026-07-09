@@ -132,7 +132,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Выберите кластер Managed Service for Kubernetes.
   1. На панели слева выберите **Управление узлами**.
   1. Нажмите кнопку **Создать группу узлов**.
@@ -306,7 +306,7 @@
   {% endnote %}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kubernetes) в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Выберите кластер Managed Service for Kubernetes.
   1. На панели слева выберите **Управление узлами**.
   1. На вкладке **Группы узлов** выберите группу узлов, в которой вы хотите обновить реквизиты.

@@ -62,7 +62,7 @@ To create a [reserved instance pool](../../concepts/reserved-pools.md):
         --size <pool_size> \
         --platform <platform_ID> \
         --cores <number_of_vCPUs> \
-        --memory <RAM_size> \
+        --memory <RAM_amount> \
         --gpus <number_of_GPUs> \
         --gpu-cluster-id <GPU_cluster_ID> \
         --allow-oversubscription
@@ -81,7 +81,7 @@ To create a [reserved instance pool](../../concepts/reserved-pools.md):
       * `--memory`: Amount of RAM for VMs in the new pool. This is an optional setting. The default value is `2 GB`.
       * `--gpus`: Number of [GPUs](../../concepts/gpus.md) for VMs in the new pool. This is an optional setting. This parameter is only available if you select a platform with [GPU support](../../concepts/gpus.md#config).
       * `--gpu-cluster-id`: GPU [cluster](../../concepts/gpus.md#gpu-clusters) ID. This is an optional setting.
-      * `--allow-oversubscription`: Parameter enabling the [oversubscription mode](../../concepts/reserved-pools.md#oversubscription) for the pool. In this mode, you can attach VMs beyond the pool capacity. This is an optional parameter. The oversubscription mode is off by default.
+      * `--allow-oversubscription`: Parameter enabling the [oversubscription mode](../../concepts/reserved-pools.md#oversubscription) for the pool. In this mode, you can attach VMs beyond the pool capacity. This is an optional setting. The oversubscription mode is off by default.
 
       Result:
 
@@ -118,7 +118,7 @@ To create a [reserved instance pool](../../concepts/reserved-pools.md):
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./manage-pool-vms.md)
 * [{#T}](../../concepts/reserved-pools.md)

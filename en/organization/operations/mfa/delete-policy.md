@@ -57,7 +57,7 @@ To delete [an MFA policy](../../concepts/mfa.md#mfa-policies):
 
      {% include [mfa-tf-code-block](../../../_includes/organization/mfa-tf-code-block.md) %}
 
-     For more information about `yandex_organizationmanager_mfa_enforcement` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement).
+     For more on the properties of the `yandex_organizationmanager_mfa_enforcement` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement).
 
   1. Apply the changes:
 
@@ -75,7 +75,7 @@ To delete [an MFA policy](../../concepts/mfa.md#mfa-policies):
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./create-policy.md)
 * [{#T}](./update-policy.md)

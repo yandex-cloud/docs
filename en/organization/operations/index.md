@@ -110,6 +110,13 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](./enable-refresh-tokens.md)
 * [{#T}](./enable-2fa-access.md)
 
+## Managing authentication policies {#manage-authentication-policies}
+
+* [{#T}](./authentication-policies/create.md)
+* [{#T}](./authentication-policies/activate-deactivate.md)
+* [{#T}](./authentication-policies/update.md)
+* [{#T}](./authentication-policies/delete.md)
+
 ## Working with {{ oslogin }} {#os-login}
 
 * [{#T}](./os-login-access.md)

@@ -26,7 +26,7 @@ You can add [multiple](./limits.md#cdn-limits) IP addresses (subnet prefixes) to
 
 Changing the IP address exclusion list will completely overwrite the existing exclusion list. To add new IP addresses to the exclusion list or remove unnecessary addresses from the list, redefine a complete, up-to-date list of excluded IP addresses with all required changes.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/resources/create-resource.md)
 * [{#T}](../operations/resources/configure-basics.md)

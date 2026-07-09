@@ -28,7 +28,7 @@ The private part of an authorized {{ yandex-cloud }} key starts with `PLEASE DO 
 
 * [{#T}](../../../tutorials/infrastructure-management/autoscale-monitoring.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../operations/authentication/manage-authorized-keys.md#create-authorized-key)
 * [{#T}](../../operations/authentication/manage-authorized-keys.md#delete-authorized-key)

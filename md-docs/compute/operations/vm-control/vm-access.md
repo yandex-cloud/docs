@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Выберите нужную ВМ.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **Права доступа**.
   1. Нажмите кнопку **Назначить роли**.
@@ -163,7 +163,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Выберите нужную ВМ.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **Права доступа**.
   1. Нажмите кнопку **Назначить роли**.
@@ -303,7 +303,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. Выберите нужную ВМ.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **Права доступа**.
   1. В строке нужного пользователя нажмите значок ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) и выберите **Изменить роли**.

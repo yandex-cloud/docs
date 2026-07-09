@@ -29,7 +29,7 @@ You can create access policies for a [folder](#folder), [cloud](#cloud), or [org
 
 {% include [access-policies-view-assigned-org](../../../_includes/iam/access-policies-view-assigned-org.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/access-control/access-policies.md)
 * [{#T}](./list.md)

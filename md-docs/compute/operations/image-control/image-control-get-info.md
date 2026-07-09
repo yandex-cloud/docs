@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [образ](../../concepts/image.md) диска.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/layers.svg) **Образы**.
   1. Выберите нужный образ.
   1. На странице **Обзор** отобразится подробная информация об образе.

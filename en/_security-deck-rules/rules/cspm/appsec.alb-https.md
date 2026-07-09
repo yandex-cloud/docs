@@ -1,4 +1,4 @@
-### In Yandex Application Load Balancer, HTTPS is used {#alb-https}
+### Yandex Application Load Balancer uses HTTPS {#alb-https}
 
 #|
 || **kind** | **severity** | **ID** ||
@@ -7,14 +7,10 @@
 
 #### Description
 
-{% note tip "**Automatic verification**" %}
+[Application Load Balancer](https://yandex.cloud/en/docs/application-load-balancer) supports an HTTPS listener with a [certificate](https://yandex.cloud/en/docs/certificate-manager/concepts/imported-certificate) uploaded from Certificate Manager. See [listener setup description](https://yandex.cloud/en/docs/application-load-balancer/concepts/application-load-balancer#listener) in the Yandex Application Load Balancer documentation.
 
-This control automatically checks for HTTPS listener settings on Application Load Balancer.
+#### Instructions and solutions
 
-{% endnote %}
+**Guides and solutions to use:**
 
-[Application Load Balancer service](https://yandex.cloud/en/docs/application-load-balancer) supports an HTTPS listener with loading a [certificate](https://yandex.cloud/en/docs/certificate-manager/concepts/imported-certificate) from Certificate Manager. See the [listener configuration description](https://yandex.cloud/en/docs/application-load-balancer/concepts/application-load-balancer#listener) in the Yandex Application Load Balancer documentation.
-
-#### Guides and solutions
-
-* [Enable the HTTPS listener according to the instructions](https://yandex.cloud/en/docs/application-load-balancer/tutorials/tls-termination/)
+Enable an HTTPS listener using [this guide](https://yandex.cloud/en/docs/application-load-balancer/tutorials/tls-termination/).

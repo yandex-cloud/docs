@@ -187,7 +187,7 @@ To disable serial console access for an existing VM:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/serial-console.md)
 * [{#T}](./connect-ssh.md)

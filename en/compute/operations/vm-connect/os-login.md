@@ -65,7 +65,7 @@ You can connect to a VM with {{ oslogin }} access enabled using the [{{ yandex-c
 
 You will then be connected to the specified VM. If this is your first time connecting to this VM, a new user profile will be created in the VM operating system.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../../organization/operations/os-login-access.md)
 * [{#T}](../../../organization/operations/add-ssh.md)

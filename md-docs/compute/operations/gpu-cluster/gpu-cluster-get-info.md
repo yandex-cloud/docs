@@ -8,7 +8,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [кластер GPU](../../concepts/gpus.md#gpu-clusters).
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/cpus.svg) **Кластеры GPU**.
   1. Выберите нужный кластер.
   1. На странице **Обзор** отобразится подробная информация о кластере GPU.

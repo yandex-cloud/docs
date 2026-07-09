@@ -160,9 +160,11 @@ For your organization's users to be able to authenticate in {{ GL }} with {{ org
 
     {% endlist %}
 
+{% include [auth-policy-applications-tip](../../../_includes/organization/auth-policy-applications-tip.md) %}
+
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and {{ GL }} integration work correctly, authenticate to {{ GL }} as one of the users you added to the app. Follow these steps:
+To make sure both your SAML app and {{ GL }} integration work correctly, authenticate to {{ GL }} as one of the users you added to the app. Proceed as follows:
 
 1. In your browser, open the URL of your {{ GL }} instance, e.g., `https://example.gitlab.yandexcloud.net`.
 1. If you are already authenticated in {{ GL }}, log out.

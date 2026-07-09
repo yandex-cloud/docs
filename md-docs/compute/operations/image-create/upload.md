@@ -54,7 +54,7 @@
 - Консоль управления {#console}
 
   1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать образ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/layers.svg) **Образы**.
   1. Нажмите кнопку **Загрузить образ** и в открывшемся окне:
 
@@ -375,7 +375,7 @@
 
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создана ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. Нажмите кнопку **Создать виртуальную машину**.
   1. В блоке **Образ загрузочного диска**:

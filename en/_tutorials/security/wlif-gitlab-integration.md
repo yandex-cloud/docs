@@ -180,7 +180,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 * [{{ lockbox-name }}](../../lockbox/operations/secret-delete.md) secret
 * [Service account](../../iam/operations/sa/delete.md)
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../tutorials/security/gitlab-lockbox-integration.md)
 * [{#T}](../../tutorials/security/wlif-github-integration.md)

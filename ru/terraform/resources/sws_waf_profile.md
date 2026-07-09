@@ -95,6 +95,7 @@ resource "yandex_sws_waf_profile" "default" {
 - `labels` (Map Of String). Labels as `` key:value `` pairs. Maximum of 64 per resource.
 - `match_all_rule_sets` (Bool). Determines
 - `name` (**Required**)(String). Name of the WAF profile. The name is unique within the folder. 1-50 characters long.
+- `updated_at` (*Read-Only*) (String). Update timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 - `waf_profile_id` (String). ID of the WafProfile resource to return.
 - `analyze_request_body` [Block]. The parameter is deprecated. Parameters for request body analyzer.
   - `is_enabled` (Bool). Possible to turn analyzer on and turn if off.
@@ -384,7 +385,10 @@ resource "yandex_sws_waf_profile" "default" {
     - `exclude_all` (Bool). Set this option true to exclude all rules.
     - `rule_ids` (List Of String). List of rules to exclude.
   - `request_condition` [Block]. Additional condition applied to specific parts of the request to refine when the exclusion is triggered.
-    - `body_matcher` [Block]. Matcher for request body.
+    - `body_matcher` [Block]. Matcher for request body exclusion flag.
+      - `is_excluded` (Bool). package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
       - `body_value` [Block]. package: yandex.cloud.smartwebsecurity.v1.waf
 filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
 

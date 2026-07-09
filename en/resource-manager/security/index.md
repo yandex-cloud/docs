@@ -18,6 +18,12 @@ In this section, you will learn about:
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
+{% note info %}
+
+{% include [access-control-vs-roles-notice](../../_includes/iam/access-control-vs-roles-notice.md) %}
+
+{% endnote %}
+
 ## Roles this service has {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}

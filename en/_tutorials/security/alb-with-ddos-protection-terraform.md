@@ -27,7 +27,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 To create an infrastructure with {{ TF }}:
 
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the {{ yandex-cloud }} provider source (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
-1. Prepare the infrastructure description file:
+1. Set up your infrastructure description file:
 
    {% list tabs group=infrastructure_description %}
 
@@ -39,7 +39,7 @@ To create an infrastructure with {{ TF }}:
         git clone https://github.com/yandex-cloud-examples/yc-alb-ddos-protection.git
         ```
 
-     1. Navigate to the repository directory. Make sure it contains the following files:
+     1. Navigate to the repository directory. It should now contain the following files:
         * `alb-with-ddos-protection.tf`: New infrastructure configuration.
         * `alb-with-ddos-protection.auto.tfvars`: User data.
 

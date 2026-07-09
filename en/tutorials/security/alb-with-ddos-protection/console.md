@@ -5,6 +5,6 @@ description: In this tutorial, you will deploy a DDoS protection infrastructure 
 
 {% include [alb-with-ddos-protection-console](../../../_tutorials/security/alb-with-ddos-protection-console.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](terraform.md)

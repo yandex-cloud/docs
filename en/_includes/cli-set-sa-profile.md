@@ -26,7 +26,7 @@ Configure the CLI to work on behalf of a service account:
 
     Where:
 
-    * `--output`: Path to the file for saving the authorized key in JSON format. This is a required parameter.
+    * `--output`: Path to the file for saving the authorized key in JSON format. This is a required setting.
     * `--service-account-name`: Service account name.
 
      Here is an example:
@@ -52,7 +52,7 @@ Configure the CLI to work on behalf of a service account:
     yc config profile create <profile_name>
     ```
 
-1. Specify the service account’s authorized key in the profile configuration:
+1. In the profile configuration, specify the service account’s authorized key:
 
     ```bash
     yc config set service-account-key <key_file_path>

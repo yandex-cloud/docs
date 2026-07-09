@@ -20,14 +20,14 @@ To connect an existing server to {{ backup-name }}:
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a service account](#prepare-service-account).
 1. [Activate {{ backup-name }}](#activate-provider).
-1. [Lease a test server](#server-lease).
+1. [Rent a test server](#server-lease).
 1. [Connect to the server](#server-connect).
 1. [Install the {{ backup-name }} agent](#agent-install).
 1. [Associate the server with a backup policy](#assign-policy).
 1. [Run the backup process](#execute-policy).
 1. [Restore your server from the backup](#server-recovery).
 
-See also [How to cancel a lease and delete resources](#clear-out).
+If you no longer need the resources, [delete them and terminate the rental](#clear-out).
 
 ## Get your cloud ready {#before-you-begin}
 
@@ -36,8 +36,8 @@ See also [How to cancel a lease and delete resources](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost includes:
-* Server lease fee (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
-* Fee for the {{ baremetal-name }} server connected to {{ backup-name }} and the backup size (see [{{ backup-full-name }} pricing](../../backup/pricing.md)).
+* Fee for renting a server (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
+* Fee for the {{ baremetal-name }} server connected to {{ backup-name }} and the size of backups (see [{{ backup-full-name }} pricing](../../backup/pricing.md)).
 
 {% include [bms-backup-free-traffic](../../_includes/baremetal/bms-backup-free-traffic.md) %}
 
@@ -166,7 +166,7 @@ If you are already leasing a server with an [appropriate OS](#os-support), proce
 
 Save the server name and ID, as you will need them later.
 
-For more information on leasing a server, see [this {{ baremetal-name }} guide](../../baremetal/operations/servers/server-lease.md).
+For more information on renting a server, see [this {{ baremetal-name }} guide](../../baremetal/operations/servers/server-lease.md).
 
 ## Connect to the server {#server-connect}
 
@@ -439,6 +439,6 @@ To restore your server from a backup:
 1. [Cancel](../../baremetal/operations/servers/server-lease-cancel.md) your {{ baremetal-name }} server lease.
 1. [Delete](../../backup/operations/backup-vm/delete.md) the backup in {{ backup-name }} using the CLI.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../backup/operations/backup-baremetal/lease-server-with-backup.md)

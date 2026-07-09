@@ -82,7 +82,7 @@ For an [MFA policy](../../concepts/mfa.md#mfa-policies) to apply to user account
 
      To add multiple users or groups, create a separate `yandex_organizationmanager_mfa_enforcement_audience` resource for each one.
 
-     For more information about `yandex_organizationmanager_mfa_enforcement_audience` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement_audience).
+     For more on the properties of the `yandex_organizationmanager_mfa_enforcement_audience` resource, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement_audience).
 
   1. Create the resources:
 
@@ -106,7 +106,7 @@ If you remove a user or group from an MFA policy and re-add them later, you will
 
 {% include [mfa-policy-applications-acc-type-notice](../../../_includes/organization/mfa-policy-applications-acc-type-notice.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./excluded-audience.md)
 * [{#T}](./create-policy.md)

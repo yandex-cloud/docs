@@ -226,6 +226,6 @@ To disable instance group deletion protection:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](delete.md)

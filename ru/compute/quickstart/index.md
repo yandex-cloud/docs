@@ -8,5 +8,6 @@ description: Следуя данной инструкции, вы сможете
 {% include [compute-description](../../_includes/compute/compute-description.md) %}
 
 Чтобы начать работать с сервисом, выберите подходящую инструкцию:
+
 * [Создание виртуальной машины Linux](quick-create-linux.md)
 * [Создание группы виртуальных машин](ig.md)

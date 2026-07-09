@@ -104,7 +104,7 @@ For `test_auto_scale`, use the same keys [as for `auto_scale`](#auto-scale-polic
 
 * [{#T}](../../../tutorials/vm-autoscale/index.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](healing-policy.md)
 * [{#T}](allocation-policy.md)

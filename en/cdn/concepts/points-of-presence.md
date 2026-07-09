@@ -8,7 +8,7 @@ description: A {{ cdn-name }} point of presence is the physical location of CDN 
 _Points of presence_, or PoPs, are geographically distributed physical CDN servers that cache and deliver content to end users. They reside in strategic geographic locations with efficient access to communication links, enabling content delivery via the shortest route with minimal latency.
 
 
-{{ cdn-full-name }} provides access to 59 points of presence with a total throughput exceeding 3 Tbps.
+{{ cdn-full-name }} provides access to 65 points of presence with a total throughput exceeding 7 Tbps.
 
 
 
@@ -36,38 +36,41 @@ PoP server performance also shapes the overall content delivery speed. Stable de
 {{ cdn-full-name }} uses state-of-the-art hardware to provide reliable and highly efficient performance for each PoP.
 
 
-## List of cities with PoPs {#yc-pop-list}
+## Cities with PoPs {#yc-pop-list}
 
-Cities with at least one PoP:
+The following cities have at least one PoP:
 
-| **Russia** | **Kazakhstan** | **Uzbekistan** | **Kyrgyzstan** |
-|------------|---------------|----------------|----------------|
-| Alexandrov | Aktobe | Tashkent | Manas |
-| Vladivostok | Karaganda | | |
-| Vladikavkaz | | | |
-| Volgograd | | | |
-| Voronezh | | | |
-| Yekaterinburg | | | |
-| Krasnodar | | | |
-| Krasnoyarsk | | | |
-| Moscow | | | |
-| Nizhny Novgorod | | | |
-| Novosibirsk | | | |
-| Orenburg | | | |
-| Petrozavodsk | | | |
-| Rostov-on-Don | | | |
-| Samara | | | |
-| Saint Petersburg | | | |
-| Simferopol | | | |
-| Sochi | | | |
-| Stavropol | | | |
-| Tambov | | | |
-| Tyumen | | | |
-| Ufa | | | |
-| Khabarovsk | | | |
-| Chelyabinsk | | | |
-| Chita | | | |
-| Yaroslavl | | | |
+<iframe frameborder="0" src="https://datalens.yandex/t2rvaw171qr2d?_embedded=1&_no_controls=1" width="100%" height="400px"></iframe>
+
+#|
+|| **Russia** {align="center"} | > | > | > | **Kazakhstan** | **Tajikistan** ||
+|| Alexandrov
+Vladivostok
+Vladikavkaz
+Volgograd
+Voronezh
+Yekaterinburg
+Krasnodar | Krasnoyarsk
+Moscow
+Nizhny Novgorod
+Novosibirsk
+Orenburg
+Petrozavodsk
+Rostov-on-Don | Samara
+Saint Petersburg
+Simferopol
+Sochi
+Stavropol
+Tambov | Tyumen
+Ufa
+Khabarovsk
+Chelyabinsk
+Chita
+Yaroslavl | Aktobe
+Karaganda | Dushanbe ||
+|| ^ | ^ | ^ | ^ | **Kyrgyzstan** | **Uzbekistan** ||
+|| ^ | ^ | ^ | ^ | Manas | Tashkent ||
+|#
 
 
 ## FAQ {#qa}
@@ -103,7 +106,7 @@ To reduce the number of networks sending requests to the origin, [enable](../ope
 
 {% endcut %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./resource.md)
 * [{#T}](./origins.md)

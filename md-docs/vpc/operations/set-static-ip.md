@@ -15,7 +15,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится нужный адрес.
-   1. Перейдите в сервис **Virtual Private Cloud**.
+   1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
    1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **Публичные IP-адреса**.
    1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного адреса и выберите **Сделать статическим**.
    1. В открывшемся окне нажмите **Изменить**.

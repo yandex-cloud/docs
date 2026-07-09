@@ -58,7 +58,7 @@
 - Консоль управления {#console}
 
   1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать образ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![layers](../../../_assets/console-icons/layers.svg) **Образы**.
   1. Нажмите кнопку **Загрузить образ** и в открывшемся окне:
 
@@ -307,7 +307,7 @@
 - Консоль управления {#console}
 
   1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать образ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. В зависимости от того, из какого источника вы хотите создать новый образ, на панели слева выберите ![archive](../../../_assets/console-icons/archive.svg) **Диски и хранилища**, ![picture](../../../_assets/console-icons/picture.svg) **Снимки дисков** или ![layers](../../../_assets/console-icons/layers.svg) **Образы**.
   1. В зависимости от выбранного типа источника в открывшемся списке в строке с нужным образом, снимком или диском нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![layers](../../../_assets/console-icons/layers.svg) **Создать образ**. В открывшемся окне:
 
@@ -880,7 +880,7 @@
 - Консоль управления {#console}
 
   1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать образ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![archive](../../../_assets/console-icons/archive.svg) **Диски и хранилища** и нажмите кнопку **Создать диск**. В открывшемся окне:
 
       1. В поле **Имя** задайте имя диска. Требования к имени:
@@ -1183,7 +1183,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![server](../../../_assets/console-icons/server.svg) **Виртуальные машины** и нажмите кнопку **Создать виртуальную машину**.
   1. В блоке **Расположение** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
 

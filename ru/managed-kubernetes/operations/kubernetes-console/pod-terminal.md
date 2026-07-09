@@ -13,7 +13,8 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Нажмите на имя нужного кластера и на панели слева выберите ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
   1. Нажмите на имя нужного пода.
   1. В правом верхнем углу нажмите ![Terminal](../../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.k8s.WorkloadsActions.pod-exec_jwJ3R }}**.
@@ -40,4 +41,3 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 #### Полезные ссылки {#see-also}
 
 [{#T}](../../concepts/index.md#pod)
-

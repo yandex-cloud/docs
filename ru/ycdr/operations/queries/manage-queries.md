@@ -172,7 +172,7 @@ description: Следуя данной инструкции, вы научите
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](../../concepts/investigations.md).
-* [{#T}](../../concepts/queries.md).
-* [{#T}](work-with-templates.md).
-* [{#T}](query-history.md).
+* [{#T}](../../concepts/investigations.md)
+* [{#T}](../../concepts/queries.md)
+* [{#T}](work-with-templates.md)
+* [{#T}](query-history.md)

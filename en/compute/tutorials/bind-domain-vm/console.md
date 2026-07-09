@@ -8,6 +8,6 @@ To create an infrastructure for [assigning a domain name to a web server VM](ind
 
 {% include [bind-domain-vm-console](../../../_tutorials/applied/bind-domain-vm-console.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](terraform.md)

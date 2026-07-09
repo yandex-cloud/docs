@@ -195,7 +195,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который была перемещена ВМ.
-  1. Перейдите в сервис **{{ compute-name }}**.
+  1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Нажмите на имя нужной ВМ.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.

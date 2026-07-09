@@ -12,7 +12,7 @@
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
 
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Перейдите]({{ link-console-main }}/link/managed-kubernetes) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 
 1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 
@@ -68,7 +68,7 @@
   `auditEventsInvolvedNamespace` | Создавать события в затронутом пространстве имен | `false`
   `enableExternalData` | Экспериментальная поддержка внешних источников данных | `true`
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Документация Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/docs/)
 

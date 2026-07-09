@@ -12,7 +12,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположена группа выделенных хостов.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/horizontal-ellipsis.svg) → **Группы выделенных хостов**.
   1. Выберите нужную группу выделенных хостов.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **Права доступа**.
@@ -86,7 +86,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположена группа выделенных хостов.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/horizontal-ellipsis.svg) → **Группы выделенных хостов**.
   1. Выберите нужную группу выделенных хостов.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **Права доступа**.
@@ -165,7 +165,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположена группа выделенных хостов.
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/horizontal-ellipsis.svg) → **Группы выделенных хостов**.
   1. Выберите нужную группу выделенных хостов.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **Права доступа**.

@@ -8,6 +8,11 @@
 `dedicated_instance.StartDedicatedInstance` | Запуск выделенного инстанса
 `dedicated_instance.StopDedicatedInstance` | Остановка выделенного инстанса
 `dedicated_instance.UpdateDedicatedInstance` | Изменение выделенного инстанса
+`foundationmodels.UpdateDataLogging` | Изменение настроек логирования данных
+`guardrails.BlockContentByClassifier` | Блокировка контента по классификатору
+`guardrails.BlockContentByDictionary` | Блокировка контента по словарю
+`guardrails.ChangeDefaultGuardrail` | Изменение правила модерации по умолчанию
+`guardrails.CompleteContentCheck` | Завершение проверки контента
 `guardrails.CreateDictionary` | Создание [словаря]({{ link-docs-ai }}/ai-studio/concepts/security/guardrails#dictionaries) фраз и регулярных выражений в [правиле модерации]({{ link-docs-ai }}/ai-studio/concepts/security/guardrails#rules)
 `guardrails.CreateGuardrail` | Создание правила модерации
 `guardrails.DeleteDictionary` | Удаление словаря фраз и регулярных выражений из правила модерации
@@ -22,6 +27,16 @@
 `mcp_hub.SetMcpGatewayAccessBindings` | Назначение прав доступа для MCP-сервера
 `mcp_hub.UpdateMcpGateway` | Изменение MCP-сервера
 `mcp_hub.UpdateMcpGatewayAccessBindings` | Изменение прав доступа для MCP-сервера
+`responses.CancelResponse` | Отмена ответа
+`responses.CreateResponse` | Создание ответа
+`responses.DeleteResponse` | Удаление ответа
+`responses.FileSearchToolSearch` | Поиск по файлам через инструмент поиска
+`responses.GetResponse` | Получение ответа
+`responses.McpToolApprovalRequest` | Запрос подтверждения вызова MCP-инструмента
+`responses.McpToolApprovalResponse` | Ответ на запрос подтверждения вызова MCP-инструмента
+`responses.McpToolCall` | Вызов MCP-инструмента
+`responses.McpToolList` | Получение списка MCP-инструментов
+`responses.WebSearchToolSearch` | Поиск через инструмент веб-поиска (Web Search)
 `settings.SetFolderSettings` | Изменение настроек сервиса в каталоге
 `tuning.CancelTuning` | Остановка [дообучения]({{ link-docs-ai }}/ai-studio/concepts/tuning/index) модели
 `tuning.StartTuning` | Запуск дообучения модели

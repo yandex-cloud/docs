@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [файловое хранилище](../../concepts/filesystem.md).
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/nodes-right.svg) **Файловые хранилища**.
   1. Выберите нужное файловое хранилище.
   1. На странице **Обзор** отобразится подробная информация о файловом хранилище.

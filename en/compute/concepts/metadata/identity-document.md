@@ -17,7 +17,7 @@ Apart from identity documents, the VM [metadata service](../vm-metadata.md) prov
 
 For more information on how to check an identity document for integrity and authenticity, see [{#T}](../../operations/vm-metadata/get-identity-document.md#check-id-signature).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Getting a VM identity document](../../operations/vm-metadata/get-identity-document.md)
 * [{#T}](../vm-metadata.md)

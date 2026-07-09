@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится [группа размещения](../../concepts/placement-groups.md).
-  1. Перейдите в сервис **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/copy-transparent.svg) **Группы размещений**.
   1. Выберите нужную группу.
   1. На странице **Обзор** отобразится подробная информация о группе размещения ВМ.

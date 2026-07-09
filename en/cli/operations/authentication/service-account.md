@@ -61,7 +61,7 @@ Some commands require that you specify unique IDs for your cloud and folder. You
 Read more about working with {{ yandex-cloud }} from a VM in [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md).
 
 
-#### See also
+#### Useful links {#see-also}
 
 - [{#T}](../../concepts/index.md#manage-properties).
 - [{#T}](../profile/profile-create.md).

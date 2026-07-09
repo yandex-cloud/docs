@@ -14,7 +14,7 @@ To get started with the {{ yandex-cloud }} SDK:
     1. [Create a service account](#create-sa).
     1. [Prepare the {{ yandex-cloud }} CLI](#prepare-cli).
     1. [Get the source data](#get-source-data).
-1. [Configure the environment](#prepare-project).
+1. [Set up your environment](#prepare-project).
 1. [Create a configuration file](#create-config).
 1. [Prepare the script code](#prepare-code).
 1. [Run the script to create a VM](#run-code).
@@ -45,7 +45,7 @@ The cost of supporting a VM created with the SDK includes:
 
 ### Prepare the {{ yandex-cloud }} CLI {#prepare-cli}
 
-1. [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} CLI.
+1. [Install the](../../cli/operations/install-cli.md) CLI{{ yandex-cloud }}.
 1. [Authenticate](../../cli/operations/authentication/service-account) in the {{ yandex-cloud }} CLI as a service account.
 
     With the {{ yandex-cloud }} CLI, you will get the {{ yandex-cloud }} authentication credentials:
@@ -70,7 +70,7 @@ The cost of supporting a VM created with the SDK includes:
         node -v
         ```
 
-        The {{ yandex-cloud }} SDK supports Node.js version 12 and higher. If Node.js is not installed or you need a newer version, select the appropriate installation option from the [Node.js website](https://nodejs.org/en/download/package-manager).
+        The {{ yandex-cloud }} SDK supports Node.js version 12 and higher. If Node.js is not installed or you need a newer version, select the suitable installation option on the [Node.js website](https://nodejs.org/en/download/package-manager).
     1. Clone the [repository containing the {{ yandex-cloud }} SDK examples for Node.js](https://github.com/yandex-cloud-examples/yc-sdk-quickstart-node-js.git):
 
         ```bash
@@ -147,7 +147,7 @@ The cost of supporting a VM created with the SDK includes:
         git clone https://github.com/yandex-cloud-examples/yc-sdk-quickstart-java.git
         ```
 
-    1. Got to your cloned repository:
+    1. Go to your cloned repository:
 
         ```bash
         cd yc-sdk-quickstart-java
@@ -398,6 +398,6 @@ To stop paying for the resources you created, [delete](../../compute/operations/
 * [Java](https://github.com/yandex-cloud/java-sdk/tree/master/java-sdk-examples)
 * [.NET](https://github.com/yandex-cloud/dotnet-sdk/tree/master/Example)
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 [{#T}](../../compute/operations/vm-connect/ssh.md)

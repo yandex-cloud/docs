@@ -6,6 +6,13 @@ subcategory: Compute Cloud
 
 Allows creation and management of a single binding within IAM policy for an existing `snapshot`.
 
+{% note warning %}
+
+**Warning:** This resource is authoritative for the given `role` on the target `snapshot` and manages the complete set of its members. When you change or delete `yandex_compute_snapshot_iam_binding`, the `role` may be removed from other subjects on the `snapshot` as well — including subjects granted outside of this resource (via the corresponding `*_iam_member` resource, the management console, CLI or API). Those subjects are not tracked in the Terraform state, so a plain `terraform plan` does not list them. Be careful.
+
+{% endnote %}
+
+
 ## Example usage
 
 ```terraform

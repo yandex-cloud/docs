@@ -47,6 +47,6 @@ The [IAM token](../../../iam/concepts/authorization/iam-token.md) lifetime canno
 
 {% include [include](../../../_includes/iam/iam-token-usage-examples.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./revoke-iam-token.md)

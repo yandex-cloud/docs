@@ -62,7 +62,7 @@ To use WebAuthn, make sure it is supported by your browser and OS. The table bel
 ^4^ Use of biometrics may be restricted on some devices.
 ^5^ Platform authenticators, e.g., Touch ID, may not be fully available due to the Gecko engine features.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/mfa/create-policy.md)
 * [{#T}](../operations/mfa/update-policy.md)

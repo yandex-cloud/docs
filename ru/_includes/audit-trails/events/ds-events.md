@@ -34,6 +34,7 @@
 `DeleteSparkConnector` | Удаление коннектора Apache Spark™
 `DeleteYandexDataProcessing` | Удаление шаблона {{ dataproc-name }}
 `ExecuteJob` | Запуск выполнения задания
+`ExportJupyterProject` | Экспорт проекта Jupyter
 `OpenProject` | Открытие проекта
 `ResumeNode` | Возобновление работы ноды
 `SetCommunityAccessBindings` | Назначение прав доступа для сообщества

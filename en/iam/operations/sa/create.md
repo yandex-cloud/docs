@@ -52,7 +52,7 @@ A service account is created inside a [folder](../../../resource-manager/concept
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, specify the properties of the resources you want to create:
     
      ```hcl
      resource "yandex_iam_service_account" "sa" {
@@ -66,22 +66,22 @@ A service account is created inside a [folder](../../../resource-manager/concept
      * `description`: Service account description. This is an optional setting.
      * `folder_id`: [Folder ID](../../../resource-manager/operations/folder/get-id.md). This is an optional setting. It defaults to the value specified in the provider settings.
 
-     For more information about `yandex_iam_service_account` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iam_service_account).
+     For more on the properties of the `yandex_iam_service_account` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account).
     
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display information about the service account. If the configuration contains any errors, Terraform will show them. 
+     If the configuration description is correct, the terminal will display information about the service account. Otherwise, Terraform will show any detected errors. 
 
   1. Deploy the cloud resources.
 
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply
@@ -143,7 +143,7 @@ Create a service account with the following name and description:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](list-get.md)
 * [{#T}](assign-role-for-sa.md)

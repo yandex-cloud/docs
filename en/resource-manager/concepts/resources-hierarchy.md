@@ -25,7 +25,7 @@ Within your organization, you can configure access permissions for a resource at
 
 By default, a new user (organization member) has no access to the resources residing in the organization's clouds. Access permissions must be granted explicitly by assigning a role specifically for a resource or its folder, cloud, or organization.
 
-## {{ resmgr-name }} Resources {#rm-resources}
+## {{ resmgr-name }} resources {#rm-resources}
 
 ### Cloud {#cloud}
 
@@ -98,7 +98,7 @@ The deletion of a folder in the `DELETING` status can be canceled by the system.
 
 In which case the deletion will be stopped, the folder will regain its `ACTIVE` status, and the user will get a message stating why the folder could not be deleted. Yet some folder resources may still be deleted: these will not be restored after the deletion is canceled. Other resources may end up intact: these will remain billable.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/cloud/set-access-bindings.md)
 * [{#T}](../operations/folder/create.md)

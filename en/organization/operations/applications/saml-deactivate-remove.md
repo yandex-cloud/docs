@@ -181,7 +181,7 @@ To delete a SAML application:
 
 As a result, the SAML application will be deleted, and the users will no longer be able to use it for authentication in the external app.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./saml-create.md)
 * [{#T}](./saml-update.md)

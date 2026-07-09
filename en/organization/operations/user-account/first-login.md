@@ -78,7 +78,7 @@ You now have access to the organization and its resources for which the administ
 * [Troubleshooting login issues](troubleshooting.md)
 * [Managing login authentication methods](../manage-account.md#manage-mfa)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/my-account.md)
 * [{#T}](../../concepts/mfa.md)
