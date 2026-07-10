@@ -11,6 +11,26 @@ keywords:
 
 {% include [minitoc](minitoc/gpu.md) %}
 
+#### Что делать, если на ВМ перестал работать GPU? {#gpu-not-working}
+
+В таком случае необходимо [остановить](../../compute/operations/vm-control/vm-stop-and-start.md#stop) и снова [запустить](../../compute/operations/vm-control/vm-stop-and-start.md#start) виртуальную машину. В большинстве случаев требуются именно остановка и повторный запуск, а не перезагрузка, поскольку при перезагрузке ВМ остается на том же хосте, где возникла проблема с GPU.
+
+#### Ошибка «Not Supported» при сбросе ускорителей {#not-supported}
+
+{% include notitle [gpu-mig-troubleshooting](../../_includes/compute/gpu-mig-troubleshooting.md#not-supported) %}
+
+#### Ошибка «In use by another client» при сбросе ускорителей {#in-use}
+
+{% include notitle [gpu-mig-troubleshooting](../../_includes/compute/gpu-mig-troubleshooting.md#in-use) %}
+
+#### Ошибка «Unknown Error» при выполнении команд nvidia-smi {#unknown-error}
+
+{% include notitle [gpu-mig-troubleshooting](../../_includes/compute/gpu-mig-troubleshooting.md#unknown-error) %}
+
+#### Ошибка «Warning: persistence mode is disabled on device» при включении режима MIG {#persistence-mode}
+
+{% include notitle [gpu-mig-troubleshooting](../../_includes/compute/gpu-mig-troubleshooting.md#persistence-mode) %}
+
 
 #### Как проверить физическое состояние кластера GPU? {#test-physical-state}
 
@@ -36,7 +56,3 @@ keywords:
 
 Подробнее читайте в разделе [{#T}](../../compute/operations/gpu-cluster/test-infiniband-bandwidth.md).
 
-
-#### Что делать, если на ВМ перестал работать GPU? {#gpu-not-working}
-
-В таком случае необходимо [остановить](../../compute/operations/vm-control/vm-stop-and-start.md#stop) и снова [запустить](../../compute/operations/vm-control/vm-stop-and-start.md#start) виртуальную машину. В большинстве случаев требуются именно остановка и повторный запуск, а не перезагрузка, поскольку при перезагрузке ВМ остается на том же хосте, где возникла проблема с GPU.

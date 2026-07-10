@@ -31,6 +31,4 @@
 
 #### Инструкции и решения по выполнению
 
-**Инструкции и решения по выполнению:**
-
 * Примените группы безопасности на все объекты, на которых группа отсутствует. * Для применения группы безопасности с помощью Terraform [используйте](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation) настройку групп безопасности (dev/stage/prod) с помощью Terraform. * Для использования NGFW [установите](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM) на ВМ межсетевой экран (NGFW): Check Point. * [Инструкция по использованию UserGate NGFW в облаке](https://docs.google.com/document/d/1yYwHorzkwXwIUGeG3n_K6Zo-07BVYowZJL7q2bAgVR8/edit?usp=sharing). * NGFW в режиме [active-passive](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/network-sec/checkpoint-2VM_active-active/README.md).

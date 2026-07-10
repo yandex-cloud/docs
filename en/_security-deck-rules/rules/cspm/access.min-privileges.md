@@ -19,8 +19,6 @@ Use the [auditor](https://yandex.cloud/en/docs/iam/roles-reference#auditor) role
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 Analyze the accounts found with the `admin`, `editor`, and `viewer` primitive roles assigned and replace them with [service granular roles](https://yandex.cloud/en/docs/iam/roles-reference) based on your role matrix.
 
 Follow [this guide](https://yandex.cloud/en/docs/security-deck/operations/ciem/view-permissions) to view the full list of a subject's access permissions.

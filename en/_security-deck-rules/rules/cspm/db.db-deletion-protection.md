@@ -11,6 +11,4 @@ In Yandex Cloud managed databases, you can enable deletion protection. The delet
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 1. In the [management console](https://console.yandex.cloud/), select the cloud or folder to enable deletion protection in. 2. In the list of services, select a service or services with managed databases. 3. In the object settings, go to the **Advanced settings** tab. 4. In the object parameters, enable **Deletion protection**.

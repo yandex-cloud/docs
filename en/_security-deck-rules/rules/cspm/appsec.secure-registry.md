@@ -15,8 +15,6 @@ Automatic vulnerability scanning when new images are added to the Container Regi
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 1. In the [management console](https://console.yandex.cloud/), select the folder where you want to create a registry. 2. Go to Container Registry. 3. Click **Create registry**. 4. Specify a name for the registry. Follow these naming requirements:
 
 * Length: between 3 and 63 characters. * It can only contain lowercase Latin letters, numbers, and hyphens. * It must start with a letter and cannot end with a hyphen. 5. Under **Automatic scanning**:

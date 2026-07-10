@@ -51,7 +51,7 @@ description: Как посмотреть информацию о техниче�
 
         Для этого переноса выберите дату и интервал времени по UTC.
 
-        Обслуживание можно перенести не более чем на две недели от первоначально запланированной даты.
+        {% include [maintenance-rescheduling](../../_includes/mdb/mgp/maintenance-rescheduling.md) %}
   
   1. Нажмите кнопку **{{ ui-key.yacloud.component.maintenance-alert.button_reschedule }}**.
 
@@ -89,7 +89,7 @@ description: Как посмотреть информацию о техниче�
     
         > Примеры: `2006-01-02T15:04:05Z`, `15:04:05`, `2h`, `3h30m ago`.
 
-        Обслуживание можно перенести не более чем на две недели от первоначально запланированной даты.
+        {% include [maintenance-rescheduling](../../_includes/mdb/mgp/maintenance-rescheduling.md) %}
     
       Имя и идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -121,7 +121,7 @@ description: Как посмотреть информацию о техниче�
 
         > `2006-01-02T15:04:05Z`
     
-        Обслуживание можно перенести не более чем на две недели от первоначально запланированной даты.
+        {% include [maintenance-rescheduling](../../_includes/mdb/mgp/maintenance-rescheduling.md) %}
     
       Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
   
@@ -161,7 +161,7 @@ description: Как посмотреть информацию о техниче�
 
         > `2006-01-02T15:04:05Z`
 
-        Обслуживание можно перенести не более чем на две недели от первоначально запланированной даты.
+        {% include [maintenance-rescheduling](../../_includes/mdb/mgp/maintenance-rescheduling.md) %}
     
       Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
   

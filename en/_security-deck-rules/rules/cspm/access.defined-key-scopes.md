@@ -17,6 +17,4 @@ more details: <https://yandex.cloud/en/docs/security/standard/authentication#api
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 [Create](https://yandex.cloud/en/docs/iam/operations/authentication/manage-api-keys#create-api-key) an API key with a specified scope.

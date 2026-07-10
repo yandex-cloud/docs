@@ -268,6 +268,8 @@
 
  - [list](cli-ref/oauth-client/list.md)
 
+ - [list-profiles](cli-ref/oauth-client/list-profiles.md)
+
  - [update](cli-ref/oauth-client/update.md)
 
 ### oauth-client-secret
@@ -320,11 +322,15 @@
 
  - [list-operations](cli-ref/service-account/list-operations.md)
 
+ - [reactivate](cli-ref/service-account/reactivate.md)
+
  - [remove-access-binding](cli-ref/service-account/remove-access-binding.md)
 
  - [remove-labels](cli-ref/service-account/remove-labels.md)
 
  - [set-access-bindings](cli-ref/service-account/set-access-bindings.md)
+
+ - [suspend](cli-ref/service-account/suspend.md)
 
  - [update](cli-ref/service-account/update.md)
 
@@ -420,6 +426,8 @@
 
  - [list](cli-ref/v0/oauth-client/list.md)
 
+ - [list-profiles](cli-ref/v0/oauth-client/list-profiles.md)
+
  - [update](cli-ref/v0/oauth-client/update.md)
 
 #### oauth-client-secret
@@ -472,11 +480,15 @@
 
  - [list-operations](cli-ref/v0/service-account/list-operations.md)
 
+ - [reactivate](cli-ref/v0/service-account/reactivate.md)
+
  - [remove-access-binding](cli-ref/v0/service-account/remove-access-binding.md)
 
  - [remove-labels](cli-ref/v0/service-account/remove-labels.md)
 
  - [set-access-bindings](cli-ref/v0/service-account/set-access-bindings.md)
+
+ - [suspend](cli-ref/v0/service-account/suspend.md)
 
  - [update](cli-ref/v0/service-account/update.md)
 

@@ -55,8 +55,6 @@ Assign federated accounts the `admin` roles for clouds, folders, and billing acc
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 Check access rights for the Yandex Cloud Billing service:
 
 1. Go to [Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts). 2. In the left-hand panel, select **Access management**. 3. Check which users have the `billing.accounts.owner` and `admin` roles.

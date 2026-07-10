@@ -32,6 +32,10 @@ A list of URIs where a user of the oauth-client can be redirected to. ||
 || `--scopes` | `value[,value]`
 
 List of scopes that the oauth-client will request access to. ||
+|| `--auth-methods` | `value[,value]`
+
+The Authentication methods that are allowed to be set on the oauth client. ||
+|| `--pkce-required` | Whether PKCE (Proof Key for Code Exchange) is required for the oauth client during the authorization code flow. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

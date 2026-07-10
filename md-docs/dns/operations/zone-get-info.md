@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [зона DNS](../concepts/dns-zone.md).
-  1. Перейдите в сервис **Cloud DNS**.
+  1. [Перейдите](https://console.yandex.cloud/link/dns) в сервис **Cloud DNS**.
   1. На панели слева выберите ![image](../../_assets/console-icons/compass.svg) **Зоны**.
   1. Выберите нужную зону DNS.
   1. Перейдите на вкладку **Обзор**

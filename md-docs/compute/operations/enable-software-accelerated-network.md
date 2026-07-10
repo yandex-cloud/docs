@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Пошаговые инструкции](index.md) > Включить программно ускоренную сеть
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Пошаговые инструкции](index.md) > Сеть > Включить программно ускоренную сеть
 
 # Включить программно ускоренную сеть
 

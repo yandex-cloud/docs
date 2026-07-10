@@ -8,8 +8,8 @@
 
 - Консоль управления {#console}
 
-  1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно удалить [инстанс GitLab](../../concepts/index.md#instance).
-  1. Перейдите в сервис **Managed Service for&nbsp;GitLab**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно удалить [инстанс GitLab](../../concepts/index.md#instance).
+  1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
   1. Нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) для нужного инстанса и выберите пункт **Удалить**.
   1. В открывшемся окне нажмите кнопку **Удалить**.
 

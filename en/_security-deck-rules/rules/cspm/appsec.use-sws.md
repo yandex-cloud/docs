@@ -19,6 +19,4 @@ This rule checks only the built-in information security features in Yandex Cloud
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 [Creating a security profile and connecting it to a virtual host of an L7 load balancer](https://yandex.cloud/en/docs/smartwebsecurity/quickstart).

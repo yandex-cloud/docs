@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать ресурс.
-  1. Перейдите в сервис **Cloud CDN**.
+  1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
   1. Нажмите кнопку **Создать ресурс**.
   1. Задайте основные настройки CDN-ресурса:
 

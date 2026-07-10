@@ -16,7 +16,7 @@ description: Следуя этой инструкции, вы сможете п�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
+  1. [Перейдите]({{ link-console-main }}/link/interconnect) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
   1. На панели слева выберите ![nodes-left](../../_assets/console-icons/nodes-left.svg) **{{ ui-key.yacloud.interconnect.private-connection.private-connections_daeaR }}** и в открывшемся списке приватных соединений нажмите на нужное соединение.
   1. В открывшемся окне с информацией о соединении в меню слева выберите ![list-check](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**, чтобы посмотреть список [операций](../../api-design-guide/concepts/about-async.md) с выбранным приватным соединением.
 

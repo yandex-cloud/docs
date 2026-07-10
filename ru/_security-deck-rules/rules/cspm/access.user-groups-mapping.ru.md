@@ -13,6 +13,4 @@
 
 #### Инструкции и решения по выполнению
 
-**Инструкции и решения по выполнению:**
-
 [Настройте](https://yandex.cloud/ru/docs/organization/operations/federation-group-mapping) сопоставление групп пользователей между поставщиком удостоверений и Yandex Identity Hub.

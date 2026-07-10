@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Создание группы виртуальных машин > Создать группу ВМ с Container Optimized Image
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Группы виртуальных машин > Создание > Создать группу ВМ с Container Optimized Image
 
 # Создать группу ВМ с Container Optimized Image в Compute Cloud
 

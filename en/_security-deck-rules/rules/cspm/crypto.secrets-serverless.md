@@ -17,8 +17,6 @@ Make sure that the secrets are used as described above.
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 Delete secret data from `env` and use the Lockbox integration functionality:
 
 * [Transmitting Yandex Lockbox secrets to a container](https://yandex.cloud/en/docs/serverless-containers/operations/lockbox-secret-transmit). * [Transmitting Yandex Lockbox secrets to a function](https://yandex.cloud/en/docs/functions/operations/function/lockbox-secret-transmit).

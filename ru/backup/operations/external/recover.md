@@ -26,7 +26,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится резервная копия.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Перейдите]({{ link-console-main }}/link/backup) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. На панели слева выберите ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
   1. В зависимости от типа ресурса, который вы хотите восстановить из резервной копии, откройте вкладку **{{ ui-key.yacloud.backup.label_external-vm-instances }}** или **{{ ui-key.yacloud.backup.label_external-server-instances }}**.
   1. В строке с резервной копией, из которой нужно восстановить внешнюю ВМ или сервер, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/clock-arrow-rotate-left.svg) **{{ ui-key.yacloud.backup.action_recovery }}**.

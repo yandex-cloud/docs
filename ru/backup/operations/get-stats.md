@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создана [политика](../concepts/policy.md) резервного копирования.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. [Перейдите]({{ link-monitoring }}) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Выберите дашборд — **{{ backup-name }}**
   1. В поле **Resource name** выберите защищаемый ресурс, для которого вы хотите посмотреть статистику.
 

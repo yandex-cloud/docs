@@ -274,6 +274,8 @@ items:
             href: cli-ref/oauth-client/get.md
           - name: list
             href: cli-ref/oauth-client/list.md
+          - name: list-profiles
+            href: cli-ref/oauth-client/list-profiles.md
           - name: update
             href: cli-ref/oauth-client/update.md
       - name: oauth-client-secret
@@ -326,12 +328,16 @@ items:
             href: cli-ref/service-account/list-access-bindings.md
           - name: list-operations
             href: cli-ref/service-account/list-operations.md
+          - name: reactivate
+            href: cli-ref/service-account/reactivate.md
           - name: remove-access-binding
             href: cli-ref/service-account/remove-access-binding.md
           - name: remove-labels
             href: cli-ref/service-account/remove-labels.md
           - name: set-access-bindings
             href: cli-ref/service-account/set-access-bindings.md
+          - name: suspend
+            href: cli-ref/service-account/suspend.md
           - name: update
             href: cli-ref/service-account/update.md
       - name: service-control
@@ -426,6 +432,8 @@ items:
                 href: cli-ref/v0/oauth-client/get.md
               - name: list
                 href: cli-ref/v0/oauth-client/list.md
+              - name: list-profiles
+                href: cli-ref/v0/oauth-client/list-profiles.md
               - name: update
                 href: cli-ref/v0/oauth-client/update.md
           - name: oauth-client-secret
@@ -478,12 +486,16 @@ items:
                 href: cli-ref/v0/service-account/list-access-bindings.md
               - name: list-operations
                 href: cli-ref/v0/service-account/list-operations.md
+              - name: reactivate
+                href: cli-ref/v0/service-account/reactivate.md
               - name: remove-access-binding
                 href: cli-ref/v0/service-account/remove-access-binding.md
               - name: remove-labels
                 href: cli-ref/v0/service-account/remove-labels.md
               - name: set-access-bindings
                 href: cli-ref/v0/service-account/set-access-bindings.md
+              - name: suspend
+                href: cli-ref/v0/service-account/suspend.md
               - name: update
                 href: cli-ref/v0/service-account/update.md
           - name: service-control

@@ -57,20 +57,42 @@ Node types used as workder nodes.
 ID of the configuration.
 >>> - count (integer)\
 Number of nodes in the group.
-> - bastion (structure)\
+> - bastion-node (structure)\
 Bastion node.
 >> - configuration-id (string)\
 ID of the configuration.
 >> - management-ip-address (string)\
 IP address of the node in the management network.
-> - subnet-id (string)\
-ID of the subnet that the cluster belongs to.
+>> - hostname (string)\
+Hostname of the node inside the cluster.
 > - cidr (string)\
 Optional CIDR to preselect in subnet.
 > - version (string)\
 Version of Stackland to be used.
-> - licence (string)\
-Licence to activate Stackland.
+> - license (string)\
+License to activate Stackland.
+> - cluster-domain (string)\
+Base cluster DNS domain.
+> - bastion-spec (structure)\
+Credentials for access to the bastion node. Input only field.
+>> - ssh-key (oneof)\
+Oneof ssh-key field
+>>> - ssh-public-key-text (string)\
+Public SSH key for the server. Input only field.
+>>> - user-ssh-id (string)\
+ID of the user SSH key to use for the server. Input only field. To get the user SSH key ID, use a [yandex.cloud.organizationmanager.v1.UserSshKeyService.List] request.
+>> - password (oneof)\
+Oneof password field
+>>> - password-plain-text (string)\
+Raw password. Input only field.
+>>> - password-lockbox-secret (structure)\
+Reference to the Lockbox secret used to obtain the password. Input only field.
+>>>> - secret-id (string)\
+The unique identifier for the lockbox secret that contains the user password.
+>>>> - version-id (string)\
+The unique identifier for the lockbox version. If omitted, the current version of the secret will be used.
+>>>> - key (string)\
+The key used to access a specific secret entry.
 
 {% endcut %}
 
@@ -79,12 +101,22 @@ Licence to activate Stackland.
 ```hcl
 {
   annotations = {key=string, key=...},
-  bastion = {
+  bastion-node = {
     configuration-id = string,
+    hostname = string,
     management-ip-address = string
+  },
+  bastion-spec = {
+    password = password-lockbox-secret={
+      key = string,
+      secret-id = string,
+      version-id = string
+    } | password-plain-text=string,
+    ssh-key = ssh-public-key-text=string | user-ssh-id=string
   },
   cidr = string,
   cloud-id = string,
+  cluster-domain = string,
   description = string,
   folder-id = string,
   hardware-pool-id = string,
@@ -108,10 +140,9 @@ Licence to activate Stackland.
       }, ...
     ]
   },
-  licence = string,
+  license = string,
   name = string,
   preset = MINIMAL|FULL,
-  subnet-id = string,
   version = string
 }
 ```
@@ -125,12 +156,28 @@ Licence to activate Stackland.
   "annotations": {
     "<key>": "string", ...
   },
-  "bastion": {
+  "bastion-node": {
     "configuration-id": "string",
+    "hostname": "string",
     "management-ip-address": "string"
+  },
+  "bastion-spec": {
+    "password": {
+      "password-lockbox-secret": {
+        "key": "string",
+        "secret-id": "string",
+        "version-id": "string"
+      },
+      "password-plain-text": "string"
+    },
+    "ssh-key": {
+      "ssh-public-key-text": "string",
+      "user-ssh-id": "string"
+    }
   },
   "cidr": "string",
   "cloud-id": "string",
+  "cluster-domain": "string",
   "description": "string",
   "folder-id": "string",
   "hardware-pool-id": "string",
@@ -154,10 +201,9 @@ Licence to activate Stackland.
       }, ...
     ]
   },
-  "licence": "string",
+  "license": "string",
   "name": "string",
   "preset": "MINIMAL|FULL",
-  "subnet-id": "string",
   "version": "string"
 }
 ```

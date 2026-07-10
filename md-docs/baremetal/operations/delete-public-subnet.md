@@ -15,7 +15,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит публичная подсеть.
-  1. Перейдите в сервис **BareMetal**.
+  1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
   1. На панели слева выберите ![globe](../../_assets/console-icons/globe.svg) **Публичные адреса и подсети**.
   1. В строке с нужной подсетью нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
   1. В открывшемся окне подтвердите удаление.

@@ -175,6 +175,7 @@ Compute Cloud проверяет работоспособность и реко�
 * [Создание виртуальной машины с GPU](../operations/vm-create/create-vm-with-gpu.md)
 * [Добавить GPU к существующей виртуальной машине](../operations/vm-control/vm-update-resources.md#add-gpu)
 * [Изменить количество GPU](../operations/vm-control/vm-update-resources.md#update-gpu)
+* [Включение режима MIG на ВМ с GPU в Compute Cloud](../operations/enable-mig.md)
 * [Создать кластер GPU](../operations/gpu-cluster/gpu-cluster-create.md)
 * [Добавить виртуальную машину в кластер GPU](../operations/gpu-cluster/gpu-add-to-cluster.md)
 * [Проверить физическое состояние кластера GPU](../operations/gpu-cluster/gpu-cluster-test-physical-state.md)

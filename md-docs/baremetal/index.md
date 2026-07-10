@@ -742,6 +742,8 @@ Yandex BareMetal предоставляет возможность арендо�
 
  - [get](cli-ref/v2/extend/stackland-cluster/get.md)
 
+ - [get-stackland-cluster-configs](cli-ref/v2/extend/stackland-cluster/get-stackland-cluster-configs.md)
+
  - [list](cli-ref/v2/extend/stackland-cluster/list.md)
 
  - [update](cli-ref/v2/extend/stackland-cluster/update.md)

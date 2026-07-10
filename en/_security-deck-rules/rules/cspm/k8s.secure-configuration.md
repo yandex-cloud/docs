@@ -19,6 +19,4 @@ The [CIS Kubernetes Benchmark](https://www.cisecurity.org/benchmark/kubernetes) 
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 * Using the [kube-bench](https://github.com/aquasecurity/kube-bench) tool, check whether the node group configuration is compliant with CIS Kubernetes Benchmark. The tool officially supports the Yandex Cloud node groups. * [Starboard Operator](https://blog.aquasec.com/automate-kubernetes-compliance) is a free tool that helps you automate scanning of images for vulnerabilities and checking that the configuration is compliant with CIS Kubernetes Benchmark. Starboard Operator supports integration with kube-bench and is used for its automatic startup.

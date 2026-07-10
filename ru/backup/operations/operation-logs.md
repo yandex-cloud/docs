@@ -56,4 +56,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](../../api-design-guide/concepts/about-async.md)
+[{#T}](../../api-design-guide/concepts/about-async.md)

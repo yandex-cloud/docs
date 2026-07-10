@@ -86,7 +86,7 @@ blocks:
 
 <MDX>
   <PriceList
-    serviceIds={['{{ pcs|baremetal }}']}
+    serviceIds={['{{ pcs|baremetal }}', '{{ pcs|baremetal_lite }}']}
     skuIds={[
       '{{ pc|baremetal.server.ba-i103-s-10g.1-day }}',
       '{{ pc|baremetal.server.ba-i103-s-10g.1-month }}',
@@ -337,7 +337,12 @@ blocks:
       '{{ pc|baremetal.server.la-i114-s.1-month }}',
       '{{ pc|baremetal.server.la-i114-s.3-month }}',
       '{{ pc|baremetal.server.la-i114-s.6-month }}',
-      '{{ pc|baremetal.server.la-i114-s.12-month }}'
+      '{{ pc|baremetal.server.la-i114-s.12-month }}',
+      '{{ pc|baremetal.server.la-i115-s.1-day }}',
+      '{{ pc|baremetal.server.la-i115-s.1-month }}',
+      '{{ pc|baremetal.server.la-i115-s.3-month }}',
+      '{{ pc|baremetal.server.la-i115-s.6-month }}',
+      '{{ pc|baremetal.server.la-i115-s.12-month }}'
     ]}
     installationCode="ru"
     currency="RUB"

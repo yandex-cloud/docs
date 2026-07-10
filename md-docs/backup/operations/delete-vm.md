@@ -22,7 +22,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно удалить ВМ.
-  1. Перейдите в сервис **Cloud Backup**.
+  1. [Перейдите](https://console.yandex.cloud/link/backup) в сервис **Cloud Backup**.
   1. Напротив ВМ, которую вы хотите удалить, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
   1. Подтвердите удаление.
 

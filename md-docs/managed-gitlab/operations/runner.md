@@ -97,7 +97,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;GitLab**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
   1. Выберите инстанс Managed Service for GitLab, в котором нужно изменить раннер.
   1. Выберите вкладку **Раннеры**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного раннера и выберите пункт **Редактировать**.
@@ -143,7 +143,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;GitLab**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
   1. Выберите инстанс Managed Service for GitLab, из которого нужно удалить раннер.
   1. Выберите вкладку **Раннеры**.
   1. В строке раннера, который вы хотите удалить, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Удалить**.

@@ -11,6 +11,4 @@
 
 #### Инструкции и решения по выполнению
 
-**Инструкции и решения по выполнению:**
-
 Включите HTTPS-обработчик согласно [инструкции](https://yandex.cloud/ru/docs/application-load-balancer/tutorials/tls-termination/).

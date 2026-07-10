@@ -87,6 +87,8 @@ Syntax:
 
   - [yc managed-mongodb v0 database list](database/list.md) — List databases for a MongoDB cluster.
 
+  - [yc managed-mongodb v0 database update](database/update.md) — Modify attributes of a MongoDB database.
+
 - [yc managed-mongodb v0 hosts](hosts/index.md) — Manage hosts of a MongoDB cluster.
 
   - [yc managed-mongodb v0 hosts add](hosts/add.md) — Add new hosts to the cluster in specified availability zones.

@@ -226,4 +226,5 @@ description: Следуя данной инструкции, вы сможете
 #### Полезные ссылки {#see-also}
 
 * [Изменить конфигурацию ВМ](../vm-control/vm-update-resources.md)
+* [{#T}](../enable-mig.md)
 * [Вопросы про GPU](../../../compute/qa/gpu.md)

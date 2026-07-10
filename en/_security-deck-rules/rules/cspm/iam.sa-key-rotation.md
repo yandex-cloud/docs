@@ -17,6 +17,4 @@ This control checks the last update and usage date. In cases where it is impossi
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 Follow the [guide](https://yandex.cloud/en/docs/iam/operations/compromised-credentials#key-reissue) for rotating keys depending on their type.

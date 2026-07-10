@@ -100,6 +100,14 @@ Syntax:
 
   - [yc managed-postgresql v0 hosts update-config](hosts/update-config.md) — Updates PostgreSQL config for the specified hosts
 
+- [yc managed-postgresql v0 repack](repack/index.md) — Manage pg_repack tasks in PostgreSQL cluster
+
+  - [yc managed-postgresql v0 repack launch](repack/launch.md) — Launch a new pg_repack task in the specified PostgreSQL cluster
+
+  - [yc managed-postgresql v0 repack list-running](repack/list-running.md) — List currently running pg_repack tasks in the specified PostgreSQL cluster
+
+  - [yc managed-postgresql v0 repack terminate](repack/terminate.md) — Terminate a running pg_repack task in the specified PostgreSQL cluster
+
 - [yc managed-postgresql v0 resource-preset](resource-preset/index.md) — Manage PostgreSQL resource presets
 
   - [yc managed-postgresql v0 resource-preset get](resource-preset/get.md) — Show information about the specified PostgreSQL resource preset

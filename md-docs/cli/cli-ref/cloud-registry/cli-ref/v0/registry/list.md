@@ -20,6 +20,12 @@ The maximum number of items to list. Default is 1000 items ||
 || `--page-token` | `string`
 
 Page token pagination simplifies navigating large datasets by using a token to represent the current page. ||
+|| `--name-filter` | `string`
+
+Filter by registry name. Expression: name = "my-registry" or name != "my-registry". No regular expressions. ||
+|| `--kind` | Filter by registry kind (for example DOCKER, MAVEN, NPM). ||
+|| `--type` | Filter by registry type (for example LOCAL, REMOTE). ||
+|| `--status` | Filter by registry status (for example ACTIVE, CREATING, DELETING). ||
 |#
 
 #### Global Flags

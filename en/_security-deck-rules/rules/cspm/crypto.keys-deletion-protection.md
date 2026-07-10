@@ -11,6 +11,4 @@ Deleting a KMS key always means destroying data. Therefore, make sure to protect
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 [Enable](https://yandex.cloud/en/docs/kms/operations/key#update) deletion protection.

@@ -1122,6 +1122,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [get](cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/get.md)
 
+ - [get-stackland-cluster-configs](cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/get-stackland-cluster-configs.md)
+
  - [list](cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list.md)
 
  - [update](cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/update.md)
@@ -1526,6 +1528,18 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update](cli-ref/cic/cli-ref/trunk-connection/update.md)
 
+#### trunk-connection-ticket
+
+ - [Overview](cli-ref/cic/cli-ref/trunk-connection-ticket/index.md)
+
+ - [create](cli-ref/cic/cli-ref/trunk-connection-ticket/create.md)
+
+ - [get](cli-ref/cic/cli-ref/trunk-connection-ticket/get.md)
+
+ - [list](cli-ref/cic/cli-ref/trunk-connection-ticket/list.md)
+
+ - [revoke](cli-ref/cic/cli-ref/trunk-connection-ticket/revoke.md)
+
 #### v0
 
  - [Overview](cli-ref/cic/cli-ref/v0/index.md)
@@ -1697,6 +1711,18 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [remove-labels](cli-ref/cic/cli-ref/v1/trunk-connection/remove-labels.md)
 
  - [update](cli-ref/cic/cli-ref/v1/trunk-connection/update.md)
+
+##### trunk-connection-ticket
+
+ - [Overview](cli-ref/cic/cli-ref/v1/trunk-connection-ticket/index.md)
+
+ - [create](cli-ref/cic/cli-ref/v1/trunk-connection-ticket/create.md)
+
+ - [get](cli-ref/cic/cli-ref/v1/trunk-connection-ticket/get.md)
+
+ - [list](cli-ref/cic/cli-ref/v1/trunk-connection-ticket/list.md)
+
+ - [revoke](cli-ref/cic/cli-ref/v1/trunk-connection-ticket/revoke.md)
 
 ### cloud-registry
 
@@ -4254,6 +4280,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/iam/cli-ref/oauth-client/list.md)
 
+ - [list-profiles](cli-ref/iam/cli-ref/oauth-client/list-profiles.md)
+
  - [update](cli-ref/iam/cli-ref/oauth-client/update.md)
 
 #### oauth-client-secret
@@ -4306,11 +4334,15 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list-operations](cli-ref/iam/cli-ref/service-account/list-operations.md)
 
+ - [reactivate](cli-ref/iam/cli-ref/service-account/reactivate.md)
+
  - [remove-access-binding](cli-ref/iam/cli-ref/service-account/remove-access-binding.md)
 
  - [remove-labels](cli-ref/iam/cli-ref/service-account/remove-labels.md)
 
  - [set-access-bindings](cli-ref/iam/cli-ref/service-account/set-access-bindings.md)
+
+ - [suspend](cli-ref/iam/cli-ref/service-account/suspend.md)
 
  - [update](cli-ref/iam/cli-ref/service-account/update.md)
 
@@ -4406,6 +4438,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/iam/cli-ref/v0/oauth-client/list.md)
 
+ - [list-profiles](cli-ref/iam/cli-ref/v0/oauth-client/list-profiles.md)
+
  - [update](cli-ref/iam/cli-ref/v0/oauth-client/update.md)
 
 ##### oauth-client-secret
@@ -4458,11 +4492,15 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list-operations](cli-ref/iam/cli-ref/v0/service-account/list-operations.md)
 
+ - [reactivate](cli-ref/iam/cli-ref/v0/service-account/reactivate.md)
+
  - [remove-access-binding](cli-ref/iam/cli-ref/v0/service-account/remove-access-binding.md)
 
  - [remove-labels](cli-ref/iam/cli-ref/v0/service-account/remove-labels.md)
 
  - [set-access-bindings](cli-ref/iam/cli-ref/v0/service-account/set-access-bindings.md)
+
+ - [suspend](cli-ref/iam/cli-ref/v0/service-account/suspend.md)
 
  - [update](cli-ref/iam/cli-ref/v0/service-account/update.md)
 
@@ -6914,6 +6952,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [list](cli-ref/managed-mongodb/cli-ref/database/list.md)
 
+ - [update](cli-ref/managed-mongodb/cli-ref/database/update.md)
+
 #### hosts
 
  - [Overview](cli-ref/managed-mongodb/cli-ref/hosts/index.md)
@@ -7053,6 +7093,8 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [get](cli-ref/managed-mongodb/cli-ref/v0/database/get.md)
 
  - [list](cli-ref/managed-mongodb/cli-ref/v0/database/list.md)
+
+ - [update](cli-ref/managed-mongodb/cli-ref/v0/database/update.md)
 
 ##### hosts
 
@@ -7640,6 +7682,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
 
  - [update-config](cli-ref/managed-postgresql/cli-ref/hosts/update-config.md)
 
+#### repack
+
+ - [Overview](cli-ref/managed-postgresql/cli-ref/repack/index.md)
+
+ - [launch](cli-ref/managed-postgresql/cli-ref/repack/launch.md)
+
+ - [list-running](cli-ref/managed-postgresql/cli-ref/repack/list-running.md)
+
+ - [terminate](cli-ref/managed-postgresql/cli-ref/repack/terminate.md)
+
 #### resource-preset
 
  - [Overview](cli-ref/managed-postgresql/cli-ref/resource-preset/index.md)
@@ -7767,6 +7819,16 @@ CLI Yandex Cloud — скачиваемое программное обеспе�
  - [update](cli-ref/managed-postgresql/cli-ref/v0/hosts/update.md)
 
  - [update-config](cli-ref/managed-postgresql/cli-ref/v0/hosts/update-config.md)
+
+##### repack
+
+ - [Overview](cli-ref/managed-postgresql/cli-ref/v0/repack/index.md)
+
+ - [launch](cli-ref/managed-postgresql/cli-ref/v0/repack/launch.md)
+
+ - [list-running](cli-ref/managed-postgresql/cli-ref/v0/repack/list-running.md)
+
+ - [terminate](cli-ref/managed-postgresql/cli-ref/v0/repack/terminate.md)
 
 ##### resource-preset
 

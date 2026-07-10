@@ -19,12 +19,6 @@
 
 После установки агента Cloud Backup [привяжите](../../operations/policy-vm/attach-and-detach-vm.md#attach-vm) ВМ или сервер к [политике резервного копирования](../policy.md).
 
-{% note info %}
-
-В настоящее время привязать внешний [защищаемый ресурс](../index.md#protected-resources) к политике резервного копирования можно с помощью [Yandex Cloud CLI](../../../cli/cli-ref/backup/cli-ref/policy/apply.md), [API](../../backup/api-ref/Policy/apply.md) или [Terraform](../../../terraform/resources/backup_policy_bindings.md).
-
-{% endnote %}
-
 ## Поддерживаемые операционные системы {#supported-oss}
 
 В настоящее время агент Cloud Backup можно установить на ВМ и серверы под управлением следующих операционных систем:

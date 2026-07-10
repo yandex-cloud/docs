@@ -16,7 +16,7 @@ description: Чтобы предотвратить случайное удале
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором зарезервирован адрес.
-   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
    1. В строке с нужным IP-адресом нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.vpc.addresses.button_action-enable-protection }}**.
    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_enable-protection }}**.
@@ -106,7 +106,7 @@ description: Чтобы предотвратить случайное удале
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором зарезервирован адрес.
-   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
    1. В строке с нужным IP-адресом нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.vpc.addresses.button_action-disable-protection }}**.
    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_disable-protection }}**.

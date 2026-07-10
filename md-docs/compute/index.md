@@ -24,7 +24,9 @@
 
  - [Все инструкции](operations/index.md)
 
-### Создание виртуальной машины
+### Виртуальные машины
+
+#### Создание
 
  - [Создать ВМ Linux](operations/vm-create/create-linux-vm.md)
 
@@ -40,57 +42,17 @@
 
  - [Создать ВМ с доступом к секрету Yandex Lockbox](operations/vm-create/create-with-lockbox-secret.md)
 
- - [Создать ВМ с GPU](operations/vm-create/create-vm-with-gpu.md)
-
  - [Создать ВМ с оборудованием поколения Gen 2](operations/vm-create/create-gen2-vm.md)
 
  - [Сделать ВМ прерываемой](operations/vm-create/create-preemptible-vm.md)
 
-### DSVM
-
- - [Обзор](operations/dsvm/index.md)
-
- - [Создать ВМ из публичного образа DSVM](operations/dsvm/quickstart.md)
-
-### Группы размещения
-
- - [Создать группу размещения](operations/placement-groups/create.md)
-
- - [Удалить группу размещения](operations/placement-groups/delete.md)
-
- - [Создать ВМ в группе размещения](operations/placement-groups/create-vm-in-pg.md)
-
- - [Создать группу виртуальных машин в группе размещения](operations/placement-groups/create-ig-in-pg.md)
-
- - [Добавить ВМ в группу размещения](operations/placement-groups/add-vm.md)
-
- - [Исключить ВМ из группы размещения](operations/placement-groups/delete-vm.md)
-
- - [Получить информацию о группе размещения](operations/placement-groups/placement-groups-get-info.md)
-
- - [Исключить группу виртуальных машин из группы размещения](operations/placement-groups/delete-ig-from-pg.md)
-
- - [Настроить права доступа к группе размещения ВМ](operations/placement-groups/access.md)
-
-### Образы с предустановленным ПО
-
- - [Создать ВМ из публичного образа](operations/images-with-pre-installed-software/create.md)
-
- - [Настроить ПО](operations/images-with-pre-installed-software/setup.md)
-
- - [Работа с ВМ на базе публичного образа](operations/images-with-pre-installed-software/operate.md)
-
- - [Получить список публичных образов](operations/images-with-pre-installed-software/get-list.md)
-
- - [Получить информацию о публичном образе](operations/images-with-pre-installed-software/get-info.md)
-
-### Получение информации о виртуальной машине
+#### Получение информации
 
  - [Получить информацию о ВМ](operations/vm-info/get-info.md)
 
  - [Получить вывод последовательного порта](operations/vm-info/get-serial-port-output.md)
 
-### Управление виртуальной машиной
+#### Управление
 
  - [Остановить и запустить ВМ](operations/vm-control/vm-stop-and-start.md)
 
@@ -106,6 +68,64 @@
 
  - [Перенести ВМ в другое облако](operations/vm-control/vm-change-cloud.md)
 
+ - [Изменить ВМ](operations/vm-control/vm-update.md)
+
+ - [Изменить вычислительные ресурсы ВМ](operations/vm-control/vm-update-resources.md)
+
+ - [Управление политикой обслуживания ВМ](operations/vm-control/vm-update-policies.md)
+
+ - [Настроить права доступа к ВМ](operations/vm-control/vm-access.md)
+
+ - [Подключить сервисный аккаунт к ВМ](operations/vm-control/vm-connect-sa.md)
+
+ - [Удалить ВМ](operations/vm-control/vm-delete.md)
+
+#### Работа
+
+ - [Подключиться к ВМ по SSH](operations/vm-connect/ssh.md)
+
+ - [Подключиться к ВМ по SSH с помощью Cloud Shell](operations/vm-connect/cloud-shell.md)
+
+ - [Обмен файлами с ВМ](operations/vm-connect/scp-sftp.md)
+
+ - [Подключиться к ВМ по RDP](operations/vm-connect/rdp.md)
+
+ - [Подключиться к ВМ через PowerShell](operations/vm-connect/powershell.md)
+
+ - [Работа с Yandex Cloud изнутри ВМ](operations/vm-connect/auth-inside-vm.md)
+
+ - [Восстановить доступ к ВМ](operations/vm-connect/recovery-access.md)
+
+#### OS Login
+
+ - [Создать ВМ с OS Login](operations/vm-connect/os-login-create-vm.md)
+
+ - [Настроить OS Login на существующей ВМ](operations/vm-connect/enable-os-login.md)
+
+ - [Экспортировать SSH-сертификат](operations/vm-connect/os-login-export-certificate.md)
+
+ - [Подключиться к ВМ по OS Login](operations/vm-connect/os-login.md)
+
+#### Серийная консоль
+
+ - [Управлять доступом к серийной консоли](operations/serial-console/index.md)
+
+ - [Подключиться к серийной консоли ВМ с ОС Linux](operations/serial-console/connect-ssh.md)
+
+ - [Подключиться к серийной консоли ВМ с ОС Windows](operations/serial-console/windows-sac.md)
+
+#### Агент для сброса паролей
+
+ - [Проверить работу агента](operations/vm-guest-agent/check.md)
+
+ - [Установить агент](operations/vm-guest-agent/install.md)
+
+ - [Сбросить пароль администратора](operations/vm-guest-agent/reset-password.md)
+
+ - [Удалить агент](operations/vm-guest-agent/uninstall.md)
+
+### Сеть
+
  - [Добавить на ВМ дополнительный сетевой интерфейс](operations/vm-control/attach-network-interface.md)
 
  - [Удалить сетевой интерфейс на ВМ](operations/vm-control/detach-network-interface.md)
@@ -120,77 +140,45 @@
 
  - [Изменить внутренний IP-адрес ВМ](operations/vm-control/internal-ip-update.md)
 
- - [Изменить ВМ](operations/vm-control/vm-update.md)
-
- - [Изменить вычислительные ресурсы ВМ](operations/vm-control/vm-update-resources.md)
-
  - [Изменить группы безопасности ВМ](operations/vm-control/vm-change-security-groups-set.md)
 
- - [Управление политикой обслуживания ВМ](operations/vm-control/vm-update-policies.md)
+ - [Включить программно ускоренную сеть](operations/enable-software-accelerated-network.md)
 
- - [Настроить права доступа к ВМ](operations/vm-control/vm-access.md)
+### GPU
 
- - [Подключить сервисный аккаунт к ВМ](operations/vm-control/vm-connect-sa.md)
+ - [Создать ВМ с GPU](operations/vm-create/create-vm-with-gpu.md)
+
+ - [Установить драйверы NVIDIA](operations/vm-operate/install-nvidia-drivers.md)
+
+ - [Рекомендации по обновлению драйверов NVIDIA](operations/gpu-driver-update.md)
+
+ - [Включить MIG на ВМ с GPU](operations/enable-mig.md)
 
  - [Управлять техническим обслуживанием ВМ с GPU](operations/vm-control/gpus-maintenance.md)
 
- - [Удалить ВМ](operations/vm-control/vm-delete.md)
+#### Кластеры GPU
 
-### Работа с метаданными ВМ
+ - [Создать кластер GPU](operations/gpu-cluster/gpu-cluster-create.md)
 
- - [Настроить параметры сервиса метаданных](operations/vm-metadata/setup-metadata-service.md)
+ - [Добавить ВМ в кластер GPU](operations/gpu-cluster/gpu-add-to-cluster.md)
 
- - [Получить метаданные ВМ](operations/vm-metadata/get-vm-metadata.md)
+ - [Изменить кластер GPU](operations/gpu-cluster/gpu-cluster-update.md)
 
- - [Получить идентификационный документ ВМ](operations/vm-metadata/get-identity-document.md)
+ - [Получить информацию о кластере GPU](operations/gpu-cluster/gpu-cluster-get-info.md)
 
- - [Изменить метаданные ВМ](operations/vm-metadata/update-vm-metadata.md)
+ - [Настроить права доступа к кластеру GPU](operations/gpu-cluster/access.md)
 
- - [Создать ВМ с пользовательским скриптом конфигурации](operations/vm-create/create-with-cloud-init-scripts.md)
+ - [Удалить кластер GPU](operations/gpu-cluster/gpu-cluster-delete.md)
 
- - [Создать ВМ с метаданными из переменных окружения](operations/vm-create/create-with-env-variables.md)
+ - [Проверить физическое состояние кластера GPU](operations/gpu-cluster/gpu-cluster-test-physical-state.md)
 
- - [Создать ВМ с доступом к секрету Yandex Lockbox](operations/vm-create/create-with-lockbox-secret.md)
+ - [Запустить параллельные задачи в кластере GPU](operations/gpu-cluster/gpu-cluster-mpirun-parallel.md)
 
-### Работа на виртуальной машине
+ - [Проверить пропускную способность InfiniBand](operations/gpu-cluster/test-infiniband-bandwidth.md)
 
- - [Подключиться к ВМ по SSH](operations/vm-connect/ssh.md)
+### Диски
 
- - [Подключиться к ВМ по SSH с помощью Cloud Shell](operations/vm-connect/cloud-shell.md)
-
- - [Обмен файлами с ВМ](operations/vm-connect/scp-sftp.md)
-
- - [Подключиться к ВМ по RDP](operations/vm-connect/rdp.md)
-
- - [Подключиться к ВМ через PowerShell](operations/vm-connect/powershell.md)
-
-#### OS Login
-
- - [Создать ВМ с OS Login](operations/vm-connect/os-login-create-vm.md)
-
- - [Настроить OS Login на существующей ВМ](operations/vm-connect/enable-os-login.md)
-
- - [Экспортировать SSH-сертификат](operations/vm-connect/os-login-export-certificate.md)
-
- - [Подключиться к ВМ по OS Login](operations/vm-connect/os-login.md)
-
- - [Работа с Yandex Cloud изнутри ВМ](operations/vm-connect/auth-inside-vm.md)
-
- - [Установить NVIDIA-драйверы](operations/vm-operate/install-nvidia-drivers.md)
-
- - [Восстановить доступ к ВМ](operations/vm-connect/recovery-access.md)
-
-### Управление агентом для сброса паролей
-
- - [Проверить работу агента](operations/vm-guest-agent/check.md)
-
- - [Установить агент](operations/vm-guest-agent/install.md)
-
- - [Сбросить пароль администратора](operations/vm-guest-agent/reset-password.md)
-
- - [Удалить агент](operations/vm-guest-agent/uninstall.md)
-
-### Создание диска
+#### Создание
 
  - [Создать пустой диск](operations/disk-create/empty.md)
 
@@ -204,7 +192,7 @@
 
  - [Восстановить диск с помощью образа](operations/disk-create/from-image.md)
 
-### Управление диском
+#### Управление
 
  - [Изменить диск](operations/disk-control/update.md)
 
@@ -222,7 +210,53 @@
 
  - [Удалить диск](operations/disk-control/delete.md)
 
-### Снимки дисков
+### Образы
+
+#### С предустановленным ПО
+
+ - [Создать ВМ из публичного образа](operations/images-with-pre-installed-software/create.md)
+
+ - [Настроить ПО](operations/images-with-pre-installed-software/setup.md)
+
+ - [Работа с ВМ на базе публичного образа](operations/images-with-pre-installed-software/operate.md)
+
+ - [Получить список публичных образов](operations/images-with-pre-installed-software/get-list.md)
+
+ - [Получить информацию о публичном образе](operations/images-with-pre-installed-software/get-info.md)
+
+#### DSVM
+
+ - [Обзор](operations/dsvm/index.md)
+
+ - [Создать ВМ из публичного образа DSVM](operations/dsvm/quickstart.md)
+
+#### Создание
+
+ - [Подготовить образ диска](operations/image-create/custom-image.md)
+
+ - [Загрузить свой образ](operations/image-create/upload.md)
+
+ - [Создать образ из диска](operations/image-create/create-from-disk.md)
+
+ - [Создать образ из снимка диска](operations/image-create/create-from-snapshot.md)
+
+ - [Создать образ из другого пользовательского образа](operations/image-create/create-from-image.md)
+
+#### Управление
+
+ - [Получить список образов](operations/image-control/get-list.md)
+
+ - [Получить информацию об образе](operations/image-control/image-control-get-info.md)
+
+ - [Импортировать образ из другого облака или каталога](operations/image-control/import.md)
+
+ - [Зашифровать образ](operations/image-control/encrypt.md)
+
+ - [Настроить права доступа к образу](operations/image-control/access.md)
+
+ - [Удалить образ](operations/image-control/delete.md)
+
+### Снимки
 
  - [Создать снимок](operations/disk-control/create-snapshot.md)
 
@@ -246,44 +280,6 @@
 
  - [Удалить расписание снимков](operations/snapshot-control/delete-schedule.md)
 
-### Группы размещения дисков
-
- - [Создать группу размещения дисков](operations/disk-placement-groups/create.md)
-
- - [Добавить диск в группу размещения](operations/disk-placement-groups/add-disk.md)
-
- - [Получить информацию о группе размещения дисков](operations/disk-placement-groups/get-info.md)
-
- - [Настроить права доступа к группе размещения дисков](operations/disk-placement-groups/access.md)
-
- - [Удалить диск из группы размещения](operations/disk-placement-groups/remove-disk.md)
-
-### Создание образа
-
- - [Подготовить образ диска](operations/image-create/custom-image.md)
-
- - [Загрузить свой образ](operations/image-create/upload.md)
-
- - [Создать образ из диска](operations/image-create/create-from-disk.md)
-
- - [Создать образ из снимка диска](operations/image-create/create-from-snapshot.md)
-
- - [Создать образ из другого пользовательского образа](operations/image-create/create-from-image.md)
-
-### Управление образом
-
- - [Получить список образов](operations/image-control/get-list.md)
-
- - [Получить информацию об образе](operations/image-control/image-control-get-info.md)
-
- - [Импортировать образ из другого облака или каталога](operations/image-control/import.md)
-
- - [Зашифровать образ](operations/image-control/encrypt.md)
-
- - [Настроить права доступа к образу](operations/image-control/access.md)
-
- - [Удалить образ](operations/image-control/delete.md)
-
 ### Файловые хранилища
 
  - [Создать файловое хранилище](operations/filesystem/create.md)
@@ -300,15 +296,59 @@
 
  - [Удалить файловое хранилище](operations/filesystem/delete.md)
 
-### Серийная консоль
+### Метаданные
 
- - [Управлять доступом к серийной консоли](operations/serial-console/index.md)
+ - [Настроить параметры сервиса метаданных](operations/vm-metadata/setup-metadata-service.md)
 
- - [Подключиться к серийной консоли ВМ с ОС Linux](operations/serial-console/connect-ssh.md)
+ - [Получить метаданные ВМ](operations/vm-metadata/get-vm-metadata.md)
 
- - [Подключиться к серийной консоли ВМ с ОС Windows](operations/serial-console/windows-sac.md)
+ - [Получить идентификационный документ ВМ](operations/vm-metadata/get-identity-document.md)
 
-### Создание группы виртуальных машин
+ - [Изменить метаданные ВМ](operations/vm-metadata/update-vm-metadata.md)
+
+ - [Создать ВМ с пользовательским скриптом конфигурации](operations/vm-create/create-with-cloud-init-scripts.md)
+
+ - [Создать ВМ с метаданными из переменных окружения](operations/vm-create/create-with-env-variables.md)
+
+ - [Создать ВМ с доступом к секрету Yandex Lockbox](operations/vm-create/create-with-lockbox-secret.md)
+
+### Группы размещения
+
+#### ВМ
+
+ - [Создать группу размещения](operations/placement-groups/create.md)
+
+ - [Удалить группу размещения](operations/placement-groups/delete.md)
+
+ - [Создать ВМ в группе размещения](operations/placement-groups/create-vm-in-pg.md)
+
+ - [Создать группу виртуальных машин в группе размещения](operations/placement-groups/create-ig-in-pg.md)
+
+ - [Добавить ВМ в группу размещения](operations/placement-groups/add-vm.md)
+
+ - [Исключить ВМ из группы размещения](operations/placement-groups/delete-vm.md)
+
+ - [Получить информацию о группе размещения](operations/placement-groups/placement-groups-get-info.md)
+
+ - [Исключить группу виртуальных машин из группы размещения](operations/placement-groups/delete-ig-from-pg.md)
+
+ - [Настроить права доступа к группе размещения ВМ](operations/placement-groups/access.md)
+
+#### Диски
+
+ - [Создать группу размещения дисков](operations/disk-placement-groups/create.md)
+
+ - [Добавить диск в группу размещения](operations/disk-placement-groups/add-disk.md)
+
+ - [Получить информацию о группе размещения дисков](operations/disk-placement-groups/get-info.md)
+
+ - [Настроить права доступа к группе размещения дисков](operations/disk-placement-groups/access.md)
+
+ - [Удалить диск из группы размещения](operations/disk-placement-groups/remove-disk.md)
+
+### Группы виртуальных машин
+
+#### Создание
 
  - [Создать группу ВМ фиксированного размера](operations/instance-groups/create-fixed-group.md)
 
@@ -332,7 +372,7 @@
 
  - [Создать группу ВМ с подключением к Object Storage](operations/instance-groups/create-with-bucket.md)
 
-### Получение информации о группе виртуальных машин
+#### Получение информации
 
  - [Получить список групп ВМ](operations/instance-groups/get-list.md)
 
@@ -340,7 +380,7 @@
 
  - [Получить список ВМ в группе](operations/instance-groups/get-list-instances.md)
 
-### Управление группой виртуальных машин
+#### Управление
 
  - [Изменить группу ВМ](operations/instance-groups/update.md)
 
@@ -358,7 +398,7 @@
 
  - [Настроить проверку состояния приложения на ВМ](operations/instance-groups/enable-autohealing.md)
 
-#### Обновить группу
+##### Обновить группу
 
  - [Постепенное обновление](operations/instance-groups/deploy/rolling-update.md)
 
@@ -392,7 +432,7 @@
 
  - [Настроить права доступа к группе выделенных хостов](operations/dedicated-host/access.md)
 
-### Пулы резервов ВМ
+### Пулы резервов
 
  - [Создать пул резервов ВМ](operations/reserved-pools/create-reserved-pool.md)
 
@@ -402,33 +442,9 @@
 
  - [Управлять виртуальными машинами пула](operations/reserved-pools/manage-pool-vms.md)
 
-### Кластеры GPU
+ - [Просмотр операций с ресурсами](operations/operation-logs.md)
 
- - [Создать кластер GPU](operations/gpu-cluster/gpu-cluster-create.md)
-
- - [Добавить ВМ в кластер GPU](operations/gpu-cluster/gpu-add-to-cluster.md)
-
- - [Изменить кластер GPU](operations/gpu-cluster/gpu-cluster-update.md)
-
- - [Получить информацию о кластере GPU](operations/gpu-cluster/gpu-cluster-get-info.md)
-
- - [Настроить права доступа к кластеру GPU](operations/gpu-cluster/access.md)
-
- - [Удалить кластер GPU](operations/gpu-cluster/gpu-cluster-delete.md)
-
- - [Проверить физическое состояние кластера GPU](operations/gpu-cluster/gpu-cluster-test-physical-state.md)
-
- - [Запустить параллельные задачи в кластере GPU](operations/gpu-cluster/gpu-cluster-mpirun-parallel.md)
-
- - [Проверить пропускную способность InfiniBand](operations/gpu-cluster/test-infiniband-bandwidth.md)
-
- - [Включить программно ускоренную сеть](operations/enable-software-accelerated-network.md)
-
- - [Посмотреть операции с ресурсами сервиса](operations/operation-logs.md)
-
- - [Посмотреть метрики в Monitoring](operations/metrics-pull.md)
-
- - [Рекомендации по обновлению драйверов NVIDIA](operations/gpu-driver-update.md)
+ - [Просмотр метрик Monitoring](operations/metrics-pull.md)
 
  - [Yandex Container Solution](../cos/index.md)
 

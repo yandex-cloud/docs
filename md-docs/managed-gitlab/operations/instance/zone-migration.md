@@ -18,7 +18,7 @@
 
     * Консоль управления {#console}
 
-        1. Перейдите в сервис **Managed Service for&nbsp;GitLab**.
+        1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
         1. Нажмите на имя нужного инстанса и выберите вкладку **Миграция**.
         1. Если функциональность миграции вам недоступна, запросите к ней доступ.
 

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Создание виртуальной машины > Создать ВМ с GPU
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > GPU > Создать ВМ с GPU
 
 # Создание виртуальной машины с GPU
 
@@ -587,4 +587,5 @@
 #### Полезные ссылки {#see-also}
 
 * [Изменить конфигурацию ВМ](../vm-control/vm-update-resources.md)
+* [Включение режима MIG на ВМ с GPU в Compute Cloud](../enable-mig.md)
 * [Вопросы про GPU](../../qa/gpu.md)

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Работа на виртуальной машине > OS Login > Настроить OS Login на существующей ВМ
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Виртуальные машины > OS Login > Настроить OS Login на существующей ВМ
 
 # Настроить доступ по OS Login на существующей ВМ
 

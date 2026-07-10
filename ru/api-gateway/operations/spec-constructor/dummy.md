@@ -12,13 +12,14 @@ description: Следуя данной инструкции, вы сможете
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали или хотите создать [API-шлюз](../../concepts/index.md).
     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Выберите API-шлюз или нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**, чтобы создать новый.
+    1. Нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** нажмите значок ![image](../../../_assets/api-gateway/spec-constructor/dummy.svg).
     1. Укажите в поле:
 
         {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 
         * **{{ ui-key.yc-serverless-apigw.dynamic-forms.dummy_http_code_name }}** — код HTTP-ответа.
-        * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.dummy_headers_name }}** — список заголовков, которые будут отправлены в ответ.
+        * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.dummy_headers_name }}** — список заголовков в формате `ключ` : `значение`, которые будут отправлены в ответ.
         * **{{ ui-key.yc-serverless-apigw.dynamic-forms.dummy_content_name }}** — данные, которые будут отправлены в ответ.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 

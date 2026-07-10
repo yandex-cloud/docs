@@ -15,6 +15,4 @@ When using [Object Storage](https://yandex.cloud/en/docs/storage), make sure tha
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 [Enable](https://yandex.cloud/en/docs/storage/operations/hosting/certificate) access over HTTPS if the bucket is used to host a static website.

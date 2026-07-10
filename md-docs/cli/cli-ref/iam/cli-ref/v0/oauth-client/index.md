@@ -21,6 +21,8 @@ Syntax:
 
 - [yc iam v0 oauth-client list](list.md) — List oauth-clients in the specified folder
 
+- [yc iam v0 oauth-client list-profiles](list-profiles.md) — List profiles available for oauth-clients
+
 - [yc iam v0 oauth-client update](update.md) — Update the specified oauth-client
 
 #### Global Flags

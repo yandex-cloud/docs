@@ -10,7 +10,7 @@
 
 - Консоль управления {#console}
 
-  Перейдите в сервис **Managed Service for&nbsp;GitLab**.
+  [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
 
 - CLI {#cli}
 
@@ -64,8 +64,8 @@
 
 - Консоль управления {#console}
 
-  1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится инстанс GitLab.
-  1. Перейдите в сервис **Managed Service for&nbsp;GitLab**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится инстанс GitLab.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
   1. Нажмите на имя нужного инстанса.
 
 - CLI {#cli}
@@ -223,7 +223,7 @@
   Чтобы получить список операций для конкретного инстанса:
 
   1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором находится кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;GitLab**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Инстансы**.
   1. Выберите нужный инстанс.
   1. Перейдите на панель ![image](../../../_assets/console-icons/list-check.svg) **Операции** для выбранного кластера.
@@ -277,4 +277,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Работа с операциями](../../../api-design-guide/concepts/about-async.md)
+[Работа с операциями](../../../api-design-guide/concepts/about-async.md)

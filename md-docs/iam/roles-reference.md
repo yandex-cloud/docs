@@ -2365,16 +2365,36 @@
 
 #### cloud-registry.artifacts.puller {#cloud-registry-artifacts-puller}
 
-Роль `cloud-registry.artifacts.puller` позволяет скачивать [артефакты](../cloud-registry/concepts/artifacts/index.md), а также получать информацию об артефактах и [реестрах](../cloud-registry/concepts/registry.md).
+Роль `cloud-registry.artifacts.puller` позволяет скачивать артефакты, просматривать информацию об артефактах и реестрах, о назначенных правах доступа к реестрам, а также о квотах сервиса Cloud Registry.
+
+Пользователи с этой ролью могут:
+* просматривать информацию об [артефактах](../cloud-registry/concepts/artifacts/index.md) и скачивать их;
+* просматривать информацию о [реестрах](../cloud-registry/concepts/registry.md);
+* просматривать политики доступа к реестрам;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к реестрам, папкам внутри реестров и артефактам;
+* просматривать информацию о [политиках жизненного цикла](../cloud-registry/concepts/lifecycle-policy.md) реестров;
+* просматривать настройки и результаты сканирования артефактов на наличие уязвимостей;
+* просматривать информацию о квотах сервиса Cloud Registry;
+* просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `cloud-registry.viewer`.
 
 #### cloud-registry.artifacts.pusher {#cloud-registry-artifacts-pusher}
 
-Роль `cloud-registry.artifacts.pusher` позволяет управлять артефактами, а также просматривать информацию о реестрах и управлять папками в них.
+Роль `cloud-registry.artifacts.pusher` позволяет управлять артефактами, просматривать информацию об артефактах и реестрах, о назначенных правах доступа к реестрам, а также о квотах сервиса Cloud Registry.
 
 Пользователи с этой ролью могут:
 * просматривать информацию об [артефактах](../cloud-registry/concepts/artifacts/index.md), а также создавать, изменять, скачивать и удалять их;
 * просматривать информацию о [реестрах](../cloud-registry/concepts/registry.md);
 * создавать и удалять папки внутри реестров.
+* просматривать политики доступа к реестрам;
+* просматривать информацию о назначенных [правах доступа](concepts/access-control/index.md) к реестрам, папкам внутри реестров и артефактам;
+* просматривать информацию о [политиках жизненного цикла](../cloud-registry/concepts/lifecycle-policy.md) реестров;
+* просматривать настройки и результаты сканирования артефактов на наличие уязвимостей;
+* просматривать информацию о квотах сервиса Cloud Registry;
+* просматривать информацию об [облаке](../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder).
+
+Включает разрешения, предоставляемые ролью `cloud-registry.viewer`.
 
 Подробнее в [Управление доступом в Yandex Cloud Registry](../cloud-registry/security/index.md).
 

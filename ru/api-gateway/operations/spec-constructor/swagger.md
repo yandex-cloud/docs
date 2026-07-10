@@ -12,7 +12,8 @@ description: Следуя данной инструкции, вы сможете
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали или хотите создать [API-шлюз](../../concepts/index.md).
     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Выберите API-шлюз или нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**, чтобы создать новый.
-    1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** нажмите значок ![swagger](../../../_assets/api-gateway/spec-constructor/swagger.svg) и в открывшемся окне:
+    1. Нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+    1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** нажмите значок ![swagger](../../../_assets/api-gateway/spec-constructor/swagger.svg). В открывшемся окне:
 
         1. В поле **{{ ui-key.yc-serverless-apigw.dynamic-forms.path_name }}** укажите относительный путь к интеграции, который будет добавлен к URL-адресу {{ api-gw-name }}. Переменные указывайте в фигурных скобках, например `/docs/{document_id}`. Подробнее в спецификации [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
         1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.

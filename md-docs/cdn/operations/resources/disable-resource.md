@@ -12,7 +12,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположен ресурс.
 
-  1. Перейдите в сервис **Cloud CDN**.
+  1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
 
   1. Нажмите на имя необходимого ресурса.
 
@@ -169,7 +169,7 @@
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположен ресурс.
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud CDN**.
+  1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
 
   1. Нажмите на имя необходимого ресурса.
 

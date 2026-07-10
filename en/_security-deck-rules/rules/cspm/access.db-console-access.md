@@ -13,6 +13,4 @@ We recommend that you enable this type of access only if needed, because it rais
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 1. In the [management console](https://console.yandex.cloud/), select the cloud or folder to disable access from the management console in. 2. In the list of services, select a service or services with managed databases. 3. In the object settings, go to the **Advanced settings** tab. 4. In the object parameters, disable **Access from console**.

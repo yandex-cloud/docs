@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где находится адрес.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **Публичные IP-адреса**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке адреса, который требуется переместить, и выберите **Переместить**.
   1. В открывшемся окне выберите каталог назначения.

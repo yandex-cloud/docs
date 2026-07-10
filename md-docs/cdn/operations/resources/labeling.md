@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан ресурс.
-  1. Перейдите в сервис **Cloud CDN**.
+  1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
   1. В строке с нужным CDN-ресурсом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. В блоке **Контент** найдите поле **Метки**.
   1. Нажмите кнопку **Добавить метку**.
@@ -82,7 +82,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан ресурс.
-  1. Перейдите в сервис **Cloud CDN**.
+  1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
   1. Перейдите в нужный CDN-ресурс.
   1. В блоке **Контент** найдите поле **Метки**.
 
@@ -146,7 +146,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан ресурс.
-  1. Перейдите в сервис **Cloud CDN**.
+  1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
   1. В строке с нужным CDN-ресурсом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. В блоке **Контент** найдите поле **Метки**.
   1. Напротив нужной метки нажмите значок ![image](../../../_assets/console-icons/xmark.svg).

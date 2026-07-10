@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно подключить внешний ресурс к {{ backup-name }}.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Перейдите]({{ link-console-main }}/link/backup) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. На панели слева выберите ![resources](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_connected-resources }}**.
   1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.backup.button_connect-external-resource }}**.
   1. В открывшемся окне **{{ ui-key.yacloud.backup.dialog_connect-external-resource_title }}**:

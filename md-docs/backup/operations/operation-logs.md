@@ -58,4 +58,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Работа с операциями](../../api-design-guide/concepts/about-async.md)
+[Работа с операциями](../../api-design-guide/concepts/about-async.md)

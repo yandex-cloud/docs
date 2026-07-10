@@ -17,6 +17,4 @@ Follow the principle of least privilege and [assign to the service account](http
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 * Use Yandex Security Deck to [view](https://yandex.cloud/en/docs/security-deck/operations/ciem/view-permissions) the full list of a service account's access permissions. * Use Security Deck to [revoke](https://yandex.cloud/en/docs/security-deck/operations/ciem/revoke-permissions) the service account's excessive access permissions. * [Remove](https://yandex.cloud/en/docs/iam/operations/roles/revoke) the excessive permissions from the service account using IAM.

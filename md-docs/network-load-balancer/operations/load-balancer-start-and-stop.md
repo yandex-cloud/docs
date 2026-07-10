@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где требуется остановить балансировщик.
-  1. Перейдите в сервис **Network Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer/) в сервис **Network Load Balancer**.
   1. В строке балансировщика, который требуется остановить, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Остановить**.
   1. В открывшемся окне нажмите кнопку **Остановить**.
 
@@ -46,7 +46,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где требуется запустить балансировщик.
-  1. Перейдите в сервис **Network Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer/) в сервис **Network Load Balancer**.
   1. В строке балансировщика, который требуется запустить, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Запустить**.
   1. В открывшемся окне нажмите кнопку **Запустить**.
 

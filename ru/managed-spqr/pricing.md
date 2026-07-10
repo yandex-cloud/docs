@@ -98,25 +98,14 @@ keywords:
 * {% include [backup-wal](../_includes/mdb/mpg/backup-wal.md) %}
 
 
-
-
-{% note info %}
-
-Указанные цены действуют с 16 июня 2026 года.
-
-{% endnote %}
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-prices](../_pricing/managed-spqr/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-prices](../_pricing/managed-spqr/kzt.md) %}
-
-{% endlist %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.spqr }}']}
+    excludeSkuIds={['{{ pc|mdb.software_accelerated_network.spqr.v1.cores }}', '{{ pc|mdb.software_accelerated_network.spqr.v2.cores }}', '{{ pc|mdb.software_accelerated_network.spqr.v3.cores }}', '{{ pc|mdb.software_accelerated_network.spqr.v4a.cores }}' ]}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 
 

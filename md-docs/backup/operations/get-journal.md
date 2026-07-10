@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором подключен Cloud Backup.
-  1. Перейдите в сервис **Cloud Backup**.
+  1. [Перейдите](https://console.yandex.cloud/link/backup) в сервис **Cloud Backup**.
   1. На панели слева нажмите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. В строке с нужной ВМ нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите `Открыть журнал резервирования`.
 

@@ -111,6 +111,13 @@ Possible property names:
 - `connections-folder-id`: ID of the folder where connections for the cluster are created
 
 - `secrets-folder-id`: ID of the folder where connection secrets are created. ||
+|| `--managed-repack` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Managed pg_repack cluster settings
+
+Possible property names:
+
+- `enabled`: Enable or disable managed pg_repack for the cluster ||
 |#
 
 #### Global Flags

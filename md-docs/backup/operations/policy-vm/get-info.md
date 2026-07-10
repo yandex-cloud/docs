@@ -14,7 +14,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [политика резервного копирования](../../concepts/policy.md).
-  1. Перейдите в сервис **Cloud Backup**.
+  1. [Перейдите](https://console.yandex.cloud/link/backup) в сервис **Cloud Backup**.
   1. На панели слева выберите ![policies](../../../_assets/console-icons/calendar.svg) **Политики копирования**.
   1. Выберите политику резервного копирования для просмотра.
   1. На странице **Обзор** отобразится подробная информация о политике.

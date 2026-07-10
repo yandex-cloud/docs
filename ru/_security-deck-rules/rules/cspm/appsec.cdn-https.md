@@ -11,6 +11,4 @@
 
 #### Инструкции и решения по выполнению
 
-**Инструкции и решения по выполнению:**
-
 [Подключите](https://yandex.cloud/ru/docs/cdn/operations/resources/configure-basics) сертификат и HTTPS согласно инструкции.

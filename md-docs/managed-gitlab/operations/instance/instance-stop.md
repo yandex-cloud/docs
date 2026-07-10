@@ -12,7 +12,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;GitLab**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
   1. Найдите нужный инстанс в списке, нажмите на значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **Остановить**.
   1. В открывшемся диалоге подтвердите остановку инстанса и нажмите кнопку **Остановить**.
 
@@ -67,7 +67,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;GitLab**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
   1. Найдите нужный остановленный инстанс в списке, нажмите на значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **Запустить**.
   1. В открывшемся диалоге подтвердите запуск инстанса нажатием на кнопку **Запустить**.
 

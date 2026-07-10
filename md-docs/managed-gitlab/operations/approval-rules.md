@@ -62,7 +62,7 @@ Managed Service for GitLab позволяет гибко настраивать 
     1. Нажмите кнопку **Save changes**.
 1. Включите правила ревью кода в инстансе Managed Service for GitLab:
     1. В [консоли управления](https://console.yandex.cloud) Yandex Cloud выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [инстанс GitLab](../concepts/index.md#instance).
-    1. Перейдите в сервис **Managed Service for&nbsp;GitLab**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
     1. Выберите инстанс и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Редактировать** в верхней части страницы.
     1. В поле **Правила ревью кода** выберите нужную [конфигурацию](../concepts/approval-rules.md#packages) правил ревью кода.
 

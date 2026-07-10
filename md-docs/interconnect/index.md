@@ -194,6 +194,18 @@ Yandex Cloud Interconnect позволяет организовать выдел
 
  - [update](cli-ref/trunk-connection/update.md)
 
+### trunk-connection-ticket
+
+ - [Overview](cli-ref/trunk-connection-ticket/index.md)
+
+ - [create](cli-ref/trunk-connection-ticket/create.md)
+
+ - [get](cli-ref/trunk-connection-ticket/get.md)
+
+ - [list](cli-ref/trunk-connection-ticket/list.md)
+
+ - [revoke](cli-ref/trunk-connection-ticket/revoke.md)
+
 ### v0
 
  - [Overview](cli-ref/v0/index.md)
@@ -365,6 +377,18 @@ Yandex Cloud Interconnect позволяет организовать выдел
  - [remove-labels](cli-ref/v1/trunk-connection/remove-labels.md)
 
  - [update](cli-ref/v1/trunk-connection/update.md)
+
+#### trunk-connection-ticket
+
+ - [Overview](cli-ref/v1/trunk-connection-ticket/index.md)
+
+ - [create](cli-ref/v1/trunk-connection-ticket/create.md)
+
+ - [get](cli-ref/v1/trunk-connection-ticket/get.md)
+
+ - [list](cli-ref/v1/trunk-connection-ticket/list.md)
+
+ - [revoke](cli-ref/v1/trunk-connection-ticket/revoke.md)
 
 ## Справочник API
 

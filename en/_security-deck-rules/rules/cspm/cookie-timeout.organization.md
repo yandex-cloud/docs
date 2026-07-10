@@ -13,8 +13,6 @@ In addition, automatic session termination after a predetermined period (e.g., 6
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 In your [identity federation](https://yandex.cloud/en/docs/organization/concepts/add-federation) settings make sure the **Cookie lifetime** value is less or equal to 6 hours. This would help minimize the risk of compromising cloud users' workstations.
 
 Set the **Cookie lifetime** to 6 hours (21,600 seconds) or less.

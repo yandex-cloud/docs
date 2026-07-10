@@ -36,6 +36,7 @@ Possible property names:
 - `database`: Name of the database that the permission grants access to.
 
 - `role`: Role in the database to assign to the user. Can be specified multiple times. ||
+|| `--deletion-protection` | Deletion Protection inhibits deletion of the user. ||
 |#
 
 #### Global Flags

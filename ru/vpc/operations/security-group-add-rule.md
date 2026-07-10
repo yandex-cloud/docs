@@ -15,7 +15,7 @@ description: Добавлять правила можно через консо�
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется изменить [группу безопасности](../concepts/security-groups.md).
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
 
