@@ -11,8 +11,6 @@
 
 #### Инструкции и решения по выполнению
 
-**Инструкции и решения по выполнению:**
-
 [Создайте ](https://yandex.cloud/ru/docs/vpc/operations/security-group-create)группу безопасности и [настройте](https://yandex.cloud/ru/docs/managed-kubernetes/operations/connect/security-groups) ее для применения в кластере Kubernetes.
 
 При настройке руководствуйтесь ключевыми принципами настройки групп безопасности для кластеров Kubernetes:

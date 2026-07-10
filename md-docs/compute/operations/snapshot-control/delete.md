@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Снимки дисков > Удалить снимок
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Снимки > Удалить снимок
 
 # Удалить снимок диска
 

@@ -62,7 +62,7 @@
       
 ## Создайте CDN-ресурс {#create-cdn-resource}
 
-1. Перейдите в сервис **Cloud CDN**.
+1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
 1. На вкладке ![image](../../_assets/console-icons/nodes-right.svg) **CDN-ресурсы** нажмите кнопку **Создать ресурс**.
 1. В разделе **Основные настройки** задайте основные настройки CDN-ресурса:
    * В блоке **Контент**:

@@ -66,3 +66,7 @@ description: Следуя данной инструкции, вы сможете
    ```bash
    nvidia-smi nvlink -s
    ```
+
+#### Полезные ссылки {#see-also}
+
+* [{#T}](../enable-mig.md)

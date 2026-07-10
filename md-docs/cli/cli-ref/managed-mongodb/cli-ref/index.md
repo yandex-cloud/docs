@@ -90,6 +90,8 @@ Aliases:
 
   - [yc managed-mongodb database list](database/list.md) — List databases for a MongoDB cluster.
 
+  - [yc managed-mongodb database update](database/update.md) — Modify attributes of a MongoDB database.
+
 - [yc managed-mongodb hosts](hosts/index.md) — Manage hosts of a MongoDB cluster.
 
   - [yc managed-mongodb hosts add](hosts/add.md) — Add new hosts to the cluster in specified availability zones.

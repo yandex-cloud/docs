@@ -20,7 +20,7 @@ Yandex Cloud автоматически мигрирует CDN-ресурсы и
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором был размещен CDN-ресурс, относящийся к провайдеру EdgeCDN.
-  1. Перейдите в сервис **Cloud CDN**.
+  1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
   1. В списке ресурсов найдите перенесенный CDN-ресурс. У него должен быть указан провайдер `Yandex Cloud CDN`, и должно быть то же самое основное доменное имя, что и в провайдере EdgeCDN. 
   1. Если в столбце **Статус** перенесенного CDN-ресурса указано `Not active`, включите доступ к контенту:
       1. Напротив ресурса нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
@@ -110,7 +110,7 @@ Yandex Cloud автоматически мигрирует CDN-ресурсы и
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан CDN-ресурс.
-  1. Перейдите в сервис **Cloud CDN**.
+  1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
   1. Выберите CDN-ресурс, созданный ранее.
   1. Перейдите на вкладку **Мониторинг**.
 

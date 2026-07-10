@@ -13,6 +13,4 @@ If you have created user groups in your identity provider or plan to do so, you 
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 [Configure](https://yandex.cloud/en/docs/organization/operations/federation-group-mapping) group mapping between your identity provider and Yandex Identity Hub.

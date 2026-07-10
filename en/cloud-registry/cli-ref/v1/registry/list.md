@@ -26,6 +26,78 @@ The maximum number of results per page to return. If the number of available res
 || `--page-token` | `string`
 
 Page token. To get the next page of results, set [page_token] to the [ListRegistriesResponse.next_page_token] returned by a previous list request. ||
+|| `--name-filter` | `string`
+
+Filter by registry name. The expression must specify: 1. The field name 2. An operator: =, !=. 3. The value in double quotes. Examples: name = "my-registry" name != "my-registry" No regular expressions allowed. ||
+|| `--kind` | `shorthand/json`
+
+Match by registry kind (for example DOCKER, MAVEN, NPM). Empty list means any kind.
+
+{% cut "Shorthand Syntax" %}
+
+```hcl
+[
+  MAVEN|NPM|DOCKER|DEBIAN|NUGET|PYPI|BINARY|GO, ...
+]
+```
+
+{% endcut %}
+
+{% cut "JSON Syntax" %}
+
+```json
+[
+  "MAVEN|NPM|DOCKER|DEBIAN|NUGET|PYPI|BINARY|GO", ...
+]
+```
+
+{% endcut %} ||
+|| `--type` | `shorthand/json`
+
+Match by registry type (for example LOCAL, REMOTE). Empty list means any type.
+
+{% cut "Shorthand Syntax" %}
+
+```hcl
+[
+  LOCAL|REMOTE|VIRTUAL|TRANSITIONAL, ...
+]
+```
+
+{% endcut %}
+
+{% cut "JSON Syntax" %}
+
+```json
+[
+  "LOCAL|REMOTE|VIRTUAL|TRANSITIONAL", ...
+]
+```
+
+{% endcut %} ||
+|| `--status` | `shorthand/json`
+
+Match by registry status. Empty list means any status.
+
+{% cut "Shorthand Syntax" %}
+
+```hcl
+[
+  CREATING|ACTIVE|DELETING, ...
+]
+```
+
+{% endcut %}
+
+{% cut "JSON Syntax" %}
+
+```json
+[
+  "CREATING|ACTIVE|DELETING", ...
+]
+```
+
+{% endcut %} ||
 |#
 
 #### Global Flags

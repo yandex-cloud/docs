@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Работа на виртуальной машине > Установить NVIDIA-драйверы
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > GPU > Установить драйверы NVIDIA
 
 # Установка NVIDIA-драйверов
 
@@ -62,3 +62,7 @@ Compute Cloud проверяет работоспособность и реко�
    ```bash
    nvidia-smi nvlink -s
    ```
+
+#### Полезные ссылки {#see-also}
+
+* [Включение режима MIG на ВМ с GPU в Compute Cloud](../enable-mig.md)

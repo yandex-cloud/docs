@@ -25,6 +25,4 @@ You can combine security groups by assigning up to five groups per object for mo
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 [Create](https://yandex.cloud/en/docs/vpc/operations/security-group-create) a security group in each Virtual Private Cloud with restricted access rules, so that it can be assigned to cloud objects.

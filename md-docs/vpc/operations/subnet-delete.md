@@ -14,7 +14,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где требуется удалить подсеть.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **Подсети**.
   1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной подсети и выберите **Удалить**.
   1. В открывшемся окне нажмите **Удалить**.

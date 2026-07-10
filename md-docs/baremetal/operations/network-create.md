@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать [виртуальный сегмент сети (VRF)](../concepts/private-network.md#vrf-segment).
-  1. Перейдите в сервис **BareMetal**.
+  1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
   1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **VRF**.
   1. Справа вверху нажмите кнопку **Создать VRF**.
   1. В поле **Имя** укажите имя VRF. Требования к имени:

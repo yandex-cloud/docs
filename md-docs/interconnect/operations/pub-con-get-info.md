@@ -13,7 +13,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Interconnect**.
+  1. [Перейдите](https://console.yandex.cloud/link/interconnect) в сервис **Cloud Interconnect**.
   1. На панели слева выберите ![globe](../../_assets/console-icons/globe.svg) **Публичные соединения**. В открывшемся окне будет представлен список всех публичных соединений в выбранном каталоге.
   1. Чтобы посмотреть подробную информацию об определенном публичном соединении, нажмите на соответствующую строку в списке.
 

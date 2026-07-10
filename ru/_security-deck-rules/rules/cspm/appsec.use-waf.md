@@ -21,6 +21,4 @@
 
 Создайте и подключите профиль WAF к профилю безопасности Smart Web Security. Предварительно рекомендуется настроить и протестировать базовые правила и правила Smart Protection в профиле безопасности.
 
-**Инструкции и решения по выполнению:**
-
 1. [Создайте](https://yandex.cloud/ru/docs/smartwebsecurity/operations/waf-profile-create) профиль WAF. 2. [Настройте](https://yandex.cloud/ru/docs/smartwebsecurity/operations/configure-set-rules) набор правил WAF. 3. [Добавьте](https://yandex.cloud/ru/docs/smartwebsecurity/operations/exclusion-rule-add) правило-исключение в профиль WAF. 4. [Подключите](https://yandex.cloud/ru/docs/smartwebsecurity/operations/rule-add) профиль WAF к профилю безопасности.

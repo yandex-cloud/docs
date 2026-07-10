@@ -1299,6 +1299,9 @@ items:
                       - name: get
                         href: >-
                           cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/get.md
+                      - name: get-stackland-cluster-configs
+                        href: >-
+                          cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/get-stackland-cluster-configs.md
                       - name: list
                         href: >-
                           cli-ref/baremetal/cli-ref/v2/extend/stackland-cluster/list.md
@@ -1723,6 +1726,18 @@ items:
                 href: cli-ref/cic/cli-ref/trunk-connection/remove-labels.md
               - name: update
                 href: cli-ref/cic/cli-ref/trunk-connection/update.md
+          - name: trunk-connection-ticket
+            items:
+              - name: Overview
+                href: cli-ref/cic/cli-ref/trunk-connection-ticket/index.md
+              - name: create
+                href: cli-ref/cic/cli-ref/trunk-connection-ticket/create.md
+              - name: get
+                href: cli-ref/cic/cli-ref/trunk-connection-ticket/get.md
+              - name: list
+                href: cli-ref/cic/cli-ref/trunk-connection-ticket/list.md
+              - name: revoke
+                href: cli-ref/cic/cli-ref/trunk-connection-ticket/revoke.md
           - name: v0
             items:
               - name: Overview
@@ -1907,6 +1922,18 @@ items:
                     href: cli-ref/cic/cli-ref/v1/trunk-connection/remove-labels.md
                   - name: update
                     href: cli-ref/cic/cli-ref/v1/trunk-connection/update.md
+              - name: trunk-connection-ticket
+                items:
+                  - name: Overview
+                    href: cli-ref/cic/cli-ref/v1/trunk-connection-ticket/index.md
+                  - name: create
+                    href: cli-ref/cic/cli-ref/v1/trunk-connection-ticket/create.md
+                  - name: get
+                    href: cli-ref/cic/cli-ref/v1/trunk-connection-ticket/get.md
+                  - name: list
+                    href: cli-ref/cic/cli-ref/v1/trunk-connection-ticket/list.md
+                  - name: revoke
+                    href: cli-ref/cic/cli-ref/v1/trunk-connection-ticket/revoke.md
       - name: cloud-registry
         items:
           - name: Overview
@@ -4736,6 +4763,8 @@ items:
                 href: cli-ref/iam/cli-ref/oauth-client/get.md
               - name: list
                 href: cli-ref/iam/cli-ref/oauth-client/list.md
+              - name: list-profiles
+                href: cli-ref/iam/cli-ref/oauth-client/list-profiles.md
               - name: update
                 href: cli-ref/iam/cli-ref/oauth-client/update.md
           - name: oauth-client-secret
@@ -4788,12 +4817,16 @@ items:
                 href: cli-ref/iam/cli-ref/service-account/list-access-bindings.md
               - name: list-operations
                 href: cli-ref/iam/cli-ref/service-account/list-operations.md
+              - name: reactivate
+                href: cli-ref/iam/cli-ref/service-account/reactivate.md
               - name: remove-access-binding
                 href: cli-ref/iam/cli-ref/service-account/remove-access-binding.md
               - name: remove-labels
                 href: cli-ref/iam/cli-ref/service-account/remove-labels.md
               - name: set-access-bindings
                 href: cli-ref/iam/cli-ref/service-account/set-access-bindings.md
+              - name: suspend
+                href: cli-ref/iam/cli-ref/service-account/suspend.md
               - name: update
                 href: cli-ref/iam/cli-ref/service-account/update.md
           - name: service-control
@@ -4889,6 +4922,8 @@ items:
                     href: cli-ref/iam/cli-ref/v0/oauth-client/get.md
                   - name: list
                     href: cli-ref/iam/cli-ref/v0/oauth-client/list.md
+                  - name: list-profiles
+                    href: cli-ref/iam/cli-ref/v0/oauth-client/list-profiles.md
                   - name: update
                     href: cli-ref/iam/cli-ref/v0/oauth-client/update.md
               - name: oauth-client-secret
@@ -4943,6 +4978,8 @@ items:
                       cli-ref/iam/cli-ref/v0/service-account/list-access-bindings.md
                   - name: list-operations
                     href: cli-ref/iam/cli-ref/v0/service-account/list-operations.md
+                  - name: reactivate
+                    href: cli-ref/iam/cli-ref/v0/service-account/reactivate.md
                   - name: remove-access-binding
                     href: >-
                       cli-ref/iam/cli-ref/v0/service-account/remove-access-binding.md
@@ -4951,6 +4988,8 @@ items:
                   - name: set-access-bindings
                     href: >-
                       cli-ref/iam/cli-ref/v0/service-account/set-access-bindings.md
+                  - name: suspend
+                    href: cli-ref/iam/cli-ref/v0/service-account/suspend.md
                   - name: update
                     href: cli-ref/iam/cli-ref/v0/service-account/update.md
               - name: service-control
@@ -7696,6 +7735,8 @@ items:
                 href: cli-ref/managed-mongodb/cli-ref/database/get.md
               - name: list
                 href: cli-ref/managed-mongodb/cli-ref/database/list.md
+              - name: update
+                href: cli-ref/managed-mongodb/cli-ref/database/update.md
           - name: hosts
             items:
               - name: Overview
@@ -7849,6 +7890,8 @@ items:
                     href: cli-ref/managed-mongodb/cli-ref/v0/database/get.md
                   - name: list
                     href: cli-ref/managed-mongodb/cli-ref/v0/database/list.md
+                  - name: update
+                    href: cli-ref/managed-mongodb/cli-ref/v0/database/update.md
               - name: hosts
                 items:
                   - name: Overview
@@ -8476,6 +8519,16 @@ items:
                 href: cli-ref/managed-postgresql/cli-ref/hosts/update.md
               - name: update-config
                 href: cli-ref/managed-postgresql/cli-ref/hosts/update-config.md
+          - name: repack
+            items:
+              - name: Overview
+                href: cli-ref/managed-postgresql/cli-ref/repack/index.md
+              - name: launch
+                href: cli-ref/managed-postgresql/cli-ref/repack/launch.md
+              - name: list-running
+                href: cli-ref/managed-postgresql/cli-ref/repack/list-running.md
+              - name: terminate
+                href: cli-ref/managed-postgresql/cli-ref/repack/terminate.md
           - name: resource-preset
             items:
               - name: Overview
@@ -8620,6 +8673,17 @@ items:
                   - name: update-config
                     href: >-
                       cli-ref/managed-postgresql/cli-ref/v0/hosts/update-config.md
+              - name: repack
+                items:
+                  - name: Overview
+                    href: cli-ref/managed-postgresql/cli-ref/v0/repack/index.md
+                  - name: launch
+                    href: cli-ref/managed-postgresql/cli-ref/v0/repack/launch.md
+                  - name: list-running
+                    href: >-
+                      cli-ref/managed-postgresql/cli-ref/v0/repack/list-running.md
+                  - name: terminate
+                    href: cli-ref/managed-postgresql/cli-ref/v0/repack/terminate.md
               - name: resource-preset
                 items:
                   - name: Overview

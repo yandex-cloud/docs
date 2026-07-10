@@ -21,7 +21,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите арендовать сервер.
-  1. Перейдите в сервис **BareMetal**.
+  1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
   1. Нажмите кнопку **Заказать сервер** и в открывшемся окне выберите вариант `Своя конфигурация`. В открывшемся окне настройте конфигурацию сервера:
 
       {% note tip %}

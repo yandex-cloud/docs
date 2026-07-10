@@ -235,7 +235,7 @@ keywords:
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Machine Learning Model Experiments]({{ gl.docs }}/user/project/ml/experiment_tracking/)
 * [Model Registry]({{ gl.docs }}/user/project/ml/model_registry/)

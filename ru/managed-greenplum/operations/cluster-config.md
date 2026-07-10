@@ -32,7 +32,14 @@ description: Следуя данной инструкции, вы сможете
   1. Перейдите на [страницу каталога]({{ link-console-main }}).
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите нужный класс для хостов-мастеров или хостов-сегментов {{ mgp-name }}.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** на вкладках **Master** и **Segment** выберите:
+
+     
+     1. Одну из доступных [платформ](../../compute/concepts/vm-platforms.md).
+     1. Тип конфигурации: **memory-optimized**, **cpu-optimized**, **io-optimized** или **standard**.
+     1. [Класс хостов](../../storedoc/concepts/instance-types.md) — он определяет технические характеристики виртуальных машин, на которых будут развернуты хосты {{ mgp-name }}. При изменении класса хостов для кластера меняются характеристики всех созданных хостов.  
+
+
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}

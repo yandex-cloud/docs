@@ -74,6 +74,8 @@ Syntax:
 
   - [yc iam oauth-client list](oauth-client/list.md) — List oauth-clients in the specified folder
 
+  - [yc iam oauth-client list-profiles](oauth-client/list-profiles.md) — List profiles available for oauth-clients
+
   - [yc iam oauth-client update](oauth-client/update.md) — Update the specified oauth-client
 
 - [yc iam oauth-client-secret](oauth-client-secret/index.md) — Manage oauth-client secrets
@@ -116,11 +118,15 @@ Syntax:
 
   - [yc iam service-account list-operations](service-account/list-operations.md) — List operations for the specified service account
 
+  - [yc iam service-account reactivate](service-account/reactivate.md) — Reactivate a previously suspended service account
+
   - [yc iam service-account remove-access-binding](service-account/remove-access-binding.md) — Remove access binding for ACCESSING the specified service account as a resource. To configure service account access to a resource use remove-access-binding command for the corresponding resource
 
   - [yc iam service-account remove-labels](service-account/remove-labels.md) — Remove labels from specified service account
 
   - [yc iam service-account set-access-bindings](service-account/set-access-bindings.md) — Set access bindings for ACCESSING the specified service account and DELETE all existing access bindings for all accounts if there were any. To configure service account access to a resource use set-access-bindings command for the corresponding resource
+
+  - [yc iam service-account suspend](service-account/suspend.md) — Suspend the specified service account
 
   - [yc iam service-account update](service-account/update.md) — Update the specified service account
 

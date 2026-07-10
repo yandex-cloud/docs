@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. Перейдите в сервис **Network Load Balancer**.
+    1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer/) в сервис **Network Load Balancer**.
     1. На панели слева выберите ![trgroups.svg](../../_assets/console-icons/target.svg) **Целевые группы**.
 
 - CLI {#cli}
@@ -50,7 +50,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится [целевая группа](../concepts/target-resources.md).
-    1. Перейдите в сервис **Network Load Balancer**.
+    1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer/) в сервис **Network Load Balancer**.
     1. На панели слева выберите ![trgroups.svg](../../_assets/console-icons/target.svg) **Целевые группы**.
     1. Нажмите на имя нужной группы.
     1. На странице **Обзор** отобразится подробная информация о целевой группе.

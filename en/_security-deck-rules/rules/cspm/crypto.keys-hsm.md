@@ -15,6 +15,4 @@ It is recommended to use HSMs for KMS keys to enhance the security level.
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 [Set](https://yandex.cloud/en/docs/kms/operations/symmetric-encryption) the encryption algorithm for KMS keys to AES-256 HSM.

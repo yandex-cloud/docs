@@ -19,6 +19,4 @@
 
 #### Инструкции и решения по выполнению
 
-**Инструкции и решения по выполнению:**
-
 [Создание профиля ARL и подключение его к профилю безопасности Smart Web Security](https://yandex.cloud/ru/docs/smartwebsecurity/quickstart#arl).

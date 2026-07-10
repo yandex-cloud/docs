@@ -268,7 +268,7 @@
 
 {% endlist %}
 
-## Полезные ссылки {#see-also}
+#### Полезные ссылки {#see-also}
 
 * [Machine Learning Model Experiments](https://docs.gitlab.com/user/project/ml/experiment_tracking/)
 * [Model Registry](https://docs.gitlab.com/user/project/ml/model_registry/)

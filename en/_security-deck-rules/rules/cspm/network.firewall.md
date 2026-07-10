@@ -31,6 +31,4 @@ Make sure that your [clouds](https://yandex.cloud/en/docs/resource-manager/conce
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 * Apply security groups to any objects that have no group. * To apply security groups through Terraform, [set up](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/segmentation) security groups (dev/stage/prod) using Terraform. * To use the NGFW, [install](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/checkpoint-1VM) the NGFW on your VM: Check Point. * Refer to [this guide](https://docs.google.com/document/d/1yYwHorzkwXwIUGeG3n_K6Zo-07BVYowZJL7q2bAgVR8/edit?usp=sharing) on using the UserGate NGFW in the cloud. * Use NGFW in [active-passive](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/network-sec/checkpoint-2VM_active-active/README.md) mode.

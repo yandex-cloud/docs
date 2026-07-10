@@ -13,6 +13,4 @@ You can automate this process by setting up a [schedule](https://yandex.cloud/en
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 [Set up](https://yandex.cloud/en/docs/container-registry/operations/scanning-docker-image#scheduled) automatically scheduled Docker images scanning for vulnerabilities

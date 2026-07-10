@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите посмотреть список [зон DNS](../concepts/dns-zone.md).
-  1. Перейдите в сервис **Cloud DNS**.
+  1. [Перейдите](https://console.yandex.cloud/link/dns) в сервис **Cloud DNS**.
   1. На странице **Зоны** отобразится список зон DNS.
 
 - CLI {#cli}

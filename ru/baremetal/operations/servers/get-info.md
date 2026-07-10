@@ -10,7 +10,7 @@ description: 'Следуя данной инструкции, вы сможет�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** и в открывшемся списке серверов выберите нужный сервер.
+  1. [Перейдите]({{ link-console-main }}/link/baremetal) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** и в открывшемся списке серверов выберите нужный сервер.
 
       На открывшейся странице доступны следующие сведения:
 

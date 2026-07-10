@@ -18,7 +18,7 @@ description: Следуя этой инструкции, вы сможете с�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
+  1. [Перейдите]({{ link-console-main }}/link/interconnect) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
   1. На панели слева выберите ![pipeline](../../_assets/console-icons/pipeline.svg) **{{ ui-key.yacloud.interconnect.trunk-connection.trunk-connections_kBGNL }}** и нажмите кнопку **{{ ui-key.yacloud.interconnect.trunk-connection.TrunkConnectionListScreen.create-trunk-connection_oUuYo }}**. В открывшемся окне:
 
       1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.connection-capacity_tkrnE }}** задайте величину [пакета трафика](../concepts/capacity.md) для создаваемого транкового подключения.
@@ -118,7 +118,7 @@ description: Следуя этой инструкции, вы сможете с�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
+  1. [Перейдите]({{ link-console-main }}/link/interconnect) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
   1. На панели слева выберите ![pipeline](../../_assets/console-icons/pipeline.svg) **{{ ui-key.yacloud.interconnect.trunk-connection.trunk-connections_kBGNL }}** и нажмите кнопку **{{ ui-key.yacloud.interconnect.trunk-connection.TrunkConnectionListScreen.create-trunk-connection_oUuYo }}**. В открывшемся окне:
 
       1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.connection-capacity_tkrnE }}** задайте величину [пакета трафика](../concepts/capacity.md) для создаваемого транкового подключения.
@@ -202,7 +202,7 @@ description: Следуя этой инструкции, вы сможете с�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
+  1. [Перейдите]({{ link-console-main }}/link/interconnect) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
   1. На панели слева выберите ![pipeline](../../_assets/console-icons/pipeline.svg) **{{ ui-key.yacloud.interconnect.trunk-connection.trunk-connections_kBGNL }}** и нажмите кнопку **{{ ui-key.yacloud.interconnect.trunk-connection.TrunkConnectionListScreen.create-trunk-connection_oUuYo }}**. В открывшемся окне:
 
       1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.connection-capacity_tkrnE }}** задайте величину [пакета трафика](../concepts/capacity.md) для создаваемого транкового подключения.

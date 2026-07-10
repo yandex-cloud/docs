@@ -19,8 +19,6 @@
 
 Обязательно отключайте возможность получения IAM-токена через сервис метаданных в формате `IMDSv1`.
 
-**Инструкции и решения по выполнению:**
-
 У обнаруженных ВМ в блоке `metadata_options` задайте параметру [aws_v1_http_token](https://yandex.cloud/ru/docs/compute/api-ref/grpc/Instance/update#yandex.cloud.compute.v1.MetadataOptions) значение `DISABLED`:
 
 ```bash yc compute instance update <идентификатор_или_имя_ВМ> \ --metadata-options aws-v1-http-token=DISABLED ```

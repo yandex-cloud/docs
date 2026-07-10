@@ -14,7 +14,7 @@
 
   Чтобы удалить [целевую группу](../concepts/target-resources.md):
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где требуется удалить целевую группу.
-  1. Перейдите в сервис **Network Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer/) в сервис **Network Load Balancer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **Целевые группы**.
   1. В строке целевой группы, которую требуется удалить, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg).
   1. В открывшемся меню выберите **Удалить**.

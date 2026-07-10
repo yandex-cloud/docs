@@ -13,6 +13,4 @@
 
 #### Инструкции и решения по выполнению
 
-**Инструкции и решения по выполнению:**
-
 Автоматизируйте сканирование Docker-образа на наличие уязвимостей с помощью [настройки расписания](https://yandex.cloud/ru/docs/container-registry/operations/scanning-docker-image#scheduled).

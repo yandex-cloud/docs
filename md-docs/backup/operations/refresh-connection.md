@@ -103,7 +103,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором подключен Cloud Backup.
-      1. Перейдите в сервис **Cloud Backup**.
+      1. [Перейдите](https://console.yandex.cloud/link/backup) в сервис **Cloud Backup**.
       1. На вкладке ![machines](../../_assets/console-icons/server.svg) **Виртуальные машины** проверьте, что в списке нет неактуальной ВМ с меткой ![irrelevant](../../_assets/console-icons/circle-info-fill.svg).
 
           Если ВМ не удалена, напротив неактуальной ВМ нажмите ![image](../../_assets/console-icons/ellipsis.svg), выберите **Удалить** и подтвердите удаление.

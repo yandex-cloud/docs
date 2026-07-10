@@ -24,7 +24,7 @@
   {% endnote %}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно изменить [политику резервного копирования](../../concepts/policy.md).
-  1. Перейдите в сервис **Cloud Backup**.
+  1. [Перейдите](https://console.yandex.cloud/link/backup) в сервис **Cloud Backup**.
   1. На панели слева выберите ![policies](../../../_assets/console-icons/calendar.svg) **Политики копирования**.
   1. Напротив политики резервного копирования, которую нужно изменить, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
   1. Измените параметры политики резервного копирования:
@@ -453,18 +453,12 @@
 
 ## Изменить список защищаемых ресурсов {#update-vm-list}
 
-{% note info %}
-
-В настоящее время привязать внешний [защищаемый ресурс](../../concepts/index.md#protected-resources) к политике резервного копирования можно с помощью [Yandex Cloud CLI](../../../cli/cli-ref/backup/cli-ref/policy/apply.md), [API](../../backup/api-ref/Policy/apply.md) или [Terraform](../../../terraform/resources/backup_policy_bindings.md).
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится политика резервного копирования.
-  1. Перейдите в сервис **Cloud Backup**.
+  1. [Перейдите](https://console.yandex.cloud/link/backup) в сервис **Cloud Backup**.
   1. Перейдите на вкладку ![policies](../../../_assets/console-icons/calendar.svg) **Политики копирования**.
   1. Выберите политику резервного копирования, в которой нужно изменить список [защищаемых ресурсов](../../concepts/index.md#protected-resources).
   1. Измените список привязанных ресурсов:
@@ -640,4 +634,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Удалить политику резервного копирования](delete.md).
+[Удалить политику резервного копирования](delete.md)

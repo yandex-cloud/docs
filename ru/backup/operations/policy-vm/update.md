@@ -23,7 +23,7 @@ description: Из статьи вы узнаете, как изменить по
   {% endnote %}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно изменить [политику резервного копирования](../../../backup/concepts/policy.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Перейдите]({{ link-console-main }}/link/backup) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. На панели слева выберите ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
   1. Напротив политики резервного копирования, которую нужно изменить, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Измените параметры политики резервного копирования:
@@ -179,14 +179,12 @@ description: Из статьи вы узнаете, как изменить по
 
 ## Изменить список защищаемых ресурсов {#update-vm-list}
 
-{% include [external-no-console-notice](../../../_includes/backup/external-no-console-notice.md) %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится политика резервного копирования.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Перейдите]({{ link-console-main }}/link/backup) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Перейдите на вкладку ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
   1. Выберите политику резервного копирования, в которой нужно изменить список [защищаемых ресурсов](../../concepts/index.md#protected-resources).
   1. Измените список привязанных ресурсов:
@@ -302,4 +300,4 @@ description: Из статьи вы узнаете, как изменить по
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](delete.md).
+[{#T}](delete.md)

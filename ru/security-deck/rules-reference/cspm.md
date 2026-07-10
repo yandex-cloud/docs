@@ -12,6 +12,10 @@ editable: false
 
 {% include [iam.sa-key-rotation](../../_security-deck-rules/rules/cspm/iam.sa-key-rotation.md) %}
 
+{% include [iam.unused-service-account](../../_security-deck-rules/rules/cspm/iam.unused-service-account.md) %}
+
+{% include [iam.unused-key](../../_security-deck-rules/rules/cspm/iam.unused-key.md) %}
+
 {% include [yid-organization](../../_security-deck-rules/rules/cspm/yid-organization.md) %}
 
 {% include [access.user-groups-access](../../_security-deck-rules/rules/cspm/access.user-groups-access.md) %}

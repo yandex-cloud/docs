@@ -27,8 +27,6 @@ To prevent such attacks, DDoS Protection:
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 Use [Yandex DDoS Protection](https://yandex.cloud/en/services/ddos-protection) to protect your cloud resources against DDoS attacks on basic level. You can [enable DDoS Protection](https://yandex.cloud/en/docs/vpc/operations/enable-ddos-protection) with a single click: just select the **DDoS protection** checkbox when creating your VM and reserving public IP addresses.
 
 Enable and set up advanced DDoS protection at OSI layers 3, 4, and 7. To enable advanced protection, [contact support](https://center.yandex.cloud/support/tickets) or fill out [this form](https://yandex.cloud/en/services/ddos-protection#contact-form).

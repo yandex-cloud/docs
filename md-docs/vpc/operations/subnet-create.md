@@ -10,7 +10,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где требуется создать подсеть.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **Подсети**.
   1. Справа сверху нажмите **Создать**.
   1. В поле **Имя** укажите название подсети. Требования к названию:

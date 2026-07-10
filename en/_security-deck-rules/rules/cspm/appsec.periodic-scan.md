@@ -13,8 +13,6 @@ When creating a new [registry](https://yandex.cloud/en/docs/container-registry/c
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 1. In the [management console](https://console.yandex.cloud/), select the folder where you want to create a registry. 2. In the list of services, select **Container Registry**. 3. Click **Create registry**. 4. In the **Name** field, enter a name for the registry. The naming requirements are as follows:
 
 * It must be from 2 to 63 characters long. * It can only contain lowercase Latin letters, numbers, and hyphens. * It must start with a letter and cannot end with a hyphen. 5. Under **Automatic scanning**:

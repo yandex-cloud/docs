@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [подсеть](../concepts/network.md#subnet).
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **Подсети**.
   1. Выберите нужную подсеть.
   1. На странице **Обзор** отобразится подробная информация о подсети.

@@ -19,6 +19,4 @@
 
 #### Инструкции и решения по выполнению
 
-**Инструкции и решения по выполнению:**
-
 [Зашифруйте](https://yandex.cloud/ru/docs/compute/operations/disk-control/disk-encrypt) диск виртуальной машины Yandex Compute Cloud.

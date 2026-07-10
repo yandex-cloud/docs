@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит сервер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Перейдите]({{ link-console-main }}/link/baremetal) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. В строке с нужным сервером нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.baremetal.action_server-prolongate-ended-rent }}**.
   1. В открывшемся окне подтверждения ознакомьтесь с сообщением `{{ ui-key.yacloud.baremetal.message_confirm-server-prolongate-ended-rent }}`. Нажмите кнопку **{{ ui-key.yacloud.baremetal.action_server-prolongate-ended-rent }}**.
 

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Работа на виртуальной машине > OS Login > Экспортировать SSH-сертификат
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Виртуальные машины > OS Login > Экспортировать SSH-сертификат
 
 # Экспортировать SSH-сертификат
 

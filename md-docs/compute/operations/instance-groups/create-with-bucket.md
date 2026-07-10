@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Создание группы виртуальных машин > Создать группу ВМ с подключением к Object Storage
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Группы виртуальных машин > Создание > Создать группу ВМ с подключением к Object Storage
 
 # Создать группу виртуальных машин с подключением к Yandex Object Storage
 

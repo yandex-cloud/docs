@@ -19,7 +19,7 @@ description: Из статьи вы узнаете, как отвязать ви
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите отвязать защищаемый ресурс от политики.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Перейдите]({{ link-console-main }}/link/backup) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Перейдите на вкладку ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}**.
   1. Выберите политику, от которой вы хотите отвязать ресурс.
   1. В зависимости от того, какой ресурс вы хотите отвязать от политики резервного копирования, в блоке **{{ ui-key.yacloud.backup.title_linked-recourses }}** выберите вкладку **{{ ui-key.yacloud.backup.value_vm-recourses }}** или **{{ ui-key.yacloud.backup.value_bms-recourses }}**.
@@ -98,4 +98,4 @@ description: Из статьи вы узнаете, как отвязать ви
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](attach-and-detach-vm.md)
+[{#T}](attach-and-detach-vm.md)

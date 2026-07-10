@@ -24,6 +24,8 @@ Aliases:
 
 - [yc managed-mongodb v0 database list](list.md) — List databases for a MongoDB cluster.
 
+- [yc managed-mongodb v0 database update](update.md) — Modify attributes of a MongoDB database.
+
 #### Global Flags
 
 #|

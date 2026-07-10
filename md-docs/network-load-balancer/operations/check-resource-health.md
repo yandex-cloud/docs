@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-  1. Перейдите в сервис **Network Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer/) в сервис **Network Load Balancer**.
   1. Нажмите на имя нужного сетевого балансировщика.
 
 - CLI {#cli}

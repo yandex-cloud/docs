@@ -23,6 +23,8 @@ Syntax:
 
   - [yc baremetal v2 extend stackland-cluster get](stackland-cluster/get.md) — Gets Stackland cluster by it's id.
 
+  - [yc baremetal v2 extend stackland-cluster get-stackland-cluster-configs](stackland-cluster/get-stackland-cluster-configs.md) — Returns a zip archive with the cluster config.yaml and secrets.yaml.
+
   - [yc baremetal v2 extend stackland-cluster list](stackland-cluster/list.md) — List Stackland clusters in the specified folder.
 
   - [yc baremetal v2 extend stackland-cluster update](stackland-cluster/update.md) — Updates the specified Stackland cluster.

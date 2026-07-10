@@ -37,7 +37,14 @@
   1. Перейдите на [страницу каталога](https://console.yandex.cloud).
   1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
   1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Изменить** на панели сверху.
-  1. В блоке **Класс хоста** выберите нужный класс для хостов-мастеров или хостов-сегментов Yandex MPP Analytics for PostgreSQL.
+  1. В блоке **Класс хоста** на вкладках **Master** и **Segment** выберите:
+
+     
+     1. Одну из доступных [платформ](../../compute/concepts/vm-platforms.md).
+     1. Тип конфигурации: **memory-optimized**, **cpu-optimized**, **io-optimized** или **standard**.
+     1. [Класс хостов](../../storedoc/concepts/instance-types.md) — он определяет технические характеристики виртуальных машин, на которых будут развернуты хосты Yandex MPP Analytics for PostgreSQL. При изменении класса хостов для кластера меняются характеристики всех созданных хостов.  
+
+
   1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}

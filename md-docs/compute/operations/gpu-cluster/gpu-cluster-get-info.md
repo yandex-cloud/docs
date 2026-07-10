@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Кластеры GPU > Получить информацию о кластере GPU
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > GPU > Кластеры GPU > Получить информацию о кластере GPU
 
 # Получить информацию о кластере GPU
 

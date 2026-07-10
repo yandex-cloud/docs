@@ -88,6 +88,16 @@ Syntax:
 
   - [yc cic trunk-connection update](trunk-connection/update.md) — Modify configuration or attributes of a trunk connection.
 
+- [yc cic trunk-connection-ticket](trunk-connection-ticket/index.md) — A set of methods for managing TrunkConnectionTicket resources.
+
+  - [yc cic trunk-connection-ticket create](trunk-connection-ticket/create.md) — Creates a TrunkConnectionTicket in the specified folder and opens a support ticket.
+
+  - [yc cic trunk-connection-ticket get](trunk-connection-ticket/get.md) — Returns the specified TrunkConnectionTicket resource.
+
+  - [yc cic trunk-connection-ticket list](trunk-connection-ticket/list.md) — Lists TrunkConnectionTicket resources in the specified folder.
+
+  - [yc cic trunk-connection-ticket revoke](trunk-connection-ticket/revoke.md) — Revokes a TrunkConnectionTicket and closes the underlying support ticket.
+
 - [yc cic v0](v0/index.md) — (legacy command tree) Manage Interconnect resources
 
 

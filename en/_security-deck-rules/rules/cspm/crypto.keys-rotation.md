@@ -27,6 +27,4 @@ For more information about key rotation, see the KMS documentation, [Key version
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 [Set](https://yandex.cloud/en/docs/kms/concepts/version) the key rotation period.

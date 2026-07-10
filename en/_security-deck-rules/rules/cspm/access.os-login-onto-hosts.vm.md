@@ -15,6 +15,4 @@ Thus, you can easily manage access to virtual machines by assigning appropriate 
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 * [Enabling OS Login access at the organization level](https://yandex.cloud/en/docs/organization/operations/os-login-access). * [Setting up OS Login access on an existing VM](https://yandex.cloud/en/docs/compute/operations/vm-connect/enable-os-login). * [Connect to the virtual machine via OS Login](https://yandex.cloud/en/docs/compute/operations/vm-connect/os-login).

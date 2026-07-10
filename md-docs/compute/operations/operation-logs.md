@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Пошаговые инструкции](index.md) > Посмотреть операции с ресурсами сервиса
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Пошаговые инструкции](index.md) > Просмотр операций с ресурсами
 
 # Посмотреть операции с ресурсами сервиса Compute Cloud
 

@@ -24,10 +24,13 @@
 
      Для бакетов со включенным версионированием действие будет применяться для текущих версий объектов. Для взаимодействия с неактивными версиями объектов воспользуйтесь параметром `NoncurrentVersionTransition`.
 
-   * `{{ ui-key.yacloud.storage.bucket.lifecycle.label_version-expiration-type }}` — удаление нетекущих версий объектов из бакета. Срабатывает через указанное в поле **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}** количество дней после того, как версия объекта стала нетекущей.
+   * `{{ ui-key.yacloud.storage.bucket.lifecycle.label_version-expiration-type }}` — удаление нетекущих версий объектов из бакета:
+      * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}** — количество дней, через которое нетекущая версия будет удалена.
+      * **{{ ui-key.yacloud.storage.Bucket.NewerNoncurrentVersionsField.field_newer_noncurrent_versions_ezq3T }}** — количество последних нетекущих версий, которые хранятся неограниченное время. Версии сверх этого количества удаляются с учетом срока срабатывания.
    * `{{ ui-key.yacloud.storage.bucket.lifecycle.label_version-transition-type }}` — перемещение нетекущих версий объектов из стандартного (`STANDARD`) в холодное (`COLD`) , ледяное (`ICE`) или умное (`INTELLIGENT_TIERING`) хранилище, а также из холодного в ледяное хранилище:
-     * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}** — количество дней, через которое сработает правило после того, как версия объекта стала нетекущей.
-     * **{{ ui-key.yacloud.storage.bucket.lifecycle.column_storage_class }}** — тип хранилища, в которое будут перемещены объекты.
+      * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}** — количество дней, через которое нетекущая версия будет перенесена в другой класс хранилища.
+      * **{{ ui-key.yacloud.storage.bucket.lifecycle.column_storage_class }}** — тип хранилища, в которое будут перемещены объекты.
+      * **{{ ui-key.yacloud.storage.Bucket.NewerNoncurrentVersionsField.field_newer_noncurrent_versions_ezq3T }}** — количество последних нетекущих версий, которые хранятся в исходном классе хранилища неограниченное время. Версии сверх этого количества переносятся в другой класс хранилища с учетом срока срабатывания.
 
    * `{{ ui-key.yacloud.storage.bucket.lifecycle.label_abort-incomplete-multipart-upload-type }}` — удаление всех частей незавершенных составных загрузок из бакета. Срабатывает через указанное в поле **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}** количество дней после загрузки объекта.
 

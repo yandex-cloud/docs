@@ -15,6 +15,4 @@ OS Login связывает учетную запись пользователя
 
 #### Инструкции и решения по выполнению
 
-**Инструкции и решения по выполнению:**
-
 * [Включить доступ по OS Login](https://yandex.cloud/ru/docs/organization/operations/os-login-access) на уровне организации. * [Настроить доступ по OS Login](https://yandex.cloud/ru/docs/compute/operations/vm-connect/enable-os-login) на существующей виртуальной машине. * [Подключиться к виртуальной машине ](https://yandex.cloud/ru/docs/compute/operations/vm-connect/os-login)по OS Login.

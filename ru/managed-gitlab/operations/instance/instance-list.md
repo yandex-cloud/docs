@@ -13,7 +13,7 @@ description: Из статьи вы узнаете, как получить сп
 
 - Консоль управления {#console}
 
-  Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  [Перейдите]({{ link-console-main }}/link/managed-gitlab) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
 
 - CLI {#cli}
 
@@ -67,8 +67,8 @@ description: Из статьи вы узнаете, как получить сп
 
 - Консоль управления {#console}
 
-  1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится инстанс {{ GL }}.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится инстанс {{ GL }}.
+  1. [Перейдите]({{ link-console-main }}/link/managed-gitlab) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Нажмите на имя нужного инстанса.
 
 - CLI {#cli}
@@ -193,7 +193,7 @@ description: Из статьи вы узнаете, как получить сп
   Чтобы получить список операций для конкретного инстанса:
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-gitlab) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.gitlab.switch_instances }}**.
   1. Выберите нужный инстанс.
   1. Перейдите на панель ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** для выбранного кластера.
@@ -247,4 +247,4 @@ description: Из статьи вы узнаете, как получить сп
 
 #### Полезные ссылки {#see-also}
 
-* [{#T}](../../../api-design-guide/concepts/about-async.md)
+[{#T}](../../../api-design-guide/concepts/about-async.md)

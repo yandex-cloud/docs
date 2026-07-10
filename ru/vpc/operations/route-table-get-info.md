@@ -9,7 +9,7 @@ title: Получить информацию о таблице маршрути�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [таблица маршрутизации](../concepts/routing.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.switch_route-tables }}**.
   1. Выберите нужную таблицу маршрутизации.
   1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о таблице маршрутизации.

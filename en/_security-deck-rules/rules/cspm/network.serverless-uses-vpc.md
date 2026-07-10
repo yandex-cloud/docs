@@ -19,6 +19,4 @@ If necessary, you can specify a cloud network in the function settings. In such 
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 1. In the [management console](https://console.yandex.cloud/), select the cloud or folder to check functions in. 2. Go to Cloud Functions. 3. Open the function. 4. In the object settings, go to the **Edit function version** tab. 5. In the **Network** field, select the cloud network you need. 6. Click **Save changes**.

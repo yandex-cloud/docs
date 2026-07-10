@@ -10,7 +10,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;GitLab**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
   1. Нажмите на имя нужного инстанса и выберите вкладку ![image](../../../_assets/console-icons/archive.svg) **Резервные копии**.
 
 {% endlist %}
@@ -21,7 +21,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **Managed Service for&nbsp;GitLab**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
   1. Нажмите на имя нужного инстанса и выберите вкладку ![image](../../../_assets/console-icons/archive.svg) **Резервные копии**.
   1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Создать резервную копию**.
 

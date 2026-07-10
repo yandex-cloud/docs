@@ -285,12 +285,12 @@ yc load-balancer network-load-balancer update <nlb-id> --allow-zonal-shift
 
 Любые решения по обеспечению отказоустойчивости требуют регулярного тестирования в различных сценариях отказов. Подробнее о тестировании отказоустойчивости в облаке можно узнать из вебинара: [Отключаем ЦОД, или как тестировать отказоустойчивость в облаке](https://yandex.cloud/ru/events/841).
 
-## Смотрите также {#see-also}
+#### Смотрите также {#see-also}
 
-* [{#T}](../tutorials/infrastructure-management/fault-tolerance.md).
+* [{#T}](../tutorials/infrastructure-management/fault-tolerance.md)
 * [{#T}](../managed-clickhouse/concepts/high-availability.md)
 * [{#T}](../managed-greenplum/concepts/high-availability.md)
 * [{#T}](../managed-kafka/concepts/ha-cluster.md)
-* [{#T}](../managed-postgresql/concepts/high-availability.md).
-* [{#T}](../managed-mysql/concepts/high-availability.md).
-* [{#T}](../managed-opensearch/concepts/high-availability.md).
+* [{#T}](../managed-postgresql/concepts/high-availability.md)
+* [{#T}](../managed-mysql/concepts/high-availability.md)
+* [{#T}](../managed-opensearch/concepts/high-availability.md)

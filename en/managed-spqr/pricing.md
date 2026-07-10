@@ -104,5 +104,14 @@ Pricing for backup storage has the following specifics:
 
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.spqr }}']}
+    excludeSkuIds={['{{ pc|mdb.software_accelerated_network.spqr.v1.cores }}', '{{ pc|mdb.software_accelerated_network.spqr.v2.cores }}', '{{ pc|mdb.software_accelerated_network.spqr.v3.cores }}', '{{ pc|mdb.software_accelerated_network.spqr.v4a.cores }}' ]}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
+
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}

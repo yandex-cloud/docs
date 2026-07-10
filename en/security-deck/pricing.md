@@ -77,6 +77,12 @@ Inactive resources are also billable.
 
 The price does not depend on the number of days in the calendar month.
 
+### {{ vuln-man-name }} ({{ vuln-man-short-name }}) {#vuln-man-rules}
+
+You are charged per image stored in the {{ sd-name }} workspace. 
+
+The cost is calculated on a monthly basis. Each workspace is billed separately, even if their images overlap. If an image is stored for less than a calendar month, the cost is calculated on a daily basis, as `Price_per_image_per_month / 30`.
+
 
 ## Prices for the Russia region {#prices}
 
@@ -140,5 +146,11 @@ Let’s assume you set up scanning a bucket with 50 text files, their overall si
 
 
 {% include notitle [usd.md](../_pricing/security-deck/cspm/usd.md) %}
+
+
+
+### {{ vuln-man-name }} ({{ vuln-man-short-name }}) {#vuln-man-pricing}
+
+{% include notitle [usd.md](../_pricing/security-deck/vuln/usd.md) %}
 
 

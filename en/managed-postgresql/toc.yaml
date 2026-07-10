@@ -353,6 +353,16 @@ items:
             href: cli-ref/hosts/update.md
           - name: update-config
             href: cli-ref/hosts/update-config.md
+      - name: repack
+        items:
+          - name: Overview
+            href: cli-ref/repack/index.md
+          - name: launch
+            href: cli-ref/repack/launch.md
+          - name: list-running
+            href: cli-ref/repack/list-running.md
+          - name: terminate
+            href: cli-ref/repack/terminate.md
       - name: resource-preset
         items:
           - name: Overview
@@ -481,6 +491,16 @@ items:
                 href: cli-ref/v0/hosts/update.md
               - name: update-config
                 href: cli-ref/v0/hosts/update-config.md
+          - name: repack
+            items:
+              - name: Overview
+                href: cli-ref/v0/repack/index.md
+              - name: launch
+                href: cli-ref/v0/repack/launch.md
+              - name: list-running
+                href: cli-ref/v0/repack/list-running.md
+              - name: terminate
+                href: cli-ref/v0/repack/terminate.md
           - name: resource-preset
             items:
               - name: Overview

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Работа на виртуальной машине > Подключиться к ВМ по RDP
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Виртуальные машины > Работа > Подключиться к ВМ по RDP
 
 # Подключиться к виртуальной машине Windows по RDP
 

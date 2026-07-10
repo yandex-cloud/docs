@@ -40,7 +40,7 @@
 ### Создайте кластер Managed Service for PostgreSQL {#create-postgresql-cluster}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать кластер.
-1. В списке сервисов выберите **Managed Service for&nbsp;PostgreSQL**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
 1. Нажмите кнопку **Создать кластер**.
 1. Задайте параметры кластера:
    * **Имя кластера** — укажите имя кластера.
@@ -59,7 +59,7 @@
 ### Создайте виртуальную машину для DNS-форвардера {#create-dns-forwarder-vm}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать виртуальную машину.
-1. В списке сервисов выберите **Compute Cloud**.
+1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud**.
 1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
 1. Нажмите кнопку **Создать виртуальную машину**.
 1. В блоке **Общая информация** задайте имя виртуальной машины.
@@ -75,7 +75,7 @@
 ### Арендуйте сервер BareMetal {#lease-baremetal-server}
 
 1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите арендовать сервер.
-1. В списке сервисов выберите **BareMetal**.
+1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
 1. Нажмите кнопку **Заказать сервер**.
 1. Выберите параметры сервера:
    * Выберите подходящую [конфигурацию](../concepts/server-configurations.md) сервера.
@@ -115,7 +115,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. В списке сервисов выберите **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности** и нажмите кнопку **Создать группу безопасности**.
   1. В поле **Имя** задайте имя `dns-forwarder-sg`.
   1. В поле **Сеть** выберите сеть, в которой размещена виртуальная машина с Bind9.

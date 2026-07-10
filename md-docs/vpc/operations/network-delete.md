@@ -15,7 +15,7 @@
 
   Чтобы удалить [облачную сеть](../concepts/network.md#network):
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где требуется удалить облачную сеть.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной сети и выберите **Удалить**.
   1. В открывшемся окне нажмите **Удалить**.
 

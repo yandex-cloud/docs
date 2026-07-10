@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Пошаговые инструкции](index.md) > Посмотреть метрики в Monitoring
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Пошаговые инструкции](index.md) > Просмотр метрик Monitoring
 
 # Посмотреть метрики в Yandex Monitoring
 

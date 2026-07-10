@@ -11,6 +11,4 @@
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 Enable an HTTPS listener using [this guide](https://yandex.cloud/en/docs/application-load-balancer/tutorials/tls-termination/).

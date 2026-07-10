@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где требуется отвязать NAT-шлюз.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **Таблицы маршрутизации**.
   1. В открывшемся списке найдите таблицу маршрутизации, у которой в колонке **Статические маршруты** указан нужный NAT-шлюз.
   1. В строке с нужной таблицей нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
@@ -160,7 +160,7 @@
 
   Чтобы удалить NAT-шлюз:
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где требуется удалить NAT-шлюз.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/vpc/gateways.svg) **Шлюзы**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке с именем нужного NAT-шлюза и выберите **Удалить**.
   1. В открывшемся окне нажмите кнопку **Удалить**.

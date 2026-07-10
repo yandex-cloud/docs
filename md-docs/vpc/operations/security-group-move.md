@@ -9,7 +9,7 @@
   Чтобы переместить [группу безопасности](../concepts/security-groups.md) в другой каталог:
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где находится группа безопасности.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке группы, которую требуется переместить, и выберите **Переместить**.
   1. В выпадающем списке выберите каталог назначения.

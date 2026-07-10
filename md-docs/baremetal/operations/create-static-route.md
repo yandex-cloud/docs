@@ -15,7 +15,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится нужный [виртуальный сегмент сети (VRF)](../concepts/private-network.md#vrf-segment).
-  1. Перейдите в сервис **BareMetal**.
+  1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
   1. На панели слева выберите ![vector-square](../../_assets/console-icons/vector-square.svg) **VRF** и в открывшемся списке выберите VRF, в котором вы хотите создать статический маршрут. В открывшемся окне:
 
       1. В правом верхнем углу экрана нажмите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
