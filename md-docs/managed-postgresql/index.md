@@ -340,6 +340,16 @@ Managed Service for PostgreSQL помогает разворачивать и п
 
  - [update-config](cli-ref/hosts/update-config.md)
 
+### repack
+
+ - [Overview](cli-ref/repack/index.md)
+
+ - [launch](cli-ref/repack/launch.md)
+
+ - [list-running](cli-ref/repack/list-running.md)
+
+ - [terminate](cli-ref/repack/terminate.md)
+
 ### resource-preset
 
  - [Overview](cli-ref/resource-preset/index.md)
@@ -467,6 +477,16 @@ Managed Service for PostgreSQL помогает разворачивать и п
  - [update](cli-ref/v0/hosts/update.md)
 
  - [update-config](cli-ref/v0/hosts/update-config.md)
+
+#### repack
+
+ - [Overview](cli-ref/v0/repack/index.md)
+
+ - [launch](cli-ref/v0/repack/launch.md)
+
+ - [list-running](cli-ref/v0/repack/list-running.md)
+
+ - [terminate](cli-ref/v0/repack/terminate.md)
 
 #### resource-preset
 

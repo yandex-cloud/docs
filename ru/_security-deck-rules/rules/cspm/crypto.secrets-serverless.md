@@ -17,8 +17,6 @@
 
 #### Инструкции и решения по выполнению
 
-**Инструкции и решения по выполнению:**
-
 Удалите секретные данные из `env` и воспользуйтесь функционалом интеграции с Lockbox:
 
 * [Передать секреты Yandex Lockbox в контейнер](https://yandex.cloud/ru/docs/serverless-containers/operations/lockbox-secret-transmit). * [Передать секреты Yandex Lockbox в функцию](https://yandex.cloud/ru/docs/functions/operations/function/lockbox-secret-transmit).

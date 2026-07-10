@@ -12,7 +12,7 @@ Cloud Backup автоматически поставляет метрики ко
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создана [политика](../concepts/policy.md) резервного копирования.
-  1. Перейдите в сервис **Monitoring**.
+  1. [Перейдите](https://monitoring.yandex.cloud) в сервис **Monitoring**.
   1. Выберите дашборд — **Cloud Backup**
   1. В поле **Resource name** выберите защищаемый ресурс, для которого вы хотите посмотреть статистику.
 

@@ -200,6 +200,18 @@ items:
             href: cli-ref/trunk-connection/remove-labels.md
           - name: update
             href: cli-ref/trunk-connection/update.md
+      - name: trunk-connection-ticket
+        items:
+          - name: Overview
+            href: cli-ref/trunk-connection-ticket/index.md
+          - name: create
+            href: cli-ref/trunk-connection-ticket/create.md
+          - name: get
+            href: cli-ref/trunk-connection-ticket/get.md
+          - name: list
+            href: cli-ref/trunk-connection-ticket/list.md
+          - name: revoke
+            href: cli-ref/trunk-connection-ticket/revoke.md
       - name: v0
         items:
           - name: Overview
@@ -372,6 +384,18 @@ items:
                 href: cli-ref/v1/trunk-connection/remove-labels.md
               - name: update
                 href: cli-ref/v1/trunk-connection/update.md
+          - name: trunk-connection-ticket
+            items:
+              - name: Overview
+                href: cli-ref/v1/trunk-connection-ticket/index.md
+              - name: create
+                href: cli-ref/v1/trunk-connection-ticket/create.md
+              - name: get
+                href: cli-ref/v1/trunk-connection-ticket/get.md
+              - name: list
+                href: cli-ref/v1/trunk-connection-ticket/list.md
+              - name: revoke
+                href: cli-ref/v1/trunk-connection-ticket/revoke.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

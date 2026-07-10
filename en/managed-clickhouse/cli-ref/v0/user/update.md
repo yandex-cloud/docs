@@ -1241,6 +1241,17 @@ These virtual columns will have the same names as in the partitioned path, but s
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#show_data_lake_catalogs_in_system_tables).
 
+- `compatibility`: The compatibility setting causes ClickHouse to use the default settings of a previous version of ClickHouse,
+where the previous version is provided as the setting. An empty value means that this setting is disabled.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#compatibility).
+
+- `materialize_ttl_after_modify`: Apply TTL for old data, after ALTER MODIFY TTL query.
+
+  Default value: **true**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#materialize_ttl_after_modify).
+
 - `compile`: The setting is deprecated and has no effect.
 
 - `min_count_to_compile`: The setting is deprecated and has no effect.

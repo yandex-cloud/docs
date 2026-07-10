@@ -21,8 +21,6 @@ Each service account with extended permissions should be placed as a resource in
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 Validate the access rights assigned for service accounts. The recommendation is considered satisfied if the list contains only trusted administrators. Otherwise, follow this [guide](https://yandex.cloud/en/docs/iam/operations/roles/revoke) to revoke any excessive permissions using the Identity and Access Management service.
 
 To manage access centrally, use the [CIEM module](https://center.yandex.cloud/security/iam-diagnostics/). Refer to the guides below for instructions:

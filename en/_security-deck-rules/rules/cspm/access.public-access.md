@@ -27,6 +27,4 @@ Make sure that these groups have no public access to your resources: clouds, fol
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 If you detect that `All users` and `All authenticated users` have the access permissions that they should not have, remove these permissions [using CIEM module](https://yandex.cloud/en/docs/security-deck/concepts/ciem).

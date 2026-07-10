@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Работа на виртуальной машине > Подключиться к ВМ по SSH с помощью Cloud Shell
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Виртуальные машины > Работа > Подключиться к ВМ по SSH с помощью Cloud Shell
 
 # Подключиться к виртуальной машине Linux по SSH с помощью Yandex Cloud Shell
 

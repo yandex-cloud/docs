@@ -17,7 +17,7 @@
   Чтобы переместить [NAT-шлюз](../concepts/gateways.md) в другой каталог:
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где находится NAT-шлюз.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/arrows-opposite-to-dots.svg) **Шлюзы**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке NAT-шлюза, который требуется переместить, и выберите **Переместить**.
   1. В выпадающем списке выберите каталог назначения.

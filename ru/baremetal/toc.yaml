@@ -732,6 +732,9 @@ items:
                             href: cli-ref/v2/extend/stackland-cluster/delete.md
                           - name: get
                             href: cli-ref/v2/extend/stackland-cluster/get.md
+                          - name: get-stackland-cluster-configs
+                            href: >-
+                              cli-ref/v2/extend/stackland-cluster/get-stackland-cluster-configs.md
                           - name: list
                             href: cli-ref/v2/extend/stackland-cluster/list.md
                           - name: update

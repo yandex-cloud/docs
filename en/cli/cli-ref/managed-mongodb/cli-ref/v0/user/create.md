@@ -36,6 +36,10 @@ Possible property names:
 - `database`: Name of the database that the permission grants access to.
 
 - `role`: Role in the database to assign to the user. Can be specified multiple times. ||
+|| `--auth-type` | `string`
+
+Authentication type for the user. Values: 'auth-type-password', 'auth-type-iam' ||
+|| `--deletion-protection` | Deletion Protection inhibits deletion of the user. ||
 |#
 
 #### Global Flags

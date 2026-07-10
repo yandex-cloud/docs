@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Пошаговые инструкции](index.md) > Рекомендации по обновлению драйверов NVIDIA
+[Документация Yandex Cloud](../../index.md) > [Yandex Compute Cloud](../index.md) > [Пошаговые инструкции](index.md) > GPU > Рекомендации по обновлению драйверов NVIDIA
 
 # Рекомендации по обновлению драйверов NVIDIA
 
@@ -194,3 +194,7 @@ NVIDIA публикует несколько веток драйверов ([NVI
    ```
 
 После этого при `sudo reboot` systemd вызовет `ExecStop` для сервиса `manage-nvidia`, драйвер будет выгружен корректно, и перезагрузка пройдет без оставления GPU в невалидном состоянии.
+
+#### Полезные ссылки {#see-also}
+
+* [Включение режима MIG на ВМ с GPU в Compute Cloud](enable-mig.md)

@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Работа на виртуальной машине > Работа с Yandex Cloud изнутри ВМ
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Виртуальные машины > Работа > Работа с Yandex Cloud изнутри ВМ
 
 # Работа с Yandex Cloud изнутри виртуальной машины
 

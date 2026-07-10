@@ -17,7 +17,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать приватное соединение.
-  1. Перейдите в сервис **BareMetal**.
+  1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
   1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **VRF** и выберите нужный виртуальный сегмент сети.
   1. В блоке **Приватное соединение с облачными сетями** нажмите кнопку **Настроить соединение** и в открывшемся окне:
 

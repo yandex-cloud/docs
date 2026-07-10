@@ -9,7 +9,7 @@
   Чтобы создать новую [целевую группу](../concepts/target-resources.md):
   
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где требуется создать целевую группу.
-  1. Перейдите в сервис **Network Load Balancer**.
+  1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer/) в сервис **Network Load Balancer**.
   1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **Целевые группы**.
   1. Нажмите кнопку **Создать целевую группу**.
   1. Введите имя целевой группы. Требования к имени:

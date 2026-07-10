@@ -12,6 +12,7 @@ description: Следуя данной инструкции, вы сможете
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали или хотите создать [API-шлюз](../../concepts/index.md).
     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Выберите API-шлюз или нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**, чтобы создать новый.
+    1. Нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** нажмите значок ![image](../../../_assets/api-gateway/spec-constructor/cloud-yagpt.svg).
     1. Укажите в поле:
 
@@ -21,7 +22,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. В блоке **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_model_uri_title }}** выберите модель и укажите:
 
-        * Для модели `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_model_uri_yagpt_label }}` — идентификатор каталога, который будет указан в URI модели генерации текста.
+        * Для модели `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_model_uri_yagpt_label }}` — идентификатор каталога, который будет указан в URI модели генерации текста. Используется модель {{ yagpt-name }} последней версии (сегмент `/latest`).
         * Для модели `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_model_uri_datasphere_label }}` — идентификатор модели, дообученной в [{{ ml-platform-full-name }}](../../../datasphere/index.yaml).
 
     1. В блоке **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_prompt_src_title }}** выберите источник промпта и укажите:
@@ -32,7 +33,7 @@ description: Следуя данной инструкции, вы сможете
 
         * `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_hint }}`:
 
-            * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_temp_title }}** — определяет вариативность ответа модели: укажите значение от `0` до `1`. Чем выше температура, тем более креативными и случайными будут ответы модели. Значение по умолчанию — `0.3`.
+            * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_temp_title }}** — определяет вариативность ответа модели. Принимает значение от `0` до `1`. Чем выше температура, тем более креативными и случайными будут ответы модели. Значение по умолчанию — `0.3`.
             * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_max_tokens_title }}** — максимальное число [токенов]({{ link-docs-ai }}ai-studio/concepts/generation/tokens) генерации. По умолчанию `5`. Позволяет при необходимости ограничить объем ответа модели.
 
         * `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_classification_hint }}`:

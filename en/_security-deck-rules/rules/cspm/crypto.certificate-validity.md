@@ -15,8 +15,6 @@ When using certificate pinning, keep in mind that Let's Encrypt certificates are
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 Update the certificate or setup auto updates.
 
 We recommend that you update certificates in advance if they are not [updated automatically](https://yandex.cloud/en/docs/certificate-manager/concepts/challenges#auto).

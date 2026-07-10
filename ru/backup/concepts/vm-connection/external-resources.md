@@ -22,8 +22,6 @@ description: Из этой статьи вы узнаете, как подклю
 
 После установки агента {{ backup-name }} [привяжите](../../operations/policy-vm/attach-and-detach-vm.md#attach-vm) ВМ или сервер к [политике резервного копирования](../policy.md).
 
-{% include [external-no-console-notice](../../../_includes/backup/external-no-console-notice.md) %}
-
 ## Поддерживаемые операционные системы {#supported-oss}
 
 В настоящее время агент {{ backup-name }} можно установить на ВМ и серверы под управлением следующих операционных систем:

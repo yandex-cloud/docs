@@ -120,7 +120,7 @@ allocation_policy:
     - Консоль управления {#console}
 
       1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится балансировщик.
-      1. Перейдите в сервис **Application Load Balancer** и выберите нужный балансировщик.
+      1. [Перейдите](https://console.yandex.cloud/link/application-load-balancer) в сервис **Application Load Balancer** и выберите нужный балансировщик.
       1. В блоке **Размещение** напротив зоны доступности посмотрите ее статус.
 
           Если была задана длительность блокировки, рядом с зоной будет указано время, до которого она заблокирована.

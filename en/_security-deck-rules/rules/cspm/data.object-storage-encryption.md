@@ -11,6 +11,4 @@ To protect critical data in Yandex Object Storage, we recommend using bucket ser
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 It is recommended to enable data [encryption](https://yandex.cloud/ru/docs/tutorials/security/server-side-encryption) for buckets with critical data.

@@ -8,7 +8,7 @@
 
 - Консоль управления {#console}
 
-    Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    [Перейдите]({{ link-console-main }}/link/network-load-balancer/) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
 
 - CLI {#cli}
 
@@ -46,7 +46,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [сетевой балансировщик](../concepts/index.md).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+    1. [Перейдите]({{ link-console-main }}/link/network-load-balancer/) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
     1. Нажмите на имя нужного сетевого балансировщика.
     1. На странице **Обзор** отобразится подробная информация о балансировщике.
 

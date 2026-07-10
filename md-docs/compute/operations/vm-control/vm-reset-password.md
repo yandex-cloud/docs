@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Управление виртуальной машиной > Сбросить пароль пользователя ВМ Windows Server
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Виртуальные машины > Управление > Сбросить пароль пользователя ВМ Windows Server
 
 # Сбросить пароль пользователя на виртуальной машине Windows Server
 

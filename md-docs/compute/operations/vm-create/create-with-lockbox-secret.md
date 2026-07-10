@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Создание виртуальной машины > Создать ВМ с доступом к секрету Yandex Lockbox
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Виртуальные машины > Создание > Создать ВМ с доступом к секрету Yandex Lockbox
 
 # Создать ВМ с доступом к секрету Yandex Lockbox
 

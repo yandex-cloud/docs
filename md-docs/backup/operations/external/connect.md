@@ -15,7 +15,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно подключить внешний ресурс к Cloud Backup.
-  1. Перейдите в сервис **Cloud Backup**.
+  1. [Перейдите](https://console.yandex.cloud/link/backup) в сервис **Cloud Backup**.
   1. На панели слева выберите ![resources](../../../_assets/console-icons/server.svg) **Подключённые ресурсы**.
   1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/plug-connection.svg) **Подключить внешний ресурс**.
   1. В открывшемся окне **Подключение внешнего ресурса**:

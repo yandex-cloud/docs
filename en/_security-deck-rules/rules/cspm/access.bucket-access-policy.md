@@ -25,6 +25,4 @@ We recommend making sure that your Object Storage bucket uses at least one polic
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 1. In the [management console](https://console.yandex.cloud), select the cloud or folder where resides the bucket which you want to check bucket policies for. 2. Go to Object Storage and select the bucket in question. 3. In the left-hand menu, select **Security** and go to the **Access policy** tab. 4. If at least one policy is enabled, the rule is considered satisfied. Otherwise, it is recommended to [configure](https://yandex.cloud/en/docs/storage/operations/buckets/policy) an access policy for the bucket.

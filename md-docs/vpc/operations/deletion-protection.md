@@ -13,7 +13,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога, в котором зарезервирован адрес.
-   1. В списке сервисов выберите **Virtual Private Cloud**.
+   1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
    1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **Публичные IP-адреса**.
    1. В строке с нужным IP-адресом нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Включить защиту от удаления**.
    1. В открывшемся окне нажмите кнопку **Включить**.
@@ -137,7 +137,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога, в котором зарезервирован адрес.
-   1. В списке сервисов выберите **Virtual Private Cloud**.
+   1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
    1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **Публичные IP-адреса**.
    1. В строке с нужным IP-адресом нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Выключить защиту от удаления**.
    1. В открывшемся окне нажмите кнопку **Выключить**.

@@ -12,15 +12,16 @@ description: Следуя данной инструкции, вы сможете
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали или хотите создать [API-шлюз](../../concepts/index.md).
     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Выберите API-шлюз или нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**, чтобы создать новый.
+    1. Нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** нажмите значок ![image](../../../_assets/api-gateway/spec-constructor/cloud-functions.svg).
     1. Укажите в поле:
 
         {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 
-        * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}** — сервисный аккаунт для авторизации при обращении к функции. Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.
+        * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}** — сервисный аккаунт для авторизации при обращении к [функции](../../../functions/concepts/function.md). Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.
         * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_functions_payload_format_version_name }}** — версию формата запроса к функции. Возможные значения — 0.1, 1.0 и 2.0. Версия по умолчанию — 0.1.
-        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_functions_info }}** — имя [функции](../../../functions/concepts/function.md) и [тег версии](../../../functions/concepts/function.md#tag) функции.
-    1. (Опционально) Вставьте или загрузите контекст операции — произвольный объект в формате YAML или JSON.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_functions_info }}** — имя функции и [тег версии](../../../functions/concepts/function.md#tag) функции.
+    1. (Опционально) Вставьте или загрузите контекст операции — произвольный объект в формате YAML или JSON. Контекст передается в функцию внутри запроса в поле `requestContext.apiGateway.operationContext`. В контексте операции осуществляется подстановка параметров.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}

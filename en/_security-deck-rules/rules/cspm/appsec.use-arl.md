@@ -19,6 +19,4 @@ You need to connect your ARL profile to the [security profile](https://yandex.cl
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 [Creating an ARL profile and connecting it to a security profile in Smart Web Security](https://yandex.cloud/en/docs/smartwebsecurity/quickstart#arl).

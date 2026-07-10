@@ -38,7 +38,7 @@ canonical: '{{ link-docs }}/tutorials/routing/bm-vpc-dns-forwarder'
 ### Создайте кластер {{ mpg-name }} {#create-postgresql-cluster}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать кластер.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+1. [Перейдите]({{ link-console-main }}/link/managed-postgresql) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Задайте параметры кластера:
    * **{{ ui-key.yacloud.mdb.forms.base_field_name }}** — укажите имя кластера.
@@ -57,7 +57,7 @@ canonical: '{{ link-docs }}/tutorials/routing/bm-vpc-dns-forwarder'
 ### Создайте виртуальную машину для DNS-форвардера {#create-dns-forwarder-vm}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать виртуальную машину.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Перейдите]({{ link-console-main }}/link/compute) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя виртуальной машины.
@@ -73,7 +73,7 @@ canonical: '{{ link-docs }}/tutorials/routing/bm-vpc-dns-forwarder'
 ### Арендуйте сервер {{ baremetal-name }} {#lease-baremetal-server}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите арендовать сервер.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+1. [Перейдите]({{ link-console-main }}/link/baremetal) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
 1. Выберите параметры сервера:
    * Выберите подходящую [конфигурацию](../../baremetal/concepts/server-configurations.md) сервера.
@@ -113,7 +113,7 @@ canonical: '{{ link-docs }}/tutorials/routing/bm-vpc-dns-forwarder'
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** задайте имя `dns-forwarder-sg`.
   1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите сеть, в которой размещена виртуальная машина с Bind9.

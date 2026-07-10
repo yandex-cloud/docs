@@ -29,7 +29,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно подключить ВМ.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите **Создать сервисный аккаунт**.
   1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md). Требования к имени:
 
@@ -198,7 +198,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно подключить ВМ к Cloud Backup.
-  1. Перейдите в сервис **Compute Cloud** и в открывшемся списке выберите нужную ВМ.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud** и в открывшемся списке выберите нужную ВМ.
   1. В правом верхнем углу страницы нажмите ![image](../../_assets/console-icons/pencil.svg) **Изменить ВМ**.
   1. В блоке **Дополнительно** выберите сервисный аккаунт с ролью `backup.user` или выше.
   1. Нажмите **Сохранить изменения**.
@@ -311,7 +311,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно подключить ВМ.
-  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/vpc) в сервис **Virtual Private Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности**.
   1. Нажмите **Создать группу безопасности**.
   1. Введите имя [группы безопасности](../../vpc/concepts/security-groups.md), например `backup-sg`.
@@ -555,7 +555,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно подключить ВМ к Cloud Backup.
-  1. Перейдите в сервис **Compute Cloud** и выберите нужную ВМ.
+  1. [Перейдите](https://console.yandex.cloud/link/compute) в сервис **Compute Cloud** и выберите нужную ВМ.
   1. В блоке **Сетевой интерфейс** добавьте группу безопасности в [сетевой интерфейс](../../compute/concepts/network.md) ВМ:
   
       * В правом верхнем углу блока нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Изменить**.

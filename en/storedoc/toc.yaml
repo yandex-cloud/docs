@@ -213,6 +213,8 @@ items:
             href: cli-ref/database/get.md
           - name: list
             href: cli-ref/database/list.md
+          - name: update
+            href: cli-ref/database/update.md
       - name: hosts
         items:
           - name: Overview
@@ -353,6 +355,8 @@ items:
                 href: cli-ref/v0/database/get.md
               - name: list
                 href: cli-ref/v0/database/list.md
+              - name: update
+                href: cli-ref/v0/database/update.md
           - name: hosts
             items:
               - name: Overview

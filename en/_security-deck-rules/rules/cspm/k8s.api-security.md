@@ -17,7 +17,6 @@ This rule checks only for external IP addresses on Kubernetes clusters.
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
 It is recommended to use Kubernetes clusters that are not accessible from the internet. For guidance on creating such a cluster, see [Creating and configuring a Kubernetes cluster with no internet access](https://yandex.cloud/en/docs/managed-kubernetes/tutorials/k8s-cluster-with-no-internet).
 
 If a cluster must be accessible from the internet, configure it using these firewall options:

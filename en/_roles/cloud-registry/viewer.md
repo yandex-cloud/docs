@@ -1,5 +1,5 @@
 
-The`cloud-registry.viewer` role enables pulling artifacts, as well as viewing info on artifacts and registries, on the access permissions granted for registries, and on the {{ cloud-registry-name }} quotas.
+The `cloud-registry.viewer` role enables pulling artifacts, as well as viewing info on artifacts and registries, on the access permissions granted for registries, and on the {{ cloud-registry-name }} quotas.
 
 Users with this role can:
 * View info on [artifacts](../../cloud-registry/concepts/artifacts/index.md) and pull them.

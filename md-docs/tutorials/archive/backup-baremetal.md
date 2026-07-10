@@ -57,7 +57,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите арендовать сервер BareMetal.
-  1. Перейдите в сервис **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md). Требования к формату имени:
 
@@ -88,7 +88,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите арендовать сервер и подключить его к Cloud Backup.
-  1. Перейдите в сервис **Cloud Backup**.
+  1. [Перейдите](https://console.yandex.cloud/link/backup) в сервис **Cloud Backup**.
   1. Если сервис Cloud Backup еще не активирован, нажмите **Активировать**.
 
       Если кнопки **Активировать** нет, значит, сервис уже активирован. Переходите к следующему шагу.
@@ -161,7 +161,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите арендовать сервер.
-  1. Перейдите в сервис **BareMetal**.
+  1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
   1. Нажмите кнопку **Заказать сервер** и в открывшемся окне выберите вариант `Готовые конфигурации` и подходящую [конфигурацию](../../baremetal/concepts/server-configurations.md) сервера BareMetal.
      
      Чтобы выбрать подходящую вам конфигурацию сервера, нажмите на блок с именем этой конфигурации в центральной части экрана.
@@ -448,7 +448,7 @@
 - KVM-консоль {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит сервер.
-  1. Перейдите в сервис **BareMetal**.
+  1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
   1. В строке с нужным сервером нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Запустить KVM-консоль**.
   1. В открывшемся окне нажмите кнопку **KVM-консоль**.
 
@@ -573,7 +573,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите привязать сервер к политике.
-  1. Перейдите в сервис **Cloud Backup**.
+  1. [Перейдите](https://console.yandex.cloud/link/backup) в сервис **Cloud Backup**.
   1. На панели слева выберите ![policies](../../_assets/console-icons/calendar.svg) **Политики копирования**.
   1. Выберите политику, к которой вы хотите привязать сервер.
   
@@ -639,7 +639,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится политика резервного копирования.
-  1. Перейдите в сервис **Cloud Backup**.
+  1. [Перейдите](https://console.yandex.cloud/link/backup) в сервис **Cloud Backup**.
   1. На панели слева выберите ![bms](../../_assets/console-icons/objects-align-justify-horizontal.svg) **Серверы BareMetal**.
   1. В строке с нужным сервером нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Создать резервную копию**.
   1. В открывшемся окне выберите политику резервного копирования, в соответствии с которой будет создана резервная копия, и нажмите **Создать**.
@@ -687,7 +687,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится резервная копия.
-  1. Перейдите в сервис **Cloud Backup**.
+  1. [Перейдите](https://console.yandex.cloud/link/backup) в сервис **Cloud Backup**.
   1. На панели слева выберите ![backups](../../_assets/console-icons/archive.svg) **Резервные копии** и откройте вкладку **Серверы BareMetal**.
   1. В строке с резервной копией, из которой нужно восстановить сервер BareMetal, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Восстановить сервер BareMetal**.
   1. В открывшемся окне выберите сервер, из которого была создана выбранная резервная копия. В списке этот сервер будет отмечен как `(текущий)`.
@@ -737,4 +737,4 @@
 
 #### Полезные ссылки {#see-also}
 
-* [Арендовать сервер Yandex BareMetal с подключением к Cloud Backup](../../backup/operations/backup-baremetal/lease-server-with-backup.md)
+[Арендовать сервер Yandex BareMetal с подключением к Cloud Backup](../../backup/operations/backup-baremetal/lease-server-with-backup.md)

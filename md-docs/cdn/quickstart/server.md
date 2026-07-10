@@ -80,7 +80,7 @@
 
 <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplva6365yoayxar6ore?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
-1. Перейдите в сервис **Cloud CDN**.
+1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
 1. На вкладке ![image](../../_assets/console-icons/nodes-right.svg) **CDN-ресурсы** нажмите кнопку **Создать ресурс**.
 1. В разделе **Основные настройки** задайте основные настройки CDN-ресурса:
     * В блоке **Контент**:

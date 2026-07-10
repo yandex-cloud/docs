@@ -13,7 +13,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите зарезервировать [выделенную публичную подсеть](../concepts/public-network.md#public-subnet).
-  1. Перейдите в сервис **BareMetal**.
+  1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
   1. На панели слева выберите ![globe](../../_assets/console-icons/globe.svg) **Публичные адреса и подсети**.
   1. Справа вверху нажмите кнопку **Заказать публичную подсеть**.
   1. В поле **Зона доступности** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет доступна подсеть.
@@ -90,7 +90,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится эфемерная публичная подсеть, которую вы хотите преобразовать в выделенную.
-  1. Перейдите в сервис **BareMetal**.
+  1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
   1. На панели слева выберите ![globe](../../_assets/console-icons/globe.svg) **Публичные адреса и подсети**.
   1. В открывшемся списке публичных подсетей в строке с нужной эфемерной подсетью нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Сделать выделенной**.
   1. В поле **Пул** выберите [пулы](../concepts/servers.md#server-pools), в которых будет доступна подсеть.

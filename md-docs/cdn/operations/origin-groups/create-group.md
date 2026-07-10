@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать группу источников.
-  1. Перейдите в сервис **Cloud CDN**.
+  1. [Перейдите](https://console.yandex.cloud/link/cdn) в сервис **Cloud CDN**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Группы источников**.
   1. Нажмите кнопку **Создать группу источников**.
   1. Введите название группы источников.

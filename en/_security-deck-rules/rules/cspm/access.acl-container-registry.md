@@ -13,6 +13,4 @@ It is recommended that you limit access to your Container Registry to specific I
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 1. In the [management console](https://console.yandex.cloud/), select the cloud or folder to check the VMs in. 2. In the list of services, select **Compute Cloud**. 3. Open the settings of a specific VM with a **Container Optimized Image**. 4. In **Settings** for the Docker container, disable the **Privileged mode** parameter.

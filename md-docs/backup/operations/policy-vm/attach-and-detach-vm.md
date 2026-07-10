@@ -5,18 +5,12 @@
 
 Привязать к политике резервного копирования можно только [подключенные](../../concepts/vm-connection/index.md) к Yandex Cloud Backup [защищаемые ресурсы](../../concepts/index.md#protected-resources). Подробнее в разделах [Управление виртуальными машинами Yandex Compute Cloud в Cloud Backup](../index.md#connect-vm), [Управление серверами BareMetal в Cloud Backup](../index.md#connect-baremetal) и [Управление внешними виртуальными машинами и серверами в Cloud Backup](../index.md#connect-external).
 
-{% note info %}
-
-В настоящее время привязать внешний [защищаемый ресурс](../../concepts/index.md#protected-resources) к политике резервного копирования можно с помощью [Yandex Cloud CLI](../../../cli/cli-ref/backup/cli-ref/policy/apply.md), [API](../../backup/api-ref/Policy/apply.md) или [Terraform](../../../terraform/resources/backup_policy_bindings.md).
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите привязать защищаемый ресурс к политике.
-  1. Перейдите в сервис **Cloud Backup**.
+  1. [Перейдите](https://console.yandex.cloud/link/backup) в сервис **Cloud Backup**.
   1. Перейдите на вкладку ![policies](../../../_assets/console-icons/calendar.svg) **Политики копирования**.
   1. Выберите политику, к которой вы хотите привязать ВМ или сервер.
   1. В блоке **Привязанные ресурсы** нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Привязать ресурс** и в открывшемся окне:

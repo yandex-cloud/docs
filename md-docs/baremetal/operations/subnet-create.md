@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать [приватную подсеть](../concepts/private-network.md#private-subnet).
-  1. Перейдите в сервис **BareMetal**.
+  1. [Перейдите](https://console.yandex.cloud/link/baremetal) в сервис **BareMetal**.
   1. На панели слева выберите ![icon](../../_assets/console-icons/nodes-right.svg) **Приватные подсети**.
   1. Справа вверху нажмите кнопку **Создать подсеть**.
   1. В поле **Зона доступности** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет арендован сервер.

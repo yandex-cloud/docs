@@ -48,6 +48,7 @@ Object Storage позволяет управлять [жизненными ци�
 
         <NoncurrentVersionExpiration>
             <NoncurrentDays>Удаление версий, которые старше указанного количества дней</NoncurrentDays>
+            <NewerNoncurrentVersions>Количество последних нетекущих версий, которые хранятся неограниченное время</NewerNoncurrentVersions>
         </NoncurrentVersionExpiration>
 
         <AbortIncompleteMultipartUpload>
@@ -128,13 +129,17 @@ Object Storage позволяет управлять [жизненными ци�
 Минимальное значение — 1.
 Путь: `LifecycleConfiguration\Rule\Expiration\Days`. ||
 || `NoncurrentVersionTransition` | Правило для изменения [класса хранилища](../../../concepts/storage-class.md) неактивных версий объекта. Это правило применяется не ко всему объекту, а только к его неактивным версиям.
-Содержит элемент `StorageClass`, который определяет целевой класс хранилища, а также элемент `NoncurrentDays`, который определяет срок исполнения действия.
 Переместить объекты можно из стандартного (`STANDARD`) в холодное (`COLD`) , ледяное (`ICE`) или умное (`INTELLIGENT_TIERING`) хранилище, а также из холодного в ледяное хранилище.
 Путь: `LifecycleConfiguration\Rule\NoncurrentVersionTransition`. ||
+|| `StorageClass` | [Класс хранилища](../../../concepts/storage-class.md), в который будет перенесен объект. Может быть `COLD`, `STANDARD`, `ICE` или `INTELLIGENT_TIERING`.
+Путь: `LifecycleConfiguration\Rule\NoncurrentVersionTransition\StorageClass`. ||
+|| `NoncurrentDays` | Количество дней, через которое нетекущая версия будет перенесена в другой класс хранилища. Минимальное значение — `1`.
+Путь: `LifecycleConfiguration\Rule\NoncurrentVersionTransition\NoncurrentDays`. ||
+|| `NewerNoncurrentVersions` | Количество последних нетекущих версий объекта, которые хранятся неограниченное время. Версии сверх этого количества переносятся в другой класс хранилища с учетом срока, заданного в `NoncurrentDays`.
+Путь: `LifecycleConfiguration\Rule\NoncurrentVersionTransition\NewerNoncurrentVersions`. ||
 || `NoncurrentVersionExpiration` | Правило для удаления неактивных версий объекта из Object Storage. Это правило применяется не ко всему объекту, а только к его неактивным версиям.
-Содержит элемент `NoncurrentDays`, который определяет сроки исполнения действия.
 Путь: `LifecycleConfiguration\Rule\NoncurrentVersionExpiration`.
- 
+
 {% note tip %}
 
 Чтобы удалять [неактивные маркеры удаления](*noncurrent-delete-markers), используйте параметр правила жизненного цикла `NoncurrentDeleteMarkers`. Параметр поддерживается только инструментами [Yandex Cloud CLI](../../../operations/buckets/lifecycles.md#cli_1), [Yandex Cloud REST](../../../api-ref/Bucket/update.md#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers) и [Yandex Cloud gRPC](../../../api-ref/grpc/Bucket/update.md#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers).
@@ -142,6 +147,10 @@ Object Storage позволяет управлять [жизненными ци�
 {% endnote %}
 
 ||
+|| `NoncurrentDays` | Количество дней, через которое нетекущая версия будет удалена. Минимальное значение — `1`.
+Путь: `LifecycleConfiguration\Rule\NoncurrentVersionExpiration\NoncurrentDays`. ||
+|| `NewerNoncurrentVersions` | Количество последних нетекущих версий объекта, которые хранятся неограниченное время. Версии сверх этого количества удаляются с учетом срока, заданного в `NoncurrentDays`.
+Путь: `LifecycleConfiguration\Rule\NoncurrentVersionExpiration\NewerNoncurrentVersions`. ||
 || `AbortIncompleteMultipartUpload` | Правило для удаления загрузок, не завершенных за указанное количество дней.
 Содержит элемент `DaysAfterInitiation`, который определяет срок исполнения правила.
 Путь: `LifecycleConfiguration\Rule\AbortIncompleteMultipartUpload\DaysAfterInitiation`. ||

@@ -230,6 +230,8 @@
 
  - [list](cli-ref/database/list.md)
 
+ - [update](cli-ref/database/update.md)
+
 ### hosts
 
  - [Overview](cli-ref/hosts/index.md)
@@ -369,6 +371,8 @@
  - [get](cli-ref/v0/database/get.md)
 
  - [list](cli-ref/v0/database/list.md)
+
+ - [update](cli-ref/v0/database/update.md)
 
 #### hosts
 

@@ -13,7 +13,7 @@
     - Консоль управления {#console}
     
       1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [сетевой балансировщик](../concepts/index.md).
-      1. Перейдите в сервис **Network Load Balancer**.
+      1. [Перейдите](https://console.yandex.cloud/link/network-load-balancer/) в сервис **Network Load Balancer**.
       1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **Целевые группы**.
       1. Выберите нужную [целевую группу](../concepts/target-resources.md).
       1. В блоке **Целевые ресурсы** удалите старые [виртуальные машины](../../compute/concepts/vm.md) и добавьте новые.

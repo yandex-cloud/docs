@@ -8,7 +8,7 @@
 
 ## Добавление провайдера аутентификации {#add-provider}
 
-1. Перейдите в сервис **Managed Service for&nbsp;GitLab**.
+1. [Перейдите](https://console.yandex.cloud/link/managed-gitlab) в сервис **Managed Service for&nbsp;GitLab**.
 1. Нажмите на имя нужного инстанса и выберите вкладку **OmniAuth**.
 1. Нажмите кнопку **Настроить**.
 1. Чтобы добавить провайдера аутентификации, нажмите кнопку **Add**.

@@ -21,6 +21,4 @@ Make sure to only allow access through the ports that your application requires 
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 * Delete the dangerous rule in each security group or [edit](https://yandex.cloud/en/docs/vpc/operations/security-group-create) it by specifying trusted IPs.

@@ -21,6 +21,4 @@ You can manage the web application firewall using a [WAF profile](https://yandex
 
 Create a WAF profile and connect it to a security profile in Smart Web Security. It is recommended to configure and test your security profile Basic and Smart Protection rules beforehand.
 
-**Guides and solutions to use:**
-
 1. [Create](https://yandex.cloud/en/docs/smartwebsecurity/operations/waf-profile-create) a WAF profile. 2. [Configure](https://yandex.cloud/en/docs/smartwebsecurity/operations/configure-set-rules) a WAF rule set. 3. [Add](https://yandex.cloud/en/docs/smartwebsecurity/operations/exclusion-rule-add) an exclusion rule to the WAF profile. 4. [Attach](https://yandex.cloud/en/docs/smartwebsecurity/operations/rule-add) the WAF profile to your security profile.

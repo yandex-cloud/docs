@@ -15,6 +15,4 @@ This rule detects service accounts with the following roles within the service:
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 * Use Security Deck to [revoke](https://yandex.cloud/en/docs/security-deck/operations/ciem/revoke-permissions) the service account's excessive access permissions. * [Revoke](https://yandex.cloud/en/docs/iam/operations/roles/revoke) the excessive permissions from the service account using IAM.

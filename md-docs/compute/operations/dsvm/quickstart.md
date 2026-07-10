@@ -1,4 +1,4 @@
-[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > [DSVM](index.md) > Создать ВМ из публичного образа DSVM
+[Документация Yandex Cloud](../../../index.md) > [Yandex Compute Cloud](../../index.md) > [Пошаговые инструкции](../index.md) > Образы > [DSVM](index.md) > Создать ВМ из публичного образа DSVM
 
 # Создание виртуальной машины из публичного образа DSVM
 

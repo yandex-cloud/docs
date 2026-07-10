@@ -1330,6 +1330,12 @@ default:
         12-month: dn2hy7escq66mrhbqz62
         3-month: dn2rpej2eep226m4lnin
         6-month: dn2jupfua327m4scynoi
+      la-i115-s:
+        1-day: dn2cugv7y5ambfbcvu4p
+        1-month: dn2hh32gzekv7ruox2qr
+        12-month: dn2nsehhmr7sjuehmcgs
+        3-month: dn255uas2eyfvu35xws4
+        6-month: dn2mczdsmitkkon5xwwd
   pc|compute:
     hostgroup:
       cpu:
@@ -1441,6 +1447,15 @@ default:
           cores: dn27h04do0rr3nihpphf
         highfreq-v4a:
           cores: dn22bidvs46qc1vrbpth
+      spqr:
+        v1:
+          cores: dn2c6skcwqpetqwl6mea
+        v2:
+          cores: dn2s4hbx3g7v27xxizwg
+        v3:
+          cores: dn2tweqw5gzkhgrhculw
+        v4a:
+          cores: dn2oqormsd4bp4gkjrpi
       zk:
         clickhouse:
           highfreq-v3:
@@ -1556,6 +1571,7 @@ default:
   pcs|audit-trails: dn27fg1qtguelq2d772a
   pcs|baremetal: dn2jfbheag6vvls7oplt
   pcs|baremetal_custom: dn2ix4ahzfz24aamritd
+  pcs|baremetal_lite: dn2l5g7ou7ob442ugxva
   pcs|cdn: dn2rse5n40m8h0bu8jqa
   pcs|cloud_backup: dn21j2nquomme940r5rt
   pcs|cloud_desktop: dn25bk2bcun5eb7kkdq0
@@ -1586,6 +1602,7 @@ default:
     opensearch: dn2hjd8fhbb14l7vkp2c
     pg: dn2hmdmghr9j2odlvssi
     redis: dn2hb3vlkb6qfih0pgv6
+    spqr: dn2sdm5cvhv4serguw5l
   pcs|metadatahub: dn2rnt6lkfbauucwnfby
   pcs|mk8s: dn2af04ph5otc5f23o1h
   pcs|monium: dn2oxk4367kv6etfvj5x

@@ -11,6 +11,4 @@
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 [Enable](https://yandex.cloud/en/docs/cdn/operations/resources/configure-basics) a certificate and HTTPS using the instructions.

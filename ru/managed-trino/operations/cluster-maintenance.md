@@ -75,13 +75,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Настроить окно обслуживания {#set-maintenance-window}
 
-По умолчанию техническое обслуживание может быть запланировано на любое время. Вы можете выбрать определенный день недели и час, на который будет планироваться техническое обслуживание. Например, можно указать время, когда кластер наименее загружен.
-
-{% note warning %}
-
-Если запланированное обслуживание не попадает в заданный интервал, оно будет автоматически отменено.
-
-{% endnote %}
+По умолчанию [техническое обслуживание](../concepts/maintenance.md) может быть запланировано на любое время. Вы можете выбрать определенный день недели и интервал времени, на который будет планироваться техническое обслуживание. Например, можно указать время, когда кластер наименее загружен.
 
 {% list tabs group=instructions %}
 
@@ -93,6 +87,168 @@ description: Следуя данной инструкции, вы сможете
   1. Нажмите кнопку ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
   1. В открывшемся окне:
      * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (по умолчанию).
-     * Чтобы разрешить проведение технического обслуживания раз в неделю в определенное время суток, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** и укажите день недели и час по UTC.
+     * Чтобы разрешить проведение технического обслуживания раз в неделю в определенное время суток, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** и укажите день недели и интервал времени по UTC.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы изменить настройки окна обслуживания:
+
+  1. Посмотрите описание команды CLI для изменения кластера:
+
+      ```bash
+      {{ yc-mdb-tr }} cluster update --help
+      ```
+
+  1. Выполните команду:
+
+        ```bash
+        {{ yc-mdb-tr }} cluster update <имя_или_идентификатор_кластера> \
+          --deletion-protection \
+          --maintenance-window type=<тип_технического_обслуживания>,`
+                              `day=<день_недели>,`
+                              `hour=<порядковый_номер_часового_интервала>
+        ```
+
+        Где `type` — тип технического обслуживания: 
+
+        {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
+        Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
+- {{ TF }} {#tf}
+
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+     Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
+
+  1. Чтобы изменить время технического обслуживания (в т. ч. для выключенных кластеров), добавьте к описанию кластера блок `maintenance_window`:
+
+     {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
+
+     Имя кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
+  1. Проверьте корректность настроек.
+
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+      ```json
+      {
+        "updateMask": "maintenanceWindow",
+        "maintenanceWindow": {
+          "weeklyMaintenanceWindow": {
+            "day": "<день_недели>",
+            "hour": "<порядковый_номер_часового_интервала>"
+          }
+        }
+      }
+      ```
+
+     Где:
+
+        * `updateMask` — перечень изменяемых параметров в строку через запятую.
+
+            В данном случае передается только один параметр. 
+
+        * `maintenanceWindow` — настройки времени технического обслуживания (в т. ч. для выключенных кластеров). Передайте один из двух параметров: 
+
+            * `anytime` — техническое обслуживание происходит в любое время.
+            * `weeklyMaintenanceWindow` — техническое обслуживание происходит раз в неделю в указанное время:
+
+                * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+                * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+
+                  > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
+
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+        --request PATCH \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+        --data '@body.json'
+      ```
+
+     Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+      ```json
+      {
+        "cluster_id": "<идентификатор_кластера>",
+        "update_mask": {
+          "paths": ["maintenance_window"]
+        },
+        "maintenance_window": {
+          "weekly_maintenance_window": {
+            "day": "<день_недели>",
+            "hour": "<порядковый_номер_часового_интервала>"
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `cluster_id` — идентификатор кластера.
+
+          Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
+      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+          В данном случае передается только один параметр.
+
+      * `maintenance_window` — настройки окна технического обслуживания (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
+
+          * `anytime` — техническое обслуживание происходит в любое время.
+          * `weekly_maintenance_window` — техническое обслуживание происходит раз в неделю в указанное время:
+
+            * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+            * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+
+              > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
+
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d @ \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.ClusterService.Update \
+        < body.json
+      ```
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}

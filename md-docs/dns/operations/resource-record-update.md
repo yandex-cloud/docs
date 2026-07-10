@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет изменена запись зоны DNS.
-  1. Перейдите в сервис **Cloud DNS**.
+  1. [Перейдите](https://console.yandex.cloud/link/dns) в сервис **Cloud DNS**.
   1. Выберите зону из списка.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) напротив имени нужной записи и выберите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
   1. Измените TTL, значение или описание записи.

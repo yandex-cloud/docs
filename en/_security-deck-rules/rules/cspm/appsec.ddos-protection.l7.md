@@ -25,6 +25,4 @@ Yandex Cloud provides basic and advanced DDoS protection as well as protection a
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 * [How to create a security profile in Smart Web Security](https://yandex.cloud/en/docs/smartwebsecurity/operations/profile-create)

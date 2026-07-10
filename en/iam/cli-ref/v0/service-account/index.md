@@ -35,11 +35,15 @@ Aliases:
 
 - [yc iam v0 service-account list-operations](list-operations.md) — List operations for the specified service account
 
+- [yc iam v0 service-account reactivate](reactivate.md) — Reactivate a previously suspended service account
+
 - [yc iam v0 service-account remove-access-binding](remove-access-binding.md) — Remove access binding for ACCESSING the specified service account as a resource. To configure service account access to a resource use remove-access-binding command for the corresponding resource
 
 - [yc iam v0 service-account remove-labels](remove-labels.md) — Remove labels from specified service account
 
 - [yc iam v0 service-account set-access-bindings](set-access-bindings.md) — Set access bindings for ACCESSING the specified service account and DELETE all existing access bindings for all accounts if there were any. To configure service account access to a resource use set-access-bindings command for the corresponding resource
+
+- [yc iam v0 service-account suspend](suspend.md) — Suspend the specified service account
 
 - [yc iam v0 service-account update](update.md) — Update the specified service account
 

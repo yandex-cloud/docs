@@ -279,12 +279,12 @@ yc load-balancer network-load-balancer update <nlb-id> --allow-zonal-shift
 
 Любые решения по обеспечению отказоустойчивости требуют регулярного тестирования в различных сценариях отказов. Подробнее о тестировании отказоустойчивости в облаке можно узнать из вебинара: [Отключаем ЦОД, или как тестировать отказоустойчивость в облаке](https://yandex.cloud/ru/events/841).
 
-## Смотрите также {#see-also}
+#### Смотрите также {#see-also}
 
-* [Настройка отказоустойчивой архитектуры в Yandex Cloud](../tutorials/infrastructure-management/fault-tolerance.md).
+* [Настройка отказоустойчивой архитектуры в Yandex Cloud](../tutorials/infrastructure-management/fault-tolerance.md)
 * [Высокая доступность кластера Yandex Managed Service for ClickHouse®](../managed-clickhouse/concepts/high-availability.md)
 * [Высокая доступность кластера Yandex MPP Analytics for PostgreSQL](../managed-greenplum/concepts/high-availability.md)
 * [Высокая доступность кластера Managed Service for Apache Kafka®](../managed-kafka/concepts/ha-cluster.md)
-* [Высокая доступность кластера Managed Service for PostgreSQL](../managed-postgresql/concepts/high-availability.md).
-* [Высокая доступность кластера Managed Service for MySQL®](../managed-mysql/concepts/high-availability.md).
-* [Высокая доступность кластера Managed Service for OpenSearch](../managed-opensearch/concepts/high-availability.md).
+* [Высокая доступность кластера Managed Service for PostgreSQL](../managed-postgresql/concepts/high-availability.md)
+* [Высокая доступность кластера Managed Service for MySQL®](../managed-mysql/concepts/high-availability.md)
+* [Высокая доступность кластера Managed Service for OpenSearch](../managed-opensearch/concepts/high-availability.md)

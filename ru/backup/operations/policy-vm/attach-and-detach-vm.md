@@ -8,14 +8,12 @@ description: Из статьи вы узнаете, как привязать в
 
 Привязать к политике резервного копирования можно только [подключенные](../../concepts/vm-connection/index.md) к {{ backup-full-name }} [защищаемые ресурсы](../../concepts/index.md#protected-resources). Подробнее в разделах [{#T}](../index.md#connect-vm), [{#T}](../index.md#connect-baremetal) и [{#T}](../index.md#connect-external).
 
-{% include [external-no-console-notice](../../../_includes/backup/external-no-console-notice.md) %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите привязать защищаемый ресурс к политике.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Перейдите]({{ link-console-main }}/link/backup) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Перейдите на вкладку ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}**.
   1. Выберите политику, к которой вы хотите привязать ВМ или сервер.
   1. В блоке **{{ ui-key.yacloud.backup.title_linked-recourses }}** нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}** и в открывшемся окне:

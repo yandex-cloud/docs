@@ -19,6 +19,4 @@ You can encrypt the following types of disks:
 
 #### Instructions and solutions
 
-**Guides and solutions to use:**
-
 [Encrypt](https://yandex.cloud/en/docs/compute/operations/disk-control/disk-encrypt) the disk of your Yandex Compute Cloud VM.
