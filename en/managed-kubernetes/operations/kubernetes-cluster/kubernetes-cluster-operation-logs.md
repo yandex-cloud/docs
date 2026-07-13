@@ -20,7 +20,7 @@ Operations enable real-time monitoring of actions with your cluster. This may be
   1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the cluster and open the ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
-     You will see the list of operations with the cluster.
+     This will open the list of operations with the cluster.
 
 - CLI {#cli}
 
@@ -45,7 +45,7 @@ Operations enable real-time monitoring of actions with your cluster. This may be
   +----------------------+---------------------+----------------------+---------------------+--------+----------------+
   ```
 
-  By default, information about operations is output as text. To get more details, specify `yaml` or `json` for the output data using the `--format` argument:
+  By default, information about operations is output as text. To get more details, use `--format` to specify the `yaml` or `json` output format:
 
   ```bash
   yc managed-kubernetes cluster list-operations <cluster_name_or_ID> --format yaml
@@ -158,6 +158,6 @@ Operations enable real-time monitoring of actions with your cluster. This may be
 
    {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../../api-design-guide/concepts/about-async.md)

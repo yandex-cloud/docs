@@ -1,0 +1,1 @@
+Cold classes are for long-term storage of objects you intend to use less frequently. The colder the storage, the cheaper it is to store data in, but the more expensive it is to read from and write to it. Intelligent-Tiering storage class automatically optimizes costs by moving objects between access levels based on how often they are accessed.

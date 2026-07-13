@@ -29,7 +29,7 @@ Regular commands that are not available in a notebook:
 * `%%script`
 * `%%sh`
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/projects/install-dependencies.md)
 * [{#T}](configurations.md)

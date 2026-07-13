@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором находится кластер.
-    1. Перейдите в сервис **Yandex Data Processing**.
+    1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
     1. Выберите нужный кластер.
     1. Перейдите в раздел **Хосты**.
     1. Скопируйте значение в столбце **FQDN хоста**.

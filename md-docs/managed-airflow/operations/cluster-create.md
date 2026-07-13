@@ -31,7 +31,7 @@
 
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер.
-  1. Перейдите в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-airflow) в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
   1. Нажмите кнопку **Создать кластер**.
   1. В блоке **Базовые параметры**:
 

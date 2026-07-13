@@ -24,8 +24,8 @@ To create and test a project in the {{ GL }} environment:
 ### Required paid resources {#paid-resources}
 
 The cost for maintaining a {{ GL }} server includes:
-* Fee for a [disk](../../compute/concepts/disk.md) and a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for a dynamic or static [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a [disk](../../compute/concepts/disk.md) and continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for a static or dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create a {{ GL }} VM {#create-vm}
 
@@ -33,7 +33,7 @@ The cost for maintaining a {{ GL }} server includes:
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Gitlab` and select a public [{{ GL }}](/marketplace/products/yc/gitlab) image.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) for your VM. If you are not sure which one to choose, leave the default.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}` [disk type](../../compute/concepts/disk.md#disks_types) and specify its size: `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, switch to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
@@ -261,7 +261,7 @@ After committing, the system will automatically start testing the latest commit.
 
 ### Create an error in the project {#create}
 
-Now modify the project so it produces an error that the runner can detect during testing. Follow these steps:
+Now modify the project so it produces an error that the runner can detect during testing. Proceed as follows:
 1. Go to the project repository and open the `test.cpp` file.
 1. Click **Edit**.
 1. Update the assert so that 2 multiplied by 2 equals 5. This will cause the program to fail.

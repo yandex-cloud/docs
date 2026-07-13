@@ -29,7 +29,7 @@ In addition to {{ kms-name }} key-based encryption, you can also use the followi
 * [{#T}](../tutorials/export-logs-to-splunk.md)
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/buckets/encrypt.md)
 * [{#T}](../../kms/operations/key.md)

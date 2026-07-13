@@ -323,6 +323,6 @@ In this example, we will create a 50 GB bucket with a standard storage class.
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../s3/s3-api-quickstart.md)

@@ -8,7 +8,7 @@ description: In this tutorial, you will learn how to access a bucket using an ep
 {% include [ephemeral-key-storage](../../../_tutorials/security/ephemeral-key-storage.md) %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../security/overview.md)
 * [{#T}](create-sts-key.md)

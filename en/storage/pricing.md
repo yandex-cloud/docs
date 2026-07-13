@@ -52,7 +52,7 @@ blocks:
 The {{ objstorage-name }} usage cost includes:
 
 * [Storage class](concepts/storage-class.md).
-* Amount of storage used by your data.
+* Storage space occupied by data.
 * Number of operations with your data.
 * Amount of outgoing traffic.
 
@@ -72,7 +72,7 @@ Storage usage is measured in GB per month. The amount of data stored for a month
 
 You pay for the actual number of operations.
 
-You are not charged for deleting data (the `DELETE` operation).
+Nothing is charged for deleting data (the `DELETE` operation).
 
 {% note warning %}
 
@@ -153,7 +153,7 @@ The first 10,000 `PUT`, `POST`, `PATCH`, and `LIST` operations, as well as the f
 
 ### Outgoing traffic {#prices-traffic}
 
-When using {{ objstorage-name }}, you pay for traffic from {{ yandex-cloud }} to the internet. Traffic between {{ yandex-cloud }} services and incoming internet traffic are free.
+When using the service, you pay for traffic from {{ yandex-cloud }} to the internet. Traffic between {{ yandex-cloud }} services and incoming internet traffic are free.
 
 The minimum billing unit is 1 MB. The billing period is a calendar month.
 
@@ -207,6 +207,6 @@ For standard storage, the first gigabyte of data (1 GB), 10,000 PUT operations
 {% include [usd-comparison-3](../_pricing_examples/storage/usd-comparison-3.md) %}
 
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 [{#T}](./concepts/limits.md)

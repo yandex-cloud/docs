@@ -545,6 +545,8 @@ Creates a ClickHouse cluster in the specified folder.
         "final": "google.protobuf.BoolValue",
         "use_hive_partitioning": "google.protobuf.BoolValue",
         "show_data_lake_catalogs_in_system_tables": "google.protobuf.BoolValue",
+        "compatibility": "google.protobuf.StringValue",
+        "materialize_ttl_after_modify": "google.protobuf.BoolValue",
         "compile": "google.protobuf.BoolValue",
         "min_count_to_compile": "google.protobuf.Int64Value",
         "async_insert_threads": "google.protobuf.Int64Value",
@@ -790,6 +792,8 @@ Creates a ClickHouse cluster in the specified folder.
         "final": "google.protobuf.BoolValue",
         "use_hive_partitioning": "google.protobuf.BoolValue",
         "show_data_lake_catalogs_in_system_tables": "google.protobuf.BoolValue",
+        "compatibility": "google.protobuf.StringValue",
+        "materialize_ttl_after_modify": "google.protobuf.BoolValue",
         "compile": "google.protobuf.BoolValue",
         "min_count_to_compile": "google.protobuf.Int64Value",
         "async_insert_threads": "google.protobuf.Int64Value",
@@ -4616,6 +4620,19 @@ Enables or disables showing data lake catalogs in system tables.
 Default value: **false** for versions 25.10 and higher, **true** for versions 25.9 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#show_data_lake_catalogs_in_system_tables). ||
+|| compatibility | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+The compatibility setting causes ClickHouse to use the default settings of a previous version of ClickHouse,
+where the previous version is provided as the setting. An empty value means that this setting is disabled.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#compatibility). ||
+|| materialize_ttl_after_modify | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Apply TTL for old data, after ALTER MODIFY TTL query.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#materialize_ttl_after_modify). ||
 || compile | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 The setting is deprecated and has no effect. ||
@@ -4756,7 +4773,7 @@ Time interval to collect data from system.processes table. ||
 
 Required field. Name of the ClickHouse database. 1-63 characters long.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z_][a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_][a-zA-Z0-9_-]* `. ||
 || engine | enum **DatabaseEngine**
 
 Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).

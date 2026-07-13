@@ -69,7 +69,7 @@ description: Follow this guide to create a {{ network-load-balancer-name }} targ
         * `subnet_id`: ID of the subnet hosting the targets. All targets in the target group must reside within the same [availability zone](../../overview/concepts/geo-scope.md).
         * `address`: Target internal IP address.
 
-     For more information about `yandex_lb_target_group` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lb_target_group).
+     For more on the properties of the `yandex_lb_target_group` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lb_target_group).
 
   1. Make sure the settings are correct.
 

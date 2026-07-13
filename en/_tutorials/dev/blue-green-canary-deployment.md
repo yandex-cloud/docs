@@ -53,9 +53,9 @@ We will use a folder named `example-folder` in our example.
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support costs include:
+The infrastructure support cost includes:
 
-* Fee for data storage in {{ objstorage-name }}, data operations, and outbound traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for storing data in {{ objstorage-name }}, operations with it, and outgoing traffic (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for outbound traffic from CDN servers (see [{{ cdn-name }} pricing](../../cdn/pricing.md)).
 * Fee for public DNS queries and DNS zones if using {{ dns-full-name }} (see [{{ dns-name }} pricing](../../dns/pricing.md)).
@@ -209,7 +209,7 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
      }
      ```
 
-     For more information, see the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) descriptions in the {{ TF }} provider documentation.
+     For more information, see the descriptions of the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) resources in the {{ TF }} provider guides.
 
   1. Make sure the configuration files are correct.
 
@@ -598,7 +598,7 @@ To create security groups:
      }
      ```
 
-     For more information about resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_security_group).
+     For more on the properties of resources in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_security_group).
 
   1. Make sure the configuration files are correct.
 
@@ -852,7 +852,7 @@ To create security groups:
      }
      ```
 
-     For more information, see the [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) descriptions in the {{ TF }} provider documentation.
+     For more information, see the descriptions of the [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) resources in the {{ TF }} provider guides.
 
   1. Make sure the configuration files are correct.
 
@@ -1237,7 +1237,7 @@ To create security groups:
       }
       ```
 
-      For more information, see the [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) descriptions in the {{ TF }} provider documentation.
+      For more information, see the descriptions of the [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) resources in the {{ TF }} provider guides.
 
   1. Make sure the configuration files are correct.
 
@@ -1416,7 +1416,7 @@ To configure DNS:
         }
         ```
 
-        For more information, see the [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset) descriptions in the {{ TF }} provider documentation.
+        For more information, see the descriptions of the [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset) resources in the {{ TF }} provider guides.
 
      1. Make sure the configuration files are correct.
 

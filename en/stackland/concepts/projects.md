@@ -31,7 +31,7 @@ At the project level, you can assign roles to users and groups:
 * Project-level roles automatically apply to all namespaces within the project.
 * Project administrators can independently manage access without involving the cluster administrator.
 
-For more information, see [Configuring roles in a project](../operations/projects/project-roles.md).
+For more information, see [Configuring project roles](../operations/projects/project-roles.md).
 
 ### Quotas {#quotas}
 
@@ -69,5 +69,5 @@ You cannot delete the `default` project.
 
 * [Creating a project](../operations/projects/create-project.md)
 * [Managing namespaces in a project](../operations/projects/manage-namespaces.md)
-* [Configuring roles in a project](../operations/projects/project-roles.md)
+* [Configuring project roles](../operations/projects/project-roles.md)
 * [Setting project quotas](../operations/projects/namespace-quotas.md)

@@ -41,7 +41,7 @@ Required field. ID of the backup to return. ||
 ||Field | Description ||
 || id | **string**
 
-Required. ID of the backup. ||
+Required field. Required. ID of the backup. ||
 || folderId | **string**
 
 ID of the folder that the backup belongs to. ||
@@ -73,17 +73,17 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 Size of the backup in bytes. ||
 || type | **enum** (BackupCreationType)
 
-How this backup was created (manual/automatic/etc...)
+How this backup was created (manual/automatic/etc...).
 
 - `AUTOMATED`: Backup created by automated daily schedule
 - `MANUAL`: Backup created by user request ||
 || method | **enum** (BackupMethod)
 
-Method of backup creation
+Method of backup creation.
 
 - `BASE`: Base backup
 - `INCREMENTAL`: Delta (incremental) Greenplum backup ||
 || journalSize | **string** (int64)
 
-Size of the journal associated with backup, in bytes ||
+Size of the journal associated with backup, in bytes. ||
 |#

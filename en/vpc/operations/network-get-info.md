@@ -69,8 +69,8 @@ description: Follow this guide to get information about a cloud network.
      * `output "network"`: Output variable that contains information about the network creation timestamp:
        * `value`: Return value.
 
-     You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_vpc_network` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_network).
-  1. Create resources:
+     You can replace `created_at` with another variable to get the information you need. For more on the properties of the `yandex_vpc_network` data source, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_network).
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -97,6 +97,6 @@ description: Follow this guide to get information about a cloud network.
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](subnet-get-info.md)

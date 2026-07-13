@@ -48,7 +48,7 @@ You can rename [objects](../../concepts/object.md) in the [bucket](../../concept
       move: s3://my-bucket/object.txt to s3://my-bucket/renamed-object.txt
       ```
 
-  For more information about the `yc storage s3 mv` command, see the [documentation](../../cli-ref/s3/mv.md).
+  Learn more about the `yc storage s3 mv` command in [this guide](../../cli-ref/s3/mv.md).
 
 - AWS CLI {#aws-cli}
 
@@ -71,7 +71,7 @@ You can rename [objects](../../concepts/object.md) in the [bucket](../../concept
       move: s3://<bucket_name>/<object_key> to s3://<bucket_name>/<new_object_key>
       ```
 
-  For more information about the `aws s3 mv` command, see [this article](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html) in the AWS CLI command reference.
+  For more information about the `aws s3 mv` command, see the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html).
 
 {% endlist %}
 
@@ -99,7 +99,7 @@ You can rename [objects](../../concepts/object.md) in the [bucket](../../concept
   move: s3://my-bucket/my-prefix/ to s3://my-bucket/renamed-prefix/
   ```
 
-  For more information about the `yc storage s3 mv` command, see the [documentation](../../cli-ref/s3/mv.md).
+  Learn more about the `yc storage s3 mv` command in [this guide](../../cli-ref/s3/mv.md).
 
 - AWS CLI {#aws-cli}
 
@@ -123,7 +123,7 @@ You can rename [objects](../../concepts/object.md) in the [bucket](../../concept
       move: s3://<bucket_name>/<prefix>/ to s3://<bucket_name>/<new_prefix>/
       ```  
 
-  For more information about the `aws s3 mv` command, see [this article](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html) in the AWS CLI command reference.
+  For more information about the `aws s3 mv` command, see the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html).
 
 {% endlist %}
 
@@ -137,7 +137,7 @@ You can rename [objects](../../concepts/object.md) in the [bucket](../../concept
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Read the description of the CLI command for moving an object:
+  1. View the description of the CLI command for moving an object:
 
       ```bash
       yc storage s3 mv --help
@@ -179,7 +179,7 @@ You can rename [objects](../../concepts/object.md) in the [bucket](../../concept
       move: s3://<source_bucket_name>/<object_key> to s3://<target_bucket_name>/<object_key>
       ```
 
-  For more information about the `aws s3 mv` command, see [this article](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html) in the AWS CLI command reference.
+  For more information about the `aws s3 mv` command, see the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html).
 
 {% endlist %}
 
@@ -269,6 +269,6 @@ In {{ objstorage-name }}, [directories](../../concepts/object.md#folder) are sim
       move: s3://<source_bucket_name>/<object_2_key> to s3://<target_bucket_name>/<object_2_key>
       ```
 
-  For more information about the `aws s3 mv` command, see [this article](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html) in the AWS CLI command reference.
+  For more information about the `aws s3 mv` command, see the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/mv.html).
 
 {% endlist %}

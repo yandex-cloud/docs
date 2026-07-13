@@ -26,7 +26,7 @@ When you modify or update a node group, the cluster follows the deployment polic
 
 {% include [deploy-policy-concept-behavior](../../../_includes/managed-kubernetes/deploy-policy/concept-behavior.md) %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../operations/node-group/node-group-update.md#configure-deploy-policy)
 * [{#T}](./cluster-autoscaler.md)

@@ -11,9 +11,9 @@ description: Follow this guide to install the Container Storage Interface for S3
 {% include [csi-s3-actual](../../../_includes/managed-kubernetes/csi-s3-actual.md) %}
 
 You can install Container Storage Interface for S3 in the following ways:
-* [Using {{ marketplace-name }} in the management console](#marketplace-install)
-* [Using a Helm chart from the {{ marketplace-name }} repository](#helm-install)
-* [Using a Helm chart from the GitHub repository](#helm-github-install)
+* [Using {{ marketplace-name }} in the management console](#marketplace-install).
+* [Using a Helm chart from the {{ marketplace-name }} repository](#helm-install).
+* [Using a Helm chart from the GitHub repository](#helm-github-install).
 
 ## Getting started {#before-you-begin}
 
@@ -72,7 +72,7 @@ You can install Container Storage Interface for S3 in the following ways:
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-   You can also set additional [parameters](#installation-parameters) for Container Storage Interface for S3.
+   You can also [set additional parameters](#installation-parameters) for Container Storage Interface for S3.
 
 ## Installation using a Helm chart from the GitHub repository {#helm-github-install}
 
@@ -93,7 +93,7 @@ The [GitHub repository](https://github.com/yandex-cloud/k8s-csi-s3) contains the
       csi-s3 ./csi-s3/
     ```
 
-    You can also set additional [parameters](#installation-parameters) for Container Storage Interface for S3.
+    You can also [set additional parameters](#installation-parameters) for Container Storage Interface for S3.
 
     Learn more about [upgrading from different versions of k8s-csi-s3](https://github.com/yandex-cloud/k8s-csi-s3/tree/master#upgrading).
 
@@ -105,19 +105,19 @@ See the table below for a list of redefinable parameters and their default value
 
 Parameter name | Description | Default value
 --- | --- | ---
-`storageClass.create` | Whether a new storage class should be created | `true`
-`storageClass.name` | Storage class name | `csi-s3`
-`storageClass.singleBucket` | Use a single bucket for all PersistentVolumeClaims |
-`storageClass.mountOptions` | GeeseFS mounting options | `--memory-limit 1000 --dir-mode 0777 --file-mode 0666`
-`storageClass.reclaimPolicy` | Volume cleanup policy | `Delete`
-`storageClass.annotations` | Storage class description |
-`secret.create` | Whether a new secret should be created | `true`
-`secret.name` | Secret name | `csi-s3-secret`
-`secret.accessKey` | Key ID |
-`secret.secretKey` | Secret key |
-`secret.endpoint` | S3 service address | `https://{{ s3-storage-host }}`
+`storageClass.create` | Whether a new storage class should be created. | `true`
+`storageClass.name` | Storage class name. | `csi-s3`
+`storageClass.singleBucket` | Use a single bucket for all PersistentVolumeClaims. |
+`storageClass.mountOptions` | GeeseFS mounting options. | `--memory-limit 1000 --dir-mode 0777 --file-mode 0666`
+`storageClass.reclaimPolicy` | Volume cleanup policy. | `Delete`
+`storageClass.annotations` | Storage class description. |
+`secret.create` | Whether a new secret should be created. | `true`
+`secret.name` | Secret name. | `csi-s3-secret`
+`secret.accessKey` | Key ID. |
+`secret.secretKey` | Secret key. |
+`secret.endpoint` | S3 service address. | `https://{{ s3-storage-host }}`
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)
 * [Container Storage Interface for S3 with {{ objstorage-name }} support in GitHub](https://github.com/yandex-cloud/k8s-csi-s3)

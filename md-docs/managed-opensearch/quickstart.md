@@ -209,15 +209,15 @@
 
 ## Подключитесь к OpenSearch Dashboards {#dashboards-connect}
 
+
 1. Подключитесь с помощью браузера к веб-интерфейсу [OpenSearch Dashboards](https://opensearch.org/docs/latest/dashboards/index/):
 
-   
    1. Убедитесь, что к хостам с ролью `DASHBOARDS` есть публичный доступ.
-
 
    1. Установите [SSL-сертификат](https://storage.yandexcloud.net/cloud-certs/CA.pem) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
    1. На странице кластера в консоли управления нажмите кнопку **OpenSearch Dashboards** или перейдите в браузере по адресу `https://c-<идентификатор_кластера_OpenSearch>.rw.mdb.yandexcloud.net>`.
    1. Введите имя пользователя `admin` и пароль, который был задан при [создании кластера](#create-cluster).
+
 
 1. Исследуйте набор тестовых данных:
 

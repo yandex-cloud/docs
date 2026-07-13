@@ -20,7 +20,7 @@ List all resource group
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field.
+Required field. ID of the Greenplum® cluster.
 
 The maximum string length in characters is 50. ||
 |#
@@ -49,28 +49,27 @@ The maximum string length in characters is 50. ||
 
 #|
 ||Field | Description ||
-|| resource_groups[] | **[ResourceGroup](#yandex.cloud.mdb.greenplum.v1.ResourceGroup)** ||
+|| resource_groups[] | **[ResourceGroup](#yandex.cloud.mdb.greenplum.v1.ResourceGroup)**
+
+List of cluster resource groups. ||
 |#
 
 ## ResourceGroup {#yandex.cloud.mdb.greenplum.v1.ResourceGroup}
 
 ResourceGroup defines a resource group configuration shared between Greenplum and Apache Cloudberry,
 but the two engines use different sets of fields.
-
 Greenplum fields:
 * concurrency
 * cpu_rate_limit
 * memory_limit
 * memory_shared_quota
 * memory_spill_ratio
-
 Apache Cloudberry fields:
 * concurrency
 * cpu_max_percent
 * cpu_weight
 * memory_quota
 * min_cost
-
 The sets partially overlap (concurrency is common to both). Passing Greenplum-specific
 fields to a CloudBerry cluster or vice versa is not rejected at the proto level -
 field validation is performed at runtime by the service.
@@ -79,10 +78,14 @@ field validation is performed at runtime by the service.
 ||Field | Description ||
 || name | **string**
 
-Required field.
+Required field. Name of the resource group.
 
 The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
-|| is_user_defined | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+|| is_user_defined | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Determines whether the resource group is user-defined or system-defined:
+* true - resource group is user-defined;
+* false - resource group is system-defined. ||
 || concurrency | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 References to CONCURRENCY from gp resource group parameter

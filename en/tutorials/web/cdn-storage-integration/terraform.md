@@ -16,6 +16,6 @@ To create an infrastructure to [integrate](./index.md) an L7 load balancer with 
 
 {% include [cdn-storage-integration-terraform](../../../_tutorials/infrastructure/cdn-storage-integration-terraform.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./console.md)

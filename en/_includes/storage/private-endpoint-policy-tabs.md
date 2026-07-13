@@ -135,7 +135,7 @@ In addition, a bucket configured this way still supports [server-side copy](../.
      * `<bucket_name>`: Name of the bucket in {{ objstorage-name }} to which you need to apply the access policy, e.g., `my-s3-bucket`.
      * `<connection_ID>`: Service connection ID (private endpoint), e.g., `enpd7rq1s3f5********`.
 
-     For more information about `yandex_storage_bucket_policy` properties, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket_policy).
+     For more information on the properties of the `yandex_storage_bucket_policy` resource, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket_policy).
 
   1. Apply the changes:
 

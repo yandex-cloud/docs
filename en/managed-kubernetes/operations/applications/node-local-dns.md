@@ -71,4 +71,4 @@ Once installed, NodeLocal DNS uses the following values:
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-Learn more about setting up local DNS caching in [{#T}](../../tutorials/node-local-dns.md).
+Learn more about setting up local DNS caching in [this tutorial](../../tutorials/node-local-dns.md).

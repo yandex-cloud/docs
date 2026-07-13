@@ -90,7 +90,7 @@ To set up network connectivity between {{ baremetal-name }} [servers](./servers.
 
 [Static routes](#static-routes) created in the VRF can be announced in {{ vpc-name }}. For that, make sure the **{{ ui-key.yacloud.baremetal.vrfs.VrfStaticRoutesField.column_is-console-enabled_hiCs9 }}** option is on in the VRF when [configuring](../operations/create-static-route.md) the static route.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./network.md)
 * [{#T}](./public-network.md)

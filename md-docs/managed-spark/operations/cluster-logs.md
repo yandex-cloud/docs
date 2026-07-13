@@ -16,8 +16,8 @@ Yandex Managed Service for Apache Spark™ позволяет [получить 
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. Перейдите в сервис **Managed Service for Apache Spark**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **Логи**.
     1. Укажите **Уровень** логов и период времени, за который нужно отобразить лог.
 

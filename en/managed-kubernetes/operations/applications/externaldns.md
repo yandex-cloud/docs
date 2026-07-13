@@ -85,6 +85,6 @@ To automatically create DNS records using [ExternalDNS with Webhook {{ dns-full-
 
 * [{#T}](../../tutorials/alb-ingress-controller-log-options.md).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [ExternalDNS documentation](https://github.com/kubernetes-sigs/external-dns/)

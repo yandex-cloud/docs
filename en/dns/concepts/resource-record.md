@@ -46,7 +46,7 @@ All the records in a single set have the same TTL value.
 |--------------|-----|-----|-----------|
 | example.com. | A   | 600 | 192.0.2.1 |
 
-For more information about A records, see [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.4.1).
+Learn more about A records in [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.4.1).
 
 
 ## AAAA {#aaaa}
@@ -57,7 +57,7 @@ For more information about A records, see [RFC-1035](https://www.ietf.org/rfc/rf
 |--------------|------|-----|-------------|
 | example.com. | AAAA | 600 | 2001:db8::1 |
 
-For more information about AAAA records, see [RFC-3596](https://tools.ietf.org/html/rfc3596).
+Learn more about AAAA records in [RFC-3596](https://tools.ietf.org/html/rfc3596).
 
 
 ## CAA {#caa}
@@ -92,7 +92,7 @@ A record consists of the following parts:
 | example.com. | CAA | 600 | 0 iodef "mailto:security@example.com"   | If any of the conditions described in CAA records is violated, contact the owner of the `example.com` zone at `security@example.com`          |
 | example.com. | CAA | 600 | 0 iodef "https://security.example.com/" | If any of the conditions described in CAA records is violated, contact the owner of the `example.com` zone at `https://security.example.com` |
 
-For more information about CAA records, see [RFC-8659](https://tools.ietf.org/html/rfc8659).
+Learn more about CAA records in [RFC-8659](https://tools.ietf.org/html/rfc8659).
 
 
 ## CNAME {#cname}
@@ -105,7 +105,7 @@ For more information about CAA records, see [RFC-8659](https://tools.ietf.org/ht
 | second.example.com. | CNAME | 600 | host.example.com. |
 | host.example.com.   | A     | 600 | 192.0.2.100       |
 
-Note that CNAME records cannot be combined with other records in the same domain. For more information about CNAME records and their [limitations](https://www.rfc-editor.org/rfc/rfc1912#section-2.4), see [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.1).
+Note that CNAME records cannot be combined with other records in the same domain. Learn more about CNAME records and their [limitations](https://www.rfc-editor.org/rfc/rfc1912#section-2.4) in [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.1).
 
 ## ANAME {#aname}
 
@@ -138,7 +138,7 @@ A record consists of two parts:
 | example.com. | MX  | 600 | 10 mx-primary.example.com. |
 | example.com. | MX  | 600 | 50 mx-reserve.example.com. |
 
-For more information about MX records, see [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.9).
+Learn more about MX records in [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.9).
 
 
 ## NS {#ns}
@@ -150,7 +150,7 @@ For more information about MX records, see [RFC-1035](https://www.ietf.org/rfc/r
 | example.com. | NS  | 600 | ns1.example.com. |
 | example.com. | NS  | 600 | ns2.example.com. |
 
-For more information about NS records, see [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.11).
+Learn more about NS records in [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.11).
 
 
 ## PTR {#ptr}
@@ -162,7 +162,7 @@ For more information about NS records, see [RFC-1035](https://www.ietf.org/rfc/r
 | 192.0.2.1 | PTR | 600 | host1.example.com. |
 | 192.0.2.2 | PTR | 600 | host2.example.com. |
 
-For more information about PTR records, see [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.12).
+Learn more about PTR records in [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.12).
 
 
 ## SOA {#soa}
@@ -193,7 +193,7 @@ It consists of the following parts:
 | example.com. | SOA | 3600 | ns1.{{ dns-ns-host-sld }}. {{ dns-mx-host }}. 1 10800 900 604800 86400 |
 | example.com. | SOA | 3600 | ns.internal. {{ dns-mx-host }}. 1 10800 900 604800 86400         |
 
-For more information about SOA records, see [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.13).
+Learn more about SOA records in [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.13).
 
 
 ## SRV {#srv}
@@ -222,7 +222,7 @@ The client accesses the server with the lowest priority. If multiple servers hav
 
 {% endnote %}
 
-For more information about SRV records, see [RFC-2782](https://www.ietf.org/rfc/rfc2782.html).
+Learn more about SRV records in [RFC-2782](https://www.ietf.org/rfc/rfc2782.html).
 
 ## SVCB and HTTPS {#svcb-https}
 
@@ -256,7 +256,7 @@ It consists of the following parts:
 | svc2.example.net.           | HTTPS | 7200 | 1 . port=8002                                       |
 | example.net.                | HTTPS | 1800 | 1 . alpn=h3,h3-29,h2 ipv4hint=10.0.0.1 ipv6hint=::1 |
 
-For more information about SVCB records, see [RFC-9460](https://www.ietf.org/rfc/rfc9460.html), [RFC-9461](https://www.ietf.org/rfc/rfc9461.html).
+Learn more about SVCB records in [RFC-9460](https://www.ietf.org/rfc/rfc9460.html) and [RFC-9461](https://www.ietf.org/rfc/rfc9461.html).
 
 ## TXT {#txt}
 
@@ -307,7 +307,7 @@ TXT record implementation in {{ dns-full-name }} has the following special featu
 | big-email._domainkey.example.com | TXT | 6000 | "v=DKIM1; p=76E629F05F70 9EF665853333 EEC3F5ADE69A 2362BECE4065 8267AB2FC3CB 6CBE" |
 | example.com.                     | TXT | 6000 | "v=spf1 ip4=192.0.2.0 ip4=192.0.2.1 include:examplesender.email -all"              |
 
-For more information about TXT records, see [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.14) and [RFC-1464](https://tools.ietf.org/html/rfc1464).
+Learn more about TXT records in [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.14) and [RFC-1464](https://tools.ietf.org/html/rfc1464).
 
 
 ## Service records {#service-records}

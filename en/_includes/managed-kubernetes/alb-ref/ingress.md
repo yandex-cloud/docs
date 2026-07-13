@@ -1,4 +1,4 @@
-# Ingress resource fields and annotations
+# Fields and annotations of the Ingress resource
 
 The `Ingress` resource defines rules for incoming traffic distribution across {{ k8s }} services. The [{{ alb-name }} ingress controller]({{ ingress-local-link }}/index.md) uses these rules to create a [load balancer](../../../application-load-balancer/concepts/application-load-balancer.md), its listeners, and [HTTP routers](../../../application-load-balancer/concepts/http-router.md). You can specify {{ alb-name }} backend [services]({{ configuration-local-link }}/service-for-ingress.md) in `Ingress` directly or as part of [`HttpBackendGroup` backend groups]({{ configuration-local-link }}/http-backend-group.md).
 
@@ -121,7 +121,7 @@ annotations:
 
 ### Metadata.annotations {#annotations}
 
-Annotations are collections of `key:value` pairs for assigning metadata to objects. Annotation values always have the `string` data type.
+Annotations are collections of `key:value` pairs for assigning metadata to objects. Annotation values have the `string` data type.
 
 You can specify the annotation value as a comma-separated list of multiple `<key>=<value>` pairs:
 
@@ -141,7 +141,7 @@ You can add the following annotations to `ObjectMeta`:
 
 * **ingress.alb.yc.io/group-name** {#annot-group-name}
 
-  `Ingress` resource group name. The system will create a separate load balancer for each group. You can group multiple `Ingress` resources to avoid creating load balancers for each individual resource. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+  `Ingress` resource group name. The system will create a separate load balancer for each group. You can group multiple `Ingress` resources to avoid creating load balancers for each individual resource. For more on the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
   This is a required field even for one `Ingress` resource in a group.
 
@@ -231,7 +231,7 @@ You can add the following annotations to `ObjectMeta`:
 
   If this annotation is not specified, the load balancer will connect to the backends without encryption.
 
-  This annotation is ignored for grouped backends. To configure encryption for connections between the load balancer and grouped backends, use the `spec.backend.tls` field of the `HttpBackendGroup` resource. For more information, see [this article]({{ configuration-local-link }}/http-backend-group.md).
+  This annotation is ignored for grouped backends. To configure encryption for connections between the load balancer and grouped backends, use the `spec.backend.tls` field of the `HttpBackendGroup` resource. For more information, see [this guide]({{ configuration-local-link }}/http-backend-group.md).
 
 * **ingress.alb.yc.io/prefix-rewrite** {#annot-prefix-rewrite}
 

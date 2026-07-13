@@ -28,7 +28,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Required paid resources {#paid-resources}
 
 * {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* {{ managed-k8s-name }} cluster nodes: Use of computing resources and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* {{ managed-k8s-name }} cluster nodes: use of computing resources and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Public IP addresses for {{ managed-k8s-name }} cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 

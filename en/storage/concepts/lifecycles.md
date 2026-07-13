@@ -11,8 +11,18 @@ In buckets with [logging enabled](./server-logs.md), actions performed on object
 Types of actions include:
 
 * Change the [storage class](./storage-class.md) of objects or their non-current [versions](./versioning.md) to a colder one. You can configure the change to the `ICE` class using the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, and the API.
+
+
+{% note tip %}
+
+If you do not want to configure lifecycle rules manually, use [`INTELLIGENT_TIERING` storage](./storage-class.md#intelligent-tiering) that automatically optimizes costs by moving objects between access levels based on how often they are accessed.
+
+{% endnote %}
+
+
 * Delete objects or their non-current versions.
 * Delete incomplete multipart uploads.
+
 
 
 {% include [changing-storage-class](../../_includes/storage/changing-storage-class.md) %}
@@ -33,6 +43,6 @@ You can only [configure](../operations/buckets/lifecycles.md) object lifecycles 
 
 Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hours to complete.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/buckets/lifecycles.md)

@@ -38,7 +38,7 @@ If you no longer need the image you created, [delete it](#clear-out).
 
 The cost of creating a disk image using Packer includes:
 
-* Fee for storing created images (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-storage)).
+* Fee for storing the created images (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-storage)).
 * Fee for VM computing resources (see [{{ compute-full-name }} pricing](../../compute/pricing.md#prices-instance-resources)).
 
 
@@ -71,7 +71,7 @@ Install a Packer distribution kit for your platform from a [mirror](https://hash
       unzip ~/packer/packer_1.11.2_linux_amd64.zip -d ~/packer
       ```
 
-      This example uses version `1.11.2`. For the latest Packer version, see the [mirror](https://hashicorp-releases.yandexcloud.net/packer/).
+      This example uses version `1.11.2`. For the relevant Packer version, consult the [mirror](https://hashicorp-releases.yandexcloud.net/packer/).
 
   1. Add Packer to the `PATH` variable: 
 
@@ -132,7 +132,7 @@ Install a Packer distribution kit for your platform from a [mirror](https://hash
       unzip ~/packer/packer_1.11.2_darwin_amd64.zip -d ~/packer
       ```
 
-      This example uses version `1.11.2`. For the latest Packer version, see the [mirror](https://hashicorp-releases.yandexcloud.net/packer/).
+      This example uses version `1.11.2`. For the relevant Packer version, consult the [mirror](https://hashicorp-releases.yandexcloud.net/packer/).
 
   1. Add Packer to the `PATH` variable: 
 
@@ -251,7 +251,7 @@ To configure the [plugin](https://developer.hashicorp.com/packer/plugins/builder
 
 {% include [warning-provisioner-metadata](../../_includes/tutorials/infrastructure-management/warning-provisioner-metadata.md) %}
 
-You can learn more about image configuration properties in [this Yandex Compute Builder overview article](https://www.packer.io/docs/builders/yandex).
+You can learn more about image configuration properties in [this Yandex Compute Builder guide](https://www.packer.io/docs/builders/yandex).
 
 
 ## Create an image {#create-image}

@@ -33,7 +33,7 @@ In this example, we will create a node group in three availability zones with on
 
 See [Reserved instance pools for node groups](./reserved-pools.md#examples) for examples for a group of nodes from a reserved instance pool in a single availability zone.
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../../compute/concepts/instance-groups/variables-in-the-template.md)
 * [{#T}](./reserved-pools.md)

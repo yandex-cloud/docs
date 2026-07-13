@@ -1,7 +1,7 @@
 To create a rule:
 
 1. Enable **{{ ui-key.yacloud.storage.bucket.lifecycle.field_status }}**. With this option, you can enable or disable a rule without deleting it from a configuration.
-1. Fill in the fields as follows:
+1. Fill out the fields as follows:
    * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_description }}**: Rule description in any form.
    * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_prefix }}**: Portion of the object's [key](../concepts/object.md#key) of the required length at the beginning of the key. Prefixes help to sort the objects covered by the rule. If the rule should cover all objects, leave this field empty.
    * **{{ ui-key.yacloud_components.labelset.button_add-label }}**: The rule triggers for all objects with the specified [labels](../concepts/tags.md).
@@ -16,7 +16,7 @@ To create a rule:
 
      For buckets with [versioning](../operations/buckets/versioning.md) enabled, the action will apply to the current object versions. To work with non-current versions of objects, use the `NoncurrentVersionExpiration` parameter.
 
-   * `{{ ui-key.yacloud.storage.bucket.lifecycle.label_transition-type }}`: Moves any objects from `STANDARD` to `COLD` or `ICE` storage:
+   * `{{ ui-key.yacloud.storage.bucket.lifecycle.label_transition-type }}`: Moves any versions of objects from `STANDARD` storage to `COLD`, `ICE`, intelligent (`INTELLIGENT_TIERING`) storage, and from cold storage to ice:
 
      * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_days }}`: Triggers as many days after an object was uploaded as specified in the **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}** field.
      * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_date }}`: Triggers on the date specified in the **{{ ui-key.yacloud.storage.bucket.lifecycle.field_date }}** field.
@@ -25,7 +25,7 @@ To create a rule:
      For buckets with versioning enabled, the action will apply to current versions of objects. To work with non-current versions of objects, use the `NoncurrentVersionTransition` parameter.
 
    * `{{ ui-key.yacloud.storage.bucket.lifecycle.label_version-expiration-type }}`: Removes non-current object versions from the bucket. It triggers as many days after an object's version became non-current as specified in the **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}** field.
-   * `{{ ui-key.yacloud.storage.bucket.lifecycle.label_version-transition-type }}`: Moves non-current versions of objects from `STANDARD` to `COLD` or `ICE` storage:
+   * `{{ ui-key.yacloud.storage.bucket.lifecycle.label_version-transition-type }}`: Moves non-current versions of objects from `STANDARD` storage to `COLD`, `ICE`, intelligent (`INTELLIGENT_TIERING`) storage, and from cold storage to ice:
      * **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}**: Number of days to pass before the rule triggers after an object's version becomes non-current.
      * **{{ ui-key.yacloud.storage.bucket.lifecycle.column_storage_class }}**: Type of storage to move the objects to.
 

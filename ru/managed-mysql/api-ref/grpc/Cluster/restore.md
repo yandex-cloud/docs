@@ -379,7 +379,7 @@ See [the documentation](/docs/managed-mysql/concepts/backup) for details.
 ||Field | Description ||
 || backup_id | **string**
 
-Required field. ID of the backup to restore from.
+ID of the backup to restore from.
 To get this ID, make a [BackupService.List](/docs/managed-mysql/api-ref/grpc/Backup/list#List) request (lists all backups in a folder) or a [ClusterService.ListBackups](/docs/managed-mysql/api-ref/grpc/Cluster/listBackups#ListBackups) request (lists all backups for an existing cluster). ||
 || time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 

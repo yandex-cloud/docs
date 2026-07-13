@@ -126,7 +126,7 @@ KEDA application:
    * `logMetrics`: Allow logging of {{ monitoring-name }} requests, `true` or `false`. The default value is `false`.
    * `logAggregation`: Allow data aggregation logging, `true` or `false`. The default value is `false`.
 
-   For more information on the `ScaledObject` resource parameters, see the [project's guide on Github](https://github.com/yandex-cloud/yc-keda-external-scaler).
+   For more information about the properties of the `ScaledObject` resource, see [this GitHub project guide](https://github.com/yandex-cloud/yc-keda-external-scaler).
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -193,7 +193,7 @@ KEDA application:
          logAggregation: "true"
    ```
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [KEDA guides](https://keda.sh/docs/)
 * [KEDA with {{ monitoring-full-name }} support on GitHub](https://github.com/yandex-cloud/yc-keda-external-scaler)

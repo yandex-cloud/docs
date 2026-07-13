@@ -21,7 +21,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
-   1. В списке сервисов выберите **Identity and Access Management**.
+   1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
    1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
    1. В открывшемся списке выберите сервисный аккаунт, для которого вы хотите создать авторизованный ключ.
    1. На панели сверху нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите пункт **Создать авторизованный ключ**.
@@ -194,7 +194,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервисный аккаунт.
-  1. В списке сервисов выберите **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты** и выберите нужный сервисный аккаунт.
   1. В блоке **Авторизованные ключи** в строке с ключом, который нужно удалить, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
   1. В открывшемся окне подтвердите удаление.

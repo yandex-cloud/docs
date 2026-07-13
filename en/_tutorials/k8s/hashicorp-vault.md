@@ -24,10 +24,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* {{ kms-name }} fee for the number of active key versions (with `Active` or `Scheduled For Destruction` for status) and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
+* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a public IP address if assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* {{ kms-name }} fee: number of active key versions (in `Active` and `Scheduled For Destruction` statuses) and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
 
 
 ## Get your cloud ready {#before-you-begin}
@@ -361,7 +361,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [HashiCorp Vault documentation](https://developer.hashicorp.com/vault/docs?product_intent=vault)
 * [{#T}](../../managed-kubernetes/operations/applications/hashicorp-vault.md)

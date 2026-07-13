@@ -49,7 +49,7 @@ To create an infrastructure using {{ TF }}:
 
     {% endlist %}
 
-    Learn more about the properties of {{ TF }} resources in the relevant provider guides:
+    For more on the properties of resources used in {{ TF }}, see these provider guides:
 
     * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
     * [Role](../../iam/concepts/access-control/roles.md): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
@@ -60,7 +60,7 @@ To create an infrastructure using {{ TF }}:
 
 
 1. Under `variable`, specify `folder_id`, i.e., the ID of the folder for your resources.
-1. Under `metadata`, specify the [metadata](../../compute/concepts/vm-metadata.md) for creating a VM and the SSH key contents. Use this format for the key: `<any_name>:<SSH_key_contents>`. Regardless of the username you enter, the key is always assigned to the user set in the LAMP (LEMP) image configuration. Such users differ depending on the image. To learn more, see [{#T}](../../compute/concepts/metadata/public-image-keys.md).
+1. Under `metadata`, specify the [metadata](../../compute/concepts/vm-metadata.md) for creating a VM and the SSH key contents. Use this format for the key: `<any_name>:<SSH_key_contents>`. Regardless of the username you enter, the key is always assigned to the user set in the LAMP (LEMP) image configuration. Such users differ depending on the image. For more information, see [{#T}](../../compute/concepts/metadata/public-image-keys.md).
 
     You need to [create](../../compute/operations/vm-connect/ssh.md) an SSH key pair on your own.
 

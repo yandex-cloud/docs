@@ -22,7 +22,7 @@ To deploy a secure connection:
 1. [Create a cloud network](#create-vpc).
 1. [Reserve a public static IP address](#reserve-public-static-ip).
 1. [Create an SSH key pair](#create-ssh-keys).
-2. [Deploy the application](#app-deploy).
+1. [Deploy the application](#app-deploy).
 
 If you no longer need the resources you created, [delete](#clear-out) them.
 

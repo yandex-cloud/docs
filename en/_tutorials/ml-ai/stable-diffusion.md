@@ -100,7 +100,7 @@ In this tutorial, all computations use the g1.1 configuration. However, you can 
 
 If you no longer plan to use the `Stable Diffusion` project, [delete it](../../datasphere/operations/projects/delete.md#delete-project).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../datasphere/operations/data/models.md)
 * [{#T}](../../datasphere/tutorials/batch-code-execution.md)

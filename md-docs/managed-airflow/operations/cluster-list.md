@@ -10,8 +10,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. Перейдите в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-airflow) в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
 
 - CLI {#cli}
 
@@ -102,8 +102,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. Перейдите в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-airflow) в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
     1. Нажмите на имя нужного кластера.
 
 - CLI {#cli}
@@ -192,7 +192,7 @@
     Чтобы получить список операций для кластера Managed Service for Apache Airflow™:
 
     1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором находится кластер.
-    1. Перейдите в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-airflow) в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
     1. Выберите нужный кластер.
     1. Перейдите на вкладку **Операции**.
 

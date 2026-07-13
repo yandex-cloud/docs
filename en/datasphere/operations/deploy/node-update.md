@@ -19,6 +19,6 @@ To update a [node](../../concepts/deploy/index.md#node):
     * [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) allowed to access the node (the **ACL** section).
 1. Click **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](node-delete.md)

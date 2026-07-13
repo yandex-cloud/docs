@@ -287,7 +287,7 @@ journalctl -u kubelet
 Consider the external {{ managed-k8s-name }} node connection [requirements](../concepts/external-nodes.md#requirements).
 
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Configuring WireGuard gateways to connect external nodes](external-nodes-connect-wireguard.md)
 * [Configuring IPSec gateways to connect external nodes](external-nodes-connect-ipsec.md)

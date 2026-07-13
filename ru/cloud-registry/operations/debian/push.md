@@ -34,18 +34,31 @@ description: Следуя данной инструкции, вы загрузи
 
   1. Добавьте конфигурацию реестра в файл `/etc/dput.cf`:
 
-      ```ini
-      [ycr]
-      fqdn = {{ cloud-registry }}
-      incoming = /debian/<идентификатор_реестра>/upload/
-      login = <логин>
-      method = https
-      allow_unsigned_uploads = 1
-      ```
+      {% list tabs %}
 
-      Где:
-      * `<идентификатор_реестра>` — идентификатор вашего реестра.
-      * `login` — способ аутентификации: `iam` или `api_key`.
+      - IAM-токен
+
+          ```ini
+          [ycr]
+          fqdn = {{ cloud-registry }}
+          incoming = /debian/<идентификатор_реестра>/upload/
+          login = iam
+          method = https
+          allow_unsigned_uploads = 1
+          ```
+
+      - API-ключ
+
+          ```ini
+          [ycr]
+          fqdn = {{ cloud-registry }}
+          incoming = /debian/<идентификатор_реестра>/upload/
+          login = api_key
+          method = https
+          allow_unsigned_uploads = 1
+          ```
+
+      {% endlist %}
 
   1. Загрузите пакет:
 

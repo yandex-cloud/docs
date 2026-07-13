@@ -146,7 +146,7 @@ To test the installed application, get a test certificate. We are going to use `
 
 * [{#T}](../../tutorials/dnschallenge.md)
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Let's Encrypt® documentation](https://letsencrypt.org/docs/client-options/)
 * [cert-manager documentation](https://cert-manager.io/docs/configuration/)

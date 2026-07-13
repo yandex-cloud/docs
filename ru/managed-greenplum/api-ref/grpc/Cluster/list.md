@@ -26,14 +26,12 @@ Retrieves a list of Greenplum® clusters that belong to the specified folder.
 || folder_id | **string**
 
 Required field. ID of the folder to list Greenplum® clusters in.
-
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
 
 The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#yandex.cloud.mdb.greenplum.v1.ListClustersResponse) that can be used to get the next page of results in subsequent list requests.
 
 The maximum value is 1000. ||
@@ -45,13 +43,9 @@ The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-
 The expression must specify:
-
 1. The field name. Currently you can only use filtering with the [Cluster.name](#yandex.cloud.mdb.greenplum.v1.Cluster) field.
-
 2. An `=` operator.
-
 3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
 
 The maximum string length in characters is 1000. ||
@@ -147,6 +141,16 @@ The maximum string length in characters is 1000. ||
             "max_statement_mem": "google.protobuf.Int64Value",
             "log_statement": "LogStatement",
             "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue",
+            "log_connections": "google.protobuf.BoolValue",
+            "log_disconnections": "google.protobuf.BoolValue",
+            "log_hostname": "google.protobuf.BoolValue",
+            "log_error_verbosity": "LogErrorVerbosity",
+            "log_min_duration_statement": "google.protobuf.Int64Value",
+            "log_min_messages": "LogLevelMessage",
+            "log_statement_stats": "google.protobuf.BoolValue",
+            "master_shared_buffers": "google.protobuf.Int64Value",
+            "segment_shared_buffers": "google.protobuf.Int64Value",
+            "max_locks_per_transaction": "google.protobuf.Int64Value",
             "gp_enable_global_deadlock_detector": "google.protobuf.BoolValue",
             "gp_global_deadlock_detector_period": "google.protobuf.Int64Value",
             "gp_max_slices": "google.protobuf.Int64Value",
@@ -159,17 +163,7 @@ The maximum string length in characters is 1000. ||
             "gp_max_plan_size": "google.protobuf.Int64Value",
             "gp_autostats_mode": "GPAutostatsMode",
             "gp_autostats_on_change_threshold": "google.protobuf.Int64Value",
-            "gp_resource_group_memory_limit": "google.protobuf.DoubleValue",
-            "log_connections": "google.protobuf.BoolValue",
-            "log_disconnections": "google.protobuf.BoolValue",
-            "log_hostname": "google.protobuf.BoolValue",
-            "log_statement_stats": "google.protobuf.BoolValue",
-            "log_min_duration_statement": "google.protobuf.Int64Value",
-            "master_shared_buffers": "google.protobuf.Int64Value",
-            "max_locks_per_transaction": "google.protobuf.Int64Value",
-            "segment_shared_buffers": "google.protobuf.Int64Value",
-            "log_error_verbosity": "LogErrorVerbosity",
-            "log_min_messages": "LogLevelMessage"
+            "gp_resource_group_memory_limit": "google.protobuf.DoubleValue"
           },
           "user_config": {
             "max_connections": "google.protobuf.Int64Value",
@@ -182,6 +176,16 @@ The maximum string length in characters is 1000. ||
             "max_statement_mem": "google.protobuf.Int64Value",
             "log_statement": "LogStatement",
             "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue",
+            "log_connections": "google.protobuf.BoolValue",
+            "log_disconnections": "google.protobuf.BoolValue",
+            "log_hostname": "google.protobuf.BoolValue",
+            "log_error_verbosity": "LogErrorVerbosity",
+            "log_min_duration_statement": "google.protobuf.Int64Value",
+            "log_min_messages": "LogLevelMessage",
+            "log_statement_stats": "google.protobuf.BoolValue",
+            "master_shared_buffers": "google.protobuf.Int64Value",
+            "segment_shared_buffers": "google.protobuf.Int64Value",
+            "max_locks_per_transaction": "google.protobuf.Int64Value",
             "gp_enable_global_deadlock_detector": "google.protobuf.BoolValue",
             "gp_global_deadlock_detector_period": "google.protobuf.Int64Value",
             "gp_max_slices": "google.protobuf.Int64Value",
@@ -194,17 +198,7 @@ The maximum string length in characters is 1000. ||
             "gp_max_plan_size": "google.protobuf.Int64Value",
             "gp_autostats_mode": "GPAutostatsMode",
             "gp_autostats_on_change_threshold": "google.protobuf.Int64Value",
-            "gp_resource_group_memory_limit": "google.protobuf.DoubleValue",
-            "log_connections": "google.protobuf.BoolValue",
-            "log_disconnections": "google.protobuf.BoolValue",
-            "log_hostname": "google.protobuf.BoolValue",
-            "log_statement_stats": "google.protobuf.BoolValue",
-            "log_min_duration_statement": "google.protobuf.Int64Value",
-            "master_shared_buffers": "google.protobuf.Int64Value",
-            "max_locks_per_transaction": "google.protobuf.Int64Value",
-            "segment_shared_buffers": "google.protobuf.Int64Value",
-            "log_error_verbosity": "LogErrorVerbosity",
-            "log_min_messages": "LogLevelMessage"
+            "gp_resource_group_memory_limit": "google.protobuf.DoubleValue"
           },
           "default_config": {
             "max_connections": "google.protobuf.Int64Value",
@@ -217,6 +211,16 @@ The maximum string length in characters is 1000. ||
             "max_statement_mem": "google.protobuf.Int64Value",
             "log_statement": "LogStatement",
             "gp_add_column_inherits_table_setting": "google.protobuf.BoolValue",
+            "log_connections": "google.protobuf.BoolValue",
+            "log_disconnections": "google.protobuf.BoolValue",
+            "log_hostname": "google.protobuf.BoolValue",
+            "log_error_verbosity": "LogErrorVerbosity",
+            "log_min_duration_statement": "google.protobuf.Int64Value",
+            "log_min_messages": "LogLevelMessage",
+            "log_statement_stats": "google.protobuf.BoolValue",
+            "master_shared_buffers": "google.protobuf.Int64Value",
+            "segment_shared_buffers": "google.protobuf.Int64Value",
+            "max_locks_per_transaction": "google.protobuf.Int64Value",
             "gp_enable_global_deadlock_detector": "google.protobuf.BoolValue",
             "gp_global_deadlock_detector_period": "google.protobuf.Int64Value",
             "gp_max_slices": "google.protobuf.Int64Value",
@@ -229,17 +233,7 @@ The maximum string length in characters is 1000. ||
             "gp_max_plan_size": "google.protobuf.Int64Value",
             "gp_autostats_mode": "GPAutostatsMode",
             "gp_autostats_on_change_threshold": "google.protobuf.Int64Value",
-            "gp_resource_group_memory_limit": "google.protobuf.DoubleValue",
-            "log_connections": "google.protobuf.BoolValue",
-            "log_disconnections": "google.protobuf.BoolValue",
-            "log_hostname": "google.protobuf.BoolValue",
-            "log_statement_stats": "google.protobuf.BoolValue",
-            "log_min_duration_statement": "google.protobuf.Int64Value",
-            "master_shared_buffers": "google.protobuf.Int64Value",
-            "max_locks_per_transaction": "google.protobuf.Int64Value",
-            "segment_shared_buffers": "google.protobuf.Int64Value",
-            "log_error_verbosity": "LogErrorVerbosity",
-            "log_min_messages": "LogLevelMessage"
+            "gp_resource_group_memory_limit": "google.protobuf.DoubleValue"
           }
         },
         // end of the list of possible fields
@@ -481,9 +475,7 @@ List of Greenplum® cluster resources. ||
 || next_page_token | **string**
 
 This token allows you to get the next page of results for list requests.
-
 If the number of results is larger than [ListClustersRequest.page_size](#yandex.cloud.mdb.greenplum.v1.ListClustersRequest), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#yandex.cloud.mdb.greenplum.v1.ListClustersRequest) parameter in the next list request.
-
 Each subsequent list request has its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -591,7 +583,7 @@ Host groups hosting VMs of the cluster. ||
 Greenplum® and Odyssey® configuration. ||
 || cloud_storage | **[CloudStorage](#yandex.cloud.mdb.greenplum.v1.CloudStorage)**
 
-Cloud storage settings ||
+Cloud storage settings. ||
 || master_host_group_ids[] | **string**
 
 Host groups hosting VMs of the master subcluster. ||
@@ -600,10 +592,10 @@ Host groups hosting VMs of the master subcluster. ||
 Host groups hosting VMs of the segment subcluster. ||
 || service_account_id | **string**
 
-Service account that will be used to access a Yandex Cloud resources ||
+Service account that will be used to access a Yandex Cloud resources. ||
 || logging | **[LoggingConfig](#yandex.cloud.mdb.greenplum.v1.LoggingConfig)**
 
-Cloud logging configuration ||
+Cloud logging configuration. ||
 |#
 
 ## GreenplumConfig {#yandex.cloud.mdb.greenplum.v1.GreenplumConfig}
@@ -632,14 +624,17 @@ To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.L
 The maximum string length in characters is 50. ||
 || subnet_id | **string**
 
-ID of the subnet the cluster belongs to. This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#yandex.cloud.mdb.greenplum.v1.Cluster)).
+ID of the subnet the cluster belongs to.
+This subnet should be a part of the cloud network the cluster belongs to (see [Cluster.network_id](#yandex.cloud.mdb.greenplum.v1.Cluster)).
 
 The maximum string length in characters is 50. ||
 || assign_public_ip | **bool**
 
 Determines whether the cluster has a public IP address.
-
-After the cluster has been created, this setting cannot be changed. ||
+After the cluster has been created, this setting cannot be changed.
+Possible values:
+* false - don't assign a public IP to the master hosts.
+* true - the master hosts should have a public IP address. ||
 || full_version | **string**
 
 Full version ||
@@ -682,6 +677,8 @@ Link to the monitoring system charts for the Greenplum® cluster. ||
 
 ## MasterSubclusterConfig {#yandex.cloud.mdb.greenplum.v1.MasterSubclusterConfig}
 
+Configuration of master subcluster
+
 #|
 ||Field | Description ||
 || resources | **[Resources](#yandex.cloud.mdb.greenplum.v1.Resources)**
@@ -696,17 +693,18 @@ Computational resources allocated to Greenplum® master subcluster hosts. ||
 || resource_preset_id | **string**
 
 ID of the preset for computational resources allocated to a host.
-
 Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types). ||
 || disk_size | **int64**
 
 Volume of the storage used by the host, in bytes. ||
 || disk_type_id | **string**
 
-Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
+Type of the storage used by the host: `network-ssd` or `local-ssd`. ||
 |#
 
 ## SegmentSubclusterConfig {#yandex.cloud.mdb.greenplum.v1.SegmentSubclusterConfig}
+
+Configuration of segment subcluster
 
 #|
 ||Field | Description ||
@@ -787,7 +785,6 @@ Delay time for the maintenance operation. ||
 Includes only one of the fields `greenplum_config_set_6`.
 
 Deprecated: use dbms_config_set instead
-
 Configuration set for the Greenplum Database. ||
 || dbms_config_set | **[DBMSConfigSet](#yandex.cloud.mdb.greenplum.v1.DBMSConfigSet)**
 
@@ -798,7 +795,9 @@ Odyssey® pool settings. ||
 || background_activities | **[BackgroundActivitiesConfig](#yandex.cloud.mdb.greenplum.v1.BackgroundActivitiesConfig)**
 
 Managed Greenplum® background tasks configuration. ||
-|| pxf_config | **[PXFConfigSet](#yandex.cloud.mdb.greenplum.v1.PXFConfigSet)** ||
+|| pxf_config | **[PXFConfigSet](#yandex.cloud.mdb.greenplum.v1.PXFConfigSet)**
+
+PXF settings. ||
 |#
 
 ## GreenplumConfigSet6 {#yandex.cloud.mdb.greenplum.v1.GreenplumConfigSet6}
@@ -891,6 +890,94 @@ Default value is ddl
 || gp_add_column_inherits_table_setting | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting ||
+|| log_connections | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+This outputs a line to the server log detailing each successful connection. Some client programs, like psql,
+attempt to connect twice while determining if a password is required, so duplicate "connection received" messages
+do not always indicate a problem.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_connections ||
+|| log_disconnections | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+This outputs a line in the server log at termination of a client session, and includes the duration of the session.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_disconnections ||
+|| log_hostname | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+By default, connection log messages only show the IP address of the connecting host.
+Turning on this option causes logging of the host name as well. Note that depending on your host name
+resolution setup this might impose a non-negligible performance penalty.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_hostname ||
+|| log_error_verbosity | enum **LogErrorVerbosity**
+
+Controls the amount of detail written in the server log for each message that is logged.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_error_verbosity
+
+- `TERSE`: Configures the server to output minimal details for each logged message, which effectively reduces log size and keeps server logs clean.
+Excludes DETAIL, HINT, QUERY, and CONTEXT error information.
+- `DEFAULT`: Configures the server to output standard details for each logged message.
+Includes the primary error message, plus DETAIL, HINT, QUERY, and CONTEXT.
+- `VERBOSE`: Configures the server to output extra details for each logged message.
+Includes all DEFAULT data, plus the SQLSTATE error code, source code file name, function name, and line number. ||
+|| log_min_duration_statement | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Logs the statement and its duration on a single log line if its duration is greater than or equal
+to the specified number of milliseconds. Setting this to 0 will print all statements and their durations.
+-1 deactivates the feature. For example, if you set it to 250 then all SQL statements that run 250ms or longer will be logged.
+Enabling this option can be useful in tracking down unoptimized queries in your applications.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_min_duration_statement ||
+|| log_min_messages | enum **LogLevelMessage**
+
+Controls which message levels are written to the server log.
+Each level includes all the levels that follow it. The later the level, the fewer messages are sent to the log.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_min_messages
+
+- `DEBUG5`: DEBUG5 log level.
+The lowest, most detailed, and most verbose logging severity level available.
+- `DEBUG4`: DEBUG4 log level.
+Highly detailed server-side logging severity level used primarily by developers and database administrators.
+- `DEBUG3`: DEBUG3 log level.
+The server begins printing highly detailed internal I/O, buffer management, and transaction lifecycle debug messages into server logs.
+- `DEBUG2`: DEBUG2 log level.
+Provides deep backend diagnostic information and includes messages from DEBUG1.
+- `DEBUG1`: DEBUG1 log level.
+Provides basic debugging information intended for developers and administrators
+to troubleshoot general database operations without overwhelming the system logs.
+- `INFO`: INFO log level.
+Provides operational messages implicitly requested by the user, such as output from a VACUUM VERBOSE command.
+- `NOTICE`: NOTICE log level.
+Provides helpful, non-error information to users about significant database events.
+- `WARNING`: WARNING log level.
+Logs potential non-blocking problems (e.g., executing a COMMIT outside a transaction block).
+- `ERROR`: ERROR log level.
+Logs broken statements that caused a specific command to abort.
+- `FATAL`: FATAL log level.
+Logs an error that completely terminates the current database session.
+- `PANIC`: PANIC log level.
+Logs catastrophic failures that force the entire database cluster to shut down. ||
+|| log_statement_stats | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+For each query, write total performance statistics of the query parser, planner, and executor to the server log.
+This is a crude profiling instrument.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_statement_stats ||
+|| master_shared_buffers | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Sets the amount of memory a Greenplum Database master instance uses for shared memory buffers.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers
+
+The minimum value is 1048576. ||
+|| segment_shared_buffers | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Sets the amount of memory a Greenplum Database segment instance uses for shared memory buffers.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers
+
+The minimum value is 1048576. ||
+|| max_locks_per_transaction | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The shared lock table is created with room to describe locks on max_locks_per_transaction * (max_connections + max_prepared_transactions) objects,
+so no more than this many distinct objects can be locked at any one time.
+This is not a hard limit on the number of locks taken by any one transaction, but rather a maximum average value.
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#max_locks_per_transaction
+
+Acceptable values are 128 to 2048, inclusive. ||
 || gp_enable_global_deadlock_detector | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Controls whether the Greenplum Database Global Deadlock Detector is enabled to manage concurrent UPDATE and DELETE operations on heap tables to improve performance. See Inserting, Updating, and Deleting Datain the Greenplum Database Administrator Guide. The default is off, the Global Deadlock Detector is deactivated.
@@ -900,7 +987,9 @@ https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/
 || gp_global_deadlock_detector_period | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Specifies the executing interval (in seconds) of the global deadlock detector background worker process.
-https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_global_deadlock_detector_period ||
+https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_global_deadlock_detector_period
+
+Acceptable values are 5 to 2147483647, inclusive. ||
 || gp_max_slices | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Max amount of slice-processes for one query in one segment.
@@ -912,7 +1001,7 @@ Acceptable values are 10 to 100, inclusive. ||
 Define amount of working processes in segment, that keeping in warm cash after end of query for usage again in next queries.
 https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_cached_segworkers_threshold
 
-Acceptable values are 0 to 10, inclusive. ||
+Acceptable values are 1 to 10, inclusive. ||
 || lock_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Max time (in ms) which query will wait lock free on object
@@ -964,79 +1053,6 @@ Acceptable values are 0 to 2147483647, inclusive. ||
 
 Identifies the maximum percentage of system memory resources to allocate to resource groups on each Greenplum Database segment node.
 https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_resource_group_memory_limit ||
-|| log_connections | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-This outputs a line to the server log detailing each successful connection. Some client programs, like psql,
-attempt to connect twice while determining if a password is required, so duplicate "connection received" messages
-do not always indicate a problem.
-https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_connections ||
-|| log_disconnections | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-This outputs a line in the server log at termination of a client session, and includes the duration of the session.
-https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_disconnections ||
-|| log_hostname | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-By default, connection log messages only show the IP address of the connecting host.
-Turning on this option causes logging of the host name as well. Note that depending on your host name
-resolution setup this might impose a non-negligible performance penalty.
-https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_hostname ||
-|| log_statement_stats | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-For each query, write total performance statistics of the query parser, planner, and executor to the server log.
-This is a crude profiling instrument.
-https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_statement_stats ||
-|| log_min_duration_statement | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Logs the statement and its duration on a single log line if its duration is greater than or equal
-to the specified number of milliseconds. Setting this to 0 will print all statements and their durations.
--1 deactivates the feature. For example, if you set it to 250 then all SQL statements that run 250ms or longer will be logged.
-Enabling this option can be useful in tracking down unoptimized queries in your applications.
-https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_min_duration_statement ||
-|| master_shared_buffers | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Sets the amount of memory a Greenplum Database master instance uses for shared memory buffers.
-https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers
-
-Acceptable values are 1048576 to 2147483647, inclusive. ||
-|| max_locks_per_transaction | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-The shared lock table is created with room to describe locks on max_locks_per_transaction * (max_connections + max_prepared_transactions) objects,
-so no more than this many distinct objects can be locked at any one time.
-This is not a hard limit on the number of locks taken by any one transaction, but rather a maximum average value.
-https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#max_locks_per_transaction
-
-Acceptable values are 128 to 2048, inclusive. ||
-|| segment_shared_buffers | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Sets the amount of memory a Greenplum Database segment instance uses for shared memory buffers.
-https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers
-
-Acceptable values are 1048576 to 2147483647, inclusive. ||
-|| log_error_verbosity | enum **LogErrorVerbosity**
-
-Controls the amount of detail written in the server log for each message that is logged.
-https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_error_verbosity
-
-- `TERSE`
-- `DEFAULT`
-- `VERBOSE` ||
-|| log_min_messages | enum **LogLevelMessage**
-
-Controls which message levels are written to the server log.
-Each level includes all the levels that follow it. The later the level, the fewer messages are sent to the log.
-https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/ref_guide-config_params-guc-list.html#log_min_messages
-
-- `DEBUG5`
-- `DEBUG4`
-- `DEBUG3`
-- `DEBUG2`
-- `DEBUG1`
-- `INFO`
-- `NOTICE`
-- `WARNING`
-- `ERROR`
-- `FATAL`
-- `PANIC` ||
 |#
 
 ## DBMSConfigSet {#yandex.cloud.mdb.greenplum.v1.DBMSConfigSet}
@@ -1150,9 +1166,12 @@ https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-HOSTNAME 
 Controls the amount of detail written in the server log for each message that is logged.
 https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-ERROR-VERBOSITY
 
-- `TERSE`
-- `DEFAULT`
-- `VERBOSE` ||
+- `TERSE`: Configures the server to output minimal details for each logged message, which effectively reduces log size and keeps server logs clean.
+Excludes DETAIL, HINT, QUERY, and CONTEXT error information.
+- `DEFAULT`: Configures the server to output standard details for each logged message.
+Includes the primary error message, plus DETAIL, HINT, QUERY, and CONTEXT.
+- `VERBOSE`: Configures the server to output extra details for each logged message.
+Includes all DEFAULT data, plus the SQLSTATE error code, source code file name, function name, and line number. ||
 || log_min_duration_statement | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Logs the statement and its duration on a single log line if its duration is greater than or equal
@@ -1166,17 +1185,29 @@ Controls which message levels are written to the server log.
 Each level includes all the levels that follow it. The later the level, the fewer messages are sent to the log.
 https://www.postgresql.org/docs/14/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES
 
-- `DEBUG5`
-- `DEBUG4`
-- `DEBUG3`
-- `DEBUG2`
-- `DEBUG1`
-- `INFO`
-- `NOTICE`
-- `WARNING`
-- `ERROR`
-- `FATAL`
-- `PANIC` ||
+- `DEBUG5`: DEBUG5 log level.
+The lowest, most detailed, and most verbose logging severity level available.
+- `DEBUG4`: DEBUG4 log level.
+Highly detailed server-side logging severity level used primarily by developers and database administrators.
+- `DEBUG3`: DEBUG3 log level.
+The server begins printing highly detailed internal I/O, buffer management, and transaction lifecycle debug messages into server logs.
+- `DEBUG2`: DEBUG2 log level.
+Provides deep backend diagnostic information and includes messages from DEBUG1.
+- `DEBUG1`: DEBUG1 log level.
+Provides basic debugging information intended for developers and administrators
+to troubleshoot general database operations without overwhelming the system logs.
+- `INFO`: INFO log level.
+Provides operational messages implicitly requested by the user, such as output from a VACUUM VERBOSE command.
+- `NOTICE`: NOTICE log level.
+Provides helpful, non-error information to users about significant database events.
+- `WARNING`: WARNING log level.
+Logs potential non-blocking problems (e.g., executing a COMMIT outside a transaction block).
+- `ERROR`: ERROR log level.
+Logs broken statements that caused a specific command to abort.
+- `FATAL`: FATAL log level.
+Logs an error that completely terminates the current database session.
+- `PANIC`: PANIC log level.
+Logs catastrophic failures that force the entire database cluster to shut down. ||
 || log_statement_stats | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 For each query, write total performance statistics of the query parser, planner, and executor to the server log.
@@ -1303,28 +1334,25 @@ Default configuration for an Odyssey® pooler. ||
 ||Field | Description ||
 || mode | enum **PoolMode**
 
-Route server pool mode.
+Odyssey® route [server pool mode](https://github.com/yandex/odyssey/blob/master/docs/configuration/rules.md#pool).
+Default is session mode.
 
 - `SESSION`: Assign server connection to a client until it disconnects. Default value.
 - `TRANSACTION`: Assign server connection to a client for a transaction processing. ||
 || size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
+Odyssey® server [pool size](https://github.com/yandex/odyssey/blob/master/docs/configuration/rules.md#pool_size).
 The number of servers in the server pool. Clients are placed in a wait queue when all servers are busy.
-
 Set to zero to disable the limit. ||
 || client_idle_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Client pool idle timeout, in seconds.
-
+Odyssey® [client pool idle timeout](https://github.com/yandex/odyssey/blob/master/docs/configuration/rules.md#pool_client_idle_timeout), in seconds.
 Drop stale client connection after this much seconds of idleness, which is not in transaction.
-
 Set to zero to disable. ||
 || idle_in_transaction_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Client pool idle in transaction timeout, in seconds.
-
+Odyssey® [client pool idle in transaction timeout](https://github.com/yandex/odyssey/blob/master/docs/configuration/rules.md#pool_idle_in_transaction_timeout), in seconds.
 Drop client connection in transaction after this much seconds of idleness.
-
 Set to zero to disable. ||
 |#
 
@@ -1387,12 +1415,14 @@ Configuration for `ANALYZE` and `VACUUM` operations.
 Time when analyze will start ||
 || analyze_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Maximum duration of the `ANALYZE` operation, in seconds. The default value is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate.
+Maximum duration of the `ANALYZE` operation, in seconds.
+The default value is `36000`. As soon as this period expires, the `ANALYZE` operation will be forced to terminate.
 
 Acceptable values are 7200 to 86399, inclusive. ||
 || vacuum_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Maximum duration of the `VACUUM` operation, in seconds. The default value is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate.
+Maximum duration of the `VACUUM` operation, in seconds.
+The default value is `36000`. As soon as this period expires, the `VACUUM` operation will be forced to terminate.
 
 Acceptable values are 7200 to 86399, inclusive. ||
 |#
@@ -1435,10 +1465,11 @@ Ignore these users when considering queries to terminate ||
 ||Field | Description ||
 || effective_config | **[PXFConfig](#yandex.cloud.mdb.greenplum.v1.PXFConfig)**
 
-Required field. ||
+Required field. The effective configuration is a combination of the user-defined configuration and the default configuration.
+It is the effective configuration that is applied. ||
 || user_config | **[PXFConfig](#yandex.cloud.mdb.greenplum.v1.PXFConfig)**
 
-User-defined settings. ||
+User-defined configuration. ||
 || default_config | **[PXFConfig](#yandex.cloud.mdb.greenplum.v1.PXFConfig)**
 
 Default configuration. ||
@@ -1451,21 +1482,18 @@ Default configuration. ||
 || connection_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Timeout for connection to the Apache Tomcat® server when making read requests.
-
 Specify values in seconds.
 
 Acceptable values are 5 to 600, inclusive. ||
 || upload_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Timeout for connection to the Apache Tomcat® server when making write requests.
-
 Specify the values in seconds.
 
 Acceptable values are 5 to 600, inclusive. ||
 || max_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of the Apache Tomcat® threads.
-
 To prevent situations when requests get stuck or fail due to running out of memory or malfunctioning of the Java garbage collector, specify the number of the Apache Tomcat® threads. Learn more about adjusting the number of threads in the [VMware Greenplum® Platform Extension Framework](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum-platform-extension-framework/6-9/gp-pxf/cfg_mem.html) documentation.
 
 Acceptable values are 1 to 1024, inclusive. ||
@@ -1480,7 +1508,6 @@ Acceptable values are 1 to 1024, inclusive. ||
 || pool_queue_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum number of requests you can add to a pool queue for core streaming threads.
-
 If `0`, no pool queue is generated.
 
 The minimum value is 0. ||
@@ -1516,24 +1543,30 @@ enable Cloud Storage for cluster ||
 
 #|
 ||Field | Description ||
-|| enabled | **bool** ||
+|| enabled | **bool**
+
+Determines whether the Cloud Logging enabled. ||
 || folder_id | **string**
+
+ID of the folder that the Cloud Logging belongs to.
 
 Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `folder_id`, `log_group_id`. ||
 || log_group_id | **string**
 
+ID of the log group used for the Cloud Logging.
+
 Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `folder_id`, `log_group_id`. ||
 || command_center_enabled | **bool**
 
-send Yandex Command Center logs ||
+Determines whether Yandex Command Center logs should be sent to Cloud Logging. ||
 || greenplum_enabled | **bool**
 
-send Greenplum logs ||
+Determines whether Greenplum® logs should be sent to Cloud Logging. ||
 || pooler_enabled | **bool**
 
-send Pooler logs ||
+Determines whether Pooler logs should be sent to Cloud Logging. ||
 |#

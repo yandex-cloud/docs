@@ -11,7 +11,7 @@ apiPlayground:
         backupId:
           description: |-
             **string**
-            Required field. ID of the backup to restore from.
+            ID of the backup to restore from.
             To get this ID, make a [BackupService.List](/docs/managed-mysql/api-ref/Backup/list#List) request (lists all backups in a folder) or a [ClusterService.ListBackups](/docs/managed-mysql/api-ref/Cluster/listBackups#ListBackups) request (lists all backups for an existing cluster).
           type: string
         time:
@@ -122,7 +122,6 @@ apiPlayground:
             ID of the key to encrypt cluster disks.
           type: string
       required:
-        - backupId
         - name
       additionalProperties: false
     definitions:
@@ -3280,7 +3279,7 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters:restore
 ||Field | Description ||
 || backupId | **string**
 
-Required field. ID of the backup to restore from.
+ID of the backup to restore from.
 To get this ID, make a [BackupService.List](/docs/managed-mysql/api-ref/Backup/list#List) request (lists all backups in a folder) or a [ClusterService.ListBackups](/docs/managed-mysql/api-ref/Cluster/listBackups#ListBackups) request (lists all backups for an existing cluster). ||
 || time | **string** (date-time)
 

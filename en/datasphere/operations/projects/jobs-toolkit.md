@@ -94,7 +94,7 @@ To start working with {{ ds-jobs }}, get authenticated using a Yandex or federat
       * **Variables**: Variables required to run the code, in `<name>:<value>` format. Specify each value pair on a separate line.
       * **Docker**: Docker image settings:
           * **Image**: Docker image URL.
-          * **User**: System account with either a password or ID of the secret that holds the [authorized key](../../../iam/concepts/authorization/key.md).
+          * **User**: System account with either a password or name of the secret containing the [authorized key](../../../iam/concepts/authorization/key.md).
 
     - PYTHON
 
@@ -134,7 +134,7 @@ To start working with {{ ds-jobs }}, get authenticated using a Yandex or federat
 
 {{ ds-jobs }} Toolkit allows you to view the job history and manage your jobs.
 
-To see the job history in {{ ds-jobs }}, select ![logo](../../../_assets/datasphere/ds-logo.svg) **{{ ds-jobs }}** in the left-hand panel. This will open the **DATASPHERE JOBS: LAUNCH HISTORY** panel with jobs sorted by start time.
+To see the job history in {{ ds-jobs }}, select ![logo](../../../_assets/datasphere/ds-logo.svg) **{{ ds-jobs }}** in the left-hand panel. In the **DATASPHERE JOBS: LAUNCH HISTORY** panel that opens, you will see the history of jobs sorted by start time.
 
 You can perform the following actions from the {{ ds-jobs }} history panel:
 
@@ -143,7 +143,7 @@ You can perform the following actions from the {{ ds-jobs }} history panel:
 * **Copy job ID**: Copy the job ID.
 * **Open job**: Open the job in a browser.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/jobs/index.md)
 * [{#T}](./work-with-jobs.md)

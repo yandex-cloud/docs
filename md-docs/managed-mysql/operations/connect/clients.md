@@ -148,6 +148,7 @@ yc managed-mysql connect <имя_или_идентификатор_класте�
 
 ## Подключение из графических IDE {#connection-ide}
 
+
 **Подключения проверялись в следующем окружении:**
 
 * Ubuntu 20.04, DBeaver: `22.2.4`;
@@ -155,9 +156,7 @@ yc managed-mysql connect <имя_или_идентификатор_класте�
   * JetBrains DataGrip: `2023.3.4`;
   * DBeaver Community: `24.0.0`.
 
-
 Подключаться из графических IDE можно только к хостам кластера в публичном доступе с использованием SSL-сертификата.
-
 
 Чтобы избежать ошибок при подключении, [сохраните сертификат](https://storage.yandexcloud.net/cloud-certs/RootCA.pem) в локальную папку, для доступа к которой не требуются права администратора.
 
@@ -201,6 +200,7 @@ yc managed-mysql connect <имя_или_идентификатор_класте�
   1. Нажмите кнопку **Готово**, чтобы сохранить настройки соединения с БД.
 
 {% endlist %}
+
 
 ### Подключение с аутентификацией через IAM {#ide-iam}
 
@@ -319,14 +319,12 @@ WebSQL — это сервис Yandex Cloud, который позволяет �
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
   ```bash
   RUN apt-get update && \
       apt-get install mysql-client --yes
   ```
-
 
 - Подключение с SSL {#with-ssl}
 

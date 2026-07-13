@@ -143,7 +143,7 @@ Learn more about working with images in [this Thumbor guide](https://thumbor.rea
 
 Learn how to use Thumbor for editing images on your website. The [Thumbor use case](../../tutorials/marketplace/thumbor.md) described in our guide involves configuring [{{ cdn-full-name }}](../../../cdn/concepts/index.md). {{ cdn-full-name }} helps with faster loading of website images.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Thumbor documentation](https://thumbor.readthedocs.io/en/latest/)
 * [{{ objstorage-name }} guides](../../../storage/)

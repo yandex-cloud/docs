@@ -27,7 +27,7 @@ The estimated release date of the new version in the `RAPID` channel is the quar
 
 {% endnote %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](./release-channels-and-updates.md)
 * [{#T}](../release-notes.md)

@@ -58,10 +58,10 @@ The infrastructure support cost includes:
 
 * Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using {{ network-load-balancer-name }} (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
-* Fee for public IP addresses and outbound traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using public IP addresses and outbound traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 
-## Configure your CLI profile {#setup-profile}
+## Configure the CLI profile {#setup-profile}
 
 1. If you do not have the {{ yandex-cloud }} CLI yet, [install](../../cli/quickstart.md) it and sign in.
 1. Create a service account:

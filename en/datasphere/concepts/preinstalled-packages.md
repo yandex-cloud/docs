@@ -4,7 +4,7 @@
 
 You have the option to select one of the standard DS Default images or to create a [custom environment](../operations/user-images.md) for working in {{ ml-platform-name }}. Standard images differ in their Python versions and sets of libraries.
 
-By default, an image with Python 3.10 is used in {{ ml-platform-short-name }} projects. If you need Python 3.8, use this guide: [{#T}](../operations/projects/python-version.md).
+By default, an image with Python 3.10 is used in {{ ml-platform-short-name }} projects. If you need Python 3.8, use [this guide](../operations/projects/python-version.md).
 
 {% note tip %}
 
@@ -53,7 +53,7 @@ For example:
 %pip install tensorflow==2.3.1
 ```
 
-For more information on working with the `pip` package management system, refer to the [official Python documentation](https://docs.python.org/3/installing/index.html).
+For more information on using the `pip` package manager, see [this official Python guide](https://docs.python.org/3/installing/index.html).
 
 {% note warning %}
 
@@ -61,7 +61,7 @@ Updating a pre-installed library may introduce new data types that are not suppo
 
 {% endnote %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/projects/install-dependencies.md)
 * [{#T}](configurations.md)

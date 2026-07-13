@@ -7,6 +7,6 @@ description: In this article, you will learn about public IP address ranges in {
 
 For the full list of public IP ranges in {{ yandex-cloud }}, see [{#T}](../../overview/concepts/public-ips.md) of **Platform overview**.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [IP address ranges used by Yandex]({{ link-yandex }}/ips)

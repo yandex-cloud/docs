@@ -6,7 +6,7 @@ The main class that needs to be instantiated to work with SDK.
 
 **tools**\: *[Tools](tools.md#yandex_ai_studio_sdk._tools.domain.Tools)*{#yandex_ai_studio_sdk.AIStudio.tools}
 
-Domain for creating various tools for assistants and function calling
+Domain for creating various tools for function calling
 
 **models**\: *[Models](models/domain.md#yandex_ai_studio_sdk._models.Models)*{#yandex_ai_studio_sdk.AIStudio.models}
 
@@ -14,19 +14,7 @@ Domain for working with models (inference and tuning)
 
 **files**\: *[Files](files.md#yandex_ai_studio_sdk._files.domain.Files)*{#yandex_ai_studio_sdk.AIStudio.files}
 
-DEPRECATED Domain for working with files (a part of the Asssistants API)
-
-**threads**\: *[Threads](threads.md#yandex_ai_studio_sdk._threads.domain.Threads)*{#yandex_ai_studio_sdk.AIStudio.threads}
-
-DEPRECATED Domain for working with threads (a part of the Assistants API)
-
-**assistants**\: *[Assistants](assistants.md#yandex_ai_studio_sdk._assistants.domain.Assistants)*{#yandex_ai_studio_sdk.AIStudio.assistants}
-
-Domain for working with assistants (a part of the Assistants API)
-
-**runs**\: *[Runs](runs.md#yandex_ai_studio_sdk._runs.domain.Runs)*{#yandex_ai_studio_sdk.AIStudio.runs}
-
-DEPRECATED Domain for working with assistants’ runs (a part of the Assistants API)
+Domain for working with files
 
 **search\_api**\: *[SearchAPIDomain](search_api.md#yandex_ai_studio_sdk._search_api.domain.SearchAPIDomain)*{#yandex_ai_studio_sdk.AIStudio.search_api}
 
@@ -34,7 +22,7 @@ Domain for working with [Yandex Search API](https://aistudio.yandex.ru/docs/sear
 
 **search\_indexes**\: *[SearchIndexes](search_indexes.md#yandex_ai_studio_sdk._search_indexes.domain.SearchIndexes)*{#yandex_ai_studio_sdk.AIStudio.search_indexes}
 
-Domain for working with search indexes (a part of the Assistants API)
+Domain for working with search indexes
 
 **datasets**\: *[Datasets](datasets.md#yandex_ai_studio_sdk._datasets.domain.Datasets)*{#yandex_ai_studio_sdk.AIStudio.datasets}
 
@@ -118,29 +106,6 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
     - [**BatchTaskOperation.id**](batch.md#yandex_ai_studio_sdk._types.batch.operation.BatchTaskOperation.id)
     - [**BatchTaskOperation.task\_id**](batch.md#yandex_ai_studio_sdk._types.batch.operation.BatchTaskOperation.task_id)
     - [**BatchTaskOperation.wait()**](batch.md#yandex_ai_studio_sdk._types.batch.operation.BatchTaskOperation.wait)
-- [Runs domain](runs.md)
-  - [**Runs**](runs.md#yandex_ai_studio_sdk._runs.domain.Runs)
-    - [**Runs.get()**](runs.md#yandex_ai_studio_sdk._runs.domain.Runs.get)
-    - [**Runs.get\_last\_by\_thread()**](runs.md#yandex_ai_studio_sdk._runs.domain.Runs.get_last_by_thread)
-    - [**Runs.list()**](runs.md#yandex_ai_studio_sdk._runs.domain.Runs.list)
-  - [**Run**](runs.md#yandex_ai_studio_sdk._runs.run.Run)
-    - [**Run.listen()**](runs.md#yandex_ai_studio_sdk._runs.run.Run.listen)
-    - [**Run.submit\_tool\_results()**](runs.md#yandex_ai_studio_sdk._runs.run.Run.submit_tool_results)
-    - [**Run.cancel()**](runs.md#yandex_ai_studio_sdk._runs.run.Run.cancel)
-    - [**Run.custom\_max\_prompt\_tokens**](runs.md#yandex_ai_studio_sdk._runs.run.Run.custom_max_prompt_tokens)
-    - [**Run.get\_result()**](runs.md#yandex_ai_studio_sdk._runs.run.Run.get_result)
-    - [**Run.get\_status()**](runs.md#yandex_ai_studio_sdk._runs.run.Run.get_status)
-    - [**Run.wait()**](runs.md#yandex_ai_studio_sdk._runs.run.Run.wait)
-    - [**Run.id**](runs.md#yandex_ai_studio_sdk._runs.run.Run.id)
-    - [**Run.assistant\_id**](runs.md#yandex_ai_studio_sdk._runs.run.Run.assistant_id)
-    - [**Run.thread\_id**](runs.md#yandex_ai_studio_sdk._runs.run.Run.thread_id)
-    - [**Run.created\_by**](runs.md#yandex_ai_studio_sdk._runs.run.Run.created_by)
-    - [**Run.created\_at**](runs.md#yandex_ai_studio_sdk._runs.run.Run.created_at)
-    - [**Run.labels**](runs.md#yandex_ai_studio_sdk._runs.run.Run.labels)
-    - [**Run.custom\_temperature**](runs.md#yandex_ai_studio_sdk._runs.run.Run.custom_temperature)
-    - [**Run.custom\_max\_tokens**](runs.md#yandex_ai_studio_sdk._runs.run.Run.custom_max_tokens)
-    - [**Run.custom\_prompt\_truncation\_options**](runs.md#yandex_ai_studio_sdk._runs.run.Run.custom_prompt_truncation_options)
-    - [**Run.custom\_response\_format**](runs.md#yandex_ai_studio_sdk._runs.run.Run.custom_response_format)
 - [Datasets domain](datasets.md)
   - [**Datasets**](datasets.md#yandex_ai_studio_sdk._datasets.domain.Datasets)
     - [**Datasets.get()**](datasets.md#yandex_ai_studio_sdk._datasets.domain.Datasets.get)
@@ -250,7 +215,6 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
       - [**GenerativeSearchFunction.available\_formats**](search_api.md#yandex_ai_studio_sdk._search_api.generative.function.GenerativeSearchFunction.available_formats)
     - [**GenerativeSearch**](search_api.md#yandex_ai_studio_sdk._search_api.generative.generative.GenerativeSearch)
       - [**GenerativeSearch.run()**](search_api.md#yandex_ai_studio_sdk._search_api.generative.generative.GenerativeSearch.run)
-      - [**GenerativeSearch.as\_tool()**](search_api.md#yandex_ai_studio_sdk._search_api.generative.generative.GenerativeSearch.as_tool)
       - [**GenerativeSearch.config**](search_api.md#yandex_ai_studio_sdk._search_api.generative.generative.GenerativeSearch.config)
       - [**GenerativeSearch.configure()**](search_api.md#yandex_ai_studio_sdk._search_api.generative.generative.GenerativeSearch.configure)
       - [**GenerativeSearch.fine\_tuned**](search_api.md#yandex_ai_studio_sdk._search_api.generative.generative.GenerativeSearch.fine_tuned)
@@ -414,59 +378,9 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
 - [Vision domain](vision/domain.md)
   - [**VisionDomain**](vision/domain.md#yandex_ai_studio_sdk._vision.domain.VisionDomain)
     - [**VisionDomain.ocr**](vision/domain.md#yandex_ai_studio_sdk._vision.domain.VisionDomain.ocr)
-- [Threads domain](threads.md)
-  - [**Threads**](threads.md#yandex_ai_studio_sdk._threads.domain.Threads)
-    - [**Threads.create()**](threads.md#yandex_ai_studio_sdk._threads.domain.Threads.create)
-    - [**Threads.get()**](threads.md#yandex_ai_studio_sdk._threads.domain.Threads.get)
-    - [**Threads.list()**](threads.md#yandex_ai_studio_sdk._threads.domain.Threads.list)
-  - [**Thread**](threads.md#yandex_ai_studio_sdk._threads.thread.Thread)
-    - [**Thread.update()**](threads.md#yandex_ai_studio_sdk._threads.thread.Thread.update)
-    - [**Thread.delete()**](threads.md#yandex_ai_studio_sdk._threads.thread.Thread.delete)
-    - [**Thread.write()**](threads.md#yandex_ai_studio_sdk._threads.thread.Thread.write)
-    - [**Thread.read()**](threads.md#yandex_ai_studio_sdk._threads.thread.Thread.read)
-    - [**Thread.name**](threads.md#yandex_ai_studio_sdk._threads.thread.Thread.name)
-    - [**Thread.description**](threads.md#yandex_ai_studio_sdk._threads.thread.Thread.description)
-    - [**Thread.created\_by**](threads.md#yandex_ai_studio_sdk._threads.thread.Thread.created_by)
-    - [**Thread.created\_at**](threads.md#yandex_ai_studio_sdk._threads.thread.Thread.created_at)
-    - [**Thread.updated\_by**](threads.md#yandex_ai_studio_sdk._threads.thread.Thread.updated_by)
-    - [**Thread.updated\_at**](threads.md#yandex_ai_studio_sdk._threads.thread.Thread.updated_at)
-    - [**Thread.expires\_at**](threads.md#yandex_ai_studio_sdk._threads.thread.Thread.expires_at)
-    - [**Thread.labels**](threads.md#yandex_ai_studio_sdk._threads.thread.Thread.labels)
-    - [**Thread.expiration\_config**](threads.md#yandex_ai_studio_sdk._threads.thread.Thread.expiration_config)
-    - [**Thread.id**](threads.md#yandex_ai_studio_sdk._threads.thread.Thread.id)
-- [Assistants domain](assistants.md)
-  - [**Assistants**](assistants.md#yandex_ai_studio_sdk._assistants.domain.Assistants)
-    - [**Assistants.create()**](assistants.md#yandex_ai_studio_sdk._assistants.domain.Assistants.create)
-    - [**Assistants.get()**](assistants.md#yandex_ai_studio_sdk._assistants.domain.Assistants.get)
-    - [**Assistants.list()**](assistants.md#yandex_ai_studio_sdk._assistants.domain.Assistants.list)
-  - [**Assistant**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant)
-    - [**Assistant.update()**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.update)
-    - [**Assistant.delete()**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.delete)
-    - [**Assistant.list\_versions()**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.list_versions)
-    - [**Assistant.run()**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.run)
-    - [**Assistant.run\_stream()**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.run_stream)
-    - [**Assistant.max\_prompt\_tokens**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.max_prompt_tokens)
-    - [**Assistant.name**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.name)
-    - [**Assistant.description**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.description)
-    - [**Assistant.created\_by**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.created_by)
-    - [**Assistant.created\_at**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.created_at)
-    - [**Assistant.updated\_by**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.updated_by)
-    - [**Assistant.updated\_at**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.updated_at)
-    - [**Assistant.expires\_at**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.expires_at)
-    - [**Assistant.labels**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.labels)
-    - [**Assistant.expiration\_config**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.expiration_config)
-    - [**Assistant.model**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.model)
-    - [**Assistant.instruction**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.instruction)
-    - [**Assistant.prompt\_truncation\_options**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.prompt_truncation_options)
-    - [**Assistant.tools**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.tools)
-    - [**Assistant.response\_format**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.response_format)
-    - [**Assistant.id**](assistants.md#yandex_ai_studio_sdk._assistants.assistant.Assistant.id)
 - [Tools domain](tools.md)
   - [**Tools**](tools.md#yandex_ai_studio_sdk._tools.domain.Tools)
     - [**Tools.function**](tools.md#yandex_ai_studio_sdk._tools.domain.Tools.function)
-    - [**Tools.generative\_search()**](tools.md#yandex_ai_studio_sdk._tools.domain.Tools.generative_search)
-    - [**Tools.rephraser**](tools.md#yandex_ai_studio_sdk._tools.domain.Tools.rephraser)
-    - [**Tools.search\_index()**](tools.md#yandex_ai_studio_sdk._tools.domain.Tools.search_index)
   - [Types](tools.md#types)
     - [**ToolCall**](tools.md#yandex_ai_studio_sdk._tools.tool_call.ToolCall)
       - [**ToolCall.id**](tools.md#yandex_ai_studio_sdk._tools.tool_call.ToolCall.id)

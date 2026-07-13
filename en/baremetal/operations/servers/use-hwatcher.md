@@ -114,7 +114,7 @@ To send the resulting report to support:
 
     In your request, describe the issue with the server in detail and attach the saved archive with the report.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/smart-disk-analysis.md)
 * [{#T}](./switch-raid-member.md)

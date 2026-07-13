@@ -13,8 +13,6 @@ items:
         href: sdk-ref/sync/chat/domain.md
       - name: Batch domain
         href: sdk-ref/sync/batch.md
-      - name: Runs domain
-        href: sdk-ref/sync/runs.md
       - name: Datasets domain
         href: sdk-ref/sync/datasets.md
       - name: Tuning domain
@@ -29,10 +27,6 @@ items:
         href: sdk-ref/sync/speechkit/domain.md
       - name: Vision domain
         href: sdk-ref/sync/vision/domain.md
-      - name: Threads domain
-        href: sdk-ref/sync/threads.md
-      - name: Assistants domain
-        href: sdk-ref/sync/assistants.md
       - name: Tools domain
         href: sdk-ref/sync/tools.md
   - name: Async SDK
@@ -45,8 +39,6 @@ items:
         href: sdk-ref/async/chat/domain.md
       - name: Batch domain
         href: sdk-ref/async/batch.md
-      - name: Runs domain
-        href: sdk-ref/async/runs.md
       - name: Datasets domain
         href: sdk-ref/async/datasets.md
       - name: Tuning domain
@@ -61,17 +53,13 @@ items:
         href: sdk-ref/async/speechkit/domain.md
       - name: Vision domain
         href: sdk-ref/async/vision/domain.md
-      - name: Threads domain
-        href: sdk-ref/async/threads.md
-      - name: Assistants domain
-        href: sdk-ref/async/assistants.md
       - name: Tools domain
         href: sdk-ref/async/tools.md
   - name: Types
     items:
       - name: Overview
         href: sdk-ref/types/index.md
-      - name: Assistant types
+      - name: Expiration types
         href: sdk-ref/types/assistants.md
       - name: Tools
         href: sdk-ref/types/tools.md
@@ -87,8 +75,6 @@ items:
         href: sdk-ref/types/search_api.md
       - name: Messages
         href: sdk-ref/types/message.md
-      - name: Run types
-        href: sdk-ref/types/runs.md
       - name: Search index types
         href: sdk-ref/types/search_indexes.md
       - name: Other types
@@ -128,15 +114,6 @@ items:
   - name: Batch
     href: sdk-ref/types/batch.md
     hidden: true
-  - name: Run types
-    href: sdk-ref/types/runs.md
-    hidden: true
-  - name: Messages
-    href: sdk-ref/types/message.md
-    hidden: true
-  - name: Assistant types
-    href: sdk-ref/types/assistants.md
-    hidden: true
   - name: Datasets
     href: sdk-ref/types/datasets.md
     hidden: true
@@ -146,14 +123,17 @@ items:
   - name: Tuning
     href: sdk-ref/types/tuning.md
     hidden: true
+  - name: Expiration types
+    href: sdk-ref/types/assistants.md
+    hidden: true
   - name: Search index types
     href: sdk-ref/types/search_indexes.md
     hidden: true
   - name: Yandex Search API
     href: sdk-ref/types/search_api.md
     hidden: true
-  - name: Tools
-    href: sdk-ref/types/tools.md
+  - name: Messages
+    href: sdk-ref/types/message.md
     hidden: true
   - name: Function
     href: sdk-ref/sync/speechkit/text_to_speech.md
@@ -193,6 +173,9 @@ items:
     hidden: true
   - name: Function
     href: sdk-ref/async/vision/ocr.md
+    hidden: true
+  - name: Tools
+    href: sdk-ref/types/tools.md
     hidden: true
   - name: Result types for models
     href: sdk-ref/types/model_results.md

@@ -18,7 +18,7 @@ To view all created aliases:
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select **{{ ui-key.yc-ui-datasphere.common.alias }}**.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](alias-update.md)
 * [{#T}](alias-delete.md)

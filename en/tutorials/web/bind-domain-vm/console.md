@@ -5,10 +5,10 @@ description: Follow this guide to assign your own domain to a web server on a {{
 
 # Assigning a domain name to a VM with a web server using the management console, CLI, or API
 
-To create an infrastructure for [assigning a domain name to a VM with a web server](index.md):
+To create an infrastructure for [assigning a domain name to a web server VM](index.md):
 
 {% include [bind-domain-vm-console](../../../_tutorials/applied/bind-domain-vm-console.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](terraform.md).

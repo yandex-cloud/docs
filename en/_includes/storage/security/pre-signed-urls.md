@@ -225,7 +225,7 @@ Let's put together a pre-signed URL to download the `object-for-share.txt` objec
 
 The subsection provides code examples for generating pre-signed URLs.
 
-To show the principle of generating and signing requests to {{ objstorage-name }}, these examples do not use [AWS SDKs](../../../storage/tools/sdk/index.md). For examples that use the {{ yandex-cloud }} CLI, AWS CLI, and AWS SDKs, refer to these pages:
+To show the principle of generating and signing requests to {{ objstorage-name }}, these examples do not use [AWS SDKs](../../../storage/tools/sdk/index.md). For examples using the {{ yandex-cloud }} CLI, AWS CLI, and AWS SDKs, refer to these pages:
 * [{#T}](../../../storage/operations/objects/link-for-download.md)
 * [{#T}](../../../storage/operations/objects/link-for-upload.md)
 

@@ -101,6 +101,6 @@ If you no longer need Kyverno, uninstall it:
 
 * [{#T}](../../tutorials/marketplace/kyverno.md).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Kyverno documentation](https://kyverno.io/docs/)

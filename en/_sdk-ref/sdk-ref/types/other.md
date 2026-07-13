@@ -348,10 +348,6 @@ If there is only one argument, it must be a dictionary mapping Unicode ordinals 
 
 ### *class* yandex\_ai\_studio\_sdk.\_search\_api.generative.generative.**GenerativeSearchTypeT**{#yandex_ai_studio_sdk._search_api.generative.generative.GenerativeSearchTypeT}
 
-### *class* yandex\_ai\_studio\_sdk.\_runs.result.**StatusTypeT**{#yandex_ai_studio_sdk._runs.result.StatusTypeT}
-
-### *class* yandex\_ai\_studio\_sdk.\_runs.result.**MessageTypeT**{#yandex_ai_studio_sdk._runs.result.MessageTypeT}
-
 ### *class* yandex\_ai\_studio\_sdk.\_types.operation.**AnyResultTypeT\_co**{#yandex_ai_studio_sdk._types.operation.AnyResultTypeT_co}
 
 ### *class* yandex\_ai\_studio\_sdk.\_types.operation.**OperationStatusTypeT**{#yandex_ai_studio_sdk._types.operation.OperationStatusTypeT}

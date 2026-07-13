@@ -22,7 +22,7 @@ You can add the following annotations to `ObjectMeta`:
 
    If this annotation is not specified, the load balancer will connect to the backends without encryption.
 
-   This annotation is ignored for grouped backends. When encrypting a connection between a load balancer and grouped backends, configure the encryption via the `spec.backend.tls` field of the `HttpBackendGroup` resource (see the [resource configuration]({{ configuration-local-link }}/http-backend-group.md)).
+   This annotation is ignored for grouped backends. To configure encryption for connections between the load balancer and grouped backends, use the `spec.backend.tls` field of the `HttpBackendGroup` resource. For more information, see [this guide]({{ configuration-local-link }}/http-backend-group.md).
 
 * **ingress.alb.yc.io/health-checks** {#annot-health-checks}
 

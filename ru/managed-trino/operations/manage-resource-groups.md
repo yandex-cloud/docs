@@ -17,8 +17,8 @@ description: Вы можете получить информацию о конф
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Нажмите на имя нужного кластера.
   1. Перейдите в блок **{{ ui-key.yacloud.trino.section_resource-management }}**.
 
@@ -92,7 +92,7 @@ description: Вы можете получить информацию о конф
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер {{ mtr-name }}.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}** и задайте параметры кластера.
   1. Перейдите в блок **{{ ui-key.yacloud.trino.section_resource-management }}**.
   1. В поле **{{ ui-key.yacloud.trino.ClusterView.label_cpu-quota-period_tD5vD }}** задайте период расчета квоты CPU для ресурсных групп.
@@ -379,8 +379,8 @@ description: Вы можете получить информацию о конф
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Нажмите на имя нужного кластера.
   1. Перейдите в блок **{{ ui-key.yacloud.trino.section_resource-management }}**.
   1. В поле **{{ ui-key.yacloud.trino.ClusterView.label_cpu-quota-period_tD5vD }}** задайте новое значение периода расчета квоты CPU для ресурсных групп.
@@ -713,8 +713,8 @@ description: Вы можете получить информацию о конф
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Нажмите на имя нужного кластера.
   1. Перейдите в блок **{{ ui-key.yacloud.trino.section_resource-management }}**.
   1. Чтобы удалить ненужные ресурсные группы:

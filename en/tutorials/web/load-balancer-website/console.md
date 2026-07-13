@@ -10,6 +10,6 @@ To create a [fault-tolerant website with load balancing via {{ network-load-bala
 
 {% include [load-balancer-website](../../../_tutorials/web/load-balancer-website-console.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](terraform.md)

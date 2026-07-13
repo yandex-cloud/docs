@@ -6,7 +6,7 @@ The `TLSRoute` resource sets traffic routing rules for {{ k8s }} services ([Serv
 
 `TLSRoute` is designed for application developers. Cluster operators should use the `Gateway` resource.
 
-`TLSRoute` is a [{{ k8s }} Gateway API project](https://gateway-api.sigs.k8s.io/) resource. Below, we describe its fields and annotations used by the {{ alb-name }} Gateway API. For configuration details, see the [{{ k8s }} Gateway API reference](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1alpha2.TLSRoute).
+`TLSRoute` is a [{{ k8s }} Gateway API project](https://gateway-api.sigs.k8s.io/) resource. Below, we describe its fields and annotations used by the {{ alb-name }} Gateway API. For resource configuration details, see [this {{ k8s }} Gateway API guide](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1alpha2.TLSRoute).
 
 ## TLSRoute {#tlsroute}
 

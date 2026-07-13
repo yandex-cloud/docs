@@ -1,6 +1,6 @@
 # Types
 
-- [Assistant types](assistants.md)
+- [Expiration types](assistants.md)
 - [Tools](tools.md)
 - [Operation](operation.md)
 - [Tuning](tuning.md)
@@ -8,7 +8,6 @@
 - [Datasets](datasets.md)
 - [Yandex Search API](search_api.md)
 - [Messages](message.md)
-- [Run types](runs.md)
 - [Search index types](search_indexes.md)
 - [Other types](other.md)
 - [Batch](batch.md)

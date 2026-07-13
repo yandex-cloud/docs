@@ -22,8 +22,8 @@ Managed Service for Apache Kafka® позволяет [получить фраг
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **Логи**.
     1. Выберите **Источник**, **Хосты** и **Уровень логирования**.
     1. Укажите период времени, за который нужно отобразить лог.

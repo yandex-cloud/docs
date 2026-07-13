@@ -71,7 +71,7 @@ title: How to get information about a security group in {{ vpc-full-name }}
      * `output "group"`: Output variable containing information about the incoming traffic rules:
        * `value`: Return value.
 
-     You can replace `ingress` with any other parameter to get the information you need. For more information about the `yandex_vpc_security_group` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_security_group).    
+     You can replace `ingress` with another variable to get the information you need. For more on the properties of the `yandex_vpc_security_group` data source, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_security_group).
 
   1. Create the resources:
 
@@ -141,7 +141,7 @@ title: How to get information about a security group in {{ vpc-full-name }}
      * `output "rule"`: Output variable with information about the rule direction:
        * `value`: Return value.
 
-     You can replace `direction` with any other parameter to get the information you need. For more information about the `datasource_vpc_security_group_rule` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_security_group_rule).
+     You can replace `direction` with another variable to get the information you need. For more on the properties of the `datasource_vpc_security_group_rule` data source, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_security_group_rule).
 
   1. Create the resources:
 

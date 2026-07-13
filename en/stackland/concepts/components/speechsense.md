@@ -56,7 +56,7 @@ Where:
 * `settings.s3.accessKeyID`: Storage access key ID.
 * `settings.s3.secretAccessKey`: Storage secret access key.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../operations/speechsense/install-images.md): Pulling {{ speechsense-name }} images.
 * [{#T}](../../operations/speechsense/configure.md): Configuring and activating {{ speechsense-name }}.

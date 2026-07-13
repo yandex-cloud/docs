@@ -42,12 +42,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support costs include:
+The infrastructure support cost includes:
 * Fee for computing resources and disks of VMs used for {{ k8s }} cluster deployment, auxiliary VM, and {{ managed-k8s-name }} management cluster nodes (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for using L7 load balancer's computing resources (see [{{ alb-full-name }} pricing](../../application-load-balancer/pricing.md)).
-* Fee for using {{ managed-k8s-name }} management cluster master and outgoing traffic (see [{{ managed-k8s-full-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using the computing resources of the L7 load balancer (see [{{ alb-full-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for using the {{ managed-k8s-name }} management cluster master and outgoing traffic (see [{{ managed-k8s-full-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for [public IP addresses](../../vpc/concepts/address.md#public-addresses) for auxiliary VMs and {{ managed-k8s-name }} management cluster (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Fee for a [NAT gateway](../../vpc/concepts/gateways.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#nat-gateways)).
+* Fee for using a [NAT gateway](../../vpc/concepts/gateways.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#nat-gateways)).
 
 #### Optional costs {#optional-expenses}
 
@@ -129,7 +129,7 @@ You can use a ready-made test image or build a custom one:
 
   1. [Build](https://image-builder.sigs.k8s.io/capi/capi) a custom OS image using [Image Builder](https://github.com/kubernetes-sigs/image-builder).
 
-      See also: [Setting up a disk image for {{ compute-name }}](../../compute/operations/image-create/custom-image.md).
+      See also [Preparing a disk image for {{ compute-name }}](../../compute/operations/image-create/custom-image.md).
   1. [Upload](../../compute/operations/image-create/upload.md) the image to {{ compute-name }} and save its ID.
 
 {% endlist %}
@@ -257,7 +257,7 @@ You can use a ready-made Docker image with the {{ yandex-cloud }} provider from 
         {% note warning %}
 
         * Once the cluster is created, you will not be able to assign a static IP address to the L7 load balancer.
-        * Do not modify or delete the network load balancer and its child resources created using {{ managed-k8s-name }} via the {{ yandex-cloud }} interfaces (the management console, {{ TF }}, CLI, or API). This may cause incorrect operation of the cluster.
+        * Do not modify or delete the network load balancer and its child resources created using {{ managed-k8s-name }} via the {{ yandex-cloud }} interfaces (the management console, {{ TF }}, CLI, or API). This may lead to incorrect cluster behavior.
 
         {% endnote %}
 

@@ -9,6 +9,6 @@ To create an infrastructure for a [website on the LAMP or LEMP stack](index.md) 
 
 {% include [lamp-lemp](../../../_tutorials/web/lamp-lemp-terraform.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](console.md).

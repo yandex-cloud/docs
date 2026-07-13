@@ -1,4 +1,4 @@
-# On-request server configuration
+# Server configuration upon request
 
 If you are after an optimal configuration with specific needs in mind, you can have a server assembled based on your individual request. We will accommodate a project of any complexity, advise on optimal server configurations, and help organize the migration of your infrastructure to {{ baremetal-name }}.
 
@@ -30,7 +30,7 @@ To order an on-request server configuration:
 
 The assembly timeline and terms of rent for an on-request configuration are determined on a case-by-case basis.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./server-configurations.md)
 * [{#T}](./server-custom-configurations.md)

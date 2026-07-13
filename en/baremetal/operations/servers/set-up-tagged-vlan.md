@@ -34,7 +34,7 @@ Once you have changed the number or composition of secondary private subnets att
     ```bash
     nano /etc/netplan/50-cloud-init.yaml
     ```
-1. To configure secondary private subnets with tagged VLANs on a server, add the `vlans` section to the Netplan configuration that contains information about secondary private subnets attached to the server. The settings for servers without reserved network connections and servers with MC-LAG are different. Here is an example:
+1. To configure secondary private subnets with tagged VLANs on a server, add the `vlans` section to the Netplan configuration that contains information about secondary private subnets attached to the server. The settings for servers without reserved network connections and servers with MC-LAG are different. For example:
 
     {% list tabs %}
 
@@ -172,7 +172,7 @@ If you made a mistake and created a VLAN for the wrong network interface (aggreg
 
 {% endnote %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/mc-lag.md)
 * [{#T}](../../concepts/network.md)

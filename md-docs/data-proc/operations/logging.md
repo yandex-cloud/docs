@@ -14,8 +14,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex Data Processing**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
     1. Нажмите на имя нужного кластера.
     1. В разделе **Настройки** нажмите на имя лог-группы кластера. Откроется страница сервиса Cloud Logging.
     1. Нажмите на строку лог-группы. Откроются логи кластера.
@@ -111,8 +111,8 @@
 
       Чтобы получить FQDN хоста:
 
-      1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-      1. Перейдите в сервис **Yandex Data Processing**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+      1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
       1. Нажмите на имя нужного кластера.
       1. Перейдите на вкладку **Хосты**.
       1. Скопируйте FQDN хоста.

@@ -33,7 +33,7 @@ Object label operation limits are as follows:
   * May contain Latin letters, numbers, spaces, and these characters: `+`, `-`, `=`, `.`, `_`, `:`, `/`, and `@`.
 * Labels prefixed with `aws:` in the key are reserved for {{ objstorage-name }}. These labels are not counted in the total number of object labels. You cannot delete or modify them.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/buckets/tagging.md)
 * [{#T}](../operations/objects/tagging.md)

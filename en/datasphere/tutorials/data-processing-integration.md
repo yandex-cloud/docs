@@ -8,6 +8,6 @@ canonical: '{{ link-docs }}/tutorials/ml-ai/data-processing-integration'
 
 {% include notitle [integration with data proc](../../_tutorials/ml-ai/data-processing-integration.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [Temporary {{ dataproc-name }} clusters deployed in {{ ml-platform-name }}](../concepts/data-processing-template.md)

@@ -111,7 +111,7 @@ To disable CRD auto update, add this Helm chart installation command parameter: 
 
 * [{#T}](../../managed-kubernetes/tutorials/marketplace/gateway-api.md).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Gateway API project description](https://gateway-api.sigs.k8s.io/).
 * [Gateway API description and configuration information](../../application-load-balancer/tools/k8s-gateway-api/index.md) in the {{ alb-name }} guides.

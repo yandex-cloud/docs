@@ -5,7 +5,7 @@ description: Follow this guide to create a bucket and upload an object to it usi
 
 # Getting started with {{ objstorage-full-name }}
 
-In this section, you will learn how to use {{ objstorage-full-name }} via the {{ yandex-cloud }} management console. For instructions on how to use the AWS CLI, see [{#T}](./quickstart/quickstart-aws-cli.md).
+In this section, you will learn how to use {{ objstorage-full-name }} via the {{ yandex-cloud }} management console. To learn how to use the AWS CLI, see [{#T}](./quickstart/quickstart-aws-cli.md).
 
 To get started with {{ objstorage-name }}:
 
@@ -46,6 +46,7 @@ To create your first bucket in {{ objstorage-name }}:
     * _Standard storage_ is designed for storing frequently used objects.
     * _Cold storage_ is designed for long-term storage of objects that are rarely read.
     * _Ice storage_ is designed for objects you need to store for at least one year and which rarely get read requests.
+    * _Intelligent tiering storage_ automatically optimizes costs by moving objects between access levels based on how often they are accessed.
 1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
 
 ## Uploading files to a bucket {#upload-files}
@@ -68,7 +69,9 @@ You can share the link you got or use it in your service to access the file.
 To perform operations with buckets and objects, you can use [other tools](tools/index.md) in addition to the {{ yandex-cloud }} management console.
 
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](quickstart/quickstart-aws-cli.md)
 * [Getting started with AWS S3 API in {{ objstorage-full-name }}](./s3/s3-api-quickstart.md)
+* [Webinar: Reducing load on high-traffic infrastructure with Cloud CDN](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)
+

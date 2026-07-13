@@ -131,7 +131,7 @@ The user must have the `billing.accounts.editor`, `billing.accounts.admin`, or `
         1. Under **{{ ui-key.yc-ui-talkanalytics.assistants.prompt }}**, enter this prompt:
 
             ```text
-            You are analyzing a conversation between a call center agent and customer. Pay close attention when generating a response.
+            You are analyzing a dialog between a call center agent and a customer. Pay close attention when generating a response.
             Determine the subject of the customer’s inquiry by selecting one from this list: Visa, Country, Guided Tours.
             If nothing of the above is suitable, specify "Other".
             ```

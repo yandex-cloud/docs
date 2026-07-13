@@ -33,7 +33,7 @@ Where:
 
 * `spec` (`YCCertificateSpec`; this is a required field)
 
-  Resource specification. For more information, see [below](#spec).
+  Resource specification. See details [below](#spec).
 
 ## YCCertificateSpec {#spec}
 

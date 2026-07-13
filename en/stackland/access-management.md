@@ -92,7 +92,7 @@ Standard RBAC resources:
 || `ProjectRoleBinding` | Project | Binding a role to a subject within all namespaces of the project ||
 |#
 
-Learn more about project roles in [Configuring project roles](operations/projects/project-roles.md).
+For more on project roles, see [Configuring project roles](operations/projects/project-roles.md).
 
 ### Access role bindings {#iam-access-binding}
 
@@ -154,7 +154,7 @@ Mechanism: `ClusterRoleBinding` and `ClusterAccessBinding`.
 
 ### Project level {#project-level}
 
-For access to all the project's namespaces. Use for:
+Access to all namespaces of the project. Use for:
 
 * Project administrators.
 * Project team members.
@@ -164,7 +164,7 @@ Mechanism: `ProjectRoleBinding` and `ProjectAccessBinding`.
 
 ### Namespace level {#namespace-level}
 
-For access limited to a particular namespace. Use for:
+Access limited to a particular namespace. Use for:
 
 * Developers working with a particular environment.
 * Service accounts of applications.

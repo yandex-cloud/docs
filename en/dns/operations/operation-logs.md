@@ -32,7 +32,7 @@ All {{ dns-name }} zone activities are logged as a list of operations. Each oper
   yc dns zone list-operations <zone_name_or_ID>
   ```
 
-  By default, information about operations is output as text. To get more details, specify the `yaml` or `json` output data format using `--format`:
+  By default, information about operations is output as text. To get more details, use `--format` to specify the `yaml` or `json` output format:
 
   ```bash
   yc dns zone list-operations dns3fh7phb04******** --format yaml
@@ -113,6 +113,6 @@ All {{ dns-name }} zone activities are logged as a list of operations. Each oper
 
     {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../api-design-guide/concepts/about-async.md)

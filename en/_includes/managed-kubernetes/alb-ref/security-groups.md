@@ -12,9 +12,9 @@ Within each security group, you must configure:
   * The load balancer to send TCP traffic to port 10501 on cluster nodes, targeting either the node groups’ subnet CIDR ranges or their security groups.
   * Node groups to receive TCP traffic on port 10501 from either the load balancer’s subnet CIDR ranges or its security group.
 
-Security groups for both the cluster and node groups are specified in their respective configurations. For more information, see the guides below:
+Security groups for both the cluster and node groups are specified in their respective configurations. For more information, see these guides:
 * [Creating](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [updating a cluster](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md#update-cluster).
-* [Creating](../../../managed-kubernetes/operations/node-group/node-group-create.md) and [updating a node group](../../../managed-kubernetes/operations/node-group/node-group-update.md).
+* [Creating](../../../managed-kubernetes/operations/node-group/node-group-create.md) and [updating](../../../managed-kubernetes/operations/node-group/node-group-update.md).
 
 Security group IDs are specified in the following configuration locations:
 * For the `Ingress` resource, in the `ingress.alb.yc.io/security-groups` annotation. A load balancer associated with multiple `Ingress` resources aggregates all security groups defined in their configurations.
@@ -146,7 +146,7 @@ Create the following security groups and rules:
 
   {% endlist %}
 
-For details on security groups for cluster and node groups, see [{#T}](../../../managed-kubernetes/operations/connect/security-groups.md).
+For more information on security groups for clusters and node groups, see [{#T}](../../../managed-kubernetes/operations/connect/security-groups.md).
 
 ### {{ TF }} {#example-terraform}
 

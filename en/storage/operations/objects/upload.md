@@ -74,7 +74,7 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
      * `--endpoint-url`: {{ objstorage-name }} endpoint.
      * `s3 cp --recursive`: Command to upload all objects stored in a local directory, including the nested ones. To upload objects, in the first part of the command, provide the path to the folder from which you want to copy the files to the bucket, and in the second part, the name of your bucket and storage [folder ID](../../concepts/object.md#folder).
 
-  `aws s3 cp` is a high-level command providing limited features. For more information, see the [AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html). All upload features {{ objstorage-name }} supports can be used when running the [aws s3api put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html) command (see examples of using [object locks](../../concepts/object-lock.md) [below](#w-object-lock)).
+  `aws s3 cp` is a high-level command providing limited features. For more information, see the [AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html). To access all upload features supported by {{ objstorage-name }}, use the [aws s3api put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html) command instead (see examples of using [object locks](../../concepts/object-lock.md) [below](#w-object-lock)).
 
 - {{ TF }} {#tf}
 
@@ -136,7 +136,7 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 
      * `source`: Relative or absolute path to the file you need to upload to the bucket.
 
-      For more information about the `yandex_storage_object` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_object).
+      For more information on the properties of the `yandex_storage_object` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_object).
 
   1. Create the resources:
 
@@ -168,7 +168,7 @@ For a bucket with enabled [versioning](../buckets/versioning.md) and [object loc
   1. If you want to upload the object to a specific folder, navigate to that folder by clicking its name. If you want to create a new folder, click **{{ ui-key.yacloud.storage.bucket.button_create }}** on the top panel.
   1. Within the folder you need, click ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** on the top panel.
   1. In the window that opens, select the files and click **Open**.
-  1. The management console will display all the objects you selected for uploading and prompt you to select a [storage class](../../concepts/storage-class.md). The [bucket configuration](../../concepts/bucket.md#bucket-settings) determines the default storage class.
+  1. The management console will display all the objects you selected for uploading and prompt you to select a [storage class](../../concepts/storage-class.md) (`STANDARD`, `COLD`, `INTELLIGENT_TIERING`, or `ICE`). The [bucket configuration](../../concepts/bucket.md#bucket-settings) determines the default storage class.
   1. To configure locks for the objects you are uploading, select the lock type from the **{{ ui-key.yacloud.storage.title_object-lock }}** drop-down list:
      * **{{ ui-key.yacloud.storage.field_perm-object-lock-enabled }}**: Indefinitely prohibits deleting or overwriting the object version, while you still can upload new versions of the object. A user with the `storage.uploader` role can set and remove legal hold. There is no way to bypass this type of lock. When combined with retention, legal hold takes priority.
      * **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**: Prohibits deleting or overwriting the object version for a specified period of time, while you still can upload new versions of the object. A user with the `storage.uploader` role can set a retention period. When combined with legal hold, retention takes no priority.
@@ -321,7 +321,7 @@ If your bucket already has [default retention periods](../../concepts/object-loc
      * `--object-lock-mode` and `--object-lock-retain-until-date` to set a retention period for an object version that overrides the bucket's default retention settings.
      * `--object-lock-legal-hold-status` to set a legal hold on an object version.
 
-     For more information about these parameters, see the steps above.
+     For more information about these parameters, see above.
 
 - AWS CLI {#aws-cli}
 
@@ -358,7 +358,7 @@ If your bucket already has [default retention periods](../../concepts/object-loc
      * `--object-lock-mode` and `--object-lock-retain-until-date` to set a retention period for an object version that overrides the bucket's default retention settings.
      * `--object-lock-legal-hold-status` to set a legal hold on an object version.
  
-     For more information about these parameters, see the steps above.
+     For more information about these parameters, see above.
 
 - API {#api}
 
@@ -367,7 +367,7 @@ If your bucket already has [default retention periods](../../concepts/object-loc
 {% endlist %}
 
 
-## Object conditional writes {#conditional-writes}
+## Conditional writes {#conditional-writes}
 
 You can use [conditions](../../concepts/object.md#conditional-writes) when uploading an object, as well as when [completing a multipart upload](multipart-upload.md#conditional-writes).
 
@@ -447,7 +447,7 @@ You can use [conditions](../../concepts/object.md#conditional-writes) when uploa
 
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../tutorials/storage-vpc-access.md)
 

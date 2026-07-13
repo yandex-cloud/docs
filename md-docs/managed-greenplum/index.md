@@ -590,15 +590,15 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
 
  - [RescheduleMaintenance](api-ref/grpc/Cluster/rescheduleMaintenance.md)
 
+ - [ListLogs](api-ref/grpc/Cluster/listLogs.md)
+
+ - [StreamLogs](api-ref/grpc/Cluster/streamLogs.md)
+
  - [ListOperations](api-ref/grpc/Cluster/listOperations.md)
 
  - [ListMasterHosts](api-ref/grpc/Cluster/listMasterHosts.md)
 
  - [ListSegmentHosts](api-ref/grpc/Cluster/listSegmentHosts.md)
-
- - [ListLogs](api-ref/grpc/Cluster/listLogs.md)
-
- - [StreamLogs](api-ref/grpc/Cluster/streamLogs.md)
 
  - [ListBackups](api-ref/grpc/Cluster/listBackups.md)
 
@@ -736,15 +736,15 @@ Greenplum<sup>®</sup> — аналитическая колоночная ма�
 
  - [RescheduleMaintenance](api-ref/Cluster/rescheduleMaintenance.md)
 
+ - [ListLogs](api-ref/Cluster/listLogs.md)
+
+ - [StreamLogs](api-ref/Cluster/streamLogs.md)
+
  - [ListOperations](api-ref/Cluster/listOperations.md)
 
  - [ListMasterHosts](api-ref/Cluster/listMasterHosts.md)
 
  - [ListSegmentHosts](api-ref/Cluster/listSegmentHosts.md)
-
- - [ListLogs](api-ref/Cluster/listLogs.md)
-
- - [StreamLogs](api-ref/Cluster/streamLogs.md)
 
  - [ListBackups](api-ref/Cluster/listBackups.md)
 

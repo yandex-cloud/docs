@@ -102,7 +102,7 @@ You will need the password to get authenticated in Argo CD.
 
    The specification giving no IP address, the load balancer will get a dynamic public IP address. You can add a field named `spec.loadBalancerIP` and specify a [pre-reserved](../../../vpc/operations/get-static-ip.md) static IP address in it.
 
-   For details on the specification, see [this reference](../../nlb-ref/service.md).
+   For more on the specification, see [this reference](../../nlb-ref/service.md).
 
 1. Apply the specification and create a network load balancer:
 
@@ -206,7 +206,7 @@ You will need the password to get authenticated in Argo CD.
                       number: 80
     ```
 
-    To learn more about these settings, see [Configuring an L7 {{ alb-full-name }} using an ingress controller](../../tutorials/alb-ingress-controller.md#create-ingress-and-apps).
+    Learn more about these settings in [Configuring an L7 {{ alb-full-name }} using an ingress controller](../../tutorials/alb-ingress-controller.md#create-ingress-and-apps).
 
 1. In the `ingress.yaml` file directory, run this command:
 
@@ -239,6 +239,6 @@ You will need the password to get authenticated in Argo CD.
 
 * [{#T}](../../tutorials/marketplace/argo-cd.md)
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Argo CD documentation](https://argo-cd.readthedocs.io/en/stable/operator-manual/)

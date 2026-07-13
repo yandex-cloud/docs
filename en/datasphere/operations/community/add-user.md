@@ -22,6 +22,6 @@ description: Follow this guide to add a user to a community.
 
    {% endnote %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](link-channel.md)

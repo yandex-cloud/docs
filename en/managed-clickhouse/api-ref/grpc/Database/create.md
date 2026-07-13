@@ -43,7 +43,7 @@ Required field. Configuration of the database to create. ||
 
 Required field. Name of the ClickHouse database. 1-63 characters long.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z_][a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_][a-zA-Z0-9_-]* `. ||
 || engine | enum **DatabaseEngine**
 
 Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).

@@ -15,10 +15,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../vpc/pricing.md#nat-gateways)).
+* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a public IP address if assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for using a NAT gateway (see [{{ vpc-name }} pricing](../../vpc/pricing.md#nat-gateways)).
 
 
 ## Get your cloud ready {#before-you-begin}
@@ -187,7 +187,7 @@ The support cost for this solution includes:
    * `name: crossplane-vm`: Name of the VM to create with Crossplane.
    * `imageId: fd80bm0rh4rkepi5ksdi`: VM boot image ID. You can get it with the [list of images](../../compute/operations/image-control/get-list.md). This example uses the [Ubuntu 22.04 LTS](https://yandex.cloud/en/marketplace/products/yc/ubuntu-22-04-lts) image.
 
-   For examples of how to configure {{ yandex-cloud }} resources, see the [provider's GitHub repository](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main/examples).
+   For the examples of how to configure {{ yandex-cloud }} resources, see the [provider's GitHub repository](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main/examples).
 
 1. Apply the `vm-instance-template.yml` manifest:
 

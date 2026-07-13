@@ -128,7 +128,7 @@ Once HashiCorp Vault is installed, you need to initialize one of its servers. Th
 
 While initializing the vault, you do not need to perform the `unseal` operation as the application image is integrated with {{ kms-name }}.
 
-For more information, see [Auto Unseal](../../../kms/tutorials/vault-secret.md) and the [HashiCorp Vault guide](https://learn.hashicorp.com/tutorials/vault/kubernetes-raft-deployment-guide?in=vault/kubernetes#initialize-and-unseal-vault).
+For more information, see [Auto Unseal](../../../kms/tutorials/vault-secret.md) and [this HashiCorp Vault guide](https://learn.hashicorp.com/tutorials/vault/kubernetes-raft-deployment-guide?in=vault/kubernetes#initialize-and-unseal-vault).
 
 {% endnote %}
 
@@ -187,7 +187,7 @@ To initialize the vault:
    vault-yckms-k8s-0  1/1    Running  0         5m
    ```
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [HashiCorp Vault documentation](https://developer.hashicorp.com/vault/docs?product_intent=vault)
 * [{{ kms-name }} guides](../../../kms/)

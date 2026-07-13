@@ -68,7 +68,7 @@ You can also grant access permissions through the [{{ org-full-name }} interface
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## What roles do I need {#choosing-roles}
+## Required roles {#choosing-roles}
 
 The table below lists the roles required for specific actions. You can always assign a role with more permissions, e.g., `Editor` instead of `Viewer`.
 
@@ -94,7 +94,7 @@ The table below lists the roles required for specific actions. You can always as
 || [Granting a role](#grant-role) in a community | `Admin` for a community ||
 |#
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{{ org-full-name }}](../../organization/)
 * [{#T}](../../iam/concepts/access-control/index.md)

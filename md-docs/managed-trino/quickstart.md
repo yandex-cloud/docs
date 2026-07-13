@@ -58,7 +58,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер Managed Service for Trino.
-    1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
     1. Нажмите кнопку **Создать кластер**.
     1. Задайте имя кластера.
     1. В поле **Сервисный аккаунт** выберите созданный ранее сервисный аккаунт.

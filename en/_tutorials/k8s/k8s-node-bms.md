@@ -16,7 +16,7 @@ The support cost for this solution includes:
 
 * Fee for the {{ managed-k8s-name }} master (see [{{ managed-k8s-full-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for {{ managed-k8s-name }} standard cluster nodes (if any), which includes the use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* VM fee, which includes the use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for a VM, which includes the use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
   {% note info %}
 
@@ -24,12 +24,12 @@ The support cost for this solution includes:
 
   {% endnote %}
 
-* Fee for using a [public IP address](../../vpc/concepts/address.md#public-addresses) for a VM (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* {{ baremetal-name }} server lease fee (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
+* Fee for a [public IP address](../../vpc/concepts/address.md#public-addresses) assigned to your VM (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for renting a {{ baremetal-name }} server (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
 
 
 To connect a {{ baremetal-name }} server as an external node to a {{ managed-k8s-name }} cluster:
-1. [Get ready for work](#before-you-begin).
+1. [Get ready to work](#before-you-begin).
 1. [Create an external node group](#node-group-create).
 1. [Install system components on your {{ baremetal-name }} server](#node-setup).
 1. [Check the external node status](#check-status).
@@ -191,7 +191,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 * [Cancel](../../baremetal/operations/servers/server-lease-cancel.md) your {{ baremetal-name }} server lease renewal. After canceling the lease, the server will remain active until the paid period ends, after which it will be automatically deleted.
 * [Delete](../../baremetal/tutorials/bm-vrf-and-vpc-interconnect.md#clear-out) the private connection.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Connecting external nodes to a cluster](../../managed-kubernetes/operations/external-nodes-connect.md)
 * [Configuring WireGuard gateways to connect external nodes](../../managed-kubernetes/operations/external-nodes-connect-wireguard.md)

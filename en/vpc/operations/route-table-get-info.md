@@ -71,9 +71,9 @@ title: Getting information about a route table in {{ vpc-full-name }}
      * `output "route-table"`: Output variable containing information about static routes of the route table:
        * `value`: Return value.
 
-     You can replace `static_route` with any other parameter to get the information you need. For more information about the `yandex_vpc_route_table` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_route_table).
+     You can replace `static_route` with another variable to get the information you need. For more on the properties of the `yandex_vpc_route_table` data source, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_route_table).
 
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

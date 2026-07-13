@@ -21,7 +21,7 @@ To create a cluster and run a computational task:
 
 The costs for hosting servers include:
 * Fee for multiple continuously running [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or static [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a static or dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create a master VM in the cloud {#create-master-vm}
 
@@ -128,7 +128,7 @@ To create a VM:
      * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify the same network and subnet as those of the master VM. Leave **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}** as the IP address type.
      * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the information required to access the VM:
        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter your preferred login for the user you will create on the VM.
-       * Paste your public SSH key into the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field. You will need to create a key pair for the SSH connection on your own. To learn more, see [Connecting to a VM over SSH](../../compute/operations/vm-connect/ssh.md).
+       * Paste your public SSH key into the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field. You will need to [create](../../compute/operations/vm-connect/ssh.md) an SSH key pair by yourself.
      * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**. This will take you back to the instance group creation screen.
 1. Under **{{ ui-key.yacloud.compute.groups.create.section_scale }}**, select the number of instances to create. Specify three instances.
 1. Click **{{ ui-key.yacloud.common.create }}**.

@@ -32,7 +32,7 @@ To create an autoscaling instance group infrastructure with {{ TF }}:
         git clone https://github.com/yandex-cloud-examples/yc-vm-group-with-autoscale.git
         ```
 
-     1. Navigate to the repository directory. Make sure it now contains the following files:
+     1. Navigate to the repository directory. It should now contain the following files:
         * `vm-autoscale.tf`: New infrastructure configuration.
         * `declaration.yaml`: Description of the Docker container with a web server that will simulate the VM load.
         * `config.tpl`: VM user description.
@@ -96,7 +96,7 @@ To create an autoscaling instance group infrastructure with {{ TF }}:
 
    {% endlist %}
 
-   Learn more about the properties of {{ TF }} resources in the relevant {{ TF }} articles:
+   For more on the properties of resources used in {{ TF }}, see these provider guides:
 
    * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
    * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).

@@ -18,8 +18,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost for this solution includes:
 
 * {{ mch-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../../managed-clickhouse/pricing.md)).
-* VM fee: use of computational resources, storage, and, optionally, a public IP address (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
-* DNS zone and queries fee (see [{{ dns-name }} pricing](../../../dns/pricing.md)).
+* VM fee: use of computing resources, storage, and, optionally, a public IP address (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
+* DNS zone and DNS query fee (see [{{ dns-name }} pricing](../../../dns/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -67,7 +67,7 @@ The support cost for this solution includes:
             * `create_optional_vm`: Parameter that enables VM creation in the cluster’s network. Optionally, set it to `1` to test cluster accessibility from the same network later.
 
         1. Run the `terraform init` command in the directory with your configuration files. This command initializes the provider specified in the configuration file, making its resources and data sources available for use.
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
@@ -100,7 +100,7 @@ The support cost for this solution includes:
 
         1. In the `nets-vm-mch.tf` file, set `create_zone` to `1`.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate

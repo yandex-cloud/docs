@@ -189,6 +189,6 @@ You can install Crossplane in any of the following ways:
 
 * [{#T}](../../tutorials/marketplace/crossplane.md)
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Crossplane documentation](https://docs.crossplane.io/)

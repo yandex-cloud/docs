@@ -10,8 +10,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex Data Processing**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
 
 - CLI {#cli}
 
@@ -37,8 +37,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex Data Processing**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
     1. Нажмите на имя нужного кластера.
 
 - CLI {#cli}
@@ -78,7 +78,7 @@
   Можно получить список операций для конкретного ресурса. Ниже показано, как это сделать для кластера Yandex Data Processing.
 
   1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором находится кластер.
-  1. Перейдите в сервис **Yandex Data Processing**.
+  1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
   1. Выберите нужный кластер и перейдите на вкладку ![image](../../_assets/console-icons/list-check.svg) **Операции**.
 
      В открывшемся списке отображаются операции с выбранным кластером.

@@ -14,7 +14,7 @@ As soon as the installation is complete, you can view help by running this comma
 datasphere -h
 ```
 
-The result will be as follows:
+Result:
 
 ```bash
 usage: datasphere [-h] [-t TOKEN] [-l {ERROR,WARNING,INFO,DEBUG}] [--log-config LOG_CONFIG] [--log-dir LOG_DIR] [--profile PROFILE] {version,changelog,project,generate-requirements} ...
@@ -141,7 +141,7 @@ datasphere generate-requirements <root_module>
 
 Where `<root_module>` is the job root module.
 
-The response will return a file named `requirements.txt` with a list of environment parameters for the specified module. You can use the list in the job [configuration file](index.md#config) to explicitly specify dependencies.
+The response will return a file named `requirements.txt` with the list of environment parameters for the specified module. You can use the list in the job [configuration file](index.md#config) to explicitly specify dependencies.
 
 ### Getting a list of community projects {#project-list}
 
@@ -222,7 +222,7 @@ You can upload your job [results](../../operations/projects/use-job-results.md) 
 datasphere project job download-files --id <job_ID>
 ```
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../operations/projects/work-with-jobs.md)
 * [{#T}](../../operations/projects/use-job-results.md)

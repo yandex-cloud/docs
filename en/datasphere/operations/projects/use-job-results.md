@@ -30,6 +30,6 @@ To use the downloaded data in another job, specify the data in the `input` param
 
 {% include [dag-load-job-results](../../../_includes/datasphere/dag-load-job-results.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/jobs/cli.md)

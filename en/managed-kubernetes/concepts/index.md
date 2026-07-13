@@ -54,27 +54,13 @@ A _master_ is a component that manages a {{ k8s }} cluster.
 A master runs {{ k8s }} control processes including the {{ k8s }} API server, scheduler, and main resource controllers. A master lifecycle is managed by {{ k8s }} when creating or deleting a {{ k8s }} cluster. The master is responsible for global solutions executed on all {{ k8s }} cluster nodes. These include scheduling workloads, such as containerized applications, managing the lifecycle of workloads, and scaling.
 
 There are two types of masters that differ by number of master hosts and by their [availability zone](../../overview/concepts/geo-scope.md) placement:
-* _Base_: Contains one master host in a single availability zone. This type of master is cheaper but not fault-tolerant. Its former name is _zonal_.
-
-  {% note warning %}
-
-  {% include [base-zonal-pricing](../../_includes/managed-kubernetes/base-zonal-pricing.md) %}
-
-  {% endnote %}
+* _Base_: Contains one master host in a single availability zone. Such a master is generally cheaper but it does not guarantee high availability.
 
 * `Highly available`: Contains three master hosts that you can place as follows:
   * In one availability zone and one subnet. Choose this type if you want to ensure high availability of the cluster and reduce its internal network latency.
   * In three different availability zones. This master ensures the best [fault tolerance](../../architecture/fault-tolerance.md): if one zone becomes unavailable, the master will continue to function.
 
   The internal IP address of a highly available master is available only within a single {{ vpc-full-name }} cloud network.
-
-  Its former name is _regional_.
-
-  {% note warning %}
-
-  {% include [ha-regional-pricing](../../_includes/managed-kubernetes/ha-regional-pricing.md) %}
-
-  {% endnote %}
 
 For more information about master settings, see [{#T}](../operations/kubernetes-cluster/kubernetes-cluster-create.md).
 
@@ -87,8 +73,6 @@ For more information about master settings, see [{#T}](../operations/kubernetes-
 When [creating](../operations/kubernetes-cluster/kubernetes-cluster-create.md) or [updating](../operations/kubernetes-cluster/kubernetes-cluster-update.md#manage-resources) a cluster, you can select a master configuration suitable for your tasks.
 
 {% include [master-autoscale](../../_includes/managed-kubernetes/master-autoscale.md) %}
-
-{% include [master-config-preview-note](../../_includes/managed-kubernetes/master-config-preview-note.md) %}
 
 The following master configurations are available for Intel Cascade Lake with a guaranteed vCPU share of 100%:
 
@@ -135,7 +119,7 @@ A _node group_ is a {{ compute-full-name }} [instance group](../../compute/conce
 
 {% include [node-vm-manipulation-warning](../../_includes/managed-kubernetes/node-vm-manipulation-warning.md) %}
 
-See also the [description of instance groups during a zonal incident and our mitigation guidelines](../../compute/concepts/instance-groups/zonal-inc/overview.md).
+See also the [description of instance groups during a zonal incident and mitigation guidelines](../../compute/concepts/instance-groups/zonal-inc/overview.md).
 
 For a node group, you can specify the following settings:
 * Name and description
@@ -178,7 +162,7 @@ When creating a node group, you can configure the following VM parameters:
 
   {% endnote %}
 
-  For more information about kernel parameters, see [this {{ k8s }} guide](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
+  Learn more about kernel parameters in [this {{ k8s }} guide](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
 
 You can create groups with different configurations in a single {{ k8s }} cluster and spread them across multiple availability zones.
 
@@ -252,7 +236,7 @@ To system pods, tolerations are added automatically so they can run on any avail
 
 {% endnote %}
 
-For more information about taints and tolerations, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
+For more on taints and tolerations, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
 
 ### Node labels {#node-labels}
 
@@ -379,6 +363,6 @@ You can find metrics description in [{#T}](../../managed-kubernetes/metrics.md).
 * [{#T}](../tutorials/prometheus-grafana-monitoring.md)
 * [{#T}](../tutorials/driverless-gpu.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{{ k8s }}: Why use it, how it works, and what makes it an industry standard](https://yandex.cloud/ru/blog/posts/2025/03/kubernetes-guide)

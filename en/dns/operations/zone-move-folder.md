@@ -11,7 +11,7 @@ In {{ yandex-cloud }}, you can move a DNS zone to a different folder.
 
 Learn more about the {{ yandex-cloud }} resource hierarchy [here](../../resource-manager/concepts/resources-hierarchy.md).
 
-## Limitations {#limits}
+## Limits {#limits}
 
 Moving a DNS zone does not relocate its [{{ monitoring-full-name }}](../../monitoring/) metrics: existing metrics remain in the source folder, and new metrics will be created in the destination folder.
 
@@ -103,13 +103,13 @@ Moving a DNS zone does not relocate its [{{ monitoring-full-name }}](../../monit
 
       Where:
 
-      * `name`: Zone name. Note that the zone name must be unique within a folder.
+      * `name`: Zone name. It must be unique within a folder.
       * `description`: Zone description. 
       * `zone`: Domain zone name. Note that the zone name must end with a trailing dot. You cannot create top-level domain (TLD) zones. To create a domain name with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding.
       * `public`: Zone visibility, public or private.
       * `folder_id`: ID of the folder to place the DNS zone in (by default, specified from the [environment variable](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials)).
 
-      For more information about `yandex_dns_zone` properties, see [this provider guide]({{ tf-provider-resources-link }}/dns_zone).
+      For more on the properties of the `yandex_dns_zone` resource, see [this provider guide]({{ tf-provider-resources-link }}/dns_zone).
 
   1. Apply the new configuration:
 
@@ -287,6 +287,6 @@ Moving a DNS zone does not relocate its [{{ monitoring-full-name }}](../../monit
     * `response`: Updated DNS zone after migration.
     * `done`: Operation completion status.
 
-    For a detailed method description, see the [gRPC API reference](../api-ref/grpc/DnsZone/move.md).
+    For a detailed description of the method, see the [gRPC API reference](../api-ref/grpc/DnsZone/move.md).
 
 {% endlist %}

@@ -10,7 +10,7 @@ To create resources and run projects in the IDE, link a {{ yandex-cloud }} [bill
 
 {% include [share-resources](../../_includes/datasphere/sharing-resources.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./resource-model.md)
 * [{#T}](../security/index.md)

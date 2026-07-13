@@ -34,14 +34,14 @@ You can also use a different Docker image to run jobs by specifying it under `en
       image: <image_path>
       username: <login>
       password:
-        secret-id: <project_secret_ID>
+        secret-id: <secret_name>
   ```
 
   Where:
 
   * `<image_path>`: Full path to the image in a container registry, e.g., `{{ registry }}/b1g**********/myenv:0.1`.
   * `<username>`: Username for access to your registry. For {{ container-registry-full-name }} authentication, use a [service account](../../../iam/concepts/users/service-accounts.md) and an [authorized key](../../../iam/concepts/authorization/key.md).
-  * `<project_secret_ID>`: ID of the secret with a password. The secret must be [created](../../operations/data/secrets.md#create) in a {{ ml-platform-name }} project.
+  * `<secret_name>`: Name of the {{ ml-platform-name }} password secret. The secret must be [created](../../operations/data/secrets.md#create) in a {{ ml-platform-name }} project.
 
   If you are using a public image, you do not need to specify authentication credentials:
 
@@ -51,7 +51,7 @@ You can also use a different Docker image to run jobs by specifying it under `en
       image: ubuntu:focal
   ```
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](index.md)
 * [{#T}](cli.md)

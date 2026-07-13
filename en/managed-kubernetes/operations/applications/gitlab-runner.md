@@ -83,7 +83,7 @@ description: Follow this guide to install {{ GLR }}.
 * [{#T}](../../tutorials/cr-scanner-with-k8s-and-gitlab.md).
 * [{#T}](../../../managed-gitlab/tutorials/image-storage.md).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{{ mgl-name }} guides](../../../managed-gitlab/)
 * [{{ GL }} guides](https://docs.gitlab.com/)

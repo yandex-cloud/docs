@@ -72,7 +72,7 @@ The External Secrets Operator with {{ lockbox-name }} support enables you to con
 
 * [{#T}](../../tutorials/kubernetes-lockbox-secrets.md)
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [External Secrets Operator description](https://external-secrets.io/v0.8.1/provider/yandex-lockbox/)
 * [{{ lockbox-name }} guides](../../../lockbox/)

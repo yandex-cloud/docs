@@ -114,6 +114,8 @@
        * Yandex Data Transfer
        * WebSQL
        * DataLens
+       * Trino
+       * Apache Airflow™
 
     1. Укажите параметры источника для выбранного типа базы данных:
 

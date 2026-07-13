@@ -1015,8 +1015,9 @@ The downloaded object was saved to the file whose path is specified in the `LOCA
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./index.md)
 * [{#T}](../api-ref/authentication.md)
 * [{#T}](./signing-requests.md)
+* [Webinar: How to use Cloud CDN to offload a high-traffic infrastructure](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)

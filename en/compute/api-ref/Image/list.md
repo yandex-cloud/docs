@@ -122,6 +122,7 @@ The length must be less than or equal to 100. ||
       "description": "string",
       "labels": "object",
       "family": "string",
+      "size": "string",
       "storageSize": "string",
       "minDiskSize": "string",
       "productIds": [
@@ -205,6 +206,9 @@ The name of the image family to which this image belongs.
 You can get the most recent image from a family by using
 the [yandex.cloud.compute.v1.ImageService.GetLatestByFamily](/docs/compute/api-ref/Image/getLatestByFamily#GetLatestByFamily) request
 and create the disk from this image. ||
+|| size | **string** (int64)
+
+The total size of the image, specified in bytes. ||
 || storageSize | **string** (int64)
 
 The storage size of the image, specified in bytes. ||

@@ -6,8 +6,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-    1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
     1. Нажмите на имя нужного кластера.
     1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **Каталоги**.
     1. В строке с нужным каталогом Trino нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Редактировать**.

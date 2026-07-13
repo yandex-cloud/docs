@@ -115,6 +115,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Подключение из графических IDE {#connection-ide}
 
+
 {% include [IDE environment settings](../../../_includes/mdb/mvk/ide-envs.md) %}
 
 Подключаться из графических IDE к хостам кластера можно только через [SSH-туннель](../../../glossary/ssh-keygen.md) с помощью [созданной ВМ](./index.md). Перед подключением [подготовьте сертификат](./index.md#get-ssl-cert).
@@ -155,5 +156,6 @@ description: Следуя данной инструкции, вы сможете
     1. Нажмите кнопку **Готово**, чтобы сохранить настройки соединения с БД.
 
 {% endlist %}
+
 
 {% include [How to connect from a Dockerfile](../../../_includes/mdb/mvk/connect/docker-and-redis.md) %}

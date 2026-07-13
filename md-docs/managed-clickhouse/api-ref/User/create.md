@@ -210,6 +210,8 @@ The maximum string length in characters is 50. ||
       "final": "boolean",
       "useHivePartitioning": "boolean",
       "showDataLakeCatalogsInSystemTables": "boolean",
+      "compatibility": "string",
+      "materializeTtlAfterModify": "boolean",
       "compile": "boolean",
       "minCountToCompile": "string",
       "asyncInsertThreads": "string",
@@ -1768,6 +1770,19 @@ Enables or disables showing data lake catalogs in system tables.
 Default value: **false** for versions 25.10 and higher, **true** for versions 25.9 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#show_data_lake_catalogs_in_system_tables). ||
+|| compatibility | **string**
+
+The compatibility setting causes ClickHouse to use the default settings of a previous version of ClickHouse,
+where the previous version is provided as the setting. An empty value means that this setting is disabled.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#compatibility). ||
+|| materializeTtlAfterModify | **boolean**
+
+Apply TTL for old data, after ALTER MODIFY TTL query.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#materialize_ttl_after_modify). ||
 || compile | **boolean**
 
 The setting is deprecated and has no effect. ||

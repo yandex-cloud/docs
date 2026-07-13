@@ -153,8 +153,8 @@ Learn more about {{ k8s-hpa }} in [{#T}](../concepts/autoscale.md#hpa).
          apiVersion: "apps/v1"
          kind:       Deployment
          name:       <application_name>
-     updatePolicy:
-       updateMode: "<VPA_update_mode>"
+       updatePolicy:
+         updateMode: "<VPA_update_mode>"
      ```
 
      Where `updateMode` is {{ k8s-vpa }}'s operating mode: `Off`, `Initial`, `Recreate`, or `InPlaceOrRecreate`. For more information, see [{#T}](../concepts/autoscale.md#vpa).

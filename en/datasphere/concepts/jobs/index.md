@@ -116,13 +116,13 @@ cloud-instance-types:
 
 # Extended working directory configuration.
 working-storage:
-  type: SSD    # Disk type in use. Optional, the default type is SSD. Available values: SSD
+  type: SSD    # Disk type in use. Optional, the default type is SSD. Valid values: SSD
   size: 150Gb  # Working directory size from 100 GB to 10 TB.
 
 # Configuring graceful shutdown.
 graceful-shutdown:
   signal: SIGTERM  # Signal to be sent to the job process on pressing Ctrl + C (cancel); SIGTERM by default.
-                   # Available values: SIGTERM, SIGINT, SIGHUP, SIGUSR1, SIGUSR2
+                   # Valid values: SIGTERM, SIGINT, SIGHUP, SIGUSR1, SIGUSR2
   timeout: 15s     # Timeout after which the job process gets SIGKILL if it has not finished yet.
 
 # List of datasets to create upon a successful job completion.
@@ -198,7 +198,7 @@ The `config.yaml` file has multiple sections.
 
 1. The `spark` section describes the configuration for [operations](work-with-spark.md) with [{{ dataproc-full-name }}](../../../data-proc/) clusters through [Spark Connector](../spark-connector.md). When specifying a Spark connector, first make sure it is [available](../../operations/data/spark-connectors.md#share) in your project.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../operations/projects/work-with-jobs.md)
 * [GitHub repository](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples) with job run examples

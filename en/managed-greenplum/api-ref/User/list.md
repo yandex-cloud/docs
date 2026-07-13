@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field.
+            Required field. ID of the Greenplum® cluster.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -36,7 +36,7 @@ GET https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/users
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.
+Required field. ID of the Greenplum® cluster.
 
 The maximum string length in characters is 50. ||
 |#
@@ -59,7 +59,9 @@ The maximum string length in characters is 50. ||
 
 #|
 ||Field | Description ||
-|| users[] | **[User](#yandex.cloud.mdb.greenplum.v1.User)** ||
+|| users[] | **[User](#yandex.cloud.mdb.greenplum.v1.User)**
+
+List of cluster users. ||
 |#
 
 ## User {#yandex.cloud.mdb.greenplum.v1.User}
@@ -75,10 +77,10 @@ The string length in characters must be 1-63. Value must match the regular expre
 
 User password. Used only in create and update requests
 
-The string length in characters must be 6-200. ||
+The maximum string length in characters is 128. ||
 || resourceGroup | **string**
 
 Resource group for user's queries
 
-Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
+Value must match the regular expression ``` ^([^\|/*?.,;'<>]+|)$ ```. ||
 |#

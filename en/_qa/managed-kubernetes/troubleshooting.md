@@ -298,7 +298,7 @@ You can provide internet access to your {{ managed-k8s-name }} cluster nodes in 
 
 {% note info %}
 
-If you assign public IP addresses to your cluster nodes and then configure a NAT gateway or NAT instance, you will lose internet access via the public addresses. For more information, see [our {{ vpc-full-name }} article](../../vpc/concepts/routing.md#internet-routes).
+If you assign public IP addresses to your cluster nodes and then configure a NAT gateway or NAT instance, you will lose internet access via the public addresses. For more information, see [this {{ vpc-full-name }} guide](../../vpc/concepts/routing.md#internet-routes).
 
 {% endnote %}
 
@@ -393,7 +393,7 @@ For more information, see [{#T}](../../application-load-balancer/concepts/best-p
         ...
         ```
 
-        For more information about the `yandex_vpc_subnet` settings, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/vpc_subnet).
+        For more information about `yandex_vpc_subnet` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_subnet).
 
      1. Apply the changes:
 

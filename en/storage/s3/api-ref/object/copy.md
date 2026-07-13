@@ -58,7 +58,7 @@ Header | Description
 `X-Amz-Copy-Source-If-Modified-Since` | Condition for copying an object.<br/><br/>The object is copied if it has been modified since the specified time.<br/><br/>If the condition is not met, {{ objstorage-name }} returns error 412.<br/><br/>Can be used together with the `X-Amz-Copy-Source-If-None-Match` header.
 `X-Amz-Server-Side-Encryption` | Default encryption algorithm used for new objects.
 `X-Amz-Server-Side-Encryption-Aws-Kms-Key-Id` | ID of the [{{ kms-short-name }}](../../../../kms/concepts/key.md) key used by default to encrypt new objects.
-`X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/><br/>Possible values:<ul><li>`STANDARD`: Standard storage</li><li>`COLD`, `STANDARD_IA`, or `NEARLINE`: Cold storage</li><li>`ICE` or `GLACIER`: Ice storage</li></ul>If the header is not specified, the object storage is defined in the bucket settings.
+`X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/><br/>Possible values:<ul><li>`STANDARD`: Standard storage</li><li>`COLD`, `STANDARD_IA`, or `NEARLINE`: Cold storage</li><li>`ICE` or `GLACIER`: Ice storage</li><li>`INTELLIGENT_TIERING`: Intelligent-Tiering storage class.</li></ul>If the header is not specified, the object storage is defined in the bucket settings.
 `X-Amz-Object-Lock-Mode` | <p>Type of [retention](../../../concepts/object-lock.md) put on the object (if the bucket is [versioned](../../../concepts/versioning.md) and object lock is enabled in it):</p><ul><li>`GOVERNANCE`: Governance-mode retention.</li><li>`COMPLIANCE`: Compliance-mode retention.</li></ul><p>For an object version, you can use only retention (the `X-Amz-Object-Lock-Mode` and `X-Amz-Object-Lock-Retain-Until-Date` headers), only legal hold (`X-Amz-Object-Lock-Legal-Hold`), or both at the same time. For more information about their combined use, see [{#T}](../../../concepts/object-lock.md#types).</p>
 `X-Amz-Object-Lock-Retain-Until-Date` | Retention end date and time in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats), e.g., `Mon, 12 Dec 2022 09:00:00 GMT`. Specify it only with the `X-Amz-Object-Lock-Mode` header.
 `X-Amz-Object-Lock-Legal-Hold` | <p>Type of [legal hold](../../../concepts/object-lock.md) put on the object (if the bucket is [versioned](../../../concepts/versioning.md) and object lock is enabled in it):</p><ul><li>`ON`: Enabled.</li><li>`OFF`: Disabled.</li></ul><p>For an object version, you can use only retention (the `X-Amz-Object-Lock-Mode` and `X-Amz-Object-Lock-Retain-Until-Date` headers), only legal hold (`X-Amz-Object-Lock-Legal-Hold`), or both at the same time. For more information about their combined use, see [{#T}](../../../concepts/object-lock.md#types).</p>
@@ -74,7 +74,7 @@ A response may contain [common headers](../common-response-headers.md) and the h
 
 Header | Description
 ----- | -----
-`X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/><br/>Possible values:<ul><li>`STANDARD`: Standard storage</li><li>`COLD`: Cold storage</li><li>`ICE`: Ice storage</li></ul>
+`X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/><br/>Possible values:<ul><li>`STANDARD`: Standard storage</li><li>`COLD`: Cold storage</li><li>`ICE`: Ice storage</li><li>`INTELLIGENT_TIERING`: Intelligent-Tiering storage class.</li></ul>
 
 ### Response codes {#response-codes}
 

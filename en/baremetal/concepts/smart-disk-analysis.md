@@ -164,7 +164,7 @@ Data center engineers provide replacement for malfunctioning disks free of charg
 
 To learn more about disk replacement in {{ baremetal-name }} servers, see [Replacing a disk in a RAID array](../operations/servers/switch-raid-member.md#request-swap).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/servers/use-hwatcher.md)
 * [{#T}](../operations/servers/switch-raid-member.md)

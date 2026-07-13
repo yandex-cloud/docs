@@ -116,7 +116,7 @@ By default, [bucket](../../concepts/bucket.md) [access](../../concepts/bucket.md
        * `list`: Public access to the list of bucket objects.
        * `config_read`: Public read access to the bucket configuration.
 
-     For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#bucket-anonymous-access-flags).
+     For more information on the properties of the `yandex_storage_bucket` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#bucket-anonymous-access-flags).
 
   1. Make sure the configuration files are correct.
 
@@ -226,7 +226,7 @@ You will not be able to open public access if a restrictive [access policy](../.
 
   To disable public access to bucket operations:
 
-  1. Open the {{ TF }} configuration file and add the `anonymous_access_flags` section to the bucket description fragment.
+  1. Open the {{ TF }} configuration file and add the `anonymous_access_flags` section to the bucket description.
 
      ```hcl
      resource "yandex_storage_bucket" "log_bucket" {
@@ -251,7 +251,7 @@ You will not be able to open public access if a restrictive [access policy](../.
        * `list`: Public access to the list of bucket objects.
        * `config_read`: Public read access to the bucket configuration.
 
-     For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#bucket-anonymous-access-flags).
+     For more information on the properties of the `yandex_storage_bucket` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#bucket-anonymous-access-flags).
 
   1. Make sure the configuration files are correct.
 

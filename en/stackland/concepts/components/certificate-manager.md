@@ -4,7 +4,7 @@ Certificate Manager is a component to manage certificates used in cross-service 
 
 ## Default CA Issuer
 
-This issuer is enabled by default and cannot be additionally configured. If you specified an intermediate CA during Stackland installation (see [Getting started](../../quickstart.md#prepare-image)), it will certify the generated certificates. Otherwise, self-signed certificates are generated.
+This issuer is enabled by default and cannot be additionally configured. If you specify an intermediate CA during Stackland installation (see more in [Getting started](../../quickstart.md#prepare-image)), it will validate the generated certificates. Otherwise, self-signed certificates will be generated.
 
 ## Let's Encrypt HTTP01
 

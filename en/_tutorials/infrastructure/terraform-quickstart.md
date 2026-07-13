@@ -23,7 +23,7 @@ If you no longer need the resources, [delete them](#delete-resources).
 
 The cost of support for the infrastructure deployed through {{ TF }} in this tutorial includes:
 * Fee for continuously running [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using dynamic [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Install {{ TF }} {#install-terraform}
 
@@ -55,7 +55,7 @@ To authenticate and manage your {{ yandex-cloud }} infrastructure, you can use {
 
 ## Prepare an infrastructure plan {#prepare-plan}
 
-With {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type: VMs, [disks](../../compute/concepts/disk.md), [images](../../compute/concepts/image.md), etc. For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
+With {{ TF }} in {{ yandex-cloud }}, you can create cloud resources of any type: VMs, [disks](../../compute/concepts/disk.md), [images](../../compute/concepts/image.md), etc. For more about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 
 To create a resource, specify a set of required and optional parameters that define the resource properties. Such resource descriptions make up the infrastructure plan.
 
@@ -136,9 +136,9 @@ resource "yandex_compute_instance" "vm-1" {
 
 {% include [delete-resources](../../_tutorials/_tutorials_includes/terraform-delete-resources.md) %}
 
-You can check the deletion of the resources using the [management console]({{ link-console-main }}).
+You can check the deletion of the resources in the [management console]({{ link-console-main }}).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Uploading {{ TF }} states to {{ objstorage-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
 * [Locking {{ TF }} states using {{ ydb-name }}](../../tutorials/infrastructure-management/terraform-state-lock.md).

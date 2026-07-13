@@ -24,16 +24,16 @@ If you no longer need the VM or the cluster you created, [delete them](#clear-ou
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support costs include:
+The infrastructure support cost includes:
 * Fee for continuously running VMs (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for storing created images (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-storage)).
-* Fee for using a dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for storing the created images (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-storage)).
+* Fee for using dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Set up your environment {#prepare}
 
 Set up the software:
 * [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} command line interface.
-* [Install](https://www.terraform.io/downloads) {{ TF }}. See also: [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
+* [Install](https://www.terraform.io/downloads) {{ TF }}. The installation is described in [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Download](https://stedolan.github.io/jq/download/) the `jq` utility.
 * [Configure](https://gitforwindows.org) Git. If you are running Windows, use Git Bash.
 * [Create](https://github.com/yandex-cloud-examples/yc-marketplace-vm-image-packer) a repository branch with examples in your GitHub account.
@@ -259,7 +259,7 @@ Jenkins launches an image build automatically after you run `push` in the `maste
    ```
 
 1. Modify the Packer templates in the `packer` directory. You can find articles and guides regarding Packer templates on the [Packer website](http://packer.io/docs/templates/index.html). In the `image_family` and `source_image_family` parameters, specify the [image families](../../compute/concepts/image.md#family) for Jenkins to build.
-1. Modify the Pipeline for `Jenkinsfile` located in the repository root directory. For the Pipeline user handbook, see the [Packer website](https://jenkins.io/doc/book/pipeline/syntax/).
+1. Modify the Pipeline for `Jenkinsfile` located in the repository root directory. For the Pipeline user handbook, see the vendor's [website](https://jenkins.io/doc/book/pipeline/syntax/).
 1. Upload the changes to GitHub:
 
    ```bash
@@ -297,7 +297,7 @@ Once the images have been created, you can use them to create your VMs. Create a
    mv terraform.tfvars_example terraform.tfvars
    ```
 
-1. Provide the required values in the file fields. See also the [{{ TF }}](https://www.terraform.io/language#about-the-terraform-language) and [{{ yandex-cloud }}]({{ tf-provider-link }}) overview articles.
+1. Provide the required values in the file fields. See also the [{{ TF }}](https://www.terraform.io/language#about-the-terraform-language) and [{{ yandex-cloud }} provider guides]({{ tf-provider-link }}).
 1. Initialize the {{ TF }} provider by running `terraform init`.
 1. Run the `terraform plan -var-file="terraform.tfvars"` command. Check the configuration you created.
 1. Run `terraform apply` and confirm that you want to create the infrastructure by typing `yes` into the terminal prompt.

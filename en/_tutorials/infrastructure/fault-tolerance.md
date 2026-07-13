@@ -20,7 +20,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-* VMs: use of computing resources, storage, public IP addresses, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* VMs: use of computing resources, storage, public IP addresses, and the OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 

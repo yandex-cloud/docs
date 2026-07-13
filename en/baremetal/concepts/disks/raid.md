@@ -153,7 +153,7 @@ The main advantage of Intel vROC over hardware RAID controllers is that there is
 | Performance | Medium | High | Medium | High |
 | Support for RAID levels 0, 1, 5, 10 | Yes | Yes | Yes | Yes |
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./disk-types.md)
 * [{#T}](../../operations/servers/switch-raid-member.md)

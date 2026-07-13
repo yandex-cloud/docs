@@ -185,7 +185,7 @@ Use SystemRescue tools to restore or configure your server:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./reset-password.md)
 * [{#T}](./add-new-ssh-key.md)

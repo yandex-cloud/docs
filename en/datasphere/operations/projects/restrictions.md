@@ -16,7 +16,7 @@ In {{ ml-platform-name }}, you can set consumption limits for your project, meas
 
 1. Click **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](install-dependencies.md)
 * [{#T}](control-compute-resources.md)

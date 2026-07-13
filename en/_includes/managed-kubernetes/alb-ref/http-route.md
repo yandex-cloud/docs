@@ -6,7 +6,7 @@ The `HTTPRoute` resource sets traffic routing rules for {{ k8s }} services ([Ser
 
 `HTTPRoute` is designed for application developers. Cluster operators should use the `Gateway` resource.
 
-`HTTPRoute` is a [{{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/) project resource. Below, we describe its fields and annotations used by the {{ alb-name }} Gateway API. For configuration details, see the [{{ k8s }} Gateway API reference](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.HTTPRoute).
+`HTTPRoute` is a [{{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/) project resource. Below, we describe its fields and annotations used by the {{ alb-name }} Gateway API. For resource configuration details, see [this {{ k8s }} Gateway API guide](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.HTTPRoute).
 
 ## HTTPRoute {#httproute}
 
@@ -66,7 +66,7 @@ Where:
 
   * `name` (`string`; this is a required field)
 
-    Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. For more on the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
     Do not mistake this name for the {{ alb-name }} route name.
 
@@ -126,7 +126,7 @@ Where:
 
     * `gateway.alb.yc.io/rules.backends.balancing.localityAwareRouting`
 
-      Percentage of traffic that goes to the `HTTPRoute` resource's availability zone with `healthy` backends. The remaining traffic is distributed across other availability zones. The parameter is not applied if `strictLocality=true` (see below).
+      Percentage of traffic that goes to the `HTTPRoute` resource's availability zone with `healthy` backends. The remaining traffic is distributed across other availability zones. The parameter does not apply if `strictLocality=true` (see below).
 
     * `gateway.alb.yc.io/rules.backends.balancing.strictLocality`
 
@@ -242,7 +242,7 @@ Where:
 
 * `spec` (`HTTPRouteSpec`; this is a required field)
 
-  Resource specification. For more information, see [below](#spec).
+  Resource specification. See details [below](#spec).
 
 ## HTTPRouteSpec {#spec}
 
@@ -341,7 +341,7 @@ Where:
         * `Exact`: Path must _match_ `rules.matches.path.value`.
         * `PathPrefix`: Path must _begin_ with `rules.matches.path.value`.
 
-        The selected path type will affect traffic distribution and the path replacement mechanism for redirects. For more information, see [below](#filter).
+        The selected path type will affect traffic distribution and the path replacement mechanism for redirects. See details [below](#filter).
 
       * `value` (`string`)
 
@@ -353,7 +353,7 @@ Where:
 
   * `filters` (`[]HTTPRouteFilter`)
     
-    Filters specifying how request headers are modified when routing a request to any backend or redirecting it. For more information, see [below](#filter).
+    Filters specifying how request headers are modified when routing a request to any backend or redirecting it. See details [below](#filter).
   
     You can specify either the `RequestHeaderModifier` or the `RequestRedirect` filter, but not both at the same time.
 
@@ -399,7 +399,7 @@ Where:
 
      * `filters` (`[]HTTPRouteFilter`)
 
-       Settings for modifying request headers when routing requests to backends. For more information, see [below](#filter).
+       Settings for modifying request headers when routing requests to backends. See details [below](#filter).
   
        You can only specify the `RequestHeaderModifier` filter.
 

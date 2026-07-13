@@ -33,9 +33,16 @@ FQDN можно использовать для доступа к хосту в 
 
 ## Подключение к хостам кластера {#cluster-connect}
 
-[Подключение к хостам кластера](../operations/connect/index.md) {{ mmy-short-name }} возможно:
 
-{% include [cluster-connect-note](../../_includes/mdb/mmy/cluster-connect-note.md) %}
+[Подключение к хостам кластера](../operations/connect/index.md) {{ mmy-name }} возможно:
+
+* Через интернет, если вы [настроили](../operations/hosts.md#update) публичный доступ для нужного хоста. Через интернет можно подключиться следующими способами:
+
+    * используя SSL-соединение;
+    * используя авторизацию через IAM.
+
+* С виртуальных машин {{ yandex-cloud }}, расположенных в той же [облачной сети](../../vpc/concepts/network.md). Если к хосту нет публичного доступа, для подключения с таких виртуальных машин необязательно использовать SSL-соединение.
+
 
 Максимальное количество подключений определяется настройкой [max_connections](./settings-list.md#setting-max-connections), которая [зависит от класса хостов](./settings-list.md#settings-instance-dependent).
 

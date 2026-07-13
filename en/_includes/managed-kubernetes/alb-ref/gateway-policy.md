@@ -93,7 +93,7 @@ Where:
 
   * `name` (`string`; this is a required field)
   
-    Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. For more on the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
   * `namespace` (`string`)
   
@@ -113,7 +113,7 @@ Where:
 
   * `policy` (`Gateway`)
 
-    Cloud configuration applied to selected resources. For more information, see [below](#gatewaypolicy-gateway).
+    Cloud configuration applied to selected resources. See details [below](#gatewaypolicy-gateway).
 
 * `status` (`GatewayPolicyStatus`)
 

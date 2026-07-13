@@ -20,8 +20,8 @@
 
 ## Проверить список приложений {#list}
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-1. Перейдите в сервис **Yandex Data Processing**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
 1. Нажмите на имя нужного кластера.
 1. В блоке **UI Proxy** выберите интерфейс `YARN Resource Manager Web UI`.
 
@@ -29,8 +29,8 @@
 
 ## Проверить логи приложения {#logs}
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-1. Перейдите в сервис **Yandex Data Processing**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
 1. Нажмите на имя нужного кластера.
 1. В блоке **UI Proxy** выберите интерфейс `YARN Resource Manager Web UI`.
 1. Найдите нужное приложение и нажмите на его идентификатор в столбце **ID**.
@@ -41,8 +41,8 @@
 
 ## Проверить очередь выполнения приложений {#queue}
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-1. Перейдите в сервис **Yandex Data Processing**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
 1. Нажмите на имя нужного кластера.
 1. В блоке **UI Proxy** выберите интерфейс `YARN Resource Manager Web UI`.
 1. В левом меню перейдите в раздел **Scheduler**.
@@ -55,8 +55,8 @@
 
 * YARN Resource Manager Web UI
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex Data Processing**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
     1. Нажмите на имя нужного кластера.
     1. В блоке **UI Proxy** выберите интерфейс `YARN Resource Manager Web UI`.
     1. Найдите нужное приложение и перейдите по ссылке в столбце **Tracking UI**. Название ссылки зависит от статуса приложения:
@@ -66,8 +66,8 @@
 
 * Spark History Server Web UI
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex Data Processing**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
     1. Нажмите на имя нужного кластера.
     1. В блоке **UI Proxy** выберите интерфейс `Spark History Server Web UI`.
 
@@ -92,8 +92,8 @@
 
 ## Проверить выделенные для приложения ресурсы {#resources}
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-1. Перейдите в сервис **Yandex Data Processing**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
 1. Нажмите на имя нужного кластера.
 1. В блоке **UI Proxy** выберите интерфейс `Spark History Server Web UI`.
 1. В верхнем меню перейдите в раздел **Executors**.
@@ -120,8 +120,8 @@
 
 ## Проверить кешируемые таблицы {#tables}
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-1. Перейдите в сервис **Yandex Data Processing**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
 1. Нажмите на имя нужного кластера.
 1. В блоке **UI Proxy** выберите интерфейс `Spark History Server Web UI`.
 1. В верхнем меню перейдите в раздел **Storage**.
@@ -132,8 +132,8 @@
 
 ## Проверить список и планы SQL-запросов {#sql}
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-1. Перейдите в сервис **Yandex Data Processing**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
 1. Нажмите на имя нужного кластера.
 1. В блоке **UI Proxy** выберите интерфейс `Spark History Server Web UI`.
 1. В верхнем меню перейдите в раздел **SQL**.

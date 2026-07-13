@@ -12,8 +12,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите]({{ link-console-main }}/link/data-proc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Нажмите на имя нужного кластера.
     1. В разделе **{{ ui-key.yacloud.mdb.cluster.overview.section_configuration }}** нажмите на имя лог-группы кластера. Откроется страница сервиса {{ cloud-logging-name }}.
     1. Нажмите на строку лог-группы. Откроются логи кластера.
@@ -109,8 +109,8 @@
 
       Чтобы получить FQDN хоста:
 
-      1. Перейдите на [страницу каталога]({{ link-console-main }}).
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+      1. [Перейдите]({{ link-console-main }}/link/data-proc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
       1. Нажмите на имя нужного кластера.
       1. Перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
       1. Скопируйте FQDN хоста.

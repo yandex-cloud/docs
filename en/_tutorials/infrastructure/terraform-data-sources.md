@@ -50,13 +50,13 @@ In the {{ TF }} code, data sources are defined using the `data` block.
     * `output "resource_active"`: Output variable with information about the current image ID for the specified family:
         * `value`: Return value.
 
-    For more information about the `yandex_compute_image` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_image).
+    For more on the properties of the `yandex_compute_image` data source, see [this provider guide]({{ tf-provider-datasources-link }}/compute_image).
 
 1. Create the resources:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-    {{ TF }} will create the required resources and display their output variables.
+    {{ TF }} will create all required resources and display their output variables.
 
 ## Check the result {#check}
 
@@ -86,7 +86,7 @@ resource "yandex_compute_disk" "boot-disk" {
 ...
 ```
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Getting started with {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Uploading {{ TF }} states to {{ objstorage-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).

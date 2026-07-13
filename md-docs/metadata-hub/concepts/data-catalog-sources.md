@@ -29,6 +29,8 @@
 * [Yandex Data Transfer](#source-dt)
 * [Yandex WebSQL](#source-websql)
 * [Yandex DataLens](#source-datalens)
+* Trino
+* Apache Airflow™
 
 
 ### PostgreSQL {#source-pg}

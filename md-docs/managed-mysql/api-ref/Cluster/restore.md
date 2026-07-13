@@ -384,7 +384,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters:restore
 ||Field | Description ||
 || backupId | **string**
 
-Required field. ID of the backup to restore from.
+ID of the backup to restore from.
 To get this ID, make a [BackupService.List](../Backup/list.md#List) request (lists all backups in a folder) or a [ClusterService.ListBackups](listBackups.md#ListBackups) request (lists all backups for an existing cluster). ||
 || time | **string** (date-time)
 

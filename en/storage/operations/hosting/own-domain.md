@@ -112,7 +112,7 @@ To use a custom domain:
 
 {% include [objects-access.md](../../../_includes/storage/objects-access.md) %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../qa.md#qa-mime-type)
 * [{#T}](setup.md)

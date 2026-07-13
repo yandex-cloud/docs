@@ -26,7 +26,7 @@ Data amount, TB | Connection capacity | Label
 
 {% note info %}
 
-* To learn how much each data size options cost, see the [pricing policy](../pricing.md).
+* To learn how much each data size option costs, see the [pricing policy](../pricing.md).
 * When submitting a request for a new trunk (either direct or partner), make sure to specify the trunk capacity in `mbps`. You can see the available trunk capacity options in the table above. Any other values are not supported.
 * To change the capacity of your existing trunk, contact our support.
 

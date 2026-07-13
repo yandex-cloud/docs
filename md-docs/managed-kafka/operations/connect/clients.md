@@ -585,14 +585,12 @@ sudo apt update && sudo apt install -y kafkacat
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
   ```bash
   RUN apt-get update && \
       apt-get install kafkacat --yes
   ```
-
 
 - Подключение с SSL {#with-ssl}
 

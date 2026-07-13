@@ -98,7 +98,7 @@ See the table below for availability info on observability tools for specific se
 ^1^ You can transfer virtual machine logs through [Fluent Bit](../../logging/tutorials/vm-fluent-bit-logging.md) or [Unified Agent](../../logging/tutorials/ua-http-logging.md).
 ^2^ Bucket actions are logged [by means](../../storage/concepts/server-logs.md) of {{ objstorage-name }}.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Reference for Monitoring metrics](../../monitoring/metrics-ref/index.md)
 * [Reference for Audit Trails management events](../../audit-trails/concepts/events.md)

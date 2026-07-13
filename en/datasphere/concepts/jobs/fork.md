@@ -56,7 +56,7 @@ sdk.fork_job(
 
 ## Job data lifetime {#ttl}
 
-By default, job data is retained for 14 days. Once the data is deleted, you will not be able to re-run the job. You can change the job data lifetime by running the command below:
+By default, job data is deleted after 14 days. Once the data is deleted, you will not be able to re-run the job. You can change the job data lifetime by running the command below:
 
 ```bash
 datasphere project job set-data-ttl --id <job_ID> --days <number_of_days>
@@ -67,7 +67,7 @@ Where:
 `--id`: Job ID.
 `--days`: Number of days after which the job data will be deleted.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./index.md)
 * [{#T}](./airflow.md)

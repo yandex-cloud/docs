@@ -20,6 +20,16 @@
 
           {% include [saml-app-assertion-list](./saml-app-assertion-list.md) %}
 
+      1. (Опционально) Нажмите **{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.action_add_transformation_bc8Cd }}**, чтобы добавить [трансформацию атрибута](*transform). Выберите один из типов трансформации:
+
+         * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_extract_after_q4x8n }}` — возвращает часть значения, которая находится после указанной подстроки. Подстрока указывается в поле **{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.field_substring_siBpY }}**. Например, `user@site.com` + `@` → `site.com`.
+         * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_extract_before_ju2PE }}` — возвращает часть значения, которая находится до указанной подстроки. Подстрока указывается в поле **{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.field_substring_siBpY }}**. Например, `user@example.com` + `@` → `user`.
+         * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_to_lowercase_vRG6c }}` — приводит все символы в значении атрибута к нижнему регистру.
+         * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_to_uppercase_uF6Br }}` — приводит все символы в значении атрибута к верхнему регистру.
+         * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_trim_3SF6q }}` — удаляет пробелы в начале и в конце значения атрибута.
+         * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_if_empty_e5unh }}` — заменяет текущее значение атрибута, если оно пустое. Можно выбрать значение для замены из списка значений атрибутов или указать свое. Например, если значение `username` пустое, использовать `email`.
+         * `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_constant_tvJWi }}` — заменяет текущее значение на указанную константу. Константа указывается в поле **{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.field_if_empty_value_1K7py }}**. Например, `<значение_атрибута>` → `User`.
+
       1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
   1. Чтобы изменить имеющийся атрибут, нажмите на строку с нужным атрибутом и в открывшемся окне:
   
@@ -164,3 +174,5 @@
 {% endlist %}
 
 Убедитесь, что добавленные атрибуты также добавлены в настройки интеграции SAML-приложения на стороне поставщика услуг и корректно обрабатываются им.
+
+[*transform]: Трансформации изменяют значение атрибута перед отправкой в SAML-ответе. Например, приводят текст к нижнему регистру, удаляют пробелы или извлекают часть строки. Трансформации применяются последовательно, сверху вниз.

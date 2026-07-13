@@ -21,7 +21,7 @@ When you install the OS from a [custom image](./images.md#user-images), server n
 
 To learn more about configuring MC-LAG on the server side, see [{#T}](../operations/servers/set-up-mc-lag.md).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./network.md)
 * [{#T}](./public-network.md)

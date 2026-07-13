@@ -122,7 +122,7 @@ Tag | Description
 `ID` | User ID.<br/><br/>Possible paths:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/ID`
 `DisplayName` | User name displayed.<br/><br/>Possible paths:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/DisplayName`
 `Owner` | Information about the object owner, matches `Initiator`.<br/><br/>Path: `/ListMultipartUploadsResult/Owner`.
-`StorageClass` | Object [storage class](../../../concepts/storage-class.md): `STANDARD`, `COLD`, or `ICE`.<br/><br/>Path: `/ListMultipartUploadsResult/Upload/StorageClass`.
+`StorageClass` | Object [storage class](../../../concepts/storage-class.md): `STANDARD`, `COLD`, `ICE`, or `INTELLIGENT_TIERING`.<br/><br/>Path: `/ListMultipartUploadsResult/Upload/StorageClass`.
 `Initiated` | Date and time of the request for [starting a multipart upload](startupload.md).
 `/ListMultipartUploadsResult/Prefix` | Key prefix.<br/><br/>See the `prefix` request parameter.<br/><br/>Path: `/ListMultipartUploadsResult/Prefix`.
 `Delimiter` | Delimiter character used when generating output.<br/><br/>See the `delimiter` request parameter description.<br/><br/>Path: `/ListMultipartUploadsResult/Delimiter`.

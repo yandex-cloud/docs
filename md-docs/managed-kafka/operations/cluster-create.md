@@ -78,8 +78,8 @@
 
   Чтобы создать кластер Managed Service for Apache Kafka®:
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
   1. Нажмите кнопку **Создать кластер**.
   1. В блоке **Базовые параметры**:
      1. Введите имя кластера Managed Service for Apache Kafka® и его описание. Имя кластера Managed Service for Apache Kafka® должно быть уникальным в рамках каталога.
@@ -2036,8 +2036,8 @@
 
   Чтобы создать кластер Managed Service for Apache Kafka®:
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
   1. Нажмите кнопку **Создать кластер**.
   1. В блоке **Базовые параметры**:
      1. Введите имя кластера Managed Service for Apache Kafka® и его описание. Имя кластера Managed Service for Apache Kafka® должно быть уникальным в рамках каталога.

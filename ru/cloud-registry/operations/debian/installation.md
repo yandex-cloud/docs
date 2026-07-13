@@ -67,96 +67,90 @@ GPG-ключ требуется для реестра с подписью мет
 
 ## Настройка APT {#configure-apt}
 
-### Локальный реестр {#local-registry}
+Чтобы настроить APT, добавьте:
+* реестр в список источников APT;
+* данные для аутентификации в файл `/etc/apt/auth.conf`.
 
-1. Добавьте реестр в список источников `APT`:
+Способ добавления реестра в список источников APT отличается в зависимости от формата реестра и типа источника.
 
-    {% list tabs %}
+### Добавление реестра в список источников APT {#apt}
 
-    - Реестр с подписью метаданных
+#### Локальный реестр {#local}
 
-        1. Скопируйте публичный GPG-ключ в директорию доверенных ключей APT:
+{% list tabs %}
 
-            ```bash
-            cp /path/to/public-key.asc /usr/share/keyrings/ycr-pub.asc
-            ```
+- С подписью метаданных
 
-            Где `/path/to/public-key.asc` — путь к файлу с публичным GPG-ключом.
-
-        1. Добавьте реестр в список источников `APT`:
-
-            ```bash
-            echo "deb [signed-by=/usr/share/keyrings/ycr-pub.asc] https://{{ cloud-registry }}/debian/<идентификатор_реестра> <дистрибутив> <компонент>" \
-              >> /etc/apt/sources.list
-            ```
-
-    - Реестр без подписи метаданных
-
-        Добавьте реестр с параметром `trusted=yes`:
+    1. Скопируйте публичный GPG-ключ в директорию доверенных ключей APT:
 
         ```bash
-        echo "deb [trusted=yes] https://{{ cloud-registry }}/debian/<идентификатор_реестра> <дистрибутив> <компонент>" \
+        cp /path/to/public-key.asc /usr/share/keyrings/ycr-pub.asc
+        ```
+
+        Где `/path/to/public-key.asc` — путь к файлу с публичным GPG-ключом.
+
+    1. Добавьте реестр в список источников `APT`:
+
+        ```bash
+        echo "deb [signed-by=/usr/share/keyrings/ycr-pub.asc] https://{{ cloud-registry }}/debian/<идентификатор_реестра> <дистрибутив> <компонент>" \
           >> /etc/apt/sources.list
         ```
 
-    {% endlist %}
+- Без подписи метаданных
 
-1. {% include [apt-auth-conf](../../../_includes/cloud-registry/apt-auth-conf.md) %}
-
-### Удаленный реестр {#remote-registry}
-
-#### Публичный источник {#apt-remote-debian}
-
-1. Установите пакет с публичными ключами дистрибутива:
-
-    {% list tabs %}
-
-    - Debian
-
-        Выполните команду:
-
-        ```bash
-        sudo apt install debian-archive-keyring
-        ```
-
-        Ключ будет доступен по пути `/usr/share/keyrings/debian-archive-keyring.gpg`.
-
-    - Ubuntu
-
-        Выполните команду:
-
-        ```bash
-        sudo apt install ubuntu-keyring
-        ```
-
-        Ключ будет доступен по пути `/usr/share/keyrings/ubuntu-archive-keyring.gpg`.
-
-    {% endlist %}
-
-1. Добавьте реестр в список источников `APT`:
+    Добавьте реестр с параметром `trusted=yes`:
 
     ```bash
-    echo "deb [signed-by=<путь_к_ключу>] https://{{ cloud-registry }}/debian/<идентификатор_реестра> <дистрибутив> <компонент>" \
+    echo "deb [trusted=yes] https://{{ cloud-registry }}/debian/<идентификатор_реестра> <дистрибутив> <компонент>" \
       >> /etc/apt/sources.list
     ```
 
-    Где:
-    * `<путь_к_ключу>` — путь к файлу с ключом дистрибутива, например `/usr/share/keyrings/debian-archive-keyring.gpg` или `/usr/share/keyrings/ubuntu-archive-keyring.gpg`.
-    * `<идентификатор_реестра>` — идентификатор реестра.
-    * `<дистрибутив>` — дистрибутив, например `bookworm`, `bullseye` или `focal`.
-    * `<компонент>` — компонент репозитория, например `main`.
+{% endlist %}
 
-1. {% include [apt-auth-conf](../../../_includes/cloud-registry/apt-auth-conf.md) %}
+#### Удаленный реестр {#remote}
 
-#### Пользовательский источник {#apt-remote-custom}
+{% list tabs %}
 
-1. Добавьте реестр в список источников `APT`:
+- Публичный источник
+
+    1. Установите пакет с публичными ключами дистрибутива:
+
+        * для Debian:
+
+            ```bash
+            sudo apt install debian-archive-keyring
+            ```
+
+            Ключ будет доступен по пути `/usr/share/keyrings/debian-archive-keyring.gpg`.
+
+        * для Ubuntu:
+
+            ```bash
+            sudo apt install ubuntu-keyring
+            ```
+
+            Ключ будет доступен по пути `/usr/share/keyrings/ubuntu-archive-keyring.gpg`.
+
+    1. Добавьте реестр в список источников `APT`:
+
+        ```bash
+        echo "deb [signed-by=<путь_к_ключу>] https://{{ cloud-registry }}/debian/<идентификатор_реестра> <дистрибутив> <компонент>" \
+          >> /etc/apt/sources.list
+        ```
+
+        Где:
+        * `<путь_к_ключу>` — путь к файлу с ключом дистрибутива, например `/usr/share/keyrings/debian-archive-keyring.gpg` или `/usr/share/keyrings/ubuntu-archive-keyring.gpg`.
+        * `<идентификатор_реестра>` — идентификатор реестра.
+        * `<дистрибутив>` — дистрибутив, например `bookworm`, `bullseye` или `focal`.
+        * `<компонент>` — компонент репозитория, например `main`.
+
+- Пользовательский источник
 
     {% list tabs %}
 
-    - Источник подписан GPG-ключом
+    - Подписан GPG-ключом
 
-        1. Сохраните его в директорию доверенных ключей:
+        1. Сохраните GPG-ключ в директорию доверенных ключей:
 
             ```bash
             cp /path/to/upstream-public-key.asc /usr/share/keyrings/upstream-pub.asc
@@ -171,7 +165,7 @@ GPG-ключ требуется для реестра с подписью мет
               >> /etc/apt/sources.list
             ```
 
-    - Источник не подписан GPG-ключом
+    - Не подписан GPG-ключом
 
         Укажите параметр `trusted=yes`, чтобы APT принимал пакеты без проверки подлинности:
 
@@ -182,9 +176,15 @@ GPG-ключ требуется для реестра с подписью мет
 
     {% endlist %}
 
-1. {% include [apt-auth-conf](../../../_includes/cloud-registry/apt-auth-conf.md) %}
+{% endlist %}
+
+## Добавление данных для аутентификации {#auth}
 
 {% include [apt-auth-conf-warning](../../../_includes/cloud-registry/apt-auth-conf-warning.md) %}
+
+1. {% include [auth-env](../../../_includes/cloud-registry/auth-env.md) %}
+
+1. {% include [apt-auth-conf](../../../_includes/cloud-registry/apt-auth-conf.md) %}
 
 #### Полезные ссылки {#see-also}
 

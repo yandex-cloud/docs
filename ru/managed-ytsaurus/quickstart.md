@@ -47,8 +47,8 @@ description: Чтобы начать работать с {{ myt-full-name }}, с
 Для управления {{ ytsaurus-name }} можно использовать веб-интерфейс. Работать с ним могут только пользователи с ролью не ниже [managed-ytsaurus.user](security/index.md#managed-ytsaurus-user). Чтобы начать работу в веб-интерфейсе {{ ytsaurus-name }}:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен кластер.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
-1. Перейдите на страницу [веб-интерфейса {{ ytsaurus-name }}](concepts/authentication.md#users).
+1. [Перейдите]({{ link-console-main }}/link/managed-ytsaurus) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
+1. Откройте страницу [веб-интерфейса {{ ytsaurus-name }}](concepts/authentication.md#users).
 
 ## Что дальше {#whats-next}
 
