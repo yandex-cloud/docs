@@ -37,8 +37,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost of Microsoft Windows Server with Remote Desktop Services infrastructure includes:
 
-* Fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for {{ yandex-cloud }} outbound internet traffic (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 ## Create a cloud network and subnets {#create-network}
@@ -139,7 +139,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, type `RDS` in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field and select the appropriate [RDS](/marketplace?tab=software&search=windows+rds) image: 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify your boot [disk](../../compute/concepts/disk.md) size: `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, switch to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
@@ -201,7 +201,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
    
    {% endlist %}
 
-1. Connect to `my-rds-vm` via [RDP](../../compute/operations/vm-connect/rdp.md). Use the `Administrator` username and your password.
+1. Connect to `my-rds-vm` via [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and your password.
 1. Assign Active Directory roles:
 
     {% list tabs group=programming_language %}
@@ -227,7 +227,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
       
     {% endlist %}
 
-   Windows will restart automatically. Reconnect to `my-rds-vm`. Use the `yantoso\Administrator` username and your password. Restart PowerShell.
+   Windows will restart automatically. Reconnect to `my-rds-vm`. Use `yantoso\Administrator` as your username and your password. Restart PowerShell.
 
 ## Set up firewall rules {#firewall}
 

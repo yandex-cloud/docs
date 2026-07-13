@@ -307,7 +307,7 @@ After the physical drive replacement, partition the new disk and add it to the e
     Installation finished. No error reported.
     ```
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./use-hwatcher.md)
 * [{#T}](./rescue-boot.md)

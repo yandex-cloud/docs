@@ -3850,6 +3850,20 @@ apiPlayground:
               Default value: **false** for versions 25.10 and higher, **true** for versions 25.9 and lower.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#show_data_lake_catalogs_in_system_tables).
             type: boolean
+          compatibility:
+            description: |-
+              **string**
+              The compatibility setting causes ClickHouse to use the default settings of a previous version of ClickHouse,
+              where the previous version is provided as the setting. An empty value means that this setting is disabled.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#compatibility).
+            type: string
+          materializeTtlAfterModify:
+            description: |-
+              **boolean**
+              Apply TTL for old data, after ALTER MODIFY TTL query.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#materialize_ttl_after_modify).
+            type: boolean
           compile:
             description: |-
               **boolean**

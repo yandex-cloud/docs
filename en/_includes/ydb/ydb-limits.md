@@ -21,7 +21,7 @@
 #|
 || Type of limit | Default value ||
 || Maximum number of databases
-`ydb.serverlessDatabases.count` | 4 ||
+`ydb.serverlessDatabases.count` | 10 ||
 || Maximum number of serverless request units per second, per cloud
 `ydb.serverlessRequestUnitsPerSecond.count` | 1,000 RUs ||
 || Maximum number of schema operations^*^ per day in a single serverless database

@@ -104,7 +104,7 @@ Response structure:
 
 Internal FQDNs have the `<resource_name>.<project_name>.svc.{{ cluster-domain }}` format and are only available within the Kubernetes cluster.
 
-External FQDNs are created automatically for `LoadBalancer` type services and are available from outside the cluster. Learn more about DNS [here](dns.md).
+External FQDNs are created automatically for `LoadBalancer` type services and are available from outside the cluster. For more about DNS, see [here](dns.md).
 
 ## Deletion protection {#deletion-protection}
 

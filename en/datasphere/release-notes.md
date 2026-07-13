@@ -20,7 +20,7 @@ Use the {{ ai-studio-full-name }} [tools]({{ link-docs-ai }}ai-studio/concepts/t
 
 ## Release as of 11/11/24 {#111124}
 
-You can now use a service agent to work with {{ yandex-cloud }} services from {{ ml-platform-name }} notebooks, including issuing authentication tokens. To enable this feature in a community, follow [this guide](operations/community/create-ssa.md). For more information on how service agents work, see the [{{ iam-name }} documentation](../iam/concepts/service-control.md#service-agent).
+You can now use a service agent to work with {{ yandex-cloud }} services from {{ ml-platform-name }} notebooks, including issuing authentication tokens. To enable this feature in a community, follow [this guide](operations/community/create-ssa.md). For more information on how service agents work, see [this [{{ iam-name }} guide](../iam/concepts/service-control.md#service-agent).
 
 ## Release as of 02/09/24 {#020924}
 

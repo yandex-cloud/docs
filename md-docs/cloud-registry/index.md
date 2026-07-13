@@ -152,6 +152,8 @@ Yandex Cloud Registry — сервис для безопасного хране�
 
  - [Политика жизненного цикла](concepts/lifecycle-policy.md)
 
+ - [Паттерны фильтрации](concepts/filtering-patterns.md)
+
  - [Квоты и лимиты](concepts/limits.md)
 
  - [Управление доступом](security/index.md)

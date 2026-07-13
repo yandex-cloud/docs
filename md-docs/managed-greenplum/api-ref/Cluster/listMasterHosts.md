@@ -17,7 +17,6 @@ GET https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}/m
 || clusterId | **string**
 
 Required field. ID of the Greenplum® cluster.
-
 To get the Greenplum® cluster ID use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -30,7 +29,6 @@ The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `pageSize`, the service returns a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests.
 
 The maximum value is 1000. ||
@@ -75,9 +73,7 @@ Requested list of hosts for the cluster. ||
 || nextPageToken | **string**
 
 This token allows you to get the next page of results for list requests.
-
 If the number of results is larger than [ListClusterHostsRequest.pageSize](#yandex.cloud.mdb.greenplum.v1.ListClusterHostsRequest), use the `nextPageToken` as the value for the [ListClusterHostsRequest.pageToken](#yandex.cloud.mdb.greenplum.v1.ListClusterHostsRequest) query parameter in the next list request.
-
 Each subsequent list request has its own `nextPageToken` to continue paging through the results. ||
 |#
 
@@ -90,9 +86,7 @@ A Greenplum® cluster host resource.
 || name | **string**
 
 Required field. Name of the Greenplum® host.
-
-The host name is assigned by the platform at creation time and cannot be changed.
-
+The host name is assigned by the platform at creation time and cannot be changed, 1-63 characters long.
 The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host.
 
 The maximum string length in characters is 63. ||
@@ -136,12 +130,11 @@ Determines whether a public IP is assigned to the host. ||
 || resourcePresetId | **string**
 
 ID of the preset for computational resources allocated to a host.
-
 Available presets are listed in the [documentation](../../concepts/instance-types.md). ||
 || diskSize | **string** (int64)
 
 Volume of the storage used by the host, in bytes. ||
 || diskTypeId | **string**
 
-Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
+Type of the storage used by the host: `network-ssd` or `local-ssd`. ||
 |#

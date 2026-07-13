@@ -119,10 +119,10 @@ To log bucket access:
            {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
         * `secret_key`: Secret access key value.
-        * `target_bucket`: Reference to the log storage bucket.
+        * `target_bucket`: Bucket for storing logs.
         * `target_prefix`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for objects with logs, e.g., `logs/`.
 
-        For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+        For more information on the properties of the `yandex_storage_bucket` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
 
      1. Apply the changes:
 
@@ -224,10 +224,10 @@ To get the target bucket name and the log object key prefix, follow these steps:
         Where:
         * `access_key`: Static access key ID.
         * `secret_key`: Secret access key value.
-        * `target_bucket`: Reference to the log storage bucket.
+        * `target_bucket`: Bucket for storing logs.
         * `target_prefix`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for objects with logs, e.g., `logs/`.
 
-        For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+        For more information on the properties of the `yandex_storage_bucket` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
 
   1. Apply the changes:
 

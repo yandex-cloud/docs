@@ -12,7 +12,7 @@ You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/a
 
 1. If you do not have the {{ yandex-cloud }} CLI yet, [install it](../../cli/quickstart.md#install).
 
-1. Set up the CLI profile to run operations under the service account:
+1. Set up your CLI profile to use the service account to run operations:
 
     {% list tabs group=instructions %}
 
@@ -68,7 +68,7 @@ You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/a
 
     {% endlist %}
 
-1. Add your credentials to the environment variables:
+1. Add the credentials to the environment variables:
 
     {% include [terraform-token-variables](../../_includes/terraform-token-variables.md) %}
 

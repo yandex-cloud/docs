@@ -1,4 +1,4 @@
-1. View the description of the CLI command to create a bucket:
+1. See the description of the CLI command for creating a bucket:
 
     ```bash
     yc storage bucket create --help
@@ -10,7 +10,7 @@
     yc storage bucket create --name <bucket_name>
     ```
 
-    Where `--name` is the name of the bucket. This is a required parameter. For more information, see [Bucket naming rules](../../storage/concepts/bucket.md#naming).
+    Where `--name` is the name of the bucket. This is a required setting. For more information, see [Bucket naming rules](../../storage/concepts/bucket.md#naming).
 
     
     By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload](../../storage/operations/hosting/certificate.md) your own security certificate to {{ objstorage-name }}.
@@ -33,12 +33,13 @@
 
     {% cut "Optional parameters" %}
 
-    * `--default-storage-class`: [Storage class](../../storage/concepts/storage-class.md). The possible values are:
+    * `--default-storage-class`: [Storage class](../../storage/concepts/storage-class.md). Valid values:
     * `standard`: Standard storage. It is installed by default.
     * `cold`: Cold storage.
     * `ice`: Ice storage.
+    * `intelligent_tiering`: Intelligent storage
 
-    <q>Cold</q> classes are designed to store [objects](../../storage/concepts/object.md) that you plan to use less frequently for longer periods of time. The <q>colder</q> the storage, the cheaper it is to store data in, but the more expensive it is to read from and write to it.
+    {% include [storage-class-cold-desc](./storage-class-cold-desc.md) %}
 
     * `--max-size`: Maximum bucket size, in bytes. The default value is `0` (unlimited).
     * Parameters for enabling [public access](../../storage/security/public-access.md) to a bucket:
@@ -51,7 +52,7 @@
     {% include [public-access-warning](./security/public-access-warning.md) %}
 
     * Parameters to configure the bucket [ACL](../../storage/concepts/acl.md):
-    * `--acl`: Predefined ACL. For a list of possible values, see [Predefined ACLs](../../storage/concepts/acl.md#predefined-acls). You cannot use this parameter together with `--grants`.
+    * `--acl`: Predefined ACL. For the list of possible values, see [Predefined ACLs](../../storage/concepts/acl.md#predefined-acls). You cannot use this parameter together with `--grants`.
     * `--grants`: This parameter configures permissions for individual users, [service accounts](../../iam/concepts/users/service-accounts.md), [user groups](../../organization/concepts/groups.md), and [public groups](../../storage/concepts/acl.md#public-groups) (a group of all internet users or a group of all authenticated {{ yandex-cloud }} users). You cannot use this parameter together with `--acl`. The parameter value is specified in the following format: `grant-type=<permission_grantee_type>,grantee-id=<grantee_ID>,permission=<permission_type>`, where:
         * `grant-type`: Permission grantee type. The possible values are:
         * `grant-type-account`: User, [service account](../../iam/concepts/users/service-accounts.md), or [user group](../../organization/concepts/groups.md).

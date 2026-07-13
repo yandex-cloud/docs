@@ -24,11 +24,11 @@ With this option on, the bucket will not be accessible from the public network. 
 - {{ yandex-cloud }} CLI {#cli}
 
   {% include [include](../cli-install.md) %}
-
+  
   {% include [default-catalogue](../default-catalogue.md) %}
 
   1. Create additional DNS [resource records](../../dns/concepts/resource-record.md) to override the public FQDN of the service to which the connection is created. To do this, enable a special {{ vpc-short-name }} service connection parameter:
-
+  
       ```bash
       yc vpc private-endpoint update \
         --id <service_connection_ID> \
@@ -36,7 +36,7 @@ With this option on, the bucket will not be accessible from the public network. 
       ```
 
   1. Update the bucket settings by specifying the parameters for access only from {{ vpc-short-name }} service connections:
-
+  
       ```bash
       yc storage bucket update \
         --name <bucket_name> \
@@ -80,7 +80,7 @@ With this option on, the bucket will not be accessible from the public network. 
 - {{ yandex-cloud }} CLI {#cli}
 
   Update the bucket settings:
-
+  
   ```bash
   yc storage bucket update \
     --name <bucket_name> \

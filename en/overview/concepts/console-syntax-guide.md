@@ -13,25 +13,25 @@ description: '{{ yandex-cloud }} services provide a variety of interfaces for im
 
 - WSL
 
-   [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) is available for Windows 10 or higher.
+  [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) is available for Windows 10 or higher.
 
-   1. To check whether WSL is installed on your PC, run the following command in cmd or PowerShell:
+  1. To check whether WSL is installed on your PC, run the following command in cmd or PowerShell:
 
-      ```powershell
-      wsl -u root
+     ```powershell
+     wsl -u root
       ```
 
-      If WSL is installed, the terminal will switch to Bash mode:
+     If WSL is installed, the terminal will switch to Bash mode:
 
-      ```powershell
-      root@<machine_name>:/mnt/c/Users/<username>#
-      ```
+     ```powershell
+     root@<computer_name>:/mnt/c/Users/<username>#
+     ```
 
-   1. If not, [install](https://learn.microsoft.com/en-us/windows/wsl/install) WSL and repeat the previous step.
+  1. If not, [install](https://learn.microsoft.com/en-us/windows/wsl/install) WSL and repeat the previous step.
 
 - Bash emulators
 
-   If you are using Windows without WSL, you can install a Bash emulator, such as [Git Bash](https://gitforwindows.org/).
+  If you are using Windows without WSL, you can install a Bash emulator, such as [Git Bash](https://gitforwindows.org/).
 
 {% endlist %}
 
@@ -53,16 +53,16 @@ If you want to run your Bash code in cmd or PowerShell, bring it to the appropri
 
    {% cut "Examples of using variables" %}
 
-   | Action | Linux | Windows cmd | PowerShell |
-   |-------|-------|-------|--------|
-   | Writing a variable | `export VAR="1"` | `set VAR="1"` | `$Env:VAR="1"` |
-   | Reading a variable | `${VAR}` | `%VAR%` | `$Env:VAR` |
+      | Action | Linux | Windows cmd | PowerShell |
+      |-------|-------|-------|--------|
+      | Writing a variable | `export VAR="1"` | `set VAR="1"` | `$Env:VAR="1"` |
+      | Reading a variable | `${VAR}` |`%VAR%`|`$Env:VAR`|
 
    {% endcut %}
 
 ### Check the format of equivalent commands {#check-format}
 
-Many commands in cmd and PowerShell have aliases similar to Bash commands. For example, the `Set-Location` PowerShell command (change to a different directory) will be run if you type `cd`in the terminal.
+Many commands in cmd and PowerShell have aliases equivalent to Bash commands. For example, to run the `Set-Location` PowerShell command for changing a directory, type `cd` in the terminal.
 If the code execution fails:
 
 1. Check if the Bash command has an equivalent in your terminal. For example, in PowerShell, run:
@@ -91,10 +91,10 @@ If the code execution fails:
 
    ```
 
-   For a complete list of aliases, see the `alias` command output.
+   For the full list of aliases, see the `alias` command output.
 
 1. Make sure the command in your command shell performs the same function as its equivalent Bash command.
-1. Check the command format: the alias keys may differ. For example, the `ls` command has an alias in PowerShell, but the argument keys differ.
+1. Check the command format: the alias keys may differ. For example, the `ls` command has an alias in PowerShell, but the argument keys are different.
 
 ### Replace other commands with their equivalents {#replace-analogs}
 
@@ -104,13 +104,13 @@ If the code execution fails:
 
    | Action | Linux | Windows cmd | Windows PowerShell |
    |-------|------|------|-------|
-   | List files in a directory | `ls -s` | `dir` | `dir`, `ls`, `Get-ChildItem` |
+   | List files in a directory | `ls -s` | `dir` | `dir`, `ls`, `Get-ChildItem`  |
    | List files in a directory and sub-directories | `ls -R` | `tree` | `ls`, `Get-ChildItem` |
-   | Create a file | `touch` | `copy nul > ` | `New-Item` |
+   | Create a file | `touch` | `copy nul > `| `New-Item`  |
    | Rename a file | `mv` | `ren` | `ren`, `Rename-Item` |
    | Copy a file | `cp` | `copy` | `copy`, `Copy-Item` |
    | Move a file | `mv` | `move` | `move`, `Move-Item` |
-   | Delete a file | `rm` | `del` | `del`, `Remove-Item` |
+   | Deleting a file | `rm` | `del` | `del`, `Remove-Item` |
    | Compare file content | `diff` | `fc` | `diff`, `Get-Content`, `Compare-Object` |
    | Find file strings or object properties | `grep` | `find` | `Select-String`, `Where-Object` |
    | Output command help | `man <command>` | `<command> /?` | `Get-Help <command>` |
@@ -129,6 +129,6 @@ If the code execution fails:
 
 ### Check the names of system variables and auxiliary syntax {#replace-analogs}
 
-1. Check the names of environment variables. For example, instead of the `USER` environment variable used in Linux, the `USERNAME` variable is used in Windows.
+1. Check the names of environment variables. For example, Windows uses the `USERNAME` environment variable instead of the `USER` variable used in Linux. 
 1. If your code contains comparison, selection, or loop statements, change the syntax to meet the requirements of your command shell. To learn more about the difference between the Bash and PowerShell auxiliary syntax, see [Bash vs PowerShell Cheat Sheet](https://blog.ironmansoftware.com/daily-powershell/bash-powershell-cheatsheet).
 

@@ -74,7 +74,8 @@ The maximum string length in characters is 100. ||
         "hidden": "boolean",
         "secondaryDelaySecs": "string",
         "priority": "string",
-        "tags": "object"
+        "tags": "object",
+        "votes": "string"
       }
     }
   ],
@@ -209,4 +210,7 @@ Replica priority used by the replica set when electing a new primary. ||
 || tags | **object** (map<**string**, **string**>)
 
 Replica tags used to control read preference and write concern. ||
+|| votes | **string** (int64)
+
+Host votes. Controls host participation in elections. ||
 |#

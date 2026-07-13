@@ -71,8 +71,8 @@ title: How to get information about an IP address in {{ vpc-full-name }}
      * `output "addr"`: Output variable containing information about the IP address:
        * `value`: Return value.
 
-     You can replace `external_ipv4_address` with any other parameter to get the information you need. For more information about the `yandex_vpc_address` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_address).
-  1. Create resources:
+     You can replace `external_ipv4_address` with another variable to get the information you need. For more on the properties of the `yandex_vpc_address` data source, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_address).
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

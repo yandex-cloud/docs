@@ -47,7 +47,7 @@ In {{ objstorage-short-name }}, you can encrypt objects in a bucket using [{{ km
   Before you start, [get an IAM token](../../../iam/operations/iam-token/create-for-sa.md#via-cli) for your service account and save it to a file.
 
 
-  1. In the configuration file, specify the properties of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      provider "yandex" {
@@ -105,7 +105,7 @@ In {{ objstorage-short-name }}, you can encrypt objects in a bucket using [{{ km
        * `kms_master_key_id`: ID of the KMS master key used for encryption.
        * `sse_algorithm`: Encryption algorithm used on the server side. The only supported value is `aws:kms`.
 
-     For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
+     For more information on the properties of the `yandex_storage_bucket` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Apply the changes:
 
@@ -174,6 +174,6 @@ In {{ objstorage-short-name }}, you can encrypt objects in a bucket using [{{ km
 {% endlist %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/encryption.md)

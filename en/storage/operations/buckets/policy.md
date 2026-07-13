@@ -271,7 +271,7 @@ To apply or update a bucket policy:
 
      {% include [s3-policy-tf-params](../../../_includes/storage/s3-policy-tf-params.md) %}
 
-     For more information about the `yandex_storage_bucket_policy` properties, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket_policy).
+     For more information on the properties of the `yandex_storage_bucket_policy` resource, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket_policy).
 
   1. Apply the changes:
 
@@ -316,7 +316,7 @@ To apply or update a bucket policy:
 
      {% include [s3-policy-tf-params](../../../_includes/storage/s3-policy-tf-params.md) %}
 
-     For more information about the `yandex_storage_bucket` properties, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
+     For more information on the properties of the `yandex_storage_bucket` resource, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Apply the changes:
 
@@ -529,6 +529,6 @@ To delete a bucket policy:
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../concepts/policy.md#config-examples)

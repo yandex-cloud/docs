@@ -6,11 +6,29 @@ meta:
     - keyword: how to lease computing power
     - keyword: cloud computing
 blocks:
+  - type: content-layout-block
+    textContent:
+      title: Yandex Cloud overview
+      text: >-
+        Yandex Cloud is a suite of connected services allowing you to quickly
+        and securely get as much computing power as you need on a pay-as-you-go
+        basis. You access the computing power over the internet. This approach
+        to computing resource consumption is called _cloud computing_.
+
+
+        Cloud computing can replace or complement traditional on-premise data
+        centers.
+
+
+        Yandex Cloud undertakes to maintain the health and performance of the
+        cloud platform's hardware and software.
+    size: l
   - type: card-layout-block
     colSizes:
       all: 12
       lg: 4
       sm: 4
+    size: m
     children:
       - type: basic-card
         title: Getting started
@@ -109,6 +127,7 @@ blocks:
       all: 12
       lg: 4
       sm: 4
+    size: m
     children:
       - type: basic-card
         title: API

@@ -90,7 +90,7 @@ Where:
  - `db-testing`: Nested resource ID.
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 - [{{ yandex-cloud }} API repository](https://github.com/yandex-cloud/cloudapi): Link to the API .proto specifications.
 - [{{ resmgr-full-name }} documentation](../../resource-manager/concepts/resources-hierarchy.md): Link to the <q>Hierarchy of {{ yandex-cloud }} resources</q> section.
 

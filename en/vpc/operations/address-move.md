@@ -133,6 +133,6 @@ Move an address from a different folder. Specify the address ID and the source a
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../compute/operations/vm-control/vm-transferring-public-ip.md)

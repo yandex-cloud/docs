@@ -344,6 +344,6 @@ Lease a server with a public OS image:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./custom-server-lease.md)

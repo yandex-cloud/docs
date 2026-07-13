@@ -12,8 +12,8 @@
 
 ## Проверить подробную информацию о приложении {#info}
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-1. Перейдите в сервис **Managed Service for Apache Spark**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
 1. Нажмите на имя нужного кластера.
 1. В блоке **Дополнительные настройки** выберите **Spark History Server** и перейдите по ссылке.
 
@@ -36,8 +36,8 @@
 
 ## Проверить подробную информацию о стадиях {#stages}
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-1. Перейдите в сервис **Managed Service for Apache Spark**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
 1. Нажмите на имя нужного кластера.
 1. В блоке **Дополнительные настройки** выберите **Spark History Server** и перейдите по ссылке. Откроется окно интерфейса **Spark History Server**.
 1. В верхнем меню перейдите в раздел **Stages**.
@@ -61,8 +61,8 @@
 
 ## Проверить выделенные для приложения ресурсы {#resources}
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-1. Перейдите в сервис **Managed Service for Apache Spark**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
 1. Нажмите на имя нужного кластера.
 1. В блоке **Дополнительные настройки** выберите **Spark History Server** и перейдите по ссылке. Откроется окно интерфейса **Spark History Server**.
 1. В верхнем меню перейдите в раздел **Executors**.
@@ -89,8 +89,8 @@
 
 ## Проверить кешируемые таблицы {#tables}
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-1. Перейдите в сервис **Managed Service for Apache Spark**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
 1. Нажмите на имя нужного кластера.
 1. В блоке **Дополнительные настройки** выберите **Spark History Server** и перейдите по ссылке. Откроется окно интерфейса **Spark History Server**.
 1. В верхнем меню перейдите в раздел **Storage**.
@@ -101,8 +101,8 @@
 
 ## Проверить список и планы SQL-запросов {#sql}
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-1. Перейдите в сервис **Managed Service for Apache Spark**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
 1. Нажмите на имя нужного кластера.
 1. В блоке **Дополнительные настройки** выберите **Spark History Server** и перейдите по ссылке. Откроется окно интерфейса **Spark History Server**.
 1. В верхнем меню перейдите в раздел **SQL/DataFrame**.

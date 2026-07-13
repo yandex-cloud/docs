@@ -41,7 +41,7 @@ After creating a [security group](../concepts/security-groups.md), you can chang
      ...
      ```
 
-     For more information about `yandex_vpc_security_group` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_security_group).
+     For more on the properties of the `yandex_vpc_security_group` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_security_group).
 
      {% note info %}
 

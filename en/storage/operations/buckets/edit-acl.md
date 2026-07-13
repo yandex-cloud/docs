@@ -70,7 +70,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
   Where:
   * `--name`: Bucket name.
-  * `--acl`: Predefined ACL. To view a list of values, see [{#T}](../../concepts/acl.md#predefined-acls).
+  * `--acl`: Predefined ACL. For the list of values, see [{#T}](../../concepts/acl.md#predefined-acls).
 
   Result:
 
@@ -111,7 +111,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
         * `permission-write`: Permission to write, overwrite, and delete objects in the bucket. It can only be used together with `permission-read`.
         * `permission-full-control`: Full access to the bucket and objects in it.
       
-        For more information about permissions, see [{#T}](../../concepts/acl.md#permissions-types).
+        Learn more about permissions in [{#T}](../../concepts/acl.md#permissions-types).
 
       To configure multiple permissions, specify the `--grants` parameter multiple times. For example, to grant a write permission for a bucket, run this command:
 
@@ -168,7 +168,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
         * `--grant-write`: Permission to write, overwrite, and delete objects in the bucket. It can only be used together with `--grant-read`.
         * `--grant-full-control`: Full access to the bucket and objects in it.
 
-        For more information about permissions, see [{#T}](../../concepts/acl.md#permissions-types).
+        Learn more about permissions in [{#T}](../../concepts/acl.md#permissions-types).
 
       * The possible permission grantees are as follows:
 
@@ -250,7 +250,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
           * `--grant-write`: Permission to write, overwrite, and delete objects in the bucket. It can only be used together with `--grant-read`.
           * `--grant-full-control`: Full access to the bucket and objects in it.
 
-          For more information about permissions, see [{#T}](../../concepts/acl.md#permissions-types).
+          Learn more about permissions in [{#T}](../../concepts/acl.md#permissions-types).
 
         * The possible permission grantees are as follows:
           * `id=<grantee_ID>`: ID of the user, service account, or user group you need to grant a permission to.
@@ -289,7 +289,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
   **yandex_storage_bucket_grant** {#tf-storage-bucket-grant}
 
-  1. In the configuration file, specify the properties of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      resource "yandex_storage_bucket_grant" "my_bucket_grant" {
@@ -324,7 +324,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
          * `WRITE`: Permission to write, overwrite, and delete objects in the bucket. It can only be used together with `READ`, e.g., `permissions = ["READ", "WRITE"]`.
          * `FULL_CONTROL`: Full access to the bucket and objects in it.
 
-         For more information about permissions, see [{#T}](../../concepts/acl.md#permissions-types).
+         Learn more about permissions in [{#T}](../../concepts/acl.md#permissions-types).
 
        * `id`: ID of the user, service account, or user group:
 
@@ -338,7 +338,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
      Instead of `grant`, you can specify `acl`, i.e., the [predefined ACL](../../../storage/concepts/acl.md#predefined-acls) of the bucket. The default value is `private`: {{ yandex-cloud }} users get permissions according to their roles in {{ iam-short-name }}.
 
-     For more information about the `yandex_storage_bucket_grant` properties, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket_grant).
+     For more information on the properties of the `yandex_storage_bucket_grant` resource, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket_grant).
 
   1. If you plan to use the [yandex_storage_bucket_iam_binding]({{ tf-provider-resources-link }}/storage_bucket_iam_binding) resource together with [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant) for the same bucket, we recommend creating them sequentially. To do this, add a dependency on the `yandex_storage_bucket_grant` resource to the `yandex_storage_bucket_iam_binding` section.
 
@@ -364,7 +364,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
   **yandex_storage_bucket (obsolete)** {#tf-yandex_storage_bucket}
 
-  1. In the configuration file, specify the properties of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      resource "yandex_storage_bucket" "test" {
@@ -399,7 +399,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
          * `WRITE`: Permission to write, overwrite, and delete objects in the bucket. It can only be used together with `READ`, e.g., `permissions = ["READ", "WRITE"]`.
          * `FULL_CONTROL`: Full access to the bucket and objects in it.
 
-         For more information about permissions, see [{#T}](../../concepts/acl.md#permissions-types).
+         Learn more about permissions in [{#T}](../../concepts/acl.md#permissions-types).
 
        * `id`: ID of the user, service account, or user group:
 
@@ -413,7 +413,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
      Instead of `grant`, you can specify `acl`, i.e., the [predefined ACL](../../../storage/concepts/acl.md#predefined-acls) of the bucket. The default value is `private`: {{ yandex-cloud }} users get permissions according to their roles in {{ iam-short-name }}.
 
-     For more information about the `yandex_storage_bucket` properties, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
+     For more information on the properties of the `yandex_storage_bucket` resource, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Apply the configuration:
 

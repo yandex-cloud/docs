@@ -16,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}/
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.
+Required field. ID of the Greenplum® cluster.
 
 The maximum string length in characters is 50. ||
 |#
@@ -43,28 +43,27 @@ The maximum string length in characters is 50. ||
 
 #|
 ||Field | Description ||
-|| resourceGroup | **[ResourceGroup](#yandex.cloud.mdb.greenplum.v1.ResourceGroup)** ||
+|| resourceGroup | **[ResourceGroup](#yandex.cloud.mdb.greenplum.v1.ResourceGroup)**
+
+Definition of the resource group. ||
 |#
 
 ## ResourceGroup {#yandex.cloud.mdb.greenplum.v1.ResourceGroup}
 
 ResourceGroup defines a resource group configuration shared between Greenplum and Apache Cloudberry,
 but the two engines use different sets of fields.
-
 Greenplum fields:
 * concurrency
 * cpu_rate_limit
 * memory_limit
 * memory_shared_quota
 * memory_spill_ratio
-
 Apache Cloudberry fields:
 * concurrency
 * cpu_max_percent
 * cpu_weight
 * memory_quota
 * min_cost
-
 The sets partially overlap (concurrency is common to both). Passing Greenplum-specific
 fields to a CloudBerry cluster or vice versa is not rejected at the proto level -
 field validation is performed at runtime by the service.
@@ -73,10 +72,14 @@ field validation is performed at runtime by the service.
 ||Field | Description ||
 || name | **string**
 
-Required field.
+Required field. Name of the resource group.
 
 The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
-|| isUserDefined | **boolean** ||
+|| isUserDefined | **boolean**
+
+Determines whether the resource group is user-defined or system-defined:
+* true - resource group is user-defined;
+* false - resource group is system-defined. ||
 || concurrency | **string** (int64)
 
 References to CONCURRENCY from gp resource group parameter
@@ -134,10 +137,7 @@ The minimum cost of a query plan to be included in the resource group. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string",
-    "resourceGroupName": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -146,19 +146,7 @@ The minimum cost of a query plan to be included in the resource group. ||
       "object"
     ]
   },
-  "response": {
-    "name": "string",
-    "isUserDefined": "boolean",
-    "concurrency": "string",
-    "cpuRateLimit": "string",
-    "memoryLimit": "string",
-    "memorySharedQuota": "string",
-    "memorySpillRatio": "string",
-    "cpuMaxPercent": "string",
-    "cpuWeight": "string",
-    "memoryQuota": "string",
-    "minCost": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -200,7 +188,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateResourceGroupMetadata](#yandex.cloud.mdb.greenplum.v1.CreateResourceGroupMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -215,7 +203,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[ResourceGroup](#yandex.cloud.mdb.greenplum.v1.ResourceGroup2)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -230,22 +218,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateResourceGroupMetadata {#yandex.cloud.mdb.greenplum.v1.CreateResourceGroupMetadata}
-
-#|
-||Field | Description ||
-|| clusterId | **string**
-
-Required field.
-
-The maximum string length in characters is 50. ||
-|| resourceGroupName | **string**
-
-Required field.
-
-The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -263,80 +235,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## ResourceGroup {#yandex.cloud.mdb.greenplum.v1.ResourceGroup2}
-
-ResourceGroup defines a resource group configuration shared between Greenplum and Apache Cloudberry,
-but the two engines use different sets of fields.
-
-Greenplum fields:
-* concurrency
-* cpu_rate_limit
-* memory_limit
-* memory_shared_quota
-* memory_spill_ratio
-
-Apache Cloudberry fields:
-* concurrency
-* cpu_max_percent
-* cpu_weight
-* memory_quota
-* min_cost
-
-The sets partially overlap (concurrency is common to both). Passing Greenplum-specific
-fields to a CloudBerry cluster or vice versa is not rejected at the proto level -
-field validation is performed at runtime by the service.
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Required field.
-
-The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
-|| isUserDefined | **boolean** ||
-|| concurrency | **string** (int64)
-
-References to CONCURRENCY from gp resource group parameter
-
-The minimum value is 0. ||
-|| cpuRateLimit | **string** (int64)
-
-References to CPU_RATE_LIMIT from gp resource group parameter
-
-Acceptable values are 1 to 100, inclusive. ||
-|| memoryLimit | **string** (int64)
-
-References to MEMORY_LIMIT from gp resource group parameter
-
-Acceptable values are 0 to 100, inclusive. ||
-|| memorySharedQuota | **string** (int64)
-
-References to MEMORY_SHARED_QUOTA from gp resource group parameter
-
-Acceptable values are 0 to 100, inclusive. ||
-|| memorySpillRatio | **string** (int64)
-
-References to MEMORY_SPILL_RATIO from gp resource group parameter
-
-Acceptable values are 0 to 100, inclusive. ||
-|| cpuMaxPercent | **string** (int64)
-
-References to CPU_MAX_PERCENT from Apache Cloudberry resource group parameter:
-The maximum percentage of CPU resources the group can use. ||
-|| cpuWeight | **string** (int64)
-
-References to CPU_WEIGHT from Apache Cloudberry resource group parameter:
-The scheduling priority of the resource group.
-
-Acceptable values are 1 to 500, inclusive. ||
-|| memoryQuota | **string** (int64)
-
-References to MEMORY_QUOTA from Apache Cloudberry resource group parameter:
-The memory limit (Mb) specified for the resource group. ||
-|| minCost | **string** (int64)
-
-References to MIN_COST from Apache Cloudberry resource group parameter:
-The minimum cost of a query plan to be included in the resource group. ||
 |#

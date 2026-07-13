@@ -17,6 +17,6 @@ To update an [alias](../../concepts/deploy/index.md#alias):
     * Folder to host new resources.
 1. Click **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](alias-delete.md)

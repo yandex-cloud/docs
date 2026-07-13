@@ -1,4 +1,4 @@
-# Configuring a {{ alb-full-name }} using an ingress controller
+# Configuring an L7 {{ alb-full-name }} using an ingress controller
 
 [{{ alb-full-name }}](../../application-load-balancer/) helps balance the load and distribute traffic between your applications. To use it for managing ingress traffic of applications running in a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), you need an [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
 
@@ -10,7 +10,7 @@ To set up access to the applications running in your {{ managed-k8s-name }} clus
 1. [Optionally, configure the Ingress resource group](#configure-group).
 1. [Make sure the {{ managed-k8s-name }} cluster applications are accessible via {{ alb-name }}](#verify-setup).
 
-For full configuration of the resources for the {{ alb-name }} ingress controller, see the following sections:
+See the full configuration of {{ alb-name }} ingress controller resources in the following sections:
 
 * [Ingress](../../managed-kubernetes/alb-ref/ingress.md): Backend traffic distribution and load balancer configuration rules.
 * [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md), [GrpcBackendGroup](../../managed-kubernetes/alb-ref/grpc-backend-group.md): Combining backends into groups.
@@ -22,10 +22,10 @@ For full configuration of the resources for the {{ alb-name }} ingress controlle
 
 The support cost for this solution includes:
 
-* Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for using L7 load balancer's computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* DNS zone and DNS query fee (see [{{ dns-name }}](../../dns/pricing.md) pricing).
+* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for public IP addresses for cluster nodes and L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * {{ objstorage-name }} bucket fee covering data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
@@ -651,7 +651,7 @@ Create test applications and Ingress resource:
 
      Learn more in [{#T}](../../application-load-balancer/concepts/backend-group.md).
 
-  1. In the same directory, create a file named `ingress-http.yaml` and specify in it the [delegated domain name](#before-you-begin), [ID of the certificate](#before-you-begin), and settings for the {{ alb-name }} L7 load balancer:
+  1. In the same directory, create a file named `ingress-http.yaml` and specify in it the [delegated domain name](#before-you-begin), [ID of the certificate](#before-you-begin), and settings for the {{ alb-name }}:
 
      ```yaml
      apiVersion: networking.k8s.io/v1

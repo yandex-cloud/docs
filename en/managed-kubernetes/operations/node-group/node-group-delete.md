@@ -53,7 +53,7 @@ To delete a [node group](../../concepts/index.md#node-group), use its name or ID
   To delete a [node group](../../concepts/index.md#node-group):
   1. Open the current {{ TF }} configuration file describing the node group.
 
-     For more on how to create this file, see [{#T}](node-group-create.md).
+     For more on how to create such a file, see [{#T}](node-group-create.md).
   1. Delete the section describing the group you no longer need.
   1. Make sure the configuration files are correct.
 

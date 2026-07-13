@@ -64,7 +64,7 @@ The following IP address ranges are assigned to the resources that support {{ ya
 These IP address ranges are not available to users.
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../smartcaptcha/concepts/ips.md)
 * [IP address ranges used by Yandex]({{ link-yandex }}/ips)

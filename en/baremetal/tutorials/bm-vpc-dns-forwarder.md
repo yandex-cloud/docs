@@ -32,8 +32,8 @@ The solution support costs include:
 
 * Fee for using a VM and disk (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using a {{ mpg-name }} cluster (see [{{ mpg-full-name }} pricing](../../managed-postgresql/pricing.md)).
-* Fee for renting the {{ baremetal-name }} servers (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
-* Fee for {{ interconnect-full-name }} resource usage (see [{{ interconnect-full-name }} pricing](../../interconnect/pricing.md)).
+* Fee for renting {{ baremetal-name }} servers (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
+* Fee for using {{ interconnect-full-name }} resources (see [{{ interconnect-full-name }} pricing](../../interconnect/pricing.md)).
 
 ### Create a {{ mpg-name }} cluster {#create-postgresql-cluster}
 
@@ -336,7 +336,7 @@ The examples below use the following parameters:
 After you complete the setup:
 
 1. The server in the {{ baremetal-name }} segment successfully resolves domain names in the `{{ dns-zone }}` zone.
-1. {{ mpg-name }} сluster host FQDNs are resolved to {{ vpc-name }} IP addresses.
+1. {{ mpg-name }} cluster host FQDNs are resolved to {{ vpc-name }} IP addresses.
 1. PostgreSQL connection is established using the FQDNs, so you do not need to manually specify IP addresses.
 
 {% note warning %}

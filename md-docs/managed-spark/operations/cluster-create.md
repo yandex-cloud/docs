@@ -25,7 +25,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер Apache Spark™.
-    1. Перейдите в сервис **Managed Service for Apache Spark**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
     1. Нажмите кнопку **Создать кластер**.
     1. В блоке **Базовые параметры**:
 

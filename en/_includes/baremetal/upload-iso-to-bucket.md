@@ -59,7 +59,7 @@
 
       {% note info %}
 
-      You can upload objects of up to 5 GB via the management console (see [{#T}](../../storage/concepts/limits.md)). To upload larger objects, use other [tools](../../storage/tools/index.md).
+      You can upload objects of up to 5 GB via the management console. For more information, see [{#T}](../../storage/concepts/limits.md). To upload larger objects, use other [tools](../../storage/tools/index.md).
 
       {% endnote %}
 

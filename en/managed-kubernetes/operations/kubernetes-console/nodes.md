@@ -45,6 +45,6 @@ To allow pod allocation to a node
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../concepts/index.md)

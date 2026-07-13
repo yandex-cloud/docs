@@ -13,8 +13,8 @@ description: Вы можете запросить детальную инфор�
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите]({{ link-console-main }}/link/managed-airflow) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
 
 - CLI {#cli}
 
@@ -95,8 +95,8 @@ description: Вы можете запросить детальную инфор�
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите]({{ link-console-main }}/link/managed-airflow) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
     1. Нажмите на имя нужного кластера.
 
 - CLI {#cli}
@@ -175,7 +175,7 @@ description: Вы можете запросить детальную инфор�
     Чтобы получить список операций для кластера {{ maf-name }}:
 
     1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится кластер.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    1. [Перейдите]({{ link-console-main }}/link/managed-airflow) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
     1. Выберите нужный кластер.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.operations-key-value }}**.
 

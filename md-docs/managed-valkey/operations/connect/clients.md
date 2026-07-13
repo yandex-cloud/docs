@@ -176,6 +176,7 @@ GET foo
 
 ## Подключение из графических IDE {#connection-ide}
 
+
 **Подключение проверялось в следующем окружении:**
 * MacOS Big Sur 11.3.
 * DBeaver Enterprise: `21.0`.
@@ -219,12 +220,12 @@ GET foo
 
 {% endlist %}
 
+
 ## Подготовка к подключению из Docker-контейнера {#connection-docker}
 
 Чтобы подключаться к кластеру Yandex Managed Service for Valkey™ из Docker-контейнера, добавьте в Dockerfile строки:
 
 {% list tabs group=connection %}
-
 
 - Подключение без SSL {#without-ssl}
 
@@ -239,7 +240,6 @@ GET foo
         make install && \
         cp ./src/redis-cli /usr/bin/
     ```
-
 
 - Подключение с SSL {#with-ssl}
 

@@ -49,7 +49,7 @@ resource "yandex_compute_instance" "vm-1" {
 
 This is just a simple example of how you can use {{ TF }}. With this tool, you can create complex infrastructures with multiple resources and dependencies, provide metadata, manage resources using service accounts, and more.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](providers.md)
 * [{#T}](resources.md)

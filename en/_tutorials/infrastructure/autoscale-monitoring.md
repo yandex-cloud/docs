@@ -28,7 +28,7 @@ As an example, we will use a folder named `example-folder`.
 The infrastructure cost includes:
 
 * Fee for using VMs and storing an [image](../../compute/concepts/image.md) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for public IP addresses and outbound VM traffic (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Fee for using public IP addresses and outbound VM traffic (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * Fee for queue requests (see [{{ message-queue-name }} pricing](../../message-queue/pricing.md)).
 
 ## Set up your environment {#prepare}
@@ -610,7 +610,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
      
      * In the `service_account_id` field, specify the `queue-autoscale-sa` service account ID.
      
-     To learn how to get the required IDs (except for the image ID and network ID), see [Create an application image](#create-image).
+     To learn how to get the resource IDs (except for image and network), see Step 3 in [Create an application image](#create-image).
      
   1. Create the `queue-autoscale-ig` instance group using the following command:
   
@@ -666,7 +666,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
        
      * In the `service_account_id` field, specify the `queue-autoscale-sa` service account ID.
      
-     To learn how to get the required IDs (except for the image ID and network ID), see this section: [Create an application image](#create-image).
+     To learn how to get the resource IDs (except for image and network), see Step 3 in [Create an application image](#create-image).
      
   1. To create the `queue-autoscale-ig` instance group as specified in `spec.yaml`, use the [InstanceGroupService/CreateFromYaml](../../compute/instancegroup/api-ref/grpc/InstanceGroup/createFromYaml.md) gRPC API call or the [createFromYaml](../../compute/instancegroup/api-ref/InstanceGroup/createFromYaml.md) REST API method.
 

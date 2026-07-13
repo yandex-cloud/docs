@@ -7,7 +7,7 @@ description: With {{ sts-name }}, you can get temporary keys for limited access 
 
 {% include notitle [create-sts-key](../../../_includes/iam/create-sts-key.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../security/overview.md)
 * [{#T}](manage-ephemeral-keys.md)

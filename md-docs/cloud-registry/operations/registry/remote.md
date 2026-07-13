@@ -4,7 +4,7 @@
 
 {% note info %}
 
-Удаленный реестр можно создать любого формата, кроме Binary.
+Удаленный реестр можно создать любого формата, кроме Binary и Go.
 
 {% endnote %}
 
@@ -24,9 +24,10 @@
 
             Формат реестра | Адреса публичных источников
             --- | ---
-            Maven | `Maven Central`<br/>`Gradle Plugin Portal`<br/>`Axiom`
+            Maven | `Maven Central`<br/>`Gradle Plugin Portal`<br/>`Gradle Distributions`<br/>`Confluent`<br/>`Axiom`
             Npm | `Npm`
-            Docker | `Docker Hub`
+            Docker | `Docker Hub`<br/>`Amazon ECR Public`<br/>`Kubernetes Registry`<br/>`GitHub Container Registry`<br/>`GitLab Container Registry`<br/>`Kyverno Registry`<br/>`Microsoft Container Registry`<br/>`NVIDIA NGC Registry`<br/>`Red Hat Quay`
+            Debian | `Debian`<br/>`Ubuntu`
             NuGet| `NuGet`
             PyPI | `PyPI`<br/>`PyPI Test`
 
@@ -77,6 +78,7 @@
 
         1. В настройках реестра укажите имя пользователя (если тип авторизации — `Basic`) и идентификатор созданного секрета Yandex Lockbox.
 
+    1. Укажите [паттерны фильтрации](../../concepts/filtering-patterns.md).
     1. Введите имя и описание реестра.
     1. Добавьте метки в формате `ключ: значение`.
     1. Нажмите **Создать**.
@@ -97,7 +99,7 @@
     Где:
     * `--name` — имя реестра.
     * `--description` — описание реестра.
-    * `--registry-kind` — формат реестра. Доступные форматы: `maven`, `npm`, `docker`, `nuget`, `pypi`.
+    * `--registry-kind` — формат реестра. Доступные форматы: `maven`, `npm`, `docker`, `debian`, `nuget`, `pypi`.
     * `--registry-type` — [тип](../../concepts/registry.md#registry-types) реестра.
     * `--properties` — свойства реестра. Задаются строкой в формате `name1=value1,name2=value2`. Доступные свойства для удаленных реестров:
 
@@ -105,9 +107,10 @@
 
             Формат реестра | Адреса публичных источников
             --- | ---
-            `maven` | `@maven-central`<br/>`@gradle-plugin-portal`<br/>`@axiom`
+            `maven` | `@maven-central`<br/>`@gradle-plugin-portal`<br/>`@gradle-distributions`<br/>`@confluent`<br/>`@axiom`
             `npm` | `@npmjs`
-            `docker` | `@docker-hub`
+            `docker` | `@docker-hub`<br/>`@ecr-public`<br/>`@k8s`<br/>`@ghcr`<br/>`@gitlab`<br/>`@kyverno`<br/>`@mcr`<br/>`@nvcr`<br/>`@quay`
+            `debian` | `@debian`<br/>`@ubuntu`
             `nuget` | `@nuget`
             `pypi` | `@pypi`<br/>`@pypi-test`
 

@@ -16,8 +16,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-  1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
   1. Нажмите на имя нужного кластера.
   1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **Каталоги**.
   1. Нажмите кнопку **Создать каталог**.
@@ -212,8 +212,8 @@ Connection Manager позволяет создавать подключения 
     * **Идентификатор подключения** — идентификатор подключения в Connection Manager для подключения к кластеру ClickHouse®.
 
         Чтобы узнать идентификатор подключения:
-        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-        1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+        1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+        1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
         1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
     * **База данных** — имя БД в кластере ClickHouse®.
@@ -306,8 +306,8 @@ Connection Manager позволяет создавать подключения 
     * `--connection-manager-connection-id` — идентификатор подключения в Connection Manager для подключения к кластеру ClickHouse®.
 
       Чтобы узнать идентификатор подключения:
-        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-        1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+        1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+        1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
         1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.   
 
     * `--connection-manager-database` — имя БД в кластере ClickHouse®.
@@ -410,8 +410,8 @@ Connection Manager позволяет создавать подключения 
         * `connection_id` — идентификатор подключения в Connection Manager для подключения к кластеру ClickHouse®.
 
             Чтобы узнать идентификатор подключения:
-            1. В консоли управления перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-            1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+            1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+            1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
         * `database` — имя БД в кластере ClickHouse®.
@@ -525,8 +525,8 @@ Connection Manager позволяет создавать подключения 
         * `connectionId` — идентификатор подключения в Connection Manager для подключения к кластеру ClickHouse®.
 
             Чтобы узнать идентификатор подключения:
-            1. В консоли управления перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-            1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+            1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+            1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
         * `database` — имя БД в кластере ClickHouse®.
@@ -646,8 +646,8 @@ Connection Manager позволяет создавать подключения 
         * `connection_id` — идентификатор подключения в Connection Manager для подключения к кластеру ClickHouse®.
 
             Чтобы узнать идентификатор подключения:
-            1. В консоли управления перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-            1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+            1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+            1. [Перейдите](https://console.yandex.cloud/link/managed-clickhouse) в сервис **Managed Service for&nbsp;ClickHouse**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
         * `database` — имя БД в кластере ClickHouse®.
@@ -888,8 +888,8 @@ Connection Manager позволяет создавать подключения 
     * **URI** — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
       Чтобы узнать IP-адрес кластера Apache Hive™ Metastore:
-        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-        1. Перейдите в сервис **Yandex MetaData Hub**.
+        1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+        1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
         1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
       {% note warning %}
@@ -1171,8 +1171,8 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
 
         Чтобы узнать идентификатор подключения:
         
-        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+        1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+        1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
         1. Перейдите на вкладку **Connection manager**.
 
     * **База данных** — имя БД в кластере Greenplum®.
@@ -1198,8 +1198,8 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
 
         Чтобы узнать идентификатор подключения:
         
-        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+        1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+        1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
         1. Перейдите на вкладку **Connection manager**.
 
     * `--connection-manager-database` — имя БД в кластере Greenplum®.
@@ -1274,8 +1274,8 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
 
             Чтобы узнать идентификатор подключения:
             
-            1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+            1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+            1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
             1. Перейдите на вкладку **Connection manager**.
 
         * `database` — имя БД в кластере Greenplum®.
@@ -1361,8 +1361,8 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
 
             Чтобы узнать идентификатор подключения:
             
-            1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+            1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+            1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
             1. Перейдите на вкладку **Connection manager**.
 
         * `database` — имя БД в кластере Greenplum®.
@@ -1454,8 +1454,8 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
 
             Чтобы узнать идентификатор подключения:
             
-            1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+            1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+            1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
             1. Перейдите на вкладку **Connection manager**.
 
         * `database` — имя БД в кластере Greenplum®.
@@ -1667,8 +1667,8 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * **URI** — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
       Чтобы узнать IP-адрес кластера Apache Hive™ Metastore:
-        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-        1. Перейдите в сервис **Yandex MetaData Hub**.
+        1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+        1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
         1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
       {% note warning %}
@@ -1921,8 +1921,8 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * **URI** — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
       Чтобы узнать IP-адрес кластера Apache Hive™ Metastore:
-        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-        1. Перейдите в сервис **Yandex MetaData Hub**.
+        1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+        1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
         1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
       {% note warning %}
@@ -2175,8 +2175,8 @@ ALTER ROLE <имя_пользователя_Greenplum®> CREATEEXTTABLE (type='w
     * **URI** — URI для подключения к кластеру Apache Hive™ Metastore в формате `thrift://<IP-адрес_кластера>:9083`.
     
       Чтобы узнать IP-адрес кластера Apache Hive™ Metastore:
-        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-        1. Перейдите в сервис **Yandex MetaData Hub**.
+        1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+        1. [Перейдите](https://console.yandex.cloud/link/metadata-hub) в сервис **Yandex MetaData Hub**.
         1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
     
       {% note warning %}
@@ -2592,8 +2592,8 @@ Connection Manager позволяет создавать подключения 
     * **Идентификатор подключения** — идентификатор подключения в Connection Manager для подключения к кластеру PostgreSQL.
 
         Чтобы узнать идентификатор подключения:
-        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-        1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+        1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+        1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
         1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
     * **База данных** — имя БД в кластере PostgreSQL.
@@ -2618,8 +2618,8 @@ Connection Manager позволяет создавать подключения 
     * `--connection-manager-connection-id` — идентификатор подключения в Connection Manager для подключения к кластеру PostgreSQL.
 
         Чтобы узнать идентификатор подключения:
-        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-        1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+        1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+        1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
         1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
     * `--connection-manager-database` — имя БД в кластере PostgreSQL.
@@ -2693,8 +2693,8 @@ Connection Manager позволяет создавать подключения 
         * `connection_id` — идентификатор подключения в Connection Manager для подключения к кластеру PostgreSQL.
 
             Чтобы узнать идентификатор подключения:
-            1. В консоли управления перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-            1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+            1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+            1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
         * `database` — имя БД в кластере PostgreSQL.
@@ -2779,8 +2779,8 @@ Connection Manager позволяет создавать подключения 
         * `connectionId` — идентификатор подключения в Connection Manager для подключения к кластеру PostgreSQL.
 
             Чтобы узнать идентификатор подключения:
-            1. В консоли управления перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-            1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+            1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+            1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
         * `database` — имя БД в кластере PostgreSQL.
@@ -2871,8 +2871,8 @@ Connection Manager позволяет создавать подключения 
         * `connection_id` — идентификатор подключения в Connection Manager для подключения к кластеру PostgreSQL.
 
             Чтобы узнать идентификатор подключения:
-            1. В консоли управления перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-            1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+            1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+            1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
         * `database` — имя БД в кластере PostgreSQL.
@@ -3092,8 +3092,8 @@ Connection Manager позволяет создавать подключения 
     * **Идентификатор подключения** — идентификатор подключения в Connection Manager для подключения к кластеру MySQL®.
 
         Чтобы узнать идентификатор подключения:
-        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-        1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+        1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+        1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
         1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
     * **Свойства подключения** — параметры подключения MySQL® в формате `ключ: значение`.
@@ -3140,8 +3140,8 @@ Connection Manager позволяет создавать подключения 
     * `--connection-manager-connection-id` — идентификатор подключения в Connection Manager для подключения к кластеру MySQL®.
 
         Чтобы узнать идентификатор подключения:
-        1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-        1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+        1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+        1. [Перейдите](https://console.yandex.cloud/link/managed-postgresql) в сервис **Managed Service for&nbsp;PostgreSQL**.
         1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
     * `--connection-manager-connection-properties` — список настроек подключения MySQL® в формате `ключ=значение`.
@@ -3198,8 +3198,8 @@ Connection Manager позволяет создавать подключения 
         * `connection_id` — идентификатор подключения в Connection Manager для подключения к кластеру MySQL®.
 
             Чтобы узнать идентификатор подключения:
-            1. В консоли управления перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-            1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+            1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+            1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
         * `connection_properties` — список настроек подключения MySQL® в формате `"ключ" = "значение"`.
@@ -3267,8 +3267,8 @@ Connection Manager позволяет создавать подключения 
         * `connectionId` — идентификатор подключения в Connection Manager для подключения к кластеру MySQL®.
 
             Чтобы узнать идентификатор подключения:
-            1. В консоли управления перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-            1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+            1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+            1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
         * `connectionProperties` — список настроек подключения MySQL® в формате `"ключ": "значение"`.
@@ -3342,8 +3342,8 @@ Connection Manager позволяет создавать подключения 
         * `connection_id` — идентификатор подключения в Connection Manager для подключения к кластеру MySQL®.
 
             Чтобы узнать идентификатор подключения:
-            1. В консоли управления перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-            1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
+            1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+            1. [Перейдите](https://console.yandex.cloud/link/managed-mysql) в сервис **Managed Service for&nbsp;MySQL**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **Подключения**.
 
         * `connection_properties` — список настроек подключения MySQL® в формате `"ключ": "значение"`.

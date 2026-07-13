@@ -59,6 +59,6 @@ To use Falco, install [Kyverno](/marketplace/products/yc/kyverno) or any other p
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Falco documentation](https://falco.org/docs/)

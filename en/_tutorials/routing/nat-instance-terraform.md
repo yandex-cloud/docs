@@ -58,7 +58,7 @@ To create an infrastructure with {{ TF }}:
 
     {% endlist %}
 
-    For more information about {{ TF }} resource properties, see the relevant provider guides:
+    For more on the properties of resources used in {{ TF }}, see these provider guides:
 
     * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
     * [Subnets](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
@@ -75,7 +75,7 @@ To create an infrastructure with {{ TF }}:
     * `vm_user_nat`: NAT instance username.
     * `ssh_key_path`: Path to the public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-1. Create the required resources:
+1. Create the resources:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -88,7 +88,7 @@ After you create the infrastructure, [test the NAT instance](#test).
 
 ## How to delete the resources you created {#clear-out}
 
-To stop incurring charges for the resources you created:
+To stop paying for the resources you created:
 
 1. Open the `nat-instance.tf` file and delete your infrastructure description from it.
 1. Apply the changes:

@@ -92,16 +92,16 @@ The set of headers is request-specific and described in the documentation for th
 
 URLs can have the following formats:
 
-* `http(s)://{{ s3-storage-host }}/<bucket_name>/<object_key>?<request_parameters>`
-* `http(s)://<bucket_name>.{{ s3-storage-host }}/<object_key>?<request_parameters>`
+* `http(s)://{{ s3-storage-host }}/<bucket_name>/<object_key>?<query_parameters>`
+* `http(s)://<bucket_name>.{{ s3-storage-host }}/<object_key>?<query_parameters>`
 
 {% note info %}
 
-For buckets with periods in their names, e.g., `example.ru`, HTTPS is available only with a URL of the `https://{{ s3-storage-host }}/<bucket_name>/<object_key>?<request_parameters>` format. For more information, see [Accessing a bucket over HTTPS](../concepts/bucket.md#bucket-https).
+For buckets with periods in their names, e.g., `example.ru`, HTTPS is available only with a URL of `https://{{ s3-storage-host }}/<bucket_name>/<object_key>?<query_parameters>` format. For more information, see [Accessing a bucket via HTTPS](../concepts/bucket.md#bucket-https).
 
 {% endnote %}
 
-The URL contains the bucket name, object key, and request parameters. See an example of possible request parameters in the [Get object method description](api-ref/object/get.md).
+The URL contains the bucket name, object key, and query parameters. See an example of possible query parameters in the [Get object method description](api-ref/object/get.md).
 
 {% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
 

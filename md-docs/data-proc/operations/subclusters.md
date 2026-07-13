@@ -16,8 +16,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex Data Processing**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Подкластеры**.
 
 - CLI {#cli}
@@ -45,7 +45,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. Перейдите в сервис **Yandex Data Processing** и выберите нужный кластер.
+  1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing** и выберите нужный кластер.
   1. Перейдите в раздел **Подкластеры**.
   1. Нажмите кнопку **Создать подкластер**.
   1. Укажите параметры подкластера:
@@ -188,7 +188,7 @@
 
   Чтобы удалить подкластер:
   1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. Перейдите в сервис **Yandex Data Processing** и выберите нужный кластер.
+  1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing** и выберите нужный кластер.
   1. Перейдите в раздел **Подкластеры**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного подкластера и выберите пункт **Удалить**.
   1. (Опционально) Укажите таймаут [декомиссии](../concepts/decommission.md).

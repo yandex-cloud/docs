@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support costs include:
+The infrastructure support cost includes:
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
@@ -84,7 +84,7 @@ The infrastructure support costs include:
 
 {% note warning %}
 
-Configuration settings are provided for the sake of exemplification. To learn how to set up a caching resolver based on the VM workload and your needs, see the documentation for the selected resolver.
+Configuration settings are provided for the sake of exemplification. To learn how to set up a caching resolver based on the VM workload and your needs, see the guides for the selected resolver.
 
 {% endnote %}
 

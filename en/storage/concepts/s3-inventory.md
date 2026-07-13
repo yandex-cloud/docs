@@ -92,6 +92,7 @@ Optionally, you add the following metadata fields to the configuration:
 * `LAST_MODIFIED_DATE`: Creation or last modification date.
 * `ETAG`: Hash.
 * `STORAGE_CLASS`: [Storage class](./storage-class.md).
+* `INTELLIGENT_TIERING_ACCESS_TIER`: Access tier of an object in [Intelligent-Tiering storage class](./storage-class.md#features-intelligent-tiering).
 * `IS_MULTIPART_UPLOADED`: Multipart upload indicator.
 * `ENCRYPTION_STATUS`: [Encryption](./encryption.md) status.
 * `OBJECT_LOCK_RETAIN_UNTIL_DATE`: [Version lock](./object-lock.md) expiration date.
@@ -175,7 +176,7 @@ source-bucket-name,some-file-key-1,16777216,2024-11-26 08:22:15.12345+00,STANDAR
 source-bucket-name,some-file-key-2,647168,2025-05-25 22:05:28.12345+00,COLD,7f9429f312poga209cd412aae2020ae,f,SSE-S3,,,,MD5,,ajegtlf2q28a********
 ```
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/buckets/manage-s3-inventory.md)
 * [{#T}](../operations/objects/download.md)

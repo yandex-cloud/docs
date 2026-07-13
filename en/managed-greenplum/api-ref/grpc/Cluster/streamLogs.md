@@ -6,6 +6,7 @@ editable: false
 
 Same as [ListLogs](/docs/managed-greenplum/api-ref/grpc/Cluster/listLogs#ListLogs) but using server-side streaming. Also allows for `tail -f` semantics.
 
+
 ## gRPC request
 
 **rpc StreamLogs ([StreamClusterLogsRequest](#yandex.cloud.mdb.greenplum.v1.StreamClusterLogsRequest)) returns (stream [StreamLogRecord](#yandex.cloud.mdb.greenplum.v1.StreamLogRecord))**
@@ -50,9 +51,7 @@ Start timestamp for the logs request. ||
 || to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 End timestamp for the logs request.
-
 If this field is not set, all existing logs are sent as well as the new ones as they appear.
-
 In essence it has `tail -f` semantics. ||
 || record_token | **string**
 
@@ -62,17 +61,11 @@ The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-
 The expression must specify:
-
 1. A field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname], [LogRecord.logs.message.error_severity] (for GREENPLUM service), [LogRecord.logs.message.level] (for POOLER service) fields.
-
 2. An `=` operator.
-
 3. A value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
-
 Examples of a filter:
-
 * `message.hostname='node1.db.cloud.yandex.net'`;
 * `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`.
 
@@ -99,9 +92,7 @@ One of the requested log records. ||
 || next_record_token | **string**
 
 This token allows you to continue streaming logs starting from the exact same record.
-
 To do that, specify value of `next_record_token` as the value for [StreamLogs.record_token] parameter in the next [StreamLogs](#StreamLogs) request.
-
 This value is interchangeable with [ListLogs.next_page_token] from [ListLogs](/docs/managed-greenplum/api-ref/grpc/Cluster/listLogs#ListLogs) method. ||
 |#
 

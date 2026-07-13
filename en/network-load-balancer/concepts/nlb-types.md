@@ -41,6 +41,6 @@ The VMs will only receive traffic from the internal load balancer. The same rest
 * [{#T}](../tutorials/dns-integration.md)
 * [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Cloud load balancers: Enhancing availability and fault tolerance](https://yandex.cloud/ru/blog/posts/2025/04/load-balancers-guide)

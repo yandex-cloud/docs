@@ -29,7 +29,7 @@ In {{ TF }}, each provider has its own collection of resources representing vari
 
 
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../quickstart.md)
 * [{#T}](../tutorials/index.md)

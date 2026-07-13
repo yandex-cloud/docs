@@ -9,7 +9,7 @@ apiPlayground:
         clusterId:
           description: |-
             **string**
-            Required field.
+            Required field. ID of the Greenplum® cluster.
             The maximum string length in characters is 50.
           type: string
       required:
@@ -34,7 +34,7 @@ apiPlayground:
         user:
           description: |-
             **[User](#yandex.cloud.mdb.greenplum.v1.User)**
-            Required field.
+            Required field. Definition of the user (updated fields only).
           $ref: '#/definitions/User'
       required:
         - user
@@ -54,14 +54,14 @@ apiPlayground:
             description: |-
               **string**
               User password. Used only in create and update requests
-              The string length in characters must be 6-200.
+              The maximum string length in characters is 128.
             type: string
           resourceGroup:
             description: |-
               **string**
               Resource group for user's queries
-              Value must match the regular expression ` ^[^\|/*?.,;'<>]+$ `.
-            pattern: ^[^\|/*?.,;'<>]+$
+              Value must match the regular expression ` ^([^\|/*?.,;'<>]+|)$ `.
+            pattern: ^([^\|/*?.,;'<>]+|)$
             type: string
         required:
           - name
@@ -83,7 +83,7 @@ PATCH https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/users
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.
+Required field. ID of the Greenplum® cluster.
 
 The maximum string length in characters is 50. ||
 |#
@@ -115,7 +115,7 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || user | **[User](#yandex.cloud.mdb.greenplum.v1.User)**
 
-Required field. ||
+Required field. Definition of the user (updated fields only). ||
 |#
 
 ## User {#yandex.cloud.mdb.greenplum.v1.User}
@@ -131,12 +131,12 @@ The string length in characters must be 1-63. Value must match the regular expre
 
 User password. Used only in create and update requests
 
-The string length in characters must be 6-200. ||
+The maximum string length in characters is 128. ||
 || resourceGroup | **string**
 
 Resource group for user's queries
 
-Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
+Value must match the regular expression ``` ^([^\|/*?.,;'<>]+|)$ ```. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -151,10 +151,7 @@ Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string",
-    "userName": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -163,11 +160,7 @@ Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
       "object"
     ]
   },
-  "response": {
-    "name": "string",
-    "password": "string",
-    "resourceGroup": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -209,7 +202,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateUserMetadata](#yandex.cloud.mdb.greenplum.v1.UpdateUserMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -224,7 +217,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[User](#yandex.cloud.mdb.greenplum.v1.User2)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -239,22 +232,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateUserMetadata {#yandex.cloud.mdb.greenplum.v1.UpdateUserMetadata}
-
-#|
-||Field | Description ||
-|| clusterId | **string**
-
-Required field.
-
-The maximum string length in characters is 50. ||
-|| userName | **string**
-
-Required field.
-
-The string length in characters must be 1-63. Value must match the regular expression ` ^[a-zA-Z_][a-zA-Z0-9_]{0,62}$ `. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -272,25 +249,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## User {#yandex.cloud.mdb.greenplum.v1.User2}
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Required field. User name
-
-The string length in characters must be 1-63. Value must match the regular expression ` ^[a-zA-Z_][a-zA-Z0-9_]{0,62}$ `. ||
-|| password | **string**
-
-User password. Used only in create and update requests
-
-The string length in characters must be 6-200. ||
-|| resourceGroup | **string**
-
-Resource group for user's queries
-
-Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 |#

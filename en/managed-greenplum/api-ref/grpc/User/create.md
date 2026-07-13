@@ -27,12 +27,12 @@ Creates user
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field.
+Required field. ID of the Greenplum® cluster.
 
 The maximum string length in characters is 50. ||
 || user | **[User](#yandex.cloud.mdb.greenplum.v1.User)**
 
-Required field. ||
+Required field. Definition of the user to create. ||
 |#
 
 ## User {#yandex.cloud.mdb.greenplum.v1.User}
@@ -48,12 +48,12 @@ The string length in characters must be 1-63. Value must match the regular expre
 
 User password. Used only in create and update requests
 
-The string length in characters must be 6-200. ||
+The maximum string length in characters is 128. ||
 || resource_group | **string**
 
 Resource group for user's queries
 
-Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
+Value must match the regular expression ``` ^([^\|/*?.,;'<>]+|)$ ```. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -66,17 +66,10 @@ Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "cluster_id": "string",
-    "user_name": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "name": "string",
-    "password": "string",
-    "resource_group": "string"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -104,7 +97,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateUserMetadata](#yandex.cloud.mdb.greenplum.v1.CreateUserMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -119,7 +112,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[User](#yandex.cloud.mdb.greenplum.v1.User2)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -134,41 +127,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateUserMetadata {#yandex.cloud.mdb.greenplum.v1.CreateUserMetadata}
-
-#|
-||Field | Description ||
-|| cluster_id | **string**
-
-Required field.
-
-The maximum string length in characters is 50. ||
-|| user_name | **string**
-
-Required field.
-
-The string length in characters must be 1-63. Value must match the regular expression ` ^[a-zA-Z_][a-zA-Z0-9_]{0,62}$ `. ||
-|#
-
-## User {#yandex.cloud.mdb.greenplum.v1.User2}
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Required field. User name
-
-The string length in characters must be 1-63. Value must match the regular expression ` ^[a-zA-Z_][a-zA-Z0-9_]{0,62}$ `. ||
-|| password | **string**
-
-User password. Used only in create and update requests
-
-The string length in characters must be 6-200. ||
-|| resource_group | **string**
-
-Resource group for user's queries
-
-Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 |#

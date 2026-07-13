@@ -4,7 +4,7 @@
 
 In {{ ml-platform-name }}, you can [train models](./models/index.md) and perform computations in {{ ds-nb }}, run remote computations using [{{ ds-jobs }}](jobs/index.md) jobs, deploy the trained models or any [Docker images](docker.md) as a service in [{{ ds-inf }}](#deployment).
 
-## {{ ml-platform-full-name }} advantages {#advantages}
+## Advantages {#advantages}
 
 ### Ready-to-use development environment {#ready-to-use}
 
@@ -20,7 +20,7 @@ If you are missing a package, you can [install it](../operations/projects/instal
 
 ### Organizations and resource hierarchy {#organization}
 
-{{ ml-platform-name }} is not just a cloud: it allows all organization members to work in a shared space managed by [{{ org-full-name }}]({{ link-org-cloud-center }}). Resources you create depend on your projects but are not limited only to them. For more information about relationships between {{ ml-platform-name }} resources, see [{#T}](resource-model.md).
+{{ ml-platform-name }} is not just a cloud: it allows all organization members to work in a shared space managed by [{{ org-full-name }}]({{ link-org-cloud-center }}). Resources you create depend on your projects but are not limited only to them. For more information about the {{ ml-platform-name }} resource relationships, see [{#T}](resource-model.md).
 
 ### Teamwork and cost management {#communities}
 

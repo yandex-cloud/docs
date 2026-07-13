@@ -361,7 +361,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
 
      For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
-  1. Validate your configuration files.
+  1. Make sure the configuration files are correct.
 
      {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 
@@ -599,7 +599,7 @@ Create a node group for the {{ managed-k8s-name }} cluster with the following te
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](./node-group-create-in-instance-pool.md)
 * [{#T}](../../concepts/index.md#node-group)

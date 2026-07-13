@@ -42,12 +42,12 @@ To edit a workload:
   1. Click the cluster name and select ![PersonWorker](../../../_assets/console-icons/person-worker.svg) **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
   1. Select the tab containing the type of the workload you want to edit.
   1. In the workload row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-  1. Edit the manifest file on the right side of the screen. Your changes will be highlighted with color.
+  1. Make changes to the manifest file on the right side of the screen. Your changes will be highlighted with color.
   1. In the top-right corner, click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
-If the manifest is correct, the changes will be applied. If the updated manifest contains an error or edits uneditable fields, an error message will appear.
+If the manifest is correct, the changes will be applied. If the updated manifest contains an error or changes fields that cannot be edited, an error message will appear.
 
 ## Running or stopping a cron job {#cron-job}
 
@@ -83,6 +83,6 @@ To delete a workload:
 
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../concepts/index.md)

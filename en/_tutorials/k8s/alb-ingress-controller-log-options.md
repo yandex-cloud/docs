@@ -24,12 +24,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for using computing resources of each L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* DNS zone and DNS query fee (see [{{ dns-name }} pricing](../../dns/pricing.md)).
+* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the computing resources of each L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for public IP addresses for cluster nodes and L7 load balancers (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* {{ cloud-logging-name }} fee for data logging and storage (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
+* {{ cloud-logging-name }} fee: data logging and storage (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
 
 
 ## Getting started {#before-begin}
@@ -47,7 +47,7 @@ The support cost for this solution includes:
     1. Create the following [service accounts](../../iam/operations/sa/create.md) for the {{ managed-k8s-name }} cluster:
 
         * Service account for resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to host the new [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
-        * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder with the Docker image [registry](../../container-registry/concepts/registry.md). The nodes will use this account to pull the required Docker images from the registry.
+        * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder with the Docker image [registry](../../container-registry/concepts/registry.md). Nodes will use this account to pull the required Docker images from the registry.
         * Service account for the {{ alb-name }} ingress controller with the following roles:
 
             * [{{ roles-alb-editor }}](../../application-load-balancer/security/index.md#alb-editor): To create the required resources.
@@ -119,13 +119,13 @@ The support cost for this solution includes:
         * Name of the service account for the {{ alb-name }} ingress controller.
         * Name of the custom {{ cloud-logging-name }} log group.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -135,7 +135,7 @@ The support cost for this solution includes:
 
 {% endlist %}
 
-### Get ready to use the {{ managed-k8s-name }} cluster {#prepare-k8s-cluster}
+### Get ready to work with the {{ managed-k8s-name }} cluster {#prepare-k8s-cluster}
 
 1. {% include [install-kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -395,7 +395,7 @@ Create three [Ingress](https://kubernetes.io/docs/concepts/services-networking/i
     * `ingress.alb.yc.io/prefix-rewrite`: Replace the path with the specified value.
     * `ingress.alb.yc.io/upgrade-types`: Valid values of the `Upgrade` HTTP header, e.g., `websocket`.
     * `ingress.alb.yc.io/request-timeout`: Maximum connection request timeout.
-    * `ingress.alb.yc.io/idle-timeout`: Maximum connection idle timeout.
+    * `ingress.alb.yc.io/idle-timeout`: Maximum connection idle time.
 
         Make sure to provide the `request-timeout` and `idle-timeout` values with units of measurement, e.g., `300ms` or `1.5h`. Acceptable units of measurement include:
         * `ns`, nanoseconds
@@ -495,7 +495,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 - Manually {#manual}
 
     1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-    1. [Delete](../../vpc/operations/address-delete.md) the cluster public static IP address if you reserved one.
+    1. [Delete](../../vpc/operations/address-delete.md) the cluster's public static IP address if you reserved one.
     1. [Delete the service accounts](../../iam/operations/sa/delete.md).
     1. [Delete the log group](../../logging/operations/delete-group.md).
 

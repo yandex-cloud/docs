@@ -8,9 +8,9 @@ In this tutorial, you will learn how to use [{{ vision-full-name }}]({{ link-doc
 ![image](../../_assets/vision/ocr-storage-recognizer.svg)
 
 1. The user uploads images or documents to the `input` directory ([prefix]({{ link-docs }}/storage/concepts/object#folder)) in a {{ objstorage-full-name }} bucket.
-1. The [{{ sf-full-name }}]({{ link-docs }}/functions/) [trigger]({{ link-docs }}/functions/concepts/trigger/index), activated on schedule, checks for new files in the `input` folder. Next, the system sends files to the [{{ serverless-containers-full-name }}]({{ link-docs }}/serverless-containers/) [container]({{ link-docs }}/serverless-containers/concepts/container) for recognition.
-1. During the recognition process, the operation ID is stored in the `process` folder of the source bucket.
-1. Once the operation is completed, the recognition results are saved to the `result` folder as JSON and TXT files. The operation ID is deleted from the `process` folder.
+1. The [{{ sf-full-name }}]({{ link-docs }}/functions/) [trigger]({{ link-docs }}/functions/concepts/trigger/index), is activated by timer and checks for new files in the `input` folder. Next, the files are sent for recognition to the [{{ serverless-containers-full-name }}]({{ link-docs }}/serverless-containers/) [container]({{ link-docs }}/serverless-containers/concepts/container).
+1. File recognition is in progress, the operation ID is saved in the `process` folder in the source bucket.
+1. Once the operation is successfully completed, the recognition results are saved to the `result` folder as JSON and TXT files. The ID of the successful operation is deleted from the `process` folder.
 
 The infrastructure is built using the [{{ yandex-cloud }} {{ TF }} provider]({{ tf-provider-link }}). The source code for this guide is available on [GitHub](https://github.com/yandex-cloud-examples/yc-vision-ocr-recognizer).
 
@@ -31,9 +31,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost for scheduled image and document recognition includes:
-* Fee for data storage in a bucket and data operations (see [{{ objstorage-name }} pricing]({{ link-docs }}/storage/pricing)).
+* Fee for bucket data storage and bucket data operations (see [{{ objstorage-name }} pricing]({{ link-docs }}/storage/pricing)).
 * Fee for using {{ vision-name }} (see [{{ vision-name }} pricing]({{ link-docs-ai }}vision/pricing)).
-* Fee for container invocation count, computing resources allocated to run the application, and outbound traffic (see [{{ serverless-containers-name }} pricing]({{ link-docs }}/serverless-containers/pricing)).
+* Fee for the container invocation count, computing resources allocated for the application, and outgoing traffic (see [{{ serverless-containers-name }} pricing]({{ link-docs }}/serverless-containers/pricing)).
 * Fee for storing the [secret]({{ link-docs }}/lockbox/concepts/secret) and operations with it (see [{{ lockbox-name }} pricing]({{ link-docs }}/lockbox/pricing)).
 
 
@@ -74,7 +74,7 @@ The system will create a bucket named `ocr-recognition-...`.
 
 ## How to delete the resources you created {#clear-out}
 
-To stop incurring costs for the resources you created:
+To stop paying for the resources you created:
 
 1. Delete all files from the bucket.
 1. Open the `main.tf` configuration file and delete your infrastructure description from it.

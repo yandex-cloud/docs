@@ -45,7 +45,7 @@ If you no longer need the resources you created, [delete](#clear-out) them.
 The cost of support for the new infrastructure includes:
 
 * Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for public static IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using public static IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using a network load balancer (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
 
 ## Set up your remote site {#remote-setup}

@@ -109,7 +109,7 @@ description: Follow this guide to install Filebeat OSS.
 
 * [{{ managed-k8s-name }} cluster monitoring with Filebeat OSS](../../tutorials/filebeat-oss-monitoring.md)
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{{ mos-name }} guides](../../../managed-opensearch/)
 * [Filebeat documentation](https://www.elastic.co/guide/en/beats/filebeat/master/index.html)

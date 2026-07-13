@@ -7,6 +7,6 @@ To back up your objects, you can regularly download them from {{ objstorage-name
 To automate backups, use the [supported tools](../tools/index.md).
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Tutorials on backups in {{ objstorage-name }}](../tutorials/storage-backup-overview.md)

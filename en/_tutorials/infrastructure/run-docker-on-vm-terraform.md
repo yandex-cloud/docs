@@ -1,5 +1,5 @@
 1. [Get your cloud ready](#before-begin).
-1. [Create your infrastructure](#deploy).
+1. [Create the infrastructure](#deploy).
 1. [Build and push the Docker image to {{ container-registry-name }}](#create-image).
 1. [Push the Docker image to the VM](#run).
 1. [Check the result](#check-result).
@@ -27,13 +27,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [configure-docker](../../_includes/container-registry/configure-docker.md) %}
 
 
-## Create your infrastructure {#deploy}
+## Create the infrastructure {#deploy}
 
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 To create an infrastructure using {{ TF }}:
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the {{ yandex-cloud }} provider source (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
-1. Prepare your infrastructure description files:
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
+1. Set up your infrastructure description files:
 
     {% list tabs group=infrastructure_description %}
 
@@ -50,7 +50,7 @@ To create an infrastructure using {{ TF }}:
     - Manually {#manual}
 
       1. Create a folder for the infrastructure description file.
-      1. In the folder, create a configuration file named `run-docker-on-vm.tf`:
+      1. Create a configuration file named `run-docker-on-vm.tf` in the folder:
 
           {% cut "Contents of the run-docker-on-vm.tf file" %}
 
@@ -60,7 +60,7 @@ To create an infrastructure using {{ TF }}:
 
     {% endlist %}
 
-    Learn more about the properties of {{ TF }} resources in the relevant Terraform guides:
+    For more on the properties of resources used in {{ TF }}, see these provider guides:
 
     * [Registry](../../container-registry/concepts/registry.md): [yandex_container_registry]({{ tf-provider-resources-link }}/container_registry)
     * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account)

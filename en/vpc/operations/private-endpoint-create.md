@@ -30,7 +30,7 @@ To create a [service connection](../concepts/private-endpoint.md):
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](private-endpoint-get-info.md)
 * [{#T}](private-endpoint-delete.md)

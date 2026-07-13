@@ -40,7 +40,7 @@ Self-hosted worker use cases:
 * In any other repository of the [organization]({{ link-src-docs }}/sourcecraft/concepts/#org). In this case, you need to delete the VM with the self-hosted worker [manually](#clear-out).
 
 To deploy a self-hosted {{ src-name }} worker on a {{ compute-name }} VM:
-1. [Get ready](#prepare).
+1. [Get ready to work](#prepare).
 1. [Deploy the infrastructure](#infra).
 1. [Create a repository with a CI/CD configuration](#clone-repo).
 1. [Create secrets](#secrets).
@@ -50,7 +50,7 @@ To deploy a self-hosted {{ src-name }} worker on a {{ compute-name }} VM:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Get ready for work {#prepare}
+## Get ready to work {#prepare}
 
 1. {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 1. Authenticate in {{ src-name }} on the service [home page]({{ link-src-main }}) or [sign up]({{ link-src-docs }}/sourcecraft/security/registration).
@@ -213,7 +213,7 @@ Adjust the CI/CD configuration for your needs or use an existing one.
 The VM configuration for a self-hosted worker is specified in the `env` variable section in the `.sourcecraft/ci.yaml` file:
 * `COMPUTE_INSTANCE_NAME`: VM name and host name, e.g., `self-hosted-worker`.
 * `VPC_SUBNET_NAME`: Name of the subnet created earlier the VM will reside in, e.g., `default-ru-central1-d`.
-* `CREATE_BOOT_DISK`: [Disk image](../../compute/concepts/image.md) from which the VM will be created, e.g., `image-folder-id=standard-images,image-family=ubuntu-2204-lts` (Ubuntu 22.04 LTS). See also [Getting a list of public images](../../compute/operations/images-with-pre-installed-software/get-list.md).
+* `CREATE_BOOT_DISK`: [Disk image](../../compute/concepts/image.md) from which the VM will be created, e.g., `image-folder-id=standard-images,image-family=ubuntu-2204-lts` (Ubuntu 22.04 LTS). To get a list of public images, follow [this guide](../../compute/operations/images-with-pre-installed-software/get-list.md).
 * `PLATFORM`: VM [platform](../../compute/concepts/vm-platforms.md), e.g., `standard-v3`.
 * `MEMORY`: Amount of RAM, e.g., `64GB`.
 * `CORES`: Number of vCPU cores, e.g., `8`.
@@ -317,7 +317,7 @@ To stop paying for the resources you created, [manually run]({{ link-src-docs }}
 
 Optionally, delete the [network](../../vpc/operations/network-delete.md) and [subnet](../../vpc/operations/subnet-delete.md).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Setting up a self-hosted worker for {{ src-name }}]({{ link-src-docs }}/sourcecraft/operations/self-hosted-worker)
 * [Creating a VM with a custom configuration script](../../compute/operations/vm-create/create-with-cloud-init-scripts.md)

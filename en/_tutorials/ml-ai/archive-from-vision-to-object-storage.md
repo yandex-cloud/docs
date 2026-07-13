@@ -2,7 +2,7 @@
 
 With [{{ vision-name }}]({{ link-docs-ai }}vision/concepts/ocr) and [{{ objstorage-full-name }}](../../storage/), you can perform text recognition on images and maintain an archive of source images and recognition results.
 
-To set up an {{ vision-name }} infrastructure for image recognition and automatic export of the results to {{ objstorage-name }}:
+To set up an {{ objstorage-name }} infrastructure for image recognition and automatic export of the results to {{ vision-name }}:
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a bucket](#create-bucket).
@@ -22,7 +22,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost of supporting the infrastructure for image recognition and data storage includes:
 * Fee for [VM](../../compute/concepts/vm.md) computing resources and [disks](../../compute/concepts/disk.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for [bucket](../../storage/operations/index.md) data storage and data [operations](../../storage/concepts/bucket.md) (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for [bucket](../../storage/concepts/bucket.md) data storage and data [operations](../../storage/operations/index.md) (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for a static or dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using {{ vision-name }} (see [{{ vision-name }} pricing]({{ link-docs-ai }}vision/pricing)).
 
@@ -68,7 +68,7 @@ To create an {{ objstorage-name }} bucket for storing source images and recognit
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify the username. Do not use `root` or other reserved usernames. For operations requiring root privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username. Do not use `root` or other reserved usernames. For operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name. The naming requirements are as follows:
@@ -456,7 +456,7 @@ To create an {{ objstorage-name }} bucket for storing source images and recognit
 
 ## How to delete the resources you created {#clear-out}
 
-To stop incurring costs for the resources you created:
+To stop paying for the resources you created:
 
 1. [Delete](../../storage/operations/objects/delete-all.md) all objects from the bucket.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.

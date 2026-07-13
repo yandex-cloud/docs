@@ -42,7 +42,7 @@ Metric name<br/>Type, unit | Description<br/>Labels
 
 ## Triton metrics {#triton}
 
-For more information on Triton metrics, see the manufacturer [documentation](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/metrics.html).
+For more information on Triton metrics, see the manufacturer [guides](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/metrics.html).
 
 
 ### Inference metrics {#inference}
@@ -131,6 +131,6 @@ Metric name<br/>Type, unit | Description
 `nv_cache_miss_duration_per_model`<br/>`GAUGE`, microseconds | Total time spent searching and inserting responses into cache on cache failure for each model.
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/deploy/monitoring.md)

@@ -55,7 +55,6 @@ GET https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/backups
 || clusterId | **string**
 
 Required field. ID of the Greenplum® cluster.
-
 To get the Greenplum® cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -68,7 +67,6 @@ The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `pageSize`, the service returns a [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) that can be used to get the next page of results in subsequent list requests.
 
 The maximum value is 1000. ||
@@ -110,9 +108,7 @@ List of Greenplum® backups. ||
 || nextPageToken | **string**
 
 This token allows you to get the next page of results for list requests.
-
 If the number of results is larger than [ListClusterBackupsRequest.pageSize](#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsRequest), use the `nextPageToken` as the value for the [ListClusterBackupsRequest.pageToken](#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsRequest) query parameter in the next list request.
-
 Each subsequent list request has its own `nextPageToken` to continue paging through the results. ||
 |#
 
@@ -122,7 +118,7 @@ Each subsequent list request has its own `nextPageToken` to continue paging thro
 ||Field | Description ||
 || id | **string**
 
-Required. ID of the backup. ||
+Required field. Required. ID of the backup. ||
 || folderId | **string**
 
 ID of the folder that the backup belongs to. ||
@@ -154,17 +150,17 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 Size of the backup in bytes. ||
 || type | **enum** (BackupCreationType)
 
-How this backup was created (manual/automatic/etc...)
+How this backup was created (manual/automatic/etc...).
 
 - `AUTOMATED`: Backup created by automated daily schedule
 - `MANUAL`: Backup created by user request ||
 || method | **enum** (BackupMethod)
 
-Method of backup creation
+Method of backup creation.
 
 - `BASE`: Base backup
 - `INCREMENTAL`: Delta (incremental) Greenplum backup ||
 || journalSize | **string** (int64)
 
-Size of the journal associated with backup, in bytes ||
+Size of the journal associated with backup, in bytes. ||
 |#

@@ -162,6 +162,12 @@ apiPlayground:
             type: object
             additionalProperties:
               type: string
+          votes:
+            description: |-
+              **string** (int64)
+              Votes of host for the election in replSet
+            type: string
+            format: int64
       MongoInfra:
         type: object
         properties:
@@ -225,7 +231,8 @@ The maximum string length in characters is 50. ||
       "hidden": "boolean",
       "secondaryDelaySecs": "string",
       "priority": "number",
-      "tags": "object"
+      "tags": "object",
+      "votes": "string"
     }
   ],
   "mongoinfra": {
@@ -344,6 +351,9 @@ Priority of host for the election in replSet ||
 || tags | **object** (map<**string**, **string**>)
 
 Host tags ||
+|| votes | **string** (int64)
+
+Votes of host for the election in replSet ||
 |#
 
 ## MongoInfra {#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.MongoInfra}

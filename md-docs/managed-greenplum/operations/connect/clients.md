@@ -163,7 +163,6 @@ sudo apt update && sudo apt install --yes postgresql-client
 yc managed-greenplum connect <имя_или_идентификатор_кластера> --db <имя_БД>
 ```
 
-
 ## Подключение из графических IDE {#connection-ide}
 
 **Подключения проверялись в следующем окружении:**
@@ -173,9 +172,7 @@ yc managed-greenplum connect <имя_или_идентификатор_клас�
   * JetBrains DataGrip: `2023.3.4`;
   * DBeaver Community: `24.0.0`.
 
-
 Подключаться из графических IDE можно только к кластеру в публичном доступе с использованием SSL-сертификата.
-
 
 Чтобы избежать ошибок при подключении, [сохраните сертификат](https://storage.yandexcloud.net/cloud-certs/RootCA.pem) в локальную папку, для доступа к которой не требуются права администратора.
 
@@ -227,9 +224,7 @@ yc managed-greenplum connect <имя_или_идентификатор_клас�
 
 Подключение проверялось для [pgAdmin 4](https://www.pgadmin.org) версии 7.1 в macOS Ventura 13.0 и Microsoft Windows 10 Pro 21H1.
 
-
 Подключаться из pgAdmin 4 можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
-
 
 Создайте новое подключение к серверу:
 
@@ -260,12 +255,13 @@ column "wait_event_type" does not exist LINE 10: wait_event_type || ': ' || wait
 
 При работе с другими вкладками в pgAdmin 4 эта ошибка не возникает.
 
+
+
 ## Подготовка к подключению из Docker-контейнера {#connection-docker}
 
 Чтобы подключаться к кластеру Yandex MPP Analytics for PostgreSQL из Docker-контейнера, добавьте в Dockerfile строки:
 
 {% list tabs group=connection %}
-
 
 - Подключение без SSL {#without-ssl}
 
@@ -273,7 +269,6 @@ column "wait_event_type" does not exist LINE 10: wait_event_type || ': ' || wait
     RUN apt-get update && \
         apt-get install postgresql-client --yes
     ```
-
 
 - Подключение с SSL {#with-ssl}
 

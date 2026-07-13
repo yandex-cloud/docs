@@ -1,6 +1,6 @@
 ---
 title: '{{ objstorage-full-name }} tutorials'
-description: This page features a list of {{ objstorage-name }} tutorials.
+description: This page provides a list of {{ objstorage-name }} tutorials.
 ---
 
 # {{ objstorage-name }} tutorials
@@ -93,3 +93,7 @@ description: This page features a list of {{ objstorage-name }} tutorials.
 * [{#T}](integrate-nextcloud/index.md)
 * [{#T}](cdn-hosting/index.md)
 * [{#T}](spark-objstorage-integration.md)
+
+#### Useful links {#see-also}
+
+* [Webinar: How to use Cloud CDN to offload a high-traffic infrastructure](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)

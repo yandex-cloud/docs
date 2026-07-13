@@ -143,11 +143,10 @@ sudo apt update && sudo apt install --yes mysql-client
 
 ## Подключение из графических IDE {#connection-ide}
 
+
 {% include [ide-environments](../../../_includes/mdb/mdb-ide-envs.md) %}
 
-
 Подключаться из графических IDE можно только к хостам кластера в публичном доступе с использованием SSL-сертификата.
-
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
@@ -191,6 +190,7 @@ sudo apt update && sudo apt install --yes mysql-client
   1. Нажмите кнопку **Готово**, чтобы сохранить настройки соединения с БД.
 
 {% endlist %}
+
 
 ### Подключение с аутентификацией через IAM {#ide-iam}
 
@@ -284,14 +284,12 @@ sudo apt update && sudo apt install --yes mysql-client
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
   ```bash
   RUN apt-get update && \
       apt-get install mysql-client --yes
   ```
-
 
 - Подключение с SSL {#with-ssl}
 

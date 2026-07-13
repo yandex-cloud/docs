@@ -23,10 +23,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for using the master in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using computing resources, OS, and storage in cluster nodes and VMs (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a {{ managed-k8s-name }} cluster: using a master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for cluster nodes and VMs: using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for a public IP address for a VM, which is used to connect to the cluster (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* {{ kms-name }} fee for the number of active key versions (with `Active` or `Scheduled For Destruction` for status) and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
+* {{ kms-name }} fee: number of active key versions (in `Active` and `Scheduled For Destruction` statuses) and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
 
 
 ## Set up the infrastructure for {{ managed-k8s-name }} {#infra}
@@ -100,7 +100,7 @@ The support cost for this solution includes:
       * [Service accounts](../../iam/concepts/users/service-accounts.md) for {{ k8s }} resources and nodes.
       * {{ kms-full-name }} [symmetric encryption key](../../kms/concepts/key.md).
 
-      The file is generated using the libraries of the [terraform-yc-vpc](https://github.com/terraform-yc-modules/terraform-yc-vpc) and [terraform-yc-kubernetes](https://github.com/terraform-yc-modules/terraform-yc-kubernetes) modules. For more information on the configuration of the resources you create using these modules, see the relevant library pages.
+      The file is generated using the libraries of the [terraform-yc-vpc](https://github.com/terraform-yc-modules/terraform-yc-vpc) and [terraform-yc-kubernetes](https://github.com/terraform-yc-modules/terraform-yc-kubernetes) modules. For configuration details of resources you can create with these modules, see the relevant library pages.
 
    1. Validate your {{ TF }} configuration files using this command:
 
@@ -240,7 +240,7 @@ To ensure the {{ managed-k8s-name }} cluster time remains synchronized with anot
         ...
         ```
 
-        For more information about the `yandex_vpc_subnet` settings, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/vpc_subnet).
+        For more on the properties of the `yandex_vpc_subnet` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_subnet).
 
      1. Apply the changes:
 

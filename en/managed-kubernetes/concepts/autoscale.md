@@ -40,7 +40,7 @@ For more information, see these {{ k8s }} guides:
 * [{{ k8s-ca }} description](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler)
 * [Default parameters](https://github.com/kubernetes/autoscaler/blob/c6b754c359a8563050933a590f9a5dece823c836/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca)
 
-For more information, see [{#T}](../qa/cluster-autoscaler.md).
+See also [{#T}](../qa/cluster-autoscaler.md).
 
 ## Master autoscaling {#master-autoscaler}
 
@@ -79,7 +79,7 @@ Horizontal pod autoscaling is available for the following controllers:
 * [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/).
 * [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/).
 
-For more on {{ k8s-hpa }}, see [this {{ k8s }} guide](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
+Learn more about {{ k8s-hpa }} in [this {{ k8s }} guide](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
 
 ## Vertical pod autoscaling {#vpa}
 
@@ -93,7 +93,7 @@ When [creating a {{ k8s-vpa }}](../operations/autoscale.md#vpa), set the autosca
 * `updateMode: "Recreate"` for {{ k8s-vpa }} to recreate pods with updated resource values in case of a serious discrepancy between the current requests and recommendations.
 * `updateMode: "InPlaceOrRecreate"` for {{ k8s-vpa }} to attempt updating requests and resource limits first, without restarting the pod. If such an update is not possible, the pod will be recreated as in the `Recreate` mode. For more information, see [Resize CPU and Memory Resources assigned to Containers](https://kubernetes.io/docs/tasks/configure-pod-container/resize-container-resources/).
 
-For more on {{ k8s-vpa }}, see [this {{ k8s }} guide](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler).
+Learn more about {{ k8s-vpa }} in [this {{ k8s }} guide](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler).
 
 ## Use cases {#examples}
 

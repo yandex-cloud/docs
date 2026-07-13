@@ -99,7 +99,7 @@ Element | Description
 `Key` | Object key.<br/><br/>Path: `/ListBucketResult/Contents/Key`.
 `LastModified` | Date and time when the object was last modified.<br/><br/>Path: `/ListBucketResult/Contents/LastModified`.
 `Size` | Object size in bytes.<br/><br/>Path: `/ListBucketResult/Contents/Size`.
-`StorageClass` | Object [storage class](../../../concepts/storage-class.md): `STANDARD`, `COLD`, or `ICE`.<br/><br/>Path: `/ListBucketResult/Contents/StorageClass`.
+`StorageClass` | Object [storage class](../../../concepts/storage-class.md): `STANDARD`, `COLD`, `ICE`, or `INTELLIGENT_TIERING`.<br/><br/>Path: `/ListBucketResult/Contents/StorageClass`.
 `Name` | Bucket name.<br/><br/>Path: `/ListBucketResult/Name`.
 `Prefix` | Value of the `prefix` query parameter.<br/><br/>Path: `/ListBucketResult/Prefix`.
 `Delimiter` | Value of the `delimiter` query parameter.<br/><br/>Path: `/ListBucketResult/Delimiter`.
@@ -191,7 +191,7 @@ Element | Description
 `Key` | Object key.<br/><br/>Path: `/ListBucketResult/Contents/Key`.
 `LastModified` | Date and time when the object was last modified.<br/><br/>Path: `/ListBucketResult/Contents/LastModified`.
 `Size` | Object size in bytes.<br/><br/>Path: `/ListBucketResult/Contents/Size`.
-`StorageClass` | Object [storage class](../../../concepts/storage-class.md): `STANDARD`, `COLD`, or `ICE`.<br/><br/>Path: `/ListBucketResult/Contents/StorageClass`.
+`StorageClass` | Object [storage class](../../../concepts/storage-class.md): `STANDARD`, `COLD`, `ICE`, or `INTELLIGENT_TIERING`.<br/><br/>Path: `/ListBucketResult/Contents/StorageClass`.
 `Name` | Bucket name.<br/><br/>Path: `/ListBucketResult/Name`.
 `Prefix` | Value of the `prefix` query parameter.<br/><br/>Path: `/ListBucketResult/Prefix`.
 `Delimiter` | Value of the `delimiter` query parameter.<br/><br/>Path: `/ListBucketResult/Delimiter`.

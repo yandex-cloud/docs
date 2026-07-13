@@ -41,7 +41,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер Managed Service for YTsaurus.
-    1. Перейдите в сервис **Managed Service for YTsaurus**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-ytsaurus) в сервис **Managed Service for YTsaurus**.
     1. Нажмите кнопку **Создать кластер**.
     1. Выберите **Demo-кластер** для создания кластера с минимальной рабочей конфигурацией.
     1. В блоке **Базовые параметры**:
@@ -550,7 +550,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер Managed Service for YTsaurus.
-    1. Перейдите в сервис **Managed Service for YTsaurus**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-ytsaurus) в сервис **Managed Service for YTsaurus**.
     1. Нажмите кнопку **Создать кластер**.
     1. Выберите **Production-кластер** для создания кластера с ручной настройкой конфигурации.
     1. В блоке **Базовые параметры**:

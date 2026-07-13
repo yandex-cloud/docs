@@ -146,9 +146,9 @@ You do not need to restart a VM when adding or deleting [rules](../concepts/secu
      ...
      ```
 
-     For more information about `yandex_vpc_security_group` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_security_group).
+     For more on the properties of the `yandex_vpc_security_group` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_security_group).
 
-  1. Check the configuration using this command:
+  1. Validate your configuration using this command:
 
      ```
      terraform validate
@@ -226,7 +226,7 @@ You do not need to restart a VM when adding or deleting [rules](../concepts/secu
      ...
      ```
 
-     For more information about `yandex_vpc_security_group_rule` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_security_group_rule).
+     For more on the properties of the `yandex_vpc_security_group_rule` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_security_group_rule).
 
   1. Validate your configuration using this command:
 

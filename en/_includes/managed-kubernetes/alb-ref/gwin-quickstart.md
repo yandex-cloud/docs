@@ -17,8 +17,8 @@ The infrastructure support cost includes:
 
 * Fee for the {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../../managed-kubernetes/pricing.md)).
 * {{ managed-k8s-name }} cluster node fee, which covers the use of computing resources and storage (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
-* Fee for public IP addresses for {{ managed-k8s-name }} cluster hosts and {{ managed-k8s-name }} cluster nodes with public access enabled (see [{{ vpc-name }} pricing](../../../vpc/pricing.md#prices-public-ip)).
-* Fee for using the load balancer's computing resources (see [{{ alb-name }} pricing](../../../application-load-balancer/pricing.md)).
+* Fee for public IP addresses for {{ managed-k8s-name }} cluster hosts and {{ managed-k8s-name }} cluster nodes if public access is enabled for them (see [{{ vpc-name }} pricing](../../../vpc/pricing.md#prices-public-ip)).
+* Fee for using the computing resources of the load balancer (see [{{ alb-name }} pricing](../../../application-load-balancer/pricing.md)).
 
 ## Getting started {#before-you-begin}
 

@@ -28,8 +28,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost of supporting the availability group includes:
 
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a network load balancer (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
-* Fee for using a dynamic or static public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a network load balancer (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
+* Fee for a static or dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 You can use [license mobility](../../compute/qa/licensing.md) and bring your own SQL Server license to {{ yandex-cloud }}.
 
@@ -568,7 +568,7 @@ Connect to each VM you created and [activate your own Windows Server license on 
 
 ### Install and configure Active Directory {#install-ad}
 
-1. Connect to the `ya-jump1` VM through [RDP](../../compute/operations/vm-connect/rdp.md). Use the `Administrator` username and your password. 
+1. Connect to the `ya-jump1` VM through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and your password. 
 1. From `ya-jump1`, connect to the `ya-ad` VM under the same account using RDP.
 1. On `ya-ad`, run PowerShell and set the required server roles:
 
@@ -645,7 +645,7 @@ Connect to each VM you created and [activate your own Windows Server license on 
 
 ### Create users and groups in Active Directory {#create-ad-users-groups}
 
-1. Connect to `ya-jump1` through [RDP](../../compute/operations/vm-connect/rdp.md). Use the `Administrator` username and your password.
+1. Connect to `ya-jump1` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and your password.
 
 1. Connect to the `ya-ad` VM from `ya-jump1` under the same account using RDP.
 

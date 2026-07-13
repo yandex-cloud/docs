@@ -38,6 +38,6 @@ In a {{ baremetal-full-name }} private network, you can create [static routes](.
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../concepts/private-network.md#static-routes)

@@ -10,8 +10,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. Перейдите в сервис **Managed Service for YTsaurus**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-ytsaurus) в сервис **Managed Service for YTsaurus**.
     1. Найдите нужный кластер в списке, нажмите значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Остановить**.
     1. В открывшемся диалоге подтвердите остановку кластера и нажмите кнопку **Остановить**.
 
@@ -97,8 +97,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. Перейдите в сервис **Managed Service for YTsaurus**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-ytsaurus) в сервис **Managed Service for YTsaurus**.
     1. Найдите нужный остановленный кластер в списке, нажмите значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Запустить**.
     1. В открывшемся диалоге нажмите кнопку **Запустить**.
 

@@ -6,7 +6,7 @@ The `GRPCRoute` resource sets rules for routing between {{ k8s }} services opera
 
 `GRPCRoute` is designed for application developers. Cluster operators should use the `Gateway` resource.
 
-`GRPCRoute` is a [{{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/) project resource. Below, we describe its fields and annotations used by the {{ alb-name }} Gateway API. For configuration details, see the [{{ k8s }} Gateway API reference](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.GRPCRoute).
+`GRPCRoute` is a [{{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/) project resource. Below, we describe its fields and annotations used by the {{ alb-name }} Gateway API. For resource configuration details, see [this {{ k8s }} Gateway API guide](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.GRPCRoute).
 
 ## GRPCRoute {#grpc-route}
 
@@ -29,7 +29,7 @@ Where:
 
   * `name` (`string`; this is a required field)
 
-    Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. For more on the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
     Do not mistake this name for the {{ alb-name }} route name.
  

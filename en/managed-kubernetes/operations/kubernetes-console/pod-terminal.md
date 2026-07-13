@@ -37,7 +37,7 @@ To connect to the terminal:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [{#T}](../../concepts/index.md#pod)
 

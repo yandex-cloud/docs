@@ -980,6 +980,12 @@ apiPlayground:
             type: object
             additionalProperties:
               type: string
+          votes:
+            description: |-
+              **string** (int64)
+              Votes of host for the election in replSet
+            type: string
+            format: int64
       AnytimeMaintenanceWindow:
         type: object
         properties: {}
@@ -2631,7 +2637,8 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters
       "hidden": "boolean",
       "secondaryDelaySecs": "string",
       "priority": "number",
-      "tags": "object"
+      "tags": "object",
+      "votes": "string"
     }
   ],
   "networkId": "string",
@@ -6955,6 +6962,9 @@ Priority of host for the election in replSet ||
 || tags | **object** (map<**string**, **string**>)
 
 Host tags ||
+|| votes | **string** (int64)
+
+Votes of host for the election in replSet ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.mongodb.v1.MaintenanceWindow}

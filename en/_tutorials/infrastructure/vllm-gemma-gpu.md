@@ -168,6 +168,6 @@ The infrastructure support cost includes a fee for continuously running VMs and 
 
 To stop paying for the resources you created, [delete](../../compute/operations/vm-control/vm-delete.md) the VM instance you created in {{ compute-name }}.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [Questions about GPUs](../../compute/qa/gpu.md)

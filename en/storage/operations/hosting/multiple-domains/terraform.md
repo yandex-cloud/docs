@@ -7,7 +7,7 @@ description: Follow this guide to set up multiple domain name support for a webs
 
 To create an infrastructure to support [multiple website domain names](index.md) using {{ TF }}:
 1. [Delegate the domain name](#delegate-domain).
-1. [Create your infrastructure](#deploy).
+1. [Create the infrastructure](#deploy).
 1. [Check the performance of several domains](#test).
 
 
@@ -18,16 +18,16 @@ You can use [{{ dns-full-name }}](../../../../dns/) to manage the domain.
 {% include [dns-delegate](../../../../_tutorials/_tutorials_includes/bind-domain-vm/dns-delegate.md) %}
 
 
-## Create your infrastructure {#deploy}
+## Create the infrastructure {#deploy}
 
 
-1. Set up your infrastructure description files:
+1. Prepare your infrastructure description files:
 
    {% list tabs group=infrastructure_description %}
 
    - Ready-made configuration {#ready}
 
-     1. Clone the repository with configuration files.
+     1. Clone the repository containing the configuration files.
 
         ```bash
         git clone https://github.com/yandex-cloud-examples/yc-s3-static-website-multiple-domain.git
@@ -64,7 +64,7 @@ You can use [{{ dns-full-name }}](../../../../dns/) to manage the domain.
 
            {% endcut %}
 
-        1. The home page file for the website, `index.html`:
+        1. Website home page file `index.html`:
 
            {% cut "index.html" %}
 
@@ -84,7 +84,7 @@ You can use [{{ dns-full-name }}](../../../../dns/) to manage the domain.
 
    {% endlist %}
 
-   Learn more about the properties of {{ TF }} resources in the relevant provider guides:
+   For more information on the properties of resources used in {{ TF }}, see these provider guides:
    * [Bucket](../../../concepts/bucket.md): [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket)
    * [Object](../../../concepts/object.md): [yandex_storage_object]({{ tf-provider-resources-link }}/storage_object)
    * DNS zone: [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone)

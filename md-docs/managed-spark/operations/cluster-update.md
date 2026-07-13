@@ -10,8 +10,8 @@
 
     Чтобы изменить настройки кластера:
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Managed Service for Apache Spark**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
 
     1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
 

@@ -11,7 +11,7 @@ To get the desired page with results, pass the following parameters in a request
 
 - `page_token`: Result page token. You can get the next page token from the `next_page_token` field when retrieving a list of resources (see the example below).
 
-- `page_size`: Number of results per page. Possible values: from 0 to 1000. Default: 100.
+- `page_size`: Number of results per page. Possible values: from 0 to 1000. The default value is 100.
 
 ## Examples {#examples}
 

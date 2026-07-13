@@ -8,8 +8,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex Data Processing**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Задания**.
     1. Нажмите кнопку **Создать задание**.
     1. (Опционально) Укажите имя задания.
@@ -121,8 +121,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-  1. Перейдите в сервис **Yandex Data Processing**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите]((https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
   1. Нажмите на имя нужного кластера и выберите вкладку **Задания**.
   1. Нажмите на имя нужного задания.
   1. В правом верхнем углу страницы нажмите кнопку **Отменить**.
@@ -159,8 +159,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex Data Processing**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите]((https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Задания**.
 
 - CLI {#cli}
@@ -191,8 +191,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex Data Processing**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите]((https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Задания**.
     1. Нажмите на имя нужного задания.
 
@@ -233,8 +233,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex Data Processing**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите]((https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Задания**.
     1. Нажмите на имя нужного задания.
 

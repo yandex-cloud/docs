@@ -176,7 +176,7 @@ To configure access to a [bucket](../../concepts/bucket.md) using [{{ iam-name }
 
       * `members`: Types and IDs of [entities](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_storage_bucket_iam_binding` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket_iam_binding).
+      For more on the properties of the `yandex_storage_bucket_iam_binding` resource, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket_iam_binding).
 
   1. If you intend to use the [yandex_storage_bucket_iam_binding]({{ tf-provider-resources-link }}/storage_bucket_iam_binding) resource together with [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant) for the same bucket, we recommend creating them sequentially. To do this, add a dependency on the `yandex_storage_bucket_grant` resource to the `yandex_storage_bucket_iam_binding` section.
 

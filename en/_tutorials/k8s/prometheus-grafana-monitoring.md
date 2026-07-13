@@ -4,7 +4,7 @@
 
 In this article, you will learn how to configure [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) monitoring with the help of {{ prometheus-name }} Operator with {{ monitoring-full-name }} support.
 
-{{ prometheus-name }} Operator with {{ monitoring-name }} support streamlines the installation of {{ prometheus-name }} Operator, a popular solution for {{ k8s }} cluster monitoring, providing integration with {{ monitoring-full-name }}. You can use it to collect, store, and read metrics from containers, applications, and the infrastructure. The system leverages the {{ prometheus-name }} data model and [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/).
+{{ prometheus-name }} Operator with {{ monitoring-name }} support streamlines the installation of {{ prometheus-name }} Operator, a popular solution for {{ k8s }} cluster monitoring, providing integration with {{ monitoring-full-name }}. You can use it to collect, store, and query metrics from your containers, applications, and infrastructure. The system leverages the {{ prometheus-name }} data model and [{{ promql-name }}](https://prometheus.io/docs/prometheus/latest/querying/basics/).
 
 To set up monitoring for your {{ managed-k8s-name }} cluster:
 
@@ -19,8 +19,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for the {{ managed-k8s-name }} master: (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for {{ managed-k8s-name }} cluster nodes: specifically using computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for the {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* {{ managed-k8s-name }} cluster node fee: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for public IP addresses for {{ managed-k8s-name }} cluster hosts and {{ managed-k8s-name }} cluster nodes with public access enabled (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 

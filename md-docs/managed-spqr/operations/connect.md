@@ -2,11 +2,13 @@
 
 # Подключение к кластеру Sharded PostgreSQL
 
+
 К хостам кластера Managed Service for Sharded PostgreSQL можно подключиться:
 
 * Через интернет, если вы настроили публичный доступ для нужного хоста. К таким хостам подключиться можно только с использованием SSL-соединения.
 
 * С виртуальных машин Yandex Cloud, расположенных в той же [облачной сети](../../vpc/concepts/network.md). Если к хосту нет публичного доступа, для подключения с таких виртуальных машин необязательно использовать SSL-соединение.
+
 
 Подключение возможно ко всем [типам хостов](../concepts/index.md): `INFRA`, `ROUTER`, `COORDINATOR`, хосты PostgreSQL-кластера. Подключение выполняется через порт `6432`. К хостам типа `COORDINATOR`, а также к консоли администратора Sharded PostgreSQL необходимо подключаться от имени пользователя `spqr-console` к базе данных `spqr-console`. Консоль администратора позволяет настроить правила шардирования. Подробнее читайте в [документации SPQR](https://pg-sharding.tech/welcome/get_started).
 
@@ -168,6 +170,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 {% endlist %}
 
 ## Подключение из pgAdmin 4 {#connection-pgadmin}
+
 
 Подключение проверялось для [pgAdmin 4](https://www.pgadmin.org) версии 9.1 в Windows 10.
 

@@ -96,7 +96,7 @@ To clear a bucket and avoid storage[charges](../../pricing.md):
 
   {% note info %}
 
-  The commands in this section follow [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) syntax. If using Windows, [read](../../../overview/concepts/console-syntax-guide.md) about using Bash in Microsoft Windows and use [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install), [Git Bash](https://git-scm.com/install/windows), or another bash-compatible terminal.
+  The commands in this section follow the [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) syntax. If using Windows, [read](../../../overview/concepts/console-syntax-guide.md) about using Bash in Microsoft Windows and use [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install), [Git Bash](https://git-scm.com/install/windows), or another bash-compatible terminal.
 
   {% endnote %}
 

@@ -20,7 +20,7 @@ Regardless of the deployment option, all {{ dataproc-name }} clusters are charge
 
 {% include [preferences](../../_includes/datasphere/settings-for-data-processing.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](data-processing-template.md)
 * [{#T}](../tutorials/data-processing-integration.md)

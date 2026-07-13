@@ -269,7 +269,7 @@ Before deleting a volume, you must delete the pod that is using it. Disks in {{ 
 
 1. In {{ compute-name }}, [delete the disk](../../../compute/operations/disk-control/delete.md) associated with the `PersistentVolume`.
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../concepts/volume.md)
 * [{#T}](./encrypted-disks.md)

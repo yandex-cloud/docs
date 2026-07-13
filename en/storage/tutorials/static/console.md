@@ -8,6 +8,6 @@ To host a [static website in {{ objstorage-name }}](./index.md) using the {{ yan
 
 {% include [static](../../../_tutorials/applied/static-console.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./terraform.md)

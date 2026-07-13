@@ -35,6 +35,6 @@ To view dataset details, click its name in the project's dataset list. On the da
 * Size.
 * Initialization code.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/data/dataset.md)

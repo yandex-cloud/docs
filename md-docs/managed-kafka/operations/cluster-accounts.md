@@ -24,8 +24,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **Пользователи**.
 
 - CLI {#cli}
@@ -119,8 +119,8 @@
 - Консоль управления {#console}
 
   Чтобы создать пользователя для производителя или потребителя в кластере:
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **Пользователи**.
   1. Нажмите кнопку **Создать пользователя**.
   1. Введите имя пользователя и пароль.
@@ -418,8 +418,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **Пользователи**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного пользователя и выберите пункт:
 
@@ -591,8 +591,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **Пользователи**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного пользователя и выберите пункт **Изменить пароль**.
   1. Задайте новый пароль и нажмите кнопку **Изменить**.
@@ -842,8 +842,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
   1. Выберите кластер.
   1. Перейдите на вкладку **Пользователи**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для пользователя, которому нужно выдать права на топик, и выберите пункт **Настроить**.
@@ -1122,8 +1122,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
   1. Выберите кластер.
   1. Перейдите на вкладку **Пользователи**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного пользователя и выберите пункт **Настроить**.
@@ -1347,8 +1347,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **Пользователи**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного пользователя и выберите пункт **Удалить**.
   1. В открывшемся окне нажмите кнопку **Удалить**.

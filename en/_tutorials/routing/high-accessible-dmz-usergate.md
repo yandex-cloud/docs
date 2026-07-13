@@ -251,7 +251,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
       }
       ```
 
-      For more information about mirror settings, see the relevant [{{ TF }} guides](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
+      Read more about mirror settings in [this {{ TF }} guide](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
 
 ## Deploy your resources {#create-resources}
 
@@ -451,7 +451,7 @@ Connect to the FW-A management web interface at `https://192.168.1.10:8001`. Use
 
 #### Configure your network {#configure-fw-a-network}
 
-1. In the top menu, go to **Settings**, and in the left-hand menu, under **UserGate**, select **Settings**. Click the **Time zone** field value. Select your time zone and click **Save**. In the **Primary NTP server** and **Backup NTP server** fields, enter the addresses of the NTP servers (see the list of recommended NTP servers [here](../../tutorials/infrastructure-management/ntp.md)).
+1. In the top menu, go to **Settings**, and in the left-hand menu, under **UserGate**, select **Settings**. Click the **Time zone** field value. Select your time zone and click **Save**. In the **Primary NTP server** and **Backup NTP server** fields, specify the addresses of the NTP servers (see the list of recommended NTP servers [here](../../tutorials/infrastructure-management/ntp.md)).
 
 1. In the left-hand menu, in the **Network** section, select **Interfaces**. Click `port0`. In the **Network** tab, select `Mode: Static`. Make sure the interface IP address is `192.168.1.10`. Click **Save**.
 
@@ -603,7 +603,7 @@ Connect to the FW-B management web interface at `https://192.168.2.10:8001`. Use
 
 #### Configure your network {#configure-fw-b-network}
 
-1. In the top menu, go to **Settings**, and in the left-hand menu, under **UserGate**, select **Settings**. Click the **Time zone** field value. Select your time zone and click **Save**. In the **Primary NTP server** and **Backup NTP server** fields, enter the addresses of the NTP servers (see the list of recommended NTP servers [here](../../tutorials/infrastructure-management/ntp.md)).
+1. In the top menu, go to **Settings**, and in the left-hand menu, under **UserGate**, select **Settings**. Click the **Time zone** field value. Select your time zone and click **Save**. In the **Primary NTP server** and **Backup NTP server** fields, specify the addresses of the NTP servers (see the list of recommended NTP servers [here](../../tutorials/infrastructure-management/ntp.md)).
 
 1. In the left-hand menu, in the **Network** section, select **Interfaces**. Click `port0`. In the **Network** tab, select `Mode: Static`. Make sure the interface IP address is `192.168.2.10`. Click **Save**.
 

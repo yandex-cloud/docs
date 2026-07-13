@@ -145,6 +145,8 @@ items:
             href: concepts/artifacts/debian.md
       - name: Политика жизненного цикла
         href: concepts/lifecycle-policy.md
+      - name: Паттерны фильтрации
+        href: concepts/filtering-patterns.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

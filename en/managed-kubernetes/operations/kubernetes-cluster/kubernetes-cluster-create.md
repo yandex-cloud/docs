@@ -41,8 +41,6 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
 ## Create a {{ managed-k8s-name }} cluster {#kubernetes-cluster-create}
 
-{% include [master-config-preview-note](../../../_includes/managed-kubernetes/master-config-preview-note.md) %}
-
 {% include [master-pricing-note](../../../_includes/managed-kubernetes/master-pricing-note.md) %}
 
 {% include [os-new-version](../../../_includes/managed-kubernetes/note-os-new-version.md) %}
@@ -960,6 +958,6 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
 {% endlist %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 [Overview of cluster connection methods](../connect/index.md)

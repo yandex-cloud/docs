@@ -4,6 +4,6 @@ To create an [OpenCart online store](index.md) using the {{ yandex-cloud }} mana
 
 {% include [opencart](../../../_tutorials/applied/opencart-console.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](terraform.md).

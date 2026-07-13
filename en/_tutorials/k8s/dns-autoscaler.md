@@ -21,8 +21,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for each VM (cluster nodes and management VMs without public access) which covers the use of computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for each VM (cluster nodes and management VMs without public access) which covers the use of computing resources, the operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for a public IP address for cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
@@ -107,7 +107,7 @@ There are two calculation modes:
 * Linear
 * Ladder (step function)
 
-For more information about calculating, see [this cluster-proportional-autoscaler page on GitHub](https://github.com/kubernetes-sigs/cluster-proportional-autoscaler#calculation-of-number-of-replicas).
+Learn more about calculations in the [`cluster-proportional-autoscaler` guide](https://github.com/kubernetes-sigs/cluster-proportional-autoscaler#calculation-of-number-of-replicas).
 
 This example uses the `linear` mode which calculates the number of replicas by the following formula:
 
@@ -132,7 +132,7 @@ replicas = min(replicas, max)
 replicas = max(replicas, min)
 ```
 
-For more information about calculating, see [this cluster-proportional-autoscaler page on GitHub](https://github.com/kubernetes-sigs/cluster-proportional-autoscaler#calculation-of-number-of-replicas).
+Learn more about the calculation in the [cluster-proportional-autoscaler guide](https://github.com/kubernetes-sigs/cluster-proportional-autoscaler#calculation-of-number-of-replicas).
 
 ### Change the configuration {#edit-config}
 
@@ -143,9 +143,9 @@ For more information about calculating, see [this cluster-proportional-autoscale
    * Number of vCPUs: `12`
 
    By default, `linear` mode and the following scaling parameters are used:
-   * `coresPerReplica`: `256`
-   * `nodesPerReplica`: `16`
-   * `preventSinglePointFailure`: `true`
+   * `coresPerReplica`: `256`.
+   * `nodesPerReplica`: `16`.
+   * `preventSinglePointFailure`: `true`.
 
    ```text
    replicas = max( ceil( 12 * 1/256 ), ceil( 3 * 1/16 ) ) = 1
@@ -171,9 +171,9 @@ For more information about calculating, see [this cluster-proportional-autoscale
 1. Set new parameter values.
 
    Change the configuration as follows:
-   * `coresPerReplica`: `4`
-   * `nodesPerReplica`: `2`
-   * `preventSinglePointFailure`: `true`
+   * `coresPerReplica`: `4`.
+   * `nodesPerReplica`: `2`.
+   * `preventSinglePointFailure`: `true`.
 
    ```text
    replicas = max( ceil( 12 * 1/4 ), ceil( 3 * 1/2 ) ) = 3

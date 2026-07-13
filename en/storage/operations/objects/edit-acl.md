@@ -229,7 +229,7 @@ If your object already has a configured [ACL](../../concepts/acl.md), it will be
      * `secret_key`: Secret access key value.
      * `acl`: Object's [predefined ACL](../../../storage/concepts/acl.md#predefined-acls). The default value is `private`: {{ yandex-cloud }} users get permissions according to their roles in {{ iam-short-name }}.
 
-     For more information about the `yandex_storage_object` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_object).
+     For more information on the properties of the `yandex_storage_object` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_object).
 
   1. Apply the changes:
 

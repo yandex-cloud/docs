@@ -88,9 +88,9 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
      ...
      ```
 
-     For more information about the `yandex_vpc_subnet` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_subnet).
+     For more on the properties of the `yandex_vpc_subnet` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_subnet).
 
-  1. Check the configuration using this command:
+  1. Validate your configuration using this command:
 
      ```
      terraform validate

@@ -56,7 +56,7 @@ For more information, see [{#T}](../../security/overview.md).
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
 
-  1. In the configuration file, specify the properties of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      provider "yandex" {
@@ -236,7 +236,7 @@ For more information, see [{#T}](../../security/overview.md).
        * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional setting.
        * `redirect_all_requests_to`: Domain name of the host to act as the redirect target for all requests to the current bucket. You can specify a protocol prefix (`http://` or `https://`). By default, the original request protocol is used.
 
-     For more information about `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+     For more information on the properties of the `yandex_storage_bucket` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
 
   1. Create the resources:
 
@@ -423,7 +423,7 @@ For more information, see [{#T}](../../security/overview.md).
        * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional setting.
        * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q> pair. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the relevant API method (the **For conditionally redirecting requests** tab).
 
-     For more information about `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+     For more information on the properties of the `yandex_storage_bucket` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -438,7 +438,7 @@ For more information, see [{#T}](../../security/overview.md).
 
 {% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../qa.md#qa-mime-type)
 * [{#T}](own-domain.md)

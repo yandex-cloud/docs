@@ -14,8 +14,8 @@
 
 ## Настроить алерты в Yandex Monitoring {#set-alert}
 
-1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-1. Перейдите в сервис **Monitoring**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. [Перейдите](https://monitoring.yandex.cloud) в сервис **Monitoring**.
 1. [Создайте канал уведомлений](../../monitoring/operations/alert/create-channel.md).
 1. [Создайте алерт](../../monitoring/operations/alert/create-alert.md) со следующими параметрами:
 
@@ -59,8 +59,8 @@
 
     Чтобы увеличить размер хранилища для кластера:
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
     1. В строке с нужным кластером нажмите ![image](../../_assets/console-icons/ellipsis.svg), затем выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
     1. В блоке **Хранилище** укажите нужный размер диска.
     1. Нажмите кнопку **Сохранить**.
@@ -380,8 +380,8 @@
 
 * Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
     1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **Редактировать**.
     1. В блоке **Автоматическое увеличение размера хранилища** задайте [пороги заполненности](../concepts/storage.md#auto-rescale) хранилища, при достижении которых его размер будет увеличиваться: 
     

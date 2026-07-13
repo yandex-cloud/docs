@@ -74,7 +74,7 @@ Where:
   * `requests`: Minimum resource requirements.
   * `limits`: Maximum resource limits.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../operations/datalens/install-images.md)
 * [{#T}](../../operations/datalens/configure.md)

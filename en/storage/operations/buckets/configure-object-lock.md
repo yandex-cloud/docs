@@ -69,7 +69,7 @@ To enable object locks:
       * `object_lock_configuration`: Object lock settings:
         * `object_lock_enabled`: Enables object locks. You must enable bucket versioning to set this property. This is an optional setting.
 
-      For more information about the bucket parameters you can specify using {{ TF }}, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/storage_bucket).
+      For more information about the bucket properties you can specify using {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Create the resources:
 
@@ -147,7 +147,7 @@ To set up default object locks:
  
        {% note alert %}
 
-       This is a required field. If you do not set it to `Enabled`, you will get the `InvalidRequest` error message, and the object lock will be disabled. See also [Disabling object locks](#disable) for details.
+       This is a required field. If you do not set it to `Enabled`, you will get the `InvalidRequest` error message, and the object lock will be disabled. See also [Disabling object locks](#disable).
 
        {% endnote %}
 
@@ -200,7 +200,7 @@ To set up default object locks:
         * `mode`: Lock type. It can be either `GOVERNANCE` or `COMPLIANCE`. This is an optional setting.
         * `years` or `days`: Object lock duration (retention period). Provide it as a number. This is an optional setting.
 
-     For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
+     For more information on the properties of the `yandex_storage_bucket` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Apply the changes:
 

@@ -47,11 +47,11 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
         * Specify the {{ managed-k8s-name }} node [disk](../../../compute/concepts/disk.md) size.
      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
         * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select the IP address assignment method:
-          * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign random [IP addresses](../../../vpc/concepts/address.md) from the {{ yandex-cloud }} address pool.
+          * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` to assign random [IP addresses](../../../vpc/concepts/address.md) from the {{ yandex-cloud }} address pool to the nodes.
           * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Do not assign public IP addresses.
         * Specify how {{ managed-k8s-name }} nodes should be placed across the [availability zones](../../../overview/concepts/geo-scope.md) and [networks](../../../vpc/concepts/network.md#network).
      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the credentials to access the {{ managed-k8s-name }} node:
-        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username.
+        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
         * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../operations/node-connect-ssh.md#creating-ssh-keys) file.
      1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_maintenance }}**:
         * In the **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** field, select your preferred [maintenance](../../concepts/release-channels-and-updates.md#updates) window:
@@ -156,7 +156,7 @@ You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node grou
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-     1. Confirm resource changes.
+     1. Confirm updating the resources.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -285,7 +285,7 @@ Adding {{ k8s }} labels does not result in recreation of a node group.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -345,7 +345,7 @@ Removing {{ k8s }} labels does not result in recreation of a node group.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

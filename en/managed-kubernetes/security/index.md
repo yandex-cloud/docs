@@ -5,7 +5,7 @@ description: Access management in {{ managed-k8s-name }}, a containerized applic
 
 # Access management in {{ managed-k8s-name }}
 
-In this section, you will learn about the following:
+In this section, you will learn about:
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
 * [Roles required for managing {{ managed-k8s-name }}](#required-roles).
@@ -18,13 +18,13 @@ To assign a role for a resource, you need the `k8s.admin` role or one of the fol
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Resources supporting role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 Also, you can assign [roles required to access the {{ k8s }} API](#k8s-api) to a separate cluster via the [{{ yandex-cloud }} CLI](../../cli/cli-ref/managed-kubernetes/cli-ref/cluster/add-access-binding.md), [{{ TF }}]({{ tf-provider-resources-link }}/kubernetes_cluster_iam_binding), or [API](../api-ref/authentication.md). For more information, see [{#T}](../operations/kubernetes-cluster/kubernetes-cluster-access.md).
 
-## Roles available in the service {#roles-list}
+## Roles this service has {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 

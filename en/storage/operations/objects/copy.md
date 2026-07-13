@@ -98,7 +98,7 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
       copy: s3://<source_bucket>/<object_key> to s3://<target_bucket>/<object_key>
       ```
 
-      For more information about the `aws s3 cp` command, see [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
+      For more information about the `aws s3 cp` command, see the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
 
 {% endlist %}
 
@@ -171,7 +171,7 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
 
       {% include [s3-cp-filter-order](../../../_includes/storage/s3-cp-filter-order.md) %}
 
-      For more information about the `aws s3 cp` command, see [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
+      For more information about the `aws s3 cp` command, see the [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
 
   {% note info %}
 

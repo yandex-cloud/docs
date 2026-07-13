@@ -1,7 +1,7 @@
 # Working with snapshots
 
 
-{{ managed-k8s-name }} supports snapshots, which are point-in-time [PersistentVolume](../../managed-kubernetes/concepts/volume.md#provisioning-volumes) copies. For more information about snapshots, see [this Kubernetes article](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
+{{ managed-k8s-name }} supports snapshots, which are point-in-time [PersistentVolume](../../managed-kubernetes/concepts/volume.md#provisioning-volumes) copies. For more on snapshots, see [this Kubernetes guide](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
 
 To create a snapshot and then use it for restoring:
 
@@ -16,9 +16,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a public IP address if assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Getting started {#before-you-begin}
@@ -52,13 +52,13 @@ The support cost for this solution includes:
             {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
      1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file:
-     1. Make sure the {{ TF }} configuration files are correct using this command:
+     1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
      1. Create the required infrastructure:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -133,13 +133,13 @@ To test snapshots, you will create a [PersistentVolumeClaim](../../managed-kuber
    kubectl apply -f 02-pod.yaml
    ```
 
-1. Make sure the pod status changed to `Running`:
+1. Make sure the pod has switched to `Running`:
 
    ```bash
    kubectl get pod pod-source
    ```
 
-1. Check that `/data/out.txt` shows lines with date and time: For this, [run the following command](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/) on the pod:
+1. Make sure that `/data/out.txt` collects date and time entries by [running the following command](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/) on the pod:
 
    ```bash
    kubectl exec pod-source -- tail /data/out.txt
@@ -264,7 +264,7 @@ To restore from the snapshot:
    kubectl apply -f 05-pod-restore.yaml
    ```
 
-1. Make sure the pod status changed to `Running`:
+1. Make sure the pod has switched to `Running`:
 
    ```bash
    kubectl get pod pod-restore
@@ -308,5 +308,5 @@ Delete the resources you no longer need to avoid paying for them:
 
    {% endlist %}
 
-1. [Delete](../../vpc/operations/address-delete.md) the cluster public static IP address if you reserved one.
+1. [Delete](../../vpc/operations/address-delete.md) the cluster's public static IP address if you reserved one.
 1. [Delete the disk snapshot](../../compute/operations/snapshot-control/delete.md).

@@ -60,6 +60,6 @@ It will be helpful if you also attach:
 * Example traffic stats (chart images) for a 24-hour period.
 
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [Enabling DDoS protection](../operations/enable-ddos-protection.md)

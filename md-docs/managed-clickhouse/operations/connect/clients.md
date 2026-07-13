@@ -59,7 +59,6 @@
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
     ```bash
@@ -69,7 +68,6 @@
                       --port 9000 \
                       --ask-password
     ```
-
 
 - Подключение с SSL {#with-ssl}
 
@@ -106,7 +104,6 @@ sudo apt update && sudo apt install --yes mysql-client
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
     ```bash
@@ -117,7 +114,6 @@ sudo apt update && sudo apt install --yes mysql-client
           --password \
           <имя_БД>
     ```
-
 
 - Подключение с SSL {#with-ssl}
 
@@ -145,7 +141,6 @@ sudo apt update && sudo apt install --yes mysql-client
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
     ```bash
@@ -153,7 +148,6 @@ sudo apt update && sudo apt install --yes mysql-client
          --header "X-ClickHouse-Key: <пароль_пользователя_БД>" \
          'http://<FQDN_любого_хоста_ClickHouse®>:8123/?database=<имя_БД>&query=SELECT%20version()'
     ```
-
 
 - Подключение с SSL {#with-ssl}
 
@@ -172,7 +166,6 @@ sudo apt update && sudo apt install --yes mysql-client
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
     ```powershell
@@ -181,7 +174,6 @@ sudo apt update && sudo apt install --yes mysql-client
         --header "X-ClickHouse-Key: <пароль_пользователя_БД>" `
         'http://<FQDN_любого_хоста_ClickHouse®>:8123/?database=<имя_БД>&query=SELECT+version()'
     ```
-
 
 - Подключение с SSL {#with-ssl}
 
@@ -198,6 +190,7 @@ sudo apt update && sudo apt install --yes mysql-client
 
 ## Подключение из графических IDE {#ide}
 
+
 **Подключения проверялись в следующем окружении:**
 
 * Ubuntu 20.04, DBeaver: `22.2.4`;
@@ -205,9 +198,7 @@ sudo apt update && sudo apt install --yes mysql-client
   * JetBrains DataGrip: `2023.3.4`;
   * DBeaver Community: `24.0.0`.
 
-
 Подключаться из графических IDE можно только к хостам кластера в публичном доступе с использованием SSL-сертификата.
-
 
 Чтобы избежать ошибок при подключении, [сохраните сертификат](https://storage.yandexcloud.net/cloud-certs/RootCA.pem) в локальную папку, для доступа к которой не требуются права администратора.
 
@@ -356,7 +347,6 @@ WebSQL использует подключения в Connection Manager сер�
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
    ```bash
@@ -374,7 +364,6 @@ WebSQL использует подключения в Connection Manager сер�
        wget "https://storage.yandexcloud.net/doc-files/clickhouse-client.conf.example" \
             --output-document ~/.clickhouse-client/config.xml
    ```
-
 
 - Подключение с SSL {#with-ssl}
 

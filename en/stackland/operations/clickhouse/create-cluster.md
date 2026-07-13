@@ -66,7 +66,7 @@ If you have a [project](../projects/create-project.md), you can create a [{{ CH 
     * **Shard ID**: Shard ID.
     * **Shard weight**: Shard weight for data distribution.
     * **Number of replicas**: Number of replicas in the shard.
-    * **Shard service type**: Service type for access to the shard. Available values: `Do not create service` (no endpoint is created, default), `ClusterIP` (access only within the cluster), or `LoadBalancer` (access from outside).
+    * **Shard service type**: Service type for the shard. Valid values: `Do not create service` (no endpoint is created, default), `ClusterIP` (access only within the cluster), or `LoadBalancer` (access from outside).
 
     **Superuser**
 

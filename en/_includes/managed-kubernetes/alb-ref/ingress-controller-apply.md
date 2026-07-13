@@ -6,7 +6,7 @@ To manage {{ alb-name }} resources using an [ingress controller]({{ ingress-loca
 
 1. {% include [kubectl-install](../../managed-kubernetes/kubectl-install.md) %}
 1. [Install the ingress controller]({{ ingress-install-local-link }}) or [Gateway API]({{ gateway-install-local-link }}).
-1. Create a resource. For available resource configurations, see [{#T}]({{ alb-local-link }}/index.md).
+1. Create a resource. For configurations of available resources, see [{#T}]({{ alb-local-link }}/index.md).
 
 ## Applying a configuration {#apply}
 

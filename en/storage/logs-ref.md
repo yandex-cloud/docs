@@ -17,7 +17,7 @@ For more information, see [{#T}](concepts/server-logs.md).
 Field | Type | Description
 --- | --- | ---
 `bucket` | String | Bucket name.
-`bytes_received` | Int64 | Request size in bytes.
+`bytes_received` | Int64 | Query size in bytes.
 `bytes_send` | Int64 | Response size in bytes.
 `handler` | String | [Request method](#bucket-methods) in this format: `REST.<HTTP method>.<subject>`.
 `http_referer` | String | URL of the request source.
@@ -35,10 +35,10 @@ Field | Type | Description
 `ssl_protocol` | String | Security protocol.
 `status` | Int64 | HTTP [response](s3/api-ref/response-codes.md) code.
 `storage_class` | String | [Storage class](concepts/storage-class.md) of the object.
-`timestamp` | String | Date and time of the bucket operation in `YYYY-MM-DDTHH:MM:MMZ` format.
-`user_agent` | String | Client application (user agent) that run the request.
-`version_id` | String | Object version.
-`vhost` | String | Virtual host of the request.<br>The possible values are:<br>– `{{ s3-storage-host }}`.<br>– `<bucket_name>.{{ s3-storage-host }}`.<br>– `{{ s3-web-host }}`.<br> – `<bucket_name>.{{ s3-web-host }}`.
+`timestamp` | String | Date and time of the bucket operation in `YYYY-MM-DDTHH:MM:SSZ` format
+`user_agent` | String | Client app (user agent) that ran the query.
+`version_id` | String | Object version
+`vhost` | String | Virtual host of the query.<br>The possible values are:<br>– `{{ s3-storage-host }}`.<br>– `<bucket_name>.{{ s3-storage-host }}`.<br>– `{{ s3-web-host }}`.<br> – `<bucket_name>.{{ s3-web-host }}`.
 
 ## Bucket request methods {#bucket-methods}
 

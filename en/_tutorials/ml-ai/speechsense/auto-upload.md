@@ -14,8 +14,8 @@ You can configure automatic loading of dialog files and their metadata from the 
 
 On the diagram:
 
-1. [Trigger](../../../functions/concepts/trigger/os-trigger.md) for {{ objstorage-name }} monitors for new JSON files with metadata as may appear in the selected [bucket](../../../storage/concepts/bucket.md) directory or any of its subdirectories.
-1. When new files appear in the directory, the trigger calls the `workflow-call` [function](../../../functions/concepts/function.md), which starts the [{{ sw-name }} workflow](../../../serverless-integrations/concepts/workflows/workflow.md).
+1. [Trigger](../../../functions/concepts/trigger/os-trigger.md) for {{ objstorage-name }} monitors for newly-appearing JSON files with metadata in the selected [bucket](../../../storage/concepts/bucket.md) directory or any of its subdirectories.
+1. When new files appear in the directory, the trigger invokes the `workflow-call` [function](../../../functions/concepts/function.md), which starts the [{{ sw-name }} workflow](../../../serverless-integrations/concepts/workflows/workflow.md)-enabled workflow.
 1. The workflow retrieves the contents of JSON metadata files and checks their syntax using the `verify-file` function.
 1. The workflow gets the {{ speechsense-name }} connection settings from the relevant [{{ lockbox-full-name }} secret](../../../lockbox/concepts/secret.md).
 1. The path to the audio or text file and its metadata are provided to the `speechsense-upload` upload function.
@@ -69,7 +69,7 @@ Create two service accounts:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the relevant folder.
-  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the [service account](../../../iam/concepts/users/service-accounts.md): `deploy-sa`.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the following roles: [functions.admin](../../../functions/security/index.md#functions-admin), [storage.editor](../../../storage/security/index.md#storage-editor), [iam.editor](../../../iam/roles-reference.md#iam-editor), [mdb.admin](../../../iam/roles-reference.md#mdb-admin), and `serverless.workflows.admin`.
@@ -138,7 +138,7 @@ Create an API key for the `speechsense-sa` service account.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with the service account.
-  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Select the `speechsense-sa` service account.
   1. In the top panel, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
@@ -510,7 +510,7 @@ Make sure the directories are not nested one inside the other.
     ```bash
     yc storage s3api put-object \
       --bucket <bucket_name> \
-      --key <directory_name/
+      --key <folder_name>/
     ```
 
   Result:
@@ -530,7 +530,7 @@ Make sure the directories are not nested one inside the other.
     aws s3api put-object \
       --endpoint-url=https://{{ s3-storage-host }} \
       --bucket <bucket_name>
-      --key <directory_name>/
+      --key <folder_name>/
     ```
 
   Result:
@@ -664,7 +664,7 @@ If there are more than 1,000 files, do not use the management console for upload
     yc storage s3api put-object \
       --body <path_to_file_to_upload> \
       --bucket <bucket_name> \
-      --key <directory_name>/<file_name>
+      --key <folder_name>/<file_name>
     ```
 
     Where:
@@ -771,3 +771,4 @@ Some resources are not free of charge. Delete the resources you no longer need t
     1. In the left-hand panel, select ![GraphNode](../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
     1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to `wf-speechsense-upload` and select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
+

@@ -47,7 +47,7 @@ The detection status of each disk is displayed in the `status.discoveredDevices`
 * `stackland-nvme`: For NVMe disks.
 * `stackland-ssd`: For SSD disks.
 * `stackland-hdd`: For HDD disks.
-* `stackland-other`: For other disks. Default.
+* `stackland-other`: For other disks. It is used by default.
 
 All storage classes have similar properties:
 

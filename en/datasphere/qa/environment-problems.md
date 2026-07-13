@@ -1,6 +1,6 @@
 ---
-title: '{{ ml-platform-full-name }}. Solving problems with dependencies'
-description: How to install libraries and fix the associated {{ ml-platform-full-name }} errors? Find the answer to this and other questions in this article.
+title: '{{ ml-platform-full-name }}. Troubleshooting issues with dependencies'
+description: How to install libraries and fix the associated {{ ml-platform-full-name }} errors? Find answers to this and other questions in this article.
 ---
 
 # Solving problems with dependencies in {{ ml-platform-full-name }}
@@ -61,15 +61,15 @@ After installing, updating, or deleting a package, restart the {{ jlab }}Lab ker
 
 ## Using dependency files {#requrements-txt}
 
-Using the `requirements.txt` dependency file, you can create the list of all required packages and their versions for a project. Doing so will simplify dependency installation on other systems and help you avoid issues when running a cross-system environment migration.
+By using the `requirements.txt` dependency file, you can create a list of all required packages and their versions for a project. Doing so will simplify dependency installation on other systems and help you avoid issues when running a cross-system environment migration.
 
-To install packages and libraries listed in the `requirements.txt` file located in the project root, run this command:
+To install the packages and libraries from the `requirements.txt` file residing in the project root, run this command:
 
 ```bash
 %pip install -r requirements.txt
 ```
 
-To save the list of installed libraries to the `requirements.txt` file, run this command:
+To save a list of installed libraries to `requirements.txt`, run this command:
 
 ```bash
 %pip freeze > requirements.txt
@@ -77,7 +77,7 @@ To save the list of installed libraries to the `requirements.txt` file, run this
 
 {% note info %}
 
-If you want to deploy the environment from the dependency file created in {{ ml-platform-name }} on another platform, delete the system packages installed via `@`.
+If you want to deploy the environment from a dependency file created in {{ ml-platform-name }} on another platform, delete the system packages installed via `@`.
 
 {% endnote %}
 
@@ -125,8 +125,8 @@ After reinstalling the package, restart the {{ jlab }}Lab kernel.
 
 ### Could not find a version that satisfies the requirement {#not-found-version}
 
-The `Could not find a version that satisfies the requirement` error may occur if you specified a non-existing package version or the package is not available in the repository. Make sure the package name and version are correct and try installing another version.
+The `Could not find a version that satisfies the requirement` error may occur if you specify a non-existing package version or the package is not available in the repository. Make sure the package name and version are correct and try installing another version.
 
 ### What else you can do {#what-is-else}
 
-If you have encountered an error you cannot solve, contact [support]({{ link-console-support }}).
+If you encounter an error you cannot fix, contact [support]({{ link-console-support }}).

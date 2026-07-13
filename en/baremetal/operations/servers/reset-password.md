@@ -7,7 +7,7 @@ description: In this tutorial, you will learn how to reset the root password on 
 
 The system automatically generates a root password during {{ baremetal-name }} server [provisioning](./server-lease.md). You must save this password, as it will become inaccessible after server initialization.
 
-If you have lost your {{ baremetal-name }} server root password, you can create a new one. The recovery method depends on your access level.
+If you have lost your {{ baremetal-name }} server root password, you can create a new one. Depending on the situation, you can do it in different ways.
 
 {% include [kvm-paste-tip](../../../_includes/baremetal/kvm-paste-tip.md) %}
 
@@ -42,7 +42,7 @@ If you have lost your {{ baremetal-name }} server root password, you can create 
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./rescue-boot.md)
 * [{#T}](./add-new-ssh-key.md)

@@ -229,7 +229,7 @@ You can enable and disable availability zones one by one or as a comma-separated
       
 {% endlist %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [Disabling and enabling availability zones for a {{ compute-full-name }} instance group](../../../compute/operations/instance-groups/disable-enable-zone.md)
 * [Disabling and enabling availability zones in {{ alb-full-name }}](../../../application-load-balancer/operations/manage-zone/start-and-cancel-shift.md)

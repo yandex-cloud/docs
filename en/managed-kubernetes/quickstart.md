@@ -89,7 +89,7 @@ To create a {{ managed-k8s-name }} node group:
      * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`: Network drive with enhanced performance achieved by eliminating redundancy. You can only change the size of this disk type in 93 GB increments.
      * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-io-m3 }}`: Network drive with the same performance specifications as `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`, plus redundancy. You can only change the size of this disk type in 93 GB increments.
 
-     For more information about disk types, see [this {{ compute-full-name }} guide](../compute/concepts/disk.md#disks_types).
+     For more information about disk types, see [this {{ compute-full-name }} tutorial](../compute/concepts/disk.md#disks_types).
    * Specify the disk size for the {{ managed-k8s-name }} group nodes.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
    * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select an IP address assignment method:
@@ -114,7 +114,7 @@ To create a {{ managed-k8s-name }} node group:
    * **{{ ui-key.yacloud.compute.instances.create.field_key }}**: Paste the contents of the [public key](operations/node-connect-ssh.md#creating-ssh-keys) file.
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
-For more information, see [this step-by-step guide for creating {{ managed-k8s-name }} node groups](operations/node-group/node-group-create.md).
+For more information, see [this step-by-step guide on creating a {{ managed-k8s-name }} node group](operations/node-group/node-group-create.md).
 
 ## Add credentials to the kubectl configuration file {#add-conf}
 

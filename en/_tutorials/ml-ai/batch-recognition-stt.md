@@ -35,8 +35,8 @@ To set up automatic recognition of audio files using {{ speechkit-short-name }}:
 
 ## Create a cloud function {#create-function}
 
-1. In the [management console]({{ link-console-main }}), navigate to the folder with the new service account.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+1. In the [management console]({{ link-console-main }}), go to the folder the service account was created in.
+1. Navigate to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}** and specify `asr-batch-function` as the function name.
 1. Click **{{ ui-key.yacloud.common.create }}**.
 1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**, select the `Python` `3.8` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
@@ -51,18 +51,18 @@ To set up automatic recognition of audio files using {{ speechkit-short-name }}:
    ```
 
 1. Specify the function run settings:
-   * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`
-   * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `60`
-   * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `asr-batch-sa`
+   * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
+   * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `60`.
+   * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `asr-batch-sa`.
 1. Add these environment variables:
-   * `S3_BUCKET`: `asr-batch-bucket`
-   * `S3_PREFIX`: `input`
-   * `S3_PREFIX_LOG`: `log`
-   * `S3_PREFIX_OUT`: `out`
-   * `S3_KEY`: Static access key ID
-   * `S3_SECRET`: Static access key secret
-   * `API_KEY`: API key ID
-   * `API_SECRET`: API key secret
+   * `S3_BUCKET`: `asr-batch-bucket`.
+   * `S3_PREFIX`: `input`.
+   * `S3_PREFIX_LOG`: `log`.
+   * `S3_PREFIX_OUT`: `out`.
+   * `S3_KEY`: Static access key ID.
+   * `S3_SECRET`: Static access key secret.
+   * `API_KEY`: API key ID.
+   * `API_SECRET`: API key secret.
 
 1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -100,10 +100,11 @@ You can monitor the progress of the script in the [logs](../../functions/operati
 {% endnote %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 
 * [Asynchronous recognition API v2]({{ link-docs-ai }}speechkit/stt/api/transcribation-api)
 * [Asynchronous recognition of LPCM audio files using the API v2]({{ link-docs-ai }}speechkit/stt/api/transcribation-lpcm)
 * [Asynchronous recognition of OggOpus audio files using the API v2]({{ link-docs-ai }}speechkit/stt/api/transcribation-ogg)
+
 

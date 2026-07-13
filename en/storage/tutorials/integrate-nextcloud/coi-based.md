@@ -4,11 +4,11 @@ description: In this tutorial, you will deploy Nextcloud on a {{ compute-full-na
 canonical: '{{ link-docs }}/tutorials/archive/integrate-nextcloud/coi-based'
 ---
 
-# Deploying Nextcloud on a {{ compute-full-name }} VM from a {{ coi }} image, integrated with {{ objstorage-name }}
+# Deploying Nextcloud on a {{ compute-full-name }} VM from a {{ coi }}, integrated with {{ objstorage-name }}
 
 {% include [coi-based](../../../_tutorials/archive/integrate-nextcloud/coi-based.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./fault-tolerant.md)
 * [{#T}](./terraform.md)

@@ -164,7 +164,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 * [VM with {{ GLR }}](../../compute/operations/vm-control/vm-delete.md)
 * [Service account](../../iam/operations/sa/delete.md)
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../managed-gitlab/concepts/index.md#managed-runners)
 * [{#T}](../../managed-gitlab/operations/runner.md)

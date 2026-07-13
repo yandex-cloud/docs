@@ -15,6 +15,7 @@ description: Следуя этой инструкции, вы сможете п�
 
 {% list tabs group=connection %}
 
+
 - Подключение с SSL {#with-ssl}
 
     {% include [Default connection string](../../../_includes/mdb/mos/default-connstring.md) %}
@@ -26,6 +27,7 @@ description: Следуя этой инструкции, вы сможете п�
 ### Windows (PowerShell) {#powershell}
 
 {% list tabs group=connection %}
+
 
 - Подключение с SSL {#with-ssl}
 
@@ -141,14 +143,12 @@ description: Следуя этой инструкции, вы сможете п�
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
     ```bash
     RUN apt-get update && \
         apt-get install curl --yes
     ```
-
 
 - Подключение с SSL {#with-ssl}
 

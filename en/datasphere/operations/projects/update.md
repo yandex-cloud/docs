@@ -35,7 +35,7 @@ You can change the project name and description, set consumption limits, and con
 
    * Click **{{ ui-key.yc-ui-datasphere.common.save }}**.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](restrictions.md)
 * [{#T}](install-dependencies.md)

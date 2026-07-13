@@ -41,16 +41,16 @@ When using [{{ interconnect-name }}](../../interconnect/), the service connectio
 
 Currently, you can create service connections for the following cloud services:
 
-| **Service name** | **Creation method** | **PE record** | **Primary record** |
-| --- | --- | --- | --- |
-| [{{ objstorage-short-name }}](../../storage/) | [UI, CLI, {{ TF }}](../operations/private-endpoint-create.md) | `storage.pe.yandexcloud.net` | `storage.yandexcloud.net` |
-| [{{ cloud-registry-name }}](../../cloud-registry) | [Contacting support](../operations/private-endpoint-create-support.md) | `registry.pe.yandexcloud.net` | `registry.yandexcloud.net` |
-| [{{ ai-studio-name }}](../../ai-studio/concepts/) | [Contacting support](../operations/private-endpoint-create-support.md) | `ai.pe.api.cloud.yandex.net` | `ai.api.cloud.yandex.net` |
-| [{{ mtr-name }}](../../managed-trino) | [Contacting support](../operations/private-endpoint-create-support.md) | `trino.pe.yandexcloud.net`, `*.trino.pe.yandexcloud.net` | - |
-| [{{ serverless-containers-name }}](../../serverless-containers) |  [Contacting support](../operations/private-endpoint-create-support.md) | `*.containers.pe.yandexcloud.net` | `*.containers.yandexcloud.net` |
-| [{{ sf-name }}](../../functions) | [Contacting support](../operations/private-endpoint-create-support.md) | `functions.pe.yandexcloud.net` | `functions.yandexcloud.net` |
-| Public API Gateway | [Contacting support](../operations/private-endpoint-create-support.md) | `-` | `*.api.cloud.yandex.net` |
-| [AI Studio MCP Gateway](https://aistudio.yandex.ru/docs/ai-studio/mcp-gateway/api-ref/) |  [Contacting support](../operations/private-endpoint-create-support.md) | `*.mcpgw.serverless.pe.yandexcloud.net` | `*.mcpgw.serverless.yandexcloud.net` |
+| **Service name** | **Service type** | **Creation method** | **PE record** | **Primary record** |
+| --- | --- | --- | --- | --- |
+| [{{ objstorage-short-name }}](../../storage/) | yandex.cloud.storage | [Management console, CLI, {{ TF }}](../operations/private-endpoint-create.md) | `storage.pe.yandexcloud.net` | `storage.yandexcloud.net` |
+| [{{ cloud-registry-name }}](../../cloud-registry) | yandex.cloud.registry | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `registry.pe.yandexcloud.net` | `registry.yandexcloud.net` |
+| [{{ ai-studio-name }}](../../ai-studio/concepts/) | yandex.cloud.ai-studio | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `ai.pe.api.cloud.yandex.net` | `ai.api.cloud.yandex.net` |
+| [AI Studio MCP Gateway](https://aistudio.yandex.ru/docs/ai-studio/mcp-gateway/api-ref/) | yandex.cloud.mcp-gateway | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `*.mcpgw.serverless.pe.yandexcloud.net` | `*.mcpgw.serverless.yandexcloud.net` |
+| [{{ mtr-name }}](../../managed-trino) | yandex.cloud.managed-trino | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `trino.pe.yandexcloud.net`, `*.trino.pe.yandexcloud.net` | - |
+| [{{ serverless-containers-name }}](../../serverless-containers) | yandex.cloud.serverless-containers | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `*.containers.pe.yandexcloud.net` | `*.containers.yandexcloud.net` |
+| [{{ sf-name }}](../../functions) | yandex.cloud.serverless-functions | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `functions.pe.yandexcloud.net` | `functions.yandexcloud.net` |
+| Public API Gateway | yandex.cloud.api | [CLI, {{ TF }}](../operations/private-endpoint-create.md) | `-` | `*.api.cloud.yandex.net` |
 
 ## How to use certain types of service connections {#pe-notes2}
 

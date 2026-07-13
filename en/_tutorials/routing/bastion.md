@@ -271,7 +271,7 @@ ssh -i ~/.ssh/<name_of_private_key_file> -J bastion@<public_IP_address_of_bastio
 
 The SSH client will automatically connect to the internal server.
 
-You can use the `-J` flag in OpenSSH version 7.3 or higher. In earlier versions, `-J` is not available. The easiest and most secure alternative is to use standard I/O redirection (the `-W` flag) to forward the connection through the bastion host. Here is an example:
+You can use the `-J` flag in OpenSSH version 7.3 or higher. In earlier versions, `-J` is not available. The easiest and most secure alternative is to use standard I/O redirection (the `-W` flag) to forward the connection through the bastion host. For example:
 
 ```bash
 ssh -i ~/.ssh/<name_of_private_key_file> -o ProxyCommand="ssh -W %h:%p bastion@<public_IP_address_of_bastion_host>" test@<internal_IP_address_of_virtual_server>

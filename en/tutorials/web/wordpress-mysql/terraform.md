@@ -9,6 +9,6 @@ To create an infrastructure for a [WordPress website with a {{ MY }} database cl
 
 {% include [wordpress-mysql-terraform](../../../_tutorials/applied/wordpress-mysql-terraform.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](console.md)

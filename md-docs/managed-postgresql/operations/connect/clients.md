@@ -2,7 +2,7 @@
 
 # Подключение к кластеру PostgreSQL из приложений
 
-К кластеру PostgreSQL можно подключиться с помощью [инструментов командной строки](#command-line-tools), из [графических IDE](#connection-ide), [Yandex WebSQL](#websql), [pgAdmin 4](#connection-pgadmin), [Looker Studio](#connection-google-looker) и [Docker-контейнера](#connection-docker). О подключении из кода вашего приложения читайте в разделе [Примеры кода](code-examples.md).
+К кластеру PostgreSQL можно подключиться с помощью [инструментов командной строки](#command-line-tools), из [графических IDE](#connection-ide), [Yandex WebSQL](#websql), [pgAdmin 4](#connection-pgadmin), [Data Studio](#connection-google-looker) (ранее Looker Studio) и [Docker-контейнера](#connection-docker). О подключении из кода вашего приложения читайте в разделе [Примеры кода](code-examples.md).
 
 Вы можете подключаться к хостам кластера PostgreSQL с использованием SSL-сертификатов. В примерах ниже предполагается, что сертификат `root.crt` расположен в директории:
 
@@ -37,9 +37,9 @@ sudo apt update && sudo apt install --yes postgresql-client
             user=<имя_пользователя> \
             target_session_attrs=read-write"
       ```
- 
+
       В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>` (пример: `rc1a-goh2a9tr********.mdb.yandexcloud.net`).    
- 
+
       После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 
   1. Для проверки успешности подключения выполните запрос:
@@ -60,7 +60,7 @@ sudo apt update && sudo apt install --yes postgresql-client
             user=<имя_пользователя> \
             target_session_attrs=read-write"
       ```
-  
+
       В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>` (пример: `rc1a-goh2a9tr********.mdb.yandexcloud.net`).
 
       После выполнения команды введите пароль пользователя для завершения процедуры подключения.
@@ -312,12 +312,9 @@ WebSQL — это сервис Yandex Cloud, который позволяет �
 
 Кластер появится в списке серверов в навигационном меню.
 
+## Подключение из Data Studio {#connection-google-looker}
 
-## Подключение из Looker Studio {#connection-google-looker}
-
-
-Подключаться из [Looker Studio](https://lookerstudio.google.com/overview) можно только к хостам кластера в публичном доступе.
-
+Подключаться из [Data Studio](https://datastudio.google.com/overview) можно только к хостам кластера в публичном доступе.
 
 1. Сохраните [сертификат сервера](https://storage.yandexcloud.net/cloud-certs/CA.pem) `CA.pem` в локальную папку.
 1. В той же папке сгенерируйте сертификат клиента с приватным ключом:
@@ -330,7 +327,7 @@ WebSQL — это сервис Yandex Cloud, который позволяет �
 
     В локальной папке появятся два файла: `cert.pem` и `private.pem`.
 
-1. На [странице навигации Looker Studio](https://lookerstudio.google.com/navigation/reporting) выберите **Создать** → **Источник данных**.
+1. На [странице навигации Data Studio](https://lookerstudio.google.com/navigation/reporting) выберите **Создать** → **Источник данных**.
 1. Выберите PostgreSQL.
 1. Заполните поля:
 
@@ -349,10 +346,10 @@ WebSQL — это сервис Yandex Cloud, который позволяет �
 
 1. Нажмите **Выполнить аутентификацию**.
 
+
 ## Подготовка к подключению из Docker-контейнера {#connection-docker}
 
 Чтобы подключаться к кластеру Managed Service for PostgreSQL из Docker-контейнера, добавьте в Dockerfile строки:
-
 
 {% list tabs group=connection %}
 
@@ -363,7 +360,9 @@ WebSQL — это сервис Yandex Cloud, который позволяет �
         apt-get install postgresql-client --yes
     ```
 
+    
     Пример подключения из Yandex Serverless Containers вы найдете в [практическом руководстве](../../../serverless-containers/tutorials/pg-connect.md).
+
 
 - Подключение с SSL {#with-ssl}
 

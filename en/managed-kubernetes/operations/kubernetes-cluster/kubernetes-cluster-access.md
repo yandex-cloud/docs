@@ -3,7 +3,7 @@ title: Managing access to a {{ managed-k8s-full-name }} cluster
 description: Follow this guide to configure {{ managed-k8s-name }} cluster access permissions.
 ---
 
-# Managing {{ managed-k8s-name }} cluster access
+# Managing access to a {{ managed-k8s-name }} cluster
 
 You can assign a user or service account a [role that grants access to the {{ k8s }} API](../../security/index.md#k8s-api) of a specific [cluster](../../concepts/index.md#kubernetes-cluster).
 
@@ -96,7 +96,7 @@ To manage user view permissions for cluster lists, we recommend using different 
   
   1. Open the current configuration file with the {{ managed-k8s-name }} cluster description.
   
-      For more information about creating this file, see [{#T}](kubernetes-cluster-create.md).
+      For more on how to create such a file, see [{#T}](kubernetes-cluster-create.md).
   
   1. Add a resource description:
     
@@ -111,7 +111,7 @@ To manage user view permissions for cluster lists, we recommend using different 
       Where:
 
       * `cluster_id`: Cluster ID.
-      * `role`: [Role](../../security/index.md#roles-list) being assigned, e.g., `k8s.cluster-api.editor`.
+      * `role`: [Role](../../security/index.md#roles-list), e.g., `k8s.cluster-api.editor`.
       * `member`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
     
         Here is an example: 
@@ -178,7 +178,7 @@ To manage user view permissions for cluster lists, we recommend using different 
     
       Where `--access-binding` assigns a role to a subject. You can assign multiple roles at once by describing each of them in a separate `--access-binding` parameter.
       
-        * `role`: [Role](../../security/index.md#roles-list) being assigned, e.g., `k8s.cluster-api.editor`.
+        * `role`: [Role](../../security/index.md#roles-list), e.g., `k8s.cluster-api.editor`.
         * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
 
           Here is an example:
@@ -197,9 +197,9 @@ To manage user view permissions for cluster lists, we recommend using different 
     
   {% endnote %} 
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
-      For more information about creating this file, see [this guide](kubernetes-cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](kubernetes-cluster-create.md).
 
   1. Add resource descriptions:
     
@@ -220,7 +220,7 @@ To manage user view permissions for cluster lists, we recommend using different 
       Where:
 
       * `cluster_id`: Cluster ID.
-      * `role`: [Role](../../security/index.md#roles-list) being assigned, e.g., `k8s.cluster-api.editor`.
+      * `role`: [Role](../../security/index.md#roles-list), e.g., `k8s.cluster-api.editor`.
       * `member`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
     
         Here is an example:
@@ -300,9 +300,9 @@ To manage user view permissions for cluster lists, we recommend using different 
     
   {% endnote %} 
 
-  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
-      For more information about creating this file, see [this guide](kubernetes-cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](kubernetes-cluster-create.md).
 
   1. Find the description of the resource with the role you want to revoke and delete this description:
     
@@ -360,9 +360,9 @@ To manage user view permissions for cluster lists, we recommend using different 
 
     - {{ TF }} {#tf}
 
-      1. Open the current {{ TF }} configuration file describing your infrastructure.
+      1. Open the current {{ TF }} configuration file with the infrastructure plan.
   
-          For information on how to create this file, see [Creating a cluster](kubernetes-cluster-create.md).
+          To learn how to create this file, see [Creating a cluster](kubernetes-cluster-create.md).
 
       1. Add resource descriptions:
 

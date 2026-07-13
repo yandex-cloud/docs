@@ -173,6 +173,6 @@ You can experiment with the `YCChaos` scenario directly in the Chaos Mesh web in
 
 {% endnote %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Chaos Mesh documentation](https://chaos-mesh.org/docs/)

@@ -10,8 +10,8 @@
 
     Чтобы изменить настройки кластера:
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-airflow) в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
 
     1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
 

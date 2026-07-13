@@ -3,7 +3,7 @@
 
 {% note tip %}
 
-In addition to the solution described in this article, you can also access {{ objstorage-name }} from cloud network resources without internet access using the [{{ vpc-short-name }} service connection](../../vpc/concepts/private-endpoint.md). For more information, see [Accessing a bucket using a service connection from {{ vpc-short-name }}](../../storage/operations/buckets/access-via-vpc.md)
+In addition to the solution described in this article, you can also access {{ objstorage-name }} from cloud network resources without internet access using the [{{ vpc-short-name }} service connection](../../vpc/concepts/private-endpoint.md). For more information, see [Accessing a bucket using a service connection from {{ vpc-short-name }}](../../storage/operations/buckets/access-via-vpc.md).
 
 {% endnote %}
 
@@ -96,7 +96,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support costs include:
+The infrastructure support cost includes:
 
 * Fee for using {{ objstorage-name }} (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for using a network load balancer (see [{{ network-load-balancer-name }} pricing](../../network-load-balancer/pricing.md)).

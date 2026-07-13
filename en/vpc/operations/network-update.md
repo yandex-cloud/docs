@@ -94,7 +94,7 @@ After creating a cloud network, you can change its name, description, and labels
      }
      ```
 
-     For more information about the `yandex_vpc_network` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_network).
+     For more on the properties of the `yandex_vpc_network` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_network).
 
   1. Apply the changes:
 

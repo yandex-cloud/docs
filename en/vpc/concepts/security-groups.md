@@ -27,19 +27,19 @@ To filter out large volumes of unsolicited network traffic, use [{{ ddos-protect
 
 ## Default security group {#default-security-group}
 
-The *default security group* (DSG) is created automatically when you create a [new cloud network](./network.md#network), and its rules apply to network traffic of objects that have no explicitly assigned custom security group.
+A *default security group* (DSG) is created automatically while creating a [new cloud network](./network.md#network) and applies to network traffic of objects that do not have any explicitly associated custom security group.
 
-The default security group allows:
+A default security group allows:
 
-* All outgoing (`egress`) network traffic.
-* All incoming (`ingress`) network traffic from objects within the same security group ([self](#self-rule) rule).
-* All incoming network traffic over `ICMP`.
-* Incoming network traffic over `TCP` and `UDP` on port `22` (`SSH`).
-* Incoming network traffic over `TCP` and `UDP` on port `3389` (`RDP`).
+* Any outgoing (`egress`) network traffic.
+* Ani incoming (`ingress`) network traffic from objects to which the same security group applies ([self](#self-rule) rule).
+* Any incoming network traffic over `ICMP`.
+* Incoming network traffic over `TCP` and `UDP` to port `22` (`SSH`).
+* Incoming network traffic over `TCP` and `UDP` to port `3389` (`RDP`).
 
 All other traffic in the security group is denied by default.
 
-You cannot manually delete a default security group. It is deleted automatically when you delete the respective network.
+You cannot delete a default security group; it is automatically deleted when its corresponding network is deleted.
 
 ## Scope of use for security groups {#security-groups-apply}
 
@@ -49,19 +49,19 @@ Security groups can be used in the following {{ yandex-cloud }} service objects:
 |-----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | [{{ compute-short-name }}](../../compute/)          | [VM interface](../../compute/concepts/network.md), [instance group template](../../compute/concepts/instance-groups/instance-template.md#network)       |
 | [{{ managed-k8s-name }}](../../managed-kubernetes/) | [Cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), [node group](../../managed-kubernetes/concepts/index.md#node-group) |
-| [{{ alb-name }}](../../application-load-balancer/) | [Load balancer](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) |
-| [{{ mpg-name }}](../../managed-postgresql/) | [Cluster](../../managed-postgresql/concepts/network.md#security-groups) |
-| [{{ mch-name }}](../../managed-clickhouse/) | [Cluster](../../managed-clickhouse/concepts/network.md#security-groups) |
-| [{{ mgp-name }}](../../managed-greenplum/) | [Cluster](../../managed-greenplum/concepts/network.md#security-groups) |
-| [{{ mmy-name }}](../../managed-mysql/) | [Cluster](../../managed-mysql/concepts/network.md#security-groups) |
-| [{{ mrd-name }}](../../managed-valkey/) | [Cluster](../../managed-valkey/concepts/network.md#security-groups) |
-| [{{ mmg-name }}](../../storedoc) | [Cluster](../../storedoc/concepts/network.md#security-groups) |
-| [{{ mkf-name }}](../../managed-kafka/) | [Cluster](../../managed-kafka/concepts/network.md#security-groups) |
-| [{{ mos-name }}](../../managed-opensearch/) | [Cluster](../../managed-opensearch/concepts/network.md#security-groups) |
-| [{{ mtr-name }}](../../managed-trino/) | [Cluster](../../managed-trino/concepts/network.md#security-groups) |
-| [{{ dataproc-name }}](../../data-proc/) | [Cluster](../../data-proc/concepts/network.md#security-groups) |
-| [{{ data-transfer-name }}](../../data-transfer/) | [Endpoint](../../data-transfer/concepts/network.md#security-groups) |
-| [{{ mgl-name }}](../../managed-gitlab/) | [Instance](../../managed-gitlab/operations/configure-security-group.md) |
+| [{{ alb-name }}](../../application-load-balancer/)  | [Load balancer](../../application-load-balancer/concepts/application-load-balancer.md#security-groups)                                          |
+| [{{ mpg-name }}](../../managed-postgresql/)         | [Cluster](../../managed-postgresql/concepts/network.md#security-groups)                                                                         |
+| [{{ mch-name }}](../../managed-clickhouse/)         | [Cluster](../../managed-clickhouse/concepts/network.md#security-groups)                                                                         |
+| [{{ mgp-name }}](../../managed-greenplum/)          | [Cluster](../../managed-greenplum/concepts/network.md#security-groups)                                                                          |
+| [{{ mmy-name }}](../../managed-mysql/)              | [Cluster](../../managed-mysql/concepts/network.md#security-groups)                                                                              |
+| [{{ mrd-name }}](../../managed-valkey/)             | [Cluster](../../managed-valkey/concepts/network.md#security-groups)                                                                             |
+| [{{ mmg-name }}](../../storedoc)                    | [Cluster](../../storedoc/concepts/network.md#security-groups)                                                                                   |
+| [{{ mkf-name }}](../../managed-kafka/)              | [Cluster](../../managed-kafka/concepts/network.md#security-groups)                                                                              |
+| [{{ mos-name }}](../../managed-opensearch/)         | [Cluster](../../managed-opensearch/concepts/network.md#security-groups)                                                                         |
+| [{{ mtr-name }}](../../managed-trino/)              | [Cluster](../../managed-trino/concepts/network.md#security-groups)                                                                              |
+| [{{ dataproc-name }}](../../data-proc/)             | [Cluster](../../data-proc/concepts/network.md#security-groups)                                                                                  |
+| [{{ data-transfer-name }}](../../data-transfer/)    | [Endpoint](../../data-transfer/concepts/network.md#security-groups)                                                                             |                                                                                   |
+| [{{ mgl-name }}](../../managed-gitlab/)             | [Instance](../../managed-gitlab/operations/configure-security-group.md)                                                                          |
 
 {% note info %}
 

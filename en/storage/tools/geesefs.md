@@ -41,7 +41,7 @@ Learn more in the GeeseFS repository on GitHub:
 * [Partial object updates](https://github.com/yandex-cloud/geesefs#partial-object-updates-patch): Description of partial updating and appending of object data.
 * [Concurrent Updates](https://github.com/yandex-cloud/geesefs#concurrent-patch): Description of a partial object update using multiple concurrent requests.
 
-### Limitations {#restrictions}
+### Limits {#restrictions}
 
 GeeseFS does not support the following:
 
@@ -74,7 +74,7 @@ GeeseFS does not support the following:
 
 {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
-## Installing {#installation}
+## Installation {#installation}
 
 {% include [geesefs-installation](../../_includes/storage/geesefs-installation.md) %}
 

@@ -9,9 +9,7 @@
      name        = "<service_connection_name>"
      description = "<service_connection_description>"
      network_id  = "<cloud_network_ID>"
-     
-     # Service connection to Object Storage
-     object_storage {}
+     service_type = "yandex.cloud.storage"
 
      # Creating additional DNS resource records 
      dns_options {
@@ -28,7 +26,7 @@
    * `name`: Service connection name. This is an optional parameter.
    * `description`: Service connection description. This is an optional parameter.
    * `network_id`: Name of the [cloud network](../../vpc/concepts/network.md#network) the service connection will be created in. This is a required parameter.
-   * `object_storage`: Service connection to {{ objstorage-short-name }}. Other service connection types are not available yet.
+   * `service_type`: [Service connection type](../../vpc/concepts/private-endpoint.md#pe-services). In our example, it is `yandex.cloud.storage` for {{ objstorage-short-name }}.
    * `dns_options`: Section with parameters for creating DNS records:
        * `private_dns_records_enabled`: Parameter to create additional DNS resource records to override the public FQDN of the service to which the connection is created. This is an optional parameter.
 
@@ -43,13 +41,13 @@
 
       {% endnote %}
 
-   For more information about `yandex_vpc_private_endpoint` properties, see [this provider guide]({{ tf-provider-resources-link }}/vpc_private_endpoint).
+   For more on the properties of the `yandex_vpc_private_endpoint` resource, see [this provider guide]({{ tf-provider-resources-link }}/vpc_private_endpoint).
 
 1. Create the resources:
 
    {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-   {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+   {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/) command:
 
    ```bash
    yc vpc private-endpoint list

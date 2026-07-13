@@ -9,14 +9,14 @@ description: Access management in {{ objstorage-full-name }} (S3), a service for
 
 {% include [full-overview](../../_includes/storage/security/full-overview.md) %}
 
-In this section, you will learn:
+In this section, you will learn about:
 
-* [What resources you can assign a role for](#resources).
-* [What roles exist in the service](#roles-list).
+* [Resources you can assign a role for](#resources).
+* [Roles available in this service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user should have the `storage.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you need the `storage.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -67,7 +67,7 @@ To learn how to manage access to buckets and objects in them, see [{#T}](../conc
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../operations/buckets/iam-access.md)
 

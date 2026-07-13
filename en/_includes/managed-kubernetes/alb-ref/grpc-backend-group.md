@@ -96,9 +96,9 @@ Where:
 
   * `name` (`string`; this is a required field)
 
-    Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. For more on the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
   
-    You must specify this name in the `spec.rules.http.paths.backend.resource.name` field of the `Ingress` resource (see [this configuration]({{ configuration-local-link }}/ingress.md)).
+    This name should be specified in the `spec.rules.http.paths.backend.resource.name` field of the `Ingress` resource (for details, see [this configuration]({{ configuration-local-link }}/ingress.md)).
 
     Do not mistake this name for the {{ alb-name }} backend group name.
 

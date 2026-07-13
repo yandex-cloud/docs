@@ -71,7 +71,7 @@ title: How to get DNS zone information in {{ dns-full-name }}
      * `output "zone"`: Output variable with the DNS zone type information:
        * `value`: Return value.
 
-     You can replace `public` with another variable to get the information you need. To learn more about the `yandex_dns_zone` data source properties, see [this {{ TF }} provider guide]({{ tf-provider-datasources-link }}/dns_zone).
+     You can replace `public` with another variable to get the information you need. For more information about the `yandex_dns_zone` data source properties, see [this {{ TF }} provider guide]({{ tf-provider-datasources-link }}/dns_zone).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

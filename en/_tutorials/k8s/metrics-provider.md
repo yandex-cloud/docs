@@ -1,6 +1,6 @@
 # Using {{ MP }} to deliver metrics
 
-{{ MP }} delivers metrics of {{ managed-k8s-name }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) objects to monitoring systems and [automatic scaling systems](../../managed-kubernetes/concepts/autoscale.md).
+{{ MP }} transmits metrics of {{ managed-k8s-name }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) objects to monitoring systems and [automatic scaling systems](../../managed-kubernetes/concepts/autoscale.md).
 
 In this tutorial, you will learn how to set up the delivery of external metrics to {{ k8s-hpa }} using {{ MP }}.
 
@@ -17,9 +17,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for a {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a public IP address if assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Getting started {#before-you-begin}
@@ -189,4 +189,4 @@ Events:           <none>
 Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. [Delete](../../vpc/operations/address-delete.md) the cluster [public static IP address](../../vpc/concepts/address.md#public-addresses) if you reserved one.
+1. [Delete](../../vpc/operations/address-delete.md) the cluster’s [public static IP address](../../vpc/concepts/address.md#public-addresses) if you reserved one.

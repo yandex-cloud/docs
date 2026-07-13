@@ -161,7 +161,7 @@ You can see the solution architecture in the diagram below:
           ikelifetime=86400s
         ```
 
-        For more information about parameters, see the [strongSwan guide](https://wiki.strongswan.org/projects/strongswan/wiki/connsection).
+        Learn more about parameters in [this strongSwan guide](https://wiki.strongswan.org/projects/strongswan/wiki/connsection).
 
     1. Open the `ipsec.secrets` file that is used for authentication:
 
@@ -222,7 +222,7 @@ You can see the solution architecture in the diagram below:
           dpddelay=30s
         ```
 
-        For more information about parameters, see the [strongSwan guide](https://wiki.strongswan.org/projects/strongswan/wiki/connsection).
+        Learn more about parameters in [this strongSwan guide](https://wiki.strongswan.org/projects/strongswan/wiki/connsection).
 
     1. Open the `ipsec.secrets` file that is used for authentication:
 

@@ -320,7 +320,7 @@ To work with a repository, you need the admin environment.
    /scripts/commit-all.sh <commit description>
    ```
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [1C Bitrix: Web environment](https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=32&LESSON_ID=29234&LESSON_PATH=3903.4862.29228.29234)
 * [Container environment for Bitrix](https://github.com/bitrix-tools/env-docker)

@@ -73,6 +73,7 @@ The length must be less than or equal to 100. ||
       "description": "string",
       "labels": "map<string, string>",
       "family": "string",
+      "size": "int64",
       "storage_size": "int64",
       "min_disk_size": "int64",
       "product_ids": [
@@ -149,6 +150,9 @@ The name of the image family to which this image belongs.
 You can get the most recent image from a family by using
 the [yandex.cloud.compute.v1.ImageService.GetLatestByFamily](/docs/compute/api-ref/grpc/Image/getLatestByFamily#GetLatestByFamily) request
 and create the disk from this image. ||
+|| size | **int64**
+
+The total size of the image, specified in bytes. ||
 || storage_size | **int64**
 
 The storage size of the image, specified in bytes. ||

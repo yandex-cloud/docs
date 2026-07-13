@@ -23,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost of resources includes:
 * Fee for using VM instances (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for the number of function calls, computing resources allocated to run a function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for the number of function calls, computing resources allocated for the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 
 ## Download a project {#download}
 

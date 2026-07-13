@@ -15,7 +15,7 @@ To use models as an assistant in the code editor:
 1. [Connect to the model](#connection).
 1. [Test the model](#test).
 
-The infrastructure support fee for connecting to the model from the code editor includes a text generation fee (see the [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
+The infrastructure support cost for connecting to the model from the code editor includes a text generation fee (see the [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
 
 ## Set up your infrastructure {#infra}
 

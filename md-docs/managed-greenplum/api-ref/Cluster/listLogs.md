@@ -17,7 +17,6 @@ GET https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}:l
 || clusterId | **string**
 
 Required field. ID of the Greenplum® cluster to request logs for.
-
 To get the Greenplum® cluster ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -61,7 +60,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `pageSize`, the service returns a [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests.
 
 The maximum value is 1000. ||
@@ -76,15 +74,10 @@ The service always returns a [ListClusterLogsResponse.nextPageToken](#yandex.clo
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-
 The expression must specify:
-
 1. A field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname], [LogRecord.logs.message.error_severity] (for `GREENPLUM` service) and [LogRecord.logs.message.level] (for `GREENPLUM_POOLER` service) fields.
-
 2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-
 3. A value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
-
 Examples of a filter:
 * `message.hostname='node1.db.cloud.yandex.net'`;
 * `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`.
@@ -116,11 +109,8 @@ Requested log records. ||
 || nextPageToken | **string**
 
 This token allows you to get the next page of results for list requests.
-
 If the number of results is larger than [ListClusterLogsRequest.pageSize](#yandex.cloud.mdb.greenplum.v1.ListClusterLogsRequest), use the `nextPageToken` as the value for the [ListClusterLogsRequest.pageToken](#yandex.cloud.mdb.greenplum.v1.ListClusterLogsRequest) query parameter in the next list request.
-
 Each subsequent list request has its own `nextPageToken` to continue paging through the results.
-
 This value is interchangeable with the [StreamLogRecord.nextRecordToken](streamLogs.md#yandex.cloud.mdb.greenplum.v1.StreamLogRecord) from [StreamLogs](streamLogs.md#StreamLogs) method. ||
 |#
 

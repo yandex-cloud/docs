@@ -34,9 +34,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Infrastructure support costs include fees for the following resources:
 * [Disks](../../compute/concepts/disk.md) and continuously running [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Dynamic [public IP address](../../vpc/concepts/ips.md) assigned (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Storing the created Docker images (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
-* Using a [{{ managed-k8s-name }} master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Use of a dynamic [public IP address](../../vpc/concepts/ips.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Storage of the Docker images you created (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
+* Use of the [{{ managed-k8s-name }} master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 
 {% include [deploy-infrastructure](../../_includes/managed-gitlab/deploy-infrastructure.md) %}
 
@@ -323,6 +323,6 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 1. [Delete the created {{ GL }} VM](../../compute/operations/vm-control/vm-delete.md) or {{ mgl-name }} instance.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Creating test VMs using {{ GL }} CI](../../tutorials/testing/ci-for-snapshots.md).

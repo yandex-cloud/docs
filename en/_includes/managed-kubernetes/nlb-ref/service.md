@@ -1,4 +1,4 @@
-# Service resource fields and annotations
+# Fields and annotations of the Service resource
 
 The `Service` resource defines a [{{ k8s }} service](../../../managed-kubernetes/concepts/index.md#service). In {{ network-load-balancer-name }} for {{ managed-k8s-name }}, services are load balancers for incoming traffic.
 
@@ -118,7 +118,7 @@ Service type.
 
 {% note warning %}
 
-{{ k8s }} services used as network load balancers must be of the `LoadBalancer` type. For more information about this type, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer).
+{{ k8s }} services used as network load balancers must be of the `LoadBalancer` type. For more on this type, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer).
 
 {% endnote %}
 ||

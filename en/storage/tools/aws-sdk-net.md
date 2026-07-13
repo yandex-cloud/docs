@@ -27,7 +27,7 @@ The [AWS SDK for NET](https://aws.amazon.com/sdk-for-net/) is a software develop
 * The AWS SDK for .NET incorrectly handles lifecycle configurations that contain no rule description (ID). Make sure to add a description to each lifecycle rule.
 * To access {{ objstorage-name }}, e.g., when working with the `AmazonS3Config` class, use the `{{ s3-dotnet-sdk-host }}` address.
 
-## Code examples {#net-sdk-examples}
+## Code snippets {#net-sdk-examples}
 
 To connect to {{ objstorage-name }}, use this code:
 
@@ -156,6 +156,6 @@ namespace Example
 }
 ```
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Examples of employing AWS SDK for .NET in AWS articles](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/csharp_code_examples.html)

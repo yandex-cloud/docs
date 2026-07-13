@@ -44,7 +44,7 @@ To configure, manage, and audit actions with objects, {{ baremetal-name }} provi
 
 [Quotas](limits.md) restrict the number of available servers, networks, and images. Also, certain [limits](network-restrictions.md) apply to networks.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./servers.md)
 * [{#T}](./server-configurations.md)

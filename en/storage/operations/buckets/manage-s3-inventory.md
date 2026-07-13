@@ -28,6 +28,7 @@ In {{ objstorage-name }}, you can [export metadata](../../concepts/s3-inventory.
 
   1. Create an export configuration:
 
+      
       ```bash
       yc storage bucket create-inventory-configuration \
         --name <bucket_name> \
@@ -52,6 +53,7 @@ In {{ objstorage-name }}, you can [export metadata](../../concepts/s3-inventory.
             "SIZE",
             "LAST_MODIFIED_DATE",
             "STORAGE_CLASS",
+            "INTELLIGENT_TIERING_ACCESS_TIER",
             "ETAG",
             "IS_MULTIPART_UPLOADED",
             "ENCRYPTION_STATUS",
@@ -64,6 +66,7 @@ In {{ objstorage-name }}, you can [export metadata](../../concepts/s3-inventory.
           ]
         }'
       ```
+
 
       Where:
 
@@ -91,6 +94,7 @@ In {{ objstorage-name }}, you can [export metadata](../../concepts/s3-inventory.
           * `SIZE`: Object size in bytes.
           * `LAST_MODIFIED_DATE`: Date the object was created or last modified.
           * `STORAGE_CLASS`: [Storage class](../../concepts/storage-class.md).
+          * `INTELLIGENT_TIERING_ACCESS_TIER`: Access tier of an object in [intelligent storage](../../concepts/storage-class.md#features-intelligent-tiering).
           * `ETAG`: Object hash.
           * `IS_MULTIPART_UPLOADED`: Indicates whether the object was uploaded via a [multipart upload](../../concepts/multipart.md).
           * `ENCRYPTION_STATUS`: Object [encryption](../../concepts/encryption.md) status.
@@ -111,6 +115,7 @@ In {{ objstorage-name }}, you can [export metadata](../../concepts/s3-inventory.
 
       {% cut "File contents example" %}
 
+      
       ```json
       {
         "id": "test_config",
@@ -130,6 +135,7 @@ In {{ objstorage-name }}, you can [export metadata](../../concepts/s3-inventory.
           "SIZE",
           "LAST_MODIFIED_DATE",
           "STORAGE_CLASS",
+          "INTELLIGENT_TIERING_ACCESS_TIER",
           "ETAG",
           "IS_MULTIPART_UPLOADED",
           "ENCRYPTION_STATUS",
@@ -142,6 +148,7 @@ In {{ objstorage-name }}, you can [export metadata](../../concepts/s3-inventory.
         ]
       }
       ```
+
 
       {% endcut %}
 
@@ -199,6 +206,7 @@ You can [download](../objects/download.md) export results just like other object
 
       Result:
 
+      
       ```text
       configurations:
         - id: test_config
@@ -215,6 +223,7 @@ You can [download](../objects/download.md) export results just like other object
             - SIZE
             - LAST_MODIFIED_DATE
             - STORAGE_CLASS
+            - INTELLIGENT_TIERING_ACCESS_TIER
             - ETAG
             - IS_MULTIPART_UPLOADED
             - ENCRYPTION_STATUS
@@ -225,6 +234,7 @@ You can [download](../objects/download.md) export results just like other object
             - OBJECT_ACCESS_CONTROL_LIST
             - OBJECT_OWNER
       ```
+
 
 - API {#api}
 
@@ -260,6 +270,7 @@ You can [download](../objects/download.md) export results just like other object
 
       Result:
 
+      
       ```text
       id: test_config
       destination:
@@ -275,6 +286,7 @@ You can [download](../objects/download.md) export results just like other object
         - SIZE
         - LAST_MODIFIED_DATE
         - STORAGE_CLASS
+        - INTELLIGENT_TIERING_ACCESS_TIER
         - ETAG
         - IS_MULTIPART_UPLOADED
         - ENCRYPTION_STATUS
@@ -285,6 +297,7 @@ You can [download](../objects/download.md) export results just like other object
         - OBJECT_ACCESS_CONTROL_LIST
         - OBJECT_OWNER
       ```
+
 
 - API {#api}
 
@@ -324,7 +337,7 @@ You can [download](../objects/download.md) export results just like other object
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/s3-inventory.md)
 * [{#T}](../objects/download.md)

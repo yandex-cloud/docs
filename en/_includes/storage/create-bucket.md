@@ -39,9 +39,10 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
           * `{{ ui-key.yacloud.storage.value_standard }}`
           * `{{ ui-key.yacloud.storage.value_cold }}`
           * `{{ ui-key.yacloud.storage.value_ice }}`
-
-          Cold classes are for long-term storage of objects you intend to use less frequently. The colder the storage, the cheaper it is to store data in, but the more expensive it is to read from and write to it.
-
+          * `Intelligent`
+          
+          {% include [storage-class-cold-desc](./storage-class-cold-desc.md) %}
+         
       
       1. Enable encryption if you need to: in the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select an existing [symmetric key](../../kms/concepts/key.md) or [create](../../kms/operations/key.md#create) a new one.
 
@@ -142,7 +143,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
   {% endcut %}
 
-  For more information about the `aws s3api create-bucket` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-bucket.html).
+  Learn more about the `aws s3api create-bucket` command in [this AWS guide](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-bucket.html).
 
 - {{ TF }} {#tf}
 
@@ -187,7 +188,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
         {% endnote %}
 
-      For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
+      For more information on the properties of the `yandex_storage_bucket` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Create the resources:
 
@@ -272,13 +273,14 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
 
         * `max_size`: Maximum bucket size, in bytes. The default value is `0`, unlimited. 
-        * `default_storage_class`: [Storage class](../../storage/concepts/storage-class.md). Available values:
+        * `default_storage_class`: [Storage class](../../storage/concepts/storage-class.md). Valid values:
 
           * `standard`: Standard storage. This is a default value.
           * `cold`: Cold storage.
           * `ice`: Ice storage.
+          * `intelligent_tiering`: Intelligent storage
 
-          <q>Cold</q> classes are designed to store objects that you plan to use less frequently for longer periods of time. The <q>colder</q> your storage is, the less you pay for storing data; however, the costs of reading and writing data increase.
+          {% include [storage-class-cold-desc](./storage-class-cold-desc.md) %}
 
         * `anonymous_access_flags`: [Access](../../storage/concepts/bucket.md#bucket-access) settings:
 
@@ -288,7 +290,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
         * `tags`: Bucket [labels](../../storage/concepts/tags.md) in `key = "value"` format.
 
-      For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
+      For more information on the properties of the `yandex_storage_bucket` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
 
       {% endcut %}
 

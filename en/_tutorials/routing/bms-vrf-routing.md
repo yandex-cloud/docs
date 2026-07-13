@@ -33,7 +33,7 @@ To configure a fault-tolerant cluster of {{ baremetal-name }} servers using VRRP
 1. [Configure Keepalived on the servers of the `{{ region-id }}-m3` pool](#setup-keepalived).
 1. [Test the solution](#test-solution).
 
-See also [How to cancel server lease](#clear-out).
+If you do not need the server anymore, [cancel your server rent](#clear-out).
 
 ## Getting started {#before-you-begin}
 
@@ -41,7 +41,7 @@ See also [How to cancel server lease](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of this solution includes the {{ baremetal-name }} server lease fee (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
+The cost of this solution includes the {{ baremetal-name }} server rent fee (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
 
 ## Create a virtual routing and forwarding segment {#create-vrf}
 

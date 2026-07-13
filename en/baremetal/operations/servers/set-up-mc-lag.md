@@ -340,7 +340,7 @@ To set up a link aggregation group:
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../concepts/mc-lag.md)
 * [{#T}](../../concepts/network.md)

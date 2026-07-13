@@ -28,7 +28,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost for {{ TF }} states includes:
 * Fee for data storage (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
-* Fee for running queries against the database (see [{{ ydb-name }} pricing](../../ydb/pricing/serverless.md)).
+* Fee for queries against the database (see [{{ ydb-name }} pricing](../../ydb/pricing/serverless.md)).
 
 The cost of support for the sample infrastructure deployed through {{ TF }} in this tutorial includes:
 * Fee for a continuously running [VM](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
@@ -289,7 +289,7 @@ If you no longer need the resources you created, delete them:
 1. [Delete](../../ydb/operations/manage-databases.md#delete-db) `state-lock-db`.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Getting started with {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Uploading {{ TF }} states to {{ objstorage-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).

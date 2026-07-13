@@ -3,7 +3,7 @@
 - CLI {#cli}
 
    1. Create a subnet:
-
+      
       ```bash
       yc vpc subnet create \
          --name <subnet_name> \
@@ -34,7 +34,7 @@
 
       * `id`: ID of the node group you want to migrate to a different availability zone.
       * `zone`: Availability zone you want to migrate your node group to, `{{ region-id }}-a`, `{{ region-id }}-b`, or `{{ region-id }}-d`.
-      * `subnet-id` and `subnets`: ID of the new subnet you created earlier.
+      * `subnet_id` and `subnets`: ID of the new subnet you created earlier.
       * `ipv4-address`: IPv4 address assignment method. The `nat` value allows assigning public and internal IP addresses to nodes.
       * `security-group-ids`: List of [security group](../../managed-kubernetes/operations/connect/security-groups.md) IDs.
 

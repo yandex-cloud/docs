@@ -25,6 +25,8 @@ Data Catalog поддерживает получение метаданных и
 * Yandex Data Transfer
 * WebSQL
 * DataLens
+* Trino
+* Apache Airflow™
 
 Чтобы начать работу с сервисом:
 

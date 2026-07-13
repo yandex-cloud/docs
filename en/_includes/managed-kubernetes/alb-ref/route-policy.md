@@ -143,9 +143,9 @@ Where:
 
   * `name` (`string`; this is a required field)
 
-    Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. For more on the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-    Do not mistake this name for the {{ alb-name }} load balancer name.
+    This is not the load balancer name in {{ alb-name }}.
   
   * `namespace` (`string`)
   

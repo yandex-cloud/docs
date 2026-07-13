@@ -6,27 +6,15 @@ The main class that needs to be instantiated to work with SDK.
 
 **tools**\: *[BaseTools](#yandex_ai_studio_sdk._tools.domain.BaseTools)*{#yandex_ai_studio_sdk._sdk.BaseSDK.tools}
 
-Domain for creating various tools for assistants and function calling
+Domain for creating various tools for function calling
 
 **models**\: *[BaseModels](#yandex_ai_studio_sdk._models.BaseModels)*{#yandex_ai_studio_sdk._sdk.BaseSDK.models}
 
 Domain for working with models (inference and tuning)
 
-**threads**\: *[BaseThreads](#yandex_ai_studio_sdk._threads.domain.BaseThreads)*{#yandex_ai_studio_sdk._sdk.BaseSDK.threads}
-
-DEPRECATED Domain for working with threads (a part of the Assistants API)
-
 **files**\: *[BaseFiles](#yandex_ai_studio_sdk._files.domain.BaseFiles)*{#yandex_ai_studio_sdk._sdk.BaseSDK.files}
 
-DEPRECATED Domain for working with files (a part of the Asssistants API)
-
-**assistants**\: *[BaseAssistants](#yandex_ai_studio_sdk._assistants.domain.BaseAssistants)*{#yandex_ai_studio_sdk._sdk.BaseSDK.assistants}
-
-Domain for working with assistants (a part of the Assistants API)
-
-**runs**\: *[BaseRuns](#yandex_ai_studio_sdk._runs.domain.BaseRuns)*{#yandex_ai_studio_sdk._sdk.BaseSDK.runs}
-
-DEPRECATED Domain for working with assistants’ runs (a part of the Assistants API)
+Domain for working with files
 
 **search\_api**\: *[BaseSearchAPIDomain](#yandex_ai_studio_sdk._search_api.domain.BaseSearchAPIDomain)*{#yandex_ai_studio_sdk._sdk.BaseSDK.search_api}
 
@@ -34,7 +22,7 @@ Domain for working with [Yandex Search API](https://aistudio.yandex.ru/docs/sear
 
 **search\_indexes**\: *[BaseSearchIndexes](#yandex_ai_studio_sdk._search_indexes.domain.BaseSearchIndexes)*{#yandex_ai_studio_sdk._sdk.BaseSDK.search_indexes}
 
-Domain for working with search indexes (a part of the Assistants API)
+Domain for working with search indexes
 
 **datasets**\: *[BaseDatasets](#yandex_ai_studio_sdk._datasets.domain.BaseDatasets)*{#yandex_ai_studio_sdk._sdk.BaseSDK.datasets}
 
@@ -118,7 +106,6 @@ This class serves as the foundation for tool management in both synchronous and 
 
 Tools are particularly useful in:
 
-- **AI Assistants**\: Extending conversational agents with external capabilities like web search, database queries, or API calls
 - **Completions**\: Enabling language models to invoke functions during text generation for dynamic content creation and problem-solving
 
 The tools framework supports both streaming and non-streaming operations, making it suitable for real-time applications and batch processing scenarios.
@@ -126,62 +113,6 @@ The tools framework supports both streaming and non-streaming operations, making
 *property* **function**\: *[FunctionToolsTypeT](../types/other.md#yandex_ai_studio_sdk._tools.function.FunctionToolsTypeT)*{#yandex_ai_studio_sdk._tools.domain.BaseTools.function}
 
 Get the function sub-domain for creating function tools.
-
-*property* **rephraser**\: *[RephraserFunction](../types/tools.md#yandex_ai_studio_sdk._tools.search_index.rephraser.function.RephraserFunction)*{#yandex_ai_studio_sdk._tools.domain.BaseTools.rephraser}
-
-Get the rephraser for creating query transformation models.
-
-The rephraser provides access to specialized language models designed to intelligently rewrite and enhance user search queries by incorporating conversational context. This is particularly useful in multi-turn conversations where the latest user message may lack context from previous exchanges.
-
-The rephraser works by: - Analyzing the conversation history and current user query - Reformulating the query to be more specific and contextually complete - Improving search relevance by expanding abbreviated or ambiguous terms - Maintaining semantic intent while adding necessary context
-
-The rephraser returns a factory that can create Rephraser model instances with different configurations, supporting various model types including the default ‘rephraser’ model or custom rephrasing models.
-
-**search\_index**(*indexes*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *max\_num\_results=Undefined*, *rephraser=Undefined*, *call\_strategy=Undefined*){#yandex_ai_studio_sdk._tools.domain.BaseTools.search_index}
-
-Creates SearchIndexTool (not to be confused with [**SearchIndex**](../sync/search_indexes.md#yandex_ai_studio_sdk._search_indexes.search_index.SearchIndex)/[**AsyncSearchIndex**](../async/search_indexes.md#yandex_ai_studio_sdk._search_indexes.search_index.AsyncSearchIndex)).
-
-#|
-|| Parameters | 
-
-- **indexes** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*BaseSearchIndex*](#yandex_ai_studio_sdk._search_indexes.search_index.BaseSearchIndex) *\|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*BaseSearchIndex*](#yandex_ai_studio_sdk._search_indexes.search_index.BaseSearchIndex)*] \|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – parameter takes [**BaseSearchIndex**](#yandex_ai_studio_sdk._search_indexes.search_index.BaseSearchIndex), string with search index id, or a list of this values in any combination.
-- **max\_num\_results** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – the maximum number of results to return from the search. Fewer results may be returned if necessary to fit within the prompt’s token limit. This ensures that the combined prompt and search results do not exceed the token constraints.
-- **rephraser** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*[True] \| ~yandex\_ai\_studio\_sdk.\_tools.search\_index.rephraser.model.Rephraser \| ~yandex\_ai\_studio\_sdk.\_types.misc.Undefined*) – setting for rephrasing user queries; refer to [**Rephraser**](../types/tools.md#yandex_ai_studio_sdk._tools.search_index.rephraser.model.Rephraser) documentation for details.
-- **call\_strategy** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['always'] \| ~yandex\_ai\_studio\_sdk.\_types.tools.function.FunctionDictType \| ~yandex\_ai\_studio\_sdk.\_tools.search\_index.call\_strategy.CallStrategy \| ~yandex\_ai\_studio\_sdk.\_types.misc.Undefined*) ||
-|| Return type | [*SearchIndexTool*](../types/tools.md#yandex_ai_studio_sdk._tools.search_index.tool.SearchIndexTool) ||
-|#
-
-**generative\_search**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *description*, *site=Undefined*, *host=Undefined*, *url=Undefined*, *enable\_nrfm\_docs=Undefined*, *search\_filters=Undefined*){#yandex_ai_studio_sdk._tools.domain.BaseTools.generative_search}
-
-Creates GenerativeSearch tool which provide access to generative search by [Yandex Search API](https://aistudio.yandex.ru/docs/search-api/concepts/index) for LLMs.
-
-Not to be confused with **sdk.search\_api.generative**. Tools domain is for creating tools for using in LLMs/Assistants and search\_api domain is for using Yandex Search API directly.
-
-To learn more about parameters, their formats, and possible values, refer to [generative search documentation](https://aistudio.yandex.ru/docs/search-api/concepts/generative-response#body)
-
-NB: All of the **site**, **host**, **url** parameters are mutually exclusive.
-
-#|
-|| Parameters | 
-
-- **site** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – parameter for limiting search to specific location or list of sites.
-- **host** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – parameter for limiting search to specific location or list of hosts.
-- **url** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – parameter for limiting search to specific location or list of URLs.
-- **enable\_nrfm\_docs** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – tells to backend to include or not to include pages, which are not available via direct clicks from given sites/hosts/urls to search result.
-- **search\_filters** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*DateFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.DateFilterType) *\|* [*FormatFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.FormatFilterType) *\|* [*LangFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.LangFilterType)*] \|* [*DateFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.DateFilterType) *\|* [*FormatFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.FormatFilterType) *\|* [*LangFilterType*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.config.LangFilterType) *\|* [*Undefined*](../types/other.md#yandex_ai_studio_sdk._types.misc.Undefined)) – allows to limit search results with additional filters.
-```python
->>> date_filter = {'date': '<20250101'}
->>> format_filter = {'format': 'doc'}
->>> lang_filter = {'lang': 'ru'}
->>> tool = sdk.tools.generative_search(
-...     search_filters=[date_filter, format_filter, lang_filter],
-...     description="description when model should call a tool"
-... )
-```
-
-- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) ||
-|| Return type | [*GenerativeSearchTool*](../types/tools.md#yandex_ai_studio_sdk._tools.generative_search.GenerativeSearchTool) ||
-|#
 
 ## *class* yandex\_ai\_studio\_sdk.\_tools.function.**BaseFunctionTools**{#yandex_ai_studio_sdk._tools.function.BaseFunctionTools}
 
@@ -397,27 +328,11 @@ Constructs the URI for the model based on the provided model’s name and versio
 || Return type | [*ModelTypeT*](../types/other.md#yandex_ai_studio_sdk._types.model.ModelTypeT) ||
 |#
 
-## *class* yandex\_ai\_studio\_sdk.\_threads.domain.**BaseThreads**{#yandex_ai_studio_sdk._threads.domain.BaseThreads}
-
-A class for managing threads. It is a part of Assistants API.
-
-This class provides methods to create, retrieve, and list threads.
-
-## *class* yandex\_ai\_studio\_sdk.\_threads.thread.**BaseThread**{#yandex_ai_studio_sdk._threads.thread.BaseThread}
-
-DEPRECATED A class for a thread resource.
-
-It provides methods for working with messages that the thread contains (e.g. updating, deleting, writing to, and reading from).
-
-**expiration\_config**\: *[ExpirationConfig](../types/assistants.md#yandex_ai_studio_sdk._types.expiration.ExpirationConfig)*{#yandex_ai_studio_sdk._threads.thread.BaseThread.expiration_config}
-
-**id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._threads.thread.BaseThread.id}
-
 ## *class* yandex\_ai\_studio\_sdk.\_files.domain.**BaseFiles**{#yandex_ai_studio_sdk._files.domain.BaseFiles}
 
 Files domain, which contains API for working with files.
 
-Files is a part of [Assistants API](https://yandex.cloud/ru/docs/foundation-models/concepts/assistant), which is the only place you could use it. Provides upload, get and list methods that allow you to work with remote file objects you created earlier.
+Provides upload, get and list methods that allow you to work with remote file objects you created earlier. Files are used by search indexes and other domains as input data.
 
 ## *class* yandex\_ai\_studio\_sdk.\_files.file.**BaseFile**{#yandex_ai_studio_sdk._files.file.BaseFile}
 
@@ -426,100 +341,6 @@ BaseFile(id: ‘str’, \_sdk: ‘BaseSDK’, \_lock: ‘asyncio.Lock’, \_dele
 **expiration\_config**\: *[ExpirationConfig](../types/assistants.md#yandex_ai_studio_sdk._types.expiration.ExpirationConfig)*{#yandex_ai_studio_sdk._files.file.BaseFile.expiration_config}
 
 **id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._files.file.BaseFile.id}
-
-## *class* yandex\_ai\_studio\_sdk.\_assistants.domain.**BaseAssistants**{#yandex_ai_studio_sdk._assistants.domain.BaseAssistants}
-
-Base class for assistants management.
-
-Provides common functionality for creating, getting and listing assistants.
-
-## *class* yandex\_ai\_studio\_sdk.\_assistants.assistant.**BaseAssistant**{#yandex_ai_studio_sdk._assistants.assistant.BaseAssistant}
-
-BaseAssistant(id: ‘str’, \_sdk: ‘BaseSDK’, \_lock: ‘asyncio.Lock’, \_deleted: ‘bool’, expiration\_config: ‘ExpirationConfig’, model: ‘BaseGPTModel’, instruction: ‘str | None’, prompt\_truncation\_options: ‘PromptTruncationOptions’, tools: ‘tuple[BaseTool, …]’, response\_format: ‘ResponseType | None’)
-
-**expiration\_config**\: *[ExpirationConfig](../types/assistants.md#yandex_ai_studio_sdk._types.expiration.ExpirationConfig)*{#yandex_ai_studio_sdk._assistants.assistant.BaseAssistant.expiration_config}
-
-Expiration configuration for the assistant.
-
-**model**\: *[BaseGPTModel](#yandex_ai_studio_sdk._models.completions.model.BaseGPTModel)*{#yandex_ai_studio_sdk._assistants.assistant.BaseAssistant.model}
-
-The GPT model used by the assistant.
-
-**instruction**\: *[str](https://docs.python.org/3/library/stdtypes.html#str) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._assistants.assistant.BaseAssistant.instruction}
-
-Instructions or guidelines that the assistant should follow. These instructions guide the assistant’s behavior and responses.
-
-**prompt\_truncation\_options**\: *[PromptTruncationOptions](../types/assistants.md#yandex_ai_studio_sdk._assistants.prompt_truncation_options.PromptTruncationOptions)*{#yandex_ai_studio_sdk._assistants.assistant.BaseAssistant.prompt_truncation_options}
-
-Options for truncating thread messages. Controls how messages are truncated when forming the prompt.
-
-**tools**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[BaseTool](#yandex_ai_studio_sdk._tools.tool.BaseTool)*]... ,{#yandex_ai_studio_sdk._assistants.assistant.BaseAssistant.tools}
-
-Tools available to the assistant. Can be a sequence or a single tool. Tools must implement BaseTool interface.
-
-**response\_format**\: *ResponseType | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._assistants.assistant.BaseAssistant.response_format}
-
-A format of the response returned by the model. Could be a JsonSchema, a JSON string, or a pydantic model
-
-*property* **max\_prompt\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._assistants.assistant.BaseAssistant.max_prompt_tokens}
-
-Returns the maximum number of prompt tokens allowed for the assistant.
-
-**id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._assistants.assistant.BaseAssistant.id}
-
-## *class* yandex\_ai\_studio\_sdk.\_runs.domain.**BaseRuns**{#yandex_ai_studio_sdk._runs.domain.BaseRuns}
-
-Class for Runs operations. Provides core functionality for managing assistant execution in streams.
-
-For usage examples see [runs example](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/blob/master/examples/{link}/assistants/runs.py).
-
-## *class* yandex\_ai\_studio\_sdk.\_runs.run.**BaseRun**{#yandex_ai_studio_sdk._runs.run.BaseRun}
-
-BaseRun(id: ‘str’, \_sdk: ‘BaseSDK’, assistant\_id: ‘str’, thread\_id: ‘str’, created\_by: ‘str’, created\_at: ‘datetime’, labels: ‘dict[str, str] | None’, custom\_temperature: ‘float | None’, custom\_max\_tokens: ‘int | None’, custom\_prompt\_truncation\_options: ‘PromptTruncationOptions | None’, custom\_response\_format: ‘ResponseType | None’)
-
-**id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._runs.run.BaseRun.id}
-
-Unique run identifier
-
-**assistant\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._runs.run.BaseRun.assistant_id}
-
-ID of the assistant used
-
-**thread\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._runs.run.BaseRun.thread_id}
-
-ID of the thread used
-
-**created\_by**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._runs.run.BaseRun.created_by}
-
-Creator of the run
-
-**created\_at**\: *datetime*{#yandex_ai_studio_sdk._runs.run.BaseRun.created_at}
-
-Creation timestamp
-
-**labels**\: *[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[str](https://docs.python.org/3/library/stdtypes.html#str), [str](https://docs.python.org/3/library/stdtypes.html#str)] | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._runs.run.BaseRun.labels}
-
-Optional metadata labels
-
-**custom\_temperature**\: *[float](https://docs.python.org/3/library/functions.html#float) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._runs.run.BaseRun.custom_temperature}
-
-Custom temperature setting
-
-**custom\_max\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._runs.run.BaseRun.custom_max_tokens}
-
-Custom max tokens setting
-
-**custom\_prompt\_truncation\_options**\: *[PromptTruncationOptions](../types/assistants.md#yandex_ai_studio_sdk._assistants.prompt_truncation_options.PromptTruncationOptions) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._runs.run.BaseRun.custom_prompt_truncation_options}
-
-Custom prompt truncation options
-
-**custom\_response\_format**\: *ResponseType | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._runs.run.BaseRun.custom_response_format}
-
-Custom response format
-
-*property* **custom\_max\_prompt\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int) | [None](https://docs.python.org/3/library/constants.html#None)*{#yandex_ai_studio_sdk._runs.run.BaseRun.custom_max_prompt_tokens}
-
-Get max prompt tokens from truncation options if set.
 
 ## *class* yandex\_ai\_studio\_sdk.\_search\_api.domain.**BaseSearchAPIDomain**{#yandex_ai_studio_sdk._search_api.domain.BaseSearchAPIDomain}
 
@@ -552,8 +373,6 @@ Generative search function for creating search object which provides methods for
 **\_\_call\_\_**(*<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *site=Undefined*, *host=Undefined*, *url=Undefined*, *fix\_misspell=Undefined*, *enable\_nrfm\_docs=Undefined*, *search\_filters=Undefined*){#yandex_ai_studio_sdk._search_api.generative.function.BaseGenerativeSearchFunction.__call__i}
 
 Creates generative search object which provides methods for invoking generative search.
-
-Not to be confused with **sdk.tools.generative\_search**. Tools domain is for creating tools for using in LLMs/Assistants and search\_api domain is for using Search API directly.
 
 To learn more about parameters and their formats and possible values, refer to [generative search documentation](https://aistudio.yandex.ru/docs/search-api/concepts/generative-response#body)
 
@@ -609,15 +428,6 @@ NB: All of the **site**, **host**, **url** parameters are mutually exclusive
 ```
  ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
-|#
-
-**as\_tool**(*description*){#yandex_ai_studio_sdk._search_api.generative.generative.BaseGenerativeSearch.as_tool}
-
-Converts generative search instance to [**GenerativeSearchTool**](../types/tools.md#yandex_ai_studio_sdk._tools.generative_search.GenerativeSearchTool) object which is eligible to use as tools in LLMs/Assistants.
-
-#|
-|| Parameters | **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – description of tool instance which also instructs model when to call it. ||
-|| Return type | [*GenerativeSearchTool*](../types/tools.md#yandex_ai_studio_sdk._tools.generative_search.GenerativeSearchTool) ||
 |#
 
 *property* **config**\: *[ConfigTypeT](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT)*{#yandex_ai_studio_sdk._search_api.generative.generative.BaseGenerativeSearch.config}
@@ -808,22 +618,6 @@ Class for model tuning operations.
 This class serves as the foundation for all model fine-tuning operations, providing comprehensive functionality.
 
 ## *class* yandex\_ai\_studio\_sdk.\_types.batch.domain.**BaseBatchSubdomain**{#yandex_ai_studio_sdk._types.batch.domain.BaseBatchSubdomain}
-
-## *class* yandex\_ai\_studio\_sdk.\_messages.base.**BaseMessage**{#yandex_ai_studio_sdk._messages.base.BaseMessage}
-
-Abstract class for messages in Yandex AI Studio Assistant service.
-
-Provides core functionality for all message types including: - Storage and processing of message parts (text, citations, etc.) - Basic text content operations
-
-Extended by: - Message: Complete assistant messages - PartialMessage: Intermediate message content during streaming
-
-**parts**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Any](https://docs.python.org/3/library/typing.html#typing.Any)*]... ,{#yandex_ai_studio_sdk._messages.base.BaseMessage.parts}
-
-Tuple containing message parts (can be strings or other types)
-
-*property* **text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_ai_studio_sdk._messages.base.BaseMessage.text}
-
-Get concatenated string of all text parts in the message by joining all string parts.
 
 ## *class* yandex\_ai\_studio\_sdk.\_batch.domain.**BaseBatch**{#yandex_ai_studio_sdk._batch.domain.BaseBatch}
 

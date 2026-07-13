@@ -25,7 +25,7 @@ Where:
 
   * `name` (`string`; this is a required field)
 
-    Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. For more on the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
   * `namespace` (`string`)
 
@@ -33,7 +33,7 @@ Where:
 
 * `spec` (`YCStorageBucketSpec`; this is a required field)
 
-  Resource specification. For more information, see [below](#spec).
+  Resource specification. See details [below](#spec).
 
 ## YCStorageBucketSpec {#spec}
 
