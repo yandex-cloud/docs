@@ -23,14 +23,12 @@ Retrieves a list of available backups for the specified Greenplum® cluster.
 || cluster_id | **string**
 
 Required field. ID of the Greenplum® cluster.
-
 To get the Greenplum® cluster ID use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `page_size`, the service returns a [ListClusterBackupsResponse.next_page_token](#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) that can be used to get the next page of results in subsequent list requests.
 
 The maximum value is 1000. ||
@@ -70,9 +68,7 @@ List of Greenplum® backups. ||
 || next_page_token | **string**
 
 This token allows you to get the next page of results for list requests.
-
 If the number of results is larger than [ListClusterBackupsRequest.page_size](#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsRequest), use the `next_page_token` as the value for the [ListClusterBackupsRequest.page_token](#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsRequest) query parameter in the next list request.
-
 Each subsequent list request has its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -82,7 +78,7 @@ Each subsequent list request has its own `next_page_token` to continue paging th
 ||Field | Description ||
 || id | **string**
 
-Required. ID of the backup. ||
+Required field. Required. ID of the backup. ||
 || folder_id | **string**
 
 ID of the folder that the backup belongs to. ||
@@ -100,17 +96,17 @@ Time when the backup operation was started. ||
 Size of the backup in bytes. ||
 || type | enum **BackupCreationType**
 
-How this backup was created (manual/automatic/etc...)
+How this backup was created (manual/automatic/etc...).
 
 - `AUTOMATED`: Backup created by automated daily schedule
 - `MANUAL`: Backup created by user request ||
 || method | enum **BackupMethod**
 
-Method of backup creation
+Method of backup creation.
 
 - `BASE`: Base backup
 - `INCREMENTAL`: Delta (incremental) Greenplum backup ||
 || journal_size | **int64**
 
-Size of the journal associated with backup, in bytes ||
+Size of the journal associated with backup, in bytes. ||
 |#

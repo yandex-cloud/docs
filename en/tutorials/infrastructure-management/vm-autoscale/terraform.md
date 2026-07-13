@@ -10,6 +10,6 @@ To create an infrastructure for an [autoscaling instance group](index.md) with {
 
 {% include [vm-autoscale-terraform](../../../_tutorials/infrastructure/vm-autoscale-terraform.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](console.md)

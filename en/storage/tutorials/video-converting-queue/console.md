@@ -9,6 +9,6 @@ To create a [video-to-GIF conversion framework in Python](index.md) using the {{
 
 {% include [console](../../../_tutorials/_tutorials_includes/video-converting-queue/console.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](terraform.md)

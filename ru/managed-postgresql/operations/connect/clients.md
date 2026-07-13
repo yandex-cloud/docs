@@ -5,7 +5,7 @@ description: Следуя этой инструкции, вы сможете п�
 
 # Подключение к кластеру {{ PG }} из приложений
 
-К кластеру {{ PG }} можно подключиться с помощью [инструментов командной строки](#command-line-tools), из [графических IDE](#connection-ide), [{{ websql-full-name }}](#websql), [{{ pgadmin }}](#connection-pgadmin), [{{ google-looker }}](#connection-google-looker) и [Docker-контейнера](#connection-docker). О подключении из кода вашего приложения читайте в разделе [Примеры кода](./code-examples.md).
+К кластеру {{ PG }} можно подключиться с помощью [инструментов командной строки](#command-line-tools), из [графических IDE](#connection-ide), [{{ websql-full-name }}](#websql), [{{ pgadmin }}](#connection-pgadmin), [{{ google-looker }}](#connection-google-looker) (ранее Looker Studio) и [Docker-контейнера](#connection-docker). О подключении из кода вашего приложения читайте в разделе [Примеры кода](./code-examples.md).
 
 Вы можете подключаться к хостам кластера {{ PG }} с использованием SSL-сертификатов. В примерах ниже предполагается, что сертификат `root.crt` расположен в директории:
 
@@ -40,9 +40,9 @@ sudo apt update && sudo apt install --yes postgresql-client
             user=<имя_пользователя> \
             target_session_attrs=read-write"
       ```
- 
+
       {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}    
- 
+
       После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 
   1. Для проверки успешности подключения выполните запрос:
@@ -56,7 +56,7 @@ sudo apt update && sudo apt install --yes postgresql-client
   1. Подключитесь к базе данных:
 
       {% include [default-connstring](../../../_includes/mdb/mpg/default-connstring.md) %}
-  
+
       {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}
 
       После выполнения команды введите пароль пользователя для завершения процедуры подключения.
@@ -272,12 +272,9 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 Кластер появится в списке серверов в навигационном меню.
 
-
 ## Подключение из {{ google-looker }} {#connection-google-looker}
 
-
-Подключаться из [{{ google-looker }}](https://lookerstudio.google.com/overview) можно только к хостам кластера в публичном доступе.
-
+Подключаться из [{{ google-looker }}](https://datastudio.google.com/overview) можно только к хостам кластера в публичном доступе.
 
 1. Сохраните [сертификат сервера]({{ crt-web-path }}) `CA.pem` в локальную папку.
 1. В той же папке сгенерируйте сертификат клиента с приватным ключом:
@@ -309,10 +306,10 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 1. Нажмите **Выполнить аутентификацию**.
 
+
 ## Подготовка к подключению из Docker-контейнера {#connection-docker}
 
 Чтобы подключаться к кластеру {{ mpg-name }} из Docker-контейнера, добавьте в Dockerfile строки:
-
 
 {% list tabs group=connection %}
 
@@ -323,7 +320,9 @@ sudo apt update && sudo apt install --yes postgresql-client
         apt-get install postgresql-client --yes
     ```
 
+    
     Пример подключения из {{ serverless-containers-full-name }} вы найдете в [практическом руководстве](../../../serverless-containers/tutorials/pg-connect.md).
+
 
 - Подключение с SSL {#with-ssl}
 
@@ -337,4 +336,3 @@ sudo apt update && sudo apt install --yes postgresql-client
     ```
 
 {% endlist %}
-

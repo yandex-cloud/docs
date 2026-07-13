@@ -83,14 +83,14 @@ Within a dedicated public subnet range, IP addresses are distributed as follows:
   For example:
 
   * Subnet CIDR: `198.51.100.104/29`.
-  * Network IP address: `198.51.100.104`.
+  * Subnet IP address: `198.51.100.104`.
   * Default gateway IP address: `198.51.100.105`.
   * Available addresses: From `198.51.100.106` to `198.51.100.110`.
   * Broadcast address: `198.51.100.111`.
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./network.md)
 * [{#T}](./private-network.md)

@@ -54,7 +54,7 @@ Before running a project with the Spark connector to create a temporary {{ datap
 
 You will be charged extra for using temporary clusters created based on {{ dataproc-name }} templates according to the [{{ dataproc-full-name }} pricing policy](../../data-proc/pricing.md).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [How to create, modify, and delete a Spark connector](../operations/data/spark-connectors.md).
 * [{#T}](../troubleshooting/troubles-with-spark.md)

@@ -52,9 +52,9 @@ You can use the map to visualize networks. For example, with the map, you can id
 * [Subnets](#subnet).
 * [Route tables](routing.md).
 
-You have the option to only map network connections for specific resources. This can be useful if you have a large network with a vast number of resources. In addition, you can use the map to navigate to resource pages with just one click. To learn more about using the map, see [this guide](../operations/network-map.md).
+You have the option to only map network connections for specific resources. This can be useful if you have a large network with a vast number of resources. In addition, you can use the map to navigate to resource pages with just one click. For more information on using the map, see [this guide](../operations/network-map.md).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](software-accelerated-network.md)
 

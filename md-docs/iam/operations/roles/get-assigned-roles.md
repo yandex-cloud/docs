@@ -33,7 +33,7 @@
   Чтобы посмотреть роли [сервисного аккаунта](../../concepts/users/service-accounts.md) на каталог и его дочерние ресурсы:
 
   1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
-  1. В списке сервисов выберите **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. Роли сервисного аккаунта перечислены в поле **Роли в каталоге**.
 

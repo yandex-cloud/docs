@@ -57,6 +57,6 @@ The Docker image templates available in {{ ml-platform-name }} already meet thes
 
 {% endnote %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [{#T}](../operations/user-images.md)

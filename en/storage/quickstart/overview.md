@@ -15,4 +15,4 @@ Get started with the service using the following interfaces:
 * [Management console](../quickstart.md)
 * [AWS CLI](quickstart-aws-cli.md)
 
-For more information on {{ objstorage-name }} features, see the [concepts](../concepts/index.md).
+For more information about {{ objstorage-name }} features, see [Concepts](../concepts/index.md).

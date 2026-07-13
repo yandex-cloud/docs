@@ -5,7 +5,6 @@ editable: false
 # Managed Service for Greenplum® API, gRPC: ResourcePresetService.Get
 
 Returns the specified resource preset.
-
 To get the list of available resource presets, make a [List](/docs/managed-greenplum/api-ref/grpc/ResourcePreset/list#List) request.
 
 ## gRPC request
@@ -26,7 +25,6 @@ To get the list of available resource presets, make a [List](/docs/managed-green
 || resource_preset_id | **string**
 
 Required field. ID of the resource preset to return.
-
 To get the resource preset ID, use a [ResourcePresetService.List](/docs/managed-greenplum/api-ref/grpc/ResourcePreset/list#List) request. ||
 || type | enum **Type**
 

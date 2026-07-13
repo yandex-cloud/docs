@@ -113,7 +113,7 @@ Set up your cluster node for connection:
 
           {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm resource changes.
+      1. Confirm updating the resources.
 
           {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

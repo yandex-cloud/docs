@@ -4,7 +4,7 @@
 
 Files domain, which contains API for working with files.
 
-Files is a part of [Assistants API](https://yandex.cloud/ru/docs/foundation-models/concepts/assistant), which is the only place you could use it. Provides upload, get and list methods that allow you to work with remote file objects you created earlier.
+Provides upload, get and list methods that allow you to work with remote file objects you created earlier. Files are used by search indexes and other domains as input data.
 
 **upload\_bytes**(*data*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *name=Undefined*, *description=Undefined*, *mime\_type=Undefined*, *labels=Undefined*, *ttl\_days=Undefined*, *expiration\_policy=Undefined*, *timeout=60*){#yandex_ai_studio_sdk._files.domain.Files.upload_bytes}
 

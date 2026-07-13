@@ -15,7 +15,7 @@
       --name <service_connection_name> \
       --description "<service_connection_description>" \
       --network-name <network_name> \
-      --object-storage 
+      --service-name yandex.cloud.storage 
     ```
 
     Where:
@@ -23,7 +23,7 @@
     * `--name`: (Optional) Service connection name.
     * `--description`: (Optional) Service connection description.
     * `--network-name`: Name of the [cloud network](../../vpc/concepts/network.md#network) the service connection will be created in. You can also use the [network ID](../../vpc/operations/network-get-info.md) in the `--network-id` parameter.
-    * `--object-storage`: Service connection to {{ objstorage-short-name }}. Other service connection types are not available yet.
+    * `--service-name`: [Service connection type](../../vpc/concepts/private-endpoint.md#pe-services). In our example, it is `yandex.cloud.storage`, {{ objstorage-short-name }}.
 
     When creating a service connection, you can use the following additional parameters:
 

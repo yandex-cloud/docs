@@ -55,7 +55,7 @@ A response may contain [common headers](../common-response-headers.md) and the h
 
 Header | Description
 ----- | -----
-`X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/>`COLD` if the object is in a cold storage or `ICE` if it is in an ice storage.<br/><br/>There will be no header if the object is in a standard storage.
+`X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/>`COLD` if the object is in a cold storage, `ICE` if the object is in an ice storage, or `INTELLIGENT_TIERING` if the object is in an intelligent storage.<br/><br/>If the object is in a standard storage, there will be no header.
 
 
 ### Response codes {#response-codes}
@@ -73,6 +73,6 @@ Error | Description | HTTP code
 
 * [{#T}](../../../concepts/multipart.md)
 
-* [Uploading the component parts of an object into a bucket](../../../operations/objects/multipart-upload.md#upload-parts)
+* [Uploading object parts into a bucket](../../../operations/objects/multipart-upload.md#upload-parts)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

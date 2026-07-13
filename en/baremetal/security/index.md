@@ -32,7 +32,7 @@ In {{ baremetal-name }}, you can manage access using both service and primitive 
 
 {% note warning %}
 
-Starting August 1, 2026, the `baremetal.editor` role gets new permissions allowing it to connect servers to [{{ backup-full-name }}](../../backup/index.yaml), link and unlink them from [backup policies](../../backup/concepts/policy.md).
+Starting August 1, 2026, the `baremetal.editor` role gets new permissions that allow it to connect servers to [{{ backup-full-name }}](../../backup/index.yaml), as well as bind and unbind them from [backup policies](../../backup/concepts/policy.md).
 
 {% include [denyActivation-iam-policy-pre-notice](../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 
@@ -44,7 +44,7 @@ Starting August 1, 2026, the `baremetal.editor` role gets new permissions allowi
 
 {% note warning %}
 
-Starting August 1, 2026, the `baremetal.admin` role gets new permissions allowing it to connect servers to [{{ backup-full-name }}](../../backup/index.yaml), link and unlink them from [backup policies](../../backup/concepts/policy.md).
+Starting August 1, 2026, the `baremetal.admin` role gets new permissions that allow it to connect servers to [{{ backup-full-name }}](../../backup/index.yaml), as well as bind and unbind them from [backup policies](../../backup/concepts/policy.md).
 
 {% include [denyActivation-iam-policy-pre-notice](../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
 
@@ -56,6 +56,6 @@ Starting August 1, 2026, the `baremetal.admin` role gets new permissions allowin
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 [Hierarchy of {{ yandex-cloud }} resources](../../resource-manager/concepts/resources-hierarchy.md)

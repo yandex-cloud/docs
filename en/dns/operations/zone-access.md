@@ -29,13 +29,13 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
       yc dns zone list
       ```
 
-  1. Check what roles are currently assigned for the DNS zone you want to update:
+  1. View the roles already assigned for the resource:
 
       ```bash
       yc dns zone list-access-bindings <zone_ID>
       ```
 
-  1. To assign the role, run the following command:
+  1. Assign a role using this command:
 
       * To a user:
 
@@ -47,7 +47,7 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
 
         Where:
 
-        * `--user-account-id`: [User ID](../../organization/operations/users-get.md). To assign the role to all authenticated users, use the `--all-authenticated-users` flag.
+        * `--user-account-id`: [User ID](../../organization/operations/users-get.md). Use the `--all-authenticated-users` flag to assign a role to all authenticated users.
         * `--role`: [Role](../security/index.md#roles-list) to assign.
 
       * To a service account:
@@ -85,9 +85,9 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
 
       * `dns_zone_id`: DNS zone ID.
       * `role`: [Role](../security/index.md#roles-list) to assign.
-      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) getting the role. Use the following format: `type:<ID>`, e.g., `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-       For more information about `yandex_dns_zone_iam_binding` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
+       For more on the properties of the `yandex_dns_zone_iam_binding` resource, see [this provider guide]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
 
   1. Create the resources:
 
@@ -185,15 +185,15 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
 
       * `dns_zone_id`: DNS zone ID.
       * `role`: [Role](../security/index.md#roles-list) to assign.
-      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) getting the role. Use the following format: `type:<ID>`, e.g., `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about `yandex_dns_zone_iam_binding` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
+      For more on the properties of the `yandex_dns_zone_iam_binding` resource, see [this provider guide]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can verify the changes using this [CLI](../../cli/) command:
+      You can check the changes using this [CLI](../../cli/) command:
 
       ```bash
       yc dns zone list-access-bindings <zone_ID>
@@ -227,7 +227,7 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
       yc dns zone add-access-binding --help
       ```
 
-  1. Check what roles are currently assigned for the DNS zone you want to update:
+  1. View the roles already assigned for the resource:
 
       ```bash
       yc dns zone list-access-bindings <zone_ID>
@@ -276,7 +276,7 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can verify the changes using this [CLI](../../cli/quickstart.md) command:
+      You can check the changes using this [CLI](../../cli/quickstart.md) command:
 
       ```bash
       yc dns zone list-access-bindings <zone_ID>

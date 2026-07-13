@@ -4,6 +4,6 @@ To create an [OpenCart online store](index.md) using {{ TF }}:
 
 {% include [opencart](../../../_tutorials/applied/opencart-terraform.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](console.md).

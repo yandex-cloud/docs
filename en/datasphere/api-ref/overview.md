@@ -7,7 +7,7 @@ description: Managing {{ ml-platform-full-name }} resources via the API. Basic m
 
 In {{ ml-platform-name }}, you can perform all basic operations on resources and notebooks using both the UI and API.
 
-The [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) manages resources using sets of [gRPC](grpc/index.md) calls and [REST](index.md) methods. For more information about their implementation and interaction specifics, see the [{{ yandex-cloud }} API documentation](../../api-design-guide/concepts/standard-methods.md).
+The [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) manages resources using sets of [gRPC](grpc/index.md) calls and [REST](index.md) methods. For more information about their implementation and interaction specifics, see [this {{ yandex-cloud }} API guide](../../api-design-guide/concepts/standard-methods.md).
 
 ## Working with the community {#community}
 
@@ -45,8 +45,7 @@ With `CommunityService` calls and `Community` methods, you can create, update, a
       --data '{ "organizationId": "<organization_ID>" }'
     ```
 
-  For more information about the `Community` methods, see the [API documentation](Community/index.md).
-
+  For more information about `Community` methods, see the [API reference](Community/index.md).
 
 - gRPC API {#grpc-api}
 
@@ -87,7 +86,6 @@ With `ProjectService` calls and `Project` methods, you can create, open, update,
 | Returns information about a project | [Get](grpc/Project/get.md) | [get](Project/get.md) |
 | Retrieves the list of projects in the specified community | [List](grpc/Project/list.md) | [list](Project/list.md) |
 
-
 {% list tabs group=instructions %}
 
 - REST API {#api}
@@ -112,7 +110,7 @@ With `ProjectService` calls and `Project` methods, you can create, open, update,
       --data '{ "communityId": "<community_ID>" }'
     ```
 
-  For more information about the `Project` methods, see the [API documentation](Project/index.md).
+  For more information about `Project` methods, see the [API reference](Project/index.md).
 
 - gRPC API {#grpc-api}
 
@@ -136,7 +134,7 @@ With `ProjectService` calls and `Project` methods, you can create, open, update,
       yandex.cloud.datasphere.v2.ProjectService/List
     ```
 
-   For more information about the `ProjectService` calls, see the [API documentation](grpc/Project/index.md).
+  For more information about `ProjectService` calls, see the [API reference](grpc/Project/index.md).
 
 {% endlist %}
 
@@ -163,9 +161,9 @@ To run a notebook, you can use the `Execute` call or the `execute` method in `Pr
       --data '{ "notebook_id": "<notebook_ID>" }'
     ```
 
-  To get the notebook ID, follow the [{#T}](../operations/projects/get-notebook-cell-ids.md) guide.
+  For instructions on how to get the notebook ID, refer to [{#T}](../operations/projects/get-notebook-cell-ids.md).
 
-  For more information about the `Project` methods, see the [API documentation](Project/index.md).
+  For more information about `Project` methods, see the [API reference](Project/index.md).
 
 - gRPC API {#grpc-api}
 
@@ -179,9 +177,9 @@ To run a notebook, you can use the `Execute` call or the `execute` method in `Pr
       yandex.cloud.datasphere.v2.ProjectService/Execute
     ```
 
-  To get the notebook ID, follow the [{#T}](../operations/projects/get-notebook-cell-ids.md) guide.
+  For instructions on how to get the notebook ID, refer to [{#T}](../operations/projects/get-notebook-cell-ids.md).
 
-   For more information about the `ProjectService` calls, see the [API documentation](grpc/Project/index.md).
+  For more information about `ProjectService` calls, see the [API reference](grpc/Project/index.md).
 
 {% endlist %}
 
@@ -189,7 +187,7 @@ To run a notebook, you can use the `Execute` call or the `execute` method in `Pr
 
 ### Resource activation and deactivation {#activate-deactivate}
 
-Each resource has its own group of API methods implemented in {{ ml-platform-name }}. By calling the `Activate` and `Deactivate` methods of the corresponding group in a given project, you can activate and deactivate the resources as needed.
+Each resource has its own group of API methods implemented in {{ ml-platform-name }}. By calling the `Activate` and `Deactivate` methods of the respective group in a given project, you can activate and deactivate the resources as needed.
 
 | Description | gRPC | REST |
 | --- | --- | --- |
@@ -223,7 +221,7 @@ Each resource has its own group of API methods implemented in {{ ml-platform-nam
       --data "{ \"datasetId\": \"<dataset_ID>\", \"projectId\": \"<project_ID>\" }"
     ```
 
-  For more information about the `Dataset` methods, see the [API documentation](Dataset/index.md).
+  For more information about `Dataset` methods, see the [API reference](Dataset/index.md).
 
 - gRPC API {#grpc-api}
 
@@ -288,7 +286,7 @@ To enable your project to use another project's resources, you need to [share](.
       --data "{ \"projectId\": \"<project_ID>\" }"
     ```
 
-  For more information about the `Project` methods, see the [API documentation](Project/index.md).
+  For more information about `Project` methods, see the [API reference](Project/index.md).
 
 - gRPC API {#grpc-api}
 
@@ -312,7 +310,7 @@ To enable your project to use another project's resources, you need to [share](.
       yandex.cloud.datasphere.v2.ProjectService/RemoveResource
     ```
 
-   For more information about the `ProjectService` calls, see the [API documentation](grpc/Project/index.md).
+  For more information about `ProjectService` calls, see the [API reference](grpc/Project/index.md).
 
 {% endlist %}
 
@@ -351,8 +349,7 @@ You can use the API to set up access to a project (`ProjectService`, `Project`) 
       "https://datasphere.{{ api-host }}/datasphere/v2/communities/<resource_ID>:accessBindings"
     ```
 
-  For more information about the [Project](Project/index.md) and [Community](Community/index.md) methods, see the API documentation.
-
+  For more information about methods, see [Project](Project/index.md) and [Community](Community/index.md) in the API reference.
 
 - gRPC API {#grpc-api}
 
@@ -376,7 +373,7 @@ You can use the API to set up access to a project (`ProjectService`, `Project`) 
       yandex.cloud.datasphere.v2.CommunityService/ListAccessBindings
     ```
 
-   For more information about the [ProjectService](grpc/Project/index.md) and [CommunityService](grpc/Community/index.md) methods, see the API documentation.
+  For more information about methods, see [ProjectService](grpc/Project/index.md) and [CommunityService](grpc/Community/index.md) in the API reference.
 
 {% endlist %}
 
@@ -402,7 +399,7 @@ You can use the API to set up consumption limits for a project (`ProjectService`
       "https://datasphere.{{ api-host }}/datasphere/v2/projects/<project_ID>:unitBalance"
     ```
 
-  For more information about the `Project` methods, see the [API documentation](Project/index.md).
+  For more information about `Project` methods, see the [API reference](Project/index.md).
 
 - gRPC API {#grpc-api}
 
@@ -416,6 +413,6 @@ You can use the API to set up consumption limits for a project (`ProjectService`
       yandex.cloud.datasphere.v2.ProjectService/GetUnitBalance
     ```
 
-   For more information about the `ProjectService` calls, see the [API documentation](grpc/Project/index.md).
+  For more information about `ProjectService` calls, see the [API reference](grpc/Project/index.md).
 
 {% endlist %}

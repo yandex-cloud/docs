@@ -10,7 +10,7 @@ If your cloud resources need to exchange data with the internet and other extern
 
 To enable access to the internet from specific IP addresses, [use a dedicated NAT instance](../../tutorials/routing/nat-instance/index.md) and register its address as static. This is suitable, for example, for setting up access policies or firewalls when interacting with partner companies. This way your VMs can use a shared internet access point via a fixed IP address as part of the access [network](../../vpc/concepts/network.md#network).
 
-This model also enables secure access to [{{ objstorage-full-name }}](../../storage/) without accessing the internet. To do this, set up an [access policy](../../storage/concepts/policy.md) for a [bucket](../../storage/concepts/bucket.md) by only adding your NAT instance's fixed IP address to the white list (see [these sample settings](https://github.com/alex-vlasov-l1/nat-insatnce-terraform-example)).
+This model also enables secure access to [{{ objstorage-full-name }}](../../storage/) without accessing the internet. To do this, set up an [access policy](../../storage/concepts/policy.md) for a [bucket](../../storage/concepts/bucket.md) by only adding your NAT instance's fixed IP address to the white list (for details, see [these sample settings](https://github.com/alex-vlasov-l1/nat-insatnce-terraform-example)).
 
 #### Use load balancers {#use-load-balancer}
 
@@ -40,6 +40,7 @@ Connect your local network and cloud infrastructures using [{{ interconnect-name
 
 For more information, see the following:
 * [Traffic routing with {{ interconnect-name }}](../../cloud-router/concepts/routing-instance.md).
+
 
 #### Connect to VMs using the serial console {#serial-console}
 

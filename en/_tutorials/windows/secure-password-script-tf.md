@@ -19,8 +19,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 To create your infrastructure via {{ TF }}:
-
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [obtain authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
 1. Set up your infrastructure description files:
 
    {% list tabs group=infrastructure_description %}
@@ -128,7 +127,7 @@ To create your infrastructure via {{ TF }}:
 
    {% endlist %}
 
-   For more information about {{ TF }} resource properties, see the relevant provider guides:
+   For more on the properties of resources used in {{ TF }}, see these provider guides:
 
    * [Cloud network](../../vpc/concepts/network.md): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network). 
    * [Subnet](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
@@ -142,7 +141,7 @@ To create your infrastructure via {{ TF }}:
    * [Disk](../../compute/concepts/disk.md): [yandex_compute_disk]({{ tf-provider-resources-link }}/compute_disk)
    * [VM instance](../../compute/concepts/vm.md): [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
 
-1. In the `yc-secured-password.auto.tfvars` file, specify these custom settings:
+1. In the `yc-secured-password.auto.tfvars` file, set the following user-defined properties:
    * `zone`: [Availability zone](../../overview/concepts/geo-scope.md).
    * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
    * `admin_pass`: Admin password.
@@ -167,7 +166,7 @@ After creating the infrastructure, [log in to the Windows OS](#login-windows).
 
 ## How to delete the resources you created {#clear-out}
 
-To stop incurring charges for the resources you created:
+To stop paying for the resources you created:
 
 1. Open the `yc-secured-password.tf` file and delete your infrastructure description from it.
 1. Apply the changes:

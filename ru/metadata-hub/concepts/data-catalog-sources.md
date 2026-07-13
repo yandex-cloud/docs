@@ -33,6 +33,8 @@ description: Источник данных — это то подключени�
 * [{{ data-transfer-full-name }}](#source-dt)
 * [{{ websql-full-name }}](#source-websql)
 * [{{ datalens-full-name }}](#source-datalens)
+* {{ TR }}
+* {{ AF }}
 
 
 ### {{ PG }} {#source-pg}

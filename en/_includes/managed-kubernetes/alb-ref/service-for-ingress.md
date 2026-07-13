@@ -14,7 +14,7 @@ The `Service` resource represents a [{{ k8s }} service](../../../managed-kuberne
 
 {% include notitle [service-object-meta](../../../_includes/managed-kubernetes/alb-ref/service-object-meta.md) %}
 
-### Annotations (metadata.annotations) {#annotations}
+### Metadata.annotations {#annotations}
 
 {% include notitle [service-annotations](../../../_includes/managed-kubernetes/alb-ref/service-annotations.md) %}
 

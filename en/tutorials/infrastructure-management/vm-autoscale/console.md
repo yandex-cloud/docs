@@ -10,6 +10,6 @@ To configure an [autoscaling instance group](index.md):
 
 {% include [vm-autoscale-console](../../../_tutorials/infrastructure/vm-autoscale-console.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](terraform.md)

@@ -102,9 +102,9 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
      }
      ```
 
-     For more information about the `yandex_vpc_address` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_address).
+     For more on `yandex_vpc_address` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_address).
 
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

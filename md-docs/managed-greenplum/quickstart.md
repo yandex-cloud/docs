@@ -122,8 +122,9 @@
 
 {% list tabs group=mgp-quickstart %}
 
-- DBeaver {#gui}
+    Для подключения к кластеру используйте SSH-туннель [Database Bastion](https://docs.yandex-team.ru/bastion-db/connect/greenplum#podklyuchenie-cherez-ide).
 
+    
     1. [Установите DBeaver](https://dbeaver.com/docs/dbeaver/Installation/) на хост, с которого будет выполняться подключение.
 
         {% note info %}
@@ -140,7 +141,7 @@
 
         * В блоке **Server**:
             * **Connect by** — `Host`.
-            * **Хост** — [особый FQDN первичного мастера](operations/connect/fqdn.md#fqdn-master): `c-<идентификатор_кластера>.rw.mdb.yandexcloud.net`.
+            * **Хост** — [особый FQDN первичного мастера](./operations/connect/fqdn.md#fqdn-master): `c-<идентификатор_кластера>.rw.mdb.yandexcloud.net`.
 
                 Идентификатор кластера [был получен ранее](#get-cluster-id).
 
@@ -169,7 +170,7 @@
 
         При подключении будет использоваться шифрованное подключение (с SSL), но без проверки подлинности хостов кластера. Это [поведение по умолчанию для всех клиентов](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS), которые используют библиотеку `libpq`.
 
-        В промышленной эксплуатации [подключайтесь к кластеру через SSL с проверкой подлинности хоста](operations/connect/clients.md#connection-ide).
+        В промышленной эксплуатации [подключайтесь к кластеру через SSL с проверкой подлинности хоста](./operations/connect/clients.md#connection-ide).
 
         {% endnote %}
 
@@ -202,6 +203,7 @@
         1. Выполните запрос, нажав кнопку **Выполнить SQL скрипт** у левого края консоли.
            
            Либо выберите в меню **Редактор SQL** пункт **Выполнить SQL скрипт**.
+
 
 - psql {#cli}
 
@@ -248,7 +250,9 @@
 
 {% endlist %}
 
+
 При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия СУБД.
+
 
 ## Создайте базу данных {#create-db}
 

@@ -100,7 +100,7 @@ To restore the bootloader:
 1. {% include [disconnect-kvm-cd](../../../_includes/baremetal/disconnect-kvm-cd.md) %}
 1. {% include [rescue-chroot-to-server-fs7](../../../_includes/baremetal/instruction-steps/rescue-chroot-to-server-fs7.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./rescue-boot.md)
 * [{#T}](./reset-password.md)

@@ -296,7 +296,7 @@ sladm install \
 
 By default, the installer does not replace the existing `kubeconfig` file; instead, it adds a new context named `admin@$cluster.$baseDomain` to it. Before running queries to the cluster, use the `kubectl config set-context admin@$cluster.$baseDomain` command to activate that context.
 
-The installer will also create artifacts in the `_out` directory. Once the {{ stackland-name }} cluster is deployed, save the content of this directory, as you might need it when collecting diagnostic data and analyzing potential issues (see [Diagnostics and troubleshooting](operations/troubleshooting.md)).
+The installer will also create artifacts in the `_out` directory. Once the {{ stackland-name }} cluster is deployed, save the content of this directory, as you might need it when collecting diagnostic data and analyzing potential issues (see [Diagnostics and troubleshooting](operations/troubleshooting.md) for details).
 
 After the installation is complete, `sladm` will display the cluster connection details, such as the management console address and default credentials.
 
@@ -314,7 +314,7 @@ Once you make sure the console is available, create a user on whose behalf you w
 
 ## Installation errors and how to fix them {#troubleshooting}
 
-If the {{ stackland-name }} cluster deployment still fails, resolve the issue and reset all cluster machines to their initial state before re-running the installation. Follow these steps:
+If the {{ stackland-name }} cluster deployment still fails, resolve the issue and reset all cluster machines to their initial state before re-running the installation. Proceed as follows:
 
 * Boot the server from the {{ stackland-name }} installation image.
 * In the menu that opens, select **Reset Talos installation and return to maintenance mode**.

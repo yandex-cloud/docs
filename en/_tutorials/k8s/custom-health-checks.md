@@ -32,10 +32,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for using L7 load balancer's computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* DNS zone and DNS query fee (see [{{ dns-name }}](../../dns/pricing.md) pricing).
+* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for public IP addresses for cluster nodes and L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * Fee for {{ container-registry-name }} [storage](../../container-registry/pricing.md).
 
@@ -83,7 +83,7 @@ The support cost for this solution includes:
       * `folder_id`: Cloud folder ID as specified in the provider settings.
       * `k8s_version`: {{ k8s }} version. Available versions are listed in [{#T}](../../managed-kubernetes/concepts/release-channels-and-updates.md).
 
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate
@@ -281,7 +281,7 @@ To set up an address for the load balancer:
       * [Type A record](../../dns/concepts/resource-record.md#a) for this zone to map the reserved IP address to the delegated domain.
 
 
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate

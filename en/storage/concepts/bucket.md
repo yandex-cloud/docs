@@ -36,7 +36,7 @@ When choosing a name for your bucket, keep in mind that names containing dots ar
 
 {% note warning %}
 
-If you want to use your [own domain](../operations/hosting/own-domain.md) to access the bucket, the bucket name must be an exact match of your domain, e.g., `example.com`.
+If you want to use a [custom domain](../operations/hosting/own-domain.md) to access the bucket, the bucket name must be an exact match of your domain, e.g., `example.com`.
 
 {% endnote %}
 
@@ -135,7 +135,6 @@ You can also access aggregate bucket statistics [through the {{ yandex-cloud }} 
 * [{#T}](../tutorials/batch-recognition-stt.md)
 * [{#T}](../tutorials/mgp-config-server-for-s3.md)
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../security/overview.md)
-

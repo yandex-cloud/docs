@@ -78,7 +78,7 @@
 
   * Идентификатор адреса, который нужно сделать статическим, в параметре `addressId`.
 
-    Чтобы узнать идентификатор адреса, воспользуйтесь методом REST API [list](../api-ref/Address/list.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/List](../api-ref/grpc/Address/list.md) и передайте в запросе идентификатор каталога в параметре `folderId`.
+    Чтобы узнать идентификатор адреса, воспользуйтесь методом REST API [list](../api-ref/Address/list.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/List](../api-ref/grpc/Address/list.md) и передайте в запросе идентификатор каталога в параметре `folderId` для REST API или `folder_id` для gRPC API.
 
     О том, как узнать идентификатор каталога, читайте в разделе [Получение идентификатора каталога](../../resource-manager/operations/folder/get-id.md).
 

@@ -127,7 +127,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
       Where `tags` is the array of bucket labels in `<key> = "<value>"` format.
 
-      For more information about the `yandex_storage_bucket` resource in Terraform, see [this TF provider article]({{ tf-provider-resources-link }}/storage_bucket).
+      For more information on the properties of the `yandex_storage_bucket` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Apply the changes:
 

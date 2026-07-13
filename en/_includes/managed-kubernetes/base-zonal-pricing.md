@@ -1,1 +1,0 @@
-A _base_ master is billed as a _zonal_ one and displayed in {{ billing-name }} as `{{ managed-k8s-name }}. Zonal master`.

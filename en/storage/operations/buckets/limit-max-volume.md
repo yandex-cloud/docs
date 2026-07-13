@@ -96,7 +96,7 @@ For example, if your service enables users to upload objects to {{ objstorage-na
      * `secret_key`: Secret access key value.
      * `max_size`: Maximum bucket size, in bytes.
 
-     For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#bucket-max-size).
+     For more information on the properties of the `yandex_storage_bucket` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#bucket-max-size).
 
   1. Apply the changes:
 

@@ -52,7 +52,7 @@ The actual server routing table configuration depends on your OS; however, the r
 
 {% include [bms-backup-free-traffic](../../_includes/baremetal/bms-backup-free-traffic.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./public-network.md)
 * [{#T}](./private-network.md)

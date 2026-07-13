@@ -20,7 +20,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support costs include:
+The infrastructure support cost includes:
 * Fee for VM computing resources (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-instance-resources)).
 * Fee for VM [disks](../../compute/concepts/disk.md) (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-storage)).
 * Fee for a static or dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
@@ -210,7 +210,7 @@ The infrastructure support costs include:
        * `INSTANCE_ID`: [ID of the VM](../../compute/operations/vm-info/get-info.md#outside-instance) you want to start at interruption.
      * `zip_filename`: Path to the `function-js.zip` archive you created earlier.
 
-     For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+     For more on the properties of the `yandex_function` resource, see [this provider guide]({{ tf-provider-resources-link }}/function).
   1. Make sure the configuration files are correct.
      1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
@@ -310,7 +310,7 @@ The infrastructure support costs include:
 - {{ TF }} {#tf}
 
   To create a [trigger](../../functions/concepts/trigger/index.md) that launches a function:
-  1. In the configuration file, describe the `timer` trigger parameters:
+  1. Describe the `timer` trigger in the configuration file:
 
      ```hcl
      resource "yandex_function_trigger" "timer" {
@@ -331,7 +331,7 @@ The infrastructure support costs include:
      * `id`: ID of the function for the trigger to call.
      * `service_account_id`: ID of the service account with permissions to invoke the function.
 
-     For more information about resource parameters in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
+     For more on the properties of resources in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
   1. Make sure the configuration files are correct.
      1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:

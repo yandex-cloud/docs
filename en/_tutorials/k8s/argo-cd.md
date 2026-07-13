@@ -20,10 +20,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for public IP addresses assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Fee for a NAT gateway when used instead of public IP addresses for cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#nat-gateways)).
+* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for public IP addresses if assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for a NAT gateway if used instead of public IP addresses for cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#nat-gateways)).
 * Fee for {{ container-registry-name }} [storage](../../container-registry/pricing.md).
 * {{ GL }} instance fee that depends on the instance creation method:
 
@@ -40,7 +40,7 @@ The support cost for this solution includes:
 - Manually {#manual}
 
   1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
-  1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where the new {{ managed-k8s-name }} cluster and [node group](../../managed-kubernetes/concepts/index.md#node-group) will reside.
+  1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) the new {{ managed-k8s-name }} cluster and [node group](../../managed-kubernetes/concepts/index.md#node-group) will be created in.
   1. [Create these service accounts](../../iam/operations/sa/create.md):
      * Service account for {{ k8s }} resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to host the new {{ managed-k8s-name }} cluster.
      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) and [{{ roles-cr-pusher }}](../../container-registry/security/index.md#container-registry-images-pusher) roles. The {{ managed-k8s-name }} nodes will use this service account to push the [Docker images](../../container-registry/concepts/docker-image.md) built in {{ GL }} to the [registry](../../container-registry/concepts/registry.md) and pull them to run [pods](../../managed-kubernetes/concepts/index.md#pod).
@@ -140,7 +140,7 @@ Install the following tools in the local environment:
 
       To add a variable:
       1. Click **Add variable**.
-      1. In the window that opens, specify the variable name in the **Key** field and its value in the **Value** field.
+      1. In the window that opens, specify a variable name in the **Key** field and its value in the **Value** field.
       1. Click **Add variable**.
 1. Set up access to the repository:
    1. [Generate a new pair of SSH keys](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) or use an existing one.

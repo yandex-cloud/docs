@@ -41,6 +41,6 @@ You cannot extend the validity period of a pre-signed URL to an object in a buck
 
 {% endnote %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./link-for-download.md)

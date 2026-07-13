@@ -34,7 +34,7 @@ yc components update
 
 ### Getting started {#prepare}
 
-1. Check if the `nodeSelector`, `affinity`, or `topology spread constraints` strategies are used to assign the pods to the group's nodes. For more information on strategies, see [this {{ k8s }} article](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) and [{#T}](../../managed-kubernetes/concepts/usage-recommendations.md#high-availability). To check a pod's assignment to nodes and remove it:
+1. Check if the `nodeSelector`, `affinity`, or `topology spread constraints` strategies are used to assign the pods to the group's nodes. For more information on strategies, see [this {{ k8s }} article](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/) and [this section](../../managed-kubernetes/concepts/usage-recommendations.md#high-availability). To check a pod's assignment to nodes and remove it:
 
    {% list tabs group=instructions %}
 
@@ -151,7 +151,7 @@ The migration is based on scaling the `StatefulSet` controller. To migrate state
 
     If the manifest contains the `spec.nodeAffinity` parameter with an availability zone specified in it, save this parameter. You will need to specify it in a new `PersistentVolume` object.
 
-1. Create a `PersistentVolume` snapshot. For more information about snapshots, see [this Kubernetes article](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
+1. Create a `PersistentVolume` snapshot. Learn more about snapshots in the [relevant Kubernetes guide](https://kubernetes.io/docs/concepts/storage/volume-snapshots/).
 
    1. Get the name of the `PersistentVolumeClaim` object:
 
@@ -386,7 +386,7 @@ The migration is based on scaling the `StatefulSet` controller. To migrate state
 
 ### Gradually migrating stateless and stateful workloads {#gradual-migration}
 
-See below how to gradually migrate workloads from the old node group to the new one. For `PersistentVolume` and `PersistentVolumeClaim` migration steps, see [Migrating stateful workloads](#stateful).
+See below how to gradually migrate workloads from the old node group to the new one. For the `PersistentVolume` and `PersistentVolumeClaim` migration steps, see [Migrating stateful workloads](#stateful).
 
 1. [Create a new {{ managed-k8s-name }} node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in the new availability zone.
 

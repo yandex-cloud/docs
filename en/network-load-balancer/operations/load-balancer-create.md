@@ -176,9 +176,9 @@ Before you create a network load balancer, make sure to [create](target-group-cr
 
           {% include [get-target-group-id](../../_includes/network-load-balancer/get-target-group-id.md) %}
 
-        * `healthcheck`: Health check settings. Enter a name, a port number ranging from `1` to `32767`, and a path for health checks.
+        * `healthcheck`: Health check settings. Specify a name, a port number ranging from `1` to `32767`, and a path for health checks.
 
-     For more information about `yandex_lb_network_load_balancer` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+     For more on the properties of the `yandex_lb_network_load_balancer` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Make sure the settings are correct.
 

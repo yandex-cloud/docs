@@ -13,7 +13,7 @@ description: Follow this guide to create a community.
 1. Select an [**availability zone**](../../../overview/concepts/geo-scope.md).
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](add-user.md)
 * [{#T}](link-channel.md)

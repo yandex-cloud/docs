@@ -17,7 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 To create your infrastructure via {{ TF }}:
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [obtain authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
 1. Set up your infrastructure description files:
 
     {% list tabs group=infrastructure_description %}
@@ -61,7 +61,7 @@ To create your infrastructure via {{ TF }}:
 
     {% endlist %}
 
-    For more information about {{ TF }} resource properties, see the relevant provider guides:
+    For more on the properties of resources used in {{ TF }}, see these provider guides:
 
     * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
     * [Subnet](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
@@ -80,7 +80,7 @@ To create your infrastructure via {{ TF }}:
 
 1. In the `cdn-storage-integration.auto.tfvars` file, set the values of the user-defined variables:
     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-    * `bucket_name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
+    * `bucket_name`: Bucket name that meets the [naming conventions](../../storage/concepts/bucket.md#naming).
     * `domain_name`: Name of the domain to host the test service.
 
         To use domain names in the public DNS zone, you need to delegate it to authoritative name servers. Specify the addresses of the `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` servers in your account on your domain name registrar's website.

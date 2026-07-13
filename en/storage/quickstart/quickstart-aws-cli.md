@@ -119,7 +119,7 @@ To get started with the AWS CLI:
 
     {% endlist %}
 
-    For more information about installing the AWS CLI, see the [AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
+    For more information about installing the AWS CLI, see [this AWS guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
 1. Configure the AWS CLI:
 
@@ -172,7 +172,7 @@ To get started with the AWS CLI:
 
     {% endlist %}
 
-For more information about setting up the AWS CLI, see the [AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
+For more information about setting up the AWS CLI, see [this AWS guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html).
 
 {% note info %}
 
@@ -224,12 +224,13 @@ Take note of the AWS CLI [features](../tools/aws-cli.md#specifics) when used wit
   aws s3 presign s3://<bucket_name>/<object_key> --expires-in <lifetime>
   ```
 
-  You can share the obtained link or use it in your service to access the file.
+  You can share the link you got or use it in your service to access the file.
 
   For more information, see [{#T}](../operations/objects/link-for-download.md).
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../s3/s3-api-quickstart.md)
+* [Webinar: How to take load off a high-load infrastructure using Cloud CDN](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)

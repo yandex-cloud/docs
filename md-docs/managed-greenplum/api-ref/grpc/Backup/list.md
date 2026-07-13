@@ -28,10 +28,8 @@ The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `page_size`, the service returns a [ListBackupsResponse.next_page_token](#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) that can be used to get the next page of results in subsequent list requests.
-
-Default value is 100.
+Acceptable values are 0 to 1000, inclusive. Default value: 100.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
@@ -70,9 +68,8 @@ Requested list of backups. ||
 || next_page_token | **string**
 
 This token allows you to get the next page of results for a list request.
-
-If the number of results is larger than [ListBackupsRequest.page_size](#yandex.cloud.mdb.greenplum.v1.ListBackupsRequest) specified in the request, use the `next_page_token` as the value for the [ListBackupsRequest.page_token](#yandex.cloud.mdb.greenplum.v1.ListBackupsRequest) parameter in the next list request.
-
+If the number of results is larger than [ListBackupsRequest.page_size](#yandex.cloud.mdb.greenplum.v1.ListBackupsRequest) specified in the request,
+use the `next_page_token` as the value for the [ListBackupsRequest.page_token](#yandex.cloud.mdb.greenplum.v1.ListBackupsRequest) parameter in the next list request.
 Each subsequent ListBackups request has its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -82,7 +79,7 @@ Each subsequent ListBackups request has its own `next_page_token` to continue pa
 ||Field | Description ||
 || id | **string**
 
-Required. ID of the backup. ||
+Required field. Required. ID of the backup. ||
 || folder_id | **string**
 
 ID of the folder that the backup belongs to. ||
@@ -100,17 +97,17 @@ Time when the backup operation was started. ||
 Size of the backup in bytes. ||
 || type | enum **BackupCreationType**
 
-How this backup was created (manual/automatic/etc...)
+How this backup was created (manual/automatic/etc...).
 
 - `AUTOMATED`: Backup created by automated daily schedule
 - `MANUAL`: Backup created by user request ||
 || method | enum **BackupMethod**
 
-Method of backup creation
+Method of backup creation.
 
 - `BASE`: Base backup
 - `INCREMENTAL`: Delta (incremental) Greenplum backup ||
 || journal_size | **int64**
 
-Size of the journal associated with backup, in bytes ||
+Size of the journal associated with backup, in bytes. ||
 |#

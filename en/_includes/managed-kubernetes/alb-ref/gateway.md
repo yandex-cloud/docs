@@ -10,7 +10,7 @@ The `Gateway` resource defines the rules for accepting and routing ([HTTPRoute](
 
 The `Gateway` resource is designed for cluster operators. Application developers should use the `TLSRoute`, `HTTPRoute`, or `GRPCRoute` resources.
 
-`Gateway` is a [{{ k8s }} Gateway API project](https://gateway-api.sigs.k8s.io/) resource. Below, we describe its fields and annotations used by the {{ alb-name }} Gateway API. For configuration details, see the [{{ k8s }} Gateway API reference](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.Gateway).
+`Gateway` is a [{{ k8s }} Gateway API project](https://gateway-api.sigs.k8s.io/) resource. Below, we describe its fields and annotations used by the {{ alb-name }} Gateway API. For resource configuration details, see [this {{ k8s }} Gateway API guide](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.Gateway).
 
 ## Gateway {#gateway}
 
@@ -45,9 +45,9 @@ Where:
 
   * `name` (`string`; this is a required field)
 
-    Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. For more on the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-    Do not mistake this name for the {{ alb-name }} load balancer name.
+    This is not the load balancer name in {{ alb-name }}.
   
   * `namespace` (`string`)
   
@@ -115,7 +115,7 @@ Where:
 
 * `spec` (`GatewaySpec`; this is a required field)
 
-  Resource specification. For more information, see [below](#spec).
+  Resource specification. See details [below](#spec).
 
 ## GatewaySpec {#spec}
 

@@ -16,7 +16,7 @@ The notebook contains code snippets for simple operations. Use them to extract f
 1. Run the cell. To do this, click ![Run](../../../_assets/datasphere/jupyterlab/run.svg).
 1. The code execution result will appear below the cell.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../data/connect-to-ya-disk.md)
 * [{#T}](../data/connect-to-google-drive.md)

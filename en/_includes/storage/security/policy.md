@@ -10,7 +10,7 @@ A policy applies when a user makes a request to a resource. As a result, the req
 
 {% include [storage-note-empty-policy](../../../storage/_includes_service/storage-note-empty-policy.md) %}
 
-You can set up a bucket policy in the management console or describe it in JSON format using a [special scheme](../../../storage/s3/api-ref/policy/scheme.md) to provide through one of the software tools: the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, or API. Learn more about policy management in [this guide](../../../storage/operations/buckets/policy.md).
+You can set up a bucket policy in the management console or describe it in JSON format using a [special scheme](../../../storage/s3/api-ref/policy/scheme.md) to provide through one of the software tools: the {{ yandex-cloud }} CLI, AWS CLI, {{ TF }}, or API. Learn more about policy management in [this article](../../../storage/operations/buckets/policy.md).
 
 
 {% include [s3-with-policy-access](../s3-with-policy-access.md) %}
@@ -470,6 +470,6 @@ See [configuration examples](#conditional-writes-rules) for setting up condition
 }
 ```
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../../storage/operations/buckets/policy.md)

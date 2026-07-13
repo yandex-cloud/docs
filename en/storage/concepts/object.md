@@ -130,7 +130,7 @@ To avoid accidental overwriting and conflicts during concurrent uploads, you can
     * `X-Amz-Copy-Source-If-Match`: The write will only be performed if an object already exists for the specified key and its current `ETag` matches the values in the header.
     * `X-Amz-Copy-Source-If-None-Match`: The write will only be performed if there is no object with the same name in the bucket for the specified key.
 
-You can use the conditions for object uploads and multipart uploads, when copying whole objects of parts of objects. For more information, see the [Conditional object upload](../operations/objects/upload.md#conditional-writes) guide.
+You can use the conditions for object uploads and multipart uploads, when copying whole objects of parts of objects. For more information, see [Conditional writes](../operations/objects/upload.md#conditional-writes).
 
 Response codes:
 
@@ -159,7 +159,7 @@ Response codes:
 * [{#T}](../tutorials/server-logs-yq.md)
 * [{#T}](../tutorials/bucket-to-bucket.md)
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../security/overview.md)
 

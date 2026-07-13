@@ -1524,7 +1524,8 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters:restore
       "hidden": "boolean",
       "secondaryDelaySecs": "string",
       "priority": "number",
-      "tags": "object"
+      "tags": "object",
+      "votes": "string"
     }
   ],
   "networkId": "string",
@@ -5797,6 +5798,9 @@ Priority of host for the election in replSet ||
 || tags | **object** (map<**string**, **string**>)
 
 Host tags ||
+|| votes | **string** (int64)
+
+Votes of host for the election in replSet ||
 |#
 
 ## RecoveryTargetSpec {#yandex.cloud.mdb.mongodb.v1.RestoreClusterRequest.RecoveryTargetSpec}

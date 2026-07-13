@@ -27,7 +27,7 @@ To configure network connectivity in a {{ baremetal-full-name }} subnet:
 1. [Create a VRF segment and enable routing in the private subnet](#setup-vrf).
 1. [Enable DHCP on the network interfaces](#re-enable-dhcp).
 
-See also [How to cancel server lease](#clear-out).
+If you do not need the server anymore, [cancel your server rent](#clear-out).
 
 ## Getting started {#before-you-begin}
 
@@ -35,7 +35,7 @@ See also [How to cancel server lease](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of the proposed solution includes the {{ baremetal-name }} server lease fee (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
+The cost of this solution includes the {{ baremetal-name }} server rent fee (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
 
 ## Create a private subnet {#create-subnet}
 

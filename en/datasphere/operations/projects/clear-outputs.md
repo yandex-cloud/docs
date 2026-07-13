@@ -12,7 +12,7 @@ To clear notebook cell outputs:
 
 You can also use the **Clear All Outputs** command by right-clicking any cell. In this case, information will reappear the next time you load the project.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../data/connect-to-s3.md)
 * [{#T}](../data/connect-to-clickhouse.md)

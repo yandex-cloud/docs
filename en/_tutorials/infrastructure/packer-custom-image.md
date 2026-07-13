@@ -22,7 +22,7 @@ Follow the same steps to create your own image with all required software.
 
 To build an image and create a VM from it:
 1. [Get your cloud ready](#before-begin).
-1. [Set up your working environment](#environment-prepare).
+1. [Set up the runtime environment](#environment-prepare).
 1. [Prepare the image configuration](#prepare-image-config).
 1. [Build the image](#create-image).
 1. [Create a VM from the image](#create-vm).
@@ -46,7 +46,7 @@ The cost of building a VM image and creating a VM from it includes:
 
         You can also download Packerfor your platform from [this {{ yandex-cloud }}](https://hashicorp-releases.yandexcloud.net/packer/) mirror.
 
-    1. After the download is complete, add the path to the directory with the executable to the `PATH` variable. To do this, run this command: 
+    1. After the download is complete, add the path to the directory with the executable to the `PATH` variable. by running this command: 
 
         ```bash
         export PATH=$PATH:<Packer_executable_directory_path>
@@ -60,7 +60,7 @@ The cost of building a VM image and creating a VM from it includes:
 
 1. Configure the [Yandex Compute Builder plugin](https://developer.hashicorp.com/packer/plugins/builders/yandex):
 
-    1. Create a file named `config.pkr.hcl` with these contents:
+    1. Create a file named `config.pkr.hcl` with the following contents:
         
         ```hcl
         packer {
@@ -377,7 +377,7 @@ The cost of building a VM image and creating a VM from it includes:
 
 ## Create a VM from the image {#create-vm}
   
-1. Specify the values of the variables required for creating your VM. To do this, run this command:
+1. Specify the values of the variables required for creating your VM by running this command:
 
     ```bash
     export VM_NAME="<VM_name>"

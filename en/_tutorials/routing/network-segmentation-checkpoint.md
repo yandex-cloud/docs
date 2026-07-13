@@ -52,7 +52,7 @@ For production deployment, we recommend to use the following options:
 The infrastructure support cost includes:
 
 * Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for public IP addresses and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ### Required quotas {#required-quotes}
 
@@ -269,7 +269,7 @@ We use the Linux terminal to perform the following steps.
       }
       ```
 
-      For more information about mirror settings, see the relevant [{{ TF }}](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration) guides.
+      Read more about mirror settings in [this {{ TF }} guide](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
 
 ## Deploy your resources {#create-resources}
 
@@ -581,7 +581,7 @@ In the same way using the table below, add other rules allowing you to test fire
 | No | Name | Source | Destination | VPN | Services & Applications | Action | Track | Install On |
 | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
 | 1 | Web-server port forwarding on FW | Any | FW-public-IP | Any | http | Accept | Log | Policy Targets (All gateways) |
-| 2 | FW management | mgmt | FW, mgmt-server | Any | https, ssh | Accept | Log | Policy Targets (All gateways)  |
+| 2 | FW management | mgmt | FW, mgmt-server | Any | https, ssh | Accept | Log | Policy Targets (All gateways) |
 | 3 | Stealth | Any | FW, mgmt-server | Any | Any | Drop | Log | Policy Targets (All gateways) |
 | 4 | mgmt to DMZ | mgmt | dmz | Any | Any | Accept | Log | Policy Targets (All gateways) |
 | 5 | mgmt to public | mgmt | public | Any | Any | Accept | Log | Policy Targets (All gateways) |

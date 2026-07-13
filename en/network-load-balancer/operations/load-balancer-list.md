@@ -97,7 +97,7 @@ You can request detailed information about each network load balancer you create
       * `output "network_load_balancer"`: Output variable containing information about the load balancer creation date:
          * `value`: Return value.
 
-      You can replace `created_at` with another variable to get the information you need. For more information about the `yandex_lb_network_load_balancer` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/lb_network_load_balancer).
+      You can replace `created_at` with another variable to get the information you need. For more on the properties of the `yandex_lb_network_load_balancer` data source, see [this provider guide]({{ tf-provider-datasources-link }}/lb_network_load_balancer).
 
   1. Create the resources:
 

@@ -94,7 +94,7 @@ To view all created nodes:
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select **{{ ui-key.yc-ui-datasphere.resources.node }}**.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](node-customization.md)
 * [{#T}](node-update.md)

@@ -22,10 +22,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for an NLB (see [{{ network-load-balancer-name }} pricing](../../network-load-balancer/pricing.md)).
-* Fee for public IP addresses for the VM and NLB (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Fee for VM and NLB public IP addresses (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Set up the infrastructure for {{ managed-k8s-name }} {#prepare-kubernetes-infrastructure}
@@ -49,13 +49,13 @@ The support cost for this solution includes:
    * {{ k8s }} node group.
 
 1. Specify the variable values in the `k8s-cluster.tf` file.
-1. Make sure the {{ TF }} configuration files are correct using this command:
+1. Validate your {{ TF }} configuration files using this command:
 
    ```bash
    terraform validate
    ```
 
-   {{ TF }} will show any errors found in your configuration files.
+   {{ TF }} will display any configuration errors detected in your files.
 
 1. Create an infrastructure:
 
@@ -232,7 +232,7 @@ Create a test application and a `LoadBalancer` service:
 
 You can also create other standard {{ k8s }} resources using {{ TF }} manifests. Use the YAML configuration of the resource you need as a base (see [this example for a pod](https://kubernetes.io/docs/concepts/workloads/pods/#using-pods)). Take the structure and parameters from the configuration and apply the {{ TF }} markup. For example, replace the `containerPort` parameter from the YAML file with the `container_port` parameter in {{ TF }}. For a full list of {{ TF }} resources for {{ k8s }}, see [this Kubernetes provider article](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs).
 
-For information about creating [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) using {{ TF }}, see this [{{ TF }} tutorial](https://developer.hashicorp.com/terraform/tutorials/kubernetes/kubernetes-provider?variants=kubernetes%3Akind#managing-custom-resources).
+For information about creating [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) using {{ TF }}, see [this {{ TF }} tutorial](https://developer.hashicorp.com/terraform/tutorials/kubernetes/kubernetes-provider?variants=kubernetes%3Akind#managing-custom-resources).
 
 ## Make sure the cluster application is available from the internet {#verify-setup}
 
@@ -404,7 +404,7 @@ The `pv-pvc.tf` file describes:
 
   Learn more about `PersistentVolumeClaim` parameters [here](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).  
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{{ TF }} tutorial for creating {{ k8s }} resources](https://developer.hashicorp.com/terraform/tutorials/kubernetes/kubernetes-provider)
 * [Provider documentation](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs)

@@ -68,7 +68,7 @@ description: Follow this guide to install Fluent Bit with the plugin for {{ clou
 
 * [{#T}](../../tutorials/fluent-bit-logging.md).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Fluent Bit guides](https://docs.fluentbit.io/manual)
 * [{{ cloud-logging-name }} guides](../../../logging/)

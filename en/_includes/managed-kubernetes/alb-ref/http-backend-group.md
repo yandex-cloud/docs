@@ -57,9 +57,9 @@ Where:
 
   * `name` (`string`; this is a required field)
 
-    Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. For more on the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
   
-    You must specify this name in the `spec.rules.http.paths.backend.resource.name` field of the `Ingress` resource (see [this configuration]({{ configuration-local-link }}/ingress.md)).
+    This name should be specified in the `spec.rules.http.paths.backend.resource.name` field of the `Ingress` resource (see [this configuration]({{ configuration-local-link }}/ingress.md)).
 
     Do not mistake this name for the {{ alb-name }} backend group name.
 
@@ -183,7 +183,7 @@ Where:
 
       * `localityAwareRouting` (`int64`)
 
-        Percentage of incoming traffic the load balancer forwards to its availability zone backends. The remaining traffic is split equally between the other zones. [More on locality-aware routing](../../../application-load-balancer/concepts/backend-group.md#locality).
+        Percentage of incoming traffic the load balancer forwards to its availability zone backends. The remaining traffic is evenly distributed across other availability zones. [More on locality-aware routing](../../../application-load-balancer/concepts/backend-group.md#locality).
 
         The default value is `0`.
 

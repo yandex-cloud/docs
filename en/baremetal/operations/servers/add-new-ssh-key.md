@@ -79,7 +79,7 @@ You can use the following methods for adding a new SSH key.
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./rescue-boot.md)
 * [{#T}](./reset-password.md)

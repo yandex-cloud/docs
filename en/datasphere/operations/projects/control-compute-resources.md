@@ -13,7 +13,7 @@ When you run your first computations, you can select a [configuration](../../con
 
 You cannot change the configuration of computing resources while preserving the interpreter state. However, you can add another configuration to your project and rerun the computations.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](install-dependencies.md)
 * [{#T}](export.md)

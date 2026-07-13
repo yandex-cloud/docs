@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, из которого нужно удалить кластер.
-  1. Перейдите в сервис **Managed Service for YTsaurus**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-ytsaurus) в сервис **Managed Service for YTsaurus**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного кластера и выберите пункт **Удалить**.
   1. В открывшемся окне подтвердите удаление и нажмите кнопку **Удалить**.
 

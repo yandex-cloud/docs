@@ -26,6 +26,6 @@ For each file storage, the following information is retained:
 
 To view file storage details, click its name in the list of project file storages.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/data/filestores.md)

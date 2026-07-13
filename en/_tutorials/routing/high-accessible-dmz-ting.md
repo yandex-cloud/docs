@@ -247,7 +247,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
       }
       ```
 
-      For more information about mirror settings, see the relevant [{{ TF }} guides](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
+      Read more about mirror settings in [this {{ TF }} guide](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
 
 ## Deploy your resources {#create-resources}
 

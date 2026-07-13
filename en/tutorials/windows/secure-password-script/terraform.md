@@ -10,6 +10,6 @@ To [create a VM while protecting sensitive information in its initialization scr
 {% include [secure-password-script-tf](../../../_tutorials/windows/secure-password-script-tf.md) %}
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](console.md)

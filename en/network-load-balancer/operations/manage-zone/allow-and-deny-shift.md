@@ -67,7 +67,7 @@ By default, zonal shift is not allowed.
         <load_balancer_name_or_ID>
       ```
 
-  For more information about `yandex_lb_network_load_balancer` properties, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/lb_network_load_balancer).
+  For more on the properties of the `yandex_lb_network_load_balancer` resource, see [this provider guide]({{ tf-provider-datasources-link }}/lb_network_load_balancer).
 
 - API {#api}
 
@@ -131,7 +131,7 @@ By default, zonal shift is not allowed.
         <load_balancer_name_or_ID>
       ```
 
-  For more information about `yandex_lb_network_load_balancer` properties, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/lb_network_load_balancer).
+  For more on the properties of the `yandex_lb_network_load_balancer` resource, see [this provider guide]({{ tf-provider-datasources-link }}/lb_network_load_balancer).
 
 - API {#api}
 

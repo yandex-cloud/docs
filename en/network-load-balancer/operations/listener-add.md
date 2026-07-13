@@ -85,7 +85,7 @@ description: Follow this guide to add a listener to a network load balancer.
        * `external_address_spec`: Specification of the listener for the external load balancer settings:
          * `ip_version`: External IP address specification. Specify the IP address version, `ipv4` or `ipv6`. The default value is `ipv4`.
 
-     For more information about `yandex_lb_network_load_balancer` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+     For more on the properties of the `yandex_lb_network_load_balancer` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Make sure the settings are correct.
 

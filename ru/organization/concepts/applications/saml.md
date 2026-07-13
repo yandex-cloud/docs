@@ -76,6 +76,18 @@ description: В {{ org-full-name }} вы можете аутентифициро
 
 {% include [saml-app-nameid-assertion](../../../_includes/organization/saml-app-nameid-assertion.md) %}
 
+Для атрибутов можно указывать трансформации, которые изменяют значение атрибута перед отправкой в SAML-ответе. Например, приводят текст к нижнему регистру, удаляют пробелы или извлекают часть строки. Трансформации применяются последовательно, сверху вниз.
+
+Доступны следующие типы трансформации:
+
+* `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_extract_after_q4x8n }}` — возвращает часть значения, которая находится после указанной подстроки. Например, вместо `user@site.com` при указании в качестве подстроки `@` возвращает `site.com`.
+* `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_extract_before_ju2PE }}` — возвращает часть значения, которая находится до указанной подстроки. Например, вместо `user@example.com` при указании в качестве подстроки `@` возвращает `user`.
+* `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_to_lowercase_vRG6c }}` — приводит все символы в значении атрибута к нижнему регистру.
+* `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_to_uppercase_uF6Br }}` — приводит все символы в значении атрибута к верхнему регистру.
+* `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_trim_3SF6q }}` — удаляет пробелы в начале и в конце значения атрибута.
+* `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_if_empty_e5unh }}` — заменяет текущее значение атрибута, если оно пустое. Можно выбрать значение для замены из списка значений атрибутов или указать свое. Например, если значение `username` пустое, использовать `email`.
+* `{{ ui-key.yacloud_org.organization.apps.AttributeTransformationsSection.type_constant_tvJWi }}` — заменяет текущее значение на указанную константу. Например, вместо любого значения атрибута возвращает `User`.
+
 В дополнение к указанным выше атрибутам пользователя в SAML-ответе может быть передан атрибут групп, значением которого является список [групп](../groups.md), в которые входит пользователь. Для этого атрибута вы можете задать произвольное имя и одно из значений:
 
 {% include [saml-app-group-assertion](../../../_includes/organization/saml-app-group-assertion.md) %}

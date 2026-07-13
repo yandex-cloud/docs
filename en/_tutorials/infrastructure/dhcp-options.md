@@ -110,10 +110,10 @@ To check the configuration, create a VM and connect to it via RDP:
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**, and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the `{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}` tab and select the **Windows Server** image. For more information on how to upload your own image for Microsoft products, see [Importing a custom image](../../microsoft/byol.md#how-to-import).
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the `{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}` tab and select the **Windows Server** image. For more on how to upload an image of your own for Microsoft products, see [Importing an image](../../microsoft/byol.md#how-to-import).
       1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md) to create your VM in.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify your boot [disk](../../compute/concepts/disk.md) size: `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, switch to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
           * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`.
           * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.

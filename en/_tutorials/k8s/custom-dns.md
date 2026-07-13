@@ -15,10 +15,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for each VM ({{ managed-k8s-name }} cluster nodes, DNS server, management VMs without public access) that covers the use of computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for VM public IP addresses (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
+* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for each VM ({{ managed-k8s-name }} cluster nodes, DNS server, management VMs without public access) that covers the use of computing resources, the operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for VMs' public IP addresses (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* DNS zone and DNS query fee (see [{{ dns-name }} pricing](../../dns/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -55,13 +55,13 @@ The support cost for this solution includes:
             {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
      1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file.
-     1. Make sure the {{ TF }} configuration files are correct using this command:
+     1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
      1. Create the required infrastructure:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}

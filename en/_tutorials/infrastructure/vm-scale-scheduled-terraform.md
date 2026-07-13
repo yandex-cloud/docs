@@ -31,7 +31,7 @@ Create an infrastructure with {{ TF }}:
         git clone https://github.com/yandex-cloud-examples/yc-vm-group-scheduled-scaling
         ```
 
-     1. Navigate to the repository directory. Make sure it contains the following files:
+     1. Navigate to the repository directory. It should now contain the following files:
         * `vm-scale-scheduled.tf`: New infrastructure configuration.
         * `vm-scale-scheduled.auto.tfvars`: User data file.
         * `vm-scale-scheduled-function.zip`: {{ sf-name }} function code archive.
@@ -75,7 +75,7 @@ Create an infrastructure with {{ TF }}:
 
    {% endlist %}
 
-   For more information about the properties of {{ TF }} resources, see the relevant {{ TF }} guides:
+   For more on the properties of resources used in {{ TF }}, see these provider guides:
 
    * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
    * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
@@ -89,7 +89,7 @@ Create an infrastructure with {{ TF }}:
 
    * `folder_id`: Resource [folder ID](../../resource-manager/operations/folder/get-id.md).
    * `username`: VM user name.
-   * `ssh_key_path`: Path to the public SSH key required to authenticate the user on the VM. You can create a key pair by following [this guide](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `ssh_key_path`: Path to the public SSH key file to authenticate the user on the VM. You can create a key pair by following [this guide](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 1. Create the resources:
 

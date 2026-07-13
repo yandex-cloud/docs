@@ -40,8 +40,8 @@
 
    - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-      1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+      1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
       1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
       1. В разделе **Сетевые настройки** укажите новую зону доступности.
       1. Укажите подсеть в новой зоне доступности, если в ней находится больше одной подсети.
@@ -427,8 +427,8 @@
 
    - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-      1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+      1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
       1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**. Зона доступности каждого хоста указана в столбце **Зона доступности**.
 
    - CLI {#cli}
@@ -513,8 +513,8 @@
 
    - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-      1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+      1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
       1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
       1. В разделе **Сетевые настройки** укажите новый набор зон доступности. Их количество не должно уменьшиться.
 

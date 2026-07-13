@@ -26,9 +26,9 @@ To integrate {{ managed-k8s-name }} with {{ container-registry-name }}:
 
 The support cost for this solution includes:
 
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for public IP addresses assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for public IP addresses if assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * Fee for {{ container-registry-name }} [storage](../../container-registry/pricing.md).
 
 
@@ -366,7 +366,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
       yc container registry delete --name yc-auto-cr
       ```
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../container-registry/concepts/docker-image.md)
 * [{#T}](../../container-registry/operations/authentication.md)

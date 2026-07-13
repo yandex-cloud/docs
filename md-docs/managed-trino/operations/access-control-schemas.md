@@ -30,7 +30,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер Managed Service for Trino.
-  1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
   1. Нажмите кнопку **Создать кластер** и задайте параметры кластера.
   1. В блоке **Настройки доступа** нажмите на значок ![image](../../_assets/console-icons/chevron-down.svg).
   1. В поле **Схемы** нажмите кнопку **Добавить правило**.
@@ -575,8 +575,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
   1. Нажмите на имя нужного кластера.
   1. Перейдите в блок **Настройки доступа** → **Схемы**.
   1. Чтобы добавить правило, нажмите кнопку **Добавить правило** и в открывшемся окне задайте параметры правила:

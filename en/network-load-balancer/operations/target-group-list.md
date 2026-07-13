@@ -100,7 +100,7 @@ You can request detailed information about each target group you created.
       * `output "target_group"`: Output variable with target group creation date information:
          * `value`: Return value.
 
-      You can replace `created_at` with another variable to get the information you need. For more information about the `yandex_lb_target_group` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/lb_target_group).
+      You can replace `created_at` with another variable to get the information you need. For more on the properties of the `yandex_lb_target_group` data source, see [this provider guide]({{ tf-provider-datasources-link }}/lb_target_group).
 
   1. Create the resources:
 

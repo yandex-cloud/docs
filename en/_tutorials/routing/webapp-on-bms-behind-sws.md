@@ -41,9 +41,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost for deploying a web application on {{ baremetal-name }} servers with an L7 load balancer and {{ sws-name }} protection includes:
 
-* Fee for using the VM [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using VM [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for [VM](../../compute/concepts/vm.md) computing resources and disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for renting the {{ baremetal-name }} servers (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
+* Fee for renting {{ baremetal-name }} servers (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
 * Fee for using the L7 load balancer’s computing resources (see [{{ alb-full-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for requests processed by security profile rules (see [{{ sws-full-name }} pricing](../../smartwebsecurity/pricing.md)).
 * If using a [log group](../../logging/concepts/log-group.md) for load balancer logging, fee for data logging and storage (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).

@@ -101,8 +101,9 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=mgp-quickstart %}
 
-- DBeaver {#gui}
+    Для подключения к кластеру используйте SSH-туннель [Database Bastion](https://docs.yandex-team.ru/bastion-db/connect/greenplum#podklyuchenie-cherez-ide).
 
+    
     1. [Установите DBeaver](https://dbeaver.com/docs/dbeaver/Installation/) на хост, с которого будет выполняться подключение.
 
         {% note info %}
@@ -176,6 +177,7 @@ description: Следуя данной инструкции, вы сможете
 
         1. {% include [dbeaver-how-to-exec-query](../_includes/mdb/mgp/quickstart/dbeaver-how-to-exec-query.md) %}
 
+
 - psql {#cli}
 
     1. [Установите](https://www.postgresql.org/download/) клиент `psql` на хост, с которого будет выполняться подключение.
@@ -221,7 +223,9 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+
 При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия СУБД.
+
 
 ## Создайте базу данных {#create-db}
 

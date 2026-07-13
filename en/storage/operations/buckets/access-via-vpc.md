@@ -52,7 +52,7 @@ To allow access to a bucket only by {{ vpc-short-name }} internal IP addresses, 
 
 {% include [private-endpoint-ssc](../../../_includes/storage/private-endpoint-ssc.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{{ vpc-short-name }} service connections](../../../vpc/concepts/private-endpoint.md)
 * [Managing {{ vpc-short-name }} service connections](../../../vpc/operations/index.md#private-endpoint)

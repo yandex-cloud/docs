@@ -3937,6 +3937,20 @@ apiPlayground:
               Default value: **false** for versions 25.10 and higher, **true** for versions 25.9 and lower.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#show_data_lake_catalogs_in_system_tables).
             type: boolean
+          compatibility:
+            description: |-
+              **string**
+              The compatibility setting causes ClickHouse to use the default settings of a previous version of ClickHouse,
+              where the previous version is provided as the setting. An empty value means that this setting is disabled.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#compatibility).
+            type: string
+          materializeTtlAfterModify:
+            description: |-
+              **boolean**
+              Apply TTL for old data, after ALTER MODIFY TTL query.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#materialize_ttl_after_modify).
+            type: boolean
           compile:
             description: |-
               **boolean**
@@ -4234,8 +4248,8 @@ apiPlayground:
             description: |-
               **string**
               Required field. Name of the ClickHouse database. 1-63 characters long.
-              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z_][a-zA-Z0-9_-]* `.
-            pattern: '[a-zA-Z_][a-zA-Z0-9_-]*'
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_][a-zA-Z0-9_-]* `.
+            pattern: '[a-zA-Z0-9_][a-zA-Z0-9_-]*'
             type: string
           engine:
             description: |-
@@ -5038,6 +5052,8 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
         "final": "boolean",
         "useHivePartitioning": "boolean",
         "showDataLakeCatalogsInSystemTables": "boolean",
+        "compatibility": "string",
+        "materializeTtlAfterModify": "boolean",
         "compile": "boolean",
         "minCountToCompile": "string",
         "asyncInsertThreads": "string",
@@ -5288,6 +5304,8 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
         "final": "boolean",
         "useHivePartitioning": "boolean",
         "showDataLakeCatalogsInSystemTables": "boolean",
+        "compatibility": "string",
+        "materializeTtlAfterModify": "boolean",
         "compile": "boolean",
         "minCountToCompile": "string",
         "asyncInsertThreads": "string",
@@ -9114,6 +9132,19 @@ Enables or disables showing data lake catalogs in system tables.
 Default value: **false** for versions 25.10 and higher, **true** for versions 25.9 and lower.
 
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#show_data_lake_catalogs_in_system_tables). ||
+|| compatibility | **string**
+
+The compatibility setting causes ClickHouse to use the default settings of a previous version of ClickHouse,
+where the previous version is provided as the setting. An empty value means that this setting is disabled.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#compatibility). ||
+|| materializeTtlAfterModify | **boolean**
+
+Apply TTL for old data, after ALTER MODIFY TTL query.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#materialize_ttl_after_modify). ||
 || compile | **boolean**
 
 The setting is deprecated and has no effect. ||
@@ -9278,7 +9309,7 @@ Time interval to collect data from system.processes table. ||
 
 Required field. Name of the ClickHouse database. 1-63 characters long.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z_][a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_][a-zA-Z0-9_-]* `. ||
 || engine | **enum** (DatabaseEngine)
 
 Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).

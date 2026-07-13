@@ -47,7 +47,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of the proposed solution includes: 
-* Fee for renting the {{ baremetal-name }} servers (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
+* Fee for renting {{ baremetal-name }} servers (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
 * Fee for [data storage](../../storage/concepts/bucket.md) in {{ objstorage-name }} and data [operations](../../storage/operations/index.md) (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 
 ## Create your boot images in {{ baremetal-name }} {#create-images}

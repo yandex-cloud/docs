@@ -15,9 +15,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a public IP address if assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Getting started {#before-you-begin}
@@ -123,9 +123,9 @@ The support cost for this solution includes:
 ## Test time-slicing GPUs {#check-time-slicing}
 
 1. Create a test app:
-   1. Save the following app specification to a YAML file named `nvidia-plugin-test.yml`.
+   1. Save the following application creation specification to a YAML file named `nvidia-plugin-test.yml`.
 
-      [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) is the {{ k8s }} API object that manages the replicated application.
+      [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) is a {{ k8s }} API object that manages the replicated application.
 
       ```yaml
       apiVersion: apps/v1

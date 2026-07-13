@@ -37,4 +37,4 @@ Complete list of parameters for the `%create_livy_session` command:
 | `--heartbeatTimeoutInSecond` | `int`    | Time to wait for heartbeat before the session ends     |
 | `--ttl`                      | `string` | Inactive session timeout          |
 
-For more information about livy session parameters, see [this Apache Livy article](https://livy.incubator.apache.org/docs/latest/rest-api.html).
+Learn more about the Livy session parameters in these [official guides](https://livy.incubator.apache.org/docs/latest/rest-api.html).

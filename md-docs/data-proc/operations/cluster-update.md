@@ -17,8 +17,8 @@
 
     Чтобы изменить настройки кластера Yandex Data Processing:
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Yandex Data Processing**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/data-proc) в сервис **Yandex Data Processing**.
     1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
     1. Измените имя и описание кластера в полях **Имя кластера** и **Описание**.
     1. Добавьте или удалите [метки](../../resource-manager/concepts/labels.md) кластера в поле **Метки**.

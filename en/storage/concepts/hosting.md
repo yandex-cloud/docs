@@ -115,7 +115,7 @@ You can manage {{ dns-full-name }} domains in the bucket settings or in [{{ dns-
 
 {% include [public-link](../../_includes/storage/public-link.md) %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../operations/hosting/setup.md)
 * [{#T}](../operations/hosting/own-domain.md)

@@ -70,7 +70,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) with a rule tha
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Ubuntu 22.04 LTS` and select a public [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image.
       1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the `{{ ui-key.yacloud.compute.value_disk-type-network-hdd_cw9XD }}` [disk type](../../compute/concepts/disk.md#disks_types) and specify its size: `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, switch to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
           * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
           * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`

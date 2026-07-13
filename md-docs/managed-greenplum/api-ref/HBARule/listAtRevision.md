@@ -65,10 +65,12 @@ Requested list of hba rules for the cluster. ||
 ||Field | Description ||
 || priority | **string** (int64)
 
-Priority of the Greenplum cluster rule.
+Priority of the Greenplum® cluster rule.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || connectionType | **enum** (ConnectionType)
+
+Connection type of the Greenplum® cluster rule.
 
 - `HOST`: Matches connection attempts made using TCP/IP.
 - `HOSTSSL`: Matches connection attempts made using TCP/IP, but only when the connection is made with SSL encryption.

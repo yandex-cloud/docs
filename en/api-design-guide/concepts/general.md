@@ -30,7 +30,7 @@ APIs of most {{ yandex-cloud }} services use a resource-based approach. How it w
 - [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/api), [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/concepts/api), [{{ translate-full-name }}]({{ link-docs-ai }}translate/api-ref/grpc/), and [{{ vision-full-name }}]({{ link-docs-ai }}vision/ocr/api-ref/grpc/) AI service API. The API of these services does not use {{ yandex-cloud }} resources and API requests are not idempotent.
 
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 - [Link to the .proto specifications of the {{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi)
 
 

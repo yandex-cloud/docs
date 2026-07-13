@@ -229,7 +229,7 @@ default:
   GLR: GitLab Runner
   go-cli-ver: golang123
   go-full-ver: Go 1.23
-  google-looker: Looker Studio
+  google-looker: Data Studio
   gost-gateway-name: GOST Gateway
   GP: Greenplum®
   gp:
@@ -1235,6 +1235,26 @@ default:
         1-month: dn2qf7kdxxn2onpen6di
         12-month: dn2vln7iq4gfwaa3m3v6
         6-month: dn225456trqnu374dy6m
+      bms-ram5-128:
+        1-month: dn2iyujt44xymjl2gjse
+        12-month: dn2go3unbosnvorlqlmj
+        3-month: dn2n73jj34iu2sm57dmi
+        6-month: dn225umxjytxa2g6bqtz
+      bms-ram5-256:
+        1-month: dn2olfdrsw32m6coin46
+        12-month: dn2rgl7l65n2terbsibn
+        3-month: dn2wvqmczeylhaqzl5rv
+        6-month: dn2qmgafofbcra6ytra2
+      bms-ram5-384:
+        1-month: dn2rk6ycntauno2pryay
+        12-month: dn2faa2ieuo5np5lzu4j
+        3-month: dn2pufvkwyz6k7bta2xz
+        6-month: dn2sjybb22ke74avdy3a
+      bms-ram5-512:
+        1-month: dn2seluh3dypz64xtcbz
+        12-month: dn2lwyudpgr5kv3vynfi
+        3-month: dn27d636dmgryetfrx4k
+        6-month: dn2btz7hw2cwsiwl256s
       ha-a701-6n-4h-2x25g:
         1-day: dn2kwtyc4rsjl45zge33
         1-month: dn26gmom2kyebwew76rc
@@ -4265,6 +4285,17 @@ default:
             overview_b5LJQ: Обзор
           AttributeFormDialogNew:
             field_attribute_value_dgUAv: Значение
+          AttributeTransformationsSection:
+            action_add_transformation_bc8Cd: Добавить трансформацию
+            field_if_empty_value_1K7py: Значение
+            field_substring_siBpY: Подстрока
+            type_constant_tvJWi: Constant
+            type_extract_after_q4x8n: ExtractAfter
+            type_extract_before_ju2PE: ExtractBefore
+            type_if_empty_e5unh: IfEmpty
+            type_to_lowercase_vRG6c: ToLowercase
+            type_to_uppercase_uF6Br: ToUppercase
+            type_trim_3SF6q: Trim
           field_group_all_uY9US: Все группы
           field_group_assigned_amGdu: Только назначенные группы
           GroupAttributeFormDialog:
@@ -5470,6 +5501,7 @@ default:
         label_section-content: Контент
         label_section-domain: Доменные имена для раздачи контента
         label_section-origins-list: Источники
+        label_section-security: Безопасность
         label_shielding: Экранирование источников
         label_shielding-location: Локация
         label_shielding-settings-title: Настройки экранирования

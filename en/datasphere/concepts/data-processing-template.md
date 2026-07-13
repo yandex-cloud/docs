@@ -56,6 +56,6 @@ The created cluster appears in the list of available clusters on the {{ dataproc
 * `UP`: The cluster has been created and is ready to run calculations.
 * `DOWN`: There have been issues while creating the cluster.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [How to create, activate, copy, and delete a template](../operations/data-processing-template.md)

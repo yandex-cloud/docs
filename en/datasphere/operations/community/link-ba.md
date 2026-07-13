@@ -33,7 +33,7 @@ Users with the `Editor` or `Admin` role in the community can change the billing 
 
 {% include [pay-for-resources](../../../_includes/datasphere/pay-for-resources.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../../pricing.md)
 * [{#T}](../../concepts/community.md)

@@ -104,6 +104,12 @@ apiPlayground:
             type: object
             additionalProperties:
               type: string
+          votes:
+            description: |-
+              **string** (int64)
+              Votes of host for the election in replSet
+            type: string
+            format: int64
 ---
 
 # Managed Service for MongoDB API, REST: Cluster.AddHosts
@@ -142,7 +148,8 @@ The maximum string length in characters is 50. ||
       "hidden": "boolean",
       "secondaryDelaySecs": "string",
       "priority": "number",
-      "tags": "object"
+      "tags": "object",
+      "votes": "string"
     }
   ]
 }
@@ -207,6 +214,9 @@ Priority of host for the election in replSet ||
 || tags | **object** (map<**string**, **string**>)
 
 Host tags ||
+|| votes | **string** (int64)
+
+Votes of host for the election in replSet ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

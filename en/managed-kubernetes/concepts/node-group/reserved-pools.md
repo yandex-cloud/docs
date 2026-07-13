@@ -19,7 +19,7 @@ In {{ managed-k8s-name }}, you can use reserved instance pools via the [CLI](../
 
 {% include [reserved-pools-mk8s-variable-tip](../../../_includes/managed-kubernetes/reserved-pools-mk8s-variable-tip.md) %}
 
-## Limitations {#restrictions}
+## Limits {#restrictions}
 
 {% include [reserved-pools-mk8s-restrictions](../../../_includes/managed-kubernetes/reserved-pools-mk8s-restrictions.md) %}
 
@@ -43,7 +43,7 @@ In this example, we will create a node group in one availability zone with two n
 
 Examples for a multi-zone group with nodes from a reserved instance pool using variables are provided on the [Node template variables](./variables-in-the-template.md#examples) page.
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../../compute/concepts/reserved-pools.md)
 * [Working with reserved instance pools](../../../compute/operations/index.md#reserved-pools)

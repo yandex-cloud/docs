@@ -117,7 +117,7 @@
    Чтобы посмотреть список запущенных операций и заданий:
 
    1. Откройте [консоль управления]({{ link-console-main }}).
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. [Перейдите](({{ link-console-main }}/link/data-proc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Нажмите на имя первоначального кластера и выберите вкладку **{{ ui-key.yacloud.dataproc.switch_operations }}**, затем — **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
 
    {% note info %}
@@ -188,7 +188,7 @@
    Объем копируемых данных можно посмотреть в веб-интерфейсе HDFS. Чтобы открыть его:
 
    1. Откройте [консоль управления]({{ link-console-main }}).
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+   1. [Перейдите](({{ link-console-main }}/link/data-proc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
    1. Нажмите на имя первоначального кластера.
    1. На его странице, в разделе **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, перейдите по ссылке **HDFS Namenode UI**.
 

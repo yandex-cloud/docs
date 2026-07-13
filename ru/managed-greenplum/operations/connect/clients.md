@@ -159,14 +159,11 @@ sudo apt update && sudo apt install --yes postgresql-client
 {{ yc-mdb-gp }} connect <имя_или_идентификатор_кластера> --db <имя_БД>
 ```
 
-
 ## Подключение из графических IDE {#connection-ide}
 
 {% include [ide-environments](../../../_includes/mdb/mdb-ide-envs.md) %}
 
-
 Подключаться из графических IDE можно только к кластеру в публичном доступе с использованием SSL-сертификата.
-
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
@@ -218,9 +215,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 Подключение проверялось для [{{ pgadmin }}](https://www.pgadmin.org) версии 7.1 в macOS Ventura 13.0 и Microsoft Windows 10 Pro 21H1.
 
-
 Подключаться из {{ pgadmin }} можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
-
 
 Создайте новое подключение к серверу:
 
@@ -251,12 +246,13 @@ column "wait_event_type" does not exist LINE 10: wait_event_type || ': ' || wait
 
 При работе с другими вкладками в {{ pgadmin }} эта ошибка не возникает.
 
+
+
 ## Подготовка к подключению из Docker-контейнера {#connection-docker}
 
 Чтобы подключаться к кластеру {{ mgp-name }} из Docker-контейнера, добавьте в Dockerfile строки:
 
 {% list tabs group=connection %}
-
 
 - Подключение без SSL {#without-ssl}
 
@@ -264,7 +260,6 @@ column "wait_event_type" does not exist LINE 10: wait_event_type || ': ' || wait
     RUN apt-get update && \
         apt-get install postgresql-client --yes
     ```
-
 
 - Подключение с SSL {#with-ssl}
 

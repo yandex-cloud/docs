@@ -29,6 +29,6 @@ If [DDoS protection](../../vpc/ddos-protection/index.md) is required, [reserve](
 
 Learn more about service types in [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](../operations/create-load-balancer.md)

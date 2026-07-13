@@ -1,10 +1,10 @@
-# NetworkPolicy resource fields and annotations
+# Fields and annotations of the NetworkPolicy resource
 
 `NetworkPolicy` is a resource for managing access to services published via {{ network-load-balancer-name }} based on IP addresses.
 
 `NetworkPolicy` is a standard {{ k8s }} resource. This reference describes the resource fields and annotations supported by {{ network-load-balancer-name }} for {{ managed-k8s-name }}. For a complete reference for the resource, see [this {{ k8s }} guide](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/network-policy-v1/).
 
-For more information about network policies, see [{#T}](../../../managed-kubernetes/concepts/network-policy.md).
+Learn more information about network policies [here](../../../managed-kubernetes/concepts/network-policy.md).
 
 ## NetworkPolicy {#network-policy}
 

@@ -355,6 +355,6 @@ To delete a [resource record](../concepts/resource-record.md):
   * `metadata`: Operation metadata.
   * `response.deletions`: List of deleted records.
 
-  For a detailed method description, see the [gRPC API reference](../api-ref/grpc/DnsZone/upsertRecordSets.md).
+  For a detailed description of the method, see the [gRPC API reference](../api-ref/grpc/DnsZone/upsertRecordSets.md).
 
   {% endlist %}

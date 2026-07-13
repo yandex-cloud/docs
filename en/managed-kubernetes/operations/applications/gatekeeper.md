@@ -68,7 +68,7 @@
   `auditEventsInvolvedNamespace` | Creating events in the affected namespace | `false`
   `enableExternalData` | Experimental support for external data sources | `true`
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Gatekeeper documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/)
 

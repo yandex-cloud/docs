@@ -1,9 +1,9 @@
-# Creating an online store with 1C-Bitrix: Site Management using {{ TF }}
+# Creating an online store on 1C-Bitrix: Website Management using {{ TF }}
 
-To create an infrastructure for an [online store with 1C-Bitrix: Site Management](index.md) using {{ TF }}:
+To create an infrastructure for an [online store on 1C-Bitrix: Website Management](index.md) using {{ TF }}:
 
 {% include [bitrix-shop-terraform](../../../_tutorials/applied/bitrix-shop-terraform.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](console.md).

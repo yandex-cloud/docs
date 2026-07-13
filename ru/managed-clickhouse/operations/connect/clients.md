@@ -58,7 +58,6 @@ description: Следуя этой инструкции, вы сможете п�
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
     ```bash
@@ -68,7 +67,6 @@ description: Следуя этой инструкции, вы сможете п�
                       --port 9000 \
                       --ask-password
     ```
-
 
 - Подключение с SSL {#with-ssl}
 
@@ -98,7 +96,6 @@ sudo apt update && sudo apt install --yes mysql-client
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
     ```bash
@@ -109,7 +106,6 @@ sudo apt update && sudo apt install --yes mysql-client
           --password \
           <имя_БД>
     ```
-
 
 - Подключение с SSL {#with-ssl}
 
@@ -137,7 +133,6 @@ sudo apt update && sudo apt install --yes mysql-client
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
     ```bash
@@ -145,7 +140,6 @@ sudo apt update && sudo apt install --yes mysql-client
          --header "X-ClickHouse-Key: <пароль_пользователя_БД>" \
          'http://<FQDN_любого_хоста_{{ CH }}>:8123/?database=<имя_БД>&query=SELECT%20version()'
     ```
-
 
 - Подключение с SSL {#with-ssl}
 
@@ -164,7 +158,6 @@ sudo apt update && sudo apt install --yes mysql-client
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
     ```powershell
@@ -173,7 +166,6 @@ sudo apt update && sudo apt install --yes mysql-client
         --header "X-ClickHouse-Key: <пароль_пользователя_БД>" `
         'http://<FQDN_любого_хоста_{{ CH }}>:8123/?database=<имя_БД>&query=SELECT+version()'
     ```
-
 
 - Подключение с SSL {#with-ssl}
 
@@ -190,11 +182,10 @@ sudo apt update && sudo apt install --yes mysql-client
 
 ## Подключение из графических IDE {#ide}
 
+
 {% include [ide-environments](../../../_includes/mdb/mdb-ide-envs.md) %}
 
-
 Подключаться из графических IDE можно только к хостам кластера в публичном доступе с использованием SSL-сертификата.
-
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
@@ -286,7 +277,6 @@ https://<FQDN_любого_хоста_{{ CH }}>:8443/play
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
    ```bash
@@ -304,7 +294,6 @@ https://<FQDN_любого_хоста_{{ CH }}>:8443/play
        wget "https://{{ s3-storage-host-doc-files }}/clickhouse-client.conf.example" \
             --output-document ~/.clickhouse-client/config.xml
    ```
-
 
 - Подключение с SSL {#with-ssl}
 

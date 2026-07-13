@@ -219,6 +219,6 @@ To stop paying for the resources you created, in {{ compute-name }}:
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the VMs you created.
 1. [Delete](../../compute/operations/gpu-cluster/gpu-cluster-delete.md) the GPU cluster you created.
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 [Questions about GPUs](../../compute/qa/gpu.md)

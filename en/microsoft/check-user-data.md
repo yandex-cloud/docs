@@ -22,7 +22,7 @@ For individuals:
 
 {% note info %}
 
-If you don't have permissions to edit the details, refer to the administrator of your billing account.
+If you do not have permissions to edit the details, contact your billing account administrator.
 
 {% endnote %}
 
@@ -34,6 +34,6 @@ To check and update user details, follow these steps:
 
 1. Make sure that the **Payer information** section contains up-to-date user details. If the details are outdated or incomplete, click **Edit data in Yandex Balance**. This will open the page for editing payer details.
 
-1. Update the details. For more information, see the [Yandex Balance documentation](https://yandex.ru/support/balance/operations/change-data.html).
+1. Update the details. For more information, see [this Yandex Balance guide](https://yandex.ru/support/balance/operations/change-data.html).
 
 When deploying the product moving forward, you will not need to provide the details again.

@@ -32,3 +32,8 @@ Term | Description
 
 
 See also the {{ yandex-cloud }} [general resource hierarchy](../../resource-manager/concepts/resources-hierarchy.md).
+
+#### Useful links {#see-also}
+
+* [Webinar: Reducing load on high-traffic infrastructure with Cloud CDN](https://yandex.cloud/ru/events/1489?utm_source=docs&utm_medium=yandex&utm_campaign=infra&utm_content=vebinar&utm_term=cdns3)
+

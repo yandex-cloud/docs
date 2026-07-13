@@ -14,12 +14,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
 * Fee for a {{ dataproc-name }} cluster (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
 * Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Fee for an {{ objstorage-name }} bucket: data storage and operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Getting started {#deploy-infrastructure}
@@ -92,7 +92,7 @@ Set up the infrastructure:
         * Bucket to store job dependencies and results.
         * {{ dataproc-name }} cluster.
 
-    1. In the `data-proc-dns-connect.tf` file, specify these variables:
+    1. In the `data-proc-dns-connect.tf` file, specify the following variables:
 
         * `folder_id`: Folder ID.
         * `path_to_ssh_public_key`: Path to the public SSH key.
@@ -100,7 +100,7 @@ Set up the infrastructure:
         * `bucket`: Bucket name.
 
     1. Run the `terraform init` command in the working directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
@@ -141,7 +141,7 @@ Create the resources:
 
         * `dataproc_fqdn`: FQDN of the {{ dataproc-name }} cluster master host.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
@@ -177,28 +177,28 @@ rc1a-dataproc-m-6ijqng07vul2mu8j.mdb.yandexcloud.net. 600 IN A 192.168.1.8
 - {{ TF }} {#tf}
 
     1. Delete the `yandex_dataproc_cluster` section in `data-proc-dns-connect.tf`.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Apply the changes:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     1. Add the `yandex_dataproc_cluster` section to `data-proc-dns-connect.tf`, with the same contents as in the [source file](#deploy-infrastructure), to create a new {{ dataproc-name }} cluster.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
-    1. Create your cluster:
+    1. Create a cluster:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -207,13 +207,13 @@ rc1a-dataproc-m-6ijqng07vul2mu8j.mdb.yandexcloud.net. 600 IN A 192.168.1.8
 
         * `dataproc_fqdn`: FQDN of the cluster master host.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Apply the changes:
 
@@ -233,7 +233,7 @@ rc1a-dataproc-m-8kompl81232cdsu8j.mdb.yandexcloud.net. 600 IN A 192.168.1.8
 
 ## Delete the resources you created {#clear-out}
 
-Some resources incur charges. To avoid unnecessary expenses, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs group=instructions %}
 

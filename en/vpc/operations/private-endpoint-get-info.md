@@ -3,7 +3,7 @@ title: How to get information about a service connection in {{ vpc-full-name }}
 description: Follow this guide to get information about a service connection (private endpoint) in {{ vpc-name }}.
 ---
 
-# Getting information about a service connection
+# Getting service connection info
 
 
 
@@ -71,13 +71,13 @@ description: Follow this guide to get information about a service connection (pr
       * `output "ref_description"`: Output variable storing the service connection's network ID (`network_id`):
          * `value`: Return value.
 
-     You can replace `network_id` with any other parameter to get the information you need. For more information about the `yandex_vpc_private_endpoint` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/vpc_private_endpoint).
+     You can replace `network_id` with another variable to get the information you need. For more on the properties of the `yandex_vpc_private_endpoint` data source, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_private_endpoint).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+      {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

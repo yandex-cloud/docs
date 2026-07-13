@@ -101,7 +101,7 @@ The {{ GL }} agent does not run CI/CD pipelines. To do this, install [{{ GL }} R
 
 * [{#T}](../../tutorials/gitlab-containers.md).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{{ GL }} agent guides](https://docs.gitlab.com/ee/user/clusters/agent/)
 * [{{ mgl-name }} guides](../../../managed-gitlab/)

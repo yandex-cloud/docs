@@ -25,8 +25,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
     1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
     1. В блоке **Базовые параметры** измените имя и описание кластера.
     1. Нажмите кнопку **Сохранить изменения**.
@@ -248,8 +248,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
     1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
     1. В блоке **Базовые параметры** выберите сервисный аккаунт или [создайте новый](../../iam/operations/sa/create.md#create-sa) с ролями `managed-trino.integrationProvider` и `storage.editor`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее в разделе [Имперсонация](../concepts/impersonation.md).
 
@@ -466,8 +466,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
     1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
     1. В блоке **Базовые параметры** выберите версию Trino. Версию можно как повысить, так и понизить.
     1. Нажмите кнопку **Сохранить изменения**.
@@ -679,8 +679,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
     1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
     1. В блоке **Сетевые настройки** выберите группы безопасности для кластера.
     1. Нажмите кнопку **Сохранить изменения**.
@@ -898,8 +898,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
     1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
     1. В блоке **Политика перезапросов** измените параметры [отказоустойчивого выполнения запросов](../concepts/retry-policy.md):
         
@@ -1419,8 +1419,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
     1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
     1. Измените конфигурацию [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers).
     1. Нажмите кнопку **Сохранить изменения**.
@@ -1752,8 +1752,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
     1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
     1. Измените дополнительные настройки кластера:
         

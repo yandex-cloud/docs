@@ -32,8 +32,8 @@ keywords:
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** измените имя и описание кластера.
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -222,8 +222,8 @@ keywords:
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** выберите сервисный аккаунт или [создайте новый](../../iam/operations/sa/create.md#create-sa) с ролями `managed-trino.integrationProvider` и `storage.editor`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее в разделе [Имперсонация](../concepts/impersonation.md).
 
@@ -403,8 +403,8 @@ keywords:
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** выберите версию {{ TR }}. Версию можно как повысить, так и понизить.
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -583,8 +583,8 @@ keywords:
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите группы безопасности для кластера.
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -769,8 +769,8 @@ keywords:
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **Политика перезапросов** измените параметры [отказоустойчивого выполнения запросов](../concepts/retry-policy.md):
         
@@ -1178,8 +1178,8 @@ keywords:
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. Измените конфигурацию [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers).
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -1478,8 +1478,8 @@ keywords:
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. Измените дополнительные настройки кластера:
         

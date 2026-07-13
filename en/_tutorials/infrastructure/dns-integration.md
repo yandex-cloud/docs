@@ -53,7 +53,7 @@ They will redirect DNS requests as follows:
 * `corp.example.net` zone requests will go to the `172.16.1.5` and `172.16.2.5` corporate DNS servers.
 * The rest, i.e., `.` zone requests, will go to the `172.16.3.2` and `172.16.4.2` {{ yandex-cloud }} internal DNS servers.
 
-To ensure fault tolerance, DNS forwarders will be placed behind an [internal {{ network-load-balancer-full-name }}](../../network-load-balancer/concepts/nlb-types.md) routing DNS requests from both your cloud and your corporate network.
+To ensure fault tolerance, DNS forwarders will be placed behind an [internal {{ network-load-balancer-full-name }}](../../network-load-balancer/concepts/nlb-types.md) routing DNS requests from both your cloud and corporate network.
 
 ## Getting started {#before-you-begin}
 
@@ -79,9 +79,9 @@ To ensure fault tolerance, DNS forwarders will be placed behind an [internal {{ 
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support costs include:
+The infrastructure support cost includes:
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for a dynamic or static public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using a network load balancer (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
 
 ## Set up cloud DNS {#setup-cloud-dns}
@@ -277,7 +277,7 @@ Once you create a load balancer, it will automatically receive an IP address wit
 
 {% note info %}
 
-The internal network load balancer will not respond to DNS requests from forwarders that make up its target group, i.e., `forwarder1` and `forwarder2`. This is due to its specifications. For more information, see [{#T}](../../network-load-balancer/concepts/nlb-types.md).
+The internal network load balancer will not respond to DNS requests originating from its target group forwarders, `forwarder1` and `forwarder2`. This is due to implementation specifics. For more information, see [{#T}](../../network-load-balancer/concepts/nlb-types.md).
 
 {% endnote %}
 
@@ -329,8 +329,8 @@ Configure your corporate DNS servers to forward DNS queries to [{{ yandex-cloud 
 
 To stop paying for the resources:
 
-* [Delete the VM](../../compute/operations/vm-control/vm-delete).
-* If you reserved static public IP addresses for your VMs, [delete](../../vpc/operations/address-delete.md) them.
+* [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
+* If you reserved [static public IP addresses](../../vpc/operations/address-delete.md) for this tutorial, delete them.
 * [Delete the target groups](../../network-load-balancer/operations/target-group-delete.md).
 * [Delete the listeners](../../network-load-balancer/operations/listener-remove.md).
 * [Delete the network load balancer](../../network-load-balancer/operations/load-balancer-delete.md).

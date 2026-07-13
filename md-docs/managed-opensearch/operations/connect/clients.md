@@ -12,6 +12,7 @@
 
 {% list tabs group=connection %}
 
+
 - Подключение с SSL {#with-ssl}
 
     ```bash
@@ -28,6 +29,7 @@
 ### Windows (PowerShell) {#powershell}
 
 {% list tabs group=connection %}
+
 
 - Подключение с SSL {#with-ssl}
 
@@ -143,14 +145,12 @@
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
     ```bash
     RUN apt-get update && \
         apt-get install curl --yes
     ```
-
 
 - Подключение с SSL {#with-ssl}
 

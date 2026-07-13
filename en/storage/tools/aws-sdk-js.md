@@ -149,7 +149,7 @@ Below we describe how to perform basic operations with a bucket using the AWS SD
     })()
     ```
   
-    In this code snippet, we added an [IIFE (Immediately Invoked Function Expression)](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) to invoke the script when running the file.
+    In this code snippet, we added an [IIFE (Immediately Invoked Function Expression)](https://developer.mozilla.org/en-US/docs/Glossary/IIFE). This enables you to invoke the script when running the file.
 1. Run the application:
 
     ```bash
@@ -158,4 +158,4 @@ Below we describe how to perform basic operations with a bucket using the AWS SD
 
     In the console output, you will see a step-by-step description of the operation results.
 
-Learn more about using the AWS SDK for JavaScript in the [AWS documentation](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started-nodejs.html).
+Learn more about using the AWS SDK for JavaScript in [this AWS guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started-nodejs.html).

@@ -148,7 +148,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-    1. Перейдите в сервис **Managed Service for Apache Spark**.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Задания**.
     1. Дождитесь, когда созданное PySpark-задание перейдет в статус **Done**.
     1. Убедитесь, что в бакете `<бакет_для_выходных_данных_PySpark_задания>` в папке `warehouse` появилась БД `database_1`. Теперь данные из созданной БД хранятся в бакете Object Storage в формате JSON.

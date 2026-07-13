@@ -24,7 +24,8 @@ Updates the specified parameters for the host.
       "priority": "google.protobuf.DoubleValue",
       "assign_public_ip": "bool",
       "update_mask": "google.protobuf.FieldMask",
-      "tags": "map<string, string>"
+      "tags": "map<string, string>",
+      "votes": "google.protobuf.Int64Value"
     }
   ]
 }
@@ -74,6 +75,9 @@ Field mask that specifies which fields of the MongoDB host should be updated. ||
 || tags | **object** (map<**string**, **string**>)
 
 Host tag list that contains key-value pairs for the given replica set member. For more information about how to specify the tags and what values to choose, see the [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/replica-configuration/#mongodb-rsconf-rsconf.members-n-.tags). ||
+|| votes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The replica set member votes determine whether a member participate in an election. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

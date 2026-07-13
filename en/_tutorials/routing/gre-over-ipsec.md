@@ -7,7 +7,7 @@ IPsec can be boosted using the [GRE](https://en.wikipedia.org/wiki/Generic_Routi
 
 In this example, you will create a secure GRE-over-IPsec tunnel between two [Cisco CSR 1000v](https://yandex.cloud/en/marketplace/products/yc/cisco-csr) virtual routers hosted in different [virtual networks](../../vpc/concepts/network.md) and [availability zones](../../overview/concepts/geo-scope.md) in {{ yandex-cloud }}. 
 
-You will configure IPsec in NAT-T ([NAT Traversal](https://en.wikipedia.org/wiki/Network_address_translation)) mode, since {{ yandex-cloud }} employs [NAT](https://en.wikipedia.org/wiki/Network_address_translation), while GRE does not support using ports. This mode enables the translation of router IP addresses over NAT when using a GRE-over-IPsec tunnel. This makes the tunnel configuration in our example suitable for both the {{ yandex-cloud }} infrastructure and remote resources placed behind the device that provides NAT. 
+You will configure IPsec in NAT-T ([NAT Traversal](https://en.wikipedia.org/wiki/Network_address_translation)) mode, since {{ yandex-cloud }} employs [NAT](https://en.wikipedia.org/wiki/NAT_traversal), while GRE does not support using ports. This mode enables the translation of router IP addresses over NAT when using a GRE-over-IPsec tunnel. This makes the tunnel configuration in our example suitable for both the {{ yandex-cloud }} infrastructure and remote resources placed behind the device that provides NAT. 
 
 To set up a secure tunnel between two virtual routers:
 
@@ -34,7 +34,7 @@ When using a Cisco CSR 1000v image without a license, the router throughput is l
 
 {% endnote %}
 
-The infrastructure support costs include:
+The infrastructure support cost includes:
 
 * Fee for disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using an external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
@@ -92,7 +92,7 @@ To test tunneling between two different virtual networks, place {{ yandex-cloud 
       }
       ```
 
-      For more information about `yandex_resourcemanager_folder` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_folder).
+      For more on the properties of the `yandex_resourcemanager_folder` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/resourcemanager_folder).
 
    1. Make sure the configuration files are correct.
 
@@ -150,7 +150,7 @@ Repeat these steps to create a second folder named `site-b`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Cisco CSR` and select a [Cisco CSR](/marketplace/products/yc/cisco-csr) public image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, switch to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`

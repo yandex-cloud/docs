@@ -22,7 +22,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 * {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, volume of outgoing traffic (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
 * NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ objstorage-full-name }} bucket: storage use and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 ## Set up your infrastructure {#infra}
 

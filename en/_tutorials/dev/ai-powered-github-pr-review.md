@@ -41,7 +41,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The infrastructure support costs for implementing a scenario for automatic AI review of pull requests include:
-* Text generation fee (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
+* Fee for text generation (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)).
 * Fee for storing the secret and operations with it (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
 * Fee for data logging and storage in a [log group](../../logging/concepts/log-group.md) if using [{{ cloud-logging-name }}](../../logging/) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
 
@@ -217,7 +217,7 @@ Create an [authorized key](../../iam/concepts/authorization/key.md) for the `git
 
 {% endlist %}
 
-## Create a {{ sw-name }} workflow {#create-si-workflow}
+## Create a workflow {#create-si-workflow}
 
 Create a {{ sw-name }} [workflow](../../serverless-integrations/concepts/workflows/workflow.md) on the {{ yandex-cloud }} side.
 

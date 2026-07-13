@@ -4,6 +4,6 @@ To run a [Docker image on a VM](index.md) using a [{{ container-registry-full-na
 
 {% include [run-docker-on-vm-terraform](../../../_tutorials/infrastructure/run-docker-on-vm-terraform.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](console.md)

@@ -23,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of the UserGate firewall infrastructure includes:
+The cost of the UserGate gateway infrastructure includes:
 
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using [UserGate NGFW](/marketplace/products/usergate/ngfw).
@@ -109,7 +109,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with a [subnet](
      }
      ```
 
-     For more information, see the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) descriptions in the {{ TF }} provider documentation.
+     For more information, see the descriptions of the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) resources in the {{ TF }} provider guides.
      
   1. Make sure the configuration files are correct.
 
@@ -190,7 +190,7 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
   }
   ```
 
-  For more information, see the [vpc_address]({{ tf-provider-resources-link }}/vpc_address) resource description in the {{ TF }} provider documentation.
+  For more information, see the [vpc_address]({{ tf-provider-resources-link }}/vpc_address) description in the {{ TF }} provider guide.
 
 {% endlist %}
 
@@ -203,7 +203,7 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
   1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard in the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, type `UserGate NGFW` and select the [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, switch to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
@@ -319,9 +319,9 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
        }
      ```
 
-     For more information, see the [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance) resource description in the {{ TF }} provider documentation.
+     For more information, see the [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance) description in the {{ TF }} provider guide.
      
-  1. Make sure your configuration files are correct.
+  1. Make sure the configuration files are correct.
 
      1. In the terminal, navigate to the configuration file directory.
      1. Run a check using this command:
@@ -574,9 +574,9 @@ Create a [static route](../../vpc/concepts/routing.md):
 
      To add, update, or delete a route table, use the `yandex_vpc_route_table` resource indicating the network in the `netword id` field, e.g., `network_id = "${yandex_vpc_network.lab-net.id}"`.
 
-     For more information about the `yandex_vpc_route_table` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_route_table).
+     For more on the properties of the `yandex_vpc_route_table` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_route_table).
 
-  1. Make sure your configuration files are correct.
+  1. Make sure the configuration files are correct.
 
      1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:

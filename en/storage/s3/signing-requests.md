@@ -95,7 +95,7 @@ Make sure that the service account you are using to run `aws` commands has the p
 
 {% endlist %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](./s3-api-quickstart.md)
 * [Example of sending a signed request using curl](../api-ref/authentication.md#s3-api-example)

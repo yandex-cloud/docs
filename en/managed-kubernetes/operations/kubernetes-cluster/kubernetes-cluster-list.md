@@ -93,7 +93,7 @@ To access a {{ k8s }} cluster, use the `ID` or `NAME` parameters from the [previ
       * `external_v4_endpoint`: Name of the variable whose value will appear in the result.
       * `data.yandex_kubernetes_cluster.my_cluster.master.0.external_v4_endpoint`: Requested parameter. In our case, it is the cluster’s public IP address.
 
-      For the list of cluster parameters you can request this way, see [this {{ TF }} provider guide]({{ tf-provider-datasources-link }}/kubernetes_cluster).
+      For the list of cluster parameters you can request in this way, see [this {{ TF }} provider guide]({{ tf-provider-datasources-link }}/kubernetes_cluster).
 
       {% note tip %}
 

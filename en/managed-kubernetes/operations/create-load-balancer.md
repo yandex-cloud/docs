@@ -33,7 +33,7 @@ Once removed from the specification, the internal IP address may be automaticall
 {% endnote %}
 
 To ensure access to the {{ k8s }} application:
-1. [Get ready](#before-you-begin).
+1. [Get ready to work](#before-you-begin).
 1. [{#T}](#create-application).
 1. [{#T}](#create-lb).
 1. [{#T}](#check-result).

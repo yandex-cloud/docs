@@ -26,7 +26,7 @@ Changing the storage class results in PVC re-creation and data loss. Perform the
    kubectl get volumegroups -A -o wide
    ```
 
-For more information about the available storage classes, see the [Disk subsystem](../../concepts/components/disk-storage.md#storage-classes) section.
+For more information about the available storage classes, see [Disk subsystem](../../concepts/components/disk-storage.md#storage-classes).
 
 ## Changing the default storage class {#change-default}
 
@@ -149,7 +149,7 @@ spec:
   # ...
 ```
 
-For more information on creating a cluster, see [this section](../kafka/create-cluster.md).
+To learn more, see [Creating a cluster](../kafka/create-cluster.md).
 
 ## Switching the storage class for system components {#system-components}
 

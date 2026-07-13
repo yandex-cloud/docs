@@ -104,7 +104,7 @@ To view all available MIG profiles, run the following command:
 kubectl -n stackland-nvidia-gpu get cm default-mig-parted-config -o jsonpath='{.data.config\.yaml}'
 ```
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Cluster and component monitoring](monitoring.md)
 * [GPU Operator guides](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html)

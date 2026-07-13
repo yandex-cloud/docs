@@ -30,7 +30,7 @@ The cost of infrastructure support for uploading {{ TF }} states to {{ objstorag
 
 Follow this tutorial to create three [VMs](../../compute/concepts/vm.md) with [public IP addresses](../../vpc/concepts/address.md#public-addresses), a virtual [network](../../vpc/concepts/network.md#network), and two [subnets](../../vpc/concepts/network.md#subnet) as a sample infrastructure deployed through {{ TF }}. The cost of supporting this infrastructure includes:
 * Fee for [disks](../../compute/concepts/disk.md) and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for a dynamic public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using dynamic public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Create a service account and static access key {#create-service-account}
 
@@ -211,7 +211,7 @@ Create another configuration and use the saved state to create another VM in one
 
 To delete the resources you created, run the `terraform destroy` command; start with the second configuration, and then proceed to the first.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Getting started with {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Locking {{ TF }} states using {{ ydb-name }}](../../tutorials/infrastructure-management/terraform-state-lock.md).

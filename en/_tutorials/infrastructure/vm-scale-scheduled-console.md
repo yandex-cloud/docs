@@ -153,7 +153,7 @@ The instance group will reside in the [{{ vpc-full-name }}](../../vpc/) [network
      ```
 
      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
-  1. Create a subnet named `vm-scale-scheduled-network-b` in the `{{ region-id }}-b` availability zone:
+  1. Create the `vm-scale-scheduled-network-b` subnet in the `{{ region-id }}-b` availability zone:
 
      ```bash
      yc vpc subnet create --name vm-scale-scheduled-subnet-b \

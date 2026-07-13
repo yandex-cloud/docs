@@ -15,9 +15,9 @@ If you no longer need the resources you created, [delete them](#delete-resources
 
 The support cost for this solution includes:
 
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for cluster nodes (VMs): using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a public IP address if assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Getting started {#before-you-begin}
@@ -58,7 +58,7 @@ The support cost for this solution includes:
              nvidia.com/gpu: 1 # Request for 1 GPU.
    ```
 
-   Learn more about the pod specification in [this {{ k8s }} guide](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/#pod-v1-core).
+   Learn more about the pod creation specification in [this {{ k8s }} guide](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/#pod-v1-core).
 1. Create the pod with a GPU:
 
    ```bash
@@ -67,7 +67,7 @@ The support cost for this solution includes:
 
 ## Test the pod {#check-pod}
 
-1. View information about the new pod:
+1. View the information about the new pod:
 
    ```bash
    kubectl describe pod cuda-vector-add

@@ -119,7 +119,7 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
 
   1. Open the current configuration file with the {{ managed-k8s-name }} cluster description.
 
-     For information about creating this file, see [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
+     For more on how to create such a file, see [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
   1. Change auto update settings in the {{ managed-k8s-name }} cluster description.
 
      {% note info %}
@@ -194,7 +194,7 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -301,7 +301,7 @@ You can upgrade the {{ managed-k8s-name }} cluster version manually. In one step
 
   1. Open the current configuration file with the {{ managed-k8s-name }} cluster description.
 
-     For more on how to create this file, see [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
+     For more on how to create such a file, see [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
   1. Change the version in the {{ managed-k8s-name }} cluster description:
 
      ```hcl
@@ -319,7 +319,7 @@ You can upgrade the {{ managed-k8s-name }} cluster version manually. In one step
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -435,7 +435,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
   1. Open the current configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create this file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
+     For more on how to create such a file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
   1. Change auto update settings in the {{ managed-k8s-name }} node group description.
 
      {% note info %}
@@ -536,7 +536,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -683,7 +683,7 @@ Upgrade the {{ managed-k8s-name }} cluster version before updating the node grou
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

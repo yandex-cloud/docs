@@ -21,7 +21,7 @@
   1. Run CyberDuck.
   1. Click **Open Connection**.
   1. Select the **Amazon S3** connection type.
-  1. Specify the connection parameters:
+  1. Configure the connection as follows:
       * **Server**: `{{ s3-storage-host }}`.
 
         To connect to a particular bucket, open the **More options** tab and specify the bucket name in the **Path** field.
@@ -35,7 +35,7 @@
   1. Run CyberDuck.
   1. Click **Open Connection**.
   1. Select the **Amazon S3** connection type.
-  1. Specify the connection parameters:
+  1. Configure the connection as follows:
       * **Server**: `{{ s3-storage-host }}`.
 
         To connect to a particular bucket, specify `<bucket_name>.{{ s3-storage-host }}` in the **Server** field. This method only works with buckets with no dot in their names. For buckets with a dot in their names, follow the [alternative guide](#alternative-connection) below.
@@ -45,7 +45,7 @@
   1. Click **Connect**.
 
   To connect to a bucket with a dot in its name, e.g., `example.com`: {#alternative-connection}
-  1. Download the [Deprecated path style requests](https://profiles.cyberduck.io/S3%20(Deprecated%20path%20style%20requests).cyberduckprofile) configuration file (for more information, see the [Cyberduck documentation](https://docs.cyberduck.io/protocols/s3/#connecting-using-deprecated-path-style-requests)).
+  1. Download the [Deprecated path style requests](https://profiles.cyberduck.io/S3%20(Deprecated%20path%20style%20requests).cyberduckprofile) configuration file. For more information, see [this CyberDuck guide](https://docs.cyberduck.io/protocols/s3/#connecting-using-deprecated-path-style-requests).
       
       Some browsers automatically open the configuration file in a new tab. To download the configuration file, right-click the download link, select **Download Linked File As...**, and click **Save**.
   1. Open the configuration file.
@@ -65,4 +65,4 @@ CyberDuck treats {{ objstorage-name }} as a hierarchical file system. This means
 
 {% endnote %}
 
-Learn more about using CyberDuck with S3-compatible storages in the [CyberDuck documentation](https://docs.cyberduck.io/protocols/s3/).
+Learn more about using CyberDuck with S3-compatible storages in [this CyberDuck guide](https://docs.cyberduck.io/protocols/s3/).

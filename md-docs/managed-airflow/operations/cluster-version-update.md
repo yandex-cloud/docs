@@ -35,8 +35,8 @@
 
     Чтобы обновить версию Apache Airflow™ или Python:
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. Перейдите в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-airflow) в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
     1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **Редактировать**.
     1. В поле **Версия** выберите нужную версию Apache Airflow™ и Python.
     1. Нажмите кнопку **Сохранить**.

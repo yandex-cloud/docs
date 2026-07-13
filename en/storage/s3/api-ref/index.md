@@ -128,7 +128,7 @@ Method | Description
 [PutBucketPolicy](policy/put.md) | Applies the access policy to the specified bucket.
 [DeleteBucketPolicy](policy/delete.md) | Removes the access policy from the specified bucket.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../s3/s3-api-quickstart.md)
 * [{#T}](../../s3/index.md)

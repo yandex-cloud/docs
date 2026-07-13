@@ -56,7 +56,7 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
    persistentvolumeclaim/pvc-dynamic created
    ```
 
-1. View the information about the new `PersistentVolumeClaim` object:
+1. View the information about the new `PersistentVolumeClaim`:
 
    ```bash
    kubectl describe persistentvolumeclaim pvc-dynamic
@@ -160,7 +160,7 @@ kubectl delete pvc <PersistentVolumeClaim_ID>
 
 The disk will be deleted automatically from [{{ compute-full-name }}](../../../compute/).
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../concepts/volume.md)
 * [{#T}](./encrypted-disks.md)

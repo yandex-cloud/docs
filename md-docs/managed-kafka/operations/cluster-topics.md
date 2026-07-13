@@ -28,8 +28,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **Топики**.
   1. Нажмите кнопку **Создать топик**.
   1. В блоке **Базовые параметры** задайте базовые параметры топика:
@@ -258,8 +258,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **Топики**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного топика и выберите пункт **Редактировать**.
   1. Измените базовые параметры топика:
@@ -507,8 +507,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **Топики**.
 
 - CLI {#cli}
@@ -587,8 +587,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **Топики**.
   1. Нажмите на имя нужного топика.
 
@@ -875,8 +875,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **Топики**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного топика и выберите пункт **Удалить топик**.
   1. В открывшемся окне нажмите кнопку **Удалить**.

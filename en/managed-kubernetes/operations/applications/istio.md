@@ -68,6 +68,6 @@ To use Istio, you need a node group with at least 6 GB of RAM.
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Istio documentation](https://istio.io/latest/docs/)

@@ -30,6 +30,8 @@
 
             Включите опцию **Подпись реестра** и укажите секрет [Yandex Lockbox](../../../lockbox/index.md), содержащий GPG-ключ для подписи. Подробнее о подготовке GPG-ключа и создании секрета в разделе [Подготовка GPG-ключа](../debian/installation.md#prepare-gpg-key).
 
+    1. Укажите [паттерны фильтрации](../../concepts/filtering-patterns.md).
+
     1. В блоке **Информация о реестре**:
 
         * Введите имя реестра. Имя не должно содержать пробелы и специальные символы.
@@ -53,7 +55,7 @@
     Где:
     * `--name` — имя реестра.
     * `--description` — описание реестра.
-    * `--registry-kind` — формат реестра. Доступные форматы: `maven`, `npm`, `docker`, `nuget`, `pypi`, `binary`, `debian`.
+    * `--registry-kind` — формат реестра. Доступные форматы: `maven`, `npm`, `docker`, `debian`, `nuget`, `pypi`, `binary`, `go`.
     * `--registry-type` — [тип](../../concepts/registry.md#registry-types) реестра.
     * `--properties` — свойства реестра. Задаются строкой в формате `name1=value1,name2=value2`. Доступные свойства для локальных реестров:
 

@@ -26,8 +26,8 @@ When using a Mikrotik Cloud Hosted Router image without a license, the router th
 
 The cost of using a virtual router and a test VM includes:
 
-* Fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for a public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Create a VM with the Mikrotik Cloud Hosted Router {#create-router}
@@ -35,7 +35,7 @@ The cost of using a virtual router and a test VM includes:
 1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**, and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Cloud Hosted Router` and select a public [Cloud Hosted Router](/marketplace/products/yc/cloud-hosted-router) image.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) to create your VM in. If you do not know which availability zone you need, leave the default one.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, switch to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
@@ -84,7 +84,7 @@ Create a test VM in the subnet that hosts the router, to test connectivity betwe
 1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**, and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Ubuntu` and select a public [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) image.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) the `mikrotik-router` VM resides in.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, switch to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`

@@ -14,8 +14,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
   1. Нажмите на имя нужного кластера.
   1. Перейдите в блок **Управление ресурсами**.
 
@@ -99,7 +99,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер Managed Service for Trino.
-  1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
   1. Нажмите кнопку **Создать кластер** и задайте параметры кластера.
   1. Перейдите в блок **Управление ресурсами**.
   1. В поле **CPU quota period** задайте период расчета квоты CPU для ресурсных групп.
@@ -829,8 +829,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
   1. Нажмите на имя нужного кластера.
   1. Перейдите в блок **Управление ресурсами**.
   1. В поле **CPU quota period** задайте новое значение периода расчета квоты CPU для ресурсных групп.
@@ -1606,8 +1606,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-trino) в сервис **Managed Service for&nbsp;Trino**.
   1. Нажмите на имя нужного кластера.
   1. Перейдите в блок **Управление ресурсами**.
   1. Чтобы удалить ненужные ресурсные группы:

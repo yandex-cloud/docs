@@ -1,1 +1,0 @@
-A _highly-available_ master is billed as a _regional_ one and displayed in {{ billing-name }} as `{{ managed-k8s-name }}. Regional master`.

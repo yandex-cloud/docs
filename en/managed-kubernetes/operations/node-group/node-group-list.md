@@ -100,7 +100,7 @@ To access a node group, use the `ID` or `NAME` parameter from the [previous](nod
       * `node_group_status`: Name of the variable whose value will appear in the result.
       * `data.yandex_kubernetes_node_group.my_node_group.status`: Requested parameter. In our case, it is the node group status.
 
-      For the list of node group parameters you can request this way, see [this {{ TF }} provider guide]({{ tf-provider-datasources-link }}/kubernetes_node_group).
+      For the list of node group parameters you can request in this way, see [this {{ TF }} provider guide]({{ tf-provider-datasources-link }}/kubernetes_node_group).
 
       {% note tip %}
 

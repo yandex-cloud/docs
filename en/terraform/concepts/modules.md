@@ -29,6 +29,6 @@ module "vpc" {
 
 In this example, we call the `vpc` module located in the `./modules/vpc` file. The module accepts the `cidr_block` input parameter defining the IP address range for the cloud network.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 ![](../../_assets/overview/solution-library-icon.svg) [{{ yandex-cloud }} {{ TF }} modules](https://github.com/terraform-yc-modules)

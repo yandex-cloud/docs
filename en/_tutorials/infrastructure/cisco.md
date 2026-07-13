@@ -29,7 +29,7 @@ When using a Cisco CSR 1000v image without a license, the router throughput is l
 
 The cost of using a virtual router includes:
 
-* Fee for a disk and a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 ## Create an SSH key pair {#create-ssh-keys}
@@ -51,7 +51,7 @@ Save the private key in a secure location, as you will not be able to connect to
   1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**, and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Cisco CSR` and select a [Cisco CSR](/marketplace/products/yc/cisco-csr) public image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside. If you do not know which availability zone you need, leave the default one.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, switch to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`

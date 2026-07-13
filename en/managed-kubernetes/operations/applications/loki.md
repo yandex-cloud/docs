@@ -98,6 +98,6 @@ Result:
 test-namespace   loki-loki-distributed-gateway   ClusterIP   10.96.168.88   <none>   80/TCP    15m
 ```
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Grafana Loki documentation](https://grafana.com/docs/loki/latest/)

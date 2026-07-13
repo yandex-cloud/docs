@@ -6,11 +6,11 @@ In this tutorial, you will learn how to create a {{ dataproc-name }} cluster and
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ dataproc-name }} cluster fee: using VM computing resources and {{ compute-name }} network disks, and {{ cloud-logging-name }} for log management (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
+* {{ dataproc-name }} cluster fee: use of VM computing resources and {{ compute-name }} network disks, as well as {{ cloud-logging-name }} for log management (see [{{ dataproc-name }} pricing](../../data-proc/pricing.md)).
 * Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Fee for an {{ objstorage-name }} bucket: data storage and operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 
 ## Create resources {#deploy-infrastructure}
@@ -94,13 +94,13 @@ The support cost includes:
 
     1. Run the `terraform init` command in the working directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -130,7 +130,7 @@ The support cost includes:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs group=instructions %}
 

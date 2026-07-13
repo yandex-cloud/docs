@@ -21,8 +21,8 @@ description: Из статьи вы узнаете, как осуществля�
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/managed-kafka) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}**.
   
   1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
@@ -55,8 +55,8 @@ description: Из статьи вы узнаете, как осуществля�
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/managed-kafka) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}**.
   1. Перейдите на вкладку **Хосты** и выберите хост.
 
@@ -97,7 +97,7 @@ description: Из статьи вы узнаете, как осуществля�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. Перейдите в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. [Перейдите]({{ link-monitoring }}) в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите **{{ mkf-name }} — Cluster Overview**.
   1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
   1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов смотрите в [документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
@@ -131,8 +131,8 @@ description: Из статьи вы узнаете, как осуществля�
 
 Для просмотра состояния и статуса кластера:
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. [Перейдите]({{ link-console-main }}/link/managed-kafka) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. Наведите курсор на индикатор в столбце **{{ ui-key.yacloud.common.availability }}** в строке нужного кластера.
 
 ### Состояния кластера {#cluster-health}

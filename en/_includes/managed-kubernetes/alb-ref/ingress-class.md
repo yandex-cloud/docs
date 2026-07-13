@@ -1,4 +1,4 @@
-# IngressClass resource fields and annotations
+# Fields and annotations of the IngressClass resource
 
 The `IngressClass` resource is a class of [Ingress]({{ configuration-local-link }}/ingress.md) resources supporting simultaneous use of multiple ingress controllers, e.g., {{ alb-name }} and NGINX. Each `IngressClass` resource specifies a distinct ingress controller. This enables traffic routing across multiple `Ingress` resources of different controllers within the same application and {{ managed-k8s-name }} cluster.
 
@@ -69,7 +69,7 @@ annotations:
 || **Field**      | **Value / Type** | **Description** ||
 || `name`        | `string`             | **This is a required field**.
 
-Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+Resource name. For more on the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
 This name is also specified in the [spec.ingressClassName]({{ configuration-local-link }}/ingress.md#spec) field of the `Ingress` resource. ||
 || `labels`      | `map[string]string`  | {{ k8s }} metrics for managing and monitoring {{ k8s }} objects.

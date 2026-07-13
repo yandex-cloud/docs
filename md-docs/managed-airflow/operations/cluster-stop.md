@@ -10,8 +10,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. Перейдите в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-airflow) в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
     1. Найдите нужный кластер в списке, нажмите значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт ![stop](../../_assets/console-icons/square.svg) **Остановить**.
     1. В открывшемся диалоге подтвердите остановку кластера и нажмите кнопку **Остановить**.
 
@@ -94,8 +94,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. Перейдите в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-airflow) в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
     1. Найдите нужный остановленный кластер в списке, нажмите значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт ![start](../../_assets/console-icons/triangle-right.svg) **Запустить**.
     1. В открывшемся диалоге нажмите кнопку **Запустить**.
 

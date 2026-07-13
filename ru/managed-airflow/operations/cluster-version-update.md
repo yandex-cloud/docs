@@ -25,8 +25,8 @@ description: Следуя этой инструкции, вы сможете о�
 
     Чтобы обновить версию {{ AF }} или Python:
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите]({{ link-console-main }}/link/managed-airflow) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
     1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите нужную версию {{ AF }} и Python.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.

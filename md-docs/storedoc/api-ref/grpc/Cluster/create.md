@@ -1539,7 +1539,8 @@ Creates a MongoDB cluster in the specified folder.
       "hidden": "google.protobuf.BoolValue",
       "secondary_delay_secs": "google.protobuf.Int64Value",
       "priority": "google.protobuf.DoubleValue",
-      "tags": "map<string, string>"
+      "tags": "map<string, string>",
+      "votes": "google.protobuf.Int64Value"
     }
   ],
   "network_id": "string",
@@ -5839,6 +5840,9 @@ Priority of host for the election in replSet ||
 || tags | **object** (map<**string**, **string**>)
 
 Host tags ||
+|| votes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Votes of host for the election in replSet ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.mongodb.v1.MaintenanceWindow}

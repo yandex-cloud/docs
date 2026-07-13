@@ -27,8 +27,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
     1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **Редактировать**.
     1. В блоке **Базовые параметры** задайте новые имя и описание кластера.
     1. Нажмите кнопку **Сохранить**.
@@ -281,8 +281,8 @@
 
   Чтобы изменить класс и количество хостов:
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
   1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **Редактировать**.
   1. Измените требуемые настройки:
      * Чтобы изменить класс хостов-брокеров, выберите новый [**Класс хоста**](../concepts/instance-types.md).
@@ -586,8 +586,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
   1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **Редактировать**.
   1. Выберите новый [**Класс хоста ZooKeeper**](../concepts/instance-types.md).
   1. Нажмите кнопку **Сохранить**.
@@ -871,8 +871,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
   1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **Редактировать**.
   1. Выберите новый [**Класс хоста KRaft**](../concepts/instance-types.md).
   1. Нажмите кнопку **Сохранить**.
@@ -1150,8 +1150,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
   1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **Редактировать**.
   1. В блоке **Сетевые настройки** выберите группы безопасности для сетевого трафика кластера.
   1. Установите или отключите публичный доступ к кластеру при помощи опции **Публичный доступ**.
@@ -1425,8 +1425,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
   1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **Редактировать**.
   1. Измените дополнительные настройки кластера:
 
@@ -1847,8 +1847,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. Перейдите в сервис **Managed Service for&nbsp;Kafka**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](https://console.yandex.cloud/link/managed-kafka) в сервис **Managed Service for&nbsp;Kafka**.
   1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **Редактировать**.
   1. В блоке **Настройки Kafka** нажмите кнопку **Настроить**.
 

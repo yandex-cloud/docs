@@ -31,21 +31,9 @@
      {% include [write-once-settings](write-once-setting.md) %}
 
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}** field, select the {{ managed-k8s-name }} master type:
-     * `Base`: Contains one master host in a single availability zone. This type of master is cheaper but not fault-tolerant. Its former name is _zonal_.
+     * `Base`: Contains one master host in a single availability zone. Such a master is generally cheaper but it does not guarantee high availability.
 
-       {% note warning %}
-
-       {% include [base-zonal-pricing](../../_includes/managed-kubernetes/base-zonal-pricing.md) %}
-
-       {% endnote %}
-
-     * `Highly available`: Contains three master hosts. Its former name is _regional_.
-
-       {% note warning %}
-
-       {% include [ha-regional-pricing](../../_includes/managed-kubernetes/ha-regional-pricing.md) %}
-
-       {% endnote %}
+     * `Highly available`: Contains three master hosts.
 
    * In the **{{ ui-key.yacloud.k8s.clusters.create.field_network }}** field, select the [network](../../vpc/concepts/network.md#network) to create a {{ managed-k8s-name }} master in. If you do not have a network yet, [create one](../../vpc/operations/network-create.md).
 

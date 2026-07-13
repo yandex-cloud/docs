@@ -10,5 +10,5 @@ A set of methods for managing backups.
 ||Method | Description ||
 || [Get](get.md) | Returns the specified backup of Greenplum® cluster. ||
 || [List](list.md) | Returns the list of available backups for the specified Greenplum® cluster. ||
-|| [Delete](delete.md) |  ||
+|| [Delete](delete.md) | Deletes the specified backup of Greenplum® cluster. ||
 |#

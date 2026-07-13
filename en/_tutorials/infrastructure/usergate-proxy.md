@@ -109,7 +109,7 @@ Create a cloud [network](../../vpc/concepts/network.md#network) with a [subnet](
      }
      ```
 
-     For more information, see the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) descriptions in the {{ TF }} provider documentation.
+     For more information, see the descriptions of the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) resources in the {{ TF }} provider guides.
      
   1. Make sure the configuration files are correct.
 
@@ -382,7 +382,7 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
   1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**, and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, type `UserGate NGFW` and select a public [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, switch to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
@@ -507,7 +507,7 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
      }
      ```
 
-     For more information, see the [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance) resource description in the {{ TF }} provider documentation.
+     For more information, see the [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance) description in the {{ TF }} provider guide.
      
   1. Make sure the configuration files are correct.
 
@@ -555,7 +555,7 @@ Set up the UserGate NGFW as a proxy server:
 1. On the **General** tab, select `Trusted` in the **Zone** field and click **Save**.
 1. In the left menu, click **Network policies** ⟶ **Firewall**.
 1. Click the `Allow trusted to untrusted` preset rule.
-1. Navigate to the **Destination** tab and disable the `Untrusted` zone. click **Save**.
+1. Navigate to the **Destination** tab and disable the `Untrusted` zone. Click **Save**.
 1. Enable the `Allow trusted to untrusted` rule by selecting it and clicking **Enable** at the top of the screen.
 1. In the left menu, click **Network policies** ⟶ **NAT and routing**.
 1. Click the `NAT from Trusted to Untrusted` preset rule.

@@ -64,7 +64,7 @@ After you create a network load balancer, you can:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more info on how to create such a file, see [{#T}](load-balancer-create.md).
+        To learn how to create this file, refer to [{#T}](load-balancer-create.md).
 
         For a complete list of updatable network load balancer configuration fields, see [this provider guide]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
@@ -81,7 +81,7 @@ After you create a network load balancer, you can:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -142,7 +142,7 @@ After you create a network load balancer, you can:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more info on how to create such a file, see [{#T}](load-balancer-create.md).
+        To learn how to create this file, refer to [{#T}](load-balancer-create.md).
 
         For a complete list of updatable network load balancer configuration fields, see [this provider guide]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
@@ -163,7 +163,7 @@ After you create a network load balancer, you can:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -233,7 +233,7 @@ After you create a network load balancer, you can:
 
     1. Open the current {{ TF }} configuration file with the infrastructure plan.
 
-        For more info on how to create such a file, see [{#T}](load-balancer-create.md).
+        To learn how to create this file, refer to [{#T}](load-balancer-create.md).
 
         For a complete list of updatable network load balancer configuration fields, see [this provider guide]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
@@ -271,7 +271,7 @@ After you create a network load balancer, you can:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

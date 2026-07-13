@@ -4,7 +4,6 @@
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
     ```bash
@@ -18,7 +17,6 @@
         make install && \
         cp ./src/redis-cli /usr/bin/
     ```
-
 
 - Подключение с SSL {#with-ssl}
 

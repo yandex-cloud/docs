@@ -9,6 +9,6 @@ To [create a VM while protecting sensitive information in the initialization scr
 
 {% include [secure-password-script-console](../../../_tutorials/windows/secure-password-script-console.md) %}
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](terraform.md)

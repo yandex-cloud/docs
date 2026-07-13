@@ -16,8 +16,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Managed Service for Apache Spark**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Задания**.
     1. Нажмите кнопку **Создать задание**.
     1. Укажите имя задания.
@@ -218,8 +218,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Managed Service for Apache Spark**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Задания**.
     1. Нажмите на имя нужного задания.
     1. В правом верхнем углу страницы нажмите кнопку **Отменить**.
@@ -295,8 +295,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Managed Service for Apache Spark**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Задания**.
 
 - CLI {#cli}
@@ -366,8 +366,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Managed Service for Apache Spark**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Задания**.
     1. Нажмите на имя нужного задания.
 
@@ -447,8 +447,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. Перейдите в сервис **Managed Service for Apache Spark**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](https://console.yandex.cloud/link/managed-spark) в сервис **Managed Service for Apache Spark**.
     1. Нажмите на имя нужного кластера и выберите вкладку **Задания**.
     1. Нажмите на имя нужного задания.
     1. В поле **Логи выполнения задания** нажмите на ссылку.

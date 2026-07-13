@@ -3,7 +3,7 @@
 # Начало работы с Connection Manager
 
 
-Управляйте подключениями к источникам данных PostgreSQL, MySQL®, ClickHouse®, Redis, Valkey™, OpenSearch, MongoDB, Trino, Apache Kafka® и Yandex StoreDoc с Yandex Connection Manager.
+Управляйте подключениями к источникам данных PostgreSQL, MySQL®, ClickHouse®, Redis, Valkey™, OpenSearch, MongoDB, Apache Kafka®, Yandex StoreDoc и Trino с Yandex Connection Manager.
 
 ## Интеграция с сервисами управляемых баз данных {#mdb-integration}
 

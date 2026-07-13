@@ -126,9 +126,9 @@ df = spark.sql("SELECT * FROM animals;")
 df
 ```
 
-For more information about the SQL query syntax and how to use the Spark SQL library, see the [official documentation](https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select.html).
+For more information about SQL query syntax and working with the Spark SQL library, see [this Spark guide](https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select.html).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../tutorials/data-processing-integration.md)
 * [{#T}](spark-connector.md)

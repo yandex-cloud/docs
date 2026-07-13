@@ -78,8 +78,6 @@ items:
         items:
           - name: Creating a service connection
             href: operations/private-endpoint-create.md
-          - name: Creating a service connection via support
-            href: operations/private-endpoint-create-support.md
           - name: Getting service connection info
             href: operations/private-endpoint-get-info.md
           - name: >-

@@ -55,7 +55,7 @@ Make sure you have the cluster administrator permissions. Only cluster administr
       * `metadata.name`: Project name. It must be unique within the cluster. This is a required field.
       * `spec.displayName`: Displayed project name. This is an optional field.
       * `spec.description`: Project description. This is an optional field.
-      * `spec.quotas`: Project resource quotas. This is an optional field. For more information, see [Setting project quotas](namespace-quotas.md).
+      * `spec.quotas`: Quotas for the project's resources. This is an optional field. For more information, see [Setting project quotas](namespace-quotas.md).
 
   1. Apply the manifest:
 
@@ -70,5 +70,5 @@ After you create a project, {{ stackland-name }} will automatically create a ser
 ## What's next {#what-is-next}
 
 * [Managing namespaces in a project](manage-namespaces.md)
-* [Configuring roles in a project](project-roles.md)
+* [Configuring project roles](project-roles.md)
 * [Setting project quotas](namespace-quotas.md)

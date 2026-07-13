@@ -39,8 +39,8 @@ If you no longer need the VPN server, [delete the VM](#clear-out).
 
 The cost of the OpenVPN infrastructure support includes:
 
-* Fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for a dynamic or static public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for using a dynamic or static public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for the OpenVPN Access Server license (when using more than two connections).
 
 ## Create subnets and a test VM {#create-environment}
@@ -57,7 +57,7 @@ Create a VM to run the VPN server:
 
 - Management console {#console}
 
-  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**, and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, enter `OpenVPN Access Server` in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field and select a public [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**. Select the [availability zone](../../overview/concepts/geo-scope.md) where the test VM is already located.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify the boot [disk](../../compute/concepts/disk.md#disks_types) size: `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
@@ -70,8 +70,8 @@ Create a VM to run the VPN server:
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not there, [create it](../../vpc/operations/subnet-create.md).
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign the VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to which you want to connect your VM. If the [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) you need does not exist yet, [create it](../../vpc/operations/subnet-create.md).
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select a static IP address from the list, or leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool.
 
           Either use static public IP addresses [from the list](../../vpc/operations/get-static-ip.md) or [convert](../../vpc/operations/set-static-ip.md) your VM IP address to static. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
 
@@ -79,7 +79,7 @@ Create a VM to run the VPN server:
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other names reserved for the OS purposes. To perform operations requiring superuser privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username. Do not use `root` or other reserved usernames. To perform operations requiring superuser privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vpn-server`.
@@ -239,7 +239,7 @@ Delete the resources you no longer need to avoid paying for them:
 * [Delete](../../compute/operations/vm-control/vm-delete.md) the `vpn-server` and test VMs.
 * If you reserved a public static IP address, [delete it](../../vpc/operations/address-delete.md).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [OpenVPN Project Wiki](https://community.openvpn.net/openvpn/wiki)
 * [{#T}](../../certificate-manager/operations/managed/cert-get-content.md)

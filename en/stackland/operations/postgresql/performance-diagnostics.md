@@ -160,7 +160,7 @@ Disabling the feature at the platform level will delete all collected metrics fr
 
 {% endnote %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{#T}](../../concepts/components/postgresql.md)
 * [{#T}](create-cluster.md)

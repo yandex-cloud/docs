@@ -11,6 +11,8 @@ You can use this table to find the minimum master configuration based on your sp
 
 The selected configuration allocates minimum resources to the master. If you enable [master node auto-scaling](./autoscale.md#master-autoscaler) in your cluster, your selected configuration will serve as the lower scaling limit.
 
+{% include [master-autoscaler-note](../../_includes/managed-kubernetes/master-autoscaler-note.md) %}
+
 #|
 || **Cluster specifications** {align="center"} | > | > | **Estimated master node requirements** {align="center"} | > | **Recommended master configuration** {align="center"} | > | > ||
 || **CNI** | **Nodes** | **Maximum number of pods** | **vCPU** | **RAM** | **Standard** | **CPU Optimized** | **Memory Optimized** ||

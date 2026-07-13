@@ -23,7 +23,7 @@ A project is a logical grouping of namespaces for a team or application. At the 
 * Project resource quotas.
 * IAM access bindings (`ProjectAccessBinding`).
 
-For more information, see [Projects](../../data-transfer/concepts/use-cases.md).
+For more information, see [Projects](projects.md).
 
 ### Namespace {#namespace}
 
@@ -43,9 +43,9 @@ Some services have a resource model of their own, different from the {{ stacklan
 
 You can grant access at any hierarchy level:
 
-* At the cluster level, via `ClusterRoleBinding` or `ClusterAccessBinding`. For access to all the cluster's resources.
-* At the project level, via `ProjectRoleBinding` or `ProjectAccessBinding`. For access to all the project's namespaces.
-* At the namespace level, via `RoleBinding` or `AccessBinding`. For access limited to a particular namespace.
+* At the cluster level, via `ClusterRoleBinding` or `ClusterAccessBinding`. Access to all resources of the cluster.
+* At the project level, via `ProjectRoleBinding` or `ProjectAccessBinding`. Access to all namespaces of the project.
+* At the namespace level, via `RoleBinding` or `AccessBinding`. Access limited to a particular namespace.
 
 To learn more, see [Access management](../access-management.md).
 
@@ -53,7 +53,7 @@ To learn more, see [Access management](../access-management.md).
 
 You can set quotas at these two levels:
 
-* At the project level to limit the total of resources consumed by all the project's namespaces. This quota is set by the cluster administrator.
-* At the namespace level via Kubernetes' standard `ResourceQuota` mechanism. This quota is set by the project administrator.
+* At the project level, which limits the total consumption of resources for all the project's namespaces. This quota is set by a cluster administrator.
+* At the namespace level, which is the standard Kubernetes mechanism called `ResourceQuota`. This quota is set by a project administrator.
 
 For more information, see [Setting project quotas](../operations/projects/namespace-quotas.md).

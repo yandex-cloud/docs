@@ -94,7 +94,7 @@ For the availability of interfaces for specific services, see the table below:
 ^2^ Additionally, you can use the [AWS CLI](../../storage/tools/aws-cli.md).
 ^3^ The {{ monitoring-name }} GUI is available both in the [management console]({{ link-console-main }}) and the [service's native interface]({{ link-monitoring }}).
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [{{ yandex-cloud }} CLI reference](../../cli/cli-ref/)
 * [{{ TF }} reference]({{ tf-docs-link }})

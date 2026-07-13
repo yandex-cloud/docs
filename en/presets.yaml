@@ -1234,6 +1234,26 @@ default:
         1-month: dn2qf7kdxxn2onpen6di
         12-month: dn2vln7iq4gfwaa3m3v6
         6-month: dn225456trqnu374dy6m
+      bms-ram5-128:
+        1-month: dn2iyujt44xymjl2gjse
+        12-month: dn2go3unbosnvorlqlmj
+        3-month: dn2n73jj34iu2sm57dmi
+        6-month: dn225umxjytxa2g6bqtz
+      bms-ram5-256:
+        1-month: dn2olfdrsw32m6coin46
+        12-month: dn2rgl7l65n2terbsibn
+        3-month: dn2wvqmczeylhaqzl5rv
+        6-month: dn2qmgafofbcra6ytra2
+      bms-ram5-384:
+        1-month: dn2rk6ycntauno2pryay
+        12-month: dn2faa2ieuo5np5lzu4j
+        3-month: dn2pufvkwyz6k7bta2xz
+        6-month: dn2sjybb22ke74avdy3a
+      bms-ram5-512:
+        1-month: dn2seluh3dypz64xtcbz
+        12-month: dn2lwyudpgr5kv3vynfi
+        3-month: dn27d636dmgryetfrx4k
+        6-month: dn2btz7hw2cwsiwl256s
       ha-a701-6n-4h-2x25g:
         1-day: dn2kwtyc4rsjl45zge33
         1-month: dn26gmom2kyebwew76rc

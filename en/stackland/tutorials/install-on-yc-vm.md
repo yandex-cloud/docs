@@ -614,7 +614,7 @@ storage:
 
 If PVCs have already been created with `stackland-ssd`, change the configuration and restart the installation. On a test bench without user data, you can delete only those PVCs that are `Pending` for operators to recreate them with correct storage class.
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Installation guide](../quickstart.md)
 * [Installing {{ stackland-name }} on {{ baremetal-full-name }}](install-on-yc-bms.md)

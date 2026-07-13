@@ -10,14 +10,14 @@ If you use a bucket without a period in its name to [host a static website](../.
 * `http(s)://example.website.yandexcloud.net`
 * `http(s)://website.yandexcloud.net/example`
 
-This bucket does not require uploading your own security certificate, but it also does not support your own domains.
+This bucket does not require uploading your own security certificate, but it also does not support custom domains.
 
 If you use a bucket with a period in its name to host a static website, that website will be accessible by default over HTTP and HTTPS at the following URLs:
 
 * `http://example.com.website.yandexcloud.net`
 * `http(s)://website.yandexcloud.net/example.com`
 
-This bucket also [supports your own domains](./own-domain.md). By default, when addressing the website by domain name, it is only accessible over HTTP, e.g., at `http://example.com`. To make your website accessible by its domain name over HTTPS, upload your own security certificate and the applicable secret key.
+This bucket also [supports custom domains](./own-domain.md). By default, when addressing the website by domain name, it is only accessible over HTTP, e.g., at `http://example.com`. To make your website accessible by its domain name over HTTPS, upload your own security certificate and the applicable secret key.
 
 
 {% include [tls-support-alert](../../../_includes/storage/tls-support-alert.md) %}
@@ -115,7 +115,7 @@ The bucket becomes accessible over HTTPS within 30 minutes of uploading the cert
      Where:
      * `certificate_id`: Certificate ID in {{ certificate-manager-name }} that will be used for the bucket.
 
-     For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#bucket-https-certificate).
+     For more information on the properties of the `yandex_storage_bucket` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#bucket-https-certificate).
 
   1. Create the resources:
 
@@ -169,7 +169,7 @@ To upload a certificate:
 
 {% endnote %}
 
-### See also {#see-also}
+### Useful links {#see-also}
 
 * [{#T}](../../qa.md#qa-mime-type)
 * [{#T}](setup.md)

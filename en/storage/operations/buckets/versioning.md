@@ -120,7 +120,7 @@ To enable bucket versioning:
      * `versioning`: Managing bucket versioning:
        * `enabled`: Enables bucket versioning. This is an optional setting.
 
-     For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
+     For more information on the properties of the `yandex_storage_bucket` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Apply the changes:
 

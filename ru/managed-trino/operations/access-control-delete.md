@@ -11,8 +11,8 @@ description: Вы можете за одну операцию удалить в�
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите]({{ link-console-main }}/link/managed-trino) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Нажмите на имя нужного кластера.
   1. Перейдите в блок **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}**.
   1. В строке правила, которое вы хотите удалить, нажмите на значок ![trash-bin](../../_assets/console-icons/trash-bin.svg).

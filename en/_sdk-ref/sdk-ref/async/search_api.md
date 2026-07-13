@@ -34,8 +34,6 @@ Generative search function for creating search object which provides methods for
 
 Creates generative search object which provides methods for invoking generative search.
 
-Not to be confused with **sdk.tools.generative\_search**. Tools domain is for creating tools for using in LLMs/Assistants and search\_api domain is for using Search API directly.
-
 To learn more about parameters and their formats and possible values, refer to [generative search documentation](https://aistudio.yandex.ru/docs/search-api/concepts/generative-response#body)
 
 NB: All of the **site**, **host**, **url** parameters are mutually exclusive.
@@ -89,15 +87,6 @@ Also message could be one of the data formats:
 
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – timeout, or the maximum time to wait for the request to complete in seconds. ||
 || Return type | [*GenerativeSearchResult*](../types/search_api.md#yandex_ai_studio_sdk._search_api.generative.result.GenerativeSearchResult) ||
-|#
-
-**as\_tool**(*description*){#yandex_ai_studio_sdk._search_api.generative.generative.AsyncGenerativeSearch.as_tool}
-
-Converts generative search instance to [**GenerativeSearchTool**](../types/tools.md#yandex_ai_studio_sdk._tools.generative_search.GenerativeSearchTool) object which is eligible to use as tools in LLMs/Assistants.
-
-#|
-|| Parameters | **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – description of tool instance which also instructs model when to call it. ||
-|| Return type | [*GenerativeSearchTool*](../types/tools.md#yandex_ai_studio_sdk._tools.generative_search.GenerativeSearchTool) ||
 |#
 
 *property* **config**\: *[ConfigTypeT](../types/other.md#yandex_ai_studio_sdk._types.model_config.ConfigTypeT)*{#yandex_ai_studio_sdk._search_api.generative.generative.AsyncGenerativeSearch.config}

@@ -51,9 +51,9 @@ Protected addresses are allocated from a separate pool; therefore, you cannot en
 
      Where the `ddos_protection_provider` parameter enables DDoS protection. The possible value is `qrator`.
 
-     For more information about the `yandex_vpc_address` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/vpc_address).
+     For more on the properties of the `yandex_vpc_address` resource in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_address).
 
-  1. Check the configuration using this command:
+  1. Validate your configuration using this command:
 
      ```
      terraform validate

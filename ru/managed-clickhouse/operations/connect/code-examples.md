@@ -47,7 +47,6 @@ sudo apt update && sudo apt install --yes golang git
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
   `connect.go`
@@ -93,7 +92,6 @@ sudo apt update && sudo apt install --yes golang git
         fmt.Println(string(data))
     }
     ```
-
 
 - Подключение с SSL {#with-ssl}
 
@@ -270,7 +268,6 @@ go run connect.go
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
   `src/java/com/example/App.java`
@@ -302,7 +299,6 @@ go run connect.go
       }
     }
     ```
-
 
 - Подключение с SSL {#with-ssl}
 
@@ -359,7 +355,6 @@ npm install querystring
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
   `app.js`
@@ -398,7 +393,6 @@ npm install querystring
 
     rs.end();
     ```
-
 
 - Подключение с SSL {#with-ssl}
 
@@ -509,7 +503,6 @@ node app.js
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
   `/etc/odbc.ini`
@@ -524,7 +517,6 @@ node app.js
     Port = 8123
     Proto = http
     ```
-
 
 - Подключение с SSL {#with-ssl}
 
@@ -564,7 +556,7 @@ isql -v ClickHouse
 1. Выберите драйвер {{ CH }} с подходящей кодировкой и нажмите кнопку **Готово**.
 1. Укажите параметры подключения к кластеру {{ CH }}:
 
-   {% list tabs group=connection %}
+    {% list tabs group=connection %}
 
     - Подключение без SSL {#without-ssl}
 
@@ -585,7 +577,7 @@ isql -v ClickHouse
         * **User** — имя пользователя БД.
         * **Password** — пароль пользователя БД.
 
-   {% endlist %}
+    {% endlist %}
 
 1. Нажмите кнопку **Ok**.
 1. Подключитесь к кластеру {{ CH }} с помощью ODBC, например через приложение Microsoft Excel.
@@ -614,7 +606,6 @@ isql -v ClickHouse
     ```
 
 {% list tabs group=connection %}
-
 
 - Подключение без SSL {#without-ssl}
 
@@ -645,7 +636,6 @@ isql -v ClickHouse
         print_r($rs);
     ?>
     ```
-
 
 - Подключение с SSL {#with-ssl}
 
@@ -704,7 +694,6 @@ pip3 install clickhouse-driver
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
   `connect.py`
@@ -719,7 +708,6 @@ pip3 install clickhouse-driver
 
     print(client.execute('SELECT version()'))
     ```
-
 
 - Подключение с SSL {#with-ssl}
 
@@ -760,7 +748,6 @@ pip3 install requests
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
   `connect.py`
@@ -781,7 +768,6 @@ pip3 install requests
     response.raise_for_status()
     print(response.text)
     ```
-
 
 - Подключение с SSL {#with-ssl}
 
@@ -825,7 +811,6 @@ sudo apt update && sudo apt install --yes ruby
 
 {% list tabs group=connection %}
 
-
 - Подключение без SSL {#without-ssl}
 
   `connect.rb`
@@ -854,7 +839,6 @@ sudo apt update && sudo apt install --yes ruby
     rs = conn.request(req)
     puts rs.body
     ```
-
 
 - Подключение с SSL {#with-ssl}
 

@@ -15,7 +15,7 @@
   В примере ниже показано добавление метки к виртуальной машине Compute Cloud. Аналогично вы можете добавить метку другому ресурсу.
 
   1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../_assets/console-icons/chevron-down.svg) и выберите каталог, в котором находится ВМ.
-  1. В списке сервисов выберите **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/resource-manager) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. В списке ВМ выберите нужную.
   1. Нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
@@ -238,7 +238,7 @@
   В примере ниже показано удаление метки виртуальной машины Compute Cloud. Аналогично вы можете удалить метку другого ресурса.
 
   1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../_assets/console-icons/chevron-down.svg) и выберите каталог, в котором находится ВМ.
-  1. В списке сервисов выберите **Compute Cloud**.
+  1. [Перейдите](https://console.yandex.cloud/link/resource-manager) в сервис **Compute Cloud**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. В списке ВМ выберите нужную.
   1. Нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.

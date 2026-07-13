@@ -32,7 +32,7 @@ You can also share {{ dataproc-name }} templates with other users.
 
 To learn more about using {{ dataproc-name }} templates, see [this guide](../operations/data-processing-template.md).
 
-#### See also {#see-also}
+#### Useful links {#see-also}
 
 * [{#T}](data-processing-template.md).
 * [{#T}](../tutorials/data-processing-integration.md).

@@ -4,6 +4,7 @@ Resolving FQDNs in [cloud networks (VPC)](../../vpc/concepts/network.md#network)
 
 Currently, only one type of DNS connection is supported: inbound DNS connections (DNS Inbound).
 
+You can only create one inbound DNS connection per [virtual network](../../vpc/concepts/network.md#network).
 
 ## Inbound DNS connection {#dns-inbound}
 

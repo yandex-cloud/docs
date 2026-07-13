@@ -100,7 +100,7 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Velero documentation](https://velero.io/docs/v1.11/examples/)
 * [Backing up a {{ managed-k8s-name }} cluster to {{ objstorage-name }}](../../tutorials/kubernetes-backup.md)

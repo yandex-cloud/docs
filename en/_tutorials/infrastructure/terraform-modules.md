@@ -23,7 +23,7 @@ If you no longer need the resources, [delete them](#delete-resources).
 The cost of support for the infrastructure deployed through {{ TF }} in this tutorial includes:
 * Fee for the [{{ managed-k8s-name }} highly available master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for continuously running [VMs](../../compute/concepts/vm.md) in the [{{ managed-k8s-name }} node group](../../managed-kubernetes/concepts/index.md#node-group) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using dynamic [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Fee for using dynamic [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 ## Install {{ TF }} {#install-terraform}
 
@@ -143,7 +143,7 @@ module "kube" {
 
 {% include [delete-resources](../../_tutorials/_tutorials_includes/terraform-delete-resources.md) %}
 
-## See also {#see-also}
+## Useful links {#see-also}
 
 * [Getting started with {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Uploading {{ TF }} states to {{ objstorage-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).

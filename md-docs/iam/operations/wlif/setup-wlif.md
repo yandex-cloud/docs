@@ -44,7 +44,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, в котором вы хотите создать федерацию сервисных аккаунтов.
-  1. В списке сервисов выберите **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. На панели слева выберите ![cpus](../../../_assets/console-icons/cpus.svg) **Федерации сервисных аккаунтов**.
   1. Нажмите **Создать федерацию** и в открывшейся форме:
       1. В поле **Значение Issuer (iss)** введите URL OIDC-провайдера.
@@ -231,7 +231,7 @@
   1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, в котором находится сервисный аккаунт.
   
       При необходимости [создайте](../sa/create.md) новый сервисный аккаунт.
-  1. В списке сервисов выберите **Identity and Access Management**.
+  1. [Перейдите](https://console.yandex.cloud/link/iam) в сервис **Identity and Access Management**.
   1. В списке выберите нужный сервисный аккаунт.
   1. На верхней панели нажмите ![image](../../../_assets/console-icons/cpus.svg) **Привязать к федерации**.
   1. В поле **Федерация сервисных аккаунтов** выберите ранее созданную федерацию.
