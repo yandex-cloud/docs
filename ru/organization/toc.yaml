@@ -375,7 +375,7 @@ items:
         href: concepts/limits.md
   - name: Диагностика ошибок
     items:
-      - name: Общие ошибки для федераций
+      - name: Общие ошибки
         href: diagnostics.md
       - name: Ошибки в федерациях, работающих по протоколу SAML 2.0
         href: saml-diagnostics.md

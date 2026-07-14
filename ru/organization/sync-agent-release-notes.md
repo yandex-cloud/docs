@@ -7,6 +7,27 @@ description: На странице представлены релизы аге�
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.47.0 (10.07.26) {#version0.47.0}
+
+#### Изменения в {{ org-sync-agent-name }} {#changes-version0.47.0}
+
+* Добавлена поддержка получения replication-токена в режиме `dry-run` при включенном параметре `use_session_api: true`.
+* Добавлена синхронизация срока действия пользовательского аккаунта.
+
+{% cut "Контрольные суммы" %}
+
+#|
+|| **Платформа** | **Контрольная сумма (SHA-256)** ||
+|| `linux/amd64` | `2170fac09c5b0510abd74a3152e75ef6ea14e6e1fcf5a3da0dbbcd9974828441` ||
+|| `linux/arm64` | `0677939c11b63d43698f8202181ed9cd36be1e2267244882569fe2a10cb22dfa` ||
+|| `darwin/amd64` | `9b13e95a11990abdad9b414dc2fdb5fcac7f1a17b39fabfd8031758593bf1410` ||
+|| `darwin/arm64` | `d3ff115127b1bd5390ec6fe66a2450f7c879348e759c7fd737ba45c4cf249098` ||
+|| `windows/amd64` | `c206d37e6a68d352f2359f9f6d68d4bac4858bf0b40969070665a870b347dc1c` ||
+|| `windows/arm64` | `103b8c82149a04a8633944b916ef18345197239b9c9d6eeb6177017fda6f00e5` ||
+|#
+
+{% endcut %}
+
 ### Версия 0.46.0 (18.05.26) {#version0.46.0}
 
 #### Изменения в {{ org-sync-agent-name }} {#changes-version0.46.0}

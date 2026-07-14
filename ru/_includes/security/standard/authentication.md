@@ -529,7 +529,7 @@
 
   1. Откройте консоль {{ yandex-cloud }} в вашем браузере.
   1. Перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Проверьте список сервисных аккаунтов.
   1. Повторите действия для других каталогов.
@@ -612,7 +612,7 @@
 
   1. Откройте консоль {{ yandex-cloud }} в вашем браузере.
   1. Перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Нажмите на сервисный аккаунт и перейдите во вкладку **Права доступа**.
   1. Проверьте права, назначенные на сервисный аккаунт.
@@ -671,7 +671,7 @@
 
   1. Откройте консоль {{ yandex-cloud }} в вашем браузере.
   1. Перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Нажмите на нужный сервисный аккаунт и в разделе **Свойства ключей доступа** проверьте дату создания каждого ключа.
   1. Повторите действия в каждом из своих каталогов.
@@ -826,7 +826,7 @@
 - Проверка в консоли управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите нужный сервисный аккаунт.
   1. В блоке **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}** обратите внимание на поле **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_scope }}** в таблице с информацией о ваших API-ключах.
   1. Если для всех API-ключей заданы минимально необходимые области действия, рекомендация выполняется. В противном случае перейдите к п. «Инструкции и решения по выполнению».
@@ -1909,7 +1909,7 @@ yc compute instance update <ID_виртуальной_машины> \
   В примере ниже показана проверка наличия метки к облачной сети [{{ vpc-full-name }}](../../../vpc/). Аналогично вы можете проверить наличие метки у другого ресурса.
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Перейдите]({{ link-console-main }}/link/vpc) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Проверьте наличие меток.
 
 {% endlist %}
@@ -1960,7 +1960,7 @@ yc compute instance update <ID_виртуальной_машины> \
 - Проверка в консоли управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт с ключами доступа.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите]({{ link-console-main }}/link/iam) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. В открывшемся списке выберите нужный сервисный аккаунт.
   1. Данные о времени последнего использования ключа доступны в таблице с информацией о ключах в поле **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_last-used-at }}**.

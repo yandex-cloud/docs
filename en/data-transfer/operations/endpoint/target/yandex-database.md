@@ -161,4 +161,4 @@ Known issues when using a {{ ydb-name }} endpoint:
 
 {% include [overloaded](../../../../_includes/data-transfer/troubles/overloaded.md) %}
 
-For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
+For the full list of recommendations, see [Troubleshooting](../../../troubleshooting/index.md).

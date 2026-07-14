@@ -1,14 +1,2 @@
 
-Роль `cloud-registry.artifacts.puller` позволяет скачивать артефакты, просматривать информацию об артефактах и реестрах, о назначенных правах доступа к реестрам, а также о квотах сервиса {{ cloud-registry-name }}.
-
-Пользователи с этой ролью могут:
-* просматривать информацию об [артефактах](../../../cloud-registry/concepts/artifacts/index.md) и скачивать их;
-* просматривать информацию о [реестрах](../../../cloud-registry/concepts/registry.md);
-* просматривать политики доступа к реестрам;
-* просматривать информацию о назначенных [правах доступа](../../../iam/concepts/access-control/index.md) к реестрам, папкам внутри реестров и артефактам;
-* просматривать информацию о [политиках жизненного цикла](../../../cloud-registry/concepts/lifecycle-policy.md) реестров;
-* просматривать настройки и результаты сканирования артефактов на наличие уязвимостей;
-* просматривать информацию о квотах сервиса {{ cloud-registry-name }};
-* просматривать информацию об [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-
-Включает разрешения, предоставляемые ролью `cloud-registry.viewer`.
+Роль `cloud-registry.artifacts.puller` позволяет скачивать [артефакты](../../../cloud-registry/concepts/artifacts/index.md), а также получать информацию об артефактах и [реестрах](../../../cloud-registry/concepts/registry.md) {{ cloud-registry-name }}.

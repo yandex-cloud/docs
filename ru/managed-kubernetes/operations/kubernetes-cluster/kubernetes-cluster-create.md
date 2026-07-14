@@ -128,7 +128,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% endnote %}
 
-     * `--daily-maintenance-window` — настройки времени начала окна [обновления](../../concepts/release-channels-and-updates.md#updates) в UTC.
+     * `--daily-maintenance-window` — начало и длительность интервала времени в UTC, в течение которого запустится [обновление](../../concepts/release-channels-and-updates.md#updates). Параметр не связан с длительностью самого обновления и временем его окончания.
      * `--labels` — [облачные метки](../../concepts/index.md#cluster-labels) для кластера.
 
      Результат:

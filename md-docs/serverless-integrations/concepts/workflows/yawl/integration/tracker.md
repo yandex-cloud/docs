@@ -7,7 +7,7 @@
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- | --- | --- | --- | ---
 `endpoint` | `string` | Нет | `api.tracker.yandex.net` | Да | Хост для вызова Яндекс Трекер API.
-`oauthToken` | `string` | Да | Нет | Да | [OAuth-токен](https://yandex.ru/support/tracker/ru/concepts/access#about_OAuth), который будет использоваться для аутентификации при обращении к Tracker API.
+`oauthToken` | `string` | Да | Нет | Да | [OAuth-токен](https://yandex.ru/support/tracker/ru/api-ref/access#about_OAuth), который будет использоваться для аутентификации при обращении к Tracker API.
 `organization` | [Organization](#tracker-organization) | Да | Нет | Нет | Идентификатор организации. Подробнее в [документации Tracker](https://yandex.ru/support/tracker/ru/).
 `getIssue` | [TrackerGetIssue](#trackergetissue) | Нет | Нет | Нет | Описание действия получения задачи.
 `createIssue` | [TrackerCreateIssue](#trackercreateissue) | Нет | Нет | Нет | Описание действия создания задачи.

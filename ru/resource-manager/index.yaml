@@ -48,7 +48,7 @@ blocks:
         text: Изучите основные термины и понятия, используемые в сервисе
         size: s
         urlTitle: "Иерархия ресурсов Yandex\_Cloud"
-        url: concepts/index
+        url: concepts/resources-hierarchy
         icon: ../_assets/console-icons/bookmark.svg
         controlPosition: content
         animated: false

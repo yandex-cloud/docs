@@ -14,6 +14,8 @@ description: Из статьи вы узнаете, как работать с �
 * [Модели {{ ai-studio-name }}](./foundationmodelscall.md)
 * [Агент {{ ai-studio-name }}](./aistudioagent.md)
 * [Vector Store](./vectorstore.md)
+* [OCR](./ocr.md)
+* [Распознавание речи](./stt.md)
 * [{{ sf-short-name }}](./functioncall.md)
 * [{{ serverless-containers-name }}](./containercall.md)
 * [{{ postbox-short-name }}](./postbox.md)

@@ -264,7 +264,7 @@ Known issues when using a {{ MY }} endpoint:
 * [Error when dropping a table under the Drop cleanup policy](#drop-table-error).
 * [Time shift in the DATETIME data type when transferring to {{ CH }}](#timeshift).
 
-For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
+For the full list of recommendations, see [Troubleshooting](../../../troubleshooting/index.md).
 
 {% include [binlog-size](../../../../_includes/data-transfer/troubles/mysql/binlog-size.md) %}
 

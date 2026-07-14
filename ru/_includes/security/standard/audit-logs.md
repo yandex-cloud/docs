@@ -52,7 +52,7 @@
 - Проверка в консоли управления {#console}
 
   1. В консоли управления выберите облако или каталог, в которых необходимо проверить функции.
-  1. В списке сервисов выберите {{ at-full-name }}.
+  1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Убедитесь, что в параметре Фильтр находится значение Организация.
   1. Дополнительно убедитесь, что назначение логов: bucket {{ objstorage-full-name }}, лог-группа [{{ cloud-logging-name }}](../../../logging/), {{ yds-name }} в рабочем состоянии и логи доступны для дальнейшего анализа.
 
@@ -231,7 +231,7 @@ C помощью {{ sf-full-name }} можно настроить оповеще
 - Проверка в консоли управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен [трейл](../../../audit-trails/concepts/trail.md).
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Перейдите]({{ link-console-main }}/link/audit-trails) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Выберите нужный трейл.
   1. Убедитесь, что на странице с информацией о трейле в блоке **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** указаны все сервисы, для которых вы хотите собирать логи уровня сервисов, и для каждого указанного сервиса задана нужная [область сбора](../../../audit-trails/concepts/trail.md#collecting-area) аудитных логов.
 

@@ -31,6 +31,8 @@ description: Из статьи вы узнаете, как работать с {
 * [Модели {{ ai-studio-name }}](workflows/constructor/foundationmodelscall.md)
 * [Агент {{ ai-studio-name }}](workflows/constructor/aistudioagent.md)
 * [Vector Store](workflows/constructor/vectorstore.md)
+* [OCR](workflows/constructor/ocr.md)
+* [Распознавание речи](workflows/constructor/stt.md)
 * [{{ sf-short-name }}](workflows/constructor/functioncall.md)
 * [{{ serverless-containers-name }}](workflows/constructor/containercall.md)
 * [{{ postbox-short-name }}](workflows/constructor/postbox.md)

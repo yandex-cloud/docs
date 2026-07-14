@@ -114,7 +114,7 @@
 
 ## Установите Gatsby с помощью Cloud Apps {#install-gatsby}
 
-Установите [статический сайт](marketplace/products/yc/static-site) на Gatsby с помощью Cloud Apps. Приложение развернет сайт в [Object Storage](../../storage/index.md) и настроит доступ по домену.
+Установите [статический сайт](https://yandex.cloud/ru/marketplace/products/yc/static-site) на Gatsby с помощью Cloud Apps. Приложение развернет сайт в [Object Storage](../../storage/index.md) и настроит доступ по домену.
 
 {% list tabs group=instructions %}
 
